@@ -1,0 +1,27 @@
+<!ENTITY qf.filters.title "Создать фильтр">
+<!ENTITY qf.filters.template.from "По отправителю (от)">
+<!ENTITY qf.filters.template.to "По адресату (кому)">
+<!ENTITY qf.filters.template.list "Список рассылки">
+<!ENTITY qf.filters.template.topic "По теме">
+<!ENTITY qf.filters.template.tag "По меткам">
+<!ENTITY qf.filters.template.tag.description "Добавить к фильтру метки сообщения.">
+<!ENTITY qf.filters.templates.description.label "Описание:">
+<!ENTITY qf.filters.instructions "Пожалуйста выберите шаблон. Фильтр можно будет настроить на следующем этапе.">
+<!ENTITY qf.continueFilter.label "Создать фильтр…">
+<!ENTITY qf.continueFilter.shortcut "С">
+<!ENTITY qf.filters.actions.caption "Действия">
+<!ENTITY qf.filters.actions.targetFolder "Папка для сохранения">
+<!ENTITY qf.filters.actions.tag "Метки">
+<!ENTITY qf.filters.actions.tag.accesskey "М">
+<!ENTITY qf.filters.actions.priority "Важность">
+<!ENTITY qf.filters.actions.priority.accesskey "В">
+<!ENTITY qf.filters.actions.flag "Флаг">
+<!ENTITY qf.filters.actions.flag.accesskey "Ф">
+<!ENTITY qf.filters.actions.star "Звёздочка">
+<!ENTITY qf.filters.actions.star.accesskey "З">
+<!ENTITY qf.filters.actions.tooltip "Следующие атрибуты сообщения будут скопированы">
+<!ENTITY qf.label.donate "Пожертвовать">
+<!ENTITY qf.donate.tooltip "Поддержи развитие quickFilters!">
+<!ENTITY qf.label.cancel "Отмена">
+<!ENTITY qf.check.createNew "Создать новый фильтр">
+<!ENTITY qf.check.mergeWithExisting "Объединить с существующим фильтром:">

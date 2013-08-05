@@ -1,0 +1,39 @@
+
+/* options.css */
+label.text-link {
+	-moz-border-radius: 0.5em;
+}
+
+button.debug {
+	-moz-border-radius: 2px !important;
+}
+
+label.qfTabPreview {
+	-moz-border-radius: 4px 5px 0 0;
+}
+
+
+hbox.quickhelp-dbg {
+	-moz-border-radius: 0.5em;
+}
+
+#QuickFolders-Options-Tabbox tab {
+	-moz-border-radius: 4px 4px 0 0;
+}
+
+
+/* filterTemplate.css */
+.dialog-button:first-child
+{
+	-moz-border-radius: 2em;
+}
+
+
+
+/* quickFilters.css */
+notification[value="quickfilters-filter"] .messageCloseButton {
+	-moz-border-radius: 3px;
+}
+
+
+

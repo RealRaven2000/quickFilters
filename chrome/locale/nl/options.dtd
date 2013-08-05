@@ -1,0 +1,24 @@
+<!ENTITY prefwindow.title "quickFilters-voorkeuren">
+<!ENTITY pane1.title "quickFilters-voorkeuren">
+<!ENTITY chkDebug.label "Foutopsporingsmodus">
+<!ENTITY chkDebug.accesskey "F">
+<!ENTITY chkAutoClose.label "Filterassistent afsluiten na aanmaken filter">
+<!ENTITY chkAutoClose.accesskey "a">
+<!ENTITY chkAutoStart.label "Filterassistent-modus automatisch starten met toepassing">
+<!ENTITY chkAutoStart.accesskey "m">
+<!ENTITY donate.label "Doneren">
+<!ENTITY qf.description.donate "Als u quickFilters even leuk vindt als wij en de ontwikkeling ervan wilt ondersteunen, kunt u wat geld doneren voor de verdere ontwikkeling van quickFilters.">
+<!ENTITY qf.label.donateLink "Bezoek de donatiepagina…">
+<!ENTITY qf.description.about "Een snelle beschrijving van quickFilters kan worden gevonden op de volgende website:">
+<!ENTITY qf.label.aboutLink "quickFilters-website…">
+<!ENTITY qf.description.contactMe "U kunt ook persoonlijk contact met me opnemen via axelg@gofree.indigo.ie:">
+<!ENTITY qf.label.contactLink "Neem contact op (Engels of Duits)…">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "Rechtsklik voor versiegeschiedenis.">
+<!ENTITY qf.tab.options "Opties">
+<!ENTITY qf.tab.support "Ondersteuning">
+<!ENTITY qf.label.naming "Naamregels">
+<!ENTITY qf.label.naming.parentFolder "Naam bovenliggende map toevoegen">
+<!ENTITY qf.label.naming.parentFolder.accesskey "N">
+<!ENTITY qf.label.naming.keyWord "Regelspecifiek trefwoord toevoegen">
+<!ENTITY qf.label.naming.keyWord.accesskey "t">

@@ -1,0 +1,17 @@
+<!ENTITY qf.label.filterCountN_of_M "{0} из {1}">
+<!ENTITY qf.label.filterEntities "элементов">
+<!ENTITY qf.label.filterSingleEntity "1 элемент">
+<!ENTITY qf.textbox.searchBox.emptyText "найти фильтры…">
+<!ENTITY qf.textbox.searchBox.toolTip "Введите ключевое слово для поиска фильтра по имени">
+<!ENTITY qf.button.reorderButtonTop "Первым">
+<!ENTITY qf.button.reorderButtonTop.accessKey "е">
+<!ENTITY qf.button.reorderButtonTop.toolTip "Фильтровать до других фильтров">
+<!ENTITY qf.button.reorderButtonBottom "Последним">
+<!ENTITY qf.button.reorderButtonBottom.accessKey "и">
+<!ENTITY qf.button.reorderButtonBottom.toolTip "Фильтровать после других фильтров">
+<!ENTITY quickfilters.button.merge "Объединить">
+<!ENTITY quickfilters.button.merge.accesskey "О">
+<!ENTITY quickfilters.button.merge.tooltiptext "Объединить несколько фильтров с одинаковым действием">
+<!ENTITY quickfilters.menu.cut "Вырезать">
+<!ENTITY quickfilters.menu.copy "Копировать">
+<!ENTITY quickfilters.menu.paste "Вставить">

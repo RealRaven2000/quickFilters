@@ -1,0 +1,27 @@
+<!ENTITY qf.filters.title "Créer des filtres">
+<!ENTITY qf.filters.template.from "Basé sur l'expéditeur (De)">
+<!ENTITY qf.filters.template.to "Basé sur le destinataires (pour)">
+<!ENTITY qf.filters.template.list "Liste de diffusion">
+<!ENTITY qf.filters.template.topic "Par sujet">
+<!ENTITY qf.filters.template.tag "Par étiquettes">
+<!ENTITY qf.filters.template.tag.description "Retrouve les étiquettes du courriel et les ajoutent aux conditions du filtre.">
+<!ENTITY qf.filters.templates.description.label "Description :">
+<!ENTITY qf.filters.instructions "Veuillez choisir un modèle. Vous pouvez préciser les règles du filtre sur le prochain écran.">
+<!ENTITY qf.continueFilter.label "Créer le filtre…">
+<!ENTITY qf.continueFilter.shortcut "F">
+<!ENTITY qf.filters.actions.caption "Actions">
+<!ENTITY qf.filters.actions.targetFolder "Dossier cible">
+<!ENTITY qf.filters.actions.tag "Étiquettes">
+<!ENTITY qf.filters.actions.tag.accesskey "E">
+<!ENTITY qf.filters.actions.priority "Priorité">
+<!ENTITY qf.filters.actions.priority.accesskey "P">
+<!ENTITY qf.filters.actions.flag "Étiquette">
+<!ENTITY qf.filters.actions.flag.accesskey "E">
+<!ENTITY qf.filters.actions.star "Suivi">
+<!ENTITY qf.filters.actions.star.accesskey "S">
+<!ENTITY qf.filters.actions.tooltip "Le filtre copie ces attributs à partir du courriel original">
+<!ENTITY qf.label.donate "Faire un don">
+<!ENTITY qf.donate.tooltip "Soutenir le développement de quickFilters !">
+<!ENTITY qf.label.cancel "Annuler">
+<!ENTITY qf.check.createNew "Créer un nouveau filtre">
+<!ENTITY qf.check.mergeWithExisting "Fusionner avec un filtre existant :">

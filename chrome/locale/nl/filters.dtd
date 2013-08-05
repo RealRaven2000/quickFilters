@@ -1,0 +1,27 @@
+<!ENTITY qf.filters.title "Filters aanmaken">
+<!ENTITY qf.filters.template.from "Gebaseerd op afzender (van)">
+<!ENTITY qf.filters.template.to "Gebaseerd op ontvanger (aan)">
+<!ENTITY qf.filters.template.list "E-maillijst">
+<!ENTITY qf.filters.template.topic "Op onderwerp">
+<!ENTITY qf.filters.template.tag "Op label">
+<!ENTITY qf.filters.template.tag.description "Haalt de labels van het e-mailbericht op en voegt deze aan de filtervoorwaarden toe.">
+<!ENTITY qf.filters.templates.description.label "Beschrijving:">
+<!ENTITY qf.filters.instructions "Kies een sjabloon. U kunt de regels van het filter instellen op het volgende scherm.">
+<!ENTITY qf.continueFilter.label "Filter maken…">
+<!ENTITY qf.continueFilter.shortcut "F">
+<!ENTITY qf.filters.actions.caption "Acties">
+<!ENTITY qf.filters.actions.targetFolder "Doelmap">
+<!ENTITY qf.filters.actions.tag "Labels">
+<!ENTITY qf.filters.actions.tag.accesskey "L">
+<!ENTITY qf.filters.actions.priority "Prioriteit">
+<!ENTITY qf.filters.actions.priority.accesskey "P">
+<!ENTITY qf.filters.actions.flag "Label">
+<!ENTITY qf.filters.actions.flag.accesskey "a">
+<!ENTITY qf.filters.actions.star "Ster">
+<!ENTITY qf.filters.actions.star.accesskey "S">
+<!ENTITY qf.filters.actions.tooltip "Filteren kopieert deze eigenschappen van het oorspronkelijke e-mailbericht">
+<!ENTITY qf.label.donate "Doneren">
+<!ENTITY qf.donate.tooltip "Ondersteun de ontwikkeling van quickFilters!">
+<!ENTITY qf.label.cancel "Annuleren">
+<!ENTITY qf.check.createNew "Nieuw filter maken">
+<!ENTITY qf.check.mergeWithExisting "Samenvoegen met een bestaand filter:">

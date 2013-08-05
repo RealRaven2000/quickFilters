@@ -1,0 +1,72 @@
+#quickFilterNotificationBox {
+	width: 100%;
+}
+#quickFilterNotification {
+	width: 100%;
+}
+
+.quickFiltersCut {
+	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
+}
+
+.quickFiltersCopy listcell:first-child,
+.quickFiltersCut listcell:first-child {
+	font-style:italic;
+}
+
+.quickFiltersCopy {
+	list-style-image: url("chrome://quickfilters/skin/fugue-copy.png");
+}
+
+#quickFiltersCut {
+	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
+}
+#quickFiltersCopy {
+	list-style-image: url("chrome://quickfilters/skin/fugue-copy.png");
+}
+#quickFiltersPaste {
+	list-style-image: url("chrome://quickfilters/skin/fugue-paste.png");
+}
+
+#quickFilters-reorderButtonTop {
+	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-top.png");
+	-moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+#quickFilters-reorderButtonBottom {
+	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-bottom.png");
+	-moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+#reorderDownButton {
+	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-down.png");
+	-moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+#reorderUpButton {
+	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-up.png");
+	-moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+
+#quickFilters-reorderButtonTop[disabled="true"],
+#quickFilters-reorderButtonBottom[disabled="true"],
+#reorderDownButton[disabled="true"],
+#reorderUpButton[disabled="true"]
+{
+	-moz-image-region: rect(16px, 16px, 32px, 0);
+}
+
+#quickFilters-mergeButton {
+	list-style-image: url("chrome://quickfilters/skin/QuickFilters_16_Simple.png");
+	-moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+#serverMenu {
+	min-width: 20em;
+	width:70%;
+}
+
+#qf-FilterCount {
+	text-align: right;
+}

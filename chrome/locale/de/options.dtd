@@ -1,0 +1,24 @@
+<!ENTITY prefwindow.title "quickFilters Einstellungen">
+<!ENTITY pane1.title "quickFilters Einstellungen">
+<!ENTITY chkDebug.label "Debug Modus">
+<!ENTITY chkDebug.accesskey "D">
+<!ENTITY chkAutoClose.label "Filter Assistenten nach Erzeugung eines Filters verlassen">
+<!ENTITY chkAutoClose.accesskey "E">
+<!ENTITY chkAutoStart.label "Filter Assistent Modus bei Programmstart einschalten">
+<!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY donate.label "Spenden">
+<!ENTITY qf.description.donate "Falls Sie quickFilters mögen und weitere Software-Entwicklung unterstützen wollen, können Sie uns hier eine Spende hinterlassen:">
+<!ENTITY qf.label.donateLink "Die Spenden-Seite besuchen…">
+<!ENTITY qf.description.about "A quick description of quickFilters can be found at this site.">
+<!ENTITY qf.label.aboutLink "quickFilters Webseite…">
+<!ENTITY qf.description.contactMe "Sie können mich auch jederzeit persönlich unter axelg@gofree.indigo.ie kontaktieren:">
+<!ENTITY qf.label.contactLink "Mail an Axel (auf Deutsch oder Englisch)…">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "Rechts-klick um die Versionsgeschichte einzusehen.">
+<!ENTITY qf.tab.options "Optionen">
+<!ENTITY qf.tab.support "Support">
+<!ENTITY qf.label.naming "Namensregeln">
+<!ENTITY qf.label.naming.parentFolder "Name des Elternverzeichnis hinzufügen">
+<!ENTITY qf.label.naming.parentFolder.accesskey "E">
+<!ENTITY qf.label.naming.keyWord "Regel spezifisches Stichwort hinzufügen">
+<!ENTITY qf.label.naming.keyWord.accesskey "S">

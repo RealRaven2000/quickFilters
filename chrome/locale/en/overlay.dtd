@@ -1,0 +1,9 @@
+<!ENTITY quickfilters.Start.label "Start Filter Assistant…">
+<!ENTITY quickfilters.FromMessage.label "QuickFilters: Create Filter from Message…">
+<!ENTITY quickfilters.FromMessage.accesskey "Q">
+<!ENTITY quickfiltersToolbarButton.label "quickFilters Assistant">
+<!ENTITY quickfiltersToolbarButton.tooltip "Activate the filter assistant">
+<!ENTITY quickfilters.ListButton.label "Message Filters...">
+<!ENTITY quickfilters.ListButton.tooltip "Show a list of message filters">
+<!ENTITY quickfilters.RunButton.label "Run filters">
+<!ENTITY quickfilters.RunButton.tooltip "Runs the filters set up for the current folder">

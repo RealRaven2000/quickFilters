@@ -1,0 +1,283 @@
+#quickfilters-preferences {
+  min-height: 400px;
+}
+
+#mainOptions {
+  min-height:360px;
+}
+
+#qf-options-version {
+  margin-top: 13px;
+  margin-left: -4em;
+  font: 12pt Calibri,arial,sans-serif;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: #000 0 0 1px, #606000 0 0 2px, #000 2px 2px 3px;
+  cursor: pointer;
+}
+
+#qf-options-version:hover {
+	border: 1px solid #883333;
+	box-shadow: 3px 3px 2px rgba(40,40,40,0.6);
+}
+
+#qf-header-container {
+	width: 100%;
+	-moz-box-sizing: border-box;
+	background-image: url("chrome://messenger/skin/preferences/background.png");
+	background-color: transparent;
+	color: -moz-fieldtext;
+}
+
+#qf-options-icon {
+	height: 32px !important;
+	width: 32px !important;
+	padding: 0;
+	margin: 0 5px;
+}
+
+#qf-options-header {
+	margin: 5px 5px 5px 5px;
+	border: none;
+	color: #ffffff;
+}
+
+#qf-options-header .dialogheader-title {
+	margin: 0px !important;
+	font-size: larger;
+	font-weight: bold;
+}
+
+#qf-StandardColors {
+	padding: 3px 10px;
+}
+
+
+label.textBoxLabel {
+	vertical-align: bottom;
+	padding-top: 4px;
+}
+
+hbox > textbox {
+	max-height: 2em;
+}
+hbox > button {
+	max-height: 3em !important;
+}
+
+
+
+/****** LINKS	********/
+label.text-link[href] {
+	padding: 4px 2px 4px 5px !important;
+	vertical-align: middle !important;
+}
+
+label.text-link[href] > * {
+	text-decoration: underline !important;
+}
+
+label.text-link[href]:hover {
+	color: white !important;
+	background-color: blue !important;
+}
+
+button.debug {
+	border-radius: 2px !important;
+	-moz-appearance: none !important;
+	background-color: #B00;
+	color: #FFF;
+	border: 1px solid gray;
+	padding:2px 5px;
+}
+
+label.text-link[href]:focus {
+	color: #FFF !important;
+	background-color: #06396F !important;
+	border: 1px #006 solid;
+	text-decoration: underline !important;
+}
+
+
+
+label.qfTabPreview {
+	border: #AAA 1px solid;
+	border-radius: 4px 5px 0 0;
+	padding: 3px 8px;
+	min-width:20px;
+	max-height:22px;
+	vertical-align:middle;
+}
+
+label [href^="mailto"] {
+	text-decoration: underline	!important;
+}
+
+
+label.text-link {
+	border-radius: 0.5em;
+	margin: 0.7em 12em 0.8em 11em !important;
+	box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.7);
+	transition-property: box-shadow, margin;
+	transition-duration: 0.2s, 0.2s;
+}
+
+label.text-link:hover {
+	margin: 1.0em 11.8em 0.5em 11.2em !important;
+	box-shadow: 1px 1px 2px -1px rgba(0,0,0,0.8);
+}
+
+label.text-link, label.text-link[visited="true"] {
+	border: 1px #AAA solid;
+	padding: 4px 2px 6px 5px !important;
+	text-decoration: underline !important;
+	vertical-align: middle !important;;
+	text-align: center;
+	font-size: 12px;
+}
+
+/* about - green */
+#L1 {
+  background: linear-gradient(to bottom, rgba(169,182,98,1) 0%, rgba(125,151,65,1) 50%, rgba(98,132,30,1) 51%, rgba(138,165,71,1) 100%);
+	background-color: rgb(169,182,98) !important;
+	color: #E0F0E0 !important;
+}
+
+#L1.text-link:focus  {
+	color: #FFF !important;
+	background: rgb(191,210,85);
+	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+	border: 1px #006 solid;
+  list-style-image: url("chrome://messenger/skin/preferences/arrow_green.png");
+	text-decoration: underline !important;
+}
+
+label#L1:hover {
+	color: #FFFFFF !important;
+	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+	border: 1px #24463C solid;
+}
+
+label#L1:active {
+	color: #FFFFFF !important;
+	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+	border: 1px #24463C solid;
+}
+
+label#L1:active a {
+	text-decoration: underline !important;
+}
+
+
+
+/* donations - blue */
+label#L2 {
+  background: linear-gradient(to bottom, rgba(103,159,211,1) 0%, rgba(54,123,184,1) 24%, rgba(22,81,132,1) 50%, rgba(48,110,164,1) 79%, rgba(58,133,198,1) 100%);
+	color: #E0E0F0 !important;
+  list-style-image: url("chrome://messenger/skin/preferences/arrow_blue.png");
+}
+
+label#L2:hover,
+label#L2:focus {
+	background-color: rgb(251,202,159);
+	background-image: linear-gradient(to bottom, rgba(208,228,247,1) 0%, rgba(115,177,231,1) 24%, rgba(10,119,213,1) 50%, rgba(83,159,225,1) 79%, rgba(135,188,234,1) 100%) !important;
+	border: 1px #006 solid;
+	color: #FFFFFF !important;
+}
+
+label#L2:active {
+	background-image: linear-gradient(to bottom, rgba(208,228,247,1) 0%, rgba(115,177,231,1) 24%, rgba(10,119,213,1) 50%, rgba(83,159,225,1) 79%, rgba(135,188,234,1) 100%) !important;
+	text-decoration: underline;
+	border: 1px #006 solid;
+	color: #F0F0F0 !important;
+}
+
+/* contact - yellow */
+
+label#L3  {
+	color: #fff !important;
+  background: linear-gradient(to bottom, rgba(241,194,75,1) 0%, rgba(241,194,75,1) 6%, rgba(172,128,6,1) 34%, rgba(240,188,46,1) 100%);
+}
+
+label#L3:hover, label#L3:focus {
+	background-color: rgb(252,234,187) !important;
+	background-image: linear-gradient(to bottom, rgba(252,234,187,1) 0%, rgba(252,234,187,1) 6%, rgba(248,181,0,1) 34%, rgba(251,223,147,1) 100%) !important;
+	border: 1px #802D19 solid;
+	color: #82370A !important;
+	font-weight: bold;
+  list-style-image: url("chrome://messenger/skin/preferences/arrow_yellow.png");
+}
+
+label#L3:active {
+	color: #BA4E0B !important;
+	border: 1px #802D19 solid;
+}
+
+
+/* bugs - cherry-red */
+label#L5:hover, label#L5:focus {
+	background-color: rgb(174,45,28) !important;
+	background-image: linear-gradient(to bottom, rgba(174,45,28,1) 0%, rgba(214,90,79,1) 12%, rgba(193,53,38,1) 43%, rgba(126,24,8,1) 100%) !important;
+	color: #fff !important;
+	border: 1px #4B1400 solid;
+}
+
+label#L5:active {
+	color: #FFF !important;
+	text-shadow: #fdd 0 0 1px;
+}
+
+
+label#L1,label#L2,label#L3,label#L4,label#L5 {
+	margin: 10px 30px;
+	text-align: center;
+	width: auto;
+	text-shadow: none !important;
+	font-style: normal;
+}
+
+
+
+
+
+description.quickhelp-desc, description.quickhelp-dbg {
+	position:absolute;
+	text-align:justify;
+	max-width: 620px;
+	padding: 2px 0px;
+	margin: 1px 0px;
+	line-height:1.2em;
+	bottom:5px;
+	overflow-y: scroll;
+	overflow-x: auto;
+}
+
+
+
+description#importantNote {
+	font-weight: bold;
+	color: #A00 !important;
+}
+
+description.quickhelp-dbg, hbox.quickhelp-dbg {
+	color:#CCC;
+	padding: 3px 8px 3px 8px;
+}
+
+hbox.quickhelp-dbg {
+	background-color:#333;
+	background: linear-gradient(to bottom, rgba(174,188,191,1) 0%, rgba(110,119,116,1) 27%, rgba(10,14,10,1) 48%, rgba(10,8,9,1) 100%);
+	border-radius: 0.5em;
+}
+
+
+
+#QuickFolders-Options-Tabbox tab {
+	padding: 0.2em 0.6em;
+	border-radius: 4px 4px 0 0;
+}
+
+#QuickFolders-Options-Tabbox tab .tab-icon { margin-right:6px; }
+
+
+

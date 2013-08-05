@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+    <Description about="urn:mozilla:install-manifest">
+        <em:type>2</em:type> <!-- 2 : Extension -->
+        <em:id>quickFilters@axelg.com</em:id>
+        <em:version>1.9pre1</em:version>
+
+		<em:creator>Axel Grude</em:creator>
+		<!-- Thunderbird -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+				<em:minVersion>9.0</em:minVersion>
+				<em:maxVersion>20.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		<!-- SeaMonkey -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+                <em:minVersion>2.0</em:minVersion>
+                <em:maxVersion>2.19.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+		<!-- Postbox 
+        <em:targetApplication>
+            <Description>
+                <em:id>postbox@postbox-inc.com</em:id>
+                <em:minVersion>2.0.0</em:minVersion>
+                <em:maxVersion>3.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        -->
+		<em:name>quickFilters</em:name>
+		<em:contributor>http://dryicons.com: ledgers icon</em:contributor>
+		<em:contributor>Yusuke Kamiyamane: fugue icons</em:contributor>
+
+		<em:localized>
+			<Description>
+				<em:locale>en</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Axel Grude (de)</em:translator>
+				<em:translator>Leopoldo Saggin (it)</em:translator>
+				<em:translator>Masahiko Imanaka (ja)</em:translator>
+				<em:translator>markh van BabelZilla.org (nl)</em:translator>
+				<em:translator>Nguyen Hoang Long [timelinelive.blogspot.com] (vi)</em:translator>
+				<em:translator>Anton Pinsky (ru)</em:translator>
+        <em:translator>Jojaba - French BabelZilla team (fr)</em:translator>
+        <em:name>quickFilters</em:name>
+				<em:description>Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>de</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Axel Grude (de)</em:translator>
+				<em:name>quickFilters</em:name>
+				<em:description>Auf die Schnelle neue Filter erzeugen, einfach während man Email in Verzeichnisse einordnet.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>it</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Leopoldo Saggin (it)</em:translator>
+				<em:name>quickFilters</em:name>
+				<em:description>Genera al volo dei filtri sui messaggi trascinando e rilasciando le email e analizzandone gli attributi.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>nl</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>markh van BabelZilla.org (nl)</em:translator>
+				<em:name>quickFilters</em:name>
+				<em:description>Maak snel e-mailfilters door berichten te slepen en hun eigenschappen te analyseren.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>vi</em:locale>
+				<em:name>quickFilters</em:name>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Nguyen Hoang Long [timelinelive.blogspot.com] (vi)</em:translator>
+				<em:description>Tạo bộ lọc thư một cách nhanh chóng khi đang xem, bằng cách kéo và thả các thư và phân tích thuộc tính của chúng.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>ru</em:locale>
+				<em:name>quickFilters</em:name>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Anton Pinsky (ru)</em:translator>
+				<em:description>Создавайте фильтры сообщений "на лету", перетаскивая сообщения и анализируя их атрибуты.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>ja</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Masahiko Imanaka (ja)</em:translator>
+				<em:name>quickFilters</em:name>
+				<em:description>メールをドラッグ＆ドロップすることにより、そのメールを解析してフィルタを作成します。</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>zh-cn</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>天涯倦客 (zh-cn)</em:translator>
+				<em:name>quickFilters</em:name>
+				<em:description>通过拖放邮件并分析其属性从而在运行中快速生成邮件过滤器。</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+      <em:localized>
+        <Description>
+          <em:locale>fr</em:locale>
+          <em:creator>Axel Grude</em:creator>
+          <em:translator>Jojaba - French BabelZilla team (fr)</em:translator>
+          <em:name>quickFilters</em:name>
+          <em:description>Créer rapidement à la volée des filtres de message en cliquant-déposant des messages et analysant leurs attributs.</em:description>
+          <em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+        </Description>
+      </em:localized>
+      <em:localized>
+        <Description>
+          <em:locale>sv-SE</em:locale>
+          <em:creator>Axel Grude</em:creator>
+          <em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+          <em:name>quickFilters</em:name>
+          <em:description>Skapa meddelandefilter snabbt och enkelt genom att dra och släppa meddelanden och analysera deras attribut.</em:description>
+          <em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+        </Description>
+      </em:localized>
+
+
+      <em:iconURL>chrome://quickfilters/skin/QuickFilters_32.png</em:iconURL>
+        <em:icon64URL>chrome://quickfilters/skin/QuickFilters_64.png</em:icon64URL>
+
+		<em:optionsURL>chrome://quickfilters/content/quickFilters-options.xul</em:optionsURL>
+    </Description>
+</RDF>

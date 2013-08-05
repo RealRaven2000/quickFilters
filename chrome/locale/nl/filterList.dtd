@@ -1,0 +1,17 @@
+<!ENTITY qf.label.filterCountN_of_M "{0} van {1}">
+<!ENTITY qf.label.filterEntities "onderdelen">
+<!ENTITY qf.label.filterSingleEntity "1 onderdeel">
+<!ENTITY qf.textbox.searchBox.emptyText "Filters zoeken op naam…">
+<!ENTITY qf.textbox.searchBox.toolTip "voer een trefwoord in om op naam naar filters te zoeken">
+<!ENTITY qf.button.reorderButtonTop "Naar boven">
+<!ENTITY qf.button.reorderButtonTop.accessKey "o">
+<!ENTITY qf.button.reorderButtonTop.toolTip "Filter herschikken zodat deze voor alle overige wordt uitgevoerd">
+<!ENTITY qf.button.reorderButtonBottom "Naar beneden">
+<!ENTITY qf.button.reorderButtonBottom.accessKey "b">
+<!ENTITY qf.button.reorderButtonBottom.toolTip "Filter herschikken zodat deze na alle overige wordt uitgevoerd">
+<!ENTITY quickfilters.button.merge "Samenvoegen">
+<!ENTITY quickfilters.button.merge.accesskey "S">
+<!ENTITY quickfilters.button.merge.tooltiptext "Meerdere filters met dezelfde actie samenvoegen">
+<!ENTITY quickfilters.menu.cut "Knippen">
+<!ENTITY quickfilters.menu.copy "Kopiëren">
+<!ENTITY quickfilters.menu.paste "Plakken">

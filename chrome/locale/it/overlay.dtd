@@ -1,0 +1,9 @@
+<!ENTITY quickfilters.Start.label "Avvio della procedura guidata di quickFilters…">
+<!ENTITY quickfilters.FromMessage.label "quickFilters: Crea filtro dal messaggio…">
+<!ENTITY quickfilters.FromMessage.accesskey "Q">
+<!ENTITY quickfiltersToolbarButton.label "Procedura guidata di quickFilters">
+<!ENTITY quickfiltersToolbarButton.tooltip "Avvia la procedura guidata">
+<!ENTITY quickfilters.ListButton.label "Filtri per i messaggi…">
+<!ENTITY quickfilters.ListButton.tooltip "Mostra un elenco di filtri per i messaggi">
+<!ENTITY quickfilters.RunButton.label "Esegui filtri">
+<!ENTITY quickfilters.RunButton.tooltip "Esegui i filtri configurati per la cartella corrente">

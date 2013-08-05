@@ -1,0 +1,27 @@
+<!ENTITY qf.filters.title "Creazione Filtro">
+<!ENTITY qf.filters.template.from "Basato sul mittente (Da:)">
+<!ENTITY qf.filters.template.to "Basato sul destinatario (A:)">
+<!ENTITY qf.filters.template.list "Liste di distribuzione">
+<!ENTITY qf.filters.template.topic "Per oggetto">
+<!ENTITY qf.filters.template.tag "Per etichette">
+<!ENTITY qf.filters.template.tag.description "Recupera le etichette del messaggio e le aggiunge ai criteri del filtro">
+<!ENTITY qf.filters.templates.description.label "Descrizione:">
+<!ENTITY qf.filters.instructions "Selezionare una tipologia. Nella schermata successiva si possono mettere a punto le regole del filtro.">
+<!ENTITY qf.continueFilter.label "Crea filtro…">
+<!ENTITY qf.continueFilter.shortcut "F">
+<!ENTITY qf.filters.actions.caption "Azioni">
+<!ENTITY qf.filters.actions.targetFolder "Cartella destinazione">
+<!ENTITY qf.filters.actions.tag "Etichetta">
+<!ENTITY qf.filters.actions.tag.accesskey "E">
+<!ENTITY qf.filters.actions.priority "Priorità">
+<!ENTITY qf.filters.actions.priority.accesskey "P">
+<!ENTITY qf.filters.actions.flag "Spuntato">
+<!ENTITY qf.filters.actions.flag.accesskey "U">
+<!ENTITY qf.filters.actions.star "Speciale">
+<!ENTITY qf.filters.actions.star.accesskey "S">
+<!ENTITY qf.filters.actions.tooltip "Il filtro copia questi attributi dal messaggio originale">
+<!ENTITY qf.label.donate "Dona">
+<!ENTITY qf.donate.tooltip "Supporta lo sviluppo di quickFilters!">
+<!ENTITY qf.label.cancel "Annulla">
+<!ENTITY qf.check.createNew "Crea un nuovo filtro">
+<!ENTITY qf.check.mergeWithExisting "Unisci con un filtro esistente:">

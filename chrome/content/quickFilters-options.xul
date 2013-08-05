@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="options.css" title="QuickFiltersOptions" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://quickfilters/locale/options.dtd">
+
+<prefwindow id="quickfilters-preferences" 
+            xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+            title="&prefwindow.title;"
+            onload="quickFilters.Options.load();"
+            autostretch="always" 
+            minHeight="400">
+
+
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-options.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
+
+
+  <prefpane id="mainOptions" label="&pane1.title;" flex="2" selected="true">
+
+    <preferences>
+      <preference id="debug" 
+	              name="extensions.quickfilters.debug" 
+				  type="bool"  
+				  instantApply="true"
+				  />
+      <preference id="abort" 
+	              name="extensions.quickfilters.abortAfterCreate" 
+				  type="bool"  
+				  instantApply="true"
+				  />
+      <preference id="autoStart" 
+	              name="extensions.quickfilters.autoStart" 
+				  type="bool"  
+				  instantApply="true"
+				  />
+      <preference id="naming.parentFolder" 
+	              name="extensions.quickfilters.naming.parentFolder"
+				  type="bool"  
+				  instantApply="true"
+				  />
+      <preference id="naming.keyWord" 
+	              name="extensions.quickfilters.naming.keyWord" 
+				  type="bool"  
+				  instantApply="true"
+				  />
+    </preferences>
+    
+    
+    
+  <hbox id="qf-header-container">
+    <vbox>
+      <spacer flex="1"/>
+      <image id="qf-options-icon" src="chrome://quickfilters/skin/QuickFilters_64.png" flex="0"/>
+      <spacer flex="1"/>
+    </vbox>
+  	<hbox id="qf-options-header" class="paneSelector" flex="50">
+  	  <image id="qf-options-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
+  		<label id="qf-options-version" 
+  		       oncontextmenu="quickFilters.Util.showVersionHistory(true);return false;" 
+  		       tooltiptext="&qf.options.versionnumber.tooltip;"
+  		       value="0.1"/>
+  	</hbox>
+  </hbox>
+    
+  
+	<tabbox orient="vertical" flex="6" id="quickFilters-Options-Tabbox">
+		<tabs>
+			<tab label="&qf.tab.options;" id="quickFilters-Options" />
+			<tab label="&qf.tab.support;" id="quickFilters-Support" />
+		</tabs>
+
+		<tabpanels >
+		
+			<tabpanel id="quickFilters-Options-general"
+			          orient="vertical" 
+			          label="&qf.tab.options;" 
+			          style="position:relative;">
+  
+        <checkbox id="chkAutoClose" 
+                  preference="abort" 
+                  label="&chkAutoClose.label;" 
+                  accesskey="&chkAutoClose.accesskey;"
+                  />
+        <checkbox id="chkAutoStart" 
+                  preference="autoStart" 
+                  label="&chkAutoStart.label;" 
+                  accesskey="&chkAutoStart.accesskey;"
+                  />
+        <separator class="groove-thin" />
+        <groupbox  orient="vertical" >
+        	<caption label="&qf.label.naming;"/>
+          <checkbox id="chkNamingParentFolder" 
+                    preference="naming.parentFolder" 
+                    label="&qf.label.naming.parentFolder;" 
+                    accesskey="&qf.label.naming.parentFolder.accesskey;"
+                    />
+          <checkbox id="chkNamingKeyWord" 
+                    preference="naming.keyWord" 
+                    label="&qf.label.naming.keyWord;" 
+                    accesskey="&qf.label.naming.keyWord.accesskey;"
+                    />
+        </groupbox>
+        
+        <spacer flex="1" />
+        <hbox>
+          <spacer flex="1" />
+          <checkbox id="chkDebug" 
+                    preference="debug" 
+                    label="&chkDebug.label;" 
+                    accesskey="&chkDebug.accesskey;"
+                    oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Options.showAboutConfig(this,'quickfilters.debug',true);return false;"/>
+        </hbox>
+        <separator />
+        <separator />
+      </tabpanel>  
+			<tabpanel id="quickFilters-Options-general"
+			          orient="vertical" 
+			          label="&qf.tab.options;" 
+			          style="position:relative;">
+        
+        <description class="quickhelp-desc">&qf.description.about;</description>
+        <label id="L1" 
+               class="text-link" 
+               tooltiptext="http://quickfilters.mozdev.org/"
+               onclick="quickFilters.Util.showHomePage();">&qf.label.aboutLink;</label>
+        <separator />
+        <description class="quickhelp-desc">&qf.description.donate;</description>
+        <label id="L2" 
+               class="text-link" 
+               tooltiptext="http://quickfilters.mozdev.org/donate.html"
+               onclick="quickFilters.Util.showDonatePage();">&qf.label.donateLink;</label>
+        <separator />
+        <description class="quickhelp-desc">&qf.description.contactMe;</description>
+        <label id="L3" 
+               class="text-link" 
+               onclick="quickFilters.Options.sendMail('axelg@gofree.indigo.ie');" >&qf.label.contactLink;</label>
+      </tabpanel>  
+               
+                   
+		</tabpanels>
+	</tabbox>
+    
+  </prefpane>
+  
+  
+</prefwindow>

@@ -1,0 +1,67 @@
+LICENSE
+
+QuickFilters is released under the GNU GPL Version 3.
+
+All contents of this file are subject to the GNU General Public License Version 3
+(the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the complete License at
+http://www.gnu.org/licenses/gpl-3.0.txt
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 3
+of the License, or (at your option) any later version.
+
+If you use large portions of the code please attribute to the authors
+(Axel Grude)
+
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You can download a copy of the GNU General Public License at
+http://www.gnu.org/licenses/gpl-3.0.txt or get a free printed
+copy by writing to:
+  Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor,
+  Boston, MA 02110-1301, USA.
+
+========================================================
+
+ATTRIBUTIONS
+
+quickFilters includes work by:
+Axel Grude: Current developer
+Yusuke Kamiyamane: some Stock Icons
+dryicons.com: Ledgers Icon (right half of assistant graphics)
+
+Translations - the current list of translators is listed in the install.rdf and
+displayed on the "about" dialog. (Add-ons Manager / About)
+
+
+ART WORK
+
+QUICKFILTERS ICON
+The quickFilters Icon is created by me (Axel Grude) please do not use in other works or derivatives. Please do not use the quickFilters name, either. If you want to reuse or base your
+own work on the icons, please seek permission: axel.grude@gmail.com
+
+
+FUGUE ICON SET
+some icons are from the Fugue Icons set or based on them, namely:
+fugue-arrow-bottom.png
+fugue-arrow-top.png
+fugue-arrow-down.png
+fugue-arrow-up.png
+Fugue Icons are by Yusuke Kamiyamane under Creative Commons, see: http://p.yusukekamiyamane.com
+
+LEDGERS ICON
+the ledgers icon (right half of the quickFilters titlebar icon, 3 colored ledgers) is taken from the coquette icon set at:
+http://www.easyicon.cn/language.en/icondetail/501164/
+Free License, Icon author is dryicons, web site: http://dryicons.com
+
+CRYSTAL ICON SET
+some icons are based on Everaldo's Crystal Icon set; The Crystal Project are released under LGPL
+see http://www.everaldo.com/crystal/?action=license for details.
+
