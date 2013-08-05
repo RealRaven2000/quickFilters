@@ -1,0 +1,24 @@
+<!ENTITY prefwindow.title "Cấu hình quickFilters">
+<!ENTITY pane1.title "Cấu hình quickFilters">
+<!ENTITY chkDebug.label "Chế độ Sửa Lỗi">
+<!ENTITY chkDebug.accesskey "D">
+<!ENTITY chkAutoClose.label "Thoát Filter Assistant sau khi một bộ lọc được tạo ra">
+<!ENTITY chkAutoClose.accesskey "E">
+<!ENTITY chkAutoStart.label "Automatically start Filter Assistant mode with application">
+<!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY donate.label "Quyên góp">
+<!ENTITY qf.description.donate "Nếu bạn thích quickFilters và muốn hỗ trợ cho sự phát triển của nó, bạn có thể quyên góp một chút tiền cho sự phát triển sau này của quickFilters.">
+<!ENTITY qf.label.donateLink "Tới thăm trang Quyên Góp…">
+<!ENTITY qf.description.about "Mô tả ngắn về quickFilters có thể xem ở trang sau:">
+<!ENTITY qf.label.aboutLink "Trang chủ quickFilters…">
+<!ENTITY qf.description.contactMe "Bạn cũng có thể liên lạc riêng với tôi tại axelg@gofree.indigo.ie:">
+<!ENTITY qf.label.contactLink "Liên lạc (bằng tiếng Anh hoặc Đức)...">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "Nhấp chuột phải để xem lịch sử phiên bản.">
+<!ENTITY qf.tab.options "Tùy chọn">
+<!ENTITY qf.tab.support "Hỗ trợ">
+<!ENTITY qf.label.naming "Quy tắc đặt tên">
+<!ENTITY qf.label.naming.parentFolder "Thêm tên thư mục mẹ">
+<!ENTITY qf.label.naming.parentFolder.accesskey "p">
+<!ENTITY qf.label.naming.keyWord "Thêm quy tắc từ khóa nhất định">
+<!ENTITY qf.label.naming.keyWord.accesskey "k">

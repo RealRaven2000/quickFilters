@@ -1,0 +1,24 @@
+<!ENTITY prefwindow.title "настройки quickFilters">
+<!ENTITY pane1.title "настройки quickFilters">
+<!ENTITY chkDebug.label "Режим отладки">
+<!ENTITY chkDebug.accesskey "Р">
+<!ENTITY chkAutoClose.label "Закрывать ассистента после создания фильтра.">
+<!ENTITY chkAutoClose.accesskey "З">
+<!ENTITY chkAutoStart.label "Запуск режима создания фильтров при старте приложения">
+<!ENTITY chkAutoStart.accesskey "а">
+<!ENTITY donate.label "Поддержка">
+<!ENTITY qf.description.donate "Если quickFilters Вам нравится, Вы можете поддержать деньгами дальнейшее развитие.">
+<!ENTITY qf.label.donateLink "Поддержать...">
+<!ENTITY qf.description.about "Краткое описание quickFilters на следующей странице:">
+<!ENTITY qf.label.aboutLink "страница quickFilters…">
+<!ENTITY qf.description.contactMe "Мой личный адрес axelg@gofree.indigo.ie:">
+<!ENTITY qf.label.contactLink "Написать мне (на английском или немецком)">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "Нажмите правой кнопкой мышки для получения истории изменений.">
+<!ENTITY qf.tab.options "Настройки">
+<!ENTITY qf.tab.support "Поддержка">
+<!ENTITY qf.label.naming "Правила присваивания имен">
+<!ENTITY qf.label.naming.parentFolder "Добавить имя вышестоящей папки">
+<!ENTITY qf.label.naming.parentFolder.accesskey "о">
+<!ENTITY qf.label.naming.keyWord "Добавить ключевое слово правила">
+<!ENTITY qf.label.naming.keyWord.accesskey "к">

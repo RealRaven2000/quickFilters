@@ -1,0 +1,17 @@
+<!ENTITY qf.label.filterCountN_of_M "{0} av {1}">
+<!ENTITY qf.label.filterEntities "objekt">
+<!ENTITY qf.label.filterSingleEntity "1 objekt">
+<!ENTITY qf.textbox.searchBox.emptyText "Sök filter efter namn …">
+<!ENTITY qf.textbox.searchBox.toolTip "ange ett nyckelord för att söka bland dina filter efter namn">
+<!ENTITY qf.button.reorderButtonTop "Flytta högst upp">
+<!ENTITY qf.button.reorderButtonTop.accessKey "u">
+<!ENTITY qf.button.reorderButtonTop.toolTip "Ordna om filtret, så att det körs först av alla">
+<!ENTITY qf.button.reorderButtonBottom "Flytta längst ned">
+<!ENTITY qf.button.reorderButtonBottom.accessKey "n">
+<!ENTITY qf.button.reorderButtonBottom.toolTip "Ordna om filtret, så att det körs sist av alla">
+<!ENTITY quickfilters.button.merge "Slå samman">
+<!ENTITY quickfilters.button.merge.accesskey "m">
+<!ENTITY quickfilters.button.merge.tooltiptext "Slå samman filter som utför samma åtgärd">
+<!ENTITY quickfilters.menu.cut "Klipp ut">
+<!ENTITY quickfilters.menu.copy "Kopiera">
+<!ENTITY quickfilters.menu.paste "Klistra in">

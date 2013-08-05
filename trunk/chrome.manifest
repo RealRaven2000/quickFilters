@@ -1,0 +1,27 @@
+content   quickfilters                 chrome/content/
+skin      quickfilters   classic/1.0   chrome/skin/
+locale    quickfilters   en            chrome/locale/en/
+locale    quickfilters   de            chrome/locale/de/
+locale    quickfilters   it            chrome/locale/it/
+locale    quickfilters   fr            chrome/locale/fr/
+locale    quickfilters   ja            chrome/locale/ja/
+locale    quickfilters   nl            chrome/locale/nl/
+locale    quickfilters   sv-SE         chrome/locale/sv-SE/
+locale    quickfilters   ru            chrome/locale/ru/
+locale    quickfilters   vi            chrome/locale/vi/
+locale    quickfilters   zh-CN         chrome/locale/zh-CN/
+
+
+overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
+style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css
+
+#legacy styles (for deprecated attributes)
+style   chrome://messenger/content/messenger.xul content/legacy.css application={3550f703-e582-4d05-9a08-453d09bdfdc6} appversion<12
+
+
+# Message Filter List overlays - assuming that patch for [Bug 450302] has not landed yet.
+overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application=postbox@postbox-inc.com
+
+# overlay	chrome://messenger/content/mailWindowOverlay.xul	chrome://quickfilters/content/quickFilters-overlay.xul

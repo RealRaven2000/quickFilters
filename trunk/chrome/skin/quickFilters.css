@@ -1,0 +1,152 @@
+
+#QuickFolders-Toolbar toolbarbutton#QuickFolders-filterActive {
+	background-color: transparent;
+	padding: 0px 2px;
+	margin: 0;
+	min-height: 20px;
+	-moz-image-region: rect(16px, 16px, 32px, 0px);
+}
+
+/* disable filter */
+#QuickFolders-CurrentFolderTools toolbarbutton#QuickFolders-currentFolderFilterActive[mode="filter"]:hover,
+#QuickFolders-Toolbar toolbarbutton#QuickFolders-filterActive:hover {
+	-moz-image-region: rect(32px, 16px, 48px, 0px);
+}
+
+#quickfilters-toolbar-button
+{
+  list-style-image: url("chrome://quickfilters/skin/QuickFilters_24.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+#quickfilters-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+#quickfilters-toolbar-button[checked="true"]
+{
+  -moz-image-region: rect(48px 24px 72px 0px) !important;
+}
+
+[iconsize="small"] #quickfilters-toolbar-button,
+#quickFilters-wizard,
+#quickFilters-fromMessage,
+#QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive,
+#QuickFolders-Toolbar #QuickFolders-filterActive,
+menuitem.cmd[tagName="qfFilter"],
+menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon
+{
+  list-style-image: url("chrome://quickfilters/skin/QuickFilters_16.png") !important;
+  -moz-image-region: rect( 0px 16px 16px 0px);
+}
+
+[iconsize="small"] #quickfilters-toolbar-button[checked="true"],
+#quickFilters-wizard[checked="true"],
+#QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive[mode="filter"]
+{
+  -moz-image-region: rect(32px 16px 48px 0px) !important;
+}
+
+[iconsize="small"] #quickfilters-toolbar-button:hover,
+#quickFilters-wizard:hover,
+#quickFilters-fromMessage:hover,
+menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon,
+#QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive:hover
+{
+  -moz-image-region: rect(16px 16px 32px 0px) !important;
+}
+
+menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon { 
+  list-style-image: url("chrome://quickfilters/skin/QuickFilters_16.png") !important;
+  -moz-image-region: rect(16px, 16px, 32px, 0px) !important; 
+}
+
+#quickfilters-toolbar-listbutton
+{
+  list-style-image: url("chrome://quickfilters/skin/filterList_24.png");
+}
+
+[iconsize="small"] #quickfilters-toolbar-listbutton
+{
+  -moz-image-region: rect( 0px 16px 16px 0px);
+  list-style-image: url("chrome://quickfilters/skin/filterList_16.png");
+}
+
+
+
+#quickfilters-toolbar-runbutton,
+#quickfilters-menu-runMenu
+{
+  list-style-image: url("chrome://quickfilters/skin/runFilters.png");
+}
+
+[iconsize="small"] #quickfilters-toolbar-runbutton
+{
+  -moz-image-region: rect( 0px 16px 16px 0px);
+  list-style-image: url("chrome://quickfilters/skin/runFilters-small.png");
+}
+
+[iconsize="small"] #quickfilters-toolbar-runbutton:hover
+{
+  -moz-image-region: rect( 16px 16px 32px 0px);
+}
+
+[iconsize="small"] #quickfilters-toolbar-runbutton:active
+{
+  -moz-image-region: rect( 32px 16px 48px 0px);
+}
+
+
+toolbar:not([iconsize="small"]) #quickfilters-toolbar-button image,
+toolbar:not([iconsize="small"]) #quickfilters-toolbar-listbutton image,
+toolbar:not([iconsize="small"]) #quickfilters-toolbar-runbutton image
+{
+  width: 24px;
+  height: 24px;
+}
+
+
+
+notification[value="quickfilters-filter"] image.messageImage {
+	/* filterTemplate.png */
+	min-width: 73px !important;
+	width: 73px !important;
+	min-height: 32px !important;
+	height: 32px !important;
+}
+
+notification[value="quickfilters-filter"] .messageCloseButton {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 3px;
+	border-radius: 3px;
+	margin: 1em 1.5em;
+}
+notification[value="quickfilters-filter"] .messageCloseButton:hover {
+	background-color: rgba(255, 255, 255, 1);
+}
+
+/* postbox - this description simply won't wrap! */
+notification[value="quickfilters-filter"] description.messageText
+{
+	white-space: normal !important;
+	height: auto;
+}
+
+
+notification[value="quickfilters-filter"] hbox.notification-inner {
+	color: #fff;
+	background-color: rgb(251,28,3);
+	background-image: linear-gradient(to bottom, rgba(251,28,3,1) 0%, rgba(161,26,11,1) 42%, rgba(138,18,4,1) 51%, rgba(199,24,5,1) 100%);
+	padding-top: 0.75em;
+	padding-bottom: 0.75em;
+}
+
+#mail-notification-box,
+#pbSearchThresholdNotifcationBar {
+	height: auto;
+}
+
+/* fix some accidental truncations */
+#mail-notification-box notification[value=quickfilters-filter],
+#pbSearchThresholdNotifcationBar notification[value=quickfilters-filter] {
+	min-height: 6em;
+}

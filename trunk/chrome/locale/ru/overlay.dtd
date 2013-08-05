@@ -1,0 +1,9 @@
+<!ENTITY quickfilters.Start.label "Начать создание фильтров…">
+<!ENTITY quickfilters.FromMessage.label "QuickFilters: Создать фильтр по сообщению…">
+<!ENTITY quickfilters.FromMessage.accesskey "з">
+<!ENTITY quickfiltersToolbarButton.label "ассистент quickFilters">
+<!ENTITY quickfiltersToolbarButton.tooltip "Активировать создание фильтров">
+<!ENTITY quickfilters.ListButton.label "Фильтры...">
+<!ENTITY quickfilters.ListButton.tooltip "Показать список фильтров сообщений">
+<!ENTITY quickfilters.RunButton.label "Фильтровать">
+<!ENTITY quickfilters.RunButton.tooltip "Применить фильтры к текущей папке">

@@ -1,0 +1,27 @@
+<!ENTITY qf.filters.title "フィルタ作成">
+<!ENTITY qf.filters.template.from "送信者 (from) を基準にする">
+<!ENTITY qf.filters.template.to "受信者 (to) を基準にする">
+<!ENTITY qf.filters.template.list "メーリングリスト">
+<!ENTITY qf.filters.template.topic "件名を基準にする">
+<!ENTITY qf.filters.template.tag "タグを基準にする">
+<!ENTITY qf.filters.template.tag.description "メッセージのタグをフィルタ条件に追加します。">
+<!ENTITY qf.filters.templates.description.label "説明:">
+<!ENTITY qf.filters.instructions "テンプレートを選択してください。次の画面でフィルタルールを設定します。">
+<!ENTITY qf.continueFilter.label "フィルタ作成...">
+<!ENTITY qf.continueFilter.shortcut "F">
+<!ENTITY qf.filters.actions.caption "操作">
+<!ENTITY qf.filters.actions.targetFolder "対象フォルダ">
+<!ENTITY qf.filters.actions.tag "タグ">
+<!ENTITY qf.filters.actions.tag.accesskey "T">
+<!ENTITY qf.filters.actions.priority "優先度">
+<!ENTITY qf.filters.actions.priority.accesskey "P">
+<!ENTITY qf.filters.actions.flag "フラグ">
+<!ENTITY qf.filters.actions.flag.accesskey "F">
+<!ENTITY qf.filters.actions.star "スター">
+<!ENTITY qf.filters.actions.star.accesskey "S">
+<!ENTITY qf.filters.actions.tooltip "元のメールからこれらの属性をコピーするフィルタです">
+<!ENTITY qf.label.donate "寄付">
+<!ENTITY qf.donate.tooltip "quickFilters の開発を支援します">
+<!ENTITY qf.label.cancel "キャンセル">
+<!ENTITY qf.check.createNew "新しいフィルタを作成する">
+<!ENTITY qf.check.mergeWithExisting "既存のフィルタにマージする:">

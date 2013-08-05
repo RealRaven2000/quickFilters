@@ -1,0 +1,24 @@
+<!ENTITY prefwindow.title "quickFilters preferences">
+<!ENTITY pane1.title "quickFilters preferences">
+<!ENTITY chkDebug.label "Debug Mode">
+<!ENTITY chkDebug.accesskey "D">
+<!ENTITY chkAutoClose.label "Exit Filter Assistant after a filter has been created">
+<!ENTITY chkAutoClose.accesskey "E">
+<!ENTITY chkAutoStart.label "Automatically start Filter Assistant mode with application">
+<!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY donate.label "Donate">
+<!ENTITY qf.description.donate "If you like quickFilters and would like to support its development, you can donate some money towards the further development of quickFilters.">
+<!ENTITY qf.label.donateLink "Visit the Donation Page…">
+<!ENTITY qf.description.about "A quick description of quickFilters can be found at the following site:">
+<!ENTITY qf.label.aboutLink "quickFilters Website…">
+<!ENTITY qf.description.contactMe "You can also contact me personally at axelg@gofree.indigo.ie:">
+<!ENTITY qf.label.contactLink "Contact me (in English or German)…">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "Right-click for version history.">
+<!ENTITY qf.tab.options "Options">
+<!ENTITY qf.tab.support "Support">
+<!ENTITY qf.label.naming "Naming Rules">
+<!ENTITY qf.label.naming.parentFolder "Add parent folder name">
+<!ENTITY qf.label.naming.parentFolder.accesskey "p">
+<!ENTITY qf.label.naming.keyWord "Add rule specific keyword">
+<!ENTITY qf.label.naming.keyWord.accesskey "k">

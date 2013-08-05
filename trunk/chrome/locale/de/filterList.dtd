@@ -1,0 +1,17 @@
+<!ENTITY qf.label.filterCountN_of_M "{0} von {1}">
+<!ENTITY qf.label.filterEntities "Einträge">
+<!ENTITY qf.label.filterSingleEntity "1 Eintrag">
+<!ENTITY qf.textbox.searchBox.emptyText "Filter durchsuchen…">
+<!ENTITY qf.textbox.searchBox.toolTip "das Stichwort filtert die Liste nach Namen">
+<!ENTITY qf.button.reorderButtonTop "Zum Anfang">
+<!ENTITY qf.button.reorderButtonTop.accessKey "Z">
+<!ENTITY qf.button.reorderButtonTop.toolTip "Filter vor allen anderen ausführen">
+<!ENTITY qf.button.reorderButtonBottom "Zum Ende">
+<!ENTITY qf.button.reorderButtonBottom.accessKey "E">
+<!ENTITY qf.button.reorderButtonBottom.toolTip "Filter nach allen anderen ausführen">
+<!ENTITY quickfilters.button.merge "Zusammenführen">
+<!ENTITY quickfilters.button.merge.accesskey "Z">
+<!ENTITY quickfilters.button.merge.tooltiptext "Mehrere Filter zusammenführen die dieselbe Aktion ausführen">
+<!ENTITY quickfilters.menu.cut "Ausschneiden">
+<!ENTITY quickfilters.menu.copy "Kopieren">
+<!ENTITY quickfilters.menu.paste "Einfügen">

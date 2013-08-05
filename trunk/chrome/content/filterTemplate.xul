@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="filterTemplate.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://quickfilters/locale/filters.dtd" >
+
+
+
+<prefwindow title="&qf.filters.title;"
+	id="qf-template"
+	buttons="extra2,cancel,extra1"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	buttonlabelcancel="&qf.label.cancel;"
+	buttonlabelextra1="&qf.continueFilter.label;"
+	buttonlabelextra2="&qf.label.donate;"
+	ondialogextra2="quickFilters.Util.showDonatePage();"
+	ondialogcancel="return quickFilters.Assistant.cancelTemplate();"
+	ondialogextra1="return quickFilters.Assistant.next();"
+	onload="quickFilters.Assistant.loadAssistant();"
+>
+<!--	buttonaccesskeyextra1="&qf.continueFilter.shortcut;" -->
+<!--	tooltiptextextra2="&qf.donate.tooltip;" -->
+
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
+	
+	
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="bundle_filter" src="chrome://quickfilters/locale/filters.properties"/>
+  </stringbundleset>
+
+	
+	<prefpane id="qf-template-prefpane" >
+	
+		<preferences>
+			<preference id="QuickFilters-Preferences-SelectedFilterTemplate" 
+				        name="extensions.quickfilters.filters.currentTemplate" 
+						type="string" />
+			<preference id="tags" 
+			            name="extensions.quickfilters.actions.tags" 
+						type="bool"
+						instantApply="true"
+						/>
+			<preference id="star" 
+			            name="extensions.quickfilters.actions.star" 
+						type="bool"  
+						instantApply="true"
+						/>
+			<preference id="flag" 
+			            name="extensions.quickfilters.actions.flag" 
+						type="bool"  
+						instantApply="true"
+						/>
+			<preference id="priority" 
+			            name="extensions.quickfilters.actions.priority" 
+						type="bool" 
+						instantApply="true"
+						/>
+		</preferences>
+
+		<hbox id="header">
+			<image id="qf-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
+		</hbox>
+		
+	<deck selectedIndex="1" 
+	      id="assistantDeck" 
+		  orient = "vertical">
+		<vbox class="deckChild">
+			<description id="mergeSummary">
+				QuickFilters Assistant found some filters that already do the same action.
+			</description>
+			<description id="mergeInstructions">
+				You can either extend one of these or create a completely new filter.
+			</description>
+			<checkbox id="chkMerge" 
+					  label="&qf.check.mergeWithExisting;" 
+					  checked="false"
+					  oncommand="quickFilters.Assistant.selectMerge(this);"
+					  />
+			<hbox>		  
+				<listbox id="filterMatches"
+						 seltype="single"
+						 ondblclick="quickFilters.Assistant.selectMatch(this);"
+						 onselect="quickFilters.Assistant.selectMatchFromList(this);"
+						 rows="5" />
+				<description id="filterDescription">
+				Select a Filter to extend with new rules.
+ 				</description>
+			</hbox>
+			<checkbox id="chkCreateNew" 
+					  label="&qf.check.createNew;" 
+					  checked="true"
+					  oncommand="quickFilters.Assistant.selectCreateNew(this);"
+					  />
+        </vbox>
+		
+	
+		<vbox class="deckChild">
+			<hbox class="myWizard">
+				<listbox id="qf-filter-templates"
+				  ondblclick="quickFilters.Assistant.selectTemplate(this);"
+				  onselect="quickFilters.Assistant.selectTemplateFromList(this);"
+				  preference="QuickFilters-Preferences-SelectedFilterTemplate"
+				  rows="6">
+					<listitem label='&qf.filters.template.from;' value='from' tooltip=""/>
+					<listitem label='&qf.filters.template.to;' value='to' />
+					<listitem label='&qf.filters.template.list;' value='list' />
+					<listitem label='&qf.filters.template.topic;' value='topic' />
+					<listitem label='&qf.filters.template.tag;' value='tag' />
+				</listbox>
+				<groupbox orient="vertical"
+						  tooltiptext="&qf.filters.actions.tooltip;">
+					<caption label="&qf.filters.actions.caption;" />
+					<checkbox id="chkActionTargetFolder" 
+							  label="&qf.filters.actions.targetFolder;" 
+							  disabled="true"
+							  checked="true"
+							  />
+					<checkbox id="chkActionTags" 
+							  preference="tags" 
+							  label="&qf.filters.actions.tag;" 
+							  accesskey="&qf.filters.actions.tag.accesskey;"
+							  />
+					<checkbox id="chkActionPriority" 
+							  preference="priority" 
+							  label="&qf.filters.actions.priority;" 
+							  accesskey="&qf.filters.actions.priority.accesskey;"
+							  />
+					<!-- Thunderbird only -->
+					<checkbox id="chkActionStar" 
+							  preference="star" 
+							  label="&qf.filters.actions.star;" 
+							  accesskey="&qf.filters.actions.star.accesskey;"
+							  />
+					<!-- SeaMonkey  -->
+					<checkbox id="chkActionFlag" 
+							  preference="flag" 
+							  label="&qf.filters.actions.flag;" 
+							  accesskey="&qf.filters.actions.flag.accesskey;"
+							  />
+				</groupbox>
+			</hbox>
+			<hbox id="boxDescription">
+				<label id="templateLabel" value="&qf.filters.templates.description.label;" />
+				<description id="templateDescription"></description>
+			</hbox>
+			
+			<description id="qf-whatToDo">&qf.filters.instructions;</description>
+		</vbox>
+	</deck>
+		
+    </prefpane>
+</prefwindow>
+

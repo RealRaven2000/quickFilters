@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="filterList.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://quickfilters/locale/filterList.dtd" >
+<overlay id="QuickFilters-FilterOverlay"
+		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-list.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/overlayFilterList.js" />
+	
+	
+
+	<window id="filterListDialog">
+	
+	
+		<popupset id="QuickFilterTreeContextSet">
+			<menupopup id = "quickFiltersContext">
+				<menuitem id = "quickFiltersCut" class="menuitem-iconic"
+					label = "&quickfilters.menu.cut;"
+					oncommand = "quickFilters.List.cutFilters();"
+					/>
+				<menuitem id = "quickFiltersCopy" class="menuitem-iconic"
+					label = "&quickfilters.menu.copy;"
+					oncommand = "quickFilters.List.copyFilters();"
+					/>
+				<menuitem id = "quickFiltersPaste" class="menuitem-iconic"
+					label = "&quickfilters.menu.paste;"
+					oncommand = "quickFilters.List.pasteFilters();"
+					/>
+			</menupopup>
+			
+			<panel id="quickFilterNotification" noautohide="true">	
+					<notificationbox flex="1" id="quickFilterNotificationBox" >
+						<!-- <notification type="warning" label="Test" id="quickFiltersNotificationContent"/> -->
+					</notificationbox>
+			</panel>
+			
+		</popupset>
+
+
+
+		
+
+		<label id="quickFilters-Count-n-of-m"
+			hidden="true"
+			value="&qf.label.filterCountN_of_M;" />
+
+		<label id="quickFilters-Count-items"
+			hidden="true"
+			value="&qf.label.filterEntities;" />
+		<label id="quickFilters-Count-1-item"
+			hidden="true"
+			value="&qf.label.filterSingleEntity;" />
+
+
+		<textbox id="quickFilters-Search"
+			flex="7"
+			type="search"
+			oncommand="quickFilters.List.onFindFilter(true);"
+			emptytext="&qf.textbox.searchBox.emptyText;"
+			tooltiptext="&qf.textbox.searchBox.toolTip;"
+			isempty="true"
+			timeout="300"
+		/>
+
+		<label id="quickFilters-Count"/>
+		
+		<button
+			id="quickFilters-mergeButton"
+			insertafter="deleteButton"
+			label="&quickfilters.button.merge;"
+			accesskey="&quickfilters.button.merge.accesskey;"
+			tooltiptext="&quickfilters.button.merge.tooltiptext;"
+			oncommand="quickFilters.List.merge(event);"
+		/>
+
+		<button
+			id="quickFilters-reorderButtonTop"
+			insertbefore="reorderUpButton"
+			label="&qf.button.reorderButtonTop;"
+			accesskey="&qf.button.reorderButtonTop.accessKey;"
+			tooltiptext="&qf.button.reorderButtonTop.toolTip;"
+			oncommand="quickFilters.List.onTop(event);"
+		/>
+
+		<button
+			id="quickFilters-reorderButtonBottom"
+			insertafter="reorderDownButton"
+			label="&qf.button.reorderButtonBottom;"
+			accesskey="&qf.button.reorderButtonBottom.accessKey;"
+			tooltiptext="&qf.button.reorderButtonBottom.toolTip;"
+			oncommand="quickFilters.List.onBottom(event);"
+		/>
+<!--		
+		<button
+			id="quickFilters-copyButton"
+			insertafter="deleteButton"
+			label="&qf.button.copyButton;"
+			accesskey="&qf.button.copyButton.accessKey;"
+			oncommand="quickFilters.List.onCopy();"
+		/>
+		
+		<button
+			id="quickFilters-pasteButton"
+			insertafter="quickFilters-copyButton"
+			label="&qf.button.pasteButton;"
+			accesskey="&qf.button.pasteButton.accessKey;"
+			oncommand="quickFilters.List.onPaste();"
+		/>
+-->
+		
+	</window>
+
+</overlay>

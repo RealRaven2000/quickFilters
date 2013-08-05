@@ -1,0 +1,9 @@
+<!ENTITY quickfilters.Start.label "Démarrer l'assistant de création de filtre…">
+<!ENTITY quickfilters.FromMessage.label "QuickFilters: Créer un filtre à aprtir du message…">
+<!ENTITY quickfilters.FromMessage.accesskey "Q">
+<!ENTITY quickfiltersToolbarButton.label "Assistant quickFilters">
+<!ENTITY quickfiltersToolbarButton.tooltip "Activer l'assistant de filtre">
+<!ENTITY quickfilters.ListButton.label "Filtres de message…">
+<!ENTITY quickfilters.ListButton.tooltip "Afficher une liste de filtres de message">
+<!ENTITY quickfilters.RunButton.label "Lancer les filtres">
+<!ENTITY quickfilters.RunButton.tooltip "Lance les filtres paramétrés pour le dossier courant">

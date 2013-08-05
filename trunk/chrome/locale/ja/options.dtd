@@ -1,0 +1,24 @@
+<!ENTITY prefwindow.title "quickFilters 設定">
+<!ENTITY pane1.title "quickFilters 設定">
+<!ENTITY chkDebug.label "デバッグモード">
+<!ENTITY chkDebug.accesskey "D">
+<!ENTITY chkAutoClose.label "フィルタの作成後にフィルタ作成アシスタントを終了する">
+<!ENTITY chkAutoClose.accesskey "E">
+<!ENTITY chkAutoStart.label "自動的にフィルタ支援モードを開始する">
+<!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY donate.label "寄付">
+<!ENTITY qf.description.donate "quickFilters が気に入って開発をサポートしたいときは、quickFilters の開発にいくらかの寄付をすることができます。">
+<!ENTITY qf.label.donateLink "寄付ページを開く...">
+<!ENTITY qf.description.about "quickFilters の簡単な説明は次のサイトにあります:">
+<!ENTITY qf.label.aboutLink "quickFilters の Web サイト...">
+<!ENTITY qf.description.contactMe "個人的なお問い合わせは axelg@gofree.indigo.ie まで:">
+<!ENTITY qf.label.contactLink "問い合わせる (英語またはドイツ語のみ)...">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "右クリックでバージョン履歴を表示します。">
+<!ENTITY qf.tab.options "オプション">
+<!ENTITY qf.tab.support "サポート">
+<!ENTITY qf.label.naming "命名規則">
+<!ENTITY qf.label.naming.parentFolder "親フォルダの名前を追加する">
+<!ENTITY qf.label.naming.parentFolder.accesskey "p">
+<!ENTITY qf.label.naming.keyWord "規則通りのキーワードを追加する">
+<!ENTITY qf.label.naming.keyWord.accesskey "k">
