@@ -5,29 +5,90 @@
 	width: 100%;
 }
 
-.quickFiltersCut {
-	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
+/* All toolbar buttons */
+#quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, #quickFiltersBtnSettings, #quickFiltersBtnStart {
+  display: -moz-box;
 }
+ 
 
+/* Clipboard in-list styles - affect filter entries that are marked to cut / copy */
 .quickFiltersCopy listcell:first-child,
 .quickFiltersCut listcell:first-child {
 	font-style:italic;
 }
 
-.quickFiltersCopy {
+/* Cut */
+.quickFiltersCut, #quickFiltersCut {
+	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
+}
+
+[iconsize="small"] #quickFiltersBtnCut {
+	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
+}
+
+#quickFiltersBtnCut {
+	list-style-image: url("chrome://quickfilters/skin/fugue-scissors_24.png");
+}
+
+/* Copy */
+.quickFiltersCopy, #quickFiltersCopy {
 	list-style-image: url("chrome://quickfilters/skin/fugue-copy.png");
 }
 
-#quickFiltersCut {
-	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
-}
-#quickFiltersCopy {
+[iconsize="small"] #quickFiltersBtnCopy {
 	list-style-image: url("chrome://quickfilters/skin/fugue-copy.png");
 }
+#quickFiltersBtnCopy {
+	list-style-image: url("chrome://quickfilters/skin/fugue-copy_24.png");
+}
+
+
+/* Paste */
 #quickFiltersPaste {
 	list-style-image: url("chrome://quickfilters/skin/fugue-paste.png");
 }
 
+[iconsize="small"] #quickFiltersBtnPaste {
+	list-style-image: url("chrome://quickfilters/skin/fugue-paste.png");
+}
+
+#quickFiltersBtnPaste {
+	list-style-image: url("chrome://quickfilters/skin/fugue-paste_24.png");
+}
+
+/* Merge */
+[iconsize="small"] #quickFiltersBtnMerge {
+	list-style-image: url("chrome://quickfilters/skin/fugue-join.png");
+}
+#quickFiltersBtnMerge {
+	list-style-image: url("chrome://quickfilters/skin/fugue-join_24.png");
+}
+
+/* Assistant */
+#quickFiltersBtnStart {
+	list-style-image: url("chrome://quickfilters/skin/QuickFilters_24.png");
+	-moz-image-region: rect(0px 24px 24px 0px);
+}
+#quickFiltersBtnStart:hover {  -moz-image-region: rect(24px 24px 48px  0px); }
+#quickFiltersBtnStart[checked="true"] {   -moz-image-region: rect(48px 24px 72px 0px) !important;}
+
+[iconsize="small"] #quickFiltersBtnStart {
+	list-style-image: url("chrome://quickfilters/skin/QuickFilters_16.png");
+	-moz-image-region: rect(0px 16px 16px 0px);
+}
+[iconsize="small"] #quickFiltersBtnStart[checked="true"] {
+   -moz-image-region: rect(32px 16px 48px 0px) !important;
+}
+[iconsize="small"] #quickFiltersBtnStart:hover {
+  -moz-image-region: rect(16px 16px 32px 0px) !important;
+}
+
+
+/* Options - Icon from  Aha-Soft Team http://www.small-icons.com/ */
+#quickFiltersBtnSettings {
+	list-style-image: url("chrome://quickfilters/skin/wrench.png");
+}
+/* Sorting and Ordering ...  */
 #quickFilters-reorderButtonTop {
 	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-top.png");
 	-moz-image-region: rect(0, 16px, 16px, 0);
@@ -62,6 +123,7 @@
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 
+/* obsolete ? */
 #serverMenu {
 	min-width: 20em;
 	width:70%;

@@ -13,11 +13,12 @@
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/overlayFilterList.js" />
 	
+  <toolbarpalette id="QuickFiltersToolbarPalette">
+  </toolbarpalette>	
 	
 
 	<window id="filterListDialog">
-	
-	
+  
 		<popupset id="QuickFilterTreeContextSet">
 			<menupopup id = "quickFiltersContext">
 				<menuitem id = "quickFiltersCut" class="menuitem-iconic"
@@ -42,7 +43,54 @@
 			
 		</popupset>
 
-
+	  <toolbox id="quickfilters-toolbox" insertbefore = "status-bar">
+		<toolbar 
+		  id="quickfilters-toolbar" 
+		  toolbarname="quickFilters Tools"
+		  customizable="false" 
+		  mode="icons" 
+		  >
+			<toolbarbutton id="quickFiltersBtnCut"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.menu.cut;"
+			  tooltiptext = "&quickfilters.menu.cut;"
+			  oncommand = "quickFilters.List.cutFilters();"
+			  />
+			<toolbarbutton id="quickFiltersBtnCopy"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.menu.copy;"
+			  tooltiptext = "&quickfilters.menu.copy;"
+			  oncommand = "quickFilters.List.copyFilters();"
+			  />
+			<toolbarbutton id="quickFiltersBtnPaste"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.menu.paste;"
+			  tooltiptext = "&quickfilters.menu.paste;"
+			  oncommand = "quickFilters.List.pasteFilters();"
+			  />
+		    <toolbarseparator />
+			<toolbarbutton id="quickFiltersBtnMerge"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.button.settings;"
+			  tooltiptext = "&quickfilters.button.settings;"
+			  oncommand = "quickFilters.List.merge(event, true);"
+			  />
+			<toolbarbutton id="quickFiltersBtnStart"
+              class="toolbarbutton-1 chromeclass-toolbar-additional"
+              label="&quickfilters.button.assistant;"
+              tooltiptext="&quickfilters.button.assistant.tooltiptext;"
+              oncommand="quickFilters.List.toggleAssistant(this);"
+			  />
+			  
+		    <toolbarspring />
+			<toolbarbutton id="quickFiltersBtnSettings"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.button.settings;"
+			  tooltiptext = "&quickfilters.button.settings;"
+			  oncommand = "quickFilters.showOptions();"
+			  />
+		  </toolbar>
+	  </toolbox>
 
 		
 
