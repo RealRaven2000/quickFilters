@@ -81,7 +81,7 @@ quickFilters.List = {
     return list.view.selection.count;
   } ,
   
-  merge: function (evt)
+  merge: function (evt, isEvokedFromButton)
   {
     function copyTerms(fromFilter, toFilter) {
       let stCollection = fromFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
@@ -651,6 +651,22 @@ quickFilters.List = {
         el.minwidth = 15;
       }
     }
+		// Toolbar
+		let toolbox = document.getElementById("quickfilters-toolbox");
+		let hbs = document.getElementsByTagName('hbox');
+		let isToolbar = false;
+		if (hbs && toolbar) { // move toolbox up
+		  let hbox = hbs[0];
+			hbox.parentNode.insertBefore(toolbox, hbox);
+			isToolbar = true;
+			let win = quickFilters.Util.getMail3PaneWindow();
+			if (win.quickFilters.Worker.FilterMode) {
+				let button = document.getElementById('quickFiltersBtnStart');
+				button.checked = true;			
+			}
+		}
+		
+		
 		// add event listener for changing account
     let dropDown = document.getElementById("serverMenu");
 		if (dropDown) {
@@ -677,7 +693,10 @@ quickFilters.List = {
     var countBox = document.getElementById("quickFilters-Count");
     var mergeButton = document.getElementById("quickFilters-mergeButton");
     if (mergeButton) {
-      down.parentNode.insertBefore(mergeButton, document.getElementById("deleteButton").nextSibling);
+		  if (isToolbar)
+				mergeButton.parentNode.removeChild(mergeButton); // remove unneccessary button
+			else
+				down.parentNode.insertBefore(mergeButton, document.getElementById("deleteButton").nextSibling);
     }
     
     if (nativeSearchBox || quickFolderSearchBox) {
@@ -974,6 +993,11 @@ quickFilters.List = {
       quickFilters.Util.logException("Exception in quickFilters.List.validateFilterTargets ", ex);
     }
 
-  }
-
+  },
+	
+	toggleAssistant: function(btn) {
+	  let win = quickFilters.Util.getMail3PaneWindow();
+		btn.checked = !win.quickFilters.Worker.FilterMode; // toggle
+		win.quickFilters.onToolbarButtonCommand();	
+	}
 };
