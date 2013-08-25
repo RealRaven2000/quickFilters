@@ -18,6 +18,7 @@ pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overla
 
 pref("extensions.quickfilters.abortAfterCreate", false);
 pref("extensions.quickfilters.autoStart", false);
+pref("extensions.quickfilters.toolbar", true);
 
 pref("extensions.quickfilters.filters.currentTemplate", "from");
 pref("extensions.quickfilters.actions.tags", true);

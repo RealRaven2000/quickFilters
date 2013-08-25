@@ -6,6 +6,8 @@
 <!ENTITY chkAutoClose.accesskey "S">
 <!ENTITY chkAutoStart.label "Starta Filterassistenten automatiskt vid programstart">
 <!ENTITY chkAutoStart.accesskey "a">
+<!ENTITY chkToolbar.label "Visa verktygsfält i Filterhanteraren">
+<!ENTITY chkToolbar.accesskey "y">
 <!ENTITY donate.label "Donera">
 <!ENTITY qf.description.donate "Om du tycker om quickFilters och skulle vilja stödja dess fortsatta utveckling, så kan du donera en slant för att hjälpa utvecklaren.">
 <!ENTITY qf.label.donateLink "Gå till donationssidan …">

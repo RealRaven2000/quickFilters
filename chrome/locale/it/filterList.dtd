@@ -15,3 +15,6 @@
 <!ENTITY quickfilters.menu.cut "Taglia">
 <!ENTITY quickfilters.menu.copy "Copia">
 <!ENTITY quickfilters.menu.paste "Incolla">
+<!ENTITY quickfilters.button.settings "Impostazioni di quickFilters…">
+<!ENTITY quickfilters.button.assistant "Configurazione guidata di attivazione/disattivazione…">
+<!ENTITY quickfilters.button.assistant.tooltiptext "Modalità di configurazione guidata di attivazione/disattivazione filtro. Se è attiva, trascinando e rilasciando le email si creano i filtri.">

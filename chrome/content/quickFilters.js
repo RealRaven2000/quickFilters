@@ -119,7 +119,10 @@ END LICENSE BLOCK */
 
   1.9 WIP
 	  # renamed toggleFilter to avoid false validation warnings
-		# 
+		# better integration with QuickFolders
+		# Added a toolbar which shows the quickFilters commands: Copy, Cut, Paste, Merge, Start Assistant, and settings
+		# Added donate button to settings dialog
+
 		
 		
 		
@@ -229,8 +232,8 @@ var quickFilters = {
 				&& 
 				!quickFilters.Worker.FilterMode) 
 		{
-			quickFilters.Util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
-      setTimeout(function() { quickFilters.Worker.toggle_FilterMode(true, true);  }, 100);
+			quickFilters.Util.logDebugOptional("events","setTimeout() - toggleFilterMode");
+      setTimeout(function() { quickFilters.Worker.toggleFilterMode(true, true);  }, 100);
 		}
 		quickFilters.Util.logDebugOptional("events","setTimeout() - checkFirstRun");
     setTimeout(function() { quickFilters.checkFirstRun(); }, 1000);
@@ -314,7 +317,7 @@ var quickFilters = {
 //                                 this.strings.getString("helloMessage"));
 		switch(cmd) {
 			case 'toggle_Filters':
-				quickFilters.Worker.toggle_FilterMode(!quickFilters.Worker.FilterMode);
+				quickFilters.Worker.toggleFilterMode(!quickFilters.Worker.FilterMode);
 				break;
 			case 'createFilterFromMsg':
 				let selectedMessages = gFolderDisplay.selectedMessages; 

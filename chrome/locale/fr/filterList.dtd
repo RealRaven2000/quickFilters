@@ -15,3 +15,6 @@
 <!ENTITY quickfilters.menu.cut "Couper">
 <!ENTITY quickfilters.menu.copy "Copier">
 <!ENTITY quickfilters.menu.paste "Coller">
+<!ENTITY quickfilters.button.settings "Paramètres quickFilters…">
+<!ENTITY quickfilters.button.assistant "Activer/désactiver l'assistant…">
+<!ENTITY quickfilters.button.assistant.tooltiptext "Active/désactive le mode d'assistance pour filtre. Lorsqu'il est actif, glissez-déposez les courriels pour créer des filtres.">

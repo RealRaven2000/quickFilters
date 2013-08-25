@@ -6,6 +6,8 @@
 <!ENTITY chkAutoClose.accesskey "E">
 <!ENTITY chkAutoStart.label "Automatically start Filter Assistant mode with application">
 <!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY chkToolbar.label "Display Toolbar in Filter Manager">
+<!ENTITY chkToolbar.accesskey "T">
 <!ENTITY donate.label "Donate">
 <!ENTITY qf.description.donate "If you like quickFilters and would like to support its development, you can donate some money towards the further development of quickFilters.">
 <!ENTITY qf.label.donateLink "Visit the Donation Page…">

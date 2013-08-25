@@ -15,3 +15,6 @@
 <!ENTITY quickfilters.menu.cut "Klipp ut">
 <!ENTITY quickfilters.menu.copy "Kopiera">
 <!ENTITY quickfilters.menu.paste "Klistra in">
+<!ENTITY quickfilters.button.settings "Inställningar för quickFilters …">
+<!ENTITY quickfilters.button.assistant "Växla assistentläge …">
+<!ENTITY quickfilters.button.assistant.tooltiptext "Växlar filterassistentläget av/på. När det är aktiverat, dra och släpp e-brev för att skapa filter.">

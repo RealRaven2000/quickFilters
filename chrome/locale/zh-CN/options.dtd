@@ -6,6 +6,8 @@
 <!ENTITY chkAutoClose.accesskey "E">
 <!ENTITY chkAutoStart.label "自动启动过滤器助手模式">
 <!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY chkToolbar.label "在过滤器管理中显示工具栏">
+<!ENTITY chkToolbar.accesskey "T">
 <!ENTITY donate.label "捐助">
 <!ENTITY qf.description.donate "如果您喜欢 quickFilters 并愿意支持开发人员，请捐助开发者以支持 quicklyFiters 的长期开发。">
 <!ENTITY qf.label.donateLink "访问捐助页面…">

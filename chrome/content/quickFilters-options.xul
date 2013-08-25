@@ -4,11 +4,16 @@
 <!DOCTYPE prefwindow SYSTEM "chrome://quickfilters/locale/options.dtd">
 
 <prefwindow id="quickfilters-preferences" 
+            buttons="extra2,accept"
+			buttonlabelextra2="&donate.label;"
             xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
             title="&prefwindow.title;"
             onload="quickFilters.Options.load();"
             autostretch="always" 
-            minHeight="400">
+            minHeight="400"
+			ondialogextra2="quickFilters.Util.openLinkInBrowser(event,'http://quickfilters.mozdev.org/donate.html')"
+			tooltiptextextra2="&qf.label.donateLink;"
+			>
 
 
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
@@ -33,6 +38,11 @@
 				  />
       <preference id="autoStart" 
 	              name="extensions.quickfilters.autoStart" 
+				  type="bool"  
+				  instantApply="true"
+				  />
+      <preference id="toolbar" 
+	              name="extensions.quickfilters.toolbar" 
 				  type="bool"  
 				  instantApply="true"
 				  />
@@ -89,6 +99,12 @@
                   label="&chkAutoStart.label;" 
                   accesskey="&chkAutoStart.accesskey;"
                   />
+		<checkbox id="chkToolbar"
+		          preference="toolbar"
+                  label="&chkToolbar.label;" 
+                  accesskey="&chkToolbar.accesskey;"
+                  />
+				  
         <separator class="groove-thin" />
         <groupbox  orient="vertical" >
         	<caption label="&qf.label.naming;"/>
