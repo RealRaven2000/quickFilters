@@ -653,9 +653,15 @@ quickFilters.List = {
     }
 		// Toolbar
 		let toolbox = document.getElementById("quickfilters-toolbox");
-		let hbs = document.getElementsByTagName('hbox');
+		let hbs = document.getElementsByTagName(
+		    (quickFilters.Util.Application == 'SeaMonkey')
+			? 'grid'
+		  : 'hbox');
 		let isToolbar = false;
-		if (hbs && toolbar) { // move toolbox up
+		if (!quickFilters.Preferences.getBoolPrefQF("toolbar")) {
+		  toolbox.parentNode.removeChild(toolbox);
+		}
+		else if (hbs && toolbar) { // move toolbox up
 		  let hbox = hbs[0];
 			hbox.parentNode.insertBefore(toolbox, hbox);
 			isToolbar = true;

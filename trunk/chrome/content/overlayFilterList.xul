@@ -71,8 +71,8 @@
 		    <toolbarseparator />
 			<toolbarbutton id="quickFiltersBtnMerge"
 			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
-			  label = "&quickfilters.button.settings;"
-			  tooltiptext = "&quickfilters.button.settings;"
+			  label = "&quickfilters.button.merge;"
+			  tooltiptext = "&quickfilters.button.merge.tooltiptext;"
 			  oncommand = "quickFilters.List.merge(event, true);"
 			  />
 			<toolbarbutton id="quickFiltersBtnStart"

@@ -46,7 +46,7 @@ quickFilters.Worker = {
   *
   * @param {bool} start or stop filter mode
   */
-  toggle_FilterMode: function(active, silent)
+  toggleFilterMode: function(active, silent)
   {
 		function removeOldNotification(box, active, id) {
 			if (!active && box) {
@@ -56,7 +56,7 @@ quickFilters.Worker = {
 			}		
 		}
 		
-    quickFilters.Util.logDebugOptional ("filters", "toggle_FilterMode(" + active + ")");
+    quickFilters.Util.logDebugOptional ("filters", "toggleFilterMode(" + active + ")");
     let notificationId;
 		let notifyBox;
 
@@ -147,7 +147,7 @@ quickFilters.Worker = {
 			// we cannot supress the notification from QuickFolders
 			// without adding code in it!
       if (worker.FilterMode != active) // prevent recursion!
-        worker.toggle_FilterMode(active);  // (active, silent) !!!
+        worker.toggleFilterMode(active);  // (active, silent) !!!
 
 			if (!silent)
 				removeOldNotification(notifyBox, active, 'quickfolders-filter');
@@ -706,7 +706,7 @@ quickFilters.Worker = {
             
             // stop filter mode after creating first successful filter.
             if (quickFilters.Preferences.isAbortAfterCreateFilter()) {
-              quickFilters.Worker.toggle_FilterMode(false);
+              quickFilters.Worker.toggleFilterMode(false);
             }
           } //else, let's remove the filter (Cancel case)
           else {

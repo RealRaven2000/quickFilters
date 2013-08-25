@@ -6,6 +6,8 @@
 <!ENTITY chkAutoClose.accesskey "З">
 <!ENTITY chkAutoStart.label "Запуск режима создания фильтров при старте приложения">
 <!ENTITY chkAutoStart.accesskey "а">
+<!ENTITY chkToolbar.label "Display Toolbar in Filter Manager">
+<!ENTITY chkToolbar.accesskey "T">
 <!ENTITY donate.label "Поддержка">
 <!ENTITY qf.description.donate "Если quickFilters Вам нравится, Вы можете поддержать деньгами дальнейшее развитие.">
 <!ENTITY qf.label.donateLink "Поддержать...">

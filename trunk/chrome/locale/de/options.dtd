@@ -6,6 +6,8 @@
 <!ENTITY chkAutoClose.accesskey "E">
 <!ENTITY chkAutoStart.label "Filter Assistent Modus bei Programmstart einschalten">
 <!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY chkToolbar.label "Werkzeugleiste in Filter Manager anzeigen">
+<!ENTITY chkToolbar.accesskey "W">
 <!ENTITY donate.label "Spenden">
 <!ENTITY qf.description.donate "Falls Sie quickFilters mögen und weitere Software-Entwicklung unterstützen wollen, können Sie uns hier eine Spende hinterlassen:">
 <!ENTITY qf.label.donateLink "Die Spenden-Seite besuchen…">

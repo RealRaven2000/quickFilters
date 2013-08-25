@@ -6,6 +6,8 @@
 <!ENTITY chkAutoClose.accesskey "a">
 <!ENTITY chkAutoStart.label "Filterassistent-modus automatisch starten met toepassing">
 <!ENTITY chkAutoStart.accesskey "m">
+<!ENTITY chkToolbar.label "Werkbalk in Filterbeheerder weergeven">
+<!ENTITY chkToolbar.accesskey "W">
 <!ENTITY donate.label "Doneren">
 <!ENTITY qf.description.donate "Als u quickFilters even leuk vindt als wij en de ontwikkeling ervan wilt ondersteunen, kunt u wat geld doneren voor de verdere ontwikkeling van quickFilters.">
 <!ENTITY qf.label.donateLink "Bezoek de donatiepagina…">

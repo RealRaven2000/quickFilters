@@ -1,3 +1,5 @@
+@import url('chrome://quickfilters/content/contribute.css');
+
 #quickfilters-preferences {
   min-height: 400px;
 }
