@@ -6,8 +6,8 @@
 <!ENTITY chkAutoClose.accesskey "E">
 <!ENTITY chkAutoStart.label "Attiva automaticamente la procedura guidata">
 <!ENTITY chkAutoStart.accesskey "A">
-<!ENTITY chkToolbar.label "Mostra la barra degli strumenti nel Gestore dei filtri">
-<!ENTITY chkToolbar.accesskey "M">
+<!ENTITY chkToolbar.label "Mostra la Barra degli strumenti nel Gestore dei filtri">
+<!ENTITY chkToolbar.accesskey "B">
 <!ENTITY donate.label "Dona">
 <!ENTITY qf.description.donate "Se quickFilters ti piace e vuoi contribuire al suo mantenimento, puoi donare del denaro per un suo ulteriore sviluppo:">
 <!ENTITY qf.label.donateLink "Visita la pagina delle donazioni…">

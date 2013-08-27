@@ -328,7 +328,9 @@ quickFilters.Worker = {
 			if (messageList[0].accountKey) {
 				const accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].
 												getService(Ci.nsIMsgAccountManager).accounts;
-				for (let i = 0; i < accounts.Count(); i++) {
+				// accounts will be changed from nsIMutableArray to nsIArray Tb24 (Sm2.17)
+	      let nAccounts = (typeof accounts.Count === 'undefined') ? accounts.length : accounts.Count();
+				for (let i = 0; i < nAccounts; i++) {
 					let ac = accounts.queryElementAt ?
 						accounts.queryElementAt(i, Ci.nsIMsgAccount) :
 						accounts.GetElementAt(i).QueryInterface(Ci.nsIMsgAccount);

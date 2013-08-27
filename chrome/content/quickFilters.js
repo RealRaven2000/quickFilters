@@ -118,12 +118,11 @@ END LICENSE BLOCK */
 	 # some debugging improvements during createFilter
 
   1.9 WIP
-	  # renamed toggleFilter to avoid false validation warnings
-		# better integration with QuickFolders
 		# Added a toolbar which shows the quickFilters commands: Copy, Cut, Paste, Merge, Start Assistant, and settings
+		# better integration with QuickFolders
+		# Compatibility change for Tb 24 / Sm2.17 (nsIMsgAccountManager.accounts changed from nsIMutableArray to nsIArray)
 		# Added donate button to settings dialog
-
-		
+	  # (TBD: rename toggleFilter to avoid false validation warnings ??)
 		
 		
 	 */
