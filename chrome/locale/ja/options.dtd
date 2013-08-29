@@ -6,7 +6,7 @@
 <!ENTITY chkAutoClose.accesskey "E">
 <!ENTITY chkAutoStart.label "自動的にフィルタ支援モードを開始する">
 <!ENTITY chkAutoStart.accesskey "A">
-<!ENTITY chkToolbar.label "Display Toolbar in Filter Manager">
+<!ENTITY chkToolbar.label "フィルタマネージャにツールバーを表示する">
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY donate.label "寄付">
 <!ENTITY qf.description.donate "quickFilters が気に入って開発をサポートしたいときは、quickFilters の開発にいくらかの寄付をすることができます。">
