@@ -15,3 +15,6 @@
 <!ENTITY quickfilters.menu.cut "Вырезать">
 <!ENTITY quickfilters.menu.copy "Копировать">
 <!ENTITY quickfilters.menu.paste "Вставить">
+<!ENTITY quickfilters.button.settings "Настройки quickFilters...">
+<!ENTITY quickfilters.button.assistant "Включить ассистент...">
+<!ENTITY quickfilters.button.assistant.tooltiptext "Включить ассистент по созданию фильтров путем перетаскивания сообщений.">
