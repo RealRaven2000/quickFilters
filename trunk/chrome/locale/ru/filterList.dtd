@@ -15,6 +15,3 @@
 <!ENTITY quickfilters.menu.cut "Вырезать">
 <!ENTITY quickfilters.menu.copy "Копировать">
 <!ENTITY quickfilters.menu.paste "Вставить">
-<!ENTITY quickfilters.button.settings "quickFilters Settings...">
-<!ENTITY quickfilters.button.assistant "Toggle assistant...">
-<!ENTITY quickfilters.button.assistant.tooltiptext "Toggles filter assistant mode. When active, drag and drop emails to create filters.">
