@@ -1,0 +1,28 @@
+/*
+ * postbox. specific stuff
+ */
+ 
+ #pbSearchThresholdNotifcationBar notification[value=quickfilters-filter] .messageCloseButton {
+   visibility: collapse !important;
+ }
+ 
+ #pbSearchThresholdNotifcationBar notification[value=quickfilters-filter] button:nth-child(2) {
+   -moz-appearance: toolbarbutton;
+   /* background-image: close-button-option */
+   list-style-image: url("chrome://quickfilters/skin/close-button.png");
+   min-width: 16px;
+   background-image: none;
+ }
+ #pbSearchThresholdNotifcationBar notification[value=quickfilters-filter] button:nth-child(2) > hbox {
+   padding: 0 !important;
+   margin: 0 !important;
+   max-width: 16px;
+   background-image: none;
+ }
+ #pbSearchThresholdNotifcationBar notification[value=quickfilters-filter] button:nth-child(2) label {
+   visibility: collapse !important;
+ }
+ 
+
+ 
+ 

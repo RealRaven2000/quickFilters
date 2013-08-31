@@ -485,7 +485,7 @@ quickFilters.Util = {
       try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.moveMessages: target = ' + targetFolder.prettiestName );}
       catch(e) { alert('quickFilters.Util.moveMessages:' + e); }
 
-      if (targetFolder.flags & Ci.nsMsgFolderFlags.Virtual) {
+      if (targetFolder.flags & 0x00000020) {  // Ci.nsMsgFolderFlags.Virtual
         return null;
       }
 
@@ -551,7 +551,29 @@ quickFilters.Util = {
 
   showHomePage: function () {
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/');
-  },
+  } ,
+	
+		// Postbox special functions to avoid line being truncated
+	// removes description.value and adds it into inner text
+	fixLineWrap: function(notifyBox, notificationKey) {
+    try {
+		  if (!notifyBox || !notificationKey)
+				return;
+			let note = notifyBox.getNotificationWithValue(notificationKey);
+			// if we  could get at the description element within the notificaiton 
+			// we could empty the value and stick thje text into textContent instead!
+			let hbox = note.boxObject.firstChild.firstChild;
+			if (hbox) {
+				this.logDebug('hbox = ' + hbox.tagName + ' hbox.childNodes: ' + hbox.childNodes.length);
+				let desc = hbox.childNodes[1];
+				desc.textContent = desc.value.toString();
+				desc.removeAttribute('value');
+			}
+		}
+		catch(ex) {
+			this.logException('Postbox notification: ', ex);
+		}
+	} ,
 	
 	versionSmaller: function(a, b) {
 		/*

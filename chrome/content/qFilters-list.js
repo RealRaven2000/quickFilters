@@ -654,9 +654,9 @@ quickFilters.List = {
 		// Toolbar
 		let toolbox = document.getElementById("quickfilters-toolbox");
 		let hbs = document.getElementsByTagName(
-		    (quickFilters.Util.Application == 'SeaMonkey')
-			? 'grid'
-		  : 'hbox');
+		    (quickFilters.Util.Application == 'Thunderbird')
+			? 'hbox'
+		  : 'grid');  // SM + Postbox
 		let isToolbar = false;
 		if (!quickFilters.Preferences.getBoolPrefQF("toolbar")) {
 		  toolbox.parentNode.removeChild(toolbox);
