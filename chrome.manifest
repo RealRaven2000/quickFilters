@@ -11,15 +11,18 @@ locale    quickfilters   ru            chrome/locale/ru/
 locale    quickfilters   vi            chrome/locale/vi/
 locale    quickfilters   zh-CN         chrome/locale/zh-CN/
 
-
 overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
 style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css
 
 #legacy styles (for deprecated attributes)
 style   chrome://messenger/content/messenger.xul content/legacy.css application={3550f703-e582-4d05-9a08-453d09bdfdc6} appversion<12
 
+# postbox
+style   chrome://quickfilters/content/quickFilters-options.xul chrome://quickfilters/content/legacy.css application=postbox@postbox-inc.com 
+style   chrome://messenger/content/messenger.xul chrome://quickfilters/content/postbox.css application=postbox@postbox-inc.com 
 
-# Message Filter List overlays - assuming that patch for [Bug 450302] has not landed yet.
+
+# Message Filter List overlays - collaborates with changes from [Bug 450302] 
 overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={3550f703-e582-4d05-9a08-453d09bdfdc6}
 overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application=postbox@postbox-inc.com
