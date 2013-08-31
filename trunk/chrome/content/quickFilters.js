@@ -109,7 +109,7 @@ END LICENSE BLOCK */
 	 # [Bug 25362] If assistant button is removed from toolbar, starting filter assistant throws "TypeError: doc.getElementById(...) is null"
 	 
 
-	1.8 : Waiting for review 19/05
+	1.8 : 19/05/2013
 	 # french locale completed [thanks to Jojaba - BabelZilla]
 	 # [FR ???] Added Cut, Copy and Paste to transfer filters between accounts
 	 # [Bug 25389] merging filters throws NS_ERROR_FAILURE - this can happen if there is an invalid action in a filter, please check debug log for more information
@@ -123,6 +123,10 @@ END LICENSE BLOCK */
 		# Compatibility change for Tb 24 / Sm2.17 (nsIMsgAccountManager.accounts changed from nsIMutableArray to nsIArray)
 		# Added donate button to settings dialog
 	  # (TBD: rename toggleFilter to avoid false validation warnings ??)
+		
+	2.0 Planned - Postbox Compatibility.
+		# Fixed truncated filter notification in Postbox
+		
 		
 		
 	 */
@@ -165,7 +169,23 @@ var quickFilters = {
             quickFilters.Util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
           }
         }
-     }
+     } ,
+		 onDropPostbox: function(event) {
+				try { 
+					quickFilters.Util.logDebugOptional("events", "onDropPostbox: " + event);
+					if (!quickFilters.Worker.FilterMode)
+						return;
+					var row = { }, col = { }, child = { };
+					let treechildren = event.originalTarget;
+					let tree = treechildren.parentNode;
+					let tbo = tree.treeBoxObject;
+					tbo.getCellAt(event.clientX, event.clientY, row, col, child);
+					quickFilters.onFolderTreeViewDrop(row.value); 
+				}
+				catch(e) {
+					quickFilters.Util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
+				}
+		 }
   },
 
   onLoad: function() {
@@ -186,11 +206,13 @@ var quickFilters = {
     // let's wrap the drop function in our own (unless it already is [quickFiltersDropper would be defined])
     if (!quickFilters.folderTree.quickFiltersDropper) {
       switch (quickFilters.Util.Application) {
-        case 'Postbox':  // to test!
-          tree.quickFilters_originalDrop = treeView.drop;
+        case 'Postbox':  
+          // tree.quickFilters_originalDrop = treeView.drop;
+					// tree.addObserver (quickFilters.folderObserver);
+					tree.addEventListener("drop", function(event) { quickFilters.folderObserver.onDropPostbox(event); });
           break;
         case 'SeaMonkey':
-          tree.quickFilters_originalDrop = folderObserver.onDrop;
+          tree.quickFilters_originalDrop = folderObserver.onDrop; // backup old drop function
           break;
         case 'Thunderbird':
           tree.quickFilters_originalDrop = treeView.drop;
@@ -213,16 +235,19 @@ var quickFilters = {
         switch (quickFilters.Util.Application) {
           case 'Postbox':  // to test!
             treeView.drop = newDrop;
+						// treeview is wrapped [Cannot modify properties of a WrappedNative = NS_ERROR_XPC_CANT_MODIFY_PROP_ON_WN]
+						// therefore we can't add treeView.quickFiltersDropper
             break;
           case 'SeaMonkey':
             folderObserver.onDrop = newDrop;
+						treeView.quickFiltersDropper = true;
             break;
           case 'Thunderbird':
             treeView.drop = newDrop;
+						treeView.quickFiltersDropper = true;
             break;
         }
       }
-      treeView.quickFiltersDropper = true;
     }
 
     this.initialized = true;
@@ -340,11 +365,15 @@ var quickFilters = {
   },
 
   onToolbarListCommand: function(e) {
-    goDoCommand('cmd_displayMsgFilters');
+	  if (quickFilters.Util.Application == 'Postbox') {
+			MsgFilters(null, null);
+		}
+		else 
+      goDoCommand('cmd_displayMsgFilters');
   },
 
   onToolbarRunCommand: function(e) {
-    goDoCommand('cmd_applyFilters');
+    goDoCommand('cmd_applyFilters'); // same in Postbox
   },
 
   LocalErrorLogger: function(msg) {
