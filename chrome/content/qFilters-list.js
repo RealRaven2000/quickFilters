@@ -80,16 +80,114 @@ quickFilters.List = {
       return list.selectedItems.length;
     return list.view.selection.count;
   } ,
+	
+	copyTerms: function(fromFilter, toFilter, isCopy) {
+		let stCollection = fromFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+		for (let t = 0; t < stCollection.Count(); t++) {
+			// let searchTerm = stCollection.GetElementAt(t);
+			let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
+			let newTerm;
+			if (isCopy) {
+			  newTerm = toFilter.createTerm();
+				if (searchTerm.attrib) {
+					newTerm.attrib = searchTerm.attrib;
+				}
+				// nsMsgSearchOpValue
+				if (searchTerm.op) newTerm.op = searchTerm.op; 
+				if (searchTerm.value) {
+				  let val = newTerm.value; // nsIMsgSearchValue
+					val.attrib = searchTerm.value.attrib;  
+					val.str =  new String(searchTerm.value.str);  
+					newTerm.value = val;
+				}
+				newTerm.booleanAnd = searchTerm.booleanAnd;
+				if (searchTerm.arbitraryHeader) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
+				if (searchTerm.hdrProperty) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
+				if (searchTerm.customId) newTerm.customId = searchTerm.customId;
+				newTerm.beginsGrouping = searchTerm.beginsGrouping;
+				newTerm.endsGrouping = searchTerm.endsGrouping;
+				
+			}
+			else
+			  newTerm = searchTerm;
+			toFilter.appendTerm(newTerm);
+		}
+	} ,
+	
+	copyActions: function(fromFilter, toFilter) {
+		for (let a = 0; a < fromFilter.sortedActionList.length; a++) {
+			let action = fromFilter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
+			toFilter.appendAction(action);
+		}
+	} ,
+	
+	clone: function(evt) {
+    let filtersList = this.getFilterList(); 
+    let sourceFolder = filtersList.folder;
+    let list = this.getFilterListElement();
+		let utils = quickFilters.Util;
+    if (this.getSelectedCount(list) != 1) {
+			let wrn = quickFilters.Util.getBundleString('quickfilters.clone.selectOne', 
+                                   'To clone, select exactly one filter.');
+      utils.popupAlert(wrn);
+      return;
+    } 
+	
+		let selectedFilter = this.getSelectedFilterAt(list, 0);
+		if (!selectedFilter) {
+			utils.popupAlert("Could not determine selected filter");
+			return;
+		}
+		// get user specific clone label
+		let clonedLabel = quickFilters.Preferences.getCharPrefQF('naming.clonedLabel');
+		let newName = selectedFilter.filterName + ' '
+		if (clonedLabel.trim()) {
+		  newName += clonedLabel;
+		}
+		else {
+		 // get default localized clone label
+			newName += utils.getBundleString('quickfilters.clone.label', '(copy)');		
+		}
+		
+		try {
+			// 1. create new filter
+			let newFilter = filtersList.createFilter(newName);
+			
+			// 2. iterate all actions & clone them
+			this.copyActions(selectedFilter, newFilter);
+			
+			// 3. iterate all conditions & clone them
+			this.copyTerms(selectedFilter, newFilter, true);
+			// determine the index of insertion point (at the filter selected in the assistant)
+			let idx;
+			for (idx = 0; idx < filtersList.filterCount; idx++) {
+				if (selectedFilter == filtersList.getFilterAt(idx))
+					break;
+			}	
+
+			// 4. open the editor
+			let args = { filter:newFilter, filterList: filtersList};
+			// check http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.js
+			window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
+												"chrome, modal, resizable,centerscreen,dialog=yes", args);
+												
+			if ("refresh" in args && args.refresh)
+			{
+				quickFilters.Worker.openFilterList(true, sourceFolder);
+				// 5. insert the merged filter
+				utils.logDebug("Adding new Filter '" + newFilter.filterName + "' "
+						 + ": current list has: " + filtersList.filterCount + " items");
+				filtersList.insertFilterAt(idx, newFilter);
+				this.rebuildFilterList();
+			}
+		}
+		catch(ex) {
+		  utils.logException('clone() - failed creating filter ' + newName, ex);
+		}
+	} ,
   
   merge: function (evt, isEvokedFromButton)
   {
-    function copyTerms(fromFilter, toFilter) {
-      let stCollection = fromFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
-      for (let t = 0; t < stCollection.Count(); t++) {
-        let searchTerm = stCollection.GetElementAt(t);
-        toFilter.appendTerm(searchTerm);
-      }
-    }
     let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'mergeList' };
     let filtersList = this.getFilterList(); // Tb / SM
     let sourceFolder = filtersList.folder;
@@ -251,13 +349,13 @@ quickFilters.List = {
     // 2. now copy the filter search terms of the filters in the array to the new filter
     // then delete the other filters
     // 2a - copy TargetFilter first
-    copyTerms(targetFilter, newFilter);
+    this.copyTerms(targetFilter, newFilter, true);
     for (let i = 0 ; i < matchingFilters.length ; i++) {
       let current = matchingFilters[i];
       // copy filter
       if (targetFilter == current)
         continue;
-      copyTerms(current, newFilter);
+      this.copyTerms(current, newFilter, true);
     }
     // determine the index of insertion point (at the filter selected in the assistant)
     let idx;
@@ -979,9 +1077,7 @@ quickFilters.List = {
       let Ci = Components.interfaces;
       let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
                           .getService(Ci.nsIMsgAccountManager);
-      let accounts = acctMgr.accounts;
-      for (let i = 0; i < accounts.Count(); i++) {
-        let account = accounts.QueryElementAt(i, Ci.nsIMsgAccount);
+			for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
         if (account.incomingServer && account.incomingServer.canHaveFilters )
         {
           let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);

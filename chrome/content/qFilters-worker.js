@@ -41,14 +41,21 @@ quickFilters.Worker = {
   } ,
 	
 	onCloseNotification: function(eventType, notifyBox, notificationKey) {
-	  // Postbox doesn't tidy up after itself?
 		quickFilters.Util.logDebug ("onCloseNotification(" + notificationKey + ")");
-		let item = notifyBox.getNotificationWithValue(notificationKey);
-		if(item) {
-		  // http://mxr.mozilla.org/mozilla-central/source/toolkit/content/widgets/notification.xml#164
-			notifyBox.removeNotification(item, (quickFilters.Util.Application == 'Postbox'));	 // skipAnimation
-		}
+		window.setTimeout(function() {
+				// Postbox doesn't tidy up after itself?
+				let item = notifyBox.getNotificationWithValue(notificationKey);
+				if(item) {
+					// http://mxr.mozilla.org/mozilla-central/source/toolkit/content/widgets/notification.xml#164
+					notifyBox.removeNotification(item, (quickFilters.Util.Application == 'Postbox'));	 // skipAnimation
+				}
+			}, 200);
 	} ,
+	
+	toggleFilterMode: function(active, silent) {
+	  this.toggle_FilterMode(active, silent);
+	} ,
+	
 
   /**
   * toggles the filter mode so that dragging emails will
@@ -56,7 +63,7 @@ quickFilters.Worker = {
   *
   * @param {bool} start or stop filter mode
   */
-  toggleFilterMode: function(active, silent)
+  toggle_FilterMode: function(active, silent)
   {
     function removeOldNotification(box, active, id) {
       if (!active && box) {
@@ -66,7 +73,7 @@ quickFilters.Worker = {
       }   
     }
     
-    quickFilters.Util.logDebugOptional ("filters", "toggleFilterMode(" + active + ")");
+    quickFilters.Util.logDebugOptional ("filters", "toggle_FilterMode(" + active + ")");
     let notificationId;
     let notifyBox;
 
@@ -82,13 +89,15 @@ quickFilters.Worker = {
           notificationId = null;
           break;
       }
-      notifyBox = document.getElementById (notificationId);
 			let notificationKey = "quickfilters-filter";
 			
 			// do a tidy up in case this is already open!
-			let item = notifyBox.getNotificationWithValue(notificationKey);
-			if (item)
-				notifyBox.removeNotification(item, (quickFilters.Util.Application == 'Postbox')); // second parameter in Postbox(not documented): skipAnimation
+			if (notificationId) { // SeaMonkey: no such thing yet.
+				notifyBox = document.getElementById (notificationId);
+				let item = notifyBox.getNotificationWithValue(notificationKey);
+				if (item)
+					notifyBox.removeNotification(item, (quickFilters.Util.Application == 'Postbox')); // second parameter in Postbox(not documented): skipAnimation
+			}
 
       if (active
         &&
@@ -188,8 +197,11 @@ quickFilters.Worker = {
       let worker = QF.FilterWorker ? QF.FilterWorker : QF.Filter;
       // we cannot supress the notification from QuickFolders
       // without adding code in it!
-      if (worker.FilterMode != active) // prevent recursion!
-        worker.toggleFilterMode(active);  // (active, silent) !!!
+      if (worker.FilterMode != active) {// prevent recursion!
+			  worker.toggle_FilterMode ?
+				  worker.toggle_FilterMode(active) :
+          worker.toggleFilterMode(active);  // (active, silent) !!!
+			}
 
       if (!silent)
         removeOldNotification(notifyBox, active, 'quickfolders-filter');
@@ -305,6 +317,18 @@ quickFilters.Worker = {
       return 0;
     }
 
+		function parseHeader(parser, msgHeader) {
+			if (quickFilters.Util.Application === 'Postbox') {
+				// guessing guessing guessing ...
+				// somehow this takes the C++ signature?
+				return parser.extractHeaderAddressMailboxes(null, msgHeader);
+			}
+			else {
+				// Tb + SM
+				return parser.extractHeaderAddressMailboxes(msgHeader);
+			}
+		}
+		
     if (!messageList || !targetFolder)
       return null;
       
@@ -319,6 +343,8 @@ quickFilters.Worker = {
                                       // as in drag+drop case!
     let tagArray;
     let msgKeyArray;
+		
+		let emailAddress, ccAddress, bccAddress;
     
     /************* SOURCE FOLDER VALIDATION  ********/
     if (sourceFolder) {
@@ -371,11 +397,7 @@ quickFilters.Worker = {
         const accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].
                         getService(Ci.nsIMsgAccountManager).accounts;
         // accounts will be changed from nsIMutableArray to nsIArray Tb24 (Sm2.17)
-        let nAccounts = (typeof accounts.Count === 'undefined') ? accounts.length : accounts.Count();
-        for (let i = 0; i < nAccounts; i++) {
-          let ac = accounts.queryElementAt ?
-            accounts.queryElementAt(i, Ci.nsIMsgAccount) :
-            accounts.GetElementAt(i).QueryInterface(Ci.nsIMsgAccount);
+				for (let ac in fixIterator(accounts, Ci.nsIMsgAccount)) {
           if (ac.key == messageList[0].accountKey) {
             // account.incomingServer is an nsIMsgIncomingServer
             // account.identities is an nsISupportsArray of nsIMsgIdentity objects
@@ -468,22 +490,12 @@ quickFilters.Worker = {
         let hdrParser = Components.classes["@mozilla.org/messenger/headerparser;1"].getService(Components.interfaces.nsIMsgHeaderParser);
         if (hdrParser) {
           quickFilters.Util.logDebugOptional ("filters","parsing msg header...");
-          if (hdrParser.extractHeaderAddressMailboxes) { // Tb 2 can't ?
-            if (quickFilters.Util.Application === 'Postbox') {
-              // guessing guessing guessing ...
-              // somehow this takes the C++ signature?
-              var emailAddress = hdrParser.extractHeaderAddressMailboxes(null, msg.author);
-              var ccAddress  =  hdrParser.extractHeaderAddressMailboxes(null, msg.ccList)
-              var bccAddress  =  hdrParser.extractHeaderAddressMailboxes(null, msg.bccList)
-            }
-            else {
-              // Tb + SM
-              emailAddress = hdrParser.extractHeaderAddressMailboxes(msg.author);
-              ccAddress  =  hdrParser.extractHeaderAddressMailboxes(msg.ccList);
-              bccAddress  =  hdrParser.extractHeaderAddressMailboxes(msg.bccList);
-            }
+          if (hdrParser.extractHeaderAddressMailboxes) { 
+						emailAddress = parseHeader(hdrParser, msg.author);
+						ccAddress = parseHeader(hdrParser, msg.ccList);
+						bccAddress = parseHeader(hdrParser, msg.bccList);
           }
-          else { 
+          else { // Tb 2 can't ?
             warningUpdate();
             quickFilters.Util.logDebugOptional ("filters","no header parser :(\nAborting Filter Operation");
             return false;
@@ -590,10 +602,12 @@ quickFilters.Worker = {
           
           // TEMPLATES: filters
           switch (template) {
-            // 1st Filter Template: Conversation based on a Person (email from ..., replies to ...)
+					  // Based on Recipient (to) Conversation based on a Person 
             case 'to':
               emailAddress = msg.mime2DecodedRecipients;
               // fallthrough is intended!
+							
+					  // Based on Sender (from) Conversation based on a Person 
             case 'from': // was 'person' but that was badly labelled, so we are going to retire this string
               // sender ...
               searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Sender, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
@@ -607,7 +621,57 @@ quickFilters.Worker = {
               if (quickFilters.Preferences.getBoolPrefQF("naming.keyWord"))
                 filterName += " - " + emailAddress;
               break;
-
+							
+						// Group (collects senders of multiple mails)
+						case 'multifrom':
+						  if (messageList.length <= 1) {
+							  let msg = quickFilters.Util.getBundleString('quickfilters.createFilter.warning.minimum2Mails', 'This template requires at least 2 mails');
+								quickFilters.Util.popupAlert(msg);
+								return false;							  
+							}
+							// make a stop list (mu own email addresses)
+							let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
+																	.getService(Ci.nsIMsgAccountManager);
+																	
+							let myMailAddresses = [];
+							let excludedAddresses = [];
+							let mailAddresses = [];
+							for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
+							  let idMail = '';
+							  if (account.defaultIdentity) {
+								  idMail = account.defaultIdentity.email;
+								}
+								else if (account.identities.length) {
+									idMail = account.identities[0].email;
+								}
+								if (idMail && myMailAddresses.indexOf(idMail)==-1) 
+								  myMailAddresses.push(idMail);
+							}
+							
+							
+							for (let i=0; i<messageList.length; i++) {
+								// sender ...
+								let hdr = messageDb.getMsgHdrForMessageID(messageList[i]);
+								msg = hdr.QueryInterface(Components.interfaces.nsIMsgDBHdr);
+								if (msg) {
+									emailAddress = parseHeader(hdrParser, msg.author);
+									if (myMailAddresses.indexOf(emailAddress)>=0) {
+										excludedAddresses.push(emailAddress);
+										quickFilters.Util.logDebugOptional ('template.multifrom', 'Excluded from multiple(from) filter: ' + emailAddress);
+									}
+									else if (mailAddresses.indexOf(emailAddress) == -1) {
+										searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Sender, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
+										targetFilter.appendTerm(searchTerm);
+										quickFilters.Util.logDebugOptional ('template.multifrom', 'Added to multiple(from) filter: ' + emailAddress);
+										mailAddresses.push(emailAddress);
+									}
+								}
+							}
+							// should this specifically add first names?
+              if (quickFilters.Preferences.getBoolPrefQF("naming.keyWord"))
+                filterName += " - group ";
+							break;
+							
             // 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org )
             case 'list':
               //// TO
@@ -750,7 +814,7 @@ quickFilters.Worker = {
             
             // stop filter mode after creating first successful filter.
             if (quickFilters.Preferences.isAbortAfterCreateFilter()) {
-              quickFilters.Worker.toggleFilterMode(false);
+              quickFilters.Worker.toggle_FilterMode(false);
             }
           } //else, let's remove the filter (Cancel case)
           else {
@@ -823,7 +887,10 @@ quickFilters.Assistant = {
     switch(sI) {
       case this.MERGEPAGE:  // existing filters were found, lets store selected filter index or -1!
         this.toggleMatchPane(false);
-        this.NextButton.label = isMerge ? "Edit Filter..." : "Create Filter...";
+				
+        this.NextButton.label = isMerge 
+				   ? this.getBundleString('qf.button.editFilter', "Edit Filter...")
+				   : this.getBundleString('qf.button.createFilter', "Create New Filter...");
         break;
       case this.TEMPLATEPAGE:  // we are in template selection, either go on to create new filter or edit the selected one from first step
         quickFilters.Assistant.selectTemplate();
@@ -837,23 +904,19 @@ quickFilters.Assistant = {
     return;
   } ,
 
-  get NextButton()
-  {
+  get NextButton() {
     return document.documentElement.getButton('extra1');
   } ,
   
-  get MatchedFilters()
-  {
+  get MatchedFilters() {
     return document.getElementById('filterMatches');
   } ,
   
-  get CurrentDeck()
-  {
+  get CurrentDeck() {
     return document.getElementById('assistantDeck');
   } ,
 
-  cancelTemplate : function()
-  {
+  cancelTemplate : function() {
     quickFilters.Worker.TemplateSelected = false;
     var params = window.arguments[0];
     params.answer  = false;
@@ -861,13 +924,11 @@ quickFilters.Assistant = {
     return true;
   } ,
 
-  getTemplateListElement: function()
-  {
+  getTemplateListElement: function() {
     return document.getElementById('qf-filter-templates');
   } ,
   
-  toggleMatchPane: function(toggle)
-  {
+  toggleMatchPane: function(toggle) {
     this.CurrentDeck.selectedIndex = toggle ? this.MERGEPAGE : this.TEMPLATEPAGE;
   } ,
 
@@ -893,10 +954,9 @@ quickFilters.Assistant = {
     this.MatchedFilters.selectedIndex = (isNew.checked ? -1 : 0);
     let chkMerge = document.getElementById('chkMerge');
     chkMerge.checked = !isNew.checked;
-  },
+  } ,
   
-  loadAssistant : function()
-  {
+  loadAssistant : function() {
     // [Bug 25199] - Add Rules to existing filters 
     /* 1. find out the correct account (server) */
     /* 2. enumerate all filters of server and find the ones that have same target folder */

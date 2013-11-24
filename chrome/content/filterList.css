@@ -6,7 +6,8 @@
 }
 
 /* All toolbar buttons */
-#quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, #quickFiltersBtnSettings, #quickFiltersBtnStart {
+#quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, 
+#quickFiltersBtnSettings, #quickFiltersBtnStart, #quickFiltersBtnClone {
   display: -moz-box;
 }
  
@@ -63,6 +64,11 @@
 #quickFiltersBtnMerge {
 	list-style-image: url("chrome://quickfilters/skin/fugue-join_24.png");
 }
+
+#quickFiltersBtnClone{
+	list-style-image: url("chrome://quickfilters/skin/sheep.png");
+}
+
 
 /* Assistant */
 #quickFiltersBtnStart {

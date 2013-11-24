@@ -2,8 +2,8 @@
 <!ENTITY pane1.title "Opzioni di quickFilters">
 <!ENTITY chkDebug.label "Modalità di debug">
 <!ENTITY chkDebug.accesskey "M">
-<!ENTITY chkAutoClose.label "Esce dalla procedura guidata dopo aver creato un filtro">
-<!ENTITY chkAutoClose.accesskey "E">
+<!ENTITY chkAutoClose.label "Dopo aver creato un filtro, esce dalla procedura guidata">
+<!ENTITY chkAutoClose.accesskey "D">
 <!ENTITY chkAutoStart.label "Attiva automaticamente la procedura guidata">
 <!ENTITY chkAutoStart.accesskey "A">
 <!ENTITY chkToolbar.label "Mostra la Barra degli strumenti nel Gestore dei filtri">

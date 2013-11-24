@@ -12,6 +12,9 @@
 <!ENTITY quickfilters.button.merge "Zusammenführen">
 <!ENTITY quickfilters.button.merge.accesskey "Z">
 <!ENTITY quickfilters.button.merge.tooltiptext "Mehrere Filter zusammenführen die dieselbe Aktion ausführen">
+<!ENTITY quickfilters.button.clone "Klonen">
+<!ENTITY quickfilters.button.clone.accesskey "K">
+<!ENTITY quickfilters.button.clone.tooltiptext "Filter klonen">
 <!ENTITY quickfilters.menu.cut "Ausschneiden">
 <!ENTITY quickfilters.menu.copy "Kopieren">
 <!ENTITY quickfilters.menu.paste "Einfügen">

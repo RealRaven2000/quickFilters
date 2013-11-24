@@ -24,3 +24,4 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "規則通りのキーワードを追加する">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
+<!ENTITY qf.cloned.label "複製したフィルタの名前に追加:">

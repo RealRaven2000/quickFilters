@@ -12,6 +12,9 @@
 <!ENTITY quickfilters.button.merge "Объединить">
 <!ENTITY quickfilters.button.merge.accesskey "О">
 <!ENTITY quickfilters.button.merge.tooltiptext "Объединить несколько фильтров с одинаковым действием">
+<!ENTITY quickfilters.button.clone "Клонировать">
+<!ENTITY quickfilters.button.clone.accesskey "К">
+<!ENTITY quickfilters.button.clone.tooltiptext "Клонировать фильтр">
 <!ENTITY quickfilters.menu.cut "Вырезать">
 <!ENTITY quickfilters.menu.copy "Копировать">
 <!ENTITY quickfilters.menu.paste "Вставить">

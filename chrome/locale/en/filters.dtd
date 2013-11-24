@@ -1,10 +1,10 @@
 <!ENTITY qf.filters.title "Create Filters">
 <!ENTITY qf.filters.template.from "Based on Sender (from)">
+<!ENTITY qf.filters.template.multifrom "Group (collects senders of multiple mails)">
 <!ENTITY qf.filters.template.to "Based on Recipient (to)">
 <!ENTITY qf.filters.template.list "Mailing List">
 <!ENTITY qf.filters.template.topic "By Subject">
 <!ENTITY qf.filters.template.tag "By Tags">
-<!ENTITY qf.filters.template.tag.description "Retrieves the tags of the email and add them to the filter condition.">
 <!ENTITY qf.filters.templates.description.label "Description:">
 <!ENTITY qf.filters.instructions "Please select a template. You can fine tune the filter rules on the next screen.">
 <!ENTITY qf.continueFilter.label "Create Filter…">

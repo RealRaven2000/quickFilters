@@ -30,12 +30,14 @@ END LICENSE BLOCK
 
 quickFilters.Options = {
   load: function() {
-    let version=quickFilters.Util.Version;
+    let version = quickFilters.Util.Version;
     if (version=="") version='version?';
 
     let versionLabel = window.document.getElementById("qf-options-version");
     versionLabel.setAttribute("value", version);
-    
+		
+		let clonedLabel = window.document.getElementById('txtClonedName');
+    clonedLabel.placeholder = quickFilters.Util.getBundleString('quickfilters.clone.label', '(copy)');	
 
   } ,
   
@@ -58,38 +60,40 @@ quickFilters.Options = {
     let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
     let w = mediator.getMostRecentWindow(name);
 
-    let win = clickedElement.ownerDocument.defaultView ? clickedElement.ownerDocument.defaultView : window;
+    let win = clickedElement ?
+		          (clickedElement.ownerDocument.defaultView ? clickedElement.ownerDocument.defaultView : window)
+							: window;
     if (!w) {
       let watcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].getService(Components.interfaces.nsIWindowWatcher);
       w = watcher.openWindow(win, uri, name, "dependent,chrome,resizable,centerscreen,alwaysRaised,width=500px,height=350px", null);
     }
     w.focus();
-    w.setTimeout(
-      function (readOnly) {
+    w.addEventListener('load', 
+      function () {
         let flt = w.document.getElementById("textbox");
         if (flt) {
-           flt.value=filter;
+          flt.value=filter;
           // make filter box readonly to prevent damage!
-           if (!readOnly)
+          if (!readOnly)
             flt.focus();
-           else
+          else
             flt.setAttribute('readonly',true);
-           if (w.self.FilterPrefs) {
+          if (w.self.FilterPrefs) {
             w.self.FilterPrefs();
           }
         }
-      }, 300);
+      });
   },
 
 
   addConfigFeature: function(filter, Default, textPrompt) {
-    // adds a new option to about:config, that isn't there by default
+    // adds a new boolean option to about:config, that isn't there by default
     if (confirm(textPrompt)) {
       // create (non existent filter setting:
       quickFilters.Preferences.setBoolPref(filter, Default);
 
       // last parameter is Readonly.
-      quickFilters.Options.showAboutConfig(filter, true, true); // TEMPORARILY SET TO WRITEABLE!!! !quickFilters.Preferences.Debug
+      quickFilters.Options.showAboutConfig(null, filter, true); 
     }
 
   },

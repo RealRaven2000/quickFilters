@@ -75,6 +75,13 @@
 			  tooltiptext = "&quickfilters.button.merge.tooltiptext;"
 			  oncommand = "quickFilters.List.merge(event, true);"
 			  />
+			<toolbarbutton id="quickFiltersBtnClone"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.button.clone;"
+			  tooltiptext = "&quickfilters.button.clone.tooltiptext;"
+			  oncommand = "quickFilters.List.clone(event);"
+			  />
+		    <toolbarseparator />
 			<toolbarbutton id="quickFiltersBtnStart"
               class="toolbarbutton-1 chromeclass-toolbar-additional"
               label="&quickfilters.button.assistant;"

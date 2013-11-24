@@ -1,10 +1,10 @@
 <!ENTITY qf.filters.title "フィルタ作成">
 <!ENTITY qf.filters.template.from "送信者 (from) を基準にする">
+<!ENTITY qf.filters.template.multifrom "グループ (複数のメールの送信者を集めます)">
 <!ENTITY qf.filters.template.to "受信者 (to) を基準にする">
 <!ENTITY qf.filters.template.list "メーリングリスト">
 <!ENTITY qf.filters.template.topic "件名を基準にする">
 <!ENTITY qf.filters.template.tag "タグを基準にする">
-<!ENTITY qf.filters.template.tag.description "メッセージのタグをフィルタ条件に追加します。">
 <!ENTITY qf.filters.templates.description.label "説明:">
 <!ENTITY qf.filters.instructions "テンプレートを選択してください。次の画面でフィルタルールを設定します。">
 <!ENTITY qf.continueFilter.label "フィルタ作成...">

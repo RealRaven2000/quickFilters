@@ -1,20 +1,20 @@
 <!ENTITY qf.label.filterCountN_of_M "{0} di {1}">
 <!ENTITY qf.label.filterEntities "elementi">
 <!ENTITY qf.label.filterSingleEntity "1 elemento">
-<!ENTITY qf.textbox.searchBox.emptyText "Ricerca i filtri per nome…">
-<!ENTITY qf.textbox.searchBox.toolTip "Inserire una parola-chiave per ricercare i filtri per nome">
+<!ENTITY qf.textbox.searchBox.emptyText "Cerca i filtri per nome…">
+<!ENTITY qf.textbox.searchBox.toolTip "Inserire una parola-chiave per cercare per nome i filtri">
 <!ENTITY qf.button.reorderButtonTop "Primo">
 <!ENTITY qf.button.reorderButtonTop.accessKey "P">
 <!ENTITY qf.button.reorderButtonTop.toolTip "Esegue il filtro selezionato per primo">
 <!ENTITY qf.button.reorderButtonBottom "Ultimo">
 <!ENTITY qf.button.reorderButtonBottom.accessKey "U">
 <!ENTITY qf.button.reorderButtonBottom.toolTip "Esegue il filtro selezionato per ultimo">
-<!ENTITY quickfilters.button.merge "Unisci">
+<!ENTITY quickfilters.button.merge "Unione">
 <!ENTITY quickfilters.button.merge.accesskey "U">
-<!ENTITY quickfilters.button.merge.tooltiptext "Unisci più filtri che svolgono la stessa azione">
+<!ENTITY quickfilters.button.merge.tooltiptext "Unione di più filtri che svolgono la stessa azione">
 <!ENTITY quickfilters.menu.cut "Taglia">
 <!ENTITY quickfilters.menu.copy "Copia">
 <!ENTITY quickfilters.menu.paste "Incolla">
 <!ENTITY quickfilters.button.settings "Impostazioni di quickFilters…">
-<!ENTITY quickfilters.button.assistant "Configurazione guidata di attivazione/disattivazione…">
-<!ENTITY quickfilters.button.assistant.tooltiptext "Modalità di configurazione guidata di attivazione/disattivazione filtro. Se è attiva, i filtri vengono creati semplicemente trascinando e rilasciando le email.">
+<!ENTITY quickfilters.button.assistant "Attiva/disattiva la Procedura guidata…">
+<!ENTITY quickfilters.button.assistant.tooltiptext "Attiva/disattiva la modalità 'Procedura guidata'. Se questa è attiva, è sufficiente trascinare e rilasciare i messaggi per creare i filtri">
