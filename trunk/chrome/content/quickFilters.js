@@ -117,18 +117,24 @@ END LICENSE BLOCK */
 	 # guards against not selecting enough filters before using the "Merge" command
 	 # some debugging improvements during createFilter
 
-  1.9 WIP
-		# Added a toolbar which shows the quickFilters commands: Copy, Cut, Paste, Merge, Start Assistant, and settings
-		# better integration with QuickFolders
+	2.0 : 10/09/2013
+		# Improved integration with QuickFolders
+		# Compatibility change for Tb 24 / Sm2.17 (nsIMsgAccountManager.accounts changed from nsIMutableArray to nsIArray)
+		# Compatibility Fixes for Thunderbird 26 (removed widgetglue.js)
+    # Added a toolbar which shows the quickFilters commands: Copy, Cut, Paste, Merge, Start Assistant, and settings.	
+    #	Added Postbox Compatibility.
+		# Improved integration with QuickFolders
 		# Compatibility change for Tb 24 / Sm2.17 (nsIMsgAccountManager.accounts changed from nsIMutableArray to nsIArray)
 		# Added donate button to settings dialog
 	  # (TBD: rename toggleFilter to avoid false validation warnings ??)
 		
-	2.0 Planned - Postbox Compatibility.
-		# Fixed truncated filter notification in Postbox
-		
-		
-		
+  2.1 : 
+		# improved function that copies filter conditions - copies used to be dependant on their originals
+		# [FR 25627] - new template for	Group of People (add more than one email-adress) 
+		# [FR 25582] - Allow cloning Filters within the same Mail Account 
+		# widened template list to avoid filter titles being cut off
+    # fixed a problem in onCloseNotification - Postbox had trouble removing the sliding notification
+    # made debug settings (on right-clicking debug checkbox) settings filter more reliable (it sometimes did not work at all)	
 	 */
 
 
@@ -256,8 +262,8 @@ var quickFilters = {
 				&& 
 				!quickFilters.Worker.FilterMode) 
 		{
-			quickFilters.Util.logDebugOptional("events","setTimeout() - toggleFilterMode");
-      setTimeout(function() { quickFilters.Worker.toggleFilterMode(true, true);  }, 100);
+			quickFilters.Util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
+      setTimeout(function() { quickFilters.Worker.toggle_FilterMode(true, true);  }, 100);
 		}
 		quickFilters.Util.logDebugOptional("events","setTimeout() - checkFirstRun");
     setTimeout(function() { quickFilters.checkFirstRun(); }, 1000);
@@ -341,7 +347,7 @@ var quickFilters = {
 //                                 this.strings.getString("helloMessage"));
 		switch(cmd) {
 			case 'toggle_Filters':
-				quickFilters.Worker.toggleFilterMode(!quickFilters.Worker.FilterMode);
+				quickFilters.Worker.toggle_FilterMode(!quickFilters.Worker.FilterMode);
 				break;
 			case 'createFilterFromMsg':
 				let selectedMessages = gFolderDisplay.selectedMessages; 
@@ -505,7 +511,7 @@ var quickFilters = {
                         .getService(Ci.nsIPrefService).getBranch("mail.");
     let theURI = prefBranch.getCharPref("last_msg_movecopy_target_uri");
 
-    var targetFolder = GetMsgFolderFromUri(theURI);
+    var targetFolder = quickFilters.Util.getMsgFolderFromUri(theURI);
 
     var trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
     //alert('trans.addDataFlavor: trans=' + trans + '\n numDropItems=' + dragSession.numDropItems);

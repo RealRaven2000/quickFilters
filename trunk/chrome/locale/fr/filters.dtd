@@ -4,7 +4,6 @@
 <!ENTITY qf.filters.template.list "Liste de diffusion">
 <!ENTITY qf.filters.template.topic "Par sujet">
 <!ENTITY qf.filters.template.tag "Par étiquettes">
-<!ENTITY qf.filters.template.tag.description "Retrouve les étiquettes du courriel et les ajoutent aux conditions du filtre.">
 <!ENTITY qf.filters.templates.description.label "Description :">
 <!ENTITY qf.filters.instructions "Veuillez choisir un modèle. Vous pouvez préciser les règles du filtre sur le prochain écran.">
 <!ENTITY qf.continueFilter.label "Créer le filtre…">

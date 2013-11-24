@@ -104,9 +104,11 @@
 				  ondblclick="quickFilters.Assistant.selectTemplate(this);"
 				  onselect="quickFilters.Assistant.selectTemplateFromList(this);"
 				  preference="QuickFilters-Preferences-SelectedFilterTemplate"
-				  rows="6">
+				  rows="6"
+				  flex = "2">
 					<listitem label='&qf.filters.template.from;' value='from' tooltip=""/>
 					<listitem label='&qf.filters.template.to;' value='to' />
+					<listitem label='&qf.filters.template.multifrom;' value='multifrom' tooltip=""/>
 					<listitem label='&qf.filters.template.list;' value='list' />
 					<listitem label='&qf.filters.template.topic;' value='topic' />
 					<listitem label='&qf.filters.template.tag;' value='tag' />

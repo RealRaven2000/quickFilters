@@ -24,3 +24,4 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "E">
 <!ENTITY qf.label.naming.keyWord "Regel spezifisches Stichwort hinzufügen">
 <!ENTITY qf.label.naming.keyWord.accesskey "S">
+<!ENTITY qf.cloned.label "Endwort für geklonten Filter:">

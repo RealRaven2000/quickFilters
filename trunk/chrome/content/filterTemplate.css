@@ -18,6 +18,9 @@ image#logo {
   max-width: 650px;
 }
 
+#qf-filter-templates {
+  min-width: 20em;
+}
 
 #assistantDeck,
 .deckChild

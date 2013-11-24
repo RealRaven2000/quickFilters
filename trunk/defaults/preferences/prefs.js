@@ -8,10 +8,13 @@ pref("extensions.quickfilters.debug.filters", false);
 pref("extensions.quickfilters.debug.events", false);
 pref("extensions.quickfilters.debug.dnd", false);
 pref("extensions.quickfilters.debug.clipboard", false);
+pref("extensions.quickfilters.debug.template.multifrom", false);
+
 //pref("extensions.quickfilters.intpref", 0);
 //pref("extensions.quickfilters.stringpref", "A string");
 pref("extensions.quickfilters.naming.parentFolder", true);
 pref("extensions.quickfilters.naming.keyWord", false);
+pref("extensions.quickfilters.naming.clonedLabel", ""); // set from locale!
 
 // https://developer.mozilla.org/en/Localizing_extension_descriptions
 pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");

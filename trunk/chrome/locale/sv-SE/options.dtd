@@ -24,3 +24,4 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "m">
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
+<!ENTITY qf.cloned.label "Bifoga följande till namnet på duplicerat filter:">

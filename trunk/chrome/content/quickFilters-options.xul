@@ -56,6 +56,11 @@
 				  type="bool"  
 				  instantApply="true"
 				  />
+	  <preference id="cloned.append"
+	              name="extensions.quickfilters.naming.clonedLabel"
+				  type="string"
+				  instantApply="true"
+				  />
     </preferences>
     
     
@@ -118,7 +123,16 @@
                     label="&qf.label.naming.keyWord;" 
                     accesskey="&qf.label.naming.keyWord.accesskey;"
                     />
+			<hbox>
+				<label   class = "textBoxLabel"
+						 value="&qf.cloned.label;" />
+				<textbox id = "txtClonedName"
+						 preference = "cloned.append"
+						 />
+			</hbox>
         </groupbox>
+		
+		
         
         <spacer flex="1" />
         <hbox>
@@ -127,7 +141,7 @@
                     preference="debug" 
                     label="&chkDebug.label;" 
                     accesskey="&chkDebug.accesskey;"
-                    oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Options.showAboutConfig(this,'quickfilters.debug',true);return false;"/>
+                    oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Options.showAboutConfig(this, 'quickfilters.debug', true);return false;"/>
         </hbox>
         <separator />
         <separator />

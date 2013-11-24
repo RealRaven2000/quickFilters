@@ -1,10 +1,10 @@
 <!ENTITY qf.filters.title "Filters aanmaken">
 <!ENTITY qf.filters.template.from "Gebaseerd op afzender (van)">
+<!ENTITY qf.filters.template.multifrom "Groep (verzamelt afzenders van meerdere berichten)">
 <!ENTITY qf.filters.template.to "Gebaseerd op ontvanger (aan)">
 <!ENTITY qf.filters.template.list "E-maillijst">
 <!ENTITY qf.filters.template.topic "Op onderwerp">
 <!ENTITY qf.filters.template.tag "Op label">
-<!ENTITY qf.filters.template.tag.description "Haalt de labels van het e-mailbericht op en voegt deze aan de filtervoorwaarden toe.">
 <!ENTITY qf.filters.templates.description.label "Beschrijving:">
 <!ENTITY qf.filters.instructions "Kies een sjabloon. U kunt de regels van het filter instellen op het volgende scherm.">
 <!ENTITY qf.continueFilter.label "Filter maken…">

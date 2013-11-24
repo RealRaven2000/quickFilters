@@ -1,10 +1,10 @@
 <!ENTITY qf.filters.title "Создать фильтр">
 <!ENTITY qf.filters.template.from "По отправителю (от)">
+<!ENTITY qf.filters.template.multifrom "Группа (список отправителей из нескольких сообщений)">
 <!ENTITY qf.filters.template.to "По адресату (кому)">
 <!ENTITY qf.filters.template.list "Список рассылки">
 <!ENTITY qf.filters.template.topic "По теме">
 <!ENTITY qf.filters.template.tag "По меткам">
-<!ENTITY qf.filters.template.tag.description "Добавить к фильтру метки сообщения.">
 <!ENTITY qf.filters.templates.description.label "Описание:">
 <!ENTITY qf.filters.instructions "Пожалуйста выберите шаблон. Фильтр можно будет настроить на следующем этапе.">
 <!ENTITY qf.continueFilter.label "Создать фильтр…">

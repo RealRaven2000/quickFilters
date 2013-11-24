@@ -4,7 +4,6 @@
 <!ENTITY qf.filters.template.list "邮寄名单">
 <!ENTITY qf.filters.template.topic "按主题">
 <!ENTITY qf.filters.template.tag "按标签">
-<!ENTITY qf.filters.template.tag.description "检索邮件标签并将其添加到过滤器条件。">
 <!ENTITY qf.filters.templates.description.label "描述:">
 <!ENTITY qf.filters.instructions "请选择一个模板，您可以在下一步中开启过滤器规则。">
 <!ENTITY qf.continueFilter.label "创建过滤器…">

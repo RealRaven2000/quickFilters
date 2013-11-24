@@ -4,7 +4,6 @@
 <!ENTITY qf.filters.template.list "Danh sách thư">
 <!ENTITY qf.filters.template.topic "Theo tiêu đề">
 <!ENTITY qf.filters.template.tag "Theo các nhãn">
-<!ENTITY qf.filters.template.tag.description "Tìm nhãn của thư và thêm chúng vào bộ lọc điều kiện.">
 <!ENTITY qf.filters.templates.description.label "Mô tả:">
 <!ENTITY qf.filters.instructions "Hãy chọn một mẫu. Bạn có thể tinh chỉnh các quy tắc của bộ lọc ở màn hình kế tiếp.">
 <!ENTITY qf.continueFilter.label "Tạo Bộ Lọc…">

@@ -27,6 +27,11 @@ copy by writing to:
 END LICENSE BLOCK
 */
 
+if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
+{
+  Components.utils.import("resource:///modules/MailUtils.js");
+}
+
 quickFilters.Properties = {
   bundle: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties"),
 
@@ -59,6 +64,28 @@ quickFilters.Util = {
   mExtensionVer: null,
   ConsoleService: null,
   lastTime: 0,
+  
+  getMsgFolderFromUri:  function(uri, checkFolderAttributes)
+  {
+    let msgfolder = null;
+    if (typeof MailUtils != 'undefined' && MailUtils.getFolderForURI) {
+      return MailUtils.getFolderForURI(uri, checkFolderAttributes);
+    }
+    try {
+      let resource = GetResourceFromUri(uri);
+      msgfolder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
+      if (checkFolderAttributes) {
+        if (!(msgfolder && (msgfolder.parent || msgfolder.isServer))) {
+          msgfolder = null;
+        }
+      }
+    }
+    catch (ex) {
+       //dump("failed to get the folder resource\n");
+    }
+    return msgfolder;
+  } ,
+  
 
   getBundleString: function(id, defaultText) {
     try {
@@ -117,7 +144,7 @@ quickFilters.Util = {
     }
     return this.mAppName;
   },
-	
+  
   get HostSystem() {
     if (null===this.mHost) {
       var osString = Components.classes["@mozilla.org/xre/app-info;1"]
@@ -196,33 +223,33 @@ quickFilters.Util = {
   } ,
 
   get VersionSanitized() {
-		return this.getVersionSimple(this.Version);
+    return this.getVersionSimple(this.Version);
   } ,
-	
-	getVersionSimple: function(ver) {
-	  let pureVersion = ver;  // default to returning unchanged
-		// get first match starting with numbers mixed with . 	
-		let reg = new RegExp("[0-9.]*");
-		let results = ver.match(reg); 
-		if (results) 
-			pureVersion = results[0];
-		return pureVersion;
-	} ,
+  
+  getVersionSimple: function(ver) {
+    let pureVersion = ver;  // default to returning unchanged
+    // get first match starting with numbers mixed with .   
+    let reg = new RegExp("[0-9.]*");
+    let results = ver.match(reg); 
+    if (results) 
+      pureVersion = results[0];
+    return pureVersion;
+  } ,
 
-	isVirtual: function(folder) {
-	  if (!folder)
-			return true;
-	  return (folder.username && folder.username == 'nobody') || (folder.hostname == 'smart mailboxes');
-	} ,
+  isVirtual: function(folder) {
+    if (!folder)
+      return true;
+    return (folder.username && folder.username == 'nobody') || (folder.hostname == 'smart mailboxes');
+  } ,
 
-	slideAlert: function (text, title, icon) {
+  slideAlert: function (text, title, icon) {
     try {
       if (!icon)
         icon = "chrome://quickfilters/skin/QuickFilters_32.png";
-			else
-				icon = "chrome://quickfilters/skin/" + icon;
-			if (!title)
-				title = "quickFilters";
+      else
+        icon = "chrome://quickfilters/skin/" + icon;
+      if (!title)
+        title = "quickFilters";
       quickFilters.Util.logToConsole('popupAlert(' + text + ', ' + title + ')');
       Components.classes['@mozilla.org/alerts-service;1'].
                 getService(Components.interfaces.nsIAlertsService).
@@ -232,41 +259,41 @@ quickFilters.Util = {
       // prevents runtime error on platforms that don't implement nsIAlertsService
       alert(text);
     }
-	} ,
-	
+  } ,
+  
   popupAlert: function (text, title, icon) {
     try {
       if (!icon)
         icon = "chrome://quickfilters/skin/QuickFilters_32.png";
-			else
-				icon = "chrome://quickfilters/skin/" + icon;
-			if (!title)
-				title = "quickFilters";
-			let panel = document.getElementById('quickFilterNotification');
-			if (panel) {
-				panel.openPopup(null, "after_start", 0, 0, false, false);
-				let notificationBox = document.getElementById('quickFilterNotificationBox');
-				let priority = notificationBox.PRIORITY_WARNING_MEDIUM;
-				// appendNotification( label , value , image , priority , buttons, eventCallback )
-				let note = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
-				notificationBox.addEventListener('alertclose', function() { alert('test'); });
-				window.setTimeout(function() {try{notificationBox.removeNotification(note)}catch(e){};panel.hidePopup();}, 4000);
-				//let note = document.createElement('notification');
-				//note.setAttribute(label, text);
-				//note.setAttribute(image, icon);
-				//panel.appendChild(note);
-			}
-			else {
-				let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-																			.getService(Components.interfaces.nsIPromptService);
+      else
+        icon = "chrome://quickfilters/skin/" + icon;
+      if (!title)
+        title = "quickFilters";
+      let panel = document.getElementById('quickFilterNotification');
+      if (panel) {
+        panel.openPopup(null, "after_start", 0, 0, false, false);
+        let notificationBox = document.getElementById('quickFilterNotificationBox');
+        let priority = notificationBox.PRIORITY_WARNING_MEDIUM;
+        // appendNotification( label , value , image , priority , buttons, eventCallback )
+        let note = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
+        notificationBox.addEventListener('alertclose', function() { alert('test'); });
+        window.setTimeout(function() {try{notificationBox.removeNotification(note)}catch(e){};panel.hidePopup();}, 4000);
+        //let note = document.createElement('notification');
+        //note.setAttribute(label, text);
+        //note.setAttribute(image, icon);
+        //panel.appendChild(note);
+      }
+      else {
+        let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                                      .getService(Components.interfaces.nsIPromptService);
 
-				//let check = {value: false};   // default the checkbox to true
-				prompts.alert(window, title, text);	
-			}
+        //let check = {value: false};   // default the checkbox to true
+        prompts.alert(window, title, text); 
+      }
     }
     catch(e) {
       // prevents runtime error on platforms that don't implement nsIAlertsService
-			this.logException ("quickFilter.util.popupAlert() ", e);
+      this.logException ("quickFilter.util.popupAlert() ", e);
       alert(text);
     }
   },
@@ -321,7 +348,7 @@ quickFilters.Util = {
       // in search result folders, there is no current URI!
       if (!currentURI)
         return null;
-      aFolder = GetMsgFolderFromUri(currentURI, true).QueryInterface(Components.interfaces.nsIMsgFolder); // inPB case this is just the URI, not the folder itself??
+      aFolder = quickFilters.Util.getMsgFolderFromUri(currentURI, true).QueryInterface(Components.interfaces.nsIMsgFolder); // inPB case this is just the URI, not the folder itself??
     }
     return aFolder;
   } ,
@@ -552,40 +579,40 @@ quickFilters.Util = {
   showHomePage: function () {
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/');
   } ,
-	
-		// Postbox special functions to avoid line being truncated
-	// removes description.value and adds it into inner text
-	fixLineWrap: function(notifyBox, notificationKey) {
+  
+    // Postbox special functions to avoid line being truncated
+  // removes description.value and adds it into inner text
+  fixLineWrap: function(notifyBox, notificationKey) {
     try {
-		  if (!notifyBox || !notificationKey)
-				return;
-			let note = notifyBox.getNotificationWithValue(notificationKey);
-			// if we  could get at the description element within the notificaiton 
-			// we could empty the value and stick thje text into textContent instead!
-			let hbox = note.boxObject.firstChild.firstChild;
-			if (hbox) {
-				this.logDebug('hbox = ' + hbox.tagName + ' hbox.childNodes: ' + hbox.childNodes.length);
-				let desc = hbox.childNodes[1];
-				desc.textContent = desc.value.toString();
-				desc.removeAttribute('value');
-			}
-		}
-		catch(ex) {
-			this.logException('Postbox notification: ', ex);
-		}
-	} ,
-	
-	versionSmaller: function(a, b) {
-		/*
-			Compares Application Versions
-			returns
-			- is smaller than 0, then A < B
-			-  equals 0 then Version, then A==B
-			- is bigger than 0, then A > B
-		*/
-		let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-														.getService(Components.interfaces.nsIVersionComparator);
-		 return (versionComparator.compare(a, b) < 0);
-	}
-	
+      if (!notifyBox || !notificationKey)
+        return;
+      let note = notifyBox.getNotificationWithValue(notificationKey);
+      // if we  could get at the description element within the notificaiton 
+      // we could empty the value and stick thje text into textContent instead!
+      let hbox = note.boxObject.firstChild.firstChild;
+      if (hbox) {
+        this.logDebug('hbox = ' + hbox.tagName + ' hbox.childNodes: ' + hbox.childNodes.length);
+        let desc = hbox.childNodes[1];
+        desc.textContent = desc.value.toString();
+        desc.removeAttribute('value');
+      }
+    }
+    catch(ex) {
+      this.logException('Postbox notification: ', ex);
+    }
+  } ,
+  
+  versionSmaller: function(a, b) {
+    /*
+      Compares Application Versions
+      returns
+      - is smaller than 0, then A < B
+      -  equals 0 then Version, then A==B
+      - is bigger than 0, then A > B
+    */
+    let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
+                            .getService(Components.interfaces.nsIVersionComparator);
+     return (versionComparator.compare(a, b) < 0);
+  }
+  
 }

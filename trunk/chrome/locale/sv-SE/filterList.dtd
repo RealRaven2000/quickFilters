@@ -12,6 +12,9 @@
 <!ENTITY quickfilters.button.merge "Slå samman">
 <!ENTITY quickfilters.button.merge.accesskey "m">
 <!ENTITY quickfilters.button.merge.tooltiptext "Slå samman filter som utför samma åtgärd">
+<!ENTITY quickfilters.button.clone "Duplicera">
+<!ENTITY quickfilters.button.clone.accesskey "D">
+<!ENTITY quickfilters.button.clone.tooltiptext "Duplicera ett filter">
 <!ENTITY quickfilters.menu.cut "Klipp ut">
 <!ENTITY quickfilters.menu.copy "Kopiera">
 <!ENTITY quickfilters.menu.paste "Klistra in">

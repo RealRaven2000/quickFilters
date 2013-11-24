@@ -37,6 +37,7 @@ Axel Grude: Current developer
 Yusuke Kamiyamane: some Stock Icons
 dryicons.com: Ledgers Icon (right half of assistant graphics)
 
+
 Translations - the current list of translators is listed in the install.rdf and
 displayed on the "about" dialog. (Add-ons Manager / About)
 
@@ -65,3 +66,6 @@ CRYSTAL ICON SET
 some icons are based on Everaldo's Crystal Icon set; The Crystal Project are released under LGPL
 see http://www.everaldo.com/crystal/?action=license for details.
 
+CLONE ICON (sheep)
+from Pidgin 'Old' Tango Smilies Icon Pack by ebupof
+freeware license, from http://findicons.com/icon/98467/sheep?id=428077

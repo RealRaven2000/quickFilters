@@ -24,3 +24,4 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "о">
 <!ENTITY qf.label.naming.keyWord "Добавить ключевое слово правила">
 <!ENTITY qf.label.naming.keyWord.accesskey "к">
+<!ENTITY qf.cloned.label "Добавить к имени клонированного фильтра:">

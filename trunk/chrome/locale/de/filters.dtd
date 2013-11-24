@@ -1,10 +1,10 @@
 <!ENTITY qf.filters.title "Filter Erstellen">
 <!ENTITY qf.filters.template.from "Basierend auf Absender (von)">
+<!ENTITY qf.filters.template.multifrom "Gruppe (Absender mehrerer mails)">
 <!ENTITY qf.filters.template.to "Basierend auf Empfänger (an)">
 <!ENTITY qf.filters.template.list "Postversandliste">
 <!ENTITY qf.filters.template.topic "Nach Betreff">
 <!ENTITY qf.filters.template.tag "Nach Schlagwörtern">
-<!ENTITY qf.filters.template.tag.description "Liest die Schlagwörter der Email und trägt sie in den Filterbedingungen ein">
 <!ENTITY qf.filters.templates.description.label "Beschreibung:">
 <!ENTITY qf.filters.instructions "Bitte eine Vorlage wählen. Die Regeln können im nächsten Schritt angepasst werden.">
 <!ENTITY qf.continueFilter.label "Filter erzeugen…">
