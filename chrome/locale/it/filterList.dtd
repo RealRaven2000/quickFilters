@@ -12,9 +12,13 @@
 <!ENTITY quickfilters.button.merge "Unione">
 <!ENTITY quickfilters.button.merge.accesskey "U">
 <!ENTITY quickfilters.button.merge.tooltiptext "Unione di più filtri che svolgono la stessa azione">
+<!ENTITY quickfilters.button.clone "Clona">
+<!ENTITY quickfilters.button.clone.accesskey "C">
+<!ENTITY quickfilters.button.clone.tooltiptext "Clona un filtro">
 <!ENTITY quickfilters.menu.cut "Taglia">
 <!ENTITY quickfilters.menu.copy "Copia">
 <!ENTITY quickfilters.menu.paste "Incolla">
 <!ENTITY quickfilters.button.settings "Impostazioni di quickFilters…">
 <!ENTITY quickfilters.button.assistant "Attiva/disattiva la Procedura guidata…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Attiva/disattiva la modalità 'Procedura guidata'. Se questa è attiva, è sufficiente trascinare e rilasciare i messaggi per creare i filtri">
+<!ENTITY quickfilters.button.support "Sito di supporto di quickFilters">

@@ -24,3 +24,4 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "S">
 <!ENTITY qf.label.naming.keyWord "Aggiunge alla regola una parola-chiave specifica">
 <!ENTITY qf.label.naming.keyWord.accesskey "C">
+<!ENTITY qf.cloned.label "Accoda al nome del filtro clonato:">

@@ -12,9 +12,13 @@
 <!ENTITY quickfilters.button.merge "Samenvoegen">
 <!ENTITY quickfilters.button.merge.accesskey "S">
 <!ENTITY quickfilters.button.merge.tooltiptext "Meerdere filters met dezelfde actie samenvoegen">
+<!ENTITY quickfilters.button.clone "Klonen">
+<!ENTITY quickfilters.button.clone.accesskey "K">
+<!ENTITY quickfilters.button.clone.tooltiptext "Een filter klonen">
 <!ENTITY quickfilters.menu.cut "Knippen">
 <!ENTITY quickfilters.menu.copy "Kopiëren">
 <!ENTITY quickfilters.menu.paste "Plakken">
 <!ENTITY quickfilters.button.settings "quickFilters-instellingen…">
 <!ENTITY quickfilters.button.assistant "Assistent wisselen…">
-<!ENTITY quickfilters.button.assistant.tooltiptext "Wisselt de assistentmodus. Versleep indien actief e-mailberichten om filters te maken.">
+<!ENTITY quickfilters.button.assistant.tooltiptext "Wisselt de modus filterassistent. Versleep indien actief e-mailberichten om filters te maken.">
+<!ENTITY quickfilters.button.support "quickFilters-ondersteuningswebsite">

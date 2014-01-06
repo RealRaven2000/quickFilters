@@ -1,5 +1,6 @@
 <!ENTITY qf.filters.title "创建过滤器">
 <!ENTITY qf.filters.template.from "基于发送者(来源)">
+<!ENTITY qf.filters.template.multifrom "编组(收集多份邮件的发送者)">
 <!ENTITY qf.filters.template.to "基于接收者 (目标)">
 <!ENTITY qf.filters.template.list "邮寄名单">
 <!ENTITY qf.filters.template.topic "按主题">
