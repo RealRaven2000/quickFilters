@@ -9,9 +9,3 @@
 <!ENTITY qf.button.reorderButtonBottom "Đưa xuống cuối">
 <!ENTITY qf.button.reorderButtonBottom.accessKey "b">
 <!ENTITY qf.button.reorderButtonBottom.toolTip "Sắp xếp lại bộ lọc để nó được thực thi sau tất cả các cái khác">
-<!ENTITY quickfilters.button.merge "Merge">
-<!ENTITY quickfilters.button.merge.accesskey "M">
-<!ENTITY quickfilters.button.merge.tooltiptext "Merge multiple filters with the same action">
-<!ENTITY quickfilters.menu.cut "Cut">
-<!ENTITY quickfilters.menu.copy "Copy">
-<!ENTITY quickfilters.menu.paste "Paste">

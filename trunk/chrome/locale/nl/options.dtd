@@ -24,3 +24,4 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "N">
 <!ENTITY qf.label.naming.keyWord "Regelspecifiek trefwoord toevoegen">
 <!ENTITY qf.label.naming.keyWord.accesskey "t">
+<!ENTITY qf.cloned.label "Aan naam van gekloond filter toevoegen:">

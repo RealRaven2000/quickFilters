@@ -18,6 +18,7 @@
 <!ENTITY quickfilters.menu.cut "Ausschneiden">
 <!ENTITY quickfilters.menu.copy "Kopieren">
 <!ENTITY quickfilters.menu.paste "Einfügen">
-<!ENTITY quickfilters.button.settings "quickFilters Einstellungen...">
-<!ENTITY quickfilters.button.assistant "Assistent ein/ausschalten...">
+<!ENTITY quickfilters.button.settings "quickFilters Einstellungen…">
+<!ENTITY quickfilters.button.assistant "Assistent ein/ausschalten…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Filter Assistent Modus. Wenn aktiv, erzeugt mails verschieben neue Filter.">
+<!ENTITY quickfilters.button.support "quickFilters Support Webseite">

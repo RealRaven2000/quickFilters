@@ -3,7 +3,7 @@
 <!ENTITY quickfilters.FromMessage.accesskey "q">
 <!ENTITY quickfiltersToolbarButton.label "quickFilters Assistent">
 <!ENTITY quickfiltersToolbarButton.tooltip "Aktiviert den Filter Assistenten">
-<!ENTITY quickfilters.ListButton.label "Filter...">
+<!ENTITY quickfilters.ListButton.label "Filter…">
 <!ENTITY quickfilters.ListButton.tooltip "Öffnet Liste der Email Filter">
 <!ENTITY quickfilters.RunButton.label "Filter anwenden">
 <!ENTITY quickfilters.RunButton.tooltip "Führt die Filter aus die im aktuelle Verzeichnis definiert sind">

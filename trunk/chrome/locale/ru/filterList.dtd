@@ -21,3 +21,4 @@
 <!ENTITY quickfilters.button.settings "Настройки quickFilters...">
 <!ENTITY quickfilters.button.assistant "Включить ассистент...">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Включить ассистент по созданию фильтров путем перетаскивания сообщений.">
+<!ENTITY quickfilters.button.support "Страница поддержки quickFilters">
