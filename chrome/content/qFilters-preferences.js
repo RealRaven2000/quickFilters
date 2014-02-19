@@ -33,12 +33,12 @@ quickFilters.Preferences = {
 	service: Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch),
 
 	get Debug() {
-		return this.getBoolPrefQF("debug");
+		return this.getBoolPref("debug");
 	},
 
 	isDebugOption: function(option) { // granular debugging
 		if(!this.Debug) return false;
-		try {return this.getBoolPrefQF("debug." + option);}
+		try {return this.getBoolPref("debug." + option);}
 		catch(e) {return false;}
 	},
 	
@@ -51,25 +51,34 @@ quickFilters.Preferences = {
 	},
 	
 	isAbortAfterCreateFilter: function() {
-  	return this.getBoolPrefQF("abortAfterCreate");
+  	return this.getBoolPref("abortAfterCreate");
 	},
 
-	getBoolPref: function(p) {
+	getBoolPrefSilent: function(p) {
+		try {
+			return this.service.getBoolPrefNative(p);
+		}
+		catch(e) {
+			return false;
+		}
+	},
+	
+	getBoolPrefNative: function(p) {
 		try {
 			return this.service.getBoolPref(p);
 		} catch(e) {
 			var s="Err:" +e;
-			quickFilters.Util.logToConsole("getBoolPref("+p+") failed:\n" + s);
+			quickFilters.Util.logToConsole("getBoolPrefNative(" + p + ") failed:\n" + s);
 			return false;
 		}
 	},
 
-	getBoolPrefQF: function(p) {
-		return quickFilters.Preferences.getBoolPref(this.Prefix + p);
+	getBoolPref: function(p) {
+		return quickFilters.Preferences.getBoolPrefNative(this.Prefix + p);
 	},
 
-	setBoolPrefQF: function(p, v) {
-		return quickFilters.Preferences.setBoolPref(this.Prefix + p, v);
+	setBoolPref: function(p, v) {
+		return quickFilters.Preferences.setBoolPrefNative(this.Prefix + p, v);
 	},
 
 	getIntPrefQF: function(p) {
@@ -80,7 +89,7 @@ quickFilters.Preferences = {
 		return this.setIntPref(this.Prefix + p, v);
 	},
 
-	setBoolPref: function(p, v) {
+	setBoolPrefNative: function(p, v) {
 		try {
 			return this.service.setBoolPref(p, v);
 		} catch(e) {
@@ -112,7 +121,7 @@ quickFilters.Preferences = {
 		try {
 			if(this.service.prefHasUserValue(pref))
 				return true;
-			if (this.service.getBoolPref(pref))
+			if (this.service.getBoolPrefNative(pref))
 				return true;
 		}
 		catch (e) {return false; }
@@ -122,14 +131,18 @@ quickFilters.Preferences = {
 	get isStarAction() {
 	  let pref;
 		switch(quickFilters.Util.Application) {
-			case 'Thunderbird':
+			case 'Thunderbird': case 'Postbox':
 				pref = 'actions.star';
 				break;
 			case 'SeaMonkey':
 				pref = 'actions.flag';
 				break;
 		}
-		return this.getBoolPrefQF(pref);
+		return this.getBoolPref(pref);
+	} ,
+	
+	get isMoveFolderAction() {
+	  return this.getBoolPref('actions.moveFolder');
 	} ,
 	
   getCurrentFilterTemplate : function()
