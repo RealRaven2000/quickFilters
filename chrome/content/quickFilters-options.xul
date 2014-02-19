@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="options.css" title="QuickFiltersOptions" type="text/css"?>
-<!DOCTYPE prefwindow SYSTEM "chrome://quickfilters/locale/options.dtd">
+<?xml-stylesheet href="filterWidgets.css" type="text/css"?>
+
+<!DOCTYPE prefwindow [
+  <!ENTITY % optionsDTD SYSTEM "chrome://quickfilters/locale/options.dtd">
+  %optionsDTD;
+  <!ENTITY % commonDTD SYSTEM "chrome://quickfilters/locale/filterList.dtd">
+  %commonDTD;
+]>
 
 <prefwindow id="quickfilters-preferences" 
             buttons="extra2,accept"
@@ -62,7 +69,16 @@
 				  instantApply="true"
 				  />
     </preferences>
-    
+	
+	<box id="quickFiltersHelpBar">
+		<toolbarbutton id="quickFiltersBtnHelp"
+		  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+		  label = ""
+		  tooltiptext = "&quickfilters.button.support;"
+		  oncommand = "quickFilters.Util.showHomePage('index.html#options');"
+		  />
+	</box>
+  
     
     
   <hbox id="qf-header-container">
@@ -146,7 +162,7 @@
         <separator />
         <separator />
       </tabpanel>  
-			<tabpanel id="quickFilters-Options-general"
+	  <tabpanel id="quickFilters-Options-general"
 			          orient="vertical" 
 			          label="&qf.tab.options;" 
 			          style="position:relative;">
@@ -158,6 +174,7 @@
                onclick="quickFilters.Util.showHomePage();">&qf.label.aboutLink;</label>
         <separator />
         <description class="quickhelp-desc">&qf.description.donate;</description>
+		
         <label id="L2" 
                class="text-link" 
                tooltiptext="http://quickfilters.mozdev.org/donate.html"
