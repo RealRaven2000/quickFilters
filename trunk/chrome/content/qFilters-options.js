@@ -38,6 +38,19 @@ quickFilters.Options = {
 		
 		let clonedLabel = window.document.getElementById('txtClonedName');
     clonedLabel.placeholder = quickFilters.Util.getBundleString('quickfilters.clone.label', '(copy)');	
+		
+		// no donation loophoole
+		let donateButton = document.documentElement.getButton('extra2');
+		if (donateButton) {
+			donateButton.addEventListener("click", 
+				function(evt) { 
+					quickFilters.Util.logDebugOptional("default", "donateButton event:\n" + evt.toString());
+					if(evt.button == 2) {
+						quickFilters.Util.toggleDonations();
+						evt.preventDefault();
+						evt.stopPropagation();
+					}; }, false);
+		}		
 
   } ,
   
@@ -46,7 +59,7 @@ quickFilters.Options = {
     let pref = document.getElementById(prefString);
     
     if (pref)
-      quickFilters.Preferences.setBoolPref(pref.getAttribute('name'), cb.checked);
+      quickFilters.Preferences.setBoolPrefNative(pref.getAttribute('name'), cb.checked);
     if (noUpdate)
       return true;
     return false // this.updateMainWindow();
@@ -85,12 +98,11 @@ quickFilters.Options = {
       });
   },
 
-
   addConfigFeature: function(filter, Default, textPrompt) {
     // adds a new boolean option to about:config, that isn't there by default
     if (confirm(textPrompt)) {
       // create (non existent filter setting:
-      quickFilters.Preferences.setBoolPref(filter, Default);
+      quickFilters.Preferences.setBoolPrefNative(filter, Default);
 
       // last parameter is Readonly.
       quickFilters.Options.showAboutConfig(null, filter, true); 
