@@ -21,13 +21,34 @@ hbox.quickhelp-dbg {
 	-moz-border-radius: 4px 4px 0 0;
 }
 
-
 /* filterTemplate.css */
 .dialog-button:first-child
 {
 	-moz-border-radius: 2em;
 }
+.dialog-button:first-child:hover
+{
+  background: -moz-linear-gradient(top, rgba(254,222,178,1) 0%, rgba(241,162,51,1) 50%, rgba(235,140,7,1) 51%, rgba(251,186,95,1) 100%);
+}
 
+.dialog-button:first-child:active
+{
+  background: -moz-linear-gradient(top, rgba(254,222,178,1) 0%, rgba(241,162,51,1) 50%, rgba(235,140,7,1) 51%, rgba(251,186,95,1) 100%);
+}
+
+/* Donate button */
+button.dialog-button[dlgtype=extra2] {
+	background: -moz-linear-gradient(top, rgba(254,204,177,1) 0%, rgba(241,116,50,1) 50%, rgba(234,85,7,1) 51%, rgba(251,149,94,1) 100%) !important;
+}
+.dialog-button[dlgtype=extra2]:hover
+{
+	background: -moz-linear-gradient(top, rgba(254,222,178,1) 0%, rgba(241,162,51,1) 50%, rgba(235,140,7,1) 51%, rgba(251,186,95,1) 100%);
+}
+
+.dialog-button[dlgtype=extra2]:active
+{
+	background: -moz-linear-gradient(top, rgba(254,222,178,1) 0%, rgba(241,162,51,1) 50%, rgba(235,140,7,1) 51%, rgba(251,186,95,1) 100%);
+}
 
 
 /* quickFilters.css */
@@ -37,7 +58,46 @@ notification[value="quickfilters-filter"] .messageCloseButton {
 
 /* contribute.css - donate button */
 prefwindow.quickfilters-preferences button.dialog-button[dlgtype=extra2] {
-  -moz-linear-gradient(center top , rgb(254, 204, 177) 0%, rgb(241, 116, 50) 50%, rgb(234, 85, 7) 51%, rgb(251, 149, 94) 100%) !important;
+  background: -moz-linear-gradient(center top , rgb(254, 204, 177) 0%, rgb(241, 116, 50) 50%, rgb(234, 85, 7) 51%, rgb(251, 149, 94) 100%) !important;
 }
 
+#L1 {
+    background: -moz-linear-gradient(top, rgba(169,182,98,1) 0%, rgba(125,151,65,1) 50%, rgba(98,132,30,1) 51%, rgba(138,165,71,1) 100%);
+}
+
+#L1.text-link:focus  {
+	background: -moz-linear-gradient(top, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+}
+
+label#L1:hover {
+	background: -moz-linear-gradient(top, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+}
+
+label#L1:active {
+	background: -moz-linear-gradient(top, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+}
+
+/* donations - blue */
+label#L2 {
+  background: -moz-linear-gradient(top, rgba(103,159,211,1) 0%, rgba(54,123,184,1) 24%, rgba(22,81,132,1) 50%, rgba(48,110,164,1) 79%, rgba(58,133,198,1) 100%);
+}
+
+label#L2:hover,
+label#L2:focus {
+	background-image: -moz-linear-gradient(top, rgba(208,228,247,1) 0%, rgba(115,177,231,1) 24%, rgba(10,119,213,1) 50%, rgba(83,159,225,1) 79%, rgba(135,188,234,1) 100%) !important;
+}
+
+label#L2:active {
+	background-image: -moz-linear-gradient(top, rgba(208,228,247,1) 0%, rgba(115,177,231,1) 24%, rgba(10,119,213,1) 50%, rgba(83,159,225,1) 79%, rgba(135,188,234,1) 100%) !important;
+}
+
+/* contact - yellow */
+
+label#L3  {
+  background: -moz-linear-gradient(top, rgba(241,194,75,1) 0%, rgba(241,194,75,1) 6%, rgba(172,128,6,1) 34%, rgba(240,188,46,1) 100%);
+}
+
+label#L3:hover, label#L3:focus {
+	background-image: -moz-linear-gradient(top, rgba(252,234,187,1) 0%, rgba(252,234,187,1) 6%, rgba(248,181,0,1) 34%, rgba(251,223,147,1) 100%) !important;
+}
 

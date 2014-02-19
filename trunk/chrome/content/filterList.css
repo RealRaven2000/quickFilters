@@ -65,8 +65,15 @@
 	list-style-image: url("chrome://quickfilters/skin/fugue-join_24.png");
 }
 
-#quickFiltersBtnClone{
-	list-style-image: url("chrome://quickfilters/skin/sheep.png");
+#quickFiltersBtnClone {
+	list-style-image: url("chrome://quickfilters/skin/clone.png");
+	-moz-image-region:rect(0px 24px 24px 0px);
+}
+#quickFiltersBtnClone:hover {
+	-moz-image-region:rect(24px 24px 48px 0px);
+}
+#quickFiltersBtnClone:active {
+	-moz-image-region:rect(48px 24px 72px 0px);
 }
 
 
