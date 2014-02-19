@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="filterList.css" type="text/css"?>
+<?xml-stylesheet href="filterWidgets.css" type="text/css"?>
 
 <!DOCTYPE overlay SYSTEM "chrome://quickfilters/locale/filterList.dtd" >
 <overlay id="QuickFilters-FilterOverlay"
@@ -95,6 +96,12 @@
 			  label = "&quickfilters.button.settings;"
 			  tooltiptext = "&quickfilters.button.settings;"
 			  oncommand = "quickFilters.showOptions();"
+			  />
+			<toolbarbutton id="quickFiltersBtnHelp"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.button.support;"
+			  tooltiptext = "&quickfilters.button.support;"
+			  oncommand = "quickFilters.Util.showHomePage('index.html#messageFilterList');"
 			  />
 		  </toolbar>
 	  </toolbox>
