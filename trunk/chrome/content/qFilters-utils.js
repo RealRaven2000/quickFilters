@@ -54,7 +54,7 @@ var QuickFilters_TabURIregexp = {
 };
 
 quickFilters.Util = {
-  HARDCODED_EXTENSION_VERSION : "1.6.2",
+  HARDCODED_EXTENSION_VERSION : "2.3.1",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -64,9 +64,27 @@ quickFilters.Util = {
   mExtensionVer: null,
   ConsoleService: null,
   lastTime: 0,
-  
-  getMsgFolderFromUri:  function(uri, checkFolderAttributes)
-  {
+  _tabContainer: null,
+  tempFolderTab: null,	 // likely obsolete ###
+
+	get FolderFlags() {
+	  if (Components.interfaces.nsMsgFolderFlags)
+	    return Components.interfaces.nsMsgFolderFlags;
+		else { // sigh. Postbox doesn't have this?
+		  // from https://developer.mozilla.org/en-US/docs/nsMsgFolderFlags.idl
+		  return {
+			  Inbox: 0x00001000,
+				Drafts: 0x00000400,
+				Queue: 0x00000800,
+				SentMail: 0x00000200,
+				Newsgroup: 0x00000001,
+				Templates: 0x00400000,
+         Virtual: 0x00000020				
+			}
+		}
+	},
+		
+  getMsgFolderFromUri:  function(uri, checkFolderAttributes) {
     let msgfolder = null;
     if (typeof MailUtils != 'undefined' && MailUtils.getFolderForURI) {
       return MailUtils.getFolderForURI(uri, checkFolderAttributes);
@@ -85,21 +103,20 @@ quickFilters.Util = {
     }
     return msgfolder;
   } ,
-  
 
   getBundleString: function(id, defaultText) {
     try {
       var s= quickFilters.Properties.getLocalized(id);
     }
     catch(e) {
-      s= defaultText;
+      s = defaultText;
       this.logException ("Could not retrieve bundle string: " + id, e);
     }
     return s;
   } ,
 
   getMail3PaneWindow: function() {
-    var windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
+    let windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
         .getService(Components.interfaces.nsIWindowMediator);
     var win3pane = windowManager.getMostRecentWindow("mail:3pane");
     return win3pane;
@@ -242,6 +259,80 @@ quickFilters.Util = {
     return (folder.username && folder.username == 'nobody') || (folder.hostname == 'smart mailboxes');
   } ,
 
+	get tabContainer() {
+		if (!this._tabContainer) {
+		  let doc = this.getMail3PaneWindow().document;
+			if (this.Application=='Postbox')
+				this._tabContainer = doc.getElementById('tabmail').mTabContainer;
+			else
+				this._tabContainer = doc.getElementById('tabmail').tabContainer;
+		}
+		return this._tabContainer;
+	} ,
+	
+	getTabInfoByIndex: function(tabmail, idx) {
+		if (tabmail.tabInfo)
+			return tabmail.tabInfo[idx];
+		if (tabmail.tabOwners)
+		  return tabmail.tabOwners[idx];  // Postbox
+		return null;
+	} ,	
+	
+	get mailFolderTypeName() {
+		switch(this.Application) {
+			case "Thunderbird": return "folder";
+			case "SeaMonkey": return "3pane";
+			default: return "folder";
+		}
+		return "";
+	} ,	
+	
+	get tabmail() {
+		var doc = this.getMail3PaneWindow().document;
+		let tabmail = doc.getElementById("tabmail");
+		return tabmail;
+	} ,
+	
+	// likely obsolete ###
+	// use this to temporarily open a tab for a folder if the msgDatabase remains invalid.
+	// there should be another way to do this, but for the moment this is the workaround.
+	openTempFolderInNewTab: function(folder, background) {
+		var win = this.getMail3PaneWindow();
+		let tabmail = this.tabmail;
+		if (tabmail) {
+		  let tabName = folder.name;
+			switch (this.Application) {
+				case 'Thunderbird':
+				  this.tempFolderTab = tabmail.openTab(this.mailFolderTypeName, 
+					  {folder: folder, messagePaneVisible: true, background: background, disregardOpener: true, 
+						title: tabName} ) ; 
+					break;
+				case 'SeaMonkey':
+					this.tempFolderTab = tabmail.openTab(this.mailFolderTypeName, 7, folder.URI); // '3pane'; how to implement background?
+					this.tabContainer.selectedIndex = tabmail.tabContainer.childNodes.length - 1;
+					break;
+				case 'Postbox':
+					win.MsgOpenNewTabForFolder(folder.URI, 
+					  null /* messageKey */, 
+						background);
+					let info = this.getTabInfoByIndex(tabmail, tabmail.mTabContainer.childNodes.length-1);
+					this.tempFolderTab = info;  
+					break;
+			}
+		}
+	} ,
+	
+	// likely obsolete ###
+	closeTempFolderTab: function() {
+	  if(this.tempFolderTab) {
+		  if (this.tabmail.closeTab)
+				this.tabmail.closeTab(this.tempFolderTab);
+			else  // postbox
+				this.tabmail.removeTab(this.tempFolderTab, {skipAnimation: true});
+			this.tempFolderTab = null;
+		}
+	} ,
+	
   slideAlert: function (text, title, icon) {
     try {
       if (!icon)
@@ -296,7 +387,7 @@ quickFilters.Util = {
       this.logException ("quickFilter.util.popupAlert() ", e);
       alert(text);
     }
-  },
+  } ,
 
   showStatusMessage: function(s) {
     try {
@@ -352,6 +443,40 @@ quickFilters.Util = {
     }
     return aFolder;
   } ,
+	
+	// postbox helper function
+	pbGetSelectedMessages : function ()
+	{
+	  var messageList = [];
+	  // guard against any other callers.
+	  if (quickFilters.Util.Application != 'Postbox')
+		  throw('pbGetSelectedMessages: Postbox specific function!');
+			
+	  try {
+	    var messageArray = {};
+	    var length = {};
+	    var view = GetDBView();
+	    view.getURIsForSelection(messageArray, length);
+	    if (length.value) {
+			  let messageUris = messageArray.value;
+				//let messageIdList = [];
+				// messageList = Components.classes["@mozilla.org/supports-array;1"].createInstance(Components.interfaces.nsISupportsArray);
+				for (let i = 0; i < messageUris.length; i++) {
+					let messageUri = messageUris[i];
+					let Message = messenger.messageServiceFromURI(messageUri).messageURIToMsgHdr(messageUri);
+					messageList.push(Message);
+				}
+	    	return messageList;
+			}
+	    else
+	    	return null;
+	  }
+	  catch (ex) {
+	    dump("GetSelectedMessages ex = " + ex + "\n");
+	    return null;
+	  }
+	} ,
+	
 
   logTime: function() {
     var timePassed = '';
@@ -370,11 +495,13 @@ quickFilters.Util = {
     return end.getHours() + ':' + end.getMinutes() + ':' + end.getSeconds() + '.' + end.getMilliseconds() + '  ' + timePassed;
   },
 
-  logToConsole: function (msg) {
+  logToConsole: function (msg, optionTag) {
     if (quickFilters.Util.ConsoleService === null)
       quickFilters.Util.ConsoleService = Components.classes["@mozilla.org/consoleservice;1"]
                   .getService(Components.interfaces.nsIConsoleService);
-    quickFilters.Util.ConsoleService.logStringMessage("quickFilters " + this.logTime() + "\n"+ msg);
+    quickFilters.Util.ConsoleService.logStringMessage("quickFilters " 
+			+ (optionTag ? '{' + optionTag.toUpperCase() + '} ' : '')
+			+ this.logTime() + "\n"+ msg);
   },
 
   // flags
@@ -409,8 +536,31 @@ quickFilters.Util = {
 
   logDebugOptional: function (option, msg) {
     if (quickFilters.Preferences.isDebugOption(option))
-      this.logToConsole(msg);
+      this.logToConsole(msg, option);
   },
+	
+	getAccountsPostbox: function() {
+	  let accounts=[];
+		var smartServers = accountManager.allSmartServers;
+		for (var i = 0; i < smartServers.Count(); i++)
+		{
+			var smartServer = smartServers.QueryElementAt(i, Ci.nsIMsgIncomingServer);
+			var account_groups = smartServer.getCharValue("group_accounts");
+			if (account_groups)
+			{
+				var groups = account_groups.split(",");
+				for each (var accountKey in groups)
+				{
+					var account = accountManager.getAccount(accountKey);
+					if (account)
+					{
+						accounts.push(account);
+					}
+				}
+			}
+		}
+		return accounts;
+	},
 
   // dedicated function for email clients which don't support tabs
   // and for secured pages (donation page).
@@ -420,10 +570,18 @@ quickFilters.Util = {
       this.logDebug("openLinkInBrowserForced (" + linkURI + ")");
       if (quickFilters.Util.Application==='SeaMonkey') {
         var windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
-        var browser = windowManager.getMostRecentWindow( "navigator:browser" );
-        if (browser) {
+        var browserWin = windowManager.getMostRecentWindow( "navigator:browser" );
+        if (browserWin) {
           let URI = linkURI;
-          setTimeout(function() {  browser.currentTab = browser.getBrowser().addTab(URI); if (browser.currentTab.reload) browser.currentTab.reload(); }, 250);
+          setTimeout(function() { 
+						let tabBrowser = browserWin.getBrowser();
+						let params = {"selected":true};
+					  browserWin.currentTab = tabBrowser.addTab(URI, params); 
+						if (browserWin.currentTab.reload) browserWin.currentTab.reload(); 
+						// activate last tab
+						if (tabBrowser && tabBrowser.tabContainer)
+							tabBrowser.tabContainer.selectedIndex = tabBrowser.tabContainer.childNodes.length-1;
+					}, 250);
         }
         else {
           this.getMail3PaneWindow().window.openDialog(getBrowserURL(), "_blank", "all,dialog=no", linkURI, null, 'QuickFilters');
@@ -480,48 +638,93 @@ quickFilters.Util = {
 
   openURLInTab: function (URL) {
     try {
-      var sTabMode="";
-      var tabmail;
-      tabmail = document.getElementById("tabmail");
-      if (!tabmail) {
-        // Try opening new tabs in an existing 3pane window
-        var mail3PaneWindow = this.getMail3PaneWindow();
-        if (mail3PaneWindow) {
-          tabmail = mail3PaneWindow.document.getElementById("tabmail");
-          mail3PaneWindow.focus();
-        }
-      }
-      if (tabmail) {
-        sTabMode = (quickFilters.Util.Application === "Thunderbird" && quickFilters.Util.Appver >= 3) ? "contentTab" : "3pane";
-        tabmail.openTab(sTabMode,
-        {contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
-      }
-      else {
-        window.openDialog("chrome://messenger/content/", "_blank",
-                  "chrome,dialog=no,all", null,
-        { tabType: "contentTab", tabParams: {contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);", id:"QuickFilters_Weblink"} } );
-      }
+		  switch(quickFilters.Util.Application) {
+			  case "SeaMonkey":
+					this.openLinkInBrowserForced(URL);
+					return;
+				case "Postbox":
+					this.openLinkInBrowser(null, URL);
+					return;
+				case "Thunderbird":
+					var sTabMode="";
+					let tabmail = this.tabmail;
+					if (!tabmail) {
+						// Try opening new tabs in an existing 3pane window
+						var mail3PaneWindow = this.getMail3PaneWindow();
+						if (mail3PaneWindow) {
+							tabmail = mail3PaneWindow.document.getElementById("tabmail");
+							mail3PaneWindow.focus();
+						}
+					}
+					if (tabmail) {
+						sTabMode = (quickFilters.Util.Application === "Thunderbird" && quickFilters.Util.Appver >= 3) ? "contentTab" : "3pane";
+						tabmail.openTab(sTabMode,
+						{contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
+					}
+					else {
+						window.openDialog("chrome://messenger/content/", "_blank",
+											"chrome,dialog=no,all", null,
+						{ tabType: "contentTab", tabParams: {contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);", id:"QuickFilters_Weblink"} } );
+					}
+			}
     }
     catch(e) { return false; }
     return true;
   } ,
+	
+	debugMsgAndFolders: function(label1, val1, targetFolder, msg, filterAction) {
+	  if (!quickFilters.Preferences.isDebugOption("createFilter"))
+		  return;
+	  try {
+			if (msg)
+				quickFilters.Util.logDebugOptional ("createFilter",
+						"Message(\n"
+							+ label1 + "=" + val1 + "\n"
+							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'missing') + "\n"
+							+ " message Id=" + msg.messageId + "\n"
+							+ " author=" + (msg.mime2DecodedAuthor || '') + "\n"
+							+ " subject=" + (msg.mime2DecodedSubject || '') + "\n"
+							+ " recipients=" + (msg.mime2DecodedRecipients || '') + "\n"
+							+ " filterAction=" + (filterAction || '') + "\n"
+							+ " cc=" + (msg.ccList || '') + "\n"
+							+ " bcc=" + (msg.bccList || '') + "\n"
+							+ " author=" +( msg.author || '')
+							+ ")");	
+			else {
+				quickFilters.Util.logDebugOptional ("createFilter",
+						"Message(\n"
+							+ label1 + "=" + val1 + "\n"
+							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'missing') + "\n"
+							+ "msg is null.");
+			}
+		}
+		catch(ex) {
+		  quickFilters.Util.logDebugOptional ("createFilter", "Exception: " + ex);
+		}
+	} ,
+	
+	// ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+	// so let's store the header itself as well, just in case
+	makeMessageListEntry: function (msgHeader) {
+	  return {"messageId":msgHeader.messageId, "msgHeader":msgHeader};
+	} ,
 
   createMessageIdArray: function(targetFolder, messageUris) {
     let Ci = Components.interfaces;
     try {
-      try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.moveMessages: target = ' + targetFolder.prettiestName );}
-      catch(e) { alert('quickFilters.Util.moveMessages:' + e); }
+      try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.createMessageIdArray: target = ' + targetFolder.prettiestName );}
+      catch(e) { alert('quickFilters.Util.createMessageIdArray:' + e); }
 
-      if (targetFolder.flags & 0x00000020) {  // Ci.nsMsgFolderFlags.Virtual
+      if (targetFolder.flags & this.FolderFlags.Virtual) {  // Ci.nsMsgFolderFlags.Virtual
         return null;
       }
 
       let messageIdList = [];
       for (var i = 0; i < messageUris.length; i++) {
         let Uri = messageUris[i];
-        var Message = messenger.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri);
-
-        messageIdList.push(Message.messageId);
+        let msgHeader = messenger.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
+        messageIdList.push(this.makeMessageListEntry(msgHeader));  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+				quickFilters.Util.debugMsgAndFolders('Uri', Uri.toString(), targetFolder, msgHeader, "--");
       }
 
       return messageIdList;
@@ -576,11 +779,30 @@ quickFilters.Util = {
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/donate.html');
   }  ,
 
-  showHomePage: function () {
-    quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/');
+  showHomePage: function (queryString) {
+	  if (!queryString) queryString='index.html';
+    quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/' + queryString);
   } ,
+	
+	toggleDonations: function() {
+		let isAsk = quickFilters.Preferences.getBoolPref('donations.askOnUpdate');
+		let question = this.getBundleString("quickfilters.donationToggle","Do you want to {0} the donations screen which is displayed whenever quickFilters updates?");
+		
+		question = question.replace('{0}', isAsk ? 
+               this.getBundleString("quickfilters.donationToggle.disable", 'disable') : 
+							 this.getBundleString("quickfilters.donationToggle.enable", 're-enable'));
+		if (confirm(question)) {
+		  isAsk = !isAsk;
+			quickFilters.Preferences.setBoolPref('donations.askOnUpdate', isAsk);
+			let message = this.getBundleString("quickfilters.donationIsToggled", "The donations screen is now {0}.");
+			message = message.replace('{0}', isAsk ? 
+			  this.getBundleString("quickfilters.donationIsToggled.enabled",'enabled'): 
+				this.getBundleString("quickfilters.donationIsToggled.disabled",'disabled'));
+			alert(message);	
+		}
+	},  	
   
-    // Postbox special functions to avoid line being truncated
+  // Postbox special functions to avoid line being truncated
   // removes description.value and adds it into inner text
   fixLineWrap: function(notifyBox, notificationKey) {
     try {
@@ -613,6 +835,117 @@ quickFilters.Util = {
     let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
                             .getService(Components.interfaces.nsIVersionComparator);
      return (versionComparator.compare(a, b) < 0);
-  }
+  } ,
+	
+	isStringAttrib: function(attr) {
+	  let AC = Components.interfaces.nsMsgSearchAttrib;
+		let isString =
+	    !( attr == AC.Priority || attr == AC.Date || attr == AC.MsgStatus || attr == AC.MessageKey || attr == AC.Size || attr == AC.AgeInDays
+		  || attr == AC.FolderInfo || attr == AC.Location || attr == AC.Label || attr == AC.JunkStatus || attr == AC.Uint32HdrProperty
+			|| attr == AC.JunkPercent || attr == AC.HasAttachmentStatus);
+		// what about To, Sender, CC, Subject
+		return isString;   
+	},
+
+	// isHead - first filter, determines whether ANY or ALL applies
+	copyTerms: function(fromFilter, toFilter, isCopy, isHead) {
+		let stCollection = fromFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+		for (let t = 0; t < stCollection.Count(); t++) {
+			// let searchTerm = stCollection.GetElementAt(t);
+			let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
+			let newTerm;
+			if (isCopy) {
+			  newTerm = toFilter.createTerm();
+				if (searchTerm.attrib) {
+					newTerm.attrib = searchTerm.attrib;
+				}
+				// nsMsgSearchOpValue
+				if (searchTerm.op) newTerm.op = searchTerm.op; 
+				if (searchTerm.value) {
+				  let val = newTerm.value; // nsIMsgSearchValue
+					val.attrib = searchTerm.value.attrib;  
+					let AC = Components.interfaces.nsMsgSearchAttrib;
+					if (quickFilters.Util.isStringAttrib(val.attrib)) {
+					  val.str = searchTerm.value.str || '';  // guard against invalid str value.
+					}
+					else switch (val.attrib) {
+					  case AC.Priority:
+						  val.priority = searchTerm.value.priority;
+							break;
+						case AC.MessageKey:
+						  val.msgKey = searchTerm.value.msgKey;
+							break;
+						case AC.AgeInDays:
+						  val.age = searchTerm.value.age;
+							break;
+						case AC.Date:
+						  val.date = searchTerm.value.date;
+							break;
+					  case AC.MsgStatus: 
+						  val.status = searchTerm.value.status;
+							break;
+					  case AC.JunkStatus:
+						  val.junkStatus = searchTerm.value.junkStatus;
+							break;
+					  case AC.Size:
+						  val.size = searchTerm.value.size;
+							break;
+					  case AC.Label:
+						  val.label = searchTerm.value.label; // might need special code for copying.
+							break;
+						case AC.FolderInfo:
+						  val.folder = searchTerm.value.folder; // might need special code for copying.
+							break;
+						case AC.JunkPercent:
+						  val.junkPercent = searchTerm.value.junkPercent; 
+							break;
+					}
+					newTerm.value = val;
+				}
+				newTerm.booleanAnd = searchTerm.booleanAnd;
+				if (searchTerm.arbitraryHeader) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
+				if (searchTerm.hdrProperty) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
+				if (searchTerm.customId) newTerm.customId = searchTerm.customId;
+				newTerm.beginsGrouping = searchTerm.beginsGrouping;
+				newTerm.endsGrouping = searchTerm.endsGrouping;
+				
+			}
+			else
+			  newTerm = searchTerm;
+			// append newTerm ONLY if it deos not already exist (avoid duplicates!)
+			// however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
+			toFilter.appendTerm(newTerm);
+		}
+	} ,
+	
+	getActionCount: function(filter) {
+	  let actions = filter.actionList ? filter.actionList : filter.sortedActionList;
+		let actionCount = actions.Count ? actions.Count() : actions.length;
+		return actionCount;
+	} ,
+	
+	copyActions: function(fromFilter, toFilter) {
+		let actionCount = this.getActionCount(fromFilter);
+		for (let a = 0; a < actionCount; a++) {
+			let action = fromFilter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
+			let append = true;
+			let newActions = toFilter.actionList ? toFilter.actionList : toFilter.sortedActionList;
+			for (let b = 0; b < this.getActionCount(toFilter); b++) { 
+				let ac = newActions.queryElementAt ?
+					newActions.queryElementAt(b, Components.interfaces.nsIMsgRuleAction):
+					newActions.QueryElementAt(b, Components.interfaces.nsIMsgRuleAction);
+				if (ac.type == action.type
+						&& 
+						ac.strValue == action.strValue) {
+					append = false;
+					break;
+				}
+			}
+			if (append)
+				toFilter.appendAction(action);
+		}
+	}
+	
+	
   
 }

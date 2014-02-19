@@ -81,46 +81,6 @@ quickFilters.List = {
     return list.view.selection.count;
   } ,
 	
-	copyTerms: function(fromFilter, toFilter, isCopy) {
-		let stCollection = fromFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
-		for (let t = 0; t < stCollection.Count(); t++) {
-			// let searchTerm = stCollection.GetElementAt(t);
-			let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
-			let newTerm;
-			if (isCopy) {
-			  newTerm = toFilter.createTerm();
-				if (searchTerm.attrib) {
-					newTerm.attrib = searchTerm.attrib;
-				}
-				// nsMsgSearchOpValue
-				if (searchTerm.op) newTerm.op = searchTerm.op; 
-				if (searchTerm.value) {
-				  let val = newTerm.value; // nsIMsgSearchValue
-					val.attrib = searchTerm.value.attrib;  
-					val.str =  new String(searchTerm.value.str);  
-					newTerm.value = val;
-				}
-				newTerm.booleanAnd = searchTerm.booleanAnd;
-				if (searchTerm.arbitraryHeader) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
-				if (searchTerm.hdrProperty) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
-				if (searchTerm.customId) newTerm.customId = searchTerm.customId;
-				newTerm.beginsGrouping = searchTerm.beginsGrouping;
-				newTerm.endsGrouping = searchTerm.endsGrouping;
-				
-			}
-			else
-			  newTerm = searchTerm;
-			toFilter.appendTerm(newTerm);
-		}
-	} ,
-	
-	copyActions: function(fromFilter, toFilter) {
-		for (let a = 0; a < fromFilter.sortedActionList.length; a++) {
-			let action = fromFilter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
-			toFilter.appendAction(action);
-		}
-	} ,
-	
 	clone: function(evt) {
     let filtersList = this.getFilterList(); 
     let sourceFolder = filtersList.folder;
@@ -154,10 +114,10 @@ quickFilters.List = {
 			let newFilter = filtersList.createFilter(newName);
 			
 			// 2. iterate all actions & clone them
-			this.copyActions(selectedFilter, newFilter);
+			utils.copyActions(selectedFilter, newFilter);
 			
 			// 3. iterate all conditions & clone them
-			this.copyTerms(selectedFilter, newFilter, true);
+			utils.copyTerms(selectedFilter, newFilter, true, true);
 			// determine the index of insertion point (at the filter selected in the assistant)
 			let idx;
 			for (idx = 0; idx < filtersList.filterCount; idx++) {
@@ -177,6 +137,7 @@ quickFilters.List = {
 				// 5. insert the merged filter
 				utils.logDebug("Adding new Filter '" + newFilter.filterName + "' "
 						 + ": current list has: " + filtersList.filterCount + " items");
+				newFilter.enabled = true;
 				filtersList.insertFilterAt(idx, newFilter);
 				this.rebuildFilterList();
 			}
@@ -328,14 +289,28 @@ quickFilters.List = {
     if (newName.indexOf(' +m') == -1)
       newName = newName + " +m";
     let newFilter = filtersList.createFilter(newName);
+		newFilter.clearActionList();
     let aList = [];
     let actions = targetFilter.actionList ? targetFilter.actionList : targetFilter.sortedActionList; // Tb : Sm
 		if (targetFilter.actionList) {
 		  // Thunderbird
 			let aCollection = actions.QueryInterface(Components.interfaces.nsICollection);
 			// targetFilter.getSortedActionList(aList);
-			for (let a = 0; a < aCollection.Count(); a++)
-				newFilter.appendAction(aCollection.GetElementAt(a));
+			let newActions = newFilter.actionList ? newFilter.actionList : newFilter.sortedActionList;
+			for (let a = 0; a < aCollection.Count(); a++) {
+			  let append = true;
+			  for (let b = 0; b < quickFilters.Util.getActionCount(newFilter); b++) { 
+					let ac = newActions.queryElementAt(b, Components.interfaces.nsIMsgRuleAction);
+				  if (ac.type == aCollection.GetElementAt(a).type
+					    &&
+							ac.strValue == aCollection.GetElementAt(a).strValue) {
+					  append = false;
+						break;
+					}
+				}
+				if (append)
+				  newFilter.appendAction(aCollection.GetElementAt(a));
+			}
 		}
 		else {
 			// SeaMonkey - a simple nsIArray - we get an enumerator 
@@ -349,13 +324,16 @@ quickFilters.List = {
     // 2. now copy the filter search terms of the filters in the array to the new filter
     // then delete the other filters
     // 2a - copy TargetFilter first
-    this.copyTerms(targetFilter, newFilter, true);
+    quickFilters.Util.copyTerms(targetFilter, newFilter, true, true); // we probably need to determine the booleanAnd property of the (first) target term
+		                                               // and use this for all (or the first) terms of the merged filters
+																									 // if the operators are mixed we might also need to add beginsGrouping and endsGrouping
+																									 // attributes
     for (let i = 0 ; i < matchingFilters.length ; i++) {
       let current = matchingFilters[i];
       // copy filter
       if (targetFilter == current)
         continue;
-      this.copyTerms(current, newFilter, true);
+      quickFilters.Util.copyTerms(current, newFilter, true, false);
     }
     // determine the index of insertion point (at the filter selected in the assistant)
     let idx;
@@ -380,6 +358,7 @@ quickFilters.List = {
       // 4. insert the merged filter
       quickFilters.Util.logDebug("Adding new Filter '" + newFilter.filterName + "' "
            + ": current list has: " + filtersList.filterCount + " items");
+			newFilter.enabled = true;
       filtersList.insertFilterAt(idx, newFilter);
       // 5. delete the original filters
       for (let i = 0; i < matchingFilters.length; i++) {
@@ -756,7 +735,7 @@ quickFilters.List = {
 			? 'hbox'
 		  : 'grid');  // SM + Postbox
 		let isToolbar = false;
-		if (!quickFilters.Preferences.getBoolPrefQF("toolbar")) {
+		if (!quickFilters.Preferences.getBoolPref("toolbar")) {
 		  toolbox.parentNode.removeChild(toolbox);
 		}
 		else if (hbs && toolbar) { // move toolbox up
