@@ -19,6 +19,7 @@ style   chrome://messenger/content/messenger.xul content/legacy.css application=
 
 # postbox
 style   chrome://quickfilters/content/quickFilters-options.xul chrome://quickfilters/content/legacy.css application=postbox@postbox-inc.com 
+style   chrome://quickfilters/content/filterTemplate.xul chrome://quickfilters/content/legacy.css application=postbox@postbox-inc.com 
 style   chrome://messenger/content/messenger.xul chrome://quickfilters/content/postbox.css application=postbox@postbox-inc.com 
 
 

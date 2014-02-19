@@ -2,10 +2,15 @@
 
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="filterTemplate.css" type="text/css"?>
+<?xml-stylesheet href="filterWidgets.css" type="text/css"?>
 
-<!DOCTYPE prefwindow SYSTEM "chrome://quickfilters/locale/filters.dtd" >
-
-
+<!-- <!DOCTYPE prefwindow SYSTEM "chrome://quickfilters/locale/filters.dtd" > -->
+<!DOCTYPE prefwindow [
+  <!ENTITY % templateDTD SYSTEM "chrome://quickfilters/locale/filters.dtd">
+  %templateDTD;
+  <!ENTITY % commonDTD SYSTEM "chrome://quickfilters/locale/filterList.dtd">
+  %commonDTD;
+]>
 
 <prefwindow title="&qf.filters.title;"
 	id="qf-template"
@@ -32,35 +37,46 @@
     <stringbundle id="bundle_filter" src="chrome://quickfilters/locale/filters.properties"/>
   </stringbundleset>
 
+	<preferences>
+		<preference id="QuickFilters-Preferences-SelectedFilterTemplate" 
+					name="extensions.quickfilters.filters.currentTemplate" 
+					type="string" />
+		<preference id="tags" 
+					name="extensions.quickfilters.actions.tags" 
+					type="bool"
+					instantApply="true"
+					/>
+		<preference id="moveFolder" 
+					name="extensions.quickfilters.actions.moveFolder" 
+					type="bool"
+					instantApply="true"
+					/>
+		<preference id="star" 
+					name="extensions.quickfilters.actions.star" 
+					type="bool"  
+					instantApply="true"
+					/>
+		<preference id="flag" 
+					name="extensions.quickfilters.actions.flag" 
+					type="bool"  
+					instantApply="true"
+					/>
+		<preference id="priority" 
+					name="extensions.quickfilters.actions.priority" 
+					type="bool" 
+					instantApply="true"
+					/>
+	</preferences>
 	
 	<prefpane id="qf-template-prefpane" >
-	
-		<preferences>
-			<preference id="QuickFilters-Preferences-SelectedFilterTemplate" 
-				        name="extensions.quickfilters.filters.currentTemplate" 
-						type="string" />
-			<preference id="tags" 
-			            name="extensions.quickfilters.actions.tags" 
-						type="bool"
-						instantApply="true"
-						/>
-			<preference id="star" 
-			            name="extensions.quickfilters.actions.star" 
-						type="bool"  
-						instantApply="true"
-						/>
-			<preference id="flag" 
-			            name="extensions.quickfilters.actions.flag" 
-						type="bool"  
-						instantApply="true"
-						/>
-			<preference id="priority" 
-			            name="extensions.quickfilters.actions.priority" 
-						type="bool" 
-						instantApply="true"
-						/>
-		</preferences>
-
+		<toolbar id="quickFiltersHelpBar">
+			<toolbarbutton id="quickFiltersBtnHelp"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = ""
+			  tooltiptext = "&quickfilters.button.support;"
+			  oncommand = "quickFilters.Assistant.help();"
+			  />
+		</toolbar>
 		<hbox id="header">
 			<image id="qf-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
 		</hbox>
@@ -117,8 +133,8 @@
 						  tooltiptext="&qf.filters.actions.tooltip;">
 					<caption label="&qf.filters.actions.caption;" />
 					<checkbox id="chkActionTargetFolder" 
+					          preference="moveFolder"
 							  label="&qf.filters.actions.targetFolder;" 
-							  disabled="true"
 							  checked="true"
 							  />
 					<checkbox id="chkActionTags" 

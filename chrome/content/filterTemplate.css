@@ -9,24 +9,23 @@ image#logo {
   padding-left: 102px;
   background-repeat: no-repeat;
   background-position: 0px 4px;
-}
-#qf-title {
-  margin-top: 0px;
+  max-width: 100%;
+  width: 100% !important;
 }
 
-#qf-template {
-  max-width: 650px;
+#qf-title {
+  margin-top: 0px;
 }
 
 #qf-filter-templates {
   min-width: 20em;
 }
 
-#assistantDeck,
-.deckChild
+#qf-template, #assistantDeck, #header, .deckChild
 {
-  max-width: 600px;
+  max-width: 650px;
 }
+
 #mergeSummary, #mergeInstructions {
   width: 500px;
   height: 2em;
@@ -63,6 +62,7 @@ hbox.myWizard {
 
 .extra1 {
 	list-style-image: url("chrome://quickfilters/skin/QuickFilters_16_Simple.png");
+	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 
 /* donate button (extra2) */
@@ -109,4 +109,5 @@ button.dialog-button:first-child {
 }
 
 .dialog-button { margin-top: 0px; }
+
 
