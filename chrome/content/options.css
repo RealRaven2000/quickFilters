@@ -170,6 +170,20 @@ label#L1:active a {
 	text-decoration: underline !important;
 }
 
+label#getCopySentToCurrent, #getCopySentToCurrent:focus {
+	-moz-appearance: none !important;
+	background: linear-gradient(to bottom, rgb(40, 132, 218) 0%, rgb(29, 104, 169) 15%, rgb(4, 45, 89) 50%, rgb(26, 92, 150) 83%, rgb(31, 110, 179) 100%);
+	border: 1px solid rgb(187, 204, 238) !important;
+	border-radius: 2px;
+	color: #ffffff;
+	padding: 3px;
+	text-align: center !important;
+}
+label#getCopySentToCurrent:hover {
+  background: linear-gradient(to bottom, rgba(66,158,244,1) 0%,rgba(23,139,241,1) 15%,rgba(3,88,179,1) 50%,rgba(14,130,232,1) 83%,rgba(32,144,242,1) 100%);
+  text-decoration: underline !important;
+}
+
 
 
 /* donations - blue */
