@@ -25,3 +25,8 @@
 <!ENTITY qf.label.naming.keyWord "Добавить ключевое слово правила">
 <!ENTITY qf.label.naming.keyWord.accesskey "к">
 <!ENTITY qf.cloned.label "Добавить к имени клонированного фильтра:">
+<!ENTITY qf.onewayaddress.label "Отключить двусторонний поиск адреса">
+<!ENTITY qf.onewayaddress.tooltip "По умолчанию quickFilters добавляет критерии 'отправитель' и 'адресат' к фильтру чтобы перемещать все обсуждение включая Ваши сообщения получателю. Если Вы хотите оставить Ваши ответы в папке &quot;Отправленные&quot;, эта настройка отключает описанную возможность. Дополнение &quot;Copy Sent to Current&quot; можно использовать для того чтобы ответы хранились вместе с самими сообщениями.">
+<!ENTITY qf.postbox.quickmove "Поддержка quick move в Postbox">
+<!ENTITY qf.listener.tags "Реагировать на изменение меток">
+<!ENTITY qf.listener.tags.tooltip "Запускать ассистента создания фильтров при изменении меток сообщения.">

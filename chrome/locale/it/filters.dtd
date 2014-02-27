@@ -4,7 +4,7 @@
 <!ENTITY qf.filters.template.to "Basato sul destinatario (A:)">
 <!ENTITY qf.filters.template.list "Liste di distribuzione">
 <!ENTITY qf.filters.template.topic "Per oggetto">
-<!ENTITY qf.filters.template.tag "Per etichette">
+<!ENTITY qf.filters.template.tag "Per etichetta">
 <!ENTITY qf.filters.templates.description.label "Descrizione:">
 <!ENTITY qf.filters.instructions "Selezionare una tipologia. Nella schermata successiva si possono mettere a punto le regole del filtro">
 <!ENTITY qf.continueFilter.label "Crea filtro…">
