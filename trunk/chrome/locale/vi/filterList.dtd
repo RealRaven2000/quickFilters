@@ -9,16 +9,3 @@
 <!ENTITY qf.button.reorderButtonBottom "Đưa xuống cuối">
 <!ENTITY qf.button.reorderButtonBottom.accessKey "b">
 <!ENTITY qf.button.reorderButtonBottom.toolTip "Sắp xếp lại bộ lọc để nó được thực thi sau tất cả các cái khác">
-<!ENTITY quickfilters.button.merge "Merge">
-<!ENTITY quickfilters.button.merge.accesskey "M">
-<!ENTITY quickfilters.button.merge.tooltiptext "Merge multiple filters with the same action">
-<!ENTITY quickfilters.button.clone "Clone">
-<!ENTITY quickfilters.button.clone.accesskey "C">
-<!ENTITY quickfilters.button.clone.tooltiptext "Clone a filter">
-<!ENTITY quickfilters.menu.cut "Cut">
-<!ENTITY quickfilters.menu.copy "Copy">
-<!ENTITY quickfilters.menu.paste "Paste">
-<!ENTITY quickfilters.button.settings "quickFilters Settings…">
-<!ENTITY quickfilters.button.assistant "Toggle assistant…">
-<!ENTITY quickfilters.button.assistant.tooltiptext "Toggles filter assistant mode. When active, drag and drop emails to create filters.">
-<!ENTITY quickfilters.button.support "quickFilters Support Site">

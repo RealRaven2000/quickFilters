@@ -21,4 +21,3 @@
 <!ENTITY quickfilters.button.settings "quickFilters 设定...">
 <!ENTITY quickfilters.button.assistant "切换助手...">
 <!ENTITY quickfilters.button.assistant.tooltiptext "切换过滤器助手模式，启用时可通过拖放邮件来创建过滤器。">
-<!ENTITY quickfilters.button.support "quickFilters Support Site">
