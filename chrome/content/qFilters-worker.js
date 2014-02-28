@@ -397,7 +397,8 @@ quickFilters.Worker = {
     quickFilters.Util.debugMsgAndFolders('sourceFolder', (sourceFolder ? sourceFolder.prettyName || '' : 'none'), targetFolder, firstMessage.msgHeader, filterAction);
     if (!firstMessage.msgHeader 
         || firstMessage.msgHeader.messageId != firstMessage.messageId 
-        || !firstMessage.msgHeader.accountKey) {
+        || !firstMessage.msgHeader.accountKey
+				|| !firstMessage.msgClone) {
 			// if (quickFilters.Worker.reRunCount==3) { 
 			  // // open folder temporarily in a tab to force refreshing headers.
 				// let background = (quickFilters.Util.Application=='Postbox') ? false : true;
@@ -487,8 +488,7 @@ quickFilters.Worker = {
         }
       }
       // sourceFolder
-      let accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].
-                         getService(this.Ci.nsIMsgAccountManager).accounts;
+      let accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(this.Ci.nsIMsgAccountManager).accounts;
       let accountCount = 0;
 
       for (let ab in fixIterator(accounts, this.Ci.nsIMsgAccount)) { 
@@ -501,7 +501,7 @@ quickFilters.Worker = {
         aAccounts = quickFilters.Util.getAccountsPostbox();
       else {
         aAccounts = [];
-        for (let ac in fixIterator(this.Ci.nsIMsgAccount)) {
+        for (let ac in fixIterator(accounts, this.Ci.nsIMsgAccount)) {
           aAccounts.push(ac);
         };
       }
@@ -511,9 +511,7 @@ quickFilters.Worker = {
       //    or parse From/To/Bcc for account email addresses
       if (firstMessage.msgHeader.accountKey || accountCount==1) {
         quickFilters.Util.logDebugOptional('createFilter', "sourceFolder: get Inbox from account of first message, key:" + firstMessage.msgHeader.accountKey);
-        let accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(this.Ci.nsIMsgAccountManager).accounts;
         for each (let ac in aAccounts) {
-        // for (let ac in fixIterator(accounts, quickFilters.Util.Application != 'Postbox' ? this.Ci.nsIMsgAccount : null)) {
           // Postbox quickFix: we do not need a match if only 1 account exists :-p
           if ((ac.key == firstMessage.msgHeader.accountKey) || (accountCount==1 && ac.defaultIdentity)) {
             // account.identities is an nsISupportsArray of nsIMsgIdentity objects
@@ -895,13 +893,23 @@ quickFilters.Worker = {
 			// Based on Sender (from) Conversation based on a Person 
 			case 'from': // was 'person' but that was badly labelled, so we are going to retire this string
 				// sender ...
-				searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Sender, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
 
 				// ... recipient, to get whole conversation based on him / her
 				// ... we exclude "reply all", just in case; hence Is not Contains
-				searchTerm2 = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.To, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
-				targetFilter.appendTerm(searchTerm);
-				targetFilter.appendTerm(searchTerm2);
+        if (!(quickFilters.Preferences.getBoolPref("searchterm.addressesOneWay")
+              && template=='to'
+              )) {
+          // from
+          searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Sender, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
+          targetFilter.appendTerm(searchTerm);
+        }
+        if (!(quickFilters.Preferences.getBoolPref("searchterm.addressesOneWay")
+              && template=='from'
+              )) {
+          // to
+          searchTerm2 = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.To, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
+          targetFilter.appendTerm(searchTerm2);
+        }
 
 				if (quickFilters.Preferences.getBoolPref("naming.keyWord"))
 					filterName += " - " + emailAddress;
