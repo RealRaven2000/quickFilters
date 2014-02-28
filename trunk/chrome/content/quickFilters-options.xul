@@ -68,6 +68,22 @@
 				  type="string"
 				  instantApply="true"
 				  />
+	  <preference id="listen.tags"
+	              name="extensions.quickfilters.listener.tags"
+				  type="bool"  
+				  instantApply="true"
+				  />
+	  <preference id="postbox.quickmove"
+	              name="extensions.quickfilters.postbox.quickmove"
+				  type="bool"  
+				  instantApply="true"
+				  />
+	  <preference id="onewayaddresses"
+	              name="extensions.quickfilters.searchterm.addressesOneWay"
+				  type="bool"  
+				  instantApply="true"
+				  />
+				  
     </preferences>
 	
 	<box id="quickFiltersHelpBar">
@@ -110,21 +126,43 @@
 			          label="&qf.tab.options;" 
 			          style="position:relative;">
   
-        <checkbox id="chkAutoClose" 
-                  preference="abort" 
-                  label="&chkAutoClose.label;" 
-                  accesskey="&chkAutoClose.accesskey;"
-                  />
-        <checkbox id="chkAutoStart" 
-                  preference="autoStart" 
-                  label="&chkAutoStart.label;" 
-                  accesskey="&chkAutoStart.accesskey;"
-                  />
-		<checkbox id="chkToolbar"
-		          preference="toolbar"
-                  label="&chkToolbar.label;" 
-                  accesskey="&chkToolbar.accesskey;"
-                  />
+        <hbox>
+			<vbox>
+			<checkbox id="chkAutoClose" 
+					  preference="abort" 
+					  label="&chkAutoClose.label;" 
+					  accesskey="&chkAutoClose.accesskey;"
+					  />
+			<checkbox id="chkAutoStart" 
+					  preference="autoStart" 
+					  label="&chkAutoStart.label;" 
+					  accesskey="&chkAutoStart.accesskey;"
+					  />
+			<checkbox id="chkToolbar"
+					  preference="toolbar"
+					  label="&chkToolbar.label;" 
+					  accesskey="&chkToolbar.accesskey;"
+					  />
+			</vbox>
+			<vbox>
+				<checkbox id="chkListTags" 
+						  preference="listen.tags" 
+						  label="&qf.listener.tags;" 
+						  tooltiptext="&qf.listener.tags.tooltip;"
+						  />
+				<checkbox preference="postbox.quickmove"
+				          label="&qf.postbox.quickmove;" 
+				          />
+				<checkbox preference="onewayaddresses"
+						  label="&qf.onewayaddress.label;" 
+						  tooltiptext="&qf.onewayaddress.tooltip;"
+						  />
+						  
+        <label id="getCopySentToCurrent" 
+               tooltiptext="https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/"
+               onclick="quickFilters.Util.openURLInTab('https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/');">Get Copy Sent to Current</label>
+			</vbox>
+		</hbox>
 				  
         <separator class="groove-thin" />
         <groupbox  orient="vertical" >
