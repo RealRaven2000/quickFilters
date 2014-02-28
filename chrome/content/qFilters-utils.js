@@ -54,7 +54,7 @@ var QuickFilters_TabURIregexp = {
 };
 
 quickFilters.Util = {
-  HARDCODED_EXTENSION_VERSION : "2.3.1",
+  HARDCODED_EXTENSION_VERSION : "2.4.1",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -188,8 +188,12 @@ quickFilters.Util = {
           quickFilters.Util.mExtensionVer = addon.version;
           quickFilters.Util.logDebug("AddonManager: quickFilters extension's version is " + addon.version);
           let versionLabel = window.document.getElementById("qf-options-version");
-          if(versionLabel) versionLabel.setAttribute("value", addon.version);
-
+          if(versionLabel) {
+            versionLabel.setAttribute("value", addon.version);
+            // move version into the box, depending on label length
+            quickFilters.Util.logDebug("Version Box: " + versionLabel.boxObject.width + "px");
+            versionLabel.style.setProperty('margin-left', ((versionLabel.boxObject.width + 32)*(-1)).toString() + 'px', 'important');
+          }
         });
       }
       quickFilters.Util.logDebug("AddonManager.getAddonByID .. added callback for setting extensionVer.");
@@ -256,6 +260,8 @@ quickFilters.Util = {
   isVirtual: function(folder) {
     if (!folder)
       return true;
+		if (quickFilters.Util.FolderFlags.Virtual & folder.flags)
+		  return true;
     return (folder.username && folder.username == 'nobody') || (folder.hostname == 'smart mailboxes');
   } ,
 
