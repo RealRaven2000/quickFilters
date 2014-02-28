@@ -111,7 +111,16 @@ quickFilters.Options = {
   },
   
   sendMail: function(mailto)  {
-    let sURL="mailto:" + mailto + "?subject=[quickFilters]%20add%20your%20own%20subject%20line%20here%20beside%20the%20tag";
+    let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                                  .getService(Components.interfaces.nsIPromptService);
+    let title = quickFilters.Util.getBundleString('quickfilters.prompt.contact.title', "Contact quickFilters Support");
+    let text = quickFilters.Util.getBundleString('quickfilters.prompt.contact.subject', "Please enter a short subject line:");;
+    let input = {value: ""};
+    let check = {value: false};
+    let result = prompts.prompt(window, title, text, input, null, check); 
+    if (!result) return;
+  
+    let sURL="mailto:" + mailto + "?subject=[quickFilters]" + encodeURI(" " + input.value); // urlencode
     let messageComposeService=Components.classes["@mozilla.org/messengercompose;1"].getService(Components.interfaces.nsIMsgComposeService);
     // make the URI
     let ioService = Components.classes["@mozilla.org/network/io-service;1"]
