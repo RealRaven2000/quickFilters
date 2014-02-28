@@ -142,25 +142,34 @@ END LICENSE BLOCK */
 		  Inbox, Drafts, SentMail, Newsgroup, Queue, Templates
 		# [Bug 25669] - Add a listener for adding Tags (keywords) to a Mail
 		
-	2.3 : 29/01/2013
+	2.3 : 29/01/2014
 	  # Added help buttons to filter list and filter assistant
 		# Improved merging of filters
 		# Default "Target Folder" action to active when using context menu (create filter from message)
 		# Bugfix: Postbox does not implement nsMsgFolderFlags
 		
-	2.3.1 : WIP
+	2.4 : 24/02/2014
 	  # Fixed [Bug 25686] Cloning Filters fails with Non-String condition attributes. If a filter condition compares with 
-		  read status or another non-string attribute (e.g. date, number of age in days etc.) the Clone will silently fail.
+		  read status or another non-string attribute (e.g. date, number of age in days, priority, junk status etc.) the cloning will silently fail.
 		# Fixed [Bug 25688] Creating Filter on IMAP fails after 7 attempts - caused by missing msgDatbase on target folder.
 		# [Fixed] In Postbox / SeaMonkey some Support Site links do not work
 		# Added some logic to the naming when filter action focuses on Tags
 		# Postbox: [Fixed] gFolderDisplay doesn't exist so selectedMessages could not be determined (Message > quickFilter: define Filter from message)
 		# Postbox: [Fixed] Broken styling in Options dialog (Support links + Donate button) due to legacy display menu. 
 		           - Added legacy styles for Postbox.
-		# Postbox: [FR 25691] Support for Postbox quickmove feature - also support the filter assistant when moving mail to a folder using he shortcut key [v] 
+		# Postbox: [FR 25691] Support for Postbox quickmove feature - also support the filter assistant when moving mail to a folder using the shortcut key [v] 
     # [Bug 25692] W.I.P - in Postbox, creating filters from messages that were already moved is not possible.
 		              The initial bugfix makes it possible to use this function provided there is only one active mail account
 		
+  2.4.1 : WIP
+    # Added UI for quickmove feature
+    # Switch for disabling Tag listener
+    # Option to disable two-way addressing
+    # Added a link for donwload / installing "Copy Sent to Current"
+    # Prompt for adding subject to support email
+    # Right-click on quickFilters button opens options
+    
+    
 	WIP
 		# add support for Nostalgy: W.I.P.
 		# preparation code for filtering changing to ANY / ALL conditions
@@ -377,7 +386,8 @@ var quickFilters = {
 						util.showVersionHistory(false);
 						
 						if (quickFilters.Preferences.getBoolPrefSilent("extensions.quickfilters.donations.askOnUpdate")
-						    && !(installedV=="2.3" && currentV=="2.3.1"))
+						    && !(installedV=="2.3" && currentV=="2.3.1")
+                && !(installedV=="2.4" && currentV=="2.4.1"))
 						  util.showDonatePage();
 					}
         }
@@ -417,7 +427,12 @@ var quickFilters = {
 				  messageList.push(quickFilters.Util.makeMessageListEntry(selectedMessages[0])); 
 				  // the original command in the message menu calls the helper function MsgCreateFilter()
 					// we do not know the primary action on this message (yet)
-					quickFilters.Worker.createFilterAsync_New(null, quickFilters.Util.getCurrentFolder(), messageList, null, false);
+					let currentMessageFolder = quickFilters.Util.getCurrentFolder();
+					if (quickFilters.Util.isVirtual(currentMessageFolder)) {
+					  if (selectedMessages[0].folder)  // find the real folder!
+							currentMessageFolder = selectedMessages[0].folder;
+          }					
+					quickFilters.Worker.createFilterAsync_New(null, currentMessageFolder, messageList, null, false);
 				}
 				else {
 				  let wrn = quickFilters.Util.getBundleString("quickfilters.createFromMail.selectWarning",
