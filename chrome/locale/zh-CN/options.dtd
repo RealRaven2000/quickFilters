@@ -25,3 +25,8 @@
 <!ENTITY qf.label.naming.keyWord "添加规则指定关键字">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
 <!ENTITY qf.cloned.label "附加到克隆的过滤器名称:">
+<!ENTITY qf.onewayaddress.label "禁用双向地址搜索条件">
+<!ENTITY qf.onewayaddress.tooltip "quickFilters默认情况下会自动添加&quot;来自&quot;和&quot;发往&quot;搜索条件以辅助您过滤整个消息主题，包括您自己发给收件人的邮件。如果您希望总是将自己的回复保留在发件箱中，请在此禁用此行为。&quot;Copy Sent to Current&quot;组件可用于保留所有回复到初始邮件。">
+<!ENTITY qf.postbox.quickmove "信箱：支持快速移动特性">
+<!ENTITY qf.listener.tags "监视标签变动">
+<!ENTITY qf.listener.tags.tooltip "激活时，过滤助手将在您给消息添加标签时触发。">
