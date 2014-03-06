@@ -25,3 +25,8 @@
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
 <!ENTITY qf.cloned.label "Bifoga följande till namnet på duplicerat filter:">
+<!ENTITY qf.onewayaddress.label "Inaktivera tvåvägssökvillkor för adresser">
+<!ENTITY qf.onewayaddress.tooltip "Som standard lägger quickFilters till sökvillkor för både &quot;från&quot; och &quot;till&quot;, för att underlätta fullständig filtrering av meddelandetrådar som innehåller dina egna e-brev till mottagaren. Om du alltid vill förvara dina svar i mappen Skickat, så kan du inaktivera detta beteende här. Tillägget &quot;Copy Sent to Current&quot; kan användas för att behålla svarsmeddelanden tillsammans med de ursprungliga e-breven.">
+<!ENTITY qf.postbox.quickmove "Postbox: stöder funktionen snabbflyttning">
+<!ENTITY qf.listener.tags "Lyssna efter etikettsändringar">
+<!ENTITY qf.listener.tags.tooltip "När detta alternativ är aktiverat kommer Filterassistenten även att startas när du etiketterar ett meddelande.">
