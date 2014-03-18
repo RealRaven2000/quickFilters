@@ -22,3 +22,7 @@
 <!ENTITY quickfilters.button.assistant "Assistent wisselen…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Wisselt de modus filterassistent. Versleep indien actief e-mailberichten om filters te maken.">
 <!ENTITY quickfilters.button.support "quickFilters-ondersteuningswebsite">
+<!ENTITY quickfilters.button.searchProperties "Zoekeigenschappen wijzigen…">
+<!ENTITY quickfilters.option.searchProperty.name "Naam">
+<!ENTITY quickfilters.option.searchProperty.targetFolder "Doelmap">
+<!ENTITY quickfilters.option.searchProperty.searchCondition "Zoekvoorwaarde (tekst)">

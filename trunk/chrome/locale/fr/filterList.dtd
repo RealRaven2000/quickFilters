@@ -22,3 +22,7 @@
 <!ENTITY quickfilters.button.assistant "Activer/désactiver l'assistant…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Active/désactive le mode d'assistance pour filtre. Lorsqu'il est actif, glissez-déposez les courriels pour créer des filtres.">
 <!ENTITY quickfilters.button.support "Site d'aide quickFilters">
+<!ENTITY quickfilters.button.searchProperties "Modifier les propriétés de recherche…">
+<!ENTITY quickfilters.option.searchProperty.name "Nom">
+<!ENTITY quickfilters.option.searchProperty.targetFolder "Dossier cible">
+<!ENTITY quickfilters.option.searchProperty.searchCondition "Condition de recherche (texte)">
