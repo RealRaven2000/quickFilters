@@ -22,3 +22,7 @@
 <!ENTITY quickfilters.button.assistant "Attiva/disattiva la Procedura guidata…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Attiva/disattiva la modalità 'Procedura guidata'. Se questa è attiva, è sufficiente trascinare e rilasciare i messaggi per creare i filtri">
 <!ENTITY quickfilters.button.support "Sito di supporto di quickFilters">
+<!ENTITY quickfilters.button.searchProperties "Modifica le proprietà di ricerca…">
+<!ENTITY quickfilters.option.searchProperty.name "Nome">
+<!ENTITY quickfilters.option.searchProperty.targetFolder "Cartella destinazione">
+<!ENTITY quickfilters.option.searchProperty.searchCondition "Condizioni di ricerca (testo)">

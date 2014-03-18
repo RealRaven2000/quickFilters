@@ -22,3 +22,7 @@
 <!ENTITY quickfilters.button.assistant "Assistent ein/ausschalten…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Filter Assistent Modus. Wenn aktiv, erzeugt mails verschieben neue Filter.">
 <!ENTITY quickfilters.button.support "quickFilters Support Webseite">
+<!ENTITY quickfilters.button.searchProperties "Suchfeld wirkt auf...">
+<!ENTITY quickfilters.option.searchProperty.name "Name">
+<!ENTITY quickfilters.option.searchProperty.targetFolder "Zielverzeichnis">
+<!ENTITY quickfilters.option.searchProperty.searchCondition "Suchbedingung (Text)">

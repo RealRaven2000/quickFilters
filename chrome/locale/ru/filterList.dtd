@@ -22,3 +22,7 @@
 <!ENTITY quickfilters.button.assistant "Включить ассистент...">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Включить ассистент по созданию фильтров путем перетаскивания сообщений.">
 <!ENTITY quickfilters.button.support "Страница поддержки quickFilters">
+<!ENTITY quickfilters.button.searchProperties "Свойство для поиска фильтра…">
+<!ENTITY quickfilters.option.searchProperty.name "Имя">
+<!ENTITY quickfilters.option.searchProperty.targetFolder "Папка для сохранения">
+<!ENTITY quickfilters.option.searchProperty.searchCondition "Условия поиска (текст)">
