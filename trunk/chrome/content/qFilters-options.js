@@ -111,6 +111,7 @@ quickFilters.Options = {
   },
   
   sendMail: function(mailto)  {
+    let optionsWin = window;
     let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
                                   .getService(Components.interfaces.nsIPromptService);
     let title = quickFilters.Util.getBundleString('quickfilters.prompt.contact.title', "Contact quickFilters Support");
@@ -128,7 +129,7 @@ quickFilters.Options = {
     let aURI = ioService.newURI(sURL, null, null);
     // open new message
     messageComposeService.OpenComposeWindowWithURI (null, aURI);
-
+    setTimeout( function() {optionsWin.close();}, 200 );
   }
 
   

@@ -31,9 +31,20 @@ END LICENSE BLOCK
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.List = {
   eventsAreHooked: false ,
-	clipboardList: [] , // a 'fale' clipboard for copying / pasting filters across accounts.
+	clipboardList: [] , // a 'fake' clipboard for copying / pasting filters across accounts.
 	clipboardServer: null,
 	clipboardPending: '',
+  rebuildFilterList_Original: null,
+  duplicateTerms: null,
+  duplicateActions: null,
+  updateButtons: function() {
+    let numFiltersSelected = gFilterListbox.selectedItems.length;
+    let oneFilterSelected = (numFiltersSelected == 1);
+    document.getElementById("quickFiltersBtnClone").disabled = !oneFilterSelected;
+    document.getElementById("quickFiltersBtnMerge").disabled = (numFiltersSelected<2);
+    document.getElementById("quickFiltersBtnCut").disabled = (numFiltersSelected==0);
+    document.getElementById("quickFiltersBtnCopy").disabled = (numFiltersSelected==0);
+  },
 
   // FILTER LIST DIALOG FUNCTIONS
   getFilterListElement: function()
@@ -147,8 +158,7 @@ quickFilters.List = {
 		}
 	} ,
   
-  merge: function (evt, isEvokedFromButton)
-  {
+  merge: function (evt, isEvokedFromButton) {
     let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'mergeList' };
     let filtersList = this.getFilterList(); // Tb / SM
     let sourceFolder = filtersList.folder;
@@ -194,6 +204,7 @@ quickFilters.List = {
       // match the first action only
       // nsMsgFilterAction.MarkFlagged
       // nsMsgFilterAction.MoveToFolder
+      // nsMsgFilterAction.CopyToFolder
       // nsMsgFilterAction.AddTag
       // nsMsgFilterAction.ChangePriority
 			try {
@@ -209,7 +220,7 @@ quickFilters.List = {
       else {
         // here, we need to create a switch statement, to accommodate different action types
         switch(primaryAction.type) {
-          case FA.MoveToFolder:
+          case FA.MoveToFolder: case FA.CopyToFolder:
             if (primaryAction.targetFolderUri != action.targetFolderUri) 
               filterMatch = false;
             break;
@@ -385,6 +396,52 @@ quickFilters.List = {
 		return folder; // Suite
 	},
 	
+  styleFilterListItems: function() {
+		let list = this.getFilterListElement();
+    let type = this.clipboardPending;
+    let clpFilters = this.clipboardList;
+    this.resetClipboardStylings();
+    if (type && clpFilters.length>0) {
+      for (let i=0; i<clpFilters.length;i++) {
+        let current = clpFilters[i];
+        for each (let item in gFilterListbox.children) {
+          if (item._filter && item._filter == current) {
+            switch(type) {
+              case 'cut':
+                item.setAttribute("class", "quickFiltersCut");
+                break;
+              case 'copy':
+                item.setAttribute("class", "quickFiltersCopy");
+                break;
+            }
+            item.firstChild.setAttribute("class", "listcell-iconic");
+          }
+        }
+      }
+    }
+  },
+  
+  rebuildPost: function() {
+    quickFilters.List.styleFilterListItems();
+  },
+  
+  styleSelectedItems: function(type) {
+		let list = this.getFilterListElement();
+    if (typeof list.selectedItems !== "undefined") {
+      for(let i=0; i<list.selectedItems.length; i++) {
+        switch(type) {
+          case 'cut':
+            list.selectedItems[i].setAttribute("class", "quickFiltersCut");
+            break;
+          case 'copy':
+            list.selectedItems[i].setAttribute("class", "quickFiltersCopy");
+            break;
+        }
+        list.selectedItems[i].firstChild.setAttribute("class", "listcell-iconic");
+      }
+    }
+  } ,
+  
 	pushSelectedToClipboard: function(type) {
 		let list = this.getFilterListElement();
 		if (this.getSelectedCount(list) < 1) {
@@ -402,19 +459,7 @@ quickFilters.List = {
 		// let's style the affected items for visual feedback...
 	  try {
 			this.resetClipboardStylings();
-			if (typeof list.selectedItems !== "undefined") {
-				for(let i=0; i<list.selectedItems.length; i++) {
-					switch(type) {
-						case 'cut':
-							list.selectedItems[i].setAttribute("class", "quickFiltersCut");
-							break;
-						case 'copy':
-							list.selectedItems[i].setAttribute("class", "quickFiltersCopy");
-							break;
-					}
-					list.selectedItems[i].firstChild.setAttribute("class", "listcell-iconic");
-				}
-			}
+      this.styleSelectedItems(type);
 		}
 		catch(ex) {
       quickFilters.Util.logException('pushSelectedToClipboard - during marking as copied/cut', ex);
@@ -440,6 +485,7 @@ quickFilters.List = {
 		let clpFilters = this.clipboardList;
 		let isInsert = false;
 		let isRemove = false;
+    let isMove = false;
 		try {
 			if (clpFilters.length < 1) {
 				let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.emptyClipboard',
@@ -447,11 +493,14 @@ quickFilters.List = {
 				quickFilters.Util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
 				return;
 			}
-			if (this.clipboardServer == this.CurrentFolder)  {
-				let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectOtherAccount',
-				  'Select a different account for pasting items!');
-				quickFilters.Util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
-				return;
+			if (this.clipboardServer == this.CurrentFolder) {
+        isMove = true; // copy / paste from same server = move
+        if (this.clipboardPending == 'copy')  { // not allowed
+          let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectOtherAccount',
+            'Select a different account for pasting items!');
+          quickFilters.Util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
+          return;
+        }
 			}
 			if (!this.clipboardServer.server.canHaveFilters) {
 				let msg = quickFilters.Util.getBundleString('quickfilters.createFilter.warning.canNotHaveFilters',
@@ -485,36 +534,42 @@ quickFilters.List = {
 			if (index<0) 
 				index = list.itemCount;
 
-			let filtersList = this.getFilterList()
-			// 1. paste new filters in account
+			let filtersList = this.getFilterList();
+      let sourceFolder = this.clipboardServer.rootFolder;
+      let cutFiltersList;
+			if (isRemove) {
+        if (quickFilters.Util.Application === 'Postbox') {
+          // mailWindowOverlay.js:1790
+          cutFiltersList = sourceFolder.getFilterList(gFilterListMsgWindow);
+        }
+        else {
+          cutFiltersList = sourceFolder.getEditableFilterList(gFilterListMsgWindow);
+        }
+      }
+      if (isMove) {  // we are moving within the same server, so let's get rid of all icons to avoid confusion.
+        this.resetClipboardStylings();
+      }
+			// PASTE new filters in account
 			if (isInsert) {
 				// insert, in order, at cursor or append to end if no target filter selected.
 				for (let i = 0; i < clpFilters.length; i++) {
+          if (isRemove) {
+            let current = clpFilters[i];
+            // CUT FIRST
+            for (let cix = cutFiltersList.filterCount-1; cix >= 0; cix--) {
+              if (current == cutFiltersList.getFilterAt(cix)){
+                cutFiltersList.removeFilterAt(cix);
+                if (isMove) {
+                  if (cix<=index) index--; // compensate for moving (we deleted item before insert point).
+                }
+                break;
+              }
+            }
+          }
+          // NOW INSERT
 					let filter = clpFilters[i].QueryInterface(Ci.nsIMsgFilter);
 					filtersList.insertFilterAt(index++, filter); 
 				}
-			}
-			if (isRemove) {
-				// cut payload:
-				let sourceFolder = this.clipboardServer.rootFolder;
-				if (quickFilters.Util.Application === 'Postbox') {
-					// mailWindowOverlay.js:1790
-					filtersList = sourceFolder.getFilterList(gFilterListMsgWindow);
-				}
-				else {
-					filtersList = sourceFolder.getEditableFilterList(gFilterListMsgWindow);
-				}
-				
-				for (let i = 0; i < clpFilters.length; i++) {
-					let current = clpFilters[i];
-					for (index = filtersList.filterCount-1; index >= 0; index--) {
-						if (current == filtersList.getFilterAt(index)){
-							filtersList.removeFilterAt(index);
-							break;
-						}
-					}
-				}	
-				
 			}
 		}
 		catch (ex) {
@@ -538,8 +593,7 @@ quickFilters.List = {
 		
 	},
 
-  onTop : function (evt)
-  {
+  onTop : function (evt) {
     let filtersList = this.getFilterList(); // Tb / SM
     let list = this.getFilterListElement();
     try {
@@ -570,8 +624,7 @@ quickFilters.List = {
     }
   } ,
 
-  onBottom : function (evt)
-  {
+  onBottom : function (evt) {
     let filtersList = this.getFilterList();
     let list =this.getFilterListElement();
     try {
@@ -698,7 +751,11 @@ quickFilters.List = {
 	
 	onSelectServer: function() {
 		quickFilters.Util.logDebugOptional("clipboard", "onSelectServer()");
-		this.resetClipboardStylings();
+    this.styleFilterListItems();
+    // reset duplicates list + hide.
+    this.clearDuplicatePopup(false);
+    document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
+    document.getElementById('quickFiltersBtnDupe').collapsed = false;
 	} ,
 	
 	onSelectFilter : function (evt) {
@@ -717,8 +774,7 @@ quickFilters.List = {
     buttonBottom.disabled = downDisabled;
   } ,
 
-  onLoadFilterList: function(evt)
-  {
+  onLoadFilterList: function(evt) {
     function removeElement(el) {
       el.collapsed = true;
     }
@@ -727,6 +783,12 @@ quickFilters.List = {
         el.setAttribute('crop','end');
         el.minwidth = 15;
       }
+    }
+    // overwrite list updateButtons
+    let orgUpdateBtn = updateButtons;
+    updateButtons = function() {
+      orgUpdateBtn();
+      quickFilters.List.updateButtons();
     }
 		// Toolbar
 		let toolbox = document.getElementById("quickfilters-toolbox");
@@ -783,6 +845,23 @@ quickFilters.List = {
     }
     
     if (nativeSearchBox || quickFolderSearchBox) {
+      // extend search methods:
+      if (quickFilters.Util.Application == 'Thunderbird') {
+        filterSearchMatch = quickFilters.List.filterSearchMatchExtended;
+        let btnOptions = document.getElementById('quickFilters-SearchOptions');
+        btnOptions.collapsed = false;
+        btnOptions = nativeSearchBox.parentNode.insertBefore(btnOptions, nativeSearchBox);
+        if(rebuildFilterList) {
+          if (!this.rebuildFilterList_Orig) {
+            this.rebuildFilterList_Orig = rebuildFilterList;
+            rebuildFilterList = function() { 
+              quickFilters.List.rebuildFilterList_Orig(); 
+              quickFilters.List.rebuildPost(); // step for styling the list after rebuilding
+            }
+          }
+        }
+      }
+    
       // once [Bug 450302] has landed, we do not need to add this functionality ourselves :)
       // also same functionality is provided by QuickFolder_s already, so no need to do it from here
       removeElement(buttonTop);
@@ -791,6 +870,11 @@ quickFilters.List = {
       removeElement(countBox);
       // in this case, this id should be assigned already by the bugfix
       formatListLabel(document.getElementById("filterListLabel"));
+      
+      // 
+      if (window.arguments.targetFilter) {
+        alert('highlight filter: ' + targetFilter.name);
+      }
       return;
     }
     // DOMi ugliness.
@@ -907,8 +991,7 @@ quickFilters.List = {
   } ,
 
   // helper function for SeaMonkey/Postbox (which doesn't have a gCurrentFilterList)
-  getFilterList: function()
-  {
+  getFilterList: function() {
     try {
       if (typeof gCurrentFilterList !== "undefined")
         return gCurrentFilterList;
@@ -930,8 +1013,7 @@ quickFilters.List = {
 
   } ,
 
-  updateCountBox: function()
-  {
+  updateCountBox: function() {
     var countBox = document.getElementById("quickFilters-Count");
     var sum = this.getFilterList().filterCount;
     var filterList = this.getFilterListElement();
@@ -1080,5 +1162,299 @@ quickFilters.List = {
 	  let win = quickFilters.Util.getMail3PaneWindow();
 		btn.checked = !win.quickFilters.Worker.FilterMode; // toggle
 		win.quickFilters.onToolbarButtonCommand();	
-	}
+	} ,
+  
+  searchType: 'name',
+  
+  toggleSearchType: function(type) {
+    this.searchType=type;
+    rebuildFilterList();
+  } ,
+  
+  showPopup: function(button, popupId, evt) {
+		let p = button.ownerDocument.getElementById(popupId);
+		if (p) {
+			document.popupNode = button;
+			p.targetNode = button; 
+			
+			if (p.openPopup)
+				p.openPopup(button,'after_start', 0, -1,true,false,evt);
+			else
+				p.showPopup(button, 0, -1,"context","bottomleft","topleft"); // deprecated method
+    }
+  } ,
+  /**
+   * Decides if the given filter matches the given keyword.
+   * @param  aFilter   nsIMsgFilter to check
+   * @param  aKeyword  the string to find in the filter name
+   * @return  True if the selected field contains the searched keyword.
+              Otherwise false. In the future this may be extended to match
+              other filter attributes.
+   */
+  filterSearchMatchExtended : function(aFilter, aKeyword) {
+    // more search options
+    let FA = Components.interfaces.nsMsgFilterAction;
+    switch(quickFilters.List.searchType) {
+      case 'name':
+        return (aFilter.filterName.toLocaleLowerCase().contains(aKeyword));
+      case 'targetFolder':
+        for (let index = 0; index < aFilter.sortedActionList.length; index++) {
+          let ac = aFilter.sortedActionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+          if (ac.type == FA.MoveToFolder || ac.type == FA.CopyToFolder) {
+            if (ac.targetFolderUri) { 
+              let lI = ac.targetFolderUri.lastIndexOf('/');
+              if (lI<0) lI=0;
+              if (ac.targetFolderUri.substr(lI).toLocaleLowerCase().contains(aKeyword))
+                return true;
+            }
+          }
+        }        
+        return false;
+      case 'condition':
+        let stCollection = aFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+        for (let t = 0; t < stCollection.Count(); t++) {
+          // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
+          // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
+          let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
+          if (searchTerm.value) {
+            let val = searchTerm.value; // nsIMsgSearchValue
+            let AC = Components.interfaces.nsMsgSearchAttrib;
+            if (val && quickFilters.Util.isStringAttrib(val.attrib)) {
+              let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
+              if (conditionStr.toLocaleLowerCase().contains(aKeyword))
+                return true;
+            }
+          }
+        }
+        return false;
+      case 'tagLabel':
+        for (let index = 0; index < aFilter.sortedActionList.length; index++) {
+          let ac = aFilter.sortedActionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+          if (ac.type == FA.AddTag || ac.type == FA.Label) {
+            if (ac.strValue) { 
+              if (ac.strValue.toLocaleLowerCase() == aKeyword) // full match for tags, but case insensitive.
+                return true;
+            }
+          }
+        }        
+        return false;
+    }
+    return true; // no search filter.
+  },
+  
+  // see mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#316
+  // return meaning of nsMsgSearchAttribValue  (string types only)
+  getAttributeLabel: function(attrib) {
+    switch(attrib) {
+      case -2: return 'Custom';  /* a custom term, see nsIMsgSearchCustomTerm */
+      case -1: return 'Default';
+      case  0: return 'Subject'; 
+      case  1: return 'Sender';
+      case  4: return 'Priority';
+      case  6: return 'To';
+      case  7: return 'CC';
+      case  8: return 'To Or CC';
+      case  9: return 'All Addresses';
+      case 10: return 'Location';
+      case 11: return 'Message Key';
+      case 15: return 'Any Text';
+      case 16: return 'Keywords';
+      case 17: return 'Name';
+      case 18: return 'Display Name';
+      case 19: return 'Nickname';
+      case 20: return 'Screen Name';
+      case 21: return 'Email';
+      default: return 'attrib(' + attrib + ')';
+     }
+  } ,
+  
+  // return meaning of nsMsgSearchOpValue
+  getOperatorLabel: function(operator) {
+    switch (operator) {
+      case 0: return 'Contains';
+      case 1: return 'Doesnt contain';
+      case 2: return 'Is';
+      case 3: return 'Is not';
+      case 4: return 'Is empty';
+      case 5: return 'Is empty';
+      case 7: return 'Is higher than';
+      case 8: return 'Is lower than';
+      case 9: return 'Begins with';
+      case 10: return 'Ends with';
+      default: return 'operator(' + operator + ')';
+    }
+  } ,
+  
+  // return label for  nsMsgRuleActionType
+  getActionLabel: function(actionType) {
+    switch(actionType) {
+      case  1: return 'Move to folder';
+      case  8: return 'Add label';
+      case  9: return 'Reply with template';
+      case 10: return 'Forward';
+      case 16: return 'Copy to folder';
+      case 17: return 'Add tag';
+      default: return 'Action (' + actionType + ')';
+    }
+  } ,
+  
+  
+  clearDuplicatePopup: function(show) {
+    let termDropDown = document.getElementById('duplicateTerms');
+    let menuPopup = termDropDown.menupopup;
+    // clear
+    while(menuPopup.childNodes.length) {
+      menuPopup.removeChild(menuPopup.childNodes[0]);
+    }  
+    termDropDown.collapsed = !show;
+    termDropDown.style.display = '-moz-box';
+    return menuPopup;    
+  } ,
+  
+  findDuplicates: function() {
+    // make an Array of
+    // {attribType, 
+    // 1. type of term  'sub
+    // 2. operator
+    // 3. match String
+    this.duplicateTerms = [];  
+    let Terms = [];
+    this.duplicateActions = [];
+    let Actions = [];
+    
+    let filtersList = this.getFilterList(); 
+    // build a dictionary of terms; this might take some time!
+    for (let idx = 0; idx < filtersList.filterCount; idx++) {
+      let filter = filtersList.getFilterAt(idx)
+      // 1. Search Conditions
+      let stCollection = filter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+      for (let t = 0; t < stCollection.Count(); t++) {
+        // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
+        // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
+        let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
+        if (searchTerm.value) {
+          let val = searchTerm.value; // nsIMsgSearchValue
+          if (val && quickFilters.Util.isStringAttrib(val.attrib)) {
+            let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
+            let term = { attrib: val.attrib, operator: searchTerm.op, value: conditionStr.toLocaleLowerCase(), count: 1};
+            let found = false;
+            for (let i=0; i<Terms.length; i++) {
+              if (Terms[i].attrib == term.attrib && Terms[i].value == term.value && Terms[i].operator == term.operator) {
+                Terms[i].count++;
+                found = true;
+                break;
+              }
+            }
+            if (!found)
+              Terms.push(term);
+          }
+        }
+      }
+      // 2. Actions
+      let actionCount = quickFilters.Util.getActionCount(filter);
+      for (let a = 0; a < actionCount; a++) {
+        let action = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
+        if (action.strValue) {
+          let actionTerm = { type: action.type, value: action.strValue, count: 1};
+          let found = false;
+          for (let i=0; i<Actions.length; i++) {
+            if (Actions[i].type == actionTerm.type && Actions[i].value == actionTerm.value) {
+              Actions[i].count++;
+              found = true;
+              break;
+            }
+          }
+          if (!found)
+            Actions.push(actionTerm);
+        }
+      }
+    }  
+    
+    // dropdown with terms
+    let termDropDown = document.getElementById('duplicateTerms');
+    let menuPopup = this.clearDuplicatePopup(true);
+      
+    // generate duplicate terms list
+    for (let i=0; i<Terms.length; i++) {
+      let term = Terms[i];
+      if (term.count>1) {
+        this.duplicateTerms.push(term);
+        quickFilters.Util.logDebug("Found duplicate condition: {attrib: " + term.attrib + ", op: " + term.operator + ", value: " + term.value + ", count: " + term.count +"}");
+        let menuItem = document.createElement("menuitem");
+        let theLabel = this.getAttributeLabel(term.attrib) + ' ' 
+                     + this.getOperatorLabel(term.operator) + ': ' 
+                     + term.value 
+                     + ' (' + term.count + ')';
+        menuItem.setAttribute("label", theLabel);
+        menuItem.setAttribute("searchAttribute", term.attrib); // special attribute for actions
+        menuItem.setAttribute("value", term.value);        
+        menuPopup.appendChild(menuItem);
+      }
+    }
+    // add duplicate actions list
+    for (let i=0; i<Actions.length; i++) {
+      let action = Actions[i];
+      if (action.count>1) {
+        this.duplicateActions.push(action);
+        quickFilters.Util.logDebug("Found duplicate action: {attrib: " + action.type + ", value: " + action.value + ", count: " + action.count +"}");
+        let menuItem = document.createElement("menuitem");
+        let theLabel = this.getActionLabel(action.type) + ': ' 
+                     + action.value 
+                     + ' (' + action.count + ')';
+        menuItem.setAttribute("label", theLabel);
+        menuItem.setAttribute("actionType", action.type); // special attribute for actions
+        menuItem.setAttribute("value", action.value);        
+        menuPopup.appendChild(menuItem);
+      }
+    }
+    
+    document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = false;
+    document.getElementById('quickFiltersBtnDupe').collapsed = true;
+    
+  } ,
+  
+  cancelDuplicates: function(el) {
+    this.clearDuplicatePopup(false);
+    document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
+    document.getElementById('quickFiltersBtnDupe').collapsed = false;
+  } ,
+  
+  selectDuplicate: function(el) {
+    let searchBox = document.getElementById("searchBox");
+    if (searchBox) {
+      searchBox.value = el.value;
+      this.onFindFilter(true);
+    }
+    let contextMenu = document.getElementById('quickFiltersRemoveDuplicate');
+    let actionType = el.selectedItem.getAttribute('actionType');
+    if (actionType) {
+      contextMenu.label = "Remove duplicate action: " + el.label;
+      contextMenu.value = el.value;
+      contextMenu.setAttribute("actionType", actionType);
+      switch (parseInt(actionType,10)) {
+        case 1:   // move to folder
+        case 16:  // copy to folder
+          quickFilters.List.toggleSearchType('targetFolder');
+          document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
+          break;
+        case  8:  // Label
+        case 17:  // Add Tag
+          quickFilters.List.toggleSearchType('tagLabel');
+          document.getElementById('quickFiltersSearchTag').setAttribute('checked', 'true');
+          break;
+      }
+    }
+    else {
+      contextMenu.label = "Remove duplicate condition: " + el.label;
+      contextMenu.value = el.value;
+      quickFilters.List.toggleSearchType('condition');
+      document.getElementById('quickFiltersSearchCondition').setAttribute('checked', 'true');
+    }
+  } ,
+  
+  removeSelectedCurrentDupe: function(el) {
+    alert('Function not implemented: removeSelectedCurrentDupe\n'
+          + 'Please remove condition manually: ' 
+          + el.value);
+  }
 };
