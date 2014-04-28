@@ -22,3 +22,7 @@
 <!ENTITY quickfilters.button.assistant "Växla assistentläge …">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Växlar filterassistentläget av/på. När det är aktiverat, dra och släpp e-brev för att skapa filter.">
 <!ENTITY quickfilters.button.support "quickFilters supportwebbplats">
+<!ENTITY quickfilters.button.searchProperties "Ändra sökegenskaper …">
+<!ENTITY quickfilters.option.searchProperty.name "Namn">
+<!ENTITY quickfilters.option.searchProperty.targetFolder "Målmapp">
+<!ENTITY quickfilters.option.searchProperty.searchCondition "Sökvillkor (text)">
