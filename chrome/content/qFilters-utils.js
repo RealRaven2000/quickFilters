@@ -54,7 +54,7 @@ var QuickFilters_TabURIregexp = {
 };
 
 quickFilters.Util = {
-  HARDCODED_EXTENSION_VERSION : "2.4.1",
+  HARDCODED_EXTENSION_VERSION : "2.6",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -950,8 +950,46 @@ quickFilters.Util = {
 			if (append)
 				toFilter.appendAction(action);
 		}
-	}
-	
-	
+	} ,
+  
+  getIdentityMailAddresses: function() {
+    this.logDebug('getIdentityMailAddresses()');
+    // make a stop list (my own email addresses)
+    let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
+                        .getService(Components.interfaces.nsIMsgAccountManager);
+                        
+    let myMailAddresses = [];
+    for (let account in fixIterator(acctMgr.accounts, Components.interfaces.nsIMsgAccount)) {
+      let idMail = '';
+      if (account.defaultIdentity) {
+        idMail = account.defaultIdentity.email;
+      }
+      else if (account.identities.length) {
+        idMail = account.identities[0].email; // outgoing identities
+      }
+      else {
+        this.logDebug('getIdentityMailAddresses() found account without identities: ' + account.key);
+      }
+      if (idMail) {
+        idMail = idMail.toLowerCase();
+        if (idMail && myMailAddresses.indexOf(idMail)==-1) 
+          myMailAddresses.push(idMail);
+      }
+    }
+    this.logDebugOptional("default", 'getIdentityMailAddresses - retrieved ' + myMailAddresses.length + ' Addresses' );
+    return myMailAddresses;
+  } ,
+  
+  extractEmail: function(address, domainSwitch) {
+    // regex to strip out the email address
+    if (domainSwitch) {
+      let at = address.indexOf('@');
+      if (at>0) {
+        return address.substr(at);
+      }
+    }
+    return address;
+  }
+	  
   
 }

@@ -200,7 +200,7 @@
         <separator />
         <separator />
       </tabpanel>  
-	  <tabpanel id="quickFilters-Options-general"
+	  <tabpanel id="quickFilters-Options-supprt"
 			          orient="vertical" 
 			          label="&qf.tab.options;" 
 			          style="position:relative;">

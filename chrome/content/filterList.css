@@ -7,8 +7,14 @@
 
 /* All toolbar buttons */
 #quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, 
-#quickFiltersBtnSettings, #quickFiltersBtnStart, #quickFiltersBtnClone {
+#quickFiltersBtnSettings, #quickFiltersBtnStart, #quickFiltersBtnClone, #quickFiltersBtnDupe, 
+#quickFiltersBtnCancelDuplicates {
   display: -moz-box;
+}
+
+#duplicateTerms {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
  
 
@@ -16,6 +22,21 @@
 .quickFiltersCopy listcell:first-child,
 .quickFiltersCut listcell:first-child {
 	font-style:italic;
+}
+
+/* options for search box */
+#quickFilters-SearchOptions {
+    -moz-appearance: toolbarbutton !important;
+	background: transparent !important;
+	background-size: 16px 16px !important;
+	border-style: none !important;
+	min-height:16px;
+	min-width:24px;
+	height:16px !important; 
+	padding-top: 0;
+	padding-bottom: 0;
+	-moz-image-region: rect(0px, 16px, 16px, 0px);
+	list-style-image: url("chrome://quickfilters/skin/settings.png");
 }
 
 /* Cut */
@@ -29,7 +50,12 @@
 
 #quickFiltersBtnCut {
 	list-style-image: url("chrome://quickfilters/skin/fugue-scissors_24.png");
+	-moz-image-region:rect(0px 24px 24px 0px);
 }
+#quickFiltersBtnCut[disabled="true"] {
+	-moz-image-region:rect(24px 24px 48px 0px);
+}
+
 
 /* Copy */
 .quickFiltersCopy, #quickFiltersCopy {
@@ -61,8 +87,19 @@
 [iconsize="small"] #quickFiltersBtnMerge {
 	list-style-image: url("chrome://quickfilters/skin/fugue-join.png");
 }
+
 #quickFiltersBtnMerge {
 	list-style-image: url("chrome://quickfilters/skin/fugue-join_24.png");
+	-moz-image-region:rect(0px 24px 24px 0px);
+}
+#quickFiltersBtnMerge[disabled="true"] {
+	-moz-image-region:rect(24px 24px 48px 0px);
+}
+
+
+/* Duplicate */
+#quickFiltersRemoveDuplicate {
+	list-style-image: url("chrome://quickfilters/skin/duplicates16.png");
 }
 
 #quickFiltersBtnClone {
@@ -75,15 +112,24 @@
 #quickFiltersBtnClone:active {
 	-moz-image-region:rect(48px 24px 72px 0px);
 }
+#quickFiltersBtnClone[disabled="true"] {
+	-moz-image-region:rect(72px 24px 96px 0px);
+}
 
+#quickFiltersBtnDupe {
+  list-style-image: url("chrome://quickfilters/skin/duplicates24.png");
+}
+#quickFiltersBtnCancelDuplicates {
+  list-style-image: url("chrome://quickfilters/skin/cancelDuplicates.png");
+}
 
-/* Assistant */
 #quickFiltersBtnStart {
 	list-style-image: url("chrome://quickfilters/skin/QuickFilters_24.png");
 	-moz-image-region: rect(0px 24px 24px 0px);
 }
 #quickFiltersBtnStart:hover {  -moz-image-region: rect(24px 24px 48px  0px); }
 #quickFiltersBtnStart[checked="true"] {   -moz-image-region: rect(48px 24px 72px 0px) !important;}
+/* Assistant */
 
 [iconsize="small"] #quickFiltersBtnStart {
 	list-style-image: url("chrome://quickfilters/skin/QuickFilters_16.png");

@@ -210,7 +210,8 @@ quickFilters.Worker = {
     }
   },
   
-  openFilterList: function(isRefresh, sourceFolder) {
+  // targetFilter is passed in when a filter was merged and thus not created at the top of list
+  openFilterList: function(isRefresh, sourceFolder, targetFilter) {
     try {
       let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
       let w = mediator.getMostRecentWindow('mailnews:filterlist');
@@ -220,6 +221,7 @@ quickFilters.Worker = {
       // it throws "desiredWindow.refresh is not a function"
       if (!w) {
         let args = { refresh: isRefresh, folder: sourceFolder };
+        if (targetFilter) args.targetFilter = targetFilter;
         MsgFilterList(args);
       }
       else {
@@ -235,10 +237,6 @@ quickFilters.Worker = {
     }
   } ,
 
-  get Ci() {
-    return Components.interfaces;
-  },
-	
 	parseHeader : function(parser, msgHeader) {
 		if (quickFilters.Util.Application === 'Postbox') {
 			// guessing guessing guessing ...
@@ -458,7 +456,7 @@ quickFilters.Worker = {
         quickFilters.Util.logDebugOptional('createFilter', "no sourceFolder: root.hasSubFolders ");
         // unfortunately, Postbox doesn't define subFolders of nsIMsgFolder
         if (typeof root.subFolders !== 'undefined') {
-          for each (let folder in fixIterator(root.subFolders, this.Ci.nsIMsgFolder)) {
+          for each (let folder in fixIterator(root.subFolders, Components.interfaces.nsIMsgFolder)) {
             if (folder.getFlag && folder.getFlag(fflags.Inbox)) {
               quickFilters.Util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
               sourceFolder = folder;
@@ -488,10 +486,10 @@ quickFilters.Worker = {
         }
       }
       // sourceFolder
-      let accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(this.Ci.nsIMsgAccountManager).accounts;
+      let accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Components.interfaces.nsIMsgAccountManager).accounts;
       let accountCount = 0;
 
-      for (let ab in fixIterator(accounts, this.Ci.nsIMsgAccount)) { 
+      for (let ab in fixIterator(accounts, Components.interfaces.nsIMsgAccount)) { 
         if (ab.defaultIdentity)
           accountCount++; 
       }
@@ -501,7 +499,7 @@ quickFilters.Worker = {
         aAccounts = quickFilters.Util.getAccountsPostbox();
       else {
         aAccounts = [];
-        for (let ac in fixIterator(accounts, this.Ci.nsIMsgAccount)) {
+        for (let ac in fixIterator(accounts, Components.interfaces.nsIMsgAccount)) {
           aAccounts.push(ac);
         };
       }
@@ -739,7 +737,8 @@ quickFilters.Worker = {
           let mergeFilterIndex = params.selectedMergedFilterIndex; // -1 for none
 					// let's make this asynchronous also (so we can rerun it) - make sure to reset promiseCreateFilter when it finishes!
 					quickFilters.Worker.reRunCount = 0;
-					this.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, matchingFilters, filtersList, mergeFilterIndex, emailAddress);
+					this.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, matchingFilters, 
+                           filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress);
         }
         else  // just launch filterList dialog
         {
@@ -761,8 +760,9 @@ quickFilters.Worker = {
     return null;
 
   } ,
-	
-  buildFilter: function(sourceFolder, targetFolder, messageList, messageDb, filterAction, matchingFilters, filtersList, mergeFilterIndex, emailAddress) {	
+  
+  buildFilter: function(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
+                        matchingFilters, filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress) {	
     function createTerm(filter, attrib, op, val) {
       let searchTerm = filter.createTerm();
       searchTerm.attrib = attrib;
@@ -773,6 +773,35 @@ quickFilters.Worker = {
       value.str = val;
       searchTerm.value = value;
       return searchTerm;
+    }
+
+    function createTermList(array, targetFilter, attrib, operator, excludeAddressList, excludedAddresses, domainSwitch) {
+      let TA = Components.interfaces.nsMsgSearchAttrib;
+      for (let counter=0; counter<array.length; counter++) {
+        try {
+          let trmValue = array[counter];
+          trmValue = trmValue.trim().toLowerCase(); // make sure we also cover manually added addresses which might be cased wrongly
+          let isAddress = (attrib == TA.To  
+                          || attrib == TA.CC
+                          || attrib == TA.Sender);
+       
+          if (isAddress) {
+            trmValue = quickFilters.Util.extractEmail(trmValue, domainSwitch);
+          }          
+        
+          if (isAddress && excludeAddressList.indexOf(trmValue)>=0) {
+            excludedAddresses.push(trmValue);
+            quickFilters.Util.logDebugOptional ('template.multifrom', 'Excluded from multiple(from) filter: ' + trmValue);
+          }
+          else {
+            let term = createTerm(targetFilter, attrib, operator, trmValue);
+            targetFilter.appendTerm(term);
+          }
+        }
+        catch(ex) {
+          quickFilters.Util.logException("buildFilter().createTermList() appending term failed: ", ex);
+        }
+      }
     }
 	
     function getAllTags() {
@@ -829,10 +858,13 @@ quickFilters.Worker = {
 		let tagArray = getAllTags();
     let targetFilter;
     let msgKeyArray;
+    let addressArray = [];
+    let typeAttrib = Components.interfaces.nsMsgSearchAttrib;
+    let typeOperator = Components.interfaces.nsMsgSearchOp;
 		
 		// user has selected a template
 		var template = quickFilters.Preferences.getCurrentFilterTemplate();
-		
+    
 		// helper variables for creating filter terms
 		var searchTerm, searchTerm2, searchTerm3;
 		
@@ -853,14 +885,19 @@ quickFilters.Worker = {
 			     !this.refreshHeaders(messageList, sourceFolder)) 
 			{
 			  window.setTimeout(function() {   
-		      quickFilters.Worker.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, matchingFilters, filtersList, mergeFilterIndex, emailAddress);
+		      quickFilters.Worker.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
+                                          matchingFilters, filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress);
 				  }, 150);
 				quickFilters.Worker.reRunCount++
 				return;
 			}
 		}
 		let msg = messageList[0].msgClone;
-	
+    
+    // prepare stop list: my own email addresses shall not be added to the filter conditions (e.g. I am in cc list etc.)
+    var myMailAddresses = quickFilters.Util.getIdentityMailAddresses();
+    let excludedAddresses = [];
+
 		switch (filterAction) {
 			case Components.interfaces.nsMsgFilterAction.MoveToFolder:
 			case Components.interfaces.nsMsgFilterAction.CopyToFolder:
@@ -892,6 +929,7 @@ quickFilters.Worker = {
 				
 			// Based on Sender (from) Conversation based on a Person 
 			case 'from': // was 'person' but that was badly labelled, so we are going to retire this string
+      case 'domain':
 				// sender ...
 
 				// ... recipient, to get whole conversation based on him / her
@@ -900,19 +938,21 @@ quickFilters.Worker = {
               && template=='to'
               )) {
           // from
-          searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Sender, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
-          targetFilter.appendTerm(searchTerm);
+					addressArray = emailAddress.split(",");
+          let op =  (template === 'domain') ? typeOperator.EndsWith : typeOperator.Contains;
+          createTermList(addressArray, targetFilter, typeAttrib.Sender, op, myMailAddresses, excludedAddresses, (template === 'domain'));
         }
-        if (!(quickFilters.Preferences.getBoolPref("searchterm.addressesOneWay")
+        if (!template=='domain' &&
+            !(quickFilters.Preferences.getBoolPref("searchterm.addressesOneWay")
               && template=='from'
               )) {
           // to
-          searchTerm2 = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.To, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
-          targetFilter.appendTerm(searchTerm2);
+					addressArray = emailAddress.split(",");
+          createTermList(addressArray, targetFilter, typeAttrib.To, typeOperator.Contains, myMailAddresses, excludedAddresses);
         }
 
 				if (quickFilters.Preferences.getBoolPref("naming.keyWord"))
-					filterName += " - " + emailAddress;
+					filterName += " - " + emailAddress.substr(0, 25); // truncate it for long cases
 				break;
 				
 			// Group (collects senders of multiple mails)
@@ -923,40 +963,22 @@ quickFilters.Worker = {
 					this.promiseCreateFilter = false;
 					return false;               
 				}
-				// make a stop list (mu own email addresses)
-				let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-														.getService(this.Ci.nsIMsgAccountManager);
-														
-				let myMailAddresses = [];
-				let excludedAddresses = [];
-				let mailAddresses = [];
-				for (let account in fixIterator(acctMgr.accounts, this.Ci.nsIMsgAccount)) {
-					let idMail = '';
-					if (account.defaultIdentity) {
-						idMail = account.defaultIdentity.email;
-					}
-					else if (account.identities.length) {
-						idMail = account.identities[0].email;
-					}
-					if (idMail && myMailAddresses.indexOf(idMail)==-1) 
-						myMailAddresses.push(idMail);
-				}
-				
-				
-				let hdrParser = Components.classes["@mozilla.org/messenger/headerparser;1"].getService(Components.interfaces.nsIMsgHeaderParser);
+        
+        let hdrParser = Components.classes["@mozilla.org/messenger/headerparser;1"].getService(Components.interfaces.nsIMsgHeaderParser);
+        let mailAddresses = []; // gather all to avoid duplicates!
 				for (let i=0; i<messageList.length; i++) {
 					// sender ...
 					//let hdr = messageDb.getMsgHdrForMessageID(messageList[i].messageId);
 					//msg = hdr.QueryInterface(Components.interfaces.nsIMsgDBHdr);
 					msg = messageList[i].msgClone;
 					if (msg) {
-						emailAddress = this.parseHeader(hdrParser, msg.author);
+						emailAddress = this.parseHeader(hdrParser, msg.author); // assume there is always only 1 email address in author (no array expansion)
 						if (myMailAddresses.indexOf(emailAddress)>=0) {
 							excludedAddresses.push(emailAddress);
 							quickFilters.Util.logDebugOptional ('template.multifrom', 'Excluded from multiple(from) filter: ' + emailAddress);
 						}
-						else if (mailAddresses.indexOf(emailAddress) == -1) {
-							searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Sender, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
+						else if (mailAddresses.indexOf(emailAddress) == -1) { // avoid duplicates
+							searchTerm = createTerm(targetFilter, typeAttrib.Sender, typeOperator.Contains, emailAddress);
 							targetFilter.appendTerm(searchTerm);
 							quickFilters.Util.logDebugOptional ('template.multifrom', 'Added to multiple(from) filter: ' + emailAddress);
 							mailAddresses.push(emailAddress);
@@ -970,21 +992,18 @@ quickFilters.Worker = {
 				
 			// 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org )
 			case 'list':
-				//// TO
+				//// FROM
 				//createTerm(filter, attrib, op, val)
-				searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Sender, Components.interfaces.nsMsgSearchOp.Contains, emailAddress);
-				targetFilter.appendTerm(searchTerm);
+        addressArray = emailAddress.split(",");
+        createTermList(addressArray, targetFilter, typeAttrib.Sender, typeOperator.Contains, myMailAddresses, excludedAddresses);
 
 				//// CC
 				if (msg.ccList) {
-					let ccArray = ccAddress.split(",");
-					for (let counter=0; counter<ccArray.length; counter++) {
-						searchTerm2 = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.CC, Components.interfaces.nsMsgSearchOp.Contains, ccArray[counter]);
-						targetFilter.appendTerm(searchTerm2);
-					}
+					addressArray = ccAddress.split(",");
+          createTermList(addressArray, targetFilter, typeAttrib.CC, typeOperator.Contains, myMailAddresses, excludedAddresses);
 				}
 				if (quickFilters.Preferences.getBoolPref("naming.keyWord"))
-					filterName += " - " + emailAddress;
+					filterName += " - " + emailAddress.substr(0,25);
 
 				break;
 
@@ -994,8 +1013,8 @@ quickFilters.Worker = {
 				//createTerm(filter, attrib, op, val)
 				//searchTerm = createTerm(targetFilter, Ci.nsMsgSearchAttrib.Subject, Ci.nsMsgSearchOp.Contains, emailAddress);
 				searchTerm = targetFilter.createTerm();
-				searchTerm.attrib = Components.interfaces.nsMsgSearchAttrib.Subject;
-				searchTerm.op = Components.interfaces.nsMsgSearchOp.Contains;
+				searchTerm.attrib = typeAttrib.Subject;
+				searchTerm.op = typeOperator.Contains;
 				var topicFilter = getMailKeyword(msg.mime2DecodedSubject);
 				searchTerm.value = {
 					attrib: searchTerm.attrib,
@@ -1014,7 +1033,7 @@ quickFilters.Worker = {
 				// -- Now try to match the search term
 				//createTerm(filter, attrib, op, val)
 				for (let i = msgKeyArray.length - 1; i >= 0; --i) {
-					searchTerm = createTerm(targetFilter, Components.interfaces.nsMsgSearchAttrib.Keywords, Components.interfaces.nsMsgSearchOp.Contains, msgKeyArray[i]);
+					searchTerm = createTerm(targetFilter, typeAttrib.Keywords, typeOperator.Contains, msgKeyArray[i]);
 					targetFilter.appendTerm(searchTerm);
 					for each (var tagInfo in tagArray)
 						if (tagInfo.key === msgKeyArray[i])
@@ -1123,7 +1142,9 @@ quickFilters.Worker = {
 		// there we check this here in args to show filterList dialog.
 		if ("refresh" in args && args.refresh)
 		{
-			quickFilters.Worker.openFilterList(true, sourceFolder);
+      if (quickFilters.Preferences.getBoolPref("showListAfterCreateFilter")) {
+        quickFilters.Worker.openFilterList(true, sourceFolder, isMerge ? targetFilter : null);
+      }
 			
 			// stop filter mode after creating first successful filter.
 			if (quickFilters.Preferences.isAbortAfterCreateFilter()) {
@@ -1151,7 +1172,10 @@ quickFilters.Worker = {
     for (let i = 0; i < messageIdList.length; i++) {  
       let messageId = messageIdList[i];
       let messageDb = targetFolder.msgDatabase ? targetFolder.msgDatabase : targetFolder.getMsgDatabase(null); // msgDatabase
-			if(!messageDb || !messageDb.getMsgHdrForMessageID(messageId)) {
+			if ((!messageDb || !messageDb.getMsgHdrForMessageID(messageId))
+          && 
+          sourceFolder)
+      {
 			  messageDb = sourceFolder.msgDatabase ? sourceFolder.msgDatabase : sourceFolder.getMsgDatabase(null); // msgDatabase
 			}
       if (messageDb) {

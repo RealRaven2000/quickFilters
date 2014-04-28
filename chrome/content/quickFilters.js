@@ -161,18 +161,22 @@ END LICENSE BLOCK */
     # [Bug 25692] W.I.P - in Postbox, creating filters from messages that were already moved is not possible.
 		              The initial bugfix makes it possible to use this function provided there is only one active mail account
 		
-  2.4.1 : WIP
-    # Added UI for quickmove feature
-    # Switch for disabling Tag listener
+  2.5 : 02/04/2014
+    # Added UI switches to support Postbox's quickmove feature
+    # Additional switch for disabling Tag listener
     # Option to disable two-way addressing
-    # Added a link for donwload / installing "Copy Sent to Current"
-    # Prompt for adding subject to support email
+    # Added a link for download / installing "Copy Sent to Current"
+    # [Bug 25727] Allow to create Group Filter with "Create Filter from Message" menu (select multiple emails for this)
+    # Prompt for adding a customized subject to support email
     # Right-click on quickFilters button opens options
+    # added extensions.quickfilters.showListAfterCreateFilter switch so display of filter list after creation of filter can be disabled
     
-    
-	WIP
+	2.6 : WIP
 		# add support for Nostalgy: W.I.P.
 		# preparation code for filtering changing to ANY / ALL conditions
+    # added "from Domain" filter template
+    # [Bug 25758] accounts without a from email address fail with error "idMail is null"
+
 	 */
 
 
@@ -422,9 +426,11 @@ var quickFilters = {
 				  selectedMessages = gFolderDisplay.selectedMessages; 
 				}
 				// && selectedMessages[0].folder.server.canHaveFilters
-				if (selectedMessages.length == 1 && selectedMessages[0].folder ) {
+				if (selectedMessages.length > 0 && selectedMessages[0].folder ) {
 				  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-				  messageList.push(quickFilters.Util.makeMessageListEntry(selectedMessages[0])); 
+          for (let m=0; m<selectedMessages.length; m++) {  // ### Bug 25727 Allow to create Group Filter with "Create Filter from Message" menu
+            messageList.push(quickFilters.Util.makeMessageListEntry(selectedMessages[m])); 
+          }
 				  // the original command in the message menu calls the helper function MsgCreateFilter()
 					// we do not know the primary action on this message (yet)
 					let currentMessageFolder = quickFilters.Util.getCurrentFolder();
