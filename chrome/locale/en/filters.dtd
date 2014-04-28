@@ -1,5 +1,6 @@
 <!ENTITY qf.filters.title "Create Filters">
 <!ENTITY qf.filters.template.from "Based on Sender (from)">
+<!ENTITY qf.filters.template.domain "Based on Sender's Domain">
 <!ENTITY qf.filters.template.multifrom "Group (collects senders of multiple mails)">
 <!ENTITY qf.filters.template.to "Based on Recipient (to)">
 <!ENTITY qf.filters.template.list "Mailing List">

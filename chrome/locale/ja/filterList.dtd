@@ -22,3 +22,7 @@
 <!ENTITY quickfilters.button.assistant "アシスタントを切り替え...">
 <!ENTITY quickfilters.button.assistant.tooltiptext "フィルタアシスタントモードを切り替えます。有効にした場合、メールをドラッグ＆ドロップしてフィルタを作成できます。">
 <!ENTITY quickfilters.button.support "quickFilters サポートサイト">
+<!ENTITY quickfilters.button.searchProperties "検索プロパティを変更...">
+<!ENTITY quickfilters.option.searchProperty.name "プロパティ名">
+<!ENTITY quickfilters.option.searchProperty.targetFolder "対象フォルダ">
+<!ENTITY quickfilters.option.searchProperty.searchCondition "検索条件 (テキスト)">

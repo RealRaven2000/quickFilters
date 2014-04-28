@@ -1,5 +1,6 @@
 <!ENTITY qf.filters.title "Filter Erstellen">
 <!ENTITY qf.filters.template.from "Basierend auf Absender (von)">
+<!ENTITY qf.filters.template.domain "Basierend auf Absender-Domäne">
 <!ENTITY qf.filters.template.multifrom "Gruppe (Absender mehrerer mails)">
 <!ENTITY qf.filters.template.to "Basierend auf Empfänger (an)">
 <!ENTITY qf.filters.template.list "Postversandliste">
