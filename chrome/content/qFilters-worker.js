@@ -1394,7 +1394,8 @@ quickFilters.Assistant = {
       chk.collapsed = true;
   } ,
 
-  getBundleString  : function(id) {
+  // gets strings from filters properties
+  getBundleString: function(id, defaultText) {
     //var bundle = document.getElementById("bundle_filter");
     try {
       if(!this.bundle)
@@ -1405,6 +1406,7 @@ quickFilters.Assistant = {
     }
     catch(e) {
       quickFilters.Util.logException("Could not retrieve bundle string: " + id + "\n", e);
+      if (defaultText) return defaultText;
     }
     return '';
   },
