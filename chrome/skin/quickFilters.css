@@ -104,9 +104,8 @@ toolbar:not([iconsize="small"]) #quickfilters-toolbar-runbutton image
   height: 24px;
 }
 
-
-
-notification[value="quickfilters-filter"] image.messageImage {
+notification[value="quickfilters-filter"] image.messageImage,
+notification[value="quickfilters-proFeature"] image.messageImage {
 	/* filterTemplate.png */
 	min-width: 73px !important;
 	width: 73px !important;
@@ -114,18 +113,21 @@ notification[value="quickfilters-filter"] image.messageImage {
 	height: 32px !important;
 }
 
-notification[value="quickfilters-filter"] .messageCloseButton {
+notification[value="quickfilters-filter"] .messageCloseButton,
+notification[value="quickfilters-proFeature"] .messageCloseButton {
 	background-color: rgba(255, 255, 255, 0.8);
 	border-radius: 3px;
 	border-radius: 3px;
 	margin: 1em 1.5em;
 }
-notification[value="quickfilters-filter"] .messageCloseButton:hover {
+notification[value="quickfilters-filter"] .messageCloseButton:hover,
+notification[value="quickfilters-proFeature"] .messageCloseButton:hover {
 	background-color: rgba(255, 255, 255, 1);
 }
 
 /* postbox - this description simply won't wrap! */
-notification[value="quickfilters-filter"] description.messageText
+notification[value="quickfilters-filter"] description.messageText,
+notification[value="quickfilters-proFeature"] description.messageText
 {
 	white-space: normal !important;
 	height: auto;
@@ -149,4 +151,14 @@ notification[value="quickfilters-filter"] hbox.notification-inner {
 #mail-notification-box notification[value=quickfilters-filter],
 #pbSearchThresholdNotifcationBar notification[value=quickfilters-filter] {
 	min-height: 6em;
+}
+
+#mail-notification-box notification[value=quickfilters-proFeature],
+#pbSearchThresholdNotifcationBar notification[value=quickfilters-proFeature] {
+	min-height: 3em;
+}
+
+notification[value="quickfilters-proFeature"] hbox.notification-inner {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 }
