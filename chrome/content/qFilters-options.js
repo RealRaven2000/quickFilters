@@ -51,7 +51,9 @@ quickFilters.Options = {
 						evt.stopPropagation();
 					}; }, false);
 		}		
-
+    let getCopyBtn = window.document.getElementById('getCopySentToCurrent');
+    let getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
+    getCopyBtn.textContent = getCopyText.replace('{1}','\'Copy Sent to Current\'');
   } ,
   
   toggleBoolPreference: function(cb, noUpdate) {
