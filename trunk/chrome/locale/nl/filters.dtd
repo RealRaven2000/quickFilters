@@ -1,5 +1,6 @@
 <!ENTITY qf.filters.title "Filters aanmaken">
 <!ENTITY qf.filters.template.from "Gebaseerd op afzender (van)">
+<!ENTITY qf.filters.template.domain "Gebaseerd op domein afzender">
 <!ENTITY qf.filters.template.multifrom "Groep (verzamelt afzenders van meerdere berichten)">
 <!ENTITY qf.filters.template.to "Gebaseerd op ontvanger (aan)">
 <!ENTITY qf.filters.template.list "E-maillijst">
