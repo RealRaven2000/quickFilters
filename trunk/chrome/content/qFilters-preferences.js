@@ -43,11 +43,17 @@ quickFilters.Preferences = {
 	},
 	
 	getIntPref: function(p) {
-		return this.service.getIntPref(p);
+		try {
+      return this.service.getIntPref(this.Prefix + p);
+    } catch(e) {
+			var s="Err:" +e;
+			quickFilters.Util.logToConsole("getIntPref(" + this.Prefix + p + ") failed:\n" + s);
+			throw(e);
+		}
 	},
 
 	setIntPref: function(p, v) {
-		return this.service.setIntPref(p, v);
+		return this.service.setIntPref(this.Prefix + p, v);
 	},
 	
 	isAbortAfterCreateFilter: function() {
@@ -79,14 +85,6 @@ quickFilters.Preferences = {
 
 	setBoolPref: function(p, v) {
 		return quickFilters.Preferences.setBoolPrefNative(this.Prefix + p, v);
-	},
-
-	getIntPrefQF: function(p) {
-		return quickFilters.Preferences.getIntPref(this.Prefix + p);
-	},
-
-	setIntPrefQF: function(p, v) {
-		return this.setIntPref(this.Prefix + p, v);
 	},
 
 	setBoolPrefNative: function(p, v) {
