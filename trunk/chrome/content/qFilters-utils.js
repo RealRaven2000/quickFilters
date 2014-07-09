@@ -36,8 +36,6 @@ quickFilters.Properties = {
   bundle: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties"),
 
   getLocalized: function(msg) {
-    // var testB = this.bundle.createBundle("chrome://quickfilters/locale/overlay.properties");
-
     let b = this.bundle;
     if (!b)
       b = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties");
@@ -79,7 +77,7 @@ quickFilters.Util = {
 				SentMail: 0x00000200,
 				Newsgroup: 0x00000001,
 				Templates: 0x00400000,
-         Virtual: 0x00000020				
+        Virtual: 0x00000020				
 			}
 		}
 	},
@@ -104,9 +102,10 @@ quickFilters.Util = {
     return msgfolder;
   } ,
 
+  // gets string from overlay.properties
   getBundleString: function(id, defaultText) {
     try {
-      var s= quickFilters.Properties.getLocalized(id);
+      var s= quickFilters.Properties.getLocalized(id); 
     }
     catch(e) {
       s = defaultText;
@@ -114,6 +113,7 @@ quickFilters.Util = {
     }
     return s;
   } ,
+  
 
   getMail3PaneWindow: function() {
     let windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
@@ -390,10 +390,126 @@ quickFilters.Util = {
     }
     catch(e) {
       // prevents runtime error on platforms that don't implement nsIAlertsService
-      this.logException ("quickFilter.util.popupAlert() ", e);
+      this.logException ("quickFilters.util.popupAlert() ", e);
       alert(text);
     }
   } ,
+  
+	disableFeatureNotification: function(featureName) {
+		quickFilters.Preferences.setBoolPref("proNotify." + featureName, false);
+	} ,  
+  
+	popupProFeature: function(featureName, text, isDonate, isRegister) {
+		let notificationId;
+    let util = quickFilters.Util;
+		// is notification disabled?
+		// check setting extensions.quickfilters.proNotify.<featureName>
+    try {
+      if (!quickFilters.Preferences.getBoolPref("proNotify." + featureName))
+        return;
+    } catch(ex) {return;}
+		let countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") - 1;
+		quickFilters.Preferences.setIntPref("proNotify." + featureName + ".countDown", countDown);
+
+		switch(util.Application) {
+			case 'Postbox': 
+				notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
+				break;
+			case 'Thunderbird': 
+				notificationId = 'mail-notification-box'
+				break;
+			case 'SeaMonkey':
+				notificationId = null;
+				break;
+		}
+		let notifyBox = document.getElementById (notificationId);
+    if (!notifyBox) {
+      notifyBox = util.getMail3PaneWindow().document.getElementById (notificationId);
+    }
+		let title=util.getBundleString("quickfilters.notification.proFeature.title",
+				"Premium Feature");
+		let theText = util.getBundleString("quickfilters.notification.proFeature.notificationText",
+				"The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year. ");
+    let featureTitle = util.getBundleString('quickfilters.premium.title.' + featureName, featureName);
+		theText = theText.replace ("{1}", "'" + featureTitle + "'");
+		let dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
+			
+
+		let nbox_buttons = [];
+		if (notifyBox) {
+			let notificationKey = "quickfilters-proFeature";
+			// button for disabling this notification in the future
+			if (countDown>0) {
+        // registration button
+        if (isRegister) {
+          let registerMsg = util.getBundleString("quickfilters.notification.register", "Register {1}");
+          registerMsg = registerMsg.replace('{1}', 'quickFilters');
+          nbox_buttons.push(
+            {
+              label: registerMsg,
+              accessKey: null, 
+              callback: function() { alert('not implemented yet'); quickFilters.Util.showDonatePage(); }, // need to implement this
+              popup: null
+            }
+          )
+        }
+        
+        // donate button
+        if (isDonate) {
+          let donateMsg = util.getBundleString("quickfilters.notification.donate", "Donate");
+          nbox_buttons.push(
+            {
+              label: donateMsg,
+              accessKey: null, 
+              callback: function() { 
+                quickFilters.Util.showDonatePage(); 
+                let item = notifyBox.getNotificationWithValue(notificationKey); // notifyBox, notificationKey are closured
+                notifyBox.removeNotification(item, (quickFilters.Util.Application == 'Postbox'))
+              },
+              popup: null
+            }
+          )
+        }
+        
+			}
+			else {
+				nbox_buttons.push(
+					{
+						label: dontShow,
+						accessKey: null, 
+						callback: function() { quickFilters.Util.disableFeatureNotification(featureName); },
+						popup: null
+					}
+				);
+			}
+			
+			if (notifyBox) {
+				let item = notifyBox.getNotificationWithValue(notificationKey);
+				if(item)
+					notifyBox.removeNotification(item, (util.Application == 'Postbox'));
+			}
+		
+			notifyBox.appendNotification( theText, 
+					notificationKey , 
+					"chrome://quickfilters/skin/proFeature.png" , 
+					notifyBox.PRIORITY_INFO_HIGH, 
+					nbox_buttons ); // , eventCallback
+			if (util.Application == 'Postbox') {
+				this.fixLineWrap(notifyBox, notificationKey);
+			}
+		}
+		else {
+			// fallback for systems that do not support notification (currently: SeaMonkey)
+			var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]  
+															.getService(Components.interfaces.nsIPromptService);  
+				
+			var check = {value: false};   // default the checkbox to true  
+				
+			var result = prompts.alertCheck(null, title, theText, dontShow, check);
+			if (check.value==true)
+				util.disableFeatureNotification(featureName);
+		}
+	} ,  
 
   showStatusMessage: function(s) {
     try {
@@ -547,6 +663,7 @@ quickFilters.Util = {
 	
 	getAccountsPostbox: function() {
 	  let accounts=[];
+    let Ci = Components.interfaces;
 		var smartServers = accountManager.allSmartServers;
 		for (var i = 0; i < smartServers.Count(); i++)
 		{
@@ -960,20 +1077,25 @@ quickFilters.Util = {
                         
     let myMailAddresses = [];
     for (let account in fixIterator(acctMgr.accounts, Components.interfaces.nsIMsgAccount)) {
-      let idMail = '';
-      if (account.defaultIdentity) {
-        idMail = account.defaultIdentity.email;
+      try {
+        let idMail = '';
+        if (account.defaultIdentity) {
+          idMail = account.defaultIdentity.email;
+        }
+        else if (account.identities.length) {
+          idMail = account.identities[0].email; // outgoing identities
+        }
+        else {
+          this.logDebug('getIdentityMailAddresses() found account without identities: ' + account.key);
+        }
+        if (idMail) {
+          idMail = idMail.toLowerCase();
+          if (idMail && myMailAddresses.indexOf(idMail)==-1) 
+            myMailAddresses.push(idMail);
+        }
       }
-      else if (account.identities.length) {
-        idMail = account.identities[0].email; // outgoing identities
-      }
-      else {
-        this.logDebug('getIdentityMailAddresses() found account without identities: ' + account.key);
-      }
-      if (idMail) {
-        idMail = idMail.toLowerCase();
-        if (idMail && myMailAddresses.indexOf(idMail)==-1) 
-          myMailAddresses.push(idMail);
+      catch(ex) {
+        this.logException ('getIdentityMailAddresses()', ex);
       }
     }
     this.logDebugOptional("default", 'getIdentityMailAddresses - retrieved ' + myMailAddresses.length + ' Addresses' );
