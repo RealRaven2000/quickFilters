@@ -26,3 +26,8 @@
 <!ENTITY quickfilters.option.searchProperty.name "Naam">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Doelmap">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Zoekvoorwaarde (tekst)">
+<!ENTITY quickfilters.option.searchProperty.addTag "Label toevoegen">
+<!ENTITY quickfilters.button.findDuplicates.label "Duplicaten zoeken">
+<!ENTITY quickfilters.button.findDuplicates.tooltip "Dubbele attributen zoeken">
+<!ENTITY quickfilters.button.cancelDuplicates.label "Duplicaten annuleren">
+<!ENTITY quickfilters.button.cancelDuplicates.tooltip "Duplicaatzoekopdracht resetten">

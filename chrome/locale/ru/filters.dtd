@@ -1,5 +1,6 @@
 <!ENTITY qf.filters.title "Создать фильтр">
 <!ENTITY qf.filters.template.from "По отправителю (от)">
+<!ENTITY qf.filters.template.domain "По домену отправителя (от)">
 <!ENTITY qf.filters.template.multifrom "Группа (список отправителей из нескольких сообщений)">
 <!ENTITY qf.filters.template.to "По адресату (кому)">
 <!ENTITY qf.filters.template.list "Список рассылки">

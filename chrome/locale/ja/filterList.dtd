@@ -26,3 +26,4 @@
 <!ENTITY quickfilters.option.searchProperty.name "プロパティ名">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "対象フォルダ">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "検索条件 (テキスト)">
+<!ENTITY quickfilters.option.searchProperty.addTag "タグを追加 (ラベル)">

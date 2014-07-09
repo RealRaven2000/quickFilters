@@ -26,3 +26,8 @@
 <!ENTITY quickfilters.option.searchProperty.name "Nome">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Cartella destinazione">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Condizioni di ricerca (testo)">
+<!ENTITY quickfilters.option.searchProperty.addTag "Aggiungi etichetta">
+<!ENTITY quickfilters.button.findDuplicates.label "Trova duplicati">
+<!ENTITY quickfilters.button.findDuplicates.tooltip "Trova attributi dei duplicati">
+<!ENTITY quickfilters.button.cancelDuplicates.label "Annulla ricerca duplicati">
+<!ENTITY quickfilters.button.cancelDuplicates.tooltip "Reimposta la ricerca dei duplicati">

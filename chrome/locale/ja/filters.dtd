@@ -1,5 +1,6 @@
 <!ENTITY qf.filters.title "フィルタ作成">
 <!ENTITY qf.filters.template.from "送信者 (from) を基準にする">
+<!ENTITY qf.filters.template.domain "送信者のドメインを基準にする">
 <!ENTITY qf.filters.template.multifrom "グループ (複数のメールの送信者を集めます)">
 <!ENTITY qf.filters.template.to "受信者 (to) を基準にする">
 <!ENTITY qf.filters.template.list "メーリングリスト">
