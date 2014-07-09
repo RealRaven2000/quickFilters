@@ -27,6 +27,7 @@ pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overla
 pref("extensions.quickfilters.abortAfterCreate", false);
 pref("extensions.quickfilters.autoStart", false);
 pref("extensions.quickfilters.toolbar", true);
+pref("extensions.quickfilters.showListAfterCreateFilter", true);
 
 pref("extensions.quickfilters.filters.currentTemplate", "from");
 pref("extensions.quickfilters.nostalgySupport", false);
@@ -43,3 +44,9 @@ pref("extensions.quickfilters.filters.showMessage", true);
 pref("extensions.quickfilters.firstRun", true);
 pref("extensions.quickfilters.installedVersion", "0");
 pref("extensions.quickfilters.donations.askOnUpdate", true);
+
+// Premium features
+pref("extensions.quickfilters.proNotify.duplicatesFinder", true);
+pref("extensions.quickfilters.proNotify.duplicatesFinder.countDown", 10);
+
+
