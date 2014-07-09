@@ -28,4 +28,7 @@ overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters
 overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application=postbox@postbox-inc.com
 
+# Filter Editor overlay
+overlay  chrome://messenger/content/FilterEditor.xul  chrome://quickfilters/content/overlayFilterRules.xul
+
 # overlay	chrome://messenger/content/mailWindowOverlay.xul	chrome://quickfilters/content/quickFilters-overlay.xul
