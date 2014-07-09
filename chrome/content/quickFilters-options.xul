@@ -160,7 +160,7 @@
 						  
         <label id="getCopySentToCurrent" 
                tooltiptext="https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/"
-               onclick="quickFilters.Util.openURLInTab('https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/');">Get Copy Sent to Current</label>
+               onclick="quickFilters.Util.openURLInTab('https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
 			</vbox>
 		</hbox>
 				  
