@@ -172,11 +172,18 @@ END LICENSE BLOCK */
     # added extensions.quickfilters.showListAfterCreateFilter switch so display of filter list after creation of filter can be disabled
     
 	2.6 : WIP
-		# add support for Nostalgy: W.I.P.
 		# preparation code for filtering changing to ANY / ALL conditions
     # added "from Domain" filter template
     # [Bug 25758] accounts without a from email address fail with error "idMail is null"
+    # [Bug 25752] Add Search Box For Specific Filter Rules
+    # [Bug 25789] Add tool to detect duplicate conditions / actions
+    # Added notification system for premium features
+    # Added hidden switch extensions.quickfilters.showListAfterCreateFilter
 
+    
+  PLANNED CHANGES  
+		# add support for Nostalgy: W.I.P.
+    
 	 */
 
 
