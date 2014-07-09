@@ -38,7 +38,8 @@ quickFilters.List = {
   duplicateTerms: null,
   duplicateActions: null,
   updateButtons: function() {
-    let numFiltersSelected = gFilterListbox.selectedItems.length;
+    
+    let numFiltersSelected = this.getSelectedCount(this.getFilterListElement());
     let oneFilterSelected = (numFiltersSelected == 1);
     document.getElementById("quickFiltersBtnClone").disabled = !oneFilterSelected;
     document.getElementById("quickFiltersBtnMerge").disabled = (numFiltersSelected<2);
@@ -46,7 +47,7 @@ quickFilters.List = {
     document.getElementById("quickFiltersBtnCopy").disabled = (numFiltersSelected==0);
   },
 
-  // FILTER LIST DIALOG FUNCTIONS
+  // FILTER LIST DIALOG FUNCTIONS - replaces gFilterListbox
   getFilterListElement: function()
   {
     var el = document.getElementById("filterList");
@@ -404,7 +405,7 @@ quickFilters.List = {
     if (type && clpFilters.length>0) {
       for (let i=0; i<clpFilters.length;i++) {
         let current = clpFilters[i];
-        for each (let item in gFilterListbox.children) {
+        for each (let item in list.children) {  // replaced gFilterListbox
           if (item._filter && item._filter == current) {
             switch(type) {
               case 'cut':
@@ -428,7 +429,7 @@ quickFilters.List = {
   styleSelectedItems: function(type) {
 		let list = this.getFilterListElement();
     if (typeof list.selectedItems !== "undefined") {
-      for(let i=0; i<list.selectedItems.length; i++) {
+      for(let i=0; i<this.getSelectedCount(list); i++) {
         switch(type) {
           case 'cut':
             list.selectedItems[i].setAttribute("class", "quickFiltersCut");
@@ -1168,7 +1169,7 @@ quickFilters.List = {
   
   toggleSearchType: function(type) {
     this.searchType=type;
-    rebuildFilterList();
+    this.rebuildFilterList(); // used the global rebuildFilterList!
   } ,
   
   showPopup: function(button, popupId, evt) {
@@ -1242,28 +1243,68 @@ quickFilters.List = {
     return true; // no search filter.
   },
   
+  bundleSearchAttributes: null,
+  get bundleSA() {
+    if (!this.bundleSearchAttributes)
+      this.bundleSearchAttributes = Components.classes["@mozilla.org/intl/stringbundle;1"]
+        .getService(Components.interfaces.nsIStringBundleService)
+        .createBundle("chrome://messenger/locale/search-attributes.properties");
+    return this.bundleSearchAttributes;
+  } ,
+  bundleSearchOperators: null,
+  get bundleSO() {
+    if (!this.bundleSearchOperators)
+      this.bundleSearchOperators = Components.classes["@mozilla.org/intl/stringbundle;1"]
+        .getService(Components.interfaces.nsIStringBundleService)
+        .createBundle("chrome://messenger/locale/search-operators.properties");
+    return this.bundleSearchOperators;
+  } ,
+  // gets string from search-attributes.properties
+  getSearchAttributeString: function(id, defaultText) {
+    try {
+      var s = this.bundleSA.GetStringFromName(id); 
+    }
+    catch(e) {
+      s = defaultText;
+      this.logException ("Could not retrieve bundle string: " + id, e);
+    }
+    return s;
+  } ,  
+  
+  getSearchOperatorString: function(id, defaultText) {
+    try {
+      var s = this.bundleSO.GetStringFromName(id); 
+    }
+    catch(e) {
+      s = defaultText;
+      this.logException ("Could not retrieve bundle string: " + id, e);
+    }
+    return s;
+  } ,
+  
   // see mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#316
   // return meaning of nsMsgSearchAttribValue  (string types only)
   getAttributeLabel: function(attrib) {
+    //  retrieve locale strings from http://mxr.mozilla.org/comm-central/source/suite/locales/en-US/chrome/mailnews/search-attributes.properties
     switch(attrib) {
       case -2: return 'Custom';  /* a custom term, see nsIMsgSearchCustomTerm */
       case -1: return 'Default';
-      case  0: return 'Subject'; 
-      case  1: return 'Sender';
-      case  4: return 'Priority';
-      case  6: return 'To';
-      case  7: return 'CC';
-      case  8: return 'To Or CC';
-      case  9: return 'All Addresses';
-      case 10: return 'Location';
-      case 11: return 'Message Key';
+      case  0: return this.getSearchAttributeString('Subject', 'Subject'); 
+      case  1: return this.getSearchAttributeString('From', 'From');
+      case  4: return this.getSearchAttributeString('Priority', 'Priority');
+      case  6: return this.getSearchAttributeString('To', 'To');
+      case  7: return this.getSearchAttributeString('Cc', 'Cc');
+      case  8: return this.getSearchAttributeString('ToOrCc', 'To Or Cc');
+      case  9: return this.getSearchAttributeString('FromToCcOrBcc', 'From, To, Cc or Bcc'); // AllAddresses 
+      case 10: return 'Location'; /* result list only */
+      case 11: return 'Message Key';  /* message result elems */
       case 15: return 'Any Text';
-      case 16: return 'Keywords';
-      case 17: return 'Name';
-      case 18: return 'Display Name';
-      case 19: return 'Nickname';
-      case 20: return 'Screen Name';
-      case 21: return 'Email';
+      case 16: return 'Tags'; // Keywords
+      case 17: return this.getSearchAttributeString('AnyName', 'Any Name'); // Name
+      case 18: return this.getSearchAttributeString('DisplayName', 'Display Name');
+      case 19: return this.getSearchAttributeString('Nickname', 'Nickname');
+      case 20: return this.getSearchAttributeString('ScreenName', 'Screen Name');
+      case 21: return this.getSearchAttributeString('Email', 'Email');
       default: return 'attrib(' + attrib + ')';
      }
   } ,
@@ -1271,29 +1312,37 @@ quickFilters.List = {
   // return meaning of nsMsgSearchOpValue
   getOperatorLabel: function(operator) {
     switch (operator) {
-      case 0: return 'Contains';
-      case 1: return 'Doesnt contain';
-      case 2: return 'Is';
-      case 3: return 'Is not';
-      case 4: return 'Is empty';
-      case 5: return 'Is empty';
-      case 7: return 'Is higher than';
-      case 8: return 'Is lower than';
-      case 9: return 'Begins with';
-      case 10: return 'Ends with';
+      case 0: return this.getSearchOperatorString('0', 'contains');
+      case 1: return this.getSearchOperatorString('1', 'doesn\'t contain');
+      case 2: return this.getSearchOperatorString('2', 'is');
+      case 3: return this.getSearchOperatorString('3', 'isn\'t');
+      case 4: return this.getSearchOperatorString('4', 'is empty');
+      case 5: return this.getSearchOperatorString('5', 'is before');
+      case 6: return this.getSearchOperatorString('6', 'is after');
+      case 7: return this.getSearchOperatorString('7', 'is higher than');
+      case 8: return this.getSearchOperatorString('8', 'is lower than');
+      case 9: return this.getSearchOperatorString('9', 'begins with');
+      case 10: return this.getSearchOperatorString('10', 'ends with');
+      case 11: return this.getSearchOperatorString('11', 'sounds like');
+      case 13: return this.getSearchOperatorString('13', 'is greater than');
+      case 14: return this.getSearchOperatorString('14', 'is less than');
       default: return 'operator(' + operator + ')';
     }
   } ,
   
   // return label for  nsMsgRuleActionType
   getActionLabel: function(actionType) {
+    // retrieve locale strings from http://mxr.mozilla.org/comm-central/source/mail/locales/en-US/chrome/messenger/FilterEditor.dtd
     switch(actionType) {
-      case  1: return 'Move to folder';
+      case  1: return 'Move Message to';
+      case  2: return 'Set Priority to';
+      case  4: return 'Mark As Read';
       case  8: return 'Add label';
       case  9: return 'Reply with template';
-      case 10: return 'Forward';
-      case 16: return 'Copy to folder';
-      case 17: return 'Add tag';
+      case 10: return 'Forward Message to';
+      case 16: return 'Copy Message to';
+      case 17: return 'Tag Message';
+      case 19: return 'Mark As Unread';
       default: return 'Action (' + actionType + ')';
     }
   } ,
@@ -1322,6 +1371,7 @@ quickFilters.List = {
     this.duplicateActions = [];
     let Actions = [];
     
+    quickFilters.Util.popupProFeature("duplicatesFinder", "Duplicate Finder", true, false);    
     let filtersList = this.getFilterList(); 
     // build a dictionary of terms; this might take some time!
     for (let idx = 0; idx < filtersList.filterCount; idx++) {
@@ -1336,7 +1386,7 @@ quickFilters.List = {
           let val = searchTerm.value; // nsIMsgSearchValue
           if (val && quickFilters.Util.isStringAttrib(val.attrib)) {
             let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
-            let term = { attrib: val.attrib, operator: searchTerm.op, value: conditionStr.toLocaleLowerCase(), count: 1};
+            let term = { attrib: val.attrib, operator: searchTerm.op, value: conditionStr, count: 1}; // .toLocaleLowerCase()
             let found = false;
             for (let i=0; i<Terms.length; i++) {
               if (Terms[i].attrib == term.attrib && Terms[i].value == term.value && Terms[i].operator == term.operator) {
@@ -1417,6 +1467,8 @@ quickFilters.List = {
     this.clearDuplicatePopup(false);
     document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
     document.getElementById('quickFiltersBtnDupe').collapsed = false;
+    let contextMenu = document.getElementById('quickFiltersRemoveDuplicate');
+    contextMenu.collapsed = true;
   } ,
   
   selectDuplicate: function(el) {
@@ -1426,9 +1478,11 @@ quickFilters.List = {
       this.onFindFilter(true);
     }
     let contextMenu = document.getElementById('quickFiltersRemoveDuplicate');
+    contextMenu.collapsed = false;
     let actionType = el.selectedItem.getAttribute('actionType');
     if (actionType) {
-      contextMenu.label = "Remove duplicate action: " + el.label;
+      let men = quickFilters.Util.getBundleString('quickfilters.menu.removeDupeAction', 'Remove duplicate action');
+      contextMenu.label = men + ": " + el.label + "...";
       contextMenu.value = el.value;
       contextMenu.setAttribute("actionType", actionType);
       switch (parseInt(actionType,10)) {
@@ -1445,7 +1499,8 @@ quickFilters.List = {
       }
     }
     else {
-      contextMenu.label = "Remove duplicate condition: " + el.label;
+      let men = quickFilters.Util.getBundleString('quickfilters.menu.removeDupeCondition', 'Remove duplicate condition');
+      contextMenu.label = men + ": " + el.label + "...";
       contextMenu.value = el.value;
       quickFilters.List.toggleSearchType('condition');
       document.getElementById('quickFiltersSearchCondition').setAttribute('checked', 'true');
@@ -1453,8 +1508,30 @@ quickFilters.List = {
   } ,
   
   removeSelectedCurrentDupe: function(el) {
-    alert('Function not implemented: removeSelectedCurrentDupe\n'
-          + 'Please remove condition manually: ' 
-          + el.value);
+    // http://mxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#288
+    //   onEditFilter()
+    let selectedFilter = currentFilter();
+    if (!selectedFilter)
+      return;
+
+    // selectDuplicate has prepared the contextMenu item
+    let dupeList = document.getElementById('duplicateTerms');
+    let termValue = dupeList.value; // can be condition value or action value
+    let termActionType = dupeList.selectedItem.getAttribute("actionType");
+
+    let args = {
+      filter: selectedFilter, 
+      filterList: gCurrentFilterList, 
+      filterConditionValue: termValue,           // use this to scroll to and highlight the condition needing to be removed
+      filterConditionActionType: termActionType  // use this to scroll to and highlight the action needing to be removed
+    };
+    // for this functionality, we need to overload chrome://messenger/content/FilterEditor.xul
+    window.openDialog("chrome://messenger/content/FilterEditor.xul", "FilterEditor", "chrome,modal,titlebar,resizable,centerscreen", args);
+
+    if ("refresh" in args && args.refresh) {
+      // reset search if edit was okay (name change might lead to hidden entry!)
+      resetSearchBox(selectedFilter);
+      rebuildFilterList();
+    }          
   }
 };
