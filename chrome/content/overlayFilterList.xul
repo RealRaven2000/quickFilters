@@ -36,6 +36,7 @@
 					/>
 				<menuitem id = "quickFiltersRemoveDuplicate" class="menuitem-iconic"
 					label = "Remove duplicate condition: "
+					collapsed = "true"
 					oncommand = "quickFilters.List.removeSelectedCurrentDupe(this);"
 					/>
 			</menupopup>
@@ -77,7 +78,7 @@
 				<menuitem 
 				    id = "quickFiltersSearchTag"
 				    class="menuitem-iconic"
-					label = "Add Tag (label)"
+					label = "&quickfilters.option.searchProperty.addTag;"
 					oncommand = "quickFilters.List.toggleSearchType('tagLabel');"
 					type="radio"
 					name="searchType"
@@ -128,13 +129,14 @@
 			<!-- Test new remove duplicate search conditions -->
 			<toolbarbutton id="quickFiltersBtnDupe"
               class="toolbarbutton-1 chromeclass-toolbar-additional"
-              label="Find duplicates"
-              tooltiptext="Find duplicate attributes"
+              label="&quickfilters.button.findDuplicates.label;"
+              tooltiptext="&quickfilters.button.findDuplicates.tooltip;"
               oncommand="quickFilters.List.findDuplicates(this);"
 			  />
 			<toolbarbutton id="quickFiltersBtnCancelDuplicates"
               class="toolbarbutton-1 chromeclass-toolbar-additional"
-              label="Cancel duplicates"
+              label="&quickfilters.button.cancelDuplicates.label;"
+			  tooltiptext="&quickfilters.button.cancelDuplicates.tooltip;"
               oncommand="quickFilters.List.cancelDuplicates(this);"
 			  collapsed = "true"
 			  />
