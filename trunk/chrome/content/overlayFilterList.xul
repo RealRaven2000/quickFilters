@@ -83,6 +83,14 @@
 					type="radio"
 					name="searchType"
 					/>
+				<menuitem 
+				    id = "quickFiltersSearchReplyWithTemplate"
+				    class="menuitem-iconic"
+					label = "Reply with Template"
+					oncommand = "quickFilters.List.toggleSearchType('replyWithTemplate');"
+					type="radio"
+					name="searchType"
+					/>
 			</menupopup>
 		</popupset>
 		

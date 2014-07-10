@@ -1239,8 +1239,28 @@ quickFilters.List = {
           }
         }        
         return false;
+      case 'replyWithTemplate':
+        for (let index = 0; index < aFilter.sortedActionList.length; index++) {
+          let ac = aFilter.sortedActionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+          if (ac.type == FA.Reply) {
+            if (ac.strValue) { 
+              let searchSubject = quickFilters.List.retrieveSubjectFromReply(ac.strValue).toLocaleLowerCase();
+              if (searchSubject.contains(aKeyword)) // full match for tags, but case insensitive.
+                return true;
+            }
+          }
+        }        
+        return false;
     }
     return true; // no search filter.
+  },
+  
+  retrieveSubjectFromReply: function(strValue) {
+    let k = strValue.indexOf('subject=');
+    if (k>0) {
+      return strValue.substr(k+8);
+    }
+    else return "";
   },
   
   bundleSearchAttributes: null,
@@ -1333,16 +1353,18 @@ quickFilters.List = {
   // return label for  nsMsgRuleActionType
   getActionLabel: function(actionType) {
     // retrieve locale strings from http://mxr.mozilla.org/comm-central/source/mail/locales/en-US/chrome/messenger/FilterEditor.dtd
+    // l10n at http://hg.mozilla.org/l10n-central
+    let util = quickFilters.Util;
     switch(actionType) {
-      case  1: return 'Move Message to';
-      case  2: return 'Set Priority to';
-      case  4: return 'Mark As Read';
-      case  8: return 'Add label';
-      case  9: return 'Reply with template';
-      case 10: return 'Forward Message to';
-      case 16: return 'Copy Message to';
-      case 17: return 'Tag Message';
-      case 19: return 'Mark As Unread';
+      case  1: return util.getBundleString('quickfilters.moveMessage.label', 'Move Message to');
+      case  2: return util.getBundleString('quickfilters.setPriority.label', 'Set Priority to');
+      case  4: return util.getBundleString('quickfilters.markMessageRead.label', 'Mark As Read');
+    //case  8: return util.getBundleString('quickfilters.xx.label', 'Add label'); // ??
+      case  9: return util.getBundleString('quickfilters.replyWithTemplate.label', 'Reply with template');
+      case 10: return util.getBundleString('quickfilters.forwardTo.label', 'Forward Message to');
+      case 16: return util.getBundleString('quickfilters.copyMessage.label', 'Copy Message to');
+      case 17: return util.getBundleString('quickfilters.addTag.label', 'Tag Message');
+      case 19: return util.getBundleString('quickfilters.markMessageUnread.label', 'Mark As Unread');
       default: return 'Action (' + actionType + ')';
     }
   } ,
@@ -1405,7 +1427,12 @@ quickFilters.List = {
       for (let a = 0; a < actionCount; a++) {
         let action = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
         if (action.strValue) {
-          let actionTerm = { type: action.type, value: action.strValue, count: 1};
+          let actionValue = action.strValue;
+          if (action.type == Components.interfaces.nsMsgFilterAction.Reply) { // reply to
+            // get just the subject from value
+            actionValue = quickFilters.List.retrieveSubjectFromReply(actionValue);
+          }
+          let actionTerm = { type: action.type, value: actionValue, count: 1};
           let found = false;
           for (let i=0; i<Actions.length; i++) {
             if (Actions[i].type == actionTerm.type && Actions[i].value == actionTerm.value) {
@@ -1495,6 +1522,10 @@ quickFilters.List = {
         case 17:  // Add Tag
           quickFilters.List.toggleSearchType('tagLabel');
           document.getElementById('quickFiltersSearchTag').setAttribute('checked', 'true');
+          break;
+        case 9: // Reply (with Template)
+          quickFilters.List.toggleSearchType('replyWithTemplate');
+          document.getElementById('quickFiltersSearchReplyWithTemplate').setAttribute('checked', 'true');
           break;
       }
     }
