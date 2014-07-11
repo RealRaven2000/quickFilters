@@ -26,3 +26,9 @@
 <!ENTITY quickfilters.option.searchProperty.name "Имя">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Папка для сохранения">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Условия поиска (текст)">
+<!ENTITY quickfilters.option.searchProperty.addTag "Добавить метку">
+<!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Ответить по шаблону">
+<!ENTITY quickfilters.button.findDuplicates.label "Найти повторения">
+<!ENTITY quickfilters.button.findDuplicates.tooltip "Найти повторяющиеся атрибуты">
+<!ENTITY quickfilters.button.cancelDuplicates.label "Закончить поиск">
+<!ENTITY quickfilters.button.cancelDuplicates.tooltip "Закончить поиск повторений">

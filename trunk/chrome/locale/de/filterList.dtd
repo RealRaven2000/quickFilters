@@ -27,6 +27,7 @@
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Zielverzeichnis">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Suchbedingung (Text)">
 <!ENTITY quickfilters.option.searchProperty.addTag "Schlagwort">
+<!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Antworten mit Vorlage">
 <!ENTITY quickfilters.button.findDuplicates.label "Duplikate finden">
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Duplizierte Filterattribute finden">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Duplikate Abbrechen">
