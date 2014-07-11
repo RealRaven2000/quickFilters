@@ -27,6 +27,7 @@
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Dossier cible">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Condition de recherche (texte)">
 <!ENTITY quickfilters.option.searchProperty.addTag "Ajouter l'étiquette">
+<!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Répondre avec le modèle">
 <!ENTITY quickfilters.button.findDuplicates.label "Rechercher des doublons">
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Recherche les attributs en doublon">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Annuler la recherche">

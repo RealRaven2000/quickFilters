@@ -26,3 +26,4 @@
 <!ENTITY quickfilters.option.searchProperty.name "名称">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "目标文件夹">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "搜索条件(文本)">
+<!ENTITY quickfilters.option.searchProperty.replyWithTemplate "使用模板回复">
