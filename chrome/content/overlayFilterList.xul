@@ -86,7 +86,7 @@
 				<menuitem 
 				    id = "quickFiltersSearchReplyWithTemplate"
 				    class="menuitem-iconic"
-					label = "Reply with Template"
+					label = "&quickfilters.option.searchProperty.replyWithTemplate;"
 					oncommand = "quickFilters.List.toggleSearchType('replyWithTemplate');"
 					type="radio"
 					name="searchType"
