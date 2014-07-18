@@ -93,9 +93,13 @@ window.onload = function() {
           }
           
           // highlight the row of the matched element
-          if (firstMatch) {
+          if (firstMatch) try {
             list.ensureElementIsVisible(firstMatch);
-            firstMatch.style.background = 'linear-gradient(to bottom, rgba(203,97,95,1) 0%,rgba(193,79,71,1) 36%,rgba(168,17,0,1) 51%,rgba(219,77,55,1) 100%)';
+            firstMatch.style.backgroundImage = 'linear-gradient(to bottom, rgba(203,97,95,1) 0%,rgba(193,79,71,1) 36%,rgba(168,17,0,1) 51%,rgba(219,77,55,1) 100%)';
+            firstMatch.style.backgroundColor = 'rgba(203,97,95,1)';
+          }
+          catch(ex) {
+            utils.logException('Highlighting matched row failed:' + ex);
           }
        }
        else {
