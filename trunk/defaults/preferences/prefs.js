@@ -13,6 +13,7 @@ pref("extensions.quickfilters.debug.dnd", false);
 pref("extensions.quickfilters.debug.clipboard", false);
 pref("extensions.quickfilters.debug.nostalgy", false);
 pref("extensions.quickfilters.debug.quickmove",false);
+pref("extensions.quickfilters.debug.filterList",false);
 pref("extensions.quickfilters.debug.template.multifrom", false);
 
 //pref("extensions.quickfilters.intpref", 0);
@@ -20,6 +21,7 @@ pref("extensions.quickfilters.debug.template.multifrom", false);
 pref("extensions.quickfilters.naming.parentFolder", true);
 pref("extensions.quickfilters.naming.keyWord", false);
 pref("extensions.quickfilters.naming.clonedLabel", ""); // set from locale!
+pref("extensions.quickfilters.naming.mergeToken"," +m");
 
 // https://developer.mozilla.org/en/Localizing_extension_descriptions
 pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");
