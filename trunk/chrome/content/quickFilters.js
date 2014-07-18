@@ -171,7 +171,7 @@ END LICENSE BLOCK */
     # Right-click on quickFilters button opens options
     # added extensions.quickfilters.showListAfterCreateFilter switch so display of filter list after creation of filter can be disabled
     
-	2.6 : WIP
+	2.6 : 14/07/2014
 		# preparation code for filtering changing to ANY / ALL conditions
     # added "from Domain" filter template
     # [Bug 25758] accounts without a from email address fail with error "idMail is null"
@@ -180,7 +180,21 @@ END LICENSE BLOCK */
     # Added notification system for premium features
     # Added hidden switch extensions.quickfilters.showListAfterCreateFilter
 
+  2.6.1 : WIP
+    # [Bug 25802] After editing existing Filter, it should be selected in List 
+    # [Bug 25805] Find duplicates tool now also matches target folders
+    # Postbox: added "create filter from message" in thread pane context menu
+    # Remove duplicate condition context menu command: Improved highlighting of duplicate matches in Filter Rules 
+      - on some systems the background gradient was not visible, so it now falls back to a plain red background
+    # Completed Chinese translations for 2.6
+    # The merge symbol (m+) which is appended to the name of a merged filter can now be configured using the 
+      config setting extensions.quickfilters.naming.mergeToken
+    # When displaying long folder names in duplicate search, these will be now cut off at the 
+		    front (30char limit) to avoid an excessively wide duplicate list
+
     
+
+  
   PLANNED CHANGES  
 		# add support for Nostalgy: W.I.P.
     
@@ -365,7 +379,7 @@ var quickFilters = {
         window.setTimeout(function() { quickFilters.checkFirstRun(); }, 1000);
         return;
       }
-      let installedVersion = quickFilters.Preferences.getCharPrefQF("installedVersion");
+      let installedVersion = quickFilters.Preferences.getCharPref("installedVersion");
       let firstRun = quickFilters.Preferences.getBoolPref("firstRun");
       util.logDebug("firstRun = " + firstRun + "  - currentVersion = " + currentVersion + "  - installed = " + installedVersion);
       let toolbarId = '';
@@ -398,14 +412,15 @@ var quickFilters = {
 						
 						if (quickFilters.Preferences.getBoolPrefSilent("extensions.quickfilters.donations.askOnUpdate")
 						    && !(installedV=="2.3" && currentV=="2.3.1")
-                && !(installedV=="2.4" && currentV=="2.4.1"))
+                && !(installedV=="2.4" && currentV=="2.4.1")
+                && !(installedV=="2.6" && currentV=="2.6.1"))
 						  util.showDonatePage();
 					}
         }
 
       }
       util.logDebug("store installedVersion: " + util.getVersionSimple(currentVersion));
-      quickFilters.Preferences.setCharPrefQF("installedVersion", util.getVersionSimple(currentVersion));
+      quickFilters.Preferences.setCharPref("installedVersion", util.getVersionSimple(currentVersion));
       this.firstRunChecked = true;
     }
     catch(ex) {
