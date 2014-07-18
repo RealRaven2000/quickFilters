@@ -74,5 +74,15 @@
 			  />
   </popup>
   
+  <!-- Postbox -->
+  <popup id="threadPaneContext">
+    <menuitem id="quickFilters-fromMessage"
+              class="menuitem-iconic"
+              label="&quickfilters.FromMessage.label;"
+              accesskey="&quickfilters.FromMessage.accesskey;"
+              insertafter="threadPaneContext-saveAs"
+              oncommand="quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');"
+			  />
+  </popup>
 
 </overlay>
