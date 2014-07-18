@@ -225,11 +225,8 @@ quickFilters.Worker = {
         MsgFilterList(args);
       }
       else {
-        // we must make sure server and sourceFolder are selected!!
-        let runFolder = w.document.getElementById('runFiltersFolder');
-        let serverMenu = w.document.getElementById('serverMenu');
-        let filterList = w.document.getElementById('filterList');
-        
+        // we must make sure server and sourceFolder are selected (?) should already be correct
+        setTimeout(quickFilters.List.selectFilter(targetFilter));
       }
     }
     catch (ex) {
@@ -1135,13 +1132,17 @@ quickFilters.Worker = {
 		//args.filterName = targetFilter.filterName;
 		// check http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.js
 		// => filterEditor OnLoad()
+    /************************************
+      ***       FILTER RULES DIALOG   ***
+      ***********************************
+      */
 		window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
 											"chrome, modal, resizable,centerscreen,dialog=yes", args);
 
 		// If the user hits ok in the filterEditor dialog we set args.refresh=true
 		// there we check this here in args to show filterList dialog.
-		if ("refresh" in args && args.refresh)
-		{
+		if ("refresh" in args && args.refresh) // was [Ok] clicked?
+		{  // Ok
       if (quickFilters.Preferences.getBoolPref("showListAfterCreateFilter")) {
         quickFilters.Worker.openFilterList(true, sourceFolder, isMerge ? targetFilter : null);
       }
@@ -1151,7 +1152,7 @@ quickFilters.Worker = {
 				quickFilters.Worker.toggle_FilterMode(false);
 			}
 		} //else, let's remove the filter (Cancel case)
-		else {
+		else { // Cancel
 			if (!isMerge) {
 				filtersList.removeFilterAt(0);
 			}
