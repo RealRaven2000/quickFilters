@@ -96,11 +96,11 @@ quickFilters.Preferences = {
 		}
 	} ,
 
-	setCharPrefQF: function(p, v) {
+	setCharPref: function(p, v) {
 		return this.service.setCharPref(this.Prefix + p, v);
 	} ,
 	
-	getCharPrefQF: function(p) {
+	getCharPref: function(p) {
 		return this.service.getCharPref(this.Prefix + p);
 	} ,
 
