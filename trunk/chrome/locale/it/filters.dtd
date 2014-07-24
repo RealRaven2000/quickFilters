@@ -1,7 +1,7 @@
 <!ENTITY qf.filters.title "Creazione Filtri">
 <!ENTITY qf.filters.template.from "Basato sul mittente (Mittente/Da:)">
 <!ENTITY qf.filters.template.domain "Basato sul dominio del mittente">
-<!ENTITY qf.filters.template.multifrom "Gruppo (riunisce i mittenti di più messaggi)">
+<!ENTITY qf.filters.template.multifrom "Gruppo (raccoglie i mittenti di più messaggi)">
 <!ENTITY qf.filters.template.to "Basato sul destinatario (A:)">
 <!ENTITY qf.filters.template.list "Liste di distribuzione">
 <!ENTITY qf.filters.template.topic "Per oggetto">
@@ -11,7 +11,7 @@
 <!ENTITY qf.continueFilter.label "Crea filtro…">
 <!ENTITY qf.continueFilter.shortcut "F">
 <!ENTITY qf.filters.actions.caption "Azioni">
-<!ENTITY qf.filters.actions.targetFolder "Cartella di destinazione">
+<!ENTITY qf.filters.actions.targetFolder "Cartella destinazione">
 <!ENTITY qf.filters.actions.tag "Etichetta">
 <!ENTITY qf.filters.actions.tag.accesskey "E">
 <!ENTITY qf.filters.actions.priority "Priorità">

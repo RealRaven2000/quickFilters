@@ -20,7 +20,7 @@
 <!ENTITY quickfilters.menu.paste "Einfügen">
 <!ENTITY quickfilters.button.settings "quickFilters Einstellungen…">
 <!ENTITY quickfilters.button.assistant "Assistent ein/ausschalten…">
-<!ENTITY quickfilters.button.assistant.tooltiptext "Filter Assistent Modus. Wenn aktiv, erzeugt mails verschieben neue Filter.">
+<!ENTITY quickfilters.button.assistant.tooltiptext "Filter Assistent Modus. Wenn aktiv, wird durch Verschieben von emails ein neuer Filter erzeugt.">
 <!ENTITY quickfilters.button.support "quickFilters Support Webseite">
 <!ENTITY quickfilters.button.searchProperties "Suchfeld wirkt auf...">
 <!ENTITY quickfilters.option.searchProperty.name "Name">
@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Duplizierte Filterattribute finden">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Duplikate Abbrechen">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "Duplikatsuche abbrechen">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "Suche abbrechen">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Verzeichnis-Suche abbrechen">
