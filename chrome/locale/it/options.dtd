@@ -19,7 +19,7 @@
 <!ENTITY qf.options.versionnumber.tooltip "Per visualizzare la cronologia delle versioni fare clic col pulsante destro del mouse">
 <!ENTITY qf.tab.options "Opzioni">
 <!ENTITY qf.tab.support "Supporto">
-<!ENTITY qf.label.naming "Nomenclatura delle regole">
+<!ENTITY qf.label.naming "Nomenclatura regole">
 <!ENTITY qf.label.naming.parentFolder "Aggiunge il nome della cartella di livello superiore">
 <!ENTITY qf.label.naming.parentFolder.accesskey "S">
 <!ENTITY qf.label.naming.keyWord "Aggiunge alla regola una parola-chiave specifica">
@@ -29,4 +29,4 @@
 <!ENTITY qf.onewayaddress.tooltip "In modalità predefinita, quickFilters usa sia il criterio di ricerca &quot;Mittente/Da:&quot; sia &quot;Destinatario/A:&quot; per filtrare completamente i messaggi relativi ad un certo argomento, ivi compresi i propri messaggi spediti al ricevente. Se però si vogliono mantenere le proprie risposte nella cartella 'Posta inviata', selezionando questa opzione si può disabilitare tale comportamento. È anche possibile usare il componente aggiuntivo 'Copy Sent to Current' per tenere le risposte assieme ai messaggi che le hanno originate.">
 <!ENTITY qf.postbox.quickmove "Supporto della caratteristica 'Sposta rapidamente' di Postbox">
 <!ENTITY qf.listener.tags "In ascolto di eventuali modifiche alle etichette">
-<!ENTITY qf.listener.tags.tooltip "Se questa opzione è selezionata, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio.">
+<!ENTITY qf.listener.tags.tooltip "Se questa opzione è attiva, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio.">

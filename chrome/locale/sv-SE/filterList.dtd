@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Sök efter dubblettattribut">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Avbryt dubbletthanteringen">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "Återställ dubblettsökvärdena">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "Avbryt sökning">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Avbryt sökning efter mapp">

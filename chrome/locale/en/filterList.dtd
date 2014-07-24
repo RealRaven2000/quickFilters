@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Find duplicate attributes">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Cancel duplicates">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "Reset duplicate search">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "Cancel search">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Cancel search by folder">
