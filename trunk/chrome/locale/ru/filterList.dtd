@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Найти повторяющиеся атрибуты">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Закончить поиск">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "Закончить поиск повторений">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "Прервать поиск">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Прервать поиск по папке">

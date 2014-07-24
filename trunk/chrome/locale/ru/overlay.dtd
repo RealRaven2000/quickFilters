@@ -7,3 +7,4 @@
 <!ENTITY quickfilters.ListButton.tooltip "Показать список фильтров сообщений">
 <!ENTITY quickfilters.RunButton.label "Фильтровать">
 <!ENTITY quickfilters.RunButton.tooltip "Применить фильтры к текущей папке">
+<!ENTITY quickfilters.findFiltersForFolder.menu "Найти фильтры…">

@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Recherche les attributs en doublon">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Annuler la recherche">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "Réinitialise la recherche de doublons">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "Annuler la recherche">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Annuler la recherche par dossier">

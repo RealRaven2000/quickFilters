@@ -2,16 +2,16 @@
 <!ENTITY qf.label.filterEntities "elementi">
 <!ENTITY qf.label.filterSingleEntity "1 elemento">
 <!ENTITY qf.textbox.searchBox.emptyText "Cerca i filtri per nome…">
-<!ENTITY qf.textbox.searchBox.toolTip "Inserire una parola-chiave per cercare per nome i filtri">
+<!ENTITY qf.textbox.searchBox.toolTip "Inserire una parola-chiave per cercare i filtri per nome">
 <!ENTITY qf.button.reorderButtonTop "Primo">
 <!ENTITY qf.button.reorderButtonTop.accessKey "P">
-<!ENTITY qf.button.reorderButtonTop.toolTip "Esegue il filtro selezionato per primo">
+<!ENTITY qf.button.reorderButtonTop.toolTip "Esecuzione del filtro selezionato per primo">
 <!ENTITY qf.button.reorderButtonBottom "Ultimo">
 <!ENTITY qf.button.reorderButtonBottom.accessKey "U">
-<!ENTITY qf.button.reorderButtonBottom.toolTip "Esegue il filtro selezionato per ultimo">
+<!ENTITY qf.button.reorderButtonBottom.toolTip "Esecuzione del filtro selezionato per ultimo">
 <!ENTITY quickfilters.button.merge "Unione">
 <!ENTITY quickfilters.button.merge.accesskey "U">
-<!ENTITY quickfilters.button.merge.tooltiptext "Unione di più filtri che svolgono la stessa azione">
+<!ENTITY quickfilters.button.merge.tooltiptext "Unione di più filtri aventi la stessa azione">
 <!ENTITY quickfilters.button.clone "Clona">
 <!ENTITY quickfilters.button.clone.accesskey "C">
 <!ENTITY quickfilters.button.clone.tooltiptext "Clona un filtro">
