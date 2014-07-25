@@ -7,3 +7,4 @@
 <!ENTITY quickfilters.ListButton.tooltip "显示邮件过滤器列表">
 <!ENTITY quickfilters.RunButton.label "运行过滤器">
 <!ENTITY quickfilters.RunButton.tooltip "运行为当前文件夹建立的过滤器">
+<!ENTITY quickfilters.findFiltersForFolder.menu "查找过滤器...">

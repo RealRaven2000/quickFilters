@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "查找重复属性">
 <!ENTITY quickfilters.button.cancelDuplicates.label "取消重复项">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "重置重复搜索">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "取消搜索">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "取消文件夹搜索">
