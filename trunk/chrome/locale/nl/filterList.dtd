@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Dubbele attributen zoeken">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Duplicaten annuleren">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "Duplicaatzoekopdracht resetten">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "Zoekopdracht annuleren">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Zoeken per map annuleren">
