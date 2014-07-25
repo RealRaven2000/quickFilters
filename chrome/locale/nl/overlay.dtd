@@ -7,3 +7,4 @@
 <!ENTITY quickfilters.ListButton.tooltip "Geef een lijst met berichtenfilters weer">
 <!ENTITY quickfilters.RunButton.label "Filters uitvoeren">
 <!ENTITY quickfilters.RunButton.tooltip "Voor de huidige map ingestelde filters uitvoeren">
+<!ENTITY quickfilters.findFiltersForFolder.menu "Filters zoeken…">
