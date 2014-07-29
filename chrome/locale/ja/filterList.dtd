@@ -32,3 +32,5 @@
 <!ENTITY quickfilters.button.findDuplicates.tooltip "重複した属性を見つけます">
 <!ENTITY quickfilters.button.cancelDuplicates.label "重複をキャンセル">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "重複した検索をリセットします">
+<!ENTITY quickfilters.button.cancelFindInFolder.label "検索中止">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "フォルダの検索をキャンセルします">
