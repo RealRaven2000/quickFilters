@@ -1,6 +1,5 @@
 <!ENTITY qf.filters.title "Tạo Bộ Lọc">
 <!ENTITY qf.filters.template.from "Dựa theo Người Gửi (gửi từ)">
-<!ENTITY qf.filters.template.domain "Based on Sender's Domain">
 <!ENTITY qf.filters.template.multifrom "Group (collects senders of multiple mails)">
 <!ENTITY qf.filters.template.to "Dựa theo Người Nhận (gửi đến)">
 <!ENTITY qf.filters.template.list "Danh sách thư">
