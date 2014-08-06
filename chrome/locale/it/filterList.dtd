@@ -15,6 +15,8 @@
 <!ENTITY quickfilters.button.clone "Clona">
 <!ENTITY quickfilters.button.clone.accesskey "C">
 <!ENTITY quickfilters.button.clone.tooltiptext "Clona un filtro">
+<!ENTITY quickfilters.button.sort "Ordina">
+<!ENTITY quickfilters.button.sort.tooltiptext "Ordina alfabeticamente">
 <!ENTITY quickfilters.menu.cut "Taglia">
 <!ENTITY quickfilters.menu.copy "Copia">
 <!ENTITY quickfilters.menu.paste "Incolla">

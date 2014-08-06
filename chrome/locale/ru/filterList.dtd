@@ -15,6 +15,8 @@
 <!ENTITY quickfilters.button.clone "Клонировать">
 <!ENTITY quickfilters.button.clone.accesskey "К">
 <!ENTITY quickfilters.button.clone.tooltiptext "Клонировать фильтр">
+<!ENTITY quickfilters.button.sort "Сортировка">
+<!ENTITY quickfilters.button.sort.tooltiptext "Сортировка по алфавиту">
 <!ENTITY quickfilters.menu.cut "Вырезать">
 <!ENTITY quickfilters.menu.copy "Копировать">
 <!ENTITY quickfilters.menu.paste "Вставить">
