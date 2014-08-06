@@ -32,7 +32,7 @@
 					/>
 				<menuitem id = "quickFiltersPaste" class="menuitem-iconic"
 					label = "&quickfilters.menu.paste;"
-					oncommand = "quickFilters.List.pasteFilters();"
+					oncommand = "quickFilters.List.pasteFilters(false);"
 					/>
 				<menuitem id = "quickFiltersRemoveDuplicate" class="menuitem-iconic"
 					label = "Remove duplicate condition: "
@@ -118,7 +118,7 @@
 			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
 			  label = "&quickfilters.menu.paste;"
 			  tooltiptext = "&quickfilters.menu.paste;"
-			  oncommand = "quickFilters.List.pasteFilters();"
+			  oncommand = "quickFilters.List.pasteFilters(false);"
 			  />
 		    <toolbarseparator />
 			<toolbarbutton id="quickFiltersBtnMerge"
@@ -132,6 +132,12 @@
 			  label = "&quickfilters.button.clone;"
 			  tooltiptext = "&quickfilters.button.clone.tooltiptext;"
 			  oncommand = "quickFilters.List.clone(event);"
+			  />
+			<toolbarbutton id="quickFiltersBtnSort"
+			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  label = "&quickfilters.button.sort;"
+			  tooltiptext = "&quickfilters.button.sort.tooltiptext;"
+			  oncommand = "quickFilters.List.sort(event);"
 			  />
 		    <toolbarseparator />
 			<!-- Test new remove duplicate search conditions -->
@@ -148,11 +154,25 @@
               oncommand="quickFilters.List.cancelDuplicates(this);"
 			  collapsed = "true"
 			  />
-		    <menulist id = "duplicateTerms"
+		    <menulist id = "quickFiltersDuplicateList"
 					 collapsed = "true"
 					 oncommand="quickFilters.List.selectDuplicate(this);">				
+			    <menupopup> 
+				<!-- fill with JS -->
+			    </menupopup>
+			</menulist>
+			<toolbarbutton id="quickFiltersBtnCancelFound"
+              class="toolbarbutton-1 chromeclass-toolbar-additional"
+              label="&quickfilters.button.cancelFindInFolder.label;"
+			  tooltiptext="&quickfilters.button.cancelFindInFolder.tooltip;"
+              oncommand="quickFilters.List.cancelFoundFilters(this);"
+			  collapsed = "true"
+			  />
+		    <menulist id = "quickFiltersFoundResults"
+					 collapsed = "true"
+					 oncommand="quickFilters.List.selectFoundFilter(this);">				
 			    <menupopup>
-			        <!-- filled dynamically from JS -->
+				<!-- fill with JS -->
 			    </menupopup>
 			</menulist>
 			  

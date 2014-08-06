@@ -6,15 +6,16 @@
 }
 
 /* All toolbar buttons */
-#quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, 
+#quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, #quickFiltersBtnSort,
 #quickFiltersBtnSettings, #quickFiltersBtnStart, #quickFiltersBtnClone, #quickFiltersBtnDupe, 
-#quickFiltersBtnCancelDuplicates {
+#quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound {
   display: -moz-box;
 }
 
-#duplicateTerms {
+#quickFiltersDuplicateList, #quickFiltersFoundResults {
   margin-top: 8px;
   margin-bottom: 8px;
+	max-width: 45em;
 }
  
 
@@ -92,9 +93,16 @@
 	list-style-image: url("chrome://quickfilters/skin/fugue-join_24.png");
 	-moz-image-region:rect(0px 24px 24px 0px);
 }
-#quickFiltersBtnMerge[disabled="true"] {
+/* Sort */
+#quickFiltersBtnSort {
+	list-style-image: url("chrome://quickfilters/skin/sort_24.png");
+	-moz-image-region:rect(0px 24px 24px 0px);
+}
+/* Merge + Sort */
+#quickFiltersBtnMerge[disabled="true"], #quickFiltersBtnSort[disabled="true"] {
 	-moz-image-region:rect(24px 24px 48px 0px);
 }
+
 
 
 /* Duplicate */
@@ -119,7 +127,7 @@
 #quickFiltersBtnDupe {
   list-style-image: url("chrome://quickfilters/skin/duplicates24.png");
 }
-#quickFiltersBtnCancelDuplicates {
+#quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound {
   list-style-image: url("chrome://quickfilters/skin/cancelDuplicates.png");
 }
 

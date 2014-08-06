@@ -113,13 +113,17 @@ quickFilters.Util = {
     }
     return s;
   } ,
-  
 
   getMail3PaneWindow: function() {
     let windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
         .getService(Components.interfaces.nsIWindowMediator);
     var win3pane = windowManager.getMostRecentWindow("mail:3pane");
     return win3pane;
+  } ,
+  
+  getLastFilterListWindow: function() {
+    let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+    return mediator.getMostRecentWindow('mailnews:filterlist');
   } ,
 
   get AppverFull() {
@@ -408,8 +412,6 @@ quickFilters.Util = {
       if (!quickFilters.Preferences.getBoolPref("proNotify." + featureName))
         return;
     } catch(ex) {return;}
-		let countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") - 1;
-		quickFilters.Preferences.setIntPref("proNotify." + featureName + ".countDown", countDown);
 
 		switch(util.Application) {
 			case 'Postbox': 
@@ -438,6 +440,19 @@ quickFilters.Util = {
 		let nbox_buttons = [];
 		if (notifyBox) {
 			let notificationKey = "quickfilters-proFeature";
+      
+      let countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") ;
+      if (notifyBox.getNotificationWithValue(notificationKey)) {
+        // notification is already shown on screen.
+        quickFilters.Util.logDebug('notifyBox for [' + notificationKey + '] is already displayed, no action necessary.\n'
+                                   + 'Countdown is ' + countDown);
+        return;
+      }
+      countDown--;
+      quickFilters.Preferences.setIntPref("proNotify." + featureName + ".countDown", countDown);
+      quickFilters.Util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
+                                 + 'Countdown is ' + countDown);
+      
 			// button for disabling this notification in the future
 			if (countDown>0) {
         // registration button
