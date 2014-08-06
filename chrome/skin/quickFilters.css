@@ -73,24 +73,31 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
 
 
 
-#quickfilters-toolbar-runbutton,
-#quickfilters-menu-runMenu
+#quickfilters-toolbar-runbutton
 {
   list-style-image: url("chrome://quickfilters/skin/runFilters.png");
 }
+#quickfilters-menu-findFilter {
+  -moz-image-region: rect( 0px 16px 16px 0px);
+  list-style-image: url("chrome://quickfilters/skin/findFilters-small.png");
+}
 
-[iconsize="small"] #quickfilters-toolbar-runbutton
+
+[iconsize="small"] #quickfilters-toolbar-runbutton,
+#quickfilters-menu-runMenu
 {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/skin/runFilters-small.png");
 }
 
-[iconsize="small"] #quickfilters-toolbar-runbutton:hover
+[iconsize="small"] #quickfilters-toolbar-runbutton:hover,
+#quickfilters-menu-findFilter:hover
 {
   -moz-image-region: rect( 16px 16px 32px 0px);
 }
 
-[iconsize="small"] #quickfilters-toolbar-runbutton:active
+[iconsize="small"] #quickfilters-toolbar-runbutton:active,
+#quickfilters-menu-findFilter:active
 {
   -moz-image-region: rect( 32px 16px 48px 0px);
 }

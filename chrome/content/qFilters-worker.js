@@ -211,22 +211,27 @@ quickFilters.Worker = {
   },
   
   // targetFilter is passed in when a filter was merged and thus not created at the top of list
-  openFilterList: function(isRefresh, sourceFolder, targetFilter) {
+  openFilterList: function(isRefresh, sourceFolder, targetFilter, targetFolder) {
     try {
-      let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-      let w = mediator.getMostRecentWindow('mailnews:filterlist');
-      
+      quickFilters.Util.logDebug('openFilterList(' + isRefresh + ', '
+        + sourceFolder ? sourceFolder.prettyName : 'no sourceFolder' + ', '
+        + targetFilter ? targetFilter.name : 'no targetFilter'  + ', '
+        + targetFolder ? targetFolder.prettyName : 'no targetFolder' + ')'
+        );
+      let w = quickFilters.Util.getLastFilterListWindow();
       // [Bug 25203] "Error when adding a filter if Message Filters window is already open"
       // Thunderbird bug - if the filter list is already open and refresh is true
       // it throws "desiredWindow.refresh is not a function"
       if (!w) {
         let args = { refresh: isRefresh, folder: sourceFolder };
         if (targetFilter) args.targetFilter = targetFilter;
+        if (targetFolder) args.targetFolder = targetFolder;
         MsgFilterList(args);
       }
       else {
         // we must make sure server and sourceFolder are selected (?) should already be correct
-        setTimeout(quickFilters.List.selectFilter(targetFilter));
+        // avoid quickFilters.List being closured!
+        setTimeout(function() { quickFilters.List.selectFilter(targetFilter); });
       }
     }
     catch (ex) {

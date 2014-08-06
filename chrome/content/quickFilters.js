@@ -180,7 +180,7 @@ END LICENSE BLOCK */
     # Added notification system for premium features
     # Added hidden switch extensions.quickfilters.showListAfterCreateFilter
 
-  2.6.1 : WIP
+  2.6.1 : 18/07/2014
     # [Bug 25802] After editing existing Filter, it should be selected in List 
     # [Bug 25805] Find duplicates tool now also matches target folders
     # Postbox: added "create filter from message" in thread pane context menu
@@ -192,7 +192,11 @@ END LICENSE BLOCK */
     # When displaying long folder names in duplicate search, these will be now cut off at the 
 		    front (30char limit) to avoid an excessively wide duplicate list
 
-    
+  2.7 : WIP
+    #  [Bug 25748] Automatic Refresh of Duplicate List
+    #  [Bug 25812] Tool to find all filters that move mail to a specific folder
+    #  [Bug 25737] Filters sort feature
+    #  Improved notification message for premium features
 
   
   PLANNED CHANGES  
@@ -486,6 +490,85 @@ var quickFilters = {
 
   onToolbarRunCommand: function(e) {
     goDoCommand('cmd_applyFilters'); // same in Postbox
+  },
+  
+  searchFiltersFromFolder: function(e) {
+    let menuItem = e ? e.target : null;
+    let folders = gFolderTreeView.getSelectedFolders();
+    if (!folders.length)
+      return false;    
+    // 1. open filters list
+    //quickFilters.onToolbarListCommand();
+    // 2. iterate accounts, find matching filter using the folder as search attribute with "move to folder" search.
+    let targetFolder = folders[0];
+    let matchedAccount;
+    let matchedFilter;
+    
+    try {
+      let Ci = Components.interfaces;
+      let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
+                          .getService(Ci.nsIMsgAccountManager);
+      let FA = Components.interfaces.nsMsgFilterAction;
+			for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
+        if (account.incomingServer && account.incomingServer.canHaveFilters )
+        {
+          let msg ='';
+          let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
+          // 2. getFilterList
+          let filterList = ac.getFilterList(msgWindow).QueryInterface(Ci.nsIMsgFilterList);
+          // 3. use  nsIMsgFilterList.matchOrChangeFilterTarget(oldUri, newUri, false)
+          if (filterList) {
+            // filterList.matchOrChangeFilterTarget(sourceURI, targetURI, false)
+            let numFilters = filterList.filterCount;
+            quickFilters.Util.logDebugOptional("filterSearch", "checking account [" + ac.prettyName + "] for target folder: " +  targetFolder.URI + '\n'
+                                               + "iterating " + numFilters + " filters...");
+            for (let i = 0; i < numFilters; i++)
+            {
+              let curFilter = filterList.getFilterAt(i);
+              for (let index = 0; index < curFilter.sortedActionList.length; index++) {
+                let action = curFilter.sortedActionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+                if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
+                  if (action.targetFolderUri) { 
+                    msg += "[" + i + "] Current Filter URI:" +  action.targetFolderUri + "\n";
+                    if (action.targetFolderUri === targetFolder.URI) {
+                      quickFilters.Util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
+                      matchedFilter = curFilter;
+                      matchedAccount = ac;
+                      break;
+                    }
+                    // also allow complete match (for duplicate search)
+                    //if (action.targetFolderUri.toLocaleLowerCase() == aKeyword)
+                    //  return true;
+                  }
+                }                
+                
+              }
+              if (matchedAccount) break;
+            }            
+          }
+          if (matchedAccount) break;
+          quickFilters.Util.logDebugOptional("filterSearch.detail", msg);
+        }
+        
+      }
+    }
+    catch(ex) {
+      quickFilters.Util.logException("Exception in quickFilters.searchFiltersFromFolder ", ex);
+    }
+    let aFolder = matchedAccount ? matchedAccount.rootMsgFolder : null;
+    // close old window
+    let win = quickFilters.Util.getLastFilterListWindow();
+    if (win) win.close();
+
+    quickFilters.Worker.openFilterList(true, aFolder, matchedFilter, targetFolder);
+    
+    if (!matchedAccount) {
+      let wrn = quickFilters.Util.getBundleString('quickfilters.search.warning.noresults', 'No matching filters found.');
+			quickFilters.Util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');    
+    }
+    else {
+      quickFilters.Util.popupProFeature("searchFolder", "quickfilters.premium.title.searchFolder", true, false);    
+    }
   },
 
   LocalErrorLogger: function(msg) {
