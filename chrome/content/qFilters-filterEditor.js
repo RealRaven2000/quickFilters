@@ -21,6 +21,7 @@ window.onload = function() {
     {
        var args = window.arguments[0];  
        if (args.filterConditionValue) {
+        window.quickFiltersConditionSearch = true; // a flag to tell us refreshing the list
         let found = false;
         let firstMatch;
         let list;
@@ -109,4 +110,12 @@ window.onload = function() {
     else
        utils.logDebug('No window arguments!');
   }, 100);
+}
+
+quickFilters.Util.accept = function acceptFilter(win) {
+  quickFilters.Util.logDebug('quickFilters.Util.accept(' + win + ')');
+  let  op = win.opener;
+  if (op && op.quickFilters && op.quickFilters.List) {
+    op.quickFilters.List.refreshDuplicates(true);
+  }
 }
