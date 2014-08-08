@@ -4,9 +4,7 @@
 <!ENTITY qf.textbox.searchBox.emptyText "Tìm bộ lọc theo tên…">
 <!ENTITY qf.textbox.searchBox.toolTip "nhập từ khóa để tìm bộ lọc theo tên">
 <!ENTITY qf.button.reorderButtonTop "Đưa lên đầu">
-<!ENTITY qf.button.reorderButtonTop.accessKey "o">
 <!ENTITY qf.button.reorderButtonTop.toolTip "Sắp xếp lại bộ lọc để nó được thực thi trước tất cả các cái khác">
 <!ENTITY qf.button.reorderButtonBottom "Đưa xuống cuối">
-<!ENTITY qf.button.reorderButtonBottom.accessKey "b">
 <!ENTITY qf.button.reorderButtonBottom.toolTip "Sắp xếp lại bộ lọc để nó được thực thi sau tất cả các cái khác">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Trả lời bằng Thư mẫu">
