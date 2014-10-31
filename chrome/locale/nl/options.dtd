@@ -8,6 +8,8 @@
 <!ENTITY chkAutoStart.accesskey "m">
 <!ENTITY chkToolbar.label "Werkbalk in Filterbeheerder weergeven">
 <!ENTITY chkToolbar.accesskey "W">
+<!ENTITY chkShowList.label "Filterlijst weergeven na aanmaken filter">
+<!ENTITY chkShowList.tooltip "Lijst weergeven om het filter op alle berichten als test uit te voeren.">
 <!ENTITY donate.label "Doneren">
 <!ENTITY qf.description.donate "Als u quickFilters even leuk vindt als wij en de ontwikkeling ervan wilt ondersteunen, kunt u wat geld doneren voor de verdere ontwikkeling van quickFilters.">
 <!ENTITY qf.label.donateLink "Bezoek de donatiepagina…">
@@ -24,6 +26,11 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "N">
 <!ENTITY qf.label.naming.keyWord "Regelspecifiek trefwoord toevoegen">
 <!ENTITY qf.label.naming.keyWord.accesskey "t">
+<!ENTITY grpMerge.label "Regels samenvoegen">
+<!ENTITY chkMergeAuto.label "Samenvoegen automatisch selecteren">
+<!ENTITY chkMergeAuto.tooltip "Als een filter al bestaat selecteert dit automatisch de samenvoegmodus en het eerste overeenkomende filter.">
+<!ENTITY chkMergeSkip.label "Overslaan naar sjabloonstap">
+<!ENTITY chkMergeSkip.tooltip "Dit slaat de stap ‘samenvoegdoel selecteren’ over en gaat rechtstreeks naar ‘sjabloon selecteren’.">
 <!ENTITY qf.cloned.label "Aan naam van gekloond filter toevoegen:">
 <!ENTITY qf.onewayaddress.label "Tweeweg-adreszoekvoorwaarden uitschakelen">
 <!ENTITY qf.onewayaddress.tooltip "Standaard voegt quickFilters de zoekvoorwaarden ‘van’ en ‘aan’ toe om te helpen bij het uitfilteren van volledige discussies met daarin uw eigen e-mailberichten aan de ontvanger. Als u altijd uw antwoorden in de map Verzonden wilt houden, dan kunt u hier dat gedrag uitschakelen. De add-on ‘Copy Sent to Current’ kan worden gebruikt om antwoorden met hun oorspronkelijke berichten te bewaren.">

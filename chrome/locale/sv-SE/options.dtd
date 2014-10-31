@@ -8,6 +8,8 @@
 <!ENTITY chkAutoStart.accesskey "a">
 <!ENTITY chkToolbar.label "Visa verktygsfält i Filterhanteraren">
 <!ENTITY chkToolbar.accesskey "y">
+<!ENTITY chkShowList.label "Visa filterlistan efter att filter skapats">
+<!ENTITY chkShowList.tooltip "Visa listan för att köra det nya filtret på alla meddelanden, för teständamål.">
 <!ENTITY donate.label "Donera">
 <!ENTITY qf.description.donate "Om du tycker om quickFilters och skulle vilja stödja dess fortsatta utveckling, så kan du donera en slant för att hjälpa utvecklaren.">
 <!ENTITY qf.label.donateLink "Gå till donationssidan …">
@@ -24,6 +26,11 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "m">
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
+<!ENTITY grpMerge.label "Sammanfogningsregler">
+<!ENTITY chkMergeAuto.label "Välj Sammanfoga automatiskt">
+<!ENTITY chkMergeAuto.tooltip "Om ditt nya filter redan finns kommer quickFilters automatiskt att sammanfoga det med det första matchande filtret.">
+<!ENTITY chkMergeSkip.label "Hoppa till Välj mall">
+<!ENTITY chkMergeSkip.tooltip "Hoppar över steget Välj sammanfogningsmål och går direkt till Välj mall.">
 <!ENTITY qf.cloned.label "Bifoga följande till namnet på duplicerat filter:">
 <!ENTITY qf.onewayaddress.label "Inaktivera tvåvägssökvillkor för adresser">
 <!ENTITY qf.onewayaddress.tooltip "Som standard lägger quickFilters till sökvillkor för både &quot;från&quot; och &quot;till&quot;, för att underlätta fullständig filtrering av meddelandetrådar som innehåller dina egna e-brev till mottagaren. Om du alltid vill förvara dina svar i mappen Skickat, så kan du inaktivera detta beteende här. Tillägget &quot;Copy Sent to Current&quot; kan användas för att behålla svarsmeddelanden tillsammans med de ursprungliga e-breven.">

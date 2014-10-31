@@ -9,9 +9,9 @@
 <!ENTITY qf.button.reorderButtonBottom "Zum Ende">
 <!ENTITY qf.button.reorderButtonBottom.accessKey "E">
 <!ENTITY qf.button.reorderButtonBottom.toolTip "Filter nach allen anderen ausführen">
-<!ENTITY quickfilters.button.merge "Zusammenführen">
-<!ENTITY quickfilters.button.merge.accesskey "Z">
-<!ENTITY quickfilters.button.merge.tooltiptext "Mehrere Filter zusammenführen die dieselbe Aktion ausführen">
+<!ENTITY quickfilters.button.merge "Kombinieren">
+<!ENTITY quickfilters.button.merge.accesskey "K">
+<!ENTITY quickfilters.button.merge.tooltiptext "Mehrere Filter kombinieren die dieselbe Aktion ausführen">
 <!ENTITY quickfilters.button.clone "Klonen">
 <!ENTITY quickfilters.button.clone.accesskey "K">
 <!ENTITY quickfilters.button.clone.tooltiptext "Filter klonen">

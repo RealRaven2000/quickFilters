@@ -8,6 +8,8 @@
 <!ENTITY chkAutoStart.accesskey "а">
 <!ENTITY chkToolbar.label "Панель инструментов в окне управления фильтрами">
 <!ENTITY chkToolbar.accesskey "П">
+<!ENTITY chkShowList.label "Показывать список фильтров после создания фильтра">
+<!ENTITY chkShowList.tooltip "Показывать список для запуска нового фильтра.">
 <!ENTITY donate.label "Поддержка">
 <!ENTITY qf.description.donate "Если quickFilters Вам нравится, Вы можете поддержать деньгами дальнейшее развитие.">
 <!ENTITY qf.label.donateLink "Поддержать...">
@@ -24,6 +26,11 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "о">
 <!ENTITY qf.label.naming.keyWord "Добавить ключевое слово правила">
 <!ENTITY qf.label.naming.keyWord.accesskey "к">
+<!ENTITY grpMerge.label "Правила объединения">
+<!ENTITY chkMergeAuto.label "Автоматический выбор объединения">
+<!ENTITY chkMergeAuto.tooltip "Если фильтр уже существует, то режим объединения и первый совпадающий фильтр будут выбраны автоматически.">
+<!ENTITY chkMergeSkip.label "Без выбора целевого фильтра">
+<!ENTITY chkMergeSkip.tooltip "Пропустить &quot;выбор целевого фильтра&quot; и сразу перейти к  &quot;выбор шаблона&quot;.">
 <!ENTITY qf.cloned.label "Добавить к имени клонированного фильтра:">
 <!ENTITY qf.onewayaddress.label "Отключить двусторонний поиск адреса">
 <!ENTITY qf.onewayaddress.tooltip "По умолчанию quickFilters добавляет критерии 'отправитель' и 'адресат' к фильтру чтобы перемещать все обсуждение включая Ваши сообщения получателю. Если Вы хотите оставить Ваши ответы в папке &quot;Отправленные&quot;, эта настройка отключает описанную возможность. Дополнение &quot;Copy Sent to Current&quot; можно использовать для того чтобы ответы хранились вместе с самими сообщениями.">
