@@ -8,6 +8,8 @@
 <!ENTITY chkAutoStart.accesskey "A">
 <!ENTITY chkToolbar.label "Display Toolbar in Filter Manager">
 <!ENTITY chkToolbar.accesskey "T">
+<!ENTITY chkShowList.label "Display Filter List after filter creation">
+<!ENTITY chkShowList.tooltip "Display list to run the new filter on all messages for testing.">
 <!ENTITY donate.label "Donate">
 <!ENTITY qf.description.donate "If you like quickFilters and would like to support its development, you can donate some money towards the further development of quickFilters.">
 <!ENTITY qf.label.donateLink "Visit the Donation Page…">
@@ -24,6 +26,11 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "Add rule specific keyword">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
+<!ENTITY grpMerge.label "Merge Rules">
+<!ENTITY chkMergeAuto.label "Automatically select Merge">
+<!ENTITY chkMergeAuto.tooltip "If a filter exists already, this will automatically select merge mode and the first matching filter.">
+<!ENTITY chkMergeSkip.label "Skip to Template Step">
+<!ENTITY chkMergeSkip.tooltip "This will skip the step 'select merge target' and go straight to 'select template'.">
 <!ENTITY qf.cloned.label "Append to name of cloned filter:">
 <!ENTITY qf.onewayaddress.label "Disable two-way address search conditions">
 <!ENTITY qf.onewayaddress.tooltip "By default, quickFilters adds both 'from' and 'to' search conditions to assist filtering complete message threads including your own emails to the recipient. If you always want to keep your replies in the Sent folder, you can disable this behavior here. The Addon 'Copy Sent to Current' can be used to keep replies with their originating emails.">

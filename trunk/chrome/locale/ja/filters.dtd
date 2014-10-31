@@ -3,6 +3,7 @@
 <!ENTITY qf.filters.template.domain "送信者のドメインを基準にする">
 <!ENTITY qf.filters.template.multifrom "グループ (複数のメールの送信者を集めます)">
 <!ENTITY qf.filters.template.to "受信者 (to) を基準にする">
+<!ENTITY qf.filters.template.replyto "Based on Reply-To">
 <!ENTITY qf.filters.template.list "メーリングリスト">
 <!ENTITY qf.filters.template.topic "件名を基準にする">
 <!ENTITY qf.filters.template.tag "タグを基準にする">

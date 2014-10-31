@@ -3,6 +3,7 @@
 <!ENTITY qf.filters.template.domain "По домену отправителя (от)">
 <!ENTITY qf.filters.template.multifrom "Группа (список отправителей из нескольких сообщений)">
 <!ENTITY qf.filters.template.to "По адресату (кому)">
+<!ENTITY qf.filters.template.replyto "По обратному адресу">
 <!ENTITY qf.filters.template.list "Список рассылки">
 <!ENTITY qf.filters.template.topic "По теме">
 <!ENTITY qf.filters.template.tag "По меткам">

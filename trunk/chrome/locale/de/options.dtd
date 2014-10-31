@@ -8,6 +8,8 @@
 <!ENTITY chkAutoStart.accesskey "A">
 <!ENTITY chkToolbar.label "Werkzeugleiste in Filter Manager anzeigen">
 <!ENTITY chkToolbar.accesskey "W">
+<!ENTITY chkShowList.label "Nach Erzeugen des Filters Liste anzeigen">
+<!ENTITY chkShowList.tooltip "Zeigt die Liste der Filter an um den neuen Filter auszuprobieren.">
 <!ENTITY donate.label "Spenden">
 <!ENTITY qf.description.donate "Falls Sie quickFilters mögen und weitere Software-Entwicklung unterstützen wollen, können Sie uns hier eine Spende hinterlassen:">
 <!ENTITY qf.label.donateLink "Die Spenden-Seite besuchen…">
@@ -24,6 +26,11 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "E">
 <!ENTITY qf.label.naming.keyWord "Regel spezifisches Stichwort hinzufügen">
 <!ENTITY qf.label.naming.keyWord.accesskey "S">
+<!ENTITY grpMerge.label "Regeln zum Kombinieren">
+<!ENTITY chkMergeAuto.label "Automatisch Kombinieren">
+<!ENTITY chkMergeAuto.tooltip "Falls schon ein Filter vorhanden ist, wird Kombinieren voreingestellt und der erste Filter als Ziel markiert.">
+<!ENTITY chkMergeSkip.label "Zu Vorlagen springen">
+<!ENTITY chkMergeSkip.tooltip "Überspringt den Schritt 'Mit existierendem FIlter kombinieren' und geht direkt zu 'Vorlage wählen'.">
 <!ENTITY qf.cloned.label "Endwort für geklonten Filter:">
 <!ENTITY qf.onewayaddress.label "Zweiweg Mailaddressen abschalten">
 <!ENTITY qf.onewayaddress.tooltip "Standardmäßig fügt quickFilters sowohl 'Von' (Absender) und 'An' (Empfänger) in die Suchbedingungen ein, damit die komplette Konversation inklusive der eigenen Emails an diesen Empfänger gefiltert wird. Falls Sie Ihre eigene Email immer im 'Gesendet' Verzeichnis belassen wollen, kann diese Vorgehen hier deaktiviert werden. Das Addon 'Copy Sent to Current' kann benutzt werden um Antworten mit ihren ursprünglichen Emails zusammen zu halten.">

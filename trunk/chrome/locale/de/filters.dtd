@@ -3,6 +3,7 @@
 <!ENTITY qf.filters.template.domain "Basierend auf Absender-Domäne">
 <!ENTITY qf.filters.template.multifrom "Gruppe (Absender mehrerer mails)">
 <!ENTITY qf.filters.template.to "Basierend auf Empfänger (an)">
+<!ENTITY qf.filters.template.replyto "Basierend auf 'Antwort An'">
 <!ENTITY qf.filters.template.list "Postversandliste">
 <!ENTITY qf.filters.template.topic "Nach Betreff">
 <!ENTITY qf.filters.template.tag "Nach Schlagwörtern">
@@ -25,4 +26,4 @@
 <!ENTITY qf.donate.tooltip "Unterstützen Sie quickFilters!">
 <!ENTITY qf.label.cancel "Abbrechen">
 <!ENTITY qf.check.createNew "Neuen Filter erzeugen">
-<!ENTITY qf.check.mergeWithExisting "Mit existierendem Filter zusammenführen:">
+<!ENTITY qf.check.mergeWithExisting "Mit existierendem Filter kombinieren:">

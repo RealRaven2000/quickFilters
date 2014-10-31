@@ -3,6 +3,7 @@
 <!ENTITY qf.filters.template.domain "Basé sur le domaine de l'expéditeur">
 <!ENTITY qf.filters.template.multifrom "Grouper (collecte les expéditeurs de plusieurs courriels)">
 <!ENTITY qf.filters.template.to "Basé sur le destinataires (pour)">
+<!ENTITY qf.filters.template.replyto "Basé sur « Réponse à »">
 <!ENTITY qf.filters.template.list "Liste de diffusion">
 <!ENTITY qf.filters.template.topic "Par sujet">
 <!ENTITY qf.filters.template.tag "Par étiquettes">
