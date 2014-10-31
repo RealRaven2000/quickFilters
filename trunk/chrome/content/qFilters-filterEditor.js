@@ -17,10 +17,9 @@ window.onload = function() {
     }
   
 		let utils = quickFilters.Util;
-    if ("arguments" in window && window.arguments[0])
-    {
-       var args = window.arguments[0];  
-       if (args.filterConditionValue) {
+    if ("arguments" in window && window.arguments[0]) {
+      var args = window.arguments[0];  
+      if (args.filterConditionValue) {
         window.quickFiltersConditionSearch = true; // a flag to tell us refreshing the list
         let found = false;
         let firstMatch;
