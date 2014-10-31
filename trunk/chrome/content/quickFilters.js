@@ -1,29 +1,31 @@
 "use strict";
 
-/* BEGIN LICENSE BLOCK
-
-for detail, please refer to license.txt in the root folder of this extension
-
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 3
-of the License, or (at your option) any later version.
-
-If you use large portions of the code please attribute to the authors
-(Axel Grude)
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You can download a copy of the GNU General Public License at
-http://www.gnu.org/licenses/gpl-3.0.txt or get a free printed
-copy by writing to:
-  Free Software Foundation, Inc.,
-  51 Franklin Street, Fifth Floor,
-  Boston, MA 02110-1301, USA.
-END LICENSE BLOCK */
+/*
+ ***** BEGIN LICENSE BLOCK *****
+ * for detail, please refer to license.txt in the root folder of this extension
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ * 
+ * If you use large portions of the code please attribute to the authors
+ * (Axel Grude)
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You can download a copy of the GNU General Public License at
+ * http://www.gnu.org/licenses/gpl-3.0.txt or get a free printed
+ * copy by writing to:
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor,
+ *   Boston, MA 02110-1301, USA.
+ *
+ * ***** END LICENSE BLOCK *****
+ */
 
 
 /*===============
@@ -164,7 +166,7 @@ END LICENSE BLOCK */
   2.5 : 02/04/2014
     # Added UI switches to support Postbox's quickmove feature
     # Additional switch for disabling Tag listener
-    # Option to disable two-way addressing
+    # [Bug 25714] Option to disable two-way addressing
     # Added a link for download / installing "Copy Sent to Current"
     # [Bug 25727] Allow to create Group Filter with "Create Filter from Message" menu (select multiple emails for this)
     # Prompt for adding a customized subject to support email
@@ -192,18 +194,42 @@ END LICENSE BLOCK */
     # When displaying long folder names in duplicate search, these will be now cut off at the 
 		    front (30char limit) to avoid an excessively wide duplicate list
 
-  2.7 : WIP
-    #  [Bug 25748] Automatic Refresh of Duplicate List
-    #  [Bug 25812] Tool to find all filters that move mail to a specific folder
+  2.7 : 18/08/2014
     #  [Bug 25737] Filters sort feature
+    #  [Bug 25812] Tool to find all filters that move mail to a specific folder
+    #  [Bug 25748] Automatic Refresh of Duplicate List (Thunderbird only)
     #  Improved notification message for premium features
+    #  Postbox / SeaMonkey: Fixed insert position for cut/paste functionality
 
+  2.7.1: 28/10/2014
+    # [Bug 25829] Pasting filters positions wrong when search box active
+    # [Bug 25875] Refresh+Focus Message Filters List after filter creation if already open 
+    # [Bug 25876] Disable two way-address search selects wrong condition 
+    # [Bug 25877] Automatically select merge instead of new filter
+    # [Bug 25873] Postbox: Listen for Tag changes doesn't work
+    # [Bug 25874] Postbox: cannot merge 2 different filters, unless they are next to each other
+    # Added choice to omit filter list step after filter creation
+    # Added option to disable list after filter creation
+    # Improved Folder context "Find Filter" Command behavior when multiple filters are found (Sm, Pb)
+    # Improved Look of Search Options dropdown button in Linux (Ubuntu)
+    # Improved Alphabetic Sorting by using toLocaleLowerCase()
+
+    
+  
+  2.8 : WIP
+    # [Bug 25863] Filter by 'Reply To' field - extensions.quickfilters.experimental.replyTo
   
   PLANNED CHANGES  
 		# add support for Nostalgy: W.I.P.
     
 	 */
 
+  
+if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
+{
+  // Here, Postbox declares fixIterator
+  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+}   
 
 var quickFilters = {
   Properties: {},
@@ -241,7 +267,7 @@ var quickFilters = {
 
   // SeaMonkey observer
   folderObserver: {
-     onDrop: function(row, orientation)
+     onDrop: function folderObserver_onDrop(row, orientation)
      {
         if (quickFilters.Worker.FilterMode) {
           try { quickFilters.onFolderTreeViewDrop(aRow, aOrientation); }
@@ -250,7 +276,7 @@ var quickFilters = {
           }
         }
      } ,
-		 onDropPostbox: function(event) {
+		 onDropPostbox: function folderObserver_onDropPostbox(event) {
 				try { 
 					quickFilters.Util.logDebugOptional("events", "onDropPostbox: " + event);
 					if (!quickFilters.Worker.FilterMode)
@@ -268,15 +294,16 @@ var quickFilters = {
 		 }
   },
 
-  onLoad: function() {
+  onLoad: function onLoad() {
     // initialization code - guard against all other windows except 3pane
+    let util = quickFilters.Util;
     let el = document.getElementById('messengerWindow');
     if (!el || el.getAttribute('windowtype') !== "mail:3pane")
       return;
 
-    let v = quickFilters.Util.Version; // start the version proxy, throw away v
+    let v = util.Version; // start the version proxy, throw away v
 
-    quickFilters.Util.logDebugOptional("events", "quickFilters.onload - starts");
+    util.logDebugOptional("events", "quickFilters.onload - starts");
     this.strings = document.getElementById("quickFilters-strings");
 
     let tree = quickFilters.folderTree;
@@ -284,7 +311,7 @@ var quickFilters = {
 
     // let's wrap the drop function in our own (unless it already is [quickFiltersDropper would be defined])
     if (!quickFilters.folderTree.quickFiltersDropper) {
-      switch (quickFilters.Util.Application) {
+      switch (util.Application) {
         case 'Postbox':  
           // tree.quickFilters_originalDrop = treeView.drop;
 					// tree.addObserver (quickFilters.folderObserver);
@@ -304,14 +331,14 @@ var quickFilters = {
           if (quickFilters.Worker.FilterMode) {
             try { quickFilters.onFolderTreeViewDrop(aRow, aOrientation); }
             catch(e) {
-              quickFilters.Util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
+              util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
             }
           }
           tree.quickFilters_originalDrop.apply(treeView, arguments);
         }
         /**************************************/
 
-        switch (quickFilters.Util.Application) {
+        switch (util.Application) {
           case 'Postbox':  // to test!
             treeView.drop = newDrop;
 						// treeview is wrapped [Cannot modify properties of a WrappedNative = NS_ERROR_XPC_CANT_MODIFY_PROP_ON_WN]
@@ -331,7 +358,7 @@ var quickFilters = {
 
     this.initialized = true;
 		
-		if (quickFilters.Util.Application == 'Postbox') {
+		if (util.Application == 'Postbox') {
 		  if (gQuickfilePanel && !gQuickfilePanel.executeQuickfilePanel) {
 			  gQuickfilePanel.executeQuickfilePanel = gQuickfilePanel.execute;
 			  gQuickfilePanel.execute = function() {
@@ -352,25 +379,46 @@ var quickFilters = {
 				&& 
 				!quickFilters.Worker.FilterMode) 
 		{
-			quickFilters.Util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
+			util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
       setTimeout(function() { quickFilters.Worker.toggle_FilterMode(true, true);  }, 100);
 		}
-		quickFilters.Util.logDebugOptional("events","setTimeout() - checkFirstRun");
+
+    // Add Custom Terms... - only from next version after 2.7.1 !
+    if (quickFilters.Preferences.getBoolPref('experimental.replyTo')) {
+      try {
+        let customId = quickFilters.CustomTermReplyTo.id;
+        let filterService = Components.classes["@mozilla.org/messenger/services/filters;1"]
+                            .getService(Components.interfaces.nsIMsgFilterService);
+        if (!filterService.getCustomTerm(customId)) {
+          //l10n
+          quickFilters.CustomTermReplyTo.name = util.getBundleString("quickfilters.customfilter.replyto", "Reply-To");
+          util.logDebug('Adding Custom Term: ' + quickFilters.CustomTermReplyTo.name);
+          filterService.addCustomTerm(quickFilters.CustomTermReplyTo);
+        }
+        else {
+          util.logDebug('Custom Filter Term exists: ' + customId);
+        }
+      }
+      catch(ex) {
+        util.logException('Adding custom filter failed ', ex);
+      }
+    }
+    
+		util.logDebugOptional("events","setTimeout() - checkFirstRun");
     setTimeout(function() { quickFilters.checkFirstRun(); }, 1000);
 		
-		
-    quickFilters.Util.logDebugOptional("events", "quickFilters.onload - ends");
+    util.logDebugOptional("events", "quickFilters.onload - ends");
   },
 
-  onUnload: function() {
+  onUnload: function onUnload() {
     // remove the event handlers!
   },
 
-  showOptions: function() {
+  showOptions: function showOptions() {
     window.openDialog('chrome://quickfilters/content/quickFilters-options.xul','quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply').focus();
   },
 
-  checkFirstRun: function() {
+  checkFirstRun: function checkFirstRun() {
 		let util = quickFilters.Util;
     try {
       if (this.firstRunChecked)
@@ -410,7 +458,7 @@ var quickFilters = {
 				let currentV = util.getVersionSimple(currentVersion);
         if (currentVersion.indexOf("hc") ==-1)
         {
-					if (util.versionSmaller(installedV, currentV))
+					if (util.versionLower(installedV, currentV))
 					{ 				
 						util.showVersionHistory(false);
 						
@@ -433,7 +481,7 @@ var quickFilters = {
 
   },
 
-  onMenuItemCommand: function(e, cmd) {
+  onMenuItemCommand: function onMenuItemCommand(e, cmd) {
 //     var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
 //                                   .getService(Components.interfaces.nsIPromptService);
 //     promptService.alert(window, this.strings.getString("helloMessageTitle"),
@@ -475,12 +523,12 @@ var quickFilters = {
 		}
   },
 
-  onToolbarButtonCommand: function(e) {
+  onToolbarButtonCommand: function onToolbarButtonCommand(e) {
     // just reuse the function above.  you can change this, obviously!
     quickFilters.onMenuItemCommand(e, 'toggle_Filters');
   },
 
-  onToolbarListCommand: function(e) {
+  onToolbarListCommand: function onToolbarListCommand(e) {
 	  if (quickFilters.Util.Application == 'Postbox') {
 			MsgFilters(null, null);
 		}
@@ -488,13 +536,13 @@ var quickFilters = {
       goDoCommand('cmd_displayMsgFilters');
   },
 
-  onToolbarRunCommand: function(e) {
+  onToolbarRunCommand: function onToolbarRunCommand(e) {
     goDoCommand('cmd_applyFilters'); // same in Postbox
   },
   
-  searchFiltersFromFolder: function(e) {
+  searchFiltersFromFolder: function searchFiltersFromFolder(e) {
     let menuItem = e ? e.target : null;
-    let folders = gFolderTreeView.getSelectedFolders();
+    let folders = GetSelectedMsgFolders(); // quickFilters.folderTreeView.getSelectedFolders();
     if (!folders.length)
       return false;    
     // 1. open filters list
@@ -525,8 +573,12 @@ var quickFilters = {
             for (let i = 0; i < numFilters; i++)
             {
               let curFilter = filterList.getFilterAt(i);
-              for (let index = 0; index < curFilter.sortedActionList.length; index++) {
-                let action = curFilter.sortedActionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+              let actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList;
+              let acLength = actionList.Count ? actionList.Count() : actionList.length;
+              for (let index = 0; index < acLength; index++) { 
+                let action = actionList.queryElementAt ? 
+                             actionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction) :
+                             actionList.QueryElementAt(index, Components.interfaces.nsIMsgRuleAction);
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) { 
                     msg += "[" + i + "] Current Filter URI:" +  action.targetFolderUri + "\n";
@@ -571,14 +623,14 @@ var quickFilters = {
     }
   },
 
-  LocalErrorLogger: function(msg) {
+  LocalErrorLogger: function LocalErrorLogger(msg) {
     let Cc = Components.classes;
     let Ci = Components.interfaces;
     let cserv = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
     cserv.logStringMessage("quickFilters:" + msg);
   },
 
-  onFolderTreeViewDrop: function(aRow, aOrientation) {
+  onFolderTreeViewDrop: function onFolderTreeViewDrop(aRow, aOrientation) {
     let Cc = Components.classes;
     let Ci = Components.interfaces;
     let treeView = quickFilters.folderTreeView;
@@ -678,7 +730,7 @@ var quickFilters = {
     };
   },
 
-  onFolderTreeDrop: function(evt, dropData, dragSession) {
+  onFolderTreeDrop: function onFolderTreeDrop(evt, dropData, dragSession) {
     let Ci = Components.interfaces;
     if (!dragSession)
       dragSession = Components.classes["@mozilla.org/widget/dragservice;1"]
@@ -762,7 +814,7 @@ var quickFilters = {
     return false;
   } ,
 	
-	executeQuickfilePanelPreEvent: function(panel) {
+	executeQuickfilePanelPreEvent: function executeQuickfilePanelPreEvent(panel) {
 	  // postbox specific 'quickMove' function
 		// we need to wrap MsgMoveMessage before calling the original gQuickfilePanel.execute
 		if (!quickFilters.Worker.FilterMode) return;
@@ -834,7 +886,7 @@ var quickFilters = {
 			}
 		}
 	},
-	executeQuickfilePanelPostEvent: function(restoreFunction) {
+	executeQuickfilePanelPostEvent: function executeQuickfilePanelPostEvent(restoreFunction) {
 	  // restore MsgMoveMessage for other callers
 		quickFilters.Util.logDebugOptional('quickmove', "Restoring MsgMoveMessage...");
 		MsgMoveMessage = restoreFunction;
@@ -881,7 +933,7 @@ quickFilters.MsgFolderListener = {
 				}
 			} catch(e){dump(e);}		
   },
-	msgAdded: function(aMsg){ ; },
+	msgAdded: function msgAdded(aMsg){ ; },
 	msgsClassified: function(aMsgs, aJunkProcessed, aTraitProcessed){;},
 	msgsDeleted: function(aMsgs){ ; },
 	folderAdded: function(aFolder){ ; },
@@ -889,7 +941,7 @@ quickFilters.MsgFolderListener = {
 	folderMoveCopyCompleted: function(aMove,aSrcFolder,aDestFolder){ ; },
 	folderRenamed: function(aOrigFolder, aNewFolder){ ; } ,
 	itemEvent: function(aItem, aEvent, aData){ ; }
-};
+}; // MsgFolderListener
 
 // this should do all the event work necessary
 // not necessary for mail related work!
@@ -990,7 +1042,8 @@ quickFilters.FolderListener = {
 			if (!quickFilters.Worker) return;
 			if (!quickFilters.Worker.FilterMode) return;
 			if (!quickFilters.Preferences.getBoolPref('listener.tags')) return; // make it possible to ignore tag changes.
-		  if (property.toString() == "Keywords" && newFlag>0) {  // Tag has been added newFlag>0
+		  if ((property.equals("Keywords") ) // not used in Postbox! instead: uses observer pb-tag-changed!
+          && newFlag>0) {  // Tag has been added newFlag>0
 				// a tag has been changed?
 				if (item && item.messageKey ) {  // mail
 					// probably too late to look for selectedMessage at this stage...
@@ -1029,6 +1082,175 @@ quickFilters.FolderListener = {
 
 }  // FolderListener
 
+// Postbox sepcific Tag Change code,,,
+quickFilters.TagChangeListener = {
+  observe: function (aSubject, aTopic, aData)
+  {
+    switch (aTopic)
+    {
+      case "pb-tag-changed":
+        if (!quickFilters.Worker) return;
+        if (!quickFilters.Worker.FilterMode) return;
+        if (!quickFilters.Preferences.getBoolPref('listener.tags')) return; // make it possible to ignore tag changes.
+        // OnTagsChange();
+        // ==> SetTagHeader(aConversation)
+        var msgHdr;
+        // tag headers are rebuilt in Postbox (SetTagHeader function)
+        let aConversation = messageHeaderSink._conversationMode;
+        try {
+          msgHdr = gDBView.hdrForFirstSelectedMessage;
+        }
+        catch (ex) {
+          return; // no msgHdr to add our tags to
+        }
+
+        var tagKeys = aConversation ? tagKeysForThreadContainingMsgHdr(msgHdr, msgWindow) : tagKeysForMsgHdr(msgHdr);
+
+        // let tags = {headerName: "tags", headerValue: tagKeys};
+        if (tagKeys != '') {
+          let TArr = tagKeys.split(' '); // get last flag (we assume this was added)
+                                      // we do not actually know whether it was added
+                                      // or one was removed... fix this later for case with
+                                      // multiple tags
+          if (TArr.length) {
+            let selectedMessages = [];  // quickFilters.Util.createMessageIdArray(targetFolder, messageUris);
+            selectedMessages.push(quickFilters.Util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+            quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMessages, 
+                                                  Components.interfaces.nsMsgFilterAction.AddTag, 
+                                                  TArr[TArr.length-1],
+                                                  false);
+          }
+        }
+        
+        break;
+    }
+  }
+} // TagChangeListener (postbox only - OBSOLETE)
+
+// Custom Search Terms...
+quickFilters.CustomTermReplyTo = {
+  id: "quickFilters@axelg.com#replyTo",
+  name: "Reply-To",
+  getEnabled: function customTermReplyTo_getEnabled(scope, op) {
+    return this._isLocalSearch(scope);
+  },
+  needsBody: false,
+  getAvailable: function customTermReplyTo_getAvailable(scope, op) {
+    return this._isLocalSearch(scope); // && Preferences.getBoolPref(customTermReplyToEnabled);
+  },
+  getAvailableOperators: function customTermReplyTo_getAvailableOperators(scope, length) {
+    if (!this._isLocalSearch(scope)) {
+      length.value = 0;
+      return [];
+    }
+    length.value = 6;
+    let nsMsgSearchOp = Components.interfaces.nsMsgSearchOp;
+    return [nsMsgSearchOp.Contains, nsMsgSearchOp.DoesntContain, nsMsgSearchOp.Is, nsMsgSearchOp.Isnt, nsMsgSearchOp.BeginsWith, nsMsgSearchOp.EndsWith];
+  },
+  match: function customTermReplyTo_match(aMsgHdr, aSearchValue, aSearchOp) {
+    // get custom header "replyTo"
+    let replyTo = aMsgHdr.getStringProperty('replyTo'); 
+    let matches = false;
+    let nsMsgSearchOp = Components.interfaces.nsMsgSearchOp;
+
+    switch (aSearchOp) {
+      case nsMsgSearchOp.Contains:
+      case nsMsgSearchOp.DoesntContain:
+        if (replyTo.indexOf(aSearchValue) != -1)
+          matches = true;
+        break;
+
+      case nsMsgSearchOp.Is:
+      case nsMsgSearchOp.Isnt:
+        if (replyTo == aSearchValue)
+          matches = true;
+        break;
+
+      case nsMsgSearchOp.BeginsWith:
+        if (replyTo.indexOf(aSearchValue) == 0)
+          matches = true;
+        break;
+
+      case nsMsgSearchOp.EndsWith:
+        let index = replyTo.lastIndexOf(aSearchValue);
+        if (index != -1 && index == (replyTo.length - aSearchValue.length))
+          matches = true;
+        break;
+
+        default:
+          Components.utils.reportError("invalid search operator in replyTo custom search term");
+    }
+    if (aSearchOp == nsMsgSearchOp.DoesntContain || aSearchOp == nsMsgSearchOp.Isnt)
+      return !matches;
+    return matches;
+  },
+  _isLocalSearch: function(aSearchScope)
+  {
+    let Ci = Components.interfaces;
+    switch (aSearchScope) {
+      case Ci.nsMsgSearchScope.offlineMail:
+      case Ci.nsMsgSearchScope.offlineMailFilter:
+      case Ci.nsMsgSearchScope.onlineMailFilter:
+      case Ci.nsMsgSearchScope.localNews:
+        return true;
+      default:
+        return false;
+    }
+  }
+  
+}; // CustomTermReplyTo
+
 quickFilters.mailSession.AddFolderListener(quickFilters.FolderListener, Components.interfaces.nsIFolderListener.all);
 // jcranmer suggest using  this
 // quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Components.interfaces.nsIFolderListener.all);
+quickFilters.addPostboxTagListener = function() {
+  if (quickFilters.Util) {
+    if(quickFilters.Util.Application == 'Postbox') {
+      // wrap the original Postbox method
+      if (typeof ToggleMessageTag !== 'undefined') {
+        if (!quickFilters.PostboxToggleMessageTag) {
+          quickFilters.PostboxToggleMessageTag = ToggleMessageTag;
+          ToggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
+            // call the originalk function (tag setter) first
+            quickFilters.PostboxToggleMessageTag(tag, checked);
+            if (checked) {
+              // Assistant is active?
+              if (!quickFilters.Worker.FilterMode) return;
+              // make it possible to ignore tag changes.
+              if (!quickFilters.Preferences.getBoolPref('listener.tags')) return; 
+              // ==> SetTagHeader(aConversation)
+              let msgHdr;
+              // tag headers are rebuilt in Postbox (SetTagHeader function)
+              let aConversation = messageHeaderSink._conversationMode;
+              try {
+                msgHdr = gDBView.hdrForFirstSelectedMessage;
+              }
+              catch (ex) {
+                quickFilters.Util.logDebug('Cannot react to tagging message as ' + tag + ': no Message Header found!');
+                return; // no msgHdr to add our tags to
+              }
+
+              let selectedMessages = [];  // quickFilters.Util.createMessageIdArray(targetFolder, messageUris);
+              selectedMessages.push(quickFilters.Util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+              quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMessages, 
+                                                    Components.interfaces.nsMsgFilterAction.AddTag, 
+                                                    tag,
+                                                    false);
+            }
+          }
+        }
+      }
+
+      // OBSOLETE
+      //var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
+      //observerService.addObserver(quickFilters.TagChangeListener, "pb-tag-changed", false);
+      return true;
+    }
+    else return true; // early exit, no need for this in Tb/Sm
+  }
+  setTimeout(function() { quickFilters.addPostboxTagListener() } ,1000); // retry
+  return false;
+}
+
+quickFilters.addPostboxTagListener();
+

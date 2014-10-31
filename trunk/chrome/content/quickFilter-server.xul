@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- insert after vbox which contains the checkbox server.downloadOnBiff -->
+<overlay id="qfilter-serverOverlay"
+		 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+		 
+		 
+		 
+    <page onload="quickFilters_OnLoad();">
+       <vbox id="quickfilters.server.runFilter">
+		   <checkbox wsm_persist="true"
+					 label="Run Filters on all Mail"
+		             id="server.quickFilters-runFilter"
+					 prefattribute="value"
+		             prefstring="mail.server.%serverkey%.runFilterAll"
+					/>
+	   </vbox>
+    </page>	
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickfilters.js"/>
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-server.js"/>
+		 
+</overlay>
+
