@@ -1,35 +1,37 @@
 "use strict";
 
-/* BEGIN LICENSE BLOCK
-
-for detail, please refer to license.txt in the root folder of this extension
-
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 3
-of the License, or (at your option) any later version.
-
-If you use large portions of the code please attribute to the authors
-(Axel Grude)
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You can download a copy of the GNU General Public License at
-http://www.gnu.org/licenses/gpl-3.0.txt or get a free printed
-copy by writing to:
-  Free Software Foundation, Inc.,
-  51 Franklin Street, Fifth Floor,
-  Boston, MA 02110-1301, USA.
-
-END LICENSE BLOCK
-*/
+/*
+ ***** BEGIN LICENSE BLOCK *****
+ * for detail, please refer to license.txt in the root folder of this extension
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ * 
+ * If you use large portions of the code please attribute to the authors
+ * (Axel Grude)
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You can download a copy of the GNU General Public License at
+ * http://www.gnu.org/licenses/gpl-3.0.txt or get a free printed
+ * copy by writing to:
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor,
+ *   Boston, MA 02110-1301, USA.
+ *
+ * ***** END LICENSE BLOCK *****
+ */
 
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
 {
   Components.utils.import("resource:///modules/MailUtils.js");
+  // Here, Postbox declares fixIterator
+  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
 }
 
 quickFilters.Properties = {
@@ -52,7 +54,7 @@ var QuickFilters_TabURIregexp = {
 };
 
 quickFilters.Util = {
-  HARDCODED_EXTENSION_VERSION : "2.6",
+  HARDCODED_EXTENSION_VERSION : "2.7.1",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -103,7 +105,7 @@ quickFilters.Util = {
   } ,
 
   // gets string from overlay.properties
-  getBundleString: function(id, defaultText) {
+  getBundleString: function getBundleString(id, defaultText) {
     try {
       var s= quickFilters.Properties.getLocalized(id); 
     }
@@ -114,14 +116,14 @@ quickFilters.Util = {
     return s;
   } ,
 
-  getMail3PaneWindow: function() {
+  getMail3PaneWindow: function getMail3PaneWindow() {
     let windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
         .getService(Components.interfaces.nsIWindowMediator);
     var win3pane = windowManager.getMostRecentWindow("mail:3pane");
     return win3pane;
   } ,
   
-  getLastFilterListWindow: function() {
+  getLastFilterListWindow: function getLastFilterListWindow() {
     let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
     return mediator.getMostRecentWindow('mailnews:filterlist');
   } ,
@@ -176,7 +178,7 @@ quickFilters.Util = {
   },
 
   // this is done asynchronously, so it respawns itself
-  VersionProxy: function() {
+  VersionProxy: function VersionProxy() {
     try {
       if (quickFilters.Util.mExtensionVer // early exit, we got the version!
         ||
@@ -204,7 +206,7 @@ quickFilters.Util = {
 
     }
     catch(ex) {
-      quickFilters.Util.logToConsole("QuickFolder VersionProxy failed - are you using an old version of " + quickFilters.Util.Application + "?"
+      quickFilters.Util.logToConsole("QuickFilters VersionProxy failed - are you using an old version of " + quickFilters.Util.Application + "?"
         + "\n" + ex);
     }
     finally {
@@ -251,7 +253,7 @@ quickFilters.Util = {
     return this.getVersionSimple(this.Version);
   } ,
   
-  getVersionSimple: function(ver) {
+  getVersionSimple: function getVersionSimple(ver) {
     let pureVersion = ver;  // default to returning unchanged
     // get first match starting with numbers mixed with .   
     let reg = new RegExp("[0-9.]*");
@@ -261,7 +263,7 @@ quickFilters.Util = {
     return pureVersion;
   } ,
 
-  isVirtual: function(folder) {
+  isVirtual: function isVirtual(folder) {
     if (!folder)
       return true;
 		if (quickFilters.Util.FolderFlags.Virtual & folder.flags)
@@ -280,7 +282,7 @@ quickFilters.Util = {
 		return this._tabContainer;
 	} ,
 	
-	getTabInfoByIndex: function(tabmail, idx) {
+	getTabInfoByIndex: function getTabInfoByIndex(tabmail, idx) {
 		if (tabmail.tabInfo)
 			return tabmail.tabInfo[idx];
 		if (tabmail.tabOwners)
@@ -306,7 +308,7 @@ quickFilters.Util = {
 	// likely obsolete ###
 	// use this to temporarily open a tab for a folder if the msgDatabase remains invalid.
 	// there should be another way to do this, but for the moment this is the workaround.
-	openTempFolderInNewTab: function(folder, background) {
+	openTempFolderInNewTab: function openTempFolderInNewTab(folder, background) {
 		var win = this.getMail3PaneWindow();
 		let tabmail = this.tabmail;
 		if (tabmail) {
@@ -333,7 +335,7 @@ quickFilters.Util = {
 	} ,
 	
 	// likely obsolete ###
-	closeTempFolderTab: function() {
+	closeTempFolderTab: function closeTempFolderTab() {
 	  if(this.tempFolderTab) {
 		  if (this.tabmail.closeTab)
 				this.tabmail.closeTab(this.tempFolderTab);
@@ -343,7 +345,7 @@ quickFilters.Util = {
 		}
 	} ,
 	
-  slideAlert: function (text, title, icon) {
+  slideAlert: function slideAlert(text, title, icon) {
     try {
       if (!icon)
         icon = "chrome://quickfilters/skin/QuickFilters_32.png";
@@ -362,7 +364,7 @@ quickFilters.Util = {
     }
   } ,
   
-  popupAlert: function (text, title, icon) {
+  popupAlert: function popupAlert(text, title, icon) {
     try {
       if (!icon)
         icon = "chrome://quickfilters/skin/QuickFilters_32.png";
@@ -399,11 +401,11 @@ quickFilters.Util = {
     }
   } ,
   
-	disableFeatureNotification: function(featureName) {
+	disableFeatureNotification: function disableFeatureNotification(featureName) {
 		quickFilters.Preferences.setBoolPref("proNotify." + featureName, false);
 	} ,  
   
-	popupProFeature: function(featureName, text, isDonate, isRegister) {
+	popupProFeature: function popupProFeature(featureName, text, isDonate, isRegister) {
 		let notificationId;
     let util = quickFilters.Util;
 		// is notification disabled?
@@ -526,7 +528,7 @@ quickFilters.Util = {
 		}
 	} ,  
 
-  showStatusMessage: function(s) {
+  showStatusMessage: function showStatusMessage(s) {
     try {
       var sb = this.getMail3PaneWindow().document.getElementById('status-bar');
       var el, sbt;
@@ -557,7 +559,7 @@ quickFilters.Util = {
     }
   } ,
 
-  getCurrentFolder: function() {
+  getCurrentFolder: function getCurrentFolder() {
     var aFolder;
     if (typeof(GetLoadedMsgFolder) != 'undefined') {
       aFolder = GetLoadedMsgFolder();
@@ -582,8 +584,7 @@ quickFilters.Util = {
   } ,
 	
 	// postbox helper function
-	pbGetSelectedMessages : function ()
-	{
+	pbGetSelectedMessages : function pbGetSelectedMessages() {
 	  var messageList = [];
 	  // guard against any other callers.
 	  if (quickFilters.Util.Application != 'Postbox')
@@ -615,7 +616,7 @@ quickFilters.Util = {
 	} ,
 	
 
-  logTime: function() {
+  logTime: function logTime() {
     var timePassed = '';
     try { // AG added time logging for test
       var end= new Date();
@@ -632,7 +633,7 @@ quickFilters.Util = {
     return end.getHours() + ':' + end.getMinutes() + ':' + end.getSeconds() + '.' + end.getMilliseconds() + '  ' + timePassed;
   },
 
-  logToConsole: function (msg, optionTag) {
+  logToConsole: function logToConsole(msg, optionTag) {
     if (quickFilters.Util.ConsoleService === null)
       quickFilters.Util.ConsoleService = Components.classes["@mozilla.org/consoleservice;1"]
                   .getService(Components.interfaces.nsIConsoleService);
@@ -646,8 +647,7 @@ quickFilters.Util = {
   // warningFlag    0x1   Warning messages.
   // exceptionFlag  0x2   An exception was thrown for this case - exception-aware hosts can ignore this.
   // strictFlag     0x4
-  logError: function (aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags)
-  {
+  logError: function logError(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags) {
     var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
                                    .getService(Components.interfaces.nsIConsoleService);
     var aCategory = '';
@@ -657,7 +657,7 @@ quickFilters.Util = {
     consoleService.logMessage(scriptError);
   } ,
 
-  logException: function (aMessage, ex) {
+  logException: function logException(aMessage, ex) {
     var stack = '';
     if (typeof ex.stack!='undefined')
       stack= ex.stack.replace("@","\n  ");
@@ -666,17 +666,17 @@ quickFilters.Util = {
     this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
   } ,
 
-  logDebug: function (msg) {
+  logDebug: function logDebug(msg) {
     if (quickFilters.Preferences.Debug)
       this.logToConsole(msg);
   },
 
-  logDebugOptional: function (option, msg) {
+  logDebugOptional: function logDebugOptional(option, msg) {
     if (quickFilters.Preferences.isDebugOption(option))
       this.logToConsole(msg, option);
   },
 	
-	getAccountsPostbox: function() {
+	getAccountsPostbox: function getAccountsPostbox() {
 	  let accounts=[];
     let Ci = Components.interfaces;
 		var smartServers = accountManager.allSmartServers;
@@ -702,7 +702,7 @@ quickFilters.Util = {
 
   // dedicated function for email clients which don't support tabs
   // and for secured pages (donation page).
-  openLinkInBrowserForced: function(linkURI) {
+  openLinkInBrowserForced: function openLinkInBrowserForced(linkURI) {
     let Ci = Components.interfaces;
     try {
       this.logDebug("openLinkInBrowserForced (" + linkURI + ")");
@@ -737,10 +737,9 @@ quickFilters.Util = {
     catch(e) { this.logDebug("openLinkInBrowserForced (" + linkURI + ") " + e.toString()); }
   },
 
-
   // moved from options.js
   // use this to follow a href that did not trigger the browser to open (from a XUL file)
-  openLinkInBrowser: function(evt,linkURI) {
+  openLinkInBrowser: function openLinkInBrowser(evt,linkURI) {
     let Cc = Components.classes;
     let Ci = Components.interfaces;
     if (quickFilters.Util.Application === 'Thunderbird') {
@@ -758,7 +757,7 @@ quickFilters.Util = {
   },
 
   // moved from options.js (then called
-  openURL: function(evt,URL) { // workaround for a bug in TB3 that causes href's not be followed anymore.
+  openURL: function openURL(evt,URL) { // workaround for a bug in TB3 that causes href's not be followed anymore.
     var ioservice,iuri,eps;
 
     if (quickFilters.Util.Application==='SeaMonkey' || quickFilters.Util.Application==='Postbox')
@@ -774,7 +773,7 @@ quickFilters.Util = {
     }
   },
 
-  openURLInTab: function (URL) {
+  openURLInTab: function openURLInTab(URL) {
     try {
 		  switch(quickFilters.Util.Application) {
 			  case "SeaMonkey":
@@ -810,7 +809,7 @@ quickFilters.Util = {
     return true;
   } ,
 	
-	debugMsgAndFolders: function(label1, val1, targetFolder, msg, filterAction) {
+	debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
 	  if (!quickFilters.Preferences.isDebugOption("createFilter"))
 		  return;
 	  try {
@@ -843,11 +842,11 @@ quickFilters.Util = {
 	
 	// ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
 	// so let's store the header itself as well, just in case
-	makeMessageListEntry: function (msgHeader) {
+	makeMessageListEntry: function makeMessageListEntry(msgHeader) {
 	  return {"messageId":msgHeader.messageId, "msgHeader":msgHeader};
 	} ,
 
-  createMessageIdArray: function(targetFolder, messageUris) {
+  createMessageIdArray: function createMessageIdArray(targetFolder, messageUris) {
     let Ci = Components.interfaces;
     try {
       try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.createMessageIdArray: target = ' + targetFolder.prettiestName );}
@@ -882,7 +881,7 @@ quickFilters.Util = {
    * @param {string} id The ID of the button to install.
    * @param {string} afterId The ID of the element to insert after. @optional
    */
-  installButton: function(toolbarId, id, afterId) {
+  installButton: function installButton(toolbarId, id, afterId) {
     if (!document.getElementById(id)) {
       this.logDebug("installButton(" + toolbarId + "," + id + "," + afterId + ")");
 
@@ -905,7 +904,7 @@ quickFilters.Util = {
     }
   }  ,
 
-  showVersionHistory: function(ask) {
+  showVersionHistory: function showVersionHistory(ask) {
     let version = quickFilters.Util.VersionSanitized;
     let sPrompt = quickFilters.Util.getBundleString("quickfilters.confirmVersionLink", "Display version history for quickFilters")
     if (!ask || confirm(sPrompt)) {
@@ -913,16 +912,16 @@ quickFilters.Util = {
     }
   } ,
 
-  showDonatePage: function () {
+  showDonatePage: function showDonatePage() {
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/donate.html');
   }  ,
 
-  showHomePage: function (queryString) {
+  showHomePage: function showHomePage(queryString) {
 	  if (!queryString) queryString='index.html';
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/' + queryString);
   } ,
 	
-	toggleDonations: function() {
+	toggleDonations: function toggleDonations() {
 		let isAsk = quickFilters.Preferences.getBoolPref('donations.askOnUpdate');
 		let question = this.getBundleString("quickfilters.donationToggle","Do you want to {0} the donations screen which is displayed whenever quickFilters updates?");
 		
@@ -942,7 +941,7 @@ quickFilters.Util = {
   
   // Postbox special functions to avoid line being truncated
   // removes description.value and adds it into inner text
-  fixLineWrap: function(notifyBox, notificationKey) {
+  fixLineWrap: function fixLineWrap(notifyBox, notificationKey) {
     try {
       if (!notifyBox || !notificationKey)
         return;
@@ -962,20 +961,19 @@ quickFilters.Util = {
     }
   } ,
   
-  versionSmaller: function(a, b) {
-    /*
-      Compares Application Versions
-      returns
-      - is smaller than 0, then A < B
-      -  equals 0 then Version, then A==B
-      - is bigger than 0, then A > B
-    */
+  versionLower: function versionLower(a, b) {
     let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
                             .getService(Components.interfaces.nsIVersionComparator);
-     return (versionComparator.compare(a, b) < 0);
+    return (versionComparator.compare(a, b) < 0);
+  } ,
+  
+  versionHigher: function versionHigher(a, b) {
+    let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
+                            .getService(Components.interfaces.nsIVersionComparator);
+    return (versionComparator.compare(a, b) > 0);
   } ,
 	
-	isStringAttrib: function(attr) {
+	isStringAttrib: function isStringAttrib(attr) {
 	  let AC = Components.interfaces.nsMsgSearchAttrib;
 		let isString =
 	    !( attr == AC.Priority || attr == AC.Date || attr == AC.MsgStatus || attr == AC.MessageKey || attr == AC.Size || attr == AC.AgeInDays
@@ -986,7 +984,7 @@ quickFilters.Util = {
 	},
 
 	// isHead - first filter, determines whether ANY or ALL applies
-	copyTerms: function(fromFilter, toFilter, isCopy, isHead) {
+	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, isHead) {
 		let stCollection = fromFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
 		for (let t = 0; t < stCollection.Count(); t++) {
 			// let searchTerm = stCollection.GetElementAt(t);
@@ -1056,13 +1054,13 @@ quickFilters.Util = {
 		}
 	} ,
 	
-	getActionCount: function(filter) {
+	getActionCount: function getActionCount(filter) {
 	  let actions = filter.actionList ? filter.actionList : filter.sortedActionList;
 		let actionCount = actions.Count ? actions.Count() : actions.length;
 		return actionCount;
 	} ,
 	
-	copyActions: function(fromFilter, toFilter) {
+	copyActions: function copyActions(fromFilter, toFilter) {
 		let actionCount = this.getActionCount(fromFilter);
 		for (let a = 0; a < actionCount; a++) {
 			let action = fromFilter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
