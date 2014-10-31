@@ -53,6 +53,11 @@
 				  type="bool"  
 				  instantApply="true"
 				  />
+      <preference id="showListAfterCreateFilter" 
+	              name="extensions.quickfilters.showListAfterCreateFilter" 
+				  type="bool"  
+				  instantApply="true"
+				  />
       <preference id="naming.parentFolder" 
 	              name="extensions.quickfilters.naming.parentFolder"
 				  type="bool"  
@@ -80,6 +85,16 @@
 				  />
 	  <preference id="onewayaddresses"
 	              name="extensions.quickfilters.searchterm.addressesOneWay"
+				  type="bool"  
+				  instantApply="true"
+				  />
+	  <preference id="merge.autoSelect"
+	              name="extensions.quickfilters.merge.autoSelect"
+				  type="bool"  
+				  instantApply="true"
+				  />
+	  <preference id="merge.silent"
+	              name="extensions.quickfilters.merge.silent"
 				  type="bool"  
 				  instantApply="true"
 				  />
@@ -143,6 +158,11 @@
 					  label="&chkToolbar.label;" 
 					  accesskey="&chkToolbar.accesskey;"
 					  />
+			<checkbox id="chkShowList"
+					  preference="showListAfterCreateFilter"
+					  label="&chkShowList.label;" 
+					  tooltiptext="&chkShowList.tooltip;"
+					  />
 			</vbox>
 			<vbox>
 				<checkbox id="chkListTags" 
@@ -165,26 +185,43 @@
 		</hbox>
 				  
         <separator class="groove-thin" />
-        <groupbox  orient="vertical" >
-        	<caption label="&qf.label.naming;"/>
-          <checkbox id="chkNamingParentFolder" 
-                    preference="naming.parentFolder" 
-                    label="&qf.label.naming.parentFolder;" 
-                    accesskey="&qf.label.naming.parentFolder.accesskey;"
-                    />
-          <checkbox id="chkNamingKeyWord" 
-                    preference="naming.keyWord" 
-                    label="&qf.label.naming.keyWord;" 
-                    accesskey="&qf.label.naming.keyWord.accesskey;"
-                    />
-			<hbox>
-				<label   class = "textBoxLabel"
-						 value="&qf.cloned.label;" />
-				<textbox id = "txtClonedName"
-						 preference = "cloned.append"
-						 />
-			</hbox>
-        </groupbox>
+		<hbox>
+			<groupbox  orient="vertical" flex="1">
+				<caption label="&qf.label.naming;"/>
+			  <checkbox id="chkNamingParentFolder" 
+						preference="naming.parentFolder" 
+						label="&qf.label.naming.parentFolder;" 
+						accesskey="&qf.label.naming.parentFolder.accesskey;"
+						/>
+			  <checkbox id="chkNamingKeyWord" 
+						preference="naming.keyWord" 
+						label="&qf.label.naming.keyWord;" 
+						accesskey="&qf.label.naming.keyWord.accesskey;"
+						/>
+				<hbox>
+					<label   class = "textBoxLabel"
+							 value="&qf.cloned.label;" />
+					<textbox id = "txtClonedName"
+							 preference = "cloned.append"
+							 />
+				</hbox>
+			</groupbox>
+			<groupbox  orient="vertical" >
+				<caption label="&grpMerge.label;"/>
+			  <checkbox id="chkMergeAuto" 
+						preference="merge.autoSelect" 
+						label="&chkMergeAuto.label;" 
+						tooltiptext="&chkMergeAuto.tooltip;"
+						oncommand="quickFilters.Assistant.selectMergeAuto(this);"
+						/>
+			  <checkbox id="chkMergeSkip" 
+						preference="merge.silent" 
+						label="&chkMergeSkip.label;" 
+						tooltiptext="&chkMergeSkip.tooltip;"
+						oncommand="quickFilters.Assistant.selectMergeSkip(this);"
+						/>
+			</groupbox>
+		</hbox>
 		
 		
         
