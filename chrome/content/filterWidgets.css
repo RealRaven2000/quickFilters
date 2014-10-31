@@ -16,3 +16,17 @@
   background-color: transparent !important;
   background-image: none !important;
 }
+
+.search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] {
+  -moz-binding: url("chrome://quickfilters/content/bindings.xml#textbox");
+	/* -moz-appearance: textfield; from fx forms.css  */
+	/* background-color: #FFFF66; light yellow, for testing, add qF icon later */
+	/*-moz-binding: url("chrome://global/content/bindings/textbox.xml#textbox");*/
+}
+
+.search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] .textbox-input {
+	background-image:  url("chrome://quickfilters/skin/qFilters-watermark.png");
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-position: right center;
+}

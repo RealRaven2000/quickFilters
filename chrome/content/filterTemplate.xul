@@ -4,7 +4,7 @@
 <?xml-stylesheet href="filterTemplate.css" type="text/css"?>
 <?xml-stylesheet href="filterWidgets.css" type="text/css"?>
 
-<!-- <!DOCTYPE prefwindow SYSTEM "chrome://quickfilters/locale/filters.dtd" > -->
+<!-- multiple language resources -->
 <!DOCTYPE prefwindow [
   <!ENTITY % templateDTD SYSTEM "chrome://quickfilters/locale/filters.dtd">
   %templateDTD;
@@ -125,6 +125,7 @@
 					<listitem label='&qf.filters.template.from;' value='from' tooltip=""/>
 					<listitem label='&qf.filters.template.domain;' value='domain' tooltip=""/>
 					<listitem label='&qf.filters.template.to;' value='to' />
+					<listitem label='&qf.filters.template.replyto;' value='replyto' tooltip=""/>
 					<listitem label='&qf.filters.template.multifrom;' value='multifrom' tooltip=""/>
 					<listitem label='&qf.filters.template.list;' value='list' />
 					<listitem label='&qf.filters.template.topic;' value='topic' />
