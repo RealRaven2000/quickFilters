@@ -27,7 +27,7 @@
 
 /* options for search box */
 #quickFilters-SearchOptions {
-    -moz-appearance: toolbarbutton !important;
+  -moz-appearance: none; /* toolbarbutton !important; none works better in Ubuntu */
 	background: transparent !important;
 	background-size: 16px 16px !important;
 	border-style: none !important;
@@ -37,7 +37,12 @@
 	padding-top: 0;
 	padding-bottom: 0;
 	-moz-image-region: rect(0px, 16px, 16px, 0px);
+	margin-left: auto;
+	margin-right: 2px;
 	list-style-image: url("chrome://quickfilters/skin/settings.png");
+}
+#searchBox {
+  margin-left: 0px;
 }
 
 /* Cut */
