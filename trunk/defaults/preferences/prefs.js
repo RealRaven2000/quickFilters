@@ -14,7 +14,10 @@ pref("extensions.quickfilters.debug.clipboard", false);
 pref("extensions.quickfilters.debug.nostalgy", false);
 pref("extensions.quickfilters.debug.quickmove",false);
 pref("extensions.quickfilters.debug.filterList",false);
+pref("extensions.quickfilters.debug.filterSearch",false);
+pref("extensions.quickfilters.debug.filterSearch.detail",false);
 pref("extensions.quickfilters.debug.template.multifrom", false);
+pref("extensions.quickfilters.debug.merge", false);
 
 //pref("extensions.quickfilters.intpref", 0);
 //pref("extensions.quickfilters.stringpref", "A string");
@@ -37,6 +40,9 @@ pref("extensions.quickfilters.postbox.quickmove", true);
 pref("extensions.quickfilters.listener.tags", true);
 pref("extensions.quickfilters.searchterm.addressesOneWay", false); // Bug 25714
 
+pref("extensions.quickfilters.merge.autoSelect", false);
+pref("extensions.quickfilters.merge.silent", false);
+
 pref("extensions.quickfilters.actions.tags", true);
 pref("extensions.quickfilters.actions.priority", false);
 pref("extensions.quickfilters.actions.star", false);
@@ -50,5 +56,11 @@ pref("extensions.quickfilters.donations.askOnUpdate", true);
 // Premium features
 pref("extensions.quickfilters.proNotify.duplicatesFinder", true);
 pref("extensions.quickfilters.proNotify.duplicatesFinder.countDown", 10);
+pref("extensions.quickfilters.proNotify.searchFolder", true);
+pref("extensions.quickfilters.proNotify.searchFolder.countDown", 15);
+pref("extensions.quickfilters.proNotify.sortFilters", true);
+pref("extensions.quickfilters.proNotify.sortFilters.countDown", 20);
 
+// test features
+pref("extensions.quickfilters.experimental.replyTo", false);
 
