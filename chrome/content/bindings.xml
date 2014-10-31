@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!-- 
+/*
+ ***** BEGIN LICENSE BLOCK *****
+ * for detail, please refer to license.txt in the root folder of this extension
+ * 
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ * 
+ * If you use large portions of the code please attribute to the authors
+ * (Axel Grude)
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You can download a copy of the GNU General Public License at
+ * http://www.gnu.org/licenses/gpl-3.0.txt or get a free printed
+ * copy by writing to:
+ *   Free Software Foundation, Inc.,
+ *   51 Franklin Street, Fifth Floor,
+ *   Boston, MA 02110-1301, USA.
+ *
+ * ***** END LICENSE BLOCK *****
+ */
+ 
+ <!DOCTYPE bindings SYSTEM "chrome://quickfilters/locale/bindings.dtd">
+
+-->
+<bindings   id="quickFiltersBindings"
+            xmlns="http://www.mozilla.org/xbl"
+            xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+            xmlns:xbl="http://www.mozilla.org/xbl">
+
+  <!-- filter action bindings -->
+
+ 
+  <!-- search term bindings -->
+
+  <binding id="textbox">
+    <resources>
+      <stylesheet src="chrome://quickfilters/content/filterWidgets.css"/>
+    </resources>
+    <content>
+      <xul:textbox flex="1" class="search-value-textbox" xbl:inherits="disabled"
+                   onchange="this.parentNode.setAttribute('value', this.value);this.parentNode.value=this.value"/>
+    </content>
+    <implementation>
+      <constructor>
+        <![CDATA[
+          let value = this.getAttribute("value");
+          let textbox = document.getAnonymousNodes(this)[0];
+          textbox.value = value;
+          this.value = value;
+          // override the opParentValue setter to detect ops needing no value
+          let parent = this.parentNode;
+          parent.oldOpParentValueSetter = parent.__lookupSetter__('opParentValue');
+          parent.__defineSetter__('opParentValue', function (aValue) {
+            let element = document.getAnonymousElementByAttribute(this, 'class', 'search-value-custom');
+            if (element)
+            {
+              // hide the value if not relevant
+              if (aValue == Components.interfaces.nsMsgSearchOp.IsEmpty ||
+                  aValue == Components.interfaces.nsMsgSearchOp.IsntEmpty)
+                element.setAttribute('hidden', 'true');
+              else
+                element.removeAttribute('hidden');
+            }
+            this.oldOpParentValueSetter(aValue);
+          });
+
+        ]]>
+      </constructor>
+    </implementation>
+  </binding>
+
+</bindings>
