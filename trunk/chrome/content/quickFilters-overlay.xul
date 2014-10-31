@@ -33,9 +33,9 @@
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="&quickfiltersToolbarButton.label;"
                    tooltiptext="&quickfiltersToolbarButton.tooltip;"
-									 context="dummy"
                    oncommand="quickFilters.onToolbarButtonCommand();"
-									 oncontextmenu="quickFilters.showOptions();"
+				   context="dummy"
+				   oncontextmenu="quickFilters.showOptions();"
 				   />
     <toolbarbutton id="quickfilters-toolbar-listbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
