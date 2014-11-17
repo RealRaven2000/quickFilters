@@ -1,10 +1,8 @@
 <!ENTITY quickfilters.Start.label "Khởi động Filter Assistant…">
 <!ENTITY quickfilters.FromMessage.label "QuickFilters: Create Filter from Message…">
 <!ENTITY quickfilters.FromMessage.accesskey "Q">
-<!ENTITY quickfiltersToolbarButton.label "quickFilters Assistant">
 <!ENTITY quickfiltersToolbarButton.tooltip "Kích hoạt trợ giúp bộ lọc">
 <!ENTITY quickfilters.ListButton.label "Các Bộ Lọc Tin Nhắn…">
 <!ENTITY quickfilters.ListButton.tooltip "Hiển thị danh sách các bộ lọc tin nhắn">
 <!ENTITY quickfilters.RunButton.label "Chạy bộ lọc">
 <!ENTITY quickfilters.RunButton.tooltip "Chạy các bộ lọc được thiết đặt cho thư mục hiện tại">
-<!ENTITY quickfilters.findFiltersForFolder.menu "Find Filters…">

@@ -4,35 +4,7 @@
 <!ENTITY qf.textbox.searchBox.emptyText "Tìm bộ lọc theo tên…">
 <!ENTITY qf.textbox.searchBox.toolTip "nhập từ khóa để tìm bộ lọc theo tên">
 <!ENTITY qf.button.reorderButtonTop "Đưa lên đầu">
-<!ENTITY qf.button.reorderButtonTop.accessKey "o">
 <!ENTITY qf.button.reorderButtonTop.toolTip "Sắp xếp lại bộ lọc để nó được thực thi trước tất cả các cái khác">
 <!ENTITY qf.button.reorderButtonBottom "Đưa xuống cuối">
-<!ENTITY qf.button.reorderButtonBottom.accessKey "b">
 <!ENTITY qf.button.reorderButtonBottom.toolTip "Sắp xếp lại bộ lọc để nó được thực thi sau tất cả các cái khác">
-<!ENTITY quickfilters.button.merge "Merge">
-<!ENTITY quickfilters.button.merge.accesskey "M">
-<!ENTITY quickfilters.button.merge.tooltiptext "Merge multiple filters with the same action">
-<!ENTITY quickfilters.button.clone "Clone">
-<!ENTITY quickfilters.button.clone.accesskey "C">
-<!ENTITY quickfilters.button.clone.tooltiptext "Clone a filter">
-<!ENTITY quickfilters.button.sort "Sort">
-<!ENTITY quickfilters.button.sort.tooltiptext "Sort Alphabetically">
-<!ENTITY quickfilters.menu.cut "Cut">
-<!ENTITY quickfilters.menu.copy "Copy">
-<!ENTITY quickfilters.menu.paste "Paste">
-<!ENTITY quickfilters.button.settings "quickFilters Settings…">
-<!ENTITY quickfilters.button.assistant "Toggle assistant…">
-<!ENTITY quickfilters.button.assistant.tooltiptext "Toggles filter assistant mode. When active, drag and drop emails to create filters.">
-<!ENTITY quickfilters.button.support "quickFilters Support Site">
-<!ENTITY quickfilters.button.searchProperties "Change search properties...">
-<!ENTITY quickfilters.option.searchProperty.name "Name">
-<!ENTITY quickfilters.option.searchProperty.targetFolder "Target folder">
-<!ENTITY quickfilters.option.searchProperty.searchCondition "Search Condition (Text)">
-<!ENTITY quickfilters.option.searchProperty.addTag "Add Tag (label)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Trả lời bằng Thư mẫu">
-<!ENTITY quickfilters.button.findDuplicates.label "Find duplicates">
-<!ENTITY quickfilters.button.findDuplicates.tooltip "Find duplicate attributes">
-<!ENTITY quickfilters.button.cancelDuplicates.label "Cancel duplicates">
-<!ENTITY quickfilters.button.cancelDuplicates.tooltip "Reset duplicate search">
-<!ENTITY quickfilters.button.cancelFindInFolder.label "Cancel search">
-<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Cancel search by folder">

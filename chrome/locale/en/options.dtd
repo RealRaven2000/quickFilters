@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Right-click for version history.">
 <!ENTITY qf.tab.options "Options">
+<!ENTITY qf.tab.actions "Actions">
+<!ENTITY qf.tab.newFilterProps "New Filter Properties">
+<!ENTITY qf.tab.advanced "Advanced">
 <!ENTITY qf.tab.support "Support">
+<!ENTITY chkAutoRun.label "Apply Filter when getting new mail">
 <!ENTITY qf.label.naming "Naming Rules">
 <!ENTITY qf.label.naming.parentFolder "Add parent folder name">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "Add rule specific keyword">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders Current folder Toolbar">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Display Filters List">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Run Filters on Folder">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Run Filters on selected Messages">
+<!ENTITY qf.description.currentFolderButtons "This option is only applicable if you are using the Add-On QuickFolders, which adds a small toolbar on top of the message preview pane.">
 <!ENTITY grpMerge.label "Merge Rules">
 <!ENTITY chkMergeAuto.label "Automatically select Merge">
 <!ENTITY chkMergeAuto.tooltip "If a filter exists already, this will automatically select merge mode and the first matching filter.">
