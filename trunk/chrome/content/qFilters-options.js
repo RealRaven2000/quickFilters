@@ -132,9 +132,10 @@ quickFilters.Options = {
     // open new message
     messageComposeService.OpenComposeWindowWithURI (null, aURI);
     setTimeout( function() {optionsWin.close();}, 200 );
+  },
+    
+  toggleCurrentFolderButtons_check: function toggleCurrentFolderButtons_check() {
+    setTimeout(function() {quickFilters.toggleCurrentFolderButtons();},200);
   }
-
-  
-  
 
 }
