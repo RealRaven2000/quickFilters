@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://quickfilters/skin/quickFilters.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://quickfilters/locale/overlay.dtd">
+<!-- Overlay for QuickFolders (Current folder bar) -->
+<overlay id="quickfilters-quickfolders" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
+
+	<toolbar id="QuickFolders-CurrentFolderTools">
+		<toolbarbutton id="quickfilters-current-listbutton"
+					   class="icon"
+					   insertafter="QuickFolders-currentFolderFilterActive"
+					   label=""
+					   tooltiptext="&quickfilters.ListButton.tooltip;"
+					   oncommand="quickFilters.onToolbarListCommand();"/>
+		<toolbarbutton id="quickfilters-current-runbutton"
+					   class="icon"
+					   insertafter="quickfilters-current-listbutton"
+					   label=""
+					   tooltiptext="&quickfilters.RunButton.tooltip;"
+					   oncommand="quickFilters.onReplyFilters();"/>
+		<toolbarbutton id="quickfilters-current-msg-runbutton"
+					   class="icon"
+					   insertafter="quickfilters-current-runbutton"
+					   label=""
+					   tooltiptext="&quickfilters.RunButtonMsg.tooltip;"
+					   oncommand="quickFilters.onReplyFiltersToSelection();"/>
+	</toolbar>
+	
+	
+</overlay>
