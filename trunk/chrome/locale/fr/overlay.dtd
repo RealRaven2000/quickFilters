@@ -7,4 +7,5 @@
 <!ENTITY quickfilters.ListButton.tooltip "Afficher une liste de filtres de message">
 <!ENTITY quickfilters.RunButton.label "Lancer les filtres">
 <!ENTITY quickfilters.RunButton.tooltip "Lance les filtres paramétrés pour le dossier courant">
+<!ENTITY quickfilters.RunButtonMsg.tooltip "Applique les filtres au message actuel">
 <!ENTITY quickfilters.findFiltersForFolder.menu "Recherche de filtres…">

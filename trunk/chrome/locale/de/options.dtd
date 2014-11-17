@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Rechts-klick um die Versionsgeschichte einzusehen.">
 <!ENTITY qf.tab.options "Optionen">
+<!ENTITY qf.tab.actions "Aktionen">
+<!ENTITY qf.tab.newFilterProps "Eigenschaften für neue Filter">
+<!ENTITY qf.tab.advanced "Erweitert">
 <!ENTITY qf.tab.support "Support">
+<!ENTITY chkAutoRun.label "Filter anwenden bei Nachrichtenabruf">
 <!ENTITY qf.label.naming "Namensregeln">
 <!ENTITY qf.label.naming.parentFolder "Name des Elternverzeichnis hinzufügen">
 <!ENTITY qf.label.naming.parentFolder.accesskey "E">
 <!ENTITY qf.label.naming.keyWord "Regel spezifisches Stichwort hinzufügen">
 <!ENTITY qf.label.naming.keyWord.accesskey "S">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders Aktiv-Verzeichnis Werkzeugleiste">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Filterliste anzeigen">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Filter auf Ordener anwenden">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Filter auf Nachricht anwenden">
+<!ENTITY qf.description.currentFolderButtons "Diese Optionen gelten nur wenn die QuickFolders extension installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt.">
 <!ENTITY grpMerge.label "Regeln zum Kombinieren">
 <!ENTITY chkMergeAuto.label "Automatisch Kombinieren">
 <!ENTITY chkMergeAuto.tooltip "Falls schon ein Filter vorhanden ist, wird Kombinieren voreingestellt und der erste Filter als Ziel markiert.">

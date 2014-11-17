@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Clic-droit pour l'historique de versions.">
 <!ENTITY qf.tab.options "Options">
+<!ENTITY qf.tab.actions "Actions">
+<!ENTITY qf.tab.newFilterProps "Propriétés de nouveau filtre">
+<!ENTITY qf.tab.advanced "Avéncées">
 <!ENTITY qf.tab.support "Aide">
+<!ENTITY chkAutoRun.label "Appliquer le filtre lors de la réception d'un nouveau message">
 <!ENTITY qf.label.naming "Règles de nommage">
 <!ENTITY qf.label.naming.parentFolder "Ajouter le nom du dossier parent">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "Ajouter le mot-clé spécifique à la règle">
 <!ENTITY qf.label.naming.keyWord.accesskey "m">
+<!ENTITY qf.label.currentFolderButtons "Barre d'outils du dossier courant QuickFolders">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Afficher la liste des filtres">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Appliquer les filtres au dossier">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Appliquer les filtres aux messages sélectionnés">
+<!ENTITY qf.description.currentFolderButtons "Cette option ne peut être appliquée que si vous utilisez l'extension QuickFolders, qui ajoute une petite barre d'outils en haut du panneau d'aperçu du message.">
 <!ENTITY grpMerge.label "Règles de fusion">
 <!ENTITY chkMergeAuto.label "Sélectionner automatiquement la fusion">
 <!ENTITY chkMergeAuto.tooltip "Si un filtre existe déjà, cela va automatiquement sélectionner le mode fusion et le premier filtre correspondant.">
