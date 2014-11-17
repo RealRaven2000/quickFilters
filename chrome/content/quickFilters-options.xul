@@ -58,6 +58,11 @@
 				  type="bool"  
 				  instantApply="true"
 				  />
+      <preference id="newfilter.autorun" 
+	              name="extensions.quickfilters.newfilter.autorun"
+				  type="bool"  
+				  instantApply="true"
+				  />
       <preference id="naming.parentFolder" 
 	              name="extensions.quickfilters.naming.parentFolder"
 				  type="bool"  
@@ -98,7 +103,23 @@
 				  type="bool"  
 				  instantApply="true"
 				  />
-				  
+	  <preference id="curFolderbar.listbutton"
+	              name="extensions.quickfilters.quickfolders.curFolderbar.listbutton"
+				  type="bool"  
+				  instantApply="true"
+				  />
+	  <preference id="curFolderbar.folderbutton"
+	              name="extensions.quickfilters.quickfolders.curFolderbar.folderbutton"
+				  type="bool"  
+				  instantApply="true"
+				  />
+	  <preference id="curFolderbar.messagesbutton"
+	              name="extensions.quickfilters.quickfolders.curFolderbar.messagesbutton"
+				  type="bool"  
+				  instantApply="true"
+				  />
+
+			  
     </preferences>
 	
 	<box id="quickFiltersHelpBar">
@@ -130,13 +151,15 @@
   
 	<tabbox orient="vertical" flex="6" id="quickFilters-Options-Tabbox">
 		<tabs>
-			<tab label="&qf.tab.options;" id="quickFilters-Options" />
+			<tab label="&qf.tab.actions;" id="quickFilters-Actions" />
+			<tab label="&qf.tab.newFilterProps;" id="quickFilters-FilterProperties" />
+			<tab label="&qf.tab.advanced;" id="quickFilters-Advanced" />
 			<tab label="&qf.tab.support;" id="quickFilters-Support" />
 		</tabs>
 
 		<tabpanels >
 		
-			<tabpanel id="quickFilters-Options-general"
+			<tabpanel id="quickFilters-Options-actions"
 			          orient="vertical" 
 			          label="&qf.tab.options;" 
 			          style="position:relative;">
@@ -186,26 +209,6 @@
 				  
         <separator class="groove-thin" />
 		<hbox>
-			<groupbox  orient="vertical" flex="1">
-				<caption label="&qf.label.naming;"/>
-			  <checkbox id="chkNamingParentFolder" 
-						preference="naming.parentFolder" 
-						label="&qf.label.naming.parentFolder;" 
-						accesskey="&qf.label.naming.parentFolder.accesskey;"
-						/>
-			  <checkbox id="chkNamingKeyWord" 
-						preference="naming.keyWord" 
-						label="&qf.label.naming.keyWord;" 
-						accesskey="&qf.label.naming.keyWord.accesskey;"
-						/>
-				<hbox>
-					<label   class = "textBoxLabel"
-							 value="&qf.cloned.label;" />
-					<textbox id = "txtClonedName"
-							 preference = "cloned.append"
-							 />
-				</hbox>
-			</groupbox>
 			<groupbox  orient="vertical" >
 				<caption label="&grpMerge.label;"/>
 			  <checkbox id="chkMergeAuto" 
@@ -222,9 +225,63 @@
 						/>
 			</groupbox>
 		</hbox>
+      </tabpanel>  
+	  
+	  <tabpanel id="quickFilters-Options-newFilterProps"
+			  orient="vertical" 
+			  label="&qf.tab.newFilterProps;" 
+			  style="position:relative;">
+		<checkbox id="chkAutoRun" 
+				  preference="newfilter.autorun" 
+				  label="&chkAutoRun.label;" 
+				  />
+			  
+		<groupbox  orient="vertical" flex="1">
+			<caption label="&qf.label.naming;"/>
+		  <checkbox id="chkNamingParentFolder" 
+					preference="naming.parentFolder" 
+					label="&qf.label.naming.parentFolder;" 
+					accesskey="&qf.label.naming.parentFolder.accesskey;"
+					/>
+		  <checkbox id="chkNamingKeyWord" 
+					preference="naming.keyWord" 
+					label="&qf.label.naming.keyWord;" 
+					accesskey="&qf.label.naming.keyWord.accesskey;"
+					/>
+			<hbox>
+				<label   class = "textBoxLabel"
+						 value="&qf.cloned.label;" />
+				<textbox id = "txtClonedName"
+						 preference = "cloned.append"
+						 />
+			</hbox>
+		</groupbox>
 		
-		
-        
+        <spacer flex="10" />
+
+	  </tabpanel>
+               
+	  <tabpanel id="quickFilters-Options-Advanced"
+				  orient="vertical" 
+				  label="&qf.tab.advanced;" 
+				  style="position:relative;">
+				  
+		<groupbox  orient="vertical" >
+			<caption label="&qf.label.currentFolderButtons;"/>
+			<checkbox id="chkCurrentToolbarFiltersButton" 
+					preference="curFolderbar.listbutton" 
+					label="&chkCurrentToolbar.btn.FilterList.label;" 
+					oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+			<checkbox id="chkCurrentToolbarFolderButton" 
+					preference="curFolderbar.folderbutton" 
+					label="&chkCurrentToolbar.btn.RunOnFolder.label;" 
+					oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+			<checkbox id="chkCurrentToolbarMessagesButton" 
+					preference="curFolderbar.messagesbutton" 
+					label="&chkCurrentToolbar.btn.RunOnMessages.label;" 
+					oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+ 			<description>&qf.description.currentFolderButtons;</description>
+		</groupbox>
         <spacer flex="1" />
         <hbox>
           <spacer flex="1" />
@@ -235,8 +292,8 @@
                     oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Options.showAboutConfig(this, 'quickfilters.debug', true);return false;"/>
         </hbox>
         <separator />
-        <separator />
-      </tabpanel>  
+	  </tabpanel> 
+
 	  <tabpanel id="quickFilters-Options-supprt"
 			          orient="vertical" 
 			          label="&qf.tab.options;" 
@@ -259,10 +316,10 @@
         <label id="L3" 
                class="text-link" 
                onclick="quickFilters.Options.sendMail('axelg@gofree.indigo.ie');" >&qf.label.contactLink;</label>
-      </tabpanel>  
-               
-                   
-		</tabpanels>
+	  </tabpanel>  
+
+	  
+	</tabpanels>
 	</tabbox>
     
   </prefpane>
