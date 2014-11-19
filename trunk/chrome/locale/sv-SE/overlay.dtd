@@ -7,4 +7,5 @@
 <!ENTITY quickfilters.ListButton.tooltip "Visa en lista över meddelandefilter">
 <!ENTITY quickfilters.RunButton.label "Kör filter">
 <!ENTITY quickfilters.RunButton.tooltip "Kör filtren som är knutna till den aktuella mappen">
+<!ENTITY quickfilters.RunButtonMsg.tooltip "Kör filter på aktuella meddelanden">
 <!ENTITY quickfilters.findFiltersForFolder.menu "Sök efter filter …">

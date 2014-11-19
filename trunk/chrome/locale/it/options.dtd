@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Per visualizzare la cronologia delle versioni fare clic col pulsante destro del mouse">
 <!ENTITY qf.tab.options "Opzioni">
+<!ENTITY qf.tab.actions "Azioni">
+<!ENTITY qf.tab.newFilterProps "Proprietà del nuovo filtro">
+<!ENTITY qf.tab.advanced "Avanzate">
 <!ENTITY qf.tab.support "Supporto">
+<!ENTITY chkAutoRun.label "Applica filtro quando arrivano nuovi messaggi">
 <!ENTITY qf.label.naming "Nomenclatura delle regole">
 <!ENTITY qf.label.naming.parentFolder "Aggiunge alla regola il nome della cartella di livello superiore">
 <!ENTITY qf.label.naming.parentFolder.accesskey "S">
 <!ENTITY qf.label.naming.keyWord "Aggiunge alla regola una parola-chiave specifica">
 <!ENTITY qf.label.naming.keyWord.accesskey "C">
+<!ENTITY qf.label.currentFolderButtons "Barra degli strumenti della cartella corrente di QuickFolders">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Mostra elenco filtri">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Esegui filtri sulla cartella">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Esegui filtri sui messaggi selezionati">
+<!ENTITY qf.description.currentFolderButtons "Questa opzione è utilizzabile solo se si sta usando anche l'estensione QuickFolders che aggiunge una piccola barra degli strumenti in cima al riquadro di anteprima del messaggio">
 <!ENTITY grpMerge.label "Regole Unione">
 <!ENTITY chkMergeAuto.label "Seleziona automaticamente Unione">
 <!ENTITY chkMergeAuto.tooltip "Se esiste già un filtro, questa opzione seleziona automaticamente la modalità unione e il primo filtro corrispondente">

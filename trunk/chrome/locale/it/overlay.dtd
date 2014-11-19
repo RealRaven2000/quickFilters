@@ -5,6 +5,7 @@
 <!ENTITY quickfiltersToolbarButton.tooltip "Attiva la Procedura guidata">
 <!ENTITY quickfilters.ListButton.label "Filtri per i messaggi…">
 <!ENTITY quickfilters.ListButton.tooltip "Mostra un elenco di filtri per i messaggi">
-<!ENTITY quickfilters.RunButton.label "Esegue i filtri">
+<!ENTITY quickfilters.RunButton.label "Esegui i filtri">
 <!ENTITY quickfilters.RunButton.tooltip "Esegue i filtri configurati per la cartella corrente">
+<!ENTITY quickfilters.RunButtonMsg.tooltip "Esegui i filtri sul messaggio corrente">
 <!ENTITY quickfilters.findFiltersForFolder.menu "Trova filtri…">

@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Högerklicka för versionshistorik.">
 <!ENTITY qf.tab.options "Alternativ">
+<!ENTITY qf.tab.actions "Åtgärder">
+<!ENTITY qf.tab.newFilterProps "Egenskaper för nya filter">
+<!ENTITY qf.tab.advanced "Avancerat">
 <!ENTITY qf.tab.support "Hjälp">
+<!ENTITY chkAutoRun.label "Tillämpa filter när nya meddelanden tas emot">
 <!ENTITY qf.label.naming "Namngivningsregler">
 <!ENTITY qf.label.naming.parentFolder "Lägg till namn på överordnad mapp">
 <!ENTITY qf.label.naming.parentFolder.accesskey "m">
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders verktygsfält för aktuell meddelandemapp">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Visa filterlista">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Kör filter på mapp">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Kör filter på markerade meddelanden">
+<!ENTITY qf.description.currentFolderButtons "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen.">
 <!ENTITY grpMerge.label "Sammanfogningsregler">
 <!ENTITY chkMergeAuto.label "Välj Sammanfoga automatiskt">
 <!ENTITY chkMergeAuto.tooltip "Om ditt nya filter redan finns kommer quickFilters automatiskt att sammanfoga det med det första matchande filtret.">
