@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Нажмите правой кнопкой мышки для получения истории изменений.">
 <!ENTITY qf.tab.options "Настройки">
+<!ENTITY qf.tab.actions "Действия">
+<!ENTITY qf.tab.newFilterProps "Свойства нового фильтра">
+<!ENTITY qf.tab.advanced "Дополнительные">
 <!ENTITY qf.tab.support "Поддержка">
+<!ENTITY chkAutoRun.label "Применить фильтры при получении новых сообщений">
 <!ENTITY qf.label.naming "Правила присваивания имен">
 <!ENTITY qf.label.naming.parentFolder "Добавить имя вышестоящей папки">
 <!ENTITY qf.label.naming.parentFolder.accesskey "о">
 <!ENTITY qf.label.naming.keyWord "Добавить ключевое слово правила">
 <!ENTITY qf.label.naming.keyWord.accesskey "к">
+<!ENTITY qf.label.currentFolderButtons "Панель инструментов текущей папки QuickFolders">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Показывать список фильтров">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Применить фильтры к папке">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Применить фильтры к выбранным сообщениям">
+<!ENTITY qf.description.currentFolderButtons "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее маленькую панель инструментов в область просмотра сообщений.">
 <!ENTITY grpMerge.label "Правила объединения">
 <!ENTITY chkMergeAuto.label "Автоматический выбор объединения">
 <!ENTITY chkMergeAuto.tooltip "Если фильтр уже существует, то режим объединения и первый совпадающий фильтр будут выбраны автоматически.">

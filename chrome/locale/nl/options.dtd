@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Rechtsklik voor versiegeschiedenis.">
 <!ENTITY qf.tab.options "Opties">
+<!ENTITY qf.tab.actions "Acties">
+<!ENTITY qf.tab.newFilterProps "Eigenschappen nieuw filter">
+<!ENTITY qf.tab.advanced "Geavanceerd">
 <!ENTITY qf.tab.support "Ondersteuning">
+<!ENTITY chkAutoRun.label "Filter toepassen bij ophalen nieuwe berichten">
 <!ENTITY qf.label.naming "Naamregels">
 <!ENTITY qf.label.naming.parentFolder "Naam bovenliggende map toevoegen">
 <!ENTITY qf.label.naming.parentFolder.accesskey "N">
 <!ENTITY qf.label.naming.keyWord "Regelspecifiek trefwoord toevoegen">
 <!ENTITY qf.label.naming.keyWord.accesskey "t">
+<!ENTITY qf.label.currentFolderButtons "Werkbalk Huidige map QuickFolders">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Filterlijst weergeven">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Filters op map toepassen">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Filters op geselecteerde berichten toepassen">
+<!ENTITY qf.description.currentFolderButtons "Deze optie is alleen van toepassing als u de add-on QuickFolders gebruikt, die een kleine werkbalk bovenop het berichtenvenster plaatst.">
 <!ENTITY grpMerge.label "Regels samenvoegen">
 <!ENTITY chkMergeAuto.label "Samenvoegen automatisch selecteren">
 <!ENTITY chkMergeAuto.tooltip "Als een filter al bestaat selecteert dit automatisch de samenvoegmodus en het eerste overeenkomende filter.">

@@ -20,12 +20,21 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "右クリックでバージョン履歴を表示します。">
 <!ENTITY qf.tab.options "オプション">
+<!ENTITY qf.tab.actions "動作">
+<!ENTITY qf.tab.newFilterProps "新規フィルタのプロパティ">
+<!ENTITY qf.tab.advanced "詳細">
 <!ENTITY qf.tab.support "サポート">
+<!ENTITY chkAutoRun.label "新着メール受信時にフィルタを適用する">
 <!ENTITY qf.label.naming "命名規則">
 <!ENTITY qf.label.naming.parentFolder "親フォルダの名前を追加する">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "規則通りのキーワードを追加する">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders の現在のフォルダツールバー">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "フィルタリストを表示">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "フォルダにフィルタを適用">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "選択したメッセージにフィルタを適用">
+<!ENTITY qf.description.currentFolderButtons "このオプションは、QuickFolders アドオンを使用している場合のみ使用できます。メッセージのプレビューペインに小さなツールバーが追加されます。">
 <!ENTITY grpMerge.label "規則を統合する">
 <!ENTITY chkMergeAuto.label "自動的に統合モードを選択する">
 <!ENTITY chkMergeAuto.tooltip "フィルタが既に存在する場合、自動的に統合モードを選択して最初に一致するフィルタを統合します。">
