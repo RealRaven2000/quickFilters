@@ -42,9 +42,8 @@ quickFilters.List = {
   duplicateTerms: null,
   duplicateActions: null,
   updateButtons: function updateButtons() {
-    
-    let numFiltersSelected = this.getSelectedCount(this.FilterListElement);
-    let oneFilterSelected = (numFiltersSelected == 1);
+    let numFiltersSelected = this.getSelectedCount(this.FilterListElement),
+        oneFilterSelected = (numFiltersSelected == 1);
     document.getElementById("quickFiltersBtnClone").disabled = !oneFilterSelected;
     document.getElementById("quickFiltersBtnMerge").disabled = (numFiltersSelected<2);
     document.getElementById("quickFiltersBtnSort").disabled = (numFiltersSelected<2);
@@ -54,7 +53,7 @@ quickFilters.List = {
 
   // FILTER LIST DIALOG FUNCTIONS - replaces gFilterListbox
   get FilterListElement() {
-    var el = document.getElementById("filterList");
+    let el = document.getElementById("filterList");
     if (!el)
       el = document.getElementById("filterTree");
     return el;
@@ -104,16 +103,16 @@ quickFilters.List = {
       return list.selectedItems[i]._filter;  // Thunderbird
 
     // SeaMonkey uses a tree view - there can be multiple ranges selected
-    let start = new Object();
-    let end = new Object();
-    let numRanges = list.view.selection.getRangeCount();
-    let current = 0; // counting index to find nth item
-    let targetIndex = -1;
+    let start = new Object(),
+        end = new Object(),
+        numRanges = list.view.selection.getRangeCount(),
+        current = 0, // counting index to find nth item
+        targetIndex = -1;
 
     // allow multiple range selection - find the nth item and return its real index
-    for (var t = 0; t < numRanges; t++) {
+    for (let t = 0; t < numRanges; t++) {
       list.view.selection.getRangeAt(t,start,end);
-      for (var v = start.value; v <= end.value; v++){
+      for (let v = start.value; v <= end.value; v++){
         if (i == current) {
           targetIndex = v;
           break;
@@ -144,10 +143,10 @@ quickFilters.List = {
   } ,
 	
 	clone: function clone(evt) {
-    let filtersList = this.FilterList; 
-    let sourceFolder = filtersList.folder;
-    let list = this.FilterListElement;
-		let utils = quickFilters.Util;
+    let filtersList = this.FilterList,
+        sourceFolder = filtersList.folder,
+        list = this.FilterListElement,
+        utils = quickFilters.Util;
     if (this.getSelectedCount(list) != 1) {
 			let wrn = quickFilters.Util.getBundleString('quickfilters.clone.selectOne', 
                                    'To clone, select exactly one filter.');
@@ -163,8 +162,8 @@ quickFilters.List = {
 			return;
 		}
 		// get user specific clone label
-		let clonedLabel = quickFilters.Preferences.getCharPref('naming.clonedLabel');
-		let newName = selectedFilter.filterName + ' '
+		let clonedLabel = quickFilters.Preferences.getCharPref('naming.clonedLabel'),
+		    newName = selectedFilter.filterName + ' '
 		if (clonedLabel.trim()) {
 		  newName += clonedLabel;
 		}
@@ -233,10 +232,10 @@ quickFilters.List = {
   } ,
   
   sort: function sort(evt) {
-    let filtersList = this.FilterList; // Tb / SM
-    let sourceFolder = filtersList.folder;
-    let list = this.FilterListElement;
-    let count = this.getSelectedCount(list);
+    let filtersList = this.FilterList, // Tb / SM
+        sourceFolder = filtersList.folder,
+        list = this.FilterListElement,
+        count = this.getSelectedCount(list);
     if (count < 2) {
 			let wrn = quickFilters.Util.getBundleString('quickfilters.sort.warning.selectMultiple', 
                                               'To sort, select at least 2 filters');
@@ -252,11 +251,11 @@ quickFilters.List = {
   } ,
     
   merge: function merge(evt, isEvokedFromButton) {
-    let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'mergeList' };
-    let filtersList = this.FilterList; // Tb / SM
-    let sourceFolder = filtersList.folder;
-    let list = this.FilterListElement;
-    let count = this.getSelectedCount(list);
+    let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'mergeList' },
+        filtersList = this.FilterList, // Tb / SM
+        sourceFolder = filtersList.folder,
+        list = this.FilterListElement,
+        count = this.getSelectedCount(list);
     quickFilters.Util.logDebugOptional("merge", "filter.merge\n"
       + count + " filters selected.\n"
       + "evoked from button:" + isEvokedFromButton);
@@ -268,19 +267,19 @@ quickFilters.List = {
     } 
     // see qFilters-worker line 471
     // we can clone a new nsIMsgFilterList that has matching target folders.
-    let matchingFilters = [];
-    let action = 0;
-    let deselectUnmatched = false;
-    let filterMatch;
-		let firstSelectedFilter = this.getSelectedFilterAt(list, 0);
+    let matchingFilters = [],
+        action = 0,
+        deselectUnmatched = false,
+        filterMatch,
+		    firstSelectedFilter = this.getSelectedFilterAt(list, 0);
 		if (!firstSelectedFilter) {
 			let wrn = quickFilters.Util.getBundleString('quickfilters.merge.warning.selectMultiple2',
 				          'Cannot determine first selected filter - to merge, you must select at least 2 filters!');
 			quickFilters.Util.popupAlert(wrn);
 			return;
 		}
-		let primaryAction;
-    let primaryName = firstSelectedFilter.filterName;
+    let primaryAction,
+        primaryName = firstSelectedFilter.filterName;
 		try {
 			primaryAction = firstSelectedFilter.getActionAt(0);
 		}
@@ -291,10 +290,9 @@ quickFilters.List = {
 			quickFilters.Util.popupAlert(wrn + '\n' + ex.toString());
 		}
     action = primaryAction;
-    let FA = Components.interfaces.nsMsgFilterAction;
-		let failedFilters = '';
-    for (let f = this.getSelectedCount(list)-1; f >=0 ; f--)
-    {
+    let FA = Components.interfaces.nsMsgFilterAction,
+		    failedFilters = '';
+    for (let f = this.getSelectedCount(list)-1; f >=0 ; f--) {
       filterMatch = true;
       let aFilter = this.getSelectedFilterAt(list, f);  // nsIMsgFilter 
       quickFilters.Util.logDebugOptional("merge", "Adding filter: " + aFilter.filterName);
@@ -376,7 +374,7 @@ quickFilters.List = {
     // *******   SYNCHRONOUS PART: Shows Filter Assistant!    *******
     // **************************************************************
     quickFilters.Util.logDebugOptional("merge", "OPENING MODAL DIALOG\n==========================");
-    var win = window.openDialog('chrome://quickfilters/content/filterTemplate.xul',
+    let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xul',
       'quickfilters-filterTemplate',
       'chrome,titlebar,centerscreen,modal,centerscreen,resizable=yes,accept=yes,cancel=yes',
       params,
@@ -388,12 +386,12 @@ quickFilters.List = {
     }
     
     // is there an existing filter selected for merging?
-    let mergeFilterIndex = params.selectedMergedFilterIndex;
-    let isMerge = false;
-    let targetFilter;
+    let mergeFilterIndex = params.selectedMergedFilterIndex,
+        isMerge = false,
+        targetFilter;
 
     // user has selected a template
-    var template = quickFilters.Preferences.getCurrentFilterTemplate();
+    let template = quickFilters.Preferences.getCurrentFilterTemplate();
     if (mergeFilterIndex >= 0) {
       targetFilter = matchingFilters[mergeFilterIndex];
       isMerge = true;
@@ -406,22 +404,22 @@ quickFilters.List = {
     }
 
     // 1. create a new filter and copy actions of target filter
-    let newName = targetFilter.filterName;
+    let newName = targetFilter.filterName,
     // append " +m" to name to show that filter is merged
-    let mergeToken = quickFilters.Preferences.getCharPref('naming.mergeToken');
+        mergeToken = quickFilters.Preferences.getCharPref('naming.mergeToken');
     if (mergeToken) {
       if (newName.indexOf(mergeToken) == -1)
         newName = newName + mergeToken;
     }
     let newFilter = filtersList.createFilter(newName);
 		newFilter.clearActionList();
-    let aList = [];
-    let actions = targetFilter.actionList ? targetFilter.actionList : targetFilter.sortedActionList; // Tb : Sm
+    let aList = [],
+        actions = targetFilter.actionList ? targetFilter.actionList : targetFilter.sortedActionList; // Tb : Sm
 		if (targetFilter.actionList) {
 		  // Thunderbird
-			let aCollection = actions.QueryInterface(Components.interfaces.nsICollection);
+			let aCollection = actions.QueryInterface(Components.interfaces.nsICollection),
 			// targetFilter.getSortedActionList(aList);
-			let newActions = newFilter.actionList ? newFilter.actionList : newFilter.sortedActionList;
+			    newActions = newFilter.actionList ? newFilter.actionList : newFilter.sortedActionList;
 			for (let a = 0; a < aCollection.Count(); a++) {
 			  let append = true;
 			  for (let b = 0; b < quickFilters.Util.getActionCount(newFilter); b++) { 
@@ -508,15 +506,15 @@ quickFilters.List = {
 			return gCurrentFolder ; // Tb
 		}
 		// from: SM's setServer(uri) function
-		let resource = gRDF.GetResource(gCurrentServerURI);
-		let folder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
+		let resource = gRDF.GetResource(gCurrentServerURI),
+		    folder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
 		return folder; // Suite
 	},
 	
   styleFilterListItems: function styleFilterListItems() {
-		let list = this.FilterListElement;
-    let type = this.clipboardPending;
-    let clpFilters = this.clipboardList;
+		let list = this.FilterListElement,
+        type = this.clipboardPending,
+        clpFilters = this.clipboardList;
     this.resetClipboardStylings();
     if (type && clpFilters.length>0) {
       for (let i=0; i<clpFilters.length;i++) {
@@ -598,13 +596,13 @@ quickFilters.List = {
 	},
 	
 	pasteFilters: function pasteFilters(isSort) {
-		let Ci = Components.interfaces;
-		let clpFilters = this.clipboardList;
-    let sortedFiltersList;
-		let isInsert = false;
-		let isRemove = false;
-    let isMove = false;
-    let sortIndex = 0;
+		let Ci = Components.interfaces,
+		    clpFilters = this.clipboardList,
+        sortedFiltersList,
+		    isInsert = false,
+		    isRemove = false,
+        isMove = false,
+        sortIndex = 0;
 		try {
 			if (clpFilters.length < 1) {
 				let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.emptyClipboard',
@@ -642,14 +640,14 @@ quickFilters.List = {
 					return;
 			}
 			// find insert position
-			let list = this.FilterListElement;		
-			let index = this.getSelectedIndex(list);
+			let list = this.FilterListElement,
+			    index = this.getSelectedIndex(list);
 			if (index<0) 
 				index = list.itemCount;
 
-			let filtersList = this.FilterList;
-      let sourceFolder = this.clipboardServer.rootFolder;
-      let cutFiltersList;
+			let filtersList = this.FilterList,
+          sourceFolder = this.clipboardServer.rootFolder,
+          cutFiltersList;
 			if (isRemove) {
         if (quickFilters.Util.Application === 'Postbox') {
           // mailWindowOverlay.js:1790
@@ -731,15 +729,15 @@ quickFilters.List = {
 	},
 
   onTop : function onTop(evt) {
-    let filtersList = this.FilterList; // Tb / SM
-    let list = this.FilterListElement;
+    let filtersList = this.FilterList, // Tb / SM
+        list = this.FilterListElement;
     try {
       if (this.getSelectedCount(list) != 1) {
 				let wrn = quickFilters.Util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
 				quickFilters.Util.popupAlert(wrn);
         return;
       }
-      var activeFilter = this.getSelectedFilterAt(list, 0);
+      let activeFilter = this.getSelectedFilterAt(list, 0);
       if (activeFilter) {
         filtersList.removeFilter(activeFilter);
         filtersList.insertFilterAt(0, activeFilter);
@@ -762,15 +760,15 @@ quickFilters.List = {
   } ,
 
   onBottom : function onBottom(evt) {
-    let filtersList = this.FilterList;
-    let list =this.FilterListElement;
+    let filtersList = this.FilterList,
+        list =this.FilterListElement;
     try {
       if (this.getSelectedCount(list) != 1) {
         let wrn = quickFilters.Util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
 				quickFilters.Util.popupAlert(wrn);
         return;
       }
-      var activeFilter = this.getSelectedFilterAt(list, 0);
+      let activeFilter = this.getSelectedFilterAt(list, 0);
       if (activeFilter) {
         filtersList.removeFilter(activeFilter);
         filtersList.insertFilterAt(filtersList.filterCount, activeFilter); // rolled back :P
@@ -795,19 +793,19 @@ quickFilters.List = {
   onUp: function onUp(event) {
     let searchBox = document.getElementById("quickFilters-Search");
     if (searchBox.value) {
-      var filtersList = this.FilterList; // Tb / SM
-      var list = this.FilterListElement;
+      let filtersList = this.FilterList, // Tb / SM
+          list = this.FilterListElement;
       if (this.getSelectedCount(list) != 1)
         return;
 
-      var activeFilter = this.getSelectedFilterAt(list, 0);
+      let activeFilter = this.getSelectedFilterAt(list, 0);
       if (activeFilter) try {
-        var nextIndex = this.getSelectedIndex(list) - 1;
-        var nextFilter = list.getItemAtIndex(nextIndex)._filter;
+        let nextIndex = this.getSelectedIndex(list) - 1,
+            nextFilter = list.getItemAtIndex(nextIndex)._filter;
         this.rebuildFilterList();
 
         // assumption: item stays selected even after removing the search condition
-        var newIndex = this.getSelectedIndex(list)-1;
+        let newIndex = this.getSelectedIndex(list)-1;
         filtersList.removeFilter(activeFilter);
 
         // insert before next visible item
@@ -832,21 +830,20 @@ quickFilters.List = {
   onDown: function onDown(event) {
     let searchBox = document.getElementById("quickFilters-Search");
     if (searchBox.value) {
-      var filtersList = this.FilterList; // Tb / SM
-      var list = this.FilterListElement;
+      let filtersList = this.FilterList, // Tb / SM
+          list = this.FilterListElement;
       if (this.getSelectedCount(list) != 1)
         return;
 
-      var activeFilter = this.getSelectedFilterAt(list, 0);
+      let activeFilter = this.getSelectedFilterAt(list, 0);
       if (activeFilter) try {
-        var nextIndex = list.selectedIndex+1;
-        var nextFilter = list.getItemAtIndex(nextIndex)._filter;
+        let nextIndex = list.selectedIndex+1,
+            nextFilter = list.getItemAtIndex(nextIndex)._filter;
         this.rebuildFilterList();
 
         // assumption: item stays selected even after removing the search condition
-        var newIndex = list.selectedIndex+1;
+        let newIndex = list.selectedIndex+1;
         filtersList.removeFilter(activeFilter);
-
 
         // insert after next visible item
         // go down from selected index until finding the correct filter name
@@ -855,7 +852,6 @@ quickFilters.List = {
         filtersList.insertFilterAt(newIndex, activeFilter);
         this.rebuildFilterList();
         list.selectedIndex = newIndex;
-
       }
       catch (ex) {
         quickFilters.Util.logException('quickFilters.List.onDown: ', ex);
@@ -875,8 +871,8 @@ quickFilters.List = {
   // remove any icons that were added as part of copy or cut functions
   resetClipboardStylings: function resetClipboardStylings() {
 		quickFilters.Util.logDebugOptional("clipboard", "resetClipboardStylings()");
-		let list = this.FilterListElement;
-		let ct = list.children.length;
+		let list = this.FilterListElement,
+		    ct = list.children.length;
 	  for (let i = 0; i<ct; i++) {
 			let cl = list.children[i].getAttribute('class');
 			if (cl.indexOf('quickFilters')>=0) {
@@ -900,12 +896,12 @@ quickFilters.List = {
 	} ,
 	
 	onSelectFilter : function onSelectFilter(evt) {
-    let list = this.FilterListElement;
-    let numFiltersSelected = this.getSelectedCount(list);
-    let oneFilterSelected = (numFiltersSelected === 1);
-    let buttonTop = document.getElementById("quickFilters-reorderButtonTop");
-    let buttonBottom = document.getElementById("quickFilters-reorderButtonBottom");
-    let upDisabled = !(oneFilterSelected &&
+    let list = this.FilterListElement,
+        numFiltersSelected = this.getSelectedCount(list),
+        oneFilterSelected = (numFiltersSelected === 1),
+        buttonTop = document.getElementById("quickFilters-reorderButtonTop"),
+        buttonBottom = document.getElementById("quickFilters-reorderButtonBottom"),
+        upDisabled = !(oneFilterSelected &&
                        this.getSelectedFilterAt(list, 0) != list.childNodes[1]);
     if (list.currentIndex === 0) // SM
       upDisabled = true;
@@ -933,8 +929,8 @@ quickFilters.List = {
       quickFilters.List.updateButtons();
     }
 		// Toolbar
-		let toolbox = document.getElementById("quickfilters-toolbox");
-		let hbs = document.getElementsByTagName(
+		let toolbox = document.getElementById("quickfilters-toolbox"),
+		    hbs = document.getElementsByTagName(
 		    (quickFilters.Util.Application == 'Thunderbird')
 			? 'hbox'
 		  : 'grid');  // SM + Postbox
@@ -972,17 +968,17 @@ quickFilters.List = {
 		filterList.setAttribute('context','quickFiltersContext');
 
     // check whether [Bug 450302] has landed
-    let nativeSearchBox = document.getElementById("searchBox");
+    let nativeSearchBox = document.getElementById("searchBox"),
     // check whether QuickFolder_s already does these modifications
-    let quickFolderSearchBox = document.getElementById("qf-Filter");
+        quickFolderSearchBox = document.getElementById("qf-Filter");
     //move buttons to the correct place
-    var buttonBottom = document.getElementById("quickFilters-reorderButtonBottom");
-    var buttonTop = document.getElementById("quickFilters-reorderButtonTop");
-    var down = document.getElementById("reorderDownButton");
-    var up = document.getElementById("reorderUpButton");
-    var searchBox = document.getElementById("quickFilters-Search");
-    var countBox = document.getElementById("quickFilters-Count");
-    var mergeButton = document.getElementById("quickFilters-mergeButton");
+    let buttonBottom = document.getElementById("quickFilters-reorderButtonBottom"),
+        buttonTop = document.getElementById("quickFilters-reorderButtonTop"),
+        down = document.getElementById("reorderDownButton"),
+        up = document.getElementById("reorderUpButton"),
+        searchBox = document.getElementById("quickFilters-Search"),
+        countBox = document.getElementById("quickFilters-Count"),
+        mergeButton = document.getElementById("quickFilters-mergeButton");
     if (mergeButton) {
 		  if (isToolbar)
 				mergeButton.parentNode.removeChild(mergeButton); // remove unneccessary button
@@ -1078,7 +1074,6 @@ quickFilters.List = {
           }
           quickFilters.List.eventsAreHooked = true; // avoid multiple hooking.
         }
-
       }
 
       // the following changes to the dialog layout are fairly fundamental, but they follow the (UI-reviewed)
@@ -1099,8 +1094,8 @@ quickFilters.List = {
 
         // create a container that holds list label and count...
         // more DOMi ugliness...
-        let rowAbove = filterList.parentNode.parentNode.previousSibling;
-        let filterListLabel = rowAbove.firstChild;
+        let rowAbove = filterList.parentNode.parentNode.previousSibling,
+            filterListLabel = rowAbove.firstChild;
         filterListLabel.id='filterListLabel';
         formatListLabel(filterListLabel);
 
@@ -1112,23 +1107,21 @@ quickFilters.List = {
         hbox.appendChild(spc);
         // countBox.flex="1"; // make sure this is never obscured by the label
         hbox.appendChild(countBox);
-
         this.updateCountBox();
 
-
         // we need to overwrite the existing functions in order to support the "filtered" state
-        var reorderUpButton = document.getElementById("reorderUpButton");
+        let reorderUpButton = document.getElementById("reorderUpButton"),
+            reorderDownButton = document.getElementById("reorderDownButton"),
+            runFiltersButton =  document.getElementById("runFiltersButton"),
+            filterLogButton = dropDown.parentNode.getElementsByTagName("button")[0];
         reorderUpButton.setAttribute("oncommand", "quickFilters.List.onUp(event);");
-        var reorderDownButton = document.getElementById("reorderDownButton");
         reorderDownButton.setAttribute("oncommand", "quickFilters.List.onDown(event);");
 
-        var runFiltersButton =  document.getElementById("runFiltersButton");
         // find the log button (first button in hbox) and move it down
-        var filterLogButton = dropDown.parentNode.getElementsByTagName("button")[0];
         // insert Filter log button at the bottom
         runFiltersButton.parentNode.insertBefore(filterLogButton, runFiltersButton);
         // move run filters button to left
-        var runFiltersFolderMenu =  document.getElementById("runFiltersFolder");
+        let runFiltersFolderMenu =  document.getElementById("runFiltersFolder");
         runFiltersFolderMenu.parentNode.appendChild(runFiltersButton);
       }
       else {
@@ -1148,8 +1141,8 @@ quickFilters.List = {
     if (window.arguments.length) {
       quickFilters.Util.logDebugOptional('filterList', 'window.arguments found');
       // targetFilter: highlights the filter that is passed in
-      let targetFilter;
-      let targetFolder; // filter search: find filters that redirect mail to this folder
+      let targetFilter,
+          targetFolder; // filter search: find filters that redirect mail to this folder
       for (let i=0; i<window.arguments.length; i++) {
         if (window.arguments[i].targetFilter)
           targetFilter = window.arguments[i].targetFilter;
@@ -1186,9 +1179,9 @@ quickFilters.List = {
       rebuildFilterList();
     }
     // if passed to window arguments, iterate and highlight matching filter
-    let list = this.FilterListElement;
-    let filtersList = this.FilterList;
-    let ct = filtersList.filterCount;
+    let list = this.FilterListElement,
+        filtersList = this.FilterList,
+        ct = filtersList.filterCount;
     try {
       let msg = targetFilter ? 'list - searching ' + ct + ' rows for targetFilter: ' + targetFilter.filterName : 'selectFilter() - No target filter passed!';
       quickFilters.Util.logDebugOptional('filterList', msg);
@@ -1213,10 +1206,10 @@ quickFilters.List = {
   } ,
   
   updateCountBox: function updateCountBox() {
-    var countBox = document.getElementById("quickFilters-Count");
-    var sum = this.FilterList.filterCount;
-    var filterList = this.FilterListElement;
-    var len = this.getListElementCount(filterList);
+    let countBox = document.getElementById("quickFilters-Count"),
+        sum = this.FilterList.filterCount,
+        filterList = this.FilterListElement,
+        len = this.getListElementCount(filterList);
 
     if (len === sum)
       countBox.value =
@@ -1243,10 +1236,9 @@ quickFilters.List = {
       }
 
       // force a repaint through the BoxObject
-      var fl = this.FilterListElement;
-
-      // from: SM's setServer(uri) function
-      var msgFolder = this.CurrentFolder;
+      let fl = this.FilterListElement,
+          // from: SM's setServer(uri) function
+          msgFolder = this.CurrentFolder;
 
       //Calling getFilterList will detect any errors in rules.dat, backup the file, and alert the user
       switch(quickFilters.Util.Application) {
@@ -1269,9 +1261,9 @@ quickFilters.List = {
  * @param focusSearchBox  if called from the button click event, return to searchbox
  */
   onFindFilter: function onFindFilter(focusSearchBox) {
-    let searchBox = document.getElementById("quickFilters-Search");
-    let filterList = this.FilterListElement;
-    let keyWord = searchBox.value.toLocaleLowerCase();
+    let searchBox = document.getElementById("quickFilters-Search"),
+        filterList = this.FilterListElement,
+        keyWord = searchBox.value.toLocaleLowerCase();
 
     // simplest case: if filter was added or removed and searchbox is empty
     if (!keyWord && !focusSearchBox) {
@@ -1289,11 +1281,10 @@ quickFilters.List = {
 
 
     // rematch everything in the list, remove what doesn't match the search box
-    let rows = this.getListElementCount(filterList);
-
+    let rows = this.getListElementCount(filterList),
+        title;
     for(let i = rows - 1; i>=0; i--){
       let matched = true;
-      var title;
        // SeaMonkey (Postbox) vs Thunderbird - treeview vs listbox
       if (filterList.nodeName === 'tree')
       {
@@ -1332,8 +1323,8 @@ quickFilters.List = {
 
     // 1. nsIMsgAccountManager  loop through list of servers
     try {
-      let Ci = Components.interfaces;
-      let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
+      let Ci = Components.interfaces,
+          acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
                           .getService(Ci.nsIMsgAccountManager);
 			for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
         if (account.incomingServer && account.incomingServer.canHaveFilters )
@@ -1392,9 +1383,9 @@ quickFilters.List = {
    */
   filterSearchMatchExtended : function filterSearchMatchExtended(aFilter, aKeyword) {
     // more search options
-    let FA = Components.interfaces.nsMsgFilterAction;
-    let actionList = aFilter.actionList ? aFilter.actionList : aFilter.sortedActionList;
-    let acLength = actionList.Count ? actionList.Count() : actionList.length;
+    let FA = Components.interfaces.nsMsgFilterAction,
+        actionList = aFilter.actionList ? aFilter.actionList : aFilter.sortedActionList,
+        acLength = actionList.Count ? actionList.Count() : actionList.length;
     switch(quickFilters.List.searchType) {
       case 'name':
         return (aFilter.filterName.toLocaleLowerCase().contains(aKeyword));
@@ -1421,8 +1412,8 @@ quickFilters.List = {
           // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
           let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
           if (searchTerm.value) {
-            let val = searchTerm.value; // nsIMsgSearchValue
-            let AC = Components.interfaces.nsMsgSearchAttrib;
+            let val = searchTerm.value, // nsIMsgSearchValue
+                AC = Components.interfaces.nsMsgSearchAttrib;
             if (val && quickFilters.Util.isStringAttrib(val.attrib)) {
               let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
               if (conditionStr.toLocaleLowerCase().contains(aKeyword))
@@ -1484,8 +1475,9 @@ quickFilters.List = {
   } ,
   // gets string from search-attributes.properties
   getSearchAttributeString: function getSearchAttributeString(id, defaultText) {
+    let s;
     try {
-      var s = this.bundleSA.GetStringFromName(id); 
+      s = this.bundleSA.GetStringFromName(id); 
     }
     catch(e) {
       s = defaultText;
@@ -1495,8 +1487,9 @@ quickFilters.List = {
   } ,  
   
   getSearchOperatorString: function getSearchOperatorString(id, defaultText) {
+    let s;
     try {
-      var s = this.bundleSO.GetStringFromName(id); 
+      s = this.bundleSO.GetStringFromName(id); 
     }
     catch(e) {
       s = defaultText;
@@ -1594,8 +1587,8 @@ quickFilters.List = {
   
   clearResultsPopup: function clearResultsPopup(show, popupId) {
     try {
-      let termDropDown = document.getElementById(popupId);
-      let menuPopup = termDropDown.menupopup;
+      let termDropDown = document.getElementById(popupId),
+          menuPopup = termDropDown.menupopup;
       // clear
       while(menuPopup.childNodes.length) {
         menuPopup.removeChild(menuPopup.childNodes[0]);
@@ -1621,18 +1614,18 @@ quickFilters.List = {
     // 2. operator
     // 3. match String
     this.duplicateTerms = [];  
-    let Terms = [];
     this.duplicateActions = [];
-    let Actions = [];
+    let Terms = [],
+        Actions = [];
     
     quickFilters.Util.popupProFeature("duplicatesFinder", "Duplicate Finder", true, false);    
-    let filtersList = this.FilterList; 
-    let FA = Components.interfaces.nsMsgFilterAction;
+    let filtersList = this.FilterList,
+        FA = Components.interfaces.nsMsgFilterAction;
     // build a dictionary of terms; this might take some time!
     for (let idx = 0; idx < filtersList.filterCount; idx++) {
-      let filter = filtersList.getFilterAt(idx);
+      let filter = filtersList.getFilterAt(idx),
       // 1. Search Conditions
-      let stCollection = filter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+          stCollection = filter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
       for (let t = 0; t < stCollection.Count(); t++) {
         // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
         // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
@@ -1640,9 +1633,9 @@ quickFilters.List = {
         if (searchTerm.value) {
           let val = searchTerm.value; // nsIMsgSearchValue
           if (val && quickFilters.Util.isStringAttrib(val.attrib)) {
-            let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
-            let term = { attrib: val.attrib, operator: searchTerm.op, value: conditionStr, count: 1}; // .toLocaleLowerCase()
-            let found = false;
+            let conditionStr = searchTerm.value.str || '', // guard against invalid str value.
+                term = { attrib: val.attrib, operator: searchTerm.op, value: conditionStr, count: 1}, // .toLocaleLowerCase()
+                found = false;
             for (let i=0; i<Terms.length; i++) {
               if (Terms[i].attrib == term.attrib && Terms[i].value == term.value && Terms[i].operator == term.operator) {
                 Terms[i].count++;
@@ -1658,8 +1651,8 @@ quickFilters.List = {
       // 2. Actions
       let actionCount = quickFilters.Util.getActionCount(filter);
       for (let a = 0; a < actionCount; a++) {
-        let action = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
-        let actionValue = '';
+        let action = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction),
+            actionValue = '';
         switch(action.type) {
           case FA.MoveToFolder: case FA.CopyToFolder:
             actionValue = action.targetFolderUri;
@@ -1674,8 +1667,8 @@ quickFilters.List = {
             actionValue = '';
         }
         if (actionValue) {
-          let actionTerm = { type: action.type, value: actionValue, count: 1};
-          let found = false;
+          let actionTerm = { type: action.type, value: actionValue, count: 1},
+              found = false;
           for (let i=0; i<Actions.length; i++) {
             if (Actions[i].type == actionTerm.type && Actions[i].value == actionTerm.value) {
               Actions[i].count++;
@@ -1700,9 +1693,9 @@ quickFilters.List = {
       if (term.count>1) {
         this.duplicateTerms.push(term);
         quickFilters.Util.logDebug("Found duplicate condition: {attrib: " + term.attrib + ", op: " + term.operator + ", value: " + term.value + ", count: " + term.count +"}");
-        let menuItem = document.createElement("menuitem");
-        let vLabel = term.value; 
-        let theLabel = this.getAttributeLabel(term.attrib) + ' ' 
+        let menuItem = document.createElement("menuitem"),
+            vLabel = term.value,
+            theLabel = this.getAttributeLabel(term.attrib) + ' ' 
                      + this.getOperatorLabel(term.operator) + ': ' 
                      + vLabel 
                      + ' (' + term.count + ')';
@@ -1718,12 +1711,12 @@ quickFilters.List = {
       if (action.count>1) {
         this.duplicateActions.push(action);
         quickFilters.Util.logDebug("Found duplicate action: {attrib: " + action.type + ", value: " + action.value + ", count: " + action.count +"}");
-        let menuItem = document.createElement("menuitem");
-        let dec = action.value;
+        let menuItem = document.createElement("menuitem"),
+            dec = action.value;
         if (action.type==FA.MoveToFolder || action.type==FA.CopyToFolder)
           dec = decodeURI(dec);
-        let labelVal = this.truncateLabel(dec, 30);
-        let theLabel = this.getActionLabel(action.type) + ': ' 
+        let labelVal = this.truncateLabel(dec, 30),
+            theLabel = this.getActionLabel(action.type) + ': ' 
                      + labelVal
                      + ' (' + action.count + ')';
         menuItem.setAttribute("label", theLabel);
@@ -1761,10 +1754,10 @@ quickFilters.List = {
     contextMenu.collapsed = false;
     let actionType = el.selectedItem.getAttribute('actionType');
     if (actionType) {
-      let men = quickFilters.Util.getBundleString('quickfilters.menu.removeDupeAction', 'Remove duplicate action');
+      let men = quickFilters.Util.getBundleString('quickfilters.menu.removeDupeAction', 'Remove duplicate action'),
       // remove the count e.g. (2) from label
-      let pos = el.label.lastIndexOf('(');
-      let displayAction = pos ? el.label.substring(0, pos) :  el.label;
+          pos = el.label.lastIndexOf('('),
+          displayAction = pos ? el.label.substring(0, pos) :  el.label;
       contextMenu.label = men + ": " + displayAction + "...";
       contextMenu.value = el.value;
       contextMenu.setAttribute("actionType", actionType);
@@ -1802,11 +1795,10 @@ quickFilters.List = {
       return;
 
     // selectDuplicate has prepared the contextMenu item
-    let dupeList = document.getElementById('quickFiltersDuplicateList');
-    let termValue = dupeList.value; // can be condition value or action value
-    let termActionType = dupeList.selectedItem.getAttribute("actionType");
-
-    let args = {
+    let dupeList = document.getElementById('quickFiltersDuplicateList'),
+        termValue = dupeList.value,        // can be condition value or action value
+        termActionType = dupeList.selectedItem.getAttribute("actionType"),
+        args = {
       filter: selectedFilter, 
       filterList: gCurrentFilterList, 
       filterConditionValue: termValue,           // use this to scroll to and highlight the condition needing to be removed
@@ -1832,14 +1824,13 @@ quickFilters.List = {
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
     
     // find out of we need to change server:
-    let item = el.selectedItem;
-    let account = item.targetAccount;
-    let targetFilter = item.targetFilter;
-    let uri = item.getAttribute('targetFolderUri');
-    let actionType = item.getAttribute('actionType');
-    
+    let item = el.selectedItem,
+        account = item.targetAccount,
+        targetFilter = item.targetFilter,
+        uri = item.getAttribute('targetFolderUri'),
+        actionType = item.getAttribute('actionType'),    
     // change server to correct account
-    let aFolder = account ? account.rootMsgFolder : null;
+        aFolder = account ? account.rootMsgFolder : null;
     if (typeof onFilterFolderClick !== 'undefined') {
       //Thunderbird specific code!
       onFilterFolderClick(aFolder);
@@ -1873,10 +1864,10 @@ quickFilters.List = {
     quickFilters.Util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ')');
     
     try {
-      let Ci = Components.interfaces;
-      let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                          .getService(Ci.nsIMsgAccountManager);
-      let FA = Components.interfaces.nsMsgFilterAction;
+      let Ci = Components.interfaces,
+          acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
+                          .getService(Ci.nsIMsgAccountManager),
+          FA = Components.interfaces.nsMsgFilterAction;
       
       // 1. create a list of matched filters and corresponding accounts 
       //    (these will be linked via index
@@ -1885,11 +1876,11 @@ quickFilters.List = {
       }
 			for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
         if (account.incomingServer && account.incomingServer.canHaveFilters ) {
-          let msg ='';
-          let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
-          // 2. getFilterList
-          let filtersList = ac.getFilterList(gFilterListMsgWindow).QueryInterface(Ci.nsIMsgFilterList);
-          let found=false;
+          let msg ='',
+              ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer),
+              // 2. getFilterList
+              filtersList = ac.getFilterList(gFilterListMsgWindow).QueryInterface(Ci.nsIMsgFilterList),
+              found=false;
           if (filtersList) {
             // build a dictionary of terms; this might take some time!
             let numFilters = filtersList.filterCount;
@@ -1897,15 +1888,15 @@ quickFilters.List = {
                                                + "for target folder: " +  targetFolder.URI + '\n'
                                                + "iterating " + numFilters + " filters...");
             for (let idx = 0; idx < numFilters; idx++) {
-              let curFilter = filtersList.getFilterAt(idx);
+              let curFilter = filtersList.getFilterAt(idx),
               // Match Target Folder by iterating all actions
-              let actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList;
-              let acLength = actionList.Count ? actionList.Count() : actionList.length;
+                  actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList,
+                  acLength = actionList.Count ? actionList.Count() : actionList.length;
               for (let index = 0; index < acLength; index++) {
-                let qryAt = actionList.queryElementAt ? actionList.queryElementAt : actionList.QueryElementAt;
-                let action = qryAt(index, Components.interfaces.nsIMsgRuleAction);
+                let qryAt = actionList.queryElementAt ? actionList.queryElementAt : actionList.QueryElementAt,
+                    action = qryAt(index, Components.interfaces.nsIMsgRuleAction);
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
-                  if (action.targetFolderUri);
+                  if (action.targetFolderUri)
                     msg += "[" + index + "] Current Filter URI:" +  action.targetFolderUri + "\n";
                   if (action.targetFolderUri && action.targetFolderUri === targetFolder.URI) { 
                     quickFilters.Util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
@@ -1937,11 +1928,11 @@ quickFilters.List = {
       let menuPopup = this.clearFoundFiltersPopup(true);
       
       for (let idx = 0; idx < this.searchFilterResults.length; idx++) {
-        let target = this.searchFilterResults[idx];
-        let menuItem = document.createElement("menuitem");
-        let dec = decodeURI(target.Action.targetFolderUri);
-        let valueLabel = this.truncateLabel(dec, 30);
-        let filterIdLabel = target.Filter.filterName;
+        let target = this.searchFilterResults[idx],
+            menuItem = document.createElement("menuitem"),
+            dec = decodeURI(target.Action.targetFolderUri),
+            valueLabel = this.truncateLabel(dec, 30),
+            filterIdLabel = target.Filter.filterName;
         if (target.Account.prettyName) {
           filterIdLabel = '[' + target.Account.prettyName + '] ' +  filterIdLabel;
         }

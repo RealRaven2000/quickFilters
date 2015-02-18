@@ -1,6 +1,8 @@
 
 // highlight removable filter conditions (duplicates)
 window.onload = function() {
+  let utils = quickFilters.Util;
+  if (utils.Debug) debugger;
   filterEditorOnLoad();
   setTimeout( function() {
     function matchAction(actionType, actionString) {
@@ -16,9 +18,8 @@ window.onload = function() {
       }
     }
   
-		let utils = quickFilters.Util;
     if ("arguments" in window && window.arguments[0]) {
-      var args = window.arguments[0];  
+      let args = window.arguments[0];  
       if (args.filterConditionValue) {
         window.quickFiltersConditionSearch = true; // a flag to tell us refreshing the list
         let found = false;

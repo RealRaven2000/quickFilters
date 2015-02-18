@@ -12,8 +12,8 @@
 // onload
 
 var quickFilters_OnLoad = function() {
-  var quickFilters_serverVbox = document.getElementById('server.quickFilters-runFilter');
-  var quickFilters_downLoadOnBiff = document.getElementById('server.downloadOnBiff');
+  let quickFilters_serverVbox = document.getElementById('server.quickFilters-runFilter'),
+      quickFilters_downLoadOnBiff = document.getElementById('server.downloadOnBiff');
 
   if (quickFilters_downLoadOnBiff && quickFilters_serverVbox) {
     let par = quickFilters_downLoadOnBiff.parentNode;
@@ -33,6 +33,6 @@ var quickFilters_OnLoad = function() {
 }
 
 /* great if there was an onload event for the page? */
-setTimeout(function() {quickFilters_OnLoad();}, 200};
+setTimeout(function() {quickFilters_OnLoad();}, 200});
 
 
