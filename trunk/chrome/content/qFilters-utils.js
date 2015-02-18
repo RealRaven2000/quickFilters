@@ -54,7 +54,7 @@ var QuickFilters_TabURIregexp = {
 };
 
 quickFilters.Util = {
-  HARDCODED_EXTENSION_VERSION : "2.7.1",
+  HARDCODED_EXTENSION_VERSION : "2.8",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -106,8 +106,9 @@ quickFilters.Util = {
 
   // gets string from overlay.properties
   getBundleString: function getBundleString(id, defaultText) {
+    let s;
     try {
-      var s= quickFilters.Properties.getLocalized(id); 
+      s= quickFilters.Properties.getLocalized(id); 
     }
     catch(e) {
       s = defaultText;
@@ -118,8 +119,8 @@ quickFilters.Util = {
 
   getMail3PaneWindow: function getMail3PaneWindow() {
     let windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
-        .getService(Components.interfaces.nsIWindowMediator);
-    var win3pane = windowManager.getMostRecentWindow("mail:3pane");
+        .getService(Components.interfaces.nsIWindowMediator),
+        win3pane = windowManager.getMostRecentWindow("mail:3pane");
     return win3pane;
   } ,
   
@@ -129,14 +130,14 @@ quickFilters.Util = {
   } ,
 
   get AppverFull() {
-    var appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
+    let appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
             .getService(Components.interfaces.nsIXULAppInfo);
     return appInfo.version;
   },
 
   get Appver() {
     if (null === this.mAppver) {
-    var appVer=this.AppverFull.substr(0,3); // only use 1st three letters - that's all we need for compatibility checking!
+    let appVer=this.AppverFull.substr(0,3); // only use 1st three letters - that's all we need for compatibility checking!
       this.mAppver = parseFloat(appVer); // quick n dirty!
     }
     return this.mAppver;
@@ -144,7 +145,7 @@ quickFilters.Util = {
 
   get Application() {
     if (null===this.mAppName) {
-    var appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
+    let appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
             .getService(Components.interfaces.nsIXULAppInfo);
       const FIREFOX_ID = "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}";
       const THUNDERBIRD_ID = "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
@@ -170,7 +171,7 @@ quickFilters.Util = {
   
   get HostSystem() {
     if (null===this.mHost) {
-      var osString = Components.classes["@mozilla.org/xre/app-info;1"]
+      let osString = Components.classes["@mozilla.org/xre/app-info;1"]
             .getService(Components.interfaces.nsIXULRuntime).OS;
       this.mHost = osString.toLowerCase();
     }
@@ -218,9 +219,10 @@ quickFilters.Util = {
     //returns the current QF version number.
     if(quickFilters.Util.mExtensionVer)
       return quickFilters.Util.mExtensionVer;
-    var current = quickFilters.Util.HARDCODED_EXTENSION_VERSION + quickFilters.Util.HARDCODED_EXTENSION_TOKEN;
+    let current = quickFilters.Util.HARDCODED_EXTENSION_VERSION + quickFilters.Util.HARDCODED_EXTENSION_TOKEN,
+        Cc = Components.classes;
 
-    if (!Components.classes["@mozilla.org/extensions/manager;1"]) {
+    if (!Cc["@mozilla.org/extensions/manager;1"]) {
       // Addon Manager: use Proxy code to retrieve version asynchronously
       quickFilters.Util.VersionProxy(); // modern Mozilla builds.
                         // these will set mExtensionVer (eventually)
@@ -229,10 +231,9 @@ quickFilters.Util = {
     else  // --- older code: extensions manager.
     {
       try {
-        if(Components.classes["@mozilla.org/extensions/manager;1"])
-        {
-          var gExtensionManager = Components.classes["@mozilla.org/extensions/manager;1"]
-            .getService(Components.interfaces.nsIExtensionManager);
+        if (Cc["@mozilla.org/extensions/manager;1"]) {
+          let gExtensionManager = Cc["@mozilla.org/extensions/manager;1"]
+                                    .getService(Components.interfaces.nsIExtensionManager);
           current = gExtensionManager.getItemForID(quickFilters.Util.ADDON_ID).version;
         }
         else {
@@ -254,10 +255,10 @@ quickFilters.Util = {
   } ,
   
   getVersionSimple: function getVersionSimple(ver) {
-    let pureVersion = ver;  // default to returning unchanged
-    // get first match starting with numbers mixed with .   
-    let reg = new RegExp("[0-9.]*");
-    let results = ver.match(reg); 
+    let pureVersion = ver,  // default to returning unchanged
+        // get first match starting with numbers mixed with .   
+        reg = new RegExp("[0-9.]*"),
+        results = ver.match(reg); 
     if (results) 
       pureVersion = results[0];
     return pureVersion;
@@ -300,8 +301,8 @@ quickFilters.Util = {
 	} ,	
 	
 	get tabmail() {
-		var doc = this.getMail3PaneWindow().document;
-		let tabmail = doc.getElementById("tabmail");
+		let doc = this.getMail3PaneWindow().document,
+		    tabmail = doc.getElementById("tabmail");
 		return tabmail;
 	} ,
 	
@@ -309,8 +310,8 @@ quickFilters.Util = {
 	// use this to temporarily open a tab for a folder if the msgDatabase remains invalid.
 	// there should be another way to do this, but for the moment this is the workaround.
 	openTempFolderInNewTab: function openTempFolderInNewTab(folder, background) {
-		var win = this.getMail3PaneWindow();
-		let tabmail = this.tabmail;
+		let win = this.getMail3PaneWindow(),
+		    tabmail = this.tabmail;
 		if (tabmail) {
 		  let tabName = folder.name;
 			switch (this.Application) {
@@ -375,10 +376,10 @@ quickFilters.Util = {
       let panel = document.getElementById('quickFilterNotification');
       if (panel) {
         panel.openPopup(null, "after_start", 0, 0, false, false);
-        let notificationBox = document.getElementById('quickFilterNotificationBox');
-        let priority = notificationBox.PRIORITY_WARNING_MEDIUM;
-        // appendNotification( label , value , image , priority , buttons, eventCallback )
-        let note = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
+        let notificationBox = document.getElementById('quickFilterNotificationBox'),
+            priority = notificationBox.PRIORITY_WARNING_MEDIUM,
+            // appendNotification( label , value , image , priority , buttons, eventCallback )
+            note = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
         notificationBox.addEventListener('alertclose', function() { alert('test'); });
         window.setTimeout(function() {try{notificationBox.removeNotification(note)}catch(e){};panel.hidePopup();}, 4000);
         //let note = document.createElement('notification');
@@ -389,8 +390,6 @@ quickFilters.Util = {
       else {
         let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
                                       .getService(Components.interfaces.nsIPromptService);
-
-        //let check = {value: false};   // default the checkbox to true
         prompts.alert(window, title, text); 
       }
     }
@@ -406,8 +405,8 @@ quickFilters.Util = {
 	} ,  
   
 	popupProFeature: function popupProFeature(featureName, text, isDonate, isRegister) {
-		let notificationId;
-    let util = quickFilters.Util;
+		let notificationId,
+        util = quickFilters.Util;
 		// is notification disabled?
 		// check setting extensions.quickfilters.proNotify.<featureName>
     try {
@@ -431,19 +430,16 @@ quickFilters.Util = {
       notifyBox = util.getMail3PaneWindow().document.getElementById (notificationId);
     }
 		let title=util.getBundleString("quickfilters.notification.proFeature.title",
-				"Premium Feature");
-		let theText = util.getBundleString("quickfilters.notification.proFeature.notificationText",
-				"The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year. ");
-    let featureTitle = util.getBundleString('quickfilters.premium.title.' + featureName, featureName);
+				"Premium Feature"),
+		    theText = util.getBundleString("quickfilters.notification.proFeature.notificationText",
+				"The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year. "),
+        featureTitle = util.getBundleString('quickfilters.premium.title.' + featureName, featureName);
 		theText = theText.replace ("{1}", "'" + featureTitle + "'");
-		let dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
-			
-
-		let nbox_buttons = [];
+		let nbox_buttons = [],
+        dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
 		if (notifyBox) {
-			let notificationKey = "quickfilters-proFeature";
-      
-      let countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") ;
+			let notificationKey = "quickfilters-proFeature",      
+          countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") ;
       if (notifyBox.getNotificationWithValue(notificationKey)) {
         // notification is already shown on screen.
         quickFilters.Util.logDebug('notifyBox for [' + notificationKey + '] is already displayed, no action necessary.\n'
@@ -502,7 +498,7 @@ quickFilters.Util = {
 			
 			if (notifyBox) {
 				let item = notifyBox.getNotificationWithValue(notificationKey);
-				if(item)
+				if (item)
 					notifyBox.removeNotification(item, (util.Application == 'Postbox'));
 			}
 		
@@ -517,12 +513,10 @@ quickFilters.Util = {
 		}
 		else {
 			// fallback for systems that do not support notification (currently: SeaMonkey)
-			var prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]  
-															.getService(Components.interfaces.nsIPromptService);  
-				
-			var check = {value: false};   // default the checkbox to true  
-				
-			var result = prompts.alertCheck(null, title, theText, dontShow, check);
+			let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]  
+															.getService(Components.interfaces.nsIPromptService),  
+			    check = {value: false},   // default the checkbox to true  
+			    result = prompts.alertCheck(null, title, theText, dontShow, check);
 			if (check.value==true)
 				util.disableFeatureNotification(featureName);
 		}
@@ -530,10 +524,10 @@ quickFilters.Util = {
 
   showStatusMessage: function showStatusMessage(s) {
     try {
-      var sb = this.getMail3PaneWindow().document.getElementById('status-bar');
-      var el, sbt;
+      let sb = this.getMail3PaneWindow().document.getElementById('status-bar'),
+          el, sbt;
       if (sb) {
-        for(var i = 0; i < sb.childNodes.length; i++)
+        for(let i = 0; i < sb.childNodes.length; i++)
         {
           el = sb.childNodes[i];
           if (el.nodeType === 1 && el.id === 'statusTextBox') {
@@ -541,7 +535,7 @@ quickFilters.Util = {
               break;
           }
         }
-        for(var i = 0; i < sbt.childNodes.length; i++)
+        for(let i = 0; i < sbt.childNodes.length; i++)
         {
           el = sbt.childNodes[i];
           if (el.nodeType === 1 && el.id === 'statusText') {
@@ -560,13 +554,13 @@ quickFilters.Util = {
   } ,
 
   getCurrentFolder: function getCurrentFolder() {
-    var aFolder;
+    let aFolder;
     if (typeof(GetLoadedMsgFolder) != 'undefined') {
       aFolder = GetLoadedMsgFolder();
     }
     else
     {
-      var currentURI;
+      let currentURI;
       if (quickFilters.Util.Application==='Postbox') {
         currentURI = GetSelectedFolderURI();
       }
@@ -585,23 +579,23 @@ quickFilters.Util = {
 	
 	// postbox helper function
 	pbGetSelectedMessages : function pbGetSelectedMessages() {
-	  var messageList = [];
+	  let messageList = [];
 	  // guard against any other callers.
 	  if (quickFilters.Util.Application != 'Postbox')
 		  throw('pbGetSelectedMessages: Postbox specific function!');
 			
 	  try {
-	    var messageArray = {};
-	    var length = {};
-	    var view = GetDBView();
+	    let messageArray = {},
+	        length = {},
+	        view = GetDBView();
 	    view.getURIsForSelection(messageArray, length);
 	    if (length.value) {
 			  let messageUris = messageArray.value;
 				//let messageIdList = [];
 				// messageList = Components.classes["@mozilla.org/supports-array;1"].createInstance(Components.interfaces.nsISupportsArray);
 				for (let i = 0; i < messageUris.length; i++) {
-					let messageUri = messageUris[i];
-					let Message = messenger.messageServiceFromURI(messageUri).messageURIToMsgHdr(messageUri);
+					let messageUri = messageUris[i],
+					    Message = messenger.messageServiceFromURI(messageUri).messageURIToMsgHdr(messageUri);
 					messageList.push(Message);
 				}
 	    	return messageList;
@@ -617,15 +611,15 @@ quickFilters.Util = {
 	
 
   logTime: function logTime() {
-    var timePassed = '';
+    let timePassed = '';
     try { // AG added time logging for test
-      var end= new Date();
-      var endTime = end.getTime();
+      let end= new Date(),
+          endTime = end.getTime();
       if (this.lastTime === 0) {
         this.lastTime = endTime;
         return "[logTime init]"
       }
-      var elapsed = new String(endTime - this.lastTime); // time in milliseconds
+      let elapsed = new String(endTime - this.lastTime); // time in milliseconds
       timePassed = '[' + elapsed + ' ms]   ';
       this.lastTime = endTime; // remember last time
     }
@@ -648,17 +642,16 @@ quickFilters.Util = {
   // exceptionFlag  0x2   An exception was thrown for this case - exception-aware hosts can ignore this.
   // strictFlag     0x4
   logError: function logError(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags) {
-    var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
-                                   .getService(Components.interfaces.nsIConsoleService);
-    var aCategory = '';
-
-    var scriptError = Components.classes["@mozilla.org/scripterror;1"].createInstance(Components.interfaces.nsIScriptError);
+    let consoleService = Components.classes["@mozilla.org/consoleservice;1"]
+                                   .getService(Components.interfaces.nsIConsoleService),
+        aCategory = '',
+        scriptError = Components.classes["@mozilla.org/scripterror;1"].createInstance(Components.interfaces.nsIScriptError);
     scriptError.init(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags, aCategory);
     consoleService.logMessage(scriptError);
   } ,
 
   logException: function logException(aMessage, ex) {
-    var stack = '';
+    let stack = '';
     if (typeof ex.stack!='undefined')
       stack= ex.stack.replace("@","\n  ");
 
@@ -677,19 +670,18 @@ quickFilters.Util = {
   },
 	
 	getAccountsPostbox: function getAccountsPostbox() {
-	  let accounts=[];
-    let Ci = Components.interfaces;
-		var smartServers = accountManager.allSmartServers;
-		for (var i = 0; i < smartServers.Count(); i++)
-		{
-			var smartServer = smartServers.QueryElementAt(i, Ci.nsIMsgIncomingServer);
-			var account_groups = smartServer.getCharValue("group_accounts");
+	  let accounts=[],
+        Ci = Components.interfaces,
+		    smartServers = accountManager.allSmartServers;
+		for (let i = 0; i < smartServers.Count(); i++) {
+			let smartServer = smartServers.QueryElementAt(i, Ci.nsIMsgIncomingServer),
+			    account_groups = smartServer.getCharValue("group_accounts");
 			if (account_groups)
 			{
-				var groups = account_groups.split(",");
-				for each (var accountKey in groups)
+				let groups = account_groups.split(",");
+				for each (let accountKey in groups)
 				{
-					var account = accountManager.getAccount(accountKey);
+					let account = accountManager.getAccount(accountKey);
 					if (account)
 					{
 						accounts.push(account);
@@ -703,17 +695,18 @@ quickFilters.Util = {
   // dedicated function for email clients which don't support tabs
   // and for secured pages (donation page).
   openLinkInBrowserForced: function openLinkInBrowserForced(linkURI) {
-    let Ci = Components.interfaces;
+    let Ci = Components.interfaces,
+        Cc = Components.classes;
     try {
       this.logDebug("openLinkInBrowserForced (" + linkURI + ")");
       if (quickFilters.Util.Application==='SeaMonkey') {
-        var windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator);
-        var browserWin = windowManager.getMostRecentWindow( "navigator:browser" );
+        let windowManager = Cc['@mozilla.org/appshell/window-mediator;1'].getService(Ci.nsIWindowMediator),
+            browserWin = windowManager.getMostRecentWindow( "navigator:browser" );
         if (browserWin) {
           let URI = linkURI;
           setTimeout(function() { 
-						let tabBrowser = browserWin.getBrowser();
-						let params = {"selected":true};
+						let tabBrowser = browserWin.getBrowser(),
+						    params = {"selected":true};
 					  browserWin.currentTab = tabBrowser.addTab(URI, params); 
 						if (browserWin.currentTab.reload) browserWin.currentTab.reload(); 
 						// activate last tab
@@ -727,11 +720,11 @@ quickFilters.Util = {
 
         return;
       }
-      var service = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"]
-        .getService(Ci.nsIExternalProtocolService);
-      var ioservice = Components.classes["@mozilla.org/network/io-service;1"].
-            getService(Ci.nsIIOService);
-      var uri = ioservice.newURI(linkURI, null, null);
+      let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
+                              .getService(Ci.nsIExternalProtocolService),
+          ioservice = Cc["@mozilla.org/network/io-service;1"].
+            getService(Ci.nsIIOService),
+          uri = ioservice.newURI(linkURI, null, null);
       service.loadURI(uri);
     }
     catch(e) { this.logDebug("openLinkInBrowserForced (" + linkURI + ") " + e.toString()); }
@@ -740,13 +733,13 @@ quickFilters.Util = {
   // moved from options.js
   // use this to follow a href that did not trigger the browser to open (from a XUL file)
   openLinkInBrowser: function openLinkInBrowser(evt,linkURI) {
-    let Cc = Components.classes;
-    let Ci = Components.interfaces;
+    let Cc = Components.classes,
+        Ci = Components.interfaces;
     if (quickFilters.Util.Application === 'Thunderbird') {
-      var service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
-        .getService(Ci.nsIExternalProtocolService);
-      var ioservice = Cc["@mozilla.org/network/io-service;1"].
-            getService(Ci.nsIIOService);
+      let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
+                      .getService(Ci.nsIExternalProtocolService),
+          ioservice = Cc["@mozilla.org/network/io-service;1"]
+                        .getService(Ci.nsIIOService);
       service.loadURI(ioservice.newURI(linkURI, null, null));
       if(null !== evt)
         evt.stopPropagation();
@@ -758,7 +751,7 @@ quickFilters.Util = {
 
   // moved from options.js (then called
   openURL: function openURL(evt,URL) { // workaround for a bug in TB3 that causes href's not be followed anymore.
-    var ioservice,iuri,eps;
+    let ioservice,iuri,eps;
 
     if (quickFilters.Util.Application==='SeaMonkey' || quickFilters.Util.Application==='Postbox')
     {
@@ -783,11 +776,11 @@ quickFilters.Util = {
 					this.openLinkInBrowser(null, URL);
 					return;
 				case "Thunderbird":
-					var sTabMode="";
-					let tabmail = this.tabmail;
+					let sTabMode="",
+					    tabmail = this.tabmail;
 					if (!tabmail) {
 						// Try opening new tabs in an existing 3pane window
-						var mail3PaneWindow = this.getMail3PaneWindow();
+						let mail3PaneWindow = this.getMail3PaneWindow();
 						if (mail3PaneWindow) {
 							tabmail = mail3PaneWindow.document.getElementById("tabmail");
 							mail3PaneWindow.focus();
@@ -857,7 +850,7 @@ quickFilters.Util = {
       }
 
       let messageIdList = [];
-      for (var i = 0; i < messageUris.length; i++) {
+      for (let i = 0; i < messageUris.length; i++) {
         let Uri = messageUris[i];
         let msgHeader = messenger.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
         messageIdList.push(this.makeMessageListEntry(msgHeader));  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
@@ -885,10 +878,9 @@ quickFilters.Util = {
     if (!document.getElementById(id)) {
       this.logDebug("installButton(" + toolbarId + "," + id + "," + afterId + ")");
 
-      var toolbar = document.getElementById(toolbarId);
-
+      let toolbar = document.getElementById(toolbarId),
+          before = null;
       // If no afterId is given, then append the item to the toolbar
-      var before = null;
       if (afterId) {
         let elem = document.getElementById(afterId);
         if (elem && elem.parentNode == toolbar)

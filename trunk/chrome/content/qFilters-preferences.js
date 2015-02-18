@@ -46,7 +46,7 @@ quickFilters.Preferences = {
 		try {
       return this.service.getIntPref(this.Prefix + p);
     } catch(e) {
-			var s="Err:" +e;
+			let s="Err:" +e;
 			quickFilters.Util.logToConsole("getIntPref(" + this.Prefix + p + ") failed:\n" + s);
 			throw(e);
 		}
@@ -73,7 +73,7 @@ quickFilters.Preferences = {
 		try {
 			return this.service.getBoolPref(p);
 		} catch(e) {
-			var s="Err:" +e;
+			let s="Err:" +e;
 			quickFilters.Util.logToConsole("getBoolPrefNative(" + p + ") failed:\n" + s);
 			return false;
 		}
@@ -91,7 +91,7 @@ quickFilters.Preferences = {
 		try {
 			return this.service.setBoolPref(p, v);
 		} catch(e) {
-			var s="Err:" +e;
+			let s="Err:" +e;
 			return false;
 		}
 	} ,

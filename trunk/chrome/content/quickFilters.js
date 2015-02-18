@@ -201,7 +201,7 @@
     #  Improved notification message for premium features
     #  Postbox / SeaMonkey: Fixed insert position for cut/paste functionality
 
-  2.7.1: 28/10/2014
+  2.7.1 : 28/10/2014
     # [Bug 25829] Pasting filters positions wrong when search box active
     # [Bug 25875] Refresh+Focus Message Filters List after filter creation if already open 
     # [Bug 25876] Disable two way-address search selects wrong condition 
@@ -213,11 +213,13 @@
     # Improved Folder context "Find Filter" Command behavior when multiple filters are found (Sm, Pb)
     # Improved Look of Search Options dropdown button in Linux (Ubuntu)
     # Improved Alphabetic Sorting by using toLocaleLowerCase()
-
-    
   
-  2.8 : WIP
+  2.8 : 13/12/2014
     # [Bug 25863] Filter by 'Reply To' field - extensions.quickfilters.experimental.replyTo
+    # [Bug 25893] Added Toolbarbuttons for QuickFolders' current folder bar
+    # [Bug 25895] Option to uncheck "Apply filter when getting new mail"
+    # add sliding notification after run filters command
+    # [Bug 25912] Support adding subjects from multiple Emails
   
   PLANNED CHANGES  
 		# add support for Nostalgy: W.I.P.
@@ -281,10 +283,10 @@ var quickFilters = {
 					quickFilters.Util.logDebugOptional("events", "onDropPostbox: " + event);
 					if (!quickFilters.Worker.FilterMode)
 						return;
-					var row = { }, col = { }, child = { };
-					let treechildren = event.originalTarget;
-					let tree = treechildren.parentNode;
-					let tbo = tree.treeBoxObject;
+					let row = { }, col = { }, child = { },
+					    treechildren = event.originalTarget,
+					    tree = treechildren.parentNode,
+					    tbo = tree.treeBoxObject;
 					tbo.getCellAt(event.clientX, event.clientY, row, col, child);
 					quickFilters.onFolderTreeViewDrop(row.value); 
 				}
@@ -296,8 +298,8 @@ var quickFilters = {
 
   onLoad: function onLoad() {
     // initialization code - guard against all other windows except 3pane
-    let util = quickFilters.Util;
-    let el = document.getElementById('messengerWindow');
+    let util = quickFilters.Util,
+        el = document.getElementById('messengerWindow');
     if (!el || el.getAttribute('windowtype') !== "mail:3pane")
       return;
 
@@ -306,11 +308,11 @@ var quickFilters = {
     util.logDebugOptional("events", "quickFilters.onload - starts");
     this.strings = document.getElementById("quickFilters-strings");
 
-    let tree = quickFilters.folderTree;
-    let treeView = quickFilters.folderTreeView;
+    let tree = quickFilters.folderTree,
+        treeView = quickFilters.folderTreeView;
 
-    // let's wrap the drop function in our own (unless it already is [quickFiltersDropper would be defined])
-    if (!quickFilters.folderTree.quickFiltersDropper) {
+    // let's wrap the drop function in our own (unless it already is quickFilters_originalDrop would be defined])
+    if (!tree.quickFilters_originalDrop) {  
       switch (util.Application) {
         case 'Postbox':  
           // tree.quickFilters_originalDrop = treeView.drop;
@@ -334,6 +336,7 @@ var quickFilters = {
               util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
             }
           }
+          // fix "too much recursion" error!
           tree.quickFilters_originalDrop.apply(treeView, arguments);
         }
         /**************************************/
@@ -346,11 +349,9 @@ var quickFilters = {
             break;
           case 'SeaMonkey':
             folderObserver.onDrop = newDrop;
-						treeView.quickFiltersDropper = true;
             break;
           case 'Thunderbird':
             treeView.drop = newDrop;
-						treeView.quickFiltersDropper = true;
             break;
         }
       }
@@ -362,7 +363,7 @@ var quickFilters = {
 		  if (gQuickfilePanel && !gQuickfilePanel.executeQuickfilePanel) {
 			  gQuickfilePanel.executeQuickfilePanel = gQuickfilePanel.execute;
 			  gQuickfilePanel.execute = function() {
-				  var restoreFunction = MsgMoveMessage;
+				  let restoreFunction = MsgMoveMessage;
 				  quickFilters.executeQuickfilePanelPreEvent(gQuickfilePanel);
 					gQuickfilePanel.executeQuickfilePanel();  // the actual workload, 
 					                                          // includes creating the filter and calling the wrapped MsgMoveMessage
@@ -386,8 +387,8 @@ var quickFilters = {
     // Add Custom Terms... - only from next version after 2.7.1 !
     if (quickFilters.Preferences.getBoolPref('experimental.replyTo')) {
       try {
-        let customId = quickFilters.CustomTermReplyTo.id;
-        let filterService = Components.classes["@mozilla.org/messenger/services/filters;1"]
+        let customId = quickFilters.CustomTermReplyTo.id,
+            filterService = Components.classes["@mozilla.org/messenger/services/filters;1"]
                             .getService(Components.interfaces.nsIMsgFilterService);
         if (!filterService.getCustomTerm(customId)) {
           //l10n
@@ -406,6 +407,8 @@ var quickFilters = {
     
 		util.logDebugOptional("events","setTimeout() - checkFirstRun");
     setTimeout(function() { quickFilters.checkFirstRun(); }, 1000);
+    
+    quickFilters.toggleCurrentFolderButtons();
 		
     util.logDebugOptional("events", "quickFilters.onload - ends");
   },
@@ -431,8 +434,8 @@ var quickFilters = {
         window.setTimeout(function() { quickFilters.checkFirstRun(); }, 1000);
         return;
       }
-      let installedVersion = quickFilters.Preferences.getCharPref("installedVersion");
-      let firstRun = quickFilters.Preferences.getBoolPref("firstRun");
+      let installedVersion = quickFilters.Preferences.getCharPref("installedVersion"),
+          firstRun = quickFilters.Preferences.getBoolPref("firstRun");
       util.logDebug("firstRun = " + firstRun + "  - currentVersion = " + currentVersion + "  - installed = " + installedVersion);
       let toolbarId = '';
       if (firstRun) {
@@ -454,8 +457,8 @@ var quickFilters = {
       }
       else {
         // is this an update?
-				let installedV = util.getVersionSimple(installedVersion);
-				let currentV = util.getVersionSimple(currentVersion);
+				let installedV = util.getVersionSimple(installedVersion),
+				    currentV = util.getVersionSimple(currentVersion);
         if (currentVersion.indexOf("hc") ==-1)
         {
 					if (util.versionLower(installedV, currentV))
@@ -469,10 +472,9 @@ var quickFilters = {
 						  util.showDonatePage();
 					}
         }
-
+        util.logDebug("store installedVersion: " + util.getVersionSimple(currentVersion));
+        quickFilters.Preferences.setCharPref("installedVersion", util.getVersionSimple(currentVersion));
       }
-      util.logDebug("store installedVersion: " + util.getVersionSimple(currentVersion));
-      quickFilters.Preferences.setCharPref("installedVersion", util.getVersionSimple(currentVersion));
       this.firstRunChecked = true;
     }
     catch(ex) {
@@ -482,7 +484,7 @@ var quickFilters = {
   },
 
   onMenuItemCommand: function onMenuItemCommand(e, cmd) {
-//     var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+//     let promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
 //                                   .getService(Components.interfaces.nsIPromptService);
 //     promptService.alert(window, this.strings.getString("helloMessageTitle"),
 //                                 this.strings.getString("helloMessage"));
@@ -491,8 +493,8 @@ var quickFilters = {
 				quickFilters.Worker.toggle_FilterMode(!quickFilters.Worker.FilterMode);
 				break;
 			case 'createFilterFromMsg':
-				let selectedMessages;
-				let messageList = [];
+				let selectedMessages,
+				    messageList = [];
 				if (quickFilters.Util.Application === 'Postbox') {
 				  selectedMessages = quickFilters.Util.pbGetSelectedMessages();
 				}
@@ -536,34 +538,44 @@ var quickFilters = {
       goDoCommand('cmd_displayMsgFilters');
   },
 
-  onToolbarRunCommand: function onToolbarRunCommand(e) {
+  onApplyFilters: function onApplyFilters(e) {
     goDoCommand('cmd_applyFilters'); // same in Postbox
+    let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnFolder.notify', 'Ran filters on current folder');
+    quickFilters.Util.slideAlert(text, 'quickFilters');
   },
   
+  onApplyFiltersToSelection: function onApplyFiltersToSelection(e) {
+    goDoCommand('cmd_applyFiltersToSelection'); // same in Postbox
+    let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnMails.notify', 'Applied filters to selected messages');
+    quickFilters.Util.slideAlert(text, 'quickFilters');
+  },
+  
+  
+  
   searchFiltersFromFolder: function searchFiltersFromFolder(e) {
-    let menuItem = e ? e.target : null;
-    let folders = GetSelectedMsgFolders(); // quickFilters.folderTreeView.getSelectedFolders();
+    let menuItem = e ? e.target : null,
+        folders = GetSelectedMsgFolders(); // quickFilters.folderTreeView.getSelectedFolders();
     if (!folders.length)
       return false;    
     // 1. open filters list
     //quickFilters.onToolbarListCommand();
     // 2. iterate accounts, find matching filter using the folder as search attribute with "move to folder" search.
-    let targetFolder = folders[0];
-    let matchedAccount;
-    let matchedFilter;
+    let targetFolder = folders[0],
+        matchedAccount,
+        matchedFilter;
     
     try {
-      let Ci = Components.interfaces;
-      let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                          .getService(Ci.nsIMsgAccountManager);
-      let FA = Components.interfaces.nsMsgFilterAction;
+      let Ci = Components.interfaces,
+          acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
+                          .getService(Ci.nsIMsgAccountManager),
+          FA = Components.interfaces.nsMsgFilterAction;
 			for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
         if (account.incomingServer && account.incomingServer.canHaveFilters )
         {
-          let msg ='';
-          let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
-          // 2. getFilterList
-          let filterList = ac.getFilterList(msgWindow).QueryInterface(Ci.nsIMsgFilterList);
+          let msg ='',
+              ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
+              // 2. getFilterList
+              filterList = ac.getFilterList(msgWindow).QueryInterface(Ci.nsIMsgFilterList);
           // 3. use  nsIMsgFilterList.matchOrChangeFilterTarget(oldUri, newUri, false)
           if (filterList) {
             // filterList.matchOrChangeFilterTarget(sourceURI, targetURI, false)
@@ -572,9 +584,9 @@ var quickFilters = {
                                                + "iterating " + numFilters + " filters...");
             for (let i = 0; i < numFilters; i++)
             {
-              let curFilter = filterList.getFilterAt(i);
-              let actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList;
-              let acLength = actionList.Count ? actionList.Count() : actionList.length;
+              let curFilter = filterList.getFilterAt(i),
+                  actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList,
+                  acLength = actionList.Count ? actionList.Count() : actionList.length;
               for (let index = 0; index < acLength; index++) { 
                 let action = actionList.queryElementAt ? 
                              actionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction) :
@@ -607,9 +619,9 @@ var quickFilters = {
     catch(ex) {
       quickFilters.Util.logException("Exception in quickFilters.searchFiltersFromFolder ", ex);
     }
-    let aFolder = matchedAccount ? matchedAccount.rootMsgFolder : null;
+    let aFolder = matchedAccount ? matchedAccount.rootMsgFolder : null,
+        win = quickFilters.Util.getLastFilterListWindow(); 
     // close old window
-    let win = quickFilters.Util.getLastFilterListWindow();
     if (win) win.close();
 
     quickFilters.Worker.openFilterList(true, aFolder, matchedFilter, targetFolder);
@@ -624,18 +636,18 @@ var quickFilters = {
   },
 
   LocalErrorLogger: function LocalErrorLogger(msg) {
-    let Cc = Components.classes;
-    let Ci = Components.interfaces;
-    let cserv = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
+    let Cc = Components.classes,
+        Ci = Components.interfaces,
+        cserv = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
     cserv.logStringMessage("quickFilters:" + msg);
   },
 
   onFolderTreeViewDrop: function onFolderTreeViewDrop(aRow, aOrientation) {
-    let Cc = Components.classes;
-    let Ci = Components.interfaces;
-    let treeView = quickFilters.folderTreeView;
-    var dataTransfer;
-    var dragSession;
+    let Cc = Components.classes,
+        Ci = Components.interfaces,
+        treeView = quickFilters.folderTreeView,
+        dataTransfer,
+        dragSession;
 
     switch(quickFilters.Util.Application) {
       case 'Thunderbird':
@@ -660,7 +672,7 @@ var quickFilters = {
     if (Array.indexOf(types, "text/x-moz-message") === -1 || (!quickFilters.Worker.FilterMode))
       return;
 
-    var targetFolder;
+    let targetFolder;
     switch(quickFilters.Util.Application) {
       case 'Thunderbird':
         targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Components.interfaces.nsIMsgFolder);
@@ -673,11 +685,11 @@ var quickFilters = {
         break;
     }
 
-    let sourceFolder;
-    let messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger);
-    var messageUris = [];
+    let sourceFolder,
+        messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
+        messageUris = [];
     for (let i = 0; i < dataTransfer.mozItemCount; i++) {
-      var messageUri = dataTransfer.mozGetDataAt("text/x-moz-message", i);
+      let messageUri = dataTransfer.mozGetDataAt("text/x-moz-message", i);
 
       if (!i) {
         let msgHdr = messenger.msgHdrFromURI(messageUri);
@@ -685,7 +697,7 @@ var quickFilters = {
       }
 
       //dataObj = dataObj.value.QueryInterface(Components.interfaces.nsISupportsString);
-      //var messageUri = dataObj.data.substring(0, len.value);
+      //let messageUri = dataObj.data.substring(0, len.value);
 
       messageUris.push(messageUri);
 
@@ -696,7 +708,6 @@ var quickFilters = {
                    .dragAction == Ci.nsIDragService.DRAGDROP_ACTION_MOVE;
     if (!sourceFolder.canDeleteMessages)
       isMove = false;
-
 
     // handler for dropping messages
     try {
@@ -736,11 +747,10 @@ var quickFilters = {
       dragSession = Components.classes["@mozilla.org/widget/dragservice;1"]
                               .getService(Ci.nsIDragService)
                               .getCurrentSession();
-    let isMove = (dragSession.dragAction == Ci.nsIDragService.DRAGDROP_ACTION_MOVE);
-    let treeView = quickFilters.folderTreeView;
-    let dataTransfer = evt.dataTransfer ? evt.dataTransfer : treeView._currentTransfer;
-
-    let types = dataTransfer.mozTypesAt(0);  // one flavor
+    let isMove = (dragSession.dragAction == Ci.nsIDragService.DRAGDROP_ACTION_MOVE),
+        treeView = quickFilters.folderTreeView,
+        dataTransfer = evt.dataTransfer ? evt.dataTransfer : treeView._currentTransfer,
+        types = dataTransfer.mozTypesAt(0);  // one flavor
     if (Array.indexOf(types, "text/x-moz-message") === -1 || (!quickFilters.Worker.FilterMode))
       return false;
 
@@ -752,30 +762,28 @@ var quickFilters = {
 
 
     let prefBranch = Components.classes["@mozilla.org/preferences-service;1"]
-                        .getService(Ci.nsIPrefService).getBranch("mail.");
-    let theURI = prefBranch.getCharPref("last_msg_movecopy_target_uri");
-
-    var targetFolder = quickFilters.Util.getMsgFolderFromUri(theURI);
-
-    var trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
+                        .getService(Ci.nsIPrefService).getBranch("mail."),
+        theURI = prefBranch.getCharPref("last_msg_movecopy_target_uri"),
+        targetFolder = quickFilters.Util.getMsgFolderFromUri(theURI),
+        trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
     //alert('trans.addDataFlavor: trans=' + trans + '\n numDropItems=' + dragSession.numDropItems);
     trans.addDataFlavor("text/x-moz-message");
 
-    var messageUris = []; var i;
-    var sourceFolder = null;
+    let messageUris = [], 
+        sourceFolder = null;
 
-    for (i = 0; i < dragSession.numDropItems; i++) {
+    for (let i = 0; i < dragSession.numDropItems; i++) {
       dragSession.getData (trans, i);
-      var dataObj = new Object();
-      var flavor = new Object();
-      var len = new Object();
+      let dataObj = new Object(),
+          flavor = new Object(),
+          len = new Object();
       try {
         trans.getAnyTransferData(flavor, dataObj, len);
 
         if (flavor.value === "text/x-moz-message" && dataObj) {
 
           dataObj = dataObj.value.QueryInterface(Components.interfaces.nsISupportsString);
-          var messageUri = dataObj.data.substring(0, len.value);
+          let messageUri = dataObj.data.substring(0, len.value);
 
           messageUris.push(messageUri);
         }
@@ -791,7 +799,7 @@ var quickFilters = {
         if (quickFilters.Worker.FilterMode)
         {
           // note: getCurrentFolder fails when we are in a search results window!!
-          var sourceFolder = quickFilters.Util.getCurrentFolder();
+          let sourceFolder = quickFilters.Util.getCurrentFolder();
           if (!sourceFolder || quickFilters.Util.isVirtual(sourceFolder))
           {
             let msgHdr = messenger.msgHdrFromURI(messageUris[0].toString());
@@ -813,6 +821,30 @@ var quickFilters = {
     };
     return false;
   } ,
+  
+  toggleCurrentFolderButtons: function toggleCurrentFolderButtons() {
+    // to do - read options and hide buttons from current folder bar
+    // options:
+    //   quickfolders.curFolderbar.listbutton
+    //   quickfolders.curFolderbar.folderbutton
+    //   quickfolders.curFolderbar.messagesbutton
+    let prefs = quickFilters.Preferences,
+        util = quickFilters.Util,
+        win = util.getMail3PaneWindow();
+    util.logDebug('toggleCurrentFolderButtons()');
+    try {
+      let btn = win.document.getElementById('quickfilters-current-listbutton');
+      btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
+      btn = win.document.getElementById('quickfilters-current-runbutton');
+      btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
+      btn = win.document.getElementById('quickfilters-current-msg-runbutton');
+      btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
+    }
+    catch (ex) {
+      util.logException('toggleCurrentFolderButtons()', ex);
+    }
+    
+  } ,
 	
 	executeQuickfilePanelPreEvent: function executeQuickfilePanelPreEvent(panel) {
 	  // postbox specific 'quickMove' function
@@ -825,19 +857,17 @@ var quickFilters = {
 			try {
 			  // we need a closure for executeMoveMessage, cannot store it in the object as 
 				// this context might be lost when callint it
-				var executeMoveMessage = MsgMoveMessage;
+				let executeMoveMessage = MsgMoveMessage;
 				MsgMoveMessage = function(uri) {
 					//
 					try {
 						quickFilters.Util.logDebugOptional('quickmove', "Executing wrapped MsgMoveMessage");
-						let sourceFolder = quickFilters.Util.getCurrentFolder();
-						let destResource = RDF.GetResource(uri);
-						let destMsgFolder = destResource.QueryInterface(Components.interfaces.nsIMsgFolder);
-						
-						// get selected message uris
-						// see case 'createFilterFromMsg'
-						let selectedMessages;
-						let messageList = [];
+						let sourceFolder = quickFilters.Util.getCurrentFolder(),
+						    destResource = RDF.GetResource(uri),
+						    destMsgFolder = destResource.QueryInterface(Components.interfaces.nsIMsgFolder),						
+                // get selected message uris - see case 'createFilterFromMsg'
+						    selectedMessages,
+						    messageList = [];
 						if (quickFilters.Util.Application === 'Postbox') {
 							selectedMessages = quickFilters.Util.pbGetSelectedMessages();
 						}
@@ -895,7 +925,7 @@ var quickFilters = {
 	executeMoveMessage: null  
 	
 
-}; // quickFilters
+}; // quickFilters MAIN OBJECT
 
 // mail3pane events
 
@@ -908,6 +938,7 @@ var quickFilters = {
 
 // https://mxr.mozilla.org/addons/source/3376/chrome/content/mailclassifier/js/main.js#91
 quickFilters.MsgFolderListener = {
+  qfInstance: quickFilters,
   /**
    * Event fired after message was moved or copied
    *
@@ -917,16 +948,17 @@ quickFilters.MsgFolderListener = {
    * @param {nsIArray} aDestMsgs    Array of Messages
    */
 	msgsMoveCopyCompleted: function(isMoved, aSrcMsgs,  targetFolder, aDestMsgs) {
-		quickFilters.Util.logDebug("msgsMoveCopyCompleted: Move = " + isMoved + "  Dest Folder=  " + targetFolder.prettyName);
-		try{	
-			var firstMsg = aSrcMsgs.queryElementAt(0, Components.interfaces.nsIMsgDBHdr);
-			if(firstMsg){
+    let qF = quickFilters ? quickFilters : this.qfInstance;
+		qF.Util.logDebug("msgsMoveCopyCompleted: Move = " + isMoved + "  Dest Folder=  " + targetFolder.prettyName);
+		try {	
+			let firstMsg = aSrcMsgs.queryElementAt(0, Components.interfaces.nsIMsgDBHdr);
+			if (firstMsg){
 				let srcFolder = firstMsg.folder;				
-				if(false){  // from mailclassifier
-					var enumeration = aSrcMsgs.enumerate()
+				if (false){  // from mailclassifier
+					let enumeration = aSrcMsgs.enumerate()
 					while(enumeration.hasMoreElements()){
-						var msg = enumeration.getNext();
-						var uri = targetFolder.getUriForMsg(msg);
+						let msg = enumeration.getNext(),
+						    uri = targetFolder.getUriForMsg(msg);
 							it.emasab.Mailclassifier.controller.setClassification(uri, targetFolder);
 						}
 					}	
@@ -934,26 +966,27 @@ quickFilters.MsgFolderListener = {
 			} catch(e){dump(e);}		
   },
 	msgAdded: function msgAdded(aMsg){ ; },
-	msgsClassified: function(aMsgs, aJunkProcessed, aTraitProcessed){;},
-	msgsDeleted: function(aMsgs){ ; },
-	folderAdded: function(aFolder){ ; },
-	folderDeleted: function(aFolder){ ; },
-	folderMoveCopyCompleted: function(aMove,aSrcFolder,aDestFolder){ ; },
-	folderRenamed: function(aOrigFolder, aNewFolder){ ; } ,
-	itemEvent: function(aItem, aEvent, aData){ ; }
+	msgsClassified: function msgsClassified(aMsgs, aJunkProcessed, aTraitProcessed){;},
+	msgsDeleted: function msgsDeleted(aMsgs){ ; },
+	folderAdded: function folderAdded(aFolder){ ; },
+	folderDeleted: function folderDeleted(aFolder){ ; },
+	folderMoveCopyCompleted: function folderMoveCopyCompleted(aMove,aSrcFolder,aDestFolder){ ; },
+	folderRenamed: function folderRenamed(aOrigFolder, aNewFolder){ ; } ,
+	itemEvent: function itemEvent(aItem, aEvent, aData){ ; }
 }; // MsgFolderListener
+quickFilters.MsgFolderListener.qfInstance = quickFilters;
 
 // this should do all the event work necessary
 // not necessary for mail related work!
 quickFilters.FolderListener = {
-  ELog: function(msg)
-  {
+  qfInstance: quickFilters,
+  ELog: function(msg) {
     try {
       try {Components.utils.reportError(msg);}
       catch(e) {
-        var Cc = Components.classes;
-        var Ci = Components.interfaces;
-        var cserv = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
+        let Cc = Components.classes,
+            Ci = Components.interfaces,
+            cserv = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
         cserv.logStringMessage("quickFilters:" + msg);
       }
     }
@@ -969,9 +1002,11 @@ quickFilters.FolderListener = {
 
   OnItemAdded: function(parent, item, viewString) {
 		try {
-			if (!quickFilters) return;
-			if (!quickFilters.Worker.FilterMode) return;
-			if (!quickFilters.Preferences.getBoolPref("nostalgySupport")) return;
+      let qF = quickFilters ? quickFilters : this.qfInstance;
+    
+			if (!qF) return;
+			if (!qF.Worker.FilterMode) return;
+			if (!qF.Preferences.getBoolPref("nostalgySupport")) return;
 			
 			// this code is too dangerous - we need to wrap the nostalgy functions for more reliable results
 			let folder = parent.QueryInterface(Components.interfaces.nsIMsgFolder);
@@ -981,9 +1016,9 @@ quickFilters.FolderListener = {
 				let hdr = item.QueryInterface(Components.interfaces.nsIMsgDBHdr);
 				let key = hdr.messageKey;
 				let subject = hdr.mime2DecodedSubject.toLowerCase();
-				quickFilters.Util.logDebugOptional("nostalgy", "Message[" + key + "]: " + subject + " by " + hdr.author.toString());
+				qF.Util.logDebugOptional("nostalgy", "Message[" + key + "]: " + subject + " by " + hdr.author.toString());
 				let isProcessed = false;
-				let list = quickFilters.Worker.lastAssistedMsgList;
+				let list = qF.Worker.lastAssistedMsgList;
 				let messageDb = folder.msgDatabase ? folder.msgDatabase : null;
 				for (let i=0; i<list.length; i++) {
 				  let messageId = list[i];
@@ -996,18 +1031,18 @@ quickFilters.FolderListener = {
 						return; // this message was already processed by quickFilters (Dnd to folder tree, QF tab or via context menu).
 					}
 				}
-				quickFilters.Util.logDebugOptional("nostalgy", "Folder listener - item [" + item.toString() + "] added to folder " + folder.name);
+				qF.Util.logDebugOptional("nostalgy", "Folder listener - item [" + item.toString() + "] added to folder " + folder.name);
 				
 				// not found = not processed => was moved by nostalgy?
 				// problem how to accumulate multiple headers?
 				// reset the array!
-				while (quickFilters.Worker.lastAssistedMsgList.length)
-					quickFilters.Worker.lastAssistedMsgList.pop();
+				while (qF.Worker.lastAssistedMsgList.length)
+					qF.Worker.lastAssistedMsgList.pop();
 				// add to the list of message Ids to be processed now
 				let selectedMessages = [];  // quickFilters.Util.createMessageIdArray(targetFolder, messageUris);
 				let isCopy = false;
-				selectedMessages.push(quickFilters.Util.makeMessageListEntry(hdr)); // Array of message entries ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-				quickFilters.Worker.createFilterAsync_New(null, hdr.folder, selectedMessages, 
+				selectedMessages.push(qF.Util.makeMessageListEntry(hdr)); // Array of message entries ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+				qF.Worker.createFilterAsync_New(null, hdr.folder, selectedMessages, 
            isCopy ? Components.interfaces.nsMsgFilterAction.CopyToFolder : Components.interfaces.nsMsgFilterAction.MoveToFolder,				
 				   null, false);
 			}		// it could also be a folder that was added...
@@ -1019,29 +1054,35 @@ quickFilters.FolderListener = {
 	},
   // parent, item, viewString
   OnItemPropertyChanged: function(property, oldValue, newValue) { 
-	  if (quickFilters)
-	    quickFilters.Util.logDebugOptional("events","OnItemPropertyChanged() " + property.toString()); /* NOP */ 
+    let qF = quickFilters ? quickFilters : this.qfInstance;
+	  if (qF)
+	    qF.Util.logDebugOptional("events","OnItemPropertyChanged() " + property.toString()); /* NOP */ 
 	},
   OnItemIntPropertyChanged: function(item, property, oldValue, newValue) { /* NOP */ 
-	  if (quickFilters)
-	    quickFilters.Util.logDebugOptional("events","OnItemIntPropertyChanged() " + property.toString());  	
+    let qF = quickFilters ? quickFilters : this.qfInstance;
+	  if (qF)
+	    qF.Util.logDebugOptional("events","OnItemIntPropertyChanged() " + property.toString());  	
 	},
   OnItemBoolPropertyChanged: function(item, property, oldValue, newValue) {
-	  if (quickFilters)
-	    quickFilters.Util.logDebugOptional("events","OnItemBoolPropertyChanged() " + property.toString());  	
+    let qF = quickFilters ? quickFilters : this.qfInstance;
+	  if (qF)
+	    qF.Util.logDebugOptional("events","OnItemBoolPropertyChanged() " + property.toString());  	
 	},
-  OnItemUnicharPropertyChanged: function(item, property, oldValue, newValue) { /* var x=property.toString(); */ 
-	  if (quickFilters)
-	    quickFilters.Util.logDebugOptional("events","OnItemUnicharPropertyChanged() " + property.toString());  	
+  OnItemUnicharPropertyChanged: function(item, property, oldValue, newValue) { /* let x=property.toString(); */ 
+    let qF = quickFilters ? quickFilters : this.qfInstance;
+	  if (qF)
+	    qF.Util.logDebugOptional("events","OnItemUnicharPropertyChanged() " + property.toString());  	
 	},
   OnItemPropertyFlagChanged: function(item, property, oldFlag, newFlag) {
+    let qF;
 	  try {
-		  if (!quickFilters) return;
+      qF = quickFilters ? quickFilters : this.qfInstance;
+		  if (!qF) return;
 		} catch(ex) {};
 		try {
-			if (!quickFilters.Worker) return;
-			if (!quickFilters.Worker.FilterMode) return;
-			if (!quickFilters.Preferences.getBoolPref('listener.tags')) return; // make it possible to ignore tag changes.
+			if (!qF.Worker) return;
+			if (!qF.Worker.FilterMode) return;
+			if (!qF.Preferences.getBoolPref('listener.tags')) return; // make it possible to ignore tag changes.
 		  if ((property.equals("Keywords") ) // not used in Postbox! instead: uses observer pb-tag-changed!
           && newFlag>0) {  // Tag has been added newFlag>0
 				// a tag has been changed?
@@ -1050,8 +1091,8 @@ quickFilters.FolderListener = {
 					let hdr = item.QueryInterface(Components.interfaces.nsIMsgDBHdr);
 					// add to the list of message Ids to be processed now
 					let selectedMessages = [];  // quickFilters.Util.createMessageIdArray(targetFolder, messageUris);
-					selectedMessages.push(quickFilters.Util.makeMessageListEntry(hdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-					quickFilters.Worker.createFilterAsync_New(null, hdr.folder, selectedMessages, 
+					selectedMessages.push(qF.Util.makeMessageListEntry(hdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+					qF.Worker.createFilterAsync_New(null, hdr.folder, selectedMessages, 
 					                                      Components.interfaces.nsMsgFilterAction.AddTag, 
 																								newFlag,
 																								false);
@@ -1063,7 +1104,7 @@ quickFilters.FolderListener = {
 		};
 	},
   OnItemEvent: function(item, event) {
-    var eString = event.toString();
+    let eString = event.toString();
     try {
 		  if (quickFilters)
 				quickFilters.Util.logDebugOptional("events","event: " + eString);
@@ -1081,22 +1122,22 @@ quickFilters.FolderListener = {
   OnDeleteOrMoveMessagesCompleted: function( aFolder) {}
 
 }  // FolderListener
+quickFilters.FolderListener.qfInstance = quickFilters;
 
 // Postbox sepcific Tag Change code,,,
 quickFilters.TagChangeListener = {
-  observe: function (aSubject, aTopic, aData)
+  observe: function tagChange_observe(aSubject, aTopic, aData)
   {
-    switch (aTopic)
-    {
+    switch (aTopic) {
       case "pb-tag-changed":
         if (!quickFilters.Worker) return;
         if (!quickFilters.Worker.FilterMode) return;
         if (!quickFilters.Preferences.getBoolPref('listener.tags')) return; // make it possible to ignore tag changes.
         // OnTagsChange();
         // ==> SetTagHeader(aConversation)
-        var msgHdr;
-        // tag headers are rebuilt in Postbox (SetTagHeader function)
-        let aConversation = messageHeaderSink._conversationMode;
+        let msgHdr,
+            // tag headers are rebuilt in Postbox (SetTagHeader function)
+            aConversation = messageHeaderSink._conversationMode;
         try {
           msgHdr = gDBView.hdrForFirstSelectedMessage;
         }
@@ -1104,7 +1145,7 @@ quickFilters.TagChangeListener = {
           return; // no msgHdr to add our tags to
         }
 
-        var tagKeys = aConversation ? tagKeysForThreadContainingMsgHdr(msgHdr, msgWindow) : tagKeysForMsgHdr(msgHdr);
+        let tagKeys = aConversation ? tagKeysForThreadContainingMsgHdr(msgHdr, msgWindow) : tagKeysForMsgHdr(msgHdr);
 
         // let tags = {headerName: "tags", headerValue: tagKeys};
         if (tagKeys != '') {
@@ -1242,7 +1283,7 @@ quickFilters.addPostboxTagListener = function() {
       }
 
       // OBSOLETE
-      //var observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
+      //let observerService = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
       //observerService.addObserver(quickFilters.TagChangeListener, "pb-tag-changed", false);
       return true;
     }
