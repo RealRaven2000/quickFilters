@@ -20,13 +20,13 @@
 					   insertafter="quickfilters-current-listbutton"
 					   label=""
 					   tooltiptext="&quickfilters.RunButton.tooltip;"
-					   oncommand="quickFilters.onReplyFilters();"/>
+					   oncommand="quickFilters.onApplyFilters();"/>
 		<toolbarbutton id="quickfilters-current-msg-runbutton"
 					   class="icon"
 					   insertafter="quickfilters-current-runbutton"
 					   label=""
 					   tooltiptext="&quickfilters.RunButtonMsg.tooltip;"
-					   oncommand="quickFilters.onReplyFiltersToSelection();"/>
+					   oncommand="quickFilters.onApplyFiltersToSelection();"/>
 	</toolbar>
 	
 	
