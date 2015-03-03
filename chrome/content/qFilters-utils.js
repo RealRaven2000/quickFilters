@@ -54,7 +54,7 @@ var QuickFilters_TabURIregexp = {
 };
 
 quickFilters.Util = {
-  HARDCODED_EXTENSION_VERSION : "2.8",
+  HARDCODED_EXTENSION_VERSION : "2.9",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -66,6 +66,12 @@ quickFilters.Util = {
   lastTime: 0,
   _tabContainer: null,
   tempFolderTab: null,	 // likely obsolete ###
+
+  // return main quickFilters instance (if we are in a child window / dialog or come from an event)
+  get mainInstance() {
+    let win = this.getMail3PaneWindow();
+    return win.quickFilters;
+  } ,
 
 	get FolderFlags() {
 	  if (Components.interfaces.nsMsgFolderFlags)
@@ -608,13 +614,12 @@ quickFilters.Util = {
 	    return null;
 	  }
 	} ,
-	
 
   logTime: function logTime() {
-    let timePassed = '';
+    let timePassed = '',
+        end = new Date(),
+        endTime = end.getTime();
     try { // AG added time logging for test
-      let end= new Date(),
-          endTime = end.getTime();
       if (this.lastTime === 0) {
         this.lastTime = endTime;
         return "[logTime init]"
@@ -628,10 +633,12 @@ quickFilters.Util = {
   },
 
   logToConsole: function logToConsole(msg, optionTag) {
-    if (quickFilters.Util.ConsoleService === null)
-      quickFilters.Util.ConsoleService = Components.classes["@mozilla.org/consoleservice;1"]
+    let qF = quickFilters ? quickFilters : this.mainInstance,
+        util = qF.Util;
+    if (util.ConsoleService === null)
+      util.ConsoleService = Components.classes["@mozilla.org/consoleservice;1"]
                   .getService(Components.interfaces.nsIConsoleService);
-    quickFilters.Util.ConsoleService.logStringMessage("quickFilters " 
+    util.ConsoleService.logStringMessage("quickFilters " 
 			+ (optionTag ? '{' + optionTag.toUpperCase() + '} ' : '')
 			+ this.logTime() + "\n"+ msg);
   },
@@ -658,17 +665,34 @@ quickFilters.Util = {
     let srcName = ex.fileName ? ex.fileName : "";
     this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
   } ,
-
+  
   logDebug: function logDebug(msg) {
-    if (quickFilters.Preferences.Debug)
+    let qF = quickFilters ? quickFilters : this.mainInstance;
+    if (qF.Preferences.Debug)
       this.logToConsole(msg);
   },
 
-  logDebugOptional: function logDebugOptional(option, msg) {
-    if (quickFilters.Preferences.isDebugOption(option))
-      this.logToConsole(msg, option);
+  /** 
+	* only logs if debug mode is set and specific debug option are active
+	* 
+	* @optionString {string}: comma delimited options
+  * @msg {string}: text to log 
+	*/   
+  logDebugOptional: function logDebugOptional(optionString, msg) {
+    let qF = quickFilters ? quickFilters : this.mainInstance,
+        options = optionString.split(',');
+    for (let i=0; i<options.length; i++) {
+      let option = options[i];
+      if (qF.Preferences.isDebugOption(option)) {
+        this.logToConsole(msg, option);
+        break; // only log once, in case multiple log switches are on
+      }
+    }        
   },
 	
+  /** 
+	* getAccountsPostbox() return an Array of mail Accounts for Postbox
+	*/   
 	getAccountsPostbox: function getAccountsPostbox() {
 	  let accounts=[],
         Ci = Components.interfaces,
