@@ -18,7 +18,7 @@
     <menuitem id="quickfilters-menu-runMenu" 
 	          label="&quickfilters.RunButton.label;" 
 			  class="menuitem-iconic"
-              oncommand="quickFilters.onToolbarRunCommand(event);"
+              oncommand="quickFilters.onApplyFilters(event);"
 			  />
     <menuitem id="quickfilters-menu-findFilter" 
 	          label="&quickfilters.findFiltersForFolder.menu;" 
@@ -46,7 +46,12 @@
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="&quickfilters.RunButton.label;"
                    tooltiptext="&quickfilters.RunButton.tooltip;"
-                   oncommand="quickFilters.onToolbarRunCommand();"/>
+                   oncommand="quickFilters.onApplyFilters();"/>
+    <toolbarbutton id="quickfilters-toolbar-msg-runbutton"
+                   class="toolbarbutton-1 chromeclass-toolbar-additional"
+                   label="&quickfilters.RunButton.label;"
+                   tooltiptext="&quickfilters.RunButtonMsg.tooltip;"
+                   oncommand="quickFilters.onApplyFiltersToSelection();"/>
   </toolbarpalette>
 
   <menupopup id="taskPopup">
