@@ -67,21 +67,28 @@ hbox > button {
 	max-height: 3em !important;
 }
 
-
-
 /****** LINKS	********/
 label.text-link[href] {
 	padding: 4px 2px 4px 5px !important;
 	vertical-align: middle !important;
 }
 
-label.text-link[href] > * {
+label.text-link[href] > *,
+label.plain-link {
+	cursor: pointer;
 	text-decoration: underline !important;
 }
 
-label.text-link[href]:hover {
+label.text-link[href]:hover,
+label.plain-link:hover {
 	color: white !important;
-	background-color: blue !important;
+	background-color: rgb(0,0,128) !important;
+}
+
+label.plain-link {
+  /* vertical-align: baseline; */
+	max-height: 1.9em;
+  padding: 2px 0.5em;
 }
 
 button.debug {

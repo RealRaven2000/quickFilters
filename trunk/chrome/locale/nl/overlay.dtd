@@ -6,6 +6,7 @@
 <!ENTITY quickfilters.ListButton.label "Berichtenfilters…">
 <!ENTITY quickfilters.ListButton.tooltip "Geef een lijst met berichtenfilters weer">
 <!ENTITY quickfilters.RunButton.label "Filters uitvoeren">
+<!ENTITY quickfilters.RunButtonMsg.label "Geselecteerde e-mailberichten filteren">
 <!ENTITY quickfilters.RunButton.tooltip "Voor de huidige map ingestelde filters uitvoeren">
 <!ENTITY quickfilters.RunButtonMsg.tooltip "Past de filters op de huidige berichten toe">
 <!ENTITY quickfilters.findFiltersForFolder.menu "Filters zoeken…">

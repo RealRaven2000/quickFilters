@@ -28,18 +28,25 @@
 <!ENTITY qf.label.naming "Namensregeln">
 <!ENTITY qf.label.naming.parentFolder "Name des Elternverzeichnis hinzufügen">
 <!ENTITY qf.label.naming.parentFolder.accesskey "E">
-<!ENTITY qf.label.naming.keyWord "Regel spezifisches Stichwort hinzufügen">
+<!ENTITY qf.label.naming.keyWord "Regel-spezifisches Stichwort hinzufügen">
 <!ENTITY qf.label.naming.keyWord.accesskey "S">
-<!ENTITY qf.label.currentFolderButtons "QuickFolders Aktiv-Verzeichnis Werkzeugleiste">
+<!ENTITY qf.templates.advanced "Fortgeschrittene Vorlagen">
+<!ENTITY qf.templates.customTemplate.label "Benutzerspezifische Vorlagen">
+<!ENTITY qf.templates.customTemplate.tooltip "Erzeugung benutzerspezifischer Vorlagen, für Details siehe folgende Bug-Beschreibung:">
+<!ENTITY qf.templates.customTemplate.edit "Editieren…">
+<!ENTITY qf.templates.customTemplate.new "Neues Template…">
+<!ENTITY qf.templates.replyTo.label "'Antwort an' Vorlage">
+<!ENTITY qf.templates.replyTo.tooltip "Zeigt die 'Antwort an' (Reply-To) Vorlage an, für Details siehe folgende Bug-Beschreibung:">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Filterliste anzeigen">
-<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Filter auf Ordener anwenden">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Filter auf Ordner anwenden">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Filter auf Nachricht anwenden">
-<!ENTITY qf.description.currentFolderButtons "Diese Optionen gelten nur wenn die QuickFolders extension installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt.">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders Aktiv-Verzeichnis Werkzeugleiste">
+<!ENTITY qf.description.currentFolderButtons "Diese Optionen gelten nur wenn die QuickFolders Erweiterung installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt.">
 <!ENTITY grpMerge.label "Regeln zum Kombinieren">
 <!ENTITY chkMergeAuto.label "Automatisch Kombinieren">
 <!ENTITY chkMergeAuto.tooltip "Falls schon ein Filter vorhanden ist, wird Kombinieren voreingestellt und der erste Filter als Ziel markiert.">
 <!ENTITY chkMergeSkip.label "Zu Vorlagen springen">
-<!ENTITY chkMergeSkip.tooltip "Überspringt den Schritt 'Mit existierendem FIlter kombinieren' und geht direkt zu 'Vorlage wählen'.">
+<!ENTITY chkMergeSkip.tooltip "Überspringt den Schritt 'Mit existierendem Filter kombinieren' und geht direkt zu 'Vorlage wählen'.">
 <!ENTITY qf.cloned.label "Endwort für geklonten Filter:">
 <!ENTITY qf.onewayaddress.label "Zweiweg Mailaddressen abschalten">
 <!ENTITY qf.onewayaddress.tooltip "Standardmäßig fügt quickFilters sowohl 'Von' (Absender) und 'An' (Empfänger) in die Suchbedingungen ein, damit die komplette Konversation inklusive der eigenen Emails an diesen Empfänger gefiltert wird. Falls Sie Ihre eigene Email immer im 'Gesendet' Verzeichnis belassen wollen, kann diese Vorgehen hier deaktiviert werden. Das Addon 'Copy Sent to Current' kann benutzt werden um Antworten mit ihren ursprünglichen Emails zusammen zu halten.">

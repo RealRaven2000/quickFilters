@@ -65,18 +65,51 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
   list-style-image: url("chrome://quickfilters/skin/filterList_24.png");
 }
 
-[iconsize="small"] #quickfilters-toolbar-listbutton
+[iconsize="small"] #quickfilters-toolbar-listbutton,
+#quickfilters-current-listbutton
 {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/skin/filterList_16.png");
 }
 
 
-
-#quickfilters-toolbar-runbutton
-{
+#quickfilters-toolbar-runbutton {
   list-style-image: url("chrome://quickfilters/skin/runFilters.png");
 }
+
+#quickfilters-toolbar-msg-runbutton {
+  list-style-image: url("chrome://quickfilters/skin/runFilters-selected.png");
+}
+
+
+
+#quickfilters-current-runbutton
+{
+  -moz-image-region: rect( 0px 16px 16px 0px);
+  list-style-image: url("chrome://quickfilters/skin/run-filters-folder-16.png");
+}
+[iconsize="small"] #quickfilters-toolbar-msg-runbutton,
+#quickfilters-current-msg-runbutton
+{
+  -moz-image-region: rect( 0px 16px 16px 0px);
+  list-style-image: url("chrome://quickfilters/skin/run-filters-msg-16.png");
+}
+
+#quickfilters-current-runbutton:hover,
+#quickfilters-current-msg-runbutton:hover,
+[iconsize="small"] #quickfilters-toolbar-msg-runbutton:hover
+{
+ -moz-image-region: rect( 16px 16px 32px 0px);
+}
+
+#quickfilters-current-runbutton:active,
+#quickfilters-current-msg-runbutton:active,
+[iconsize="small"] #quickfilters-toolbar-msg-runbutton:active
+{
+  -moz-image-region: rect( 32px 16px 48px 0px);
+}
+
+
 #quickfilters-menu-findFilter {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/skin/findFilters-small.png");
@@ -87,7 +120,7 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
 #quickfilters-menu-runMenu
 {
   -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/skin/runFilters-small.png");
+  list-style-image: url("chrome://quickfilters/skin/run-filters-folder-16.png");
 }
 
 [iconsize="small"] #quickfilters-toolbar-runbutton:hover,
@@ -105,7 +138,8 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
 
 toolbar:not([iconsize="small"]) #quickfilters-toolbar-button image,
 toolbar:not([iconsize="small"]) #quickfilters-toolbar-listbutton image,
-toolbar:not([iconsize="small"]) #quickfilters-toolbar-runbutton image
+toolbar:not([iconsize="small"]) #quickfilters-toolbar-runbutton image,
+toolbar:not([iconsize="small"]) #quickfilters-toolbar-msg-runbutton image
 {
   width: 24px;
   height: 24px;
@@ -122,11 +156,12 @@ notification[value="quickfilters-proFeature"] image.messageImage {
 
 notification[value="quickfilters-filter"] .messageCloseButton,
 notification[value="quickfilters-proFeature"] .messageCloseButton {
-	background-color: rgba(255, 255, 255, 0.8);
-	border-radius: 3px;
-	border-radius: 3px;
-	margin: 1em 1.5em;
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 2px;
+	border-radius: 2px;
+	margin: 0 1em;
 }
+
 notification[value="quickfilters-filter"] .messageCloseButton:hover,
 notification[value="quickfilters-proFeature"] .messageCloseButton:hover {
 	background-color: rgba(255, 255, 255, 1);
@@ -162,7 +197,7 @@ notification[value="quickfilters-filter"] hbox.notification-inner {
 
 #mail-notification-box notification[value=quickfilters-proFeature],
 #pbSearchThresholdNotifcationBar notification[value=quickfilters-proFeature] {
-	min-height: 3em;
+	min-height: 44px;
 }
 
 notification[value="quickfilters-proFeature"] hbox.notification-inner {

@@ -6,6 +6,7 @@
 <!ENTITY quickfilters.ListButton.label "Message Filters…">
 <!ENTITY quickfilters.ListButton.tooltip "Show a list of message filters">
 <!ENTITY quickfilters.RunButton.label "Run filters">
-<!ENTITY quickfilters.RunButton.tooltip "Runs the filters set up for the current folder">
-<!ENTITY quickfilters.RunButtonMsg.tooltip "Runs the filters on the current mail">
+<!ENTITY quickfilters.RunButtonMsg.label "Filter selected mails">
+<!ENTITY quickfilters.RunButton.tooltip "Run the filters set up for the current folder">
+<!ENTITY quickfilters.RunButtonMsg.tooltip "Run the filters on the selected mails">
 <!ENTITY quickfilters.findFiltersForFolder.menu "Find Filters…">
