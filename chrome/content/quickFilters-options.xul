@@ -22,7 +22,6 @@
 			tooltiptextextra2="&qf.label.donateLink;"
 			>
 
-
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
@@ -35,91 +34,99 @@
     <preferences>
       <preference id="debug" 
 	              name="extensions.quickfilters.debug" 
-				  type="bool"  
-				  instantApply="true"
-				  />
+								type="bool"  
+								instantApply="true"
+								/>
       <preference id="abort" 
 	              name="extensions.quickfilters.abortAfterCreate" 
-				  type="bool"  
-				  instantApply="true"
-				  />
+								type="bool"  
+								instantApply="true"
+								/>
       <preference id="autoStart" 
 	              name="extensions.quickfilters.autoStart" 
-				  type="bool"  
-				  instantApply="true"
-				  />
+								type="bool"  
+								instantApply="true"
+								/>
       <preference id="toolbar" 
 	              name="extensions.quickfilters.toolbar" 
-				  type="bool"  
-				  instantApply="true"
-				  />
+								type="bool"  
+								instantApply="true"
+								/>
       <preference id="showListAfterCreateFilter" 
 	              name="extensions.quickfilters.showListAfterCreateFilter" 
-				  type="bool"  
-				  instantApply="true"
-				  />
+								type="bool"  
+								instantApply="true"
+								/>
       <preference id="newfilter.autorun" 
 	              name="extensions.quickfilters.newfilter.autorun"
-				  type="bool"  
-				  instantApply="true"
-				  />
-      <preference id="naming.parentFolder" 
-	              name="extensions.quickfilters.naming.parentFolder"
-				  type="bool"  
-				  instantApply="true"
-				  />
-      <preference id="naming.keyWord" 
-	              name="extensions.quickfilters.naming.keyWord" 
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="cloned.append"
-	              name="extensions.quickfilters.naming.clonedLabel"
-				  type="string"
-				  instantApply="true"
-				  />
-	  <preference id="listen.tags"
-	              name="extensions.quickfilters.listener.tags"
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="postbox.quickmove"
-	              name="extensions.quickfilters.postbox.quickmove"
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="onewayaddresses"
-	              name="extensions.quickfilters.searchterm.addressesOneWay"
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="merge.autoSelect"
-	              name="extensions.quickfilters.merge.autoSelect"
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="merge.silent"
-	              name="extensions.quickfilters.merge.silent"
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="curFolderbar.listbutton"
-	              name="extensions.quickfilters.quickfolders.curFolderbar.listbutton"
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="curFolderbar.folderbutton"
-	              name="extensions.quickfilters.quickfolders.curFolderbar.folderbutton"
-				  type="bool"  
-				  instantApply="true"
-				  />
-	  <preference id="curFolderbar.messagesbutton"
-	              name="extensions.quickfilters.quickfolders.curFolderbar.messagesbutton"
-				  type="bool"  
-				  instantApply="true"
-				  />
-
-			  
+								type="bool"  
+								instantApply="true"
+								/>
+		<preference id="naming.parentFolder" 
+									name="extensions.quickfilters.naming.parentFolder"
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="naming.keyWord" 
+									name="extensions.quickfilters.naming.keyWord" 
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="cloned.append"
+									name="extensions.quickfilters.naming.clonedLabel"
+									type="string"
+									instantApply="true"
+						/>
+			<preference id="listen.tags"
+									name="extensions.quickfilters.listener.tags"
+									type="bool"  
+									instantApply="true"
+						/>
+			<preference id="postbox.quickmove"
+									name="extensions.quickfilters.postbox.quickmove"
+									type="bool"  
+									instantApply="true"
+						/>
+			<preference id="onewayaddresses"
+									name="extensions.quickfilters.searchterm.addressesOneWay"
+									type="bool"  
+									instantApply="true"
+						/>
+			<preference id="merge.autoSelect"
+									name="extensions.quickfilters.merge.autoSelect"
+									type="bool"  
+									instantApply="true"
+						/>
+			<preference id="merge.silent"
+									name="extensions.quickfilters.merge.silent"
+									type="bool"  
+									instantApply="true"
+						/>
+			<preference id="curFolderbar.listbutton"
+									name="extensions.quickfilters.quickfolders.curFolderbar.listbutton"
+									type="bool"  
+									instantApply="true"
+						/>
+			<preference id="curFolderbar.folderbutton"
+									name="extensions.quickfilters.quickfolders.curFolderbar.folderbutton"
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="curFolderbar.messagesbutton"
+									name="extensions.quickfilters.quickfolders.curFolderbar.messagesbutton"
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="templates.replyTo"
+									name="extensions.quickfilters.templates.replyTo"
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="templates.custom"
+									name="extensions.quickfilters.templates.custom"
+									type="bool"  
+									instantApply="true"
+									/>
     </preferences>
 	
 	<box id="quickFiltersHelpBar">
@@ -266,22 +273,50 @@
 				  label="&qf.tab.advanced;" 
 				  style="position:relative;">
 				  
-		<groupbox  orient="vertical" >
-			<caption label="&qf.label.currentFolderButtons;"/>
-			<checkbox id="chkCurrentToolbarFiltersButton" 
-					preference="curFolderbar.listbutton" 
-					label="&chkCurrentToolbar.btn.FilterList.label;" 
-					oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-			<checkbox id="chkCurrentToolbarFolderButton" 
-					preference="curFolderbar.folderbutton" 
-					label="&chkCurrentToolbar.btn.RunOnFolder.label;" 
-					oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-			<checkbox id="chkCurrentToolbarMessagesButton" 
-					preference="curFolderbar.messagesbutton" 
-					label="&chkCurrentToolbar.btn.RunOnMessages.label;" 
-					oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
- 			<description>&qf.description.currentFolderButtons;</description>
-		</groupbox>
+			<groupbox  orient="vertical" >
+				<caption label="&qf.templates.advanced;"/>
+				<hbox>
+					<checkbox preference="templates.replyTo" 
+										label="&qf.templates.replyTo.label;" 
+										tooltiptext="&qf.templates.replyTo.tooltip;"/>
+					<label class="plain-link" 
+								 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25863"
+                 onclick="quickFilters.Util.showBug(25863);">[Bug 25863]</label>
+				</hbox>
+				<hbox>
+				  <hbox>
+						<checkbox preference="templates.custom" 
+											label="&qf.templates.customTemplate.label;" 
+											tooltiptext="&qf.templates.customTemplate.tooltip;"/>
+						<button id="editCustomFilters"
+										label="&qf.templates.customTemplate.edit;" 
+										oncommand="quickFilters.Util.editCustomTemplates(); window.close();" />
+						<button id="newCustomFilter"
+										label="&qf.templates.customTemplate.new;" 
+										oncommand="if (quickFilters.Util.createCustomTemplate()) {window.close();}" />
+				  </hbox>
+					<label class="plain-link" 
+								 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25989"
+								 onclick="quickFilters.Util.showBug(25989);">[Bug 25989]</label>
+				</hbox>
+				
+			</groupbox>
+			<groupbox  orient="vertical" >
+				<caption label="&qf.label.currentFolderButtons;"/>
+				<description>&qf.description.currentFolderButtons;</description>
+				<checkbox id="chkCurrentToolbarFiltersButton" 
+						preference="curFolderbar.listbutton" 
+						label="&chkCurrentToolbar.btn.FilterList.label;" 
+						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+				<checkbox id="chkCurrentToolbarFolderButton" 
+						preference="curFolderbar.folderbutton" 
+						label="&chkCurrentToolbar.btn.RunOnFolder.label;" 
+						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+				<checkbox id="chkCurrentToolbarMessagesButton" 
+						preference="curFolderbar.messagesbutton" 
+						label="&chkCurrentToolbar.btn.RunOnMessages.label;" 
+						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+			</groupbox>
         <spacer flex="1" />
         <hbox>
           <spacer flex="1" />

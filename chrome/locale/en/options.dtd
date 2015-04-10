@@ -30,10 +30,17 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "Add rule specific keyword">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
-<!ENTITY qf.label.currentFolderButtons "QuickFolders Current folder Toolbar">
+<!ENTITY qf.templates.advanced "Advanced Templates">
+<!ENTITY qf.templates.customTemplate.label "Custom Templates">
+<!ENTITY qf.templates.customTemplate.tooltip "Allows generation of Custom Templates, see bug description for detail.">
+<!ENTITY qf.templates.customTemplate.edit "Edit…">
+<!ENTITY qf.templates.customTemplate.new "Create New…">
+<!ENTITY qf.templates.replyTo.label "Reply-To Template">
+<!ENTITY qf.templates.replyTo.tooltip "Display Reply-To Template, see bug description for detail.">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Display Filters List">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Run Filters on Folder">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Run Filters on selected Messages">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders Current folder Toolbar">
 <!ENTITY qf.description.currentFolderButtons "This option is only applicable if you are using the Add-On QuickFolders, which adds a small toolbar on top of the message preview pane.">
 <!ENTITY grpMerge.label "Merge Rules">
 <!ENTITY chkMergeAuto.label "Automatically select Merge">

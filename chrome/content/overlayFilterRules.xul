@@ -2,12 +2,28 @@
 <overlay id="QuickFilters-FilterRulesOverlay"
 		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-mime.js" />
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-filterEditor.js" />
 	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
 	<dialog id="FilterEditor"
-	  ondialogaccept = "{ let retVal = onAccept();  quickFilters.Util.accept(window); return retVal;}" >
+	  ondialogaccept = "{ let retVal = onAccept();  quickFilters.Util.acceptEditFilter(window); return retVal;}" >
+		
+		<hbox  id="quickFilters-CustomTemplate" 
+		       collapsed="true" >
+			<img src="chrome:///quickfilters/skin/proFeature24.png" id="customLogo" />
+			<spacer flex="1" />
+			<label id="quickFilters-CustomTitle"
+			       value="quickFilters Custom Template"/>
+			<spacer flex="1" />
+		</hbox>
+		
+		<script type="text/javascript">
+			window.addEventListener("load", function(e) { quickFilters.loadEditor(e);}, false); 
+			window.addEventListener("DOMContentLoaded", function(e) { quickFilters.editorDomLoaded(e);}, false); 
+		</script>
 	</dialog>
+	
 
 </overlay>		

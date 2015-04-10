@@ -113,22 +113,22 @@ quickFilters.Options = {
   },
   
   sendMail: function(mailto)  {
-    let optionsWin = window;
-    let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                                  .getService(Components.interfaces.nsIPromptService);
-    let title = quickFilters.Util.getBundleString('quickfilters.prompt.contact.title', "Contact quickFilters Support");
-    let text = quickFilters.Util.getBundleString('quickfilters.prompt.contact.subject', "Please enter a short subject line:");;
-    let input = {value: ""};
-    let check = {value: false};
-    let result = prompts.prompt(window, title, text, input, null, check); 
+    const Ci = Components.interfaces, 
+          Cc = Components.classes;
+    let optionsWin = window,
+        prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService),
+        title = quickFilters.Util.getBundleString('quickfilters.prompt.contact.title', "Contact quickFilters Support"),
+        text = quickFilters.Util.getBundleString('quickfilters.prompt.contact.subject', "Please enter a short subject line:"),
+        input = {value: ""},
+        check = {value: false},
+        result = prompts.prompt(window, title, text, input, null, check); 
     if (!result) return;
   
-    let sURL="mailto:" + mailto + "?subject=[quickFilters]" + encodeURI(" " + input.value); // urlencode
-    let messageComposeService=Components.classes["@mozilla.org/messengercompose;1"].getService(Components.interfaces.nsIMsgComposeService);
+    let sURL="mailto:" + mailto + "?subject=[quickFilters]" + encodeURI(" " + input.value), // urlencode
+        messageComposeService=Cc["@mozilla.org/messengercompose;1"].getService(Ci.nsIMsgComposeService),
     // make the URI
-    let ioService = Components.classes["@mozilla.org/network/io-service;1"]
-              .getService(Components.interfaces.nsIIOService);
-    let aURI = ioService.newURI(sURL, null, null);
+        ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService),
+        aURI = ioService.newURI(sURL, null, null);
     // open new message
     messageComposeService.OpenComposeWindowWithURI (null, aURI);
     setTimeout( function() {optionsWin.close();}, 200 );

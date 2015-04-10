@@ -30,3 +30,23 @@
 	background-position: right center;
 	background-position: right center;
 }
+
+#quickFilters-CustomTemplate {
+  background: rgb(0,0,64);
+	background-image: url("chrome://messenger/skin/preferences/background.png");
+  color: white;
+	font-weight: bold;
+	font-family: Calibri, Sans-serif;
+	font-size: 16px;
+	margin-bottom: 6px;
+  padding: 4px;
+	text-align: center;
+	text-shadow: 2px 2px 2px rgba(60,60,60,0.4);
+}
+#customLogo {
+  margin-left: 5px;
+	/* just a hack as I don't appear to be able to use img url for a chrome address? */
+	background-image:url("chrome://quickfilters/skin/proFeature24.png"); 
+	width: 54px;
+	height: 24px;
+}

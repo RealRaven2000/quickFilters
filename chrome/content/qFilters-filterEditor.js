@@ -1,9 +1,11 @@
 
 // highlight removable filter conditions (duplicates)
-window.onload = function() {
+// window.onload = function()
+quickFilters.loadEditor = function loadEditor(event) {
   let utils = quickFilters.Util;
+  utils.logDebug('quickFilters.loadEditor()');
   if (utils.Debug) debugger;
-  filterEditorOnLoad();
+  // filterEditorOnLoad(); was already called as we now use a listener!
   setTimeout( function() {
     function matchAction(actionType, actionString) {
       // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.js#30
@@ -22,9 +24,9 @@ window.onload = function() {
       let args = window.arguments[0];  
       if (args.filterConditionValue) {
         window.quickFiltersConditionSearch = true; // a flag to tell us refreshing the list
-        let found = false;
-        let firstMatch;
-        let list;
+        let found = false,
+            firstMatch,
+            list;
         utils.logDebug(
           'args.filterConditionValue = ' + args.filterConditionValue +'\n' +
           'args.filterConditionActionType = ' + args.filterConditionActionType);
@@ -53,9 +55,9 @@ window.onload = function() {
           else {
             list = document.getElementById('searchTermList');
             // iterate search rows => listitems
-            let rowIndex = 0;
-            let lastrowIndex = -1;
-            let searchRowIndex;
+            let rowIndex = 0,
+                lastrowIndex = -1,
+                searchRowIndex;
             while (!found) {
               let item;
               for each (item in list.children) {
@@ -64,8 +66,8 @@ window.onload = function() {
                     if (listcell.firstChild && 
                         listcell.firstChild.nodeName=='searchvalue' && 
                         listcell.firstChild.value) {
-                      let theValue = listcell.firstChild.value;
-                      let currentSearchVal = theValue.str;
+                      let theValue = listcell.firstChild.value,
+                          currentSearchVal = theValue.str;
                       searchRowIndex = getSearchRowIndexForElement(item);
                       // e.g: [nsIMsgSearchValue: XXXX
                       utils.logDebug('currentSearchVal = ' + currentSearchVal + '   searchRowIndex = ' + searchRowIndex);
@@ -110,12 +112,39 @@ window.onload = function() {
     else
        utils.logDebug('No window arguments!');
   }, 100);
+  
+  setTimeout( function() { quickFilters.editorShowTitle();}, 100);
 }
 
-quickFilters.Util.accept = function acceptFilter(win) {
+quickFilters.editorShowTitle = function() {
+  let utils = quickFilters.Util,
+      filterNameElement = document.getElementById('filterName'),
+      filterName = filterNameElement.value;
+  utils.logDebug('quickFilters.editorShowTitle() - filterName = ' + filterName);
+  if (filterName && filterName.indexOf('quickFilterCustomTemplate')==0) {
+    //show "custom Template Header" and move before the Filter Name:
+    let customEl = document.getElementById('quickFilters-CustomTemplate');
+    customEl.setAttribute('collapsed', false);
+    // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.xul#35
+    let hbox = filterNameElement.parentElement;
+    hbox.style.borderColor = "green"; // test
+    // there is no parent element maybe we have to wait for DOMContentLoaded ?
+    hbox.parentElement.insertBefore(customEl, hbox);
+    // localist quickFilters-CustomTitle
+    let cTitle = document.getElementById('quickFilters-CustomTitle');
+  }
+}
+
+quickFilters.editorDomLoaded = function(event) {
+  let utils = quickFilters.Util;
+  utils.logDebug('quickFilters.editorDomLoaded()');
+} ;
+
+
+quickFilters.Util.acceptEditFilter = function acceptEditFilter(win) {
   quickFilters.Util.logDebug('quickFilters.Util.accept(' + win + ')');
-  let  op = win.opener;
+  let op = win.opener;
   if (op && op.quickFilters && op.quickFilters.List) {
     op.quickFilters.List.refreshDuplicates(true);
   }
-}
+} ;
