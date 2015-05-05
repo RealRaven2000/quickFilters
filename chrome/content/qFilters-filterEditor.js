@@ -116,24 +116,54 @@ quickFilters.loadEditor = function loadEditor(event) {
   setTimeout( function() { quickFilters.editorShowTitle();}, 100);
 }
 
-quickFilters.editorShowTitle = function() {
+quickFilters.editorShowTitle = function editorShowTitle() {
   let utils = quickFilters.Util,
       filterNameElement = document.getElementById('filterName'),
       filterName = filterNameElement.value;
   utils.logDebug('quickFilters.editorShowTitle() - filterName = ' + filterName);
   if (filterName && filterName.indexOf('quickFilterCustomTemplate')==0) {
-    //show "custom Template Header" and move before the Filter Name:
-    let customEl = document.getElementById('quickFilters-CustomTemplate');
+    utils.logDebug('Found Custom Filter Template:\n' + filterName);
+    // show "QuickFilters Custom Template" Heading and move it on top of the Filter Name:
+    let customEl = document.getElementById('quickFilters-CustomTemplate'),
+        variablesBox = document.getElementById('quickFilters-CustomVars'),
+        templateLabel = document.getElementById('quickFilters-templateName');
     customEl.setAttribute('collapsed', false);
     // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.xul#35
+    // find container of filterName
     let hbox = filterNameElement.parentElement;
     hbox.style.borderColor = "green"; // test
     // there is no parent element maybe we have to wait for DOMContentLoaded ?
     hbox.parentElement.insertBefore(customEl, hbox);
-    // localist quickFilters-CustomTitle
-    let cTitle = document.getElementById('quickFilters-CustomTitle');
+     
+    // localise dropdown for custom filter elements
+    let custVarLabel = document.getElementById('quickFilters-variablePicker-label'),
+        custVarPicker = document.getElementById('quickFilters-variablePicker');
+    utils.logDebug('Localize Variable Dropdown: ' + custVarLabel.value);
+    variablesBox.setAttribute('collapsed', false);
+    hbox.appendChild(variablesBox);
+    custVarPicker.label = custVarLabel.value; // show label on dropdown!
+    // make "template name" label visible and collapse "filter name" 
+    filterNameElement.previousSibling.setAttribute('collapsed', true);
+    hbox.insertBefore(templateLabel, filterNameElement);
+    templateLabel.setAttribute('collapsed', false);
+    filterName.setAttribute('flex', 8);
   }
-}
+};
+
+quickFilters.selectCustomHeader = function selectCustomHeader(picker, event) {
+  const Cc = Components.classes,
+        Ci = Components.interfaces;
+  // picker
+  let clipboardhelper = Cc["@mozilla.org/widget/clipboardhelper;1"].getService(Ci.nsIClipboardHelper),
+      variable = event.target.value;
+  clipboardhelper.copyString(variable);
+  let mainWin = quickFilters.Util.getMail3PaneWindow(),
+      utils = mainWin.quickFilters.Util;
+      txt = utils.getBundleString('quickfilters.prompt.copiedCustomVar', 
+                           'Copied variable {1} to clipboard, please paste in a search term.'),
+      
+  utils.slideAlert(txt.replace('{1}', event.target.value));
+};
 
 quickFilters.editorDomLoaded = function(event) {
   let utils = quickFilters.Util;
