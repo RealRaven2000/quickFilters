@@ -30,10 +30,10 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "m">
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
-<!ENTITY qf.label.currentFolderButtons "QuickFolders verktygsfält för aktuell meddelandemapp">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Visa filterlista">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Kör filter på mapp">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Kör filter på markerade meddelanden">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders verktygsfält för aktuell meddelandemapp">
 <!ENTITY qf.description.currentFolderButtons "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen.">
 <!ENTITY grpMerge.label "Sammanfogningsregler">
 <!ENTITY chkMergeAuto.label "Välj Sammanfoga automatiskt">

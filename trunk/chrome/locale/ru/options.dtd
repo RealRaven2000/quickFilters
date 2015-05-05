@@ -30,10 +30,17 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "о">
 <!ENTITY qf.label.naming.keyWord "Добавить ключевое слово правила">
 <!ENTITY qf.label.naming.keyWord.accesskey "к">
-<!ENTITY qf.label.currentFolderButtons "Панель инструментов текущей папки QuickFolders">
+<!ENTITY qf.templates.advanced "Дополнительные шаблоны">
+<!ENTITY qf.templates.customTemplate.label "Настраиваемые шаблоны">
+<!ENTITY qf.templates.customTemplate.tooltip "Позволяет создавать настраиваемые шаблоны, подробнее в описании бага.">
+<!ENTITY qf.templates.customTemplate.edit "Редактировать…">
+<!ENTITY qf.templates.customTemplate.new "Создать новый…">
+<!ENTITY qf.templates.replyTo.label "Шаблон по обратному адресу">
+<!ENTITY qf.templates.replyTo.tooltip "Показать шаблон по обратному адресу, подробнее в описании бага.">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Показывать список фильтров">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Применить фильтры к папке">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Применить фильтры к выбранным сообщениям">
+<!ENTITY qf.label.currentFolderButtons "Панель инструментов текущей папки QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее маленькую панель инструментов в область просмотра сообщений.">
 <!ENTITY grpMerge.label "Правила объединения">
 <!ENTITY chkMergeAuto.label "Автоматический выбор объединения">

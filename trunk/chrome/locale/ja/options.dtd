@@ -30,10 +30,17 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "規則通りのキーワードを追加する">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
-<!ENTITY qf.label.currentFolderButtons "QuickFolders の現在のフォルダツールバー">
+<!ENTITY qf.templates.advanced "詳細テンプレート">
+<!ENTITY qf.templates.customTemplate.label "カスタムテンプレート">
+<!ENTITY qf.templates.customTemplate.tooltip "カスタムテンプレートの生成を許可します (詳細はバグの説明を参照)。">
+<!ENTITY qf.templates.customTemplate.edit "編集...">
+<!ENTITY qf.templates.customTemplate.new "新規作成...">
+<!ENTITY qf.templates.replyTo.label "Reply-To テンプレート">
+<!ENTITY qf.templates.replyTo.tooltip "Reply-To テンプレートを表示します (詳細はバグの説明を参照)。">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "フィルタリストを表示">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "フォルダにフィルタを適用">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "選択したメッセージにフィルタを適用">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders の現在のフォルダツールバー">
 <!ENTITY qf.description.currentFolderButtons "このオプションは、QuickFolders アドオンを使用している場合のみ使用できます。メッセージのプレビューペインに小さなツールバーが追加されます。">
 <!ENTITY grpMerge.label "規則を統合する">
 <!ENTITY chkMergeAuto.label "自動的に統合モードを選択する">
