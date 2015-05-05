@@ -1280,7 +1280,9 @@ quickFilters.Util = {
         prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService),
         input = {value: ""},
         check = {value: false},
-        result = prompts.prompt(window, 'quickFilters', 'Name of Template', input, null, check); 
+        promptLabel = util.getBundleString('quickfilters.prompt.customTemplateName', 
+                             'Name of Custom Template:'),
+        result = prompts.prompt(window, 'quickFilters', promptLabel, input, null, check); 
     if (!result)
       return false;
     else {
