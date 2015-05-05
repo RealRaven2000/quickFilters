@@ -30,10 +30,17 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "S">
 <!ENTITY qf.label.naming.keyWord "Aggiunge alla regola una parola-chiave specifica">
 <!ENTITY qf.label.naming.keyWord.accesskey "C">
-<!ENTITY qf.label.currentFolderButtons "Barra degli strumenti della cartella corrente di QuickFolders">
+<!ENTITY qf.templates.advanced "Modelli avanzati">
+<!ENTITY qf.templates.customTemplate.label "Modelli personalizzati">
+<!ENTITY qf.templates.customTemplate.tooltip "Consente di generare modelli personalizzati (vedi descrizione bug per i dettagli)">
+<!ENTITY qf.templates.customTemplate.edit "Modifica…">
+<!ENTITY qf.templates.customTemplate.new "Crea nuovo…">
+<!ENTITY qf.templates.replyTo.label "Modello 'Rispondi a'">
+<!ENTITY qf.templates.replyTo.tooltip "Visualizza il modello 'Rispondi a' (vedi descrizione bug per i dettagli)">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Mostra elenco filtri">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Esegui filtri sulla cartella">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Esegui filtri sui messaggi selezionati">
+<!ENTITY qf.label.currentFolderButtons "Barra degli strumenti della cartella corrente di QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Questa opzione è utilizzabile solo se si sta usando anche l'estensione QuickFolders che aggiunge una piccola barra degli strumenti in cima al riquadro di anteprima del messaggio">
 <!ENTITY grpMerge.label "Regole Unione">
 <!ENTITY chkMergeAuto.label "Seleziona automaticamente Unione">

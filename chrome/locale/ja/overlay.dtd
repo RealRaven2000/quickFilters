@@ -6,6 +6,7 @@
 <!ENTITY quickfilters.ListButton.label "メッセージフィルタ...">
 <!ENTITY quickfilters.ListButton.tooltip "メッセージフィルタの一覧を表示します">
 <!ENTITY quickfilters.RunButton.label "フィルタ実行">
+<!ENTITY quickfilters.RunButtonMsg.label "選択したメールにフィルタを適用">
 <!ENTITY quickfilters.RunButton.tooltip "現在のフォルダにセットアップしたフィルタを適用します">
 <!ENTITY quickfilters.RunButtonMsg.tooltip "現在のメールにフィルタを適用します">
 <!ENTITY quickfilters.findFiltersForFolder.menu "フィルタを検索...">

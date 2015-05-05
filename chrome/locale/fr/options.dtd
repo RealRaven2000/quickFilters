@@ -30,10 +30,17 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "Ajouter le mot-clé spécifique à la règle">
 <!ENTITY qf.label.naming.keyWord.accesskey "m">
-<!ENTITY qf.label.currentFolderButtons "Barre d'outils du dossier courant QuickFolders">
+<!ENTITY qf.templates.advanced "Modèles avancés">
+<!ENTITY qf.templates.customTemplate.label "Modèles personnalisés">
+<!ENTITY qf.templates.customTemplate.tooltip "Permet la génération de modèles personnalisés, voyez la description de bogue pour davantage d'infos.">
+<!ENTITY qf.templates.customTemplate.edit "Éditer…">
+<!ENTITY qf.templates.customTemplate.new "Nouveau…">
+<!ENTITY qf.templates.replyTo.label "Modèle Répondre à">
+<!ENTITY qf.templates.replyTo.tooltip "Affiche le modèle Répondre à, voir la description de bogue pour infos.">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Afficher la liste des filtres">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Appliquer les filtres au dossier">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Appliquer les filtres aux messages sélectionnés">
+<!ENTITY qf.label.currentFolderButtons "Barre d'outils du dossier courant QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Cette option ne peut être appliquée que si vous utilisez l'extension QuickFolders, qui ajoute une petite barre d'outils en haut du panneau d'aperçu du message.">
 <!ENTITY grpMerge.label "Règles de fusion">
 <!ENTITY chkMergeAuto.label "Sélectionner automatiquement la fusion">

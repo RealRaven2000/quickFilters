@@ -30,10 +30,10 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "添加规则指定关键字">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
-<!ENTITY qf.label.currentFolderButtons "QuickFolders 当前文件夹工具栏">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "显示过滤器列表">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "对文件夹应用过滤器">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "对所选消息应用过滤器">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders 当前文件夹工具栏">
 <!ENTITY qf.description.currentFolderButtons "此选项仅在您使用QuickFolders扩展时可用，该扩展会在消息预览窗格顶部添加一个小工具栏。">
 <!ENTITY grpMerge.label "合并规则">
 <!ENTITY chkMergeAuto.label "自动选择合并">

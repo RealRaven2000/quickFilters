@@ -33,7 +33,7 @@
 <!ENTITY qf.templates.advanced "Fortgeschrittene Vorlagen">
 <!ENTITY qf.templates.customTemplate.label "Benutzerspezifische Vorlagen">
 <!ENTITY qf.templates.customTemplate.tooltip "Erzeugung benutzerspezifischer Vorlagen, für Details siehe folgende Bug-Beschreibung:">
-<!ENTITY qf.templates.customTemplate.edit "Editieren…">
+<!ENTITY qf.templates.customTemplate.edit "Bearbeiten…">
 <!ENTITY qf.templates.customTemplate.new "Neues Template…">
 <!ENTITY qf.templates.replyTo.label "'Antwort an' Vorlage">
 <!ENTITY qf.templates.replyTo.tooltip "Zeigt die 'Antwort an' (Reply-To) Vorlage an, für Details siehe folgende Bug-Beschreibung:">
