@@ -295,9 +295,13 @@
 										label="&qf.templates.customTemplate.new;" 
 										oncommand="if (quickFilters.Util.createCustomTemplate()) {window.close();}" />
 				  </hbox>
-					<label class="plain-link" 
-								 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25989"
-								 onclick="quickFilters.Util.showBug(25989);">[Bug 25989]</label>
+					<vbox>
+					  <spacer flex="1" />
+						<label class="plain-link" 
+									 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25989"
+									 onclick="quickFilters.Util.showBug(25989);">[Bug 25989]</label>
+					  <spacer flex="1" />
+					</vbox>
 				</hbox>
 				
 			</groupbox>
