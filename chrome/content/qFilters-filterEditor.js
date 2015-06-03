@@ -304,6 +304,7 @@ quickFilters.FilterEditor = {
     // retrieve valueId from value!  - if the term was added as a custom term it will have an id in the attributes dropdown
     val.str = value; // copy string into val object
     searchTerm.value = val; // copy object back into 
+    gFilter.appendTerm(searchTerm);
     
     createSearchRow(rowIndex, gSearchScope, searchTerm, false);
     gTotalSearchTerms++;
