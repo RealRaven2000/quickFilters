@@ -33,6 +33,6 @@ var quickFilters_OnLoad = function() {
 }
 
 /* great if there was an onload event for the page? */
-setTimeout(function() {quickFilters_OnLoad();}, 200});
+setTimeout(function() {quickFilters_OnLoad();}, 200);
 
 
