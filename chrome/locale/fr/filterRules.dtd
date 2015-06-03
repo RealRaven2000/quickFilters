@@ -1,0 +1,18 @@
+<!ENTITY quickfilters.customTemplate.title "Modèle personnalisé quickFilters">
+<!ENTITY quickfilters.customTemplate.name "Nom du modèle :">
+<!ENTITY quickfilters.customVariable.label "Variables personnalisées">
+<!ENTITY quickfilters.customVariable.tooltip "Lors de la création de filtre, ces variables sont remplacées par les entêtes de mail correspondantes du courriel courant.">
+<!ENTITY quickfilters.customHeader.From "Expéditeur">
+<!ENTITY quickfilters.customHeader.To "Pour">
+<!ENTITY quickfilters.customHeader.CarbonCopy "Copie à (CC)">
+<!ENTITY quickfilters.customHeader.BlindCarbonCopy "Copie cachée à (BCC)">
+<!ENTITY quickfilters.customHeader.ReplyTo "Réponse à">
+<!ENTITY quickfilters.customHeader.Subject "Objet">
+<!ENTITY quickfilters.customHeader.ListId "Id de la liste">
+<!ENTITY quickfilters.customHeader.ListPost "Message de la liste">
+<!ENTITY quickfilters.customHeader.Newsgroups "Newsgroups">
+<!ENTITY quickfilters.customHeader.Email "Adresse électronique">
+<!ENTITY quickfilters.customHeader.Domain "Domaine du courriel">
+<!ENTITY quickfilters.customHeader.NamePart "Nom complet">
+<!ENTITY quickfilters.customHeader.FirstName "Prénom">
+<!ENTITY quickfilters.customHeader.LastName "Nom">

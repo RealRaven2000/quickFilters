@@ -1,0 +1,18 @@
+<!ENTITY quickfilters.customTemplate.title "Modello personalizzato di quickFilters">
+<!ENTITY quickfilters.customTemplate.name "Nome del modello:">
+<!ENTITY quickfilters.customVariable.label "Variabili personalizzate">
+<!ENTITY quickfilters.customVariable.tooltip "Quando viene creato il fltro, queste variabili vengono rimpiazzate dalle corrispondenti intestazioni presenti nel messaggio di posta elettronica corrente">
+<!ENTITY quickfilters.customHeader.From "Da">
+<!ENTITY quickfilters.customHeader.To "A">
+<!ENTITY quickfilters.customHeader.CarbonCopy "Copia Conforme (CC)">
+<!ENTITY quickfilters.customHeader.BlindCarbonCopy "Copia Conforme Nascosta (CCN)">
+<!ENTITY quickfilters.customHeader.ReplyTo "Rispondi A">
+<!ENTITY quickfilters.customHeader.Subject "Oggetto">
+<!ENTITY quickfilters.customHeader.ListId "List Id">
+<!ENTITY quickfilters.customHeader.ListPost "List Post">
+<!ENTITY quickfilters.customHeader.Newsgroups "Gruppi di discusasione">
+<!ENTITY quickfilters.customHeader.Email "Indirizzo di posta elettronica">
+<!ENTITY quickfilters.customHeader.Domain "Dominio dell'indirizo di posta elettronica">
+<!ENTITY quickfilters.customHeader.NamePart "Nome completo">
+<!ENTITY quickfilters.customHeader.FirstName "Nome">
+<!ENTITY quickfilters.customHeader.LastName "Cognome">

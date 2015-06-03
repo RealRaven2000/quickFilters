@@ -1,0 +1,18 @@
+<!ENTITY quickfilters.customTemplate.title "quickFilters настраиваемый шаблон">
+<!ENTITY quickfilters.customTemplate.name "Имя шаблона:">
+<!ENTITY quickfilters.customVariable.label "Переменные">
+<!ENTITY quickfilters.customVariable.tooltip "При создании фильтра эти переменные будут заменены на их значения из текущего сообщения.">
+<!ENTITY quickfilters.customHeader.From "От кого">
+<!ENTITY quickfilters.customHeader.To "Кому">
+<!ENTITY quickfilters.customHeader.CarbonCopy "Копия (CC)">
+<!ENTITY quickfilters.customHeader.BlindCarbonCopy "Скрытая копия (BCC)">
+<!ENTITY quickfilters.customHeader.ReplyTo "Обратный адрес">
+<!ENTITY quickfilters.customHeader.Subject "Тема">
+<!ENTITY quickfilters.customHeader.ListId "Идентификатор списка">
+<!ENTITY quickfilters.customHeader.ListPost "Сообщение списка">
+<!ENTITY quickfilters.customHeader.Newsgroups "Группа новостей">
+<!ENTITY quickfilters.customHeader.Email "Адрес">
+<!ENTITY quickfilters.customHeader.Domain "Домен адреса">
+<!ENTITY quickfilters.customHeader.NamePart "ФИО">
+<!ENTITY quickfilters.customHeader.FirstName "Имя">
+<!ENTITY quickfilters.customHeader.LastName "Фамилия">
