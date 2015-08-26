@@ -15,6 +15,16 @@ overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/conte
 style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css
 style   chrome://messenger/content/FilterEditor.xul chrome://quickfilters/content/filterWidgets.css
 
+#Overlay QuickFolder's Current folder toolbar
+# Thunderbird 
+content myXUL chrome://quickfolders/content/xul12/ application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+# SeaMonkey
+content myXUL chrome://quickfolders/content/xulSM/ application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+# Postbox
+content myXUL chrome://quickfolders/content/xulPb/ application=postbox@postbox-inc.com
+overlay chrome://myXUL/content/overlayCurrentfolder.xul     chrome://quickfilters/content/qFilters-QuickFolders.xul
+
+
 #legacy styles (for deprecated attributes)
 style   chrome://messenger/content/messenger.xul content/legacy.css application={3550f703-e582-4d05-9a08-453d09bdfdc6} appversion<12
 
