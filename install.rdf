@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:type>2</em:type> 
         <em:id>quickFilters@axelg.com</em:id>
-        <em:version>2.7.1</em:version>
+        <em:version>2.9</em:version>
 
 		<em:creator>Axel Grude</em:creator>
 		<!-- Thunderbird -->
@@ -12,7 +12,7 @@
 			<Description>
 				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
 				<em:minVersion>9.0</em:minVersion>
-				<em:maxVersion>34.*</em:maxVersion>
+				<em:maxVersion>38.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		<!-- SeaMonkey -->
@@ -20,7 +20,7 @@
             <Description>
                 <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
                 <em:minVersion>2.0</em:minVersion>
-                <em:maxVersion>2.30.*</em:maxVersion>
+                <em:maxVersion>2.38.*</em:maxVersion>
             </Description>
         </em:targetApplication>
 		<!-- Postbox  -->
