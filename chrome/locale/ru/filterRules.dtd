@@ -2,6 +2,7 @@
 <!ENTITY quickfilters.customTemplate.name "Имя шаблона:">
 <!ENTITY quickfilters.customVariable.label "Переменные">
 <!ENTITY quickfilters.customVariable.tooltip "При создании фильтра эти переменные будут заменены на их значения из текущего сообщения.">
+<!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "От кого">
 <!ENTITY quickfilters.customHeader.To "Кому">
 <!ENTITY quickfilters.customHeader.CarbonCopy "Копия (CC)">
@@ -11,6 +12,7 @@
 <!ENTITY quickfilters.customHeader.ListId "Идентификатор списка">
 <!ENTITY quickfilters.customHeader.ListPost "Сообщение списка">
 <!ENTITY quickfilters.customHeader.Newsgroups "Группа новостей">
+<!-- These are the different components of an email address (e.g of "Fred Smith <fredsmith@example.com>") -->
 <!ENTITY quickfilters.customHeader.Email "Адрес">
 <!ENTITY quickfilters.customHeader.Domain "Домен адреса">
 <!ENTITY quickfilters.customHeader.NamePart "ФИО">
