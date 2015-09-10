@@ -18,7 +18,7 @@ var quickFilters_OnLoad = function() {
   if (quickFilters_downLoadOnBiff && quickFilters_serverVbox) {
     let par = quickFilters_downLoadOnBiff.parentNode;
     par.parentNode.insertBefore(
-      quickFilters_downLoadOnBiff.par,
+      par,
       quickFilters_serverVbox.parentNode);
   }
   else {

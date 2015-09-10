@@ -37,7 +37,7 @@
 			          label="&quickfilters.customVariable.label;"
 								tooltiptext="&quickfilters.customVariable.tooltip;"
 								sizetopopup="none" 
-								oncommand="quickFilters.selectCustomHeader(this,event);">
+								oncommand="quickFilters.FilterEditor.selectCustomHeader(this,event);">
 				<menupopup>
 				  <menu label="&quickfilters.customHeader.From;">
 						<menupopup>
@@ -99,8 +99,8 @@
 		</hbox>
 		
 		<script type="text/javascript">
-			window.addEventListener("load", function(e) { quickFilters.loadEditor(e);}, false); 
-			window.addEventListener("DOMContentLoaded", function(e) { quickFilters.editorDomLoaded(e);}, false); 
+			window.addEventListener("load", function(e) { quickFilters.FilterEditor.onLoad(e);}, false); 
+			window.addEventListener("DOMContentLoaded", function(e) { quickFilters.FilterEditor.onDomLoaded(e);}, false); 
 		</script>
 	</dialog>
 	

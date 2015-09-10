@@ -1,0 +1,32 @@
+<ul>
+    <li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=25989">[Bug 25989]</a> 
+        Premium Feature: Support Creation of Custom Templates
+        A custom template is like a blueprint for generating new filters, and will be shown along with the other choices in the quickFilters assistant. 
+				
+        To create a custom template:
+      <ol>
+        <li>Go to quickFilters options (right-click the filter assistant button)</li>
+        <li>Go to the Advanced Tab and after enabling [x] Custom Templates, click [Create New...]
+        <li>Enter the name of the custom template
+        <li>Edit the filter by selecting from the Custom Variables drop-down. This will create a new condition with a placeholder variable which will be replaced with the "real thing" when you create a new filter.
+        <li>Make sure you leave the label "quickFilterCustomTemplate: " at the start of the Template Name;  this will ensure that it will be offered as choice the next time you create a filter.
+      </ol>
+      
+      Some Detail:
+      
+      In Postbox / SeaMonkey there is no way to filter the list of filters (no search box), so when you click "Edit" beside Custom Templates, you may see _all_ filters in Local Folders. Just select the ones starting with "quickFilterCustomTemplate:" for editing. 
+      
+      There is a default action of "Set Priority to Normal" as it is not possible to save a filter <i>without any</i> actions. Since incoming mail usually has normal priority I chose this as the lesser evil. This action will be removed and the standard action added instead: move to folder / or flag / tag  as the mail that was moved / tagged when assistant was invoked.
+      
+      A typical example for a custom filter would be a filter template that moves all emails from a given domain (e.g. emails ending with @youtube.com). This can easily be created with the custom filter template and then invoked whenever a new filter has to be created. 
+         
+      To create this the only thing you need to do is select Custom Variables &gt; From &gt; Domain of Email, and save the Custom Template. On filter creation, you will select the Template of the name you created and it would automatically create a condition "where From ends with @<i>domainname</i>", automatically filling <i>domainname</i> from the current email. If you want to hardcode other actions into the Custom Template u can do this as well, just remember to remove the "Set priority to Normal" action (unless you want to do this).
+        
+    </li>
+    <li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26023">[Bug 26023]</a> Template "Based on Recipient (To)" returns full lowercase address field</li>
+    <li>Postbox 4.0 compatibility added</li>
+    <li>Postbox: improved event listener for dropping mails onto the folder tree.</li>
+    <li>Split run Filters Command into "folders" and "selected messages" - and created separate buttons.</li>
+    <li>Fixed: creating filters from multiple emails (e.g. "from group") by improving the way the moved messages list is processed.</li>
+    <li>Improved algorithm for determining the originating folder for moved mails. </li>
+  </ul>

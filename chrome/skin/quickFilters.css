@@ -13,7 +13,8 @@
 	-moz-image-region: rect(32px, 16px, 48px, 0px);
 }
 
-#quickfilters-toolbar-button
+#quickfilters-toolbar-button,
+#mail-toolbox > toolbar[brighttext] #quickfilters-toolbar-button.toolbarbutton-1
 {
   list-style-image: url("chrome://quickfilters/skin/QuickFilters_24.png");
   -moz-image-region: rect(0px 24px 24px 0px);
@@ -28,6 +29,7 @@
 }
 
 [iconsize="small"] #quickfilters-toolbar-button,
+toolbar[iconsize="small"][brighttext] #quickfilters-toolbar-button.toolbarbutton-1
 #quickFilters-wizard,
 #quickFilters-fromMessage,
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive,
@@ -60,35 +62,42 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
   -moz-image-region: rect(16px, 16px, 32px, 0px) !important; 
 }
 
-#quickfilters-toolbar-listbutton
-{
+#quickfilters-toolbar-listbutton {
   list-style-image: url("chrome://quickfilters/skin/filterList_24.png");
 }
+#mail-toolbox > toolbar[brighttext] #quickfilters-toolbar-listbutton.toolbarbutton-1 {
+  list-style-image: url("chrome://quickfilters/skin/filterList_24bright.png");
+}
+
 
 [iconsize="small"] #quickfilters-toolbar-listbutton,
-#quickfilters-current-listbutton
-{
+#quickfilters-current-listbutton,
+#mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-current-listbutton.toolbarbutton-1 {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/skin/filterList_16.png");
 }
 
 
-#quickfilters-toolbar-runbutton {
+#quickfilters-toolbar-runbutton,
+#mail-toolbox > toolbar[brighttext] #quickfilters-toolbar-runbutton.toolbarbutton-1 {
   list-style-image: url("chrome://quickfilters/skin/runFilters.png");
 }
 
-#quickfilters-toolbar-msg-runbutton {
-  list-style-image: url("chrome://quickfilters/skin/runFilters-selected.png");
+#quickfilters-toolbar-msg-runbutton,
+#mail-toolbox > toolbar[brighttext] #quickfilters-msg-runbutton.toolbarbutton-1 {
+  list-style-image: url("chrome://quickfilters/skin/runFilters-selected.png") !important;
 }
 
 
 
-#quickfilters-current-runbutton
-{
+#quickfilters-current-runbutton,
+#mail-toolbox > toolbar[brighttext] #quickfilters-current-runbutton.toolbarbutton-1 {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/skin/run-filters-folder-16.png");
 }
+
 [iconsize="small"] #quickfilters-toolbar-msg-runbutton,
+#mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-toolbar-msg-runbutton.toolbarbutton-1,
 #quickfilters-current-msg-runbutton
 {
   -moz-image-region: rect( 0px 16px 16px 0px);
@@ -117,6 +126,7 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
 
 
 [iconsize="small"] #quickfilters-toolbar-runbutton,
+#mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-toolbar-runbutton.toolbarbutton-1,
 #quickfilters-menu-runMenu
 {
   -moz-image-region: rect( 0px 16px 16px 0px);

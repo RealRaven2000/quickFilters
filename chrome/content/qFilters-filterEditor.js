@@ -223,7 +223,7 @@ quickFilters.FilterEditor = {
     }
     // add the new term depending on hdr
     this.addCondition(hdr, variable);
-    utils.slideAlert(txt.replace('{1}', variable));
+    // utils.slideAlert(txt.replace('{1}', variable));
   },
 
   checkCustomHeaderExists: function checkCustomHeaderExists(hdr) {

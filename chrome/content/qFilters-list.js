@@ -50,7 +50,7 @@ quickFilters.List = {
     document.getElementById("quickFiltersBtnCut").disabled = (numFiltersSelected==0);
     document.getElementById("quickFiltersBtnCopy").disabled = (numFiltersSelected==0);
   },
-
+  
   // FILTER LIST DIALOG FUNCTIONS - replaces gFilterListbox
   get FilterListElement() {
     let el = document.getElementById("filterList");
@@ -695,7 +695,7 @@ quickFilters.List = {
             }
           }
           // PASTE: NOW INSERT
-          if(!isSort) {
+          if (!isSort) {
             let filter = clpFilters[i].QueryInterface(Ci.nsIMsgFilter);
             filtersList.insertFilterAt(index++, filter); 
           }
@@ -921,7 +921,9 @@ quickFilters.List = {
         el.minwidth = 15;
       }
     }
-    quickFilters.Util.logDebugOptional('filterList', 'onLoadFilterList() starts...');
+    let getElement = document.getElementById.bind(document);
+    const util = quickFilters.Util;
+    util.logDebugOptional('filterList', 'onLoadFilterList() starts...');
     // overwrite list updateButtons
     let orgUpdateBtn = updateButtons;
     updateButtons = function() {
@@ -929,35 +931,36 @@ quickFilters.List = {
       quickFilters.List.updateButtons();
     }
 		// Toolbar
-		let toolbox = document.getElementById("quickfilters-toolbox"),
+		let toolbox = getElement("quickfilters-toolbox"),
 		    hbs = document.getElementsByTagName(
-		    (quickFilters.Util.Application == 'Thunderbird')
+		    (util.Application == 'Thunderbird')
 			? 'hbox'
-		  : 'grid');  // SM + Postbox
+		  : 'grid'),
+		  hbox = hbs ? hbs[0] : null ;
 		let isToolbar = false;
+    if (quickFilters.Preferences.Debug) debugger;
 		if (!quickFilters.Preferences.getBoolPref("toolbar")) {
 		  toolbox.parentNode.removeChild(toolbox);
 		}
-		else if (hbs && toolbar) { // move toolbox up
-		  let hbox = hbs[0];
+		else if (hbox && toolbar) { // move toolbox up
 			hbox.parentNode.insertBefore(toolbox, hbox);
 			isToolbar = true;
-			let win = quickFilters.Util.getMail3PaneWindow();
+			let win = util.getMail3PaneWindow();
 			if (win.quickFilters.Worker.FilterMode) {
-				let button = document.getElementById('quickFiltersBtnStart');
+				let button = getElement('quickFiltersBtnStart');
 				button.checked = true;			
 			}
 		}
 		
-    if (quickFilters.Util.Application != 'Thunderbird') {
-      let duplicateBtn = document.getElementById('quickFiltersBtnDupe');
+    if (util.Application != 'Thunderbird') {
+      let duplicateBtn = getElement('quickFiltersBtnDupe');
       duplicateBtn.collapsed = true;
     }
 		
 		// add event listener for changing account
-    let dropDown = document.getElementById("serverMenu");
+    let dropDown = getElement("serverMenu");
 		if (dropDown) {
-			quickFilters.Util.logDebugOptional("clipboard", "Server dropdown event listener");
+			util.logDebugOptional("clipboard", "Server dropdown event listener");
 			dropDown.addEventListener("command", 
 				function(e) { quickFilters.List.onSelectServer();},
 				false);
@@ -968,33 +971,49 @@ quickFilters.List = {
 		filterList.setAttribute('context','quickFiltersContext');
 
     // check whether [Bug 450302] has landed
-    let nativeSearchBox = document.getElementById("searchBox"),
+    let nativeSearchBox = getElement("searchBox"),
     // check whether QuickFolder_s already does these modifications
-        quickFolderSearchBox = document.getElementById("qf-Filter");
+        quickFolderSearchBox = getElement("quickFilters-Search");
     //move buttons to the correct place
-    let buttonBottom = document.getElementById("quickFilters-reorderButtonBottom"),
-        buttonTop = document.getElementById("quickFilters-reorderButtonTop"),
-        down = document.getElementById("reorderDownButton"),
-        up = document.getElementById("reorderUpButton"),
-        searchBox = document.getElementById("quickFilters-Search"),
-        countBox = document.getElementById("quickFilters-Count"),
-        mergeButton = document.getElementById("quickFilters-mergeButton");
+    let buttonBottom = getElement("quickFilters-reorderButtonBottom"),
+        buttonTop = getElement("quickFilters-reorderButtonTop"),
+        down = getElement("reorderDownButton"),
+        up = getElement("reorderUpButton"),
+        searchBox = getElement("quickFilters-Search"),
+        countBox = getElement("quickFilters-Count"),
+        mergeButton = getElement("quickFilters-mergeButton");
     if (mergeButton) {
 		  if (isToolbar)
 				mergeButton.parentNode.removeChild(mergeButton); // remove unneccessary button
 			else
-				down.parentNode.insertBefore(mergeButton, document.getElementById("deleteButton").nextSibling);
+				down.parentNode.insertBefore(mergeButton, getElement("deleteButton").nextSibling);
     }
     
-    if (nativeSearchBox || quickFolderSearchBox) {
-      quickFilters.Util.logDebugOptional('filterList', 'found search box, extending functionality...');
+    if (!nativeSearchBox) {
+      if (hbox && util.Application != 'Thunderbird') {
+        // go into grid (into its own row!)
+        let searchBoxContainer = getElement('searchBoxContainer'),
+            searchSpacer = getElement ('quickFiltersSearchSpacer'),
+            rows = hbox.getElementsByTagName("rows")[0];
+        rows.insertBefore(searchBoxContainer, rows.firstChild.nextSibling);
+        // use this flag to allow (experimental) search box in SM/Postbox
+        if (quickFilters.Preferences.getBoolPref('notTB.searchbox')) {
+          searchBoxContainer.collapsed = false;
+          searchSpacer.collapsed = false;
+        }
+      }
+    }
+    
+    let sb = nativeSearchBox || quickFolderSearchBox;
+    if (sb) {
+      util.logDebugOptional('filterList', 'got search box, extending functionality...');
+      let btnOptions = getElement('quickFilters-SearchOptions');
+      btnOptions.collapsed = false;
+      btnOptions = sb.parentNode.insertBefore(btnOptions, sb);
       // extend search methods:
-      if (quickFilters.Util.Application == 'Thunderbird') {
+      if (util.Application == 'Thunderbird') {
         filterSearchMatch = quickFilters.List.filterSearchMatchExtended;
-        let btnOptions = document.getElementById('quickFilters-SearchOptions');
-        btnOptions.collapsed = false;
-        btnOptions = nativeSearchBox.parentNode.insertBefore(btnOptions, nativeSearchBox);
-        if(rebuildFilterList) {
+        if (rebuildFilterList) {
           if (!this.rebuildFilterList_Orig) {
             this.rebuildFilterList_Orig = rebuildFilterList;
             rebuildFilterList = function() { 
@@ -1004,15 +1023,25 @@ quickFilters.List = {
           }
         }
       }
+      else {
+        // we do not define the global rebuildFilterList if it does not exist.
+        // if (!window.rebuildFilterList)
+        // window.rebuildFilterList = function() { 
+          // quickFilters.List.rebuildFilterList(); 
+          // quickFilters.List.rebuildPost(); // step for styling the list after rebuilding
+        // }
+      }
     
       // once [Bug 450302] has landed, we do not need to add this functionality ourselves :)
       // also same functionality is provided by QuickFolder_s already, so no need to do it from here
       removeElement(buttonTop);
       removeElement(buttonBottom);
-      removeElement(searchBox);
-      removeElement(countBox);
+      if (nativeSearchBox) {
+        removeElement(searchBox);
+        removeElement(countBox);
+      }
       // in this case, this id should be assigned already by the bugfix
-      formatListLabel(document.getElementById("filterListLabel"));
+      formatListLabel(getElement("filterListLabel"));
     }
     else {  
       /*********************************** 
@@ -1020,7 +1049,7 @@ quickFilters.List = {
       ***********************************/
       /** Add Top + Bottom Buttons **/
       // DOMi ugliness.
-      quickFilters.Util.logDebugOptional('filterList', 'no search box, adding top/bottom buttons...');
+      util.logDebugOptional('filterList', 'no search box, adding top/bottom buttons...');
       
       if (up){
         up.parentNode.insertBefore(buttonTop, up);
@@ -1033,7 +1062,7 @@ quickFilters.List = {
       // add additional listener for the filter list to select event
       filterList = this.FilterListElement;
       if (filterList) {
-        quickFilters.Util.logDebugOptional('filterList', 'adding select events for button updates...');
+        util.logDebugOptional('filterList', 'adding select events for button updates...');
       
         filterList.addEventListener("select",
           function(e) { quickFilters.List.onSelectFilter(e);},
@@ -1054,8 +1083,8 @@ quickFilters.List = {
                 quickFilters.List.updateCountBox();
               }
               catch(e) {
-                if (quickFilters && quickFilters.Util)
-                  quickFilters.Util.logException('onNewFilter - ',e);
+                if (quickFilters && util)
+                  util.logException('onNewFilter - ',e);
               }
             }
           }
@@ -1067,8 +1096,8 @@ quickFilters.List = {
                 quickFilters.List.updateCountBox();
               }
               catch(e) {
-                if (quickFilters && quickFilters.Util)
-                  quickFilters.Util.logException('onDeleteFilter - ',e);
+                if (quickFilters && util)
+                  util.logException('onDeleteFilter - ',e);
               }
             }
           }
@@ -1084,10 +1113,10 @@ quickFilters.List = {
       //    Again this makes sense as both elements cause the list contents to change.
       // 3. An item count is appended to the right of the list description label
       //    TO DO: description should be collapsible in favor of item count.
-      if (quickFilters.Util.Application === 'Thunderbird') {
-        quickFilters.Util.logDebugOptional('filterList', 'adding search box...');
+      if (util.Application === 'Thunderbird') {
+        util.logDebugOptional('filterList', 'adding search box...');
          // move the search filter box
-        let dropDown = document.getElementById("serverMenu");
+        let dropDown = getElement("serverMenu");
 
         dropDown.parentNode.insertBefore(searchBox, dropDown.nextSibling);
         dropDown.addEventListener("command", function(e) { window.setTimeout(function() {quickFilters.List.onFindFilter(false);}, 50); }, false);
@@ -1110,9 +1139,9 @@ quickFilters.List = {
         this.updateCountBox();
 
         // we need to overwrite the existing functions in order to support the "filtered" state
-        let reorderUpButton = document.getElementById("reorderUpButton"),
-            reorderDownButton = document.getElementById("reorderDownButton"),
-            runFiltersButton =  document.getElementById("runFiltersButton"),
+        let reorderUpButton = getElement("reorderUpButton"),
+            reorderDownButton = getElement("reorderDownButton"),
+            runFiltersButton =  getElement("runFiltersButton"),
             filterLogButton = dropDown.parentNode.getElementsByTagName("button")[0];
         reorderUpButton.setAttribute("oncommand", "quickFilters.List.onUp(event);");
         reorderDownButton.setAttribute("oncommand", "quickFilters.List.onDown(event);");
@@ -1121,11 +1150,11 @@ quickFilters.List = {
         // insert Filter log button at the bottom
         runFiltersButton.parentNode.insertBefore(filterLogButton, runFiltersButton);
         // move run filters button to left
-        let runFiltersFolderMenu =  document.getElementById("runFiltersFolder");
+        let runFiltersFolderMenu =  getElement("runFiltersFolder");
         runFiltersFolderMenu.parentNode.appendChild(runFiltersButton);
       }
       else {
-        quickFilters.Util.logDebugOptional('filterList', 'SeaMonkey / Postbox: search box not supported.');
+        util.logDebugOptional('filterList', 'SeaMonkey / Postbox: search box not supported.');
         // for the moment we do not support this on SM / POstbox as I have problems with removing stuff from the treeview!
         // in future we need to build our own tree
         // build a treeview that supports hidden elements and overwrite gFilterTreeView
@@ -1139,7 +1168,7 @@ quickFilters.List = {
     
     // highlight target filter if passed into window
     if (window.arguments.length) {
-      quickFilters.Util.logDebugOptional('filterList', 'window.arguments found');
+      util.logDebugOptional('filterList', 'window.arguments found');
       // targetFilter: highlights the filter that is passed in
       let targetFilter,
           targetFolder; // filter search: find filters that redirect mail to this folder
@@ -1166,7 +1195,7 @@ quickFilters.List = {
     else 
       window.focus();
     
-    quickFilters.Util.logDebugOptional('filterList', 'onLoadFilterList() complete.');
+    util.logDebugOptional('filterList', 'onLoadFilterList() complete.');
   } ,
 
   selectFilter: function selectFilter(targetFilter) {
@@ -1271,7 +1300,7 @@ quickFilters.List = {
       return;
     }
 
-    this.rebuildFilterList(gCurrentFilterList); // creates the unfiltered list
+    this.rebuildFilterList(this.FilterList); // creates the unfiltered list
     if (!keyWord) {
       if (focusSearchBox)
         searchBox.focus();
@@ -1279,30 +1308,35 @@ quickFilters.List = {
       return;
     }
 
-
     // rematch everything in the list, remove what doesn't match the search box
     let rows = this.getListElementCount(filterList),
-        title;
-    for(let i = rows - 1; i>=0; i--){
+        title, item;
+        
+    for (let i = rows - 1; i>=0; i--){
       let matched = true;
        // SeaMonkey (Postbox) vs Thunderbird - treeview vs listbox
       if (filterList.nodeName === 'tree')
       {
+        // http://mxr.mozilla.org/comm-central/source/suite/mailnews/search/FilterListDialog.js
         // SeaMonkey
-        item = getFilter(i); // SM: defined in FilterListDialog.js (SM only)
+        item = getFilter(i); // SM / Postbox: defined in FilterListDialog.js 
         title = item.filterName;
-        if(title.toLocaleLowerCase().indexOf(keyWord) === -1){
+        if (title.toLocaleLowerCase().indexOf(keyWord) === -1){
+          if (quickFilters.Preferences.Debug) debugger;    
           matched = false;
-          this.gFilterTreeView.performActionOnRow("delete", i);
+          filterList.view.performActionOnRow("delete", i); // the view is same as gFilterTreeView
           filterList.boxObject.invalidateRow(i);
-          filterList.boxObject.rowCountChanged(i + 1, -1);
+          filterList.boxObject.rowCountChanged(i+1, -1); // was i + 1  -- same as gFilterTreeView.tree
+          // problem: gFilterTreeView.filterList is not updated; see setServer(uri) in FilterListDialog.js
+          // maybe we can replace set filterList(val) { ... }
+          //   this.mFilterList = val  => replace with the "filtered" values
         }
       }
       else {
         // Thunderbird
-        let item = filterList.getItemAtIndex(i);
+        item = filterList.getItemAtIndex(i);
         title = item.firstChild.getAttribute("label");
-        if(title.toLocaleLowerCase().indexOf(keyWord) === -1)
+        if (title.toLocaleLowerCase().indexOf(keyWord) === -1)
         {
           matched = false;
           filterList.removeChild(item);
@@ -1800,7 +1834,7 @@ quickFilters.List = {
         termActionType = dupeList.selectedItem.getAttribute("actionType"),
         args = {
       filter: selectedFilter, 
-      filterList: gCurrentFilterList, 
+      filterList: this.FilterList, 
       filterConditionValue: termValue,           // use this to scroll to and highlight the condition needing to be removed
       filterConditionActionType: termActionType  // use this to scroll to and highlight the action needing to be removed
     };

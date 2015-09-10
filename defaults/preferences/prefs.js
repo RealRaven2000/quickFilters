@@ -4,20 +4,27 @@
 // These are here as an example only. Please remove them or rename them to
 // something useful.
 pref("extensions.quickfilters.debug", false);
-pref("extensions.quickfilters.debug.default", true);
-pref("extensions.quickfilters.debug.filters", false);
+pref("extensions.quickfilters.debug.clipboard", false);
 pref("extensions.quickfilters.debug.createFilter", false);
 pref("extensions.quickfilters.debug.createFilter.refreshHeaders", false);
-pref("extensions.quickfilters.debug.events", false);
+pref("extensions.quickfilters.debug.default", true);
 pref("extensions.quickfilters.debug.dnd", false);
-pref("extensions.quickfilters.debug.clipboard", false);
-pref("extensions.quickfilters.debug.nostalgy", false);
-pref("extensions.quickfilters.debug.quickmove",false);
+pref("extensions.quickfilters.debug.events", false);
+pref("extensions.quickfilters.debug.filters", false);
 pref("extensions.quickfilters.debug.filterList",false);
 pref("extensions.quickfilters.debug.filterSearch",false);
 pref("extensions.quickfilters.debug.filterSearch.detail",false);
-pref("extensions.quickfilters.debug.template.multifrom", false);
+pref("extensions.quickfilters.debug.getSourceFolder", false);
 pref("extensions.quickfilters.debug.merge", false);
+pref("extensions.quickfilters.debug.nostalgy", false);
+pref("extensions.quickfilters.debug.quickmove",false);
+pref("extensions.quickfilters.debug.replaceReservedWords",false);
+pref("extensions.quickfilters.debug.template.multifrom", false);
+pref("extensions.quickfilters.debug.template.custom", false);
+// from smartTemplate4
+pref("extensions.quickfilters.debug.functions", false);
+pref("extensions.quickfilters.debug.mime", false);
+pref("extensions.quickfilters.debug.mime.split", false);
 
 //pref("extensions.quickfilters.intpref", 0);
 //pref("extensions.quickfilters.stringpref", "A string");
@@ -25,6 +32,7 @@ pref("extensions.quickfilters.naming.parentFolder", true);
 pref("extensions.quickfilters.naming.keyWord", false);
 pref("extensions.quickfilters.naming.clonedLabel", ""); // set from locale!
 pref("extensions.quickfilters.naming.mergeToken"," +m");
+pref("extensions.quickfilters.newfilter.autorun", true);
 
 // https://developer.mozilla.org/en/Localizing_extension_descriptions
 pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");
@@ -53,6 +61,16 @@ pref("extensions.quickfilters.firstRun", true);
 pref("extensions.quickfilters.installedVersion", "0");
 pref("extensions.quickfilters.donations.askOnUpdate", true);
 
+pref("extensions.quickfilters.quickfolders.curFolderbar.listbutton", true);
+pref("extensions.quickfilters.quickfolders.curFolderbar.folderbutton", true);
+pref("extensions.quickfilters.quickfolders.curFolderbar.messagesbutton", false);
+pref("extensions.quickfilters.notTB.searchbox", false);
+
+// filter by reply-to
+pref("extensions.quickfilters.templates.replyTo", false);
+// custom templates
+pref("extensions.quickfilters.templates.custom", false);
+
 // Premium features
 pref("extensions.quickfilters.proNotify.duplicatesFinder", true);
 pref("extensions.quickfilters.proNotify.duplicatesFinder.countDown", 10);
@@ -60,7 +78,13 @@ pref("extensions.quickfilters.proNotify.searchFolder", true);
 pref("extensions.quickfilters.proNotify.searchFolder.countDown", 15);
 pref("extensions.quickfilters.proNotify.sortFilters", true);
 pref("extensions.quickfilters.proNotify.sortFilters.countDown", 20);
+pref("extensions.quickfilters.proNotify.customTemplate", true);
+pref("extensions.quickfilters.proNotify.customTemplate.countDown", 20);
 
-// test features
-pref("extensions.quickfilters.experimental.replyTo", false);
+
+
+pref("extensions.quickfilters.mime.resolveAB", false);
+pref("extensions.quickfilters.mime.resolveAB.preferNick", false);
+pref("extensions.quickfilters.firstLastSwap", false);
+
 

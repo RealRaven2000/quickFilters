@@ -37,7 +37,7 @@ if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.inte
 quickFilters.Properties = {
   bundle: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties"),
 
-  getLocalized: function(msg) {
+  getLocalized: function QFProps_getLocalized(msg) {
     let b = this.bundle;
     if (!b)
       b = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties");
@@ -91,13 +91,14 @@ quickFilters.Util = {
 		}
 	},
 		
-  getMsgFolderFromUri:  function(uri, checkFolderAttributes) {
+  getMsgFolderFromUri:  function getMsgFolderFromUri(uri, checkFolderAttributes) {
     let msgfolder = null;
     if (typeof MailUtils != 'undefined' && MailUtils.getFolderForURI) {
       return MailUtils.getFolderForURI(uri, checkFolderAttributes);
     }
     try {
-      let resource = GetResourceFromUri(uri);
+      let main = this.getMail3PaneWindow(),
+          resource = main.GetMsgFolderFromUri ? main.GetMsgFolderFromUri(uri, checkFolderAttributes) : main.GetResourceFromUri(uri); // Postbox: this should be defined in widgetglue.js
       msgfolder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
       if (checkFolderAttributes) {
         if (!(msgfolder && (msgfolder.parent || msgfolder.isServer))) {
@@ -107,6 +108,7 @@ quickFilters.Util = {
     }
     catch (ex) {
        //dump("failed to get the folder resource\n");
+       quickFilters.Util.logException("getMsgFolderFromUri( " + uri + ")", ex);
     }
     return msgfolder;
   } ,
@@ -1154,9 +1156,9 @@ quickFilters.Util = {
 					newTerm.value = val;
 				}
 				newTerm.booleanAnd = searchTerm.booleanAnd;
-				if (searchTerm.arbitraryHeader) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
-				if (searchTerm.hdrProperty) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
-				if (searchTerm.customId) newTerm.customId = searchTerm.customId;
+				if ('arbitraryHeader' in searchTerm) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
+				if ('hdrProperty' in searchTerm) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
+				if ('customId' in searchTerm) newTerm.customId = searchTerm.customId;
 				newTerm.beginsGrouping = searchTerm.beginsGrouping;
 				newTerm.endsGrouping = searchTerm.endsGrouping;
 				
@@ -1188,6 +1190,14 @@ quickFilters.Util = {
 			let action = fromFilter.getActionAt(a).QueryInterface(Ci.nsIMsgRuleAction),
 			    append = true,
 			    newActions = toFilter.actionList ? toFilter.actionList : toFilter.sortedActionList;
+      // don't add dummy action to filter (customTemplate uses set prio=normal as only action)
+      if (actionCount==1 
+        &&
+          action.type == FA.ChangePriority
+        && 
+          action.priority == Ci.nsMsgPriority.normal) {
+          continue;
+      }
 			for (let b = 0; b < this.getActionCount(toFilter); b++) { 
 				let ac = newActions.queryElementAt ?
 					newActions.queryElementAt(b, Ci.nsIMsgRuleAction):
@@ -1207,7 +1217,7 @@ quickFilters.Util = {
 		}
 	} ,
   
-  getIdentityMailAddresses: function() {
+  getIdentityMailAddresses: function getIdentityMailAddresses() {
     this.logDebug('getIdentityMailAddresses()');
     // make a stop list (my own email addresses)
     let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
@@ -1240,33 +1250,80 @@ quickFilters.Util = {
     return myMailAddresses;
   } ,
   
-  extractEmail: function(address, domainSwitch) {
+  extractEmail: function extractEmail(address, domainSwitch) {
+    // filter out only mail portion
+    let adp = address.match(/[^@<\s]+@[^@\s>]+/g)[0];
+    if (!adp) adp = address
     // regex to strip out the email address
     if (domainSwitch) {
-      let at = address.indexOf('@');
+      let at = adp.indexOf('@');
       if (at>0) {
-        return address.substr(at);
+        return adp.substr(at);
       }
     }
-    return address;
+    return adp;
   }  ,
+  
+  filterCustomTemplates: function filterCustomTemplates(attempt) {
+    const util = quickFilters.Util;
+    attempt++;
+    util.logDebugOptional('template.custom','filterCustomTemplates(' + attempt + ')');
+    let fWin = util.getLastFilterListWindow(),
+        isProcessed = false;
+    if (fWin) { 
+      let list = fWin.quickFilters.List;
+      if (list) {
+        list.toggleSearchType('name');
+        // this will currently not work with SeaMonkey / Postbox (no search box)
+        let searchBox = fWin.document.getElementById("searchBox");
+        util.logDebugOptional('template.custom','filterCustomTemplates - searchBox=' + searchBox);
+        if (searchBox) {
+          searchBox.value = 'quickFilterCustomTemplate';
+          isProcessed = true;
+          util.logDebugOptional('template.custom','getLastFilterListWindow() calls onFindFilter...');
+          list.onFindFilter(false);
+        }
+      }
+    }
+    if (!isProcessed) {
+      util.logDebugOptional('template.custom','getLastFilterListWindow() not able to process yet...');
+      if (attempt<10) {
+        window.setTimeout(function() { 
+          debugger;
+          const util = quickFilters.Util;
+          util.logDebugOptional('template.custom','timeout - filterCustomTemplates(' + attempt + ')..');
+          util.filterCustomTemplates(attempt); 
+        }, 250);
+      }
+      else
+        util.logDebugOptional('template.custom','Giving up on filtering for custom templates.');
+    }
+  } ,
 
   editCustomTemplates: function editCustomTemplates() {
-    setTimeout(function() {
-      let util = quickFilters.Util;
+      const util = quickFilters.Util;
       try {
         // we need to select Local Folders
         // and then filter for name "quickFilterCustomTemplate:"
         // see searchFiltersFromFolder
-        let win = util.getMail3PaneWindow();
-        let localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'); // , filtersList = localFolder.getEditableFilterList(null)
-        win.quickFilters.Worker.openFilterList(true, localFolder, null, null);
+        let win = util.getMail3PaneWindow(),
+            localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
+            qF = win.quickFilters; // , filtersList = localFolder.getEditableFilterList(null)
+        qF.Worker.openFilterList(true, localFolder, null, null);
+        // only show custom templates, on timeout if not ready
+        // we are not using this Util as the originating window will be closed
+        qF.Util.filterCustomTemplates(0); 
       } 
       catch (ex) {
         util.logException('editCustomTemplates failed', ex);
       }
-    });
   } ,
+  
+  getFilterList: function getFilterList(folder, win) {
+    if (typeof folder.getEditableFilterList === "undefined" || !win)
+      return folder.server.getFilterList(null); // Postbox
+    return folder.getEditableFilterList(win);
+  },
   
   createCustomTemplate: function editCustomTemplates() {
     const Ci = Components.interfaces, 
@@ -1289,7 +1346,7 @@ quickFilters.Util = {
       // make new filter
       let filterName = 'quickFilterCustomTemplate: ' + input.value,
           localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
-          filtersList = localFolder.getEditableFilterList(null),
+          filtersList = util.getFilterList(localFolder),
           filterCount = filtersList.filterCount;
       // make sure it is unique
       for (let i = 0; i < filterCount; i++) {
@@ -1468,7 +1525,7 @@ quickFilters.mimeDecoder = {
 	// see also: hg.mozilla.org/users/Pidgeot18_gmail.com/patch-queues/file/cd19874b48f8/patches-newmime/parser-charsets
 	//           http://encoding.spec.whatwg.org/#interface-textdecoder
 	//           
-	detectCharset: function(str) {
+	detectCharset: function mime_detectCharset(str) {
 		let charset = "", 
         util = quickFilters.Util;
 		 // not supported                  
@@ -1500,7 +1557,7 @@ quickFilters.mimeDecoder = {
 
 	// -----------------------------------
 	// MIME decoding.
-	decode: function (theString, charset) {
+	decode: function mime_decode(theString, charset) {
 		let decodedStr = "";
 
 		try {
@@ -1540,7 +1597,7 @@ quickFilters.mimeDecoder = {
   // addrstr - comma separated string of address-parts
   // charset - character set of target string (probably silly to have one for all)
   // format - list of parts for target string: name, firstName, lastName, mail, link, bracketMail()
-	split: function (addrstr, charset, format, bypassCharsetDecoder)	{
+	split: function mime_split(addrstr, charset, format, bypassCharsetDecoder)	{
     let util = quickFilters.Util
 	  // jcranmer: you want to use parseHeadersWithArray
 		//           that gives you three arrays
@@ -1554,19 +1611,19 @@ quickFilters.mimeDecoder = {
 		//           hg.mozilla.org/users/Pidgeot18_gmail.com/patch-queues/file/587dc0232d8a/patches-newmime/parser-tokens#l78
 		// use https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsIMsgDBHdr
 		// mime2DecodedAuthor, mime2DecodedSubject, mime2DecodedRecipients!
-	  function getEmailAddress(a) {
+	  function _getEmailAddress(a) {
 			return a.replace(/.*<(\S+)>.*/g, "$1");
 		}
 
-		function isLastName(format) { return (format.search(/^\(lastname[,\)]/, "i") != -1); };
-    function getBracketAddressArgs(format) { 
+		function _isLastName(format) { return (format.search(/^\(lastname[,\)]/, "i") != -1); };
+    function _getBracketAddressArgs(format) { 
       let reg = /bracketMail\[(.+?)\]/g, // we have previously replaced bracketMail(*) with bracketMail[*] !
           ar = reg.exec(format);
       if (ar && ar.length>1)
         return ar[1];
       return '';
     };
-    function getCardFromAB(mail) {
+    function _getCardFromAB(mail) {
       if (!mail) return null;
       // https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Address_Book_Examples
       // http://mxr.mozilla.org/comm-central/source/mailnews/addrbook/public/nsIAbCard.idl
@@ -1603,7 +1660,7 @@ quickFilters.mimeDecoder = {
     }
 
     // return the bracket delimiteds
-		function getBracketDelimiters(element) {
+		function _getBracketDelimiters(element) {
       let del1='', del2='',
           bracketExp = element.field;
       if (bracketExp) {
@@ -1714,7 +1771,7 @@ quickFilters.mimeDecoder = {
     
 		let addresses = "",
         address,
-        bracketParams = getBracketAddressArgs(format); 
+        bracketParams = _getBracketAddressArgs(format); 
 
     // if (SmartTemplate4.Preferences.Debug) debugger;
     /** ITERATE ADDRESSES  **/
@@ -1723,7 +1780,8 @@ quickFilters.mimeDecoder = {
 				addresses += ", ";
 			}
       let addressee = '',
-          firstName, lastName,
+          firstName = '', 
+          lastName = '',
           fullName = '',
           emailAddress = '',
           addressField = array[i];
@@ -1742,8 +1800,7 @@ quickFilters.mimeDecoder = {
       util.logDebugOptional('mime.split', 'processing: ' + addressField + ' => ' + array[i] + '\n'
                                            + 'address: ' + address);
       // [Bug 25643] get name from Addressbook
-      emailAddress = getEmailAddress(address); // get this always
-      let card = quickFilters.Preferences.getBoolPref('mime.resolveAB') ? getCardFromAB(emailAddress) : null;
+      emailAddress = _getEmailAddress(address); // get this always
       // this cuts off the angle-bracket address part: <fredflintstone@fire.com>
       addressee = address.replace(/\s*<\S+>\s*$/, "")
                       .replace(/^\s*\"|\"\s*$/g, "");  // %to% / %to(name)%
@@ -1754,60 +1811,8 @@ quickFilters.mimeDecoder = {
       }
       // if somebody repeats the email address instead of a name at front, e.g. a.x@tcom, we cut the domain off anyway
       if (addressee.indexOf('@')>0)
-        addressee = addressee.slice(0, addressee.indexOf('@'))
-			fullName = addressee;
-      
-      firstName = card ? card.firstName : '';
-      if (card && quickFilters.Preferences.getBoolPref('mime.resolveAB.preferNick')) {
-        if (util.Application === "Postbox") {
-          if (card.nickName)
-            firstName = card.nickName;
-        }
-        else
-          firstName = card.getProperty("NickName", card.firstName);
-      }
-      lastName = card ? card.lastName : '';
-      fullName = (card && card.displayName) ? card.displayName : fullName;
-      
-      let isNameFound = (firstName.length + lastName.length > 0); // nameProcessed
-      if (!isNameFound && quickFilters.Preferences.getBoolPref('firstLastSwap')) {
-        // extract Name from left hand side of email address
-				let regex = /\(([^)]+)\)/,
-				    nameRes = regex.exec(addressee);
-				if (nameRes  &&  nameRes.length > 1 && !isLastName(format)) {
-					isNameFound = true;
-					firstName = nameRes[1];  // name or firstname will fetch the (Name) from brackets!
-				}
-				else {
-					let iComma =  addressee.indexOf(', ');
-					if (iComma>0) {
-						firstName = addressee.substr(iComma + 2);
-						lastName = addressee.substr(0, iComma);
-            isNameFound = true;
-					}
-				}
-      }
-
-      
-      if (!fullName) {
-        if (firstName && lastName) { 
-          fullName = firstName + ' ' + lastName ; 
-        }
-        else {
-          fullName = firstName ? firstName : lastName;  // ???
-        }
-        if (!fullName) fullName = addressee.replace("."," "); // we might have to replace . with a space -  fall back
-      }
-      else {
-        // name split / replacements; if there are no spaces lets replace '.' then '_'
-        if (fullName.indexOf(' ')<0) {
-           fullName = addressee.replace('.',' ');
-        }
-        if (fullName.indexOf(' ')<0) {
-           fullName = addressee.replace('_',' ');
-        }
-        // replace double quotation marks?
-      }
+        addressee = addressee.slice(0, addressee.indexOf('@'));
+			fullName = addressee.trim();
       
       let names = fullName.split(' '),
           isOnlyOneName = (names.length==1) ? true : false;
@@ -1846,7 +1851,7 @@ quickFilters.mimeDecoder = {
           default:
             if (element.field.indexOf('bracketMail[')==0) {
               let open, close;
-              [open, close] = getBracketDelimiters(element);
+              [open, close] = _getBracketDelimiters(element);
               part = emailAddress ? open + emailAddress + close : '';
             }
             break;
