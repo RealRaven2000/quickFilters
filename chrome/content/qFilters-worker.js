@@ -217,18 +217,19 @@ quickFilters.Worker = {
   
   // targetFilter is passed in when a filter was merged and thus not created at the top of list
   openFilterList: function openFilterList(isRefresh, sourceFolder, targetFilter, targetFolder) {
+    let util = quickFilters.Util,
+        win;
     try {
-      let util = quickFilters.Util;
       util.logDebug('openFilterList(' + isRefresh + ', '
         + sourceFolder ? sourceFolder.prettyName : 'no sourceFolder' + ', '
         + targetFilter ? targetFilter.name : 'no targetFilter'  + ', '
         + targetFolder ? targetFolder.prettyName : 'no targetFolder' + ')'
         );
-      let w = util.getLastFilterListWindow();
+      win = util.getLastFilterListWindow();
       // [Bug 25203] "Error when adding a filter if Message Filters window is already open"
       // Thunderbird bug - if the filter list is already open and refresh is true
       // it throws "desiredWindow.refresh is not a function"
-      if (!w) {
+      if (!win) {
         let args = { refresh: isRefresh, folder: sourceFolder};
         if (targetFilter) args.targetFilter = targetFilter;
         if (targetFolder) args.targetFolder = targetFolder;
@@ -237,11 +238,11 @@ quickFilters.Worker = {
       else {
         // we must make sure server and sourceFolder are selected (?) should already be correct
         // avoid quickFilters.List being closured!
-        w.focus();
-        w.quickFilters.List.rebuildFilterList();
+        win.focus();
+        win.quickFilters.List.rebuildFilterList();
         if (targetFilter) {
           setTimeout(function() { 
-            w.quickFilters.List.selectFilter(targetFilter); }
+            win.quickFilters.List.selectFilter(targetFilter); }
           );
         }
       }
@@ -249,6 +250,9 @@ quickFilters.Worker = {
     catch (ex) {
       ;
     }
+    if (!win) 
+      win = util.getLastFilterListWindow();
+    return win;
   } ,
 
 	parseHeader : function parseHeader(parser, msgHeader) {
@@ -263,7 +267,7 @@ quickFilters.Worker = {
 		}
 	} ,
 	
-	refreshHeaders : function refreshHeaders(messageList, folder) {
+	refreshHeaders : function refreshHeaders(messageList, folder, folder2) {
 		function pad(str, len) {
 				if (len + 1 >= str.length) {
 						str = str + Array(len + 1 - str.length).join(' ');
@@ -275,30 +279,40 @@ quickFilters.Worker = {
 						     + ': ' + (typeof msgHdr[propertyName] == "function" ? 'Function()' : msgHdr[propertyName]) 
 							   + ' - ' + (typeof msgHdr[propertyName]) + '\n';
 		}
-    let util = quickFilters.Util;
+    let util = quickFilters.Util,
+        fails = 0;
 		try {
 		  if (!folder) return false;
-			if (!messageList || !messageList.length) return false
+      util.logDebugOptional('createFilter.refreshHeaders', 'folders: ' + folder.name + ', ' + 
+                            (folder2 ? folder2.name : '<none>'));
+			if (!messageList || !messageList.length) return false;
 			if (messageList[0].msgClone && messageList[0].msgClone.initialized)
 			  return true;
-			let messageDb = folder.msgDatabase ? folder.msgDatabase : folder.getMsgDatabase(null);
+			let messageDb1 = folder.msgDatabase ? folder.msgDatabase : folder.getMsgDatabase(null),
+          messageDb2 = folder2 ? (folder2.msgDatabase ? folder2.msgDatabase : folder2.getMsgDatabase(null)) : null;
+          
 			for (let i=0; i<messageList.length; i++) {
-			  let msgHdr = messageDb.getMsgHdrForMessageID(messageList[i].messageId);
-				messageList[i].msgHeader = msgHdr;
-				if (!msgHdr) {
-				  util.logDebugOptional('createFilter.refreshHeaders', 'No Message Header in folder [' + folder.prettyName + ']'
-            +' for id: ' + messageList[i].messageId);
-					return false;
-				}
-				if (!msgHdr.accountKey && !msgHdr.author) {
-					util.logDebugOptional('createFilter.refreshHeaders', 'Message Header for id: ' + messageList[i].messageId + ' doesn\'t have account Key and Author');
-					return false;
-				}
-				/**** CLONE MESSAGE HEADERS ****/
-				if (messageList[i].msgClone && messageList[i].msgClone.initialized) {
-				  util.logDebugOptional('createFilter.refreshHeaders', 'Clone is already initialized - Continued.');
+        let theMsg = messageList[i];
+				if (theMsg.msgClone && theMsg.msgClone.initialized) {
+				  util.logDebugOptional('createFilter.refreshHeaders', 'Clone['+i+'] already initialized - skip.');
 				  continue;
 				}
+        util.logDebugOptional('createFilter.refreshHeaders', 'cloning header['+ i + '] ...');
+			  let msgHdr = messageDb1.getMsgHdrForMessageID(theMsg.messageId) || 
+                     (messageDb2 ? messageDb2.getMsgHdrForMessageID(theMsg.messageId) : null);
+				if (!msgHdr) {
+				  util.logDebugOptional('createFilter.refreshHeaders', 'No Message Header in folder [' + folder.prettyName + ']'
+            +' for id: ' + theMsg.messageId);
+					fails++;
+          continue;
+				}
+				theMsg.msgHeader = msgHdr;
+				if (!msgHdr.accountKey && !msgHdr.author) {
+					util.logDebugOptional('createFilter.refreshHeaders', 'Message Header for id: ' + theMsg.messageId + ' doesn\'t have account Key and Author');
+					fails++;
+          continue;
+				}
+				/**** CLONE MESSAGE HEADERS ****/
 				let messageClone = { "initialized": false },
 				    test = '',
 				    test2 = '',
@@ -335,15 +349,16 @@ quickFilters.Worker = {
 				util.logDebugOptional('createFilter.refreshHeaders', 
 				    'COPIED     ***********************\n' + test
 					+ 'NOT COPIED     *******************\n' + test2);
-				messageList[i].msgClone = messageClone;
-				quickFilters.Util.debugMsgAndFolders('[' + folder.prettyName + '] restore messageList[' + i + '] Id ', messageList[i].messageId, folder, messageList[i].msgHeader);
+				theMsg.msgClone = messageClone;
+				util.debugMsgAndFolders('[' + folder.prettyName + '] restore messageList[' + i + '] Id ', messageList[i].messageId, folder, messageList[i].msgHeader);
+        util.logDebugOptional('createFilter.refreshHeaders', 'cloned header['+ i + ']');
 			}
 		}
 		catch(ex) {
 			util.logException("refreshHeaders failed", ex);
 			return false;
 		}
-		return true;
+		return (fails==0);
 	} ,
   
   getSourceFolder: function getSourceFolder(msg) {
@@ -466,10 +481,9 @@ quickFilters.Worker = {
     
     /************* VALIDATE MSGHEADER  ********/
     util.debugMsgAndFolders('sourceFolder', (sourceFolder ? sourceFolder.prettyName || '' : 'none'), targetFolder, firstMessage.msgHeader, filterAction);
-    // Force always refreshHeaders - we need to clone all messages for reliable filter building (parse group of emails)
+    // Force always refresh Headers - we need to clone all messages for reliable filter building (parse group of emails)
     // refresh message headers
-    if (!this.refreshHeaders(messageList, targetFolder)
-    && !this.refreshHeaders(messageList, sourceFolder)) {
+    if (!this.refreshHeaders(messageList, targetFolder, sourceFolder)) {
       return rerun('targetFolder Database not ready');
     }
     if (!firstMessage.msgHeader 
@@ -700,13 +714,10 @@ quickFilters.Worker = {
           // filterEditor dialog and prefill that with the emailAddress.
           
           if (sourceFolder) {
-            if (util.Application === 'Postbox') {
-              // mailWindowOverlay.js:1790
-              filtersList = sourceFolder.getFilterList(msgWindow);
-            }
-            else {
-              filtersList = sourceFolder.getEditableFilterList(msgWindow);
-            }
+            // mailWindowOverlay.js:1790
+            filtersList = (util.Application === 'Postbox') 
+              ? sourceFolder.getFilterList(msgWindow)
+              : sourceFolder.getEditableFilterList(msgWindow);
           }
           // we can clone a new nsIMsgFilterList that has matching target folders.
           let matchingFilters = [];
@@ -917,7 +928,10 @@ quickFilters.Worker = {
       template = 'custom';
       
       let localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
-          localFolderList = localFolder.getEditableFilterList(null),
+          localFolderList = 
+            (util.Application === 'Postbox') 
+              ? localFolder.getFilterList(null)
+              : localFolder.getEditableFilterList(null),
           filterCount = localFolderList.filterCount;
       for (let i = 0; i < filterCount; i++) {
         let filter = localFolderList.getFilterAt(i);
@@ -928,7 +942,7 @@ quickFilters.Worker = {
       }
     }
     
-    
+    if (quickFilters.Preferences.Debug) debugger;    
 		// create new filter or load existing filter?
 		if (mergeFilterIndex>=0) {
 			targetFilter = matchingFilters[mergeFilterIndex];
@@ -942,8 +956,7 @@ quickFilters.Worker = {
 		// for safety let's refresh the headers now that the target folder has "settled".
 		if (!messageList[0].msgClone || messageList[0].msgClone.messageId != messageList[0].messageId) {
 		  if (quickFilters.Worker.reRunCount < 5 &&
-			    !this.refreshHeaders(messageList, targetFolder) && 
-			     !this.refreshHeaders(messageList, sourceFolder)) 
+			    !this.refreshHeaders(messageList, targetFolder, sourceFolder)) 
 			{
 			  window.setTimeout(function() {   
 		      quickFilters.Worker.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
@@ -1150,9 +1163,7 @@ quickFilters.Worker = {
       case 'custom':
         util.popupProFeature("customTemplate", "quickfilters.premium.title.customTemplate", true, false);    
         // retrieve the name of name customTemplate
-        util.slideAlert('custom template: W.I.P.\n' + 
-            'Creating Custom Filter from ' + customFilter.filterName + '...', 
-            'quickFilters');
+        util.slideAlert('Creating Custom Filter from ' + customFilter.filterName + '...', 'quickFilters');
         // 1. create new filter
         let isMergeTargetFolder = quickFilters.Preferences.isMoveFolderAction && targetFolder; // if we move to folder, remove default folder target
         util.copyActions(customFilter, targetFilter, isMergeTargetFolder);
@@ -1539,9 +1550,11 @@ quickFilters.Assistant = {
       // setFolder
       //   gCurrentFilterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
       // local folder uri = mailbox://nobody@Local%20Folders
-      // serverMenu item!
+      // serverMenu item! 
       let localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
-          localFolderList = localFolder.getEditableFilterList(null),
+          localFolderList = (util.Application === 'Postbox') 
+                            ? localFolder.getFilterList(null)
+                            : localFolder.getEditableFilterList(null),
           filterCount = localFolderList.filterCount;
       if (filterCount) {
         for (let i = 0; i < filterCount; i++) {

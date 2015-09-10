@@ -222,14 +222,19 @@
     # [Bug 25912] Support adding subjects from multiple Emails
   
   2.9 : WIP
+    # Postbox 4.0 compatibility
+    # [Bug 25989] Support Creation of Custom Templates
+    # [Bug 26023] Template "Based on Recipient (To)" returns full lowercase address field
     # Postbox: improved event listener for dropping mails onto the folder tree
-    # split run Filters into "folders" and "selected messages" - added separate buttons
+    # Split run Filters command into "folders" and "selected messages" - added separate buttons
+    # Fixed: creating filters from multiple emails (e.g. "from group") by improving the way
+    #        the messages list is processed (refreshHeader) 
+    # Improved algorithm for determining the originating folder for mails moved
     
   PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
   PREMIUM FEATURES:
-    # [Bug 25409] Autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
-    # [Bug 25989] Support Creation of Custom Templates
+    # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
 	 */
 
   
@@ -1086,9 +1091,9 @@ quickFilters.FolderListener = {
     }
 	},
   OnItemIntPropertyChanged: function(item, property, oldValue, newValue) { /* NOP */ 
-    let qF = quickFilters ? quickFilters : this.qfInstance;
+    let qF = quickFilters; // ? quickFilters : this.qfInstance;
 	  if (qF) {
-      let log = qF.Util.logDebugOptional.bind(qF.Util);
+      let log = quickFilters.Util.logDebugOptional.bind(quickFilters.Util);
 	    log("events","OnItemIntPropertyChanged() " + property.toString() + '  ' + oldValue + '=>' + newValue);  	
     }
 	},
