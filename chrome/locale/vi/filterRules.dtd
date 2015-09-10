@@ -1,1 +1,20 @@
-
+<!ENTITY quickfilters.customTemplate.title "quickFilters Custom Template">
+<!ENTITY quickfilters.customTemplate.name "Template Name:">
+<!ENTITY quickfilters.customVariable.label "Custom Variables">
+<!ENTITY quickfilters.customVariable.tooltip "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail.">
+<!-- Email Headers -->
+<!ENTITY quickfilters.customHeader.From "From">
+<!ENTITY quickfilters.customHeader.To "To">
+<!ENTITY quickfilters.customHeader.CarbonCopy "Carbon Copy (CC)">
+<!ENTITY quickfilters.customHeader.BlindCarbonCopy "Blind Carbon Copy (BCC)">
+<!ENTITY quickfilters.customHeader.ReplyTo "Reply To">
+<!ENTITY quickfilters.customHeader.Subject "Subject">
+<!ENTITY quickfilters.customHeader.ListId "List Id">
+<!ENTITY quickfilters.customHeader.ListPost "List Post">
+<!ENTITY quickfilters.customHeader.Newsgroups "Newsgroups">
+<!-- These are the different components of an email address (e.g of "Fred Smith <fredsmith@example.com>") -->
+<!ENTITY quickfilters.customHeader.Email "Email Address">
+<!ENTITY quickfilters.customHeader.Domain "Domain of Email">
+<!ENTITY quickfilters.customHeader.NamePart "Full Name">
+<!ENTITY quickfilters.customHeader.FirstName "First Name">
+<!ENTITY quickfilters.customHeader.LastName "Last Name">
