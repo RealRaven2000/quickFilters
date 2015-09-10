@@ -1,4 +1,3 @@
-<<<<<<< .mine
 <!ENTITY quickfilters.customTemplate.title "quickFilters Custom Template">
 <!ENTITY quickfilters.customTemplate.name "Template Name:">
 <!ENTITY quickfilters.customVariable.label "Custom Variables">
@@ -19,7 +18,3 @@
 <!ENTITY quickfilters.customHeader.NamePart "Full Name">
 <!ENTITY quickfilters.customHeader.FirstName "First Name">
 <!ENTITY quickfilters.customHeader.LastName "Last Name">
-||||||| .r0
-=======
-
->>>>>>> .r117
