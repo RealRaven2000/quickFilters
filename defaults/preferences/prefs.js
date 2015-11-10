@@ -17,7 +17,7 @@ pref("extensions.quickfilters.debug.filterSearch.detail",false);
 pref("extensions.quickfilters.debug.getSourceFolder", false);
 pref("extensions.quickfilters.debug.merge", false);
 pref("extensions.quickfilters.debug.nostalgy", false);
-pref("extensions.quickfilters.debug.quickmove",false);
+pref("extensions.quickfilters.debug.msgMove",false);
 pref("extensions.quickfilters.debug.replaceReservedWords",false);
 pref("extensions.quickfilters.debug.template.multifrom", false);
 pref("extensions.quickfilters.debug.template.custom", false);
@@ -41,6 +41,7 @@ pref("extensions.quickfilters.abortAfterCreate", false);
 pref("extensions.quickfilters.autoStart", false);
 pref("extensions.quickfilters.toolbar", true);
 pref("extensions.quickfilters.showListAfterCreateFilter", true);
+pref("extensions.quickfilters.refreshHeaders.wait", 150);
 
 pref("extensions.quickfilters.filters.currentTemplate", "from");
 pref("extensions.quickfilters.nostalgySupport", false);
