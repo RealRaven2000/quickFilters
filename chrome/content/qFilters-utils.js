@@ -710,9 +710,9 @@ quickFilters.Util = {
 			if (account_groups)
 			{
 				let groups = account_groups.split(",");
-				for each (let accountKey in groups)
-				{
-					let account = accountManager.getAccount(accountKey);
+        for (let c=0; c < groups.length; c++) {
+          let accountKey = groups[c],
+					    account = accountManager.getAccount(accountKey);
 					if (account)
 					{
 						accounts.push(account);

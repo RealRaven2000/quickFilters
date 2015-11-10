@@ -390,7 +390,8 @@ quickFilters.Worker = {
     //    or parse From/To/Bcc for account email addresses
     if (msg.accountKey || accountCount==1) {
       util.logDebugOptional('getSourceFolder,createFilter', "sourceFolder: get Inbox from account of first message, key:" + msg.accountKey);
-      for each (let ac in aAccounts) {
+      for (let a=0; a<aAccounts.length; a++) {
+        let ac = aAccounts[a];
         // Postbox quickFix: we do not need a match if only 1 account exists :-p
         if ((ac.key == msg.accountKey) || (accountCount==1 && ac.defaultIdentity)) {
           // account.identities is an nsISupportsArray of nsIMsgIdentity objects
@@ -804,8 +805,8 @@ quickFilters.Worker = {
   buildFilter: function buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
                         matchingFilters, filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress, filterActionExt) {	
     const Cc = Components.classes,
-          Ci = Components.interfaces;
-    let util = quickFilters.Util;
+          Ci = Components.interfaces,
+          util = quickFilters.Util;
     function createTerm(filter, attrib, op, val, customId) {
       // if attrib = custom?
       // https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMsgSearchTerm
@@ -862,9 +863,11 @@ quickFilters.Worker = {
     
     function getTagsFromMsg(tagArray, msg) {
       let tagKeys = {};
-      for each (let tagInfo in tagArray)
+      for (let ta=0; ta<tagArray.length; ta++) {
+        let tagInfo = tagArray[ta];
         if (tagInfo.tag)
           tagKeys[tagInfo.key] = true;
+      }
 					
       let kw = msg.getStringProperty ? msg.getStringProperty("keywords") : msg.Keywords,
           tagKeyArray = kw.split(" "),
@@ -958,10 +961,13 @@ quickFilters.Worker = {
 		  if (quickFilters.Worker.reRunCount < 5 &&
 			    !this.refreshHeaders(messageList, targetFolder, sourceFolder)) 
 			{
+				let delay = quickFilters.Preferences.getIntPref('refreshHeaders.wait');
+				util.logDebug('buildFilter (' + sourceFolder.name + ') - failed refreshHeader, retrying..[' + quickFilters.Worker.reRunCount + ']');
+				
 			  window.setTimeout(function() {   
 		      quickFilters.Worker.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
                                           matchingFilters, filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress, filterActionExt);
-				  }, 150);
+				  }, delay);
 				quickFilters.Worker.reRunCount++
 				return;
 			}
@@ -987,9 +993,11 @@ quickFilters.Worker = {
         }        
         else
           for (let i = msgKeyArray.length - 1; i >= 0; --i) {
-            for each (let tagInfo in tagArray)
+            for (let ti=0; ti<tagArray.length; ti++) {
+              let tagInfo = tagArray[ti];
               if (tagInfo.key === msgKeyArray[i])
                 sTags += tagInfo.tag + ' ';
+            }
           }
 				filterName = filterName.replace("{1}", sTags);
 				break;
@@ -1155,9 +1163,11 @@ quickFilters.Worker = {
 				for (let i = msgKeyArray.length - 1; i >= 0; --i) {
 					searchTerm = createTerm(targetFilter, typeAttrib.Keywords, typeOperator.Contains, msgKeyArray[i]);
 					targetFilter.appendTerm(searchTerm);
-					for each (let tagInfo in tagArray)
+          for (let ta=0; ta<tagArray.length; ta++) {
+            let tagInfo = tagArray[ta];
 						if (tagInfo.key === msgKeyArray[i])
 							filterName += tagInfo.tag + ' ';
+          }
 				}               
 				break;
       case 'custom':
@@ -1222,11 +1232,13 @@ quickFilters.Worker = {
           if (filterActionExt)
             tagActionValue = filterActionExt;
           else
-            for each (let tagInfo in tagArray)
+            for (let ta=0; ta<tagArray.length; ta++) {
+              let tagInfo = tagArray[ta];
               if (tagInfo.key === msgKeyArray[i]) {
                 tagActionValue = tagInfo.key;
                 break;
               }
+            }
 				
 					let append = true;
 					// avoid duplicates

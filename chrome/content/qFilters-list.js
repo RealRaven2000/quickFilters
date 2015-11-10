@@ -519,7 +519,8 @@ quickFilters.List = {
     if (type && clpFilters.length>0) {
       for (let i=0; i<clpFilters.length;i++) {
         let current = clpFilters[i];
-        for each (let item in list.children) {  // replaced gFilterListbox
+        for (let c=0; c < list.children.length; c++) {
+          let item = list.children[c];
           if (item._filter && item._filter == current) {
             switch(type) {
               case 'cut':

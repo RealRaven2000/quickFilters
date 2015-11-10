@@ -33,9 +33,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 // window.onload = function()
 quickFilters.FilterEditor = {
   onLoad: function loadEditor(event) {
-    let utils = quickFilters.Util;
+    const utils = quickFilters.Util;
     utils.logDebug('quickFilters.loadEditor()');
-    if (utils.Debug) debugger;
+    if (quickFilters.Preferences.Debug) debugger;
     // filterEditorOnLoad(); was already called as we now use a listener!
     setTimeout( function() {
       function matchAction(actionType, actionString) {
@@ -65,10 +65,11 @@ quickFilters.FilterEditor = {
             if (args.filterConditionActionType) {
               list = document.getElementById('filterActionList');
               // iterate action rows => listitems
-              let item;
-              for each (item in list.children) {
+              for (let c=0; c < list.children.length; c++) {
+                let item = list.children[c];
                 if (item.attributes && item.attributes.length &&  item.attributes[0].value == 'ruleaction') {
-                  for each(let attrib in item.attributes) { // MozNamedAttrMap
+                  for (let a=0; a<item.attributes.length; a++) { // MozNamedAttrMap
+                    let attrib = item.attributes[a];
                     // matching the action type is probably sufficient 
                     // as we wouldn't have the same action type twice 
                     // (with different values) in most cases!
@@ -90,10 +91,11 @@ quickFilters.FilterEditor = {
                   lastrowIndex = -1,
                   searchRowIndex;
               while (!found) {
-                let item;
-                for each (item in list.children) {
+                for (let c=0; c < list.children.length; c++) {
+                  let item = list.children[c];
                   if (item.childNodes)
-                    for each(let listcell in item.childNodes) {
+                    for (let lc=0; lc < item.childNodes.length; lc++) {
+                      let listcell = item.childNodes[lc];
                       if (listcell.firstChild && 
                           listcell.firstChild.nodeName=='searchvalue' && 
                           listcell.firstChild.value) {
@@ -257,7 +259,7 @@ quickFilters.FilterEditor = {
           utils = quickFilters.Util,
           typeAttrib = Ci.nsMsgSearchAttrib,
           typeOperator = Ci.nsMsgSearchOp;
-    if (utils.Debug) debugger;
+    if (quickFilters.Preferences.Debug) debugger;
     // from http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#232
     //      onMore() called when the [+] button is clicked on a row (simulate last row)
     let rowIndex = gSearchTermList.getRowCount(),
