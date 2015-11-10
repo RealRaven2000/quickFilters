@@ -221,7 +221,7 @@
     # add sliding notification after run filters command
     # [Bug 25912] Support adding subjects from multiple Emails
   
-  2.9 : WIP
+  2.9 : 03/09/2015
     # Postbox 4.0 compatibility
     # [Bug 25989] Support Creation of Custom Templates
     # [Bug 26023] Template "Based on Recipient (To)" returns full lowercase address field
@@ -231,7 +231,13 @@
     #        the messages list is processed (refreshHeader) 
     # Improved algorithm for determining the originating folder for mails moved
     
-  PLANNED CHANGES  
+  3.0 : WIP
+    # [Bug 26076] Support ContextMenu => Move To Folder
+		# Support "brighttext" themes
+		# removed for..each..in to avoid unnecessary warnings in log window
+
+
+	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
   PREMIUM FEATURES:
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
@@ -378,26 +384,43 @@ var quickFilters = {
 
       this.initialized = true;
       
-      if (util.Application == 'Postbox') {
-        if (gQuickfilePanel && !gQuickfilePanel.executeQuickfilePanel) {
-          gQuickfilePanel.executeQuickfilePanel = gQuickfilePanel.execute;
-          gQuickfilePanel.execute = function() {
-            let restoreFunction = MsgMoveMessage;
-            quickFilters.executeQuickfilePanelPreEvent(gQuickfilePanel);
-            gQuickfilePanel.executeQuickfilePanel();  // the actual workload, 
-                                                      // includes creating the filter and calling the wrapped MsgMoveMessage
-                                                      // all contained in the wrapper MsgMoveMessage
-                                                      // the actual move isn't done until quickFilters.Worker.createFilter
-                                                      // has done its work and resets the promiseCreateFilter semaphor
-            quickFilters.executeQuickfilePanelPostEvent(restoreFunction);
+      switch (util.Application) {
+        case 'Postbox':
+          if (gQuickfilePanel && !gQuickfilePanel.executeQuickfilePanel) {
+            gQuickfilePanel.executeQuickfilePanel = gQuickfilePanel.execute;
+            gQuickfilePanel.execute = function() {
+              let restoreFunction = MsgMoveMessage;
+              quickFilters.executeQuickfilePanelPreEvent(gQuickfilePanel);
+              gQuickfilePanel.executeQuickfilePanel();  // the actual workload, 
+                                                        // includes creating the filter and calling the wrapped MsgMoveMessage
+                                                        // all contained in the wrapper MsgMoveMessage
+                                                        // the actual move isn't done until quickFilters.Worker.createFilter
+                                                        // has done its work and resets the promiseCreateFilter semaphor
+              quickFilters.executeQuickfilePanelPostEvent(restoreFunction);
+            }
           }
-        }
+          break;
+        case 'SeaMonkey':
+        case 'Thunderbird' :
+          util.logDebugOptional('msgMove', ' Wrapping MsgMoveMessage...');
+          if (quickFilters.executeMoveMessage != MsgMoveMessage 
+              &&
+              quickFilters.MsgMove_Wrapper != MsgMoveMessage) {
+            quickFilters.executeMoveMessage = MsgMoveMessage;
+            MsgMoveMessage = quickFilters.MsgMove_Wrapper; // let's test this for a while...
+            util.logDebugOptional('msgMove', 
+                                  ' quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper :' 
+                                  + (quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper));
+            quickFilters.executeCopyMessage = MsgCopyMessage;
+            MsgCopyMessage = quickFilters.MsgCopy_Wrapper; // let's test this for a while...
+          }
+          break;
       }
+      // for move to / copy to recent context menus we might have to wrap mailWindowOverlay.js:MsgMoveMessage in Tb!
+      
       
       // problem with setTimeout in SeaMonkey - it opens the window and then never calls the function?
-      if (quickFilters.Preferences.getBoolPref("autoStart") 
-          && 
-          !quickFilters.Worker.FilterMode) 
+      if (quickFilters.Preferences.getBoolPref("autoStart") &&  !quickFilters.Worker.FilterMode) 
       {
         util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
         setTimeout(function() { quickFilters.Worker.toggle_FilterMode(true, true);  }, 100);
@@ -870,90 +893,141 @@ var quickFilters = {
     catch (ex) {
       util.logException('toggleCurrentFolderButtons()', ex);
     }
-    
   } ,
+  
+  MsgMove_Wrapper: function MsgMove_Wrapper(uri) {
+    const util = quickFilters.Util;
+    try {
+      util.logDebugOptional('msgMove', 
+                            ' quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper :' 
+                            + (quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper));
+      quickFilters.MsgMoveCopy_Wrapper(uri, false);
+    }
+    catch(ex) {
+      util.logException('MsgMove_Wrapper()', ex);
+    }
+  } ,
+  
+  MsgCopy_Wrapper: function MsgCopy_Wrapper(uri) {
+    const util = quickFilters.Util;
+    try {
+      util.logDebugOptional('msgMove', 
+                            ' quickFilters.executeCopyMessage == quickFilters.MsgMove_Wrapper :' 
+                            + (quickFilters.executeCopyMessage == quickFilters.MsgCopy_Wrapper));
+      quickFilters.MsgMoveCopy_Wrapper(uri, true);
+    }
+    catch(ex) {
+      util.logException('MsgMove_Wrapper()', ex);
+    }
+  } ,
+  
+  MsgMoveCopy_Wrapper: function MsgMoveCopy_Wrapper(uri, isCopy) {
+    const util = quickFilters.Util,
+          worker = quickFilters.Worker,
+          prefs = quickFilters.Preferences;
+    // MsgMoveMessage wrapper function
+    //
+    try {
+      util.logDebugOptional('msgMove', "Executing wrapped MsgMoveMessage");
+      if (prefs.Debug) debugger;
+      let sourceFolder = util.getCurrentFolder(),
+          destResource = uri.QueryInterface(Ci.nsIMsgFolder) ?
+            uri : gRDF.GetResource(uri),
+          destMsgFolder = destResource.QueryInterface(Components.interfaces.nsIMsgFolder),						
+          // get selected message uris - see case 'createFilterFromMsg'
+          selectedMessages,
+          selectedMessageUris,
+          messageList = [];
+      if (util.Application === 'Postbox') {
+        selectedMessages = util.pbGetSelectedMessages();
+        selectedMessageUris = util.pbGetSelectedMessageUris();
+      }
+      else {
+        selectedMessages = gFolderDisplay.selectedMessages; 
+        selectedMessageUris = gFolderDisplay.selectedMessageUris;
+      }				
+      //
+      let i;
+      for (i=0; i<selectedMessages.length; i++) {
+        messageList.push(util.makeMessageListEntry(selectedMessages[i], selectedMessageUris[i])); 
+        // the original command in the message menu calls the helper function MsgCreateFilter()
+        // we do not know the primary action on this message (yet)
+      }
+      if (i)	{				
+        worker.promiseCreateFilter = true;
+        worker.createFilterAsync_New(sourceFolder, 
+          destMsgFolder, 
+          messageList, 
+          Components.interfaces.nsMsgFilterAction.MoveToFolder,   // filterAction
+          false);  // filterActionExt
+        util.logDebugOptional('msgMove', "After calling createFilterAsync_New()");
+      }
+    }
+    catch(ex) {
+      util.logException("MsgMoveCopy_Wrapper", ex);
+    }					
+    finally { 
+      // this is very important as we need to restore the original MsgMoveMessage
+      let promiseDone = function() { 
+        // we cannot quickmove until we are done evaluating the message headers for filter creation
+        if (worker.promiseCreateFilter) {
+          util.logDebugOptional('msgMove', 'worker.promiseCreateFilter => setTimeout(..)');
+          setTimeout(promiseDone, 100);
+        }
+        else {
+          if (isCopy) {
+            util.logDebugOptional('msgMove', "Executing original CopyMessage [[");
+            quickFilters.executeCopyMessage(uri);
+          }
+          else {
+            util.logDebugOptional('msgMove', "Executing original MoveMessage [[");
+            quickFilters.executeMoveMessage(uri); // calls original MsgMoveMessage
+          }
+          if (util.Application=='Postbox') // only restore in Postbox. let's test always having this on in Tb!
+            MsgMoveMessage = quickFilters.executeMoveMessage; // restore original move message function pointer
+          util.logDebugOptional('msgMove', "After original Move/CopyMessage.]]");
+        }
+      }
+      util.logDebugOptional('msgMove', ' setTimeout(..)');
+      setTimeout(promiseDone, 200);
+    }					
+  },
 	
 	executeQuickfilePanelPreEvent: function executeQuickfilePanelPreEvent(panel) {
 	  // postbox specific 'quickMove' function
 		// we need to wrap MsgMoveMessage before calling the original gQuickfilePanel.execute
-		if (!quickFilters.Worker.FilterMode) return;
-		if (!quickFilters.Preferences.getBoolPref('postbox.quickmove')) return;
+    const util = quickFilters.Util,
+          worker = quickFilters.Worker,
+          prefs = quickFilters.Preferences;
+		if (!worker.FilterMode) return;
+		if (!prefs.getBoolPref('postbox.quickmove')) return;
 		
 	  if (panel.panel._type === "file") {
 		  // wrap the MsgMoveMessage
 			try {
 			  // we need a closure for executeMoveMessage, cannot store it in the object as 
 				// this context might be lost when callint it
-				let executeMoveMessage = MsgMoveMessage;
-				MsgMoveMessage = function(uri) {
-					//
-					try {
-						quickFilters.Util.logDebugOptional('quickmove', "Executing wrapped MsgMoveMessage");
-						let sourceFolder = quickFilters.Util.getCurrentFolder(),
-						    destResource = RDF.GetResource(uri),
-						    destMsgFolder = destResource.QueryInterface(Components.interfaces.nsIMsgFolder),						
-                // get selected message uris - see case 'createFilterFromMsg'
-						    selectedMessages,
-                selectedMessageUris,
-						    messageList = [];
-						if (quickFilters.Util.Application === 'Postbox') {
-              selectedMessages = quickFilters.Util.pbGetSelectedMessages();
-              selectedMessageUris = quickFilters.Util.pbGetSelectedMessageUris();
-						}
-						else {
-							selectedMessages = gFolderDisplay.selectedMessages; 
-              selectedMessageUris = gFolderDisplay.selectedMessageUris;
-						}				
-						//
-						let i;
-						for (i=0; i<selectedMessages.length; i++) {
-							messageList.push(quickFilters.Util.makeMessageListEntry(selectedMessages[i], selectedMessageUris[i])); 
-							// the original command in the message menu calls the helper function MsgCreateFilter()
-							// we do not know the primary action on this message (yet)
-						}
-						if (i)	{				
-						  quickFilters.Worker.promiseCreateFilter = true;
-							quickFilters.Worker.createFilterAsync_New(sourceFolder, 
-								destMsgFolder, 
-								messageList, 
-								Components.interfaces.nsMsgFilterAction.MoveToFolder,   // filterAction
-								false);  // filterActionExt
-							quickFilters.Util.logDebugOptional('quickmove', "After calling createFilterAsync_New()");
-						}
-					}
-					catch(ex) {
-						quickFilters.Util.logException("executeMoveMessage", ex);
-					}					
-					finally { 
-					  // this is very important as we need to restore the original MsgMoveMessage
-					  let promiseDone = function() { 
-							// we cannot quickmove until we are done evaluating the message headers for filter creation
-						  if (quickFilters.Worker.promiseCreateFilter)
-								setTimeout(promiseDone, 100);
-							else {
-								quickFilters.Util.logDebugOptional('quickmove', "Executing original MoveMessage [[");
-								executeMoveMessage(uri);
-								MsgMoveMessage = executeMoveMessage; // restore original move message function pointer
-								quickFilters.Util.logDebugOptional('quickmove', "After original MoveMessage.]]");
-							}
-						}
-					  setTimeout(promiseDone, 200);
-					}					
-				}  // MsgMoveMessage wrapper function
+        util.logDebugOptional('msgMove', ' Wrapping MsgMoveMessage...');
+        if (quickFilters.executeMoveMessage != MsgMoveMessage
+            &&
+            quickFilters.MsgMove_Wrapper != MsgMoveMessage) {
+          quickFilters.executeMoveMessage = MsgMoveMessage;
+          MsgMoveMessage = quickFilters.MsgMove_Wrapper;
+        }
 			}
 			catch(ex) {
-			  quickFilters.Util.logException("executeQuickfilePanelPreEvent", ex);
+			  util.logException("executeQuickfilePanelPreEvent", ex);
 			}
 		}
 	},
+  
 	executeQuickfilePanelPostEvent: function executeQuickfilePanelPostEvent(restoreFunction) {
 	  // restore MsgMoveMessage for other callers
-		quickFilters.Util.logDebugOptional('quickmove', "Restoring MsgMoveMessage...");
+		quickFilters.Util.logDebugOptional('msgMove', "Restoring MsgMoveMessage...");
 		MsgMoveMessage = restoreFunction;
 	},
 	 // this is the wrapped MsgMoveMessage
 	executeMoveMessage: null  
-	
 
 }; // quickFilters MAIN OBJECT
 
@@ -1144,20 +1218,28 @@ quickFilters.FolderListener = {
   OnItemEvent: function(item, event) {
     let eString = event.toString();
     try {
+      const win = quickFilters.Util.getMail3PaneWindow(),
+            util = win.quickFilters.Util,
+            worker = win.quickFilters.Worker;
 		  if (quickFilters)
-				quickFilters.Util.logDebugOptional("events","event: " + eString);
+				util.logDebugOptional("events","OnItemEvent( " + item + ", " + eString +")");
       switch (eString) {
         case "FolderLoaded": // DeleteOrMoveMsgCompleted
           break;
         case "RenameCompleted":
           // find filters with this target and correct them?
           break;
+        case "DeleteOrMoveMsgCompleted":
+          let isAssistant = worker.FilterMode;
+          util.logDebugOptional("events","DeleteOrMoveMessagesCompleted(" + 
+            (item ? (item.prettyName ? item.prettyName : item) : '<no folder>\n') +
+            'Assistant is ' + (isAssistant ? 'active' : 'off'));
+          break;
       }
     }
     catch(e) {this.ELog("Exception in FolderListener.OnItemEvent {" + eString + "}:\n" + e)};
   },
-  OnFolderLoaded: function(aFolder) { },
-  OnDeleteOrMoveMessagesCompleted: function( aFolder) {}
+  OnFolderLoaded: function(aFolder) { }
 
 }  // FolderListener
 quickFilters.FolderListener.qfInstance = quickFilters;
