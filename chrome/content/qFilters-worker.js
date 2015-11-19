@@ -72,7 +72,8 @@ quickFilters.Worker = {
   * @param {bool} start or stop filter mode
   */
   toggle_FilterMode: function toggle_FilterMode(active, silent) {
-    let util = quickFilters.Util;
+    const util = quickFilters.Util,
+		      worker = quickFilters.Worker;
     function removeOldNotification(box, active, id) {
       if (!active && box) {
         let item = box.getNotificationWithValue(id);
@@ -134,13 +135,13 @@ quickFilters.Worker = {
               {
                 label: dontShow,
                 accessKey: null,
-                callback: function() { quickFilters.Worker.showMessage(false); },
+                callback: function() { worker.showMessage(false); },
                 popup: null
               },
               {
                 label: 'X',
                 accessKey: 'x',
-                callback: function() { quickFilters.Worker.onCloseNotification(null, notifyBox, notificationKey); },
+                callback: function() { worker.onCloseNotification(null, notifyBox, notificationKey); },
                 popup: null
               }
             ];
@@ -150,7 +151,7 @@ quickFilters.Worker = {
               {
                 label: dontShow,
                 accessKey: null,
-                callback: function() { quickFilters.Worker.showMessage(false); },
+                callback: function() { worker.showMessage(false); },
                 popup: null
               }
             ];
@@ -162,7 +163,7 @@ quickFilters.Worker = {
               "chrome://quickfilters/skin/filterTemplate.png" ,
               notifyBox.PRIORITY_INFO_LOW,
               nbox_buttons,
-              function(eventType) { quickFilters.Worker.onCloseNotification(eventType, notifyBox, notificationKey); } // eventCallback
+              function(eventType) { worker.onCloseNotification(eventType, notifyBox, notificationKey); } // eventCallback
               ); 
               
           if (util.Application == 'Postbox') {
@@ -176,12 +177,12 @@ quickFilters.Worker = {
               check = {value: false},   // default the checkbox to true
               result = prompts.alertCheck(null, title, theText, dontShow, check);
           if (check.value === true)
-            quickFilters.Worker.showMessage(false);
+            worker.showMessage(false);
         }
       }
     }
 
-    quickFilters.Worker.FilterMode = active;
+    worker.FilterMode = active;
     let doc = util.getMail3PaneWindow().document,
         // container styling?
         button = doc.getElementById('quickfilters-toolbar-button');
@@ -201,13 +202,13 @@ quickFilters.Worker = {
     // If QuickFolders is installed, we should also invoke its filter mode
     if (window.QuickFolders) {
       let QF = window.QuickFolders,
-          worker = QF.FilterWorker ? QF.FilterWorker : QF.Filter;
+          QFwork = QF.FilterWorker ? QF.FilterWorker : QF.Filter;
       // we cannot supress the notification from QuickFolders
       // without adding code in it!
-      if (worker.FilterMode != active) {// prevent recursion!
-        worker.toggle_FilterMode ?
-          worker.toggle_FilterMode(active) :
-          worker.toggleFilterMode(active);  // (active, silent) !!!
+      if (QFwork.FilterMode != active) {// prevent recursion!
+        QFwork.toggle_FilterMode ?
+          QFwork.toggle_FilterMode(active) :
+          QFwork.toggleFilterMode(active);  // (active, silent) !!!
       }
 
       if (!silent)
@@ -945,7 +946,7 @@ quickFilters.Worker = {
       }
     }
     
-    if (quickFilters.Preferences.Debug) debugger;    
+    if (quickFilters.Preferences.isDebug) debugger;    
 		// create new filter or load existing filter?
 		if (mergeFilterIndex>=0) {
 			targetFilter = matchingFilters[mergeFilterIndex];
