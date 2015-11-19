@@ -30,13 +30,6 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "m">
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
-<!ENTITY qf.templates.advanced "Advanced Templates">
-<!ENTITY qf.templates.customTemplate.label "Custom Templates">
-<!ENTITY qf.templates.customTemplate.tooltip "Allows generation of Custom Templates, see bug description for detail.">
-<!ENTITY qf.templates.customTemplate.edit "Edit…">
-<!ENTITY qf.templates.customTemplate.new "Create New…">
-<!ENTITY qf.templates.replyTo.label "Reply-To Template">
-<!ENTITY qf.templates.replyTo.tooltip "Display Reply-To Template, see bug description for detail.">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Visa filterlista">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Kör filter på mapp">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Kör filter på markerade meddelanden">
