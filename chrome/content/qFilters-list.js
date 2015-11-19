@@ -146,7 +146,8 @@ quickFilters.List = {
     let filtersList = this.FilterList,
         sourceFolder = filtersList.folder,
         list = this.FilterListElement,
-        utils = quickFilters.Util;
+        utils = quickFilters.Util,
+				prefs = quickFilters.Preferences;
     if (this.getSelectedCount(list) != 1) {
 			let wrn = quickFilters.Util.getBundleString('quickfilters.clone.selectOne', 
                                    'To clone, select exactly one filter.');
@@ -162,7 +163,7 @@ quickFilters.List = {
 			return;
 		}
 		// get user specific clone label
-		let clonedLabel = quickFilters.Preferences.getCharPref('naming.clonedLabel'),
+		let clonedLabel = prefs.getCharPref('naming.clonedLabel'),
 		    newName = selectedFilter.filterName + ' '
 		if (clonedLabel.trim()) {
 		  newName += clonedLabel;
@@ -251,18 +252,20 @@ quickFilters.List = {
   } ,
     
   merge: function merge(evt, isEvokedFromButton) {
+		const prefs = quickFilters.Preferences,
+		      util = quickFilters.Util;
     let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'mergeList' },
         filtersList = this.FilterList, // Tb / SM
         sourceFolder = filtersList.folder,
         list = this.FilterListElement,
         count = this.getSelectedCount(list);
-    quickFilters.Util.logDebugOptional("merge", "filter.merge\n"
+    util.logDebugOptional("merge", "filter.merge\n"
       + count + " filters selected.\n"
       + "evoked from button:" + isEvokedFromButton);
     if (count < 2) {
-			let wrn = quickFilters.Util.getBundleString('quickfilters.merge.warning.selectMultiple', 
+			let wrn = util.getBundleString('quickfilters.merge.warning.selectMultiple', 
                                               'To merge, select at least 2 filters');
-      quickFilters.Util.popupAlert(wrn);
+      util.popupAlert(wrn);
       return;
     } 
     // see qFilters-worker line 471
@@ -273,9 +276,9 @@ quickFilters.List = {
         filterMatch,
 		    firstSelectedFilter = this.getSelectedFilterAt(list, 0);
 		if (!firstSelectedFilter) {
-			let wrn = quickFilters.Util.getBundleString('quickfilters.merge.warning.selectMultiple2',
+			let wrn = util.getBundleString('quickfilters.merge.warning.selectMultiple2',
 				          'Cannot determine first selected filter - to merge, you must select at least 2 filters!');
-			quickFilters.Util.popupAlert(wrn);
+			util.popupAlert(wrn);
 			return;
 		}
     let primaryAction,
@@ -284,10 +287,10 @@ quickFilters.List = {
 			primaryAction = firstSelectedFilter.getActionAt(0);
 		}
 		catch(ex) {
-			let wrn = quickFilters.Util.getBundleString('quickfilters.merge.warning.missingAction',
+			let wrn = util.getBundleString('quickfilters.merge.warning.missingAction',
 				          'Could not get the main action of the filter: {1}');
 		  wrn.replace ('{1}', primaryName);
-			quickFilters.Util.popupAlert(wrn + '\n' + ex.toString());
+			util.popupAlert(wrn + '\n' + ex.toString());
 		}
     action = primaryAction;
     let FA = Components.interfaces.nsMsgFilterAction,
@@ -295,7 +298,7 @@ quickFilters.List = {
     for (let f = this.getSelectedCount(list)-1; f >=0 ; f--) {
       filterMatch = true;
       let aFilter = this.getSelectedFilterAt(list, f);  // nsIMsgFilter 
-      quickFilters.Util.logDebugOptional("merge", "Adding filter: " + aFilter.filterName);
+      util.logDebugOptional("merge", "Adding filter: " + aFilter.filterName);
       // match the first action only
       // nsMsgFilterAction.MarkFlagged
       // nsMsgFilterAction.MoveToFolder
@@ -304,49 +307,49 @@ quickFilters.List = {
       // nsMsgFilterAction.ChangePriority
 			try {
 				action = aFilter.getActionAt(0);
-        quickFilters.Util.logDebugOptional("merge", "First filter action type: " + action.type);
+        util.logDebugOptional("merge", "First filter action type: " + action.type);
 			}
 			catch(ex)  {
 				failedFilters = failedFilters + ', ' + aFilter.filterName;
-        quickFilters.Util.logDebugOptional("merge", "failed to get type, omitting filter.");
+        util.logDebugOptional("merge", "failed to get type, omitting filter.");
 				filterMatch = false;
 			}
       if (filterMatch && primaryAction && primaryAction.type != action.type) {
         filterMatch = false;
-        quickFilters.Util.logDebugOptional("merge", "no match, as primary action type is " + primaryAction.type);
+        util.logDebugOptional("merge", "no match, as primary action type is " + primaryAction.type);
       }
       else {
         // here, we need to create a switch statement, to accommodate different action types
         switch(primaryAction.type) {
           case FA.MoveToFolder: case FA.CopyToFolder:
             if (primaryAction.targetFolderUri != action.targetFolderUri) {
-              quickFilters.Util.logDebugOptional("merge", "no match, as target folder uri is " + action.targetFolderUri);
+              util.logDebugOptional("merge", "no match, as target folder uri is " + action.targetFolderUri);
               filterMatch = false;
             }
             break;
           case FA.AddTag:
             if (primaryAction.strValue !=  action.strValue) {
-              quickFilters.Util.logDebugOptional("merge", "no match, as strValue is " + action.strValue);
+              util.logDebugOptional("merge", "no match, as strValue is " + action.strValue);
               filterMatch = false;
             }
             break;
           case FA.MarkFlagged:
-            quickFilters.Util.logDebugOptional("merge", "MarkFlagged - no change in match");
+            util.logDebugOptional("merge", "MarkFlagged - no change in match");
             break;
           case FA.ChangePriority:
             if (primaryAction.priority !=  action.priority) {
-              quickFilters.Util.logDebugOptional("merge", "no match, as priority is " + action.priority);
+              util.logDebugOptional("merge", "no match, as priority is " + action.priority);
               filterMatch = false;
             }
             break;
         }
       }
       if (!filterMatch && !deselectUnmatched) {
-        let question = quickFilters.Util.getBundleString('quickfilters.merge.warning.selectMismatch',
-                                                         'Cannot merge all selected filters: action mismatch with filter {1}!')
+        let question = util.getBundleString('quickfilters.merge.warning.selectMismatch',
+                                            'Cannot merge all selected filters: action mismatch with filter {1}!')
                       + '\n'
-                      + quickFilters.Util.getBundleString('quickfilters.merge.warning.selectMismatchContinue',
-                                                         'Deselect filters that do not match and continue?');
+                      + util.getBundleString('quickfilters.merge.warning.selectMismatchContinue',
+                                             'Deselect filters that do not match and continue?');
         question = question.replace('{1}', '\'' + primaryName + '\'' );          
         if (confirm(question)) {
           deselectUnmatched = true;
@@ -356,11 +359,11 @@ quickFilters.List = {
         }
       }
       if (filterMatch) {
-        quickFilters.Util.logDebugOptional("merge", "filter match: pushing to list {" + aFilter.filterName + "}");
+        util.logDebugOptional("merge", "filter match: pushing to list {" + aFilter.filterName + "}");
         matchingFilters.push(aFilter);  
       }
       else {
-        quickFilters.Util.logDebugOptional("merge", "not matching - removed from selection: " + aFilter.filterName);
+        util.logDebugOptional("merge", "not matching - removed from selection: " + aFilter.filterName);
         // remove any filter that does not match from selection!
         if (list.removeItemFromSelection)
           list.removeItemFromSelection(aFilter); // Thunderbird
@@ -373,7 +376,7 @@ quickFilters.List = {
     // **************************************************************
     // *******   SYNCHRONOUS PART: Shows Filter Assistant!    *******
     // **************************************************************
-    quickFilters.Util.logDebugOptional("merge", "OPENING MODAL DIALOG\n==========================");
+    util.logDebugOptional("merge", "OPENING MODAL DIALOG\n==========================");
     let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xul',
       'quickfilters-filterTemplate',
       'chrome,titlebar,centerscreen,modal,centerscreen,resizable=yes,accept=yes,cancel=yes',
@@ -391,15 +394,15 @@ quickFilters.List = {
         targetFilter;
 
     // user has selected a template
-    let template = quickFilters.Preferences.getCurrentFilterTemplate();
+    let template = prefs.getCurrentFilterTemplate();
     if (mergeFilterIndex >= 0) {
       targetFilter = matchingFilters[mergeFilterIndex];
       isMerge = true;
     }
     else {
-			let wrn =quickFilters.Util.getBundleString('quickfilters.merge.warning.selectTarget',
+			let wrn = util.getBundleString('quickfilters.merge.warning.selectTarget',
                                                  'A target filter must be selected for merging!')
-      quickFilters.Util.popupAlert(wrn);
+      util.popupAlert(wrn);
 			return;
     }
 
@@ -422,7 +425,7 @@ quickFilters.List = {
 			    newActions = newFilter.actionList ? newFilter.actionList : newFilter.sortedActionList;
 			for (let a = 0; a < aCollection.Count(); a++) {
 			  let append = true;
-			  for (let b = 0; b < quickFilters.Util.getActionCount(newFilter); b++) { 
+			  for (let b = 0; b < util.getActionCount(newFilter); b++) { 
 					let ac = newActions.queryElementAt(b, Components.interfaces.nsIMsgRuleAction);
 				  if (ac.type == aCollection.GetElementAt(a).type
 					    &&
@@ -447,7 +450,7 @@ quickFilters.List = {
     // 2. now copy the filter search terms of the filters in the array to the new filter
     // then delete the other filters
     // 2a - copy TargetFilter first
-    quickFilters.Util.copyTerms(targetFilter, newFilter, true); // we probably need to determine the booleanAnd property of the (first) target term
+    util.copyTerms(targetFilter, newFilter, true); // we probably need to determine the booleanAnd property of the (first) target term
 		                                               // and use this for all (or the first) terms of the merged filters
 																									 // if the operators are mixed we might also need to add beginsGrouping and endsGrouping
 																									 // attributes
@@ -456,7 +459,7 @@ quickFilters.List = {
       // copy filter
       if (targetFilter == current)
         continue;
-      quickFilters.Util.copyTerms(current, newFilter, true);
+      util.copyTerms(current, newFilter, true);
     }
     // determine the index of insertion point (at the filter selected in the assistant)
     let idx;
@@ -479,7 +482,7 @@ quickFilters.List = {
     {
       quickFilters.Worker.openFilterList(true, sourceFolder);
       // 4. insert the merged filter
-      quickFilters.Util.logDebug("Adding new Filter '" + newFilter.filterName + "' "
+      util.logDebug("Adding new Filter '" + newFilter.filterName + "' "
            + ": current list has: " + filtersList.filterCount + " items");
 			newFilter.enabled = true;
       filtersList.insertFilterAt(idx, newFilter);
@@ -505,9 +508,11 @@ quickFilters.List = {
 	  if (typeof gCurrentFolder !== "undefined") {
 			return gCurrentFolder ; // Tb
 		}
-		// from: SM's setServer(uri) function
-		let resource = gRDF.GetResource(gCurrentServerURI),
-		    folder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
+		
+		const Ci = Components.interfaces,
+		      rdf = Components.classes['@mozilla.org/rdf/rdf-service;1'].getService(Ci.nsIRDFService);
+		let resource = rdf.GetResource(gCurrentServerURI), // from: SM's setServer(uri) function
+		    folder = resource.QueryInterface(Ci.nsIMsgFolder);
 		return folder; // Suite
 	},
 	
@@ -559,15 +564,17 @@ quickFilters.List = {
   } ,
   
 	pushSelectedToClipboard: function pushSelectedToClipboard(type) {
+		const util = quickFilters.Util;
 		let list = this.FilterListElement;
 		if (this.getSelectedCount(list) < 1) {
-			let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
-			quickFilters.Util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
+			let wrn = util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
+			util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
 			return false;
 		}
 		this.clipboardList.splice(0); // discard old list
 		this.clipboardServer = this.CurrentFolder; // original account when copying to clipboard!
-    for (let f = this.getSelectedCount(list)-1; f >=0 ; f--)
+		let count = this.getSelectedCount(list);
+    for (let f=0; f<count ; f++)
     {
       let aFilter = this.getSelectedFilterAt(list, f);  // nsIMsgFilter 
 			this.clipboardList.push(aFilter);  
@@ -578,7 +585,7 @@ quickFilters.List = {
       this.styleSelectedItems(type);
 		}
 		catch(ex) {
-      quickFilters.Util.logException('pushSelectedToClipboard - during marking as copied/cut', ex);
+      util.logException('pushSelectedToClipboard - during marking as copied/cut', ex);
 		}
 		
 		return true;
@@ -597,8 +604,9 @@ quickFilters.List = {
 	},
 	
 	pasteFilters: function pasteFilters(isSort) {
-		let Ci = Components.interfaces,
-		    clpFilters = this.clipboardList,
+		const util = quickFilters.Util,
+		      Ci = Components.interfaces;
+		let clpFilters = this.clipboardList,
         sortedFiltersList,
 		    isInsert = false,
 		    isRemove = false,
@@ -606,24 +614,24 @@ quickFilters.List = {
         sortIndex = 0;
 		try {
 			if (clpFilters.length < 1) {
-				let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.emptyClipboard',
+				let wrn = util.getBundleString('quickfilters.copy.warning.emptyClipboard',
 				  'No filters in clipboard!');
-				quickFilters.Util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
+				util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
 				return;
 			}
 			if (this.clipboardServer == this.CurrentFolder) {
         isMove = true; // copy / paste from same server = move
         if (this.clipboardPending == 'copy')  { // not allowed
-          let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectOtherAccount',
+          let wrn = util.getBundleString('quickfilters.copy.warning.selectOtherAccount',
             'Select a different account for pasting items!');
-          quickFilters.Util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
+          util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
           return;
         }
 			}
 			if (!this.clipboardServer.server.canHaveFilters) {
-				let msg = quickFilters.Util.getBundleString('quickfilters.createFilter.warning.canNotHaveFilters',
+				let msg = util.getBundleString('quickfilters.createFilter.warning.canNotHaveFilters',
 					'The account {1} does not support filters!');
-				quickFilters.Util.popupAlert(msg.replace('{1}', this.clipboardServer.prettyName), 
+				util.popupAlert(msg.replace('{1}', this.clipboardServer.prettyName), 
 				                             'quickFilters', 'fugue-clipboard-exclamation.png');
 				return;
 			}
@@ -650,7 +658,7 @@ quickFilters.List = {
           sourceFolder = this.clipboardServer.rootFolder,
           cutFiltersList;
 			if (isRemove) {
-        if (quickFilters.Util.Application === 'Postbox') {
+        if (util.Application === 'Postbox') {
           // mailWindowOverlay.js:1790
           cutFiltersList = sourceFolder.getFilterList(gFilterListMsgWindow);
         }
@@ -686,7 +694,7 @@ quickFilters.List = {
             // CUT FIRST
             for (let cix = cutFiltersList.filterCount-1; cix >= 0; cix--) {
               if (current == cutFiltersList.getFilterAt(cix)){
-                quickFilters.Util.logDebugOptional("clipboard", 'Removing filter: ' + current.filterName);
+                util.logDebugOptional("clipboard", 'Removing filter: ' + current.filterName);
                 cutFiltersList.removeFilterAt(cix);
                 if (isMove) {
                   if (cix<=index) index--; // compensate for moving (we deleted item before insert point).
@@ -705,7 +713,7 @@ quickFilters.List = {
         if (isSort) {
           for (let i = 0; i < clpFilters.length; i++) {
             let filter = sortedFiltersList[i].QueryInterface(Ci.nsIMsgFilter);
-            quickFilters.Util.logDebugOptional("clipboard", 'Insert filter [' + sortIndex + ']: ' + filter.filterName);
+            util.logDebugOptional("clipboard", 'Insert filter [' + sortIndex + ']: ' + filter.filterName);
             filtersList.insertFilterAt(sortIndex++, filter); 
           }
           this.resetClipboardStylings();
@@ -713,7 +721,7 @@ quickFilters.List = {
 			}
 		}
 		catch (ex) {
-      quickFilters.Util.logException('Exception during paste filter; aborting. ', ex);
+      util.logException('Exception during paste filter; aborting. ', ex);
 			this.rebuildFilterList();
 			return;
 		}
@@ -730,12 +738,13 @@ quickFilters.List = {
 	},
 
   onTop : function onTop(evt) {
+		const util = quickFilters.Util;
     let filtersList = this.FilterList, // Tb / SM
         list = this.FilterListElement;
     try {
       if (this.getSelectedCount(list) != 1) {
-				let wrn = quickFilters.Util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
-				quickFilters.Util.popupAlert(wrn);
+				let wrn = util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
+				util.popupAlert(wrn);
         return;
       }
       let activeFilter = this.getSelectedFilterAt(list, 0);
@@ -756,17 +765,18 @@ quickFilters.List = {
       }
     }
     catch(ex) {
-      quickFilters.Util.logException('Exception while moving filter to top: ', ex);
+      util.logException('Exception while moving filter to top: ', ex);
     }
   } ,
 
   onBottom : function onBottom(evt) {
+		const util = quickFilters.Util;
     let filtersList = this.FilterList,
         list =this.FilterListElement;
     try {
       if (this.getSelectedCount(list) != 1) {
-        let wrn = quickFilters.Util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
-				quickFilters.Util.popupAlert(wrn);
+        let wrn = util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
+				util.popupAlert(wrn);
         return;
       }
       let activeFilter = this.getSelectedFilterAt(list, 0);
@@ -787,7 +797,7 @@ quickFilters.List = {
       }
     }
     catch(ex) {
-      quickFilters.Util.logException('Exception while moving filter to bottom: ', ex);
+      util.logException('Exception while moving filter to bottom: ', ex);
     }
   } ,
 
@@ -885,13 +895,14 @@ quickFilters.List = {
 	} ,
 	
 	onSelectServer: function onSelectServer() {
-		quickFilters.Util.logDebugOptional("clipboard", "onSelectServer()");
+		const util = quickFilters.Util;
+		util.logDebugOptional("clipboard", "onSelectServer()");
     this.styleFilterListItems();
     if (document.getElementById('quickFiltersBtnCancelFound').collapsed) {
       // reset duplicates list + hide: only if we are not in Search mode.
       this.clearDuplicatePopup(false);
       document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
-      if (quickFilters.Util.Application == 'Thunderbird')
+      if (util.Application == 'Thunderbird')
         document.getElementById('quickFiltersBtnDupe').collapsed = false;
     }
 	} ,
@@ -913,6 +924,8 @@ quickFilters.List = {
   } ,
 
   onLoadFilterList: function onLoadFilterList(evt) {
+    const util = quickFilters.Util,
+		      prefs = quickFilters.Preferences;
     function removeElement(el) {
       el.collapsed = true;
     }
@@ -923,7 +936,6 @@ quickFilters.List = {
       }
     }
     let getElement = document.getElementById.bind(document);
-    const util = quickFilters.Util;
     util.logDebugOptional('filterList', 'onLoadFilterList() starts...');
     // overwrite list updateButtons
     let orgUpdateBtn = updateButtons;
@@ -939,8 +951,8 @@ quickFilters.List = {
 		  : 'grid'),
 		  hbox = hbs ? hbs[0] : null ;
 		let isToolbar = false;
-    if (quickFilters.Preferences.Debug) debugger;
-		if (!quickFilters.Preferences.getBoolPref("toolbar")) {
+    if (prefs.isDebug) debugger;
+		if (!prefs.getBoolPref("toolbar")) {
 		  toolbox.parentNode.removeChild(toolbox);
 		}
 		else if (hbox && toolbar) { // move toolbox up
@@ -998,7 +1010,7 @@ quickFilters.List = {
             rows = hbox.getElementsByTagName("rows")[0];
         rows.insertBefore(searchBoxContainer, rows.firstChild.nextSibling);
         // use this flag to allow (experimental) search box in SM/Postbox
-        if (quickFilters.Preferences.getBoolPref('notTB.searchbox')) {
+        if (prefs.getBoolPref('notTB.searchbox')) {
           searchBoxContainer.collapsed = false;
           searchSpacer.collapsed = false;
         }
@@ -1200,9 +1212,10 @@ quickFilters.List = {
   } ,
 
   selectFilter: function selectFilter(targetFilter) {
+		const util = quickFilters.Util;
     // highlight last edited filter: (after merge!!)
     // [Bug 25802] After editing existing Filter, it should be selected in List 
-    quickFilters.Util.logDebugOptional('filterList', 'targetFilter argument passed:');
+    util.logDebugOptional('filterList', 'targetFilter argument passed:');
     // reset the filter first
     if (typeof resetSearchBox !== "undefined")  { // not in Postbox
       resetSearchBox();  // http://mxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#920
@@ -1214,13 +1227,13 @@ quickFilters.List = {
         ct = filtersList.filterCount;
     try {
       let msg = targetFilter ? 'list - searching ' + ct + ' rows for targetFilter: ' + targetFilter.filterName : 'selectFilter() - No target filter passed!';
-      quickFilters.Util.logDebugOptional('filterList', msg);
+      util.logDebugOptional('filterList', msg);
     }
     catch(x) {;}
     for (let idx = 0; idx < ct; idx++) {
       let f = filtersList.getFilterAt(idx); // list.getItemAtIndex(idx);
       if (targetFilter == f) {
-        quickFilters.Util.logDebugOptional('filterList', 'Found at index: ' + idx);
+        util.logDebugOptional('filterList', 'Found at index: ' + idx);
         if (list.nodeName != 'tree') { // listbox (Tb)  if (list.getIndexOfItem)
           let item = list.getItemAtIndex(idx);
           list.ensureElementIsVisible(item);
@@ -1255,11 +1268,12 @@ quickFilters.List = {
 
   // note: use an alias to avoid recursion (we want to call the global / Tb function_
   rebuildFilterList: function rebuildFilterList_qF() {
+		const util = quickFilters.Util;
     if (typeof gCurrentFilterList !== "undefined") { // Thunderbird
       rebuildFilterList(gCurrentFilterList);
     }
     else {
-      if (quickFilters.Util.Application === 'Postbox') {
+      if (util.Application === 'Postbox') {
         refresh();
         this.updateCountBox();
         return;
@@ -1271,7 +1285,7 @@ quickFilters.List = {
           msgFolder = this.CurrentFolder;
 
       //Calling getFilterList will detect any errors in rules.dat, backup the file, and alert the user
-      switch(quickFilters.Util.Application) {
+      switch(util.Application) {
 //        case 'Postbox':
 //          this.gFilterTreeView.filterList = msgFolder.getFilterList(gFilterListMsgWindow);
 //          break;
@@ -1291,6 +1305,8 @@ quickFilters.List = {
  * @param focusSearchBox  if called from the button click event, return to searchbox
  */
   onFindFilter: function onFindFilter(focusSearchBox) {
+    const util = quickFilters.Util,
+		      prefs = quickFilters.Preferences;
     let searchBox = document.getElementById("quickFilters-Search"),
         filterList = this.FilterListElement,
         keyWord = searchBox.value.toLocaleLowerCase();
@@ -1323,7 +1339,7 @@ quickFilters.List = {
         item = getFilter(i); // SM / Postbox: defined in FilterListDialog.js 
         title = item.filterName;
         if (title.toLocaleLowerCase().indexOf(keyWord) === -1){
-          if (quickFilters.Preferences.Debug) debugger;    
+          if (prefs.isDebug) debugger;    
           matched = false;
           filterList.view.performActionOnRow("delete", i); // the view is same as gFilterTreeView
           filterList.boxObject.invalidateRow(i);
@@ -1345,7 +1361,7 @@ quickFilters.List = {
 
       }
       if (matched)
-        quickFilters.Util.logDebugOptional("filters", "matched filter: " + title);
+        util.logDebugOptional("filters", "matched filter: " + title);
     }
     this.updateCountBox();
     if (focusSearchBox)
@@ -1354,8 +1370,8 @@ quickFilters.List = {
   } ,
 
   validateFilterTargets: function validateFilterTargets(sourceURI, targetURI) {
+		const util = quickFilters.Util;
     // fix any filters that might still point to the moved folder.
-
     // 1. nsIMsgAccountManager  loop through list of servers
     try {
       let Ci = Components.interfaces,
@@ -1365,7 +1381,7 @@ quickFilters.List = {
         if (account.incomingServer && account.incomingServer.canHaveFilters )
         {
           let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
-          quickFilters.Util.logDebugOptional("filters", "checking account for filter changes: " +  ac.prettyName);
+          util.logDebugOptional("filters", "checking account for filter changes: " +  ac.prettyName);
           // 2. getFilterList
           let filterList = ac.getFilterList(gFilterListMsgWindow).QueryInterface(Ci.nsIMsgFilterList);
           // 3. use  nsIMsgFilterList.matchOrChangeFilterTarget(oldUri, newUri, false)
@@ -1376,7 +1392,7 @@ quickFilters.List = {
       }
     }
     catch(ex) {
-      quickFilters.Util.logException("Exception in quickFilters.List.validateFilterTargets ", ex);
+      util.logException("Exception in quickFilters.List.validateFilterTargets ", ex);
     }
 
   },
@@ -1417,6 +1433,7 @@ quickFilters.List = {
               other filter attributes.
    */
   filterSearchMatchExtended : function filterSearchMatchExtended(aFilter, aKeyword) {
+		const util = quickFilters.Util;
     // more search options
     let FA = Components.interfaces.nsMsgFilterAction,
         actionList = aFilter.actionList ? aFilter.actionList : aFilter.sortedActionList,
@@ -1449,7 +1466,7 @@ quickFilters.List = {
           if (searchTerm.value) {
             let val = searchTerm.value, // nsIMsgSearchValue
                 AC = Components.interfaces.nsMsgSearchAttrib;
-            if (val && quickFilters.Util.isStringAttrib(val.attrib)) {
+            if (val && util.isStringAttrib(val.attrib)) {
               let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
               if (conditionStr.toLocaleLowerCase().contains(aKeyword))
                 return true;
@@ -1605,17 +1622,17 @@ quickFilters.List = {
   getActionLabel: function getActionLabel(actionType) {
     // retrieve locale strings from http://mxr.mozilla.org/comm-central/source/mail/locales/en-US/chrome/messenger/FilterEditor.dtd
     // l10n at http://hg.mozilla.org/l10n-central
-    let util = quickFilters.Util;
+		let getString = quickFilters.Util.getBundleString.bind(quickFilters.Util);
     switch(actionType) {
-      case  1: return util.getBundleString('quickfilters.moveMessage.label', 'Move Message to');
-      case  2: return util.getBundleString('quickfilters.setPriority.label', 'Set Priority to');
-      case  4: return util.getBundleString('quickfilters.markMessageRead.label', 'Mark As Read');
-    //case  8: return util.getBundleString('quickfilters.xx.label', 'Add label'); // ??
-      case  9: return util.getBundleString('quickfilters.replyWithTemplate.label', 'Reply with template');
-      case 10: return util.getBundleString('quickfilters.forwardTo.label', 'Forward Message to');
-      case 16: return util.getBundleString('quickfilters.copyMessage.label', 'Copy Message to');
-      case 17: return util.getBundleString('quickfilters.addTag.label', 'Tag Message');
-      case 19: return util.getBundleString('quickfilters.markMessageUnread.label', 'Mark As Unread');
+      case  1: return getString('quickfilters.moveMessage.label', 'Move Message to');
+      case  2: return getString('quickfilters.setPriority.label', 'Set Priority to');
+      case  4: return getString('quickfilters.markMessageRead.label', 'Mark As Read');
+    //case  8: return getString('quickfilters.xx.label', 'Add label'); // ??
+      case  9: return getString('quickfilters.replyWithTemplate.label', 'Reply with template');
+      case 10: return getString('quickfilters.forwardTo.label', 'Forward Message to');
+      case 16: return getString('quickfilters.copyMessage.label', 'Copy Message to');
+      case 17: return getString('quickfilters.addTag.label', 'Tag Message');
+      case 19: return getString('quickfilters.markMessageUnread.label', 'Mark As Unread');
       default: return 'Action (' + actionType + ')';
     }
   } ,
