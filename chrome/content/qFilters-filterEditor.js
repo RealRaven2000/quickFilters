@@ -33,9 +33,10 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 // window.onload = function()
 quickFilters.FilterEditor = {
   onLoad: function loadEditor(event) {
-    const utils = quickFilters.Util;
+    const utils = quickFilters.Util,
+		      prefs = quickFilters.Preferences;
     utils.logDebug('quickFilters.loadEditor()');
-    if (quickFilters.Preferences.Debug) debugger;
+    if (prefs.isDebug) debugger;
     // filterEditorOnLoad(); was already called as we now use a listener!
     setTimeout( function() {
       function matchAction(actionType, actionString) {
@@ -257,9 +258,10 @@ quickFilters.FilterEditor = {
     const Ci = Components.interfaces, 
           Cc = Components.classes,
           utils = quickFilters.Util,
+		      prefs = quickFilters.Preferences,
           typeAttrib = Ci.nsMsgSearchAttrib,
           typeOperator = Ci.nsMsgSearchOp;
-    if (quickFilters.Preferences.Debug) debugger;
+    if (prefs.isDebug) debugger;
     // from http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#232
     //      onMore() called when the [+] button is clicked on a row (simulate last row)
     let rowIndex = gSearchTermList.getRowCount(),

@@ -32,12 +32,12 @@ quickFilters.Preferences = {
   Prefix: "extensions.quickfilters.",
 	service: Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch),
 
-	get Debug() {
+	get isDebug() {
 		return this.getBoolPref("debug");
 	},
 
 	isDebugOption: function(option) { // granular debugging
-		if(!this.Debug) return false;
+		if(!this.isDebug) return false;
 		try {return this.getBoolPref("debug." + option);}
 		catch(e) {return false;}
 	},

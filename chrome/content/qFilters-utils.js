@@ -675,7 +675,7 @@ quickFilters.Util = {
   
   logDebug: function logDebug(msg) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
-    if (qF.Preferences.Debug)
+    if (qF.Preferences.isDebug)
       this.logToConsole(msg);
   },
 
@@ -1773,7 +1773,7 @@ quickFilters.mimeDecoder = {
         address,
         bracketParams = _getBracketAddressArgs(format); 
 
-    // if (SmartTemplate4.Preferences.Debug) debugger;
+    // if (SmartTemplate4.Preferences.isDebug) debugger;
     /** ITERATE ADDRESSES  **/
 		for (let i = 0; i < array.length; i++) {
 			if (i > 0) {
