@@ -564,21 +564,44 @@ quickFilters.List = {
   } ,
   
 	pushSelectedToClipboard: function pushSelectedToClipboard(type) {
-		const util = quickFilters.Util;
-		let list = this.FilterListElement;
-		if (this.getSelectedCount(list) < 1) {
+		const util = quickFilters.Util,
+		      list = this.FilterListElement,
+					filtersList = this.FilterList,
+					sourceFolder = filtersList.folder;
+		function getListIndex(filter) {
+			for (let i=0; i<filtersList.filterCount; i++) {
+				if (list.getItemAtIndex(i)._filter == filter) return i;
+			}
+			return -1;
+		}
+		let count = this.getSelectedCount(list);
+		if (count < 1) {
 			let wrn = util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
 			util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
 			return false;
 		}
 		this.clipboardList.splice(0); // discard old list
 		this.clipboardServer = this.CurrentFolder; // original account when copying to clipboard!
-		let count = this.getSelectedCount(list);
-    for (let f=0; f<count ; f++)
-    {
-      let aFilter = this.getSelectedFilterAt(list, f);  // nsIMsgFilter 
-			this.clipboardList.push(aFilter);  
+		let cutFiltersList = (util.Application === 'Postbox') ?
+			sourceFolder.getFilterList(gFilterListMsgWindow) : 
+			sourceFolder.getEditableFilterList(gFilterListMsgWindow);
+				
+		// get all selected filters and sort them by their list position
+		// then copy to clipboardList array
+		let unsortedFilterSelection = [];
+    for (let f=0; f<count ; f++) {
+      let aFilter = this.getSelectedFilterAt(list, f), // nsIMsgFilter 
+			    idx = getListIndex(aFilter);
+			unsortedFilterSelection.push ({filter: aFilter, index: idx});
     }
+		let sorted = unsortedFilterSelection.sort(function(a, b) {
+					let ai = a.index,
+    					bi = b.index;
+					return ((ai < bi) ? -1 : ((ai > bi) ? 1 : 0));
+			});
+		for (let s=0; s<sorted.length; s++) {
+			this.clipboardList.push(sorted[s].filter);
+		}
 		// let's style the affected items for visual feedback...
 	  try {
 			this.resetClipboardStylings();
@@ -673,7 +696,7 @@ quickFilters.List = {
 			if (isInsert) {
         // if sorting, determine insert position by taking smallest index of selected filterSearch
         if (isSort) {
-          sortIndex = 1000;
+          sortIndex = 10000;
           for (let i = 0; i < clpFilters.length; i++) {
             let current = clpFilters[i];
             for (let cix = cutFiltersList.filterCount-1; cix >= 0; cix--) {   
@@ -951,7 +974,6 @@ quickFilters.List = {
 		  : 'grid'),
 		  hbox = hbs ? hbs[0] : null ;
 		let isToolbar = false;
-    if (prefs.isDebug) debugger;
 		if (!prefs.getBoolPref("toolbar")) {
 		  toolbox.parentNode.removeChild(toolbox);
 		}
