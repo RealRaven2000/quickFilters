@@ -232,7 +232,7 @@
     # Improved algorithm for determining the originating folder for mails moved
     
   3.0 : WIP
-		# [Bug 26107] when copying / cut&pasting multiple filters across accounts, these are inserted in reverse order.
+		# [Bug 26107] when copying / cut & pasting multiple filters across accounts, these are inserted in reverse order.
     # [Bug 26076] Support ContextMenu => Move To Folder
 		# Support for "brighttext" themes (Themes with dark backgrounds)
 		# removed for..each..in to avoid unnecessary warnings in log window

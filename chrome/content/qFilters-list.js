@@ -569,9 +569,14 @@ quickFilters.List = {
 					filtersList = this.FilterList,
 					sourceFolder = filtersList.folder;
 		function getListIndex(filter) {
-			for (let i=0; i<filtersList.filterCount; i++) {
-				if (list.getItemAtIndex(i)._filter == filter) return i;
-			}
+			if (util.Application == 'Thunderbird')
+				for (let i=0; i<filtersList.filterCount; i++) {
+					if (list.getItemAtIndex(i)._filter == filter) return i;
+				}
+			else
+				for (let i=0; i<filtersList.filterCount; i++) {
+					if (getFilter(i) == filter) return i;  // getItemAtIndex does not exist in Pb/Sm
+				}
 			return -1;
 		}
 		let count = this.getSelectedCount(list);
@@ -674,8 +679,8 @@ quickFilters.List = {
 			// find insert position
 			let list = this.FilterListElement,
 			    index = this.getSelectedIndex(list);
-			if (index<0) 
-				index = list.itemCount;
+			if (index<0) // if nothing is selected append to end
+				index = this.getListElementCount(list); // list.itemCount - itemCount doesn't work in Postbox
 
 			let filtersList = this.FilterList,
           sourceFolder = this.clipboardServer.rootFolder,
@@ -844,7 +849,7 @@ quickFilters.List = {
 
         // insert before next visible item
         // go up from selected index until finding the correct filter name
-        while (nextFilter.filterName!=list.getItemAtIndex(newIndex)._filter.filterName && nextIndex<list.itemCount)
+        while (nextFilter.filterName!=list.getItemAtIndex(newIndex)._filter.filterName && nextIndex<this.getListElementCount(list))
           newIndex--;
         filtersList.insertFilterAt(newIndex, activeFilter);
         this.rebuildFilterList();
@@ -881,7 +886,7 @@ quickFilters.List = {
 
         // insert after next visible item
         // go down from selected index until finding the correct filter name
-        while (nextFilter.filterName!=list.getItemAtIndex(newIndex)._filter.filterName && nextIndex<list.itemCount)
+        while (nextFilter.filterName!=list.getItemAtIndex(newIndex)._filter.filterName && nextIndex<this.getListElementCount(list))
           newIndex++;
         filtersList.insertFilterAt(newIndex, activeFilter);
         this.rebuildFilterList();
@@ -899,7 +904,7 @@ quickFilters.List = {
   getListElementCount: function getListElementCount(list) {
     if (typeof list.getRowCount !== "undefined")
       return list.getRowCount();
-    return list.view.rowCount; // SM: treeview
+    return list.view.rowCount; // SM/Postbox: treeview
   } ,
 
   // remove any icons that were added as part of copy or cut functions
@@ -1260,8 +1265,8 @@ quickFilters.List = {
           let item = list.getItemAtIndex(idx);
           list.ensureElementIsVisible(item);
           list.selectItem(item);
-        } // tree
-        else {
+        } 
+        else {  // tree (Postbox + SeaMonkey)
           list.view.selection.select(idx);
           list.treeBoxObject.ensureRowIsVisible(idx);
         }
