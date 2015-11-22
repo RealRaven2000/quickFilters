@@ -4,6 +4,12 @@
 <!ENTITY chkDebug.accesskey "D">
 <!ENTITY chkAutoClose.label "Thoát Filter Assistant sau khi một bộ lọc được tạo ra">
 <!ENTITY chkAutoClose.accesskey "E">
+<!ENTITY chkAutoStart.label "Automatically start Filter Assistant mode with application">
+<!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY chkToolbar.label "Display Toolbar in Filter Manager">
+<!ENTITY chkToolbar.accesskey "T">
+<!ENTITY chkShowList.label "Display Filter List after filter creation">
+<!ENTITY chkShowList.tooltip "Display list to run the new filter on all messages for testing.">
 <!ENTITY donate.label "Quyên góp">
 <!ENTITY qf.description.donate "Nếu bạn thích quickFilters và muốn hỗ trợ cho sự phát triển của nó, bạn có thể quyên góp một chút tiền cho sự phát triển sau này của quickFilters.">
 <!ENTITY qf.label.donateLink "Tới thăm trang Quyên Góp…">
@@ -14,9 +20,36 @@
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Nhấp chuột phải để xem lịch sử phiên bản.">
 <!ENTITY qf.tab.options "Tùy chọn">
+<!ENTITY qf.tab.actions "Actions">
+<!ENTITY qf.tab.newFilterProps "New Filter Properties">
+<!ENTITY qf.tab.advanced "Advanced">
 <!ENTITY qf.tab.support "Hỗ trợ">
+<!ENTITY chkAutoRun.label "Apply Filter when getting new mail">
 <!ENTITY qf.label.naming "Quy tắc đặt tên">
 <!ENTITY qf.label.naming.parentFolder "Thêm tên thư mục mẹ">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "Thêm quy tắc từ khóa nhất định">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
+<!ENTITY qf.templates.advanced "Advanced Templates">
+<!ENTITY qf.templates.customTemplate.label "Custom Templates">
+<!ENTITY qf.templates.customTemplate.tooltip "Allows generation of Custom Templates, see bug description for detail.">
+<!ENTITY qf.templates.customTemplate.edit "Edit…">
+<!ENTITY qf.templates.customTemplate.new "Create New…">
+<!ENTITY qf.templates.replyTo.label "Reply-To Template">
+<!ENTITY qf.templates.replyTo.tooltip "Display Reply-To Template, see bug description for detail.">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Display Filters List">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Run Filters on Folder">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Run Filters on selected Messages">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders Current folder Toolbar">
+<!ENTITY qf.description.currentFolderButtons "This option is only applicable if you are using the Add-On QuickFolders, which adds a small toolbar on top of the message preview pane.">
+<!ENTITY grpMerge.label "Merge Rules">
+<!ENTITY chkMergeAuto.label "Automatically select Merge">
+<!ENTITY chkMergeAuto.tooltip "If a filter exists already, this will automatically select merge mode and the first matching filter.">
+<!ENTITY chkMergeSkip.label "Skip to Template Step">
+<!ENTITY chkMergeSkip.tooltip "This will skip the step 'select merge target' and go straight to 'select template'.">
+<!ENTITY qf.cloned.label "Append to name of cloned filter:">
+<!ENTITY qf.onewayaddress.label "Disable two-way address search conditions">
+<!ENTITY qf.onewayaddress.tooltip "By default, quickFilters adds both 'from' and 'to' search conditions to assist filtering complete message threads including your own emails to the recipient. If you always want to keep your replies in the Sent folder, you can disable this behavior here. The Addon 'Copy Sent to Current' can be used to keep replies with their originating emails.">
+<!ENTITY qf.postbox.quickmove "Postbox: support quick move feature">
+<!ENTITY qf.listener.tags "Listen for Tag changes">
+<!ENTITY qf.listener.tags.tooltip "When activated, the filter assistant will also be triggered when you tag a message.">
