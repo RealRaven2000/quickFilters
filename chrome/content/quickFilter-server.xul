@@ -4,15 +4,12 @@
 <overlay id="qfilter-serverOverlay"
 		 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-		 
-		 
-		 
     <page onload="quickFilters_OnLoad();">
        <vbox id="quickfilters.server.runFilter">
 		   <checkbox wsm_persist="true"
-					 label="Run Filters on all Mail"
+								 label="Run Filters on all Mail"
 		             id="server.quickFilters-runFilter"
-					 prefattribute="value"
+								 prefattribute="value"
 		             prefstring="mail.server.%serverkey%.runFilterAll"
 					/>
 	   </vbox>

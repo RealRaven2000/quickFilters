@@ -268,6 +268,8 @@ quickFilters.Worker = {
 		}
 	} ,
 	
+	// add a "cloned" version of messageHeader to the messageList array.
+	// checks both folders for the message header, but folder2 is optional
 	refreshHeaders : function refreshHeaders(messageList, folder, folder2) {
 		function pad(str, len) {
 				if (len + 1 >= str.length) {
@@ -1338,8 +1340,7 @@ quickFilters.Worker = {
   } ,  // buildFilter
   
   /** legacy function (used from QuickFolders) **/
-  createFilterAsync: function createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry)
-  {
+  createFilterAsync: function createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry) {
     let messageList = [],
         util = quickFilters.Util,
         entry;
@@ -1387,9 +1388,9 @@ quickFilters.Worker = {
     return this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow);
   } ,
 
-  createFilterAsync_New: function createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow)
-  {
-    const Ci = Components.interfaces;
+  createFilterAsync_New: function createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow) {
+    const Ci = Components.interfaces,
+		      worker = quickFilters.Worker;
     let delay = isSlow ? 800 : 0; // wait for the filter dialog to be updated with the new folder if drag to new
     if (filterAction ===false) {  // old isCopy value
       filterAction = Ci.nsMsgFilterAction.MoveToFolder;
@@ -1398,11 +1399,19 @@ quickFilters.Worker = {
       filterAction = Ci.nsMsgFilterAction.CopyToFolder;
     }
     window.setTimeout(function() {
-      let filtered = quickFilters.Worker.createFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
-      // remember message ids!
-      if (quickFilters.Preferences.getBoolPref("nostalgySupport"))
-        quickFilters.Worker.lastAssistedMsgList = messageList;
-      quickFilters.Util.logDebugOptional('createFilter', 'createFilterAsync - createFilter returned: ' + filtered);
+			// avoid repeating the same thing
+			const util = quickFilters.Util;
+			try {
+				let filtered = worker.createFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
+				// remember message ids!
+				if (quickFilters.Preferences.getBoolPref("nostalgySupport"))
+					worker.lastAssistedMsgList = messageList;
+				util.logDebugOptional('createFilter', 'createFilterAsync - createFilter returned: ' + filtered);
+			}
+			catch(ex) {
+				util.logException("createFilterAsync_New() failed: ", e);
+			}
+			finally {	;	}
     }, delay);
 
   }

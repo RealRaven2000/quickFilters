@@ -55,7 +55,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_EXTENSION_VERSION : "2.9",
+  HARDCODED_CURRENTVERSION : "3.0.2",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -228,7 +228,7 @@ quickFilters.Util = {
     //returns the current QF version number.
     if(quickFilters.Util.mExtensionVer)
       return quickFilters.Util.mExtensionVer;
-    let current = quickFilters.Util.HARDCODED_EXTENSION_VERSION + quickFilters.Util.HARDCODED_EXTENSION_TOKEN,
+    let current = quickFilters.Util.HARDCODED_CURRENTVERSION + quickFilters.Util.HARDCODED_EXTENSION_TOKEN,
         Cc = Components.classes;
 
     if (!Cc["@mozilla.org/extensions/manager;1"]) {
