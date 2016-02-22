@@ -2,7 +2,6 @@
 <!ENTITY quickfilters.customTemplate.name "テンプレート名:">
 <!ENTITY quickfilters.customVariable.label "カスタム変数">
 <!ENTITY quickfilters.customVariable.tooltip "フィルタ作成時に、これらの変数は現在のメールの対応するメールヘッダと置き換えられます。">
-<!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "差出人">
 <!ENTITY quickfilters.customHeader.To "宛先">
 <!ENTITY quickfilters.customHeader.CarbonCopy "Cc">
@@ -12,7 +11,6 @@
 <!ENTITY quickfilters.customHeader.ListId "リスト ID">
 <!ENTITY quickfilters.customHeader.ListPost "リストポスト">
 <!ENTITY quickfilters.customHeader.Newsgroups "ニュースグループ">
-<!-- These are the different components of an email address (e.g of "Fred Smith <fredsmith@example.com>") -->
 <!ENTITY quickfilters.customHeader.Email "メールアドレス">
 <!ENTITY quickfilters.customHeader.Domain "メールアドレスのドメイン">
 <!ENTITY quickfilters.customHeader.NamePart "氏名">

@@ -30,13 +30,13 @@
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
 <!ENTITY qf.label.naming.keyWord "添加规则指定关键字">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
-<!ENTITY qf.templates.advanced "Advanced Templates">
-<!ENTITY qf.templates.customTemplate.label "Custom Templates">
-<!ENTITY qf.templates.customTemplate.tooltip "Allows generation of Custom Templates, see bug description for detail.">
-<!ENTITY qf.templates.customTemplate.edit "Edit…">
-<!ENTITY qf.templates.customTemplate.new "Create New…">
-<!ENTITY qf.templates.replyTo.label "Reply-To Template">
-<!ENTITY qf.templates.replyTo.tooltip "Display Reply-To Template, see bug description for detail.">
+<!ENTITY qf.templates.advanced "高级模板">
+<!ENTITY qf.templates.customTemplate.label "自定义模板">
+<!ENTITY qf.templates.customTemplate.tooltip "允许生成自定义模板，详情请查看BUG描述.">
+<!ENTITY qf.templates.customTemplate.edit "编辑…">
+<!ENTITY qf.templates.customTemplate.new "新建…">
+<!ENTITY qf.templates.replyTo.label "回复模板">
+<!ENTITY qf.templates.replyTo.tooltip "显示回复模板，详情请查看bug描述.">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "显示过滤器列表">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "对文件夹应用过滤器">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "对所选消息应用过滤器">
