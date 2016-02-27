@@ -232,7 +232,11 @@ quickFilters.Worker = {
       // it throws "desiredWindow.refresh is not a function"
       if (!win) {
         let args = { refresh: isRefresh, folder: sourceFolder};
-        if (targetFilter) args.targetFilter = targetFilter;
+        if (targetFilter) {
+					// qF special method
+					args.targetFilter = targetFilter;
+					// after patch: args.filter = targetFilter;
+				}
         if (targetFolder) args.targetFolder = targetFolder;
         MsgFilterList(args);
       }
@@ -548,7 +552,7 @@ quickFilters.Worker = {
         util.logDebugOptional('createFilter', "no sourceFolder: root.hasSubFolders ");
         // unfortunately, Postbox doesn't define subFolders of nsIMsgFolder
         if (typeof root.subFolders !== 'undefined') {
-          for each (let folder in fixIterator(root.subFolders, Ci.nsIMsgFolder)) {
+          for (let folder in fixIterator(root.subFolders, Ci.nsIMsgFolder)) {
             if (folder.getFlag && folder.getFlag(fflags.Inbox)) {
               util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
               sourceFolder = folder;

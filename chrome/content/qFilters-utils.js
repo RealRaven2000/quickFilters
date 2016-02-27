@@ -1036,6 +1036,12 @@ quickFilters.Util = {
 			return s;
 		} 
 		
+		if (!hdr) {
+		  let txt = 'Cannot replace token [{1}]\nMessage header not available.';
+			util.slideAlert(txt.replace("{1}", token),'replaceReservedWords() failed');
+			return "??";
+		}
+		
     let tm = new Date(),
         date = msgDbHdr.date,
         charset = msgDbHdr.Charset,
@@ -1411,16 +1417,15 @@ quickFilters.Util = {
   // -------------------------------------------------------------------
 quickFilters.clsGetHeaders = function classGetHeaders(messageURI) {
   const Ci = Components.interfaces,
-        Cc = Components.classes;
-  let util = quickFilters.Util,
-      messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
+        Cc = Components.classes,
+        util = quickFilters.Util;
+  let messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
       messageService = messenger.messageServiceFromURI(messageURI),
       messageStream = Cc["@mozilla.org/network/sync-stream-listener;1"].createInstance().QueryInterface(Ci.nsIInputStream),
       inputStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance().QueryInterface(Ci.nsIScriptableInputStream);
 
   util.logDebugOptional('functions','clsGetHeaders(' + messageURI + ')');
-  let headers = Cc["@mozilla.org/messenger/mimeheaders;1"]
-              .createInstance().QueryInterface(Ci.nsIMimeHeaders);
+  let headers = Cc["@mozilla.org/messenger/mimeheaders;1"].createInstance().QueryInterface(Ci.nsIMimeHeaders);
 /*   
   // ASYNC MIME HEADERS
 

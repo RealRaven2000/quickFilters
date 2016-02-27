@@ -237,10 +237,14 @@
 		# Support for "brighttext" themes (Themes with dark backgrounds)
 		# removed for..each..in to avoid unnecessary warnings in log window
 
-	3.0.2 : WIP
+	3.0.2 : 05/12/2015
 	  # [Bug 25688] Creating Filter on IMAP fails after 7 attempts
 		              Since update 3.0.1 this was also in some case triggered when the assistant was 
 									not activated: https://www.mozdev.org/bugs/show_bug.cgi?id=25688
+									
+	3.1 : WIP
+    # Added config setting to suppress notification when running a filter	
+		# [Bug 26163] Tagging broken: "too much recursion"
 
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
@@ -593,14 +597,18 @@ var quickFilters = {
 
   onApplyFilters: function onApplyFilters(e) {
     goDoCommand('cmd_applyFilters'); // same in Postbox
-    let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnFolder.notify', 'Ran filters on current folder');
-    quickFilters.Util.slideAlert(text, 'quickFilters');
+		if (quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
+			let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnFolder.notify', 'Ran filters on current folder');
+			quickFilters.Util.slideAlert(text, 'quickFilters');
+		}
   },
   
   onApplyFiltersToSelection: function onApplyFiltersToSelection(e) {
     goDoCommand('cmd_applyFiltersToSelection'); // same in Postbox
-    let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnMails.notify', 'Applied filters to selected messages');
-    quickFilters.Util.slideAlert(text, 'quickFilters');
+		if (quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
+			let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnMails.notify', 'Applied filters to selected messages');
+			quickFilters.Util.slideAlert(text, 'quickFilters');
+		}
   },
   
   searchFiltersFromFolder: function searchFiltersFromFolder(e) {
@@ -1281,9 +1289,11 @@ quickFilters.addTagListener = function() {
 		// wrap the original method
 		if (typeof ToggleMessageTag !== 'undefined') {
 			if (!quickFilters.ToggleMessageTag) {
-				quickFilters.ToggleMessageTag = ToggleMessageTag;
+				let originalTagToggler = util.getMail3PaneWindow().ToggleMessageTag;
+				if (!originalTagToggler.fromQuickFilters)
+					quickFilters.ToggleMessageTag = originalTagToggler; // should be the global function from Tb main Window
 				ToggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
-					// call the originalk function (tag setter) first
+					// call the original function (tag setter) first
 					quickFilters.ToggleMessageTag(tag, checked);
 					if (checked) { // only if tag  gets toggle ON
 						// Assistant is active?
@@ -1319,6 +1329,7 @@ quickFilters.addTagListener = function() {
 					}
 					return true;
 				} //  wrapper function for ToggleMessageTag
+			  ToggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
 			}
 		}
 
