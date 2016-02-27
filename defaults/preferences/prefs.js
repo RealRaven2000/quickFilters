@@ -72,6 +72,9 @@ pref("extensions.quickfilters.templates.replyTo", false);
 // custom templates
 pref("extensions.quickfilters.templates.custom", false);
 
+
+pref("extensions.quickfilters.notifications.runFilter", true);
+
 // Premium features
 pref("extensions.quickfilters.proNotify.duplicatesFinder", true);
 pref("extensions.quickfilters.proNotify.duplicatesFinder.countDown", 10);
