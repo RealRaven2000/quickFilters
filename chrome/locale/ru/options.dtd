@@ -19,6 +19,7 @@
 <!ENTITY qf.label.contactLink "Написать мне (на английском или немецком)">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Нажмите правой кнопкой мышки для получения истории изменений.">
+<!ENTITY qf.youtube.tbdaily "Посетите Thunderbird Daily - канал на YouTube с советами и пособиями по использованию quickFilters">
 <!ENTITY qf.tab.options "Настройки">
 <!ENTITY qf.tab.actions "Действия">
 <!ENTITY qf.tab.newFilterProps "Свойства нового фильтра">

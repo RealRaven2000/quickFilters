@@ -19,10 +19,11 @@
 <!ENTITY qf.label.contactLink "Me contacter (en anglais ou en allemand)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Clic-droit pour l'historique de versions.">
+<!ENTITY qf.youtube.tbdaily "Visiter la chaîne YouTube Thunderbird Daily pour des astuces et des tutoriels sur quickFilters">
 <!ENTITY qf.tab.options "Options">
 <!ENTITY qf.tab.actions "Actions">
 <!ENTITY qf.tab.newFilterProps "Propriétés de nouveau filtre">
-<!ENTITY qf.tab.advanced "Avéncées">
+<!ENTITY qf.tab.advanced "Avancées">
 <!ENTITY qf.tab.support "Aide">
 <!ENTITY chkAutoRun.label "Appliquer le filtre lors de la réception d'un nouveau message">
 <!ENTITY qf.label.naming "Règles de nommage">

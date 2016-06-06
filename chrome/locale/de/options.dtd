@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "W">
 <!ENTITY chkShowList.label "Nach Erzeugen des Filters Liste anzeigen">
 <!ENTITY chkShowList.tooltip "Zeigt die Liste der Filter an um den neuen Filter auszuprobieren.">
+<!ENTITY chkImapOnRead.label "In IMAP Mailboxen die Filter auch auf gelesene EMails anwenden.">
 <!ENTITY donate.label "Spenden">
 <!ENTITY qf.description.donate "Falls Sie quickFilters mögen und weitere Software-Entwicklung unterstützen wollen, können Sie uns hier eine Spende hinterlassen:">
 <!ENTITY qf.label.donateLink "Die Spenden-Seite besuchen…">
@@ -19,6 +20,7 @@
 <!ENTITY qf.label.contactLink "Mail an Axel (auf Deutsch oder Englisch)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Rechts-klick um die Versionsgeschichte einzusehen.">
+<!ENTITY qf.youtube.tbdaily "Besuchen Sie Thunderbird Daily - Ihr YouTube Kanal für Tipps und Anleitungen zum Benutzen von quickFilters">
 <!ENTITY qf.tab.options "Optionen">
 <!ENTITY qf.tab.actions "Aktionen">
 <!ENTITY qf.tab.newFilterProps "Eigenschaften für neue Filter">

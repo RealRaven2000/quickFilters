@@ -19,6 +19,7 @@
 <!ENTITY qf.label.contactLink "Contattami (in lingua inglese o tedesca)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Per visualizzare la cronologia delle versioni fare clic col pulsante destro del mouse">
+<!ENTITY qf.youtube.tbdaily "Visitare il canale YouTube &quot;Thunderbird Daily&quot; per trovare suggerimenti e una guida introduttiva a quickFilters">
 <!ENTITY qf.tab.options "Opzioni">
 <!ENTITY qf.tab.actions "Azioni">
 <!ENTITY qf.tab.newFilterProps "Proprietà del nuovo filtro">

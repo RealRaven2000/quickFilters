@@ -19,6 +19,7 @@
 <!ENTITY qf.label.contactLink "Neem contact op (Engels of Duits)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Rechtsklik voor versiegeschiedenis.">
+<!ENTITY qf.youtube.tbdaily "Bezoek Thunderbird Daily - YouTube kanaal voor tips en tutorials rond het gebruik van quickFilters">
 <!ENTITY qf.tab.options "Opties">
 <!ENTITY qf.tab.actions "Acties">
 <!ENTITY qf.tab.newFilterProps "Eigenschappen nieuw filter">
