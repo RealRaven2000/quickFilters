@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "b">
 <!ENTITY chkShowList.label "Afficher la liste des filtres après création de filtre">
 <!ENTITY chkShowList.tooltip "Affiche la liste afin d'appliquer le nouveau filtre sur tous les messages pour test.">
+<!ENTITY chkImapOnRead.label "Lancer également le filtre pur les courriels lus sur les comptes IMAP.">
 <!ENTITY donate.label "Faire un don">
 <!ENTITY qf.description.donate "Si vous aimez quickFilters et souhaitez encourager son développement, vous pouvez faire un don.">
 <!ENTITY qf.label.donateLink "Se rendre à la page de donation…">

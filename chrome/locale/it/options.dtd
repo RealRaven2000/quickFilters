@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "B">
 <!ENTITY chkShowList.label "Dopo la creazione di un filtro mostra l'intero elenco">
 <!ENTITY chkShowList.tooltip "Mostra l'intero elenco per eseguire il nuovo filtro su tutti i messaggi a scopo di test">
+<!ENTITY chkImapOnRead.label "Esegue i filtri anche sui messaggi letti di account IMAP">
 <!ENTITY donate.label "Dona">
 <!ENTITY qf.description.donate "Se quickFilters ti piace e vuoi contribuire al suo mantenimento, puoi donare del denaro per il suo ulteriore sviluppo:">
 <!ENTITY qf.label.donateLink "Visita la pagina delle donazioni…">
@@ -39,18 +40,18 @@
 <!ENTITY qf.templates.replyTo.label "Modello 'Rispondi a'">
 <!ENTITY qf.templates.replyTo.tooltip "Visualizza il modello 'Rispondi a' (vedi descrizione bug per i dettagli)">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Mostra elenco filtri">
-<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Esegui filtri sulla cartella">
-<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Esegui filtri sui messaggi selezionati">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Esegue filtri sulla cartella">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Esegue filtri sui messaggi selezionati">
 <!ENTITY qf.label.currentFolderButtons "Barra degli strumenti della cartella corrente di QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Questa opzione è utilizzabile solo se si sta usando anche l'estensione QuickFolders che aggiunge una piccola barra degli strumenti in cima al riquadro di anteprima del messaggio">
 <!ENTITY grpMerge.label "Regole Unione">
 <!ENTITY chkMergeAuto.label "Seleziona automaticamente Unione">
 <!ENTITY chkMergeAuto.tooltip "Se esiste già un filtro, questa opzione seleziona automaticamente la modalità unione e il primo filtro corrispondente">
-<!ENTITY chkMergeSkip.label "Salta al passaggio Tipologia">
+<!ENTITY chkMergeSkip.label "Salta al passaggio 'Tipologia'">
 <!ENTITY chkMergeSkip.tooltip "Questa opzione salta il passaggio 'seleziona destinazione unione' e va direttamente a 'seleziona tipologia'">
 <!ENTITY qf.cloned.label "Accoda al nome del filtro clonato:">
 <!ENTITY qf.onewayaddress.label "Disabilita il criterio di ricerca 'A due vie' degli indirizzi">
-<!ENTITY qf.onewayaddress.tooltip "In modalità predefinita, quickFilters usa sia il criterio di ricerca &quot;Mittente/Da:&quot; sia &quot;Destinatario/A:&quot; per filtrare completamente i messaggi relativi ad un certo argomento, ivi compresi i propri messaggi spediti al ricevente. Se però si vogliono mantenere le proprie risposte nella cartella 'Posta inviata', selezionando questa opzione si può disabilitare tale comportamento. È anche possibile usare il componente aggiuntivo 'Copy Sent to Current' per tenere le risposte assieme ai messaggi che le hanno originate.">
+<!ENTITY qf.onewayaddress.tooltip "In modalità predefinita, quickFilters usa sia il criterio di ricerca &quot;Mittente/Da:&quot; sia &quot;Destinatario/A:&quot; per filtrare completamente i messaggi relativi ad un certo argomento, ivi compresi i propri messaggi spediti al destinatario. Se però si vogliono mantenere le proprie risposte nella cartella 'Posta inviata', utilizzando questa opzione, si può disabilitare tale comportamento. È anche possibile usare l'estensione 'Copy Sent to Current' per mantenere le risposte assieme ai messaggi che le hanno originate.">
 <!ENTITY qf.postbox.quickmove "Supporto della caratteristica 'Sposta rapidamente' di Postbox">
 <!ENTITY qf.listener.tags "Percepisce eventuali modifiche alle etichette">
 <!ENTITY qf.listener.tags.tooltip "Se questa opzione è attiva, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio.">

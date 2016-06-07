@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "П">
 <!ENTITY chkShowList.label "Показывать список фильтров после создания фильтра">
 <!ENTITY chkShowList.tooltip "Показывать список для запуска нового фильтра.">
+<!ENTITY chkImapOnRead.label "Фильтрация при чтении сообщений из учетной записи IMAP.">
 <!ENTITY donate.label "Поддержка">
 <!ENTITY qf.description.donate "Если quickFilters Вам нравится, Вы можете поддержать деньгами дальнейшее развитие.">
 <!ENTITY qf.label.donateLink "Поддержать...">

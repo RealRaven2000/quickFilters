@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY chkShowList.label "フィルタ作成後にフィルタリストを表示する">
 <!ENTITY chkShowList.tooltip "新しいフィルタをすべてのメッセージに対してテストのためリストを表示します。">
+<!ENTITY chkImapOnRead.label "Also run filter on read emails in IMAP accounts.">
 <!ENTITY donate.label "寄付">
 <!ENTITY qf.description.donate "quickFilters が気に入って開発をサポートしたいときは、quickFilters の開発にいくらかの寄付をすることができます。">
 <!ENTITY qf.label.donateLink "寄付ページを開く...">
@@ -19,6 +20,7 @@
 <!ENTITY qf.label.contactLink "問い合わせる (英語またはドイツ語のみ)...">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "右クリックでバージョン履歴を表示します。">
+<!ENTITY qf.youtube.tbdaily "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail">
 <!ENTITY qf.tab.options "オプション">
 <!ENTITY qf.tab.actions "動作">
 <!ENTITY qf.tab.newFilterProps "新規フィルタのプロパティ">

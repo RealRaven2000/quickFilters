@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "W">
 <!ENTITY chkShowList.label "Filterlijst weergeven na aanmaken filter">
 <!ENTITY chkShowList.tooltip "Lijst weergeven om het filter op alle berichten als test uit te voeren.">
+<!ENTITY chkImapOnRead.label "Filter ook toepassen op gelezen e-mailberichten in IMAP-accounts.">
 <!ENTITY donate.label "Doneren">
 <!ENTITY qf.description.donate "Als u quickFilters even leuk vindt als wij en de ontwikkeling ervan wilt ondersteunen, kunt u wat geld doneren voor de verdere ontwikkeling van quickFilters.">
 <!ENTITY qf.label.donateLink "Bezoek de donatiepagina…">
@@ -19,7 +20,7 @@
 <!ENTITY qf.label.contactLink "Neem contact op (Engels of Duits)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Rechtsklik voor versiegeschiedenis.">
-<!ENTITY qf.youtube.tbdaily "Bezoek Thunderbird Daily - YouTube kanaal voor tips en tutorials rond het gebruik van quickFilters">
+<!ENTITY qf.youtube.tbdaily "Bezoek het Thunderbird Daily - YouTubekanaal voor tips en handleidingen rond het gebruik van quickFilters en desktop-e-mail">
 <!ENTITY qf.tab.options "Opties">
 <!ENTITY qf.tab.actions "Acties">
 <!ENTITY qf.tab.newFilterProps "Eigenschappen nieuw filter">
