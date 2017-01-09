@@ -1,6 +1,8 @@
 content   quickfilters                 chrome/content/
 skin      quickfilters   classic/1.0   chrome/skin/
 locale    quickfilters   en            chrome/locale/en/
+locale    quickfilters   es            chrome/locale/es/
+locale    quickfilters   es-AR         chrome/locale/es-AR/
 locale    quickfilters   de            chrome/locale/de/
 locale    quickfilters   it            chrome/locale/it/
 locale    quickfilters   fr            chrome/locale/fr/
