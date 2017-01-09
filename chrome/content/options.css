@@ -38,6 +38,11 @@
 	margin: 0 5px;
 }
 
+#qf-youtube {
+	cursor: pointer;
+	max-height: 24px;
+}
+
 #qf-options-header {
 	margin: 5px 5px 5px 5px;
 	border: none;

@@ -11,8 +11,8 @@
 ]>
 
 <prefwindow id="quickfilters-preferences" 
-            buttons="extra2,accept"
-			buttonlabelextra2="&donate.label;"
+						buttons="extra2,accept"
+						buttonlabelextra2="&donate.label;"
             xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
             title="&prefwindow.title;"
             onload="quickFilters.Options.load();"
@@ -32,11 +32,7 @@
   <prefpane id="mainOptions" label="&pane1.title;" flex="2" selected="true">
 
     <preferences>
-      <preference id="debug" 
-	              name="extensions.quickfilters.debug" 
-								type="bool"  
-								instantApply="true"
-								/>
+<!--Actions -->									
       <preference id="abort" 
 	              name="extensions.quickfilters.abortAfterCreate" 
 								type="bool"  
@@ -57,31 +53,12 @@
 								type="bool"  
 								instantApply="true"
 								/>
-      <preference id="newfilter.autorun" 
-	              name="extensions.quickfilters.newfilter.autorun"
+      <preference id="runImapOnRead" 
+	              name="mail.imap.filter_on_new" 
 								type="bool"  
 								instantApply="true"
 								/>
-		<preference id="naming.parentFolder" 
-									name="extensions.quickfilters.naming.parentFolder"
-									type="bool"  
-									instantApply="true"
-									/>
-			<preference id="naming.keyWord" 
-									name="extensions.quickfilters.naming.keyWord" 
-									type="bool"  
-									instantApply="true"
-									/>
-			<preference id="cloned.append"
-									name="extensions.quickfilters.naming.clonedLabel"
-									type="string"
-									instantApply="true"
-						/>
-			<preference id="listen.tags"
-									name="extensions.quickfilters.listener.tags"
-									type="bool"  
-									instantApply="true"
-						/>
+								
 			<preference id="postbox.quickmove"
 									name="extensions.quickfilters.postbox.quickmove"
 									type="bool"  
@@ -102,6 +79,48 @@
 									type="bool"  
 									instantApply="true"
 						/>
+<!--New Filter Properties -->									
+      <preference id="newfilter.autorun" 
+	              name="extensions.quickfilters.newfilter.autorun"
+								type="bool"  
+								instantApply="true"
+								/>
+      <preference id="newfilter.insertAlphabetical" 
+	              name="extensions.quickfilters.newfilter.insertAlphabetical"
+								type="bool"  
+								instantApply="true"
+								/>
+			<preference id="naming.parentFolder" 
+									name="extensions.quickfilters.naming.parentFolder"
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="naming.keyWord" 
+									name="extensions.quickfilters.naming.keyWord" 
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="cloned.append"
+									name="extensions.quickfilters.naming.clonedLabel"
+									type="string"
+									instantApply="true"
+						/>
+			<preference id="listen.tags"
+									name="extensions.quickfilters.listener.tags"
+									type="bool"  
+									instantApply="true"
+						/>
+<!--Advanced Tab-->									
+			<preference id="templates.replyTo"
+									name="extensions.quickfilters.templates.replyTo"
+									type="bool"  
+									instantApply="true"
+									/>
+			<preference id="templates.custom"
+									name="extensions.quickfilters.templates.custom"
+									type="bool"  
+									instantApply="true"
+									/>
 			<preference id="curFolderbar.listbutton"
 									name="extensions.quickfilters.quickfolders.curFolderbar.listbutton"
 									type="bool"  
@@ -117,16 +136,16 @@
 									type="bool"  
 									instantApply="true"
 									/>
-			<preference id="templates.replyTo"
-									name="extensions.quickfilters.templates.replyTo"
+			<preference id="curFolderbar.findfilterbutton"
+									name="extensions.quickfilters.quickfolders.curFolderbar.findfilterbutton"
 									type="bool"  
 									instantApply="true"
 									/>
-			<preference id="templates.custom"
-									name="extensions.quickfilters.templates.custom"
-									type="bool"  
-									instantApply="true"
-									/>
+      <preference id="debug" 
+	              name="extensions.quickfilters.debug" 
+								type="bool"  
+								instantApply="true"
+								/>
     </preferences>
 	
 	<box id="quickFiltersHelpBar">
@@ -138,13 +157,19 @@
 		  />
 	</box>
   
-    
-    
   <hbox id="qf-header-container">
-    <vbox>
-      <spacer flex="1"/>
+    <vbox align="center">
+			<spacer flex="1" />
       <image id="qf-options-icon" src="chrome://quickfilters/skin/QuickFilters_64.png" flex="0"/>
-      <spacer flex="1"/>
+			<spacer flex="1" />
+    </vbox>
+    <vbox align="center">
+			<spacer flex="1" />
+			<image id="qf-youtube" 
+						 src="chrome://quickfilters/skin/youtube.png" 
+						 tooltiptext="&qf.youtube.tbdaily;"
+						 onclick="quickFilters.Util.showYouTube();" />
+			<spacer flex="1" />
     </vbox>
   	<hbox id="qf-options-header" class="paneSelector" flex="50">
   	  <image id="qf-options-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
@@ -154,7 +179,6 @@
   		       value="0.1"/>
   	</hbox>
   </hbox>
-    
   
 	<tabbox orient="vertical" flex="6" id="quickFilters-Options-Tabbox">
 		<tabs>
@@ -170,101 +194,109 @@
 			          orient="vertical" 
 			          label="&qf.tab.options;" 
 			          style="position:relative;">
-  
-        <hbox>
-			<vbox>
-			<checkbox id="chkAutoClose" 
-					  preference="abort" 
-					  label="&chkAutoClose.label;" 
-					  accesskey="&chkAutoClose.accesskey;"
-					  />
-			<checkbox id="chkAutoStart" 
-					  preference="autoStart" 
-					  label="&chkAutoStart.label;" 
-					  accesskey="&chkAutoStart.accesskey;"
-					  />
-			<checkbox id="chkToolbar"
-					  preference="toolbar"
-					  label="&chkToolbar.label;" 
-					  accesskey="&chkToolbar.accesskey;"
-					  />
-			<checkbox id="chkShowList"
-					  preference="showListAfterCreateFilter"
-					  label="&chkShowList.label;" 
-					  tooltiptext="&chkShowList.tooltip;"
-					  />
-			</vbox>
-			<vbox>
-				<checkbox id="chkListTags" 
-						  preference="listen.tags" 
-						  label="&qf.listener.tags;" 
-						  tooltiptext="&qf.listener.tags.tooltip;"
-						  />
-				<checkbox preference="postbox.quickmove"
-				          label="&qf.postbox.quickmove;" 
-				          />
-				<checkbox preference="onewayaddresses"
-						  label="&qf.onewayaddress.label;" 
-						  tooltiptext="&qf.onewayaddress.tooltip;"
-						  />
-						  
-        <label id="getCopySentToCurrent" 
-               tooltiptext="https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/"
-               onclick="quickFilters.Util.openURLInTab('https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
-			</vbox>
-		</hbox>
+			<hbox>
+				<vbox>
+					<checkbox id="chkAutoClose" 
+								preference="abort" 
+								label="&chkAutoClose.label;" 
+								accesskey="&chkAutoClose.accesskey;"
+								/>
+					<checkbox id="chkAutoStart" 
+								preference="autoStart" 
+								label="&chkAutoStart.label;" 
+								accesskey="&chkAutoStart.accesskey;"
+								/>
+					<checkbox id="chkToolbar"
+								preference="toolbar"
+								label="&chkToolbar.label;" 
+								accesskey="&chkToolbar.accesskey;"
+								/>
+					<checkbox id="chkShowList"
+								preference="showListAfterCreateFilter"
+								label="&chkShowList.label;" 
+								tooltiptext="&chkShowList.tooltip;"
+								/>
+					<checkbox 
+								preference="runImapOnRead"
+								label="&chkImapOnRead.label;" 
+								/>
+								
+				</vbox>
+				<vbox>
+					<checkbox id="chkListTags" 
+								preference="listen.tags" 
+								label="&qf.listener.tags;" 
+								tooltiptext="&qf.listener.tags.tooltip;"
+								/>
+					<checkbox preference="postbox.quickmove"
+										label="&qf.postbox.quickmove;" 
+										/>
+					<checkbox preference="onewayaddresses"
+								label="&qf.onewayaddress.label;" 
+								tooltiptext="&qf.onewayaddress.tooltip;"
+								/>
+								
+					<label id="getCopySentToCurrent" 
+								 tooltiptext="https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/"
+								 onclick="quickFilters.Util.openURLInTab('https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
+				</vbox>
+			</hbox>
 				  
-        <separator class="groove-thin" />
-		<hbox>
-			<groupbox  orient="vertical" >
-				<caption label="&grpMerge.label;"/>
-			  <checkbox id="chkMergeAuto" 
-						preference="merge.autoSelect" 
-						label="&chkMergeAuto.label;" 
-						tooltiptext="&chkMergeAuto.tooltip;"
-						oncommand="quickFilters.Assistant.selectMergeAuto(this);"
-						/>
-			  <checkbox id="chkMergeSkip" 
-						preference="merge.silent" 
-						label="&chkMergeSkip.label;" 
-						tooltiptext="&chkMergeSkip.tooltip;"
-						oncommand="quickFilters.Assistant.selectMergeSkip(this);"
-						/>
-			</groupbox>
-		</hbox>
-      </tabpanel>  
+			<separator class="groove-thin" />
+			<hbox>
+				<groupbox  orient="vertical" >
+					<caption label="&grpMerge.label;"/>
+					<checkbox id="chkMergeAuto" 
+							preference="merge.autoSelect" 
+							label="&chkMergeAuto.label;" 
+							tooltiptext="&chkMergeAuto.tooltip;"
+							oncommand="quickFilters.Assistant.selectMergeAuto(this);"
+							/>
+					<checkbox id="chkMergeSkip" 
+							preference="merge.silent" 
+							label="&chkMergeSkip.label;" 
+							tooltiptext="&chkMergeSkip.tooltip;"
+							oncommand="quickFilters.Assistant.selectMergeSkip(this);"
+							/>
+				</groupbox>
+			</hbox>
+    </tabpanel>  
 	  
 	  <tabpanel id="quickFilters-Options-newFilterProps"
 			  orient="vertical" 
 			  label="&qf.tab.newFilterProps;" 
 			  style="position:relative;">
-		<checkbox id="chkAutoRun" 
-				  preference="newfilter.autorun" 
-				  label="&chkAutoRun.label;" 
-				  />
-			  
-		<groupbox  orient="vertical" flex="1">
-			<caption label="&qf.label.naming;"/>
-		  <checkbox id="chkNamingParentFolder" 
-					preference="naming.parentFolder" 
-					label="&qf.label.naming.parentFolder;" 
-					accesskey="&qf.label.naming.parentFolder.accesskey;"
-					/>
-		  <checkbox id="chkNamingKeyWord" 
-					preference="naming.keyWord" 
-					label="&qf.label.naming.keyWord;" 
-					accesskey="&qf.label.naming.keyWord.accesskey;"
-					/>
-			<hbox>
-				<label   class = "textBoxLabel"
-						 value="&qf.cloned.label;" />
-				<textbox id = "txtClonedName"
-						 preference = "cloned.append"
-						 />
-			</hbox>
-		</groupbox>
+			<checkbox id="chkAutoRun" 
+						preference="newfilter.autorun" 
+						label="&chkAutoRun.label;" 
+						/>
+			<checkbox id="chkAlphabetic" 
+						preference="newfilter.insertAlphabetical" 
+						label="Insert new filters in alphabetical order" 
+						tooltiptext="Uses the initial name of filter for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!"
+						/>
+			<groupbox  orient="vertical" flex="1">
+				<caption label="&qf.label.naming;"/>
+				<checkbox id="chkNamingParentFolder" 
+						preference="naming.parentFolder" 
+						label="&qf.label.naming.parentFolder;" 
+						accesskey="&qf.label.naming.parentFolder.accesskey;"
+						/>
+				<checkbox id="chkNamingKeyWord" 
+						preference="naming.keyWord" 
+						label="&qf.label.naming.keyWord;" 
+						accesskey="&qf.label.naming.keyWord.accesskey;"
+						/>
+				<hbox>
+					<label   class = "textBoxLabel"
+							 value="&qf.cloned.label;" />
+					<textbox id = "txtClonedName"
+							 preference = "cloned.append"
+							 />
+				</hbox>
+			</groupbox>
 		
-        <spacer flex="10" />
+		<spacer flex="10" />
 
 	  </tabpanel>
                
@@ -319,6 +351,11 @@
 				<checkbox id="chkCurrentToolbarMessagesButton" 
 						preference="curFolderbar.messagesbutton" 
 						label="&chkCurrentToolbar.btn.RunOnMessages.label;" 
+						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+				<checkbox id="chkCurrentFindFilterButton" 
+						preference="curFolderbar.findfilterbutton" 
+						label="&chkCurrentToolbar.btn.FindFilter.label;" 
+						tooltiptext="&chkCurrentToolbar.btn.FindFilter.tooltip;"
 						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
 			</groupbox>
         <spacer flex="1" />
