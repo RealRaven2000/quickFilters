@@ -42,6 +42,8 @@
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Display Filters List">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Run Filters on Folder">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Run Filters on selected Messages">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Find Filters for Folder">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Find any Filters that move mail to this folder.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders Current folder Toolbar">
 <!ENTITY qf.description.currentFolderButtons "This option is only applicable if you are using the Add-On QuickFolders, which adds a small toolbar on top of the message preview pane.">
 <!ENTITY grpMerge.label "Merge Rules">

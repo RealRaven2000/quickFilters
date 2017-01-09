@@ -42,6 +42,8 @@
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Filterliste anzeigen">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Filter auf Ordner anwenden">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Filter auf Nachricht anwenden">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Filter für aktuelles Verzeichnis suchen">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Findet Filter, die Emails in das aktive Verzeichnis verschieben.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders Aktiv-Verzeichnis Werkzeugleiste">
 <!ENTITY qf.description.currentFolderButtons "Diese Optionen gelten nur wenn die QuickFolders Erweiterung installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt.">
 <!ENTITY grpMerge.label "Regeln zum Kombinieren">

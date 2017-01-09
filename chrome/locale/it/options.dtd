@@ -42,6 +42,8 @@
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Mostra elenco filtri">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Esegue filtri sulla cartella">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Esegue filtri sui messaggi selezionati">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Trova i filtri per la cartella">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Trova i filtri che spostano i messaggi in questa cartella">
 <!ENTITY qf.label.currentFolderButtons "Barra degli strumenti della cartella corrente di QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Questa opzione è utilizzabile solo se si sta usando anche l'estensione QuickFolders che aggiunge una piccola barra degli strumenti in cima al riquadro di anteprima del messaggio">
 <!ENTITY grpMerge.label "Regole Unione">

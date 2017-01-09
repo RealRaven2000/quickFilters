@@ -24,7 +24,7 @@
 <!ENTITY qf.tab.options "Options">
 <!ENTITY qf.tab.actions "Actions">
 <!ENTITY qf.tab.newFilterProps "Propriétés de nouveau filtre">
-<!ENTITY qf.tab.advanced "Avancées">
+<!ENTITY qf.tab.advanced "Avéncées">
 <!ENTITY qf.tab.support "Aide">
 <!ENTITY chkAutoRun.label "Appliquer le filtre lors de la réception d'un nouveau message">
 <!ENTITY qf.label.naming "Règles de nommage">
@@ -42,6 +42,8 @@
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Afficher la liste des filtres">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Appliquer les filtres au dossier">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Appliquer les filtres aux messages sélectionnés">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Trouver les filtres pour ce dossier">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Trouve tous les fichiers qui ont déplacé le message vers ce dossier.">
 <!ENTITY qf.label.currentFolderButtons "Barre d'outils du dossier courant QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Cette option ne peut être appliquée que si vous utilisez l'extension QuickFolders, qui ajoute une petite barre d'outils en haut du panneau d'aperçu du message.">
 <!ENTITY grpMerge.label "Règles de fusion">
