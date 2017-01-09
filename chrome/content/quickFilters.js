@@ -242,16 +242,30 @@
 		              Since update 3.0.1 this was also in some case triggered when the assistant was 
 									not activated: https://www.mozdev.org/bugs/show_bug.cgi?id=25688
 									
-	3.1 : WIP
-    # Added config setting to suppress notification when running a filter	
+	3.1 : 28/02/2016
 		# [Bug 26163] Tagging broken: "too much recursion"
+		# [Bug 26110] Tag Listener repeats Assistant multiple times
+    # Added config setting to suppress notification when running a filter	
+		# Added a sliding notification if during use of customized templates a header cannot be retrieved from the email
 
+	3.2 : 07/06/2016
+		# [Bug 26200] "Move To" context menu entry not working in Tb 45.0 
+		# [Bug 26231] Add option to run filters on read IMAP mails
+		# [Bug 26214] Custom Templates: Regular expression to extract from subject - %subjectRegex()%
+		# Thunderbird Daily YouTube channel button
+		# [Bug 26232] Tagging fault: ToggleMessageTag is not a function
+		
+	3.3 : WIP
+	  # Make sure mails that are tagged manually are filtered immediately.
+		# Option to insert new filter in alphabetical order
+		# Added button to search for current folder's filters to QuickFolders' current folder toolbar
+		# Removed obsolete option "Run Filters on all Mail" on the account properties dialog
+		
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
   PREMIUM FEATURES:
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
 	 */
-
   
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
 {
@@ -339,7 +353,7 @@ var quickFilters = {
     try {
       let v = util.Version; // start the version proxy, throw away v
 
-      util.logDebugOptional("events", "quickFilters.onload - starts");
+      util.logDebugOptional("events,listeners", "quickFilters.onload - starts");
       this.strings = document.getElementById("quickFilters-strings");
 
       let tree = quickFilters.folderTree,
@@ -409,10 +423,10 @@ var quickFilters = {
 				}
       }
 			// use also in Postbox:
-			util.logDebugOptional('msgMove', ' Wrapping MsgMoveMessage...');
-			if (quickFilters.executeMoveMessage != MsgMoveMessage 
+			if (!quickFilters.executeMoveMessage
 					&&
 					quickFilters.MsgMove_Wrapper != MsgMoveMessage) {
+				util.logDebugOptional('msgMove', ' Wrapping MsgMoveMessage...');
 				quickFilters.executeMoveMessage = MsgMoveMessage;
 				MsgMoveMessage = quickFilters.MsgMove_Wrapper; // let's test this for a while...
 				util.logDebugOptional('msgMove', 
@@ -462,7 +476,7 @@ var quickFilters = {
     }
     finally {
       this.isLoading = false;
-      util.logDebugOptional("events", "quickFilters.onload - ends");
+      util.logDebugOptional("events,listeners", "quickFilters.onload - ends");
     }
 		
   },
@@ -897,11 +911,15 @@ var quickFilters = {
     util.logDebug('toggleCurrentFolderButtons()');
     try {
       let btn = win.document.getElementById('quickfilters-current-listbutton');
-      btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
-      btn = win.document.getElementById('quickfilters-current-runbutton');
-      btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
-      btn = win.document.getElementById('quickfilters-current-msg-runbutton');
-      btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
+			if (btn) {
+				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
+				btn = win.document.getElementById('quickfilters-current-runbutton');
+				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
+				btn = win.document.getElementById('quickfilters-current-msg-runbutton');
+				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
+				btn = win.document.getElementById('quickfilters-current-searchfilterbutton');
+				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.findfilterbutton');
+			}
     }
     catch (ex) {
       util.logException('toggleCurrentFolderButtons()', ex);
@@ -1118,8 +1136,8 @@ quickFilters.FolderListener = {
 		try {
 			let qfEvent = this.qfInstance || quickFilters;
 			if (!qfEvent) return;
-	    let log = qfEvent.Util.logDebugOptional.bind(qfEvent.Util);
-	    log("events,msgMove","OnItemAdded() " + item.toString());  	
+	    let logDebug = qfEvent.Util.logDebugOptional.bind(qfEvent.Util);
+	    logDebug("events,msgMove","OnItemAdded() " + item.toString());  	
     
       const win = qfEvent.Util.getMail3PaneWindow(),
             util = win.quickFilters.Util,
@@ -1136,7 +1154,7 @@ quickFilters.FolderListener = {
 				let hdr = item.QueryInterface(Ci.nsIMsgDBHdr),
 				    key = hdr.messageKey,
 				    subject = hdr.mime2DecodedSubject.toLowerCase();
-				util.logDebugOptional("nostalgy", "Message[" + key + "]: " + subject + " by " + hdr.author.toString());
+				logDebug("nostalgy", "Message[" + key + "]: " + subject + " by " + hdr.author.toString());
 				let isProcessed = false,
 				    list = worker.lastAssistedMsgList,
 				    messageDb = folder.msgDatabase ? folder.msgDatabase : null;
@@ -1151,7 +1169,7 @@ quickFilters.FolderListener = {
 						return; // this message was already processed by quickFilters (Dnd to folder tree, QF tab or via context menu).
 					}
 				}
-				util.logDebugOptional("nostalgy", "Folder listener - item [" + item.toString() + "] added to folder " + folder.name);
+				logDebug("nostalgy", "Folder listener - item [" + item.toString() + "] added to folder " + folder.name);
 				
 				// not found = not processed => was moved by nostalgy?
 				// problem how to accumulate multiple headers?
@@ -1199,8 +1217,36 @@ quickFilters.FolderListener = {
       }
     }
     catch(e) {this.ELog("Exception in FolderListener.OnItemEvent {" + eString + "}:\n" + e)};
-  }
+  } ,
 
+	/*
+	OnItemUnicharPropertyChanged: function(item, property, oldValue, newValue)  {
+		const win = qfEvent.Util.getMail3PaneWindow(),
+					util = win.quickFilters.Util;
+		try {
+			util.logDebugOptional("events","OnItemUnicharPropertyChanged( " + item + ", " + property + "," + oldValue + ")");
+		}
+    catch(e) {this.ELog("Exception in FolderListener.OnItemUnicharPropertyChanged {" + property + "}:\n" + e)};
+	} ,
+	
+	OnItemPropertyChanged: function (item, property, oldValue, newValue) {
+		const win = qfEvent.Util.getMail3PaneWindow(),
+					util = win.quickFilters.Util;
+		try {
+			util.logDebugOptional("events","OnItemPropertyChanged( " + item + ", " + property + "," + oldFlag + "," + newFlag + ")");
+		}
+    catch(e) {this.ELog("Exception in FolderListener.OnItemPropertyChanged {" + property + "}:\n" + e)};
+	},
+
+	OnItemPropertyFlagChanged: function (item, property, oldFlag, newFlag) {
+		const win = qfEvent.Util.getMail3PaneWindow(),
+					util = win.quickFilters.Util;
+		try {
+			util.logDebugOptional("events","OnItemPropertyFlagChanged( " + item + ", " + property + "," + oldFlag + "," + newFlag + ")");
+		}
+    catch(e) {this.ELog("Exception in FolderListener.OnItemPropertyFlagChanged {" + property + "}:\n" + e)};
+	} 
+  */
 }  // FolderListener
 quickFilters.FolderListener.qfInstance = quickFilters;
 
@@ -1282,24 +1328,50 @@ quickFilters.CustomTermReplyTo = {
 	  IFL.event | IFL.added);
 })();
 // jcranmer suggest using  this
-// quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Components.interfaces.nsIFolderListener.all);
+// quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Ci.nsIFolderListener.all);
 quickFilters.addTagListener = function() {
 	const util = quickFilters.Util;
   if (util) {
+		util.logDebugOptional('listeners', "addTagListener()");
 		// wrap the original method
 		if (typeof ToggleMessageTag !== 'undefined') {
 			if (!quickFilters.ToggleMessageTag) {
-				let originalTagToggler = util.getMail3PaneWindow().ToggleMessageTag;
-				if (!originalTagToggler.fromQuickFilters)
-					quickFilters.ToggleMessageTag = originalTagToggler; // should be the global function from Tb main Window
+				const contextWin = util.getMail3PaneWindow();
+				util.logDebugOptional('listeners','Wrapping ToggleMessageTag...');
+				let originalTagToggler = contextWin.ToggleMessageTag;
+				if (!originalTagToggler) {
+					util.logToConsole("getMail3PaneWindow - Could not retrieve the original ToggleMessageTage function from main window:\n" + util.getMail3PaneWindow());
+					return false; // let's short ciruit here
+				}
+				if (typeof originalTagToggler.fromQuickFilters !== 'undefined') {
+					util.logDebug("quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n");
+					return false;
+				}
+				contextWin.quickFilters.ToggleMessageTag = originalTagToggler; // should be the global function from Tb main Window
+				
 				ToggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
+					if(quickFilters.Preferences.isDebugOption('listeners'))
+						debugger;
 					// call the original function (tag setter) first
-					quickFilters.ToggleMessageTag(tag, checked);
+					let tmt = contextWin.quickFilters.ToggleMessageTag;
+					util.logDebugOptional('listeners', "ToggleMessageTagWrapped()"
+					  + "\ncontextWin == win: " + (window == contextWin)
+						+ "\ncontextWin.quickFilters == quickFilters: " + (contextWin.quickFilters == quickFilters)
+						+ "\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: " + (originalTagToggler == tmt)
+						+ "\nToggleMessageTag == contextWin.quickFilters.ToggleMessageTag: "  + (ToggleMessageTag == tmt));
+					contextWin.quickFilters.ToggleMessageTag(tag, checked);
+
+					// no Assistant active - if current folder is the inbox: apply the filters.
+					if (!quickFilters.Worker.FilterMode) {
+						quickFilters.onApplyFiltersToSelection();
+						return false;
+					}
+
 					if (checked) { // only if tag  gets toggle ON
 						// Assistant is active?
-						if (!quickFilters.Worker.FilterMode) return;
+						if (!quickFilters.Worker.FilterMode) return false;
 						// make it possible to ignore tag changes.
-						if (!quickFilters.Preferences.getBoolPref('listener.tags')) return; 
+						if (!quickFilters.Preferences.getBoolPref('listener.tags')) return false; 
 						// ==> SetTagHeader(aConversation)
 						let msgHdr;
 						switch (util.Application) {
@@ -1322,20 +1394,22 @@ quickFilters.addTagListener = function() {
 
 						let selectedMails = [];  // util.createMessageIdArray(targetFolder, messageUris);
 						selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-						quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMails, 
+						contextWin.quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMails, 
 																									Components.interfaces.nsMsgFilterAction.AddTag, 
 																									tag,
 																									false);
 					}
 					return true;
 				} //  wrapper function for ToggleMessageTag
-			  ToggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
+				util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof contextWin.ToggleMessageTag + "\n adding flag...");
+			  contextWin.ToggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
+				util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof contextWin.ToggleMessageTag);
 			}
 		}
 
     return true; // early exit, no need for this in Tb/Sm
   }
-  setTimeout(function() { quickFilters.addTagListener() } ,1000); // retry
+  setTimeout(function() { quickFilters.addTagListener() } , 1000); // retry
   return false;
 }
 

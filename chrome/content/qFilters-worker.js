@@ -217,7 +217,7 @@ quickFilters.Worker = {
   },
   
   // targetFilter is passed in when a filter was merged and thus not created at the top of list
-  openFilterList: function openFilterList(isRefresh, sourceFolder, targetFilter, targetFolder) {
+  openFilterList: function openFilterList(isRefresh, sourceFolder, targetFilter, targetFolder, isAlphabetic) {
     let util = quickFilters.Util,
         win;
     try {
@@ -235,6 +235,7 @@ quickFilters.Worker = {
         if (targetFilter) {
 					// qF special method
 					args.targetFilter = targetFilter;
+					args.alphabetic = isAlphabetic || false;
 					// after patch: args.filter = targetFilter;
 				}
         if (targetFolder) args.targetFolder = targetFolder;
@@ -247,8 +248,11 @@ quickFilters.Worker = {
         win.quickFilters.List.rebuildFilterList();
         if (targetFilter) {
           setTimeout(function() { 
-            win.quickFilters.List.selectFilter(targetFilter); }
-          );
+					  let quickFiltersList = win.quickFilters.List;
+            quickFiltersList.selectFilter(targetFilter); 
+						if (isAlphabetic)
+							quickFiltersList.moveAlphabetic(targetFilter); 
+					});
         }
       }
     }
@@ -813,7 +817,8 @@ quickFilters.Worker = {
                         matchingFilters, filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress, filterActionExt) {	
     const Cc = Components.classes,
           Ci = Components.interfaces,
-          util = quickFilters.Util;
+          util = quickFilters.Util,
+					prefs = quickFilters.Preferences;
     function createTerm(filter, attrib, op, val, customId) {
       // if attrib = custom?
       // https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMsgSearchTerm
@@ -929,7 +934,7 @@ quickFilters.Worker = {
     // this can be one of the following values:
     // 
     // quickFilterCustomTemplate:XXX  (unique filter name)
-		let template = quickFilters.Preferences.getCurrentFilterTemplate(),    
+		let template = prefs.getCurrentFilterTemplate(),    
         customTemplate = null,
         customFilter = null,
 		    searchTerm, searchTerm2, searchTerm3; // helper variables for creating filter terms
@@ -952,7 +957,7 @@ quickFilters.Worker = {
       }
     }
     
-    if (quickFilters.Preferences.isDebug) debugger;    
+    if (prefs.isDebugOption('buildFilter')) debugger;    
 		// create new filter or load existing filter?
 		if (mergeFilterIndex>=0) {
 			targetFilter = matchingFilters[mergeFilterIndex];
@@ -968,8 +973,8 @@ quickFilters.Worker = {
 		  if (quickFilters.Worker.reRunCount < 5 &&
 			    !this.refreshHeaders(messageList, targetFolder, sourceFolder)) 
 			{
-				let delay = quickFilters.Preferences.getIntPref('refreshHeaders.wait');
-				util.logDebug('buildFilter (' + sourceFolder.name + ') - failed refreshHeader, retrying..[' + quickFilters.Worker.reRunCount + ']');
+				let delay = prefs.getIntPref('refreshHeaders.wait');
+				util.logDebugOptional('buildFilter','buildFilter(' + sourceFolder.name + ') - failed refreshHeader, retrying..[' + quickFilters.Worker.reRunCount + ']');
 				
 			  window.setTimeout(function() {   
 		      quickFilters.Worker.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
@@ -1037,7 +1042,7 @@ quickFilters.Worker = {
 				// ... we exclude "reply all", just in case; hence Is not Contains
         // [Bug 25714] Fixed two-way Addressing
         // [Bug 25876] Fixed ONE-way addressing
-        let twoWayAddressing = !quickFilters.Preferences.getBoolPref("searchterm.addressesOneWay");
+        let twoWayAddressing = !prefs.getBoolPref("searchterm.addressesOneWay");
         if (twoWayAddressing || template=='from' || template=='domain') {
           // from
 					addressArray = emailAddress.split(",");
@@ -1060,7 +1065,7 @@ quickFilters.Worker = {
           createTermList(addressArray, targetFilter, theTypeAttrib, typeOperator.Contains, myMailAddresses, excludedAddresses, false, customId);
         }
 
-				if (quickFilters.Preferences.getBoolPref("naming.keyWord"))
+				if (prefs.getBoolPref("naming.keyWord"))
 					filterName += " - " + emailAddress.substr(0, 25); // truncate it for long cases
 				break;
 				
@@ -1098,7 +1103,7 @@ quickFilters.Worker = {
 					}
 				}
 				// should this specifically add first names?
-				if (quickFilters.Preferences.getBoolPref("naming.keyWord"))
+				if (prefs.getBoolPref("naming.keyWord"))
 					filterName += " - group ";
 				break;
 				
@@ -1114,12 +1119,12 @@ quickFilters.Worker = {
 					addressArray = ccAddress.split(",");
           createTermList(addressArray, targetFilter, typeAttrib.CC, typeOperator.Contains, myMailAddresses, excludedAddresses);
 				}
-				if (quickFilters.Preferences.getBoolPref("naming.keyWord"))
+				if (prefs.getBoolPref("naming.keyWord"))
 					filterName += " - " + emailAddress.substr(0,25);
 
 				break;
 
-			// 3nd Filter Template: Conversation based on a Subject  (starts with [blabla])
+			// 3d Filter Template: Conversation based on a Subject  (starts with [blabla])
 			case 'topic':
 				//// TO DO ... improve parsing of subject keywords
 				//createTerm(filter, attrib, op, val)
@@ -1156,7 +1161,7 @@ quickFilters.Worker = {
             if (i==0) topics = topicFilter;
 					}
 				}
-				if (quickFilters.Preferences.getBoolPref("naming.keyWord"))
+				if (prefs.getBoolPref("naming.keyWord"))
 					filterName += " - " + topics;
 				break;
 
@@ -1182,7 +1187,7 @@ quickFilters.Worker = {
         // retrieve the name of name customTemplate
         util.slideAlert('Creating Custom Filter from ' + customFilter.filterName + '...', 'quickFilters');
         // 1. create new filter
-        let isMergeTargetFolder = quickFilters.Preferences.isMoveFolderAction && targetFolder; // if we move to folder, remove default folder target
+        let isMergeTargetFolder = prefs.isMoveFolderAction && targetFolder; // if we move to folder, remove default folder target
         util.copyActions(customFilter, targetFilter, isMergeTargetFolder);
         // 2. copy Terms, replacing all variables
         //    replaceTerms={msgHdr,messageURI} as 4th parameter is REQUIRED in order to parse all mime headers!!
@@ -1206,20 +1211,20 @@ quickFilters.Worker = {
     msg = messageList[0].msgClone;
     
 		// ACTIONS: target folder, add tags
-		if (quickFilters.Preferences.getBoolPref("naming.parentFolder")) {
+		if (prefs.getBoolPref("naming.parentFolder")) {
 			if (targetFolder.parent)
 				filterName = targetFolder.parent.prettyName + " - " + filterName;
 		}
     /* New Filter Options */
 		if (!isMerge) {
 			targetFilter.filterName = filterName;
-			if (quickFilters.Preferences.isMoveFolderAction) {
+			if (prefs.isMoveFolderAction) {
 				let moveAction = targetFilter.createAction(); // nsIMsgRuleAction 
 				moveAction.type = nsMsgFilterAction.MoveToFolder;
 				moveAction.targetFolderUri = targetFolder.URI;
 				targetFilter.appendAction(moveAction);
 			}
-      if  (!quickFilters.Preferences.getBoolPref('newfilter.autorun')) {
+      if  (!prefs.getBoolPref('newfilter.autorun')) {
         // nsMsgFilterType
         //if (targetFilter.filterType & nsMsgFilterType.Incoming)
         //  targetFilter.filterType -= nsMsgFilterType.Incoming;
@@ -1228,7 +1233,7 @@ quickFilters.Worker = {
 		}
 		
 		// this is set by the 'Tags' checkbox
-		if (quickFilters.Preferences.getBoolPref('actions.tags'))	{
+		if (prefs.getBoolPref('actions.tags'))	{
 			// the following step might already be done (see 'tag' template case):
 			if (!msgKeyArray)
 				msgKeyArray = getTagsFromMsg(tagArray, msg);
@@ -1268,15 +1273,14 @@ quickFilters.Worker = {
 						tagAction.type = nsMsgFilterAction.AddTag;
 						tagAction.strValue = tagActionValue;
 						targetFilter.appendAction(tagAction);
-						util.logDebug("Added new Action: " + tagAction);
+						util.logDebugOptional('buildFilter', "Added new Action: " + tagAction);
 					}
 				}
 			}
 		}
 		
 		// 'Priority' checkbox - copies priority
-		if (quickFilters.Preferences.getBoolPref('actions.priority') && msg.priority > 1)
-		{
+		if (prefs.getBoolPref('actions.priority') && msg.priority > 1) {
 			let priorityAction = targetFilter.createAction();
 			priorityAction.type = nsMsgFilterAction.ChangePriority;
 			priorityAction.priority = msg.priority;  // nsMsgPriorityValue - 0 = not set! - 1= none
@@ -1284,8 +1288,7 @@ quickFilters.Worker = {
 		}
 		
 		// 'Star' checkbox - note this will only set the star (not reset!)
-		if (quickFilters.Preferences.isStarAction && msg.isFlagged)
-		{
+		if (prefs.isStarAction && msg.isFlagged) {
 			let starAction = targetFilter.createAction();
 			starAction.type = nsMsgFilterAction.MarkFlagged;
 			targetFilter.appendAction(starAction);
@@ -1323,16 +1326,19 @@ quickFilters.Worker = {
 		window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
 											"chrome, modal, resizable,centerscreen,dialog=yes", args);
 
+		// move to alphabetical position (only new filters):
+		let isAlpha = prefs.getBoolPref('newfilter.insertAlphabetical') && !isMerge;
+		
 		// If the user hits ok in the filterEditor dialog we set args.refresh=true
 		// there we check this here in args to show filterList dialog.
 		if ("refresh" in args && args.refresh) // was [Ok] clicked?
 		{  // Ok
-      if (quickFilters.Preferences.getBoolPref("showListAfterCreateFilter")) {
-        quickFilters.Worker.openFilterList(true, sourceFolder, targetFilter); // was: isMerge ? targetFilter : null
+      if (prefs.getBoolPref("showListAfterCreateFilter")) {
+        quickFilters.Worker.openFilterList(true, sourceFolder, targetFilter, null, isAlpha); // was: isMerge ? targetFilter : null
       }
 			
 			// stop filter mode after creating first successful filter.
-			if (quickFilters.Preferences.isAbortAfterCreateFilter()) {
+			if (prefs.isAbortAfterCreateFilter()) {
 				quickFilters.Worker.toggle_FilterMode(false);
 			}
 		} //else, let's remove the filter (Cancel case)

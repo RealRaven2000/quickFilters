@@ -49,6 +49,9 @@ quickFilters.List = {
     document.getElementById("quickFiltersBtnSort").disabled = (numFiltersSelected<2);
     document.getElementById("quickFiltersBtnCut").disabled = (numFiltersSelected==0);
     document.getElementById("quickFiltersBtnCopy").disabled = (numFiltersSelected==0);
+		quickFilters.Util.logDebugOptional('filterList','quickFilters.List.updateButtons()\n'
+		  + '# Filters selected: ' + numFiltersSelected + '\n'
+			+ 'Folder to Run in: ' + gRunFiltersFolder.value);
   },
   
   // FILTER LIST DIALOG FUNCTIONS - replaces gFilterListbox
@@ -963,11 +966,13 @@ quickFilters.List = {
         el.minwidth = 15;
       }
     }
+		
     let getElement = document.getElementById.bind(document);
     util.logDebugOptional('filterList', 'onLoadFilterList() starts...');
     // overwrite list updateButtons
     let orgUpdateBtn = updateButtons;
     updateButtons = function() {
+			util.logDebugOptional('filterList','called updateButtons() - calling original function...');
       orgUpdateBtn();
       quickFilters.List.updateButtons();
     }
@@ -1007,8 +1012,8 @@ quickFilters.List = {
 		}
 		
 		// attach context menu.
-		let filterList = this.FilterListElement;
-		filterList.setAttribute('context','quickFiltersContext');
+		let filterListEl = this.FilterListElement;
+		filterListEl.setAttribute('context','quickFiltersContext');
 
     // check whether [Bug 450302] has landed
     let nativeSearchBox = getElement("searchBox"),
@@ -1100,11 +1105,11 @@ quickFilters.List = {
 		
       // overwrite handlers for moving filters while search is active
       // add additional listener for the filter list to select event
-      filterList = this.FilterListElement;
-      if (filterList) {
+      filterListEl = this.FilterListElement;
+      if (filterListEl) {
         util.logDebugOptional('filterList', 'adding select events for button updates...');
       
-        filterList.addEventListener("select",
+        filterListEl.addEventListener("select",
           function(e) { quickFilters.List.onSelectFilter(e);},
           false);
         // make sure to disable the correct buttons on dialog load
@@ -1163,7 +1168,7 @@ quickFilters.List = {
 
         // create a container that holds list label and count...
         // more DOMi ugliness...
-        let rowAbove = filterList.parentNode.parentNode.previousSibling,
+        let rowAbove = filterListEl.parentNode.parentNode.previousSibling,
             filterListLabel = rowAbove.firstChild;
         filterListLabel.id='filterListLabel';
         formatListLabel(filterListLabel);
@@ -1201,25 +1206,29 @@ quickFilters.List = {
         // #maildev@Neil: could create a virtual list, the SeaMonkey view is only interested in the filterCount property and the getFilterAt method
         searchBox.collapsed = true;
       }
-    } // no native search box
     /************************************ 
      **    MODIFICATIONS  END          **
      ***********************************/
+		} // no native search box
     
     // highlight target filter if passed into window
     if (window.arguments.length) {
       util.logDebugOptional('filterList', 'window.arguments found');
       // targetFilter: highlights the filter that is passed in
       let targetFilter,
-          targetFolder; // filter search: find filters that redirect mail to this folder
-      for (let i=0; i<window.arguments.length; i++) {
-        if (window.arguments[i].targetFilter)
-          targetFilter = window.arguments[i].targetFilter;
-        if (window.arguments[i].targetFolder)
-          targetFolder = window.arguments[i].targetFolder;
+          targetFolder, // filter search: find filters that redirect mail to this folder
+					isAlphabetic,
+					args = window.arguments; // insert new filter in alphabetical order
+					
+      for (let i=0; i<args.length; i++) {
+        if (args[i].targetFilter) targetFilter = args[i].targetFilter;
+        if (args[i].targetFolder) targetFolder = args[i].targetFolder;
+        if (args[i].alphabetic) isAlphabetic = args[i].alphabetic;
       }
       if (targetFilter) {
         this.selectFilter(targetFilter);
+				if (isAlphabetic)
+					this.moveAlphabetic(targetFilter);
       }  
       if (targetFolder) {
         // prepare a dropdown with results!
@@ -1237,6 +1246,23 @@ quickFilters.List = {
     
     util.logDebugOptional('filterList', 'onLoadFilterList() complete.');
   } ,
+	
+	moveAlphabetic: function moveAlphabetic(targetFilter) {
+		let filtersList = this.FilterList,
+				numFilters = filtersList.filterCount;;
+		// if (prefs.isDebugOption('createFilter')) debugger;
+		this.cutFilters();
+		for (let idx=1; idx<numFilters; idx++) { // skip first one, this is the newly created filter
+			if (targetFilter.filterName.toLocaleLowerCase() < filtersList.getFilterAt(idx).filterName.toLocaleLowerCase()) {
+				// select filter insert on the filter that is alphabetically later
+				this.selectFilter(filtersList.getFilterAt(idx));
+				// paste new filter before that
+				this.pasteFilters(false);
+				this.selectFilter(targetFilter);
+				break;
+			}
+		}
+	} ,
 
   selectFilter: function selectFilter(targetFilter) {
 		const util = quickFilters.Util;
@@ -1926,8 +1952,6 @@ quickFilters.List = {
         }
       }
     }
-    
-    
   
     // select found filter
     quickFilters.List.selectFilter(targetFilter);
@@ -1936,7 +1960,7 @@ quickFilters.List = {
   
   // similar to findDuplicates but goes across all accounts and looks for a filters acting on a particular folder
   // search results are able to select a different server and thus may not be reset by changing the server manually
-  // initila impolementation: see quickFilters.searchFiltersFromFolder()
+  // initial implementation: see quickFilters.searchFiltersFromFolder()
   findFromTargetFolder: function findFromTargetFolder(targetFolder) {
     let count = 0;
     this.searchFilterResults = [];

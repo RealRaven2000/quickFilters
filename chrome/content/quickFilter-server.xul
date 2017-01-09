@@ -10,6 +10,7 @@
 								 label="Run Filters on all Mail"
 		             id="server.quickFilters-runFilter"
 								 prefattribute="value"
+								 collapsed="true"
 		             prefstring="mail.server.%serverkey%.runFilterAll"
 					/>
 	   </vbox>

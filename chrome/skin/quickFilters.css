@@ -96,6 +96,12 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
   list-style-image: url("chrome://quickfilters/skin/run-filters-folder-16.png");
 }
 
+#quickfilters-current-searchfilterbutton {
+  -moz-image-region: rect( 0px 16px 16px 0px);
+  list-style-image: url("chrome://quickfilters/skin/searchFilters_16.png");
+}
+
+
 [iconsize="small"] #quickfilters-toolbar-msg-runbutton,
 #mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-toolbar-msg-runbutton.toolbarbutton-1,
 #quickfilters-current-msg-runbutton

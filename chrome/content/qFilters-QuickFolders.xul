@@ -15,6 +15,12 @@
 					   label=""
 					   tooltiptext="&quickfilters.ListButton.tooltip;"
 					   oncommand="quickFilters.onToolbarListCommand();"/>
+		<toolbarbutton id="quickfilters-current-searchfilterbutton"
+					   class="icon"
+					   insertafter="quickfilters-current-listbutton"
+					   label=""
+					   tooltiptext="&quickfilters.findFiltersForFolder.menu;"
+					   oncommand="quickFilters.searchFiltersFromFolder();"/>
 		<toolbarbutton id="quickfilters-current-runbutton"
 					   class="icon"
 					   insertafter="quickfilters-current-listbutton"

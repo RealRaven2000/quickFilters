@@ -4,6 +4,7 @@
 // These are here as an example only. Please remove them or rename them to
 // something useful.
 pref("extensions.quickfilters.debug", false);
+pref("extensions.quickfilters.debug.buildFilter", false);
 pref("extensions.quickfilters.debug.clipboard", false);
 pref("extensions.quickfilters.debug.createFilter", false);
 pref("extensions.quickfilters.debug.createFilter.refreshHeaders", false);
@@ -15,6 +16,7 @@ pref("extensions.quickfilters.debug.filterList",false);
 pref("extensions.quickfilters.debug.filterSearch",false);
 pref("extensions.quickfilters.debug.filterSearch.detail",false);
 pref("extensions.quickfilters.debug.getSourceFolder", false);
+pref("extensions.quickfilters.debug.listeners", false);
 pref("extensions.quickfilters.debug.merge", false);
 pref("extensions.quickfilters.debug.nostalgy", false);
 pref("extensions.quickfilters.debug.msgMove",false);
@@ -33,6 +35,7 @@ pref("extensions.quickfilters.naming.keyWord", false);
 pref("extensions.quickfilters.naming.clonedLabel", ""); // set from locale!
 pref("extensions.quickfilters.naming.mergeToken"," +m");
 pref("extensions.quickfilters.newfilter.autorun", true);
+pref("extensions.quickfilters.newfilter.insertAlphabetical", false);
 
 // https://developer.mozilla.org/en/Localizing_extension_descriptions
 pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");
@@ -65,6 +68,7 @@ pref("extensions.quickfilters.donations.askOnUpdate", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.listbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.folderbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.messagesbutton", false);
+pref("extensions.quickfilters.quickfolders.curFolderbar.findfilterbutton", true);
 pref("extensions.quickfilters.notTB.searchbox", false);
 
 // filter by reply-to
