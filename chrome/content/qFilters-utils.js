@@ -55,7 +55,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.0.2",
+  HARDCODED_CURRENTVERSION : "3.3",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -948,6 +948,9 @@ quickFilters.Util = {
     quickFilters.Util.openURLInTab('https://www.mozdev.org/bugs/show_bug.cgi?id=' + bugNumber);
   } ,
   
+	showYouTube: function showYouTube() {
+		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/c/thunderbirddaily');
+	} ,
 	toggleDonations: function toggleDonations() {
 		let isAsk = quickFilters.Preferences.getBoolPref('donations.askOnUpdate');
 		let question = this.getBundleString("quickfilters.donationToggle","Do you want to {0} the donations screen which is displayed whenever quickFilters updates?");
@@ -1011,8 +1014,9 @@ quickFilters.Util = {
 	},
 
   replaceReservedWords: function(dmy, token, arg)	{
-    let util = quickFilters.Util,
-        msgDbHdr = util.CurrentMessage,
+    const util = quickFilters.Util,
+		      prefs = quickFilters.Preferences;
+    let msgDbHdr = util.CurrentMessage,
         hdr = util.CurrentHeader;
         
     function getNewsgroup() {
@@ -1055,6 +1059,12 @@ quickFilters.Util = {
 				case "subject":
 					let ret = quickFilters.mimeDecoder.decode(hdr.get("Subject"), charset);
 					return finalize(token, ret);
+				case "subjectRegex":
+					let subj = quickFilters.mimeDecoder.decode(hdr.get("Subject"), charset),
+					    regex = new RegExp(arg),
+							found = regex.exec(subj),
+							sSubject = found.length ? found[0] : ''; // take the first match only
+					return finalize(token, sSubject);
 				case "newsgroup":
 					return finalize(token, getNewsgroup());
 				case "identity":
@@ -1064,6 +1074,7 @@ quickFilters.Util = {
 					token = quickFilters.mimeDecoder.split(fullId, charset, arg, true); // disable charsets decoding!
 					break;
 				default:
+				  if (!hdr.get && prefs.isDebug) debugger;
 					let isStripQuote = RegExp(" " + token + " ", "i").test(
 					                   " Bcc Cc Disposition-Notification-To Errors-To From Mail-Followup-To Mail-Reply-To Reply-To" +
 					                   " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "),

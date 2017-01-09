@@ -90,6 +90,7 @@
 						</menupopup>
 					</menu>
 					<menuitem label="&quickfilters.customHeader.Subject;" value="%subject%" />
+					<menuitem label="&quickfilters.customHeader.SubjectRegex;" value="%subjectRegex()%" />
 					<menuitem label="&quickfilters.customHeader.ListId;" value="%list-id%" />
 					<menuitem label="&quickfilters.customHeader.ListPost;" value="%list-post%" />
 					<menuitem label="&quickfilters.customHeader.Newsgroups;" value="%newsgroups%" />

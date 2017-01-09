@@ -36,7 +36,6 @@ quickFilters.FilterEditor = {
     const utils = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
     utils.logDebug('quickFilters.loadEditor()');
-    if (prefs.isDebug) debugger;
     // filterEditorOnLoad(); was already called as we now use a listener!
     setTimeout( function() {
       function matchAction(actionType, actionString) {
@@ -205,7 +204,8 @@ quickFilters.FilterEditor = {
         isCustom = false;
     if (argPos>0)
       hdr = hdr.substring(0, argPos);
-    if (['from', 'to', 'cc', 'bcc', 'subject'].indexOf(hdr) < 0) {
+		// make sure this is a known header!
+    if (['from', 'to', 'cc', 'bcc', 'subject', 'subjectRegex'].indexOf(hdr) < 0) {
       isCustom = true;
       if (!quickFilters.FilterEditor.checkCustomHeaderExists(hdr)) {
         txt = utils.getBundleString('quickfilters.prompt.createCustomHeader', 
@@ -284,6 +284,9 @@ quickFilters.FilterEditor = {
       case 'subject':
         searchTerm.attrib = typeAttrib.Subject;
         break;
+			case 'subjectRegex':
+			  searchTerm.attrib = typeAttrib.Subject;
+			  break;
       default:  // custom header
         searchTerm.attrib = typeAttrib.Custom;
         //
