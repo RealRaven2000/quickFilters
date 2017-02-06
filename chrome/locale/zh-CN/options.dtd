@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY chkShowList.label "创建过滤器后显示过滤器列表">
 <!ENTITY chkShowList.tooltip "在所有消息上显示要运行的新过滤器列表以便测试。">
+<!ENTITY chkImapOnRead.label "Also run filter on read emails in IMAP accounts.">
 <!ENTITY donate.label "捐助">
 <!ENTITY qf.description.donate "如果您喜欢 quickFilters 并愿意支持开发人员，请捐助开发者以支持 quicklyFiters 的长期开发。">
 <!ENTITY qf.label.donateLink "访问捐助页面…">
@@ -19,12 +20,15 @@
 <!ENTITY qf.label.contactLink "联系我 (使用英语或德语)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "右击查看版本历史。">
+<!ENTITY qf.youtube.tbdaily "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail">
 <!ENTITY qf.tab.options "设置">
 <!ENTITY qf.tab.actions "动作">
 <!ENTITY qf.tab.newFilterProps "新过滤器属性">
 <!ENTITY qf.tab.advanced "高级">
 <!ENTITY qf.tab.support "支持">
 <!ENTITY chkAutoRun.label "接受新邮件时应用过滤器">
+<!ENTITY chkAlphabetic.label "Insert new filters in alphabetical order">
+<!ENTITY chkAlphabetic.tooltip "Uses the filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!">
 <!ENTITY qf.label.naming "命名规则">
 <!ENTITY qf.label.naming.parentFolder "添加父目录名称">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
@@ -40,6 +44,8 @@
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "显示过滤器列表">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "对文件夹应用过滤器">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "对所选消息应用过滤器">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Find Filters for Folder">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Find any Filters that move mail to this folder.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders 当前文件夹工具栏">
 <!ENTITY qf.description.currentFolderButtons "此选项仅在您使用QuickFolders扩展时可用，该扩展会在消息预览窗格顶部添加一个小工具栏。">
 <!ENTITY grpMerge.label "合并规则">

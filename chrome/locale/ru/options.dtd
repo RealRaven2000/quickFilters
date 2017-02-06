@@ -27,6 +27,8 @@
 <!ENTITY qf.tab.advanced "Дополнительные">
 <!ENTITY qf.tab.support "Поддержка">
 <!ENTITY chkAutoRun.label "Применить фильтры при получении новых сообщений">
+<!ENTITY chkAlphabetic.label "Вставлять новые фильтры в алфавитном порядке">
+<!ENTITY chkAlphabetic.tooltip "Использовать имя фильтра для позиционирования. Рекомендуется при использовании имени вышестоящей папки. Учтите, что это влияет на порядок фильтрации!">
 <!ENTITY qf.label.naming "Правила присваивания имен">
 <!ENTITY qf.label.naming.parentFolder "Добавить имя вышестоящей папки">
 <!ENTITY qf.label.naming.parentFolder.accesskey "о">
@@ -42,6 +44,8 @@
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Показывать список фильтров">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Применить фильтры к папке">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Применить фильтры к выбранным сообщениям">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Найти фильтры для папки">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Найти все фильтры, перемещающие сообщения в эту папку.">
 <!ENTITY qf.label.currentFolderButtons "Панель инструментов текущей папки QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее маленькую панель инструментов в область просмотра сообщений.">
 <!ENTITY grpMerge.label "Правила объединения">

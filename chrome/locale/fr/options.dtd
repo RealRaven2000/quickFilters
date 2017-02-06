@@ -27,6 +27,8 @@
 <!ENTITY qf.tab.advanced "Avéncées">
 <!ENTITY qf.tab.support "Aide">
 <!ENTITY chkAutoRun.label "Appliquer le filtre lors de la réception d'un nouveau message">
+<!ENTITY chkAlphabetic.label "Insérer les nouveaux filtres dans l'ordre alphabétique">
+<!ENTITY chkAlphabetic.tooltip "Utilise le nom initial du filtre pour sa position. Recommandé avec la règle filtrant le nom de dossier parent. Veuillez prendre note que cela affecte l'ordre d'exécution du filtre !">
 <!ENTITY qf.label.naming "Règles de nommage">
 <!ENTITY qf.label.naming.parentFolder "Ajouter le nom du dossier parent">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">

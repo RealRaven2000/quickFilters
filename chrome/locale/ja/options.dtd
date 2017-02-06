@@ -27,6 +27,8 @@
 <!ENTITY qf.tab.advanced "詳細">
 <!ENTITY qf.tab.support "サポート">
 <!ENTITY chkAutoRun.label "新着メール受信時にフィルタを適用する">
+<!ENTITY chkAlphabetic.label "新しいフィルタをアルファベット順に挿入">
+<!ENTITY chkAlphabetic.tooltip "フィルタ名の順に並べます。親フォルダの名前規則を推奨します。これはフィルタの実行順に影響するので注意してください！">
 <!ENTITY qf.label.naming "命名規則">
 <!ENTITY qf.label.naming.parentFolder "親フォルダの名前を追加する">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
@@ -42,6 +44,8 @@
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "フィルタリストを表示">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "フォルダにフィルタを適用">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "選択したメッセージにフィルタを適用">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "このフォルダ用のフィルタを見つける">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "メールをこのフォルダへ移動するフィルタを見つけます。">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders の現在のフォルダツールバー">
 <!ENTITY qf.description.currentFolderButtons "このオプションは、QuickFolders アドオンを使用している場合のみ使用できます。メッセージのプレビューペインに小さなツールバーが追加されます。">
 <!ENTITY grpMerge.label "規則を統合する">

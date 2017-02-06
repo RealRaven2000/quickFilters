@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "y">
 <!ENTITY chkShowList.label "Visa filterlistan efter att filter skapats">
 <!ENTITY chkShowList.tooltip "Visa listan för att köra det nya filtret på alla meddelanden, för teständamål.">
+<!ENTITY chkImapOnRead.label "Also run filter on read emails in IMAP accounts.">
 <!ENTITY donate.label "Donera">
 <!ENTITY qf.description.donate "Om du tycker om quickFilters och skulle vilja stödja dess fortsatta utveckling, så kan du donera en slant för att hjälpa utvecklaren.">
 <!ENTITY qf.label.donateLink "Gå till donationssidan …">
@@ -19,20 +20,32 @@
 <!ENTITY qf.label.contactLink "Kontakta mig (på engelska eller tyska) …">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Högerklicka för versionshistorik.">
+<!ENTITY qf.youtube.tbdaily "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail">
 <!ENTITY qf.tab.options "Alternativ">
 <!ENTITY qf.tab.actions "Åtgärder">
 <!ENTITY qf.tab.newFilterProps "Egenskaper för nya filter">
 <!ENTITY qf.tab.advanced "Avancerat">
 <!ENTITY qf.tab.support "Hjälp">
 <!ENTITY chkAutoRun.label "Tillämpa filter när nya meddelanden tas emot">
+<!ENTITY chkAlphabetic.label "Insert new filters in alphabetical order">
+<!ENTITY chkAlphabetic.tooltip "Uses the filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!">
 <!ENTITY qf.label.naming "Namngivningsregler">
 <!ENTITY qf.label.naming.parentFolder "Lägg till namn på överordnad mapp">
 <!ENTITY qf.label.naming.parentFolder.accesskey "m">
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
+<!ENTITY qf.templates.advanced "Advanced Templates">
+<!ENTITY qf.templates.customTemplate.label "Custom Templates">
+<!ENTITY qf.templates.customTemplate.tooltip "Allows generation of Custom Templates, see bug description for detail.">
+<!ENTITY qf.templates.customTemplate.edit "Edit…">
+<!ENTITY qf.templates.customTemplate.new "Create New…">
+<!ENTITY qf.templates.replyTo.label "Reply-To Template">
+<!ENTITY qf.templates.replyTo.tooltip "Display Reply-To Template, see bug description for detail.">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Visa filterlista">
 <!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Kör filter på mapp">
 <!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Kör filter på markerade meddelanden">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Find Filters for Folder">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Find any Filters that move mail to this folder.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders verktygsfält för aktuell meddelandemapp">
 <!ENTITY qf.description.currentFolderButtons "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen.">
 <!ENTITY grpMerge.label "Sammanfogningsregler">

@@ -27,7 +27,9 @@
 <!ENTITY qf.tab.advanced "Avanzate">
 <!ENTITY qf.tab.support "Supporto">
 <!ENTITY chkAutoRun.label "Applica filtro quando arrivano nuovi messaggi">
-<!ENTITY qf.label.naming "Nomenclatura delle regole">
+<!ENTITY chkAlphabetic.label "Inserimento  dei nuovi filtri in ordine alfabetico">
+<!ENTITY chkAlphabetic.tooltip "Utilizza l'iniziale del nome del filtro per definirne la posizione relativa. È utile nel caso della regola di denominazione della cartella di livello superiore. Attenzione: viene influenzato l'ordine di esecuzione dei filtri!">
+<!ENTITY qf.label.naming "Regole di denominazione">
 <!ENTITY qf.label.naming.parentFolder "Aggiunge alla regola il nome della cartella di livello superiore">
 <!ENTITY qf.label.naming.parentFolder.accesskey "S">
 <!ENTITY qf.label.naming.keyWord "Aggiunge alla regola una parola-chiave specifica">

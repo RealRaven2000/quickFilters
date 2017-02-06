@@ -27,6 +27,8 @@
 <!ENTITY qf.tab.advanced "Erweitert">
 <!ENTITY qf.tab.support "Support">
 <!ENTITY chkAutoRun.label "Filter anwenden bei Nachrichtenabruf">
+<!ENTITY chkAlphabetic.label "Neue Filter in alphabetischer Reihenfolge einfügen">
+<!ENTITY chkAlphabetic.tooltip "Benutzt den Namen des Filters zur Position. Empfohlen mit Elternverzeichnis Regel. Diees beeeinflusst auch die Reihenfolge der Ausführung!">
 <!ENTITY qf.label.naming "Namensregeln">
 <!ENTITY qf.label.naming.parentFolder "Name des Elternverzeichnis hinzufügen">
 <!ENTITY qf.label.naming.parentFolder.accesskey "E">
