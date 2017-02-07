@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE dialog [
+  <!ENTITY % templateDTD SYSTEM "chrome://quickfilters/locale/filters.dtd">
+  %templateDTD;
+]>
+
+<dialog title="Folder Wizard"
+        id="quickFilters-FolderWizard"
+				buttons="accept,cancel,extra2"
+				xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+				ondialogaccept="return quickFilters.FolderWizard.onAccept();"
+				onload="quickFilters.FolderWizard.onLoad();"
+				buttonlabelextra2="&donateButton.label;"
+				buttonaccesskeyextra2="&donateButton.shortcut;"
+				tooltipextra2="&donateButton.tooltip;"
+				ondialogextra2="quickFilters.Util.showDonatePage();"
+>
+
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
+	
+
+
+</dialog>

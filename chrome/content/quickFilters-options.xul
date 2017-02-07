@@ -272,8 +272,8 @@
 						/>
 			<checkbox id="chkAlphabetic" 
 						preference="newfilter.insertAlphabetical" 
-						label="Insert new filters in alphabetical order" 
-						tooltiptext="Uses the initial name of filter for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!"
+						label="&chkAlphabetic.label;" 
+						tooltiptext="&chkAlphabetic.tooltip;"
 						/>
 			<groupbox  orient="vertical" flex="1">
 				<caption label="&qf.label.naming;"/>

@@ -257,9 +257,11 @@
 		
 	3.3 : WIP
 	  # Make sure mails that are tagged manually are filtered immediately.
-		# Option to insert new filter in alphabetical order
+		# New: Option to insert new filter in alphabetical order
 		# Added button to search for current folder's filters to QuickFolders' current folder toolbar
 		# Removed obsolete option "Run Filters on all Mail" on the account properties dialog
+		# Added Spanish locale (es) thanks to strel at Babelzilla
+		# Added Argentinian locale (es-ar) thanks to Tonyman at Babelzilla
 		
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
