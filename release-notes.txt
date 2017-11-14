@@ -6,4 +6,5 @@
 		<li>Added Spanish locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=17691"  target="_blank">strel</a> at babelzilla.org </li>
 		<li>Added Spanish Argentinian locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=20554" target="_blank">Tonyman</a> at babelzilla.org </li>
 		<li>[Bug 26354] When merging / creating a filter, select "run on folder" automatically. This should be set to the specified account's inbox.</li>
+		<liCompleted Swedish Locale (sv-SE) thanks to Mikael Hiort af Ornäs, A. Regnander at Babelzilla</li>
 </ul>
