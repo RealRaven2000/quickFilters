@@ -1,5 +1,6 @@
 @import url('chrome://quickfilters/content/contribute.css');
 
+/****** window & top panel ******/
 #quickfilters-preferences {
   min-height: 400px;
 }
@@ -72,7 +73,29 @@ hbox > button {
 	max-height: 3em !important;
 }
 
-/****** LINKS	********/
+/****** advanced tab	********/
+#chkCurrentToolbarFiltersButton .checkbox-icon { 
+  list-style-image: url("chrome://quickfilters/skin/filterList_16.png"); 
+	-moz-image-region: rect(0px, 16px, 16px, 0px); 
+}
+
+#chkCurrentToolbarFolderButton .checkbox-icon { 
+  list-style-image: url("chrome://quickfilters/skin/run-filters-folder-16.png"); 
+	-moz-image-region: rect(0px, 16px, 16px, 0px); 
+}
+
+#chkCurrentToolbarMessagesButton .checkbox-icon { 
+  list-style-image: url("chrome://quickfilters/skin/run-filters-msg-16.png"); 
+	-moz-image-region: rect(0px, 16px, 16px, 0px); 
+}
+
+#chkCurrentFindFilterButton .checkbox-icon { 
+  list-style-image: url("chrome://quickfilters/skin/searchFilters_16.png"); 
+	-moz-image-region: rect(0px, 16px, 16px, 0px); 
+}
+
+
+/****** support tab	********/
 label.text-link[href] {
 	padding: 4px 2px 4px 5px !important;
 	vertical-align: middle !important;
@@ -112,8 +135,6 @@ label.text-link[href]:focus {
 	text-decoration: underline !important;
 }
 
-
-
 label.qfTabPreview {
 	border: #AAA 1px solid;
 	border-radius: 4px 5px 0 0;
@@ -126,7 +147,6 @@ label.qfTabPreview {
 label [href^="mailto"] {
 	text-decoration: underline	!important;
 }
-
 
 label.text-link {
 	border-radius: 0.5em;
@@ -197,7 +217,6 @@ label#getCopySentToCurrent:hover {
 }
 
 
-
 /* donations - blue */
 label#L2 {
   background: linear-gradient(to bottom, rgba(103,159,211,1) 0%, rgba(54,123,184,1) 24%, rgba(22,81,132,1) 50%, rgba(48,110,164,1) 79%, rgba(58,133,198,1) 100%);
@@ -221,7 +240,6 @@ label#L2:active {
 }
 
 /* contact - yellow */
-
 label#L3  {
 	color: #fff !important;
   background: linear-gradient(to bottom, rgba(241,194,75,1) 0%, rgba(241,194,75,1) 6%, rgba(172,128,6,1) 34%, rgba(240,188,46,1) 100%);
@@ -278,7 +296,6 @@ description.quickhelp-desc, description.quickhelp-dbg {
 }
 
 
-
 description#importantNote {
 	font-weight: bold;
 	color: #A00 !important;
@@ -294,15 +311,6 @@ hbox.quickhelp-dbg {
 	background: linear-gradient(to bottom, rgba(174,188,191,1) 0%, rgba(110,119,116,1) 27%, rgba(10,14,10,1) 48%, rgba(10,8,9,1) 100%);
 	border-radius: 0.5em;
 }
-
-
-
-#QuickFolders-Options-Tabbox tab {
-	padding: 0.2em 0.6em;
-	border-radius: 4px 4px 0 0;
-}
-
-#QuickFolders-Options-Tabbox tab .tab-icon { margin-right:6px; }
 
 
 

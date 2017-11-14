@@ -79,6 +79,7 @@
 									type="bool"  
 									instantApply="true"
 						/>
+						
 <!--New Filter Properties -->									
       <preference id="newfilter.autorun" 
 	              name="extensions.quickfilters.newfilter.autorun"
@@ -141,6 +142,11 @@
 									type="bool"  
 									instantApply="true"
 									/>
+			<preference id="searchBox"
+									name="extensions.quickfilters.notTB.searchbox"
+									type="bool"  
+									instantApply="true"
+						/>
       <preference id="debug" 
 	              name="extensions.quickfilters.debug" 
 								type="bool"  
@@ -360,6 +366,11 @@
 			</groupbox>
         <spacer flex="1" />
         <hbox>
+				
+          <checkbox id="chkSearchBox" 
+                    preference="searchBox" 
+                    label="Search Filters Box (Experimental)" 
+                    />
           <spacer flex="1" />
           <checkbox id="chkDebug" 
                     preference="debug" 

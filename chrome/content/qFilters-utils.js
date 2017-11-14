@@ -225,15 +225,16 @@ quickFilters.Util = {
   },
 
   get Version() {
+		const util = quickFilters.Util;
     //returns the current QF version number.
-    if(quickFilters.Util.mExtensionVer)
-      return quickFilters.Util.mExtensionVer;
-    let current = quickFilters.Util.HARDCODED_CURRENTVERSION + quickFilters.Util.HARDCODED_EXTENSION_TOKEN,
+    if (util.mExtensionVer)
+      return util.mExtensionVer;
+    let current = util.HARDCODED_CURRENTVERSION + util.HARDCODED_EXTENSION_TOKEN,
         Cc = Components.classes;
 
     if (!Cc["@mozilla.org/extensions/manager;1"]) {
       // Addon Manager: use Proxy code to retrieve version asynchronously
-      quickFilters.Util.VersionProxy(); // modern Mozilla builds.
+      util.VersionProxy(); // modern Mozilla builds.
                         // these will set mExtensionVer (eventually)
                         // also we will delay FirstRun.init() until we _know_ the version number
     }
@@ -243,17 +244,17 @@ quickFilters.Util = {
         if (Cc["@mozilla.org/extensions/manager;1"]) {
           let gExtensionManager = Cc["@mozilla.org/extensions/manager;1"]
                                     .getService(Components.interfaces.nsIExtensionManager);
-          current = gExtensionManager.getItemForID(quickFilters.Util.ADDON_ID).version;
+          current = gExtensionManager.getItemForID(util.ADDON_ID).version;
         }
         else {
           current = current + "(?)";
         }
-        quickFilters.Util.mExtensionVer = current;
+        util.mExtensionVer = current;
 
       }
       catch(ex) {
         current = current + "(?ex?)" // hardcoded, program this for Tb 3.3 later
-        quickFilters.Util.logToConsole("QuickFilters Version retrieval failed - are you using an old version of " + quickFilters.Util.Application + "?");
+        util.logToConsole("QuickFilters Version retrieval failed - are you using an old version of " + util.Application + "?");
       }
     }
     return current;
@@ -451,13 +452,13 @@ quickFilters.Util = {
           countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") ;
       if (notifyBox.getNotificationWithValue(notificationKey)) {
         // notification is already shown on screen.
-        quickFilters.Util.logDebug('notifyBox for [' + notificationKey + '] is already displayed, no action necessary.\n'
+        util.logDebug('notifyBox for [' + notificationKey + '] is already displayed, no action necessary.\n'
                                    + 'Countdown is ' + countDown);
         return;
       }
       countDown--;
       quickFilters.Preferences.setIntPref("proNotify." + featureName + ".countDown", countDown);
-      quickFilters.Util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
+      util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
                                  + 'Countdown is ' + countDown);
       
 			// button for disabling this notification in the future

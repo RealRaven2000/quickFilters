@@ -199,22 +199,8 @@
 			  />
 		  </toolbar>
 	  </toolbox>
-
 		
     <hbox id="searchBoxContainer" collapsed="true">
-		  <spacer flex="1" id="quickFiltersSearchSpacer" collapsed="true" />
-			<label id="quickFilters-Count-n-of-m"
-				hidden="true"
-				value="&qf.label.filterCountN_of_M;" />
-
-			<label id="quickFilters-Count-items"
-				hidden="true"
-				value="&qf.label.filterEntities;" />	
-			<label id="quickFilters-Count-1-item"
-				hidden="true"
-				value="&qf.label.filterSingleEntity;" />
-
-
 			<button id="quickFilters-SearchOptions"
 				label=""
 				tooltiptext="&quickfilters.button.searchProperties;"
@@ -233,6 +219,18 @@
 				isempty="true"
 				timeout="300"
 			/>
+			
+		  <spacer flex="1" id="quickFiltersSearchSpacer" collapsed="true" />
+			<label id="quickFilters-Count-n-of-m"
+				hidden="true"
+				value="&qf.label.filterCountN_of_M;" />
+
+			<label id="quickFilters-Count-items"
+				hidden="true"
+				value="&qf.label.filterEntities;" />	
+			<label id="quickFilters-Count-1-item"
+				hidden="true"
+				value="&qf.label.filterSingleEntity;" />
 
 			<label id="quickFilters-Count"/>
 		</hbox>

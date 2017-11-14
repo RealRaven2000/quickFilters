@@ -255,6 +255,11 @@
 		# Thunderbird Daily YouTube channel button
 		# [Bug 26232] Tagging fault: ToggleMessageTag is not a function
 		
+	3.2.1 : WIP
+		# [Bug 26360] Thunderbird 52 Filter List - search function not working
+		# Fixed jumping across accounts when searching for filters (Postbox, SeaMonkey)
+		# Thunderbird 52: Some Fixes for "Run filters in folder button" on filters list
+
 	3.3 : WIP
 	  # Make sure mails that are tagged manually are filtered immediately.
 		# New: Option to insert new filter in alphabetical order
@@ -262,6 +267,7 @@
 		# Removed obsolete option "Run Filters on all Mail" on the account properties dialog
 		# Added Spanish locale (es) thanks to strel at Babelzilla
 		# Added Argentinian locale (es-ar) thanks to Tonyman at Babelzilla
+		# [Bug 26354] When merging / creating a filter, select "run on folder" automatically. This should be set to the specified account's inbox.
 		
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
