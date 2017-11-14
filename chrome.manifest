@@ -44,8 +44,4 @@ overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters
 # Filter Editor overlay
 overlay  chrome://messenger/content/FilterEditor.xul  chrome://quickfilters/content/overlayFilterRules.xul
 
-# Server Settings overlay
-# am-addressing.xul (am addressing -> Accountmanager)
-overlay chrome://messenger/content/am-server.xul                     chrome://quickfilters/content/quickFilter-server.xul
-
 # overlay	chrome://messenger/content/mailWindowOverlay.xul	chrome://quickfilters/content/quickFilters-overlay.xul
