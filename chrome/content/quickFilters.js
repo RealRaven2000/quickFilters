@@ -267,6 +267,7 @@
 		# Removed obsolete option "Run Filters on all Mail" on the account properties dialog
 		# Added Spanish locale (es) thanks to strel at Babelzilla
 		# Added Argentinian locale (es-ar) thanks to Tonyman at Babelzilla
+		# Completed Swedish Locale (sv-SE) thanks to Mikael Hiort af Ornäs, A. Regnander at Babelzilla
 		# [Bug 26354] When merging / creating a filter, select "run on folder" automatically. This should be set to the specified account's inbox.
 		
 	PLANNED CHANGES  
