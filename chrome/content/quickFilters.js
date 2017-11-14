@@ -255,7 +255,7 @@
 		# Thunderbird Daily YouTube channel button
 		# [Bug 26232] Tagging fault: ToggleMessageTag is not a function
 		
-	3.2.1 : WIP
+	3.2.1 : 27/05/2017
 		# [Bug 26360] Thunderbird 52 Filter List - search function not working
 		# Fixed jumping across accounts when searching for filters (Postbox, SeaMonkey)
 		# Thunderbird 52: Some Fixes for "Run filters in folder button" on filters list

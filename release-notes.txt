@@ -1,17 +1,9 @@
 <ul>
-	<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=25688">[Bug 25688] 3.0.2 Hotfix</a>
-Creating Filter on IMAP fails after 7 attempts. This can happen during when  moving mails during the quickFilters assistant being active but in some cases (3.0.1) even when it is off. It is caused by the Message Database being locked during or after the move; this fix tries to extract the message header information (needed for filter creation) before the move operation is initiated.
-	</li>
-	<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26110">[Bug 26110] 3.0.2 Hotfix</a>
-Tag Listener repeats Assistant multiple times
-If the "Listen for Tag changes" option is switched on and the Filter Assistant is active, this can lead to the filter assistant window being opened repeatedly.
-	</li>
-		
-	<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26107">[Bug 26107]</a> 
-			When copying / cut &amp; pasting multiple filters, these are inserted in reverse order.</li>
-	<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26076">[Bug 26076]</a> 
-			The filter assistant now supports the Context Menu  Command "Move To Folder". Also supporting the Postbox specific quickfile panel.</li>
-	<li>Support for "brighttext" themes (Themes with dark backgrounds)</li>
-	<li>removed for..each..in to avoid unnecessary warnings in log window</li>
-	<li>Made delay for refreshing headers configurable - if there are problems creating filters on IMAP servers increase the configuration value extensions.quickfilters.refreshHeaders.wait</li>		
+		<li>Make sure mails that are tagged manually are filtered immediately.</li>
+		<li>Option to insert new filter in alphabetical order. Instead of adding created filters to the top of the list, quickFilters will insert them before the first filter with a alphabetically following name.</li>
+		<li>New search button to find current folder's filters added to QuickFolders' current folder toolbar</li>
+		<li>Removed obsolete option "Run Filters on all Mail" on the account properties dialog</li>
+		<li>Added Spanish locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=17691"  target="_blank">strel</a> at babelzilla.org </li>
+		<li>Added Spanish Argentinian locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=20554" target="_blank">Tonyman</a> at babelzilla.org </li>
+		<li>[Bug 26354] When merging / creating a filter, select "run on folder" automatically. This should be set to the specified account's inbox.</li>
 </ul>
