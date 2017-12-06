@@ -59,3 +59,17 @@
 <!ENTITY qf.postbox.quickmove "Boîte aux lettres : prend en charge la fonctionnalité de déplacement rapide">
 <!ENTITY qf.listener.tags "Prendre en compte les modifications de marquage">
 <!ENTITY qf.listener.tags.tooltip "Lorsqu'activé, l'assistant de filtre sera également lancé quand vous marquerez un message.">
+<!-- quickFilters Pro stuff -->
+<!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.insertLicense "Insérez votre clé de licence personnelle ici :">
+<!ENTITY qf.label.insertLicense.tooltip "Votre clé de licence se trouve dans votre courriel de confirmation de commande émanant de FastSpring.">
+<!ENTITY qf.button.pasteLicense "coller">
+<!ENTITY qf.button.validateLicense "valider">
+<!ENTITY qf.label.licenseValid "Votre licence est valide jusqu'au :">
+<!ENTITY qf.licenseValidation.passed "Merci pour votre abonnement à quickFilters Pro ! Toutes les fonctionnalités premium sont à présent disponibles.">
+<!ENTITY qf.licenseValidation.failed "La clé de licence que vous avez saisie n'est pas valide. Vérifiez votre courriel de FastSpring pour des instructions complémentaires. Si vous rencontrez encore des problèmes, veuillez me contacter à partir de l'onglet d'aide.">
+<!ENTITY qf.licenseValidation.expired "La clé de licence saisie a expiré. Veuillez cliquer sur le bouton ci-dessous pour renouveler votre licence.">
+<!ENTITY qf.licenseValidation.invalidMail "L'adresse électronique associée à la clé de licence [{1}] n'est pas listée dans un de vos comptes courriel. Veuillez me contacter à partir de l'onglet d'aide.">
+<!ENTITY qf.licenseValidation.notMatchedMail "Une adresse électronique chiffrée ne peut être reconnue.">
+<!ENTITY qf.premiumConfig "Fonctionnalités Premium">
+

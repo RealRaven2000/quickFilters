@@ -59,3 +59,16 @@
 <!ENTITY qf.postbox.quickmove "Postbox: クイック移動機能をサポートする">
 <!ENTITY qf.listener.tags "タグ変更を監視する">
 <!ENTITY qf.listener.tags.tooltip "有効にすると、メッセージにタグを付けた時にフィルタアシスタントが起動します。">
+<!-- quickFilters Pro stuff -->
+<!ENTITY qf.tab.gopro "QuickFolders Pro">
+<!ENTITY qf.label.insertLicense "個人ライセンスキーをここに記入してください:">
+<!ENTITY qf.label.insertLicense.tooltip "ライセンスキーは FastSpring　からの支払い確認 (order confirmation) メールに含まれています。">
+<!ENTITY qf.button.pasteLicense "貼り付け">
+<!ENTITY qf.button.validateLicense "認証">
+<!ENTITY qf.label.licenseValid "ライセンスの有効期限:">
+<!ENTITY qf.licenseValidation.passed "QuickFolders Pro のご登録ありがとうございます！ すべての有料機能がロック解除されました。">
+<!ENTITY qf.licenseValidation.failed "入力されたライセンスキーが正しくありません。FastSpring からのメールに書かれた手順を確認してください。何か問題がある場合は、サポートタブからお問い合わせください。">
+<!ENTITY qf.licenseValidation.expired "入力されたライセンスキーが有効期限切れです。下のボタンをクリックしてライセンスを更新してください。">
+<!ENTITY qf.licenseValidation.invalidMail "ライセンスキー [{1}] に紐付けされたメールアドレスのメールアカウントがリストに見当たりません。問題解決のため、サポートタブからお問い合わせください。">
+<!ENTITY qf.licenseValidation.notMatchedMail "暗号化されたメールアドレスが読めるメールアドレスと一致しません。">
+<!ENTITY qf.premiumConfig "有料機能">

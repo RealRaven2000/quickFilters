@@ -59,3 +59,16 @@
 <!ENTITY qf.postbox.quickmove "Postvak: ondersteuning voor functie snel verplaatsen">
 <!ENTITY qf.listener.tags "Labelwijzigingen volgen">
 <!ENTITY qf.listener.tags.tooltip "Indien geactiveerd zal de filterassistent ook starten als u een bericht labelt.">
+<!-- quickFilters Pro stuff -->
+<!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.insertLicense "Voeg hier uw persoonlijke licentiesleutel in:">
+<!ENTITY qf.label.insertLicense.tooltip "U vindt uw licentiesleutel in uw orderbevestiging die u per e-mail van FastSpring hebt ontvangen.">
+<!ENTITY qf.button.pasteLicense "plakken">
+<!ENTITY qf.button.validateLicense "valideren">
+<!ENTITY qf.label.licenseValid "Uw licentie is geldig tot:">
+<!ENTITY qf.licenseValidation.passed "Bedankt voor uw registratie van quickFilters Pro! Alle premiumfuncties kunnen nu worden gebruikt.">
+<!ENTITY qf.licenseValidation.failed "De ingevoerde licentiesleutel is ongeldig. Lees uw e-mailbericht van FastSpring voor instructies. Als de problemen aanhouden, neem dan contact met me op via het tabblad Ondersteuning.">
+<!ENTITY qf.licenseValidation.expired "De ingevoerde licentiesleutel is verlopen. Klik op de onderstaande knop om uw licentie te vernieuwen.">
+<!ENTITY qf.licenseValidation.invalidMail "Het aan de licentiesleutel [{1}] verbonden e-mailadres staat momenteel niet bij uw e-mailaccounts. Neem voor hulp contact met me op via het tabblad Ondersteuning.">
+<!ENTITY qf.licenseValidation.notMatchedMail "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres.">
+<!ENTITY qf.premiumConfig "Premiumfuncties">

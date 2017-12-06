@@ -59,3 +59,16 @@
 <!ENTITY qf.postbox.quickmove "Поддержка quick move в Postbox">
 <!ENTITY qf.listener.tags "Реагировать на изменение меток">
 <!ENTITY qf.listener.tags.tooltip "Запускать ассистента создания фильтров при изменении меток сообщения.">
+<!-- quickFilters Pro stuff -->
+<!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.insertLicense "Вставить лицензионный ключ сюда:">
+<!ENTITY qf.label.insertLicense.tooltip "Ваш лицензионный ключ находится в сообщении от Fastspring, подтверждающем заказ.">
+<!ENTITY qf.button.pasteLicense "вставить">
+<!ENTITY qf.button.validateLicense "проверить">
+<!ENTITY qf.label.licenseValid "Лицензионный ключ действителен до:">
+<!ENTITY qf.licenseValidation.passed "Спасибо за регистрацию! Вы можете пользоваться всеми премиум функциями.">
+<!ENTITY qf.licenseValidation.failed "Лицензионный ключ недействителен. Ещё раз посмотрите сообщение от FastSpring . Если их инструкции не помогут, обратитесь ко мне (см. &quot;Поддержка&quot;).">
+<!ENTITY qf.licenseValidation.expired "Лицензионный ключ просрочен. Нажмите кнопку ниже для обновления лицензии.">
+<!ENTITY qf.licenseValidation.invalidMail "Адрес, привязанный к лицензионному ключу [{1}] не используется ни в одной учётной записи почты. Свяжитесь со мной, контактные данные можно найти в настройках.">
+<!ENTITY qf.licenseValidation.notMatchedMail "Зашифрованный адрес не совпадает с имеющимся.">
+<!ENTITY qf.premiumConfig "Премиум-функции">
