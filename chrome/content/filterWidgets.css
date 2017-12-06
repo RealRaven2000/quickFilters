@@ -50,3 +50,97 @@
 	width: 54px;
 	height: 24px;
 }
+
+#quickFilters-Options-Tabbox tab .tab-icon {
+	margin-right: 5px;
+	margin-left: 3px;
+}
+
+/* SEPARATED ANIMATION RULES TO DISABLE IN PRO VERSION */
+/* menuitem.cmd[tagName="qfRegister"] .menu-iconic-icon,  */
+/*  shorthand:
+    animation : animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction
+		*/
+		
+@keyframes quickfiltersRotateY {
+  from {
+	  transform: rotateY(0deg);
+	}
+	to {
+	  transform: rotateY(359deg);
+	}
+}
+
+#quickFilters-Pro.free .tab-icon {
+  animation: quickfiltersRotateY 3s linear 0.3s infinite ;
+	height: 19px;
+	width: 30px;
+}
+
+#quickFilters-Pro.paid .tab-icon {
+	animation: none !important;
+}
+
+@keyframes quickfiltersPulse {
+    0% { transform: scale(0.75) !important; opacity: 0.5; }
+    50% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.75) !important; opacity: 0.5; }
+}
+
+#quickFilters-Pro.expired .tab-icon,
+#btnLicense.expired {
+  animation: quickfiltersPulse 3s 1s ease-in-out infinite;
+	width: 135% !important;
+	height: 135% !important;
+}
+
+/* ICON RULE TO OVERWRITE IN PRO VERSION */
+/* menuitem.cmd[tagName="qfRegister"],  */
+tab#quickFilters-Pro {
+	list-style-image : url('chrome://quickfilters/skin/pro.png') !important;
+}
+
+tab#quickFilters-Pro.paid {
+	list-style-image : url('chrome://quickfilters/skin/pro-paid.png') !important;
+}
+
+tab#quickFilters-Pro.expired {
+	list-style-image : url('chrome://quickfilters/skin/pro-expired.png') !important;
+}
+
+
+/*
+menuitem.cmd[tagName="qfRegister"] .menu-iconic-icon {
+	margin-left: -7px;
+	margin-right: -7px;
+}
+*/
+
+tab#quickFilters-Actions {
+	list-style-image: url('chrome://quickfilters/skin/fugue-drill.png');
+}
+
+tab#quickFilters-FilterProperties {
+	list-style-image : url('chrome://quickfilters/skin/fugue-asterisk.png');
+}
+
+tab#quickFilters-Advanced {
+	list-style-image : url('chrome://quickfilters/skin/settings-advanced.png');
+}
+
+tab#quickFilters-Support {
+	list-style-image : url('chrome://quickfilters/skin/info16.png') !important;
+}
+
+/* dual state animated icons (menuitems / tabs) */
+tab#quickFilters-Support:not([selected]),
+tab#quickFilters-Advanced:not([selected])
+{
+	-moz-image-region: rect(0px, 16px, 16px, 0px) !important;
+}
+tab#quickFilters-Support[selected="true"],
+tab#quickFilters-Advanced[selected="true"]
+{
+	-moz-image-region: rect(16px, 16px, 32px, 0px) !important;
+}
+
