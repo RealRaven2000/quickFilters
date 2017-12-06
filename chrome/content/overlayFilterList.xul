@@ -7,13 +7,15 @@
 <overlay id="QuickFilters-FilterOverlay"
 		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-list.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-list.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<!-- execute quickFilters.List.onLoadFilterList() when loading window -->
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/overlayFilterList.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/overlayFilterList.js" />
+	<script type="application/x-javascript" src="chrome://shimEc1/content/qFilters-shim-ecma.js" />
+	
 	
   <toolbarpalette id="QuickFiltersToolbarPalette">
   </toolbarpalette>	

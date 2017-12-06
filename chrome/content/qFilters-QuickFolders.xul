@@ -3,10 +3,8 @@
 <!DOCTYPE overlay SYSTEM "chrome://quickfilters/locale/overlay.dtd">
 <!-- Overlay for QuickFolders (Current folder bar) -->
 <overlay id="quickfilters-quickfolders" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
+
+<!-- removed unnecessary duplication of js (which broke stuff) -->
 
 	<toolbar id="QuickFolders-CurrentFolderTools">
 		<toolbarbutton id="quickfilters-current-listbutton"

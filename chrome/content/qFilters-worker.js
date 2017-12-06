@@ -323,43 +323,27 @@ quickFilters.Worker = {
 					fails++;
           continue;
 				}
+				
 				/**** CLONE MESSAGE HEADERS ****/
 				let messageClone = { "initialized": false },
-				    test = '',
-				    test2 = '',
-				    countInit = 0;
-				for (let propertyName in msgHdr) {
-					// propertyName is what you want
-					// you can get the value like this: myObject[propertyName]
-					try {
-					  let hasOwn = msgHdr.hasOwnProperty(propertyName),
-						    isCopied = false
-						if (hasOwn && typeof msgHdr[propertyName] != "function" && typeof msgHdr[propertyName] != "object") {
-							messageClone[propertyName] = msgHdr[propertyName]; // copy to the clone!
-							if (messageClone[propertyName])  // make sure we have some data! (e.g. author, subject, recipient, date, charset, messageId)
-							  countInit ++;
-							isCopied = true;
-						}
-						if (isCopied) {
-						  test = appendProperty(test, msgHdr, propertyName);
-						}
-						else {
-						  test2 = appendProperty(test2, msgHdr, propertyName);
-						}
-					}
-					catch(ex) { ; }
-				}
-				if (countInit>1) {
+				    dbg = {
+							test: '',
+							test2: '',
+							countInit: 0	
+						};
+				quickFilters.Shim.cloneHeaders(msgHdr, messageClone, dbg, appendProperty)
+				
+				if (dbg.countInit>1) {
 					messageClone.initialized = true;
-					test += 'STRING PROPERTIES  **********\n';
+					dbg.test += 'STRING PROPERTIES  **********\n';
 					messageClone.PreviewText = msgHdr.getStringProperty('preview');	
-					test = appendProperty(test, messageClone, 'PreviewText');
+					dbg.test = appendProperty(dbg.test, messageClone, 'PreviewText');
 					messageClone.Keywords = msgHdr.getStringProperty("keywords")
-					test = appendProperty(test, messageClone, 'Keywords');
+					dbg.test = appendProperty(dbg.test, messageClone, 'Keywords');
 				}
 				util.logDebugOptional('createFilter.refreshHeaders', 
-				    'COPIED     ***********************\n' + test
-					+ 'NOT COPIED     *******************\n' + test2);
+				    'COPIED     ***********************\n' + dbg.test
+					+ 'NOT COPIED     *******************\n' + dbg.test2);
 				theMsg.msgClone = messageClone;
 				util.debugMsgAndFolders('[' + folder.prettyName + '] restore messageList[' + i + '] Id ', messageList[i].messageId, folder, messageList[i].msgHeader);
         util.logDebugOptional('createFilter.refreshHeaders', 'cloned header['+ i + ']');
@@ -373,28 +357,19 @@ quickFilters.Worker = {
 	} ,
   
   getSourceFolder: function getSourceFolder(msg) {
+		const Cc = Components.classes,
+					Ci = Components.interfaces,
+					util = quickFilters.Util;
     let accountCount = 0,
-        aAccounts,
         sourceFolder = null,
-        Cc = Components.classes,
-        Ci = Components.interfaces,
-        util = quickFilters.Util,
-        accounts = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager).accounts;
-
-    for (let ab in fixIterator(accounts, Ci.nsIMsgAccount)) { 
-      if (ab.defaultIdentity)
+				aAccounts = util.Accounts; // Array code moved to shim
+		
+		// count all default identities on system
+		for (let a=0; a<aAccounts.length; a++) {
+			if (aAccounts[a].defaultIdentity)
         accountCount++; 
-    }
+		}
     
-    if (util.Application == 'Postbox') 
-      aAccounts = util.getAccountsPostbox();
-    else {
-      aAccounts = [];
-      for (let ac in fixIterator(accounts, Ci.nsIMsgAccount)) {
-        aAccounts.push(ac);
-      };
-    }
-
     // Get inbox from original account key - or use the only account if a SINGLE one exists
     // (Should we count LocalFolders? typically no filtering on that inbox occurs?)
     //    we could also add an account picker GUI here for Postbox,
@@ -430,9 +405,10 @@ quickFilters.Worker = {
 	
   // folder is the target folder - we might also need the source folder
   createFilter: function createFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt) {
-    let util = quickFilters.Util,
-        Cc = Components.classes,
-        Ci = Components.interfaces;
+    const util = quickFilters.Util,
+					Cc = Components.classes,
+					Ci = Components.interfaces,
+					prefs = quickFilters.Preferences;
     function warningUpdate() {
       let wrn = util.getBundleString('quickfilters.createFilter.warning.noHeaderParser',
                   'Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header.'
@@ -556,13 +532,8 @@ quickFilters.Worker = {
         util.logDebugOptional('createFilter', "no sourceFolder: root.hasSubFolders ");
         // unfortunately, Postbox doesn't define subFolders of nsIMsgFolder
         if (typeof root.subFolders !== 'undefined') {
-          for (let folder in fixIterator(root.subFolders, Ci.nsIMsgFolder)) {
-            if (folder.getFlag && folder.getFlag(fflags.Inbox)) {
-              util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
-              sourceFolder = folder;
-              break;
-            }
-          }
+					let sF = quickFilters.Shim.findInboxFromRoot(root, fflags);
+					if (sF) sourceFolder = sF;			
         }
         else if (root.GetSubFolders) { // Postbox - mailCommands.js:879
           let iter = root.GetSubFolders();
@@ -617,10 +588,10 @@ quickFilters.Worker = {
         || targetFolder.getFlag(fflags.Queue)
         || targetFolder.getFlag(fflags.Templates)) {
       // should at least apply to Inbox, Sent, Drafts. we can do some special checking if this is not the case...
-      quickFilters.Preferences.setBoolPref('actions.moveFolder', false);
+      prefs.isMoveFolderAction = false;
     }
     else {
-      quickFilters.Preferences.setBoolPref('actions.moveFolder', true);
+      prefs.isMoveFolderAction = true
       filterAction = Ci.nsMsgFilterAction.MoveToFolder; // we need to assume this in order to merge!
     }
     let msg;
@@ -1183,7 +1154,7 @@ quickFilters.Worker = {
 				}               
 				break;
       case 'custom':
-        util.popupProFeature("customTemplate", "quickfilters.premium.title.customTemplate", true, false);    
+        util.popupProFeature("customTemplate", true, false);    
         // retrieve the name of name customTemplate
         util.slideAlert('Creating Custom Filter from ' + customFilter.filterName + '...', 'quickFilters');
         // 1. create new filter
@@ -1561,10 +1532,11 @@ quickFilters.Assistant = {
     // initialize list and preselect last chosen item!
     
     let templateList = this.TemplateList,
-        util = quickFilters.Util;
+        util = quickFilters.Util,
+				prefs = quickFilters.Preferences;
     
     // [Bug 25989] Custom Templates Support
-    if (quickFilters.Preferences.getBoolPref('templates.custom')) {
+    if (prefs.getBoolPref('templates.custom')) {
       // add custom template(s)
       // enumerate Local Folders filters to find templates      
       
@@ -1642,7 +1614,7 @@ quickFilters.Assistant = {
       }
     }
     
-    templateList.value = quickFilters.Preferences.getCurrentFilterTemplate();
+    templateList.value = prefs.getCurrentFilterTemplate();
     window.sizeToContent();
     // hide flag / star checkbox depending on application
     let hideCheckbox;
@@ -1661,9 +1633,9 @@ quickFilters.Assistant = {
     
     if (isMergePossible) {
       // 1. default select merge
-      if (quickFilters.Preferences.getBoolPref('merge.autoSelect')
+      if (prefs.getBoolPref('merge.autoSelect')
          ||
-         quickFilters.Preferences.getBoolPref('merge.silent')) {
+         prefs.getBoolPref('merge.silent')) {
         let mergeBox = document.getElementById('chkMerge');
         mergeBox.checked = true;
         // this will select the first item in the list
@@ -1671,14 +1643,14 @@ quickFilters.Assistant = {
         quickFilters.Assistant.selectMerge(mergeBox);
       }
       // 2. automatically continue on to the next screen
-      if (quickFilters.Preferences.getBoolPref('merge.silent')) {
+      if (prefs.getBoolPref('merge.silent')) {
         util.logDebug("Merge filter: Skipping merge page (silent merge selected).");
         setTimeout( function() {quickFilters.Assistant.next();} ) ;
       }
     }
     
     // find and remove "replyto" feature!" still experimental until 2.8 release
-    if (!quickFilters.Preferences.getBoolPref('templates.replyTo')) {
+    if (!prefs.getBoolPref('templates.replyTo')) {
       util.logDebug('remove replyto item from template list...');
       let listbox = this.TemplateList;
       for (let i=0; i<listbox.itemCount; i++) {

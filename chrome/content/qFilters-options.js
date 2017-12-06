@@ -27,17 +27,77 @@ copy by writing to:
 END LICENSE BLOCK 
 */
 
+Components.utils.import('resource://gre/modules/Services.jsm');
 
 quickFilters.Options = {
+	optionsMode : "",  // filter out certain pages (for support / help only)
   load: function() {
-    let version = quickFilters.Util.Version;
+		const util = quickFilters.Util,
+		      prefs = quickFilters.Preferences,
+					licenser = util.Licenser,					
+					getElement = window.document.getElementById.bind(window.document);
+					
+		if (window.arguments) {
+			try {
+				this.optionsMode = window.arguments[1].inn.mode;
+				// force selection of a certain pane (-1 ignores)
+				if (this.optionsMode >= 0)
+					prefs.setIntPref('lastSelectedOptionsTab', this.optionsMode);
+			}
+			catch(e) {;}
+    }
+		
+		let tabbox = getElement("quickFilters-Options-Tabbox");
+    switch(this.optionsMode) {
+      case "actions":
+        tabbox.selectedPanel = getElement('quickFilters-Options-actions');
+        break;
+      case "newFilter":
+        tabbox.selectedPanel = getElement('quickFilters-Options-newFilterProps');
+        break;
+      case "advancedOnly":
+        tabbox.selectedPanel = getElement('quickFilters-Options-Advanced');
+        break;
+      case "supportOnly":
+        tabbox.selectedPanel = getElement('quickFilters-Options-support');
+        break;
+      case "licenseKey":
+        tabbox.selectedPanel = getElement('quickFilters-Options-goPro');
+        break;
+    }
+		// hide the other tabs
+		if (this.optionsMode) {
+			for (let i=4; i>=0; i--) {
+				let panel = tabbox.tabpanels.children[i];
+				if (panel != tabbox.selectedPanel) {
+					util.logDebugOptional('options', 'collapsing panel: ' + panel.id + '...');
+					panel.collapsed = true;
+					tabbox.tabs.getItemAtIndex(i).collapsed = true; // removeItemAt();
+				}
+			}
+		}
+		
+		
+    let version = util.Version;
     if (version=="") version='version?';
 
-    let versionLabel = window.document.getElementById("qf-options-version");
+    let versionLabel = getElement("qf-options-version");
     versionLabel.setAttribute("value", version);
 		
-		let clonedLabel = window.document.getElementById('txtClonedName');
-    clonedLabel.placeholder = quickFilters.Util.getBundleString('quickfilters.clone.label', '(copy)');	
+		let clonedLabel = getElement('txtClonedName');
+    clonedLabel.placeholder = quickFilters.Util.getBundleString('quickfilters.clone.label', '(copy)');
+
+    /*****  License  *****/
+    let buyLabel = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
+
+    getElement("btnLicense").label = buyLabel;
+    // validate License key
+    licenser.LicenseKey = prefs.getStringPref('LicenseKey');
+    getElement('txtLicenseKey').value = licenser.LicenseKey;
+    if (licenser.LicenseKey) {
+      this.validateLicenseInOptions(false);
+    }
+		
 		
 		// no donation loophoole
 		let donateButton = document.documentElement.getButton('extra2');
@@ -51,7 +111,7 @@ quickFilters.Options = {
 						evt.stopPropagation();
 					}; }, false);
 		}		
-    let getCopyBtn = window.document.getElementById('getCopySentToCurrent');
+    let getCopyBtn = getElement('getCopySentToCurrent');
     let getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
     getCopyBtn.textContent = getCopyText.replace('{1}','\'Copy Sent to Current\'');
   } ,
@@ -136,6 +196,213 @@ quickFilters.Options = {
     
   toggleCurrentFolderButtons_check: function toggleCurrentFolderButtons_check() {
     setTimeout(function() {quickFilters.toggleCurrentFolderButtons();},200);
-  }
+  } ,
+	
+  trimLicense: function trimLicense() {
+		const util = quickFilters.Util;
+    let txtBox = document.getElementById('txtLicenseKey'),
+        strLicense = txtBox.value.toString();
+    util.logDebug('trimLicense() : ' + strLicense);
+    strLicense = strLicense.replace(/^\s+|\s+$/g, ''); // remove line breaks
+    strLicense = strLicense.replace('\[at\]','@');
+    txtBox.value = strLicense;
+    util.logDebug('trimLicense() result : ' + strLicense);
+    return strLicense;
+  } ,
+  
+  enablePremiumConfig: function enablePremiumConfig(isEnabled) {
+		/* future function: enables premium configuration UI
+    let getElement      = document.getElementById.bind(document),
+        premiumConfig   = getElement('premiumConfig'),
+        quickJump       = getElement('chkQuickJumpHotkey'),
+        quickMove       = getElement('chkQuickMoveHotkey'),
+        quickCopy       = getElement('chkQuickCopyHotkey'),
+        quickJumpTxt    = getElement('qf-QuickJumpShortcut'),
+        quickMoveTxt    = getElement('qf-QuickMoveShortcut'),
+        quickCopyTxt    = getElement('qf-QuickCopyShortcut'),
+        quickMoveFormat = getElement('menuQuickMoveFormat'),
+        quickMoveDepth  = getElement('quickmove-path-depth'),
+        multiCategories = getElement('chkCategories');
+    premiumConfig.disabled = !isEnabled;
+    quickJump.disabled = !isEnabled;
+    quickMove.disabled = !isEnabled;
+    quickCopy.disabled = !isEnabled;
+    quickJumpTxt.disabled = !isEnabled;
+    quickMoveTxt.disabled = !isEnabled;
+    quickCopyTxt.disabled = !isEnabled;
+    quickMoveFormat.disabled = !isEnabled;
+    quickMoveDepth.disabled = !isEnabled;
+    multiCategories.disabled = !isEnabled;
+		*/
+  },
+  
+  decryptLicense: function decryptLicense(testMode) {
+		const util = quickFilters.Util,
+		      licenser = util.Licenser,
+					State = licenser.ELicenseState;
+    let getElement = document.getElementById.bind(document),
+        validationPassed       = getElement('validationPassed'),
+        validationFailed       = getElement('validationFailed'),
+        validationExpired      = getElement('validationExpired'),
+        validationInvalidEmail = getElement('validationInvalidEmail'),
+        validationEmailNoMatch = getElement('validationEmailNoMatch'),
+        decryptedMail, decryptedDate,
+				result = State.NotValidated;
+    validationPassed.collapsed = true;
+    validationFailed.collapsed = true;
+    validationExpired.collapsed = true;
+    validationInvalidEmail.collapsed = true;
+    validationEmailNoMatch.collapsed = true;
+    this.enablePremiumConfig(false);
+    try {
+      this.trimLicense();
+      let txtBox = getElement('txtLicenseKey'),
+          license = txtBox.value;
+      // store new license key
+      if (!testMode) // in test mode we do not store the license key!
+        quickFilters.Preferences.setStringPref('LicenseKey', license);
+      
+      let maxDigits = quickFilters.Crypto.maxDigits, // this will be hardcoded in production 
+          LicenseKey,
+          crypto = licenser.getCrypto(license),
+          mail = licenser.getMail(license),
+          date = licenser.getDate(license);
+      if (quickFilters.Preferences.isDebug) {
+        let test = 
+            "┌───────────────────────────────────────────────────────────────┐\n"
+          + "│ quickFilters.Licenser found the following License components:\n"
+          + "│ Email: " + mail + "\n"
+          + "│ Date: " + date + "\n"
+          + "│ Crypto: " + crypto + "\n"
+          + "└───────────────────────────────────────────────────────────────┘";
+        if (testMode)
+          util.alert(test);
+        util.logDebug(test);
+      }
+      if (crypto)
+        [result, LicenseKey] = licenser.validateLicense(license, maxDigits);
+      else { // reset internal state of object if no crypto can be found!
+        result = State.Invalid;
+				licenser.DecryptedDate = "";
+				licenser.DecryptedMail = "";
+			}
+      decryptedDate = licenser.DecryptedDate;
+      getElement('licenseDate').value = decryptedDate; // invalid ??
+      decryptedMail = licenser.DecryptedMail;
+      switch(result) {
+        case State.Valid:
+          this.enablePremiumConfig(true);
+          validationPassed.collapsed=false;
+          // test code
+          // getElement('txtEncrypt').value = LicenseKey;
+          break;
+        case State.Invalid:
+          validationFailed.collapsed=false;
+          break;
+        case State.Expired:
+          validationExpired.collapsed=false;
+          break;
+        case State.MailNotConfigured:
+          validationInvalidEmail.collapsed=false;
+          // if mail was already replaced the string will contain [mail address] in square brackets
+          validationInvalidEmail.textContent = validationInvalidEmail.textContent.replace(/\[.*\]/,"{1}").replace("{1}", '[' + decryptedMail + ']');
+          break;
+        case State.MailDifferent:
+          validationFailed.collapsed=false;
+          validationEmailNoMatch.collapsed=false;
+          break;
+        default:
+          Services.prompt.alert(null,"quickFilters",'Unknown license status: ' + result);
+          break;
+      }
+      if (testMode) {
+      //  getElement('txtEncrypt').value = 'Date = ' + decryptedDate + '    Mail = ' +  decryptedMail +  '  Result = ' + result;
+      }
+      else {
+        // reset License status of main instance
+        if (window.arguments && window.arguments[1].inn.instance) {
+          let mainLicenser = window.arguments[1].inn.instance.Licenser;
+          if (mainLicenser) {
+            mainLicenser.ValidationStatus =
+              result != State.Valid ? State.NotValidated : result;
+            mainLicenser.wasValidityTested = true; // no need to re-validate there
+          }
+        }
+      }
+      
+    }    
+    catch(ex) {
+      util.logException("Error in quickFilters.Options.decryptLicense():\n", ex);
+    }
+		return result;
+  } ,
+  
+  pasteLicense: function pasteLicense() {
+    let trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable),
+        str       = {},
+        strLength = {},
+        finalLicense = '';        
+    trans.addDataFlavor("text/unicode");
+    Services.clipboard.getData(trans, Services.clipboard.kGlobalClipboard);
+
+    trans.getTransferData("text/unicode", str, strLength);
+    if (strLength.value) {
+      if (str) {
+        let pastetext = str.value.QueryInterface(Components.interfaces.nsISupportsString).data,
+            txtBox = document.getElementById('txtLicenseKey'),
+            strLicense = pastetext.toString();
+        txtBox.value = strLicense;
+        finalLicense = this.trimLicense();
+      }    
+    }
+    if (finalLicense) {
+      this.validateLicenseInOptions(false);
+    }
+  } ,
+  
+  validateLicenseInOptions: function validateLicenseInOptions(testMode) {
+		function replaceCssClass(el,addedClass) {
+			el.classList.add(addedClass);
+			if (addedClass!='paid')	el.classList.remove('paid');
+			if (addedClass!='expired')	el.classList.remove('expired');
+			if (addedClass!='free')	el.classList.remove('free');
+		}
+		const util = quickFilters.Util,
+					State = util.Licenser.ELicenseState,
+					QI = util.getMail3PaneWindow().quickFilters.Interface; // main window (for reminders etec)
+    let wd = window.document,
+        getElement = wd.getElementById.bind(wd),
+        btnLicense = getElement("btnLicense"),
+				proTab = getElement("quickFilters-Pro"),
+				beautyTitle = getElement("qf-title");
+    try {
+			let result = this.decryptLicense(testMode);
+			switch(result) {
+				case State.Valid:
+				  btnLicense.collapsed = true;
+					replaceCssClass(proTab, 'paid');
+					replaceCssClass(btnLicense, 'paid');
+					beautyTitle.setAttribute('src', "chrome://quickfilters/skin/QuickFilters-title-pro.png");
+				  break;
+				case State.Expired:
+					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
+				  btnLicense.collapsed = false;
+					replaceCssClass(proTab, 'expired');
+					replaceCssClass(btnLicense, 'expired');
+					beautyTitle.setAttribute('src', "chrome://quickfilters/skin/QuickFilters-title-pro.png");
+					break;
+				default:
+				  btnLicense.collapsed = false;
+					replaceCssClass(proTab, 'free');
+				  btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
+			}
+			util.logDebug('validateLicense - result = ' + result);
+    }
+    catch(ex) {
+      util.logException("Error in quickFilters.Options.validateLicenseInOptions():\n", ex);
+    }
+  } 
+  
+	
 
 }

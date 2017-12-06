@@ -104,6 +104,23 @@ quickFilters.Preferences = {
 		return this.service.getCharPref(this.Prefix + p);
 	} ,
 
+	getStringPref: function getStringPref(p) {
+    let prefString =''
+    try {
+      prefString = this.service.getCharPref("extensions.quickfilters." + p);
+    }
+    catch(ex) {
+      quickFilters.Util.logDebug("Could not find string pref: " + p + "\n" + ex.message);
+    }
+    finally {
+      return prefString;
+    }
+	} ,
+	
+	setStringPref: function setStringPref(p, v) {
+		return this.service.setCharPref("extensions.quickfilters." + p, v);
+	} ,	
+	
 	existsCharPref: function(pref) {
 		try {
 			if(this.service.prefHasUserValue(pref))
@@ -141,6 +158,10 @@ quickFilters.Preferences = {
 	
 	get isMoveFolderAction() {
 	  return this.getBoolPref('actions.moveFolder');
+	} ,
+	
+	set isMoveFolderAction(b) {
+	  return this.setBoolPref('actions.moveFolder', b);
 	} ,
 	
   getCurrentFilterTemplate : function()

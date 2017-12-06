@@ -247,7 +247,7 @@ quickFilters.List = {
       return;
     } 
     if (this.pushSelectedToClipboard('sort')) {
-      quickFilters.Util.popupProFeature("sortFilters", "quickfilters.premium.title.sortFilters", true, false);    
+      quickFilters.Util.popupProFeature("sortFilters", true, false);    
 			this.clipboardPending='sort';
       this.pasteFilters(true);
 		}
@@ -1444,31 +1444,7 @@ quickFilters.List = {
   } ,
 
   validateFilterTargets: function validateFilterTargets(sourceURI, targetURI) {
-		const util = quickFilters.Util;
-    // fix any filters that might still point to the moved folder.
-    // 1. nsIMsgAccountManager  loop through list of servers
-    try {
-      let Ci = Components.interfaces,
-          acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                          .getService(Ci.nsIMsgAccountManager);
-			for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
-        if (account.incomingServer && account.incomingServer.canHaveFilters )
-        {
-          let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
-          util.logDebugOptional("filters", "checking account for filter changes: " +  ac.prettyName);
-          // 2. getFilterList
-          let filterList = ac.getFilterList(gFilterListMsgWindow).QueryInterface(Ci.nsIMsgFilterList);
-          // 3. use  nsIMsgFilterList.matchOrChangeFilterTarget(oldUri, newUri, false)
-          if (filterList) {
-            filterList.matchOrChangeFilterTarget(sourceURI, targetURI, false)
-          }
-        }
-      }
-    }
-    catch(ex) {
-      util.logException("Exception in quickFilters.List.validateFilterTargets ", ex);
-    }
-
+		quickFilters.Shim.validateFilterTargets(sourceURI, targetURI);
   },
 	
 	toggleAssistant: function toggleAssistant(btn) {
@@ -1744,7 +1720,7 @@ quickFilters.List = {
     let Terms = [],
         Actions = [];
     
-    quickFilters.Util.popupProFeature("duplicatesFinder", "Duplicate Finder", true, false);    
+    quickFilters.Util.popupProFeature("duplicatesFinder", true, false);    
     let filtersList = this.FilterList,
         FA = Components.interfaces.nsMsgFilterAction;
     // build a dictionary of terms; this might take some time!
@@ -1997,108 +1973,13 @@ quickFilters.List = {
   // search results are able to select a different server and thus may not be reset by changing the server manually
   // initial implementation: see quickFilters.searchFiltersFromFolder()
   findFromTargetFolder: function findFromTargetFolder(targetFolder) {
-    let count = 0;
     this.searchFilterResults = [];
     quickFilters.Util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ')');
     
-    try {
-      let Ci = Components.interfaces,
-          acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                          .getService(Ci.nsIMsgAccountManager),
-          FA = Components.interfaces.nsMsgFilterAction;
-      
-      // 1. create a list of matched filters and corresponding accounts 
-      //    (these will be linked via index
-      if (typeof fixIterator == "undefined") {// Postbox fix
-        Components.utils.import("resource:///modules/iteratorUtils.jsm");
-      }
-			for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
-        if (account.incomingServer && account.incomingServer.canHaveFilters ) {
-          let msg ='',
-              ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer),
-              // 2. getFilterList
-              filtersList = ac.getFilterList(gFilterListMsgWindow).QueryInterface(Ci.nsIMsgFilterList),
-              found=false;
-          if (filtersList) {
-            // build a dictionary of terms; this might take some time!
-            let numFilters = filtersList.filterCount;
-            quickFilters.Util.logDebugOptional("filterSearch", "checking account [" + ac.prettyName + "] "
-                                               + "for target folder: " +  targetFolder.URI + '\n'
-                                               + "iterating " + numFilters + " filters...");
-            for (let idx = 0; idx < numFilters; idx++) {
-              let curFilter = filtersList.getFilterAt(idx),
-              // Match Target Folder by iterating all actions
-                  actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList,
-                  acLength = actionList.Count ? actionList.Count() : actionList.length;
-              for (let index = 0; index < acLength; index++) {
-                let qryAt = actionList.queryElementAt ? actionList.queryElementAt : actionList.QueryElementAt,
-                    action = qryAt(index, Components.interfaces.nsIMsgRuleAction);
-                if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
-                  if (action.targetFolderUri)
-                    msg += "[" + index + "] Current Filter URI:" +  action.targetFolderUri + "\n";
-                  if (action.targetFolderUri && action.targetFolderUri === targetFolder.URI) { 
-                    quickFilters.Util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
-                    this.searchFilterResults.push (
-                      {
-                        Filter: curFilter,
-                        Account: ac,
-                        Action: action
-                      }
-                    ); // create a new object which contains this trinity
-                    count++;
-                    break; // only add one action per filter (in case it is duplicated)
-                  }
-                }        
-              }
-              // .. End Match Action Loop
-            }       
-          }
-          if (!found) // show detailed filters list if no match was found
-            quickFilters.Util.logDebugOptional("filterSearch.detail", msg);
-        }
-      }
-      quickFilters.Util.logDebugOptional("filterSearch", "Matches found: " + this.searchFilterResults.length);
-      
-      // 2. Persist in dropdown
-      // dropdown with terms
-      let filtersDropDown = document.getElementById('quickFiltersFoundResults');
-      filtersDropDown.selectedIndex = -1;
-      let menuPopup = this.clearFoundFiltersPopup(true);
-      
-      for (let idx = 0; idx < this.searchFilterResults.length; idx++) {
-        let target = this.searchFilterResults[idx],
-            menuItem = document.createElement("menuitem"),
-            dec = decodeURI(target.Action.targetFolderUri),
-            valueLabel = this.truncateLabel(dec, 30),
-            filterIdLabel = target.Filter.filterName;
-        if (target.Account.prettyName) {
-          filterIdLabel = '[' + target.Account.prettyName + '] ' +  filterIdLabel;
-        }
-        // let theLabel = filterIdLabel + ' = ' + this.getActionLabel(target.Action.type) + ': ' + valueLabel;
-        menuItem.setAttribute("label", filterIdLabel);
-        menuItem.targetFilter = target.Filter; 
-        menuItem.targetAccount = target.Account; 
-        menuItem.setAttribute("actionType", target.Action.type); 
-        menuItem.setAttribute("targetFolderUri", target.Action.targetFolderUri);        
-        menuPopup.appendChild(menuItem);
-      }
-      if (this.searchFilterResults.length) {
-        filtersDropDown.collapsed = false;
-        // hide duplicates button?
-        document.getElementById('quickFiltersBtnDupe').collapsed = true;
-        document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
-        // show cancel button
-        document.getElementById('quickFiltersBtnCancelFound').collapsed = false;
-        filtersDropDown.selectedIndex = 0;
-      }
-      
-    }
-    catch(ex) {
-      quickFilters.Util.logException("Exception in quickFilters.List.findFromTargetFolder ", ex);
-    }  
+		quickFilters.Shim.findFromTargetFolder(targetFolder, this.searchFilterResults);
+		
     quickFilters.Util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ') COMPLETE \n' 
-                                + count + ' matches found');
-  
+                                + this.searchFilterResults.length + ' matches found');
   } 
   
   

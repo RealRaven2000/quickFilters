@@ -55,7 +55,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.3",
+  HARDCODED_CURRENTVERSION : "3.4",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -67,6 +67,16 @@ quickFilters.Util = {
   lastTime: 0,
   _tabContainer: null,
   tempFolderTab: null,	 // likely obsolete ###
+	get Licenser() { // retrieve Licenser always from the main window to keep everything in sync
+		const util = quickFilters.Util;
+	  try { 
+			return util.getMail3PaneWindow().quickFilters.Licenser;
+		}
+		catch(ex) {
+			util.logException('Retrieve Licenser failed: ', ex);
+		}
+		return quickFilters.Licenser;
+	} ,
 
   // return main quickFilters instance (if we are in a child window / dialog or come from an event)
   get mainInstance() {
@@ -208,7 +218,7 @@ quickFilters.Util = {
             versionLabel.setAttribute("value", addon.version);
             // move version into the box, depending on label length
             quickFilters.Util.logDebug("Version Box: " + versionLabel.boxObject.width + "px");
-            versionLabel.style.setProperty('margin-left', ((versionLabel.boxObject.width + 32)*(-1)).toString() + 'px', 'important');
+            // versionLabel.style.setProperty('margin-left', ((versionLabel.boxObject.width + 32)*(-1)).toString() + 'px', 'important');
           }
         });
       }
@@ -414,15 +424,23 @@ quickFilters.Util = {
 		quickFilters.Preferences.setBoolPref("proNotify." + featureName, false);
 	} ,  
   
-	popupProFeature: function popupProFeature(featureName, text, isDonate, isRegister) {
+  /* quickFilters Pro / licensing features */
+	// default to isRegister from now = show button for buying a license.
+	popupProFeature: function popupProFeature(featureName, isRegister, isDonate, additionalText) {
 		let notificationId,
-        util = quickFilters.Util;
+        util = quickFilters.Util,
+				State = util.Licenser.ELicenseState;
+    if (util.hasPremiumLicense(false))
+      return;
+		
 		// is notification disabled?
 		// check setting extensions.quickfilters.proNotify.<featureName>
+		/*
     try {
       if (!quickFilters.Preferences.getBoolPref("proNotify." + featureName))
         return;
     } catch(ex) {return;}
+		*/
 
 		switch(util.Application) {
 			case 'Postbox': 
@@ -439,14 +457,27 @@ quickFilters.Util = {
     if (!notifyBox) {
       notifyBox = util.getMail3PaneWindow().document.getElementById (notificationId);
     }
-		let title=util.getBundleString("quickfilters.notification.proFeature.title",
-				"Premium Feature"),
-		    theText = util.getBundleString("quickfilters.notification.proFeature.notificationText",
-				"The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year. "),
+		let title = util.getBundleString("quickfilters.notification.proFeature.title", "Premium Feature"),
+		    theText = util.getBundleString("quickfilters.notification.premium.text",
+				"{1} is a Premium feature, please get a quickFilters Pro License for using it permanently. "),
         featureTitle = util.getBundleString('quickfilters.premium.title.' + featureName, featureName);
 		theText = theText.replace ("{1}", "'" + featureTitle + "'");
-		let nbox_buttons = [],
+		if (additionalText)
+			theText = theText + '  ' + additionalText;
+		
+		let regBtn,
+        hotKey = util.getBundleString("quickfilters.notification.premium.btn.hotKey", "L"),
+				nbox_buttons = [],
         dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
+				
+		switch(util.Licenser.ValidationStatus) {
+			case State.Expired:
+				regBtn = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
+			  break;
+			default:
+			  regBtn = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
+		}
+				
 		if (notifyBox) {
 			let notificationKey = "quickfilters-proFeature",      
           countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") ;
@@ -461,19 +492,20 @@ quickFilters.Util = {
       util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
                                  + 'Countdown is ' + countDown);
       
+			if (!hotKey) hotKey='L'; // we also use this for hacking the style of the "Buy" button!
 			// button for disabling this notification in the future
-			if (countDown>0) {
+			if (countDown>-10) {
         // registration button
         if (isRegister) {
-          let registerMsg = util.getBundleString("quickfilters.notification.register", "Register {1}");
-          registerMsg = registerMsg.replace('{1}', 'quickFilters');
           nbox_buttons.push(
-            {
-              label: registerMsg,
-              accessKey: null, 
-              callback: function() { alert('not implemented yet'); quickFilters.Util.showDonatePage(); }, // need to implement this
-              popup: null
-            }
+						{
+							label: regBtn,
+							accessKey: hotKey,   
+							callback: function() { 
+								util.mainInstance.Util.Licenser.showDialog(featureName); 
+							},
+							popup: null
+						}
           )
         }
         
@@ -485,9 +517,10 @@ quickFilters.Util = {
               label: donateMsg,
               accessKey: null, 
               callback: function() { 
-                quickFilters.Util.showDonatePage(); 
+							  const theUtil = util.mainInstance.Util;
+                theUtil.showDonatePage(); 
                 let item = notifyBox.getNotificationWithValue(notificationKey); // notifyBox, notificationKey are closured
-                notifyBox.removeNotification(item, (quickFilters.Util.Application == 'Postbox'))
+                notifyBox.removeNotification(item, (theUtil.Application == 'Postbox'))
               },
               popup: null
             }
@@ -500,7 +533,7 @@ quickFilters.Util = {
 					{
 						label: dontShow,
 						accessKey: null, 
-						callback: function() { quickFilters.Util.disableFeatureNotification(featureName); },
+						callback: function() { util.mainInstance.Util.disableFeatureNotification(featureName); },
 						popup: null
 					}
 				);
@@ -704,6 +737,7 @@ quickFilters.Util = {
 	getAccountsPostbox: function getAccountsPostbox() {
 	  let accounts=[],
         Ci = Components.interfaces,
+				accountManager = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager),
 		    smartServers = accountManager.allSmartServers;
 		for (let i = 0; i < smartServers.Count(); i++) {
 			let smartServer = smartServers.QueryElementAt(i, Ci.nsIMsgIncomingServer),
@@ -874,7 +908,7 @@ quickFilters.Util = {
   createMessageIdArray: function createMessageIdArray(targetFolder, messageUris) {
     let Ci = Components.interfaces;
     try {
-      try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.createMessageIdArray: target = ' + targetFolder.prettiestName );}
+      try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.createMessageIdArray: target = ' + targetFolder.prettyName );}
       catch(e) { alert('quickFilters.Util.createMessageIdArray:' + e); }
 
       if (targetFolder.flags & this.FolderFlags.Virtual) {  // Ci.nsMsgFolderFlags.Virtual
@@ -1235,35 +1269,15 @@ quickFilters.Util = {
 		}
 	} ,
   
+	// returns an Array of "active Email addresses"
+	// = mail addresses of default identities only
   getIdentityMailAddresses: function getIdentityMailAddresses() {
     this.logDebug('getIdentityMailAddresses()');
     // make a stop list (my own email addresses)
-    let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                        .getService(Components.interfaces.nsIMsgAccountManager);
-                        
     let myMailAddresses = [];
-    for (let account in fixIterator(acctMgr.accounts, Components.interfaces.nsIMsgAccount)) {
-      try {
-        let idMail = '';
-        if (account.defaultIdentity) {
-          idMail = account.defaultIdentity.email;
-        }
-        else if (account.identities.length) {
-          idMail = account.identities[0].email; // outgoing identities
-        }
-        else {
-          this.logDebug('getIdentityMailAddresses() found account without identities: ' + account.key);
-        }
-        if (idMail) {
-          idMail = idMail.toLowerCase();
-          if (idMail && myMailAddresses.indexOf(idMail)==-1) 
-            myMailAddresses.push(idMail);
-        }
-      }
-      catch(ex) {
-        this.logException ('getIdentityMailAddresses()', ex);
-      }
-    }
+		
+		quickFilters.Shim.getIdentityMailAddresses(myMailAddresses);
+		
     this.logDebugOptional("default", 'getIdentityMailAddresses - retrieved ' + myMailAddresses.length + ' Addresses' );
     return myMailAddresses;
   } ,
@@ -1420,7 +1434,97 @@ quickFilters.Util = {
       } );
       return true;
     }
-  }
+  } ,
+	
+  hasPremiumLicense: function hasPremiumLicense(reset) {
+		const licenser = quickFilters.Util.Licenser;
+    // early exit for Licensed copies
+    if (licenser.isValidated) 
+      return true;
+    // short circuit if we already validated:
+    if (!reset && licenser.wasValidityTested)
+      return licenser.isValidated;
+    let licenseKey = quickFilters.Preferences.getStringPref('LicenseKey'),
+        util = quickFilters.Util;
+    if (!licenseKey) 
+      return false; // short circuit if no license key!
+    if (!licenser.isValidated || reset) {
+      licenser.wasValidityTested = false;
+      licenser.validateLicense(licenseKey);
+    }
+    if (licenser.isValidated) 
+      return true;
+    return false;
+  } ,
+	
+	// appends user=pro OR user=proRenew if user has a valid / expired license
+	makeUriPremium: function makeUriPremium(URL) {
+		const util = quickFilters.Util,
+					isPremiumLicense = util.hasPremiumLicense(false) || util.Licenser.isExpired;
+		try {
+			let uType = "";
+			if (util.Licenser.isExpired) 
+				uType = "proRenew"
+			else if (util.hasPremiumLicense(false))
+			  uType = "pro";
+			// make sure we can sanitize all pages for our premium users!
+			if (   uType
+			    && URL.indexOf("user=")==-1 
+					&& URL.indexOf("mozdev.quickfilters.org")>0 ) {
+				if (URL.indexOf("?")==-1)
+					URL = URL + "?user=" + uType;
+				else
+					URL = URL + "&user=" + uType;
+			}
+		}
+		catch(ex) {
+		}
+		finally {
+			return URL;
+		}
+	} ,
+  
+	viewLicense: function viewLicense() {
+		let win = quickFilters.Util.getMail3PaneWindow(),
+        params = {inn:{mode:"licenseKey",tab:-1, message: "", instance: win.quickFilters}, out:null};
+        
+		// open options and open the last tab!
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
+				quickFilters,
+				params).focus();
+	  
+	}, 
+	
+	viewSupport: function viewSupport() {
+		let win = quickFilters.Util.getMail3PaneWindow(),
+		    params = {inn:{mode:"supportOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
+				quickFilters,
+				params).focus();
+	},
+
+	viewAdvanced: function viewAdvanced() {
+		let win = quickFilters.Util.getMail3PaneWindow(),
+		    params = {inn:{mode:"advancedOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
+				quickFilters,
+				params).focus();
+	} ,
+	
+	viewFilterProps: function viewFilterProps() {
+		let win = quickFilters.Util.getMail3PaneWindow(),
+		    params = {inn:{mode:"newFilter",tab:-1, message: "", instance: win.quickFilters}, out:null};
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
+				quickFilters,
+				params).focus();
+	}
+	
+	
+	
   
 }; // Util
 

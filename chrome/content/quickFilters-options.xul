@@ -22,12 +22,14 @@
 			tooltiptextextra2="&qf.label.donateLink;"
 			>
 
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-preferences.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-utils.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-options.js" />
-	<script type="application/x-javascript;version=1.7" src="chrome://quickfilters/content/qFilters-worker.js" />
-
+	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-options.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-rsa.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-register.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
+	<script type="application/x-javascript" src="chrome://shimEc1/content/qFilters-shim-ecma.js" />
 
   <prefpane id="mainOptions" label="&pane1.title;" flex="2" selected="true">
 
@@ -177,10 +179,10 @@
 						 onclick="quickFilters.Util.showYouTube();" />
 			<spacer flex="1" />
     </vbox>
-  	<hbox id="qf-options-header" class="paneSelector" flex="50">
-  	  <image id="qf-options-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
+  	<hbox id="qf-options-header" class="paneSelector" flex="30">
+  	  <image id="qf-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
   		<label id="qf-options-version" 
-  		       oncontextmenu="quickFilters.Util.showVersionHistory(true);return false;" 
+			       oncontextmenu="quickFilters.Util.showVersionHistory(true);return false;" 
   		       tooltiptext="&qf.options.versionnumber.tooltip;"
   		       value="0.1"/>
   	</hbox>
@@ -192,6 +194,7 @@
 			<tab label="&qf.tab.newFilterProps;" id="quickFilters-FilterProperties" />
 			<tab label="&qf.tab.advanced;" id="quickFilters-Advanced" />
 			<tab label="&qf.tab.support;" id="quickFilters-Support" />
+			<tab label="&qf.tab.gopro;"  id="quickFilters-Pro" class="free" />
 		</tabs>
 
 		<tabpanels >
@@ -381,7 +384,7 @@
         <separator />
 	  </tabpanel> 
 
-	  <tabpanel id="quickFilters-Options-supprt"
+	  <tabpanel id="quickFilters-Options-support"
 			          orient="vertical" 
 			          label="&qf.tab.options;" 
 			          style="position:relative;">
@@ -404,6 +407,62 @@
                class="text-link" 
                onclick="quickFilters.Options.sendMail('axelg@gofree.indigo.ie');" >&qf.label.contactLink;</label>
 	  </tabpanel>  
+		
+		<!-- Licensing tab -->
+		<tabpanel id="quickFilters-Options-goPro" orient="vertical">
+			<description>&qf.label.insertLicense;</description>
+			<hbox id="licenseContainer" align="start">
+				<textbox id="txtLicenseKey"
+								 class="licenseKey"
+								 flex="1"
+								 multiline="true"
+								 rows="4"
+								 style="min-height: 4.5em;"
+								 tooltiptext="&qf.label.insertLicense.tooltip;"></textbox>
+				<vbox>
+					<button id="btnPasteLicense"
+									label="&qf.button.pasteLicense;"
+									oncommand="quickFilters.Options.pasteLicense();" />
+					<button id="btnValidateLicense"
+									label="&qf.button.validateLicense;"
+									oncommand="quickFilters.Options.validateLicenseInOptions(false);" />
+				</vbox>
+			</hbox>
+			<separator class="licenseSeparator" />
+			<hbox>
+				<label>&qf.label.licenseValid;</label>
+				<label id="licenseDate" value="-" />
+			</hbox>
+			<separator class = "licenseSeparator" />
+			<hbox id="validationResults">
+				<vbox>
+					<description id="validationPassed" class="niceFont" collapsed="true">&qf.licenseValidation.passed;</description>
+					<description id="validationFailed" class="niceFont" collapsed="true">&qf.licenseValidation.failed;</description>
+					<description id="validationExpired" class="niceFont" collapsed="true">&qf.licenseValidation.expired;</description>
+					<description id="validationInvalidEmail" class="niceFont" collapsed="true">&qf.licenseValidation.invalidMail;</description>
+					<description id="validationEmailNoMatch" class="niceFont" collapsed="true">&qf.licenseValidation.notMatchedMail;</description>
+				</vbox>
+				<spacer flex="1"/>
+			</hbox>
+			<separator  flex="1" />
+			<hbox>
+				<groupbox id="premiumConfig" disabled="true">
+					<caption label="&qf.premiumConfig;" />
+					<hbox>
+					</hbox>
+				</groupbox>
+				<spacer flex="1" />
+				<vbox height="40">
+					<hbox pack="end">
+					  <!-- will be populated / modified from bundle in code -->
+						<button id="btnLicense" 
+										label="Buy License"
+										oncommand="quickFilters.Licenser.showDialog('licenseTab');setTimeout( function() {window.close();}, 200 );" />
+					</hbox>
+				</vbox>
+			</hbox>
+			<separator flex="1" />
+		</tabpanel>
 
 	  
 	</tabpanels>
