@@ -161,6 +161,34 @@ toolbar:not([iconsize="small"]) #quickfilters-toolbar-msg-runbutton image
   height: 24px;
 }
 
+/* buy now button */
+@keyframes quickfiltersPulse {
+    0% { transform: scale(0.75) !important; opacity: 0.5; }
+    50% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.75) !important; opacity: 0.5; }
+}
+notification[value="quickfilters-proFeature"] .notification-button[accesskey] {
+	-moz-appearance: none;
+  animation: quickfiltersPulse 3s 1s ease-in-out infinite;
+	background-color: rgb(7, 97, 48) !important;
+	background: linear-gradient(to bottom, rgba(184,211,27,1) 0%,rgba(122,166,18,1) 50%,rgba(92,138,0,1) 51%,rgba(135,181,19,1) 100%) !important;
+	border: 1px solid white;
+	border-radius: 1px;
+	box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
+	cursor: pointer !important;
+	font-weight: bold;
+	transition-property: box-shadow, margin;
+	transition-duration: 0.75s, 0.2s;
+	height: 135% !important;
+	width: 135% !important;
+}
+
+notification[value="quickfilters-proFeature"] .notification-button[accesskey]:hover {
+	background: -moz-linear-gradient(top, #dbe42e 0%,#a8cc16 50%,#8fba00 51%,#b6d917 100%)  !important;
+}
+
+
 notification[value="quickfilters-filter"] image.messageImage,
 notification[value="quickfilters-proFeature"] image.messageImage {
 	/* filterTemplate.png */
