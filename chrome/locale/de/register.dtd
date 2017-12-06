@@ -1,0 +1,28 @@
+<!ENTITY licenseWindow.title "quickFilters Pro Lizenz">
+<!ENTITY qf.label.licenseValid "Ihre Lizenz ist gültig bis:">
+<!ENTITY qf.label.haveLicense "Sie haben bereits eine Lizenz?">
+<!ENTITY getquickFilters "Holen Sie sich quickFilters Pro">
+<!ENTITY intro "Eine Jahreslizenz für quickFilters Pro gibt Ihnen Zugriff auf alle Premium Funktionen für ein Jahr. Dies ermöglicht uns dieses Produkt weiter zu unterstützen und zu verbessern. Mit Ihrer Hilfe wird quickFilters weiter fantastisch!">
+<!ENTITY testDrive "Premium Funktionen können in der Gratisversion getestet werden, in manchen Fällen mit eingeschränktem Funktionsumfang.">
+<!ENTITY yearlyLicense.title "Jahreslizenz">
+<!ENTITY yearlyLicense.premiumFeatures "quickFilters Pro bietet Ihnen vollen Zugriff auf alle Premium Funktionen.">
+<!ENTITY yearlyLicense.premiumFeatures.moreInfoLink "Weitere Informationen über Premium Funktionen.">
+<!ENTITY yearlyLicense.usageTerm "Die Lizenz ist für persönliche Nutzung (eine Person) und an Ihre Email Adresse gebunden. Sie kann auf mehreren Mailprogrammen installiert werden so lange diese auch die Mail Adresse nutzen.">
+<!ENTITY domainLicense.email "Wir kontaktieren Sie über diese Email Adresse um Ihre Domänen-Lizenz erzeugen; bitte erlauben Sie dafür 2 Werktage. Sie können den Domänen-Namen im nächsten Schritt eingeben.">
+<!ENTITY domainLicense.header "Lizenzierte Email Domäne">
+<!ENTITY domainLicense.instruct "Der Lizenzschlüssel enthält die Domäne Ihrer Firma. Die Lizenz erlaubt Benutzern mit Email-Adressen welche mit diesem Namen enden die Benutzung von quickFilters Pro. Wenn sie z.B. den Domänennamen 'abc.com' eingeben, dann können Benutzer wie fred@abc.com, martina@abc.com, michael.schulz@abc.com usw. die Lizenz nutzen. Die maximale Anzahl individueller Benutzer entspricht der Nummer die im ersten Schritt eingegeben wurde.">
+<!ENTITY domainLicense.validate "Bitte stellen Sie sicher, daß der Domänenname *exakt* der von den Email Adressen Ihrer Firma entspricht (der text *nach* dem @ Symbol), denn dieser wird bei der Autorisierung Ihrer Mitarbeiter benutzt.">
+<!ENTITY updates.title "Aktualisierung">
+<!ENTITY updatesExpiry "quickFilters Pro wird automatisch über addons.mozilla.org aktualisiert. Nach dem Ablauf des Jahres können Sie die Lizenz erneuern oder die Premium Funktionen unter denselben Bedingungen wie Gratisnutzer nutzen. 'Premium Exklusivfunktionen' setzen allerdings eine gültige Lizenz voraus.">
+<!ENTITY vouchers.title "Gutscheine">
+<!ENTITY freeLicense "Falls Sie in letzter Zeit dem quickFilters Projekt gespendet oder mit Arbeit beigetragen haben, z.B. durch Übersetzung oder Softwarepatches, können Sie für eine Gratislizenz qualifiziert sein. Kontaktieren Sie mich einfach vom 'Support' Reiter im quickFilters Optionen Dialog.">
+<!ENTITY account.label "Konto wählen:">
+<!ENTITY email.label "Email:">
+<!ENTITY firstName.label "Vorname:">
+<!ENTITY lastName.label "Nachname:">
+<!ENTITY buyLicense.instruct "Sie benutzen quickFilters persönlich? Holen Sie sich eine Einzelplatz-Lizenz. Diese Lizenz ist an Ihre persönliche Email Adressen gebunden. Sie kann auf mehreren Installationen verwendet werden.">
+<!ENTITY buyPersonalLicense.button "Einzel-Lizenz erwerben!">
+<!ENTITY buyDomainLicense.instruct "Sie benötigen Lizenzen für eine Firma mit mehr als 5 Benutzern? Eine Domänen-Lizenz ist hier billiger:">
+<!ENTITY buyDomainLicense.button "Domänen Lizenz erwerben">
+<!ENTITY enterLicenseKey.button "Lizenzschlüssel eingeben…">
+<!ENTITY enterLicenseKey.tooltip "Geben Sie den Lizenzschlüssel aus der Registrierungs-Mail ein.">
