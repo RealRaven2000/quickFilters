@@ -1,0 +1,14 @@
+<!ENTITY quickfilters.customTemplate.name "Nombre del modelo:">
+<!ENTITY quickfilters.customVariable.label "Variables personalizadas">
+<!ENTITY quickfilters.customVariable.tooltip "En creación de filtros , estas variables se sustituyen por las cabeceras de los mensajes correspondientes del correo actual .">
+<!ENTITY quickfilters.customHeader.From "De">
+<!ENTITY quickfilters.customHeader.To "para">
+<!ENTITY quickfilters.customHeader.ReplyTo "Responder a">
+<!ENTITY quickfilters.customHeader.Subject "Asunto">
+<!ENTITY quickfilters.customHeader.SubjectRegex "Expresion regular de tema:">
+<!ENTITY quickfilters.customHeader.Newsgroups "Grupos nuevos">
+<!ENTITY quickfilters.customHeader.Email "Dirección de correo">
+<!ENTITY quickfilters.customHeader.Domain "Dominio de correo electrónico">
+<!ENTITY quickfilters.customHeader.NamePart "Nombre completo">
+<!ENTITY quickfilters.customHeader.FirstName "Primer nombre">
+<!ENTITY quickfilters.customHeader.LastName "Apellido">

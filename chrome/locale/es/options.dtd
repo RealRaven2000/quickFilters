@@ -1,0 +1,73 @@
+<!ENTITY prefwindow.title "Preferencias de quickFilters">
+<!ENTITY pane1.title "Preferencias de quickFilters">
+<!ENTITY chkDebug.label "Modo de depuración">
+<!ENTITY chkDebug.accesskey "p">
+<!ENTITY chkAutoClose.label "Salir del asistente de filtros después de que se haya creado un filtro">
+<!ENTITY chkAutoClose.accesskey "S">
+<!ENTITY chkAutoStart.label "Iniciar automáticamente el modo del asistente de filtros junto con la aplicación">
+<!ENTITY chkAutoStart.accesskey "I">
+<!ENTITY chkToolbar.label "Mostrar barra de herramientas en el administrador de filtros">
+<!ENTITY chkToolbar.accesskey "M">
+<!ENTITY chkShowList.label "Mostrar lista de filtros tras la creación de un filtro">
+<!ENTITY chkShowList.tooltip "Muestra la lista para que ejecute el nuevo filtro sobre todos los mensajes para realizar pruebas.">
+<!ENTITY chkImapOnRead.label "Ejecutar también el filtro sobre correos leídos en cuentas IMAP.">
+<!ENTITY donate.label "Donar">
+<!ENTITY qf.description.donate "Si le gusta quickFilters, y desea apoyar su desarrollo, puede donar algo de dinero en favor de la continuidad del desarrollo de quickFilters.">
+<!ENTITY qf.label.donateLink "Visitar la página de donación...">
+<!ENTITY qf.description.about "Puede encontrar una descripción rápida de quickFilters en el siguiente sitio:">
+<!ENTITY qf.label.aboutLink "Sitio web de quickFilters...">
+<!ENTITY qf.description.contactMe "También puede contactar conmigo personalmente en axelg@gofree.indigo.ie:">
+<!ENTITY qf.label.contactLink "Contactar conmigo (en inglés o alemán)...">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "Haga clic secundario para ver el historial de versiones.">
+<!ENTITY qf.youtube.tbdaily "Visite Thunderbird Daily - Un canal de YouTube de consejos y tutoriales para usar quickFilters y correo en el escritorio">
+<!ENTITY qf.tab.options "Opciones">
+<!ENTITY qf.tab.actions "Acciones">
+<!ENTITY qf.tab.newFilterProps "Propiedades del nuevo filtro">
+<!ENTITY qf.tab.advanced "Avanzadas">
+<!ENTITY qf.tab.support "Soporte">
+<!ENTITY chkAutoRun.label "Aplicar filtro al recibir correo nuevo">
+<!ENTITY chkAlphabetic.label "Insertar nuevos filtros en orden alfabético">
+<!ENTITY chkAlphabetic.tooltip "Usa el nombre del filtro para determinar su posición. Recomendado con la regla de nomenclatura de la carpeta antecesora. ¡Observe que esto afecta al orden de ejecución de filtros!">
+<!ENTITY qf.label.naming "Reglas de nomenclatura">
+<!ENTITY qf.label.naming.parentFolder "Añadir nombre de la carpeta antecesora">
+<!ENTITY qf.label.naming.parentFolder.accesskey "n">
+<!ENTITY qf.label.naming.keyWord "Añadir palabra clave específica para la regla">
+<!ENTITY qf.label.naming.keyWord.accesskey "p">
+<!ENTITY qf.templates.advanced "Plantillas avanzadas">
+<!ENTITY qf.templates.customTemplate.label "Plantillas personalizadas">
+<!ENTITY qf.templates.customTemplate.tooltip "Permite la generación de plantillas personalizadas, vea la descripción del fallo para más detalles.">
+<!ENTITY qf.templates.customTemplate.edit "Editar...">
+<!ENTITY qf.templates.customTemplate.new "Crear nueva...">
+<!ENTITY qf.templates.replyTo.label "Plantilla 'Responder a'">
+<!ENTITY qf.templates.replyTo.tooltip "Muestra la plantilla 'Responder a', vea la descripción del fallo para más detalles.">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Mostrar lista de filtros">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Ejecutar filtros sobre la carpeta">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Ejecutar filtros sobre los mensajes seleccionados">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Buscar filtros para la carpeta">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Busca cualquier filtro que mueva correo a esta carpeta.">
+<!ENTITY qf.label.currentFolderButtons "Barra de herramientas de la carpeta actual de quickFolders">
+<!ENTITY qf.description.currentFolderButtons "Esta opción sólo es aplicable si está usando el complemento quickFolders, que añade una pequeña barra de herramientas en la parte superior del panel de previsualización.">
+<!ENTITY grpMerge.label "Reglas de combinado">
+<!ENTITY chkMergeAuto.label "Seleccionar combinar automáticamente">
+<!ENTITY chkMergeAuto.tooltip "Si ya existe un filtro, esto seleccionará automáticamente el modo de combinado y el primer filtro coincidente.">
+<!ENTITY chkMergeSkip.label "Saltar hasta el paso de la plantilla">
+<!ENTITY chkMergeSkip.tooltip "Esto omitirá el paso 'seleccionar objetivo de combinado' e irá directo a 'seleccionar plantilla'.">
+<!ENTITY qf.cloned.label "Añadir al nombre del filtro clonado:">
+<!ENTITY qf.onewayaddress.label "Deshabilitar las condiciones de búsqueda de direcciones para ambos sentidos">
+<!ENTITY qf.onewayaddress.tooltip "Por defecto, quickFilters añade condiciones de búsqueda tanto para 'De' como para 'A'  para la asistencia al filtrado de hilos completos de mensajes, incluyendo sus propios correos para el destinatario. Si quiere mantener siempre sus respuestas en la carpeta Enviados, puede deshabilitar este comportamiento aquí. El complemento 'Copy Sent to Current' (copiar enviados a actual) se puede usar para mantener las respuestas junto a los correos que las originan.">
+<!ENTITY qf.postbox.quickmove "Postbox: Soportar la característica de movimiento rápido">
+<!ENTITY qf.listener.tags "Atender cambios de etiquetas">
+<!ENTITY qf.listener.tags.tooltip "Cuando está activada, el asistente de filtros se abrirá también cuando etiquete un mensaje.">
+<!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.insertLicense "Inserte su clave de licencia personal aquí:">
+<!ENTITY qf.label.insertLicense.tooltip "Su clave de licencia está incluida en su correo de confirmación de orden recibido desde FastSpring.">
+<!ENTITY qf.button.pasteLicense "pegar">
+<!ENTITY qf.button.validateLicense "validar">
+<!ENTITY qf.label.licenseValid "Su licencia es válida hasta:">
+<!ENTITY qf.licenseValidation.passed "¡Gracias por registrar quickFilters Pro! Todas las características Premium ahora están desbloqueadas.">
+<!ENTITY qf.licenseValidation.failed "La clave de licencia que ha introducido no es válida. Compruebe su correo en busca de instrucciones desde FastSpring. Si todavía tiene problemas, por favor, contacte conmigo desde la pestaña Soporte.">
+<!ENTITY qf.licenseValidation.expired "La clave de licencia que introdujo ha caducado. Por favor, pulse el botón de debajo para renovar su licencia.">
+<!ENTITY qf.licenseValidation.invalidMail "La dirección de correo electrónico ligada a la clave de licencia [{1}] actualmente no está listada en ninguna de sus cuentas de correo. Por favor, contacte conmigo desde la pestaña Soporte para asistencia.">
+<!ENTITY qf.licenseValidation.notMatchedMail "La dirección de correo electrónico cifrada no coincide con la legible.">
+<!ENTITY qf.premiumConfig "Características Premium">

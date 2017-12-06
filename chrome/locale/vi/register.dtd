@@ -1,0 +1,28 @@
+<!ENTITY licenseWindow.title "quickFilters Pro License">
+<!ENTITY qf.label.licenseValid "Your license is valid until:">
+<!ENTITY qf.label.haveLicense "Already have a License?">
+<!ENTITY getquickFilters "Get quickFilters Pro">
+<!ENTITY intro "An annual license for quickFilters Pro gives you all premium features for a year. It also enables us to support and grow the product further and turn it into something even more awesome.">
+<!ENTITY testDrive "You can test drive the premium features with the free version, but they might be slightly restricted.">
+<!ENTITY yearlyLicense.title "Annual License">
+<!ENTITY yearlyLicense.premiumFeatures "quickFilters Pro gives you full unrestricted access to the premium features.">
+<!ENTITY yearlyLicense.premiumFeatures.moreInfoLink "More about premium features.">
+<!ENTITY yearlyLicense.usageTerm "The license is for your personal use and is tied to your email address. You can install it on multiple email clients as long as they are configured to use that address.">
+<!ENTITY domainLicense.email "We will contact you using this email address to generate your domain license; please allow two business days for us to get in touch. Enter the domain name for the license on the next page.">
+<!ENTITY domainLicense.header "Licensed Email Domain">
+<!ENTITY domainLicense.instruct "The license is keyed to your company domain. The license will allow users with email addresses ending on this email domain to use quickFilters Pro. E.g. if you enter the domain name 'abc.com' then mail users like fred@abc.com, martha@abc.com, mike.doe@abc.com etc. are allowed to use the license. The maximum number of valid individual users is the number you have entered on the initial screen.">
+<!ENTITY domainLicense.validate "Make sure you enter the domain name *exactly as it is* on your Company's email addresses (the part *after* the @ sign), as it will be used to authorize the email addresses of your users.">
+<!ENTITY updates.title "Updates">
+<!ENTITY updatesExpiry "quickFilters Pro will be automatically updated via addons.mozilla.org as usual. After the year expires you can renew the license or keep using premium features under same terms as free users. 'Premium Exclusive' features will require a valid registration key.">
+<!ENTITY vouchers.title "Vouchers">
+<!ENTITY freeLicense "If you have recently donated to the quickFilters project or have done contributory work, such as translating or writing patches, you may be eligible for a free license key. Contact me from the support tab in quickFilters Options.">
+<!ENTITY account.label "Select account:">
+<!ENTITY email.label "Email:">
+<!ENTITY firstName.label "First Name:">
+<!ENTITY lastName.label "Last Name:">
+<!ENTITY buyLicense.instruct "Need a license for yourself? Get a single user license. It is bound to your personal Email address and can be used in multiple installations.">
+<!ENTITY buyPersonalLicense.button "Buy Personal License!">
+<!ENTITY buyDomainLicense.instruct "Need Licenses for a company with more than five users? Getting a domain license will work out cheaper:">
+<!ENTITY buyDomainLicense.button "Buy Domain License">
+<!ENTITY enterLicenseKey.button "Enter License Key…">
+<!ENTITY enterLicenseKey.tooltip "Enter the License Key code sent to you via Email.">

@@ -1,0 +1,37 @@
+<!ENTITY prefwindow.title "Preferencias Quick">
+<!ENTITY pane1.title "Preferencias Quick">
+<!ENTITY chkDebug.label "Modo depurador">
+<!ENTITY chkDebug.accesskey "D">
+<!ENTITY chkAutoClose.label "Salir del asistente de filtros después que un filtro ha sido creado.">
+<!ENTITY chkAutoClose.accesskey "E">
+<!ENTITY chkAutoStart.label "Iniciar modo de asistente de filtro automáticamente con la aplicación.">
+<!ENTITY chkAutoStart.accesskey "A">
+<!ENTITY chkToolbar.label "Visualizar barra en administrador de filtro">
+<!ENTITY chkToolbar.accesskey "T">
+<!ENTITY chkShowList.label "Visualizar lista de filtros después de la creación del filtro">
+<!ENTITY donate.label "Donar">
+<!ENTITY qf.description.donate "Si te gusta quickFilters y quisiera apoyar su desarrollo , puede donar algo de dinero para el futuro desarrollo de quickFilters .">
+<!ENTITY qf.label.donateLink "Visitar pagina de Donación...">
+<!ENTITY qf.description.about "Una breve descripción de quickFilters se puede encontrar en el siguiente sitio:">
+<!ENTITY qf.label.aboutLink "Sitio quickFilters...">
+<!ENTITY qf.description.contactMe "También puede ponerse en contacto conmigo personalmente a través de axelg@gofree.indigo.ie :">
+<!ENTITY qf.label.contactLink "Contácteme (en Ingles o Aleman)">
+<!ENTITY qf.label.quickfilters "quickFilters">
+<!ENTITY qf.options.versionnumber.tooltip "Click derecho para revisión historica">
+<!ENTITY qf.youtube.tbdaily "Visita Thunderbird Daily - Canal de YouTube para obtener consejos y tutoriales para el uso de quickFilters y correo de escritorio">
+<!ENTITY qf.tab.options "Opciones">
+<!ENTITY qf.tab.actions "Acciones">
+<!ENTITY qf.tab.newFilterProps "Nuevas propiedades de filtros">
+<!ENTITY qf.tab.advanced "Avanzado">
+<!ENTITY qf.tab.support "Soporte">
+<!ENTITY chkAutoRun.label "Aplicar filtro al conseguir el correo nuevo">
+<!ENTITY qf.label.naming "Reglas de nombrado">
+<!ENTITY qf.label.naming.parentFolder "Añadir nombre de carpeta principal">
+<!ENTITY qf.label.naming.parentFolder.accesskey "p">
+<!ENTITY qf.label.naming.keyWord "Añadir palabra clave a una regla específica">
+<!ENTITY qf.label.naming.keyWord.accesskey "k">
+<!ENTITY qf.templates.advanced "Plantillas avanzadas">
+<!ENTITY qf.templates.customTemplate.label "Plantillas personalizadas">
+<!ENTITY qf.templates.customTemplate.tooltip "Permite la generación de plantillas personalizadas, consulte la descripción del error para el detalle.">
+<!ENTITY qf.templates.customTemplate.edit "Editar...">
+<!ENTITY qf.templates.customTemplate.new "Crear nuevo...">

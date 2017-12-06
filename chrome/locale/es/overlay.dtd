@@ -1,0 +1,12 @@
+<!ENTITY quickfilters.Start.label "Iniciar asistente de filtros...">
+<!ENTITY quickfilters.FromMessage.label "quickFilters: Crear filtro de mensaje para 'De' ...">
+<!ENTITY quickfilters.FromMessage.accesskey "q">
+<!ENTITY quickfiltersToolbarButton.label "Asistente de quickFilters">
+<!ENTITY quickfiltersToolbarButton.tooltip "Activa el asistente de filtros">
+<!ENTITY quickfilters.ListButton.label "Filtros de mensaje...">
+<!ENTITY quickfilters.ListButton.tooltip "Muestra una lista de filtros de mensaje">
+<!ENTITY quickfilters.RunButton.label "Ejecutar filtros">
+<!ENTITY quickfilters.RunButtonMsg.label "Filtrar correos seleccionados">
+<!ENTITY quickfilters.RunButton.tooltip "Ejecuta los filtros establecidos para la carpeta actual">
+<!ENTITY quickfilters.RunButtonMsg.tooltip "Ejecuta los filtros sobre los correos seleccionados">
+<!ENTITY quickfilters.findFiltersForFolder.menu "Buscar filtros...">

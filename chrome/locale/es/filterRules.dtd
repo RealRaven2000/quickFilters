@@ -1,0 +1,19 @@
+<!ENTITY quickfilters.customTemplate.title "Plantilla personalizada de quickFilters">
+<!ENTITY quickfilters.customTemplate.name "Nombre de la plantilla:">
+<!ENTITY quickfilters.customVariable.label "Variables personalizadas">
+<!ENTITY quickfilters.customVariable.tooltip "Al crear filtros, estas variables se reemplazan con las correspondientes cabeceras de correo del correo actual.">
+<!ENTITY quickfilters.customHeader.From "De">
+<!ENTITY quickfilters.customHeader.To "A">
+<!ENTITY quickfilters.customHeader.CarbonCopy "Copia (CC)">
+<!ENTITY quickfilters.customHeader.BlindCarbonCopy "Copia ciega (BBC)">
+<!ENTITY quickfilters.customHeader.ReplyTo "Responder a">
+<!ENTITY quickfilters.customHeader.Subject "Asunto">
+<!ENTITY quickfilters.customHeader.SubjectRegex "Expresión regular (regex) para el asunto">
+<!ENTITY quickfilters.customHeader.ListId "Identificador de la lista">
+<!ENTITY quickfilters.customHeader.ListPost "Mensaje de la lista">
+<!ENTITY quickfilters.customHeader.Newsgroups "Grupos de noticias">
+<!ENTITY quickfilters.customHeader.Email "Dirección del correo electrónico">
+<!ENTITY quickfilters.customHeader.Domain "Dominio del correo electrónico">
+<!ENTITY quickfilters.customHeader.NamePart "Nombre completo">
+<!ENTITY quickfilters.customHeader.FirstName "Nombre">
+<!ENTITY quickfilters.customHeader.LastName "Apellidos">

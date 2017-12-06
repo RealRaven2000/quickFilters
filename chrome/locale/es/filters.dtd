@@ -1,0 +1,29 @@
+<!ENTITY qf.filters.title "Crear filtros">
+<!ENTITY qf.filters.template.from "En base al remitente ('De')">
+<!ENTITY qf.filters.template.domain "En base al dominio del remitente">
+<!ENTITY qf.filters.template.multifrom "Grupo (recopila remitentes de múltiples correos)">
+<!ENTITY qf.filters.template.to "En base al destinatario ('A')">
+<!ENTITY qf.filters.template.replyto "En base a 'Responder a'">
+<!ENTITY qf.filters.template.list "Lista de correo">
+<!ENTITY qf.filters.template.topic "Por asunto">
+<!ENTITY qf.filters.template.tag "Por etiquetas">
+<!ENTITY qf.filters.templates.description.label "Descripción:">
+<!ENTITY qf.filters.instructions "Por favor, seleccione una plantilla. Puede ajustar con precisión las reglas del filtro en la siguiente pantalla.">
+<!ENTITY qf.continueFilter.label "Crear filtro...">
+<!ENTITY qf.continueFilter.shortcut "f">
+<!ENTITY qf.filters.actions.caption "Acciones">
+<!ENTITY qf.filters.actions.targetFolder "Carpeta de destino">
+<!ENTITY qf.filters.actions.tag "Etiquetas">
+<!ENTITY qf.filters.actions.tag.accesskey "E">
+<!ENTITY qf.filters.actions.priority "Prioridad">
+<!ENTITY qf.filters.actions.priority.accesskey "P">
+<!ENTITY qf.filters.actions.flag "Indicador">
+<!ENTITY qf.filters.actions.flag.accesskey "I">
+<!ENTITY qf.filters.actions.star "Estrella">
+<!ENTITY qf.filters.actions.star.accesskey "s">
+<!ENTITY qf.filters.actions.tooltip "El filtro copia estos atributos del correo original">
+<!ENTITY qf.label.donate "Donar">
+<!ENTITY qf.donate.tooltip "¡Apoye el desarrollo de quickFilters!">
+<!ENTITY qf.label.cancel "Cancelar">
+<!ENTITY qf.check.createNew "Crear un nuevo filtro">
+<!ENTITY qf.check.mergeWithExisting "Combinar con un filtro existente:">
