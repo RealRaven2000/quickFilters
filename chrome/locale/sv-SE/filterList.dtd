@@ -1,7 +1,7 @@
 <!ENTITY qf.label.filterCountN_of_M "{0} av {1}">
 <!ENTITY qf.label.filterEntities "objekt">
 <!ENTITY qf.label.filterSingleEntity "1 objekt">
-<!ENTITY qf.textbox.searchBox.emptyText "Sök filter efter namn …">
+<!ENTITY qf.textbox.searchBox.emptyText "Sök filter efter namn…">
 <!ENTITY qf.textbox.searchBox.toolTip "ange ett nyckelord för att söka bland dina filter efter namn">
 <!ENTITY qf.button.reorderButtonTop "Flytta högst upp">
 <!ENTITY qf.button.reorderButtonTop.accessKey "u">
@@ -20,19 +20,19 @@
 <!ENTITY quickfilters.menu.cut "Klipp ut">
 <!ENTITY quickfilters.menu.copy "Kopiera">
 <!ENTITY quickfilters.menu.paste "Klistra in">
-<!ENTITY quickfilters.button.settings "Inställningar för quickFilters …">
+<!ENTITY quickfilters.button.settings "Inställningar för quickFilters…">
 <!ENTITY quickfilters.button.assistant "Växla assistentläge …">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Växlar filterassistentläget av/på. När det är aktiverat, dra och släpp e-brev för att skapa filter.">
 <!ENTITY quickfilters.button.support "quickFilters supportwebbplats">
-<!ENTITY quickfilters.button.searchProperties "Ändra sökegenskaper …">
+<!ENTITY quickfilters.button.searchProperties "Ändra sökegenskaper…">
 <!ENTITY quickfilters.option.searchProperty.name "Namn">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Målmapp">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Sökvillkor (text)">
 <!ENTITY quickfilters.option.searchProperty.addTag "Lägg till tagg (etikett)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Svara med mall">
 <!ENTITY quickfilters.button.findDuplicates.label "Sök efter dubbletter">
-<!ENTITY quickfilters.button.findDuplicates.tooltip "Sök efter dubblettattribut">
+<!ENTITY quickfilters.button.findDuplicates.tooltip "Sök efter dubblettattributer">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Avbryt dubbletthanteringen">
-<!ENTITY quickfilters.button.cancelDuplicates.tooltip "Återställ dubblettsökvärdena">
+<!ENTITY quickfilters.button.cancelDuplicates.tooltip "Återställ dubblettsökvärden">
 <!ENTITY quickfilters.button.cancelFindInFolder.label "Avbryt sökning">
 <!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Avbryt sökning efter mapp">

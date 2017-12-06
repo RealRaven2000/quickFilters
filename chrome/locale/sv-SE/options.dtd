@@ -13,11 +13,11 @@
 <!ENTITY chkImapOnRead.label "Kör även filter på lästa e-postmeddelanden i IMAP-konton.">
 <!ENTITY donate.label "Donera">
 <!ENTITY qf.description.donate "Om du tycker om quickFilters och skulle vilja stödja dess fortsatta utveckling, så kan du donera en slant för att hjälpa utvecklaren.">
-<!ENTITY qf.label.donateLink "Gå till donationssidan …">
+<!ENTITY qf.label.donateLink "Gå till donationssidan…">
 <!ENTITY qf.description.about "En snabbläst beskrivning av quickFilters hittas på följande webbplats:">
-<!ENTITY qf.label.aboutLink "quickFilters webbplats …">
+<!ENTITY qf.label.aboutLink "quickFilters webbplats…">
 <!ENTITY qf.description.contactMe "Du kan även kontakta mig personligen på axelg@gofree.indigo.ie:">
-<!ENTITY qf.label.contactLink "Kontakta mig (på engelska eller tyska) …">
+<!ENTITY qf.label.contactLink "Kontakta mig (på engelska eller tyska)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Högerklicka för versionshistorik.">
 <!ENTITY qf.youtube.tbdaily "Besök Thunderbord Daily - YouTube-kanalen för tips och guider om quickFilters och e-post på datorer">
@@ -48,11 +48,11 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Hitta alla filter som flyttar meddelanden till denna mapp.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders verktygsfält för aktuell meddelandemapp">
 <!ENTITY qf.description.currentFolderButtons "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen.">
-<!ENTITY grpMerge.label "Sammanfogningsregler">
-<!ENTITY chkMergeAuto.label "Välj Sammanfoga automatiskt">
-<!ENTITY chkMergeAuto.tooltip "Om ditt nya filter redan finns kommer quickFilters automatiskt att sammanfoga det med det första matchande filtret.">
+<!ENTITY grpMerge.label "Sammanslagningsregler">
+<!ENTITY chkMergeAuto.label "Välj Slå samman automatiskt">
+<!ENTITY chkMergeAuto.tooltip "Om ditt nya filter redan finns kommer quickFilters automatiskt att slå samman det med det första matchande filtret.">
 <!ENTITY chkMergeSkip.label "Hoppa till Välj mall">
-<!ENTITY chkMergeSkip.tooltip "Hoppar över steget Välj sammanfogningsmål och går direkt till Välj mall.">
+<!ENTITY chkMergeSkip.tooltip "Hoppar över steget Välj sammanslagningsmål och går direkt till Välj mall.">
 <!ENTITY qf.cloned.label "Bifoga följande till namnet på duplicerat filter:">
 <!ENTITY qf.onewayaddress.label "Inaktivera tvåvägssökvillkor för adresser">
 <!ENTITY qf.onewayaddress.tooltip "Som standard lägger quickFilters till sökvillkor för både &quot;från&quot; och &quot;till&quot;, för att underlätta fullständig filtrering av meddelandetrådar som innehåller dina egna e-brev till mottagaren. Om du alltid vill förvara dina svar i mappen Skickat, så kan du inaktivera detta beteende här. Tillägget &quot;Copy Sent to Current&quot; kan användas för att behålla svarsmeddelanden tillsammans med de ursprungliga e-breven.">
