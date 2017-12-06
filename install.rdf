@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:type>2</em:type> 
         <em:id>quickFilters@axelg.com</em:id>
-        <em:version>3.3pre48</em:version>
+        <em:version>3.4pre111</em:version>
 
 		<em:creator>Axel Grude</em:creator>
 		<!-- Thunderbird -->
@@ -20,17 +20,18 @@
 				<Description>
 						<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
 						<em:minVersion>2.34</em:minVersion>
-						<em:maxVersion>2.48</em:maxVersion>
+						<em:maxVersion>2.49</em:maxVersion>
 				</Description>
 		</em:targetApplication>
 		<!-- Postbox  -->
 		<em:targetApplication>
 				<Description>
 						<em:id>postbox@postbox-inc.com</em:id>
-						<em:minVersion>3.0.0</em:minVersion>
+						<em:minVersion>4.0.0</em:minVersion>
 						<em:maxVersion>5.*</em:maxVersion>
 				</Description>
 		</em:targetApplication>
+
 		<em:name>quickFilters</em:name>
 		<em:contributor>http://dryicons.com: ledgers icon</em:contributor>
 		<em:contributor>Yusuke Kamiyamane: fugue icons</em:contributor>
