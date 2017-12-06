@@ -16,6 +16,7 @@ pref("extensions.quickfilters.debug.filterList",false);
 pref("extensions.quickfilters.debug.filterSearch",false);
 pref("extensions.quickfilters.debug.filterSearch.detail",false);
 pref("extensions.quickfilters.debug.getSourceFolder", false);
+pref("extensions.quickfilters.debug.identities", false);
 pref("extensions.quickfilters.debug.listeners", false);
 pref("extensions.quickfilters.debug.merge", false);
 pref("extensions.quickfilters.debug.nostalgy", false);
@@ -23,6 +24,10 @@ pref("extensions.quickfilters.debug.msgMove",false);
 pref("extensions.quickfilters.debug.replaceReservedWords",false);
 pref("extensions.quickfilters.debug.template.multifrom", false);
 pref("extensions.quickfilters.debug.template.custom", false);
+pref("extensions.quickfilters.debug.premium", false);
+pref("extensions.quickfilters.debug.premium.licenser", false);
+pref("extensions.quickfilters.debug.premium.rsa", false);
+
 // from smartTemplate4
 pref("extensions.quickfilters.debug.functions", false);
 pref("extensions.quickfilters.debug.mime", false);
@@ -76,7 +81,6 @@ pref("extensions.quickfilters.templates.replyTo", false);
 // custom templates
 pref("extensions.quickfilters.templates.custom", false);
 
-
 pref("extensions.quickfilters.notifications.runFilter", true);
 
 // Premium features
@@ -89,6 +93,10 @@ pref("extensions.quickfilters.proNotify.sortFilters.countDown", 20);
 pref("extensions.quickfilters.proNotify.customTemplate", true);
 pref("extensions.quickfilters.proNotify.customTemplate.countDown", 20);
 
+// quickFilters Pro specific:
+pref("extensions.quickfilters.licenser.forceSecondaryIdentity",false);
+pref("extensions.quickfilters.licenseType", 0); // private license, 1-domain
+pref("extensions.quickfilters.LicenseKey", "");
 
 
 pref("extensions.quickfilters.mime.resolveAB", false);
