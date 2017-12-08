@@ -13,11 +13,11 @@
 <!ENTITY chkImapOnRead.label "Ejecutar también el filtro sobre correos leídos en cuentas IMAP.">
 <!ENTITY donate.label "Donar">
 <!ENTITY qf.description.donate "Si le gusta quickFilters, y desea apoyar su desarrollo, puede donar algo de dinero en favor de la continuidad del desarrollo de quickFilters.">
-<!ENTITY qf.label.donateLink "Visitar la página de donación...">
+<!ENTITY qf.label.donateLink "Visitar la página de donación…">
 <!ENTITY qf.description.about "Puede encontrar una descripción rápida de quickFilters en el siguiente sitio:">
-<!ENTITY qf.label.aboutLink "Sitio web de quickFilters...">
+<!ENTITY qf.label.aboutLink "Sitio web de quickFilters…">
 <!ENTITY qf.description.contactMe "También puede contactar conmigo personalmente en axelg@gofree.indigo.ie:">
-<!ENTITY qf.label.contactLink "Contactar conmigo (en inglés o alemán)...">
+<!ENTITY qf.label.contactLink "Contactar conmigo (en inglés o alemán)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Haga clic secundario para ver el historial de versiones.">
 <!ENTITY qf.youtube.tbdaily "Visite Thunderbird Daily - Un canal de YouTube de consejos y tutoriales para usar quickFilters y correo en el escritorio">
@@ -37,8 +37,8 @@
 <!ENTITY qf.templates.advanced "Plantillas avanzadas">
 <!ENTITY qf.templates.customTemplate.label "Plantillas personalizadas">
 <!ENTITY qf.templates.customTemplate.tooltip "Permite la generación de plantillas personalizadas, vea la descripción del fallo para más detalles.">
-<!ENTITY qf.templates.customTemplate.edit "Editar...">
-<!ENTITY qf.templates.customTemplate.new "Crear nueva...">
+<!ENTITY qf.templates.customTemplate.edit "Editar…">
+<!ENTITY qf.templates.customTemplate.new "Crear nueva…">
 <!ENTITY qf.templates.replyTo.label "Plantilla 'Responder a'">
 <!ENTITY qf.templates.replyTo.tooltip "Muestra la plantilla 'Responder a', vea la descripción del fallo para más detalles.">
 <!ENTITY chkCurrentToolbar.btn.FilterList.label "Mostrar lista de filtros">

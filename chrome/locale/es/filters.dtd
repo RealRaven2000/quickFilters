@@ -9,7 +9,7 @@
 <!ENTITY qf.filters.template.tag "Por etiquetas">
 <!ENTITY qf.filters.templates.description.label "Descripción:">
 <!ENTITY qf.filters.instructions "Por favor, seleccione una plantilla. Puede ajustar con precisión las reglas del filtro en la siguiente pantalla.">
-<!ENTITY qf.continueFilter.label "Crear filtro...">
+<!ENTITY qf.continueFilter.label "Crear filtro…">
 <!ENTITY qf.continueFilter.shortcut "f">
 <!ENTITY qf.filters.actions.caption "Acciones">
 <!ENTITY qf.filters.actions.targetFolder "Carpeta de destino">

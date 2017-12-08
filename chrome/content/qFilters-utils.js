@@ -800,7 +800,9 @@ quickFilters.Util = {
   // use this to follow a href that did not trigger the browser to open (from a XUL file)
   openLinkInBrowser: function openLinkInBrowser(evt,linkURI) {
     let Cc = Components.classes,
-        Ci = Components.interfaces;
+        Ci = Components.interfaces,
+				Util = quickFilters.Util;
+		linkURI = util.makeUriPremium(linkURI);
     if (quickFilters.Util.Application === 'Thunderbird') {
       let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
                       .getService(Ci.nsIExternalProtocolService),
@@ -833,6 +835,8 @@ quickFilters.Util = {
   },
 
   openURLInTab: function openURLInTab(URL) {
+    let util = QuickFolders.Util;
+		URL = util.makeUriPremium(URL);
     try {
 		  switch(quickFilters.Util.Application) {
 			  case "SeaMonkey":
@@ -986,6 +990,11 @@ quickFilters.Util = {
 	showYouTube: function showYouTube() {
 		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/c/thunderbirddaily');
 	} ,
+	
+	showPremiumFeatures: function showPremiumFeatures() {
+    quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/premium.html');
+	} ,
+	
 	toggleDonations: function toggleDonations() {
 		let isAsk = quickFilters.Preferences.getBoolPref('donations.askOnUpdate');
 		let question = this.getBundleString("quickfilters.donationToggle","Do you want to {0} the donations screen which is displayed whenever quickFilters updates?");

@@ -449,6 +449,9 @@
 				<groupbox id="premiumConfig" disabled="true">
 					<caption label="&qf.premiumConfig;" />
 					<hbox>
+						<label class="plain-link" 
+									 tooltiptext="http://quickfilters.mozdev.org/"
+									 onclick="quickFilters.Util.showPremiumFeatures();">&qf.label.premiumFeaturesSite;</label>
 					</hbox>
 				</groupbox>
 				<spacer flex="1" />

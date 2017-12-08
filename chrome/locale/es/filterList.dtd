@@ -1,7 +1,7 @@
 <!ENTITY qf.label.filterCountN_of_M "{0} de {1}">
 <!ENTITY qf.label.filterEntities "elementos">
 <!ENTITY qf.label.filterSingleEntity "1 elemento">
-<!ENTITY qf.textbox.searchBox.emptyText "Buscar filtros por nombre...">
+<!ENTITY qf.textbox.searchBox.emptyText "Buscar filtros por nombre…">
 <!ENTITY qf.textbox.searchBox.toolTip "introduzca una palabra clave para buscar filtros por nombre">
 <!ENTITY qf.button.reorderButtonTop "Mover a la parte superior">
 <!ENTITY qf.button.reorderButtonTop.accessKey "s">
@@ -20,11 +20,11 @@
 <!ENTITY quickfilters.menu.cut "Cortar">
 <!ENTITY quickfilters.menu.copy "Copiar">
 <!ENTITY quickfilters.menu.paste "Pegar">
-<!ENTITY quickfilters.button.settings "Configuración de quickFilters...">
-<!ENTITY quickfilters.button.assistant "Accionar asistente...">
+<!ENTITY quickfilters.button.settings "Configuración de quickFilters…">
+<!ENTITY quickfilters.button.assistant "Accionar asistente…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Acciona el modo de asistente de filtros. Cuando esté activo, arrastre y suelte correos para crear filtros.">
 <!ENTITY quickfilters.button.support "Sitio de soporte de quickFilters.">
-<!ENTITY quickfilters.button.searchProperties "Cambiar propiedades de búsqueda...">
+<!ENTITY quickfilters.button.searchProperties "Cambiar propiedades de búsqueda…">
 <!ENTITY quickfilters.option.searchProperty.name "Nombre">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Carpeta objetivo">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Buscar condición (texto)">
