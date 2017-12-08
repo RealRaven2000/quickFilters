@@ -1,34 +1,52 @@
-LICENSE
+quickFilters is released under the Creative Commons (CC BY-ND 4.0)
+Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) 
 
-QuickFilters is released under the GNU GPL Version 3.
+Terms: 
+The Program - the quickFilters Add-on (distributed as a XPI file) and all files contained within it
+Premium Feature - a feature or function of the software which is protected by the mechanism outlined below
+quickFilters Pro - Refers to the registered version of quickFilters
 
-All contents of this file are subject to the GNU General Public License Version 3
-(the "License"); you may not use this file except in compliance with
+All contents of The Program are subject to the GNU General Public License Version 3
+(the "License"); you may not use the file except in compliance with
 the License. You may obtain a copy of the complete License at
-http://www.gnu.org/licenses/gpl-3.0.txt
+http://creativecommons.org/licenses/by-nd/4.0/legalcode
+For a  human-readable summary thereof please refer
+http://creativecommons.org/licenses/by-nd/4.0/
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 3
-of the License, or (at your option) any later version.
 
-If you use large portions of the code please attribute to the authors
+Pro Version
+This Program contains a subset of features "Premium Features" which are protected by 
+a paid registration scheme. Registration keys can be obtained via various licensing links
+from within the software (Options/quickFilters Pro tab,
+premium notification messages). The profits from Registration are used to develop
+and distribute the program further and to feed the author, as he would like to spend
+more time developing open source software. Some Premium features may be available in 
+the free software, but they may be restricted (e.g. through a notification to the 
+registration). Premium features are not essential to the core functionality of 
+the Program, but are there to provide an incentive for financially supporting the 
+enhancement and support of the Software. 
+
+Registration Scheme
+Registration is carried out via our web shop (FastSpring) which sells registration keys.
+Registration keys are personal, non-transferrable and usually restricted to a time period
+(typically one year). To protect their personal nature they are tied to the user's 
+Email address.
+
+Motivation 
+As regards licensing, we want to avoid a situation where the project is reused 
+in order to avoid our monetisation by giving this away for free or cheaper than us 
+thus disincentivising the current developers from putting a lot of time into 
+development and support.
+
+
+If plan to you use large portions of the code please contact the author
 (Axel Grude)
-
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+Creative Commons (CC BY-ND 4.0) License for more details.
 
-You can download a copy of the GNU General Public License at
-http://www.gnu.org/licenses/gpl-3.0.txt or get a free printed
-copy by writing to:
-  Free Software Foundation, Inc.,
-  51 Franklin Street, Fifth Floor,
-  Boston, MA 02110-1301, USA.
-
-========================================================
 
 ATTRIBUTIONS
 
@@ -55,6 +73,7 @@ fugue-arrow-bottom.png
 fugue-arrow-top.png
 fugue-arrow-down.png
 fugue-arrow-up.png
+
 Fugue Icons are by Yusuke Kamiyamane under Creative Commons, see: http://p.yusukekamiyamane.com
 
 LEDGERS ICON

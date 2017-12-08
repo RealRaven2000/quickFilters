@@ -72,5 +72,5 @@
 <!ENTITY qf.licenseValidation.invalidMail "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Encrypted Email address does not match readable one.">
 <!ENTITY qf.premiumConfig "Premium Features">
-<!ENTITY qf.label.premiumFeaturesSite "Premium Features Website">
+<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
 

@@ -72,4 +72,4 @@
 <!ENTITY qf.licenseValidation.invalidMail "Die Email-Adresse welche im Lizenzschlüssel verknüpft ist [{1}] ist derzeit in keinem Ihrer Email-Konten vorhanden. Für Hilfe damit kontaktieren Sie mich bitte über den Support tab.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein.">
 <!ENTITY qf.premiumConfig "Premium Funktionen">
-<!ENTITY qf.label.premiumFeaturesSite "Premium Features Webseite">
+<!ENTITY qf.label.premiumFeaturesSite "Lesen Sie mehr über die Premium Funktionen auf unserer Webseite">
