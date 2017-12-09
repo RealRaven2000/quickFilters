@@ -72,3 +72,15 @@
 	padding:3px;
 	vertical-align: middle;
 }
+
+@keyframes quickfiltersPulse {
+    0% { transform: scale(0.75) !important; opacity: 0.5; }
+    50% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.75) !important; opacity: 0.5; }
+}
+
+#btnLicense {
+  animation: quickfiltersPulse 2.5s 1s ease-in-out infinite;
+	width: 135% !important;
+	height: 135% !important;
+}

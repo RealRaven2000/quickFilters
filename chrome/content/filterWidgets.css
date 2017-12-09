@@ -88,10 +88,8 @@
 }
 
 #quickFilters-Pro.expired .tab-icon,
-#btnLicense.expired {
-  animation: quickfiltersPulse 3s 1s ease-in-out infinite;
-	width: 135% !important;
-	height: 135% !important;
+#btnLicense {
+  animation: quickfiltersPulse 2.5s 1s ease-in-out infinite;
 }
 
 /* ICON RULE TO OVERWRITE IN PRO VERSION */

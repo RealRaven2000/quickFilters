@@ -1,12 +1,13 @@
 "use strict";
-
-/* BEGIN LICENSE BLOCK
+/* 
+BEGIN LICENSE BLOCK
 
 quickFilters is released under the Creative Commons (CC BY-ND 4.0)
 Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) 
 For details, please refer to license.txt in the root folder of this extension
 
-END LICENSE BLOCK */
+END LICENSE BLOCK 
+*/
 
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
 {
