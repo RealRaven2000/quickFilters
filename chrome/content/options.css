@@ -338,8 +338,11 @@ hbox.quickhelp-dbg {
 }
 
 
+#validationResults {
+	max-height: 3em;
+}
 #validationResults description {
-  max-width:50em !important;
+  max-width:60em !important;
 }
 #validationResults:hover {
   background-color: rgba(255, 255, 255, 0.7);

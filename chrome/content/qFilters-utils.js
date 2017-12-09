@@ -783,7 +783,7 @@ quickFilters.Util = {
   openLinkInBrowser: function openLinkInBrowser(evt,linkURI) {
     let Cc = Components.classes,
         Ci = Components.interfaces,
-				Util = quickFilters.Util;
+				util = quickFilters.Util;
 		linkURI = util.makeUriPremium(linkURI);
     if (quickFilters.Util.Application === 'Thunderbird') {
       let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]

@@ -111,7 +111,7 @@ quickFilters.Licenser = {
   
   showDialog: function showDialog(featureName) {
 		let params = {inn:{referrer:featureName, instance: quickFilters}, out:null};
-    window.openDialog('chrome://quickfilters/content/register.xul','quickfilters-register','chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply',quickFilters,params).focus();
+		quickFilters.Util.getMail3PaneWindow().openDialog('chrome://quickfilters/content/register.xul','quickfilters-register','chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply',quickFilters,params).focus();
   } ,
   // list of eligible accounts
   get Accounts() {
@@ -119,11 +119,13 @@ quickFilters.Licenser = {
   },
   
   accept: function accept() {
-  
+		const util = quickFilters.Util;
+    util.logDebug("Licenser.accept()");
   } ,
   
   cancel: function cancel() {
-  
+		const util = quickFilters.Util;
+    util.logDebug("Licenser.cancel()");
   } ,
   
   load: function load() {
@@ -133,6 +135,8 @@ quickFilters.Licenser = {
           ELS = licenser.ELicenseState;
         
     let dropdownCount = 0;
+		util.logDebug("Licenser.load() started");
+		
     function appendIdentity(dropdown, id, account) {
       if (!id) {
         util.logDebug('appendIdentity failed for account = ' + account ? account.key : 'unknown');
@@ -224,6 +228,7 @@ quickFilters.Licenser = {
     // select first item
     idSelector.selectedIndex = 0;
     this.selectIdentity(idSelector);
+		util.logDebug("Licenser.load() complete");
     
   } ,
   

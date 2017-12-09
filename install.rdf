@@ -4,7 +4,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:type>2</em:type> 
         <em:id>quickFilters@axelg.com</em:id>
-        <em:version>3.4pre126</em:version>
+        <em:version>3.4pre142</em:version>
 
 		<em:creator>Axel Grude</em:creator>
 		<!-- Thunderbird -->

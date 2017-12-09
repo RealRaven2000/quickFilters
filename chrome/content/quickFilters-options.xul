@@ -444,7 +444,7 @@
 				</vbox>
 				<spacer flex="1"/>
 			</hbox>
-			<separator  flex="1" />
+			<separator  style="height:1em;" />
 			<hbox>
 				<groupbox id="premiumConfig" disabled="true">
 					<caption label="&qf.premiumConfig;" />
@@ -454,17 +454,15 @@
 									 onclick="quickFilters.Util.showPremiumFeatures();">&qf.label.premiumFeaturesSite;</label>
 					</hbox>
 				</groupbox>
-				<spacer flex="1" />
-				<vbox height="40">
-					<hbox pack="end">
-					  <!-- will be populated / modified from bundle in code -->
-						<button id="btnLicense" 
-										label="Buy License"
-										oncommand="quickFilters.Licenser.showDialog('licenseTab');setTimeout( function() {window.close();}, 200 );" />
-					</hbox>
-				</vbox>
 			</hbox>
-			<separator flex="1" />
+			<!-- will be populated / modified from bundle in code -->
+			<hbox>
+			  <spacer flex="1" />
+				<button id="btnLicense" 
+								label="Buy License"
+								oncommand="quickFilters.Licenser.showDialog('licenseTab'); setTimeout( function() {window.close();}, 500 );" />
+			  <spacer flex="1" />
+			</hbox>				
 		</tabpanel>
 
 	  

@@ -82,14 +82,17 @@
 }
 
 @keyframes quickfiltersPulse {
-    0% { transform: scale(0.75) !important; opacity: 0.5; }
+    0% { transform: scale(0.75) !important; opacity: 0.6; }
     50% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0.75) !important; opacity: 0.5; }
+    100% { transform: scale(0.75) !important; opacity: 0.6; }
 }
 
 #quickFilters-Pro.expired .tab-icon,
 #btnLicense {
   animation: quickfiltersPulse 2.5s 1s ease-in-out infinite;
+}
+#btnLicense:hover {
+	animation: none;
 }
 
 /* ICON RULE TO OVERWRITE IN PRO VERSION */
