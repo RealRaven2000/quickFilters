@@ -1,10 +1,30 @@
 <ul>
-		<li>Make sure mails that are tagged manually are filtered immediately.</li>
-		<li>Option to insert new filter in alphabetical order. Instead of adding created filters to the top of the list, quickFilters will insert them before the first filter with a alphabetically following name.</li>
-		<li>New search button to find current folder's filters added to QuickFolders' current folder toolbar</li>
-		<li>Removed obsolete option "Run Filters on all Mail" on the account properties dialog</li>
-		<li>Added Spanish locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=17691"  target="_blank">strel</a> at babelzilla.org </li>
-		<li>Added Spanish Argentinian locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=20554" target="_blank">Tonyman</a> at babelzilla.org </li>
-		<li>[Bug 26354] When merging / creating a filter, select "run on folder" automatically. This should be set to the specified account's inbox.</li>
-		<liCompleted Swedish Locale (sv-SE) thanks to Mikael Hiort af Ornäs, A. Regnander at Babelzilla</li>
+  <li>New quickFilters Pro version - no more notifications about premium features.
+	    Help financing the future of quickFilters.
+	</li>
+  <li>Fixed <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26441">[Bug 26441]</a>
+      Thunderbird 57 beta hangs on start with quickFilters enabled.
+      <br>
+      <p>A number of changes to the JavaScript engine necessitate various changes to 
+      the code. Most important, the changes are incompatible with the Postbox
+      script engine (and are very hard to code around as an important construct, 
+      the for loop, which is used in a lot of places will lead to the Add-on
+      breaking down in Postbox) - therefore this version will _not_ support
+      Postbox.</p>
+      <p>
+      See also the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1417209">Related Thunderbird bug </a>
+      </p>
+  </li>
+  <li>Make sure mails that are tagged manually are filtered immediately.</li>
+  <li>New option to insert new filter in alphabetical order. Instead of adding created filters to the top of the list,
+      quickFilters will insert them before the first filter with a alphabetically following name.</li>
+  <li>New search button to find current folder's filters added to QuickFolders' current folder toolbar<br>
+     <img src="img/find-folder-filters-btn.png" alt="find filters button in QuickFolders" class="screenshot">
+  </li>
+  <li>Fixed <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26354">[Bug 26354]</a>
+      When merging / creating a filter, select "run on folder" automatically. 
+      This should be set to the specified account's inbox.
+  </li>
+  <li>Added Spanish locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=17691"  target="_blank">strel</a> at babelzilla.org </li>
+  <li>Added Spanish Argentinian locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=20554" target="_blank">Tonyman</a> at babelzilla.org </li>
 </ul>

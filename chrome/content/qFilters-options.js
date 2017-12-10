@@ -304,14 +304,9 @@ quickFilters.Options = {
       }
       else {
         // reset License status of main instance
-        if (window.arguments && window.arguments[1].inn.instance) {
-          let mainLicenser = window.arguments[1].inn.instance.Licenser;
-          if (mainLicenser) {
-            mainLicenser.ValidationStatus =
+				util.Licenser.ValidationStatus =
               result != State.Valid ? State.NotValidated : result;
-            mainLicenser.wasValidityTested = true; // no need to re-validate there
-          }
-        }
+        util.Licenser.wasValidityTested = true; // no need to re-validate there
       }
       
     }    

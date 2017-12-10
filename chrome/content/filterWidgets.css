@@ -82,9 +82,9 @@
 }
 
 @keyframes quickfiltersPulse {
-    0% { transform: scale(0.75) !important; opacity: 0.6; }
-    50% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0.75) !important; opacity: 0.6; }
+    0% { transform: scale(1); font-size: 1em; opacity: 0.6; }
+    50% { transform: scale(1.2); font-size: 1.25em; opacity: 1; }
+    100% { transform: scale(1); font-size: 1em; opacity: 0.6; }
 }
 
 #quickFilters-Pro.expired .tab-icon,

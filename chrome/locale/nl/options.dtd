@@ -72,3 +72,4 @@
 <!ENTITY qf.licenseValidation.invalidMail "Het aan de licentiesleutel [{1}] verbonden e-mailadres staat momenteel niet bij uw e-mailaccounts. Neem voor hulp contact met me op via het tabblad Ondersteuning.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres.">
 <!ENTITY qf.premiumConfig "Premiumfuncties">
+<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">

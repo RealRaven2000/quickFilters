@@ -342,7 +342,7 @@ hbox.quickhelp-dbg {
 	max-height: 3em;
 }
 #validationResults description {
-  max-width:60em !important;
+  max-width: 45em !important;
 }
 #validationResults:hover {
   background-color: rgba(255, 255, 255, 0.7);
