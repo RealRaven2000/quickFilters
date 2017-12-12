@@ -72,4 +72,3 @@
 <!ENTITY qf.licenseValidation.invalidMail "L'adresse électronique associée à la clé de licence [{1}] n'est pas listée dans un de vos comptes courriel. Veuillez me contacter à partir de l'onglet d'aide.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Une adresse électronique chiffrée ne peut être reconnue.">
 <!ENTITY qf.premiumConfig "Fonctionnalités Premium">
-<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">

@@ -3,7 +3,6 @@
 <!ENTITY qf.filters.template.domain "Con base en el dominio del remitente">
 <!ENTITY qf.filters.template.multifrom "Grupo(recolecta los remitentes de multiples correos)">
 <!ENTITY qf.filters.template.to "Sobre la base del destinatario">
-<!ENTITY qf.filters.template.replyto "Based on Reply-To">
 <!ENTITY qf.filters.template.list "Lista de correos">
 <!ENTITY qf.filters.template.topic "por asunto">
 <!ENTITY qf.filters.template.tag "por nombres">

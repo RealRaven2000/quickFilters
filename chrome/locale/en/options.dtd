@@ -59,6 +59,7 @@
 <!ENTITY qf.postbox.quickmove "Postbox: support quick move feature">
 <!ENTITY qf.listener.tags "Listen for Tag changes">
 <!ENTITY qf.listener.tags.tooltip "When activated, the filter assistant will also be triggered when you tag a message.">
+<!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Insert your personal License key here:">

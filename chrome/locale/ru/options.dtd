@@ -72,4 +72,4 @@
 <!ENTITY qf.licenseValidation.invalidMail "Адрес, привязанный к лицензионному ключу [{1}] не используется ни в одной учётной записи почты. Свяжитесь со мной, контактные данные можно найти в настройках.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Зашифрованный адрес не совпадает с имеющимся.">
 <!ENTITY qf.premiumConfig "Премиум-функции">
-<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
+<!ENTITY qf.label.premiumFeaturesSite "Узнать больше о премиум-функциях на нашей странице">

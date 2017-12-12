@@ -72,4 +72,3 @@
 <!ENTITY qf.licenseValidation.invalidMail "ライセンスキー [{1}] に紐付けされたメールアドレスのメールアカウントがリストに見当たりません。問題解決のため、サポートタブからお問い合わせください。">
 <!ENTITY qf.licenseValidation.notMatchedMail "暗号化されたメールアドレスが読めるメールアドレスと一致しません。">
 <!ENTITY qf.premiumConfig "有料機能">
-<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
