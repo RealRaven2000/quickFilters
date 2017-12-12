@@ -243,7 +243,8 @@ END LICENSE BLOCK
 		# Fixed jumping across accounts when searching for filters (Postbox, SeaMonkey)
 		# Thunderbird 52: Some Fixes for "Run filters in folder button" on filters list
 
-	3.3 : WIP
+	3.4 : 11/12/2017
+		# quickFilters Pro License!
 	  # Make sure mails that are tagged manually are filtered immediately.
 		# New: Option to insert new filter in alphabetical order
 		# Added button to search for current folder's filters to QuickFolders' current folder toolbar
@@ -252,9 +253,11 @@ END LICENSE BLOCK
 		# Added Argentinian locale (es-ar) thanks to Tonyman at Babelzilla
 		# Completed Swedish Locale (sv-SE) thanks to Mikael Hiort af Ornäs, A. Regnander at Babelzilla
 		# [Bug 26354] When merging / creating a filter, select "run on folder" automatically. This should be set to the specified account's inbox.
-		
-	3.4 : quickFilters Pro License!
-	  # 
+
+  3.4.1 : 
+    # [Bug 26457] Auto processing of filters with tags when option is off
+		  Something causes the filters to run automatically	(may be related to tags)
+		# Added a checkbox for the auto filtering manually tagged messages
 		
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
@@ -613,17 +616,17 @@ var quickFilters = {
       goDoCommand('cmd_displayMsgFilters');
   },
 
-  onApplyFilters: function onApplyFilters(e) {
+  onApplyFilters: function onApplyFilters(silent) {
     goDoCommand('cmd_applyFilters'); // same in Postbox
-		if (quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
+		if (!silent && quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
 			let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnFolder.notify', 'Ran filters on current folder');
 			quickFilters.Util.slideAlert(text, 'quickFilters');
 		}
   },
   
-  onApplyFiltersToSelection: function onApplyFiltersToSelection(e) {
+  onApplyFiltersToSelection: function onApplyFiltersToSelection(silent) {
     goDoCommand('cmd_applyFiltersToSelection'); // same in Postbox
-		if (quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
+		if (!silent && quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
 			let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnMails.notify', 'Applied filters to selected messages');
 			quickFilters.Util.slideAlert(text, 'quickFilters');
 		}
@@ -1335,7 +1338,8 @@ quickFilters.CustomTermReplyTo = {
 // jcranmer suggest using  this
 // quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Ci.nsIFolderListener.all);
 quickFilters.addTagListener = function() {
-	const util = quickFilters.Util;
+	const util = quickFilters.Util,
+	      prefs = quickFilters.Preferences;
   if (util) {
 		util.logDebugOptional('listeners', "addTagListener()");
 		// wrap the original method
@@ -1355,7 +1359,7 @@ quickFilters.addTagListener = function() {
 				contextWin.quickFilters.ToggleMessageTag = originalTagToggler; // should be the global function from Tb main Window
 				
 				ToggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
-					if(quickFilters.Preferences.isDebugOption('listeners'))
+					if(prefs.isDebugOption('listeners'))
 						debugger;
 					// call the original function (tag setter) first
 					let tmt = contextWin.quickFilters.ToggleMessageTag;
@@ -1367,8 +1371,9 @@ quickFilters.addTagListener = function() {
 					contextWin.quickFilters.ToggleMessageTag(tag, checked);
 
 					// no Assistant active - if current folder is the inbox: apply the filters.
-					if (!quickFilters.Worker.FilterMode) {
-						quickFilters.onApplyFiltersToSelection();
+					// Bug 26457 - disable this behavior by default
+					if (!quickFilters.Worker.FilterMode && prefs.isDebugOption('listener.tags.autofilter')) {
+						quickFilters.onApplyFiltersToSelection(true); // suppress the message
 						return false;
 					}
 
@@ -1376,7 +1381,7 @@ quickFilters.addTagListener = function() {
 						// Assistant is active?
 						if (!quickFilters.Worker.FilterMode) return false;
 						// make it possible to ignore tag changes.
-						if (!quickFilters.Preferences.getBoolPref('listener.tags')) return false; 
+						if (!prefs.getBoolPref('listener.tags')) return false; 
 						// ==> SetTagHeader(aConversation)
 						let msgHdr;
 						switch (util.Application) {

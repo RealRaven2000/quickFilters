@@ -113,6 +113,11 @@
 									type="bool"  
 									instantApply="true"
 						/>
+			<preference id="listen.tags.autofilter"
+									name="extensions.quickfilters.listener.tags.autofilter"
+									type="bool"  
+									instantApply="true"
+						/>
 <!--Advanced Tab-->									
 			<preference id="templates.replyTo"
 									name="extensions.quickfilters.templates.replyTo"
@@ -236,6 +241,10 @@
 								preference="listen.tags" 
 								label="&qf.listener.tags;" 
 								tooltiptext="&qf.listener.tags.tooltip;"
+								/>
+					<checkbox id="chkListTags" 
+								preference="listen.tags.autofilter" 
+								label="&qf.listener.tags.autofilter;" 
 								/>
 					<checkbox preference="postbox.quickmove"
 										label="&qf.postbox.quickmove;" 
