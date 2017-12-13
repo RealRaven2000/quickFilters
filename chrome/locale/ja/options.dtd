@@ -59,6 +59,7 @@
 <!ENTITY qf.postbox.quickmove "Postbox: クイック移動機能をサポートする">
 <!ENTITY qf.listener.tags "タグ変更を監視する">
 <!ENTITY qf.listener.tags.tooltip "有効にすると、メッセージにタグを付けた時にフィルタアシスタントが起動します。">
+<!ENTITY qf.listener.tags.autofilter "タグの変更時にフィルタを自動的に実行する">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "QuickFolders Pro">
 <!ENTITY qf.label.insertLicense "個人ライセンスキーをここに記入してください:">
@@ -72,3 +73,4 @@
 <!ENTITY qf.licenseValidation.invalidMail "ライセンスキー [{1}] に紐付けされたメールアドレスのメールアカウントがリストに見当たりません。問題解決のため、サポートタブからお問い合わせください。">
 <!ENTITY qf.licenseValidation.notMatchedMail "暗号化されたメールアドレスが読めるメールアドレスと一致しません。">
 <!ENTITY qf.premiumConfig "有料機能">
+<!ENTITY qf.label.premiumFeaturesSite "有料機能についての詳細はウェブサイトをご覧ください">

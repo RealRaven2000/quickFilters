@@ -59,6 +59,7 @@
 <!ENTITY qf.postbox.quickmove "Поддержка quick move в Postbox">
 <!ENTITY qf.listener.tags "Реагировать на изменение меток">
 <!ENTITY qf.listener.tags.tooltip "Запускать ассистента создания фильтров при изменении меток сообщения.">
+<!ENTITY qf.listener.tags.autofilter "Фильтровать автоматически при изменении меток сообщения">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Вставить лицензионный ключ сюда:">

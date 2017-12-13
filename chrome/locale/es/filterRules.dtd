@@ -2,6 +2,7 @@
 <!ENTITY quickfilters.customTemplate.name "Nombre de la plantilla:">
 <!ENTITY quickfilters.customVariable.label "Variables personalizadas">
 <!ENTITY quickfilters.customVariable.tooltip "Al crear filtros, estas variables se reemplazan con las correspondientes cabeceras de correo del correo actual.">
+<!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "De">
 <!ENTITY quickfilters.customHeader.To "A">
 <!ENTITY quickfilters.customHeader.CarbonCopy "Copia (CC)">
@@ -12,6 +13,7 @@
 <!ENTITY quickfilters.customHeader.ListId "Identificador de la lista">
 <!ENTITY quickfilters.customHeader.ListPost "Mensaje de la lista">
 <!ENTITY quickfilters.customHeader.Newsgroups "Grupos de noticias">
+<!-- These are the different components of an email address (e.g of "Fred Smith <fredsmith@example.com>") -->
 <!ENTITY quickfilters.customHeader.Email "Dirección del correo electrónico">
 <!ENTITY quickfilters.customHeader.Domain "Dominio del correo electrónico">
 <!ENTITY quickfilters.customHeader.NamePart "Nombre completo">

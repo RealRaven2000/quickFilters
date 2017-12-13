@@ -6,15 +6,15 @@
 <!ENTITY qf.filters.template.replyto "Gebaseerd op Antwoorden-Aan">
 <!ENTITY qf.filters.template.list "E-maillijst">
 <!ENTITY qf.filters.template.topic "Op onderwerp">
-<!ENTITY qf.filters.template.tag "Op label">
+<!ENTITY qf.filters.template.tag "Op markering">
 <!ENTITY qf.filters.templates.description.label "Beschrijving:">
 <!ENTITY qf.filters.instructions "Kies een sjabloon. U kunt de regels van het filter instellen op het volgende scherm.">
 <!ENTITY qf.continueFilter.label "Filter maken…">
 <!ENTITY qf.continueFilter.shortcut "F">
 <!ENTITY qf.filters.actions.caption "Acties">
 <!ENTITY qf.filters.actions.targetFolder "Doelmap">
-<!ENTITY qf.filters.actions.tag "Labels">
-<!ENTITY qf.filters.actions.tag.accesskey "L">
+<!ENTITY qf.filters.actions.tag "Markeringen">
+<!ENTITY qf.filters.actions.tag.accesskey "M">
 <!ENTITY qf.filters.actions.priority "Prioriteit">
 <!ENTITY qf.filters.actions.priority.accesskey "P">
 <!ENTITY qf.filters.actions.flag "Label">
