@@ -259,6 +259,10 @@ END LICENSE BLOCK
 		  Something causes the filters to run automatically	(may be related to tags)
 		# Added a checkbox for the auto filtering manually tagged messages
 		
+	3.5: Planned for the next major release (End Jan 2018 ?)
+	  # [Bug 25844] Add Backup + Restore Feature (Premium Feature)
+		
+		
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
   PREMIUM FEATURES:

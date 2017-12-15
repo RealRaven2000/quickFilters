@@ -55,6 +55,7 @@ pref("extensions.quickfilters.filters.currentTemplate", "from");
 pref("extensions.quickfilters.nostalgySupport", false);
 pref("extensions.quickfilters.postbox.quickmove", true);
 pref("extensions.quickfilters.listener.tags", true);
+pref("extensions.quickfilters.listener.tags.autofilter", false); // Bug 26457 
 pref("extensions.quickfilters.searchterm.addressesOneWay", false); // Bug 25714
 
 pref("extensions.quickfilters.merge.autoSelect", false);

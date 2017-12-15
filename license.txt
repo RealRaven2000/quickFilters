@@ -8,7 +8,7 @@ The Program - the quickFilters Add-on (distributed as a XPI file) and all files 
 Premium Feature - a feature or function of the software which is protected by the mechanism outlined below
 quickFilters Pro - Refers to the registered version of quickFilters
 
-All contents of The Program are subject to the GNU General Public License Version 3
+All contents of The Program are subject to the Creative Commons (CC BY-ND 4.0)
 (the "License"); you may not use the file except in compliance with
 the License. You may obtain a copy of the complete License at
 http://creativecommons.org/licenses/by-nd/4.0/legalcode
