@@ -27,10 +27,12 @@
 			<div class="product">&getquickFilters;</div>
 			<spacer flex="1" />
 			<vbox align="center">
+				<spacer flex="1" />
 				<hbox id="qfLicenseTerm" class="para">
 					<label id="licenseDateLabel">&qf.label.licenseValid;</label>
 					<label id="licenseDate" value="-" />
 				</hbox>
+				<spacer flex="1" />
 			</vbox>
 			<spacer flex="1"/>
 			<vbox>
@@ -133,8 +135,9 @@
 				<td>
 					<label class="shilling">&buyLicense.instruct;</label>
 				</td>
-				<td>
+				<td class="btnLicenseContainer">
 					<button id="btnLicense"
+					  class="register"
 						label="&buyPersonalLicense.button;"
 						oncommand="quickFilters.Licenser.goPro(0);" />
 				</td>

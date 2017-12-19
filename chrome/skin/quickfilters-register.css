@@ -13,6 +13,19 @@ label.ref {
 #qfLicenseTerm {
   padding: 1em 1em;
 }
+
+@keyframes quickfiltersRenew {
+	0% { opacity: 0.7; }
+	50% { opacity: 1; }
+	100% { opacity: 0.7; }
+}
+
+#qfLicenseTerm.expired {
+	animation: quickfiltersRenew 3s 5s ease-in-out infinite;
+	background-color: #990038; /* dark purple */
+	background-image: linear-gradient(to bottom, #bf376b 0%,#990038 51%,#700029 100%); 
+	color: white !important;
+}
 .product, .para, .heading {
 	margin-left: 12px !important;
 	margin-right: 12px !important;

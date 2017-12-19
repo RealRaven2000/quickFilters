@@ -59,7 +59,7 @@
 <!ENTITY qf.postbox.quickmove "Postbox: Soportar la característica de movimiento rápido">
 <!ENTITY qf.listener.tags "Atender cambios de etiquetas">
 <!ENTITY qf.listener.tags.tooltip "Cuando está activada, el asistente de filtros se abrirá también cuando etiquete un mensaje.">
-<!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">
+<!ENTITY qf.listener.tags.autofilter "Ejecutar filtros automáticamente al cambiar las etiquetas">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Inserte su clave de licencia personal aquí:">
@@ -73,4 +73,4 @@
 <!ENTITY qf.licenseValidation.invalidMail "La dirección de correo electrónico ligada a la clave de licencia [{1}] actualmente no está listada en ninguna de sus cuentas de correo. Por favor, contacte conmigo desde la pestaña Soporte para asistencia.">
 <!ENTITY qf.licenseValidation.notMatchedMail "La dirección de correo electrónico cifrada no coincide con la legible.">
 <!ENTITY qf.premiumConfig "Características Premium">
-<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
+<!ENTITY qf.label.premiumFeaturesSite "Lea más sobre las características Premium en nuestro sitio web">

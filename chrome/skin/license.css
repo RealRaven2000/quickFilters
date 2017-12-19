@@ -11,8 +11,29 @@
 
 #quickFilters-Options-goPro #btnLicense:hover {
 	animation: none !important;
-	outline: 400px solid rgba(0,0,0,0.4); /* dim background on hover */
+	outline: 580px solid rgba(0,0,0,0.4); /* dim background on hover */
 	transition: outline-color 1s ease;
+}
+
+@keyframes quickfiltersPulse {
+	0% { transform: scale(1); font-size: 1.3em; opacity: 0.6; }
+	50% { transform: scale(1); font-size: 1em; opacity: 1; }
+	100% { transform: scale(1); font-size: 1.3em; opacity: 0.6; }
+}
+
+.btnLicenseContainer {
+	height: 60px;
+}
+
+
+#btnLicense.register, #btnLicense.expired {
+  animation: quickfiltersPulse 2.5s 1s ease-in-out infinite;
+}
+
+#btnLicense.register:hover, #btnLicense.expired:hover {
+	animation-play-state: paused;
+	opacity: 1 !important;
+	font-size: 1.3em !important;
 }
 
 #btnLicense label,
@@ -27,6 +48,7 @@
 }
 
 #btnLicense, #btnEnterCode, #btnDomainLicense {
+	cursor: pointer;
   font-family: cambria, Georgia, serif; /* see also .niceFont in options.css */
   font-size: 10.2pt;
 	font-style: normal;
@@ -89,12 +111,3 @@
 	vertical-align: middle;
 }
 
-@keyframes quickfiltersPulse {
-	0% { transform: scale(1); font-size: 1.3em; opacity: 0.6; }
-	50% { transform: scale(1); font-size: 1em; opacity: 1; }
-	100% { transform: scale(1); font-size: 1.3em; opacity: 0.6; }
-}
-
-#btnLicense {
-  animation: quickfiltersPulse 2.5s 1s ease-in-out infinite;
-}

@@ -192,8 +192,20 @@ quickFilters.Licenser = {
     else
       getElement('licenseDate').collapsed = true;
 		
-		if (licenser.ValidationStatus != ELS.Valid && licenser.ValidationStatus != ELS.Expired)
-			getElement('licenseDateLabel').value = " ";
+		switch(licenser.ValidationStatus) {
+			case ELS.Expired:
+			  getElement('licenseDateLabel').value = util.getBundleString("qf.register.licenseValid.expired","Your license expired on:")
+				getElement('qfLicenseTerm').classList.add('expired');
+			  break;
+			case ELS.Valid:
+			  getElement('btnLicense').classList.remove('register'); // remove the "breathing effect" if license is valid.
+			  break;
+			case ELS.Empty:
+				getElement('licenseDateLabel').value =" ";
+			  break;
+			default: // default class=register will animate the button
+				getElement('licenseDateLabel').value = licenser.licenseDescription(licenser.ValidationStatus) + ":";
+		}
 
 
     // iterate accounts
