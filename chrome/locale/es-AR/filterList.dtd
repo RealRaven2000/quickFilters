@@ -8,7 +8,6 @@
 <!ENTITY qf.button.reorderButtonTop.toolTip "Reorganizar filtro para que se ejecute antes que todos los demás">
 <!ENTITY qf.button.reorderButtonBottom "Mover al final">
 <!ENTITY qf.button.reorderButtonBottom.accessKey "b">
-<!ENTITY qf.button.reorderButtonBottom.toolTip "Rearrange filter so it executes after all others">
 <!ENTITY quickfilters.button.merge "Unir">
 <!ENTITY quickfilters.button.merge.accesskey "M">
 <!ENTITY quickfilters.button.merge.tooltiptext "Unir multiples filtros usando la misma acción">
@@ -21,15 +20,11 @@
 <!ENTITY quickfilters.menu.copy "Copiar">
 <!ENTITY quickfilters.menu.paste "Pegar">
 <!ENTITY quickfilters.button.settings "Ajustes quickFilters...">
-<!ENTITY quickfilters.button.assistant "Toggle assistant…">
-<!ENTITY quickfilters.button.assistant.tooltiptext "Toggles filter assistant mode. When active, drag and drop emails to create filters.">
-<!ENTITY quickfilters.button.support "quickFilters Support Site">
 <!ENTITY quickfilters.button.searchProperties "Cambiar propiedades de busqueda...">
 <!ENTITY quickfilters.option.searchProperty.name "Nombre">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Nombre Carpeta">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Condiciones de busqueda (texto)">
 <!ENTITY quickfilters.option.searchProperty.addTag "Añadir Etiqueta(label)">
-<!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Reply with Template">
 <!ENTITY quickfilters.button.findDuplicates.label "Buscar duplicados">
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Buscar atributos duplicados">
 <!ENTITY quickfilters.button.cancelDuplicates.label "Cancelar duplicados">

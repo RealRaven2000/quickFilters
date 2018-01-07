@@ -23,8 +23,10 @@
 <!ENTITY quickfilters.button.settings "quickFilters Settings…">
 <!ENTITY quickfilters.button.assistant "Toggle assistant…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Toggles filter assistant mode. When active, drag and drop emails to create filters.">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Backup Filters…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Restore Filters…">
 <!ENTITY quickfilters.button.support "quickFilters Support Site">
-<!ENTITY quickfilters.button.searchProperties "Change search properties...">
+<!ENTITY quickfilters.button.searchProperties "Change search properties…">
 <!ENTITY quickfilters.option.searchProperty.name "Name">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Target folder">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Search Condition (Text)">

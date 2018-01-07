@@ -9,7 +9,6 @@
 <!ENTITY quickfilters.customHeader.BlindCarbonCopy "Blind Carbon Copy (BCC)">
 <!ENTITY quickfilters.customHeader.ReplyTo "Reply To">
 <!ENTITY quickfilters.customHeader.Subject "Subject">
-<!ENTITY quickfilters.customHeader.SubjectRegex "Subject Regular Expression">
 <!ENTITY quickfilters.customHeader.ListId "List Id">
 <!ENTITY quickfilters.customHeader.ListPost "List Post">
 <!ENTITY quickfilters.customHeader.Newsgroups "Newsgroups">

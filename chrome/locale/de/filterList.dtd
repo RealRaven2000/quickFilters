@@ -23,6 +23,8 @@
 <!ENTITY quickfilters.button.settings "quickFilters Einstellungen…">
 <!ENTITY quickfilters.button.assistant "Assistent ein/ausschalten…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Filter Assistent Modus. Wenn aktiv, wird durch Verschieben von emails ein neuer Filter erzeugt.">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Filter abspeichern…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Filter neu laden…">
 <!ENTITY quickfilters.button.support "quickFilters Support Webseite">
 <!ENTITY quickfilters.button.searchProperties "Suchfeld wirkt auf...">
 <!ENTITY quickfilters.option.searchProperty.name "Name">
