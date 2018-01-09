@@ -23,6 +23,8 @@
 <!ENTITY quickfilters.button.settings "Impostazioni di quickFilters…">
 <!ENTITY quickfilters.button.assistant "Attiva/disattiva la Procedura guidata…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Attiva/disattiva la modalità &quot;Procedura guidata&quot;. Se questa è attiva, è sufficiente trascinare e rilasciare i messaggi per creare i filtri">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Backuo filtri…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Ripristino filtri…">
 <!ENTITY quickfilters.button.support "Sito di supporto di quickFilters">
 <!ENTITY quickfilters.button.searchProperties "Modifica i criteri di ricerca…">
 <!ENTITY quickfilters.option.searchProperty.name "Nome">

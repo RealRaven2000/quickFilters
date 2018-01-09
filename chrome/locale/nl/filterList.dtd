@@ -23,6 +23,8 @@
 <!ENTITY quickfilters.button.settings "quickFilters-instellingen…">
 <!ENTITY quickfilters.button.assistant "Assistent wisselen…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Wisselt de modus filterassistent. Versleep indien actief e-mailberichten om filters te maken.">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Back-up van filters…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Filters herstellen…">
 <!ENTITY quickfilters.button.support "quickFilters-ondersteuningswebsite">
 <!ENTITY quickfilters.button.searchProperties "Zoekeigenschappen wijzigen…">
 <!ENTITY quickfilters.option.searchProperty.name "Naam">

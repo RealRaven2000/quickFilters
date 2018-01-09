@@ -59,6 +59,7 @@
 <!ENTITY qf.postbox.quickmove "Supporto della caratteristica 'Sposta rapidamente' di Postbox">
 <!ENTITY qf.listener.tags "Percepisce eventuali modifiche alle etichette">
 <!ENTITY qf.listener.tags.tooltip "Se questa opzione è attiva, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio.">
+<!ENTITY qf.listener.tags.autofilter "Esegue i filtri auomaticamente quando le etichette vengono modificate">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Inserire la propria chiave di licenza qui:">
@@ -72,3 +73,4 @@
 <!ENTITY qf.licenseValidation.invalidMail "L'indirizzo di posta elettronica collegato alla chiave di licenza [{1}] non è attualmente presente tra gli account. Per avere assistenza, contattatemi tramite la scheda 'Supporto'.">
 <!ENTITY qf.licenseValidation.notMatchedMail "L'indirizzo di posta elettronica crittografato non corrisponde a quello in chiaro">
 <!ENTITY qf.premiumConfig "Caratteristiche Premium">
+<!ENTITY qf.label.premiumFeaturesSite "Maggiori informazioni sulle Caratteristiche Premium sul nostro sito web">
