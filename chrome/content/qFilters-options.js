@@ -18,7 +18,7 @@ quickFilters.Options = {
   load: function() {
 		const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences,
-					licenser = util.Licenser,					
+					licenser = util.Licenser,
 					getElement = window.document.getElementById.bind(window.document);
 					
 		if (window.arguments) {
@@ -347,8 +347,7 @@ quickFilters.Options = {
 			if (addedClass!='free')	el.classList.remove('free');
 		}
 		const util = quickFilters.Util,
-					State = util.Licenser.ELicenseState,
-					QI = util.getMail3PaneWindow().quickFilters.Interface; // main window (for reminders etec)
+					State = util.Licenser.ELicenseState; // main window (for reminders etec)
     let wd = window.document,
         getElement = wd.getElementById.bind(wd),
         btnLicense = getElement("btnLicense"),

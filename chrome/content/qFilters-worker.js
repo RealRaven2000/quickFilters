@@ -1525,14 +1525,14 @@ quickFilters.Assistant = {
       // rebuildFilterList(gCurrentFilterList) // Tb
       // rebuildFilterList()
       //   this.gFilterTreeView.filterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
-      // http://mxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#613
+      // http://dxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#613
       // let filterCount = gCurrentFilterList.filterCount;
       // for (let i = 0; i < filterCount; i++) {
       //   filter = gCurrentFilterList.getFilterAt(i);
       // }
       
       // select local folder
-      // http://mxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#203
+      // https://dxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#213
       // setFolder
       //   gCurrentFilterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
       // local folder uri = mailbox://nobody@Local%20Folders

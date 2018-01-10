@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.4.1",
+  HARDCODED_CURRENTVERSION : "3.5",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -1130,7 +1130,7 @@ quickFilters.Util = {
 	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, replaceTerms) {
 		const AC = Components.interfaces.nsMsgSearchAttrib;
     let util = quickFilters.Util,
-		    stCollection = fromFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+		    stCollection = util.querySearchTermsArray(fromFilter.searchTerms);
     if (replaceTerms) {
       if (replaceTerms.messageURI) {
         util.CurrentMessage = replaceTerms.msgHdr;
@@ -1143,7 +1143,7 @@ quickFilters.Util = {
     }
 		for (let t = 0; t < stCollection.Count(); t++) {
 			// let searchTerm = stCollection.GetElementAt(t);
-			let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm),
+			let searchTerm = util.querySearchTermsAt(stCollection, t),
 			    newTerm;
 			if (isCopy) {
 			  newTerm = toFilter.createTerm();
@@ -1224,6 +1224,158 @@ quickFilters.Util = {
 		    actionCount = actions.Count ? actions.Count() : actions.length;
 		return actionCount;
 	} ,
+	
+	// create a JSON object from a filter
+	// pass in nsIMsgFilter
+	// uses adapted code from copyTerms and copyActions to build JSON object.
+	serializeFilter: function serializeFilter(filter) {
+		const Ci = Components.interfaces,
+					FA = Ci.nsMsgFilterAction,
+					util = quickFilters.Util;
+		function isEmpty(v) {
+			return (v==="" || v===null);
+		}
+		let atom = {};
+		atom.filterName	= filter.filterName;	
+		atom.filterDesc	= filter.filterDesc;	
+		atom.filterType = filter.filterType;
+		atom.temporary = filter.temporary;
+		if (filter.unparseable) atom.unparseable = true;
+		atom.actionCount	= filter.actionCount;	
+		atom.enabled	= filter.enabled;	
+		atom.actionList = [];
+		// copy actions
+		let actionCount = this.getActionCount(filter);
+		for (let a = 0; a < actionCount; a++) {
+			let action = filter.getActionAt(a).QueryInterface(Ci.nsIMsgRuleAction);
+			// https://dxr.mozilla.org/comm-central/source/obj-x86_64-pc-linux-gnu/dist/include/nsMsgFilterCore.h?q=nsMsgRuleActionType&redirect_type=direct#82
+			let atomAction = {};
+			atomAction.type = action.type;
+			switch(action.type) {
+				case FA.ChangePriority:
+					atomAction.priority = action.priority;
+					break;
+				case FA.CopyToFolder:
+				case FA.MoveToFolder:
+					atomAction.targetFolderUri = action.targetFolderUri;
+					break;
+				case FA.AddTag:
+					atomAction.strValue = action.strValue;
+					// atomAction.label = action.label;
+					break;
+				case FA.JunkScore:
+					atomAction.junkScore = action.junkScore;
+					break;
+				case FA.Custom:
+					// note: custom action associated with Id must be set 
+					//       prior to reading ac.customAction attribute
+					atomAction.customId = action.customId;
+					let cA = action.customAction; // nsIMsgFilterCustomAction
+					if (cA) {
+						// not quite sure how to fully persist these functions:
+						//   (we need to look at where Thunderbird stores them / are they 
+						//   part of the filter backup / msgFilterRules.dat?)
+						//   specifically, [how] are the methods validateActionValue(), apply() and
+						//   isValidForType() implemented / persisted?
+						atomAction.customAction = {};
+						atomAction.customAction.id = cA.id;
+						atomAction.customAction.name = cA.name;
+						atomAction.customAction.allowDuplicates = cA.allowDuplicates;
+					}
+					break;
+			}				
+			try {
+				if (action.strValue)
+					atomAction.strValue = action.strValue;
+			}
+			catch (ex) {;}
+			atom.actionList.push(atomAction);
+		}
+		
+		// 3. iterate all conditions & clone them
+		// util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri});
+		// [https://bugzilla.mozilla.org/show_bug.cgi?id=857230] convert nsIMsgFilter.idl::searchTerms from nsISupportsArray to something else
+		//  searchTerms may have been changed in Thunderbird 58 from nsICollection to nsIMutableArray
+		//   this may necessitate a bunch of Shim code.
+		// filter.searchTerms.QueryInterface(Components.interfaces.nsIMutableArray); 
+		//  	.QueryInterface(Components.interfaces.nsICollection);
+		let stCollection = util.querySearchTermsArray(filter.searchTerms); 
+		
+		atom.searchTerms = [];
+		for (let t = 0; t < stCollection.Count(); t++) {
+			// let searchTerm = stCollection.GetElementAt(t);
+			//   stCollection.queryElementAt(t, Components.interfaces.nsIMsgSearchTerm),
+			let searchTerm = util.querySearchTermsAt(stCollection, t),
+					atomTerm = {};
+			if (searchTerm.attrib) {
+				atomTerm.attrib = searchTerm.attrib;
+			}
+			// nsMsgSearchOpValue
+			if (searchTerm.op) atomTerm.op = searchTerm.op; 
+			if (searchTerm.value) {
+				let val = {}; // nsIMsgSearchValue
+				val.attrib = searchTerm.value.attrib;  
+				if (util.isStringAttrib(val.attrib)) {
+					let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
+					let newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
+					this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
+					replaceVal = newVal;
+					val.str = replaceVal;  // .toLocaleString() ?
+				}
+				else switch (val.attrib) {
+					case AC.Priority:
+						val.priority = searchTerm.value.priority;
+						break;
+					case AC.MessageKey:
+						val.msgKey = searchTerm.value.msgKey;
+						break;
+					case AC.AgeInDays:
+						val.age = searchTerm.value.age;
+						break;
+					case AC.Date:
+						val.date = searchTerm.value.date;
+						break;
+					case AC.MsgStatus: 
+						val.status = searchTerm.value.status;
+						break;
+					case AC.JunkStatus:
+						val.junkStatus = searchTerm.value.junkStatus;
+						break;
+					case AC.Size:
+						val.size = searchTerm.value.size;
+						break;
+					case AC.Label:
+						val.label = searchTerm.value.label; // might need special code for copying.
+						break;
+					case AC.FolderInfo:
+						val.folder = searchTerm.value.folder; // might need special code for copying.
+						break;
+					case AC.JunkPercent:
+						val.junkPercent = searchTerm.value.junkPercent; 
+						break;
+				}
+				atomTerm.value = val;
+			}
+			atomTerm.booleanAnd = searchTerm.booleanAnd;
+			if ('arbitraryHeader' in searchTerm && !isEmpty(searchTerm.arbitraryHeader)) atomTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
+			if ('hdrProperty' in searchTerm && !isEmpty(searchTerm.hdrProperty)) atomTerm.hdrProperty = new String(searchTerm.hdrProperty);
+			if ('customId' in searchTerm && !isEmpty(searchTerm.customId)) atomTerm.customId = searchTerm.customId;
+			atomTerm.beginsGrouping = searchTerm.beginsGrouping;
+			atomTerm.endsGrouping = searchTerm.endsGrouping;
+			
+			// append newTerm ONLY if it does not already exist (avoid duplicates!)
+			// however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
+			atom.searchTerms.push(atomTerm);
+		}
+		return atom;
+	} ,
+	
+	// initialize a filter object from a JSON
+	// pass in the newFilter object, return success boolean
+	deserializeFilter: function deserializeFilter(jsonFilter, newFilter) {
+		return false;
+	} ,
+	
 	
 	copyActions: function copyActions(fromFilter, toFilter, suppressTargetFolder) {
     const Ci = Components.interfaces,
@@ -1513,11 +1665,33 @@ quickFilters.Util = {
 				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
 				quickFilters,
 				params).focus();
+	},
+	
+	querySearchTermsArray: function querySearchTermsArray(searchTerms) {
+		if (searchTerms.QueryElementAt)
+			return searchTerms.QueryInterface(Components.interfaces.nsICollection); // old version
+		if (searchTerms.queryElementAt)
+			return searchTerms.QueryInterface(Components.interfaces.nsIMutableArray);
+		return null;
+	} ,
+	
+	querySearchTermsAt: function querySearchTermsAt(searchTerms, i) {
+		if (searchTerms.QueryElementAt)
+			return searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
+		if (searchTerms.queryElementAt)
+			return searchTerms.queryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
+		return null;
+	} ,
+	
+  dummy: function() {
+		/* 
+		 *
+		 *  END OF QUICKFILTERS.UTIL OBJECT
+		 *  ADD NEW ATTRIBUTES ON TOP  ^ ^ ^ 
+		 *  ================================================================
+		 *  ================================================================
+		 */
 	}
-	
-	
-	
-  
 }; // Util
 
   // -------------------------------------------------------------------
@@ -1603,7 +1777,6 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI) {
     }
     else
       retValue = str ? str : "";
-    // SmartTemplate4.regularize.headersDump += 'extractHeader(' + header + ') = ' + retValue + '\n';
     return retValue;
   };
   
@@ -1622,7 +1795,7 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI) {
   this.get = get;
   // this.content = content;
   return null;    
-} ; // clsGetHeaders
+} ; // quickFilters.clsGetHeaders
 
 
 quickFilters.mimeDecoder = {
@@ -1661,7 +1834,7 @@ quickFilters.mimeDecoder = {
 		  charset = "iso-2022-jp-1"; 
 		}
 		if (!charset) { 
-			let defaultSet = "ISO-8859-1"; // SmartTemplate4.Preferences.getMyStringPref ('defaultCharset');
+			let defaultSet = "ISO-8859-1"; 
 			charset = defaultSet ? defaultSet : '';  // should we take this from Thunderbird instead?
 		}
 		util.logDebugOptional('mime','mimeDecoder.detectCharset guessed charset: ' + charset +'...');
@@ -1886,7 +2059,6 @@ quickFilters.mimeDecoder = {
         address,
         bracketParams = _getBracketAddressArgs(format); 
 
-    // if (SmartTemplate4.Preferences.isDebug) debugger;
     /** ITERATE ADDRESSES  **/
 		for (let i = 0; i < array.length; i++) {
 			if (i > 0) {
@@ -1986,4 +2158,4 @@ quickFilters.mimeDecoder = {
 		}
 		return addresses;
 	} // split
-};  // mimeDecoder
+};  // quickFilters.mimeDecoder

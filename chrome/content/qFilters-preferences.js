@@ -46,7 +46,7 @@ quickFilters.Preferences = {
 
 	getBoolPrefSilent: function(p) {
 		try {
-			return this.service.getBoolPrefNative(p);
+			return this.getBoolPref(p);
 		}
 		catch(e) {
 			return false;

@@ -254,13 +254,18 @@ END LICENSE BLOCK
 		# Completed Swedish Locale (sv-SE) thanks to Mikael Hiort af Ornäs, A. Regnander at Babelzilla
 		# [Bug 26354] When merging / creating a filter, select "run on folder" automatically. This should be set to the specified account's inbox.
 
-  3.4.1 : 
+  3.4.1 : 19/12/2017
     # [Bug 26457] Auto processing of filters with tags when option is off
 		  Something causes the filters to run automatically	(may be related to tags)
 		# Added a checkbox for the auto filtering manually tagged messages
 		
-	3.5: Planned for the next major release (End Jan 2018 ?)
+	3.4.2 : 25/12/2017
+	  # Uniquified SHIM pathes to avoid side effects
+		# Fixed a typo in Italian translation (on special request by Leopoldo Saggin)
+		
+	3.5: WIP
 	  # [Bug 25844] Add Backup + Restore Feature (Premium Feature)
+		# SearchTerms Array changed from nsICollection to nsIMutableArray, following changes from comm-central
 		
 		
 	PLANNED CHANGES  
@@ -532,16 +537,25 @@ var quickFilters = {
 				    currentV = util.getVersionSimple(currentVersion);
         if (currentVersion.indexOf("hc") ==-1) {
 					if (util.versionLower(installedV, currentV)) { 	
-						util.logDebug("update case: showing version history");
-						util.showVersionHistory(false);
-						
+						util.logDebug("update case: showing version history\n"
+						            + "Current Version: " + installedV + "\n"
+												+ "New Version: " + currentV);
+						// silent updates (for all users)
+						if (!(installedV.toString()=="3.4.1" && currentV=="3.4.2")) {
+							util.showVersionHistory(false);
+						}
 					
 						if (!util.hasPremiumLicense(false)) {
-							if (prefs.getBoolPrefSilent("extensions.quickfilters.donations.askOnUpdate")
+							let donationsOnUpdate = prefs.getBoolPrefSilent("donations.askOnUpdate");
+							if (donationsOnUpdate
 									&& !(installedV=="2.3" && currentV=="2.3.1")
 									&& !(installedV=="2.4" && currentV=="2.4.1")
-									&& !(installedV=="2.6" && currentV=="2.6.1"))
+									&& !(installedV=="2.6" && currentV=="2.6.1")) {
+								util.logDebug("show donate page");
 								util.showDonatePage();
+							}
+							else 
+								util.logDebug("omit donate page\ndonationsOnUpdate = " + donationsOnUpdate );
 						}
 						else
 							util.logDebug("quickfilters has premium license - omitted donate page.");

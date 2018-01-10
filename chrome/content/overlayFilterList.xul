@@ -14,7 +14,7 @@
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<!-- execute quickFilters.List.onLoadFilterList() when loading window -->
 	<script type="application/x-javascript" src="chrome://quickfilters/content/overlayFilterList.js" />
-	<script type="application/x-javascript" src="chrome://shimEc1/content/qFilters-shim-ecma.js" />
+	<script type="application/x-javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
 	
 	
   <toolbarpalette id="QuickFiltersToolbarPalette">
@@ -142,7 +142,7 @@
 			  tooltiptext = "&quickfilters.button.sort.tooltiptext;"
 			  oncommand = "quickFilters.List.sort(event);"
 			  />
-		    <toolbarseparator />
+			<toolbarseparator />
 			<!-- Test new remove duplicate search conditions -->
 			<toolbarbutton id="quickFiltersBtnDupe"
               class="toolbarbutton-1 chromeclass-toolbar-additional"
@@ -163,7 +163,7 @@
 			    <menupopup> 
 				<!-- fill with JS -->
 			    </menupopup>
-			</menulist>
+				</menulist>
 			<toolbarbutton id="quickFiltersBtnCancelFound"
               class="toolbarbutton-1 chromeclass-toolbar-additional"
               label="&quickfilters.button.cancelFindInFolder.label;"
@@ -185,6 +185,15 @@
               tooltiptext="&quickfilters.button.assistant.tooltiptext;"
               oncommand="quickFilters.List.toggleAssistant(this);"
 			  />
+			<toolbarseparator />
+			<toolbarbutton id="btnSaveFilters"
+										 class="toolbarbutton-1 chromeclass-toolbar-additional"
+										 tooltiptext="&quickfilters.button.saveFilters.tooltip;"
+										 onclick = "quickFilters.List.store();"/>
+			<toolbarbutton id="btnLoadFilters"
+										 class="toolbarbutton-1 chromeclass-toolbar-additional"
+										 tooltiptext="&quickfilters.button.loadFilters.tooltip;"
+										 onclick="quickFilters.List.load();"/>
 			  
 		    <toolbarspring />
 			<toolbarbutton id="quickFiltersBtnSettings"

@@ -8,8 +8,16 @@
 /* All toolbar buttons */
 #quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, #quickFiltersBtnSort,
 #quickFiltersBtnSettings, #quickFiltersBtnStart, #quickFiltersBtnClone, #quickFiltersBtnDupe, 
-#quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound {
+#quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound,
+#btnSaveFilters, #btnLoadFilters {
   display: -moz-box;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+#quickfilters-toolbar .toolbarbutton-1 .toolbarbutton-icon {
+	width: 24px !important;
+	height: 24px !important;
 }
 
 #quickFiltersDuplicateList, #quickFiltersFoundResults {
@@ -203,4 +211,13 @@
 
 #quickFilters-Count {
 	text-align: right;
+}
+
+#btnSaveFilters {
+	list-style-image: url("chrome://quickfilters/skin/fugue-disk.png") !important;
+	-moz-image-region: rect(0, 24px, 24px, 0);
+}
+#btnLoadFilters {
+	list-style-image: url("chrome://quickfilters/skin/fugue-folder-open.png") !important;
+	-moz-image-region: rect(0, 24px, 24px, 0);
 }

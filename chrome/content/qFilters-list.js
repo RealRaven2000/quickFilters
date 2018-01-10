@@ -66,6 +66,18 @@ quickFilters.List = {
       return gFilterTreeView; // SM
     return gFilterTree.view; //Postbox
   } ,
+	
+  get ServerMenu() {
+    switch(quickFilters.Util.Application) {
+      case 'SeaMonkey':
+        return document.getElementById("serverMenu");
+      case 'Thunderbird':
+        return document.getElementById("serverMenu");
+      case 'Postbox':
+        return document.getElementById("serverMenu");
+    }
+    return null;
+  } ,
   
   get ServerMenuPopup() {
     switch(quickFilters.Util.Application) {
@@ -136,7 +148,7 @@ quickFilters.List = {
         utils = quickFilters.Util,
 				prefs = quickFilters.Preferences;
     if (this.getSelectedCount(list) != 1) {
-			let wrn = quickFilters.Util.getBundleString('quickfilters.clone.selectOne', 
+			let wrn = utils.getBundleString('quickfilters.clone.selectOne', 
                                    'To clone, select exactly one filter.');
       utils.popupAlert(wrn);
       return;
@@ -182,8 +194,7 @@ quickFilters.List = {
 			window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
 												"chrome, modal, resizable,centerscreen,dialog=yes", args);
 												
-			if ("refresh" in args && args.refresh)
-			{
+			if ("refresh" in args && args.refresh) {
 				quickFilters.Worker.openFilterList(true, sourceFolder);
 				// 5. insert the merged filter
 				utils.logDebug("Adding new Filter '" + newFilter.filterName + "' "
@@ -1496,7 +1507,7 @@ quickFilters.List = {
         for (let t = 0; t < stCollection.Count(); t++) {
           // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
           // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
-          let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
+          let searchTerm = util.querySearchTermsAt(stCollection, t);
           if (searchTerm.value) {
             let val = searchTerm.value, // nsIMsgSearchValue
                 AC = Components.interfaces.nsMsgSearchAttrib;
@@ -1694,6 +1705,7 @@ quickFilters.List = {
   } ,
   
   findDuplicates: function findDuplicates() {
+		const util = quickFilters.Util;
     // make an Array of
     // {attribType, 
     // 1. type of term  'sub
@@ -1704,21 +1716,21 @@ quickFilters.List = {
     let Terms = [],
         Actions = [];
     
-    quickFilters.Util.popupProFeature("duplicatesFinder", true, false);    
+    util.popupProFeature("duplicatesFinder", true, false);    
     let filtersList = this.FilterList,
         FA = Components.interfaces.nsMsgFilterAction;
     // build a dictionary of terms; this might take some time!
     for (let idx = 0; idx < filtersList.filterCount; idx++) {
       let filter = filtersList.getFilterAt(idx),
       // 1. Search Conditions
-          stCollection = filter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+          stCollection = util.querySearchTermsArray(filter.searchTerms);
       for (let t = 0; t < stCollection.Count(); t++) {
         // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
         // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
-        let searchTerm = stCollection.QueryElementAt(t, Components.interfaces.nsIMsgSearchTerm);
+        let searchTerm = util.querySearchTermsAt(stCollection, t);
         if (searchTerm.value) {
           let val = searchTerm.value; // nsIMsgSearchValue
-          if (val && quickFilters.Util.isStringAttrib(val.attrib)) {
+          if (val && util.isStringAttrib(val.attrib)) {
             let conditionStr = searchTerm.value.str || '', // guard against invalid str value.
                 term = { attrib: val.attrib, operator: searchTerm.op, value: conditionStr, count: 1}, // .toLocaleLowerCase()
                 found = false;
@@ -1735,7 +1747,7 @@ quickFilters.List = {
         }
       }
       // 2. Actions
-      let actionCount = quickFilters.Util.getActionCount(filter);
+      let actionCount = util.getActionCount(filter);
       for (let a = 0; a < actionCount; a++) {
         let action = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction),
             actionValue = '';
@@ -1778,7 +1790,7 @@ quickFilters.List = {
       let term = Terms[i];
       if (term.count>1) {
         this.duplicateTerms.push(term);
-        quickFilters.Util.logDebug("Found duplicate condition: {attrib: " + term.attrib + ", op: " + term.operator + ", value: " + term.value + ", count: " + term.count +"}");
+        util.logDebug("Found duplicate condition: {attrib: " + term.attrib + ", op: " + term.operator + ", value: " + term.value + ", count: " + term.count +"}");
         let menuItem = document.createElement("menuitem"),
             vLabel = term.value,
             theLabel = this.getAttributeLabel(term.attrib) + ' ' 
@@ -1796,7 +1808,7 @@ quickFilters.List = {
       let action = Actions[i];
       if (action.count>1) {
         this.duplicateActions.push(action);
-        quickFilters.Util.logDebug("Found duplicate action: {attrib: " + action.type + ", value: " + action.value + ", count: " + action.count +"}");
+        util.logDebug("Found duplicate action: {attrib: " + action.type + ", value: " + action.value + ", count: " + action.count +"}");
         let menuItem = document.createElement("menuitem"),
             dec = action.value;
         if (action.type==FA.MoveToFolder || action.type==FA.CopyToFolder)
@@ -1831,6 +1843,7 @@ quickFilters.List = {
   } ,
   
   selectDuplicate: function selectDuplicate(el) {
+		const util = quickFilters.Util;
     let searchBox = document.getElementById("searchBox");
     if (searchBox) {
       searchBox.value = el.value;
@@ -1840,7 +1853,7 @@ quickFilters.List = {
     contextMenu.collapsed = false;
     let actionType = el.selectedItem.getAttribute('actionType');
     if (actionType) {
-      let men = quickFilters.Util.getBundleString('quickfilters.menu.removeDupeAction', 'Remove duplicate action'),
+      let men = util.getBundleString('quickfilters.menu.removeDupeAction', 'Remove duplicate action'),
       // remove the count e.g. (2) from label
           pos = el.label.lastIndexOf('('),
           displayAction = pos ? el.label.substring(0, pos) :  el.label;
@@ -1865,7 +1878,7 @@ quickFilters.List = {
       }
     }
     else {
-      let men = quickFilters.Util.getBundleString('quickfilters.menu.removeDupeCondition', 'Remove duplicate condition');
+      let men = util.getBundleString('quickfilters.menu.removeDupeCondition', 'Remove duplicate condition');
       contextMenu.label = men + ": " + el.label + "...";
       contextMenu.value = el.value;
       quickFilters.List.toggleSearchType('condition');
@@ -1964,7 +1977,328 @@ quickFilters.List = {
 		
     quickFilters.Util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ') COMPLETE \n' 
                                 + this.searchFilterResults.length + ' matches found');
-  } 
+  } ,
+	
+  get currentAccountName() {
+    const  Ci = Components.interfaces,
+           accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].
+									  getService(Ci.nsIMsgAccountManager).accounts;
+    let theMenu = this.ServerMenu, // document.getElementById("serverMenu"),
+        menuEntry = theMenu.label,
+        end = menuEntry.indexOf(' <');
+		// should we cut off the mail address if it is part of the label?
+    if (end>0)
+      return menuEntry.substring(0, end);
+    else
+      return menuEntry;
+  },
+	
+  fileFilters: function fileFilters(mode, jsonData, fname, isDateStamp) {
+    // readData: this function does the actual work of interpreting the read data
+    // and setting the UI values of currently selected deck accordingly:
+    function readData(data) {
+      function updateElement(el, stem, targetId) {
+        // id target is common, append .id#, otherwise replace the .id#
+        let oldId = targetId ? el.id.replace(targetId, stem) : el.id + stem,
+            evt = document.createEvent("Events");
+        // set element value (text / checkbox) from json data
+        if (el.tagName == 'checkbox')
+          el.checked = settings[oldId];
+        else
+          el.value = settings[oldId]; // textbox
+        // force preference update
+        evt.initEvent("change", true, false);
+        el.dispatchEvent(evt);
+      }
+			let filtersJSON = [];
+      let filters = JSON.parse(data);
+      // jsonData = the key
+      // every identifier ends with id#; we need to replace the number with the current key!
+      // or match the string up to .id!
+			
+			if(filters) {
+				filters = filters.replace(/\r?\n|\r/, ''); // remove all line breaks
+				let entries = JSON.parse(folders);
+				for (let i = 0; i < entries.length; i++) {
+					filtersJSON.push(entries[i]);
+				}
+			}
+			
+			let iSuccess = 0, iFailure = 0;
+			let filtersList = this.FilterList; // util.getFilterList(localFolder);
+			// Merge or rebuild?
+			// for account specific filter lists, see also searchFiltersFromFolder()
+			for (let i = 0; i < entries.length; i++) {
+				// create new filter list / filter
+				// for the nitty-gritty, see also quickFilters.Worker.buildFilter
+				let targetFilter = filtersList.createFilter(folderName);
+				if (util.deserializeFilter(filtersJSON[i], targetFilter)) {
+					filtersList.insertFilterAt(iSuccess, targetFilter);
+					iSuccess++;
+				}
+				else
+					iFailure++;
+			}
+    }
+    const Cc = Components.classes,
+          Ci = Components.interfaces,
+          util = quickFilters.Util;
+		util.popupProFeature(mode + "_template", true, false); // save_template, load_template
+					
+    let //localized text for filePicker filter menu
+		    strBndlSvc = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
+		    bundle = strBndlSvc.createBundle("chrome://quickfilters/locale/overlay.properties"),
+        filterText;
+    
+		let fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker),
+        fileOpenMode = (mode=='load') ? fp.modeOpen : fp.modeSave;
+    
+		fp.init(window, "", fileOpenMode); // second parameter: prompt
+    filterText = util.getBundleString("quickfilters.fpJsonFile","JSON File");
+    fp.appendFilter(filterText, "*.json");
+    fp.defaultExtension = 'json';
+    if (mode == 'save') {
+			function twoDigs(num) {
+				if (num>=10) return num;
+				return "0" + num.toString();
+			}
+			let fileName = fname;
+			if (isDateStamp) {
+				let d = new Date(),
+				    timeStamp = d.getFullYear() + "-" + twoDigs(d.getMonth()+1) + "-" + twoDigs(d.getDate()) + "_" + twoDigs(d.getHours()) + "-" + twoDigs(d.getMinutes());
+				fileName = fname + "_" + timeStamp;
+			}
+      fp.defaultString = fileName + '.json';
+    }
+    
+    let fpCallback = function fpCallback_FilePicker(aResult) {
+      if (aResult == Ci.nsIFilePicker.returnOK || aResult == Ci.nsIFilePicker.returnReplace) {
+        if (fp.file) {
+          let path = fp.file.path;
+          if (util.Application=='Postbox') {
+            switch (mode) {
+              case 'load':
+                let settings = quickFilters.Util.Postbox_readFile(path);
+                readData(settings);
+                return;
+              case 'save':
+                quickFilters.Util.Postbox_writeFile(path, jsonData)
+                return;
+            }
+            throw ('invalid mode: ' + mode);
+          }
+          
+          const {OS} = Components.utils.import("resource://gre/modules/osfile.jsm", {});
+          
+          //localFile = Components.classes["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+          switch (mode) {
+            case 'load':
+              let promiseRead = OS.File.read(path, { encoding: "utf-8" }); //  returns Uint8Array
+              promiseRead.then(
+                function readSuccess(data) {
+                  debugger;
+                  readData(data);
+                },
+                function readFailed(ex) {
+                  util.logDebug ('read() - Failure: ' + ex); 
+                }
+              )
+              break;
+            case 'save':
+              // if (aResult == Ci.nsIFilePicker.returnReplace)
+              let promiseDelete = OS.File.remove(path);
+              // defined 2 functions
+              util.logDebug ('Setting up promise Delete');
+              promiseDelete.then (
+                function saveJSON() {
+                  util.logDebug ('saveJSON()...'); 
+                  // force appending correct file extension!
+                  if (!path.toLowerCase().endsWith('.json'))
+                    path += '.json';
+                  let promiseWrite = OS.File.writeAtomic(path, jsonData, { encoding: "utf-8"});
+                  promiseWrite.then(
+                    function saveSuccess(byteCount) {
+                      util.logDebug ('successfully saved ' + byteCount + ' bytes to file');
+                    },
+                    function saveReject(fileError) {  // OS.File.Error
+                      util.logDebug ('bookmarks.save error:' + fileError);
+                    }
+                  );
+                },
+                function failDelete(fileError) {
+                  util.logDebug ('OS.File.remove failed for reason:' + fileError); 
+                }
+              );
+              break;
+          }
+        }
+      }
+    }
+    
+		if (fp.open)
+			fp.open(fpCallback);		
+		else { // Postbox
+		  fpCallback(fp.show());
+		}
+    
+    return true;    
+  } ,
   
+  Postbox_writeFile: function Pb_writeFile(path, jsonData) {
+    const Ci = Components.interfaces,
+          Cc = Components.classes;
+    
+    let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile); // Postbox specific. deprecated in Tb 57
+    file.initWithPath(path);
+    // stateString.data = aData;
+    // Services.obs.notifyObservers(stateString, "sessionstore-state-write", "");
+
+    // Initialize the file output stream.
+    let ostream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+    ostream.init(file, 
+                 0x02 | 0x08 | 0x20,   // write-only,create file, reset if exists
+                 0x600,   // read+write permissions
+                 ostream.DEFER_OPEN); 
+
+    // Obtain a converter to convert our data to a UTF-8 encoded input stream.
+    let converter = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
+    converter.charset = "UTF-8";
+
+    // Asynchronously copy the data to the file.
+    let istream = converter.convertToInputStream(jsonData); // aData
+    NetUtil.asyncCopy(istream, ostream, function(rc) {
+      if (Components.isSuccessCode(rc)) {
+        // do something for success
+      }
+    });
+  } ,
   
-};
+  Postbox_readFile: function Pb_readFile(path) {
+    const Ci = Components.interfaces,
+          Cc = Components.classes;
+    let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile); // Postbox specific. deprecated in Tb 57
+    file.initWithPath(path);
+          
+    let fstream = Cc["@mozilla.org/network/file-input-stream;1"].
+                  createInstance(Ci.nsIFileInputStream);
+    fstream.init(file, -1, 0, 0);
+
+    let cstream = Cc["@mozilla.org/intl/converter-input-stream;1"].
+                  createInstance(Ci.nsIConverterInputStream);
+    cstream.init(fstream, "UTF-8", 0, 0);
+
+    let string  = {};
+    cstream.readString(-1, string);
+    cstream.close();
+    return string.value;    
+  }, 
+	
+/*
+nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
+{
+  uint32_t   filterCount = 0;
+  nsresult   err = GetFilterCount(&filterCount);
+  NS_ENSURE_SUCCESS(err, err);
+
+  err = WriteIntAttr(nsIMsgFilterList::attribVersion, kFileVersion, aStream);
+  NS_ENSURE_SUCCESS(err, err);
+  err = WriteBoolAttr(nsIMsgFilterList::attribLogging, m_loggingEnabled, aStream);
+  NS_ENSURE_SUCCESS(err, err);
+  for (uint32_t i = 0; i < filterCount; i ++)
+  {
+    nsCOMPtr<nsIMsgFilter> filter;
+    if (NS_SUCCEEDED(GetFilterAt(i, getter_AddRefs(filter))) && filter)
+    {
+      filter->SetFilterList(this);
+
+      // if the filter is temporary, don't write it to disk
+      bool isTemporary;
+      err = filter->GetTemporary(&isTemporary);
+      if (NS_SUCCEEDED(err) && !isTemporary) {
+        err = filter->SaveToTextFile(aStream);
+        if (NS_FAILED(err))
+          break;
+      }
+    }
+    else
+      break;
+  }
+  if (NS_SUCCEEDED(err))
+    m_arbitraryHeaders.Truncate();
+  return err;
+}
+ */		
+	
+  store: function store() {
+		// see nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
+		// https://dxr.mozilla.org/comm-central/source/mailnews/base/search/src/nsMsgFilterList.cpp#867
+		
+		
+    // let's get all the settings from the key and then put them in a json structure:
+    const util = quickFilters.Util,
+          settings = quickFilters.Settings;
+					
+    let uri = this.ServerMenu.value,
+		    folder = typeof gSelectedFolder == "string" 
+				  ? gSelectedFolder   // global in Thunderbird FitlerListDialog.js
+					: util.getMsgFolderFromUri(uri),
+        filtersList = util.getFilterList(folder, gFilterListMsgWindow),
+				filterCount = filtersList.filterCount;
+				
+		// get selected account info: see FilterListDialog.js setFolder()
+		// it sets gCurrentFolder and
+		// gCurrentFilterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
+		// gCurrentFolder.server.rootMsgFolder
+		// date can be converted back with new Date(jsonDate);
+		let	iSuccess = 0,
+				iFail = 0,
+		    filtersJSON = {
+					accountName: this.ServerMenu.value,
+					rootFolderURL: gCurrentFolder.server.rootMsgFolder.folderURL,
+					date: (new Date()).toJSON(),  
+					filters: []
+				};
+		
+		for (let i = 0; i < filterCount; i++) {
+			let filter = filtersList.getFilterAt(i),
+			    jsonAtom = util.serializeFilter(filter),
+			    fn = jsonAtom ? (jsonAtom.filterName || "[unnamed]") : "[serializeFilter failed]";
+		  if (jsonAtom) {
+				iSuccess++;
+				util.logDebug("# " + (i+1) + ". Added filter to JSON: " + fn)
+				filtersJSON.filters.push(jsonAtom);
+			}
+			else {
+				iFail++;
+				util.logToConsole("# " + (i+1) + ". COULD NOT ADD filter: " + fn);
+			}
+		}
+		
+    const msgArchive = util.getBundleString('quickfilters.backup.archivingFilters', "Archiving {1} Filters" + String.fromCharCode(0x2026) ),
+		      msgFailed = util.getBundleString('quickfilters.backup.failedFilters', "{1} filters could not be encoded! Please check the error log for detail.");
+    let json = JSON.stringify(filtersJSON, null, '  '), // prettified with indentation
+		    msg = msgArchive.replace('{1}', iSuccess);
+		if (iFail) {
+			msg += "\n" + msgFailed.replace('{1}', iFail);
+		}
+		util.slideAlert(msg, 'quickFilters');
+    this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
+		if (iFail)
+			util.alert(msg);
+  } ,
+  
+  load: function load() {
+    this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
+  } ,
+	
+  
+  dummy: function() {
+		/* 
+		 *
+		 *  END OF QUICKFILTERS.LIST OBJECT
+		 *  ADD NEW ATTRIBUTES ON TOP  ^ ^ ^ 
+		 *  ================================================================
+		 *  ================================================================
+		 */
+	}  
+}; // quickFilters.List
