@@ -23,6 +23,8 @@
 <!ENTITY quickfilters.button.settings "Inställningar för quickFilters…">
 <!ENTITY quickfilters.button.assistant "Växla assistentläge …">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Växlar filterassistentläget av/på. När det är aktiverat, dra och släpp e-brev för att skapa filter.">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Säkerhetskopiera filter...">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Återställ filter...">
 <!ENTITY quickfilters.button.support "quickFilters supportwebbplats">
 <!ENTITY quickfilters.button.searchProperties "Ändra sökegenskaper…">
 <!ENTITY quickfilters.option.searchProperty.name "Namn">
