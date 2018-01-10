@@ -29,11 +29,11 @@ overlay chrome://myXUL/content/overlayCurrentfolder.xul     chrome://quickfilter
 # shim-JS for platforms>11 - this section will avoid the pesky errors in THunderbird about for..in being outdated
 # while also avoid Postbox crashing us for syntax when we use for..of
 #tb (for..of)
-content shimEc1 chrome://quickfilters/content/shimEcma/ application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+content shimQuickFilters chrome://quickfilters/content/shimEcma/ application={3550f703-e582-4d05-9a08-453d09bdfdc6}
 #sm (for..of)
-content shimEc1 chrome://quickfilters/content/shimEcma/ application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+content shimQuickFilters chrome://quickfilters/content/shimEcma/ application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 #postbox (for in)
-content shimEc1 chrome://quickfilters/content/shimEcmaOld/ application=postbox@postbox-inc.com
+content shimQuickFilters chrome://quickfilters/content/shimEcmaOld/ application=postbox@postbox-inc.com
 
 
 
