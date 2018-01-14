@@ -23,6 +23,8 @@
 <!ENTITY quickfilters.button.settings "Настройки quickFilters...">
 <!ENTITY quickfilters.button.assistant "Включить ассистент...">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Включить ассистент по созданию фильтров путем перетаскивания сообщений.">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Архивирую фильтры…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Восстанавливаю фильтры…">
 <!ENTITY quickfilters.button.support "Страница поддержки quickFilters">
 <!ENTITY quickfilters.button.searchProperties "Свойство для поиска фильтра…">
 <!ENTITY quickfilters.option.searchProperty.name "Имя">
