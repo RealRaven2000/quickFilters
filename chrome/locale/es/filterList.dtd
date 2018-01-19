@@ -23,6 +23,8 @@
 <!ENTITY quickfilters.button.settings "Configuración de quickFilters…">
 <!ENTITY quickfilters.button.assistant "Accionar asistente…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Acciona el modo de asistente de filtros. Cuando esté activo, arrastre y suelte correos para crear filtros.">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Hace copia de seguridad de los filtros...">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Restaura los filtros...">
 <!ENTITY quickfilters.button.support "Sitio de soporte de quickFilters.">
 <!ENTITY quickfilters.button.searchProperties "Cambiar propiedades de búsqueda…">
 <!ENTITY quickfilters.option.searchProperty.name "Nombre">
