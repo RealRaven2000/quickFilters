@@ -81,10 +81,18 @@ quickFilters.Worker = {
           break;
       }
       let notificationKey = "quickfilters-filter";
+			
       
       // do a tidy up in case this is already open!
       if (notificationId) { // SeaMonkey: no such thing yet.
         notifyBox = document.getElementById (notificationId);
+				// remove QuickFolders notification if it is there:
+				try {
+					if (window.QuickFolders) 
+						removeOldNotification(notifyBox, false, 'quickfolders-filter');
+				} catch(ex) {;}
+				
+				
         let item = notifyBox.getNotificationWithValue(notificationKey);
         if (item)
           notifyBox.removeNotification(item, (util.Application == 'Postbox')); // second parameter in Postbox(not documented): skipAnimation
@@ -247,7 +255,8 @@ quickFilters.Worker = {
   } ,
 
 	parseHeader : function parseHeader(parser, msgHeader) {
-		if (quickFilters.Util.Application === 'Postbox') {
+		const util = quickFilters.Util;
+		if (util.Application === 'Postbox' && util.PlatformVersion<50) {
 			// guessing guessing guessing ...
 			// somehow this takes the C++ signature?
 			return parser.extractHeaderAddressMailboxes(null, msgHeader);
@@ -548,7 +557,7 @@ quickFilters.Worker = {
     if (!sourceFolder) {
       let txtMessage = 'Sorry but I cannot determine the original folder (SourceFolder) for this Message.\n'
         + 'Filter creation had to be abandoned.';
-      if (util.Application == 'Postbox') {
+      if (util.Application === 'Postbox' && util.PlatformVersion<50) {
         txtMessage += '\n\nIn Postbox, I currently have no method for determining the origin of this message,'
          + '\ninstead please activate the filter assistant and then move or tag mails.'
       }
@@ -597,7 +606,8 @@ quickFilters.Worker = {
             return -1;
           }
           if (messageDb) {
-            if (!messageHeader)
+						// important fix for new Postbox:
+            if (!messageHeader || !firstMessage.msgClone.initialized)
               messageHeader = messageDb.getMsgHdrForMessageID(messageId);
           }
           else { // Postbox ??

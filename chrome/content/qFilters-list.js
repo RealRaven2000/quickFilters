@@ -2010,8 +2010,8 @@ quickFilters.List = {
         evt.initEvent("change", true, false);
         el.dispatchEvent(evt);
       }
-			let filtersJSON = [];
-      let filters = JSON.parse(data);
+			let filtersJSON = [],
+          filters = JSON.parse(data);
       // jsonData = the key
       // every identifier ends with id#; we need to replace the number with the current key!
       // or match the string up to .id!
@@ -2024,8 +2024,8 @@ quickFilters.List = {
 				}
 			}
 			
-			let iSuccess = 0, iFailure = 0;
-			let filtersList = this.FilterList; // util.getFilterList(localFolder);
+			let iSuccess = 0, iFailure = 0,
+			    filtersList = this.FilterList; // util.getFilterList(localFolder);
 			// Merge or rebuild?
 			// for account specific filter lists, see also searchFiltersFromFolder()
 			for (let i = 0; i < entries.length; i++) {
@@ -2040,7 +2040,11 @@ quickFilters.List = {
 					iFailure++;
 			}
     }
-    const Cc = Components.classes,
+		function twoDigs(num) {
+			if (num>=10) return num;
+			return "0" + num.toString();
+		}
+		const Cc = Components.classes,
           Ci = Components.interfaces,
           util = quickFilters.Util;
 		util.popupProFeature(mode + "_template", true, false); // save_template, load_template
@@ -2058,10 +2062,6 @@ quickFilters.List = {
     fp.appendFilter(filterText, "*.json");
     fp.defaultExtension = 'json';
     if (mode == 'save') {
-			function twoDigs(num) {
-				if (num>=10) return num;
-				return "0" + num.toString();
-			}
 			let fileName = fname;
 			if (isDateStamp) {
 				let d = new Date(),
@@ -2075,7 +2075,7 @@ quickFilters.List = {
       if (aResult == Ci.nsIFilePicker.returnOK || aResult == Ci.nsIFilePicker.returnReplace) {
         if (fp.file) {
           let path = fp.file.path;
-          if (util.Application=='Postbox') {
+          if (util.Application=='Postbox' && util.PlatformVersion<50) {
             switch (mode) {
               case 'load':
                 let settings = quickFilters.Util.Postbox_readFile(path);

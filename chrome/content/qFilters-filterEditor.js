@@ -308,9 +308,11 @@ quickFilters.FilterEditor = {
 }  
 
 quickFilters.Util.acceptEditFilter = function acceptEditFilter(win) {
+	let retVal = onAccept();
   quickFilters.Util.logDebug('quickFilters.Util.accept(' + win + ')');
   let op = win.opener;
   if (op && op.quickFilters && op.quickFilters.List) {
     op.quickFilters.List.refreshDuplicates(true);
   }
+	return retVal;
 } ;

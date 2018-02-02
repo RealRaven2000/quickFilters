@@ -34,6 +34,7 @@ content shimQuickFilters chrome://quickfilters/content/shimEcma/ application={35
 content shimQuickFilters chrome://quickfilters/content/shimEcma/ application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 #postbox (for in)
 content shimQuickFilters chrome://quickfilters/content/shimEcmaOld/ application=postbox@postbox-inc.com
+content shimQuickFilters chrome://quickfilters/content/shimEcma/ application=postbox@postbox-inc.com platformversion>=26
 
 
 

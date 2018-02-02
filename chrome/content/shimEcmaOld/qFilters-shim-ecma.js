@@ -181,27 +181,33 @@ if (!quickFilters.Shim) {
 		} ,
 		
 		cloneHeaders: function cloneHeaders(msgHdr, messageClone, dbg, appendProperty) {
-			for (let [propertyName, prop] in Object.entries(msgHdr)) {
-				// propertyName is what you want
-				// you can get the value like this: myObject[propertyName]
-				try {
-					let hasOwn = msgHdr.hasOwnProperty(propertyName),
-							isCopied = false;  // replace msgHdr[propertyName] with prop
-					if (hasOwn && typeof prop != "function" && typeof prop != "object") {
-						messageClone[propertyName] = msgHdr[propertyName]; // copy to the clone!
-						if (messageClone[propertyName])  // make sure we have some data! (e.g. author, subject, recipient, date, charset, messageId)
-							dbg.countInit ++;
-						isCopied = true;
+			// for (let [propertyName, prop] in Object.entries(msgHdr)) { // Object.entries is not supported in old JavaScript versions.
+			Object.keys(msgHdr).forEach(
+			  function(propertyName, index) {
+					// propertyName is what you want
+					// you can get the value like this: myObject[propertyName]
+					try {
+						let hasOwn = msgHdr.hasOwnProperty(propertyName),
+								isCopied = false;  // replace msgHdr[propertyName] with prop
+						if (hasOwn) {
+							let prop = msgHdr[propertyName];
+							if (typeof prop != "function" && typeof prop != "object") {
+								messageClone[propertyName] = prop; // copy to the clone!
+								if (messageClone[propertyName])  // make sure we have some data! (e.g. author, subject, recipient, date, charset, messageId)
+									dbg.countInit ++;
+								isCopied = true;
+							}
+						}
+						if (isCopied) {
+							dbg.test = appendProperty(dbg.test, msgHdr, propertyName);
+						}
+						else {
+							dbg.test2 = appendProperty(dbg.test2, msgHdr, propertyName);
+						}
 					}
-					if (isCopied) {
-						dbg.test = appendProperty(dbg.test, msgHdr, propertyName);
-					}
-					else {
-						dbg.test2 = appendProperty(dbg.test2, msgHdr, propertyName);
-					}
-				}
-				catch(ex) { ; }
-			}
+					catch(ex) { ; }
+				});
+			// } 
 		} ,
 		
 		findInboxFromRoot: function findInboxFromRoot(root, fflags) {
@@ -215,8 +221,7 @@ if (!quickFilters.Shim) {
 			}
 			return null;
 		} ,
-		
-		
+			
 		dummy: ', <== end Shim properties here'
 	} // end of Shim definition
 };

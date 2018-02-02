@@ -45,6 +45,7 @@ quickFilters.Util = {
   mAppName: null,
   mHost: null,
   mExtensionVer: null,
+	mPlatformVer: null,
   ConsoleService: null,
   lastTime: 0,
   _tabContainer: null,
@@ -266,6 +267,19 @@ quickFilters.Util = {
     return pureVersion;
   } ,
 
+	get PlatformVersion() {
+		if (null==this.mPlatformVer)
+			try {
+				let appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
+				                        .getService(Components.interfaces.nsIXULAppInfo);
+				this.mPlatformVer = parseFloat(appInfo.platformVersion);
+			}
+			catch(ex) {
+				this.mPlatformVer = 1.0; // just a guess
+			}
+		return this.mPlatformVer;
+	} ,
+	
   isVirtual: function isVirtual(folder) {
     if (!folder)
       return true;
@@ -579,6 +593,7 @@ quickFilters.Util = {
   } ,
 
   getCurrentFolder: function getCurrentFolder() {
+		const util = quickFilters.Util;
     let aFolder;
     if (typeof(GetLoadedMsgFolder) != 'undefined') {
       aFolder = GetLoadedMsgFolder();
@@ -586,7 +601,8 @@ quickFilters.Util = {
     else
     {
       let currentURI;
-      if (quickFilters.Util.Application==='Postbox') {
+      if (typeof GetSelectedFolderURI === 'function') {
+				// old Postbox
         currentURI = GetSelectedFolderURI();
       }
       else {
@@ -597,7 +613,7 @@ quickFilters.Util = {
       // in search result folders, there is no current URI!
       if (!currentURI)
         return null;
-      aFolder = quickFilters.Util.getMsgFolderFromUri(currentURI, true).QueryInterface(Components.interfaces.nsIMsgFolder); // inPB case this is just the URI, not the folder itself??
+      aFolder = util.getMsgFolderFromUri(currentURI, true).QueryInterface(Components.interfaces.nsIMsgFolder); // inPB case this is just the URI, not the folder itself??
     }
     return aFolder;
   } ,
@@ -620,7 +636,6 @@ quickFilters.Util = {
 	  // guard against any other callers.
 	  if (quickFilters.Util.Application != 'Postbox')
 		  throw('pbGetSelectedMessages: Postbox specific function!');
-			
 	  try {
       let messageUris = quickFilters.Util.pbGetSelectedMessageUris();
       //let messageIdList = [];
@@ -1030,7 +1045,7 @@ quickFilters.Util = {
   } ,
 	
 	isStringAttrib: function isStringAttrib(attr) {
-	  let AC = Components.interfaces.nsMsgSearchAttrib;
+	  const AC = Components.interfaces.nsMsgSearchAttrib;
 		let isString =
 	    !( attr == AC.Priority || attr == AC.Date || attr == AC.MsgStatus || attr == AC.MessageKey || attr == AC.Size || attr == AC.AgeInDays
 		  || attr == AC.FolderInfo || attr == AC.Location || attr == AC.Label || attr == AC.JunkStatus || attr == AC.Uint32HdrProperty
@@ -1231,6 +1246,7 @@ quickFilters.Util = {
 	serializeFilter: function serializeFilter(filter) {
 		const Ci = Components.interfaces,
 					FA = Ci.nsMsgFilterAction,
+					AC = Ci.nsMsgSearchAttrib,
 					util = quickFilters.Util;
 		function isEmpty(v) {
 			return (v==="" || v===null);

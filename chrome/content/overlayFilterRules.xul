@@ -12,7 +12,7 @@
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
 	<script type="application/x-javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
 	<dialog id="FilterEditor"
-	  ondialogaccept = "{ let retVal = onAccept();  quickFilters.Util.acceptEditFilter(window); return retVal;}" >
+	  ondialogaccept = "{ return quickFilters.Util.acceptEditFilter(window); }" >
 		
 		<hbox  id="quickFilters-CustomTemplate" 
 		       collapsed="true" >

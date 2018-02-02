@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
-    <Description about="urn:mozilla:install-manifest">
-        <em:type>2</em:type> 
-        <em:id>quickFilters@axelg.com</em:id>
-        <em:version>3.5pre39</em:version>
+	<Description about="urn:mozilla:install-manifest">
+		<em:type>2</em:type> 
+		<em:id>quickFilters@axelg.com</em:id>
+		<em:version>3.5pre54</em:version>
 
 		<em:creator>Axel Grude</em:creator>
 		<!-- Thunderbird -->
@@ -20,7 +20,7 @@
 				<Description>
 						<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
 						<em:minVersion>2.34</em:minVersion>
-						<em:maxVersion>2.49</em:maxVersion>
+						<em:maxVersion>2.49.*</em:maxVersion>
 				</Description>
 		</em:targetApplication>
 		<!-- Postbox  -->
@@ -122,31 +122,30 @@
 				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
 			</Description>
 		</em:localized>
-      <em:localized>
-        <Description>
-          <em:locale>fr</em:locale>
-          <em:creator>Axel Grude</em:creator>
-          <em:translator>Jojaba - French BabelZilla team (fr)</em:translator>
-          <em:name>quickFilters</em:name>
-          <em:description>Créer rapidement à la volée des filtres de message en cliquant-déposant des messages et analysant leurs attributs.</em:description>
-          <em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
-        </Description>
-      </em:localized>
-      <em:localized>
-        <Description>
-          <em:locale>sv-SE</em:locale>
-          <em:creator>Axel Grude</em:creator>
-          <em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
-          <em:name>quickFilters</em:name>
-          <em:description>Skapa meddelandefilter snabbt och enkelt genom att dra och släppa meddelanden och analysera deras attribut.</em:description>
-          <em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
-        </Description>
-      </em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>fr</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Jojaba - French BabelZilla team (fr)</em:translator>
+				<em:name>quickFilters</em:name>
+				<em:description>Créer rapidement à la volée des filtres de message en cliquant-déposant des messages et analysant leurs attributs.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
+		<em:localized>
+			<Description>
+				<em:locale>sv-SE</em:locale>
+				<em:creator>Axel Grude</em:creator>
+				<em:translator>Mikael Hiort af Ornäs (sv-SE)</em:translator>
+				<em:name>quickFilters</em:name>
+				<em:description>Skapa meddelandefilter snabbt och enkelt genom att dra och släppa meddelanden och analysera deras attribut.</em:description>
+				<em:homepageURL>http://quickfilters.mozdev.org/index.html</em:homepageURL>
+			</Description>
+		</em:localized>
 
-
-      <em:iconURL>chrome://quickfilters/skin/QuickFilters_32.png</em:iconURL>
-        <em:icon64URL>chrome://quickfilters/skin/QuickFilters_64.png</em:icon64URL>
+		<em:iconURL>chrome://quickfilters/skin/QuickFilters_32.png</em:iconURL>
+		<em:icon64URL>chrome://quickfilters/skin/QuickFilters_64.png</em:icon64URL>
 
 		<em:optionsURL>chrome://quickfilters/content/quickFilters-options.xul</em:optionsURL>
-    </Description>
+	</Description>
 </RDF>

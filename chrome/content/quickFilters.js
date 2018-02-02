@@ -263,9 +263,10 @@ END LICENSE BLOCK
 	  # Uniquified SHIM pathes to avoid side effects
 		# Fixed a typo in Italian translation (on special request by Leopoldo Saggin)
 		
-	3.5: WIP
+	3.5 : WIP
 	  # [Bug 25844] Add Backup + Restore Feature (Premium Feature)
 		# SearchTerms Array changed from nsICollection to nsIMutableArray, following changes from comm-central
+		# [Bug 26477] Make quickFilters Postbox 5.52 beta compatible
 		
 		
 	PLANNED CHANGES  
@@ -589,7 +590,8 @@ var quickFilters = {
 				let selectedMessages,
             selectedMessageUris,
 				    messageList = [];
-				if (quickFilters.Util.Application === 'Postbox') {
+				if (typeof gFolderDisplay =='undefined' || !gFolderDisplay.selectedMessageUris) {
+					// old Postbox
 				  selectedMessages = quickFilters.Util.pbGetSelectedMessages();
           selectedMessageUris = quickFilters.Util.pbGetSelectedMessageUris();
 				}
@@ -998,7 +1000,8 @@ var quickFilters = {
 						selectedMessages,
 						selectedMessageUris,
 						messageList = [];
-				if (util.Application === 'Postbox') {
+				if (typeof gFolderDisplay =='undefined' || !gFolderDisplay.selectedMessageUris) {
+					// old Postbox
 					selectedMessages = util.pbGetSelectedMessages();
 					selectedMessageUris = util.pbGetSelectedMessageUris();
 				}

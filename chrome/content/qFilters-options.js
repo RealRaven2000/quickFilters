@@ -112,9 +112,11 @@ quickFilters.Options = {
   },
   
   showAboutConfig: function(clickedElement, filter, readOnly) {
-
-    const name = "Preferences:ConfigManager";
-    const uri = "chrome://global/content/config.xul";
+    const name = "Preferences:ConfigManager",
+		      util = quickFilters.Util;
+    let uri = "chrome://global/content/config.xul";
+		if (util.Application)
+			uri += "?debug";
 
     let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
     let w = mediator.getMostRecentWindow(name);
@@ -153,7 +155,6 @@ quickFilters.Options = {
       // last parameter is Readonly.
       quickFilters.Options.showAboutConfig(null, filter, true); 
     }
-
   },
   
   sendMail: function(mailto)  {
