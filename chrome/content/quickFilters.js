@@ -265,8 +265,10 @@ END LICENSE BLOCK
 		
 	3.5 : WIP
 	  # [Bug 25844] Add Backup + Restore Feature (Premium Feature)
+		# [Bug 26488] ESR 2018 readiness - Make quickFilters compatible tB 60
+		# [Bug 26477] Make quickFilters Postbox 5.52 beta6 compatible
 		# SearchTerms Array changed from nsICollection to nsIMutableArray, following changes from comm-central
-		# [Bug 26477] Make quickFilters Postbox 5.52 beta compatible
+		# [Bug 26486] quickfilters-3.4.2 can't create Filter in Thunderbird versions < 47
 		
 		
 	PLANNED CHANGES  
@@ -745,11 +747,11 @@ var quickFilters = {
   },
 
   onFolderTreeViewDrop: function onFolderTreeViewDrop(aRow, aOrientation) {
-    let Cc = Components.classes,
+    const Cc = Components.classes,
         Ci = Components.interfaces,
 				util = quickFilters.Util,
-        treeView = quickFilters.folderTreeView,
-				worker = quickFilters.Worker,
+        treeView = quickFilters.folderTreeView;
+		let worker = quickFilters.Worker,
         dataTransfer,
         dragSession;
 		util.logDebugOptional("events,msgMove", "onFolderTreeViewDrop");
@@ -800,7 +802,7 @@ var quickFilters = {
         sourceFolder = msgHdr.folder;
       }
 
-      //dataObj = dataObj.value.QueryInterface(Components.interfaces.nsISupportsString);
+      //dataObj = dataObj.value.QueryInterface(Ci.nsISupportsString);
       //let messageUri = dataObj.data.substring(0, len.value);
 
       messageUris.push(messageUri);
@@ -831,7 +833,7 @@ var quickFilters = {
 
         if (worker.FilterMode) {
           worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
-					  isMove ? Components.interfaces.nsMsgFilterAction.MoveToFolder : Components.interfaces.nsMsgFilterAction.CopyToFolder,
+					  isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
 						null, false);
 					
 				}

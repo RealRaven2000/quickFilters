@@ -354,44 +354,49 @@ quickFilters.Worker = {
     let accountCount = 0,
         sourceFolder = null,
 				aAccounts = util.Accounts; // Array code moved to shim
-		
-		// count all default identities on system
-		for (let a=0; a<aAccounts.length; a++) {
-			if (aAccounts[a].defaultIdentity)
-        accountCount++; 
+		try {
+			// count all default identities on system
+			for (let a=0; a<aAccounts.length; a++) {
+				if (aAccounts[a].defaultIdentity)
+					accountCount++; 
+			}
+			
+			// Get inbox from original account key - or use the only account if a SINGLE one exists
+			// (Should we count LocalFolders? typically no filtering on that inbox occurs?)
+			//    we could also add an account picker GUI here for Postbox,
+			//    or parse From/To/Bcc for account email addresses
+			if (msg.accountKey || accountCount==1) {
+				util.logDebugOptional('getSourceFolder,createFilter', "sourceFolder: get Inbox from account of first message, key:" + msg.accountKey);
+				for (let a=0; a<aAccounts.length; a++) {
+					let ac = aAccounts[a];
+					// Postbox quickFix: we do not need a match if only 1 account exists :-p
+					if ((ac.key == msg.accountKey) || (accountCount==1 && ac.defaultIdentity)) {
+						// account.identities is an nsISupportsArray of nsIMsgIdentity objects
+						// account.defaultIdentity is an nsIMsgIdentity
+						if (msg.accountKey)
+							util.logDebugOptional('getSourceFolder', "Found account with matching key: " + ac.key);
+						// account.incomingServer is an nsIMsgIncomingServer
+						if (ac.incomingServer && ac.incomingServer.canHaveFilters) {
+							// ac.defaultIdentity
+							sourceFolder = ac.incomingServer.rootFolder;
+							util.logDebugOptional('createFilter', "rootfolder: " + sourceFolder.prettyName || '(empty)');
+						}
+						else {
+							util.logDebugOptional('createFilter', "Account - No incoming Server or cannot have filters!");
+							let wrn = util.getBundleString('quickfilters.createFilter.warning.noFilterFallback',
+								'Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead.');
+							util.popupAlert(wrn.replace('{1}', ac.key));
+						}
+						break;
+					}
+				}                       
+			}
+			return sourceFolder; 
 		}
-    
-    // Get inbox from original account key - or use the only account if a SINGLE one exists
-    // (Should we count LocalFolders? typically no filtering on that inbox occurs?)
-    //    we could also add an account picker GUI here for Postbox,
-    //    or parse From/To/Bcc for account email addresses
-    if (msg.accountKey || accountCount==1) {
-      util.logDebugOptional('getSourceFolder,createFilter', "sourceFolder: get Inbox from account of first message, key:" + msg.accountKey);
-      for (let a=0; a<aAccounts.length; a++) {
-        let ac = aAccounts[a];
-        // Postbox quickFix: we do not need a match if only 1 account exists :-p
-        if ((ac.key == msg.accountKey) || (accountCount==1 && ac.defaultIdentity)) {
-          // account.identities is an nsISupportsArray of nsIMsgIdentity objects
-          // account.defaultIdentity is an nsIMsgIdentity
-          if (msg.accountKey)
-            util.logDebugOptional('getSourceFolder', "Found account with matching key: " + ac.key);
-          // account.incomingServer is an nsIMsgIncomingServer
-          if (ac.incomingServer && ac.incomingServer.canHaveFilters) {
-            // ac.defaultIdentity
-            sourceFolder = ac.incomingServer.rootFolder;
-            util.logDebugOptional('createFilter', "rootfolder: " + sourceFolder.prettyName || '(empty)');
-          }
-          else {
-            util.logDebugOptional('createFilter', "Account - No incoming Server or cannot have filters!");
-            let wrn = util.getBundleString('quickfilters.createFilter.warning.noFilterFallback',
-              'Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead.');
-            util.popupAlert(wrn.replace('{1}', ac.key));
-          }
-          break;
-        }
-      }                       
-    }
-    return sourceFolder; 
+		catch(ex) {
+			util.logException("getSourceFolder() failed", ex);
+		}
+		return null;
   } ,
 	
   // folder is the target folder - we might also need the source folder
@@ -517,9 +522,15 @@ quickFilters.Worker = {
       if (!root) { this.promiseCreateFilter = false; return -4; }
       
       isFromMessageContext = true;
-      // determine the inbox for this target folder
-      /******** v v v OBSOLETE code???  v v v   ********/
-      if (root.hasSubFolders) {
+      // sourceFolder - determine from message has priority
+			let sF = this.getSourceFolder(firstMessage.msgHeader);
+			if (sF) 
+				sourceFolder = sF;
+			
+      // fallback: determine the inbox for target folder
+      /******** v v v OBSOLETE code???  v v v  [[[ ********/
+			// Note: the following code works for old versions of Thunderbird (38.8), so we are leaving it in
+      if (!sourceFolder && root.hasSubFolders) {
         util.logDebugOptional('createFilter', "no sourceFolder: root.hasSubFolders ");
         // unfortunately, Postbox doesn't define subFolders of nsIMsgFolder
         if (typeof root.subFolders !== 'undefined') {
@@ -547,11 +558,7 @@ quickFilters.Worker = {
           util.logDebugOptional('createFilter', "no sourceFolder: root has no subFolders or method for getting them");
         }
       }
-      /******** ^ ^ ^ OBSOLETE code???  ^ ^ ^ ********/
-      // sourceFolder
-      let sF = this.getSourceFolder(firstMessage.msgHeader);
-      if (sF) 
-        sourceFolder = sF;
+      /******** ^ ^ ^ OBSOLETE code???  ^ ^ ^ ]]] ********/
     }
     
     if (!sourceFolder) {
@@ -920,7 +927,7 @@ quickFilters.Worker = {
       }
     }
     
-    if (prefs.isDebugOption('buildFilter')) debugger;    
+    if (prefs.isDebugOption('buildFilter')) debugger;
 		// create new filter or load existing filter?
 		if (mergeFilterIndex>=0) {
 			targetFilter = matchingFilters[mergeFilterIndex];
@@ -1160,7 +1167,12 @@ quickFilters.Worker = {
           msgUri = targetFolder.getUriForMsg(msg);
         }
         
-        util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri});
+				try{ 
+					util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri});
+				}
+				catch(ex) {
+					alert("Could not run copyTerms: " + ex.message);
+				}
         // util.replaceTermVarsFromMsg(targetFilter, msg, messageList[0].messageURI);
         break;
         
@@ -1382,7 +1394,7 @@ quickFilters.Worker = {
 				util.logDebugOptional('createFilter', 'createFilterAsync - createFilter returned: ' + filtered);
 			}
 			catch(ex) {
-				util.logException("createFilterAsync_New() failed: ", e);
+				util.logException("createFilterAsync_New() failed: ", ex);
 			}
 			finally {	;	}
     }, delay);

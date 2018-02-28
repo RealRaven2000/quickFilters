@@ -1924,19 +1924,22 @@ quickFilters.List = {
 					prefs = quickFilters.Preferences;
     qList.toggleSearchType('targetFolder');
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
+		
+		if (prefs.isDebugOption('filterSearch')) debugger;
     
     // find out of we need to change server:
     let item = el.selectedItem,
-        account = item.targetAccount,
+        account = item.targetAccount,  
         targetFilter = item.targetFilter,
         uri = item.getAttribute('targetFolderUri'),
         actionType = item.getAttribute('actionType'),    
-    // change server to correct account
-        aFolder = account ? account.rootMsgFolder : null;
+        // change server to correct account (originating inbox)
+        aFolder = account ?
+					(MailUtils ? MailUtils.getFolderForURI(account.serverURI) : account.rootMsgFolder) 
+					: null;
 
 		// check whether we changed to a different server:		
 		if (qList.CurrentFolder != aFolder) {
-			if (prefs.isDebugOption('filterSearch')) debugger;
 			if (typeof onFilterFolderClick !== 'undefined') {
 				// Old Thunderbird specific code. Deprecated in Tb52
 				onFilterFolderClick(aFolder);
@@ -2010,34 +2013,47 @@ quickFilters.List = {
         evt.initEvent("change", true, false);
         el.dispatchEvent(evt);
       }
-			let filtersJSON = [],
-          filters = JSON.parse(data);
+			let filterArray = [],
+          filtersJSON = JSON.parse(data);
       // jsonData = the key
       // every identifier ends with id#; we need to replace the number with the current key!
       // or match the string up to .id!
 			
-			if(filters) {
-				filters = filters.replace(/\r?\n|\r/, ''); // remove all line breaks
-				let entries = JSON.parse(folders);
+			if (filtersJSON) {
+				// filtersJSON = filtersJSON.replace(/\r?\n|\r/, ''); // remove all line breaks
+				let entries = filtersJSON.filters; // JSON.parse(folders);
 				for (let i = 0; i < entries.length; i++) {
-					filtersJSON.push(entries[i]);
+					filterArray.push(entries[i]);
 				}
 			}
 			
 			let iSuccess = 0, iFailure = 0,
-			    filtersList = this.FilterList; // util.getFilterList(localFolder);
+			    filtersList = quickFilters.List.FilterList; // was this.FilterList
 			// Merge or rebuild?
 			// for account specific filter lists, see also searchFiltersFromFolder()
-			for (let i = 0; i < entries.length; i++) {
+			for (let i = 0; i < filterArray.length; i++) {
+				let el = filterArray[i];
 				// create new filter list / filter
 				// for the nitty-gritty, see also quickFilters.Worker.buildFilter
-				let targetFilter = filtersList.createFilter(folderName);
-				if (util.deserializeFilter(filtersJSON[i], targetFilter)) {
+				let targetFilter = filtersList.createFilter(el.filterName);
+				if (util.deserializeFilter(el, targetFilter)) {
 					filtersList.insertFilterAt(iSuccess, targetFilter);
 					iSuccess++;
 				}
-				else
+				else {
 					iFailure++;
+					util.logToConsole("Could not deserialise Filter: " + el.filterName);
+				}
+			}
+			let txt = "Filter Import complete.\n",
+			    success = "Successfully added {0} filters.\n".replace("{0}", iSuccess),
+			    failure = "Failed to add {0} filters.\nFor details, please check Developer Tools / Error Console.".replace("{0}", iFailure),
+					msg = txt +
+					      (iSuccess ? success : "") +
+					      (iFailure ? failure : "");
+			util.slideAlert(msg, "Filter Import");
+			if (iSuccess) {
+				quickFilters.List.rebuildFilterList();
 			}
     }
 		function twoDigs(num) {
@@ -2088,7 +2104,9 @@ quickFilters.List = {
             throw ('invalid mode: ' + mode);
           }
           
-          const {OS} = Components.utils.import("resource://gre/modules/osfile.jsm", {});
+					const {OS} = (typeof ChromeUtils.import == "undefined") ?
+						Components.utils.import("resource://gre/modules/osfile.jsm", {}) :
+						ChromeUtils.import("resource://gre/modules/osfile.jsm", {});
           
           //localFile = Components.classes["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
           switch (mode) {
@@ -2096,7 +2114,6 @@ quickFilters.List = {
               let promiseRead = OS.File.read(path, { encoding: "utf-8" }); //  returns Uint8Array
               promiseRead.then(
                 function readSuccess(data) {
-                  debugger;
                   readData(data);
                 },
                 function readFailed(ex) {
@@ -2137,18 +2154,19 @@ quickFilters.List = {
     
 		if (fp.open)
 			fp.open(fpCallback);		
-		else { // Postbox
+  	else { // Postbox
 		  fpCallback(fp.show());
-		}
+  	}
     
     return true;    
   } ,
   
   Postbox_writeFile: function Pb_writeFile(path, jsonData) {
     const Ci = Components.interfaces,
-          Cc = Components.classes;
+          Cc = Components.classes,
+					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
     
-    let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile); // Postbox specific. deprecated in Tb 57
+    let file = Cc["@mozilla.org/file/local;1"].createInstance(NSIFILE); // Postbox specific. deprecated in Tb 57
     file.initWithPath(path);
     // stateString.data = aData;
     // Services.obs.notifyObservers(stateString, "sessionstore-state-write", "");
@@ -2175,8 +2193,9 @@ quickFilters.List = {
   
   Postbox_readFile: function Pb_readFile(path) {
     const Ci = Components.interfaces,
-          Cc = Components.classes;
-    let file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile); // Postbox specific. deprecated in Tb 57
+          Cc = Components.classes,
+					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
+    let file = Cc["@mozilla.org/file/local;1"].createInstance(NSIFILE); // Postbox specific. deprecated in Tb 57
     file.initWithPath(path);
           
     let fstream = Cc["@mozilla.org/network/file-input-stream;1"].

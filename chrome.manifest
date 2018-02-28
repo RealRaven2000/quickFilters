@@ -14,7 +14,8 @@ locale    quickfilters   vi            chrome/locale/vi/
 locale    quickfilters   zh-CN         chrome/locale/zh-CN/
 
 overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
-style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css
+style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css appversion<59.0a1
+style   chrome://messenger/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css appversion>=59.0a1
 style   chrome://messenger/content/FilterEditor.xul chrome://quickfilters/content/filterWidgets.css
 
 #Overlay QuickFolder's Current folder toolbar
@@ -28,8 +29,10 @@ overlay chrome://myXUL/content/overlayCurrentfolder.xul     chrome://quickfilter
 
 # shim-JS for platforms>11 - this section will avoid the pesky errors in THunderbird about for..in being outdated
 # while also avoid Postbox crashing us for syntax when we use for..of
+# Tb - Object.entries needs platform >= 47.0
 #tb (for..of)
-content shimQuickFilters chrome://quickfilters/content/shimEcma/ application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+content shimQuickFilters chrome://quickfilters/content/shimEcmaOld/ application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+content shimQuickFilters chrome://quickfilters/content/shimEcma/ application={3550f703-e582-4d05-9a08-453d09bdfdc6} platformversion>=47
 #sm (for..of)
 content shimQuickFilters chrome://quickfilters/content/shimEcma/ application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
 #postbox (for in)

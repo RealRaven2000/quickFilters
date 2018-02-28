@@ -13,7 +13,14 @@ if (!quickFilters.Util.Accounts) {
 			if (util.Application == 'Postbox') 
 				aAccounts = util.getAccountsPostbox(); 
 			else {
-				throw("Old ECMA module! We can use for..in in modern platforms!");
+				// throw("Old ECMA module! We can use for..in in modern platforms!");
+				// [Bug 26486] Support Thunderbird 38.* 
+				let accounts = Cc["@mozilla.org/messenger/account-manager;1"]
+										 .getService(Ci.nsIMsgAccountManager).accounts;
+				aAccounts = [];
+				for (let ac in fixIterator(accounts, Ci.nsIMsgAccount)) {
+					aAccounts.push(ac);
+				};
 			}
 			return aAccounts;
 		}
@@ -53,6 +60,7 @@ if (!quickFilters.Shim) {
 		
 		findFromTargetFolder: function findFromTargetFolder(targetFolder, searchFilterResults) {
 			const Util = quickFilters.Util,
+						prefs = quickFilters.Preferences,
 						Ci = Components.interfaces,
 						FA = Ci.nsMsgFilterAction;
 							
@@ -65,6 +73,8 @@ if (!quickFilters.Shim) {
 				if (typeof fixIterator == "undefined") {// Postbox fix
 					Components.utils.import("resource:///modules/iteratorUtils.jsm");
 				}
+				if (prefs.isDebugOption('filterSearch.detail')) debugger;
+					
 				for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
 					if (account.incomingServer && account.incomingServer.canHaveFilters ) {
 						let msg ='',

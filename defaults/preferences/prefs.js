@@ -93,6 +93,10 @@ pref("extensions.quickfilters.proNotify.sortFilters", true);
 pref("extensions.quickfilters.proNotify.sortFilters.countDown", 20);
 pref("extensions.quickfilters.proNotify.customTemplate", true);
 pref("extensions.quickfilters.proNotify.customTemplate.countDown", 20);
+pref("extensions.quickfilters.proNotify.save_template", true);
+pref("extensions.quickfilters.proNotify.save_template.countDown", 3);
+pref("extensions.quickfilters.proNotify.load_template", true);
+pref("extensions.quickfilters.proNotify.load_template.countDown", 2);
 
 // quickFilters Pro specific:
 pref("extensions.quickfilters.licenser.forceSecondaryIdentity",false);

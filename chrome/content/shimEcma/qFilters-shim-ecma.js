@@ -131,7 +131,7 @@ if (!quickFilters.Shim) {
 					// let theLabel = filterIdLabel + ' = ' + this.getActionLabel(target.Action.type) + ': ' + valueLabel;
 					menuItem.setAttribute("label", filterIdLabel);
 					menuItem.targetFilter = target.Filter; 
-					menuItem.targetAccount = target.Account; 
+					menuItem.targetAccount = target.Account;  
 					menuItem.setAttribute("actionType", target.Action.type); 
 					menuItem.setAttribute("targetFolderUri", target.Action.targetFolderUri);        
 					menuPopup.appendChild(menuItem);
@@ -184,6 +184,7 @@ if (!quickFilters.Shim) {
 		} ,
 
 		cloneHeaders: function cloneHeaders(msgHdr, messageClone, dbg, appendProperty) {
+			// Object.entries does not exist before Platform==47
 			for (let [propertyName, prop] of Object.entries(msgHdr)) {
 				// propertyName is what you want
 				// you can get the value like this: myObject[propertyName]

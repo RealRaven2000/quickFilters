@@ -918,8 +918,8 @@ quickFilters.Util = {
 
       let messageIdList = [];
       for (let i = 0; i < messageUris.length; i++) {
-        let Uri = messageUris[i];
-        let msgHeader = messenger.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
+        let Uri = messageUris[i],
+            msgHeader = messenger.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
         messageIdList.push(this.makeMessageListEntry(msgHeader, Uri));  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
 				quickFilters.Util.debugMsgAndFolders('Uri', Uri.toString(), targetFolder, msgHeader, "--");
       }
@@ -964,8 +964,8 @@ quickFilters.Util = {
   }  ,
 
   showVersionHistory: function showVersionHistory(ask) {
-    let version = quickFilters.Util.VersionSanitized;
-    let sPrompt = quickFilters.Util.getBundleString("quickfilters.confirmVersionLink", "Display version history for quickFilters")
+    let version = quickFilters.Util.VersionSanitized,
+        sPrompt = quickFilters.Util.getBundleString("quickfilters.confirmVersionLink", "Display version history for quickFilters");
     if (!ask || confirm(sPrompt)) {
       quickFilters.Util.openURL(null, "http://quickfilters.mozdev.org/version.html#" + version);
     }
@@ -1058,7 +1058,7 @@ quickFilters.Util = {
     const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
     let msgDbHdr = util.CurrentMessage,
-        hdr = util.CurrentHeader;
+        hdr = util.CurrentHeader; 
         
     function getNewsgroup() {
       util.logDebugOptional('regularize', 'getNewsgroup()');
@@ -1142,23 +1142,28 @@ quickFilters.Util = {
 	},	
     
 	// replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
-	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, replaceTerms) {
-		const AC = Components.interfaces.nsMsgSearchAttrib;
-    let util = quickFilters.Util,
-		    stCollection = util.querySearchTermsArray(fromFilter.searchTerms);
-    if (replaceTerms) {
-      if (replaceTerms.messageURI) {
-        util.CurrentMessage = replaceTerms.msgHdr;
-        util.CurrentHeader = new quickFilters.clsGetHeaders(replaceTerms.messageURI); //.bind(util.clsGetHeaders);
+	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, oReplaceTerms, isArray) {
+		const AC = Components.interfaces.nsMsgSearchAttrib,
+          util = quickFilters.Util,
+		      prefs = quickFilters.Preferences;
+		if (prefs.isDebugOption('createFilter')) debugger;
+		
+		let stCollection = isArray? fromFilter.searchTerms : util.querySearchTermsArray(fromFilter.searchTerms);
+    if (oReplaceTerms) {
+      if (oReplaceTerms.messageURI) {
+        util.CurrentMessage = oReplaceTerms.msgHdr;
+        util.CurrentHeader = new quickFilters.clsGetHeaders(oReplaceTerms.messageURI); 
       }
       else {
         util.popupAlert('Sorry, without messageURI I cannot parse mime headers - therefore cannot replace any variables. Tag listener with custom templates are currently not supported.'); 
-        replaceTerms = false; // do conventional copy!
+        oReplaceTerms = null; // do conventional copy!
       }
     }
-		for (let t = 0; t < stCollection.Count(); t++) {
+		// support passing in a deserialized array from JSON object for reading filters
+		let theCount = isArray ? stCollection.length : stCollection.Count();
+		for (let t = 0; t < theCount; t++) {
 			// let searchTerm = stCollection.GetElementAt(t);
-			let searchTerm = util.querySearchTermsAt(stCollection, t),
+			let searchTerm = isArray ? stCollection[t] : util.querySearchTermsAt(stCollection, t) ,
 			    newTerm;
 			if (isCopy) {
 			  newTerm = toFilter.createTerm();
@@ -1172,7 +1177,7 @@ quickFilters.Util = {
 					val.attrib = searchTerm.value.attrib;  
 					if (quickFilters.Util.isStringAttrib(val.attrib)) {
             let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
-            if (replaceTerms) {
+            if (oReplaceTerms) {
               let newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
               this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
               replaceVal = newVal;
@@ -1228,7 +1233,7 @@ quickFilters.Util = {
 			toFilter.appendTerm(newTerm);
 		}
         // remove special variables
-    if (replaceTerms) {
+    if (oReplaceTerms) {
       delete (util.CurrentHeader);   
       delete (util.CurrentMessage);
     }
@@ -1389,42 +1394,131 @@ quickFilters.Util = {
 	// initialize a filter object from a JSON
 	// pass in the newFilter object, return success boolean
 	deserializeFilter: function deserializeFilter(jsonFilter, newFilter) {
-		return false;
+		const Ci = Components.interfaces,
+					FA = Ci.nsMsgFilterAction,
+					AC = Ci.nsMsgSearchAttrib,
+					util = quickFilters.Util;
+		try {
+		let atom = {};
+			newFilter.filterName	= jsonFilter.filterName;	
+			newFilter.filterDesc	= jsonFilter.filterDesc;	
+			newFilter.filterType = jsonFilter.filterType;
+			newFilter.temporary = jsonFilter.temporary;
+			if (jsonFilter.unparseable) newFilter.unparseable = true;
+			// newFilter.actionCount	= jsonFilter.actionCount;	
+			newFilter.enabled	= jsonFilter.enabled;	
+			
+			// add a closured method for retrieving indexed actions
+			jsonFilter.getActionAt = function getAction(i) {
+				return jsonFilter.actionList[i];
+			}
+      util.copyActions(jsonFilter, newFilter, false, true);
+			
+			util.copyTerms(jsonFilter, newFilter, true, null, true);
+			
+		}
+		catch (ex) {
+			util.logException(ex, "deserializFilter(" + jsonFilter.filterName +  ")");
+			return false;
+		}
+		return true;
 	} ,
 	
 	
-	copyActions: function copyActions(fromFilter, toFilter, suppressTargetFolder) {
+	copyActions: function copyActions(fromFilter, toFilter, suppressTargetFolder, isArray) {
     const Ci = Components.interfaces,
           FA = Ci.nsMsgFilterAction;
 		let actionCount = this.getActionCount(fromFilter);
 		for (let a = 0; a < actionCount; a++) {
-			let action = fromFilter.getActionAt(a).QueryInterface(Ci.nsIMsgRuleAction),
+			let act = fromFilter.getActionAt(a),
 			    append = true,
 			    newActions = toFilter.actionList ? toFilter.actionList : toFilter.sortedActionList;
+			act = isArray ? act : act.QueryInterface(Ci.nsIMsgRuleAction);
       // don't add dummy action to filter (customTemplate uses set prio=normal as only action)
       if (actionCount==1 
         &&
-          action.type == FA.ChangePriority
+          act.type == FA.ChangePriority
         && 
-          action.priority == Ci.nsMsgPriority.normal) {
+          act.priority == Ci.nsMsgPriority.normal) {
           continue;
       }
+			// avoid duplicate actions?
 			for (let b = 0; b < this.getActionCount(toFilter); b++) { 
 				let ac = newActions.queryElementAt ?
 					newActions.queryElementAt(b, Ci.nsIMsgRuleAction):
 					newActions.QueryElementAt(b, Ci.nsIMsgRuleAction);
         // eliminate duplicates
-				if (ac.type == action.type
+				if (ac.type == act.type
 						&& 
-						ac.strValue == action.strValue) {
+						ac.strValue == act.strValue) {
 					append = false;
 					break;
 				}
 			}
-      if (suppressTargetFolder && action.type == FA.MoveToFolder)
+			
+      if (suppressTargetFolder && act.type == FA.MoveToFolder)
         continue; // for custom filter templates, avoids duplicate folder move nonsense
-			if (append)
+			if (append) {
+				let action;
+				if (isArray) {
+					action = toFilter.createAction(); // nsIMsgRuleAction 
+					action.type = act.type;
+					switch(act.type) {
+						case FA.MoveToFolder: case FA.CopyToFolder:
+						  action.targetFolderUri = act.targetFolderUri;
+							break;
+						case FA.AddTag:
+							action.strValue = act.strValue;
+							break;
+						case FA.ChangePriority:
+							action.priority = act.priority;
+							break;
+						case FA.MarkFlagged:
+						case FA.Delete:
+						case FA.None:
+						case FA.KillThread:
+						case FA.KillSubthread:
+						case FA.WatchThread:
+						case FA.MarkFlagged:
+						case FA.MarkUnread:
+						case FA.StopExecution:
+						case FA.DeleteFromPop3Server:
+						case FA.LeaveOnPop3Server:
+						  break;
+						case FA.Label:
+							action.strValue = act.strValue;
+							break;
+						case FA.JunkScore:
+							action.junkScore = act.junkScore;
+							break;
+						case FA.Custom:
+							// note: custom action associated with Id must be set 
+							//       prior to reading ac.customAction attribute
+							action.customId = act.customId;
+							let cA = act.customAction; // nsIMsgFilterCustomAction
+							if (cA) {
+								// not quite sure how to fully persist these functions:
+								//   (we need to look at where Thunderbird stores them / are they 
+								//   part of the filter backup / msgFilterRules.dat?)
+								//   specifically, [how] are the methods validateActionValue(), apply() and
+								//   isValidForType() implemented / persisted?
+								action.customAction = {};
+								action.customAction.id = cA.id;
+								action.customAction.name = cA.name;
+								action.customAction.allowDuplicates = cA.allowDuplicates;
+							}
+						default:
+						  if (act.strValue) 
+								action.strValue = act.strValue;
+					}
+					// what about: FA.Forward, FA.Reply, F>.JunkScore
+				}
+				else {
+					action = act;
+				}
 				toFilter.appendAction(action);
+				
+			}
 		}
 	} ,
   
@@ -1716,7 +1810,10 @@ quickFilters.Util = {
 quickFilters.clsGetHeaders = function classGetHeaders(messageURI) {
   const Ci = Components.interfaces,
         Cc = Components.classes,
-        util = quickFilters.Util;
+        util = quickFilters.Util,
+				prefs = quickFilters.Preferences;
+	if (prefs.isDebugOption('createFilter')) debugger;
+	
   let messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
       messageService = messenger.messageServiceFromURI(messageURI),
       messageStream = Cc["@mozilla.org/network/sync-stream-listener;1"].createInstance().QueryInterface(Ci.nsIInputStream),
@@ -1750,7 +1847,7 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI) {
   }
   catch (ex) {
     util.logException('clsGetHeaders - constructor - messageService.streamMessage failed', ex);
-    return null;
+    throw ex;
   }
 
   let msgContent = "",
