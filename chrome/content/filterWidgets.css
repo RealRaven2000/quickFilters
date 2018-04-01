@@ -81,15 +81,12 @@
 	animation: none !important;
 }
 
-@keyframes quickfiltersPulse {
-    0% { transform: scale(1); font-size: 1em; opacity: 0.6; }
-    50% { transform: scale(1.2); font-size: 1.25em; opacity: 1; }
-    100% { transform: scale(1); font-size: 1em; opacity: 0.6; }
-}
+@keyframes quickfiltersPulse {	to {box-shadow: 0 0 0 10px rgba(150, 80, 60, 0.12);}}
 
 #quickFilters-Pro.expired .tab-icon,
 #btnLicense {
-  animation: quickfiltersPulse 2.5s 1s ease-in-out infinite;
+  animation: quickfiltersPulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+	box-shadow: 0 0 0 0px rgba(40, 40, 40, 0.0);
 }
 #btnLicense:hover {
 	animation: none;
