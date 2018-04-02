@@ -338,6 +338,20 @@ hbox.quickhelp-dbg {
 }
 
 
+.licenseError {
+	border: 1px solid white;
+	color: white !important;
+	background: #A50B5E !important;
+	padding: 5px;
+}
+.licenseWarning {
+	border: 1px solid #00468C;
+	color: #00468C !important;
+	background: #FFD12A !important;
+	padding: 5px;
+}
+
+
 #validationResults {
 	max-height: 3em;
 }
@@ -348,13 +362,6 @@ hbox.quickhelp-dbg {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-
 #validationPassed {
   color: rgb(0,120,0);
-}
-#validationFailed, #validationInvalidEmail, #validationEmailNoMatch {
-  color: rgb(90,0,0);
-}
-#validationExpired {
-  color: rgb(120,0,90);
 }

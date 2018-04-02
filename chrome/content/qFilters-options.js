@@ -228,16 +228,20 @@ quickFilters.Options = {
     let getElement = document.getElementById.bind(document),
         validationPassed       = getElement('validationPassed'),
         validationFailed       = getElement('validationFailed'),
+				validationInvalidAddon = getElement('validationInvalidAddon'),
         validationExpired      = getElement('validationExpired'),
         validationInvalidEmail = getElement('validationInvalidEmail'),
         validationEmailNoMatch = getElement('validationEmailNoMatch'),
+				validationDate         = getElement('validationDate'),
         decryptedMail, decryptedDate,
 				result = State.NotValidated;
     validationPassed.collapsed = true;
     validationFailed.collapsed = true;
+		validationInvalidAddon.collapsed = true;
     validationExpired.collapsed = true;
     validationInvalidEmail.collapsed = true;
     validationEmailNoMatch.collapsed = true;
+		validationDate.collapsed = false;
     this.enablePremiumConfig(false);
     try {
       this.trimLicense();
@@ -282,12 +286,34 @@ quickFilters.Options = {
           // getElement('txtEncrypt').value = LicenseKey;
           break;
         case State.Invalid:
-          validationFailed.collapsed=false;
+				  validationDate.collapsed=true;
+				  let addonName = '';
+				  switch (license.substr(0,2)) {
+						case 'QF':
+							addonName = 'QuickFolders';
+						  break;
+						case 'ST':
+							addonName = 'SmartTemplate4';
+						  break;
+						case 'QI':
+						default: 
+						  validationFailed.collapsed=false;
+					}
+					if (addonName) {
+						validationInvalidAddon.collapsed = false;
+						let txt = validationInvalidAddon.textContent;
+						txt = txt.replace('{0}','quickFilters').replace('{1}','QI'); // keys for {0} start with {1}
+						if (txt.indexOf(addonName) < 0) {
+							txt += " " + util.getBundleString("qf.licenseValidation.guessAddon", "(The key above may be for {2})").replace('{2}',addonName);
+						}
+						validationInvalidAddon.textContent = txt;
+					}
           break;
         case State.Expired:
           validationExpired.collapsed=false;
           break;
         case State.MailNotConfigured:
+					validationDate.collapsed=true;
           validationInvalidEmail.collapsed=false;
           // if mail was already replaced the string will contain [mail address] in square brackets
           validationInvalidEmail.textContent = validationInvalidEmail.textContent.replace(/\[.*\]/,"{1}").replace("{1}", '[' + decryptedMail + ']');
@@ -297,6 +323,7 @@ quickFilters.Options = {
           validationEmailNoMatch.collapsed=false;
           break;
         default:
+					validationDate.collapsed=true;
           Services.prompt.alert(null,"quickFilters",'Unknown license status: ' + result);
           break;
       }

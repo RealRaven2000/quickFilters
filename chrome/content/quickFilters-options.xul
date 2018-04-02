@@ -439,21 +439,22 @@
 									oncommand="quickFilters.Options.validateLicenseInOptions(false);" />
 				</vbox>
 			</hbox>
-			<separator class="licenseSeparator" />
-			<hbox>
-				<label>&qf.label.licenseValid;</label>
-				<label id="licenseDate" value="-" />
-			</hbox>
 			<separator class = "licenseSeparator" />
 			<hbox id="validationResults">
 				<vbox>
 					<description id="validationPassed" class="niceFont" collapsed="true">&qf.licenseValidation.passed;</description>
-					<description id="validationFailed" class="niceFont" collapsed="true">&qf.licenseValidation.failed;</description>
-					<description id="validationExpired" class="niceFont" collapsed="true">&qf.licenseValidation.expired;</description>
-					<description id="validationInvalidEmail" class="niceFont" collapsed="true">&qf.licenseValidation.invalidMail;</description>
-					<description id="validationEmailNoMatch" class="niceFont" collapsed="true">&qf.licenseValidation.notMatchedMail;</description>
+					<description id="validationFailed" class="niceFont licenseError" collapsed="true">&qf.licenseValidation.failed;</description>
+					<description id="validationExpired" class="niceFont licenseWarning" collapsed="true">&qf.licenseValidation.expired;</description>
+					<description id="validationInvalidEmail" class="niceFont licenseWarning" collapsed="true">&qf.licenseValidation.invalidMail;</description>
+					<description id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed="true">&qf.licenseValidation.notMatchedMail;</description>
+					<description id="validationInvalidAddon" class="niceFont licenseError" collapsed="true">&qf.licenseValidation.invalidAddon;</description>
 				</vbox>
 				<spacer flex="1"/>
+			</hbox>
+			<separator class="licenseSeparator" />
+			<hbox id="validationDate">
+				<label>&qf.label.licenseValid;</label>
+				<label id="licenseDate" value="-" />
 			</hbox>
 			<separator  style="height:1em;" />
 			<hbox>
