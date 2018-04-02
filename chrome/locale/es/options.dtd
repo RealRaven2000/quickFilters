@@ -70,6 +70,7 @@
 <!ENTITY qf.licenseValidation.failed "La clave de licencia que ha introducido no es válida. Compruebe su correo en busca de instrucciones desde FastSpring. Si todavía tiene problemas, por favor, contacte conmigo desde la pestaña Soporte.">
 <!ENTITY qf.licenseValidation.expired "La clave de licencia que introdujo ha caducado. Por favor, pulse el botón de debajo para renovar su licencia.">
 <!ENTITY qf.licenseValidation.invalidMail "La dirección de correo electrónico ligada a la clave de licencia [{1}] actualmente no está listada en ninguna de sus cuentas de correo. Por favor, contacte conmigo desde la pestaña Soporte para asistencia.">
+<!ENTITY qf.licenseValidation.invalidAddon "La clave de licencia introducida puede pertenecer a otra extensión. Las claves de licencia para {0} comienzan por {1}.">
 <!ENTITY qf.licenseValidation.notMatchedMail "La dirección de correo electrónico cifrada no coincide con la legible.">
 <!ENTITY qf.premiumConfig "Características Premium">
 <!ENTITY qf.label.premiumFeaturesSite "Lea más sobre las características Premium en nuestro sitio web">
