@@ -69,6 +69,7 @@
 <!ENTITY qf.label.licenseValid "Ihre Lizenz ist gültig bis:">
 <!ENTITY qf.licenseValidation.passed "Vielen Dank für's Registrieren von quickFilters Pro! Alle Premium-Funktionen sind nun freigeschaltet.">
 <!ENTITY qf.licenseValidation.failed "Der eingegebene Lizenzschlüssel ist ungültig. Bitte folgen Sie den Instruktionen Ihrer Bestätigungs Email von FastSpring. Falls Sie Probleme mit dem Validierungsprozess haben, kontaktieren Sie mich bitte über den Support tab.">
+<!ENTITY qf.licenseValidation.invalidAddon "Der eingegebene Lizenzschlüssel könnte für ein anderes Add-on sein. Lizenzen für {0} beginnen mit {1}.">
 <!ENTITY qf.licenseValidation.expired "Der eingegebene  Lizenzschlüssel ist abgelaufen. Zum Erneuern betätigen Sie bitte die Schaltfläche unten.">
 <!ENTITY qf.licenseValidation.invalidMail "Die Email-Adresse welche im Lizenzschlüssel verknüpft ist [{1}] ist derzeit in keinem Ihrer Email-Konten vorhanden. Für Hilfe damit kontaktieren Sie mich bitte über den Support tab.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein.">

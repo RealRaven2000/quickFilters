@@ -69,6 +69,7 @@
 <!ENTITY qf.label.licenseValid "Your license is valid until:">
 <!ENTITY qf.licenseValidation.passed "Thanks for registering quickFilters Pro! All premium features are now unlocked.">
 <!ENTITY qf.licenseValidation.failed "The license key you entered is not valid. Check your email from FastSpring for instructions. If you still have problems, please contact me from the Support tab.">
+<!ENTITY qf.licenseValidation.invalidAddon "The license key you entered may be for a different Add-on. License keys for {0} start with {1}.">
 <!ENTITY qf.licenseValidation.expired "The license key you entered is expired. Please press the button below to renew your license.">
 <!ENTITY qf.licenseValidation.invalidMail "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Encrypted Email address does not match readable one.">
