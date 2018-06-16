@@ -144,21 +144,22 @@ quickFilters.List = {
 	clone: function clone(evt) {
     let filtersList = this.FilterList,
         sourceFolder = filtersList.folder,
-        list = this.FilterListElement,
-        utils = quickFilters.Util,
-				prefs = quickFilters.Preferences;
+        list = this.FilterListElement;
+		const util = quickFilters.Util,
+				  prefs = quickFilters.Preferences;
+
     if (this.getSelectedCount(list) != 1) {
-			let wrn = utils.getBundleString('quickfilters.clone.selectOne', 
+			let wrn = util.getBundleString('quickfilters.clone.selectOne', 
                                    'To clone, select exactly one filter.');
-      utils.popupAlert(wrn);
+      util.popupAlert(wrn);
       return;
     } 
 	
 		let selectedFilter = this.getSelectedFilterAt(list, 0);
 		if (!selectedFilter) {
-      let wrn = quickFilters.Util.getBundleString('quickfilters.clone.undetermined', 
+      let wrn = util.getBundleString('quickfilters.clone.undetermined', 
                                    'Could not determine which filter is selected');
-			utils.popupAlert(wrn);
+			util.popupAlert(wrn);
 			return;
 		}
 		// get user specific clone label
@@ -169,7 +170,7 @@ quickFilters.List = {
 		}
 		else {
 		 // get default localized clone label
-			newName += utils.getBundleString('quickfilters.clone.label', '(copy)');		
+			newName += util.getBundleString('quickfilters.clone.label', '(copy)');		
 		}
 		
 		try {
@@ -177,10 +178,10 @@ quickFilters.List = {
 			let newFilter = filtersList.createFilter(newName);
 			
 			// 2. iterate all actions & clone them
-			utils.copyActions(selectedFilter, newFilter);
+			util.copyActions(selectedFilter, newFilter);
 			
 			// 3. iterate all conditions & clone them
-			utils.copyTerms(selectedFilter, newFilter, true);
+			util.copyTerms(selectedFilter, newFilter, true);
 			// determine the index of insertion point (at the filter selected in the assistant)
 			let idx;
 			for (idx = 0; idx < filtersList.filterCount; idx++) {
@@ -197,7 +198,7 @@ quickFilters.List = {
 			if ("refresh" in args && args.refresh) {
 				quickFilters.Worker.openFilterList(true, sourceFolder);
 				// 5. insert the merged filter
-				utils.logDebug("Adding new Filter '" + newFilter.filterName + "' "
+				util.logDebug("Adding new Filter '" + newFilter.filterName + "' "
 						 + ": current list has: " + filtersList.filterCount + " items");
 				newFilter.enabled = true;
 				filtersList.insertFilterAt(idx, newFilter);
@@ -205,17 +206,19 @@ quickFilters.List = {
 			}
 		}
 		catch(ex) {
-		  utils.logException('clone() - failed creating filter ' + newName, ex);
+		  util.logException('clone() - failed creating filter ' + newName, ex);
 		}
 	} ,
   
   refreshDuplicates: function refreshDuplicates(calledFromEditor) {
+		const util = quickFilters.Util;
+		
     let doc;
-    quickFilters.Util.logDebug("refreshDuplicates(" + calledFromEditor + ") ...");
+    util.logDebug("refreshDuplicates(" + calledFromEditor + ") ...");
     if (calledFromEditor) {
-      let w = quickFilters.Util.getLastFilterListWindow();
+      let w = util.getLastFilterListWindow();
       if (!w) {
-        quickFilters.Util.logDebug("No Filter List window open?");
+        util.logDebug("No Filter List window open?");
         return;
       }
       doc = w.document;
@@ -224,25 +227,26 @@ quickFilters.List = {
       doc = document;
     // [Bug 25748] Automatic Refresh of Duplicate List
     let termDropDown = doc.getElementById('quickFiltersDuplicateList')
-    quickFilters.Util.logDebug("Duplicates dropdown: " + termDropDown);
+    util.logDebug("Duplicates dropdown: " + termDropDown);
     if (!termDropDown.collapsed) {
       this.findDuplicates();  // re-populate duplicates list
     }
   } ,
   
   sort: function sort(evt) {
+		const util = quickFilters.Util;
     let filtersList = this.FilterList, // Tb / SM
         sourceFolder = filtersList.folder,
         list = this.FilterListElement,
         count = this.getSelectedCount(list);
     if (count < 2) {
-			let wrn = quickFilters.Util.getBundleString('quickfilters.sort.warning.selectMultiple', 
+			let wrn = util.getBundleString('quickfilters.sort.warning.selectMultiple', 
                                               'To sort, select at least 2 filters');
-      quickFilters.Util.popupAlert(wrn);
+      util.popupAlert(wrn);
       return;
     } 
     if (this.pushSelectedToClipboard('sort')) {
-      quickFilters.Util.popupProFeature("sortFilters", true, false);    
+      util.popupProFeature("sortFilters", true, false);    
 			this.clipboardPending='sort';
       this.pasteFilters(true);
 		}

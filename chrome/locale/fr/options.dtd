@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "b">
 <!ENTITY chkShowList.label "Afficher la liste des filtres après création de filtre">
 <!ENTITY chkShowList.tooltip "Affiche la liste afin d'appliquer le nouveau filtre sur tous les messages pour test.">
+<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Lancer également le filtre pur les courriels lus sur les comptes IMAP.">
 <!ENTITY donate.label "Faire un don">
 <!ENTITY qf.description.donate "Si vous aimez quickFilters et souhaitez encourager son développement, vous pouvez faire un don.">
@@ -59,6 +60,7 @@
 <!ENTITY qf.postbox.quickmove "Boîte aux lettres : prend en charge la fonctionnalité de déplacement rapide">
 <!ENTITY qf.listener.tags "Prendre en compte les modifications de marquage">
 <!ENTITY qf.listener.tags.tooltip "Lorsqu'activé, l'assistant de filtre sera également lancé quand vous marquerez un message.">
+<!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Insérez votre clé de licence personnelle ici :">
@@ -68,7 +70,9 @@
 <!ENTITY qf.label.licenseValid "Votre licence est valide jusqu'au :">
 <!ENTITY qf.licenseValidation.passed "Merci pour votre abonnement à quickFilters Pro ! Toutes les fonctionnalités premium sont à présent disponibles.">
 <!ENTITY qf.licenseValidation.failed "La clé de licence que vous avez saisie n'est pas valide. Vérifiez votre courriel de FastSpring pour des instructions complémentaires. Si vous rencontrez encore des problèmes, veuillez me contacter à partir de l'onglet d'aide.">
+<!ENTITY qf.licenseValidation.invalidAddon "La clé de licence que vous avez entrée semble être pour un module complémentaire différent. La clé pour {0} commence par {1}.">
 <!ENTITY qf.licenseValidation.expired "La clé de licence saisie a expiré. Veuillez cliquer sur le bouton ci-dessous pour renouveler votre licence.">
 <!ENTITY qf.licenseValidation.invalidMail "L'adresse électronique associée à la clé de licence [{1}] n'est pas listée dans un de vos comptes courriel. Veuillez me contacter à partir de l'onglet d'aide.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Une adresse électronique chiffrée ne peut être reconnue.">
 <!ENTITY qf.premiumConfig "Fonctionnalités Premium">
+<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">

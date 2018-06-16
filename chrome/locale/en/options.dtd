@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY chkShowList.label "Display Filter List after filter creation">
 <!ENTITY chkShowList.tooltip "Display list to run the new filter on all messages for testing.">
+<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Also run filter on read emails in IMAP accounts.">
 <!ENTITY donate.label "Donate">
 <!ENTITY qf.description.donate "If you like quickFilters and would like to support its development, you can donate some money towards the further development of quickFilters.">

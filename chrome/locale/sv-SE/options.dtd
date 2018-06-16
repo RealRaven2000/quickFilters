@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "y">
 <!ENTITY chkShowList.label "Visa filterlistan efter att filter skapats">
 <!ENTITY chkShowList.tooltip "Visa listan för att köra det nya filtret på alla meddelanden, för teständamål.">
+<!ENTITY chkShowEditor.label "Öppna redigeraren när filter skapas">
 <!ENTITY chkImapOnRead.label "Kör även filter på lästa e-postmeddelanden i IMAP-konton.">
 <!ENTITY donate.label "Donera">
 <!ENTITY qf.description.donate "Om du tycker om quickFilters och skulle vilja stödja dess fortsatta utveckling, så kan du donera en slant för att hjälpa utvecklaren.">
@@ -69,6 +70,7 @@
 <!ENTITY qf.label.licenseValid "Din licens är giltig t.o.m.:">
 <!ENTITY qf.licenseValidation.passed "Tack för att du registrerar quickFilters Pro! Alla licensbelagda funktioner är nu tillgängliga.">
 <!ENTITY qf.licenseValidation.failed "Licensnyckeln du angav är ogiltig. Läs instruktionerna i meddelandet du fick från FastSpring. Kontakta oss via supportfliken om problemet kvarstår.">
+<!ENTITY qf.licenseValidation.invalidAddon "Licensnyckeln du angav kanske är till ett annat tillägg. Licensnycklar för {0} börjar med {1}.">
 <!ENTITY qf.licenseValidation.expired "Licensnyckeln du angav har förfallit. Klicka på knappen nedan för att förnya din licens.">
 <!ENTITY qf.licenseValidation.invalidMail "E-postadressen som är knuten till licensnyckeln [{1}] är för närvarande inte listad i något av dina e-postkonton. Kontakta oss via supportfliken för assistans.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Den krypterade e-postadressen matchar inte den läsbara adressen.">

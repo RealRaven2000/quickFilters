@@ -729,7 +729,8 @@ quickFilters.Worker = {
                 case Ci.nsMsgFilterAction.AddTag:
                   // filterActionExt = newFlag parameter of  OnItemPropertyFlagChanged: count of tags added.
                   // this is unspecific so we need to guess
-                  if (filterActionExt > 0) {
+									// [Bug 26545] Filter Merge not working
+                  if (filterActionExt) {
 									  let kw = msg.getStringProperty ? msg.getStringProperty("keywords") : msg.Keywords;
                     if (kw.indexOf(primaryAction.strValue)>=0)  {
                       matchingFilters.push(aFilter);
@@ -1159,21 +1160,29 @@ quickFilters.Worker = {
         // 1. create new filter
         let isMergeTargetFolder = prefs.isMoveFolderAction && targetFolder; // if we move to folder, remove default folder target
         util.copyActions(customFilter, targetFilter, isMergeTargetFolder);
+				
+				
+				// build array of own emails to omit if multiple mails are evaluated to avoid adding damaging filter conditions:
+				// overwrite it with an empty array if only one email is selected.
+				if (messageList.length <= 1)
+				  myMailAddresses = null;
         // 2. copy Terms, replacing all variables
         //    replaceTerms={msgHdr,messageURI} as 4th parameter is REQUIRED in order to parse all mime headers!!
-        let msgUri = messageList[0].messageURI;
-        if (!msgUri && targetFolder) {
-          //use folder to retrieve URI: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMsgFolder#getUriForMsg.28.29
-          msgUri = targetFolder.getUriForMsg(msg);
-        }
-        
-				try{ 
-					util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri});
-				}
-				catch(ex) {
-					alert("Could not run copyTerms: " + ex.message);
-				}
-        // util.replaceTermVarsFromMsg(targetFilter, msg, messageList[0].messageURI);
+				for (let i=0; i<messageList.length; i++) {
+					msg = messageList[i].msgClone;
+					let msgUri = messageList[i].messageURI;
+					if (!msgUri && targetFolder) {
+						//use folder to retrieve URI: https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMsgFolder#getUriForMsg.28.29
+						msgUri = targetFolder.getUriForMsg(msg);
+					}
+					
+					try { 
+						util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri}, false, myMailAddresses);
+					}
+					catch(ex) {
+						alert("Could not run copyTerms: " + ex.message);
+					}
+				}				
         break;
         
 			default: // shouldn't happen => no l10n
@@ -1278,37 +1287,43 @@ quickFilters.Worker = {
 			targetFilter.enabled = true;
 			filtersList.insertFilterAt(0, targetFilter);
 		}
+		
+		let isAccepted = true,
+		    showEditor = prefs.getBoolPref("showEditorAfterCreateFilter"),
+				showList = prefs.getBoolPref("showListAfterCreateFilter");
 
-		let args = { filter:targetFilter, filterList: filtersList};
-    if (excludedAddresses && excludedAddresses.length>0) {
-      let text = util.getBundleString('quickfilters.merge.addressesOmitted', 
-            "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"), 
-          list = '',
-          newLine = (util.Application == 'Postbox') ? ' ' : '\n';
-      for (let i=0; i<excludedAddresses.length; i++) {
-        list += newLine + excludedAddresses[i];
-      }
-      util.slideAlert(text + list, 'quickFilters');
-    }
-    
-		//args.filterName = targetFilter.filterName;
-		// check http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.js
-		// => filterEditor OnLoad()
-    /************************************
-      ***       FILTER RULES DIALOG   ***
-      ***********************************
-      */
-		window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
-											"chrome, modal, resizable,centerscreen,dialog=yes", args);
-
+		if (showEditor) {
+			let args = { filter:targetFilter, filterList: filtersList};
+			if (excludedAddresses && excludedAddresses.length>0) {
+				let text = util.getBundleString('quickfilters.merge.addressesOmitted', 
+							"Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"), 
+						list = '',
+						newLine = (util.Application == 'Postbox') ? ' ' : '\n';
+				for (let i=0; i<excludedAddresses.length; i++) {
+					list += newLine + excludedAddresses[i];
+				}
+				util.slideAlert(text + list, 'quickFilters');
+			}
+			
+			//args.filterName = targetFilter.filterName;
+			// check http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.js
+			// => filterEditor OnLoad()
+			/************************************
+				***       FILTER RULES DIALOG   ***
+				***********************************
+				*/
+			window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
+												"chrome, modal, resizable,centerscreen,dialog=yes", args);
+												
+			isAccepted = ("refresh" in args && args.refresh)  // was [Ok] clicked?
+		}
 		// move to alphabetical position (only new filters):
 		let isAlpha = prefs.getBoolPref('newfilter.insertAlphabetical') && !isMerge;
 		
 		// If the user hits ok in the filterEditor dialog we set args.refresh=true
 		// there we check this here in args to show filterList dialog.
-		if ("refresh" in args && args.refresh) // was [Ok] clicked?
-		{  // Ok
-      if (prefs.getBoolPref("showListAfterCreateFilter")) {
+		if (isAccepted) {  // Ok
+      if (showList) {
         quickFilters.Worker.openFilterList(true, sourceFolder, targetFilter, null, isAlpha); // was: isMerge ? targetFilter : null
       }
 			
@@ -1422,8 +1437,14 @@ quickFilters.Assistant = {
   },
 
   next : function next() {
+		const prefs = quickFilters.Preferences,
+					showEditor = prefs.getBoolPref("showEditorAfterCreateFilter"),
+					showList = prefs.getBoolPref("showListAfterCreateFilter");
+
     let isMerge = false,
         params = window.arguments[0];
+				
+				
     if (this.currentPage == this.MERGEPAGE) { 
       isMerge = document.getElementById('chkMerge').checked;
       this.selectedMergedFilterIndex = (isMerge) ? this.MatchedFilters.selectedIndex : -1;
@@ -1436,13 +1457,21 @@ quickFilters.Assistant = {
       return;
     }
     
+		let AcceptLabel = 
+		  isMerge ?
+			this.getBundleString('qf.button.editFilter', "Edit Filter...") :
+			this.getBundleString('qf.button.createFilter', "Create New Filter...");
+			
+		if (!showEditor && !showList) {
+		  // relabel as [OK]
+      AcceptLabel	= "OK";
+		}
+			
+
     switch(this.currentPage) {
       case this.MERGEPAGE:  // existing filters were found, lets store selected filter index or -1!
         this.toggleMatchPane(false);
-        
-        this.NextButton.label = isMerge 
-           ? this.getBundleString('qf.button.editFilter', "Edit Filter...")
-           : this.getBundleString('qf.button.createFilter', "Create New Filter...");
+        this.NextButton.label = AcceptLabel;
         break;
       case this.TEMPLATEPAGE:  // we are in template selection, either go on to create new filter or edit the selected one from first step
         quickFilters.Assistant.selectTemplate();
@@ -1619,7 +1648,9 @@ quickFilters.Assistant = {
     }
     
     templateList.value = prefs.getCurrentFilterTemplate();
+		// ensureIndexIsVisible ?
     window.sizeToContent();
+		templateList.ensureIndexIsVisible(templateList.selectedIndex);
     // hide flag / star checkbox depending on application
     let hideCheckbox;
     switch(util.Application) {
@@ -1630,6 +1661,8 @@ quickFilters.Assistant = {
         hideCheckbox = 'chkActionStar';
         break;
     }
+		
+		
     
     let chk = document.getElementById(hideCheckbox);
     if (chk)

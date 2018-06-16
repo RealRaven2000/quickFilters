@@ -61,7 +61,6 @@ quickFilters.Options = {
 			}
 		}
 		
-		
     let version = util.Version;
     if (version=="") version='version?';
 
@@ -304,7 +303,7 @@ quickFilters.Options = {
 						let txt = validationInvalidAddon.textContent;
 						txt = txt.replace('{0}','quickFilters').replace('{1}','QI'); // keys for {0} start with {1}
 						if (txt.indexOf(addonName) < 0) {
-							txt += " " + util.getBundleString("qf.licenseValidation.guessAddon", "(The key above may be for {2})").replace('{2}',addonName);
+							txt += " " + util.getBundleString("quickfilters.licenseValidation.guessAddon", "(The key above may be for {2})").replace('{2}',addonName);
 						}
 						validationInvalidAddon.textContent = txt;
 					}

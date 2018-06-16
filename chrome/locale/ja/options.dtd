@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY chkShowList.label "フィルタ作成後にフィルタリストを表示する">
 <!ENTITY chkShowList.tooltip "リストを表示し、すべてのメッセージに対して新しいフィルタをテスト実行します。">
+<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "また、IMAP アカウント内の既読メールに対してフィルタを実行します。">
 <!ENTITY donate.label "寄付">
 <!ENTITY qf.description.donate "quickFilters が気に入って開発をサポートしたいときは、quickFilters の開発にいくらかの寄付をすることができます。">
@@ -69,9 +70,9 @@
 <!ENTITY qf.label.licenseValid "ライセンスの有効期限:">
 <!ENTITY qf.licenseValidation.passed "QuickFolders Pro のご登録ありがとうございます！ すべての有料機能がロック解除されました。">
 <!ENTITY qf.licenseValidation.failed "入力されたライセンスキーが正しくありません。FastSpring からのメールに書かれた手順を確認してください。何か問題がある場合は、サポートタブからお問い合わせください。">
+<!ENTITY qf.licenseValidation.invalidAddon "入力されたライセンスキーは正しくありません。{0} のライセンスキーは {1} から始まります。">
 <!ENTITY qf.licenseValidation.expired "入力されたライセンスキーが有効期限切れです。下のボタンをクリックしてライセンスを更新してください。">
 <!ENTITY qf.licenseValidation.invalidMail "ライセンスキー [{1}] に紐付けされたメールアドレスのメールアカウントがリストに見当たりません。問題解決のため、サポートタブからお問い合わせください。">
-<!ENTITY qf.licenseValidation.invalidAddon "入力されたライセンスキーは正しくありません。{0} のライセンスキーは {1} から始まります。">
 <!ENTITY qf.licenseValidation.notMatchedMail "暗号化されたメールアドレスが読めるメールアドレスと一致しません。">
 <!ENTITY qf.premiumConfig "有料機能">
 <!ENTITY qf.label.premiumFeaturesSite "有料機能についての詳細はウェブサイトをご覧ください">

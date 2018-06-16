@@ -57,6 +57,11 @@
 								type="bool"  
 								instantApply="true"
 								/>
+      <preference id="showEditorAfterCreateFilter" 
+	              name="extensions.quickfilters.showEditorAfterCreateFilter" 
+								type="bool"  
+								instantApply="true"
+								/>
       <preference id="runImapOnRead" 
 	              name="mail.imap.filter_on_new" 
 								type="bool"  
@@ -232,6 +237,10 @@
 								label="&chkShowList.label;" 
 								tooltiptext="&chkShowList.tooltip;"
 								/>
+					<checkbox id="chkShowList"
+								preference="showEditorAfterCreateFilter"
+								label="&chkShowEditor.label;" 
+								/>							
 					<checkbox 
 								preference="runImapOnRead"
 								label="&chkImapOnRead.label;" 

@@ -263,13 +263,25 @@ END LICENSE BLOCK
 	  # Uniquified SHIM pathes to avoid side effects
 		# Fixed a typo in Italian translation (on special request by Leopoldo Saggin)
 		
-	3.5 : WIP
+	3.5 : 03/05/2018
 	  # [Bug 25844] Add Backup + Restore Feature (Premium Feature)
 		# [Bug 26488] ESR 2018 readiness - Make quickFilters compatible tB 60
 		# [Bug 26477] Make quickFilters Postbox 5.52 beta6 compatible
 		# SearchTerms Array changed from nsICollection to nsIMutableArray, following changes from comm-central
 		# [Bug 26486] quickfilters-3.4.2 can't create Filter in Thunderbird versions < 47
+		# main icon looks broken in brighttext mode (Thunderbird 60)
 		
+	3.6 : 16/06/2018
+	  # [Bug 26542] quickFilters not defined in Postbox 5.0
+		# [Bug 26543] Custom Templates: Support gathering address fields from multiple mails
+		# Fixed version history jumping to correct version heading for Pro Users
+		# Improved "Run Filters on Folder" function for non-Inbox folders.
+		# [Bug 26545] Filter Merge should be triggered when emails are tagged
+	  # [Bug 26548] Run Filters in folder context menu not working
+		# [Bug 26549] Option to skip Filter Editor
+		# Scroll current template into view
+		# Fixed toolbar coloring + image in brighttext mode
+	
 		
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
@@ -580,6 +592,7 @@ var quickFilters = {
   },
 
   onMenuItemCommand: function onMenuItemCommand(e, cmd) {
+		const util = quickFilters.Util;
 //     let promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
 //                                   .getService(Components.interfaces.nsIPromptService);
 //     promptService.alert(window, this.strings.getString("helloMessageTitle"),
@@ -592,10 +605,12 @@ var quickFilters = {
 				let selectedMessages,
             selectedMessageUris,
 				    messageList = [];
-				if (typeof gFolderDisplay =='undefined' || !gFolderDisplay.selectedMessageUris) {
+				if (util.Application=='Postbox' 
+				    && 
+						(typeof gFolderDisplay =='undefined' || !gFolderDisplay.selectedMessageUris)) {
 					// old Postbox
-				  selectedMessages = quickFilters.Util.pbGetSelectedMessages();
-          selectedMessageUris = quickFilters.Util.pbGetSelectedMessageUris();
+				  selectedMessages = util.pbGetSelectedMessages();
+          selectedMessageUris = util.pbGetSelectedMessageUris();
 				}
 				else {
 				  selectedMessages = gFolderDisplay.selectedMessages; 
@@ -605,21 +620,21 @@ var quickFilters = {
 				if (selectedMessages.length > 0 && selectedMessages[0].folder ) {
 				  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
           for (let m=0; m<selectedMessages.length; m++) {  // ### Bug 25727 Allow to create Group Filter with "Create Filter from Message" menu
-            messageList.push(quickFilters.Util.makeMessageListEntry(selectedMessages[m], selectedMessageUris[m])); 
+            messageList.push(util.makeMessageListEntry(selectedMessages[m], selectedMessageUris[m])); 
           }
 				  // the original command in the message menu calls the helper function MsgCreateFilter()
 					// we do not know the primary action on this message (yet)
-					let currentMessageFolder = quickFilters.Util.getCurrentFolder();
-					if (quickFilters.Util.isVirtual(currentMessageFolder)) {
+					let currentMessageFolder = util.getCurrentFolder();
+					if (util.isVirtual(currentMessageFolder)) {
 					  if (selectedMessages[0].folder)  // find the real folder!
 							currentMessageFolder = selectedMessages[0].folder;
           }					
 					quickFilters.Worker.createFilterAsync_New(null, currentMessageFolder, messageList, null, false);
 				}
 				else {
-				  let wrn = quickFilters.Util.getBundleString("quickfilters.createFromMail.selectWarning",
+				  let wrn = util.getBundleString("quickfilters.createFromMail.selectWarning",
 						"To create a filter, please select exactly one email!");
-				  quickFilters.Util.popupAlert(wrn);
+				  util.popupAlert(wrn);
 				}
 				break;
 		}
@@ -639,10 +654,81 @@ var quickFilters = {
   },
 
   onApplyFilters: function onApplyFilters(silent) {
-    goDoCommand('cmd_applyFilters'); // same in Postbox
+		if (typeof ChromeUtils.import == "undefined") 
+			Components.utils.import("resource:///modules/mailServices.js", {});
+		else
+			ChromeUtils.import("resource:///modules/mailServices.js");
+		// from FilterListDialog.js
+		function getFilterFolderForSelection(aFolder) {
+			let rootFolder = aFolder && aFolder.server ? aFolder.server.rootFolder : null;
+			if (rootFolder && rootFolder.isServer && rootFolder.server.canHaveFilters)
+				return (aFolder.server.type == "nntp") ? aFolder : rootFolder;
+
+			return null;
+		}
+
+		// does this work in non-inbox current folder?
+    // Get the folder where filters should be defined, if that server
+    // can accept filters.
+		const util = quickFilters.Util,
+					Ci = Components.interfaces,
+					Cc = Components.classes,
+					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);				
+		if (util.isDebug) debugger;
+		let folder = util.getCurrentFolder(),
+        firstItem = getFilterFolderForSelection(folder),
+		    folders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray),
+				msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow)
+				
+		// from  MsgApplyFiltersToSelection()
 		if (!silent && quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
 			let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnFolder.notify', 'Ran filters on current folder');
 			quickFilters.Util.slideAlert(text, 'quickFilters');
+		}		
+
+		if (util.isDebug) debugger;
+		if (folder.flags & util.FolderFlags.Inbox) {
+			// goDoCommand('cmd_applyFilters'); // same in Postbox
+			MsgApplyFilters();
+		}
+		else {
+			// see mailWindowOverlay.js - MsgApplyFilters()
+			//	MsgApplyFilters();
+			// If the selected server cannot have filters, get the default server
+			// If the default server cannot have filters, check all accounts
+			// and get a server that can have filters.
+			
+			let curFilterList = folder.getFilterList(msgWindow);
+			// create a new filter list and copy over the enabled filters to it.
+			// We do this instead of having the filter after the fact code ignore
+			// disabled filters because the Filter Dialog filter after the fact
+			// code would have to clone filters to allow disabled filters to run,
+			// and we don't support cloning filters currently.
+			let tempFilterList = MailServices.filters.getTempFilterList(folder),
+			    numFilters = curFilterList.filterCount,
+					selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
+			selectedFolders.appendElement(folder, false);
+			// make sure the temp filter list uses the same log stream
+			tempFilterList.logStream = curFilterList.logStream;
+			tempFilterList.loggingEnabled = curFilterList.loggingEnabled;
+			let newFilterIndex = 0;
+			try {
+				for (let i = 0; i < numFilters; i++) {
+					let curFilter = curFilterList.getFilterAt(i);
+					// only add enabled, UI visibile filters that are in the manual context
+					if (curFilter.enabled && !curFilter.temporary &&
+							(curFilter.filterType & Components.interfaces.nsMsgFilterType.Manual))
+					{
+						tempFilterList.insertFilterAt(newFilterIndex, curFilter);
+						newFilterIndex++;
+					}
+				}
+			}
+			catch (ex) {
+				util.logException(ex);
+			}
+			if (util.isDebug) debugger;
+			MailServices.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
 		}
   },
   

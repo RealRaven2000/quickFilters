@@ -10,6 +10,7 @@
 <!ENTITY chkToolbar.accesskey "B">
 <!ENTITY chkShowList.label "Dopo la creazione di un filtro mostra l'intero elenco">
 <!ENTITY chkShowList.tooltip "Mostra l'intero elenco per eseguire il nuovo filtro su tutti i messaggi a scopo di test">
+<!ENTITY chkShowEditor.label "Dopo la creazione di un filtro apri l'editor">
 <!ENTITY chkImapOnRead.label "Esegue i filtri anche sui messaggi letti di account IMAP">
 <!ENTITY donate.label "Dona">
 <!ENTITY qf.description.donate "Se quickFilters ti piace e vuoi contribuire al suo mantenimento, puoi donare del denaro per il suo ulteriore sviluppo:">
@@ -69,6 +70,7 @@
 <!ENTITY qf.label.licenseValid "La licenza è valida fino a:">
 <!ENTITY qf.licenseValidation.passed "Grazie per aver registrato quickFilters Pro. Tutte le caratteristiche della versione Premium sono ora disponibili.">
 <!ENTITY qf.licenseValidation.failed "La chiave di licenza inserita non è valida. Controllare il messaggio di email proveniente da FastSpring per avere istruzioni al riguardo. Se permanessero dei problemi, contattatemi tramite la scheda 'Supporto'.">
+<!ENTITY qf.licenseValidation.invalidAddon "La chiave di licenza inserita potrebbe essere relativa a un'altra estensione. Le chiavi di licenza per {0} iniziano con  {1}.">
 <!ENTITY qf.licenseValidation.expired "La chiave di licenza inserita è scaduta. Premere il pulsante sottostante per rinnovare la licenza.">
 <!ENTITY qf.licenseValidation.invalidMail "L'indirizzo di posta elettronica collegato alla chiave di licenza [{1}] non è attualmente presente tra gli account. Per avere assistenza, contattatemi tramite la scheda 'Supporto'.">
 <!ENTITY qf.licenseValidation.notMatchedMail "L'indirizzo di posta elettronica crittografato non corrisponde a quello in chiaro">

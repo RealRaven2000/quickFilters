@@ -1,30 +1,11 @@
 <ul>
-  <li>New quickFilters Pro version - no more notifications about premium features.
-	    Help financing the future of quickFilters.
-	</li>
-  <li>Fixed <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26441">[Bug 26441]</a>
-      Thunderbird 57 beta hangs on start with quickFilters enabled.
-      <br>
-      <p>A number of changes to the JavaScript engine necessitate various changes to 
-      the code. Most important, the changes are incompatible with the Postbox
-      script engine (and are very hard to code around as an important construct, 
-      the for loop, which is used in a lot of places will lead to the Add-on
-      breaking down in Postbox) - therefore this version will _not_ support
-      Postbox.</p>
-      <p>
-      See also the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1417209">Related Thunderbird bug </a>
-      </p>
-  </li>
-  <li>Make sure mails that are tagged manually are filtered immediately.</li>
-  <li>New option to insert new filter in alphabetical order. Instead of adding created filters to the top of the list,
-      quickFilters will insert them before the first filter with a alphabetically following name.</li>
-  <li>New search button to find current folder's filters added to QuickFolders' current folder toolbar<br>
-     <img src="img/find-folder-filters-btn.png" alt="find filters button in QuickFolders" class="screenshot">
-  </li>
-  <li>Fixed <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26354">[Bug 26354]</a>
-      When merging / creating a filter, select "run on folder" automatically. 
-      This should be set to the specified account's inbox.
-  </li>
-  <li>Added Spanish locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=17691"  target="_blank">strel</a> at babelzilla.org </li>
-  <li>Added Spanish Argentinian locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=20554" target="_blank">Tonyman</a> at babelzilla.org </li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26542" target="_blank">[Bug 26542]</a> quickFilters not defined in Postbox 5.0. Some newer Javascript in quickFilters 3.5 causes it to not work with Postbox 5.0 and older versions. </li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26543" target="_blank">[Bug 26543]</a> Custom Templates: Support gathering address fields from multiple mails. This will omit collecting EMails or domains of one's own Email addresses in order to avoid bad side effects such as unintentionally archiving one's own Emails.</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26545" target="_blank">[Bug 26545]</a> Filter Merge should be triggered when emails are tagged </li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26548" target="_blank">[Bug 26548]</a> Run Filters in folder context menu not working</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26549" target="_blank">[Bug 26549]</a> Option to skip Filter Editor.</li>
+<li>Fixed version history jumping to correct version heading for Pro Users</li>
+<li>Improved "Run Filters on Folder" function for non-Inbox folders.</li>
+<li>Fixed toolbar coloring and image in brighttext mode (dark themes). Also toned down the QuickFolders toolbar panel color highlight (was deep red) and text color when filter assistant is active. </li>
+<li>Preselected last template in filter assistant is automatically scrolled into view.</li>
 </ul>

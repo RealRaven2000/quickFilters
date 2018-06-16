@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.5",
+  HARDCODED_CURRENTVERSION : "3.6",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -424,8 +424,7 @@ quickFilters.Util = {
 	// default to isRegister from now = show button for buying a license.
 	popupProFeature: function popupProFeature(featureName, isRegister, isDonate, additionalText) {
 		let notificationId,
-        util = quickFilters.Util,
-				State = util.Licenser.ELicenseState;
+        util = quickFilters.Util;
     if (util.hasPremiumLicense(false))
       return;
 		
@@ -466,14 +465,6 @@ quickFilters.Util = {
 				nbox_buttons = [],
         dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
 				
-		switch(util.Licenser.ValidationStatus) {
-			case State.Expired:
-				regBtn = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
-			  break;
-			default:
-			  regBtn = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
-		}
-				
 		if (notifyBox) {
 			let notificationKey = "quickfilters-proFeature",      
           countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") ;
@@ -490,9 +481,19 @@ quickFilters.Util = {
       
 			if (!hotKey) hotKey='L'; // we also use this for hacking the style of the "Buy" button!
 			// button for disabling this notification in the future
-			if (countDown>-10) {
+//			if (countDown>-10) {
+				const State = util.Licenser.ELicenseState;
+				switch(util.Licenser.ValidationStatus) {
+					case State.Expired:
+						regBtn = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
+						break;
+					default:
+						regBtn = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
+				}
+						
         // registration button
         if (isRegister) {
+					
           nbox_buttons.push(
 						{
 							label: regBtn,
@@ -523,17 +524,18 @@ quickFilters.Util = {
           )
         }
         
-			}
-			else {
-				nbox_buttons.push(
-					{
-						label: dontShow,
-						accessKey: null, 
-						callback: function() { util.mainInstance.Util.disableFeatureNotification(featureName); },
-						popup: null
-					}
-				);
-			}
+ /*		  }
+  *			else {
+	*				nbox_buttons.push(
+	*					{
+	*						label: dontShow,
+	*						accessKey: null, 
+	*						callback: function() { util.mainInstance.Util.disableFeatureNotification(featureName); },
+	*						popup: null
+	*					}
+	*				);
+	*			}
+	*/
 			
 			if (notifyBox) {
 				let item = notifyBox.getNotificationWithValue(notificationKey);
@@ -717,15 +719,18 @@ quickFilters.Util = {
   * @msg {string}: text to log 
 	*/   
   logDebugOptional: function logDebugOptional(optionString, msg) {
-    let qF = quickFilters ? quickFilters : this.mainInstance,
-        options = optionString.split(',');
-    for (let i=0; i<options.length; i++) {
-      let option = options[i];
-      if (qF.Preferences.isDebugOption(option)) {
-        this.logToConsole(msg, option);
-        break; // only log once, in case multiple log switches are on
-      }
-    }        
+		try {
+			let qF = quickFilters ? quickFilters : this.mainInstance,
+					options = optionString.split(',');
+			for (let i=0; i<options.length; i++) {
+				let option = options[i];
+				if (qF.Preferences.isDebugOption(option)) {
+					this.logToConsole(msg, option);
+					break; // only log once, in case multiple log switches are on
+				}
+			}        
+		}
+		catch(ex) {;}
   },
 	
   /** 
@@ -754,6 +759,72 @@ quickFilters.Util = {
 		}
 		return accounts;
 	},
+	
+  getTabInfoLength: function getTabInfoLength(tabmail) {
+		if (tabmail.tabInfo)
+		  return tabmail.tabInfo.length;
+	  if (tabmail.tabOwners)
+		  return tabmail.tabOwners.length;
+		return null;
+	} ,
+	
+	getTabMode: function getTabMode(tab) {
+	  if (tab.mode) {   // Tb / Sm
+		  if (this.Application=='SeaMonkey' && (typeof tab.modeBits != 'undefined')) {
+				const kTabShowFolderPane  = 1 << 0;
+				const kTabShowMessagePane = 1 << 1;
+				const kTabShowThreadPane  = 1 << 2;			
+				// SM: maybe also check	tab.getAttribute("type")=='folder'
+				// check for single message shown - SeaMonkey always uses 3pane!
+				// so we return "single message mode" when folder tree is hidden (to avoid switching away from single message or conversation)
+			  if ( (tab.modeBits & kTabShowMessagePane) 
+             && 
+             !(tab.modeBits & kTabShowFolderPane)) {
+				  return 'message';
+				}
+			}
+			return tab.mode.name;
+		}
+		if (tab.type)  // Pb
+		  return tab.type;
+		return "";
+	},
+	
+	getBaseURI: function baseURI(URL) {
+		let hashPos = URL.indexOf('#'),
+				queryPos = URL.indexOf('?'),
+				baseURL = URL;
+				
+		if (hashPos>0)
+			baseURL = URL.substr(0, hashPos);
+		else if (queryPos>0)
+			baseURL = URL.substr(0, queryPos);
+		if (baseURL.endsWith('/'))
+			return baseURL.substr(0, baseURL.length-1); // match "x.com" with "x.com/"
+		return baseURL;		
+	} ,
+	
+	findMailTab: function findMailTab(tabmail, URL) {
+		const util = quickFilters.Util;
+		// mail: tabmail.tabInfo[n].browser		
+		let baseURL = util.getBaseURI(URL),
+				numTabs = util.getTabInfoLength(tabmail);
+		
+		for (let i = 0; i < numTabs; i++) {
+			let info = util.getTabInfoByIndex(tabmail, i);
+			if (info.browser && info.browser.currentURI) {
+				let tabUri = util.getBaseURI(info.browser.currentURI.spec);
+				if (tabUri == baseURL) {
+					tabmail.switchToTab(i);
+					// focus on tabmail ?
+					
+					return true;
+				}
+			}
+		}
+		return false;
+	} ,	
+		
 
   // dedicated function for email clients which don't support tabs
   // and for secured pages (donation page).
@@ -816,11 +887,12 @@ quickFilters.Util = {
 
   // moved from options.js (then called
   openURL: function openURL(evt,URL) { // workaround for a bug in TB3 that causes href's not be followed anymore.
+	  const util = quickFilters.Util;
     let ioservice,iuri,eps;
 
     if (quickFilters.Util.Application==='SeaMonkey' || quickFilters.Util.Application==='Postbox')
     {
-      this.openLinkInBrowserForced(URL);
+      this.openLinkInBrowserForced(util.makeUriPremium(URL));
       if(null!=evt) evt.stopPropagation();
     }
     else {
@@ -853,7 +925,8 @@ quickFilters.Util = {
 							mail3PaneWindow.focus();
 						}
 					}
-					if (tabmail) {
+					// note: findMailTab will activate the tab if it is already open
+					if (tabmail && (!util.findMailTab(tabmail, URL))) {
 						sTabMode = (quickFilters.Util.Application === "Thunderbird" && quickFilters.Util.Appver >= 3) ? "contentTab" : "3pane";
 						tabmail.openTab(sTabMode,
 						{contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
@@ -861,7 +934,10 @@ quickFilters.Util = {
 					else {
 						window.openDialog("chrome://messenger/content/", "_blank",
 											"chrome,dialog=no,all", null,
-						{ tabType: "contentTab", tabParams: {contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);", id:"QuickFilters_Weblink"} } );
+							{ tabType: "contentTab", 
+								tabParams: {contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);", id:"QuickFilters_Weblink"} 
+							} 
+						);
 					}
 			}
     }
@@ -964,10 +1040,11 @@ quickFilters.Util = {
   }  ,
 
   showVersionHistory: function showVersionHistory(ask) {
-    let version = quickFilters.Util.VersionSanitized,
-        sPrompt = quickFilters.Util.getBundleString("quickfilters.confirmVersionLink", "Display version history for quickFilters");
+		const util = quickFilters.Util;
+    let version = util.VersionSanitized,
+        sPrompt = util.getBundleString("quickfilters.confirmVersionLink", "Display version history for quickFilters");
     if (!ask || confirm(sPrompt)) {
-      quickFilters.Util.openURL(null, "http://quickfilters.mozdev.org/version.html#" + version);
+      util.openURL(null, util.makeUriPremium("http://quickfilters.mozdev.org/version.html") + "#" + version);
     }
   } ,
 
@@ -1142,8 +1219,10 @@ quickFilters.Util = {
 	},	
     
 	// replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
-	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, oReplaceTerms, isArray) {
-		const AC = Components.interfaces.nsMsgSearchAttrib,
+	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, oReplaceTerms, isArray, mailsToOmit) {
+		const Ci = Components.interfaces,
+		      AC = Ci.nsMsgSearchAttrib,
+					SearchOP = Ci.nsMsgSearchOp,
           util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
 		if (prefs.isDebugOption('createFilter')) debugger;
@@ -1159,11 +1238,12 @@ quickFilters.Util = {
         oReplaceTerms = null; // do conventional copy!
       }
     }
+		// Iterate Search Terms of Custom Template
 		// support passing in a deserialized array from JSON object for reading filters
 		let theCount = isArray ? stCollection.length : stCollection.Count();
 		for (let t = 0; t < theCount; t++) {
 			// let searchTerm = stCollection.GetElementAt(t);
-			let searchTerm = isArray ? stCollection[t] : util.querySearchTermsAt(stCollection, t) ,
+			let searchTerm = isArray ? stCollection[t] : util.querySearchTermsAt(stCollection, t),
 			    newTerm;
 			if (isCopy) {
 			  newTerm = toFilter.createTerm();
@@ -1217,7 +1297,63 @@ quickFilters.Util = {
 							break;
 					}
 					newTerm.value = val;
+					
+					// append newTerm ONLY if it does not already exist (avoid duplicates!)
+					// [Bug 26543] Support gathering address fields from multiple mails:
+					if (util.isStringAttrib(val.attrib)) {
+						let existingTerms = toFilter.searchTerms.QueryInterface(Ci.nsICollection),
+								isFound = false;
+						for (let e = 0; e < existingTerms.Count(); e++) {
+							let existingTerm = util.querySearchTermsAt(existingTerms, e),
+									existingVal = existingTerm.value; // nsIMsgSearchValue
+							if (existingVal && val.attrib == existingVal.attrib) {
+								if (existingVal.str == val.str) { // avoid duplicates
+									isFound = true; 
+									util.logDebug("Custom Template: omitting duplicate term of type[" + newTerm.value.attrib + "]\n"
+									  + "val = " + existingVal.str);
+									break;
+								}
+							}
+						}
+						if (isFound) continue; // skip this term, as it already exists
+						
+						if (mailsToOmit) debugger;
+						// avoid own addresses when multiple mail is selected
+						if (mailsToOmit && 
+						    (searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.Is || 
+								 searchTerm.op == SearchOP.BeginsWith || searchTerm.op == SearchOP.EndsWith)) {
+							switch (searchTerm.attrib) {
+								case AC.Sender:
+								case AC.To:
+								case AC.Cc:
+								case AC.ToOrCC:
+								case AC.AllAddresses:
+									if (mailsToOmit.indexOf(val.str)>=0) {
+										util.logDebug("Custom Template: omitting own Email Address or Part thereOf: " + val.str + "");
+										continue; // omit this one as well.
+									}
+									// domains
+									let domRegex = new RegExp("^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][a-zA-Z0-9-_]{1,61}[a-zA-Z0-9]))\.([a-zA-Z]{2,6}|[a-zA-Z0-9-]{2,30}\.[a-zA-Z]{2,3})$"),
+									    matchedDomain = false;
+									if ((searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.EndsWith)
+										  && domRegex.test(val.str)) {
+										for (let d=0; d<mailsToOmit.length; d++) {
+											if (mailsToOmit[d].endsWith(val.str)) {
+												util.logDebug("Custom Template: omitting own Email Domain: " + val.str + "");
+												matchedDomain = true;
+												break;
+											}
+										}
+										if (matchedDomain) continue; // omit this one as well.
+									}
+									break;
+								default:
+								  break; // carry on
+							}
+						}
+					}
 				}
+				
 				newTerm.booleanAnd = searchTerm.booleanAnd;
 				if ('arbitraryHeader' in searchTerm) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
 				if ('hdrProperty' in searchTerm) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
@@ -1228,8 +1364,8 @@ quickFilters.Util = {
 			}
 			else
 			  newTerm = searchTerm;
-			// append newTerm ONLY if it deos not already exist (avoid duplicates!)
 			// however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
+			
 			toFilter.appendTerm(newTerm);
 		}
         // remove special variables
@@ -1337,8 +1473,8 @@ quickFilters.Util = {
 				let val = {}; // nsIMsgSearchValue
 				val.attrib = searchTerm.value.attrib;  
 				if (util.isStringAttrib(val.attrib)) {
-					let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
-					let newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
+					let replaceVal = searchTerm.value.str || '', // guard against invalid str value. 
+					    newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
 					this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
 					replaceVal = newVal;
 					val.str = replaceVal;  // .toLocaleString() ?
@@ -1617,10 +1753,12 @@ quickFilters.Util = {
           nsMsgFilterAction = Ci.nsMsgFilterAction,
           nsMsgPriority = Ci.nsMsgPriority,
           typeAttrib = Ci.nsMsgSearchAttrib,
-          typeOperator = Ci.nsMsgSearchOp;
-    let util = quickFilters.Util,
-        prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService),
-        input = {value: ""},
+          typeOperator = Ci.nsMsgSearchOp,
+					prefs = quickFilters.Preferences,
+					util = quickFilters.Util,
+					prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
+					
+    let input = {value: ""},
         check = {value: false},
         promptLabel = util.getBundleString('quickfilters.prompt.customTemplateName', 
                              'Name of Custom Template:'),
@@ -1676,7 +1814,7 @@ quickFilters.Util = {
                           "chrome, modal, resizable,centerscreen,dialog=yes", args);
         if ("refresh" in args && args.refresh) {
           // [Ok]
-          if (quickFilters.Preferences.getBoolPref("showListAfterCreateFilter")) {
+          if (prefs.getBoolPref("showListAfterCreateFilter")) {
             quickFilters.Worker.openFilterList(true, localFolder, targetFilter);
           }
         }
@@ -1725,6 +1863,13 @@ quickFilters.Util = {
 			if (   uType
 			    && URL.indexOf("user=")==-1 
 					&& URL.indexOf("quickfilters.mozdev.org")>0 ) {
+				// remove #NAMED anchors
+				let x = URL.indexOf("#"),
+				    anchor = '';
+				if (x>0) {
+					anchor = URL.substr(x);
+					URL = URL.substr(0, x)
+				}
 				if (URL.indexOf("?")==-1)
 					URL = URL + "?user=" + uType;
 				else

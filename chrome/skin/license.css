@@ -70,7 +70,7 @@
 #btnLicense:hover,
 #btnDomainLicense:hover
 {
-	margin: 4px 0px 0px 4px !important;
+	/* margin: 4px 0px 0px 4px !important; */
 	box-shadow: 2px 2px 2px -1px rgba(0, 0, 0, 0.8);
 	background: rgb(254,222,178);
 	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;

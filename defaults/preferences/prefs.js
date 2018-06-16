@@ -49,6 +49,7 @@ pref("extensions.quickfilters.abortAfterCreate", false);
 pref("extensions.quickfilters.autoStart", false);
 pref("extensions.quickfilters.toolbar", true);
 pref("extensions.quickfilters.showListAfterCreateFilter", true);
+pref("extensions.quickfilters.showEditorAfterCreateFilter", true);
 pref("extensions.quickfilters.refreshHeaders.wait", 150);
 
 pref("extensions.quickfilters.filters.currentTemplate", "from");

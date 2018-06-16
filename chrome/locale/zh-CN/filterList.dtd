@@ -23,6 +23,8 @@
 <!ENTITY quickfilters.button.settings "quickFilters 设定...">
 <!ENTITY quickfilters.button.assistant "切换助手...">
 <!ENTITY quickfilters.button.assistant.tooltiptext "切换过滤器助手模式，启用时可通过拖放邮件来创建过滤器。">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Backup Filters…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Restore Filters…">
 <!ENTITY quickfilters.button.support "quickFilters支持站点">
 <!ENTITY quickfilters.button.searchProperties "修改搜索属性...">
 <!ENTITY quickfilters.option.searchProperty.name "名称">

@@ -194,7 +194,7 @@ quickFilters.Licenser = {
 		
 		switch(licenser.ValidationStatus) {
 			case ELS.Expired:
-			  getElement('licenseDateLabel').value = util.getBundleString("qf.register.licenseValid.expired","Your license expired on:")
+			  getElement('licenseDateLabel').value = util.getBundleString("quickfilters.register.licenseValid.expired","Your license expired on:")
 				getElement('qfLicenseTerm').classList.add('expired');
 			  break;
 			case ELS.Valid:
