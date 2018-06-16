@@ -281,6 +281,7 @@ END LICENSE BLOCK
 		# [Bug 26549] Option to skip Filter Editor
 		# Scroll current template into view
 		# Fixed toolbar coloring + image in brighttext mode
+		# 3.6.1 - Custom Templates: reading headers not working when moving mail to Local Folders. Wrote a workaround.
 	
 		
 	PLANNED CHANGES  

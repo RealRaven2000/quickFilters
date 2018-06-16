@@ -8,4 +8,6 @@
 <li>Improved "Run Filters on Folder" function for non-Inbox folders.</li>
 <li>Fixed toolbar coloring and image in brighttext mode (dark themes). Also toned down the QuickFolders toolbar panel color highlight (was deep red) and text color when filter assistant is active. </li>
 <li>Preselected last template in filter assistant is automatically scrolled into view.</li>
+<li>(3.6.1) Custom Templates: reading headers not working when moving mail to Local Folders. Also copying search terms in Thunderbird 60 failed due to removal of 
+			some programming interfaces since version 58.</li>
 </ul>

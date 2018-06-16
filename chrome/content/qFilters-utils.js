@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.6",
+  HARDCODED_CURRENTVERSION : "3.6.1",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -1231,7 +1231,7 @@ quickFilters.Util = {
     if (oReplaceTerms) {
       if (oReplaceTerms.messageURI) {
         util.CurrentMessage = oReplaceTerms.msgHdr;
-        util.CurrentHeader = new quickFilters.clsGetHeaders(oReplaceTerms.messageURI); 
+        util.CurrentHeader = new quickFilters.clsGetHeaders(oReplaceTerms.messageURI, util.CurrentMessage); 
       }
       else {
         util.popupAlert('Sorry, without messageURI I cannot parse mime headers - therefore cannot replace any variables. Tag listener with custom templates are currently not supported.'); 
@@ -1301,7 +1301,7 @@ quickFilters.Util = {
 					// append newTerm ONLY if it does not already exist (avoid duplicates!)
 					// [Bug 26543] Support gathering address fields from multiple mails:
 					if (util.isStringAttrib(val.attrib)) {
-						let existingTerms = toFilter.searchTerms.QueryInterface(Ci.nsICollection),
+						let existingTerms = util.querySearchTermsArray(toFilter.searchTerms),
 								isFound = false;
 						for (let e = 0; e < existingTerms.Count(); e++) {
 							let existingTerm = util.querySearchTermsAt(existingTerms, e),
@@ -1952,7 +1952,7 @@ quickFilters.Util = {
   // -------------------------------------------------------------------
   // Get header string
   // -------------------------------------------------------------------
-quickFilters.clsGetHeaders = function classGetHeaders(messageURI) {
+quickFilters.clsGetHeaders = function classGetHeaders(messageURI, messageFallbackContent) {
   const Ci = Components.interfaces,
         Cc = Components.classes,
         util = quickFilters.Util,
@@ -2014,19 +2014,40 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI) {
   }
   catch(ex) {
     util.logException('Reading inputStream failed:', ex);
-    if (!msgContent) throw(ex);
+    if (!msgContent && !messageFallbackContent) throw(ex);
   }
-  
-  headers.initialize(msgContent, msgContent.length);
-  util.logDebugOptional('mime','allHeaders: \n' +  headers.allHeaders);
+	
+	if (msgContent.length==0) {
+		headers = null;
+		util.logDebugOptional('mime','Could not stream meessage, using fallback contents instead.');
+	}
+  else {
+		headers.initialize(msgContent, msgContent.length);
+		util.logDebugOptional('mime','allHeaders: \n' +  headers.allHeaders);
+  }
+	
 
   // -----------------------------------
   // Get header
   function get(header) {
     // /nsIMimeHeaders.extractHeader
+		// See ST4.clsGetAltHeader
+		if (!headers) {
+			switch(header) {
+				case "from": 
+				  header="author";
+					break;
+				case "to":
+					header = "recipients";
+					break;
+			}
+		}
+		
     let retValue = '',
-        str = headers.extractHeader(header, false),
+        str = headers ? headers.extractHeader(header, false) : messageFallbackContent[header],
         isUnescapeQuotes = false;
+				
+				
     // for names maybe use nsIMsgHeaderParser.extractHeaderAddressName instead?
     if (str && isUnescapeQuotes) {
       // if a string has nested escaped quotes in it, should we unescape them?

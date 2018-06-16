@@ -255,7 +255,8 @@ quickFilters.List = {
     
   merge: function merge(evt, isEvokedFromButton) {
 		const prefs = quickFilters.Preferences,
-		      util = quickFilters.Util;
+		      util = quickFilters.Util,
+					Ci = Components.interfaces;
     let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'mergeList' },
         filtersList = this.FilterList, // Tb / SM
         sourceFolder = filtersList.folder,
@@ -295,7 +296,7 @@ quickFilters.List = {
 			util.popupAlert(wrn + '\n' + ex.toString());
 		}
     action = primaryAction;
-    let FA = Components.interfaces.nsMsgFilterAction,
+    let FA = Ci.nsMsgFilterAction,
 		    failedFilters = '';
     for (let f = this.getSelectedCount(list)-1; f >=0 ; f--) {
       filterMatch = true;
@@ -422,13 +423,13 @@ quickFilters.List = {
         actions = targetFilter.actionList ? targetFilter.actionList : targetFilter.sortedActionList; // Tb : Sm
 		if (targetFilter.actionList) {
 		  // Thunderbird
-			let aCollection = actions.QueryInterface(Components.interfaces.nsICollection),
+			let aCollection = actions.QueryInterface(Ci.nsICollection),
 			// targetFilter.getSortedActionList(aList);
 			    newActions = newFilter.actionList ? newFilter.actionList : newFilter.sortedActionList;
 			for (let a = 0; a < aCollection.Count(); a++) {
 			  let append = true;
 			  for (let b = 0; b < util.getActionCount(newFilter); b++) { 
-					let ac = newActions.queryElementAt(b, Components.interfaces.nsIMsgRuleAction);
+					let ac = newActions.queryElementAt(b, Ci.nsIMsgRuleAction);
 				  if (ac.type == aCollection.GetElementAt(a).type
 					    &&
 							ac.strValue == aCollection.GetElementAt(a).strValue) {
@@ -1482,9 +1483,10 @@ quickFilters.List = {
               other filter attributes.
    */
   filterSearchMatchExtended : function filterSearchMatchExtended(aFilter, aKeyword) {
-		const util = quickFilters.Util;
+		const util = quickFilters.Util,
+		      Ci = Components.interfaces;
     // more search options
-    let FA = Components.interfaces.nsMsgFilterAction,
+    let FA = Ci.nsMsgFilterAction,
         actionList = aFilter.actionList ? aFilter.actionList : aFilter.sortedActionList,
         acLength = actionList.Count ? actionList.Count() : actionList.length;
     switch(quickFilters.List.searchType) {
@@ -1492,7 +1494,7 @@ quickFilters.List = {
         return (aFilter.filterName.toLocaleLowerCase().indexOf(aKeyword)>=0);
       case 'targetFolder':
         for (let index = 0; index < acLength; index++) {
-          let ac = actionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
           if (ac.type == FA.MoveToFolder || ac.type == FA.CopyToFolder) {
             if (ac.targetFolderUri) { 
               // also allow complete match (for duplicate search)
@@ -1507,14 +1509,14 @@ quickFilters.List = {
         }        
         return false;
       case 'condition':
-        let stCollection = aFilter.searchTerms.QueryInterface(Components.interfaces.nsICollection);
+        let stCollection = util.querySearchTermsArray(aFilter.searchTerms);
         for (let t = 0; t < stCollection.Count(); t++) {
           // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
-          // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
+          // searchTerms.QueryElementAt(i, Ci.nsIMsgSearchTerm);
           let searchTerm = util.querySearchTermsAt(stCollection, t);
           if (searchTerm.value) {
             let val = searchTerm.value, // nsIMsgSearchValue
-                AC = Components.interfaces.nsMsgSearchAttrib;
+                AC = Ci.nsMsgSearchAttrib;
             if (val && util.isStringAttrib(val.attrib)) {
               let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
               if (conditionStr.toLocaleLowerCase().indexOf(aKeyword)>=0)
@@ -1525,7 +1527,7 @@ quickFilters.List = {
         return false;
       case 'tagLabel':
         for (let index = 0; index < acLength; index++) {
-          let ac = actionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
           if (ac.type == FA.AddTag || ac.type == FA.Label) {
             if (ac.strValue) { 
               if (ac.strValue.toLocaleLowerCase() == aKeyword) // full match for tags, but case insensitive.
@@ -1536,7 +1538,7 @@ quickFilters.List = {
         return false;
       case 'replyWithTemplate':
         for (let index = 0; index < acLength; index++) {
-          let ac = actionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
           if (ac.type == FA.Reply) {
             if (ac.strValue) { 
               let searchSubject = quickFilters.List.retrieveSubjectFromReply(ac.strValue).toLocaleLowerCase();

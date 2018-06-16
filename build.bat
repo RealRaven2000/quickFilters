@@ -3,4 +3,4 @@ set /P quickFiltersRev=<revision.txt
 set /a quickFiltersRev+=1
 echo %quickFiltersRev% > revision.txt
 move *.xpi ..\..\_Test\3.6\
-rename quickFilters.zip quickFilters-tb-pb-sm-3.6pre%quickFiltersRev%.xpi
+rename quickFilters.zip quickFilters-tb-pb-sm-3.6.1pre%quickFiltersRev%.xpi
