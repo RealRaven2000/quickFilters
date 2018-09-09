@@ -26,7 +26,11 @@
 <!ENTITY qf.tab.newFilterProps "Propriétés de nouveau filtre">
 <!ENTITY qf.tab.advanced "Avéncées">
 <!ENTITY qf.tab.support "Aide">
-<!ENTITY chkAutoRun.label "Appliquer le filtre lors de la réception d'un nouveau message">
+<!ENTITY qf.grp.whenToRun "Appliquer le filtre">
+<!ENTITY chkAutoRun.label "Lors de la réception d'un nouveau message">
+<!ENTITY chkAfterJunk.label "Après la vérification des indésirables">
+<!ENTITY chkWhenArchiving.label "Lors de l'archivage">
+<!ENTITY chkAfterSending.label "Après l'envoi">
 <!ENTITY chkAlphabetic.label "Insérer les nouveaux filtres dans l'ordre alphabétique">
 <!ENTITY chkAlphabetic.tooltip "Utilise le nom initial du filtre pour sa position. Recommandé avec la règle filtrant le nom de dossier parent. Veuillez prendre note que cela affecte l'ordre d'exécution du filtre !">
 <!ENTITY qf.label.naming "Règles de nommage">
