@@ -30,6 +30,7 @@
 <!ENTITY quickfilters.option.searchProperty.name "Naam">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Doelmap">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Zoekvoorwaarde (tekst)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "(Aangepast) stringactie instellen">
 <!ENTITY quickfilters.option.searchProperty.addTag "Markering toevoegen (label)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Met sjabloon antwoorden">
 <!ENTITY quickfilters.button.findDuplicates.label "Duplicaten zoeken">

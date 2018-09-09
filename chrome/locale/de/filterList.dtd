@@ -26,10 +26,11 @@
 <!ENTITY quickfilters.button.saveFilters.tooltip "Filter abspeichern…">
 <!ENTITY quickfilters.button.loadFilters.tooltip "Filter neu laden…">
 <!ENTITY quickfilters.button.support "quickFilters Support Webseite">
-<!ENTITY quickfilters.button.searchProperties "Suchfeld wirkt auf...">
+<!ENTITY quickfilters.button.searchProperties "Suchfeld wirkt auf…">
 <!ENTITY quickfilters.option.searchProperty.name "Name">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Zielverzeichnis">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Suchbedingung (Text)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "Aktionen die Text modifizieren">
 <!ENTITY quickfilters.option.searchProperty.addTag "Schlagwort">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Antworten mit Vorlage">
 <!ENTITY quickfilters.button.findDuplicates.label "Duplikate finden">

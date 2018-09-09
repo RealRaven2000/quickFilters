@@ -27,12 +27,18 @@
 <!ENTITY qf.tab.newFilterProps "Egenskaper för nya filter">
 <!ENTITY qf.tab.advanced "Avancerat">
 <!ENTITY qf.tab.support "Hjälp">
+<!ENTITY qf.grp.whenToRun "Tillämpa filter när">
 <!ENTITY chkAutoRun.label "Tillämpa filter när nya meddelanden tas emot">
+<!ENTITY chkAfterJunk.label "Efter skräpklassificering">
+<!ENTITY chkWhenArchiving.label "Under arkivering">
+<!ENTITY chkAfterSending.label "Efter sändelse">
 <!ENTITY chkAlphabetic.label "Infoga nya filter i alfabetisk ordning">
 <!ENTITY chkAlphabetic.tooltip "Använder filtrets namn för sin position. Rekommenderas med namnregel för övermapp. Observera att detta påverkar filtrets ordningsutförande!">
 <!ENTITY qf.label.naming "Namngivningsregler">
 <!ENTITY qf.label.naming.parentFolder "Lägg till namn på överordnad mapp">
 <!ENTITY qf.label.naming.parentFolder.accesskey "m">
+<!ENTITY qf.label.naming.folderDelimiter "Avskiljare:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Tecken som infogas mellan överordnad mapp och namn">
 <!ENTITY qf.label.naming.keyWord "Lägg till regelspecifikt nyckelord">
 <!ENTITY qf.label.naming.keyWord.accesskey "n">
 <!ENTITY qf.templates.advanced "Avancerade mallar">

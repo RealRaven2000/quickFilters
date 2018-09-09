@@ -13,7 +13,7 @@
 <!ENTITY domainLicense.instruct "此授权绑定在您的公司域上。此授权将允许使用该电子邮件域名结尾的电子邮件地址的用户使用 quickFilters Pro。例如，如果您输入了域名“abc.com”，那么下面这样的电子邮件用户可以使用此授权：fred@abc.com, martha@abc.com, mike.doe@abc.com。有效的个人用户最大数量是您在第一个屏幕上输入的数字。">
 <!ENTITY domainLicense.validate "请确保您输入的域名与您的公司的电子邮件地址“完全匹配”，（即 @ 字符后面的部分）。">
 <!ENTITY updates.title "更新">
-<!ENTITY updatesExpiry "quickFilters Pro 将如往常一样通过 addons.mozilla.org 自动更新。在年订过期后，您可以续订授权，或者如免费用户一样使用高级功能。“高级用户独享”的功能需要有效的注册密钥。">
+<!ENTITY updatesExpiry "quickFilters Pro 将如往常一样通过 addons.thunderbird.net 自动更新。在年订过期后，您可以续订授权，或者如免费用户一样使用高级功能。“高级用户独享”的功能需要有效的注册密钥。">
 <!ENTITY vouchers.title "凭证">
 <!ENTITY freeLicense "如果您最近捐助了 quickFilters 项目或者帮助其完成工作，例如翻译项目或者撰写补丁，您可能有资格获得一个免费的授权密钥。请使用 quickFilters 选项中的支持选项卡与我联系。">
 <!ENTITY account.label "选择账户：">

@@ -30,6 +30,7 @@
 <!ENTITY quickfilters.option.searchProperty.name "Name">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Target folder">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Search Condition (Text)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "Actions that modify Strings">
 <!ENTITY quickfilters.option.searchProperty.addTag "Add Tag (label)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Reply with Template">
 <!ENTITY quickfilters.button.findDuplicates.label "Find duplicates">

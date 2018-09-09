@@ -10,7 +10,6 @@
 <!ENTITY chkToolbar.accesskey "b">
 <!ENTITY chkShowList.label "Afficher la liste des filtres après création de filtre">
 <!ENTITY chkShowList.tooltip "Affiche la liste afin d'appliquer le nouveau filtre sur tous les messages pour test.">
-<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Lancer également le filtre pur les courriels lus sur les comptes IMAP.">
 <!ENTITY donate.label "Faire un don">
 <!ENTITY qf.description.donate "Si vous aimez quickFilters et souhaitez encourager son développement, vous pouvez faire un don.">
@@ -60,7 +59,6 @@
 <!ENTITY qf.postbox.quickmove "Boîte aux lettres : prend en charge la fonctionnalité de déplacement rapide">
 <!ENTITY qf.listener.tags "Prendre en compte les modifications de marquage">
 <!ENTITY qf.listener.tags.tooltip "Lorsqu'activé, l'assistant de filtre sera également lancé quand vous marquerez un message.">
-<!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Insérez votre clé de licence personnelle ici :">
@@ -75,4 +73,3 @@
 <!ENTITY qf.licenseValidation.invalidMail "L'adresse électronique associée à la clé de licence [{1}] n'est pas listée dans un de vos comptes courriel. Veuillez me contacter à partir de l'onglet d'aide.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Une adresse électronique chiffrée ne peut être reconnue.">
 <!ENTITY qf.premiumConfig "Fonctionnalités Premium">
-<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">

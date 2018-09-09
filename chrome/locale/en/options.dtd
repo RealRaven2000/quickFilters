@@ -27,12 +27,18 @@
 <!ENTITY qf.tab.newFilterProps "New Filter Properties">
 <!ENTITY qf.tab.advanced "Advanced">
 <!ENTITY qf.tab.support "Support">
-<!ENTITY chkAutoRun.label "Apply Filter when getting new mail">
+<!ENTITY qf.grp.whenToRun "Apply filter when">
+<!ENTITY chkAutoRun.label "Getting new mail">
+<!ENTITY chkAfterJunk.label "After junk classification">
+<!ENTITY chkWhenArchiving.label "When Archiving">
+<!ENTITY chkAfterSending.label "After Sending">
 <!ENTITY chkAlphabetic.label "Insert new filters in alphabetical order">
 <!ENTITY chkAlphabetic.tooltip "Uses filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!">
 <!ENTITY qf.label.naming "Naming Rules">
 <!ENTITY qf.label.naming.parentFolder "Add parent folder name">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
+<!ENTITY qf.label.naming.folderDelimiter "Delimiter:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Character inserted between parent folder and name">
 <!ENTITY qf.label.naming.keyWord "Add rule specific keyword">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
 <!ENTITY qf.templates.advanced "Advanced Templates">

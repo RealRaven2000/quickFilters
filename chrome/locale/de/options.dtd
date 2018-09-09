@@ -27,12 +27,18 @@
 <!ENTITY qf.tab.newFilterProps "Eigenschaften für neue Filter">
 <!ENTITY qf.tab.advanced "Erweitert">
 <!ENTITY qf.tab.support "Support">
-<!ENTITY chkAutoRun.label "Filter anwenden bei Nachrichtenabruf">
+<!ENTITY qf.grp.whenToRun "Filter Anwenden Bei">
+<!ENTITY chkAutoRun.label "Nachrichtenabruf">
+<!ENTITY chkAfterJunk.label "Nach junk Erkennung">
+<!ENTITY chkWhenArchiving.label "Beim Archivieren">
+<!ENTITY chkAfterSending.label "Nach Versand">
 <!ENTITY chkAlphabetic.label "Neue Filter in alphabetischer Reihenfolge einfügen">
-<!ENTITY chkAlphabetic.tooltip "Benutzt den Namen des Filters zur Position. Empfohlen mit Elternverzeichnis Regel. Diees beeeinflusst auch die Reihenfolge der Ausführung!">
+<!ENTITY chkAlphabetic.tooltip "Benutzt den Namen des Filters zur Position. Empfohlen mit Elternverzeichnis Regel. Dies beeinflusst auch die Reihenfolge der Ausführung!">
 <!ENTITY qf.label.naming "Namensregeln">
 <!ENTITY qf.label.naming.parentFolder "Name des Elternverzeichnis hinzufügen">
 <!ENTITY qf.label.naming.parentFolder.accesskey "E">
+<!ENTITY qf.label.naming.folderDelimiter "Trennzeichen:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Symbol zwischen Elternverzeichnis und Name">
 <!ENTITY qf.label.naming.keyWord "Regel-spezifisches Stichwort hinzufügen">
 <!ENTITY qf.label.naming.keyWord.accesskey "S">
 <!ENTITY qf.templates.advanced "Fortgeschrittene Vorlagen">

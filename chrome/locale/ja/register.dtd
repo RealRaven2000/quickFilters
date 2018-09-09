@@ -13,7 +13,7 @@
 <!ENTITY domainLicense.instruct "このライセンスは、あなたの団体ドメインの鍵になります。ライセンスは、quickFilters Pro の使用をこのメールドメインが末尾に付くメールアドレスのユーザに許可します。例えば、ドメイン名に 'abc.com' と入力すると、fred@abc.com や martha@abc.com、mike.doe@abc.com などのユーザがライセンスの使用を許可されます。正規ユーザの最大数は、最初の画面で入力した数になります。">
 <!ENTITY domainLicense.validate "あなたの団体のメールアドレスのドメイン名 (@ 記号の後ろ部分) は「正確に入力」してください。これは、ユーザのメールアドレスを認証するのに使用されます。">
 <!ENTITY updates.title "更新について">
-<!ENTITY updatesExpiry "quickFilters Pro は、addons.mozilla.org 経由で自動的に更新されます。ライセンスの有効期限が切れた後は、ライセンスを更新するか、無料版の利用規約の下で有料機能を使用し続けることができます。'Premium Exclusive' 機能を使用するには、正しい登録キーが必要になります。">
+<!ENTITY updatesExpiry "quickFilters Pro は、addons.thunderbird.net 経由で自動的に更新されます。ライセンスの有効期限が切れた後は、ライセンスを更新するか、無料版の利用規約の下で有料機能を使用し続けることができます。'Premium Exclusive' 機能を使用するには、正しい登録キーが必要になります。">
 <!ENTITY vouchers.title "支払い免除">
 <!ENTITY freeLicense "quickFilters プロジェクトに最近ご寄付いただいた方や開発に貢献 (翻訳やパッチ提供) していただいている方は、無料ライセンスキーの取得資格があります。quickFilters オプションのサポートタブからお問い合わせください。">
 <!ENTITY account.label "アカウント選択:">

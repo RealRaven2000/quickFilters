@@ -10,7 +10,6 @@
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY chkShowList.label "フィルタ作成後にフィルタリストを表示する">
 <!ENTITY chkShowList.tooltip "リストを表示し、すべてのメッセージに対して新しいフィルタをテスト実行します。">
-<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "また、IMAP アカウント内の既読メールに対してフィルタを実行します。">
 <!ENTITY donate.label "寄付">
 <!ENTITY qf.description.donate "quickFilters が気に入って開発をサポートしたいときは、quickFilters の開発にいくらかの寄付をすることができます。">

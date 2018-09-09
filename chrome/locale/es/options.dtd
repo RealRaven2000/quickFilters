@@ -10,7 +10,6 @@
 <!ENTITY chkToolbar.accesskey "M">
 <!ENTITY chkShowList.label "Mostrar lista de filtros tras la creación de un filtro">
 <!ENTITY chkShowList.tooltip "Muestra la lista para que ejecute el nuevo filtro sobre todos los mensajes para realizar pruebas.">
-<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Ejecutar también el filtro sobre correos leídos en cuentas IMAP.">
 <!ENTITY donate.label "Donar">
 <!ENTITY qf.description.donate "Si le gusta quickFilters, y desea apoyar su desarrollo, puede donar algo de dinero en favor de la continuidad del desarrollo de quickFilters.">
@@ -27,7 +26,11 @@
 <!ENTITY qf.tab.newFilterProps "Propiedades del nuevo filtro">
 <!ENTITY qf.tab.advanced "Avanzadas">
 <!ENTITY qf.tab.support "Soporte">
+<!ENTITY qf.grp.whenToRun "Aplicar filtro cuando">
 <!ENTITY chkAutoRun.label "Aplicar filtro al recibir correo nuevo">
+<!ENTITY chkAfterJunk.label "Filtrar tras identificar el correo basura">
+<!ENTITY chkWhenArchiving.label "Archivado">
+<!ENTITY chkAfterSending.label "Tras enviar">
 <!ENTITY chkAlphabetic.label "Insertar nuevos filtros en orden alfabético">
 <!ENTITY chkAlphabetic.tooltip "Usa el nombre del filtro para determinar su posición. Recomendado con la regla de nomenclatura de la carpeta antecesora. ¡Observe que esto afecta al orden de ejecución de filtros!">
 <!ENTITY qf.label.naming "Reglas de nomenclatura">
@@ -61,7 +64,6 @@
 <!ENTITY qf.listener.tags "Atender cambios de etiquetas">
 <!ENTITY qf.listener.tags.tooltip "Cuando está activada, el asistente de filtros se abrirá también cuando etiquete un mensaje.">
 <!ENTITY qf.listener.tags.autofilter "Ejecutar filtros automáticamente al cambiar las etiquetas">
-<!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Inserte su clave de licencia personal aquí:">
 <!ENTITY qf.label.insertLicense.tooltip "Su clave de licencia está incluida en su correo de confirmación de orden recibido desde FastSpring.">

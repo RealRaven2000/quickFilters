@@ -27,12 +27,18 @@
 <!ENTITY qf.tab.newFilterProps "Proprietà del nuovo filtro">
 <!ENTITY qf.tab.advanced "Avanzate">
 <!ENTITY qf.tab.support "Supporto">
-<!ENTITY chkAutoRun.label "Applica filtro quando arrivano nuovi messaggi">
+<!ENTITY qf.grp.whenToRun "Applica filtro">
+<!ENTITY chkAutoRun.label "Quando arrivano nuovi messaggi">
+<!ENTITY chkAfterJunk.label "Dopo aver discriminato lo spam">
+<!ENTITY chkWhenArchiving.label "Quando si sta archiviando">
+<!ENTITY chkAfterSending.label "Dopo l'invio">
 <!ENTITY chkAlphabetic.label "Inserimento  dei nuovi filtri in ordine alfabetico">
-<!ENTITY chkAlphabetic.tooltip "Utilizza l'iniziale del nome del filtro per definirne la posizione relativa. È utile nel caso della regola di denominazione della cartella di livello superiore. Attenzione: viene influenzato l'ordine di esecuzione dei filtri!">
+<!ENTITY chkAlphabetic.tooltip "Utilizza l'iniziale del nome del filtro per definirne la posizione relativa. È utile nel caso della regola di denominazione della cartella di livello superiore. Attenzione: in questo modo si influenza l'ordine di esecuzione dei filtri!">
 <!ENTITY qf.label.naming "Regole di denominazione">
 <!ENTITY qf.label.naming.parentFolder "Aggiunge alla regola il nome della cartella di livello superiore">
 <!ENTITY qf.label.naming.parentFolder.accesskey "S">
+<!ENTITY qf.label.naming.folderDelimiter "Delimitatore:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Carattere inserito fra la cartella di livello superiore e il suo nome">
 <!ENTITY qf.label.naming.keyWord "Aggiunge alla regola una parola-chiave specifica">
 <!ENTITY qf.label.naming.keyWord.accesskey "C">
 <!ENTITY qf.templates.advanced "Modelli avanzati">

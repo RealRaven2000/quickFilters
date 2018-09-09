@@ -10,7 +10,6 @@
 <!ENTITY chkToolbar.accesskey "W">
 <!ENTITY chkShowList.label "Filterlijst weergeven na aanmaken filter">
 <!ENTITY chkShowList.tooltip "Lijst weergeven om het filter op alle berichten als test uit te voeren.">
-<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Filter ook toepassen op gelezen e-mailberichten in IMAP-accounts.">
 <!ENTITY donate.label "Doneren">
 <!ENTITY qf.description.donate "Als u quickFilters even leuk vindt als wij en de ontwikkeling ervan wilt ondersteunen, kunt u wat geld doneren voor de verdere ontwikkeling van quickFilters.">

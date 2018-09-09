@@ -30,6 +30,7 @@
 <!ENTITY quickfilters.option.searchProperty.name "Namn">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Målmapp">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Sökvillkor (text)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "(Anpassad) ange stränghandling">
 <!ENTITY quickfilters.option.searchProperty.addTag "Lägg till tagg (etikett)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Svara med mall">
 <!ENTITY quickfilters.button.findDuplicates.label "Sök efter dubbletter">
