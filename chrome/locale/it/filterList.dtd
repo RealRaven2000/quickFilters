@@ -30,7 +30,7 @@
 <!ENTITY quickfilters.option.searchProperty.name "Nome">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Cartella destinazione">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Condizioni di ricerca (Testo)">
-<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "Impostazione (personalizzata) azione stringa">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "Azioni che modificano le stringhe">
 <!ENTITY quickfilters.option.searchProperty.addTag "Aggiungi etichetta">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Rispondi con un modello">
 <!ENTITY quickfilters.button.findDuplicates.label "Trova duplicati">
