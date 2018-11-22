@@ -30,6 +30,7 @@
 <!ENTITY quickfilters.option.searchProperty.name "プロパティ名">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "対象フォルダ">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "検索条件 (テキスト)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "文字列を変更する操作">
 <!ENTITY quickfilters.option.searchProperty.addTag "タグを追加 (ラベル)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "テンプレートを使用して返信する">
 <!ENTITY quickfilters.button.findDuplicates.label "重複を見つける">
