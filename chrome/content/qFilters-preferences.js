@@ -11,6 +11,7 @@ END LICENSE BLOCK
 */
 
 
+Components.utils.import("resource://gre/modules/Services.jsm"); // Thunderbird 52
 
 quickFilters.Preferences = {
   Prefix: "extensions.quickfilters.",
@@ -89,9 +90,15 @@ quickFilters.Preferences = {
 	} ,
 
 	getStringPref: function getStringPref(p) {
-    let prefString =''
+    let prefString ='',
+		    key = "extensions.quickfilters." + p;
     try {
-      prefString = this.service.getCharPref("extensions.quickfilters." + p);
+			if (this.service.getStringPref)
+				prefString = this.service.getStringPref(key);
+			else { // Thunderbird 52.0
+				const Ci = Components.interfaces;				
+				prefString = Services.prefs.getComplexValue(key, Ci.nsISupportsString).data.toString();
+			}
     }
     catch(ex) {
       quickFilters.Util.logDebug("Could not find string pref: " + p + "\n" + ex.message);
@@ -102,7 +109,17 @@ quickFilters.Preferences = {
 	} ,
 	
 	setStringPref: function setStringPref(p, v) {
-		return this.service.setCharPref("extensions.quickfilters." + p, v);
+		let key = "extensions.quickfilters." + p;
+ 		if (this.service.setStringPref)
+			return this.service.setStringPref(key, v);
+		else { // Tb 52.*
+		  const Cc = Components.classes,
+						Ci = Components.interfaces;
+			let str = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
+			str.data = v;
+			Services.prefs.setComplexValue(key, Ci.nsISupportsString, str);			
+		}
+			
 	} ,	
 	
 	existsCharPref: function(pref) {
@@ -150,12 +167,12 @@ quickFilters.Preferences = {
 	
   getCurrentFilterTemplate : function()
   {
-    return quickFilters.Preferences.service.getCharPref("extensions.quickfilters.filters.currentTemplate");
+    return quickFilters.Preferences.getStringPref("filters.currentTemplate");
   } ,
   
   setCurrentFilterTemplate : function(pref)
   {
-    return quickFilters.Preferences.service.setCharPref("extensions.quickfilters.filters.currentTemplate", pref);
+    return quickFilters.Preferences.setStringPref("filters.currentTemplate", pref);
   } 
   
 	

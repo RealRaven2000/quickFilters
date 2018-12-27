@@ -246,7 +246,7 @@ quickFilters.List = {
       return;
     } 
     if (this.pushSelectedToClipboard('sort')) {
-      util.popupProFeature("sortFilters", true, false);    
+      util.popupProFeature("sortFilters", true, false);
 			this.clipboardPending='sort';
       this.pasteFilters(true);
 		}
@@ -509,11 +509,11 @@ quickFilters.List = {
 	
 	// retrieves the folder of the currently selected server
 	get CurrentFolder() {
+		if (typeof gServerMenu !== 'undefined')
+			return gServerMenu._folder; // Tb52++ this is the menulist #serverMenu
 	  if (typeof gCurrentFolder !== "undefined") {
 			return gCurrentFolder ; // Tb
 		}
-		if (typeof gServerMenu !== 'undefined')
-			return gServerMenu._folder; // Tb52
 		// Postbox / Suite:
 		if (typeof gCurrentServerURI !== 'undefined')
 		  return quickFilters.Util.getMsgFolderFromUri(gCurrentServerURI);
@@ -1453,12 +1453,17 @@ quickFilters.List = {
 		win.quickFilters.onToolbarButtonCommand();	
 	} ,
   
-  searchType: 'name',
+  searchType: 'name', // standard filter search. looks only at filter names
   
   toggleSearchType: function toggleSearchType(type) {
+		const util = quickFilters.Util;
     if (this.searchType==type) 
       return;
     this.searchType=type;
+		
+		if(type != 'name') {
+			util.popupProFeature("Advanced search (type=" + type + ")", true, false);
+		}
     this.rebuildFilterList(); // used the global rebuildFilterList!
   } ,
   
@@ -1529,13 +1534,25 @@ quickFilters.List = {
         for (let index = 0; index < acLength; index++) {
           let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
           if (ac.type == FA.AddTag || ac.type == FA.Label) {
-            if (ac.strValue) { 
-              if (ac.strValue.toLocaleLowerCase() == aKeyword) // full match for tags, but case insensitive.
-                return true;
-            }
+            if (ac.strValue &&
+                ac.strValue.toLocaleLowerCase() == aKeyword) // full match for tags, but case insensitive.
+							return true;
           }
-        }        
+        } 
         return false;
+			case 'stringAction': // any (custom) action that sets a string
+        for (let index = 0; index < acLength; index++) {
+          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
+          if (ac.type == FA.Custom) {
+						try {
+							if (ac.strValue &&
+								  ac.strValue.toLocaleLowerCase().indexOf(aKeyword) >=0) // partly match case insensitive
+								return true;
+						}
+						catch(ex) {} ;
+          }
+        } 
+			  return false;
       case 'replyWithTemplate':
         for (let index = 0; index < acLength; index++) {
           let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
@@ -1722,7 +1739,7 @@ quickFilters.List = {
     let Terms = [],
         Actions = [];
     
-    util.popupProFeature("duplicatesFinder", true, false);    
+    util.popupProFeature("duplicatesFinder", true, false);
     let filtersList = this.FilterList,
         FA = Components.interfaces.nsMsgFilterAction;
     // build a dictionary of terms; this might take some time!
@@ -2261,7 +2278,8 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		
     // let's get all the settings from the key and then put them in a json structure:
     const util = quickFilters.Util,
-          settings = quickFilters.Settings;
+          settings = quickFilters.Settings,
+					qfList = quickFilters.List; // this object
 					
     let uri = this.ServerMenu.value,
 		    folder = typeof gSelectedFolder == "string" 
@@ -2270,16 +2288,16 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
         filtersList = util.getFilterList(folder, gFilterListMsgWindow),
 				filterCount = filtersList.filterCount;
 				
-		// get selected account info: see FilterListDialog.js setFolder()
-		// it sets gCurrentFolder and
+		// get selected account info: see FilterListDialog.js setFilterFolder()
+		// it sets gServerMenu._folder (was gCurrentFolder) and
 		// gCurrentFilterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
-		// gCurrentFolder.server.rootMsgFolder
 		// date can be converted back with new Date(jsonDate);
 		let	iSuccess = 0,
 				iFail = 0,
+				currentFolder = qfList.CurrentFolder,
 		    filtersJSON = {
 					accountName: this.ServerMenu.value,
-					rootFolderURL: gCurrentFolder.server.rootMsgFolder.folderURL,
+					rootFolderURL: currentFolder.server.rootMsgFolder.folderURL,
 					date: (new Date()).toJSON(),  
 					filters: []
 				};

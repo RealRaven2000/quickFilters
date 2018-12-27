@@ -72,16 +72,16 @@
 	</preferences>
 	
 	<prefpane id="qf-template-prefpane" >
-		<toolbar id="quickFiltersHelpBar">
-			<toolbarbutton id="quickFiltersBtnHelp"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
-			  label = ""
-			  tooltiptext = "&quickfilters.button.support;"
-			  oncommand = "quickFilters.Assistant.help();"
-			  />
-		</toolbar>
 		<hbox id="header">
 			<image id="qf-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
+			<toolbar id="quickFiltersHelpBar">
+				<toolbarbutton id="quickFiltersBtnHelp"
+					class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+					label = ""
+					tooltiptext = "&quickfilters.button.support;"
+					oncommand = "quickFilters.Assistant.help();"
+					/>
+			</toolbar>
 		</hbox>
 		
 	<deck selectedIndex="1" 
@@ -100,7 +100,7 @@
 					  oncommand="quickFilters.Assistant.selectMerge(this);"
 					  />
 			<hbox>		  
-				<listbox id="filterMatches"
+				<richlistbox id="filterMatches"
 						 seltype="single"
 						 ondblclick="quickFilters.Assistant.selectMatch(this);"
 						 onselect="quickFilters.Assistant.selectMatchFromList(this);"
@@ -119,12 +119,14 @@
 	
 		<vbox class="deckChild">
 			<hbox class="myWizard">
-				<listbox id="qf-filter-templates"
+				<richlistbox id="qf-filter-templates"
 				  ondblclick="quickFilters.Assistant.selectTemplate(this);"
-				  onselect="quickFilters.Assistant.selectTemplateFromList(this);"
+				  onselect="quickFilters.Assistant.selectTemplateFromListTmr(this);"
 				  preference="QuickFilters-Preferences-SelectedFilterTemplate"
 				  rows="6"
-				  flex = "2">
+				  flex = "2"
+					tooltiptext="&qf.filters.instructions;"
+					>
 					<listitem label='&qf.filters.template.from;' value='from' tooltip=""/>
 					<listitem label='&qf.filters.template.domain;' value='domain' tooltip=""/>
 					<listitem label='&qf.filters.template.to;' value='to' />
@@ -133,7 +135,7 @@
 					<listitem label='&qf.filters.template.list;' value='list' />
 					<listitem label='&qf.filters.template.topic;' value='topic' />
 					<listitem label='&qf.filters.template.tag;' value='tag' />
-				</listbox>
+				</richlistbox>
 				<groupbox orient="vertical"
 						  tooltiptext="&qf.filters.actions.tooltip;">
 					<caption label="&qf.filters.actions.caption;" />
@@ -170,8 +172,20 @@
 				<label id="templateLabel" value="&qf.filters.templates.description.label;" />
 				<description id="templateDescription"></description>
 			</hbox>
-			
-			<description id="qf-whatToDo">&qf.filters.instructions;</description>
+			<groupbox id="preview" orient="vertical">
+			  <caption id="previewCaption" label="Email(s)" />
+				<hbox>
+					<description class="plain" id="previewFrom" value="Author: " />
+					<spacer flex="1"/>
+					<description class="plain" id="previewTo" value="Recipients: " />
+				</hbox>
+				<description class="plain" id="previewSubject" value="Subject: " />
+				<hbox>
+					<description class="plain" id="previewDate" value="Date: " />
+					<spacer flex="1"/>
+					<description class="plain" id="previewLines" value="Lines: " />
+				</hbox>
+			</groupbox>
 		</vbox>
 	</deck>
 		

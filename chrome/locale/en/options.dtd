@@ -29,6 +29,7 @@
 <!ENTITY qf.tab.support "Support">
 <!ENTITY qf.grp.whenToRun "Apply filter when">
 <!ENTITY chkAutoRun.label "Getting new mail">
+<!ENTITY chkRunManual "Run manually">
 <!ENTITY chkAfterJunk.label "After junk classification">
 <!ENTITY chkWhenArchiving.label "When Archiving">
 <!ENTITY chkAfterSending.label "After Sending">

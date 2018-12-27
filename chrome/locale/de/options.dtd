@@ -29,6 +29,7 @@
 <!ENTITY qf.tab.support "Support">
 <!ENTITY qf.grp.whenToRun "Filter Anwenden Bei">
 <!ENTITY chkAutoRun.label "Nachrichtenabruf">
+<!ENTITY chkRunManual "Manuell ausführen">
 <!ENTITY chkAfterJunk.label "Nach junk Erkennung">
 <!ENTITY chkWhenArchiving.label "Beim Archivieren">
 <!ENTITY chkAfterSending.label "Nach Versand">

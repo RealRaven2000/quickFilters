@@ -36,11 +36,16 @@ pref("extensions.quickfilters.debug.mime.split", false);
 //pref("extensions.quickfilters.intpref", 0);
 //pref("extensions.quickfilters.stringpref", "A string");
 pref("extensions.quickfilters.naming.parentFolder", true);
+pref("extensions.quickfilters.naming.folderDelimiter", "»"); // »
 pref("extensions.quickfilters.naming.keyWord", false);
 pref("extensions.quickfilters.naming.clonedLabel", ""); // set from locale!
 pref("extensions.quickfilters.naming.mergeToken"," +m");
 pref("extensions.quickfilters.newfilter.autorun", true);
+pref("extensions.quickfilters.newfilter.manual", true);
 pref("extensions.quickfilters.newfilter.insertAlphabetical", false);
+pref("extensions.quickfilters.newfilter.runAfterPlugins", false);
+pref("extensions.quickfilters.newfilter.runArchiving", false);
+pref("extensions.quickfilters.newfilter.runPostOutgoing", false);
 
 // https://developer.mozilla.org/en/Localizing_extension_descriptions
 pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");
@@ -85,18 +90,14 @@ pref("extensions.quickfilters.templates.custom", false);
 
 pref("extensions.quickfilters.notifications.runFilter", true);
 
+
 // Premium features
-pref("extensions.quickfilters.proNotify.duplicatesFinder", true);
+pref("extensions.quickfilters.proNotify.advancedSearchType.countDown", 15);
 pref("extensions.quickfilters.proNotify.duplicatesFinder.countDown", 10);
-pref("extensions.quickfilters.proNotify.searchFolder", true);
 pref("extensions.quickfilters.proNotify.searchFolder.countDown", 15);
-pref("extensions.quickfilters.proNotify.sortFilters", true);
 pref("extensions.quickfilters.proNotify.sortFilters.countDown", 20);
-pref("extensions.quickfilters.proNotify.customTemplate", true);
 pref("extensions.quickfilters.proNotify.customTemplate.countDown", 20);
-pref("extensions.quickfilters.proNotify.save_template", true);
 pref("extensions.quickfilters.proNotify.save_template.countDown", 3);
-pref("extensions.quickfilters.proNotify.load_template", true);
 pref("extensions.quickfilters.proNotify.load_template.countDown", 2);
 
 // quickFilters Pro specific:

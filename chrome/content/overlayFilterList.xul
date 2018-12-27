@@ -79,6 +79,14 @@
 					name="searchType"
 					/>
 				<menuitem 
+				    id = "quickFiltersSearchStringAction"
+				    class="menuitem-iconic"
+						label = "&quickfilters.option.searchProperty.setCustomStringAction;"
+						oncommand = "quickFilters.List.toggleSearchType('stringAction');"
+						type="radio"
+						name="searchType"
+					/>
+				<menuitem 
 				    id = "quickFiltersSearchTag"
 				    class="menuitem-iconic"
 					label = "&quickfilters.option.searchProperty.addTag;"

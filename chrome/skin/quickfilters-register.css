@@ -114,7 +114,7 @@ td {
   padding: 0.4em 1em 0.4em 1em;
   text-shadow: 1px 1px 2px #FFF;
   vertical-align: middle;
-	white-space: nowrap
+	white-space: nowrap;
 }
 .form {
 	margin: 0 1em;

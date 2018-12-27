@@ -271,7 +271,7 @@ END LICENSE BLOCK
 		# [Bug 26486] quickfilters-3.4.2 can't create Filter in Thunderbird versions < 47
 		# main icon looks broken in brighttext mode (Thunderbird 60)
 		
-	3.6 : 16/06/2018
+	3.6 / 3.6.1 : 16/06/2018
 	  # [Bug 26542] quickFilters not defined in Postbox 5.0
 		# [Bug 26543] Custom Templates: Support gathering address fields from multiple mails
 		# Fixed version history jumping to correct version heading for Pro Users
@@ -283,7 +283,15 @@ END LICENSE BLOCK
 		# Fixed toolbar coloring + image in brighttext mode
 		# 3.6.1 - Custom Templates: reading headers not working when moving mail to Local Folders. Wrote a workaround.
 	
-		
+	3.7 : 05/10/2018
+	  # [Bug 26547] Added default options for when filters are run
+		# [Bug 26574] Filter Naming: Added configuration for customized delimiter character between folder and filter name
+		# Moved links from addons.mozilla.org to addons.thunderbird.net
+		# Added Unicode support to Custom Template Names
+		# Description field is now automatically filled by the preselected template
+		# [Bug 26579] Added message info panel in template dialog
+		# [Bug 26582] Backup filters not working in Thunderbird 60. (gCurrentFolder not defined)
+	
 	PLANNED CHANGES  
 		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
   PREMIUM FEATURES:

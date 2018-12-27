@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.6.1",
+  HARDCODED_CURRENTVERSION : "3.7",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -182,38 +182,39 @@ quickFilters.Util = {
 
   // this is done asynchronously, so it respawns itself
   VersionProxy: function VersionProxy() {
+		const util = quickFilters.Util;
     try {
-      if (quickFilters.Util.mExtensionVer // early exit, we got the version!
+      if (util.mExtensionVer // early exit, we got the version!
         ||
-          quickFilters.Util.VersionProxyRunning) // no recursion...
+          util.VersionProxyRunning) // no recursion...
         return;
-      quickFilters.Util.VersionProxyRunning = true;
-      quickFilters.Util.logDebug("Util.VersionProxy() started.");
-      let myId = quickFilters.Util.ADDON_ID;
+      util.VersionProxyRunning = true;
+      util.logDebug("Util.VersionProxy() started.");
+      let myId = util.ADDON_ID;
       if (Components.utils.import) {
         Components.utils.import("resource://gre/modules/AddonManager.jsm");
 
         AddonManager.getAddonByID(myId, function(addon) {
-          quickFilters.Util.mExtensionVer = addon.version;
-          quickFilters.Util.logDebug("AddonManager: quickFilters extension's version is " + addon.version);
+          util.mExtensionVer = addon.version;
+          util.logDebug("AddonManager: quickFilters extension's version is " + addon.version);
           let versionLabel = window.document.getElementById("qf-options-version");
           if(versionLabel) {
             versionLabel.setAttribute("value", addon.version);
             // move version into the box, depending on label length
-            quickFilters.Util.logDebug("Version Box: " + versionLabel.boxObject.width + "px");
+            util.logDebug("Version Box: " + versionLabel.boxObject.width + "px");
             // versionLabel.style.setProperty('margin-left', ((versionLabel.boxObject.width + 32)*(-1)).toString() + 'px', 'important');
           }
         });
       }
-      quickFilters.Util.logDebug("AddonManager.getAddonByID .. added callback for setting extensionVer.");
+      util.logDebug("AddonManager.getAddonByID .. added callback for setting extensionVer.");
 
     }
     catch(ex) {
-      quickFilters.Util.logToConsole("QuickFilters VersionProxy failed - are you using an old version of " + quickFilters.Util.Application + "?"
+      util.logToConsole("QuickFilters VersionProxy failed - are you using an old version of " + util.Application + "?"
         + "\n" + ex);
     }
     finally {
-      quickFilters.Util.VersionProxyRunning=false;
+      util.VersionProxyRunning=false;
     }
   },
 
@@ -416,27 +417,18 @@ quickFilters.Util = {
     }
   } ,
   
-	disableFeatureNotification: function disableFeatureNotification(featureName) {
-		quickFilters.Preferences.setBoolPref("proNotify." + featureName, false);
-	} ,  
-  
   /* quickFilters Pro / licensing features */
 	// default to isRegister from now = show button for buying a license.
+	// featureName: namne of the feature used (will be transmitted to shop when purchasing)
+	// isRegister: show registration button
+	// isDonate: show [Donatee] button
 	popupProFeature: function popupProFeature(featureName, isRegister, isDonate, additionalText) {
 		let notificationId,
-        util = quickFilters.Util;
+        util = quickFilters.Util,
+				prefs = quickFilters.Preferences;
     if (util.hasPremiumLicense(false))
       return;
 		
-		// is notification disabled?
-		// check setting extensions.quickfilters.proNotify.<featureName>
-		/*
-    try {
-      if (!quickFilters.Preferences.getBoolPref("proNotify." + featureName))
-        return;
-    } catch(ex) {return;}
-		*/
-
 		switch(util.Application) {
 			case 'Postbox': 
 				notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
@@ -466,18 +458,24 @@ quickFilters.Util = {
         dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
 				
 		if (notifyBox) {
-			let notificationKey = "quickfilters-proFeature",      
-          countDown = quickFilters.Preferences.getIntPref("proNotify." + featureName + ".countDown") ;
-      if (notifyBox.getNotificationWithValue(notificationKey)) {
-        // notification is already shown on screen.
-        util.logDebug('notifyBox for [' + notificationKey + '] is already displayed, no action necessary.\n'
-                                   + 'Countdown is ' + countDown);
-        return;
-      }
-      countDown--;
-      quickFilters.Preferences.setIntPref("proNotify." + featureName + ".countDown", countDown);
-      util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
-                                 + 'Countdown is ' + countDown);
+			let notificationKey = "quickfilters-proFeature",
+          countDown = null;
+			try {
+				if (featureName.indexOf('Advanced search') == 0)
+					featureName="advancedSearchType";
+				prefs.getIntPref("proNotify." + featureName + ".countDown") ;
+				if (notifyBox.getNotificationWithValue(notificationKey)) {
+					// notification is already shown on screen.
+					util.logDebug('notifyBox for [' + notificationKey + '] is already displayed, no action necessary.\n'
+																		 + 'Countdown is ' + countDown);
+					return;
+				}
+				countDown--;
+				prefs.setIntPref("proNotify." + featureName + ".countDown", countDown);
+				util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
+																	 + 'Countdown is ' + countDown);
+			}
+			catch(ex) {};
       
 			if (!hotKey) hotKey='L'; // we also use this for hacking the style of the "Buy" button!
 			// button for disabling this notification in the future
@@ -2019,7 +2017,7 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI, messageFallbac
 	
 	if (msgContent.length==0) {
 		headers = null;
-		util.logDebugOptional('mime','Could not stream meessage, using fallback contents instead.');
+		util.logDebugOptional('mime','Could not stream message, using fallback contents instead.');
 	}
   else {
 		headers.initialize(msgContent, msgContent.length);

@@ -18,12 +18,22 @@ image#logo {
 }
 
 #qf-filter-templates {
-  min-width: 20em;
+  min-width: 15em;
+}
+
+hbox.myWizard {
+  max-width: 950px;
+}
+
+#preview .groupbox-body {
+	background-color: white;
+	color: black;
+	box-shadow: inset 0 0 5px rgba(50,50,50,0.5);
 }
 
 #qf-template, #assistantDeck, #header, .deckChild
 {
-  max-width: 650px;
+  max-width: 950px;
 }
 
 #mergeSummary, #mergeInstructions {
@@ -31,13 +41,9 @@ image#logo {
   height: 2em;
 }
 
-hbox.myWizard {
-  max-width: 550px;
-}
-
 #qf-template-prefpane {
   min-height:280px;
-  min-width: 550px;
+  min-width: 500px;
 }
 #boxDescription {
   min-height: 5em;

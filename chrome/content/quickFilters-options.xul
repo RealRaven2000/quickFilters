@@ -95,6 +95,29 @@
 								type="bool"  
 								instantApply="true"
 								/>
+								
+
+      <preference id="newfilter.manual" 
+	              name="extensions.quickfilters.newfilter.manual"
+								type="bool"  
+								instantApply="true"
+								/>
+
+								<preference id="newfilter.runAfterPlugins" 
+	              name="extensions.quickfilters.newfilter.runAfterPlugins"
+								type="bool"  
+								/>
+      <preference id="newfilter.runArchiving" 
+	              name="extensions.quickfilters.newfilter.runArchiving"
+								type="bool"  
+								instantApply="true"
+								/>
+      <preference id="newfilter.runPostOutgoing" 
+	              name="extensions.quickfilters.newfilter.runPostOutgoing"
+								type="bool"  
+								/>
+								
+								
       <preference id="newfilter.insertAlphabetical" 
 	              name="extensions.quickfilters.newfilter.insertAlphabetical"
 								type="bool"  
@@ -104,6 +127,10 @@
 									name="extensions.quickfilters.naming.parentFolder"
 									type="bool"  
 									instantApply="true"
+									/>
+			<preference id="naming.folderDelimiter" 
+									name="extensions.quickfilters.naming.folderDelimiter"
+									type="unichar"  
 									/>
 			<preference id="naming.keyWord" 
 									name="extensions.quickfilters.naming.keyWord" 
@@ -266,8 +293,8 @@
 								/>
 								
 					<label id="getCopySentToCurrent" 
-								 tooltiptext="https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/"
-								 onclick="quickFilters.Util.openURLInTab('https://addons.mozilla.org/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
+								 tooltiptext="https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/"
+								 onclick="quickFilters.Util.openURLInTab('https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
 				</vbox>
 			</hbox>
 				  
@@ -291,42 +318,75 @@
 			</hbox>
     </tabpanel>  
 	  
+		<!-- contextAfterCls.label AFTER JUNK -->
+		
 	  <tabpanel id="quickFilters-Options-newFilterProps"
-			  orient="vertical" 
+			  orient="horizontal" 
 			  label="&qf.tab.newFilterProps;" 
 			  style="position:relative;">
-			<checkbox id="chkAutoRun" 
-						preference="newfilter.autorun" 
-						label="&chkAutoRun.label;" 
-						/>
-			<checkbox id="chkAlphabetic" 
-						preference="newfilter.insertAlphabetical" 
-						label="&chkAlphabetic.label;" 
-						tooltiptext="&chkAlphabetic.tooltip;"
-						/>
-			<groupbox  orient="vertical" flex="1">
-				<caption label="&qf.label.naming;"/>
-				<checkbox id="chkNamingParentFolder" 
-						preference="naming.parentFolder" 
-						label="&qf.label.naming.parentFolder;" 
-						accesskey="&qf.label.naming.parentFolder.accesskey;"
-						/>
-				<checkbox id="chkNamingKeyWord" 
-						preference="naming.keyWord" 
-						label="&qf.label.naming.keyWord;" 
-						accesskey="&qf.label.naming.keyWord.accesskey;"
-						/>
-				<hbox>
-					<label   class = "textBoxLabel"
-							 value="&qf.cloned.label;" />
-					<textbox id = "txtClonedName"
-							 preference = "cloned.append"
-							 />
-				</hbox>
-			</groupbox>
-		
-		<spacer flex="10" />
-
+			<vbox>
+				<groupbox  orient="vertical">
+					<caption label="&qf.grp.whenToRun;"/>
+					<checkbox id="chkAutoRun" 
+								preference="newfilter.autorun" 
+								label="&chkAutoRun.label;" 
+								/>
+					<checkbox id="chkRunManual" 
+								preference="newfilter.manual" 
+								label="&chkRunManual.label;" 
+								/>
+					<checkbox id="chkAfterJunk" 
+								preference="newfilter.runAfterPlugins" 
+								label="&chkAfterJunk.label;" 
+								/>
+					<checkbox id="chkWhenArchiving" 
+								preference="newfilter.runArchiving" 
+								label="&chkWhenArchiving.label;" 
+								/>
+					<checkbox id="chkAfterSending" 
+								preference="newfilter.runPostOutgoing"
+								label="&chkAfterSending.label;" 
+								/>
+				</groupbox>
+				<checkbox id="chkAlphabetic" 
+				preference="newfilter.insertAlphabetical" 
+				label="&chkAlphabetic.label;" 
+				tooltiptext="&chkAlphabetic.tooltip;"
+				/>
+			</vbox>
+			
+			<vbox>
+				<groupbox orient="vertical" flex="0">
+					<caption label="&qf.label.naming;"/>
+				  <hbox>
+						<checkbox id="chkNamingParentFolder" 
+								preference="naming.parentFolder" 
+								label="&qf.label.naming.parentFolder;" 
+								accesskey="&qf.label.naming.parentFolder.accesskey;"
+								/>
+						<spacer flex="1" />
+						<label class = "textBoxLabel"
+						    value="&qf.label.naming.folderDelimiter;" />
+						<textbox 
+						    style = "width: 3em;"
+								preference = "naming.folderDelimiter" 
+								tooltiptext = "&qf.tooltip.naming.folderDelimiter;"
+								/>
+					</hbox>
+					<checkbox id="chkNamingKeyWord" 
+							preference="naming.keyWord" 
+							label="&qf.label.naming.keyWord;" 
+							accesskey="&qf.label.naming.keyWord.accesskey;"
+							/>
+					<hbox>
+						<label class = "textBoxLabel"
+								 value="&qf.cloned.label;" />
+						<textbox id = "txtClonedName"
+								 preference = "cloned.append"
+								 />
+					</hbox>
+				</groupbox>
+			</vbox>
 	  </tabpanel>
                
 	  <tabpanel id="quickFilters-Options-Advanced"

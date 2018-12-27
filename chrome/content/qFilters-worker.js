@@ -687,7 +687,27 @@ quickFilters.Worker = {
         /***************  USER INTERFACE  **************/
         if (emailAddress)
         {
-          let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'new' };
+					let theDate = "none";
+					if (msg.date) {
+						let dt = new Date(msg.dateInSeconds * 1000);
+						theDate = dt.getDate().toString() + '/' + (dt.getMonth()+1) + ' ' + dt.getFullYear() + ' ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+					}
+
+					let preview = {
+						author: emailAddress,
+						lines: msg.lineCount,
+						recipients: msg.mime2DecodedRecipients || msg.recipients,
+						subject: msg.mime2DecodedSubject || msg.subject,
+						date: theDate,
+						lines: msg.lineCount,
+						msgCount: messageList.length
+					}
+          let params = { 
+					  answer: null, 
+						selectedMergedFilterIndex: -1, 
+						cmd: 'new' ,
+						preview: preview
+					};
           /** we have retrieved the message and got the necessary information that it is a 
               suitable candidate to create a filter from, now select a template
               => quickFilters.Assistant.loadAssistant() is called
@@ -745,7 +765,7 @@ quickFilters.Worker = {
           // **************************************************************
           let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xul',
             'quickfilters-filterTemplate',
-            'chrome,titlebar,centerscreen,modal,centerscreen,resizable=yes,accept=yes,cancel=yes',
+            'chrome,titlebar,alwaysRaised,modal,resizable=yes,accept=yes,cancel=yes,moveable',
             params,
             matchingFilters).focus(); // pass array of matching filters as additional arg
 
@@ -1196,8 +1216,10 @@ quickFilters.Worker = {
     
 		// ACTIONS: target folder, add tags
 		if (prefs.getBoolPref("naming.parentFolder")) {
-			if (targetFolder.parent)
-				filterName = targetFolder.parent.prettyName + " - " + filterName;
+			if (targetFolder.parent) {
+				let folderDelim = prefs.getStringPref('naming.folderDelimiter').trim() + " "; // leave blank to collapse to single space.
+				filterName = targetFolder.parent.prettyName + " " + folderDelim + filterName;
+			}
 		}
     /* New Filter Options */
 		if (!isMerge) {
@@ -1208,12 +1230,30 @@ quickFilters.Worker = {
 				moveAction.targetFolderUri = targetFolder.URI;
 				targetFilter.appendAction(moveAction);
 			}
-      if  (!prefs.getBoolPref('newfilter.autorun')) {
-        // nsMsgFilterType
-        //if (targetFilter.filterType & nsMsgFilterType.Incoming)
-        //  targetFilter.filterType -= nsMsgFilterType.Incoming;
-        targetFilter.filterType = nsMsgFilterType.Manual;
+			// filter type
+			// https://dxr.mozilla.org/comm-central/source/comm/mailnews/base/search/content/FilterEditor.js#298
+			targetFilter.filterType = nsMsgFilterType.None;
+			
+			if (targetFolder.getFlag(util.FolderFlags.Newsgroup))
+				targetFilter.filterType |= nsMsgFilterType.NewsRule;
+			else
+				targetFilter.filterType |= nsMsgFilterType.InboxRule;
+					
+      if  (prefs.getBoolPref('newfilter.autorun')) {
+        targetFilter.filterType |= nsMsgFilterType.Incoming;
       }
+					
+      if  (prefs.getBoolPref('newfilter.autorun')) {
+        targetFilter.filterType |= nsMsgFilterType.Manual;
+      }
+      if (prefs.getBoolPref('newfilter.runAfterPlugins')) {
+				targetFilter.filterType |=  nsMsgFilterType.PostPlugin;
+			}
+      if (prefs.getBoolPref('newfilter.runArchiving'))
+        targetFilter.filterType |= nsMsgFilterType.Archive;
+
+      if (prefs.getBoolPref('newfilter.runPostOutgoing'))
+        targetFilter.filterType |= nsMsgFilterType.PostOutgoing;			
 		}
 		
 		// this is set by the 'Tags' checkbox
@@ -1421,6 +1461,7 @@ quickFilters.Worker = {
 quickFilters.Assistant = {
   selectedMergedFilterIndex: -1,
   currentCmd: null,
+	initialised: false,
   MERGEPAGE : 0,
   TEMPLATEPAGE : 1,
   
@@ -1428,8 +1469,12 @@ quickFilters.Assistant = {
     if (!element) {
       element = this.TemplateList;
     }
-    quickFilters.Worker.SelectedValue = element.selectedItem.value;
-    quickFilters.Preferences.setCurrentFilterTemplate(element.selectedItem.value);
+		if (element.selectedItem) {
+			quickFilters.Worker.SelectedValue = element.selectedItem.value;
+			quickFilters.Preferences.setCurrentFilterTemplate(element.selectedItem.value);
+			return false;
+		}
+		return true;
   } ,
   
   get currentPage() {
@@ -1484,10 +1529,11 @@ quickFilters.Assistant = {
     
     return;
   } ,
-
-  get NextButton() {
-    return document.documentElement.getButton('extra1');
-  } ,
+	
+	get NextButton() {
+		return document.documentElement.getButton('extra1');
+		// document.getElementsByClassName('extra1')[0];
+	},
   
   get MatchedFilters() {
     return document.getElementById('filterMatches');
@@ -1498,6 +1544,7 @@ quickFilters.Assistant = {
   } ,
 
   cancelTemplate : function cancelTemplate() {
+    quickFilters.Assistant.initialised = false; // avoid templateSelect timer
     quickFilters.Worker.TemplateSelected = false;
     let params = window.arguments[0];
     params.answer  = false;
@@ -1564,9 +1611,9 @@ quickFilters.Assistant = {
     /* 4. If user ignores merge process (or list of matches is empty), move on to template selection box */
     // initialize list and preselect last chosen item!
     
-    let templateList = this.TemplateList,
-        util = quickFilters.Util,
-				prefs = quickFilters.Preferences;
+    const templateList = this.TemplateList,
+					util = quickFilters.Util,
+					prefs = quickFilters.Preferences;
     
     // [Bug 25989] Custom Templates Support
     if (prefs.getBoolPref('templates.custom')) {
@@ -1616,6 +1663,7 @@ quickFilters.Assistant = {
     let matchingFilters = window.arguments[1],
         isMergePossible = false;
     // list matching filters - they are passed when a merge is possible
+		let params = window.arguments[0];
     if (matchingFilters.length > 0) {
       this.toggleMatchPane(true);
       isMergePossible = true;
@@ -1626,7 +1674,6 @@ quickFilters.Assistant = {
           itemLabel += ' (disabled)';
         matchList.appendItem(itemLabel, i);
       }
-      let params = window.arguments[0];
       this.currentCmd = params.cmd;
       
       switch (params.cmd) {
@@ -1646,7 +1693,22 @@ quickFilters.Assistant = {
           break;
       }
     }
-    
+		try {
+			if (params.cmd == 'new') {
+				if (params.preview) {
+					let preview = params.preview;
+					document.getElementById('previewFrom').value = document.getElementById('previewFrom').value + ' ' + preview.author;
+					document.getElementById('previewTo').value = document.getElementById('previewTo').value + ' ' + preview.recipients;
+					document.getElementById('previewSubject').value = document.getElementById('previewSubject').value + ' ' + preview.subject;
+					document.getElementById('previewDate').value = document.getElementById('previewDate').value + ' ' + preview.date;
+					document.getElementById('previewLines').value = document.getElementById('previewLines').value + ' ' + preview.lines;
+					document.getElementById('previewCaption').label = "{0} Email(s)".replace('{0}',preview.msgCount);
+				}
+			}
+    }
+		catch(ex) {
+			util.logException("Preview initialisation failed.", ex);
+		}
     templateList.value = prefs.getCurrentFilterTemplate();
 		// ensureIndexIsVisible ?
     window.sizeToContent();
@@ -1661,8 +1723,6 @@ quickFilters.Assistant = {
         hideCheckbox = 'chkActionStar';
         break;
     }
-		
-		
     
     let chk = document.getElementById(hideCheckbox);
     if (chk)
@@ -1698,7 +1758,8 @@ quickFilters.Assistant = {
         }
       }
     }
-    
+    quickFilters.Assistant.initialised = true;
+		this.selectTemplateFromListTmr(templateList);
   } ,
 
   // gets strings from filters properties
@@ -1717,11 +1778,36 @@ quickFilters.Assistant = {
     }
     return '';
   },
-
+	
+	enableCreate: function enableCreate(b) {
+		if (this.NextButton)
+			this.NextButton.disabled = !b;
+		else
+			quickFilters.Util.logToConsole("enableCreate(" + b + ")\nCannot access Create Filter Button!");
+	},
+	
+	selectTemplateFromListTmr: function selectTemplateFromListTimer (el) {
+		if (!quickFilters.Assistant.initialised) return;
+		quickFilters.Util.logDebug("selectTemplateFromListTimer()");
+		quickFilters.Assistant.enableCreate(false);
+		window.setTimeout(
+		  function(el) {
+				quickFilters.Assistant.selectTemplateFromList(el);
+	    }, 50);
+	},
+		
   selectTemplateFromList: function selectTemplateFromList(element) {
+		const _self = quickFilters.Assistant;
+		if (!_self.initialised) return;
     if (!element) {
       element = this.TemplateList;
     }
+		if (element.selectedItem == null) {
+			_self.selectTemplateFromListTmr(element);
+			return;
+		}
+		_self.selectTemplate(element); // set worker value and store in prefs. something bad happens on next!
+		_self.enableCreate(true);
     let templateType = element.selectedItem.value;
     if (templateType) {
       if (templateType.indexOf('quickFilterCustomTemplate')==0)
