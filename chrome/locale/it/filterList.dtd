@@ -17,13 +17,15 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "Clona un filtro">
 <!ENTITY quickfilters.button.sort "Ordina">
 <!ENTITY quickfilters.button.sort.tooltiptext "Ordina alfabeticamente">
+<!ENTITY quickfilters.button.bug "Debug">
+<!ENTITY quickfilters.button.bug.tooltiptext "Debug - trova i problemi dei filtri che non funzionano">
 <!ENTITY quickfilters.menu.cut "Taglia">
 <!ENTITY quickfilters.menu.copy "Copia">
 <!ENTITY quickfilters.menu.paste "Incolla">
 <!ENTITY quickfilters.button.settings "Impostazioni di quickFilters…">
 <!ENTITY quickfilters.button.assistant "Attiva/disattiva la Procedura guidata…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Attiva/disattiva la modalità &quot;Procedura guidata&quot;. Se questa è attiva, è sufficiente trascinare e rilasciare i messaggi per creare i filtri">
-<!ENTITY quickfilters.button.saveFilters.tooltip "Backuo filtri…">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Backup filtri…">
 <!ENTITY quickfilters.button.loadFilters.tooltip "Ripristino filtri…">
 <!ENTITY quickfilters.button.support "Sito di supporto di quickFilters">
 <!ENTITY quickfilters.button.searchProperties "Modifica i criteri di ricerca…">
@@ -35,7 +37,7 @@
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Rispondi con un modello">
 <!ENTITY quickfilters.button.findDuplicates.label "Trova duplicati">
 <!ENTITY quickfilters.button.findDuplicates.tooltip "Trova attributi dei duplicati">
-<!ENTITY quickfilters.button.cancelDuplicates.label "Annulla ricerca duplicati">
+<!ENTITY quickfilters.button.cancelDuplicates.label "Annulla la ricerca dei duplicati">
 <!ENTITY quickfilters.button.cancelDuplicates.tooltip "Reimposta la ricerca dei duplicati">
 <!ENTITY quickfilters.button.cancelFindInFolder.label "Annulla ricerca">
-<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Annulla ricerca per cartella">
+<!ENTITY quickfilters.button.cancelFindInFolder.tooltip "Annulla la ricerca per cartella">
