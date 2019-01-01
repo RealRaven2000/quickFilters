@@ -114,38 +114,38 @@
 		  mode="icons" 
 		  >
 			<toolbarbutton id="quickFiltersBtnCut"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.menu.cut;"
 			  tooltiptext = "&quickfilters.menu.cut;"
 			  oncommand = "quickFilters.List.cutFilters();"
 			  />
 			<toolbarbutton id="quickFiltersBtnCopy"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.menu.copy;"
 			  tooltiptext = "&quickfilters.menu.copy;"
 			  oncommand = "quickFilters.List.copyFilters();"
 			  />
 			<toolbarbutton id="quickFiltersBtnPaste"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.menu.paste;"
 			  tooltiptext = "&quickfilters.menu.paste;"
 			  oncommand = "quickFilters.List.pasteFilters(false);"
 			  />
 		    <toolbarseparator />
 			<toolbarbutton id="quickFiltersBtnMerge"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.merge;"
 			  tooltiptext = "&quickfilters.button.merge.tooltiptext;"
 			  oncommand = "quickFilters.List.merge(event, true);"
 			  />
 			<toolbarbutton id="quickFiltersBtnClone"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.clone;"
 			  tooltiptext = "&quickfilters.button.clone.tooltiptext;"
 			  oncommand = "quickFilters.List.clone(event);"
 			  />
 			<toolbarbutton id="quickFiltersBtnSort"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.sort;"
 			  tooltiptext = "&quickfilters.button.sort.tooltiptext;"
 			  oncommand = "quickFilters.List.sort(event);"
@@ -153,13 +153,13 @@
 			<toolbarseparator />
 			<!-- Test new remove duplicate search conditions -->
 			<toolbarbutton id="quickFiltersBtnDupe"
-              class="toolbarbutton-1 chromeclass-toolbar-additional"
+              class="toolbarbutton-1"
               label="&quickfilters.button.findDuplicates.label;"
               tooltiptext="&quickfilters.button.findDuplicates.tooltip;"
               oncommand="quickFilters.List.findDuplicates(this);"
 			  />
 			<toolbarbutton id="quickFiltersBtnCancelDuplicates"
-              class="toolbarbutton-1 chromeclass-toolbar-additional"
+              class="toolbarbutton-1"
               label="&quickfilters.button.cancelDuplicates.label;"
 			  tooltiptext="&quickfilters.button.cancelDuplicates.tooltip;"
               oncommand="quickFilters.List.cancelDuplicates(this);"
@@ -173,7 +173,7 @@
 			    </menupopup>
 				</menulist>
 			<toolbarbutton id="quickFiltersBtnCancelFound"
-              class="toolbarbutton-1 chromeclass-toolbar-additional"
+              class="toolbarbutton-1"
               label="&quickfilters.button.cancelFindInFolder.label;"
 			  tooltiptext="&quickfilters.button.cancelFindInFolder.tooltip;"
               oncommand="quickFilters.List.cancelFoundFilters(this);"
@@ -185,33 +185,40 @@
 			    <menupopup>
 				<!-- fill with JS -->
 			    </menupopup>
-			</menulist>
+				</menulist>
+				
+			<toolbarbutton id="quickFiltersBtnDebug"
+			  class = "toolbarbutton-1" 
+			  label = "&quickfilters.button.bug;"
+			  tooltiptext = "&quickfilters.button.bug.tooltiptext;"
+			  oncommand = "quickFilters.List.debug();"
+			  />
 			  
 			<toolbarbutton id="quickFiltersBtnStart"
-              class="toolbarbutton-1 chromeclass-toolbar-additional"
+              class="toolbarbutton-1"
               label="&quickfilters.button.assistant;"
               tooltiptext="&quickfilters.button.assistant.tooltiptext;"
               oncommand="quickFilters.List.toggleAssistant(this);"
 			  />
 			<toolbarseparator />
 			<toolbarbutton id="btnSaveFilters"
-										 class="toolbarbutton-1 chromeclass-toolbar-additional"
+										 class="toolbarbutton-1"
 										 tooltiptext="&quickfilters.button.saveFilters.tooltip;"
 										 onclick = "quickFilters.List.store();"/>
 			<toolbarbutton id="btnLoadFilters"
-										 class="toolbarbutton-1 chromeclass-toolbar-additional"
+										 class="toolbarbutton-1"
 										 tooltiptext="&quickfilters.button.loadFilters.tooltip;"
 										 onclick="quickFilters.List.load();"/>
 			  
 		    <toolbarspring />
 			<toolbarbutton id="quickFiltersBtnSettings"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.settings;"
 			  tooltiptext = "&quickfilters.button.settings;"
 			  oncommand = "quickFilters.showOptions();"
 			  />
 			<toolbarbutton id="quickFiltersBtnHelp"
-			  class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.support;"
 			  tooltiptext = "&quickfilters.button.support;"
 			  oncommand = "quickFilters.Util.showHomePage('index.html#messageFilterList');"

@@ -29,6 +29,7 @@
 <!ENTITY qf.tab.support "サポート">
 <!ENTITY qf.grp.whenToRun "フィルタの適用:">
 <!ENTITY chkAutoRun.label "新着メール受信時にフィルタを適用する">
+<!ENTITY chkRunManual.label "Run manually">
 <!ENTITY chkAfterJunk.label "迷惑メール分類後">
 <!ENTITY chkWhenArchiving.label "アーカイブ時">
 <!ENTITY chkAfterSending.label "送信後">

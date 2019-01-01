@@ -1,13 +1,10 @@
 <ul>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26542" target="_blank">[Bug 26542]</a> quickFilters not defined in Postbox 5.0. Some newer Javascript in quickFilters 3.5 causes it to not work with Postbox 5.0 and older versions. </li>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26543" target="_blank">[Bug 26543]</a> Custom Templates: Support gathering address fields from multiple mails. This will omit collecting EMails or domains of one's own Email addresses in order to avoid bad side effects such as unintentionally archiving one's own Emails.</li>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26545" target="_blank">[Bug 26545]</a> Filter Merge should be triggered when emails are tagged </li>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26548" target="_blank">[Bug 26548]</a> Run Filters in folder context menu not working</li>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26549" target="_blank">[Bug 26549]</a> Option to skip Filter Editor.</li>
-<li>Fixed version history jumping to correct version heading for Pro Users</li>
-<li>Improved "Run Filters on Folder" function for non-Inbox folders.</li>
-<li>Fixed toolbar coloring and image in brighttext mode (dark themes). Also toned down the QuickFolders toolbar panel color highlight (was deep red) and text color when filter assistant is active. </li>
-<li>Preselected last template in filter assistant is automatically scrolled into view.</li>
-<li>(3.6.1) Custom Templates: reading headers not working when moving mail to Local Folders. Also copying search terms in Thunderbird 60 failed due to removal of 
-			some programming interfaces since version 58.</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26625" target="_blank">[Bug 26625]</a>  New filters do not automatically run when getting mail. This problem was introduced in  version 2.8 by not adding an important flag to the filter type, based on the new setting  <i>"Run Manually"</i> (and later the additional settings in the <i>"Apply Filter when"</i> box)
+
+The flags <tt>nsMsgFilterType.InboxRule</tt> or <tt>nsMsgFilterType.NewsRule</tt> have to be added to existing filters that had the "manual" box unchecked.
+
+You can use the new "Debug" button to track down and fix these filters.</li>
+<li> Filters are now merged on import.  When a filter is imported it will overwrite a filter of the same name,
+		  rather than creating a duplicate. </li>
+<li> Fixed some layout problems (truncation) in filter assistant.</li>
 </ul>

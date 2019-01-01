@@ -17,6 +17,8 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "Duplicera ett filter">
 <!ENTITY quickfilters.button.sort "Sortera">
 <!ENTITY quickfilters.button.sort.tooltiptext "Sortera i bokstavsordning">
+<!ENTITY quickfilters.button.bug "Felsökning">
+<!ENTITY quickfilters.button.bug.tooltiptext "Felsökning - hitta problem med filter som inte körs">
 <!ENTITY quickfilters.menu.cut "Klipp ut">
 <!ENTITY quickfilters.menu.copy "Kopiera">
 <!ENTITY quickfilters.menu.paste "Klistra in">

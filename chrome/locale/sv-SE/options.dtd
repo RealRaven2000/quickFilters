@@ -29,6 +29,7 @@
 <!ENTITY qf.tab.support "Hjälp">
 <!ENTITY qf.grp.whenToRun "Tillämpa filter när">
 <!ENTITY chkAutoRun.label "Tillämpa filter när nya meddelanden tas emot">
+<!ENTITY chkRunManual.label "Kör manuellt">
 <!ENTITY chkAfterJunk.label "Efter skräpklassificering">
 <!ENTITY chkWhenArchiving.label "Under arkivering">
 <!ENTITY chkAfterSending.label "Efter sändelse">

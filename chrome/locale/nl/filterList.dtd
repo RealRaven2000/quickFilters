@@ -17,6 +17,8 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "Een filter klonen">
 <!ENTITY quickfilters.button.sort "Sorteren">
 <!ENTITY quickfilters.button.sort.tooltiptext "Alfabetisch sorteren">
+<!ENTITY quickfilters.button.bug "Debug">
+<!ENTITY quickfilters.button.bug.tooltiptext "Debug - find problems with filters that don't run">
 <!ENTITY quickfilters.menu.cut "Knippen">
 <!ENTITY quickfilters.menu.copy "Kopiëren">
 <!ENTITY quickfilters.menu.paste "Plakken">

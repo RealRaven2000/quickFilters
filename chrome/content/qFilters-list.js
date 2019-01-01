@@ -33,9 +33,13 @@ quickFilters.List = {
     document.getElementById("quickFiltersBtnSort").disabled = (numFiltersSelected<2);
     document.getElementById("quickFiltersBtnCut").disabled = (numFiltersSelected==0);
     document.getElementById("quickFiltersBtnCopy").disabled = (numFiltersSelected==0);
+		let runInFolderName = "N/A";
+		if (quickFilters.List.RunFolder)
+			runInFolderName = quickFilters.List.RunFolder.prettyName;
 		quickFilters.Util.logDebugOptional('filterList','quickFilters.List.updateButtons()\n'
 		  + '# Filters selected: ' + numFiltersSelected + '\n'
-			+ 'Folder to Run in: ' + quickFilters.List.RunFolder.prettyName);
+			+ 'Folder to Run in: ' + runInFolderName
+			);
   },
   
   // FILTER LIST DIALOG FUNCTIONS - replaces gFilterListbox
@@ -1344,33 +1348,30 @@ quickFilters.List = {
   // note: use an alias to avoid recursion (we want to call the global / Tb function_
   rebuildFilterList: function rebuildFilterList_qF() {
 		const util = quickFilters.Util;
-    if (typeof gCurrentFilterList !== "undefined") { // Thunderbird
-      rebuildFilterList(gCurrentFilterList);
-    }
-    else {
-      if (util.Application === 'Postbox') {
-        refresh();
-        this.updateCountBox();
-        return;
-      }
+		try {
+			if (typeof gCurrentFilterList !== "undefined") { // Thunderbird
+				rebuildFilterList(gCurrentFilterList);
+			}
+			else {
+				if (util.Application === 'Postbox') {
+					refresh();
+					this.updateCountBox();
+					return;
+				}
 
-      // force a repaint through the BoxObject
-      let fl = this.FilterListElement,
-          // from: SM's setServer(uri) function
-          msgFolder = this.CurrentFolder;
+				// force a repaint through the BoxObject
+				let fl = this.FilterListElement,
+						// from: SM's setServer(uri) function
+						msgFolder = this.CurrentFolder;
 
-      //Calling getFilterList will detect any errors in rules.dat, backup the file, and alert the user
-      switch(util.Application) {
-//        case 'Postbox':
-//          this.gFilterTreeView.filterList = msgFolder.getFilterList(gFilterListMsgWindow);
-//          break;
-        default:
-          this.gFilterTreeView.filterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
-          break;
-      }
-      fl.boxObject.invalidate();
-    }
-    this.updateCountBox();
+				//Calling getFilterList will detect any errors in rules.dat, backup the file, and alert the user
+				this.gFilterTreeView.filterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
+				fl.boxObject.invalidate();
+			}
+			this.updateCountBox();
+		}
+		catch(ex) { util.logException('rebuildFilterList()', ex) }
+		
   } ,
 
 /**
@@ -2050,7 +2051,9 @@ quickFilters.List = {
 				}
 			}
 			
-			let iSuccess = 0, iFailure = 0,
+			let iAdded = 0, 
+					iReplaced = 0,
+			    iFailure = 0,
 			    filtersList = quickFilters.List.FilterList; // was this.FilterList
 			// Merge or rebuild?
 			// for account specific filter lists, see also searchFiltersFromFolder()
@@ -2060,8 +2063,25 @@ quickFilters.List = {
 				// for the nitty-gritty, see also quickFilters.Worker.buildFilter
 				let targetFilter = filtersList.createFilter(el.filterName);
 				if (util.deserializeFilter(el, targetFilter)) {
-					filtersList.insertFilterAt(iSuccess, targetFilter);
-					iSuccess++;
+					let bExists = false;
+					// search existing filters for a matching filter with the same name:
+					for (let j = 0; j< filtersList.filterCount; j++) {
+						if (filtersList.getFilterAt(j).filterName == targetFilter.filterName) {
+							bExists = true;
+							debugger;
+							// delete original
+							util.logDebug ('deleting original filter at ' + j); 
+							filtersList.removeFilterAt(j);
+							util.logDebug ('replacing with imported filter... [ '+ targetFilter.filterName + ']'); 
+							filtersList.insertFilterAt(j, targetFilter);
+							iReplaced++;
+							break;
+						}
+					}
+					if (!bExists) {
+						filtersList.insertFilterAt(iAdded, targetFilter);
+						iAdded++;
+					}
 				}
 				else {
 					iFailure++;
@@ -2069,13 +2089,15 @@ quickFilters.List = {
 				}
 			}
 			let txt = "Filter Import complete.\n",
-			    success = "Successfully added {0} filters.\n".replace("{0}", iSuccess),
+			    success = "Successfully added {0} filters.\n".replace("{0}", iAdded),
+					replace = "Replaced {0} filters.\n".replace("{0}", iReplaced),
 			    failure = "Failed to add {0} filters.\nFor details, please check Developer Tools / Error Console.".replace("{0}", iFailure),
 					msg = txt +
-					      (iSuccess ? success : "") +
+					      (iAdded ? success : "") +
+								(iReplaced ? replace : "") +
 					      (iFailure ? failure : "");
 			util.slideAlert(msg, "Filter Import");
-			if (iSuccess) {
+			if (iAdded) {
 				quickFilters.List.rebuildFilterList();
 			}
     }
@@ -2333,6 +2355,124 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
   load: function load() {
     this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
   } ,
+	
+	checkErrors: function checkFilterErrors() {
+    const util = quickFilters.Util,
+          settings = quickFilters.Settings,
+					ff = util.FolderFlags,
+					nsMsgFilterType = Ci.nsMsgFilterType;
+		let qfList = quickFilters.List, // this object
+				filtersList = this.FilterList,
+				sourceFolder = quickFilters.Shim.findInboxFromRoot(filtersList.folder, ff),
+				errorList = [],
+				isInbox=false, isNewsgroup=false;
+		
+		if(sourceFolder){
+			isInbox = sourceFolder.getFlag(ff.Inbox);
+			isNewsgroup = sourceFolder.getFlag(ff.Newsgroup);
+		}
+		else {
+			// is this a Local folders account? Set inbox flag anyway.
+			isInbox = (filtersList.folder.username == 'nobody');
+		}
+				
+					
+		for (let i = 0; i < filtersList.filterCount; i++) {
+			let filter = filtersList.getFilterAt(i),
+			    isFaulty = false;
+			// Incoming = InboxRule | InboxJavaScript | NewsRule | NewsJavaScript
+			if (isInbox || isNewsgroup) {
+				isFaulty = ((filter.filterType & nsMsgFilterType.Incoming)==0);
+			}
+			if (isFaulty) {
+				errorList.push ( { index:i, flt:filter} );
+			}
+		}
+		if (errorList.length) 
+			document.getElementById('quickFiltersBtnDebug').classList.add("faulty");
+		else 
+			document.getElementById('quickFiltersBtnDebug').classList.remove("faulty");
+		return errorList;
+	} ,
+	
+	debug: function debugFilterList() {
+		// go through list and check for flags InboxRule / InboxRuleJavaScript / NewsRule / NewsRuleJavascript
+    const util = quickFilters.Util,
+          settings = quickFilters.Settings,
+					nsMsgFilterType = Ci.nsMsgFilterType,
+					qfList = quickFilters.List, // this object
+					ff = util.FolderFlags,
+					filtersList = this.FilterList;
+		let sourceFolder = quickFilters.Shim.findInboxFromRoot(filtersList.folder, ff),
+				isInbox=false, isNewsgroup=false; // flag setters
+					
+					
+		if (sourceFolder) {
+			isInbox = sourceFolder.getFlag(ff.Inbox);
+			isNewsgroup = sourceFolder.getFlag(ff.Newsgroup);
+		}
+		else {
+			// local folder
+			isInbox = (filtersList.folder.username == 'nobody');
+		}
+		let errorList = qfList.checkErrors(),
+		    question = util.getBundleString('quickfilters.debug.fixFilters', 
+				  "Found {0} filters that should have Incoming flag set. These will potentially not run during get mail. Fix these?"),
+				names = "";
+		
+		if (errorList.length) {
+			let ask = question.replace("{0}",errorList.length) + "\n",
+			    line = 0, 
+					start = 0;
+			for (let i=0; i<errorList.length; i++) {
+				if (start) names += ", ";
+				names += errorList[i].flt.filterName ;
+				let lines = Math.floor(names.length / 70); // make a new line?
+				if (lines>line) {
+					names += "\n";
+					line++;
+					start=0;
+				}
+				else start++;
+			}
+			
+			util.logDebug(ask + names);
+			
+			if (Services.prompt.confirm(null,"quickFilters",ask + names)) {
+				let filtersList = this.FilterList;
+				// start fixing the list...
+				let err, countFixed=0;
+				while (errorList.length) {
+					err = errorList.pop();
+					let filter = filtersList.getFilterAt(err.index);
+					util.logDebug("Fixing Filter[" + err.index + "]: " + filter.filterName);
+					if (isInbox)
+						filter.filterType = filter.filterType | nsMsgFilterType.InboxRule;
+					if (isNewsgroup)
+						filter.filterType = filter.filterType | nsMsgFilterType.NewsRule;
+					countFixed++;
+				}
+				// store changes
+				qfList.rebuildFilterList();
+				document.getElementById('quickFiltersBtnDebug').classList.remove("faulty");
+				// show result
+				// but do not show list of names as they don't wrap nicely in notification panel.
+				util.popupAlert(
+				  util.getBundleString('quickfilters.debug.fixFilters.result','{0} filters were fixed.').replace('{0}',countFixed),
+					"quickFilters", "debug-success.png", 0
+				);
+			}
+		}
+		else {
+				util.popupAlert(
+				  util.getBundleString('quickfilters.debug.fixFilters.none',"No faulty filters found."),
+					"quickFilters", "debug-success.png", 0
+				);
+			util.logDebug();
+			document.getElementById('quickFiltersBtnDebug').classList.remove("faulty");
+		}
+		
+	} ,
 	
   
   dummy: function() {

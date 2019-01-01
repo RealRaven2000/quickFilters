@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.7",
+  HARDCODED_CURRENTVERSION : "3.8",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -382,8 +382,10 @@ quickFilters.Util = {
     }
   } ,
   
-  popupAlert: function popupAlert(text, title, icon) {
+  popupAlert: function popupAlert(text, title, icon, timeOut) {
     try {
+			let isTimeout = !(timeOut == 0);
+			if (!timeOut) timeOut = 4000;
       if (!icon)
         icon = "chrome://quickfilters/skin/QuickFilters_32.png";
       else
@@ -398,7 +400,8 @@ quickFilters.Util = {
             // appendNotification( label , value , image , priority , buttons, eventCallback )
             note = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
         notificationBox.addEventListener('alertclose', function() { alert('test'); });
-        window.setTimeout(function() {try{notificationBox.removeNotification(note)}catch(e){};panel.hidePopup();}, 4000);
+        if (isTimeout)
+					window.setTimeout(function() {try{notificationBox.removeNotification(note)}catch(e){};panel.hidePopup();}, timeOut);
         //let note = document.createElement('notification');
         //note.setAttribute(label, text);
         //note.setAttribute(image, icon);

@@ -1234,7 +1234,7 @@ quickFilters.Worker = {
 			// https://dxr.mozilla.org/comm-central/source/comm/mailnews/base/search/content/FilterEditor.js#298
 			targetFilter.filterType = nsMsgFilterType.None;
 			
-			if (targetFolder.getFlag(util.FolderFlags.Newsgroup))
+			if (sourceFolder && sourceFolder.getFlag(util.FolderFlags.Newsgroup))
 				targetFilter.filterType |= nsMsgFilterType.NewsRule;
 			else
 				targetFilter.filterType |= nsMsgFilterType.InboxRule;

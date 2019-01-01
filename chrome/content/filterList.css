@@ -4,6 +4,11 @@
 #quickFilterNotification {
 	width: 100%;
 }
+#quickFilterNotificationBox .messageImage {
+	width: 24px;
+	height: 24px;
+	margin: 5px;
+}
 
 /* All toolbar buttons */
 #quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, #quickFiltersBtnSort,
@@ -136,6 +141,22 @@
 #quickFiltersBtnClone[disabled="true"] {
 	-moz-image-region:rect(72px 24px 96px 0px);
 }
+
+
+#quickFiltersBtnDebug {
+	list-style-image: url("chrome://quickfilters/skin/bug.png");
+	-moz-image-region:rect(0px 28px 25px 0px);
+}
+#quickFiltersBtnDebug:hover {
+	-moz-image-region:rect(25px 28px 50px 0px);
+}
+#quickFiltersBtnDebug.faulty {
+	-moz-image-region:rect(50px 28px 75px 0px);
+}
+#quickFiltersBtnDebug.disabled {
+	-moz-image-region:rect(75px 28px 100px 0px);
+}
+
 
 #quickFiltersBtnDupe {
   list-style-image: url("chrome://quickfilters/skin/duplicates24.png");

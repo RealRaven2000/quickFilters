@@ -212,7 +212,7 @@ if (!quickFilters.Shim) {
 			const Ci = Components.interfaces,
 			      util = quickFilters.Util;
 			for (let folder of fixIterator(root.subFolders, Ci.nsIMsgFolder)) {
-				if (folder.getFlag && folder.getFlag(fflags.Inbox)) {
+				if (folder.getFlag && folder.getFlag(fflags.Inbox) || folder.getFlag(fflags.Newsgroup)) {
 					util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
 					return folder;
 				}

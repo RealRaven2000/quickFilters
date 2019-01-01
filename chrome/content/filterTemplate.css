@@ -21,19 +21,18 @@ image#logo {
   min-width: 15em;
 }
 
-hbox.myWizard {
-  max-width: 950px;
-}
-
 #preview .groupbox-body {
 	background-color: white;
 	color: black;
 	box-shadow: inset 0 0 5px rgba(50,50,50,0.5);
 }
 
-#qf-template, #assistantDeck, #header, .deckChild
-{
-  max-width: 950px;
+/* don't restrict dialog #qf-template */
+#assistantDeck, #header, .deckChild, hbox.myWizard {
+  max-width: 900px;
+}
+.paneDeckContainer { 
+  max-width: 930px;
 }
 
 #mergeSummary, #mergeInstructions {
@@ -44,7 +43,9 @@ hbox.myWizard {
 #qf-template-prefpane {
   min-height:280px;
   min-width: 500px;
+	max-width: inherit;
 }
+
 #boxDescription {
   min-height: 5em;
 }
