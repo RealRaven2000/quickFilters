@@ -10,7 +10,7 @@
 <!ENTITY chkToolbar.accesskey "W">
 <!ENTITY chkShowList.label "Filterlijst weergeven na aanmaken filter">
 <!ENTITY chkShowList.tooltip "Lijst weergeven om het filter op alle berichten als test uit te voeren.">
-<!ENTITY chkShowEditor.label "Open Editor after filter creation">
+<!ENTITY chkShowEditor.label "Bewerkingsprogramma openen na aanmaken filter">
 <!ENTITY chkImapOnRead.label "Filter ook toepassen op gelezen e-mailberichten in IMAP-accounts.">
 <!ENTITY donate.label "Doneren">
 <!ENTITY qf.description.donate "Als u quickFilters even leuk vindt als wij en de ontwikkeling ervan wilt ondersteunen, kunt u wat geld doneren voor de verdere ontwikkeling van quickFilters.">
@@ -29,7 +29,7 @@
 <!ENTITY qf.tab.support "Ondersteuning">
 <!ENTITY qf.grp.whenToRun "Filter toepassen bij het">
 <!ENTITY chkAutoRun.label "Filter toepassen bij ophalen nieuwe berichten">
-<!ENTITY chkRunManual.label "Run manually">
+<!ENTITY chkRunManual.label "Handmatig uitvoeren">
 <!ENTITY chkAfterJunk.label "Na ongewensteberichtenclassificatie">
 <!ENTITY chkWhenArchiving.label "Archiviereen">
 <!ENTITY chkAfterSending.label "Na verzenden">
@@ -38,8 +38,8 @@
 <!ENTITY qf.label.naming "Naamregels">
 <!ENTITY qf.label.naming.parentFolder "Naam bovenliggende map toevoegen">
 <!ENTITY qf.label.naming.parentFolder.accesskey "N">
-<!ENTITY qf.label.naming.folderDelimiter "Delimiter:">
-<!ENTITY qf.tooltip.naming.folderDelimiter "Character inserted between parent folder and name">
+<!ENTITY qf.label.naming.folderDelimiter "Scheidingsteken:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Teken dat wordt ingevoegd tussen de bovenliggende map en de naam">
 <!ENTITY qf.label.naming.keyWord "Regelspecifiek trefwoord toevoegen">
 <!ENTITY qf.label.naming.keyWord.accesskey "t">
 <!ENTITY qf.templates.advanced "Geavanceerde sjablonen">
