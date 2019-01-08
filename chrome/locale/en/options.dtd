@@ -15,7 +15,7 @@
 <!ENTITY donate.label "Donate">
 <!ENTITY qf.description.donate "If you like quickFilters and would like to support its development, you can donate some money towards the further development of quickFilters.">
 <!ENTITY qf.label.donateLink "Visit the Donation Page…">
-<!ENTITY qf.description.about "A quick description of quickFilters can be found at the following site:">
+<!ENTITY qf.description.about "A detailed description of quickFilters can be found at the following site:">
 <!ENTITY qf.label.aboutLink "quickFilters Website…">
 <!ENTITY qf.description.contactMe "You can also contact me personally at axelg@gofree.indigo.ie:">
 <!ENTITY qf.label.contactLink "Contact me (in English or German)…">
