@@ -8,6 +8,7 @@
 <!ENTITY yearlyLicense.premiumFeatures "quickFilters Pro ger dig obegränsad tillgång till de licensbelagda funktionerna.">
 <!ENTITY yearlyLicense.premiumFeatures.moreInfoLink "Mer om licensbelagda funktioner.">
 <!ENTITY yearlyLicense.usageTerm "Licensen är för personligt bruk och är knuten till din e-postadress. Du kan använda den i flera e-postklienter, under förutsättning att de är konfigurerade att använda den adressen.">
+<!ENTITY yearlyLicense.usageTerm1 "Några ytterligare e-postadresser är inget problem - de kräver inte en separat licens. Om du har frågor kan du nå mig via supportfliken.">
 <!ENTITY domainLicense.email "Vi kontaktar dig genom denna e-post adress för att generera din domänlicens; Det kan ta upp till två arbetsdagar för oss att återkomma. Ange domännamnet för licensen på nästa sida.">
 <!ENTITY domainLicense.header "Licensierad e-postdomän">
 <!ENTITY domainLicense.instruct "Licensen är knuten till ditt företags domän. Licensen ger användare med samma e-postdomän möjlighet att använda quickFilters Pro. T.ex. om du anger domännamnet 'abc.com', så kommer användare så som fred@abc.com, martha@abc.com, mike.doe@abc.com etc. få använda licensen. Det högsta antalet giltiga användare är numret du har angivit på första sidan.">
