@@ -18,7 +18,7 @@
 <!ENTITY quickfilters.button.sort "Sort">
 <!ENTITY quickfilters.button.sort.tooltiptext "Sort Alphabetically">
 <!ENTITY quickfilters.button.bug "Debug">
-<!ENTITY quickfilters.button.bug.tooltiptext "Debug - find problems with filters that don't run">
+<!ENTITY quickfilters.button.bug.tooltiptext "Debug - find problems with filters that don't run automatically">
 <!ENTITY quickfilters.menu.cut "Cut">
 <!ENTITY quickfilters.menu.copy "Copy">
 <!ENTITY quickfilters.menu.paste "Paste">

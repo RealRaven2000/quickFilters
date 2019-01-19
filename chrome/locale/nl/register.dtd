@@ -8,10 +8,11 @@
 <!ENTITY yearlyLicense.premiumFeatures "quickFilters Pro geeft u onbeperkt toegang tot de premiumfuncties.">
 <!ENTITY yearlyLicense.premiumFeatures.moreInfoLink "Meer over premiumfuncties.">
 <!ENTITY yearlyLicense.usageTerm "De licentie geldt voor uw persoonlijke gebruik en is verbonden aan uw e-mailadres. U kunt het bij meerdere e-mailclients installeren, zo lang deze zijn ingesteld om dat adres te gebruiken.">
+<!ENTITY yearlyLicense.usageTerm1 "Extra e-mailadressen zijn geen probleem - er is geen aparte licentie voor nodig. Bij vragen kunt u me via het tabblad Ondersteuning bereiken.">
 <!ENTITY domainLicense.email "We nemen via dit e-mailadres binnen twee werkdagen contact met u op om uw domeinlicentie te genereren. Geef de domeinnaam voor de licentie in op de volgende pagina.">
-<!ENTITY domainLicense.header "Licentie voor e-mail domein">
-<!ENTITY domainLicense.instruct "De licentie is gebonden aan de domeinnaam van je bedrijf. De licentie laat gebruikers met e-mail adressen onder deze domeinnaam toe om quickFilters Pro te gebruiken. Vb: Geef je domeinnaam 'abc.com' in, dan mogen e-mail gebruikers zoals fred@abc.com, martha@abc.com, mike.doe@abc.com etc. de licentie gebruiken. Het maximale aantal individuele gebruikers is het aantal dat je op het eerste scherm hebt ingegeven.">
-<!ENTITY domainLicense.validate "Zorg ervoor dat je de domeinnaam *exact hetzelfde* ingeeft zoals in de e-mail adressen van uw bedrijf (het deel *na* het @ teken), aangezien het gebruikt zal worden om de e-mail adressen van je gebruikers te autoriseren.">
+<!ENTITY domainLicense.header "Licentie voor e-maildomein">
+<!ENTITY domainLicense.instruct "De licentie is gebonden aan de domeinnaam van uw bedrijf. De licentie laat gebruikers met e-mailadressen onder deze domeinnaam toe om quickFilters Pro te gebruiken. Vb: Geef uw domeinnaam 'abc.com' in, dan mogen e-mailgebruikers zoals fred@abc.com, martha@abc.com, mike.doe@abc.com etc. de licentie gebruiken. Het maximale aantal individuele gebruikers is het aantal dat u op het eerste scherm hebt ingegeven.">
+<!ENTITY domainLicense.validate "Zorg ervoor dat u de domeinnaam *exact hetzelfde* ingeeft zoals in de e-mailadressen van uw bedrijf (het deel *na* het @ teken), aangezien het gebruikt zal worden om de e-mailadressen van uw gebruikers te autoriseren.">
 <!ENTITY updates.title "Updates">
 <!ENTITY updatesExpiry "quickFilters Pro wordt zoals gewoonlijk automatisch bijgewerkt via addons.thunderbird.net. Na het verstrijken van het jaar kunt u de licentie vernieuwen of de premium-functies blijven gebruiken onder dezelfde voorwaarden als gratis gebruikers. Functies exclusief voor premium vereisen een geldige licentiesleutel.">
 <!ENTITY vouchers.title "Tegoedbonnen">
