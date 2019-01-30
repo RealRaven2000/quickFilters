@@ -13,8 +13,8 @@
 <!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Also run filter on read emails in IMAP accounts.">
 <!ENTITY donate.label "Donate">
-<!ENTITY qf.description.donate "If you like quickFilters and would like to support its development, you can donate some money towards the further development of quickFilters.">
-<!ENTITY qf.label.donateLink "Visit the Donation Page…">
+<!ENTITY qf.youtube.description "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel.">
+<!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "A detailed description of quickFilters can be found at the following site:">
 <!ENTITY qf.label.aboutLink "quickFilters Website…">
 <!ENTITY qf.description.contactMe "You can also contact me personally at axelg@gofree.indigo.ie:">
@@ -70,6 +70,7 @@
 <!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.supportWithLicense "Support quickFilters by getting a license!">
 <!ENTITY qf.label.insertLicense "Insert your personal License key here:">
 <!ENTITY qf.label.insertLicense.tooltip "Your license key is contained in your order confirmation email from Fastspring.">
 <!ENTITY qf.button.pasteLicense "paste">

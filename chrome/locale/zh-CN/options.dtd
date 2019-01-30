@@ -11,8 +11,6 @@
 <!ENTITY chkShowList.label "创建过滤器后显示过滤器列表">
 <!ENTITY chkShowList.tooltip "在所有消息上显示要运行的新过滤器列表以便测试。">
 <!ENTITY donate.label "捐助">
-<!ENTITY qf.description.donate "如果您喜欢 quickFilters 并愿意支持开发人员，请捐助开发者以支持 quicklyFiters 的长期开发。">
-<!ENTITY qf.label.donateLink "访问捐助页面…">
 <!ENTITY qf.description.about "您可以在以下站点找到 quickFilters 的简要说明:">
 <!ENTITY qf.label.aboutLink "quickFilters 网站…">
 <!ENTITY qf.description.contactMe "您也可以通过 axelg@gofree.indigo.ie 私下联系我:">

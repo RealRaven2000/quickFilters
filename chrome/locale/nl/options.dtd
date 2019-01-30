@@ -13,8 +13,8 @@
 <!ENTITY chkShowEditor.label "Bewerkingsprogramma openen na aanmaken filter">
 <!ENTITY chkImapOnRead.label "Filter ook toepassen op gelezen e-mailberichten in IMAP-accounts.">
 <!ENTITY donate.label "Doneren">
-<!ENTITY qf.description.donate "Als u quickFilters even leuk vindt als wij en de ontwikkeling ervan wilt ondersteunen, kunt u wat geld doneren voor de verdere ontwikkeling van quickFilters.">
-<!ENTITY qf.label.donateLink "Bezoek de donatiepagina…">
+<!ENTITY qf.youtube.description "Bezoek voor gedetailleerde video’s over Thunderbird-add-ons en hoe u quickFilters kunt gebruiken mijn YouTube-kanaal.">
+<!ENTITY qf.youtube.link "quickFilters-video’s bekijken op Thunderbird Daily…">
 <!ENTITY qf.description.about "Een snelle beschrijving van quickFilters kan worden gevonden op de volgende website:">
 <!ENTITY qf.label.aboutLink "quickFilters-website…">
 <!ENTITY qf.description.contactMe "U kunt ook persoonlijk contact met me opnemen via axelg@gofree.indigo.ie:">
@@ -70,6 +70,7 @@
 <!ENTITY qf.listener.tags.autofilter "Filters automatisch toepassen als markeringen worden gewijzigd">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.supportWithLicense "Ondersteun quickFilters door een licentie aan te schaffen!">
 <!ENTITY qf.label.insertLicense "Voeg hier uw persoonlijke licentiesleutel in:">
 <!ENTITY qf.label.insertLicense.tooltip "U vindt uw licentiesleutel in uw orderbevestiging die u per e-mail van FastSpring hebt ontvangen.">
 <!ENTITY qf.button.pasteLicense "plakken">

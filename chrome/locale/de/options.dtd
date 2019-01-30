@@ -13,8 +13,8 @@
 <!ENTITY chkShowEditor.label "Neuen Filter in Editor öffnen">
 <!ENTITY chkImapOnRead.label "In IMAP Mailboxen die Filter auch auf gelesene EMails anwenden.">
 <!ENTITY donate.label "Spenden">
-<!ENTITY qf.description.donate "Falls Sie quickFilters mögen und weitere Software-Entwicklung unterstützen wollen, können Sie uns hier eine Spende hinterlassen:">
-<!ENTITY qf.label.donateLink "Die Spenden-Seite besuchen…">
+<!ENTITY qf.youtube.description "Für detailierte Informationen über Thunderbird Add-ons und Videos über die Nutzung von quickFilters besuchen Sie meinen YouTube Kanal.">
+<!ENTITY qf.youtube.link "Auf Thunderbird Daily Videos über quickFilters ansehen…">
 <!ENTITY qf.description.about "Eine ausführliche Beschreibung von quickFilters kann auf dieser Webseite gefunden werden.">
 <!ENTITY qf.label.aboutLink "quickFilters Webseite…">
 <!ENTITY qf.description.contactMe "Sie können mich auch jederzeit persönlich unter axelg@gofree.indigo.ie kontaktieren:">
@@ -69,6 +69,7 @@
 <!ENTITY qf.listener.tags.tooltip "Wenn der Filter Assistent aktiv ist, wird er auch aufgerufen falls Sie einer EMail ein Schlagwort hinzufügen.">
 <!ENTITY qf.listener.tags.autofilter "Mails automatisch filtern, wenn Schlagwörter gesetzt werden">
 <!-- quickFilters Pro stuff -->
+<!ENTITY qf.label.supportWithLicense "Unterstützen Sie quickFilters mit einer Lizenz!">
 <!ENTITY qf.tab.gopro "quickFilters Pro">
 <!ENTITY qf.label.insertLicense "Lizenzschlüssel hier eintragen:">
 <!ENTITY qf.label.insertLicense.tooltip "Der Lizenzschlüssel wird Ihnen von Fastspring zugeschickt.">

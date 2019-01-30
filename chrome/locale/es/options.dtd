@@ -12,8 +12,6 @@
 <!ENTITY chkShowList.tooltip "Muestra la lista para que ejecute el nuevo filtro sobre todos los mensajes para realizar pruebas.">
 <!ENTITY chkImapOnRead.label "Ejecutar también el filtro sobre correos leídos en cuentas IMAP.">
 <!ENTITY donate.label "Donar">
-<!ENTITY qf.description.donate "Si le gusta quickFilters, y desea apoyar su desarrollo, puede donar algo de dinero en favor de la continuidad del desarrollo de quickFilters.">
-<!ENTITY qf.label.donateLink "Visitar la página de donación…">
 <!ENTITY qf.description.about "Puede encontrar una descripción rápida de quickFilters en el siguiente sitio:">
 <!ENTITY qf.label.aboutLink "Sitio web de quickFilters…">
 <!ENTITY qf.description.contactMe "También puede contactar conmigo personalmente en axelg@gofree.indigo.ie:">

@@ -5,8 +5,6 @@
 <!ENTITY chkAutoClose.label "Thoát Filter Assistant sau khi một bộ lọc được tạo ra">
 <!ENTITY chkAutoClose.accesskey "E">
 <!ENTITY donate.label "Quyên góp">
-<!ENTITY qf.description.donate "Nếu bạn thích quickFilters và muốn hỗ trợ cho sự phát triển của nó, bạn có thể quyên góp một chút tiền cho sự phát triển sau này của quickFilters.">
-<!ENTITY qf.label.donateLink "Tới thăm trang Quyên Góp…">
 <!ENTITY qf.description.about "Mô tả ngắn về quickFilters có thể xem ở trang sau:">
 <!ENTITY qf.label.aboutLink "Trang chủ quickFilters…">
 <!ENTITY qf.description.contactMe "Bạn cũng có thể liên lạc riêng với tôi tại axelg@gofree.indigo.ie:">

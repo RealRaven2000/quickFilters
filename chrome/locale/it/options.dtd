@@ -13,15 +13,15 @@
 <!ENTITY chkShowEditor.label "Dopo la creazione di un filtro apri l'editor">
 <!ENTITY chkImapOnRead.label "Esegui i filtri anche sui messaggi letti di account IMAP">
 <!ENTITY donate.label "Dona">
-<!ENTITY qf.description.donate "Se quickFilters ti piace e vuoi contribuire al suo mantenimento, puoi donare del denaro per il suo ulteriore sviluppo:">
-<!ENTITY qf.label.donateLink "Visita la pagina delle donazioni…">
+<!ENTITY qf.youtube.description "Per informazioni dettagliate sulle estensioni di Thunderbird e per visualizzare dei video su come usare quickFilters, visitate il mio canale YouTube">
+<!ENTITY qf.youtube.link "Guarda i video su quickFilters su Thunderbird Daily…">
 <!ENTITY qf.description.about "Una rapida descrizione di quickFilters è disponibile nel sito:">
 <!ENTITY qf.label.aboutLink "Sito web di quickFilters…">
 <!ENTITY qf.description.contactMe "Puoi anche contattarmi personalmente all'email axelg@gofree.indigo.ie:">
 <!ENTITY qf.label.contactLink "Contattami (in lingua inglese o tedesca)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Per visualizzare la cronologia delle versioni fare clic col pulsante destro del mouse">
-<!ENTITY qf.youtube.tbdaily "Visitare il canale YouTube &quot;Thunderbird Daily&quot; per trovare suggerimenti e una guida introduttiva a quickFilters">
+<!ENTITY qf.youtube.tbdaily "Per trovare suggerimenti e una guida introduttiva a quickFilters visitate il canale YouTube &quot;Thunderbird Daily&quot;">
 <!ENTITY qf.tab.options "Opzioni">
 <!ENTITY qf.tab.actions "Azioni">
 <!ENTITY qf.tab.newFilterProps "Proprietà del nuovo filtro">
@@ -70,6 +70,7 @@
 <!ENTITY qf.listener.tags.autofilter "Esegue i filtri automaticamente quando le etichette vengono modificate">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.supportWithLicense "Supporta quickFilters acquistando una licenza!">
 <!ENTITY qf.label.insertLicense "Inserire qui la propria chiave di licenza:">
 <!ENTITY qf.label.insertLicense.tooltip "La chiave di licenza è contenuta nel messaggio di email di conferma dell'ordine proveniente da Fastspring.">
 <!ENTITY qf.button.pasteLicense "Incolla">

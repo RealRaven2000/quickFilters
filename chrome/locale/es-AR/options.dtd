@@ -10,8 +10,6 @@
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY chkShowList.label "Visualizar lista de filtros después de la creación del filtro">
 <!ENTITY donate.label "Donar">
-<!ENTITY qf.description.donate "Si te gusta quickFilters y quisiera apoyar su desarrollo , puede donar algo de dinero para el futuro desarrollo de quickFilters .">
-<!ENTITY qf.label.donateLink "Visitar pagina de Donación...">
 <!ENTITY qf.description.about "Una breve descripción de quickFilters se puede encontrar en el siguiente sitio:">
 <!ENTITY qf.label.aboutLink "Sitio quickFilters...">
 <!ENTITY qf.description.contactMe "También puede ponerse en contacto conmigo personalmente a través de axelg@gofree.indigo.ie :">

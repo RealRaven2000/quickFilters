@@ -13,8 +13,8 @@
 <!ENTITY chkShowEditor.label "Öppna redigeraren när filter skapas">
 <!ENTITY chkImapOnRead.label "Kör även filter på lästa e-postmeddelanden i IMAP-konton.">
 <!ENTITY donate.label "Donera">
-<!ENTITY qf.description.donate "Om du tycker om quickFilters och skulle vilja stödja dess fortsatta utveckling, så kan du donera en slant för att hjälpa utvecklaren.">
-<!ENTITY qf.label.donateLink "Gå till donationssidan…">
+<!ENTITY qf.youtube.description "För detaljerad information om tillägg för Thunderbird och videor om hur man använder quickFilters, besök min YouTube-kanal.">
+<!ENTITY qf.youtube.link "Se videor om quickFilters på Thunderbird Daily…">
 <!ENTITY qf.description.about "En snabbläst beskrivning av quickFilters hittas på följande webbplats:">
 <!ENTITY qf.label.aboutLink "quickFilters webbplats…">
 <!ENTITY qf.description.contactMe "Du kan även kontakta mig personligen på axelg@gofree.indigo.ie:">
@@ -70,6 +70,7 @@
 <!ENTITY qf.listener.tags.autofilter "Kör filter automatiskt när taggar ändras">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.supportWithLicense "Stöd quickFilters genom att skaffa en licens!">
 <!ENTITY qf.label.insertLicense "Infoga din personliga licensnyckel here:">
 <!ENTITY qf.label.insertLicense.tooltip "Din licensnyckel finns i det orderbekräftelsemeddelande du fick från Fastspring.">
 <!ENTITY qf.button.pasteLicense "klistra in">

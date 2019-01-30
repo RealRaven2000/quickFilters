@@ -13,8 +13,6 @@
 <!ENTITY chkShowEditor.label "フィルタ生成後にエディタを開く">
 <!ENTITY chkImapOnRead.label "また、IMAP アカウント内の既読メールに対してフィルタを実行します。">
 <!ENTITY donate.label "寄付">
-<!ENTITY qf.description.donate "quickFilters が気に入って開発をサポートしたいときは、quickFilters の開発にいくらかの寄付をすることができます。">
-<!ENTITY qf.label.donateLink "寄付ページを開く...">
 <!ENTITY qf.description.about "quickFilters の簡単な説明は次のサイトにあります:">
 <!ENTITY qf.label.aboutLink "quickFilters の Web サイト...">
 <!ENTITY qf.description.contactMe "個人的なお問い合わせは axelg@gofree.indigo.ie まで:">
