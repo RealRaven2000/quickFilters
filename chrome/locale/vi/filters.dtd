@@ -1,7 +1,7 @@
 <!ENTITY qf.filters.title "Tạo Bộ Lọc">
 <!ENTITY qf.filters.template.from "Dựa theo Người Gửi (gửi từ)">
 <!ENTITY qf.filters.template.to "Dựa theo Người Nhận (gửi đến)">
-<!ENTITY qf.filters.template.list "Danh sách thư">
+<!ENTITY qf.filters.template.maillist "Danh sách thư">
 <!ENTITY qf.filters.template.topic "Theo tiêu đề">
 <!ENTITY qf.filters.template.tag "Theo các nhãn">
 <!ENTITY qf.filters.templates.description.label "Mô tả:">

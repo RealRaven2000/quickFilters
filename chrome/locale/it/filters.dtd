@@ -4,7 +4,7 @@
 <!ENTITY qf.filters.template.multifrom "Gruppo (raccoglie i mittenti di più messaggi)">
 <!ENTITY qf.filters.template.to "Basato sul destinatario (A:)">
 <!ENTITY qf.filters.template.replyto "Basato sul campo 'Rispondi a'">
-<!ENTITY qf.filters.template.list "Liste di distribuzione">
+<!ENTITY qf.filters.template.maillist "Liste di distribuzione">
 <!ENTITY qf.filters.template.topic "Per oggetto">
 <!ENTITY qf.filters.template.tag "Per etichetta">
 <!ENTITY qf.filters.templates.description.label "Descrizione:">

@@ -4,7 +4,7 @@
 <!ENTITY qf.filters.template.multifrom "Grupo (recopila remitentes de múltiples correos)">
 <!ENTITY qf.filters.template.to "En base al destinatario ('A')">
 <!ENTITY qf.filters.template.replyto "En base a 'Responder a'">
-<!ENTITY qf.filters.template.list "Lista de correo">
+<!ENTITY qf.filters.template.maillist "Lista de correo">
 <!ENTITY qf.filters.template.topic "Por asunto">
 <!ENTITY qf.filters.template.tag "Por etiquetas">
 <!ENTITY qf.filters.templates.description.label "Descripción:">

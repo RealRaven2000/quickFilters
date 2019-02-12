@@ -4,7 +4,7 @@
 <!ENTITY qf.filters.template.multifrom "Groep (verzamelt afzenders van meerdere berichten)">
 <!ENTITY qf.filters.template.to "Gebaseerd op ontvanger (aan)">
 <!ENTITY qf.filters.template.replyto "Gebaseerd op Antwoorden-Aan">
-<!ENTITY qf.filters.template.list "E-maillijst">
+<!ENTITY qf.filters.template.maillist "E-maillijst">
 <!ENTITY qf.filters.template.topic "Op onderwerp">
 <!ENTITY qf.filters.template.tag "Op markering">
 <!ENTITY qf.filters.templates.description.label "Beschrijving:">

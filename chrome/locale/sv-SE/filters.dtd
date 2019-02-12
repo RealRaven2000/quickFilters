@@ -4,7 +4,7 @@
 <!ENTITY qf.filters.template.multifrom "Gruppera (samlar in avsändare från flera e-brev)">
 <!ENTITY qf.filters.template.to "Baserat på mottagare (till:)">
 <!ENTITY qf.filters.template.replyto "Baserat på Svar-till">
-<!ENTITY qf.filters.template.list "E-postlista">
+<!ENTITY qf.filters.template.maillist "E-postlista">
 <!ENTITY qf.filters.template.topic "Efter ämne">
 <!ENTITY qf.filters.template.tag "Efter taggar">
 <!ENTITY qf.filters.templates.description.label "Beskrivning:">
