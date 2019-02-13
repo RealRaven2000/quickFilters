@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.8",
+  HARDCODED_CURRENTVERSION : "3.9",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -364,6 +364,9 @@ quickFilters.Util = {
 	} ,
 	
   slideAlert: function slideAlert(text, title, icon) {
+    const Ci = Components.interfaces,
+					Cc = Components.classes,
+					util = quickFilters.Util;
     try {
       if (!icon)
         icon = "chrome://quickfilters/skin/QuickFilters_32.png";
@@ -371,10 +374,12 @@ quickFilters.Util = {
         icon = "chrome://quickfilters/skin/" + icon;
       if (!title)
         title = "quickFilters";
-      quickFilters.Util.logToConsole('popupAlert(' + text + ', ' + title + ')');
-      Components.classes['@mozilla.org/alerts-service;1'].
-                getService(Components.interfaces.nsIAlertsService).
-                showAlertNotification(icon, title, text, false, '', null);
+      util.logToConsole('popupAlert(' + text + ', ' + title + ')');
+			// let's put this into a timeout
+			window.setTimeout(function() {
+				let service = Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService);
+        service.showAlertNotification(icon, title, text, false, '', null);
+			});
     }
     catch(e) {
       // prevents runtime error on platforms that don't implement nsIAlertsService
@@ -420,12 +425,17 @@ quickFilters.Util = {
     }
   } ,
   
+  alert: function alert(msg, caption) {
+    caption = caption || "quickFilters";
+    Services.prompt.alert(null, caption, msg);
+  },
+  	
+	
   /* quickFilters Pro / licensing features */
 	// default to isRegister from now = show button for buying a license.
 	// featureName: namne of the feature used (will be transmitted to shop when purchasing)
 	// isRegister: show registration button
-	// isDonate: show [Donatee] button
-	popupProFeature: function popupProFeature(featureName, isRegister, isDonate, additionalText) {
+	popupProFeature: function popupProFeature(featureName, isRegister, additionalText) {
 		let notificationId,
         util = quickFilters.Util,
 				prefs = quickFilters.Preferences;
@@ -504,24 +514,6 @@ quickFilters.Util = {
 							},
 							popup: null
 						}
-          )
-        }
-        
-        // donate button
-        if (isDonate) {
-          let donateMsg = util.getBundleString("quickfilters.notification.donate", "Donate");
-          nbox_buttons.push(
-            {
-              label: donateMsg,
-              accessKey: null, 
-              callback: function() { 
-							  const theUtil = util.mainInstance.Util;
-                theUtil.showDonatePage(); 
-                let item = notifyBox.getNotificationWithValue(notificationKey); // notifyBox, notificationKey are closured
-                notifyBox.removeNotification(item, (theUtil.Application == 'Postbox'))
-              },
-              popup: null
-            }
           )
         }
         
@@ -690,10 +682,12 @@ quickFilters.Util = {
   // exceptionFlag  0x2   An exception was thrown for this case - exception-aware hosts can ignore this.
   // strictFlag     0x4
   logError: function logError(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags) {
-    let consoleService = Components.classes["@mozilla.org/consoleservice;1"]
-                                   .getService(Components.interfaces.nsIConsoleService),
+    const Ci = Components.interfaces,
+					Cc = Components.classes;
+    let consoleService = Cc["@mozilla.org/consoleservice;1"]
+                                   .getService(Ci.nsIConsoleService),
         aCategory = '',
-        scriptError = Components.classes["@mozilla.org/scripterror;1"].createInstance(Components.interfaces.nsIScriptError);
+        scriptError = Cc["@mozilla.org/scripterror;1"].createInstance(Ci.nsIScriptError);
     scriptError.init(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags, aCategory);
     consoleService.logMessage(scriptError);
   } ,
@@ -738,9 +732,10 @@ quickFilters.Util = {
 	* getAccountsPostbox() return an Array of mail Accounts for Postbox
 	*/   
 	getAccountsPostbox: function getAccountsPostbox() {
+    const Ci = Components.interfaces,
+					Cc = Components.classes;
 	  let accounts=[],
-        Ci = Components.interfaces,
-				accountManager = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager),
+				accountManager = Cc["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager),
 		    smartServers = accountManager.allSmartServers;
 		for (let i = 0; i < smartServers.Count(); i++) {
 			let smartServer = smartServers.QueryElementAt(i, Ci.nsIMsgIncomingServer),
@@ -817,8 +812,7 @@ quickFilters.Util = {
 				let tabUri = util.getBaseURI(info.browser.currentURI.spec);
 				if (tabUri == baseURL) {
 					tabmail.switchToTab(i);
-					// focus on tabmail ?
-					
+					info.browser.loadURI(URL);
 					return true;
 				}
 			}
@@ -830,8 +824,8 @@ quickFilters.Util = {
   // dedicated function for email clients which don't support tabs
   // and for secured pages (donation page).
   openLinkInBrowserForced: function openLinkInBrowserForced(linkURI) {
-    let Ci = Components.interfaces,
-        Cc = Components.classes;
+    const Ci = Components.interfaces,
+					Cc = Components.classes;
     try {
       this.logDebug("openLinkInBrowserForced (" + linkURI + ")");
       if (quickFilters.Util.Application==='SeaMonkey') {
@@ -927,10 +921,12 @@ quickFilters.Util = {
 						}
 					}
 					// note: findMailTab will activate the tab if it is already open
-					if (tabmail && (!util.findMailTab(tabmail, URL))) {
-						sTabMode = (quickFilters.Util.Application === "Thunderbird" && quickFilters.Util.Appver >= 3) ? "contentTab" : "3pane";
-						tabmail.openTab(sTabMode,
-						{contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
+					if (tabmail) {
+						if (!util.findMailTab(tabmail, URL)) {
+							sTabMode = (quickFilters.Util.Application === "Thunderbird" && quickFilters.Util.Appver >= 3) ? "contentTab" : "3pane";
+							tabmail.openTab(sTabMode,
+							{contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
+						}
 					}
 					else {
 						window.openDialog("chrome://messenger/content/", "_blank",
@@ -1052,6 +1048,10 @@ quickFilters.Util = {
   showDonatePage: function showDonatePage() {
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/donate.html');
   }  ,
+	
+	showYouTubePage: function showYouTubePage() {
+		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V');
+	} ,
 
   showHomePage: function showHomePage(queryString) {
 	  if (!queryString) queryString='index.html';
@@ -1070,24 +1070,6 @@ quickFilters.Util = {
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/premium.html');
 	} ,
 	
-	toggleDonations: function toggleDonations() {
-		let isAsk = quickFilters.Preferences.getBoolPref('donations.askOnUpdate');
-		let question = this.getBundleString("quickfilters.donationToggle","Do you want to {0} the donations screen which is displayed whenever quickFilters updates?");
-		
-		question = question.replace('{0}', isAsk ? 
-               this.getBundleString("quickfilters.donationToggle.disable", 'disable') : 
-							 this.getBundleString("quickfilters.donationToggle.enable", 're-enable'));
-		if (confirm(question)) {
-		  isAsk = !isAsk;
-			quickFilters.Preferences.setBoolPref('donations.askOnUpdate', isAsk);
-			let message = this.getBundleString("quickfilters.donationIsToggled", "The donations screen is now {0}.");
-			message = message.replace('{0}', isAsk ? 
-			  this.getBundleString("quickfilters.donationIsToggled.enabled",'enabled'): 
-				this.getBundleString("quickfilters.donationIsToggled.disabled",'disabled'));
-			alert(message);	
-		}
-	},  	
-  
   // Postbox special functions to avoid line being truncated
   // removes description.value and adds it into inner text
   fixLineWrap: function fixLineWrap(notifyBox, notificationKey) {
@@ -1132,6 +1114,7 @@ quickFilters.Util = {
 		return isString;   
 	},
 
+	// function to extract any header (including custom header) from the mail - uses mime Decoder so mesage must be streamable
   replaceReservedWords: function(dmy, token, arg)	{
     const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
@@ -1259,6 +1242,7 @@ quickFilters.Util = {
 					if (quickFilters.Util.isStringAttrib(val.attrib)) {
             let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
             if (oReplaceTerms) {
+							if (prefs.isDebugOption('replaceReservedWords')) debugger;
               let newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
               this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
               replaceVal = newVal;
@@ -1385,7 +1369,7 @@ quickFilters.Util = {
 	// create a JSON object from a filter
 	// pass in nsIMsgFilter
 	// uses adapted code from copyTerms and copyActions to build JSON object.
-	serializeFilter: function serializeFilter(filter) {
+	serializeFilter: function serializeFilter(filter, customErrors) {
 		const Ci = Components.interfaces,
 					FA = Ci.nsMsgFilterAction,
 					AC = Ci.nsMsgSearchAttrib,
@@ -1428,18 +1412,26 @@ quickFilters.Util = {
 					// note: custom action associated with Id must be set 
 					//       prior to reading ac.customAction attribute
 					atomAction.customId = action.customId;
-					let cA = action.customAction; // nsIMsgFilterCustomAction
-					if (cA) {
-						// not quite sure how to fully persist these functions:
-						//   (we need to look at where Thunderbird stores them / are they 
-						//   part of the filter backup / msgFilterRules.dat?)
-						//   specifically, [how] are the methods validateActionValue(), apply() and
-						//   isValidForType() implemented / persisted?
-						atomAction.customAction = {};
-						atomAction.customAction.id = cA.id;
-						atomAction.customAction.name = cA.name;
-						atomAction.customAction.allowDuplicates = cA.allowDuplicates;
+					try {
+						let cA = action.customAction; // nsIMsgFilterCustomAction
+						if (cA) {
+							// not quite sure how to fully persist these functions:
+							//   (we need to look at where Thunderbird stores them / are they 
+							//   part of the filter backup / msgFilterRules.dat?)
+							//   specifically, [how] are the methods validateActionValue(), apply() and
+							//   isValidForType() implemented / persisted?
+							atomAction.customAction = {};
+							atomAction.customAction.id = cA.id;
+							atomAction.customAction.name = cA.name;
+							atomAction.customAction.allowDuplicates = cA.allowDuplicates;
+						}
 					}
+					catch(ex) {
+						customErrors.push( { name:filter.filterName, customId: action.customId } );
+						util.logToConsole("Filter [" + filter.filterName + "] cannot access customAction with id: " + action.customId + "\n"
+						  + "\nSaving id & strValue only.");
+					}
+					
 					break;
 			}				
 			try {
@@ -1938,6 +1930,26 @@ quickFilters.Util = {
 			return searchTerms.queryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
 		return null;
 	} ,
+	
+  checkCustomHeaderExists: function checkCustomHeaderExists(hdr) {
+    // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19
+    const Ci = Components.interfaces;
+    let hdrs = Services.prefs.getCharPref("mailnews.customHeaders"),
+        ArrayHdrs;
+    if (!hdrs) return 0;
+    hdrs = hdrs.replace(/\s+/g,'');  //remove white spaces before splitting
+    ArrayHdrs = hdrs.split(":");
+    for (let i = 0; i < ArrayHdrs.length; i++)
+      if (!ArrayHdrs[i])
+        ArrayHdrs.splice(i,1);  //remove any null elements
+    for (let i = 0;i < ArrayHdrs.length; i++) {
+      if (ArrayHdrs[i] == hdr)
+        return i + Ci.nsMsgSearchAttrib.OtherHeader + 1; // custom Header exists, return id 
+        // 52 (Tb) is for showing customize - in ui headers start from 53 onwards up until 99.
+        // 59 (Pb)
+    }
+    return 0;
+  } ,	
 	
   dummy: function() {
 		/* 

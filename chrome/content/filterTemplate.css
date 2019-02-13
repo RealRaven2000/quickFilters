@@ -19,6 +19,7 @@ image#logo {
 
 #qf-filter-templates {
   min-width: 15em;
+	max-height: 19.2em;
 }
 
 #preview .groupbox-body {
@@ -42,18 +43,20 @@ image#logo {
 
 #qf-template-prefpane {
   min-height:280px;
-  min-width: 500px;
+  min-width: 500px; /* fixes overly wide dialog box */
 	max-width: inherit;
 }
 
 #boxDescription {
   min-height: 5em;
+	min-width: 520px;
+	max-width: 620px;
 }
 #templateLabel { padding-top: 0.5em; }
 #templateDescription {
   padding: 0.5em;
   min-height:3.8em;
-  max-width: 450px !important;
+  max-width: 520px !important;
 }
 
 #qf-whatToDo {
@@ -62,6 +65,8 @@ image#logo {
 
 #filterMatches {
   min-width: 25em;
+	min-height: 7em;
+	max-height:15em; /* [Bug 26630] fixing a flex problem causeing the dialog to grow too high */
 }
 #filterDescription {
   max-width: 400px !important;

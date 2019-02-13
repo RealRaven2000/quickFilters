@@ -46,6 +46,7 @@ pref("extensions.quickfilters.newfilter.insertAlphabetical", false);
 pref("extensions.quickfilters.newfilter.runAfterPlugins", false);
 pref("extensions.quickfilters.newfilter.runArchiving", false);
 pref("extensions.quickfilters.newfilter.runPostOutgoing", false);
+pref("extensions.quickfilters.files.path", "");
 
 // https://developer.mozilla.org/en/Localizing_extension_descriptions
 pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");
@@ -75,7 +76,6 @@ pref("extensions.quickfilters.actions.moveFolder", true);
 pref("extensions.quickfilters.filters.showMessage", true);
 pref("extensions.quickfilters.firstRun", true);
 pref("extensions.quickfilters.installedVersion", "0");
-pref("extensions.quickfilters.donations.askOnUpdate", true);
 
 pref("extensions.quickfilters.quickfolders.curFolderbar.listbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.folderbutton", true);
@@ -104,6 +104,7 @@ pref("extensions.quickfilters.proNotify.load_template.countDown", 2);
 pref("extensions.quickfilters.licenser.forceSecondaryIdentity",false);
 pref("extensions.quickfilters.licenseType", 0); // private license, 1-domain
 pref("extensions.quickfilters.LicenseKey", "");
+pref("extensions.quickfilters.licenser.renewalReminder", 0); // 0 - no renewal necessary, 1 - renewal reminder, 2 - disable reminder
 
 
 pref("extensions.quickfilters.mime.resolveAB", false);

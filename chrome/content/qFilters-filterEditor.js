@@ -17,9 +17,9 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 // window.onload = function()
 quickFilters.FilterEditor = {
   onLoad: function loadEditor(event) {
-    const utils = quickFilters.Util,
+    const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
-    utils.logDebug('quickFilters.loadEditor()');
+    util.logDebug('quickFilters.loadEditor()');
     // filterEditorOnLoad(); was already called as we now use a listener!
     setTimeout( function() {
       function matchAction(actionType, actionString) {
@@ -42,7 +42,7 @@ quickFilters.FilterEditor = {
           let found = false,
               firstMatch,
               list;
-          utils.logDebug(
+          util.logDebug(
             'args.filterConditionValue = ' + args.filterConditionValue +'\n' +
             'args.filterConditionActionType = ' + args.filterConditionActionType);
           // now we need to scroll the correct listbox to the correct place:
@@ -59,7 +59,7 @@ quickFilters.FilterEditor = {
                     // (with different values) in most cases!
                     if (matchAction(args.filterConditionActionType, attrib.value)) {
                       // same action type (e.g. add tag, move to folder etc.
-                      utils.logDebug('Matched Action Type = ' + attrib.value + '[ ' + args.filterConditionActionType + ' ]');
+                      util.logDebug('Matched Action Type = ' + attrib.value + '[ ' + args.filterConditionActionType + ' ]');
                       found = true;
                       firstMatch = item;
                     }
@@ -87,10 +87,10 @@ quickFilters.FilterEditor = {
                             currentSearchVal = theValue.str;
                         searchRowIndex = getSearchRowIndexForElement(item);
                         // e.g: [nsIMsgSearchValue: XXXX
-                        utils.logDebug('currentSearchVal = ' + currentSearchVal + '   searchRowIndex = ' + searchRowIndex);
+                        util.logDebug('currentSearchVal = ' + currentSearchVal + '   searchRowIndex = ' + searchRowIndex);
                         let match = (currentSearchVal == args.filterConditionValue) ? true : false;
                         if (match) {
-                          utils.logDebug('MATCH found!');
+                          util.logDebug('MATCH found!');
                           found = true;
                           firstMatch = item;
                           break;
@@ -100,16 +100,16 @@ quickFilters.FilterEditor = {
                   if (found) break;
                 }
                 if (!found) {
-                  utils.logDebug('rowIndex = ' + rowIndex + ',  lastrowIndex =' + lastrowIndex);
+                  util.logDebug('rowIndex = ' + rowIndex + ',  lastrowIndex =' + lastrowIndex);
                   if (lastrowIndex == rowIndex) break; // endless while if nothing found.
                   lastrowIndex = rowIndex;
                   rowIndex = searchRowIndex + 1;
-                  utils.logDebug('next rowIndex = ' + rowIndex);
+                  util.logDebug('next rowIndex = ' + rowIndex);
                   // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#248
                   gSearchTermList.ensureIndexIsVisible(rowIndex);
                 }
               }
-              utils.logDebug(found ? ('found item at rowIndex ' + rowIndex) : 'No match found');
+              util.logDebug(found ? ('found item at rowIndex ' + rowIndex) : 'No match found');
             }
             
             // highlight the row of the matched element
@@ -119,27 +119,27 @@ quickFilters.FilterEditor = {
               firstMatch.style.backgroundColor = 'rgba(203,97,95,1)';
             }
             catch(ex) {
-              utils.logException('Highlighting matched row failed:' + ex);
+              util.logException('Highlighting matched row failed:' + ex);
             }
          }
          else {
-           utils.logDebug('No arguments for highlighting duplicates.');
+           util.logDebug('No arguments for highlighting duplicates.');
          }
       }
       else
-         utils.logDebug('No window arguments!');
+         util.logDebug('No window arguments!');
     }, 100);
     
     setTimeout( function() { quickFilters.FilterEditor.showTitle();}, 100);
   },
 
   showTitle: function editorShowTitle() {
-    let utils = quickFilters.Util,
+    let util = quickFilters.Util,
         filterNameElement = document.getElementById('filterName'),
         filterName = filterNameElement.value;
-    utils.logDebug('quickFilters.FilterEditor.showTitle() - filterName = ' + filterName);
+    util.logDebug('quickFilters.FilterEditor.showTitle() - filterName = ' + filterName);
     if (filterName && filterName.indexOf('quickFilterCustomTemplate')==0) {
-      utils.logDebug('Found Custom Filter Template:\n' + filterName);
+      util.logDebug('Found Custom Filter Template:\n' + filterName);
       // show "QuickFilters Custom Template" Heading and move it on top of the Filter Name:
       let customEl = document.getElementById('quickFilters-CustomTemplate'),
           variablesBox = document.getElementById('quickFilters-CustomVars'),
@@ -156,7 +156,7 @@ quickFilters.FilterEditor = {
       // localise dropdown for custom filter elements
       let custVarLabel = document.getElementById('quickFilters-variablePicker-label'),
           custVarPicker = document.getElementById('quickFilters-variablePicker');
-      utils.logDebug('Localize Variable Dropdown: ' + custVarLabel.value);
+      util.logDebug('Localize Variable Dropdown: ' + custVarLabel.value);
       variablesBox.setAttribute('collapsed', false);
       hbox.appendChild(variablesBox);
       custVarPicker.label = custVarLabel.value; // show label on dropdown!
@@ -165,7 +165,7 @@ quickFilters.FilterEditor = {
       hbox.insertBefore(templateLabel, filterNameElement);
       templateLabel.setAttribute('collapsed', false);
       filterNameElement.setAttribute('flex', 8);
-      if (utils.Application == 'Postbox')
+      if (util.Application == 'Postbox')
         window.resizeBy(0,customEl.clientHeight);
     }
   },
@@ -178,8 +178,8 @@ quickFilters.FilterEditor = {
         variable = event.target.value,
         hdr = '',
         mainWin = quickFilters.Util.getMail3PaneWindow(),
-        utils = mainWin.quickFilters.Util,
-        txt = utils.getBundleString('quickfilters.prompt.copiedCustomVar', 
+        util = mainWin.quickFilters.Util,
+        txt = util.getBundleString('quickfilters.prompt.copiedCustomVar', 
                              'Copied variable {1} to clipboard, please paste in a search term.');
     clipboardhelper.copyString(variable);
     //  remove *...*                         
@@ -191,8 +191,8 @@ quickFilters.FilterEditor = {
 		// make sure this is a known header!
     if (['from', 'to', 'cc', 'bcc', 'subject', 'subjectRegex'].indexOf(hdr) < 0) {
       isCustom = true;
-      if (!quickFilters.FilterEditor.checkCustomHeaderExists(hdr)) {
-        txt = utils.getBundleString('quickfilters.prompt.createCustomHeader', 
+      if (!util.checkCustomHeaderExists(hdr)) {
+        txt = util.getBundleString('quickfilters.prompt.createCustomHeader', 
                              "Please add the term '{1}' as a custom header to use this in a filter.");
         if (confirm(txt.replace('{1}', hdr))) {
           let searchTermList = document.getElementById('searchTermList'),
@@ -210,38 +210,20 @@ quickFilters.FilterEditor = {
     }
     // add the new term depending on hdr
     this.addCondition(hdr, variable);
-    // utils.slideAlert(txt.replace('{1}', variable));
+    // util.slideAlert(txt.replace('{1}', variable));
   },
 
-  checkCustomHeaderExists: function checkCustomHeaderExists(hdr) {
-    // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19
-    const Ci = Components.interfaces;
-    let hdrs = Services.prefs.getCharPref("mailnews.customHeaders"),
-        ArrayHdrs;
-    if (!hdrs) return 0;
-    hdrs = hdrs.replace(/\s+/g,'');  //remove white spaces before splitting
-    ArrayHdrs = hdrs.split(":");
-    for (let i = 0; i < ArrayHdrs.length; i++)
-      if (!ArrayHdrs[i])
-        ArrayHdrs.splice(i,1);  //remove any null elements
-    for (let i = 0;i < ArrayHdrs.length; i++) {
-      if (ArrayHdrs[i] == hdr)
-        return i + Ci.nsMsgSearchAttrib.OtherHeader + 1; // custom Header exists, return id 
-        // 52 (Tb) is for showing customize - in ui headers start from 53 onwards up until 99.
-        // 59 (Pb)
-    }
-    return 0;
-  },
+
 
   onDomLoaded: function(event) {
-    let utils = quickFilters.Util;
-    utils.logDebug('quickFilters.editorDomLoaded()');
+    let util = quickFilters.Util;
+    util.logDebug('quickFilters.editorDomLoaded()');
   },
   
   addCondition: function addFilterCondition(hdr, value) {
     const Ci = Components.interfaces, 
           Cc = Components.classes,
-          utils = quickFilters.Util,
+          util = quickFilters.Util,
 		      prefs = quickFilters.Preferences,
           typeAttrib = Ci.nsMsgSearchAttrib,
           typeOperator = Ci.nsMsgSearchOp;
@@ -251,7 +233,7 @@ quickFilters.FilterEditor = {
     let rowIndex = gSearchTermList.getRowCount(),
         searchTerm = gFilter.createTerm(); // global filter variable; create a new nsIMsgSearchTerm
     searchTerm.op = typeOperator.Contains;
-    utils.logDebug('addFilterCondition(' + hdr + ', ' + value + ')');
+    util.logDebug('addFilterCondition(' + hdr + ', ' + value + ')');
     switch (hdr) {
       case 'to':
         searchTerm.attrib = typeAttrib.To;
@@ -279,14 +261,14 @@ quickFilters.FilterEditor = {
         //for (var i=0; i<gSearchTerms.length; i++) 
         //    gSearchTerms[i].obj.searchattribute.refreshList();
         //}
-        let iCustomHdr = quickFilters.FilterEditor.checkCustomHeaderExists(hdr);
+        let iCustomHdr = util.checkCustomHeaderExists(hdr);
         if ('customId' in searchTerm)
           searchTerm.customId = iCustomHdr ? iCustomHdr.toString() : hdr; //Tb
         else {
           searchTerm.attrib = iCustomHdr.toString() ; // Postbox specific
-          if ('arbitraryHeader' in searchTerm)
-            searchTerm.arbitraryHeader = hdr;
         }
+				if ('arbitraryHeader' in searchTerm)
+					searchTerm.arbitraryHeader = hdr;
         break;
     }
     let val = searchTerm.value; 

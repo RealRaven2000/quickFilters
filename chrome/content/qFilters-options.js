@@ -18,6 +18,7 @@ quickFilters.Options = {
   load: function() {
 		const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences,
+          options = quickFilters.Options,
 					licenser = util.Licenser,
 					getElement = window.document.getElementById.bind(window.document);
 					
@@ -71,9 +72,7 @@ quickFilters.Options = {
     clonedLabel.placeholder = quickFilters.Util.getBundleString('quickfilters.clone.label', '(copy)');
 
     /*****  License  *****/
-    let buyLabel = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
-
-    getElement("btnLicense").label = buyLabel;
+    options.labelLicenseBtn(getElement("btnLicense"), "buy");
     // validate License key
     licenser.LicenseKey = prefs.getStringPref('LicenseKey');
     getElement('txtLicenseKey').value = licenser.LicenseKey;
@@ -82,21 +81,10 @@ quickFilters.Options = {
     }
 		
 		
-		// no donation loophoole
-		let donateButton = document.documentElement.getButton('extra2');
-		if (donateButton) {
-			donateButton.addEventListener("click", 
-				function(evt) { 
-					quickFilters.Util.logDebugOptional("default", "donateButton event:\n" + evt.toString());
-					if(evt.button == 2) {
-						quickFilters.Util.toggleDonations();
-						evt.preventDefault();
-						evt.stopPropagation();
-					}; }, false);
-		}		
     let getCopyBtn = getElement('getCopySentToCurrent');
     let getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
     getCopyBtn.textContent = getCopyText.replace('{1}','\'Copy Sent to Current\'');
+    options.configExtra2Button();		
   } ,
   
   toggleBoolPreference: function(cb, noUpdate) {
@@ -187,11 +175,15 @@ quickFilters.Options = {
     let txtBox = document.getElementById('txtLicenseKey'),
         strLicense = txtBox.value.toString();
     util.logDebug('trimLicense() : ' + strLicense);
-    strLicense = strLicense.replace(/^\s+|\s+$/g, ''); // remove line breaks
-    strLicense = strLicense.replace('\[at\]','@');
-    txtBox.value = strLicense;
-    util.logDebug('trimLicense() result : ' + strLicense);
-    return strLicense;
+    // Remove line breaks and extra spaces:
+		let trimmedLicense =  
+		  strLicense.replace(/\r?\n|\r/g, ' ') // replace line breaks with spaces
+				.replace(/\s\s+/g, ' ')            // collapse multiple spaces
+        .replace('\[at\]','@')
+				.trim();
+    txtBox.value = trimmedLicense;
+    util.logDebug('trimLicense() result : ' + trimmedLicense);
+    return trimmedLicense;
   } ,
   
   enablePremiumConfig: function enablePremiumConfig(isEnabled) {
@@ -374,6 +366,7 @@ quickFilters.Options = {
 			if (addedClass!='free')	el.classList.remove('free');
 		}
 		const util = quickFilters.Util,
+					options = quickFilters.Options,
 					State = util.Licenser.ELicenseState; // main window (for reminders etec)
     let wd = window.document,
         getElement = wd.getElementById.bind(wd),
@@ -384,30 +377,137 @@ quickFilters.Options = {
 			let result = this.decryptLicense(testMode);
 			switch(result) {
 				case State.Valid:
-				  btnLicense.collapsed = true;
+					let today = new Date(),
+					    later = new Date(today.setDate(today.getDate()+30)), // pretend it's a month later:
+							dateString = later.toISOString().substr(0, 10);
+					// if we were a month ahead would this be expired?
+					if (util.Licenser.DecryptedDate < dateString) {
+						options.labelLicenseBtn(btnLicense, "extend");
+					}
+					else
+				  	btnLicense.collapsed = true;
 					replaceCssClass(proTab, 'paid');
 					replaceCssClass(btnLicense, 'paid');
 					beautyTitle.setAttribute('src', "chrome://quickfilters/skin/QuickFilters-title-pro.png");
 				  break;
 				case State.Expired:
-					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
-				  btnLicense.collapsed = false;
+					options.labelLicenseBtn(btnLicense, "renew");
 					replaceCssClass(proTab, 'expired');
 					replaceCssClass(btnLicense, 'expired');
+				  btnLicense.collapsed = false;
 					beautyTitle.setAttribute('src', "chrome://quickfilters/skin/QuickFilters-title-pro.png");
 					break;
 				default:
+					options.labelLicenseBtn(btnLicense, "buy");
 				  btnLicense.collapsed = false;
 					replaceCssClass(proTab, 'free');
-				  btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
 			}
+      options.configExtra2Button();
 			util.logDebug('validateLicense - result = ' + result);
     }
     catch(ex) {
       util.logException("Error in quickFilters.Options.validateLicenseInOptions():\n", ex);
     }
-  } 
+  } ,
+	
+	get currentOptionsTab() {
+		let tabpanels = document.getElementById('quickFilters-Panels');
+		switch (tabpanels.selectedPanel.id) {
+			case 'quickFilters-Options-actions':
+			  return 'actionsTab';
+			case 'quickFilters-Options-newFilterProps':
+			  return 'newFilterTab';
+			case 'quickFilters-Options-Advanced':
+			  return 'advancedTab';
+			case 'quickFilters-Options-support':
+				return 'supportTab';
+			case 'quickFilters-Options-goPro':
+			default:
+			  return 'licenseTab';
+		}
+	},
+		
+  onTabSelect: function onTabSelect(element, event) {
+    let el = event.target;
+    if (el.selectedPanel) {
+			quickFilters.Options.configExtra2Button(el);
+      quickFilters.Util.logDebug('Tab Select: ' + element.id + ' selected panel = ' + el.selectedPanel.id);
+    }
+  },
   
+	configExtra2Button: function configExtra2Button(el) {
+		const prefs = quickFilters.Preferences,
+		      util = quickFilters.Util,
+					options = quickFilters.Options,
+		      licenser = util.Licenser,
+					State = licenser.ELicenseState;
+		let donateButton = document.documentElement.getButton('extra2');
+		if(!el) el = document.getElementById("quickFilters-Panels");
+		switch (el.selectedPanel.id) {
+			case 'quickFilters-Options-goPro':
+				donateButton.collapsed = true;
+				break;
+			default:
+				donateButton.collapsed = false;
+				if (!prefs.getStringPref('LicenseKey')) {
+					options.labelLicenseBtn(donateButton, "buy");
+					donateButton.addEventListener(
+						"click", 
+					  function(event) { 
+							licenser.showDialog('licenseTab'); 
+						}, 
+						false);
+					
+				}
+				else {
+					switch (licenser.ValidationStatus) {
+						case State.NotValidated:
+						  // options.labelLicenseBtn(donateButton, "buy"); // hide?
+						  break;
+						case State.Expired:
+						  options.labelLicenseBtn(donateButton, "renew");
+						  break;
+						case State.Valid:
+							donateButton.collapsed = true;
+							break;
+						case State.Invalid:
+							options.labelLicenseBtn(donateButton, "buy");
+							break;
+						default:
+						  options.labelLicenseBtn(donateButton, "buy");
+							break;
+					}
+					
+				}
+		}
+	},
+	
+	// put appropriate label on the license button and pass back the label text as well
+	labelLicenseBtn: function labelLicenseBtn(btnLicense, validStatus) {
+		const prefs = quickFilters.Preferences,
+		      util = quickFilters.Util;
+		switch(validStatus) {
+			case  "extend":
+				let txtExtend = util.getBundleString("quickfilters.notification.premium.btn.extendLicense", "Extend License!");
+				btnLicense.collapsed = false
+				btnLicense.label = txtExtend; // text should be extend not renew
+				btnLicense.setAttribute('tooltiptext',
+					util.getBundleString("quickfilters.notification.premium.btn.extendLicense.tooltip", 
+						"This will extend the current license date by 1 year. It's typically cheaper than a new license."));
+				return txtExtend;
+			case "renew":
+				let txtRenew = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
+				btnLicense.label = txtRenew;
+			  return txtRenew;
+			case "buy":
+				let buyLabel = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
+				btnLicense.label = buyLabel;
+			  return buyLabel;
+		}
+		return "";
+	}
+
+
 	
 
 }

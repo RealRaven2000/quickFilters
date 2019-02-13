@@ -287,23 +287,6 @@
 			tooltiptext="&qf.button.reorderButtonBottom.toolTip;"
 			oncommand="quickFilters.List.onBottom(event);"
 		/>
-<!--		
-		<button
-			id="quickFilters-copyButton"
-			insertafter="deleteButton"
-			label="&qf.button.copyButton;"
-			accesskey="&qf.button.copyButton.accessKey;"
-			oncommand="quickFilters.List.onCopy();"
-		/>
-		
-		<button
-			id="quickFilters-pasteButton"
-			insertafter="quickFilters-copyButton"
-			label="&qf.button.pasteButton;"
-			accesskey="&qf.button.pasteButton.accessKey;"
-			oncommand="quickFilters.List.onPaste();"
-		/>
--->
 		
 	</window>
 

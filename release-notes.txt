@@ -1,10 +1,10 @@
 <ul>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26625" target="_blank">[Bug 26625]</a>  New filters do not automatically run when getting mail. This problem was introduced in  version 2.8 by not adding an important flag to the filter type, based on the new setting  <i>"Run Manually"</i> (and later the additional settings in the <i>"Apply Filter when"</i> box)
-
-The flags <tt>nsMsgFilterType.InboxRule</tt> or <tt>nsMsgFilterType.NewsRule</tt> have to be added to existing filters that had the "manual" box unchecked.
-
-You can use the new "Debug" button to track down and fix these filters.</li>
-<li> Filters are now merged on import.  When a filter is imported it will overwrite a filter of the same name,
-		  rather than creating a duplicate. </li>
-<li> Fixed some layout problems (truncation) in filter assistant.</li>
+<li>From now on - quickFilters shows no more donation tab on update - update news are handled via the change log.</li>
+<li>Added a <a href="https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V">link to quickFilters videos</a> my YouTube channel on the support tab.</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26630" target="_blank">[Bug 26630]</a> - optimised the quickFilters Assistant  by restricting the maximum height - otherwise the merge list can grow very tall. Also the dialog used to grow too wide when certain templates were selected.</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26192" target="_blank">[Bug 26192]</a> - Improved "mailing list" template  to use the <i>"List-id"</i> header, where available. This header is often used by mailing lists.  If the <i>List-id</i> header doesn't exist, the filter uses the sender's address, as in previous versions of quickFilters.</li>
+<li>Backup / Restore Filters will now remember the last folder that was picked for loading / saving.</li>
+<li>If filters with custom actions cannot be backed up successfully this will be now be displayed in detail.</li>
+<li>Added easier Renewal logic that reads the old license date and adds a whole year even when extending license early. If your license expires within 30 days, the quickFilters Pro tab will display an "extend license" button.
+</li>
 </ul>

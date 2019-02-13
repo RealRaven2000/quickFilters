@@ -1098,17 +1098,71 @@ quickFilters.Worker = {
 					filterName += " - group ";
 				break;
 				
-			// 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org )
-			case 'list':
+			// 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org [Bug ])
+			case 'maillist':
 				//// FROM
 				//createTerm(filter, attrib, op, val)
-        addressArray = emailAddress.split(",");
-        createTermList(addressArray, targetFilter, typeAttrib.Sender, typeOperator.Contains, myMailAddresses, excludedAddresses);
+				let hdrListId = 'list-id',
+				    listIdValue = '',
+						iCustomHdr = util.checkCustomHeaderExists(hdrListId);
+				if (!iCustomHdr) {
+					txt = util.getBundleString('quickfilters.prompt.createCustomHeader', 
+															 "Please add the term '{1}' as a custom header to use this in a filter.");
+					if (confirm(txt.replace('{1}', hdrListId))) {
+						let searchTermList = document.getElementById('searchTermList'),
+								lastId = 'searchAttr' + searchTermList.itemCount-1, // searchAttr0 is the first search Attribute
+								lastAttr = document.getElementById(lastId);
+						if (lastAttr) {
+							// contains a menulist (className = search-menulist)
+							// lastAttr.selectItem( item )
+							lastAttr.value="-2"; // custom
+						}
+					}
+					
+					return; 
+				}
+				else {
+					debugger;
+					let msgHdr = messageDb.getMsgHdrForMessageID(msg.messageId);
+					listIdValue = msgHdr.getStringProperty(hdrListId);
+					if (currentHeaderData && currentHeaderData.hasOwnProperty(hdrListId)) {
+						listIdValue = currentHeaderData[hdrListId].headerValue;
+					}
+					if (!listIdValue)
+						listIdValue = util.replaceReservedWords("", hdrListId);
+				}
+				if (listIdValue) {
+					// look for gViewAllHeaders
+					// searchTerm = createTerm(targetFilter, typeAttrib.Custom, typeOperator.Contains, listIdValue, hdrListId);
+					searchTerm = targetFilter.createTerm();
+					searchTerm.op = typeOperator.Contains;
+					searchTerm.attrib = typeAttrib.Custom;
+					if ('customId' in searchTerm) {
+						searchTerm.customId = iCustomHdr ? iCustomHdr.toString() : hdrListId; // Tb
+					}
+					else {
+						searchTerm.attrib = iCustomHdr.toString() ; // Postbox specific
+					}
+					if ('arbitraryHeader' in searchTerm)
+						searchTerm.arbitraryHeader = hdrListId;
+					
+					let val = searchTerm.value; 
+					val.attrib = searchTerm.attrib; // we assume this is always a string attribute
+					
+					// retrieve valueId from value!  - if the term was added as a custom term it will have an id in the attributes dropdown
+					val.str = listIdValue; // copy string into val object
+					searchTerm.value = val; // copy object back into 
+					targetFilter.appendTerm(searchTerm);
+				}
+				else {
+					addressArray = emailAddress.split(",");
+					createTermList(addressArray, targetFilter, typeAttrib.Sender, typeOperator.Contains, myMailAddresses, excludedAddresses);
 
-				//// CC
-				if (msg.ccList) {
-					addressArray = ccAddress.split(",");
-          createTermList(addressArray, targetFilter, typeAttrib.CC, typeOperator.Contains, myMailAddresses, excludedAddresses);
+					//// CC
+					if (msg.ccList) {
+						addressArray = ccAddress.split(",");
+						createTermList(addressArray, targetFilter, typeAttrib.CC, typeOperator.Contains, myMailAddresses, excludedAddresses);
+					}
 				}
 				if (prefs.getBoolPref("naming.keyWord"))
 					filterName += " - " + emailAddress.substr(0,25);
@@ -1174,7 +1228,7 @@ quickFilters.Worker = {
 				}               
 				break;
       case 'custom':
-        util.popupProFeature("customTemplate", true, false);    
+        util.popupProFeature("customTemplate", true);    
         // retrieve the name of name customTemplate
         util.slideAlert('Creating Custom Filter from ' + customFilter.filterName + '...', 'quickFilters');
         // 1. create new filter

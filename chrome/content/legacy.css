@@ -1,7 +1,8 @@
 
 /* options.css */
-label.text-link {
-	-moz-border-radius: 0.5em;
+label.text-link,
+button.text-link {
+	-moz-border-radius: 0.1em;
 }
 
 button.debug {

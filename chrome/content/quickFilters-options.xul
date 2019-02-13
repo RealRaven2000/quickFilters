@@ -20,8 +20,8 @@
             onload="quickFilters.Options.load();"
             autostretch="always" 
             minHeight="400"
-			ondialogextra2="quickFilters.Util.openLinkInBrowser(event,'http://quickfilters.mozdev.org/donate.html')"
-			tooltiptextextra2="&qf.label.donateLink;"
+			ondialogextra2="setTimeout(function() {quickFilters.Licenser.showDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });"
+			tooltiptextextra2="&qf.label.supportWithLicense;"
 			>
 
 	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
@@ -236,7 +236,7 @@
 			<tab label="&qf.tab.gopro;"  id="quickFilters-Pro" class="free" />
 		</tabs>
 
-		<tabpanels >
+		<tabpanels id="quickFilters-Panels" onselect="quickFilters.Options.onTabSelect(this,event);">
 		
 			<tabpanel id="quickFilters-Options-actions"
 			          orient="vertical" 
@@ -475,12 +475,12 @@
                tooltiptext="http://quickfilters.mozdev.org/"
                onclick="quickFilters.Util.showHomePage();">&qf.label.aboutLink;</label>
         <separator />
-        <description class="quickhelp-desc">&qf.description.donate;</description>
-		
-        <label id="L2" 
+				
+        <description class="quickhelp-desc">&qf.youtube.description;</description>
+        <button id="L2" 
                class="text-link" 
-               tooltiptext="http://quickfilters.mozdev.org/donate.html"
-               onclick="quickFilters.Util.showDonatePage();">&qf.label.donateLink;</label>
+               tooltiptext="https://www.youtube.com/c/thunderbirddaily"
+               onclick="quickFilters.Util.showYouTubePage();">&qf.youtube.link;</button>
         <separator />
         <description class="quickhelp-desc">&qf.description.contactMe;</description>
         <label id="L3" 
@@ -541,7 +541,7 @@
 			  <spacer flex="1" />
 				<button id="btnLicense" 
 								label="Buy License"
-								oncommand="quickFilters.Licenser.showDialog('licenseTab'); setTimeout( function() {window.close();}, 500 );" />
+								oncommand="setTimeout(function() {quickFilters.Licenser.showDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });" />
 			  <spacer flex="1" />
 			</hbox>				
 		</tabpanel>

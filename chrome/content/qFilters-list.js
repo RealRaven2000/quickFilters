@@ -250,7 +250,7 @@ quickFilters.List = {
       return;
     } 
     if (this.pushSelectedToClipboard('sort')) {
-      util.popupProFeature("sortFilters", true, false);
+      util.popupProFeature("sortFilters", true);
 			this.clipboardPending='sort';
       this.pasteFilters(true);
 		}
@@ -1463,7 +1463,7 @@ quickFilters.List = {
     this.searchType=type;
 		
 		if(type != 'name') {
-			util.popupProFeature("Advanced search (type=" + type + ")", true, false);
+			util.popupProFeature("Advanced search (type=" + type + ")", true);
 		}
     this.rebuildFilterList(); // used the global rebuildFilterList!
   } ,
@@ -1740,7 +1740,7 @@ quickFilters.List = {
     let Terms = [],
         Actions = [];
     
-    util.popupProFeature("duplicatesFinder", true, false);
+    util.popupProFeature("duplicatesFinder", true);
     let filtersList = this.FilterList,
         FA = Components.interfaces.nsMsgFilterAction;
     // build a dictionary of terms; this might take some time!
@@ -2107,8 +2107,10 @@ quickFilters.List = {
 		}
 		const Cc = Components.classes,
           Ci = Components.interfaces,
-          util = quickFilters.Util;
-		util.popupProFeature(mode + "_template", true, false); // save_template, load_template
+          util = quickFilters.Util,
+					prefs = quickFilters.Preferences,
+					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
+		util.popupProFeature(mode + "_template", true); // save_template, load_template
 					
     let //localized text for filePicker filter menu
 		    strBndlSvc = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
@@ -2118,6 +2120,11 @@ quickFilters.List = {
 		let fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker),
         fileOpenMode = (mode=='load') ? fp.modeOpen : fp.modeSave;
     
+		if (prefs.getStringPref('files.path')) {
+			let defaultPath = Cc["@mozilla.org/file/local;1"].createInstance(NSIFILE);
+			defaultPath.initWithPath(prefs.getStringPref('files.path'))
+			fp.displayDirectory = defaultPath; // nsILocalFile
+		}
 		fp.init(window, "", fileOpenMode); // second parameter: prompt
     filterText = util.getBundleString("quickfilters.fpJsonFile","JSON File");
     fp.appendFilter(filterText, "*.json");
@@ -2136,6 +2143,13 @@ quickFilters.List = {
       if (aResult == Ci.nsIFilePicker.returnOK || aResult == Ci.nsIFilePicker.returnReplace) {
         if (fp.file) {
           let path = fp.file.path;
+					// Store last Path 
+					util.logDebug("File Picker Path: " + path);
+					let lastSlash = path.lastIndexOf("/");
+					if (lastSlash < 0) lastSlash = path.lastIndexOf("\\");
+					let lastPath = path.substr(0, lastSlash);
+					util.logDebug("Storing Path: " + lastPath);
+					prefs.setStringPref('files.path', lastPath);
           if (util.Application=='Postbox' && util.PlatformVersion<50) {
             switch (mode) {
               case 'load':
@@ -2324,10 +2338,13 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					filters: []
 				};
 		
+		let customErrors = [];
 		for (let i = 0; i < filterCount; i++) {
 			let filter = filtersList.getFilterAt(i),
-			    jsonAtom = util.serializeFilter(filter),
+			    errs = [],
+			    jsonAtom = util.serializeFilter(filter, errs),
 			    fn = jsonAtom ? (jsonAtom.filterName || "[unnamed]") : "[serializeFilter failed]";
+			while (errs.length) { customErrors.push(errs.pop()); }
 		  if (jsonAtom) {
 				iSuccess++;
 				util.logDebug("# " + (i+1) + ". Added filter to JSON: " + fn)
@@ -2337,6 +2354,16 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 				iFail++;
 				util.logToConsole("# " + (i+1) + ". COULD NOT ADD filter: " + fn);
 			}
+		}
+		if (customErrors.length) {
+			let errList = "";
+			for (let e=0; e<customErrors.length; e++) {
+				errList += "[" + customErrors[e].name +"] " + customErrors[e].customId + "\n";
+			}
+			let txtAlert = 
+			  util.getBundleString('quickfilters.backup.customErrors',
+			    "The following filters had custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:");
+			util.alert (txtAlert + "\n" + errList);
 		}
 		
     const msgArchive = util.getBundleString('quickfilters.backup.archivingFilters', "Archiving {1} Filters" + String.fromCharCode(0x2026) ),

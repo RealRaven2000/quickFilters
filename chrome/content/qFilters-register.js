@@ -72,6 +72,7 @@ quickFilters.Licenser = {
   DecryptedMail: '',
   DecryptedDate: '',
   AllowSecondaryMails: false,
+	ExpiredDays: 0,
   wasValidityTested: false, // save time do not validate again and again
   get isValidated() {
     return (this.ValidationStatus == this.ELicenseState.Valid);
@@ -101,7 +102,7 @@ quickFilters.Licenser = {
       case ELS.NotValidated: return 'Not Validated';
       case ELS.Valid: return 'Valid';
       case ELS.Invalid: return 'Invalid';
-      case ELS.Expired: return 'Invalid';
+      case ELS.Expired: return 'Invalid (expired)';
       case ELS.MailNotConfigured: return 'Mail Not Configured';
       case ELS.MailDifferent: return 'Mail Different';
       case ELS.Empty: return 'Empty';
@@ -131,6 +132,7 @@ quickFilters.Licenser = {
   load: function load() {
     const getElement = document.getElementById.bind(document),
           util = quickFilters.Util,
+					prefs = quickFilters.Preferences,
 					licenser = util.Licenser,
           ELS = licenser.ELicenseState;
         
@@ -177,22 +179,34 @@ quickFilters.Licenser = {
 				debugger;
 			}
 			if (licenser.ValidationStatus == ELS.NotValidated) {
-				licenser.validateLicense(quickFilters.Preferences.getStringPref('LicenseKey'));
+				licenser.validateLicense(prefs.getStringPref('LicenseKey'));
 				util.logDebug('Re-validated.\n' + 'ValidationStatus = ' + licenser.licenseDescription(licenser.ValidationStatus))
 			}
 				
       getElement('licenseDate').value = decryptedDate; // invalid ??
-			if (licenser.isExpired) {
+			if (licenser.isExpired || licenser.isValidated) {
 				let btnLicense = getElement('btnLicense');
-				btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
+        if(licenser.isExpired)
+				  btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
+				else {
+					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.extendLicense", "Extend License!");
+					// add tooltip
+					btnLicense.setAttribute('tooltiptext',
+					  util.getBundleString("quickfilters.notification.premium.btn.extendLicense.tooltip", 
+						  "This will extend the current license date by 1 year. It's typically cheaper than a new license."));
+				}
 				btnLicense.removeAttribute('oncommand');
 				btnLicense.setAttribute('oncommand', 'quickFilters.Licenser.goPro(2);');
+				btnLicense.classList.add('expired');
+				// hide the "Enter License Key..." button + label
+				getElement('haveLicense').collapsed=true;
+				getElement('btnEnterCode').collapsed=true;
 			}
 		}
     else
       getElement('licenseDate').collapsed = true;
 		
-		switch(licenser.ValidationStatus) {
+		switch (licenser.ValidationStatus) {
 			case ELS.Expired:
 			  getElement('licenseDateLabel').value = util.getBundleString("quickfilters.register.licenseValid.expired","Your license expired on:")
 				getElement('qfLicenseTerm').classList.add('expired');
@@ -201,7 +215,8 @@ quickFilters.Licenser = {
 			  getElement('btnLicense').classList.remove('register'); // remove the "breathing effect" if license is valid.
 			  break;
 			case ELS.Empty:
-				getElement('licenseDateLabel').value =" ";
+			case ELS.NotValidated:
+				getElement('licenseDateLabel').value = " ";
 			  break;
 			default: // default class=register will animate the button
 				getElement('licenseDateLabel').value = licenser.licenseDescription(licenser.ValidationStatus) + ":";
@@ -240,6 +255,7 @@ quickFilters.Licenser = {
     // select first item
     idSelector.selectedIndex = 0;
     this.selectIdentity(idSelector);
+		if (prefs.isDebugOption('premium.licenser')) getElement('referrer').collapsed=false;
 		util.logDebug("Licenser.load() complete");
     
   } ,
@@ -265,6 +281,7 @@ quickFilters.Licenser = {
   
   goPro: function goPro(license_type) {
     const productDetail = "http://sites.fastspring.com/quickfolders/product/quickfilters",
+					prefs = quickFilters.Preferences,
           util = quickFilters.Util;
     // redirect to registration site; pass in the feature that brought user here
     // short order process
@@ -283,8 +300,8 @@ quickFilters.Licenser = {
 			  break;
 			case 2: // license renewal
 				shortOrder = "http://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
-				// addQuery = "&renewal=" + encodeURI(quickFilters.Preferences.getStringPref('LicenseKey'));
-				featureName = encodeURI(quickFilters.Preferences.getStringPref('LicenseKey'));
+				// addQuery = "&renewal=" + encodeURI(prefs.getStringPref('LicenseKey'));
+				featureName = encodeURI(prefs.getStringPref('LicenseKey'));
 				// should we autoselect the correct email address?
 			  break;
 		}

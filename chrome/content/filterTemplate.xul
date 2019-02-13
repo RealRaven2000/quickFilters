@@ -26,8 +26,6 @@
 	ondialogextra1="return quickFilters.Assistant.next();"
 	onload="quickFilters.Assistant.loadAssistant();"
 >
-<!--	buttonaccesskeyextra1="&qf.continueFilter.shortcut;" -->
-<!--	tooltiptextextra2="&qf.donate.tooltip;" -->
 
 	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
@@ -103,8 +101,7 @@
 				<richlistbox id="filterMatches"
 						 seltype="single"
 						 ondblclick="quickFilters.Assistant.selectMatch(this);"
-						 onselect="quickFilters.Assistant.selectMatchFromList(this);"
-						 rows="5" />
+						 onselect="quickFilters.Assistant.selectMatchFromList(this);" />
 				<description id="filterDescription">
 				Select a Filter to extend with new rules.
  				</description>
@@ -123,7 +120,6 @@
 				  ondblclick="quickFilters.Assistant.selectTemplate(this);"
 				  onselect="quickFilters.Assistant.selectTemplateFromListTmr(this);"
 				  preference="QuickFilters-Preferences-SelectedFilterTemplate"
-				  rows="6"
 				  flex = "2"
 					tooltiptext="&qf.filters.instructions;"
 					>
@@ -132,7 +128,7 @@
 					<listitem label='&qf.filters.template.to;' value='to' />
 					<listitem label='&qf.filters.template.replyto;' value='replyto' tooltip=""/>
 					<listitem label='&qf.filters.template.multifrom;' value='multifrom' tooltip=""/>
-					<listitem label='&qf.filters.template.list;' value='list' />
+					<listitem label='&qf.filters.template.maillist;' value='maillist' />
 					<listitem label='&qf.filters.template.topic;' value='topic' />
 					<listitem label='&qf.filters.template.tag;' value='tag' />
 				</richlistbox>

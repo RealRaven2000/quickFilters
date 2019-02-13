@@ -291,9 +291,32 @@ END LICENSE BLOCK
 		# Description field is now automatically filled by the preselected template
 		# [Bug 26579] Added message info panel in template dialog
 		# [Bug 26582] Backup filters not working in Thunderbird 60. (gCurrentFolder not defined)
+		
+	3.8 : 01/01/2019
+	  # [Bug 26625] New filters do not automatically run when getting mail. 
+		  This problem was introduced in version 2.8 by not adding an important flag 
+		  to the filter type, based on the new setting "Run Manually" 
+		  (and later the additional settings in the "Apply Filter when" box)
+      Use the new "Debug" button to track down and fix these filters.
+		# Filters are now merged on import. When a filter is imported it will overwrite a filter 
+		  of the same name, rather than creating a duplicate.
+		# Fixed some layout problems (truncation) in filter assistant.
+
+	3.8.1 : 09/01/2019
+	  # When backing up filters with custom actions, this failed silently if necessary third 
+		  party addons  were missing (e.g. FiltaQuilla). quickFilters will now display an error 
+			message with a list of filters and custom actions that weren't fully saved.
+		# Improved bug icon when faulty filters are found
+		# Fixed: Message popups for running filters manually stopped closing automatically.
+    # Fixed the license renewal link at the fastspring shop - it was broken and redirected to the QuickFolders homepage.
+		
+	3.9 : 13/02/2019
+	  # from now on - show no more donation tab on update - handle all update news via change log (version history)
+		# [Bug 26630] - quickFilters Assistant merge list too tall. Also dialog can grow too wide when certain templates are selected
+		# [Bug 26192] - Improved "mailing list" template to use the "List-id" header, where available.
+		# Added easier Renewal logic that reads the old license date and adds a whole year even when extending license early
+		# Backup / Restore Filters will now remember the last folder pickd for loading / saving
 	
-	PLANNED CHANGES  
-		# [add support for Nostalgy: W.I.P.]  we now have quickMove in QuickFolders and it works with that
   PREMIUM FEATURES:
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
 	 */
@@ -569,21 +592,6 @@ var quickFilters = {
 							util.showVersionHistory(false);
 						}
 					
-						if (!util.hasPremiumLicense(false)) {
-							let donationsOnUpdate = prefs.getBoolPrefSilent("donations.askOnUpdate");
-							if (donationsOnUpdate
-									&& !(installedV=="2.3" && currentV=="2.3.1")
-									&& !(installedV=="2.4" && currentV=="2.4.1")
-									&& !(installedV=="2.6" && currentV=="2.6.1")) {
-								util.logDebug("show donate page");
-								util.showDonatePage();
-							}
-							else 
-								util.logDebug("omit donate page\ndonationsOnUpdate = " + donationsOnUpdate );
-						}
-						else
-							util.logDebug("quickfilters has premium license - omitted donate page.");
-							
 					}
         }
 				else { 
@@ -692,7 +700,7 @@ var quickFilters = {
 		// from  MsgApplyFiltersToSelection()
 		if (!silent && quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
 			let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnFolder.notify', 'Ran filters on current folder');
-			quickFilters.Util.slideAlert(text, 'quickFilters');
+			util.slideAlert(text, 'quickFilters');
 		}		
 
 		if (util.isDebug) debugger;
@@ -830,7 +838,7 @@ var quickFilters = {
 			util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');    
     }
     else {
-      util.popupProFeature("searchFolder", true, false);    
+      util.popupProFeature("searchFolder", true);    
     }
   },
 

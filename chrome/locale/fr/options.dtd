@@ -10,8 +10,11 @@
 <!ENTITY chkToolbar.accesskey "b">
 <!ENTITY chkShowList.label "Afficher la liste des filtres après création de filtre">
 <!ENTITY chkShowList.tooltip "Affiche la liste afin d'appliquer le nouveau filtre sur tous les messages pour test.">
+<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Lancer également le filtre pur les courriels lus sur les comptes IMAP.">
 <!ENTITY donate.label "Faire un don">
+<!ENTITY qf.youtube.description "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel.">
+<!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "Une description rapide de quickFilters peut être trouvée sur le site suivant :">
 <!ENTITY qf.label.aboutLink "Site Web de quickFilters…">
 <!ENTITY qf.description.contactMe "Vous pouvez également me contacter personnellement par courriel axelg@gofree.indigo.ie :">
@@ -26,6 +29,7 @@
 <!ENTITY qf.tab.support "Aide">
 <!ENTITY qf.grp.whenToRun "Appliquer le filtre">
 <!ENTITY chkAutoRun.label "Lors de la réception d'un nouveau message">
+<!ENTITY chkRunManual.label "Run manually">
 <!ENTITY chkAfterJunk.label "Après la vérification des indésirables">
 <!ENTITY chkWhenArchiving.label "Lors de l'archivage">
 <!ENTITY chkAfterSending.label "Après l'envoi">
@@ -34,6 +38,8 @@
 <!ENTITY qf.label.naming "Règles de nommage">
 <!ENTITY qf.label.naming.parentFolder "Ajouter le nom du dossier parent">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
+<!ENTITY qf.label.naming.folderDelimiter "Delimiter:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Character inserted between parent folder and name">
 <!ENTITY qf.label.naming.keyWord "Ajouter le mot-clé spécifique à la règle">
 <!ENTITY qf.label.naming.keyWord.accesskey "m">
 <!ENTITY qf.templates.advanced "Modèles avancés">
@@ -61,8 +67,10 @@
 <!ENTITY qf.postbox.quickmove "Boîte aux lettres : prend en charge la fonctionnalité de déplacement rapide">
 <!ENTITY qf.listener.tags "Prendre en compte les modifications de marquage">
 <!ENTITY qf.listener.tags.tooltip "Lorsqu'activé, l'assistant de filtre sera également lancé quand vous marquerez un message.">
+<!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.supportWithLicense "Support quickFilters by getting a license!">
 <!ENTITY qf.label.insertLicense "Insérez votre clé de licence personnelle ici :">
 <!ENTITY qf.label.insertLicense.tooltip "Votre clé de licence se trouve dans votre courriel de confirmation de commande émanant de FastSpring.">
 <!ENTITY qf.button.pasteLicense "coller">
@@ -75,3 +83,4 @@
 <!ENTITY qf.licenseValidation.invalidMail "L'adresse électronique associée à la clé de licence [{1}] n'est pas listée dans un de vos comptes courriel. Veuillez me contacter à partir de l'onglet d'aide.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Une adresse électronique chiffrée ne peut être reconnue.">
 <!ENTITY qf.premiumConfig "Fonctionnalités Premium">
+<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
