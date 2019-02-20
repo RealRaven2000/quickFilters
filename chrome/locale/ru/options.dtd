@@ -10,11 +10,8 @@
 <!ENTITY chkToolbar.accesskey "П">
 <!ENTITY chkShowList.label "Показывать список фильтров после создания фильтра">
 <!ENTITY chkShowList.tooltip "Показывать список для запуска нового фильтра.">
-<!ENTITY chkShowEditor.label "Open Editor after filter creation">
 <!ENTITY chkImapOnRead.label "Фильтрация при чтении сообщений из учетной записи IMAP.">
 <!ENTITY donate.label "Поддержка">
-<!ENTITY qf.youtube.description "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel.">
-<!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "Краткое описание quickFilters на следующей странице:">
 <!ENTITY qf.label.aboutLink "страница quickFilters…">
 <!ENTITY qf.description.contactMe "Мой личный адрес axelg@gofree.indigo.ie:">
@@ -27,19 +24,12 @@
 <!ENTITY qf.tab.newFilterProps "Свойства нового фильтра">
 <!ENTITY qf.tab.advanced "Дополнительные">
 <!ENTITY qf.tab.support "Поддержка">
-<!ENTITY qf.grp.whenToRun "Apply filter when">
 <!ENTITY chkAutoRun.label "Применить фильтры при получении новых сообщений">
-<!ENTITY chkRunManual.label "Run manually">
-<!ENTITY chkAfterJunk.label "After junk classification">
-<!ENTITY chkWhenArchiving.label "When Archiving">
-<!ENTITY chkAfterSending.label "After Sending">
 <!ENTITY chkAlphabetic.label "Вставлять новые фильтры в алфавитном порядке">
 <!ENTITY chkAlphabetic.tooltip "Использовать имя фильтра для позиционирования. Рекомендуется при использовании имени вышестоящей папки. Учтите, что это влияет на порядок фильтрации!">
 <!ENTITY qf.label.naming "Правила присваивания имен">
 <!ENTITY qf.label.naming.parentFolder "Добавить имя вышестоящей папки">
 <!ENTITY qf.label.naming.parentFolder.accesskey "о">
-<!ENTITY qf.label.naming.folderDelimiter "Delimiter:">
-<!ENTITY qf.tooltip.naming.folderDelimiter "Character inserted between parent folder and name">
 <!ENTITY qf.label.naming.keyWord "Добавить ключевое слово правила">
 <!ENTITY qf.label.naming.keyWord.accesskey "к">
 <!ENTITY qf.templates.advanced "Дополнительные шаблоны">
@@ -70,7 +60,6 @@
 <!ENTITY qf.listener.tags.autofilter "Фильтровать автоматически при изменении меток сообщения">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
-<!ENTITY qf.label.supportWithLicense "Support quickFilters by getting a license!">
 <!ENTITY qf.label.insertLicense "Вставить лицензионный ключ сюда:">
 <!ENTITY qf.label.insertLicense.tooltip "Ваш лицензионный ключ находится в сообщении от Fastspring, подтверждающем заказ.">
 <!ENTITY qf.button.pasteLicense "вставить">

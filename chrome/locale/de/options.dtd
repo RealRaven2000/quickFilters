@@ -84,3 +84,5 @@
 <!ENTITY qf.licenseValidation.notMatchedMail "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein.">
 <!ENTITY qf.premiumConfig "Premium Funktionen">
 <!ENTITY qf.label.premiumFeaturesSite "Lesen Sie mehr über die Premium Funktionen auf unserer Webseite">
+<!ENTITY chkLocalFoldersAutorun.label "Filters in Lokalem Inbox-Verzeichnis automatisch ausführen">
+

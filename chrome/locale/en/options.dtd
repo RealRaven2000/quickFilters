@@ -84,4 +84,4 @@
 <!ENTITY qf.licenseValidation.notMatchedMail "Encrypted Email address does not match readable one.">
 <!ENTITY qf.premiumConfig "Premium Features">
 <!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
-
+<!ENTITY chkLocalFoldersAutorun.label "Run filters on Local Folders Inbox automatically">

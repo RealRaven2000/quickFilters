@@ -84,3 +84,4 @@
 <!ENTITY qf.licenseValidation.notMatchedMail "L'indirizzo di posta elettronica crittografato non corrisponde a quello in chiaro">
 <!ENTITY qf.premiumConfig "Caratteristiche Premium">
 <!ENTITY qf.label.premiumFeaturesSite "Maggiori informazioni sulle Caratteristiche Premium sul nostro sito web">
+<!ENTITY chkLocalFoldersAutorun.label "Esecuzione automatica dei filtri sulla Posta in arrivo delle Cartelle locali">
