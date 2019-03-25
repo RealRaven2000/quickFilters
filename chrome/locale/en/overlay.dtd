@@ -1,5 +1,5 @@
 <!ENTITY quickfilters.Start.label "Start Filter Assistant…">
-<!ENTITY quickfilters.FromMessage.label "QuickFilters: Create Filter from Message…">
+<!ENTITY quickfilters.FromMessage.label "quickFilters: Create Filter from Message…">
 <!ENTITY quickfilters.FromMessage.accesskey "Q">
 <!ENTITY quickfiltersToolbarButton.label "quickFilters Assistant">
 <!ENTITY quickfiltersToolbarButton.tooltip "Activate the filter assistant">

@@ -22,6 +22,12 @@
 <!ENTITY qf.filters.actions.star "Stern">
 <!ENTITY qf.filters.actions.star.accesskey "S">
 <!ENTITY qf.filters.actions.tooltip "Filter kopiert diese Eigenschaften der originalen Email">
+<!ENTITY qf.filters.steps.tooltip "Welche Schritte werden als nächstes angezeigt">
+<!ENTITY qf.filters.steps.caption "Nächste Schritte">
+<!ENTITY qf.filters.steps.showEditor "Filter bearbeiten">
+<!ENTITY qf.filters.steps.showEditor.tooltip "Nach Erstellung die Filter-Eigenschaften bearbeiten.">
+<!ENTITY qf.filters.steps.showList "Filterliste">
+<!ENTITY qf.filters.steps.showList.tooltip "Zeigt die Filterliste zum testen des neuen Filters.">
 <!ENTITY qf.label.donate "Spenden">
 <!ENTITY qf.donate.tooltip "Unterstützen Sie quickFilters!">
 <!ENTITY qf.label.cancel "Abbrechen">

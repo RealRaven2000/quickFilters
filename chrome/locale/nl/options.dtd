@@ -84,3 +84,4 @@
 <!ENTITY qf.licenseValidation.notMatchedMail "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres.">
 <!ENTITY qf.premiumConfig "Premiumfuncties">
 <!ENTITY qf.label.premiumFeaturesSite "Lees meer over Premium-functies op onze website">
+<!ENTITY chkLocalFoldersAutorun.label "Filters op Postvak IN in Lokale mappen automatisch toepassen">

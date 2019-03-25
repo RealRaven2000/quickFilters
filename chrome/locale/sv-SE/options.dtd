@@ -84,3 +84,4 @@
 <!ENTITY qf.licenseValidation.notMatchedMail "Den krypterade e-postadressen matchar inte den läsbara adressen.">
 <!ENTITY qf.premiumConfig "Premiumfunktioner">
 <!ENTITY qf.label.premiumFeaturesSite "Läs mer om premiumfunktioner på vår webbplats">
+<!ENTITY chkLocalFoldersAutorun.label "Kör filter i inkorgens lokala mappar automatiskt">
