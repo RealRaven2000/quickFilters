@@ -1,10 +1,8 @@
+<p>quickFilters Change Log - Version 3.10</p>
 <ul>
-<li>From now on - quickFilters shows no more donation tab on update - update news are handled via the change log.</li>
-<li>Added a <a href="https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V">link to quickFilters videos</a> my YouTube channel on the support tab.</li>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26630" target="_blank">[Bug 26630]</a> - optimised the quickFilters Assistant  by restricting the maximum height - otherwise the merge list can grow very tall. Also the dialog used to grow too wide when certain templates were selected.</li>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26192" target="_blank">[Bug 26192]</a> - Improved "mailing list" template  to use the <i>"List-id"</i> header, where available. This header is often used by mailing lists.  If the <i>List-id</i> header doesn't exist, the filter uses the sender's address, as in previous versions of quickFilters.</li>
-<li>Backup / Restore Filters will now remember the last folder that was picked for loading / saving.</li>
-<li>If filters with custom actions cannot be backed up successfully this will be now be displayed in detail.</li>
-<li>Added easier Renewal logic that reads the old license date and adds a whole year even when extending license early. If your license expires within 30 days, the quickFilters Pro tab will display an "extend license" button.
-</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26643" target="_blank">[Bug 26643]</a> (Premium Feature) Run filters on Local Folders Inbox automatically.	With this new option, any emails that are moved to the Local Folders Inbox will be automatically processed again using the filters defined there. With Thunderbird out of the box this behavior cannot be achieve as there is no "Get new Mail" event on Local Folders.</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26643" target="_blank">[Bug 26649]</a> Creating a new "mail list" filter throws undeclared variable exception. </li>
+<li> When creating a filter from a message via right-click menu	quickFilters now warns if the email is not tagged and also is still sitting in the inbox. Creating filters via the assistant is more useful when the action on the email (such as moving to a folder) has already been carried out as quickfilters can then add this action to the filter definition automatically.</li>
+<li>> Added choices to skip filter editor / filter list in the filter assistant itself. This may be helpful if you update the same filter with a whitee list / black list of senders and do not want to verify or test the filter. quickFilters will display a OS specific sliding notification after a completely silent filter creation / update but this will close automatically, so no extra clicks are necessary.</li>
+<li> To accelerate going through the assistant screen, the [Enter] key can now be used to step through the various screens of it.</li>
 </ul>
