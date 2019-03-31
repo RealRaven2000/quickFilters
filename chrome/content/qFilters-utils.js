@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.9",
+  HARDCODED_CURRENTVERSION : "3.10",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -71,7 +71,7 @@ quickFilters.Util = {
 	  if (Components.interfaces.nsMsgFolderFlags)
 	    return Components.interfaces.nsMsgFolderFlags;
 		else { // sigh. Postbox doesn't have this?
-		  // from https://developer.mozilla.org/en-US/docs/nsMsgFolderFlags.idl
+		  // from https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsMsgFolderFlagType
 		  return {
 			  Inbox: 0x00001000,
 				Drafts: 0x00000400,
@@ -219,12 +219,12 @@ quickFilters.Util = {
   },
 
   get Version() {
-		const util = quickFilters.Util;
+		const util = quickFilters.Util,
+					Cc = Components.classes;
     //returns the current QF version number.
     if (util.mExtensionVer)
       return util.mExtensionVer;
-    let current = util.HARDCODED_CURRENTVERSION + util.HARDCODED_EXTENSION_TOKEN,
-        Cc = Components.classes;
+    let current = util.HARDCODED_CURRENTVERSION + util.HARDCODED_EXTENSION_TOKEN;
 
     if (!Cc["@mozilla.org/extensions/manager;1"]) {
       // Addon Manager: use Proxy code to retrieve version asynchronously
@@ -288,6 +288,57 @@ quickFilters.Util = {
 		  return true;
     return (folder.username && folder.username == 'nobody') || (folder.hostname == 'smart mailboxes');
   } ,
+	
+	isLocalInbox: function(folder) {
+		if (folder)
+		 return folder.flags && 
+			    (folder.flags & this.FolderFlags.Inbox) &&
+			    (folder.flags & this.FolderFlags.Mail) && 
+					(folder.hostname == "Local Folders") ? true : false;
+		return false;
+	} ,
+	
+	applyFiltersToFolder: function qfUtil_applyFiltersToFolder(folder) {
+		// a local copy of  MsgApplyFilters()
+		const Ci = Components.interfaces,
+		      Cc = Components.classes,
+					util = quickFilters.Util,
+		      filterService = Cc["@mozilla.org/messenger/services/filters;1"]
+													.getService(Ci.nsIMsgFilterService);
+
+		debugger;
+		try {
+			let selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
+			selectedFolders.appendElement(folder);
+			
+			// create a new filter list and copy over the enabled filters to it.
+			
+			let curFilterList = folder.getFilterList(null), /* msgWindow */
+					tempFilterList = filterService.getTempFilterList(folder),
+					numFilters = curFilterList.filterCount;
+			// make sure the temp filter list uses the same log stream
+			tempFilterList.logStream = curFilterList.logStream;
+			tempFilterList.loggingEnabled = curFilterList.loggingEnabled;
+			let newFilterIndex = 0;
+			for (let i = 0; i < numFilters; i++)
+			{
+				let curFilter = curFilterList.getFilterAt(i);
+				// only add enabled, UI visibile filters that are in the manual context
+				if (curFilter.enabled && !curFilter.temporary &&
+						(curFilter.filterType & Ci.nsMsgFilterType.Manual))
+				{
+					tempFilterList.insertFilterAt(newFilterIndex, curFilter);
+					newFilterIndex++;
+				}
+			}
+			filterService.applyFiltersToFolders(tempFilterList, selectedFolders, null);
+		}
+		catch(ex) {
+			util.logException("applyFiltersToFolder()", ex);
+		}
+
+	
+	} ,
 
 	get tabContainer() {
 		if (!this._tabContainer) {
@@ -1045,7 +1096,7 @@ quickFilters.Util = {
     }
   } ,
 
-  showDonatePage: function showDonatePage() {
+  showLicensePage: function showLicensePage() {
     quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/donate.html');
   }  ,
 	
@@ -1182,7 +1233,7 @@ quickFilters.Util = {
 					                   " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "),
               theHeader = hdr.get(token);
           // make sure empty header stays empty for this special case
-          if (!theHeader && RegExp(" " + token + " ", "i").test(" Bcc Cc "))
+          if (!theHeader && RegExp(" " + token + " ", "i").test(" Bcc Cc list-id ")) // [Bug 26649] - list-id may not exist
             return '';
 					if (isStripQuote) {
 						token = quickFilters.mimeDecoder.split(theHeader, charset, arg);

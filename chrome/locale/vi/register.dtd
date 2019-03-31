@@ -8,6 +8,7 @@
 <!ENTITY yearlyLicense.premiumFeatures "quickFilters Pro gives you full unrestricted access to the premium features.">
 <!ENTITY yearlyLicense.premiumFeatures.moreInfoLink "More about premium features.">
 <!ENTITY yearlyLicense.usageTerm "The license is for your personal use and is tied to your email address. You can install it on multiple email clients as long as they are configured to use that address.">
+<!ENTITY yearlyLicense.usageTerm1 "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab.">
 <!ENTITY domainLicense.email "We will contact you using this email address to generate your domain license; please allow two business days for us to get in touch. Enter the domain name for the license on the next page.">
 <!ENTITY domainLicense.header "Licensed Email Domain">
 <!ENTITY domainLicense.instruct "The license is keyed to your company domain. The license will allow users with email addresses ending on this email domain to use quickFilters Pro. E.g. if you enter the domain name 'abc.com' then mail users like fred@abc.com, martha@abc.com, mike.doe@abc.com etc. are allowed to use the license. The maximum number of valid individual users is the number you have entered on the initial screen.">

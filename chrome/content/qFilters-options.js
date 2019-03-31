@@ -81,15 +81,15 @@ quickFilters.Options = {
     }
 		
 		
-    let getCopyBtn = getElement('getCopySentToCurrent');
-    let getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
+    let getCopyBtn = getElement('getCopySentToCurrent'),
+        getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
     getCopyBtn.textContent = getCopyText.replace('{1}','\'Copy Sent to Current\'');
     options.configExtra2Button();		
   } ,
   
   toggleBoolPreference: function(cb, noUpdate) {
-    let prefString = cb.getAttribute("preference");
-    let pref = document.getElementById(prefString);
+    let prefString = cb.getAttribute("preference"),
+        pref = document.getElementById(prefString);
     
     if (pref)
       quickFilters.Preferences.setBoolPrefNative(pref.getAttribute('name'), cb.checked);
@@ -100,19 +100,20 @@ quickFilters.Options = {
   
   showAboutConfig: function(clickedElement, filter, readOnly) {
     const name = "Preferences:ConfigManager",
-		      util = quickFilters.Util;
+		      util = quickFilters.Util,
+          Ci = Components.interfaces, 
+          Cc = Components.classes;
     let uri = "chrome://global/content/config.xul";
 		if (util.Application)
 			uri += "?debug";
 
-    let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-    let w = mediator.getMostRecentWindow(name);
-
-    let win = clickedElement ?
+    let mediator = Cc["@mozilla.org/appshell/window-mediator;1"].getService(Ci.nsIWindowMediator),
+        w = mediator.getMostRecentWindow(name),
+        win = clickedElement ?
 		          (clickedElement.ownerDocument.defaultView ? clickedElement.ownerDocument.defaultView : window)
 							: window;
     if (!w) {
-      let watcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].getService(Components.interfaces.nsIWindowWatcher);
+      let watcher = Cc["@mozilla.org/embedcomp/window-watcher;1"].getService(Ci.nsIWindowWatcher);
       w = watcher.openWindow(win, uri, name, "dependent,chrome,resizable,centerscreen,alwaysRaised,width=500px,height=350px", null);
     }
     w.focus();

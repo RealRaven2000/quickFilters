@@ -22,6 +22,12 @@
 <!ENTITY qf.filters.actions.star "Speciale">
 <!ENTITY qf.filters.actions.star.accesskey "S">
 <!ENTITY qf.filters.actions.tooltip "Il filtro copia questi attributi dal messaggio originale">
+<!ENTITY qf.filters.steps.tooltip "Quali schermate mostrare dopo la creazione del filtro">
+<!ENTITY qf.filters.steps.caption "Passi successivi">
+<!ENTITY qf.filters.steps.showEditor "Regole del filtro">
+<!ENTITY qf.filters.steps.showEditor.tooltip "Consente la modifica dei dettagli del filtro dopo la sua crezione mediante Procedura guidata">
+<!ENTITY qf.filters.steps.showList "Elenco filtri">
+<!ENTITY qf.filters.steps.showList.tooltip "Visualizza il filtro nel contesto così da poterlo testare">
 <!ENTITY qf.label.donate "Dona">
 <!ENTITY qf.donate.tooltip "Supporta lo sviluppo di quickFilters!">
 <!ENTITY qf.label.cancel "Annulla">

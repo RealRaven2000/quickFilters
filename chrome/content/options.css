@@ -49,6 +49,7 @@
 	margin: 5px 5px 5px 5px;
 	border: none;
 	color: #ffffff;
+	background-color: transparent !important;
 }
 
 #qf-options-header .dialogheader-title {

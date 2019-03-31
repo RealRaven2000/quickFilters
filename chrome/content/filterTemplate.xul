@@ -17,11 +17,12 @@
 <prefwindow title="&qf.filters.title;"
 	id="qf-template"
 	buttons="extra2,cancel,extra1"
+	defaultButton="extra1"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	buttonlabelcancel="&qf.label.cancel;"
 	buttonlabelextra1="&qf.continueFilter.label;"
 	buttonlabelextra2="&qf.label.donate;"
-	ondialogextra2="quickFilters.Util.showDonatePage();"
+	ondialogextra2="quickFilters.Util.showLicensePage();"
 	ondialogcancel="return quickFilters.Assistant.cancelTemplate();"
 	ondialogextra1="return quickFilters.Assistant.next();"
 	onload="quickFilters.Assistant.loadAssistant();"
@@ -67,6 +68,17 @@
 					type="bool" 
 					instantApply="true"
 					/>
+		<preference id="showListAfterCreateFilter" 
+							name="extensions.quickfilters.showListAfterCreateFilter" 
+							type="bool"  
+							instantApply="true"
+							/>
+		<preference id="showEditorAfterCreateFilter" 
+							name="extensions.quickfilters.showEditorAfterCreateFilter" 
+							type="bool"  
+							instantApply="true"
+							/>
+					
 	</preferences>
 	
 	<prefpane id="qf-template-prefpane" >
@@ -116,7 +128,8 @@
 	
 		<vbox class="deckChild">
 			<hbox class="myWizard">
-				<richlistbox id="qf-filter-templates"
+				<richlistbox 
+				  id="qf-filter-templates"
 				  ondblclick="quickFilters.Assistant.selectTemplate(this);"
 				  onselect="quickFilters.Assistant.selectTemplateFromListTmr(this);"
 				  preference="QuickFilters-Preferences-SelectedFilterTemplate"
@@ -162,6 +175,22 @@
 							  label="&qf.filters.actions.flag;" 
 							  accesskey="&qf.filters.actions.flag.accesskey;"
 							  />
+				</groupbox>
+				<groupbox orient="vertical"
+						  tooltiptext="&qf.filters.steps.tooltip;">
+					<caption label="&qf.filters.steps.caption;" />
+					<checkbox id="chkShowEditor"
+								preference="showEditorAfterCreateFilter"
+								label="&qf.filters.steps.showEditor;" 
+								tooltiptext="&qf.filters.steps.showEditor.tooltip;"
+								oncommand="quickFilters.Assistant.setNextSteps();"
+								/>							
+					<checkbox id="chkShowList"
+								preference="showListAfterCreateFilter"
+								label="&qf.filters.steps.showList;" 
+								tooltiptext="&qf.filters.steps.showList.tooltip;"
+								oncommand="quickFilters.Assistant.setNextSteps();"
+								/>
 				</groupbox>
 			</hbox>
 			<hbox id="boxDescription">

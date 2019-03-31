@@ -199,8 +199,10 @@ quickFilters.Licenser = {
 				btnLicense.setAttribute('oncommand', 'quickFilters.Licenser.goPro(2);');
 				btnLicense.classList.add('expired');
 				// hide the "Enter License Key..." button + label
-				getElement('haveLicense').collapsed=true;
-				getElement('btnEnterCode').collapsed=true;
+				if (!licenser.isExpired) {
+					getElement('haveLicense').collapsed=true;
+					getElement('btnEnterCode').collapsed=true;
+				}
 			}
 		}
     else

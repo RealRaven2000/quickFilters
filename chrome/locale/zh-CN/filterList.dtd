@@ -17,17 +17,22 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "克隆过滤器">
 <!ENTITY quickfilters.button.sort "排序">
 <!ENTITY quickfilters.button.sort.tooltiptext "按字母排序">
+<!ENTITY quickfilters.button.bug "Debug">
+<!ENTITY quickfilters.button.bug.tooltiptext "Debug - find problems with filters that don't run automatically">
 <!ENTITY quickfilters.menu.cut "剪切">
 <!ENTITY quickfilters.menu.copy "复制">
 <!ENTITY quickfilters.menu.paste "粘贴">
 <!ENTITY quickfilters.button.settings "quickFilters 设定...">
 <!ENTITY quickfilters.button.assistant "切换助手...">
 <!ENTITY quickfilters.button.assistant.tooltiptext "切换过滤器助手模式，启用时可通过拖放邮件来创建过滤器。">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Backup Filters…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Restore Filters…">
 <!ENTITY quickfilters.button.support "quickFilters支持站点">
 <!ENTITY quickfilters.button.searchProperties "修改搜索属性...">
 <!ENTITY quickfilters.option.searchProperty.name "名称">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "目标文件夹">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "搜索条件(文本)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "Actions that modify Strings">
 <!ENTITY quickfilters.option.searchProperty.addTag "添加标签(标记)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "使用模板回复">
 <!ENTITY quickfilters.button.findDuplicates.label "查找重复项">

@@ -17,6 +17,8 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "Clona un filtro">
 <!ENTITY quickfilters.button.sort "Ordenar">
 <!ENTITY quickfilters.button.sort.tooltiptext "Ordena alfabéticamente">
+<!ENTITY quickfilters.button.bug "Debug">
+<!ENTITY quickfilters.button.bug.tooltiptext "Debug - find problems with filters that don't run automatically">
 <!ENTITY quickfilters.menu.cut "Cortar">
 <!ENTITY quickfilters.menu.copy "Copiar">
 <!ENTITY quickfilters.menu.paste "Pegar">
@@ -30,6 +32,7 @@
 <!ENTITY quickfilters.option.searchProperty.name "Nombre">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Carpeta objetivo">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Buscar condición (texto)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "Actions that modify Strings">
 <!ENTITY quickfilters.option.searchProperty.addTag "Añadir etiqueta (letrero)">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Responder con plantilla">
 <!ENTITY quickfilters.button.findDuplicates.label "Buscar duplicados">

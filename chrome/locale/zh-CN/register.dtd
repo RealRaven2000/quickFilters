@@ -8,6 +8,7 @@
 <!ENTITY yearlyLicense.premiumFeatures "quickFilters Pro 可以让您不受限制的使用高级功能。">
 <!ENTITY yearlyLicense.premiumFeatures.moreInfoLink "高级功能的更多信息。">
 <!ENTITY yearlyLicense.usageTerm "此授权是供您个人使用，并与您的电子邮件地址绑定。您只需将它安装到多个已配置使用该地址的电子邮件客户端上。">
+<!ENTITY yearlyLicense.usageTerm1 "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab.">
 <!ENTITY domainLicense.email "我们会在两个工作日内使用此电子邮件地址与您联系，以生成您的域授权。请在下一个页面中输入要授权的域名。">
 <!ENTITY domainLicense.header "授权的电子邮件域名">
 <!ENTITY domainLicense.instruct "此授权绑定在您的公司域上。此授权将允许使用该电子邮件域名结尾的电子邮件地址的用户使用 quickFilters Pro。例如，如果您输入了域名“abc.com”，那么下面这样的电子邮件用户可以使用此授权：fred@abc.com, martha@abc.com, mike.doe@abc.com。有效的个人用户最大数量是您在第一个屏幕上输入的数字。">

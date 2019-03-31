@@ -1098,24 +1098,27 @@ quickFilters.Worker = {
 					filterName += " - group ";
 				break;
 				
-			// 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org [Bug ])
+			// 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org [Bug 26192])
 			case 'maillist':
 				//// FROM
-				//createTerm(filter, attrib, op, val)
+				// createTerm(filter, attrib, op, val)
 				let hdrListId = 'list-id',
 				    listIdValue = '',
 						iCustomHdr = util.checkCustomHeaderExists(hdrListId);
 				if (!iCustomHdr) {
-					txt = util.getBundleString('quickfilters.prompt.createCustomHeader', 
+					let txt = util.getBundleString('quickfilters.prompt.createCustomHeader', 
 															 "Please add the term '{1}' as a custom header to use this in a filter.");
 					if (confirm(txt.replace('{1}', hdrListId))) {
-						let searchTermList = document.getElementById('searchTermList'),
-								lastId = 'searchAttr' + searchTermList.itemCount-1, // searchAttr0 is the first search Attribute
-								lastAttr = document.getElementById(lastId);
-						if (lastAttr) {
-							// contains a menulist (className = search-menulist)
-							// lastAttr.selectItem( item )
-							lastAttr.value="-2"; // custom
+						let searchTermList = document.getElementById('searchTermList');
+						// let's only fix this if we can:
+						if (searchTermList) { // we can only fix this if the eedit filter window is opened:
+							let lastId = 'searchAttr' + searchTermList.itemCount-1, // searchAttr0 is the first search Attribute
+								  lastAttr = document.getElementById(lastId);
+							if (lastAttr) {
+								// contains a menulist (className = search-menulist)
+								// lastAttr.selectItem( item )
+								lastAttr.value="-2"; // custom
+							}
 						}
 					}
 					
@@ -1128,8 +1131,12 @@ quickFilters.Worker = {
 					if (currentHeaderData && currentHeaderData.hasOwnProperty(hdrListId)) {
 						listIdValue = currentHeaderData[hdrListId].headerValue;
 					}
-					if (!listIdValue)
+					if (!listIdValue) {
+						let uri = targetFolder.getUriForMsg(msg);
+						util.CurrentMessage = msgHdr;
+						util.CurrentHeader = new quickFilters.clsGetHeaders(uri, msgHdr); 
 						listIdValue = util.replaceReservedWords("", hdrListId);
+					}
 				}
 				if (listIdValue) {
 					// look for gViewAllHeaders
@@ -1167,6 +1174,7 @@ quickFilters.Worker = {
 				if (prefs.getBoolPref("naming.keyWord"))
 					filterName += " - " + emailAddress.substr(0,25);
 
+				util.logDebug("maillist: " + targetFilter.searchTerms.length + " search term(s) added. ListId value=[" + listIdValue + "]");
 				break;
 
 			// 3d Filter Template: Conversation based on a Subject  (starts with [blabla])
@@ -1425,7 +1433,15 @@ quickFilters.Worker = {
 			if (prefs.isAbortAfterCreateFilter()) {
 				quickFilters.Worker.toggle_FilterMode(false);
 			}
-		} //else, let's remove the filter (Cancel case)
+			
+			// if _neither_ of the windows are displayed, show a sliding notification:
+			if (!showEditor && !showList) {
+				let txt = isMerge ?
+					util.getBundleString("qf.notify.filterMergeUpdated", "Successfully updated filter '{0}'.") :
+				  util.getBundleString("qf.notify.filterCreated", "Successfully created new filter '{0}'");
+				util.slideAlert(txt.replace('{0}', targetFilter.filterName), 'quickFilters');
+			}
+		} // else, let's remove the filter (Cancel case)
 		else { // Cancel
 			if (!isMerge) {
 				filtersList.removeFilterAt(0);
@@ -1518,6 +1534,7 @@ quickFilters.Assistant = {
 	initialised: false,
   MERGEPAGE : 0,
   TEMPLATEPAGE : 1,
+	ContinueLabel: "", // Edit Filter...
   
   selectTemplate : function selectTemplate(element) {
     if (!element) {
@@ -1668,7 +1685,9 @@ quickFilters.Assistant = {
     const templateList = this.TemplateList,
 					util = quickFilters.Util,
 					prefs = quickFilters.Preferences;
-    
+					
+		this.ContinueLabel = this.NextButton.label;
+					
     // [Bug 25989] Custom Templates Support
     if (prefs.getBoolPref('templates.custom')) {
       // add custom template(s)
@@ -1883,6 +1902,26 @@ quickFilters.Assistant = {
     }
   },
   
+	setNextSteps: function setNextSteps(element) {
+		const getBundleString = this.getBundleString.bind(quickFilters.Assistant),
+		      NextButton = this.NextButton;
+		window.setTimeout(
+		  function() {
+				const prefs = quickFilters.Preferences;
+				let showEditor = prefs.getBoolPref("showEditorAfterCreateFilter"),
+						showList = prefs.getBoolPref("showListAfterCreateFilter"),
+						AcceptLabel = "";
+				if (!showEditor && !showList) { // qf.continueFilter.label
+					// relabel as [OK]
+					AcceptLabel	= "OK";
+				}
+				else
+					AcceptLabel = getBundleString('qf.button.createFilter', "Create Filter...");
+				NextButton.label = AcceptLabel;
+			} , 150
+		);
+	},
+	
   help: function help() {
     switch (this.currentPage) {
       case this.MERGEPAGE:

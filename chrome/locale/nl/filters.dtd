@@ -22,6 +22,12 @@
 <!ENTITY qf.filters.actions.star "Ster">
 <!ENTITY qf.filters.actions.star.accesskey "S">
 <!ENTITY qf.filters.actions.tooltip "Filteren kopieert deze eigenschappen van het oorspronkelijke e-mailbericht">
+<!ENTITY qf.filters.steps.tooltip "Welke schermen weer te geven na aanmaken filter">
+<!ENTITY qf.filters.steps.caption "Volgende stappen">
+<!ENTITY qf.filters.steps.showEditor "Filterregels">
+<!ENTITY qf.filters.steps.showEditor.tooltip "De filterdetails bewerken nadat de Assistent ze heeft gemaakt.">
+<!ENTITY qf.filters.steps.showList "Filterlijst">
+<!ENTITY qf.filters.steps.showList.tooltip "Geeft het filter in zijn context weer, zodat u hem kunt uitproberen">
 <!ENTITY qf.label.donate "Doneren">
 <!ENTITY qf.donate.tooltip "Ondersteun de ontwikkeling van quickFilters!">
 <!ENTITY qf.label.cancel "Annuleren">

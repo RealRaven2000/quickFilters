@@ -47,6 +47,7 @@ pref("extensions.quickfilters.newfilter.runAfterPlugins", false);
 pref("extensions.quickfilters.newfilter.runArchiving", false);
 pref("extensions.quickfilters.newfilter.runPostOutgoing", false);
 pref("extensions.quickfilters.files.path", "");
+pref("extensions.quickfilters.warnInboxAssistant", true); // warn when creating email from message in inbox (and no tag set)
 
 // https://developer.mozilla.org/en/Localizing_extension_descriptions
 pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");
@@ -105,6 +106,7 @@ pref("extensions.quickfilters.licenser.forceSecondaryIdentity",false);
 pref("extensions.quickfilters.licenseType", 0); // private license, 1-domain
 pref("extensions.quickfilters.LicenseKey", "");
 pref("extensions.quickfilters.licenser.renewalReminder", 0); // 0 - no renewal necessary, 1 - renewal reminder, 2 - disable reminder
+pref("extensions.quickfilters.localFoldersRun", false);
 
 
 pref("extensions.quickfilters.mime.resolveAB", false);

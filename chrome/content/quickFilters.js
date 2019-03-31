@@ -316,6 +316,14 @@ END LICENSE BLOCK
 		# [Bug 26192] - Improved "mailing list" template to use the "List-id" header, where available.
 		# Added easier Renewal logic that reads the old license date and adds a whole year even when extending license early
 		# Backup / Restore Filters will now remember the last folder pickd for loading / saving
+		
+	3.10 : WIP
+	  # [Bug 26643] - Run filters on Local Folders Inbox automatically 
+		# Create Filter from message: warn if email is still in inbox and also has no tags
+		# [Bug 26649] - Creating a new "maillist" filter throws undeclared variable exception
+		# Added skip 'filter rules' / 'filter list' options to the 'Create Filters' assistant window
+		# Added support for navigation assistant screens using [Enter] key
+		
 	
   PREMIUM FEATURES:
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
@@ -609,7 +617,8 @@ var quickFilters = {
   },
 
   onMenuItemCommand: function onMenuItemCommand(e, cmd) {
-		const util = quickFilters.Util;
+		const util = quickFilters.Util,
+		      prefs = quickFilters.Preferences;
 //     let promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
 //                                   .getService(Components.interfaces.nsIPromptService);
 //     promptService.alert(window, this.strings.getString("helloMessageTitle"),
@@ -635,6 +644,32 @@ var quickFilters = {
 				}
 				// && selectedMessages[0].folder.server.canHaveFilters
 				if (selectedMessages.length > 0 && selectedMessages[0].folder ) {
+					// check the tags
+					let firstSelectedMsg = selectedMessages[0],
+					    tags = firstSelectedMsg.getStringProperty ? firstSelectedMsg.getStringProperty("keywords") : firstSelectedMsg.Keywords;
+					if (firstSelectedMsg.folder.flags & util.FolderFlags.Inbox
+							&& prefs.getBoolPref('warnInboxAssistant')
+					    && (!tags || tags.length == 0 || tags.toLowerCase()=='nonjunk' || tags.toLowerCase()=='junk')
+							) {
+						// if email is still in inbox and also has no tags, warn about this
+						let checkState = { value: false },
+						    promptTxt =  util.getBundleString("quickfilters.createFromMail.inboxWarning",
+									"Create filter from message is much more useful if you have already moved " +
+									"the mail to a different folder or added a tag to it, as quickFilters " +
+									"will then select the appropriate Action for you.\n" +
+									"Still create a filter from this message?"),
+								ans = Services.prompt.confirmCheck(null, 
+								"quickFilters", 
+						    promptTxt, 
+								util.getBundleString("quickfilters.promptDontRepeat", "Do not show this message again."),
+								checkState);
+						if (checkState.value==true) {
+							prefs.setBoolPref('warnInboxAssistant', false); // disable warning for the future
+						}
+						if(!ans) return; // early exit
+					}
+					
+					
 				  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
           for (let m=0; m<selectedMessages.length; m++) {  // ### Bug 25727 Allow to create Group Filter with "Create Filter from Message" menu
             messageList.push(util.makeMessageListEntry(selectedMessages[m], selectedMessageUris[m])); 
@@ -643,8 +678,8 @@ var quickFilters = {
 					// we do not know the primary action on this message (yet)
 					let currentMessageFolder = util.getCurrentFolder();
 					if (util.isVirtual(currentMessageFolder)) {
-					  if (selectedMessages[0].folder)  // find the real folder!
-							currentMessageFolder = selectedMessages[0].folder;
+					  if (firstSelectedMsg.folder)  // find the real folder!
+							currentMessageFolder = firstSelectedMsg.folder;
           }					
 					quickFilters.Worker.createFilterAsync_New(null, currentMessageFolder, messageList, null, false);
 				}
@@ -838,7 +873,7 @@ var quickFilters = {
 			util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');    
     }
     else {
-      util.popupProFeature("searchFolder", true);    
+      util.popupProFeature("searchFolder", true);
     }
   },
 
@@ -1248,10 +1283,13 @@ quickFilters.MsgFolderListener.qfInstance = quickFilters;
 // this should do all the event work necessary
 // not necessary for mail related work!
 quickFilters.FolderListener = {
+	localMoved: [],
   qfInstance: quickFilters,
   ELog: function(msg) {
     try {
-      try {Components.utils.reportError(msg);}
+      try {
+				Components.utils.reportError(msg);
+			}
       catch(e) {
         const Cc = Components.classes,
               Ci = Components.interfaces,
@@ -1277,6 +1315,18 @@ quickFilters.FolderListener = {
             util = win.quickFilters.Util,
 						prefs = win.quickFilters.Preferences,
             worker = win.quickFilters.Worker;
+						
+			if (prefs.getBoolPref('localFoldersRun') && util.isLocalInbox(parent)) {
+				// make a stack of moved messages to work through
+				let h = item.QueryInterface(Ci.nsIMsgDBHdr);
+				// avoid duplicates
+				if (!quickFilters.FolderListener.localMoved.find(o => o.messageKey == h.messageKey)) {
+					quickFilters.FolderListener.localMoved.push(
+					{ hdr: h,
+						key: h.messageKey}
+					);
+				}
+			}
 			if (!worker || !worker.FilterMode) return;
 			if (!prefs.getBoolPref("nostalgySupport")) return;
 			
@@ -1347,6 +1397,19 @@ quickFilters.FolderListener = {
             (item ? (item.prettyName ? item.prettyName : item) : '<no folder>') +
 						")\n" +
             'Assistant is ' + (isAssistant ? 'active' : 'off'));
+					if (!isAssistant && !util.isLocalInbox(item)) { // item is the source folder (usually another inbox, not local folders)
+					let LM = quickFilters.FolderListener.localMoved;
+						if (LM.length) {
+							let target = LM[0].hdr.folder;
+							util.logDebugOptional("msgMove", "Running filters on " + LM.length + " messages in " + target.prettyName + "...");
+							while (LM.pop()); // empty array
+							setTimeout(function() { 
+									util.applyFiltersToFolder(target); 
+									util.popupProFeature("localFolderFilters", true);    
+								}, 25
+							);
+						}
+					}
           break;
       }
     }

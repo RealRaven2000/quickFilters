@@ -22,6 +22,12 @@
 <!ENTITY qf.filters.actions.star "Звёздочка">
 <!ENTITY qf.filters.actions.star.accesskey "З">
 <!ENTITY qf.filters.actions.tooltip "Следующие атрибуты сообщения будут скопированы">
+<!ENTITY qf.filters.steps.tooltip "Which screens to show after filter creation">
+<!ENTITY qf.filters.steps.caption "Next Steps">
+<!ENTITY qf.filters.steps.showEditor "Filter Rules">
+<!ENTITY qf.filters.steps.showEditor.tooltip "Edit the filter details after the Assistant has created it.">
+<!ENTITY qf.filters.steps.showList "Filters List">
+<!ENTITY qf.filters.steps.showList.tooltip "Displays the filter in context so you can try it out">
 <!ENTITY qf.label.donate "Пожертвовать">
 <!ENTITY qf.donate.tooltip "Поддержи развитие quickFilters!">
 <!ENTITY qf.label.cancel "Отмена">

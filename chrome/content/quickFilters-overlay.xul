@@ -20,8 +20,8 @@
   <popup id="folderPaneContext">
     <menuitem id="quickfilters-menu-runMenu" 
 	          label="&quickfilters.RunButton.label;" 
-			  class="menuitem-iconic"
-              oncommand="quickFilters.onApplyFilters(event);"
+						class="menuitem-iconic"
+            oncommand="quickFilters.onApplyFilters(event);"
 			  />
     <menuitem id="quickfilters-menu-findFilter" 
 	          label="&quickfilters.findFiltersForFolder.menu;" 

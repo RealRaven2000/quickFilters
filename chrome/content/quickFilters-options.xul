@@ -193,6 +193,12 @@
 								type="bool"  
 								instantApply="true"
 								/>
+      <preference id="localFoldersRun" 
+	              name="extensions.quickfilters.localFoldersRun" 
+								type="bool"  
+								instantApply="true"
+								/>
+
     </preferences>
 	
 	<box id="quickFiltersHelpBar">
@@ -221,7 +227,7 @@
   	<hbox id="qf-options-header" class="paneSelector" flex="30">
   	  <image id="qf-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
   		<label id="qf-options-version" 
-			       oncontextmenu="quickFilters.Util.showVersionHistory(true);return false;" 
+			       oncontextmenu="quickFilters.Util.showVersionHistory(true);setTimeout(function() {window.close();});return false;" 
   		       tooltiptext="&qf.options.versionnumber.tooltip;"
   		       value="0.1"/>
   	</hbox>
@@ -264,7 +270,7 @@
 								label="&chkShowList.label;" 
 								tooltiptext="&chkShowList.tooltip;"
 								/>
-					<checkbox id="chkShowList"
+					<checkbox id="chkShowEditor"
 								preference="showEditorAfterCreateFilter"
 								label="&chkShowEditor.label;" 
 								/>							
@@ -534,6 +540,11 @@
 									 tooltiptext="http://quickfilters.mozdev.org/"
 									 onclick="quickFilters.Util.showPremiumFeatures();">&qf.label.premiumFeaturesSite;</label>
 					</hbox>
+					<checkbox id="chkLocalFoldersAutorun" 
+								preference="localFoldersRun" 
+								label="&chkLocalFoldersAutorun.label;" 
+								/>
+					
 				</groupbox>
 			</hbox>
 			<!-- will be populated / modified from bundle in code -->

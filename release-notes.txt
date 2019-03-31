@@ -4,5 +4,5 @@
 <li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26643" target="_blank">[Bug 26649]</a> Creating a new "mail list" filter throws undeclared variable exception. </li>
 <li> When creating a filter from a message via right-click menu	quickFilters now warns if the email is not tagged and also is still sitting in the inbox. Creating filters via the assistant is more useful when the action on the email (such as moving to a folder) has already been carried out as quickfilters can then add this action to the filter definition automatically.</li>
 <li>> Added choices to skip filter editor / filter list in the filter assistant itself. This may be helpful if you update the same filter with a whitee list / black list of senders and do not want to verify or test the filter. quickFilters will display a OS specific sliding notification after a completely silent filter creation / update but this will close automatically, so no extra clicks are necessary.</li>
-<li> To accelerate going through the assistant screen, the [Enter] key can now be used to step through the various screens of it.</li>
+<li> To accelerate going through the assistant screen, the [Enter] key can now be used to step through its screens.</li>
 </ul>
