@@ -28,6 +28,8 @@
 <!ENTITY qf.filters.steps.showEditor.tooltip "Redigera filterdetaljerna efter att assistenten har skapat det.">
 <!ENTITY qf.filters.steps.showList "Lista över filter">
 <!ENTITY qf.filters.steps.showList.tooltip "Visar filtret i ett sammanhang så du kan prova det.">
+<!ENTITY qf.filters.steps.autoRunFilter "Kör automatiskt">
+<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Kör filtret automatiskt på den ursprungliga inkorgen efter det har skapats.">
 <!ENTITY qf.label.donate "Donera">
 <!ENTITY qf.donate.tooltip "Stöd utvecklingen av quickFilters!">
 <!ENTITY qf.label.cancel "Avbryt">

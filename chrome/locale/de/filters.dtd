@@ -28,6 +28,8 @@
 <!ENTITY qf.filters.steps.showEditor.tooltip "Nach Erstellung die Filter-Eigenschaften bearbeiten.">
 <!ENTITY qf.filters.steps.showList "Filterliste">
 <!ENTITY qf.filters.steps.showList.tooltip "Zeigt die Filterliste zum testen des neuen Filters.">
+<!ENTITY qf.filters.steps.autoRunFilter "Automatisch ausführen">
+<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Führt nach Erstellung automatisch den Filter im Eingangsverzeichnis aus.">
 <!ENTITY qf.label.donate "Spenden">
 <!ENTITY qf.donate.tooltip "Unterstützen Sie quickFilters!">
 <!ENTITY qf.label.cancel "Abbrechen">

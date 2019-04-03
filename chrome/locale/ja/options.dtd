@@ -13,8 +13,6 @@
 <!ENTITY chkShowEditor.label "フィルタ生成後にエディタを開く">
 <!ENTITY chkImapOnRead.label "また、IMAP アカウント内の既読メールに対してフィルタを実行します。">
 <!ENTITY donate.label "寄付">
-<!ENTITY qf.youtube.description "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel.">
-<!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "quickFilters の簡単な説明は次のサイトにあります:">
 <!ENTITY qf.label.aboutLink "quickFilters の Web サイト...">
 <!ENTITY qf.description.contactMe "個人的なお問い合わせは axelg@gofree.indigo.ie まで:">
@@ -29,7 +27,6 @@
 <!ENTITY qf.tab.support "サポート">
 <!ENTITY qf.grp.whenToRun "フィルタの適用:">
 <!ENTITY chkAutoRun.label "新着メール受信時にフィルタを適用する">
-<!ENTITY chkRunManual.label "Run manually">
 <!ENTITY chkAfterJunk.label "迷惑メール分類後">
 <!ENTITY chkWhenArchiving.label "アーカイブ時">
 <!ENTITY chkAfterSending.label "送信後">
@@ -70,7 +67,6 @@
 <!ENTITY qf.listener.tags.autofilter "タグの変更時にフィルタを自動的に実行する">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "QuickFolders Pro">
-<!ENTITY qf.label.supportWithLicense "Support quickFilters by getting a license!">
 <!ENTITY qf.label.insertLicense "個人ライセンスキーをここに記入してください:">
 <!ENTITY qf.label.insertLicense.tooltip "ライセンスキーは FastSpring　からの支払い確認 (order confirmation) メールに含まれています。">
 <!ENTITY qf.button.pasteLicense "貼り付け">
@@ -84,4 +80,3 @@
 <!ENTITY qf.licenseValidation.notMatchedMail "暗号化されたメールアドレスが読めるメールアドレスと一致しません。">
 <!ENTITY qf.premiumConfig "有料機能">
 <!ENTITY qf.label.premiumFeaturesSite "有料機能についての詳細はウェブサイトをご覧ください">
-<!ENTITY chkLocalFoldersAutorun.label "Run filters on Local Folders Inbox automatically">

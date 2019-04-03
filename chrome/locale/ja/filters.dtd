@@ -22,12 +22,6 @@
 <!ENTITY qf.filters.actions.star "スター">
 <!ENTITY qf.filters.actions.star.accesskey "S">
 <!ENTITY qf.filters.actions.tooltip "元のメールからこれらの属性をコピーするフィルタです">
-<!ENTITY qf.filters.steps.tooltip "Which screens to show after filter creation">
-<!ENTITY qf.filters.steps.caption "Next Steps">
-<!ENTITY qf.filters.steps.showEditor "Filter Rules">
-<!ENTITY qf.filters.steps.showEditor.tooltip "Edit the filter details after the Assistant has created it.">
-<!ENTITY qf.filters.steps.showList "Filters List">
-<!ENTITY qf.filters.steps.showList.tooltip "Displays the filter in context so you can try it out">
 <!ENTITY qf.label.donate "寄付">
 <!ENTITY qf.donate.tooltip "quickFilters の開発を支援します">
 <!ENTITY qf.label.cancel "キャンセル">

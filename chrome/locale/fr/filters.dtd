@@ -22,12 +22,6 @@
 <!ENTITY qf.filters.actions.star "Suivi">
 <!ENTITY qf.filters.actions.star.accesskey "S">
 <!ENTITY qf.filters.actions.tooltip "Le filtre copie ces attributs à partir du courriel original">
-<!ENTITY qf.filters.steps.tooltip "Which screens to show after filter creation">
-<!ENTITY qf.filters.steps.caption "Next Steps">
-<!ENTITY qf.filters.steps.showEditor "Filter Rules">
-<!ENTITY qf.filters.steps.showEditor.tooltip "Edit the filter details after the Assistant has created it.">
-<!ENTITY qf.filters.steps.showList "Filters List">
-<!ENTITY qf.filters.steps.showList.tooltip "Displays the filter in context so you can try it out">
 <!ENTITY qf.label.donate "Faire un don">
 <!ENTITY qf.donate.tooltip "Soutenir le développement de quickFilters !">
 <!ENTITY qf.label.cancel "Annuler">

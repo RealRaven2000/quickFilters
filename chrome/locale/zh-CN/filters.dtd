@@ -22,12 +22,6 @@
 <!ENTITY qf.filters.actions.star "星标">
 <!ENTITY qf.filters.actions.star.accesskey "S">
 <!ENTITY qf.filters.actions.tooltip "过滤器将从原邮件中复制这些属性">
-<!ENTITY qf.filters.steps.tooltip "Which screens to show after filter creation">
-<!ENTITY qf.filters.steps.caption "Next Steps">
-<!ENTITY qf.filters.steps.showEditor "Filter Rules">
-<!ENTITY qf.filters.steps.showEditor.tooltip "Edit the filter details after the Assistant has created it.">
-<!ENTITY qf.filters.steps.showList "Filters List">
-<!ENTITY qf.filters.steps.showList.tooltip "Displays the filter in context so you can try it out">
 <!ENTITY qf.label.donate "捐助">
 <!ENTITY qf.donate.tooltip "请支持 quickFilters 的开发人员 !">
 <!ENTITY qf.label.cancel "取消">
