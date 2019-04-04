@@ -1441,6 +1441,26 @@ quickFilters.Worker = {
 				  util.getBundleString("qf.notify.filterCreated", "Successfully created new filter '{0}'");
 				util.slideAlert(txt.replace('{0}', targetFilter.filterName), 'quickFilters');
 			}
+			
+			if (!showList) {
+				// MailServices.filters.applyFiltersToFolders(filterList, folders, gFilterListMsgWindow);
+				// put filter in alphabetic order [Bug 26653]
+				if (isAlpha) {
+					filtersList.removeFilterAt(0);
+					let numFilters = filtersList.filterCount;
+					for (let idx=0; idx<numFilters; idx++) { 
+						if (targetFilter.filterName.toLocaleLowerCase() < filtersList.getFilterAt(idx).filterName.toLocaleLowerCase()) {
+							filtersList.insertFilterAt(idx, targetFilter); // we still may have to force storing the list!
+							break;
+						}
+					}
+				} 
+				// Auto Run filter [Bug 26652] 
+				if (prefs.getBoolPref('runFilterAfterCreate')) {
+					util.logDebug ("Running new filter automatically: " + targetFilter.filterName);
+					util.applyFiltersToFolder(sourceFolder, targetFilter);
+				}
+			}
 		} // else, let's remove the filter (Cancel case)
 		else { // Cancel
 			if (!isMerge) {
@@ -1662,8 +1682,8 @@ quickFilters.Assistant = {
   selectMergeSkip: function selectMergeSkip(checkBox) {
     // MergeAuto must be checked!
     if (checkBox.checked) {   
-      let chkAuto = document.getElementById('chkMergeAuto');
-      chkAuto.checked = true;
+      let chkMerge = document.getElementById('chkMergeAuto');
+      chkMerge.checked = true;
       quickFilters.Preferences.setBoolPref("merge.autoSelect", true);
     }
   } ,
@@ -1734,7 +1754,9 @@ quickFilters.Assistant = {
     this.NextButton.setAttribute("class", "extra1"); // add some style
     
     let matchingFilters = window.arguments[1],
-        isMergePossible = false;
+        isMergePossible = false,
+		    chkAutoRun = document.getElementById('chkAutoRun');
+		chkAutoRun.disabled = (prefs.getBoolPref('showListAfterCreateFilter')); 
     // list matching filters - they are passed when a merge is possible
 		let params = window.arguments[0];
     if (matchingFilters.length > 0) {
@@ -1904,13 +1926,15 @@ quickFilters.Assistant = {
   
 	setNextSteps: function setNextSteps(element) {
 		const getBundleString = this.getBundleString.bind(quickFilters.Assistant),
-		      NextButton = this.NextButton;
+		      NextButton = this.NextButton,
+					chkAutoRun = document.getElementById('chkAutoRun');
 		window.setTimeout(
 		  function() {
 				const prefs = quickFilters.Preferences;
 				let showEditor = prefs.getBoolPref("showEditorAfterCreateFilter"),
 						showList = prefs.getBoolPref("showListAfterCreateFilter"),
 						AcceptLabel = "";
+				chkAutoRun.disabled = showList;
 				if (!showEditor && !showList) { // qf.continueFilter.label
 					// relabel as [OK]
 					AcceptLabel	= "OK";

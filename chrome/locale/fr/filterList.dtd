@@ -17,17 +17,22 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "Clone un filtre">
 <!ENTITY quickfilters.button.sort "Trier">
 <!ENTITY quickfilters.button.sort.tooltiptext "Ordre alphabétique">
+<!ENTITY quickfilters.button.bug "Debug">
+<!ENTITY quickfilters.button.bug.tooltiptext "Debug - find problems with filters that don't run automatically">
 <!ENTITY quickfilters.menu.cut "Couper">
 <!ENTITY quickfilters.menu.copy "Copier">
 <!ENTITY quickfilters.menu.paste "Coller">
 <!ENTITY quickfilters.button.settings "Paramètres quickFilters…">
 <!ENTITY quickfilters.button.assistant "Activer/désactiver l'assistant…">
 <!ENTITY quickfilters.button.assistant.tooltiptext "Active/désactive le mode d'assistance pour filtre. Lorsqu'il est actif, glissez-déposez les courriels pour créer des filtres.">
+<!ENTITY quickfilters.button.saveFilters.tooltip "Backup Filters…">
+<!ENTITY quickfilters.button.loadFilters.tooltip "Restore Filters…">
 <!ENTITY quickfilters.button.support "Site d'aide quickFilters">
 <!ENTITY quickfilters.button.searchProperties "Modifier les propriétés de recherche…">
 <!ENTITY quickfilters.option.searchProperty.name "Nom">
 <!ENTITY quickfilters.option.searchProperty.targetFolder "Dossier cible">
 <!ENTITY quickfilters.option.searchProperty.searchCondition "Condition de recherche (texte)">
+<!ENTITY quickfilters.option.searchProperty.setCustomStringAction "Actions that modify Strings">
 <!ENTITY quickfilters.option.searchProperty.addTag "Ajouter l'étiquette">
 <!ENTITY quickfilters.option.searchProperty.replyWithTemplate "Répondre avec le modèle">
 <!ENTITY quickfilters.button.findDuplicates.label "Rechercher des doublons">

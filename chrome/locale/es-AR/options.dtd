@@ -9,7 +9,12 @@
 <!ENTITY chkToolbar.label "Visualizar barra en administrador de filtro">
 <!ENTITY chkToolbar.accesskey "T">
 <!ENTITY chkShowList.label "Visualizar lista de filtros después de la creación del filtro">
+<!ENTITY chkShowList.tooltip "Display list to run the new filter on all messages for testing.">
+<!ENTITY chkShowEditor.label "Open Editor after filter creation">
+<!ENTITY chkImapOnRead.label "Also run filter on read emails in IMAP accounts.">
 <!ENTITY donate.label "Donar">
+<!ENTITY qf.youtube.description "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel.">
+<!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "Una breve descripción de quickFilters se puede encontrar en el siguiente sitio:">
 <!ENTITY qf.label.aboutLink "Sitio quickFilters...">
 <!ENTITY qf.description.contactMe "También puede ponerse en contacto conmigo personalmente a través de axelg@gofree.indigo.ie :">
@@ -22,10 +27,19 @@
 <!ENTITY qf.tab.newFilterProps "Nuevas propiedades de filtros">
 <!ENTITY qf.tab.advanced "Avanzado">
 <!ENTITY qf.tab.support "Soporte">
+<!ENTITY qf.grp.whenToRun "Apply filter when">
 <!ENTITY chkAutoRun.label "Aplicar filtro al conseguir el correo nuevo">
+<!ENTITY chkRunManual.label "Run manually">
+<!ENTITY chkAfterJunk.label "After junk classification">
+<!ENTITY chkWhenArchiving.label "When Archiving">
+<!ENTITY chkAfterSending.label "After Sending">
+<!ENTITY chkAlphabetic.label "Insert new filters in alphabetical order">
+<!ENTITY chkAlphabetic.tooltip "Uses filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!">
 <!ENTITY qf.label.naming "Reglas de nombrado">
 <!ENTITY qf.label.naming.parentFolder "Añadir nombre de carpeta principal">
 <!ENTITY qf.label.naming.parentFolder.accesskey "p">
+<!ENTITY qf.label.naming.folderDelimiter "Delimiter:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Character inserted between parent folder and name">
 <!ENTITY qf.label.naming.keyWord "Añadir palabra clave a una regla específica">
 <!ENTITY qf.label.naming.keyWord.accesskey "k">
 <!ENTITY qf.templates.advanced "Plantillas avanzadas">
@@ -33,3 +47,41 @@
 <!ENTITY qf.templates.customTemplate.tooltip "Permite la generación de plantillas personalizadas, consulte la descripción del error para el detalle.">
 <!ENTITY qf.templates.customTemplate.edit "Editar...">
 <!ENTITY qf.templates.customTemplate.new "Crear nuevo...">
+<!ENTITY qf.templates.replyTo.label "Reply-To Template">
+<!ENTITY qf.templates.replyTo.tooltip "Display Reply-To Template, see bug description for detail.">
+<!ENTITY chkCurrentToolbar.btn.FilterList.label "Display Filters List">
+<!ENTITY chkCurrentToolbar.btn.RunOnFolder.label "Run Filters on Folder">
+<!ENTITY chkCurrentToolbar.btn.RunOnMessages.label "Run Filters on selected Messages">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.label "Find Filters for Folder">
+<!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Find any Filters that move mail to this folder.">
+<!ENTITY qf.label.currentFolderButtons "QuickFolders Current folder Toolbar">
+<!ENTITY qf.description.currentFolderButtons "This option is only applicable if you are using the Add-On QuickFolders, which adds a small toolbar on top of the message preview pane.">
+<!ENTITY grpMerge.label "Merge Rules">
+<!ENTITY chkMergeAuto.label "Automatically select Merge">
+<!ENTITY chkMergeAuto.tooltip "If a filter exists already, this will automatically select merge mode and the first matching filter.">
+<!ENTITY chkMergeSkip.label "Skip to Template Step">
+<!ENTITY chkMergeSkip.tooltip "This will skip the step 'select merge target' and go straight to 'select template'.">
+<!ENTITY qf.cloned.label "Append to name of cloned filter:">
+<!ENTITY qf.onewayaddress.label "Disable two-way address search conditions">
+<!ENTITY qf.onewayaddress.tooltip "By default, quickFilters adds both 'from' and 'to' search conditions to assist filtering complete message threads including your own emails to the recipient. If you always want to keep your replies in the Sent folder, you can disable this behavior here. The Addon 'Copy Sent to Current' can be used to keep replies with their originating emails.">
+<!ENTITY qf.postbox.quickmove "Postbox: support quick move feature">
+<!ENTITY qf.listener.tags "Listen for Tag changes">
+<!ENTITY qf.listener.tags.tooltip "When activated, the filter assistant will also be triggered when you tag a message.">
+<!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">
+<!-- quickFilters Pro stuff -->
+<!ENTITY qf.tab.gopro "quickFilters Pro">
+<!ENTITY qf.label.supportWithLicense "Support quickFilters by getting a license!">
+<!ENTITY qf.label.insertLicense "Insert your personal License key here:">
+<!ENTITY qf.label.insertLicense.tooltip "Your license key is contained in your order confirmation email from Fastspring.">
+<!ENTITY qf.button.pasteLicense "paste">
+<!ENTITY qf.button.validateLicense "validate">
+<!ENTITY qf.label.licenseValid "Your license is valid until:">
+<!ENTITY qf.licenseValidation.passed "Thanks for registering quickFilters Pro! All premium features are now unlocked.">
+<!ENTITY qf.licenseValidation.failed "The license key you entered is not valid. Check your email from FastSpring for instructions. If you still have problems, please contact me from the Support tab.">
+<!ENTITY qf.licenseValidation.invalidAddon "The license key you entered may be for a different Add-on. License keys for {0} start with {1}.">
+<!ENTITY qf.licenseValidation.expired "The license key you entered is expired. Please press the button below to renew your license.">
+<!ENTITY qf.licenseValidation.invalidMail "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance.">
+<!ENTITY qf.licenseValidation.notMatchedMail "Encrypted Email address does not match readable one.">
+<!ENTITY qf.premiumConfig "Premium Features">
+<!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
+<!ENTITY chkLocalFoldersAutorun.label "Run filters on Local Folders Inbox automatically">

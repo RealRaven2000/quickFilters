@@ -28,6 +28,8 @@
 <!ENTITY qf.filters.steps.showEditor.tooltip "De filterdetails bewerken nadat de Assistent ze heeft gemaakt.">
 <!ENTITY qf.filters.steps.showList "Filterlijst">
 <!ENTITY qf.filters.steps.showList.tooltip "Geeft het filter in zijn context weer, zodat u hem kunt uitproberen">
+<!ENTITY qf.filters.steps.autoRunFilter "Run Automatically">
+<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Automatically runs the filter on the originating Inbox after creation.">
 <!ENTITY qf.label.donate "Doneren">
 <!ENTITY qf.donate.tooltip "Ondersteun de ontwikkeling van quickFilters!">
 <!ENTITY qf.label.cancel "Annuleren">

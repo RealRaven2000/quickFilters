@@ -1471,7 +1471,7 @@ quickFilters.List = {
   showPopup: function showPopup(button, popupId, evt) {
 		let p = button.ownerDocument.getElementById(popupId);
 		if (p) {
-			document.popupNode = button;
+			// document.popupNode = button;
 			p.targetNode = button; 
 			
 			if (p.openPopup)

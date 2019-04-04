@@ -38,7 +38,6 @@ quickFilters.FilterEditor = {
       if ("arguments" in window && window.arguments[0]) {
         let args = window.arguments[0];  
         if (args.filterConditionValue) {
-          window.quickFiltersConditionSearch = true; // a flag to tell us refreshing the list
           let found = false,
               firstMatch,
               list;

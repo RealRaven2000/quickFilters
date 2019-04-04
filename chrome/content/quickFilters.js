@@ -317,16 +317,22 @@ END LICENSE BLOCK
 		# Added easier Renewal logic that reads the old license date and adds a whole year even when extending license early
 		# Backup / Restore Filters will now remember the last folder pickd for loading / saving
 		
-	3.10 : WIP
+	3.10 : 31/03/2019
 	  # [Bug 26643] - Run filters on Local Folders Inbox automatically 
 		# Create Filter from message: warn if email is still in inbox and also has no tags
 		# [Bug 26649] - Creating a new "maillist" filter throws undeclared variable exception
 		# Added skip 'filter rules' / 'filter list' options to the 'Create Filters' assistant window
 		# Added support for navigation assistant screens using [Enter] key
 		
-	
+	3.11 : 04/04/2019
+	  # [Bug 26653] - Skipping filter list step in assistant ignores alphabetical order option
+		# [Bug 26652] - Add option to Autorun filter (with filter list skipped option)
+		
+  ============================================================================================================
+  FUTURE WORK:
   PREMIUM FEATURES:
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
+		
 	 */
   
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")

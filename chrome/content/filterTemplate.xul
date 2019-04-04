@@ -68,16 +68,22 @@
 					type="bool" 
 					instantApply="true"
 					/>
-		<preference id="showListAfterCreateFilter" 
-							name="extensions.quickfilters.showListAfterCreateFilter" 
-							type="bool"  
-							instantApply="true"
-							/>
 		<preference id="showEditorAfterCreateFilter" 
 							name="extensions.quickfilters.showEditorAfterCreateFilter" 
 							type="bool"  
 							instantApply="true"
 							/>
+		<preference id="showListAfterCreateFilter" 
+							name="extensions.quickfilters.showListAfterCreateFilter" 
+							type="bool"  
+							instantApply="true"
+							/>
+		<preference id="runFilterAfterCreate" 
+							name="extensions.quickfilters.runFilterAfterCreate" 
+							type="bool"  
+							instantApply="true"
+							/>
+
 					
 	</preferences>
 	
@@ -184,13 +190,21 @@
 								label="&qf.filters.steps.showEditor;" 
 								tooltiptext="&qf.filters.steps.showEditor.tooltip;"
 								oncommand="quickFilters.Assistant.setNextSteps();"
-								/>							
+								/>
 					<checkbox id="chkShowList"
 								preference="showListAfterCreateFilter"
 								label="&qf.filters.steps.showList;" 
 								tooltiptext="&qf.filters.steps.showList.tooltip;"
 								oncommand="quickFilters.Assistant.setNextSteps();"
 								/>
+					<checkbox id="chkAutoRun"
+								preference="runFilterAfterCreate"
+								label="&qf.filters.steps.autoRunFilter;" 
+								tooltiptext="&qf.filters.steps.autoRunFilter.tooltip;"
+								oncommand="quickFilters.Assistant.setNextSteps();"
+								/>
+								
+								
 				</groupbox>
 			</hbox>
 			<hbox id="boxDescription">

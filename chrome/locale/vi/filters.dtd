@@ -1,6 +1,9 @@
 <!ENTITY qf.filters.title "Tạo Bộ Lọc">
 <!ENTITY qf.filters.template.from "Dựa theo Người Gửi (gửi từ)">
+<!ENTITY qf.filters.template.domain "Based on Sender's Domain">
+<!ENTITY qf.filters.template.multifrom "Group (collects senders of multiple mails)">
 <!ENTITY qf.filters.template.to "Dựa theo Người Nhận (gửi đến)">
+<!ENTITY qf.filters.template.replyto "Based on Reply-To">
 <!ENTITY qf.filters.template.maillist "Danh sách thư">
 <!ENTITY qf.filters.template.topic "Theo tiêu đề">
 <!ENTITY qf.filters.template.tag "Theo các nhãn">
@@ -8,7 +11,27 @@
 <!ENTITY qf.filters.instructions "Hãy chọn một mẫu. Bạn có thể tinh chỉnh các quy tắc của bộ lọc ở màn hình kế tiếp.">
 <!ENTITY qf.continueFilter.label "Tạo Bộ Lọc…">
 <!ENTITY qf.continueFilter.shortcut "T">
+<!ENTITY qf.filters.actions.caption "Actions">
+<!ENTITY qf.filters.actions.targetFolder "Target Folder">
+<!ENTITY qf.filters.actions.tag "Tags">
+<!ENTITY qf.filters.actions.tag.accesskey "T">
 <!ENTITY qf.filters.actions.priority "Priority">
+<!ENTITY qf.filters.actions.priority.accesskey "P">
+<!ENTITY qf.filters.actions.flag "Flag">
+<!ENTITY qf.filters.actions.flag.accesskey "F">
+<!ENTITY qf.filters.actions.star "Star">
+<!ENTITY qf.filters.actions.star.accesskey "S">
+<!ENTITY qf.filters.actions.tooltip "Filter copies these attributes from original email">
+<!ENTITY qf.filters.steps.tooltip "Which screens to show after filter creation">
+<!ENTITY qf.filters.steps.caption "Next Steps">
+<!ENTITY qf.filters.steps.showEditor "Filter Rules">
+<!ENTITY qf.filters.steps.showEditor.tooltip "Edit the filter details after the Assistant has created it.">
+<!ENTITY qf.filters.steps.showList "Filters List">
+<!ENTITY qf.filters.steps.showList.tooltip "Displays the filter in context so you can try it out">
+<!ENTITY qf.filters.steps.autoRunFilter "Run Automatically">
+<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Automatically runs the filter on the originating Inbox after creation.">
 <!ENTITY qf.label.donate "Quên góp">
 <!ENTITY qf.donate.tooltip "Trợ giúp sự phát triển của quickFilters!">
 <!ENTITY qf.label.cancel "Hủy bỏ">
+<!ENTITY qf.check.createNew "Create a New Filter">
+<!ENTITY qf.check.mergeWithExisting "Merge with an existing filter:">

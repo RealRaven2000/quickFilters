@@ -37,7 +37,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.10",
+  HARDCODED_CURRENTVERSION : "3.11",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -223,34 +223,13 @@ quickFilters.Util = {
 					Cc = Components.classes;
     //returns the current QF version number.
     if (util.mExtensionVer)
-      return util.mExtensionVer;
-    let current = util.HARDCODED_CURRENTVERSION + util.HARDCODED_EXTENSION_TOKEN;
-
-    if (!Cc["@mozilla.org/extensions/manager;1"]) {
-      // Addon Manager: use Proxy code to retrieve version asynchronously
-      util.VersionProxy(); // modern Mozilla builds.
-                        // these will set mExtensionVer (eventually)
-                        // also we will delay FirstRun.init() until we _know_ the version number
-    }
-    else  // --- older code: extensions manager.
-    {
-      try {
-        if (Cc["@mozilla.org/extensions/manager;1"]) {
-          let gExtensionManager = Cc["@mozilla.org/extensions/manager;1"]
-                                    .getService(Components.interfaces.nsIExtensionManager);
-          current = gExtensionManager.getItemForID(util.ADDON_ID).version;
-        }
-        else {
-          current = current + "(?)";
-        }
-        util.mExtensionVer = current;
-
-      }
-      catch(ex) {
-        current = current + "(?ex?)" // hardcoded, program this for Tb 3.3 later
-        util.logToConsole("QuickFilters Version retrieval failed - are you using an old version of " + util.Application + "?");
-      }
-    }
+      return util.mExtensionVer; // this is set asynchronously, see VersionProxy
+		// temporary value
+    let current = util.HARDCODED_CURRENTVERSION + util.HARDCODED_EXTENSION_TOKEN; 
+		// Addon Manager: use Proxy code to retrieve version asynchronously
+		util.VersionProxy(); // modern Mozilla builds.
+											// these will set mExtensionVer (eventually)
+											// also we will delay FirstRun.init() until we _know_ the version number
     return current;
   } ,
 
@@ -298,7 +277,7 @@ quickFilters.Util = {
 		return false;
 	} ,
 	
-	applyFiltersToFolder: function qfUtil_applyFiltersToFolder(folder) {
+	applyFiltersToFolder: function qfUtil_applyFiltersToFolder(folder, singleFilter) {
 		// a local copy of  MsgApplyFilters()
 		const Ci = Components.interfaces,
 		      Cc = Components.classes,
@@ -308,6 +287,10 @@ quickFilters.Util = {
 
 		debugger;
 		try {
+			if (folder.isServer) { // if this is root, replace it with appropriate inbox
+				let f = folder.getChildNamed('Inbox');
+				if (f) folder = f;
+			}
 			let selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
 			selectedFolders.appendElement(folder);
 			
@@ -320,8 +303,10 @@ quickFilters.Util = {
 			tempFilterList.logStream = curFilterList.logStream;
 			tempFilterList.loggingEnabled = curFilterList.loggingEnabled;
 			let newFilterIndex = 0;
-			for (let i = 0; i < numFilters; i++)
-			{
+			if (singleFilter) {
+				tempFilterList.insertFilterAt(0, singleFilter);
+			}
+			else for (let i = 0; i < numFilters; i++) {
 				let curFilter = curFilterList.getFilterAt(i);
 				// only add enabled, UI visibile filters that are in the manual context
 				if (curFilter.enabled && !curFilter.temporary &&

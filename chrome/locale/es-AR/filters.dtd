@@ -3,6 +3,7 @@
 <!ENTITY qf.filters.template.domain "Con base en el dominio del remitente">
 <!ENTITY qf.filters.template.multifrom "Grupo(recolecta los remitentes de multiples correos)">
 <!ENTITY qf.filters.template.to "Sobre la base del destinatario">
+<!ENTITY qf.filters.template.replyto "Based on Reply-To">
 <!ENTITY qf.filters.template.maillist "Lista de correos">
 <!ENTITY qf.filters.template.topic "por asunto">
 <!ENTITY qf.filters.template.tag "por nombres">
@@ -21,6 +22,14 @@
 <!ENTITY qf.filters.actions.star "Estrella">
 <!ENTITY qf.filters.actions.star.accesskey "S">
 <!ENTITY qf.filters.actions.tooltip "Filtro copias de estos atributos del correo electrónico original">
+<!ENTITY qf.filters.steps.tooltip "Which screens to show after filter creation">
+<!ENTITY qf.filters.steps.caption "Next Steps">
+<!ENTITY qf.filters.steps.showEditor "Filter Rules">
+<!ENTITY qf.filters.steps.showEditor.tooltip "Edit the filter details after the Assistant has created it.">
+<!ENTITY qf.filters.steps.showList "Filters List">
+<!ENTITY qf.filters.steps.showList.tooltip "Displays the filter in context so you can try it out">
+<!ENTITY qf.filters.steps.autoRunFilter "Run Automatically">
+<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Automatically runs the filter on the originating Inbox after creation.">
 <!ENTITY qf.label.donate "Donar">
 <!ENTITY qf.donate.tooltip "Soporte de desarrolladores de QuickFilters">
 <!ENTITY qf.label.cancel "Cancelar">

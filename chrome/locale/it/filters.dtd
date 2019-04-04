@@ -28,6 +28,8 @@
 <!ENTITY qf.filters.steps.showEditor.tooltip "Consente la modifica dei dettagli del filtro dopo la sua crezione mediante Procedura guidata">
 <!ENTITY qf.filters.steps.showList "Elenco filtri">
 <!ENTITY qf.filters.steps.showList.tooltip "Visualizza il filtro nel contesto così da poterlo testare">
+<!ENTITY qf.filters.steps.autoRunFilter "Esegui automaticamente">
+<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Dopo la creazione, esegue automaticamente il filtro sulla cartella 'Posta in arrivo' di provenienza">
 <!ENTITY qf.label.donate "Dona">
 <!ENTITY qf.donate.tooltip "Supporta lo sviluppo di quickFilters!">
 <!ENTITY qf.label.cancel "Annulla">
