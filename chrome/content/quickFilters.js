@@ -327,6 +327,12 @@ END LICENSE BLOCK
 	3.11 : 04/04/2019
 	  # [Bug 26653] - Skipping filter list step in assistant ignores alphabetical order option
 		# [Bug 26652] - Add option to Autorun filter (with filter list skipped option)
+		# Removed some outdated code (extension manager)
+	
+	3.11.1 : 07/04/2019
+	  # Completed Japanese locale - thanks to Masahiko Imanaka 
+		# Completed Dutch locale - thanks to markh van BabelZilla.org [nl]
+		# Also thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE]
 		
   ============================================================================================================
   FUTURE WORK:

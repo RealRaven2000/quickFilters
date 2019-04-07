@@ -1,6 +1,6 @@
-<p>quickFilters Change Log - Version 3.11</p>
+<p>quickFilters Change Log - Version 3.11.1</p>
 <ul>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26652" target="_blank">[Bug 26652]</a> Added an option to Automatically run the freshly created filter when the filter list is not displayed. In the default workflow, the user can push the [Run Filter] button to try out the new filter. If the filter list is not shown, this option will run the filter on the originating Inbox.</li>
-<li>Fixed: <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26653" target="_blank">[Bug 26653]</a> Skipping filter list step in assistant ignores alphabetical order option. To make sure your new filter is inserted in alphabetical order, activate <i>Insert new Filter in alphabetical order</i> in quickFilters Preferences under the <i>New Filter Properties</i> tab.</li>
-<li>Removed some outdated code (extension manager)</li>
+<li>Completed Japanese locale - thanks to Masahiko Imanaka.</li>
+<li>Completed Dutch locale - thanks to markh van BabelZilla.org.</li>
+<li>Also special thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE] for consistently staying on top of the translations as I develop new features.</li>
 </ul>
