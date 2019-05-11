@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "quickFilters",
+  "description": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
+  "version": "3.12.1",
+  "author": "Axel Grude",
+  "developer": {
+	  "name": "Axel Grude",
+    "url": "http://quickfilters.mozdev.org/index.html"
+	},
+  "applications": {
+    "gecko": {
+      "id": "quickFilters@axelg.com",
+      "strict_min_version": "61.0a1",
+			"strict_max_version": "68.0a1"
+    }
+  },
+  "icons": {
+    "32": "chrome/skin/QuickFilters_32.png",
+    "64": "chrome/skin/QuickFilters_64.png"
+  },
+	
+  "legacy": {
+    "options": {
+      "page": "chrome://quickfilters/content/quickFilters-options.xul",
+      "open_in_tab": false
+    }
+  }	
+}

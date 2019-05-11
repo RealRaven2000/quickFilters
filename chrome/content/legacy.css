@@ -53,12 +53,12 @@ button.dialog-button[dlgtype=extra2] {
 
 
 /* quickFilters.css */
-notification[value="quickfilters-filter"] .messageCloseButton {
+notificationbox *[value="quickfilters-filter"] .messageCloseButton {
 	-moz-border-radius: 3px;
 }
 
 /* contribute.css - donate button */
-prefwindow.quickfilters-preferences button.dialog-button[dlgtype=extra2] {
+dialog.quickfilters-preferences button.dialog-button[dlgtype=extra2] {
   background: -moz-linear-gradient(center top , rgb(254, 204, 177) 0%, rgb(241, 116, 50) 50%, rgb(234, 85, 7) 51%, rgb(251, 149, 94) 100%) !important;
 }
 

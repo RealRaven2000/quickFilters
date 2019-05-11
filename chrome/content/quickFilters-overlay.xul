@@ -24,9 +24,9 @@
             oncommand="quickFilters.onApplyFilters(event);"
 			  />
     <menuitem id="quickfilters-menu-findFilter" 
-	          label="&quickfilters.findFiltersForFolder.menu;" 
+				label="&quickfilters.findFiltersForFolder.menu;" 
 			  class="menuitem-iconic"
-              oncommand="quickFilters.searchFiltersFromFolder(event);"
+				oncommand="quickFilters.searchFiltersFromFolder(event);"
 			  />
   </popup>
   

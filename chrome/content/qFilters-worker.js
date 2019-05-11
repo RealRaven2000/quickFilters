@@ -12,7 +12,10 @@ END LICENSE BLOCK
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
 {
   // Here, Postbox declares fixIterator
-  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+	if (typeof ChromeUtils.import == "undefined")
+		Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+	else
+		ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
 }
 
 // note: in QuickFolder_s, this object is simply called "Filter"!
@@ -765,7 +768,7 @@ quickFilters.Worker = {
           // **************************************************************
           let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xul',
             'quickfilters-filterTemplate',
-            'chrome,titlebar,alwaysRaised,modal,resizable=yes,accept=yes,cancel=yes,moveable',
+            'chrome,titlebar,alwaysRaised,modal,resizable,cancel,extra1,extra2', // ,accept,cancel,moveable
             params,
             matchingFilters).focus(); // pass array of matching filters as additional arg
 
@@ -1614,7 +1617,7 @@ quickFilters.Assistant = {
         quickFilters.Worker.TemplateSelected = true;
         params.answer  = true;
         params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
-        setTimeout(function() {window.close()});
+        setTimeout(function() { window.close() });
         break;
     }
     
@@ -1622,6 +1625,7 @@ quickFilters.Assistant = {
   } ,
 	
 	get NextButton() {
+		if (!document.documentElement.getButton) return null;
 		return document.documentElement.getButton('extra1');
 		// document.getElementsByClassName('extra1')[0];
 	},
@@ -1706,6 +1710,7 @@ quickFilters.Assistant = {
 					util = quickFilters.Util,
 					prefs = quickFilters.Preferences;
 					
+		if (prefs.isDebugOption('buildFilter')) debugger;
 		this.ContinueLabel = this.NextButton.label;
 					
     // [Bug 25989] Custom Templates Support
@@ -1740,7 +1745,19 @@ quickFilters.Assistant = {
           if (token[0] && token[0].indexOf('quickFilterCustomTemplate')==0) {
             // add user assigned title
             if (token[1]) {
-              templateList.insertItemAt(0, token[1].trim(), filter.filterName.toString()); // check filter.enabled ?
+							if (templateList.insertItemAt)
+								templateList.insertItemAt(0, token[1].trim(), filter.filterName.toString()); // check filter.enabled ?
+							else {
+								let listItem = document.createElement("richlistitem"),
+								    description = document.createElement("description");
+								listItem.setAttribute("value", filter.filterName.toString());
+								description.textContent = token[1].trim();
+								listItem.appendChild(description);
+								if (!templateList.itemCount)
+									templateList.appendChild(listItem);
+								else
+									templateList.insertBefore(listItem, templateList.children.item(0));
+							}
             }
             else {
               util.popupAlert('Invalid custom Filter name {' + filter.filterName + '}\n' +
@@ -1808,6 +1825,7 @@ quickFilters.Assistant = {
 		// ensureIndexIsVisible ?
     window.sizeToContent();
 		templateList.ensureIndexIsVisible(templateList.selectedIndex);
+		
     // hide flag / star checkbox depending on application
     let hideCheckbox;
     switch(util.Application) {
@@ -1841,22 +1859,45 @@ quickFilters.Assistant = {
       }
     }
     
-    // find and remove "replyto" feature!" still experimental until 2.8 release
-    if (!prefs.getBoolPref('templates.replyTo')) {
-      util.logDebug('remove replyto item from template list...');
-      let listbox = this.TemplateList;
-      for (let i=0; i<listbox.itemCount; i++) {
-        let item = listbox.getItemAtIndex(i);
-        if (item.value=='replyto') {
-          listbox.removeItemAt(i);
-          break;
-        }
-      }
-    }
-    quickFilters.Assistant.initialised = true;
-		this.selectTemplateFromListTmr(templateList);
+		try {
+			// find and remove "replyto" feature!" still experimental until 2.8 release
+			if (!prefs.getBoolPref('templates.replyTo')) {
+				util.logDebug('remove replyto item from template list...');
+				let listbox = this.TemplateList;
+				for (let i=0; i<listbox.itemCount; i++) {
+					let item = listbox.getItemAtIndex(i);
+					if (item.value=='replyto') {
+						listbox.removeItemAt(i);
+						break;
+					}
+				}
+			}
+		}
+		catch(ex) {;}
+		finally {
+			quickFilters.Assistant.initialised = true;
+			this.selectTemplateFromListTmr(templateList); // make sure Deescription is displayed initially.
+		}
+		// this.selectTemplateFromListTmr(templateList);
   } ,
 
+	// Tb 66 compatibility.
+	loadPreferences: function qi_loadPreferences() {
+		let myprefs = document.getElementsByTagName("preference");
+		if (myprefs.length) {
+			let prefArray = [];
+			for (let i=0; i<myprefs.length; i++) {
+				let it = myprefs.item(i),
+				    p = { id: it.id, name: it.getAttribute('name'), type: it.getAttribute('type') };
+				if (it.getAttribute('instantApply') == "true") p.instantApply = true;
+				prefArray.push(p);
+			}
+			if (Preferences)
+				Preferences.addAll(prefArray);
+		}							
+	},
+
+	
   // gets strings from filters properties
   getBundleString: function getBundleString(id, defaultText) {
     //let bundle = document.getElementById("bundle_filter");
@@ -1882,7 +1923,9 @@ quickFilters.Assistant = {
 	},
 	
 	selectTemplateFromListTmr: function selectTemplateFromListTimer (el) {
-		if (!quickFilters.Assistant.initialised) return;
+		if (!quickFilters.Assistant.initialised) {
+			return;
+		}
 		quickFilters.Util.logDebug("selectTemplateFromListTimer()");
 		quickFilters.Assistant.enableCreate(false);
 		window.setTimeout(

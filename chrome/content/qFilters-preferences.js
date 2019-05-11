@@ -11,7 +11,11 @@ END LICENSE BLOCK
 */
 
 
-Components.utils.import("resource://gre/modules/Services.jsm"); // Thunderbird 52
+if (typeof ChromeUtils.import == "undefined")
+	Components.utils.import('resource://gre/modules/Services.jsm'); // Thunderbird 52
+else
+	ChromeUtils.import('resource://gre/modules/Services.jsm');
+
 
 quickFilters.Preferences = {
   Prefix: "extensions.quickfilters.",
@@ -167,7 +171,9 @@ quickFilters.Preferences = {
 	
   getCurrentFilterTemplate : function()
   {
-    return quickFilters.Preferences.getStringPref("filters.currentTemplate");
+		let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");
+		if (current == "undefined") current = null;
+    return current;
   } ,
   
   setCurrentFilterTemplate : function(pref)

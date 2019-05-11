@@ -186,12 +186,13 @@ notification[value="quickfilters-proFeature"] .notification-button[accesskey] {
 	margin-right: 20px;
 }
 
-notification[value="quickfilters-proFeature"] .notification-button[accesskey]:hover {
+/* replace notification tag for Tb 64 and later to also match xbl-notification */
+notificationbox *[value="quickfilters-proFeature"] .notification-button[accesskey]:hover {
 	background: -moz-linear-gradient(top, #dbe42e 0%,#a8cc16 50%,#8fba00 51%,#b6d917 100%)  !important;
 }
 
-notification[value="quickfilters-filter"] image.messageImage,
-notification[value="quickfilters-proFeature"] image.messageImage {
+notificationbox *[value="quickfilters-filter"] image.messageImage,
+notificationbox *[value="quickfilters-proFeature"] image.messageImage {
 	/* filterTemplate.png */
 	min-width: 73px !important;
 	width: 73px !important;
@@ -199,32 +200,33 @@ notification[value="quickfilters-proFeature"] image.messageImage {
 	height: 32px !important;
 }
 
-notification[value="quickfilters-filter"] .messageCloseButton {
+notificationbox *[value="quickfilters-filter"] .messageCloseButton {
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 2px;
 	border-radius: 2px;
 	margin: 0 1em;
 }
 
-notification[value="quickfilters-proFeature"] .messageCloseButton {
-	display: none;
+notificationbox *[value="quickfilters-proFeature"] .messageCloseButton {
+	/* display: none; */
 }
 
-notification[value="quickfilters-filter"] .messageCloseButton:hover,
-notification[value="quickfilters-proFeature"] .messageCloseButton:hover {
+notificationbox *[value="quickfilters-filter"] .messageCloseButton:hover,
+notificationbox *[value="quickfilters-proFeature"] .messageCloseButton:hover {
 	background-color: rgba(255, 255, 255, 1);
 }
 
 /* postbox - this description simply won't wrap! */
-notification[value="quickfilters-filter"] description.messageText,
-notification[value="quickfilters-proFeature"] description.messageText
+notificationbox *[value="quickfilters-filter"] description.messageText,
+notificationbox *[value="quickfilters-proFeature"] description.messageText
 {
 	white-space: normal !important;
 	height: auto;
 }
 
 
-notification[value="quickfilters-filter"] hbox.notification-inner {
+notificationbox *[value="quickfilters-filter"] hbox.notification-inner,
+notificationbox xbl-notification[value="quickfilters-filter"] {
 	color: #fff;
 	background-color: rgb(251,28,3);
 	background-image: linear-gradient(to bottom, rgba(251,28,3,1) 0%, rgba(161,26,11,1) 42%, rgba(138,18,4,1) 51%, rgba(199,24,5,1) 100%);

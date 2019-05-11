@@ -5,33 +5,34 @@
 <?xml-stylesheet href="options.css" title="QuickFiltersOptions" type="text/css"?>
 <?xml-stylesheet href="filterWidgets.css" type="text/css"?>
 
-<!DOCTYPE prefwindow [
+<!DOCTYPE dialog [
   <!ENTITY % optionsDTD SYSTEM "chrome://quickfilters/locale/options.dtd">
   %optionsDTD;
   <!ENTITY % commonDTD SYSTEM "chrome://quickfilters/locale/filterList.dtd">
   %commonDTD;
 ]>
 
-<prefwindow id="quickfilters-preferences" 
-						buttons="extra2,accept"
-						buttonlabelextra2="&donate.label;"
-            xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
-            title="&prefwindow.title;"
-            onload="quickFilters.Options.load();"
-            autostretch="always" 
-            minHeight="400"
-			ondialogextra2="setTimeout(function() {quickFilters.Licenser.showDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });"
-			tooltiptextextra2="&qf.label.supportWithLicense;"
-			>
-
-	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-options.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-rsa.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-register.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
-	<script type="application/x-javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
+<dialog id="quickfilters-preferences" 
+				buttons="extra2,accept"
+				buttonlabelextra2="&donate.label;"
+				xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" 
+				xmlns:html="http://www.w3.org/1999/xhtml"
+				title="&prefwindow.title;"
+				onload="quickFilters.Options.load();"
+				autostretch="always" 
+				minHeight="400"
+				ondialogextra2="setTimeout(function() {quickFilters.Licenser.showDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });"
+				tooltiptextextra2="&qf.label.supportWithLicense;"
+				>
+				
+	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-options.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-rsa.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-register.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
+	<script type="application/javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
 
   <prefpane id="mainOptions" label="&pane1.title;" flex="2" selected="true" orient="vertical">
 
@@ -306,8 +307,8 @@
 				  
 			<separator class="groove-thin" />
 			<hbox>
-				<groupbox  orient="vertical" >
-					<caption label="&grpMerge.label;"/>
+				<html:fieldset orient="vertical">
+					<html:legend>&grpMerge.label;</html:legend>
 					<checkbox id="chkMergeAuto" 
 							preference="merge.autoSelect" 
 							label="&chkMergeAuto.label;" 
@@ -320,7 +321,7 @@
 							tooltiptext="&chkMergeSkip.tooltip;"
 							oncommand="quickFilters.Assistant.selectMergeSkip(this);"
 							/>
-				</groupbox>
+				</html:fieldset>
 			</hbox>
     </tabpanel>  
 	  
@@ -331,29 +332,31 @@
 			  label="&qf.tab.newFilterProps;" 
 			  style="position:relative;">
 			<vbox>
-				<groupbox  orient="vertical">
-					<caption label="&qf.grp.whenToRun;"/>
-					<checkbox id="chkAutoRun" 
+				<html:fieldset orient="vertical">
+					<html:legend>&qf.grp.whenToRun;</html:legend>
+					<vbox>
+						<checkbox id="chkAutoRun" 
 								preference="newfilter.autorun" 
 								label="&chkAutoRun.label;" 
 								/>
-					<checkbox id="chkRunManual" 
+						<checkbox id="chkRunManual" 
 								preference="newfilter.manual" 
 								label="&chkRunManual.label;" 
 								/>
-					<checkbox id="chkAfterJunk" 
+						<checkbox id="chkAfterJunk" 
 								preference="newfilter.runAfterPlugins" 
 								label="&chkAfterJunk.label;" 
 								/>
-					<checkbox id="chkWhenArchiving" 
+						<checkbox id="chkWhenArchiving" 
 								preference="newfilter.runArchiving" 
 								label="&chkWhenArchiving.label;" 
 								/>
-					<checkbox id="chkAfterSending" 
+						<checkbox id="chkAfterSending" 
 								preference="newfilter.runPostOutgoing"
 								label="&chkAfterSending.label;" 
 								/>
-				</groupbox>
+					</vbox>
+				</html:fieldset>
 				<checkbox id="chkAlphabetic" 
 				preference="newfilter.insertAlphabetical" 
 				label="&chkAlphabetic.label;" 
@@ -362,36 +365,38 @@
 			</vbox>
 			
 			<vbox>
-				<groupbox orient="vertical" flex="0">
-					<caption label="&qf.label.naming;"/>
-				  <hbox>
-						<checkbox id="chkNamingParentFolder" 
-								preference="naming.parentFolder" 
-								label="&qf.label.naming.parentFolder;" 
-								accesskey="&qf.label.naming.parentFolder.accesskey;"
+				<html:fieldset orient="vertical" flex="0">
+					<html:legend>&qf.label.naming;</html:legend>
+					<vbox>
+						<hbox>
+							<checkbox id="chkNamingParentFolder" 
+									preference="naming.parentFolder" 
+									label="&qf.label.naming.parentFolder;" 
+									accesskey="&qf.label.naming.parentFolder.accesskey;"
+									/>
+							<spacer flex="1" />
+							<label class = "textBoxLabel"
+									value="&qf.label.naming.folderDelimiter;" />
+							<textbox 
+									style = "width: 3em;"
+									preference = "naming.folderDelimiter" 
+									tooltiptext = "&qf.tooltip.naming.folderDelimiter;"
+									/>
+						</hbox>
+						<checkbox id="chkNamingKeyWord" 
+								preference="naming.keyWord" 
+								label="&qf.label.naming.keyWord;" 
+								accesskey="&qf.label.naming.keyWord.accesskey;"
 								/>
-						<spacer flex="1" />
-						<label class = "textBoxLabel"
-						    value="&qf.label.naming.folderDelimiter;" />
-						<textbox 
-						    style = "width: 3em;"
-								preference = "naming.folderDelimiter" 
-								tooltiptext = "&qf.tooltip.naming.folderDelimiter;"
-								/>
-					</hbox>
-					<checkbox id="chkNamingKeyWord" 
-							preference="naming.keyWord" 
-							label="&qf.label.naming.keyWord;" 
-							accesskey="&qf.label.naming.keyWord.accesskey;"
-							/>
-					<hbox>
-						<label class = "textBoxLabel"
-								 value="&qf.cloned.label;" />
-						<textbox id = "txtClonedName"
-								 preference = "cloned.append"
-								 />
-					</hbox>
-				</groupbox>
+						<hbox>
+							<label class = "textBoxLabel"
+									 value="&qf.cloned.label;" />
+							<textbox id = "txtClonedName"
+									 preference = "cloned.append"
+									 />
+						</hbox>
+					</vbox>
+				</html:fieldset>
 			</vbox>
 	  </tabpanel>
                
@@ -400,74 +405,78 @@
 				  label="&qf.tab.advanced;" 
 				  style="position:relative;">
 				  
-			<groupbox  orient="vertical" >
-				<caption label="&qf.templates.advanced;"/>
-				<hbox>
-					<checkbox preference="templates.replyTo" 
-										label="&qf.templates.replyTo.label;" 
-										tooltiptext="&qf.templates.replyTo.tooltip;"/>
-					<label class="plain-link" 
-								 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25863"
-                 onclick="quickFilters.Util.showBug(25863);">[Bug 25863]</label>
-				</hbox>
-				<hbox>
-				  <hbox>
-						<checkbox preference="templates.custom" 
-											label="&qf.templates.customTemplate.label;" 
-											tooltiptext="&qf.templates.customTemplate.tooltip;"/>
-						<button id="editCustomFilters"
-										label="&qf.templates.customTemplate.edit;" 
-										oncommand="quickFilters.Util.editCustomTemplates(); window.close();" />
-						<button id="newCustomFilter"
-										label="&qf.templates.customTemplate.new;" 
-										oncommand="if (quickFilters.Util.createCustomTemplate()) {window.close();}" />
-				  </hbox>
-					<vbox>
-					  <spacer flex="1" />
+			<html:fieldset orient="vertical" >
+				<html:legend>&qf.templates.advanced;</html:legend>
+				<vbox>
+					<hbox>
+						<checkbox preference="templates.replyTo" 
+											label="&qf.templates.replyTo.label;" 
+											tooltiptext="&qf.templates.replyTo.tooltip;"/>
 						<label class="plain-link" 
-									 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25989"
-									 onclick="quickFilters.Util.showBug(25989);">[Bug 25989]</label>
-					  <spacer flex="1" />
-					</vbox>
-				</hbox>
+									 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25863"
+									 onclick="quickFilters.Util.showBug(25863);">[Bug 25863]</label>
+					</hbox>
+					<hbox>
+						<hbox>
+							<checkbox preference="templates.custom" 
+												label="&qf.templates.customTemplate.label;" 
+												tooltiptext="&qf.templates.customTemplate.tooltip;"/>
+							<button id="editCustomFilters"
+											label="&qf.templates.customTemplate.edit;" 
+											oncommand="quickFilters.Util.editCustomTemplates(); window.close();" />
+							<button id="newCustomFilter"
+											label="&qf.templates.customTemplate.new;" 
+											oncommand="if (quickFilters.Util.createCustomTemplate()) {window.close();}" />
+						</hbox>
+						<vbox>
+							<spacer flex="1" />
+							<label class="plain-link" 
+										 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25989"
+										 onclick="quickFilters.Util.showBug(25989);">[Bug 25989]</label>
+							<spacer flex="1" />
+						</vbox>
+					</hbox>
+				</vbox>
 				
-			</groupbox>
-			<groupbox  orient="vertical" >
-				<caption label="&qf.label.currentFolderButtons;"/>
-				<description>&qf.description.currentFolderButtons;</description>
-				<checkbox id="chkCurrentToolbarFiltersButton" 
+			</html:fieldset>
+			<html:fieldset orient="vertical" id="currentFolderGroup">
+				<html:legend>&qf.label.currentFolderButtons;</html:legend>
+				<vbox>
+					<description id="currentFolderDescription">&qf.description.currentFolderButtons;</description>
+					<checkbox id="chkCurrentToolbarFiltersButton" 
 						preference="curFolderbar.listbutton" 
 						label="&chkCurrentToolbar.btn.FilterList.label;" 
 						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-				<checkbox id="chkCurrentToolbarFolderButton" 
+					<checkbox id="chkCurrentToolbarFolderButton" 
 						preference="curFolderbar.folderbutton" 
 						label="&chkCurrentToolbar.btn.RunOnFolder.label;" 
 						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-				<checkbox id="chkCurrentToolbarMessagesButton" 
+					<checkbox id="chkCurrentToolbarMessagesButton" 
 						preference="curFolderbar.messagesbutton" 
 						label="&chkCurrentToolbar.btn.RunOnMessages.label;" 
 						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-				<checkbox id="chkCurrentFindFilterButton" 
+					<checkbox id="chkCurrentFindFilterButton" 
 						preference="curFolderbar.findfilterbutton" 
 						label="&chkCurrentToolbar.btn.FindFilter.label;" 
 						tooltiptext="&chkCurrentToolbar.btn.FindFilter.tooltip;"
 						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-			</groupbox>
-        <spacer flex="1" />
-        <hbox>
-				
-          <checkbox id="chkSearchBox" 
-                    preference="searchBox" 
-                    label="Search Filters Box (Experimental)" 
-                    />
-          <spacer flex="1" />
-          <checkbox id="chkDebug" 
-                    preference="debug" 
-                    label="&chkDebug.label;" 
-                    accesskey="&chkDebug.accesskey;"
-                    oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Options.showAboutConfig(this, 'quickfilters.debug', true);return false;"/>
-        </hbox>
-        <separator />
+				</vbox>
+			</html:fieldset>
+			<spacer flex="1" />
+			<hbox>
+			
+				<checkbox id="chkSearchBox" 
+									preference="searchBox" 
+									label="Search Filters Box (Experimental)" 
+									/>
+				<spacer flex="1" />
+				<checkbox id="chkDebug" 
+									preference="debug" 
+									label="&chkDebug.label;" 
+									accesskey="&chkDebug.accesskey;"
+									oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Options.showAboutConfig(this, 'quickfilters.debug', true);return false;"/>
+			</hbox>
+			<separator />
 	  </tabpanel> 
 
 	  <tabpanel id="quickFilters-Options-support"
@@ -533,19 +542,20 @@
 			</hbox>
 			<separator  style="height:1em;" />
 			<hbox>
-				<groupbox id="premiumConfig" disabled="true">
-					<caption label="&qf.premiumConfig;" />
-					<hbox>
-						<label class="plain-link" 
+				<html:fieldset id="premiumConfig" disabled="true">
+					<html:legend>&qf.premiumConfig;</html:legend>
+					<vbox>
+						<hbox>
+							<label class="plain-link" 
 									 tooltiptext="http://quickfilters.mozdev.org/"
 									 onclick="quickFilters.Util.showPremiumFeatures();">&qf.label.premiumFeaturesSite;</label>
-					</hbox>
-					<checkbox id="chkLocalFoldersAutorun" 
+						</hbox>
+						<checkbox id="chkLocalFoldersAutorun" 
 								preference="localFoldersRun" 
 								label="&chkLocalFoldersAutorun.label;" 
 								/>
-					
-				</groupbox>
+					</vbox>
+				</html:fieldset>
 			</hbox>
 			<!-- will be populated / modified from bundle in code -->
 			<hbox>
@@ -562,6 +572,8 @@
 	</tabbox>
     
   </prefpane>
-  
-  
-</prefwindow>
+	<script type="application/javascript" src="chrome://global/content/preferencesBindings.js" />
+	<script>
+	  quickFilters.Options.loadPreferences(); /* Tb 66 compatibility. Should be called _before_ DOMcontent Loaded event */
+	</script>
+</dialog>

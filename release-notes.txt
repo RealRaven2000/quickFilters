@@ -1,6 +1,18 @@
-<p>quickFilters Change Log - Version 3.11.1</p>
+quickFilters Change Log - Version 3.12.1
+
 <ul>
-<li>Completed Japanese locale - thanks to Masahiko Imanaka.</li>
-<li>Completed Dutch locale - thanks to markh van BabelZilla.org.</li>
-<li>Also special thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE] for consistently staying on top of the translations as I develop new features.</li>
+<li> <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26657" target="_blank">[Bug 26657]</a>  ESR 2019 Readyness - compatibility with Thunderbird 68
+
+Made quickFilters compatible with Thunderbird 68 - part of the ongoing effort to future proof quickFilters for 2020.  For now, this also means making the minimum requirement using Thunderbird version 60. 
+
+I may back-port new features to older versions on demand - these will be handled on a <a href="https://github.com/RealRaven2000/quickFilters/tree/Tb-52">separate Github branch</a>. Note that the Add-on will be necessarily released as 2 different version numbers for 60 and 68 because of the differences in architecture.,
+
+<ul> 
+<li> Replaced prefwindows with dialogs.</li>
+<li> Use newer preferences script.</li>
+<li> Replace groupbox elements with html fieldsets.</li>
+<li> Use new promise-based AddonManager object.</li>
+</ul> 
+</li>
+<li> The premium feature notification was not displaying the "close" button, this is now fixed.</li>
 </ul>

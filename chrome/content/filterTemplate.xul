@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!-- tb 64 -->
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
 <!--  tb 59 -->
 <?xml-stylesheet href="chrome://messenger/skin/preferences/preferences.css" type="text/css" ?>
 <?xml-stylesheet href="filterTemplate.css" type="text/css"?>
 <?xml-stylesheet href="filterWidgets.css" type="text/css"?>
 
 <!-- multiple language resources -->
-<!DOCTYPE prefwindow [
+<!DOCTYPE dialog [
   <!ENTITY % templateDTD SYSTEM "chrome://quickfilters/locale/filters.dtd">
   %templateDTD;
   <!ENTITY % commonDTD SYSTEM "chrome://quickfilters/locale/filterList.dtd">
   %commonDTD;
 ]>
 
-<prefwindow title="&qf.filters.title;"
+<dialog title="&qf.filters.title;"
 	id="qf-template"
-	buttons="extra2,cancel,extra1"
+	buttons="cancel,extra1,extra2"
 	defaultButton="extra1"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
 	buttonlabelcancel="&qf.label.cancel;"
 	buttonlabelextra1="&qf.continueFilter.label;"
 	buttonlabelextra2="&qf.label.donate;"
@@ -28,11 +30,11 @@
 	onload="quickFilters.Assistant.loadAssistant();"
 >
 
-	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
-	<script type="application/x-javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
+	<script type="application/javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
 	
 	
   <stringbundleset id="stringbundleset">
@@ -142,92 +144,99 @@
 				  flex = "2"
 					tooltiptext="&qf.filters.instructions;"
 					>
-					<listitem label='&qf.filters.template.from;' value='from' tooltip=""/>
-					<listitem label='&qf.filters.template.domain;' value='domain' tooltip=""/>
-					<listitem label='&qf.filters.template.to;' value='to' />
-					<listitem label='&qf.filters.template.replyto;' value='replyto' tooltip=""/>
-					<listitem label='&qf.filters.template.multifrom;' value='multifrom' tooltip=""/>
-					<listitem label='&qf.filters.template.maillist;' value='maillist' />
-					<listitem label='&qf.filters.template.topic;' value='topic' />
-					<listitem label='&qf.filters.template.tag;' value='tag' />
+					<richlistitem value='from'><description>&qf.filters.template.from;</description></richlistitem>
+					<richlistitem value='domain'><description>&qf.filters.template.domain;</description></richlistitem>
+					<richlistitem value='to'><description>&qf.filters.template.to;</description></richlistitem>
+					<richlistitem value='replyto'><description>&qf.filters.template.replyto;</description></richlistitem>
+					<richlistitem value='multifrom'><description>&qf.filters.template.multifrom;</description></richlistitem>
+					<richlistitem value='maillist'><description>&qf.filters.template.maillist;</description></richlistitem>
+					<richlistitem value='topic'><description>&qf.filters.template.topic;</description></richlistitem>
+					<richlistitem value='tag'><description>&qf.filters.template.tag;</description></richlistitem>
 				</richlistbox>
-				<groupbox orient="vertical"
+				<html:fieldset orient="vertical"
 						  tooltiptext="&qf.filters.actions.tooltip;">
-					<caption label="&qf.filters.actions.caption;" />
-					<checkbox id="chkActionTargetFolder" 
-					          preference="moveFolder"
+					<html:legend>&qf.filters.actions.caption;</html:legend>
+					<vbox>
+						<checkbox id="chkActionTargetFolder" 
+											preference="moveFolder"
 							  label="&qf.filters.actions.targetFolder;" 
 							  checked="true"
 							  />
-					<checkbox id="chkActionTags" 
+						<checkbox id="chkActionTags" 
 							  preference="tags" 
 							  label="&qf.filters.actions.tag;" 
 							  accesskey="&qf.filters.actions.tag.accesskey;"
 							  />
-					<checkbox id="chkActionPriority" 
+						<checkbox id="chkActionPriority" 
 							  preference="priority" 
 							  label="&qf.filters.actions.priority;" 
 							  accesskey="&qf.filters.actions.priority.accesskey;"
 							  />
-					<!-- Thunderbird only -->
-					<checkbox id="chkActionStar" 
+						<!-- Thunderbird only -->
+						<checkbox id="chkActionStar" 
 							  preference="star" 
 							  label="&qf.filters.actions.star;" 
 							  accesskey="&qf.filters.actions.star.accesskey;"
 							  />
-					<!-- SeaMonkey  -->
-					<checkbox id="chkActionFlag" 
+						<!-- SeaMonkey  -->
+						<checkbox id="chkActionFlag" 
 							  preference="flag" 
 							  label="&qf.filters.actions.flag;" 
 							  accesskey="&qf.filters.actions.flag.accesskey;"
 							  />
-				</groupbox>
-				<groupbox orient="vertical"
+					</vbox>
+				</html:fieldset>
+				<html:fieldset orient="vertical"
 						  tooltiptext="&qf.filters.steps.tooltip;">
-					<caption label="&qf.filters.steps.caption;" />
-					<checkbox id="chkShowEditor"
+					<html:legend>&qf.filters.steps.caption;</html:legend>
+					<vbox>
+						<checkbox id="chkShowEditor"
 								preference="showEditorAfterCreateFilter"
 								label="&qf.filters.steps.showEditor;" 
 								tooltiptext="&qf.filters.steps.showEditor.tooltip;"
 								oncommand="quickFilters.Assistant.setNextSteps();"
 								/>
-					<checkbox id="chkShowList"
+						<checkbox id="chkShowList"
 								preference="showListAfterCreateFilter"
 								label="&qf.filters.steps.showList;" 
 								tooltiptext="&qf.filters.steps.showList.tooltip;"
 								oncommand="quickFilters.Assistant.setNextSteps();"
 								/>
-					<checkbox id="chkAutoRun"
+						<checkbox id="chkAutoRun"
 								preference="runFilterAfterCreate"
 								label="&qf.filters.steps.autoRunFilter;" 
 								tooltiptext="&qf.filters.steps.autoRunFilter.tooltip;"
 								oncommand="quickFilters.Assistant.setNextSteps();"
 								/>
 								
-								
-				</groupbox>
+					</vbox>
+				</html:fieldset>
 			</hbox>
 			<hbox id="boxDescription">
 				<label id="templateLabel" value="&qf.filters.templates.description.label;" />
 				<description id="templateDescription"></description>
 			</hbox>
-			<groupbox id="preview" orient="vertical">
-			  <caption id="previewCaption" label="Email(s)" />
-				<hbox>
+			<html:fieldset id="preview" orient="vertical">
+			  <html:legend id="previewCaption">Email(s)</html:legend>
+				<vbox class="fieldset-body">
 					<description class="plain" id="previewFrom" value="Author: " />
-					<spacer flex="1"/>
 					<description class="plain" id="previewTo" value="Recipients: " />
-				</hbox>
-				<description class="plain" id="previewSubject" value="Subject: " />
-				<hbox>
-					<description class="plain" id="previewDate" value="Date: " />
-					<spacer flex="1"/>
-					<description class="plain" id="previewLines" value="Lines: " />
-				</hbox>
-			</groupbox>
+					<description class="plain" id="previewSubject" value="Subject: " />
+					<hbox>
+						<description class="plain" id="previewDate" value="Date: " />
+						<spacer flex="1"/>
+						<description class="plain" id="previewLines" value="Lines: " />
+					</hbox>
+				</vbox>
+			</html:fieldset>
 		</vbox>
 	</deck>
 		
     </prefpane>
-</prefwindow>
+		
+	<script type="application/javascript" src="chrome://global/content/preferencesBindings.js" />
+	<script>
+	  quickFilters.Assistant.loadPreferences(); /* Tb 66 compatibility. Should be called _before_ DOMcontent Loaded event */
+	</script>
+</dialog>
 

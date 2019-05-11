@@ -10,8 +10,10 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-
-Components.utils.import("resource://gre/modules/Services.jsm");
+if (typeof ChromeUtils.import == "undefined")
+	Components.utils.import("resource://gre/modules/Services.jsm");
+else
+	ChromeUtils.import("resource://gre/modules/Services.jsm");
 
 // highlight removable filter conditions (duplicates)
 // window.onload = function()
@@ -20,6 +22,7 @@ quickFilters.FilterEditor = {
     const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
     util.logDebug('quickFilters.loadEditor()');
+		if (prefs.isDebug) debugger;
     // filterEditorOnLoad(); was already called as we now use a listener!
     setTimeout( function() {
       function matchAction(actionType, actionString) {
@@ -212,11 +215,11 @@ quickFilters.FilterEditor = {
     // util.slideAlert(txt.replace('{1}', variable));
   },
 
-
-
   onDomLoaded: function(event) {
-    let util = quickFilters.Util;
+    const util = quickFilters.Util,
+		      prefs = quickFilters.Preferences;
     util.logDebug('quickFilters.editorDomLoaded()');
+		if (prefs.isDebug) debugger;
   },
   
   addCondition: function addFilterCondition(hdr, value) {
@@ -297,3 +300,7 @@ quickFilters.Util.acceptEditFilter = function acceptEditFilter(win) {
   }
 	return retVal;
 } ;
+
+window.addEventListener("load", function(e) { quickFilters.FilterEditor.onLoad(e);}, false); 
+window.addEventListener("DOMContentLoaded", function(e) { quickFilters.FilterEditor.onDomLoaded(e);}, false); 
+

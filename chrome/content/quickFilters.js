@@ -334,6 +334,10 @@ END LICENSE BLOCK
 		# Completed Dutch locale - thanks to markh van BabelZilla.org [nl]
 		# Also thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE]
 		
+	3.12 : 11/05/2019
+	  # Make compatible with Thunderbird 68
+		# Replaced preferences dialog, groupbox elements with html fields. New AddonManager object
+	  # made close button for premium notification visible again.
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
@@ -344,7 +348,10 @@ END LICENSE BLOCK
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
 {
   // Here, Postbox declares fixIterator
-  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+	if (typeof ChromeUtils.import == "undefined")
+		Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+	else
+		ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
 }   
 
 var quickFilters = {
@@ -718,10 +725,6 @@ var quickFilters = {
   },
 
   onApplyFilters: function onApplyFilters(silent) {
-		if (typeof ChromeUtils.import == "undefined") 
-			Components.utils.import("resource:///modules/mailServices.js", {});
-		else
-			ChromeUtils.import("resource:///modules/mailServices.js");
 		// from FilterListDialog.js
 		function getFilterFolderForSelection(aFolder) {
 			let rootFolder = aFolder && aFolder.server ? aFolder.server.rootFolder : null;
@@ -730,6 +733,7 @@ var quickFilters = {
 
 			return null;
 		}
+		
 
 		// does this work in non-inbox current folder?
     // Get the folder where filters should be defined, if that server
@@ -737,7 +741,18 @@ var quickFilters = {
 		const util = quickFilters.Util,
 					Ci = Components.interfaces,
 					Cc = Components.classes,
-					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);				
+					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);
+
+		if (util.versionGreaterOrEqual(util.AppverFull, "67")) 
+		  var {MailServices} =  ChromeUtils.import("resource:///modules/MailServices.jsm"); // new syntax?
+		else {
+			if (typeof ChromeUtils.import == "undefined") 
+				Components.utils.import("resource:///modules/mailServices.js", {});
+			else
+				ChromeUtils.import("resource:///modules/mailServices.js");
+		}
+					
+					
 		if (util.isDebug) debugger;
 		let folder = util.getCurrentFolder(),
         firstItem = getFilterFolderForSelection(folder),
