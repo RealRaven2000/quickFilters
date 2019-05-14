@@ -1,11 +1,13 @@
-quickFilters Change Log - Version 3.12.1
+quickFilters Change Log - Version 3.12.2
 
 <ul>
 <li> <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26657" target="_blank">[Bug 26657]</a>  ESR 2019 Readyness - compatibility with Thunderbird 68
 
 Made quickFilters compatible with Thunderbird 68 - part of the ongoing effort to future proof quickFilters for 2020.  For now, this also means making the minimum requirement using Thunderbird version 60. 
 
-I may back-port new features to older versions on demand - these will be handled on a <a href="https://github.com/RealRaven2000/quickFilters/tree/Tb-52">separate Github branch</a>. Note that the Add-on will be necessarily released as 2 different version numbers for 60 and 68 because of the differences in architecture.,
+It is not possible to release legacy Add-ons (which address Thunderbird versions before 60) after uploading the new "web-extension" style Add-ons which can be used on the latest version (Thunderbird 67 and higher). Therefore this will be the last release in "legacy format" - 
+
+Older source code is available on a <a href="https://github.com/RealRaven2000/quickFilters/tree/Tb-52">separate Github branch</a>. 
 
 <ul> 
 <li> Replaced prefwindows with dialogs.</li>
@@ -15,4 +17,5 @@ I may back-port new features to older versions on demand - these will be handled
 </ul> 
 </li>
 <li> The premium feature notification was not displaying the "close" button, this is now fixed.</li>
+<li> Fixed <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26662" target="_blank">[Bug 26662]</a> in 3.12.2:  Run Filters on folder button stopped workin on Thunderbird 60 (and older versions).</li>
 </ul>
