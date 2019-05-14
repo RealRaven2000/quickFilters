@@ -338,6 +338,10 @@ END LICENSE BLOCK
 	  # Make compatible with Thunderbird 68
 		# Replaced preferences dialog, groupbox elements with html fields. New AddonManager object
 	  # made close button for premium notification visible again.
+		
+	3.12.2 : 14/05/2019	
+	  # [Bug 26662] quickFilters 3.12 - Run Filters button not working on Thunderbird 60 
+		
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
@@ -743,13 +747,11 @@ var quickFilters = {
 					Cc = Components.classes,
 					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);
 
-		if (util.versionGreaterOrEqual(util.AppverFull, "67")) 
-		  var {MailServices} =  ChromeUtils.import("resource:///modules/MailServices.jsm"); // new syntax?
+		if (util.versionGreaterOrEqual(util.AppverFull, "67")) {
+		  ChromeUtils.import("resource:///modules/MailServices.jsm"); // new module spelling
+		}
 		else {
-			if (typeof ChromeUtils.import == "undefined") 
-				Components.utils.import("resource:///modules/mailServices.js", {});
-			else
-				ChromeUtils.import("resource:///modules/mailServices.js");
+			Components.utils.import("resource:///modules/mailServices.js", {});
 		}
 					
 					
@@ -783,7 +785,8 @@ var quickFilters = {
 			// disabled filters because the Filter Dialog filter after the fact
 			// code would have to clone filters to allow disabled filters to run,
 			// and we don't support cloning filters currently.
-			let tempFilterList = MailServices.filters.getTempFilterList(folder),
+			let mserv = MailServices,
+			    tempFilterList = mserv.filters.getTempFilterList(folder),
 			    numFilters = curFilterList.filterCount,
 					selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
 			selectedFolders.appendElement(folder, false);
@@ -807,7 +810,7 @@ var quickFilters = {
 				util.logException(ex);
 			}
 			if (util.isDebug) debugger;
-			MailServices.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
+			mserv.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
 		}
   },
   

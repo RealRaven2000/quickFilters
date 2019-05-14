@@ -8,4 +8,4 @@ pwsh -Command "(gc -en UTF8NoBOM install.rdf) -replace 'pre%oldQIWebRev%', 'pre%
 echo %quickFiltersWebRev% > revision.txt
 move quickFilters*.xpi ..\..\_Test\3.12
 pwsh -Command "Start-Sleep -m 50"
-rename quickFiltersWeb.zip quickFilters-m-3.12.1pre%quickFiltersWebRev%.xpi
+rename quickFiltersWeb.zip quickFilters-m-3.12.3pre%quickFiltersWebRev%.xpi
