@@ -31,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.12.2",
+  HARDCODED_CURRENTVERSION : "3.13",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -268,6 +268,7 @@ quickFilters.Util = {
 			}
 		return this.mPlatformVer;
 	} ,
+	
 	
   isVirtual: function isVirtual(folder) {
     if (!folder)
@@ -800,6 +801,26 @@ quickFilters.Util = {
 		}
 		return accounts;
 	},
+	
+	
+  // safe wrapper to get member from account.identities array
+  getIdentityByIndex: function getIdentityByIndex(ids, index) {
+    const Ci = Components.interfaces;
+    if (!ids) return null;
+    try {
+      if (ids.queryElementAt) {
+        return ids.queryElementAt(index, Ci.nsIMsgIdentity);
+      }
+      if (ids.QueryElementAt) {  // Postbox
+        return ids.QueryElementAt(index, Ci.nsIMsgIdentity);
+      }
+      return null;
+    }
+    catch(ex) {
+      quickFilters.Util.logDebug('Exception in getIdentityByIndex(ids,' + index + ') \n' + ex.toString());
+    }
+    return null;
+  } ,
 	
   getTabInfoLength: function getTabInfoLength(tabmail) {
 		if (tabmail.tabInfo)
