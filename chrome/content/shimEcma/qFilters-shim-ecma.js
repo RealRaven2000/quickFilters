@@ -65,7 +65,10 @@ if (!quickFilters.Shim) {
 				// 1. create a list of matched filters and corresponding accounts 
 				//    (these will be linked via index
 				if (typeof fixIterator == "undefined") {// Postbox fix
-					Components.utils.import("resource:///modules/iteratorUtils.jsm");
+					if (typeof ChromeUtils.import == "undefined")
+						Components.utils.import("resource:///modules/iteratorUtils.jsm");
+					else
+						ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
 				}
 				for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
 					if (account.incomingServer && account.incomingServer.canHaveFilters ) {

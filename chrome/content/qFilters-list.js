@@ -13,7 +13,10 @@ END LICENSE BLOCK
 
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
 { // Here, Postbox declares fixIterator
-  Components.utils.import("resource:///modules/iteratorUtils.jsm");
+	if (typeof ChromeUtils.import == "undefined")
+   Components.utils.import("resource:///modules/iteratorUtils.jsm");
+ else
+	 ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
 }
 
 // note: in QuickFolder_s, this object is simply called "Filter"!
@@ -1950,6 +1953,10 @@ quickFilters.List = {
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
 		
 		if (prefs.isDebugOption('filterSearch')) debugger;
+		
+		if (util.versionGreaterOrEqual(util.AppverFull, "67")) 
+		  var {MailServices} =  ChromeUtils.import("resource:///modules/MailServices.jsm");
+
     
     // find out of we need to change server:
     let item = el.selectedItem,
@@ -1959,7 +1966,9 @@ quickFilters.List = {
         actionType = item.getAttribute('actionType'),    
         // change server to correct account (originating inbox)
         aFolder = account ?
-					(MailUtils ? MailUtils.getFolderForURI(account.serverURI) : account.rootMsgFolder) 
+					(MailUtils ? 
+					  (MailUtils.getExistingFolder ? MailUtils.getExistingFolder(account.serverURI) : MailUtils.getFolderForURI(account.serverURI)) 
+						: account.rootMsgFolder) 
 					: null;
 
 		// check whether we changed to a different server:		

@@ -17,9 +17,6 @@
 	<script type="application/x-javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
 	
 	
-  <toolbarpalette id="QuickFiltersToolbarPalette">
-  </toolbarpalette>	
-	
 
 	<window id="filterListDialog">
   

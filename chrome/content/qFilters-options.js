@@ -10,8 +10,10 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-
-Components.utils.import('resource://gre/modules/Services.jsm');
+if (typeof ChromeUtils.import == "undefined")
+	Components.utils.import('resource://gre/modules/Services.jsm');
+else
+	ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 quickFilters.Options = {
 	optionsMode : "",  // filter out certain pages (for support / help only)
@@ -80,13 +82,34 @@ quickFilters.Options = {
       this.validateLicenseInOptions(false);
     }
 		
-		
     let getCopyBtn = getElement('getCopySentToCurrent'),
         getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
     getCopyBtn.textContent = getCopyText.replace('{1}','\'Copy Sent to Current\'');
     options.configExtra2Button();		
   } ,
   
+	
+	// Tb 66 compatibility.
+	loadPreferences: function qi_loadPreferences() {
+		const util = quickFilters.Util;
+		if (typeof Preferences == 'undefined') {
+			util.logDebug("Skipping loadPreferences - Preferences object not defined");
+			return; // older versions of Thunderbird do not need this.
+		}		
+		let myprefs = document.getElementsByTagName("preference");
+		if (myprefs.length) {
+			let prefArray = [];
+			for (let i=0; i<myprefs.length; i++) {
+				let it = myprefs.item(i),
+				    p = { id: it.id, name: it.getAttribute('name'), type: it.getAttribute('type') };
+				if (it.getAttribute('instantApply') == "true") p.instantApply = true;
+				prefArray.push(p);
+			}
+			if (Preferences)
+				Preferences.addAll(prefArray);
+		}							
+	},
+	
   toggleBoolPreference: function(cb, noUpdate) {
     let prefString = cb.getAttribute("preference"),
         pref = document.getElementById(prefString);
@@ -442,6 +465,10 @@ quickFilters.Options = {
 					options = quickFilters.Options,
 		      licenser = util.Licenser,
 					State = licenser.ELicenseState;
+		if (!document.documentElement.getButton) {
+			util.logDebug("Cannot configure extra2 button, likely because this is a modern version of Thunderbird.");
+			return;
+		}
 		let donateButton = document.documentElement.getButton('extra2');
 		if(!el) el = document.getElementById("quickFilters-Panels");
 		switch (el.selectedPanel.id) {

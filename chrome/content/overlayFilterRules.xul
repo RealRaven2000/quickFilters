@@ -5,7 +5,6 @@
 <overlay id="QuickFilters-FilterRulesOverlay"
 		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-mime.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-filterEditor.js" />
@@ -14,8 +13,7 @@
 	<dialog id="FilterEditor"
 	  ondialogaccept = "{ return quickFilters.Util.acceptEditFilter(window); }" >
 		
-		<hbox  id="quickFilters-CustomTemplate" 
-		       collapsed="true" >
+		<hbox id="quickFilters-CustomTemplate" collapsed="true" >
 			<img src="chrome:///quickfilters/skin/proFeature24.png" id="customLogo" />
 			<spacer flex="1" />
 			<label id="quickFilters-CustomTitle"
@@ -100,11 +98,6 @@
 		  
 		</hbox>
 		
-		<script type="text/javascript">
-			window.addEventListener("load", function(e) { quickFilters.FilterEditor.onLoad(e);}, false); 
-			window.addEventListener("DOMContentLoaded", function(e) { quickFilters.FilterEditor.onDomLoaded(e);}, false); 
-		</script>
-	</dialog>
-	
 
+	</dialog>
 </overlay>		

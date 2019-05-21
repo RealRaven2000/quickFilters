@@ -334,6 +334,14 @@ END LICENSE BLOCK
 		# Completed Dutch locale - thanks to markh van BabelZilla.org [nl]
 		# Also thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE]
 		
+	3.12 : 11/05/2019
+	  # Make compatible with Thunderbird 68
+		# Replaced preferences dialog, groupbox elements with html fields. New AddonManager object
+	  # made close button for premium notification visible again.
+		
+	3.12.2 : 14/05/2019	
+	  # [Bug 26662] quickFilters 3.12 - Run Filters button not working on Thunderbird 60 
+		
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
@@ -344,7 +352,10 @@ END LICENSE BLOCK
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
 {
   // Here, Postbox declares fixIterator
-  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+	if (typeof ChromeUtils.import == "undefined")
+		Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+	else
+		ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
 }   
 
 var quickFilters = {
@@ -718,10 +729,6 @@ var quickFilters = {
   },
 
   onApplyFilters: function onApplyFilters(silent) {
-		if (typeof ChromeUtils.import == "undefined") 
-			Components.utils.import("resource:///modules/mailServices.js", {});
-		else
-			ChromeUtils.import("resource:///modules/mailServices.js");
 		// from FilterListDialog.js
 		function getFilterFolderForSelection(aFolder) {
 			let rootFolder = aFolder && aFolder.server ? aFolder.server.rootFolder : null;
@@ -730,6 +737,7 @@ var quickFilters = {
 
 			return null;
 		}
+		
 
 		// does this work in non-inbox current folder?
     // Get the folder where filters should be defined, if that server
@@ -737,7 +745,16 @@ var quickFilters = {
 		const util = quickFilters.Util,
 					Ci = Components.interfaces,
 					Cc = Components.classes,
-					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);				
+					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);
+
+		if (util.versionGreaterOrEqual(util.AppverFull, "67")) {
+		  ChromeUtils.import("resource:///modules/MailServices.jsm"); // new module spelling
+		}
+		else {
+			Components.utils.import("resource:///modules/mailServices.js", {});
+		}
+					
+					
 		if (util.isDebug) debugger;
 		let folder = util.getCurrentFolder(),
         firstItem = getFilterFolderForSelection(folder),
@@ -768,7 +785,8 @@ var quickFilters = {
 			// disabled filters because the Filter Dialog filter after the fact
 			// code would have to clone filters to allow disabled filters to run,
 			// and we don't support cloning filters currently.
-			let tempFilterList = MailServices.filters.getTempFilterList(folder),
+			let mserv = MailServices,
+			    tempFilterList = mserv.filters.getTempFilterList(folder),
 			    numFilters = curFilterList.filterCount,
 					selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
 			selectedFolders.appendElement(folder, false);
@@ -792,7 +810,7 @@ var quickFilters = {
 				util.logException(ex);
 			}
 			if (util.isDebug) debugger;
-			MailServices.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
+			mserv.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
 		}
   },
   

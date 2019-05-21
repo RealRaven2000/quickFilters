@@ -378,3 +378,7 @@ hbox.quickhelp-dbg {
 #validationPassed {
   color: rgb(0,120,0);
 }
+
+#currentFolderDescription {
+	height: 32px; /* fix a problem with fieldset cutting into the last checkbox - force height of 2 lines! */
+}

@@ -9,13 +9,7 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
-{
-  Components.utils.import("resource:///modules/MailUtils.js");
-  // Here, Postbox declares fixIterator
-  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
-}
-
+// moved import code to bottom for app version detection...
 quickFilters.Properties = {
   bundle: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties"),
 
@@ -37,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.11.1",
+  HARDCODED_CURRENTVERSION : "3.12.3",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -85,23 +79,33 @@ quickFilters.Util = {
 	},
 		
   getMsgFolderFromUri:  function getMsgFolderFromUri(uri, checkFolderAttributes) {
+		const util = quickFilters.Util,
+					Cc = Components.classes,
+					Ci =  Components.interfaces;
     let msgfolder = null;
-    if (typeof MailUtils != 'undefined' && MailUtils.getFolderForURI) {
-      return MailUtils.getFolderForURI(uri, checkFolderAttributes);
+    if (typeof MailUtils != 'undefined') {
+			if (MailUtils.getExistingFolder)
+				return MailUtils.getExistingFolder(uri, checkFolderAttributes);
+			else	
+				return MailUtils.getFolderForURI(uri, checkFolderAttributes);
     }
     try {
-      let main = this.getMail3PaneWindow(),
-          resource = main.GetMsgFolderFromUri ? main.GetMsgFolderFromUri(uri, checkFolderAttributes) : main.GetResourceFromUri(uri); // Postbox: this should be defined in widgetglue.js
-      msgfolder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
-      if (checkFolderAttributes) {
-        if (!(msgfolder && (msgfolder.parent || msgfolder.isServer))) {
-          msgfolder = null;
-        }
-      }
+			let rdfService = Cc['@mozilla.org/rdf/rdf-service;1'].getService(Ci.nsIRDFService);
+			msgfolder = rdfService.GetResource(uri);
+			if (!msgfolder) {
+				let main = this.getMail3PaneWindow(),
+						resource = main.GetMsgFolderFromUri ? main.GetMsgFolderFromUri(uri, checkFolderAttributes) : main.GetResourceFromUri(uri); // Postbox: this should be defined in widgetglue.js
+				msgfolder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
+			}
+			if (checkFolderAttributes) {
+				if (!(msgfolder && (msgfolder.parent || msgfolder.isServer))) {
+					msgfolder = null;
+				}
+			}
     }
     catch (ex) {
        //dump("failed to get the folder resource\n");
-       quickFilters.Util.logException("getMsgFolderFromUri( " + uri + ")", ex);
+       util.logException("getMsgFolderFromUri( " + uri + ")", ex);
     }
     return msgfolder;
   } ,
@@ -190,11 +194,9 @@ quickFilters.Util = {
         return;
       util.VersionProxyRunning = true;
       util.logDebug("Util.VersionProxy() started.");
-      let myId = util.ADDON_ID;
       if (Components.utils.import) {
-        Components.utils.import("resource://gre/modules/AddonManager.jsm");
-
-        AddonManager.getAddonByID(myId, function(addon) {
+				
+				let versionCallback = function(addon) {
           util.mExtensionVer = addon.version;
           util.logDebug("AddonManager: quickFilters extension's version is " + addon.version);
           let versionLabel = window.document.getElementById("qf-options-version");
@@ -204,7 +206,14 @@ quickFilters.Util = {
             util.logDebug("Version Box: " + versionLabel.boxObject.width + "px");
             // versionLabel.style.setProperty('margin-left', ((versionLabel.boxObject.width + 32)*(-1)).toString() + 'px', 'important');
           }
-        });
+        }
+
+				Components.utils.import("resource://gre/modules/AddonManager.jsm");
+				const addonId = util.ADDON_ID.toString(); // for some reason this ended up being an object?
+				if (util.versionGreaterOrEqual(util.AppverFull, "61")) 
+					AddonManager.getAddonByID(addonId).then(function(addonId) { versionCallback(addonId); } ); // this function is now a promise
+				else
+					AddonManager.getAddonByID(addonId, versionCallback);
       }
       util.logDebug("AddonManager.getAddonByID .. added callback for setting extensionVer.");
 
@@ -259,6 +268,7 @@ quickFilters.Util = {
 			}
 		return this.mPlatformVer;
 	} ,
+	
 	
   isVirtual: function isVirtual(folder) {
     if (!folder)
@@ -792,6 +802,26 @@ quickFilters.Util = {
 		return accounts;
 	},
 	
+	
+  // safe wrapper to get member from account.identities array
+  getIdentityByIndex: function getIdentityByIndex(ids, index) {
+    const Ci = Components.interfaces;
+    if (!ids) return null;
+    try {
+      if (ids.queryElementAt) {
+        return ids.queryElementAt(index, Ci.nsIMsgIdentity);
+      }
+      if (ids.QueryElementAt) {  // Postbox
+        return ids.QueryElementAt(index, Ci.nsIMsgIdentity);
+      }
+      return null;
+    }
+    catch(ex) {
+      quickFilters.Util.logDebug('Exception in getIdentityByIndex(ids,' + index + ') \n' + ex.toString());
+    }
+    return null;
+  } ,
+	
   getTabInfoLength: function getTabInfoLength(tabmail) {
 		if (tabmail.tabInfo)
 		  return tabmail.tabInfo.length;
@@ -977,6 +1007,32 @@ quickFilters.Util = {
     catch(e) { return false; }
     return true;
   } ,
+	
+	versionGreaterOrEqual: function(a, b) {
+		/*
+			Compares Application Versions
+			returns
+			- is smaller than 0, then A < B
+			-  equals 0 then Version, then A==B
+			- is bigger than 0, then A > B
+		*/
+		let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
+														.getService(Components.interfaces.nsIVersionComparator);
+		return (versionComparator.compare(a, b) >= 0);
+	} ,
+
+	versionSmaller: function(a, b) {
+		/*
+			Compares Application Versions
+			returns
+			- is smaller than 0, then A < B
+			-  equals 0 then Version, then A==B
+			- is bigger than 0, then A > B
+		*/
+		let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
+														.getService(Components.interfaces.nsIVersionComparator);
+		 return (versionComparator.compare(a, b) < 0);
+	} ,	
 	
 	debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
 	  if (!quickFilters.Preferences.isDebugOption("createFilter"))
@@ -2130,9 +2186,7 @@ quickFilters.mimeDecoder = {
 	headerParam: Components
 	             .classes["@mozilla.org/network/mime-hdrparam;1"]
 	             .getService(Components.interfaces.nsIMIMEHeaderParam),
-	cvtUTF8 : Components
-	             .classes["@mozilla.org/intl/utf8converterservice;1"]
-	             .getService(Components.interfaces.nsIUTF8ConverterService),
+
 	// -----------------------------------
 	// Detect character set
 	// jcranmer: this is really impossible based on such short fields
@@ -2191,11 +2245,18 @@ quickFilters.mimeDecoder = {
 			}
 			else {
 				// for Mailers who have no manners.
-				if (charset === "")
-					charset = this.detectCharset(theString);
-				let skip = charset.search(/ISO-2022|HZ-GB|UTF-7/gmi) !== -1;
-				// this will always fail if theString is not an ACString?
-				decodedStr = this.cvtUTF8.convertStringToUTF8(theString, charset, skip);
+				if (util.versionGreaterOrEqual(util.AppverFull, "61")) {
+					util.logDebug("Mailer has no manners, trying to decode string: " + theString);
+					decodedStr = decodeURIComponent(escape(theString));
+					util.logDebug("...decoded string: " + decodedStr);
+				}	
+				else {
+					if (charset === "")
+						charset = this.detectCharset(theString);
+					let skip = charset.search(/ISO-2022|HZ-GB|UTF-7/gmi) !== -1,
+					    cvtUTF8 = Components.classes["@mozilla.org/intl/utf8converterservice;1"].getService(Components.interfaces.nsIUTF8ConverterService),
+					decodedStr = this.cvtUTF8.convertStringToUTF8(theString, charset, skip);
+				}
 			}
 		}
 		catch(ex) {
@@ -2487,3 +2548,15 @@ quickFilters.mimeDecoder = {
 		return addresses;
 	} // split
 };  // quickFilters.mimeDecoder
+
+
+
+if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com") {
+	const util = quickFilters.Util;
+	if (util.versionGreaterOrEqual(util.AppverFull, "61")) 
+		ChromeUtils.import("resource:///modules/MailUtils.jsm");
+	else
+		Components.utils.import("resource:///modules/MailUtils.js");
+  // Here, Postbox declares fixIterator
+  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+}

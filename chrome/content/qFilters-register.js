@@ -10,7 +10,10 @@ END LICENSE BLOCK
 */
 
 
-Components.utils.import('resource://gre/modules/Services.jsm');	
+if (typeof ChromeUtils.import == "undefined")
+	Components.utils.import('resource://gre/modules/Services.jsm'); // Thunderbird 52
+else
+	ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 quickFilters.Crypto = {
   get key_type() {

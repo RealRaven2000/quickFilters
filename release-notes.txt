@@ -1,6 +1,18 @@
-<p>quickFilters Change Log - Version 3.11.1</p>
+<p>quickFilters Change Log - Version 3.12.3</p>
+<p>Last maintenance version that supports Thunderbird 52. Future version require at least Thunderbird 60 because they will be compatible with Mozilla's new "web-Extensions" system.</p>
 <ul>
-<li>Completed Japanese locale - thanks to Masahiko Imanaka.</li>
-<li>Completed Dutch locale - thanks to markh van BabelZilla.org.</li>
-<li>Also special thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE] for consistently staying on top of the translations as I develop new features.</li>
+<li> On ATN, it is not possible to release legacy Add-ons (which address Thunderbird versions before 60) after uploading the new "web-extension" style Add-ons which can be used on the latest version (Thunderbird 67 and higher). Therefore this will be the last release in "legacy format" - 
+
+Older source code is available on a <a href="https://github.com/RealRaven2000/quickFilters/tree/Tb-52">separate Github branch</a>. 
+
+<ul> 
+<li> Replaced prefwindows with dialogs.</li>
+<li> Use newer preferences script.</li>
+<li> Replace groupbox elements with html fieldsets.</li>
+<li> Use new promise-based AddonManager object.</li>
+</ul> 
+</li>
+<li> The premium feature notification was not displaying the "close" button, this is now fixed.</li>
+<li> <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26662" target="_blank">[Bug 26662]</a> Run Filters on folder button stopped workin on Thunderbird 60 (and older versions).</li>
+<li> <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26663" target="_blank">[Bug 26663]</a> Force secondary identity for licenses doesn't work.</li>
 </ul>
