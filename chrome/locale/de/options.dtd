@@ -61,6 +61,7 @@
 <!ENTITY chkMergeAuto.tooltip "Falls schon ein Filter vorhanden ist, wird Kombinieren voreingestellt und der erste Filter als Ziel markiert.">
 <!ENTITY chkMergeSkip.label "Zu Vorlagen springen">
 <!ENTITY chkMergeSkip.tooltip "Überspringt den Schritt 'Mit existierendem Filter kombinieren' und geht direkt zu 'Vorlage wählen'.">
+<!ENTITY chkInsertRulesAtTop.label "Neue Regeln oben einfügen.">
 <!ENTITY qf.cloned.label "Endwort für geklonten Filter:">
 <!ENTITY qf.onewayaddress.label "Zweiweg Mailaddressen abschalten">
 <!ENTITY qf.onewayaddress.tooltip "Standardmäßig fügt quickFilters sowohl 'Von' (Absender) und 'An' (Empfänger) in die Suchbedingungen ein, damit die komplette Konversation inklusive der eigenen Emails an diesen Empfänger gefiltert wird. Falls Sie Ihre eigene Email immer im 'Gesendet' Verzeichnis belassen wollen, kann diese Vorgehen hier deaktiviert werden. Das Addon 'Copy Sent to Current' kann benutzt werden um Antworten mit ihren ursprünglichen Emails zusammen zu halten.">

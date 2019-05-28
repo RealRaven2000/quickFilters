@@ -1,12 +1,11 @@
-REM  create a new build for quickFilters
-set /P quickFiltersRev=<revision.txt
-set /a oldQuickFiltersRev=%quickFiltersRev%
-set /a quickFiltersRev+=1
-pwsh -Command "(gc -en UTF8NoBOM manifest.json) -replace 'pre%oldQuickFiltersRev%', 'pre%quickFiltersRev%' | Out-File manifest.json"
-pwsh -Command "(gc -en UTF8NoBOM install.rdf) -replace 'pre%oldQuickFiltersRev%', 'pre%quickFiltersRev%' | Out-File install.rdf"
-"C:\Program Files\7-Zip\7z" a -xr!.svn quickFiltersWeb.zip install.rdf chrome.manifest chrome defaults license.txt
-echo %quickFiltersRev% > revision.txt
-move quickFilters*.xpi ..\..\_Test\3.12
+REM  create a new build for quickFilters - hybrid build supports 60 legacy and 68 wx environment
+set /P quickFiltersWebRev=<revision.txt
+set /a oldQIWebRev=%quickFiltersWebRev%
+set /a quickFiltersWebRev+=1
+pwsh -Command "(gc -en UTF8NoBOM manifest.json) -replace 'pre%oldQIWebRev%', 'pre%quickFiltersWebRev%' | Out-File manifest.json"
+pwsh -Command "(gc -en UTF8NoBOM install.rdf) -replace 'pre%oldQIWebRev%', 'pre%quickFiltersWebRev%' | Out-File install.rdf"
+"C:\Program Files\7-Zip\7z" a -xr!.svn quickFiltersWeb.zip manifest.json install.rdf chrome.manifest chrome defaults license.txt
+echo %quickFiltersWebRev% > revision.txt
+move quickFilters*.xpi ..\..\_Test\4.0
 pwsh -Command "Start-Sleep -m 50"
-rename quickFiltersWeb.zip quickFilters-3.12.3pre%quickFiltersRev%.xpi
-rename quickFiltersWeb.zip quickFilters-m-3.12.3pre%quickFiltersRev%.xpi
+rename quickFiltersWeb.zip quickFilters-wx-4.0.1pre%quickFiltersWebRev%.xpi

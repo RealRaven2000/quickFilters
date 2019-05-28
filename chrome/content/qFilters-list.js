@@ -2121,18 +2121,21 @@ quickFilters.List = {
 					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
 		util.popupProFeature(mode + "_template", true); // save_template, load_template
 					
-    let //localized text for filePicker filter menu
-		    strBndlSvc = Cc["@mozilla.org/intl/stringbundle;1"].getService(Ci.nsIStringBundleService),
-		    bundle = strBndlSvc.createBundle("chrome://quickfilters/locale/overlay.properties"),
-        filterText;
-    
-		let fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker),
+    let filterText,    
+		    fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker),
         fileOpenMode = (mode=='load') ? fp.modeOpen : fp.modeSave;
     
-		if (prefs.getStringPref('files.path')) {
+		let dPath = prefs.getStringPref('files.path');
+		if (dPath) {
 			let defaultPath = Cc["@mozilla.org/file/local;1"].createInstance(NSIFILE);
-			defaultPath.initWithPath(prefs.getStringPref('files.path'))
-			fp.displayDirectory = defaultPath; // nsILocalFile
+			defaultPath.initWithPath(dPath);
+			if (defaultPath.exists()) { // avoid crashes if the folder has been deleted
+				fp.displayDirectory = defaultPath; // nsILocalFile
+				util.logDebug("Setting default path for filepicker: " + dPath);
+			}
+			else {
+				util.logDebug("fileFilters()\nPath does not exist: " + dPath);
+			}
 		}
 		fp.init(window, "", fileOpenMode); // second parameter: prompt
     filterText = util.getBundleString("quickfilters.fpJsonFile","JSON File");

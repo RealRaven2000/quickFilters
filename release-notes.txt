@@ -1,24 +1,10 @@
-quickFilters Change Log - Version 3.12.3
+quickFilters Change Log - Version 4.0.1
 
-Last maintenance version that supports Thunderbird 52. Future version require at least Thunderbird 60 because they will be compatible with Mozilla's new "web-Extensions" system.
+First version which will be compatible with the next ESR version Thunderbird 68 (or later)
 
 <ul>
-<li> <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26657" target="_blank">[Bug 26657]</a>  ESR 2019 Readyness - compatibility with Thunderbird 68
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26657" target="_blank">[Bug 26657]</a> ESR Readiness (WIP):
 
-Made quickFilters compatible with Thunderbird 68 - part of the ongoing effort to future proof quickFilters for 2020.  For now, this also means making the minimum requirement using Thunderbird version 60. 
-
-It is not possible to release legacy Add-ons (which address Thunderbird versions before 60) after uploading the new "web-extension" style Add-ons which can be used on the latest version (Thunderbird 67 and higher). Therefore this will be the last release in "legacy format" - 
-
-Older source code is available on a <a href="https://github.com/RealRaven2000/quickFilters/tree/Tb-52">separate Github branch</a>. 
-
-<ul> 
-<li> Replaced prefwindows with dialogs.</li>
-<li> Use newer preferences script.</li>
-<li> Replace groupbox elements with html fieldsets.</li>
-<li> Use new promise-based AddonManager object.</li>
-</ul> 
-</li>
-<li> The premium feature notification was not displaying the "close" button, this is now fixed.</li>
-<li> Fixed in 3.12.2: <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26662" target="_blank">[Bug 26662]</a> Run Filters on folder button stopped workin on Thunderbird 60 (and older versions).</li>
-<li> Fixed in 3.12.3: <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26663" target="_blank">[Bug 26663]</a> Force secondary identity for licenses doesn't work.</li>
+New - quickFilters as web extension: Version 4.0 officially supports Thunderbird 69, minimum version  from now on will be Thunderbird 60. For earlier versions of Thunderbird, please visit the <a href="http://interlink-addons.binaryoutcast.com/addon/quickfilters/" target=_blank>version hosted at Interlink</a>. </li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26664" target="_blank">[Bug 26664]</a> Merging filters - new option to add condition on top instead of appending at bottom</li>
 </ul>

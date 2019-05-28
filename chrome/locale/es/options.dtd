@@ -61,6 +61,7 @@
 <!ENTITY chkMergeAuto.tooltip "Si ya existe un filtro, esto seleccionará automáticamente el modo de combinado y el primer filtro coincidente.">
 <!ENTITY chkMergeSkip.label "Saltar hasta el paso de la plantilla">
 <!ENTITY chkMergeSkip.tooltip "Esto omitirá el paso 'seleccionar objetivo de combinado' e irá directo a 'seleccionar plantilla'.">
+<!ENTITY chkInsertRulesAtTop.label "Add new rules on top of list.">
 <!ENTITY qf.cloned.label "Añadir al nombre del filtro clonado:">
 <!ENTITY qf.onewayaddress.label "Deshabilitar las condiciones de búsqueda de direcciones para ambos sentidos">
 <!ENTITY qf.onewayaddress.tooltip "Por defecto, quickFilters añade condiciones de búsqueda tanto para 'De' como para 'A'  para la asistencia al filtrado de hilos completos de mensajes, incluyendo sus propios correos para el destinatario. Si quiere mantener siempre sus respuestas en la carpeta Enviados, puede deshabilitar este comportamiento aquí. El complemento 'Copy Sent to Current' (copiar enviados a actual) se puede usar para mantener las respuestas junto a los correos que las originan.">

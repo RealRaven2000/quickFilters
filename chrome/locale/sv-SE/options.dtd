@@ -61,6 +61,7 @@
 <!ENTITY chkMergeAuto.tooltip "Om ditt nya filter redan finns kommer quickFilters automatiskt att slå samman det med det första matchande filtret.">
 <!ENTITY chkMergeSkip.label "Hoppa till Välj mall">
 <!ENTITY chkMergeSkip.tooltip "Hoppar över steget Välj sammanslagningsmål och går direkt till Välj mall.">
+<!ENTITY chkInsertRulesAtTop.label "Lägg till nya regler längst upp på listan.">
 <!ENTITY qf.cloned.label "Bifoga följande till namnet på duplicerat filter:">
 <!ENTITY qf.onewayaddress.label "Inaktivera tvåvägssökvillkor för adresser">
 <!ENTITY qf.onewayaddress.tooltip "Som standard lägger quickFilters till sökvillkor för både &quot;från&quot; och &quot;till&quot;, för att underlätta fullständig filtrering av meddelandetrådar som innehåller dina egna e-brev till mottagaren. Om du alltid vill förvara dina svar i mappen Skickat, så kan du inaktivera detta beteende här. Tillägget &quot;Copy Sent to Current&quot; kan användas för att behålla svarsmeddelanden tillsammans med de ursprungliga e-breven.">

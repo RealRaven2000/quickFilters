@@ -813,6 +813,23 @@ quickFilters.Worker = {
           Ci = Components.interfaces,
           util = quickFilters.Util,
 					prefs = quickFilters.Preferences;
+		function addTerm(target, term) {
+			if (isMerge && prefs.getBoolPref('searchterm.insertOnTop')) {
+				try {
+					// [Bug 26664] add condition on top instead of appending at bottom
+					let ts = target.searchTerms; // returns  nsIMutableArray
+					ts.insertElementAt(term, 0);
+				}
+				catch (ex) {
+					util.logException("Could not insert term at top - appending to end instead.", ex);
+					target.appendTerm(term);
+				}
+			}
+			else {
+				target.appendTerm(term);
+			}			
+		}
+					
     function createTerm(filter, attrib, op, val, customId) {
       // if attrib = custom?
       // https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMsgSearchTerm
@@ -852,7 +869,7 @@ quickFilters.Worker = {
           }
           else {
             let term = createTerm(targetFilter, attrib, operator, trmValue, customId);
-            targetFilter.appendTerm(term);
+						addTerm(targetFilter, term);
           }
         }
         catch(ex) {
@@ -1090,7 +1107,7 @@ quickFilters.Worker = {
 						}
 						else if (mailAddresses.indexOf(emailAddress) == -1) { // avoid duplicates
 							searchTerm = createTerm(targetFilter, typeAttrib.Sender, typeOperator.Contains, emailAddress);
-							targetFilter.appendTerm(searchTerm);
+							addTerm(targetFilter, searchTerm);
 							util.logDebugOptional ('template.multifrom', 'Added to multiple(from) filter: ' + emailAddress);
 							mailAddresses.push(emailAddress);
 						}
@@ -1162,7 +1179,7 @@ quickFilters.Worker = {
 					// retrieve valueId from value!  - if the term was added as a custom term it will have an id in the attributes dropdown
 					val.str = listIdValue; // copy string into val object
 					searchTerm.value = val; // copy object back into 
-					targetFilter.appendTerm(searchTerm);
+					addTerm(targetFilter, searchTerm);
 				}
 				else {
 					addressArray = emailAddress.split(",");
@@ -1213,7 +1230,7 @@ quickFilters.Worker = {
               attrib: searchTerm.attrib,
               str: topicFilter
             };
-            targetFilter.appendTerm(searchTerm);
+						addTerm(targetFilter, searchTerm);
             if (i==0) topics = topicFilter;
 					}
 				}
@@ -1230,7 +1247,7 @@ quickFilters.Worker = {
 				//createTerm(filter, attrib, op, val)
 				for (let i = msgKeyArray.length - 1; i >= 0; --i) {
 					searchTerm = createTerm(targetFilter, typeAttrib.Keywords, typeOperator.Contains, msgKeyArray[i]);
-					targetFilter.appendTerm(searchTerm);
+					addTerm(targetFilter, searchTerm);
           for (let ta=0; ta<tagArray.length; ta++) {
             let tagInfo = tagArray[ta];
 						if (tagInfo.key === msgKeyArray[i])

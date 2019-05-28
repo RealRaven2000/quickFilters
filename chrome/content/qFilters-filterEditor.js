@@ -22,7 +22,6 @@ quickFilters.FilterEditor = {
     const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
     util.logDebug('quickFilters.loadEditor()');
-		if (prefs.isDebug) debugger;
     // filterEditorOnLoad(); was already called as we now use a listener!
     setTimeout( function() {
       function matchAction(actionType, actionString) {
@@ -219,7 +218,6 @@ quickFilters.FilterEditor = {
     const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
     util.logDebug('quickFilters.editorDomLoaded()');
-		if (prefs.isDebug) debugger;
   },
   
   addCondition: function addFilterCondition(hdr, value) {

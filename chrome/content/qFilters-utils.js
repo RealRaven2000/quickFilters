@@ -31,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "3.13",
+  HARDCODED_CURRENTVERSION : "4.0.1",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -295,10 +295,11 @@ quickFilters.Util = {
 		      filterService = Cc["@mozilla.org/messenger/services/filters;1"]
 													.getService(Ci.nsIMsgFilterService);
 
-		debugger;
 		try {
 			if (folder.isServer) { // if this is root, replace it with appropriate inbox
-				let f = folder.getChildNamed('Inbox');
+			  let f = quickFilters.Shim.findInboxFromRoot(folder, util.FolderFlags);
+				if (!f) 
+					f = folder.getChildNamed('Inbox');
 				if (f) folder = f;
 			}
 			let selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
@@ -326,6 +327,8 @@ quickFilters.Util = {
 					newFilterIndex++;
 				}
 			}
+			let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running Filter '{0}' in folder {1}.");
+			util.showStatusMessage(txtStatus.replace("{0}", singleFilter.filterName).replace("{1}", folder.prettyName), true);
 			filterService.applyFiltersToFolders(tempFilterList, selectedFolders, null);
 		}
 		catch(ex) {
@@ -602,9 +605,10 @@ quickFilters.Util = {
 		}
 	} ,  
 
-  showStatusMessage: function showStatusMessage(s) {
+  showStatusMessage: function showStatusMessage(s, isTimeout) {
     try {
-      let sb = this.getMail3PaneWindow().document.getElementById('status-bar'),
+			let win = this.getMail3PaneWindow(),
+          sb = win.document.getElementById('status-bar'),
           el, sbt;
       if (sb) {
         for(let i = 0; i < sb.childNodes.length; i++)
@@ -615,14 +619,23 @@ quickFilters.Util = {
               break;
           }
         }
-        for(let i = 0; i < sbt.childNodes.length; i++)
-        {
-          el = sbt.childNodes[i];
-          if (el.nodeType === 1 && el.id === 'statusText') {
-              el.label = s;
-              break;
-          }
-        }
+				if (sbt)
+					for(let i = 0; i < sbt.childNodes.length; i++)
+					{
+						el = sbt.childNodes[i];
+						if (el.nodeType === 1 && el.id === 'statusText') {
+							el.label = s;
+							if (isTimeout) {
+								// erase my status message after 5 secs
+								win.setTimeout(function() { 
+								    if (el.label == s) // remove my message if it is still there
+											el.label = "";
+									}, 
+									5000);
+							}
+							break;
+						}
+					}
       }
       else
         MsgStatusFeedback.showStatusString(s);

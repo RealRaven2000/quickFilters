@@ -89,6 +89,12 @@
 									type="bool"  
 									instantApply="true"
 						/>
+			<preference id="insertNewTermTop"
+									name="extensions.quickfilters.searchterm.insertOnTop"
+									type="bool"  
+									instantApply="true"
+						/>
+
 						
 <!--New Filter Properties -->									
       <preference id="newfilter.autorun" 
@@ -309,18 +315,25 @@
 			<hbox>
 				<html:fieldset orient="vertical">
 					<html:legend>&grpMerge.label;</html:legend>
-					<checkbox id="chkMergeAuto" 
-							preference="merge.autoSelect" 
-							label="&chkMergeAuto.label;" 
-							tooltiptext="&chkMergeAuto.tooltip;"
-							oncommand="quickFilters.Assistant.selectMergeAuto(this);"
-							/>
-					<checkbox id="chkMergeSkip" 
-							preference="merge.silent" 
-							label="&chkMergeSkip.label;" 
-							tooltiptext="&chkMergeSkip.tooltip;"
-							oncommand="quickFilters.Assistant.selectMergeSkip(this);"
-							/>
+					<vbox>
+						<checkbox id="chkMergeAuto" 
+								preference="merge.autoSelect" 
+								label="&chkMergeAuto.label;" 
+								tooltiptext="&chkMergeAuto.tooltip;"
+								oncommand="quickFilters.Assistant.selectMergeAuto(this);"
+								/>
+						<checkbox id="chkMergeSkip" 
+								preference="merge.silent" 
+								label="&chkMergeSkip.label;" 
+								tooltiptext="&chkMergeSkip.tooltip;"
+								oncommand="quickFilters.Assistant.selectMergeSkip(this);"
+								/>
+						<checkbox id="chkInsertRulesAtTop" 
+								preference="insertNewTermTop" 
+								label="&chkInsertRulesAtTop.label;" 
+								/>
+					</vbox>
+							
 				</html:fieldset>
 			</hbox>
     </tabpanel>  
@@ -507,13 +520,13 @@
 		<tabpanel id="quickFilters-Options-goPro" orient="vertical">
 			<description>&qf.label.insertLicense;</description>
 			<hbox id="licenseContainer" align="start">
-				<textbox id="txtLicenseKey"
+				<html:textarea id="txtLicenseKey"
 								 class="licenseKey"
 								 flex="1"
 								 multiline="true"
 								 rows="4"
 								 style="min-height: 4.5em;"
-								 tooltiptext="&qf.label.insertLicense.tooltip;"></textbox>
+								 tooltiptext="&qf.label.insertLicense.tooltip;"></html:textarea>
 				<vbox>
 					<button id="btnPasteLicense"
 									label="&qf.button.pasteLicense;"

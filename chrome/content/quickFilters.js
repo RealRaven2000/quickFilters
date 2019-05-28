@@ -335,17 +335,30 @@ END LICENSE BLOCK
 		# Also thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE]
 		
 	3.12 : 11/05/2019
-	  # Make compatible with Thunderbird 68
+	  # [Bug 26657] ESR Readiness 2020 - Make compatible with Thunderbird 68
 		# Replaced preferences dialog, groupbox elements with html fields. New AddonManager object
 	  # made close button for premium notification visible again.
 		
 	3.12.2 : 14/05/2019	
 	  # [Bug 26662] quickFilters 3.12 - Run Filters button not working on Thunderbird 60 
 		
+	3.12.3 : 15/05/2019	
+	  # last official "Old school" release using install.rdf
+		# [Bug 26663] Force secondary identity for licenses doesn't work.
+		
+	4.0.1 : 28/05/2019
+	  # [Bug 26657] ESR Readiness (WIP):
+	    Version 4.0 officially supports Thunderbird 68 beta, minimum version from now on will be Thunderbird 60
+		# [Bug 26664] Merging filters - option to add condition on top instead of appending at bottom
+
+
+	
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
+		# [Bug 26373] Sort definitions within a filter
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
+    # [Bug 25801]	Assistant in Merge mode, cancel does not undo changes 
 		
 	 */
   

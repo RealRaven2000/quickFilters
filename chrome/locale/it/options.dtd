@@ -61,6 +61,7 @@
 <!ENTITY chkMergeAuto.tooltip "Se esiste già un filtro, questa opzione seleziona automaticamente la modalità unione e il primo filtro corrispondente">
 <!ENTITY chkMergeSkip.label "Salta al passaggio 'Tipologia'">
 <!ENTITY chkMergeSkip.tooltip "Questa opzione salta il passaggio 'seleziona destinazione unione' e va direttamente a 'seleziona tipologia'">
+<!ENTITY chkInsertRulesAtTop.label "Aggiunge nuove regole in cima alla lista">
 <!ENTITY qf.cloned.label "Accoda al nome del filtro clonato:">
 <!ENTITY qf.onewayaddress.label "Disabilita il criterio di ricerca 'A due vie' degli indirizzi">
 <!ENTITY qf.onewayaddress.tooltip "In modalità predefinita, quickFilters usa sia il criterio di ricerca &quot;Mittente/Da:&quot; sia &quot;Destinatario/A:&quot; per filtrare completamente i messaggi relativi ad un certo argomento, ivi compresi i propri messaggi spediti al destinatario. Se però si vogliono mantenere le proprie risposte nella cartella 'Posta inviata', utilizzando questa opzione si può disabilitare tale comportamento. È anche possibile usare l'estensione 'Copy Sent to Current' per mantenere le risposte assieme ai messaggi che le hanno originate.">

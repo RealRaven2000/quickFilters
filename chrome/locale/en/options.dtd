@@ -61,6 +61,7 @@
 <!ENTITY chkMergeAuto.tooltip "If a filter exists already, this will automatically select merge mode and the first matching filter.">
 <!ENTITY chkMergeSkip.label "Skip to Template Step">
 <!ENTITY chkMergeSkip.tooltip "This will skip the step 'select merge target' and go straight to 'select template'.">
+<!ENTITY chkInsertRulesAtTop.label "Add new rules on top of list.">
 <!ENTITY qf.cloned.label "Append to name of cloned filter:">
 <!ENTITY qf.onewayaddress.label "Disable two-way address search conditions">
 <!ENTITY qf.onewayaddress.tooltip "By default, quickFilters adds both 'from' and 'to' search conditions to assist filtering complete message threads including your own emails to the recipient. If you always want to keep your replies in the Sent folder, you can disable this behavior here. The Addon 'Copy Sent to Current' can be used to keep replies with their originating emails.">

@@ -61,6 +61,7 @@
 <!ENTITY chkMergeAuto.tooltip "Si un filtre existe déjà, cela va automatiquement sélectionner le mode fusion et le premier filtre correspondant.">
 <!ENTITY chkMergeSkip.label "Passer et aller à l'étape modèle">
 <!ENTITY chkMergeSkip.tooltip "Ignore l'étape de sélection de la cible pour fusion et va directement à l'étape de sélection du modèle.">
+<!ENTITY chkInsertRulesAtTop.label "Add new rules on top of list.">
 <!ENTITY qf.cloned.label "Ajouter au nom du filtre cloné :">
 <!ENTITY qf.onewayaddress.label "Désactiver les doubles-conditions de recherche d'adresse">
 <!ENTITY qf.onewayaddress.tooltip "Par défaut, quickFilters ajoute les deux conditions de recherche &quot;De&quot; et &quot;Pour&quot; afin d'aider à la filtration des discussions terminées en incluant vos propres courriels au destinataire. Si vous souhaitez toujours conserver vos réponses dans le dossier d'envoi, vous pouvez désactiver ce comportement ici. L'extension &quot;Copy Sent to Current&quot; peut être utilisée pour garder les réponses avec leur message d'origine.">
