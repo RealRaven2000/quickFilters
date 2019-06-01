@@ -124,7 +124,7 @@ if (!quickFilters.Shim) {
 				
 				for (let idx = 0; idx < searchFilterResults.length; idx++) {
 					let target = searchFilterResults[idx],
-							menuItem = document.createElement("menuitem"),
+							menuItem = document.createXULElement ? document.createXULElement("menuitem") : document.createElement("menuitem"),
 							dec = decodeURI(target.Action.targetFolderUri),
 							valueLabel = quickFilters.List.truncateLabel(dec, 30),
 							filterIdLabel = target.Filter.filterName;

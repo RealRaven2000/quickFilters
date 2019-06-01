@@ -157,7 +157,7 @@ quickFilters.Licenser = {
           util.logToConsole('Omitting account ' + id.fullName + ' - no mail address');
           return;
         }
-        let menuitem = document.createElement('menuitem');
+        let menuitem = document.createXULElement ? document.createXULElement('menuitem') : document.createElement("menuitem");
 				menuitem.setAttribute("id", "id" + dropdownCount++);
 				menuitem.setAttribute("fullName", id.fullName);
 				menuitem.setAttribute("value", id.email);

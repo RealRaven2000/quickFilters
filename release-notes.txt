@@ -1,10 +1,11 @@
-quickFilters Change Log - Version 4.0.1
+quickFilters Change Log - Version 4.0.2
 
-First version which will be compatible with the next ESR version Thunderbird 68 (or later)
+First version which will be compatible with the next ESR version Thunderbird 69 (or later)
 
 <ul>
 <li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26657" target="_blank">[Bug 26657]</a> ESR Readiness (WIP):
 
 New - quickFilters as web extension: Version 4.0 officially supports Thunderbird 69, minimum version  from now on will be Thunderbird 60. For earlier versions of Thunderbird, please visit the <a href="http://interlink-addons.binaryoutcast.com/addon/quickfilters/" target=_blank>version hosted at Interlink</a>. </li>
 <li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26664" target="_blank">[Bug 26664]</a> Merging filters - new option to add condition on top instead of appending at bottom</li>
+<li>Fixed (4.0.2): <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26668" target="_blank">[Bug 26668]</a>  "singleFilter is undefined" - this Error log is generated when using the run filters on folder command which may cause no filters to run at all.</li>
 </ul>

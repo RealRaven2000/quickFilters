@@ -1765,8 +1765,8 @@ quickFilters.Assistant = {
 							if (templateList.insertItemAt)
 								templateList.insertItemAt(0, token[1].trim(), filter.filterName.toString()); // check filter.enabled ?
 							else {
-								let listItem = document.createElement("richlistitem"),
-								    description = document.createElement("description");
+								let listItem = document.createXULElement ? document.createXULElement("richlistitem") : document.createElement("richlistitem"),
+								    description = document.createXULElement ? document.createXULElement("description") : document.createElement("description");
 								listItem.setAttribute("value", filter.filterName.toString());
 								description.textContent = token[1].trim();
 								listItem.appendChild(description);

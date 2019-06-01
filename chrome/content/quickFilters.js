@@ -1351,13 +1351,14 @@ quickFilters.FolderListener = {
 		try {
 			let qfEvent = this.qfInstance || quickFilters;
 			if (!qfEvent) return;
-	    let logDebug = qfEvent.Util.logDebugOptional.bind(qfEvent.Util);
-	    logDebug("events,msgMove","OnItemAdded() " + item.toString());  	
     
-      const win = qfEvent.Util.getMail3PaneWindow(),
+      const win = qfEvent.Util ? qfEvent.Util.getMail3PaneWindow() : quickFilters.Util.getMail3PaneWindow(),
             util = win.quickFilters.Util,
 						prefs = win.quickFilters.Preferences,
-            worker = win.quickFilters.Worker;
+            worker = win.quickFilters.Worker,
+						logDebug = util.logDebugOptional.bind(util);
+						
+	    logDebug("events,msgMove","OnItemAdded() " + item.toString());  	
 						
 			if (prefs.getBoolPref('localFoldersRun') && util.isLocalInbox(parent)) {
 				// make a stack of moved messages to work through
@@ -1424,7 +1425,7 @@ quickFilters.FolderListener = {
     try {
 			let qfEvent = this.qfInstance || quickFilters;
 			if (!qfEvent) return;
-      const win = qfEvent.Util.getMail3PaneWindow(),
+      const win = qfEvent.Util ? qfEvent.Util.getMail3PaneWindow() : quickFilters.Util.getMail3PaneWindow(),
             util = win.quickFilters.Util,
             worker = win.quickFilters.Worker;
 			util.logDebugOptional("events","OnItemEvent( " + item + ", " + eString +")");

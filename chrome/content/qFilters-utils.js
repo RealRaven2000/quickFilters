@@ -31,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "4.0.1",
+  HARDCODED_CURRENTVERSION : "4.0.2",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -327,8 +327,14 @@ quickFilters.Util = {
 					newFilterIndex++;
 				}
 			}
-			let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running Filter '{0}' in folder {1}.");
-			util.showStatusMessage(txtStatus.replace("{0}", singleFilter.filterName).replace("{1}", folder.prettyName), true);
+			if (singleFilter) {
+				let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running Filter '{0}' in folder {1}.");
+				util.showStatusMessage(txtStatus.replace("{0}", singleFilter.filterName).replace("{1}", folder.prettyName), true);
+			}
+			else {
+				let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running '{0}' Filters in folder {1}.");
+				util.showStatusMessage(txtStatus.replace("{0}", numFilters).replace("{1}", folder.prettyName), true);
+			}
 			filterService.applyFiltersToFolders(tempFilterList, selectedFolders, null);
 		}
 		catch(ex) {

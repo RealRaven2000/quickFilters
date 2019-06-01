@@ -1818,7 +1818,7 @@ quickFilters.List = {
       if (term.count>1) {
         this.duplicateTerms.push(term);
         util.logDebug("Found duplicate condition: {attrib: " + term.attrib + ", op: " + term.operator + ", value: " + term.value + ", count: " + term.count +"}");
-        let menuItem = document.createElement("menuitem"),
+        let menuItem = document.createXULElement ? document.createXULElement("menuitem") : document.createElement("menuitem"),
             vLabel = term.value,
             theLabel = this.getAttributeLabel(term.attrib) + ' ' 
                      + this.getOperatorLabel(term.operator) + ': ' 
@@ -1836,7 +1836,7 @@ quickFilters.List = {
       if (action.count>1) {
         this.duplicateActions.push(action);
         util.logDebug("Found duplicate action: {attrib: " + action.type + ", value: " + action.value + ", count: " + action.count +"}");
-        let menuItem = document.createElement("menuitem"),
+        let menuItem = document.createXULElement ? document.createXULElement("menuitem") : document.createElement("menuitem"),
             dec = action.value;
         if (action.type==FA.MoveToFolder || action.type==FA.CopyToFolder)
           dec = decodeURI(dec);
