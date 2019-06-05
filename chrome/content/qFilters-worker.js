@@ -489,28 +489,32 @@ quickFilters.Worker = {
     /************* SOURCE FOLDER VALIDATION  ********/
     if (sourceFolder) {
       util.logDebugOptional('createFilter',' Starting source folder validation for ' + sourceFolder);
-      if (!sourceFolder.server.canHaveFilters) {
-        util.logDebug ("sourceFolder.server cannot have filters!");
-        util.logDebug ("sourceFolder=" + sourceFolder);
-        util.logDebug ("sourceFolder.server=" + sourceFolder.server);
-        if (sourceFolder.server) {
+			
+			if (sourceFolder.server) {
+				if (!sourceFolder.server.canHaveFilters) {
+					util.logDebug ("sourceFolder.server cannot have filters!");
+					util.logDebug ("sourceFolder=" + sourceFolder);
+					util.logDebug ("sourceFolder.server=" + sourceFolder.server);
           let serverName = sourceFolder.server.name ? sourceFolder.server.name : "unknown";
           util.logDebug ("sourceFolder.server.name=" + serverName);
           let wrn = util.getBundleString('quickfilters.createFilter.warning.canNotHaveFilters','The account ({1}) cannot have filters.');
           util.popupAlert(wrn.replace('{1}', serverName));
-        }
-        else {
-          util.logDebug ("sourceFolder has no server!");
-          util.logDebug ("sourceFolder=" + sourceFolder);
-          util.logDebug ("sourceFolder.prettyName=" + sourceFolder.prettyName);
-          if (sourceFolder.prettyName) {
-            let wrn = util.getBundleString('quickfilters.createFilter.warning.noServer','Folder ({1}) does not have a server.');
-            util.popupAlert(wrn.replace('{1}', sourceFolder.prettyName));
-          }
-        }
-        this.promiseCreateFilter = false;
-        return false;
-      }
+					this.promiseCreateFilter = false;
+					return false;
+				}
+			}
+			else {
+				util.logDebug ("sourceFolder has no server!");
+				util.logDebug ("sourceFolder=" + sourceFolder);
+				util.logDebug ("sourceFolder.prettyName=" + sourceFolder.prettyName);
+				if (sourceFolder.prettyName) {
+					let wrn = util.getBundleString('quickfilters.createFilter.warning.noServer','Folder ({1}) does not have a server.');
+					util.popupAlert(wrn.replace('{1}', sourceFolder.prettyName));
+				}
+				this.promiseCreateFilter = false;
+				return false;
+			}
+			
       util.logDebugOptional('createFilter', "Validation passed: server of sourceFolder " + sourceFolder.prettyName + " can have filters");
       if (!quickFilters.Worker.FilterMode) { this.promiseCreateFilter = false; return -2; }
     }
