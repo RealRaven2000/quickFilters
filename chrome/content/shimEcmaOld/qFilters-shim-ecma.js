@@ -6,6 +6,7 @@
 if (!quickFilters.Util.Accounts) {
 	Object.defineProperty(quickFilters.Util, "Accounts",
 	{ get: function() {
+			Components.utils.import("resource:///modules/iteratorUtils.jsm");  
 			const Ci = Components.interfaces,
 							Cc = Components.classes,
 							util = quickFilters.Util;
@@ -18,6 +19,9 @@ if (!quickFilters.Util.Accounts) {
 				let accounts = Cc["@mozilla.org/messenger/account-manager;1"]
 										 .getService(Ci.nsIMsgAccountManager).accounts;
 				aAccounts = [];
+				if (typeof fixIterator == "undefined") // Postbox fix
+					Components.utils.import("resource:///modules/iteratorUtils.jsm");
+				
 				for (let ac in fixIterator(accounts, Ci.nsIMsgAccount)) {
 					aAccounts.push(ac);
 				};
@@ -33,6 +37,9 @@ if (!quickFilters.Shim) {
 			
 			const util = quickFilters.Util,
 			      Ci = Components.interfaces;
+						
+			if (typeof fixIterator == "undefined") // Postbox fix
+				Components.utils.import("resource:///modules/iteratorUtils.jsm");
 						
 			// fix any filters that might still point to the moved folder.
 			// 1. nsIMsgAccountManager  loop through list of servers
@@ -70,9 +77,9 @@ if (!quickFilters.Shim) {
 				
 				// 1. create a list of matched filters and corresponding accounts 
 				//    (these will be linked via index
-				if (typeof fixIterator == "undefined") {// Postbox fix
+				if (typeof fixIterator == "undefined") // Postbox fix
 					Components.utils.import("resource:///modules/iteratorUtils.jsm");
-				}
+				
 				if (prefs.isDebugOption('filterSearch.detail')) debugger;
 					
 				for (let account in fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
@@ -166,6 +173,9 @@ if (!quickFilters.Shim) {
 						acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
 													.getService(Ci.nsIMsgAccountManager);
 													
+			if (typeof fixIterator == "undefined") // Postbox fix
+				Components.utils.import("resource:///modules/iteratorUtils.jsm");
+				
 			for (let account in fixIterator(acctMgr.accounts, Components.interfaces.nsIMsgAccount)) {
 				try {
 					let idMail = '';
@@ -223,6 +233,9 @@ if (!quickFilters.Shim) {
 		findInboxFromRoot: function findInboxFromRoot(root, fflags) {
 			const Ci = Components.interfaces,
 			      util = quickFilters.Util;
+			if (typeof fixIterator == "undefined") // Postbox fix
+				Components.utils.import("resource:///modules/iteratorUtils.jsm");
+				
 			for (let folder in fixIterator(root.subFolders, Ci.nsIMsgFolder)) {
 				if (folder.getFlag && folder.getFlag(fflags.Inbox)) {
 					util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);

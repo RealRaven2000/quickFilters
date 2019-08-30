@@ -351,7 +351,23 @@ END LICENSE BLOCK
 	    Version 4.0 officially supports Thunderbird 68 beta, minimum version from now on will be Thunderbird 60
 		# [Bug 26664] Merging filters - option to add condition on top instead of appending at bottom
 
-
+  4.0.2: 01/06/2019
+	  # [Bug 26668] "singleFilter is undefined" - this Error log is generated when using the run filters 
+		  on folder command which may cause no filters to run at all. 
+		# added compatibiliy code for Tb69 (createXULElement replaces createElement)
+		
+  4.0.3: 17/06/2019
+		# Fixed the option "Run Filters on Local Folders" which was not stored in configuration when changed in the prefereences screen.
+		# Moved the paste and validation buttons underneath the license key field.
+	
+	4.1: 30/08/2019
+	  # [Bug 26695] Filter assistant buttons doesn't work. When clicking the filter assistant
+		  button, assistant mode is not toggled on.
+		# Added path validation of target folders (move to / copy to) to "debug filters" button.
+		# Added custom action validations to "debug filters" button.
+		# Fixed notification bars for Thunderbird 68.
+		# Added support for the "run periodially" option (can be set as default for new filters).
+		# Fixed some spacing issues with the licensing field / validation buttons.
 	
   ============================================================================================================
   FUTURE WORK:
@@ -362,15 +378,6 @@ END LICENSE BLOCK
 		
 	 */
   
-if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
-{
-  // Here, Postbox declares fixIterator
-	if (typeof ChromeUtils.import == "undefined")
-		Components.utils.import("resource:///modules/iteratorUtils.jsm");  
-	else
-		ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
-}   
-
 var quickFilters = {
   Properties: {},
   _folderTree: null,
@@ -761,11 +768,11 @@ var quickFilters = {
 					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);
 
 		if (util.versionGreaterOrEqual(util.AppverFull, "67")) {
-		  ChromeUtils.import("resource:///modules/MailServices.jsm"); // new module spelling
+		  var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm"); // new module spelling
 		}
-		else {
+		else 
 			Components.utils.import("resource:///modules/mailServices.js", {});
-		}
+		
 					
 					
 		if (util.isDebug) debugger;
@@ -852,7 +859,6 @@ var quickFilters = {
     try {
       const FA = Ci.nsMsgFilterAction,
 						accountList = util.Accounts;
-			// for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount))
 			for (let a=0; a<accountList.length; a++) {  
 				let account = accountList[a];
         if (account.incomingServer && account.incomingServer.canHaveFilters )

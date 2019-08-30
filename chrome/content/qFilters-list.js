@@ -10,15 +10,6 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-
-if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
-{ // Here, Postbox declares fixIterator
-	if (typeof ChromeUtils.import == "undefined")
-   Components.utils.import("resource:///modules/iteratorUtils.jsm");
- else
-	 ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
-}
-
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.List = {
   eventsAreHooked: false ,
@@ -1496,14 +1487,13 @@ quickFilters.List = {
 		      Ci = Components.interfaces;
     // more search options
     let FA = Ci.nsMsgFilterAction,
-        actionList = aFilter.actionList ? aFilter.actionList : aFilter.sortedActionList,
-        acLength = actionList.Count ? actionList.Count() : actionList.length;
+        acLength = util.getActionCount(aFilter);
     switch(quickFilters.List.searchType) {
       case 'name':
         return (aFilter.filterName.toLocaleLowerCase().indexOf(aKeyword)>=0);
       case 'targetFolder':
         for (let index = 0; index < acLength; index++) {
-          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
+          let ac = aFilter.getActionAt(index);
           if (ac.type == FA.MoveToFolder || ac.type == FA.CopyToFolder) {
             if (ac.targetFolderUri) { 
               // also allow complete match (for duplicate search)
@@ -1536,7 +1526,7 @@ quickFilters.List = {
         return false;
       case 'tagLabel':
         for (let index = 0; index < acLength; index++) {
-          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
+          let ac = aFilter.getActionAt(index);
           if (ac.type == FA.AddTag || ac.type == FA.Label) {
             if (ac.strValue &&
                 ac.strValue.toLocaleLowerCase() == aKeyword) // full match for tags, but case insensitive.
@@ -1546,7 +1536,7 @@ quickFilters.List = {
         return false;
 			case 'stringAction': // any (custom) action that sets a string
         for (let index = 0; index < acLength; index++) {
-          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
+          let ac = aFilter.getActionAt(index);
           if (ac.type == FA.Custom) {
 						try {
 							if (ac.strValue &&
@@ -1559,7 +1549,7 @@ quickFilters.List = {
 			  return false;
       case 'replyWithTemplate':
         for (let index = 0; index < acLength; index++) {
-          let ac = actionList.queryElementAt(index, Ci.nsIMsgRuleAction);
+          let ac = aFilter.getActionAt(index, Ci);
           if (ac.type == FA.Reply) {
             if (ac.strValue) { 
               let searchSubject = quickFilters.List.retrieveSubjectFromReply(ac.strValue).toLocaleLowerCase();
@@ -2399,7 +2389,8 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
     const util = quickFilters.Util,
           settings = quickFilters.Settings,
 					ff = util.FolderFlags,
-					nsMsgFilterType = Ci.nsMsgFilterType;
+					nsMsgFilterType = Ci.nsMsgFilterType,
+					FA = Ci.nsMsgFilterAction;
 		let qfList = quickFilters.List, // this object
 				filtersList = this.FilterList,
 				sourceFolder = quickFilters.Shim.findInboxFromRoot(filtersList.folder, ff),
@@ -2418,14 +2409,43 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					
 		for (let i = 0; i < filtersList.filterCount; i++) {
 			let filter = filtersList.getFilterAt(i),
-			    isFaulty = false;
+			    incomingFaulty = false;
 			// Incoming = InboxRule | InboxJavaScript | NewsRule | NewsJavaScript
+			
+			// Test 1: can filter autorun?
 			if (isInbox || isNewsgroup) {
-				isFaulty = ((filter.filterType & nsMsgFilterType.Incoming)==0);
+				incomingFaulty = ((filter.filterType & nsMsgFilterType.Incoming)==0);
 			}
-			if (isFaulty) {
-				errorList.push ( { index:i, flt:filter} );
+			if (incomingFaulty) {
+				errorList.push ( { index:i, flt:filter, type: 'incoming'} );
 			}
+			// Test 2: invalid target folder
+      let actionCount = util.getActionCount(filter);
+      for (let a = 0; a < actionCount; a++) {
+				let ac = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
+				if (ac.type==FA.MoveToFolder || ac.type==FA.CopyToFolder) {
+					// check url
+					let fld = util.getMsgFolderFromUri(ac.targetFolderUri, true); // check if it exists
+					if (fld==null) {
+						errorList.push ( { index:i, flt:filter, type: 'folderUri'} );
+					}
+				}
+				if (ac.type == FA.Custom) {  // -1
+				  let isError = false;
+					try { 
+					  let customAction = ac.customAction;
+						if (!customAction) isError=true;
+					}
+					catch(ex) {
+						isError=true;
+					}
+					if (isError) {
+						util.logDebug("Missing custom action in filter [" + filter.filterName + "]: " + ac.customId);
+						errorList.push ( { index:i, flt:filter, type: 'customAction'} );
+					}
+				}
+			}
+			
 		}
 		if (errorList.length) 
 			document.getElementById('quickFiltersBtnDebug').classList.add("faulty");
@@ -2442,9 +2462,34 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					qfList = quickFilters.List, // this object
 					ff = util.FolderFlags,
 					filtersList = this.FilterList;
+		
+		// return a list of affected filters, formatted for a messagebox
+		function makeNameList(errList) {
+			let names = "",
+			    line = 0, 
+					start = 0;
+			for (let i=0; i<errList.length; i++) {
+				if (start) names += ", ";
+				names += errList[i].flt.filterName ;
+				let lines = Math.floor(names.length / 70); // make a new line?
+				if (lines>line) {
+					names += "\n";
+					line++;
+					start=0;
+				}
+				else start++;
+			}
+			return names;
+		}
+					
 		let sourceFolder = quickFilters.Shim.findInboxFromRoot(filtersList.folder, ff),
 				isInbox=false, isNewsgroup=false; // flag setters
 					
+		if (typeof ChromeUtils.import == "undefined")
+			Components.utils.import("resource://gre/modules/Services.jsm");
+		else
+			var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
+
 					
 		if (sourceFolder) {
 			isInbox = sourceFolder.getFlag(ff.Inbox);
@@ -2455,26 +2500,18 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			isInbox = (filtersList.folder.username == 'nobody');
 		}
 		let errorList = qfList.checkErrors(),
-		    question = util.getBundleString('quickfilters.debug.fixFilters', 
-				  "Found {0} filters that should have Incoming flag set. These will potentially not run during get mail. Fix these?"),
-				names = "";
+		    errorsIncoming = errorList.filter(el => el.type == 'incoming'),
+				errorsURI = errorList.filter(el => el.type == 'folderUri'),
+				errorsCustomAction = errorList.filter(el => el.type == 'customAction');
 		
-		if (errorList.length) {
-			let ask = question.replace("{0}",errorList.length) + "\n",
-			    line = 0, 
-					start = 0;
-			for (let i=0; i<errorList.length; i++) {
-				if (start) names += ", ";
-				names += errorList[i].flt.filterName ;
-				let lines = Math.floor(names.length / 70); // make a new line?
-				if (lines>line) {
-					names += "\n";
-					line++;
-					start=0;
-				}
-				else start++;
-			}
-			
+		// ==== INVALID Incoming flag  ====
+		if (errorsIncoming.length) {
+			let question = util.getBundleString('quickfilters.debug.fixFilters', 
+				  "Found {0} filters that should have Incoming flag set."
+					+ " These will potentially not run during get mail. Fix these?"),
+					names =  makeNameList(errorsIncoming),
+			    ask = question.replace("{0}",errorsIncoming.length) + "\n";
+					
 			util.logDebug(ask + names);
 			
 			if (Services.prompt.confirm(null,"quickFilters",ask + names)) {
@@ -2484,12 +2521,14 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 				while (errorList.length) {
 					err = errorList.pop();
 					let filter = filtersList.getFilterAt(err.index);
-					util.logDebug("Fixing Filter[" + err.index + "]: " + filter.filterName);
-					if (isInbox)
-						filter.filterType = filter.filterType | nsMsgFilterType.InboxRule;
-					if (isNewsgroup)
-						filter.filterType = filter.filterType | nsMsgFilterType.NewsRule;
-					countFixed++;
+					if (err.type  == 'incoming') {
+						util.logDebug("Fixing Filter[" + err.index + "] INCOMING FLAG: " + filter.filterName);
+						if (isInbox)
+							filter.filterType = filter.filterType | nsMsgFilterType.InboxRule;
+						if (isNewsgroup)
+							filter.filterType = filter.filterType | nsMsgFilterType.NewsRule;
+						countFixed++;
+					}
 				}
 				// store changes
 				qfList.rebuildFilterList();
@@ -2502,7 +2541,32 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 				);
 			}
 		}
-		else {
+		
+		// ==== INVALID target URIs  ====
+		if (errorsURI.length) {
+			let question = util.getBundleString('quickfilters.debug.fixFilters.invalidUris', 
+						"Found {0} filters with invalid folder targets." 
+						+ " These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."),
+					names = makeNameList(errorsURI),
+			    ask = question.replace("{0}", errorsURI.length) + "\n";
+			
+			util.logDebug(ask + names);
+			Services.prompt.alert(null, "quickFilters", ask + '\n' + names);
+			
+		}
+		
+		// ==== MISSING custom actions  ====
+		if (errorsCustomAction.length) {
+			let question = util.getBundleString('quickfilters.debug.fixFilters.customActionErrors', 
+						"Found {0} filters with unresolved custom actions."
+						+ " You may miss a third party Add-on or need to configure it do support custom actions."),
+					names = makeNameList(errorsCustomAction),
+			    ask = question.replace("{0}", errorsCustomAction.length) + "\n";
+					
+			Services.prompt.alert(null, "quickFilters", ask + '\n' + names);
+		}
+		
+		if (!errorList.length) {
 				util.popupAlert(
 				  util.getBundleString('quickfilters.debug.fixFilters.none',"No faulty filters found."),
 					"quickFilters", "debug-success.png", 0

@@ -42,9 +42,9 @@
 			</menupopup>
 			
 			<panel id="quickFilterNotification" noautohide="true">	
-					<notificationbox flex="1" id="quickFilterNotificationBox" >
-						<!-- <notification type="warning" label="Test" id="quickFiltersNotificationContent"/> -->
-					</notificationbox>
+				<notificationbox flex="1" id="quickFilterNotificationBox" >
+					<!-- <notification type="warning" label="Test" id="quickFiltersNotificationContent"/> -->
+				</notificationbox>
 			</panel>
 			
 		</popupset>

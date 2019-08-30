@@ -33,6 +33,8 @@
 <!ENTITY chkAfterJunk.label "After junk classification">
 <!ENTITY chkWhenArchiving.label "When Archiving">
 <!ENTITY chkAfterSending.label "After Sending">
+<!ENTITY chkPeriodically.label "Run Periodically">
+<!ENTITY chkPeriodically.tooltip "Runs the filter in regular intervals">
 <!ENTITY chkAlphabetic.label "Вставлять новые фильтры в алфавитном порядке">
 <!ENTITY chkAlphabetic.tooltip "Использовать имя фильтра для позиционирования. Рекомендуется при использовании имени вышестоящей папки. Учтите, что это влияет на порядок фильтрации!">
 <!ENTITY qf.label.naming "Правила присваивания имен">

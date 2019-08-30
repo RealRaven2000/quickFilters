@@ -1,6 +1,11 @@
 
 // MODERN SHIM CODE
-
+if (typeof ChromeUtils.import == "undefined")
+	Components.utils.import('resource://gre/modules/Services.jsm');
+else
+	// ChromeUtils.defineModuleGetter(this, "Services", 'resource://gre/modules/Services.jsm');
+	var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
+	
 if (!quickFilters.Util.Accounts) {
 	Object.defineProperty(quickFilters.Util, "Accounts",
 		{ get: function() {
@@ -14,6 +19,11 @@ if (!quickFilters.Util.Accounts) {
 					let accounts = Cc["@mozilla.org/messenger/account-manager;1"]
 											 .getService(Ci.nsIMsgAccountManager).accounts;
 					aAccounts = [];
+					if (typeof ChromeUtils.import == "undefined")
+						Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+					else
+						var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
+
 					for (let ac of fixIterator(accounts, Ci.nsIMsgAccount)) {
 						aAccounts.push(ac);
 					};
@@ -34,6 +44,11 @@ if (!quickFilters.Shim) {
 			try {
 				let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
 														.getService(Ci.nsIMsgAccountManager);
+				if (typeof ChromeUtils.import == "undefined")
+					Components.utils.import("resource:///modules/iteratorUtils.jsm");  
+				else
+					var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
+														
 				for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
 					if (account.incomingServer && account.incomingServer.canHaveFilters )
 					{
@@ -62,14 +77,13 @@ if (!quickFilters.Shim) {
 				let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
 														.getService(Ci.nsIMsgAccountManager);
 				
+				if (typeof ChromeUtils.import == "undefined")
+					Components.utils.import("resource:///modules/iteratorUtils.jsm");
+				else
+					var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
+				
 				// 1. create a list of matched filters and corresponding accounts 
 				//    (these will be linked via index
-				if (typeof fixIterator == "undefined") {// Postbox fix
-					if (typeof ChromeUtils.import == "undefined")
-						Components.utils.import("resource:///modules/iteratorUtils.jsm");
-					else
-						ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
-				}
 				for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
 					if (account.incomingServer && account.incomingServer.canHaveFilters ) {
 						let msg ='',
@@ -162,6 +176,11 @@ if (!quickFilters.Shim) {
 						acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
 													.getService(Ci.nsIMsgAccountManager);
 													
+			if (typeof ChromeUtils.import == "undefined")
+				Components.utils.import("resource:///modules/iteratorUtils.jsm");
+			else
+				var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
+			
 			for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
 				try {
 					let idMail = '';
@@ -214,6 +233,11 @@ if (!quickFilters.Shim) {
 		findInboxFromRoot: function findInboxFromRoot(root, fflags) {
 			const Ci = Components.interfaces,
 			      util = quickFilters.Util;
+			if (typeof ChromeUtils.import == "undefined")
+				Components.utils.import("resource:///modules/iteratorUtils.jsm");
+			else
+				var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
+						
 			for (let folder of fixIterator(root.subFolders, Ci.nsIMsgFolder)) {
 				if (folder.getFlag && folder.getFlag(fflags.Inbox) || folder.getFlag(fflags.Newsgroup)) {
 					util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);

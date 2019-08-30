@@ -33,6 +33,8 @@
 <!ENTITY chkAfterJunk.label "Dopo aver discriminato lo spam">
 <!ENTITY chkWhenArchiving.label "Quando si sta archiviando">
 <!ENTITY chkAfterSending.label "Dopo l'invio">
+<!ENTITY chkPeriodically.label "Esegui periodicamente">
+<!ENTITY chkPeriodically.tooltip "Esegue il filtro a intervalli regolari">
 <!ENTITY chkAlphabetic.label "Inserimento  dei nuovi filtri in ordine alfabetico">
 <!ENTITY chkAlphabetic.tooltip "Utilizza l'iniziale del nome del filtro per definirne la posizione relativa. È utile nel caso della regola di denominazione della cartella di livello superiore. Attenzione: in questo modo si influenza l'ordine di esecuzione dei filtri!">
 <!ENTITY qf.label.naming "Regole di denominazione">

@@ -167,7 +167,6 @@ toolbar:not([iconsize="small"]) #quickfilters-toolbar-msg-runbutton image
   to {box-shadow: 0 0 0 10px rgba(150, 80, 60, 0.12);} 
 }
 
-
 notification[value="quickfilters-proFeature"] .notification-button[accesskey] {
 	-moz-appearance: none;
   animation: quickfiltersNotificationPulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
@@ -187,10 +186,13 @@ notification[value="quickfilters-proFeature"] .notification-button[accesskey] {
 }
 
 /* replace notification tag for Tb 64 and later to also match xbl-notification */
+notification[value="quickfilters-proFeature"] .notification-button[accesskey]:hover
 notificationbox *[value="quickfilters-proFeature"] .notification-button[accesskey]:hover {
 	background: -moz-linear-gradient(top, #dbe42e 0%,#a8cc16 50%,#8fba00 51%,#b6d917 100%)  !important;
 }
 
+notification[value="quickfilters-filter"] image.messageImage,
+notification[value="quickfilters-proFeature"] image.messageImage
 notificationbox *[value="quickfilters-filter"] image.messageImage,
 notificationbox *[value="quickfilters-proFeature"] image.messageImage {
 	/* filterTemplate.png */
@@ -200,6 +202,7 @@ notificationbox *[value="quickfilters-proFeature"] image.messageImage {
 	height: 32px !important;
 }
 
+notification[value="quickfilters-filter"] .messageCloseButton,
 notificationbox *[value="quickfilters-filter"] .messageCloseButton {
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 2px;
@@ -211,6 +214,8 @@ notificationbox *[value="quickfilters-proFeature"] .messageCloseButton {
 	/* display: none; */
 }
 
+notification[value="quickfilters-filter"] .messageCloseButton:hover,
+notification[value="quickfilters-proFeature"] .messageCloseButton:hover,
 notificationbox *[value="quickfilters-filter"] .messageCloseButton:hover,
 notificationbox *[value="quickfilters-proFeature"] .messageCloseButton:hover {
 	background-color: rgba(255, 255, 255, 1);
@@ -224,7 +229,7 @@ notificationbox *[value="quickfilters-proFeature"] description.messageText
 	height: auto;
 }
 
-
+notification[value="quickfilters-filter"] hbox.notification-inner,
 notificationbox *[value="quickfilters-filter"] hbox.notification-inner,
 notificationbox xbl-notification[value="quickfilters-filter"] {
 	color: #fff;

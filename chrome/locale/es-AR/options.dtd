@@ -33,6 +33,8 @@
 <!ENTITY chkAfterJunk.label "After junk classification">
 <!ENTITY chkWhenArchiving.label "When Archiving">
 <!ENTITY chkAfterSending.label "After Sending">
+<!ENTITY chkPeriodically.label "Run Periodically">
+<!ENTITY chkPeriodically.tooltip "Runs the filter in regular intervals">
 <!ENTITY chkAlphabetic.label "Insert new filters in alphabetical order">
 <!ENTITY chkAlphabetic.tooltip "Uses filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!">
 <!ENTITY qf.label.naming "Reglas de nombrado">

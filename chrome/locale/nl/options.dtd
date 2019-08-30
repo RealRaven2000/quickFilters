@@ -33,6 +33,8 @@
 <!ENTITY chkAfterJunk.label "Na ongewensteberichtenclassificatie">
 <!ENTITY chkWhenArchiving.label "Archiviereen">
 <!ENTITY chkAfterSending.label "Na verzenden">
+<!ENTITY chkPeriodically.label "Run Periodically">
+<!ENTITY chkPeriodically.tooltip "Runs the filter in regular intervals">
 <!ENTITY chkAlphabetic.label "Nieuwe filters in alfabetische volgorde invoegen">
 <!ENTITY chkAlphabetic.tooltip "Gebruikt de filternaam voor de positie. Aanbevolen met de hoofdmapbenamingsregel. Merk op dat dit de volgorde van filteruitvoering beïnvloedt!">
 <!ENTITY qf.label.naming "Naamregels">

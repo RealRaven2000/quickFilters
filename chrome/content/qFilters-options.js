@@ -13,7 +13,8 @@ END LICENSE BLOCK
 if (typeof ChromeUtils.import == "undefined")
 	Components.utils.import('resource://gre/modules/Services.jsm');
 else
-	ChromeUtils.import('resource://gre/modules/Services.jsm');
+	// ChromeUtils.defineModuleGetter(this, "Services", 'resource://gre/modules/Services.jsm');
+	var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 quickFilters.Options = {
 	optionsMode : "",  // filter out certain pages (for support / help only)
@@ -22,7 +23,8 @@ quickFilters.Options = {
 		      prefs = quickFilters.Preferences,
           options = quickFilters.Options,
 					licenser = util.Licenser,
-					getElement = window.document.getElementById.bind(window.document);
+					getElement = window.document.getElementById.bind(window.document),
+					nsMsgFilterType = Components.interfaces.nsMsgFilterType;
 					
 		if (window.arguments) {
 			try {
@@ -52,6 +54,10 @@ quickFilters.Options = {
         tabbox.selectedPanel = getElement('quickFilters-Options-goPro');
         break;
     }
+		if (!(nsMsgFilterType.Periodic)) {
+			util.logDebug("Hiding Run Periodic box, as it doesn't exist in this version.");
+			getElement("chkPeriodically").collapsed = true;
+		}
 		// hide the other tabs
 		if (this.optionsMode) {
 			for (let i=4; i>=0; i--) {
@@ -85,7 +91,11 @@ quickFilters.Options = {
     let getCopyBtn = getElement('getCopySentToCurrent'),
         getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
     getCopyBtn.textContent = getCopyText.replace('{1}','\'Copy Sent to Current\'');
+		this.enablePremiumConfig(licenser.isValidated);
     options.configExtra2Button();		
+		let panels = getElement('quickFilters-Panels');
+		panels.addEventListener('select', function(evt) { quickFilters.Options.onTabSelect(panels,event); } );
+		
   } ,
   
 	
@@ -211,29 +221,9 @@ quickFilters.Options = {
   } ,
   
   enablePremiumConfig: function enablePremiumConfig(isEnabled) {
-		/* future function: enables premium configuration UI
     let getElement      = document.getElementById.bind(document),
-        premiumConfig   = getElement('premiumConfig'),
-        quickJump       = getElement('chkQuickJumpHotkey'),
-        quickMove       = getElement('chkQuickMoveHotkey'),
-        quickCopy       = getElement('chkQuickCopyHotkey'),
-        quickJumpTxt    = getElement('qf-QuickJumpShortcut'),
-        quickMoveTxt    = getElement('qf-QuickMoveShortcut'),
-        quickCopyTxt    = getElement('qf-QuickCopyShortcut'),
-        quickMoveFormat = getElement('menuQuickMoveFormat'),
-        quickMoveDepth  = getElement('quickmove-path-depth'),
-        multiCategories = getElement('chkCategories');
-    premiumConfig.disabled = !isEnabled;
-    quickJump.disabled = !isEnabled;
-    quickMove.disabled = !isEnabled;
-    quickCopy.disabled = !isEnabled;
-    quickJumpTxt.disabled = !isEnabled;
-    quickMoveTxt.disabled = !isEnabled;
-    quickCopyTxt.disabled = !isEnabled;
-    quickMoveFormat.disabled = !isEnabled;
-    quickMoveDepth.disabled = !isEnabled;
-    multiCategories.disabled = !isEnabled;
-		*/
+        chkLocalFoldersAutorun = getElement('chkLocalFoldersAutorun');
+    chkLocalFoldersAutorun.disabled = !isEnabled;
   },
   
   decryptLicense: function decryptLicense(testMode) {
@@ -368,15 +358,13 @@ quickFilters.Options = {
     Services.clipboard.getData(trans, Services.clipboard.kGlobalClipboard);
 
     trans.getTransferData("text/unicode", str, strLength);
-    if (strLength.value) {
-      if (str) {
-        let pastetext = str.value.QueryInterface(Components.interfaces.nsISupportsString).data,
-            txtBox = document.getElementById('txtLicenseKey'),
-            strLicense = pastetext.toString();
-        txtBox.value = strLicense;
-        finalLicense = this.trimLicense();
-      }    
-    }
+		if (str && (strLength.value || str.value)) {
+			let pastetext = str.value.QueryInterface(Components.interfaces.nsISupportsString).data,
+					txtBox = document.getElementById('txtLicenseKey'),
+					strLicense = pastetext.toString();
+			txtBox.value = strLicense;
+			finalLicense = this.trimLicense();
+		}    
     if (finalLicense) {
       this.validateLicenseInOptions(false);
     }

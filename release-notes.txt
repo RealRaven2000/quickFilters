@@ -1,12 +1,10 @@
-quickFilters Change Log - Version 4.0.2
-
-First version which will be compatible with the next ESR version Thunderbird 69 (or later)
+quickFilters Change Log - Version 4.1
 
 <ul>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26657" target="_blank">[Bug 26657]</a> ESR Readiness (WIP):
-
-New - quickFilters as web extension: Version 4.0 officially supports Thunderbird 69, minimum version  from now on will be Thunderbird 60. For earlier versions of Thunderbird, please visit the <a href="http://interlink-addons.binaryoutcast.com/addon/quickfilters/" target=_blank>version hosted at Interlink</a>. </li>
-<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26664" target="_blank">[Bug 26664]</a> Merging filters - new option to add condition on top instead of appending at bottom</li>
-<li>Fixed (4.0.2): <a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26668" target="_blank">[Bug 26668]</a>  "singleFilter is undefined" - this Error log is generated when using the run filters on folder command which may cause no filters to run at all.</li>
-<li>(4.0.2): added compatibiliy code for Tb69 (createXULElement replaces createElement)</li>
+<li><a href="https://www.mozdev.org/bugs/show_bug.cgi?id=26695" target="_blank">[Bug 26695]</a> fixed: Thunderbird 68 - filter assistant buttons doesn't work. When clicking the filter assistant button, assistant mode is not toggled on.</li>
+<li>Added path validation of target folders (move to / copy to) to "debug filters" button.</li>
+<li>Added custom action validations to "debug filters" button.</li>
+<li>Fixed notification bars for Thunderbird 68.</li>
+<li>Added support for the "run periodially" option (can be set as default for new filters).</li>
+<li>Fixed some spacing issues with the licensing field / validation buttons.</li>
 </ul>

@@ -9,15 +9,6 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com")
-{
-  // Here, Postbox declares fixIterator
-	if (typeof ChromeUtils.import == "undefined")
-		Components.utils.import("resource:///modules/iteratorUtils.jsm");  
-	else
-		ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
-}
-
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.Worker = {
   bundle: null,
@@ -72,29 +63,36 @@ quickFilters.Worker = {
         notifyBox;
 
     if (!silent) {
-      switch(util.Application) {
-        case 'Postbox':
-          notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
-          break;
-        case 'Thunderbird':
-          notificationId = 'mail-notification-box'
-          break;
-        case 'SeaMonkey':
-          notificationId = null;
-          break;
-      }
+			
+			if (typeof specialTabs == 'object' && specialTabs.msgNotificationBar) { // Tb 68
+				notifyBox = specialTabs.msgNotificationBar;
+			}
+			else if( typeof gNotification == 'object' && gNotification.notificationbox) { // Tb 68
+				notifyBox = gNotification.notificationbox;
+			}
+			else {
+				switch(util.Application) {
+					case 'Postbox':
+						notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
+						break;
+					case 'Thunderbird':
+						notificationId = 'mail-notification-box'
+						break;
+					case 'SeaMonkey':
+						notificationId = null;
+						break;
+				}
+				notifyBox = document.getElementById (notificationId);
+			}
       let notificationKey = "quickfilters-filter";
 			
       
       // do a tidy up in case this is already open!
       if (notificationId) { // SeaMonkey: no such thing yet.
-        notifyBox = document.getElementById (notificationId);
-				// remove QuickFolders notification if it is there:
 				try {
 					if (window.QuickFolders) 
 						removeOldNotification(notifyBox, false, 'quickfolders-filter');
-				} catch(ex) {;}
-				
+				} catch(ex) {;}				
 				
         let item = notifyBox.getNotificationWithValue(notificationKey);
         if (item)
@@ -1340,6 +1338,11 @@ quickFilters.Worker = {
 
       if (prefs.getBoolPref('newfilter.runPostOutgoing'))
         targetFilter.filterType |= nsMsgFilterType.PostOutgoing;			
+			
+			// New in Thunderbird 68.
+			if (nsMsgFilterType.Periodic && prefs.getBoolPref('newfilter.runPeriodically'))
+        targetFilter.filterType |= nsMsgFilterType.Periodic;			
+			
 		}
 		
 		// this is set by the 'Tags' checkbox
@@ -1648,7 +1651,7 @@ quickFilters.Assistant = {
 	get NextButton() {
 		if (!document.documentElement.getButton) return null;
 		return document.documentElement.getButton('extra1');
-		// document.getElementsByClassName('extra1')[0];
+		// document.getElementsByClassName('accept')[0];
 	},
   
   get MatchedFilters() {
@@ -1730,6 +1733,15 @@ quickFilters.Assistant = {
     const templateList = this.TemplateList,
 					util = quickFilters.Util,
 					prefs = quickFilters.Preferences;
+
+    // wire up dialog buttons manually in Thunderbird 68 (something going wrong there with the click events)		
+		if (util.Application=="Thunderbird" && util.PlatformVersion>=68.0) {
+			let dlgButtons = document.getElementsByTagName('dialog')[0]._buttons;
+			dlgButtons['extra1'].addEventListener("click", function(event) {return quickFilters.Assistant.next();});
+			dlgButtons['cancel'].addEventListener("click", function(event) {return quickFilters.Assistant.cancelTemplate();});
+			dlgButtons['extra2'].addEventListener("click", function(event) {quickFilters.Util.showLicensePage();});
+		}
+		
 					
 		if (prefs.isDebugOption('buildFilter')) debugger;
 		this.ContinueLabel = this.NextButton.label;

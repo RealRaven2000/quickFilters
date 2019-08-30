@@ -33,6 +33,8 @@
 <!ENTITY chkAfterJunk.label "Après la vérification des indésirables">
 <!ENTITY chkWhenArchiving.label "Lors de l'archivage">
 <!ENTITY chkAfterSending.label "Après l'envoi">
+<!ENTITY chkPeriodically.label "Run Periodically">
+<!ENTITY chkPeriodically.tooltip "Runs the filter in regular intervals">
 <!ENTITY chkAlphabetic.label "Insérer les nouveaux filtres dans l'ordre alphabétique">
 <!ENTITY chkAlphabetic.tooltip "Utilise le nom initial du filtre pour sa position. Recommandé avec la règle filtrant le nom de dossier parent. Veuillez prendre note que cela affecte l'ordre d'exécution du filtre !">
 <!ENTITY qf.label.naming "Règles de nommage">

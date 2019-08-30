@@ -6,6 +6,6 @@ pwsh -Command "(gc -en UTF8NoBOM manifest.json) -replace 'pre%oldQIWebRev%', 'pr
 pwsh -Command "(gc -en UTF8NoBOM install.rdf) -replace 'pre%oldQIWebRev%', 'pre%quickFiltersWebRev%' | Out-File install.rdf"
 "C:\Program Files\7-Zip\7z" a -xr!.svn quickFiltersWeb.zip manifest.json install.rdf chrome.manifest chrome defaults license.txt
 echo %quickFiltersWebRev% > revision.txt
-move quickFilters*.xpi ..\..\_Test\4.0
+move quickFilters*.xpi ..\..\_Test\4.1
 pwsh -Command "Start-Sleep -m 50"
-rename quickFiltersWeb.zip quickFilters-wx-4.0.3pre%quickFiltersWebRev%.xpi
+rename quickFiltersWeb.zip quickFilters-wx-4.1pre%quickFiltersWebRev%.xpi

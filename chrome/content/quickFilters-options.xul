@@ -110,9 +110,10 @@
 								instantApply="true"
 								/>
 
-								<preference id="newfilter.runAfterPlugins" 
+			<preference id="newfilter.runAfterPlugins" 
 	              name="extensions.quickfilters.newfilter.runAfterPlugins"
 								type="bool"  
+								instantApply="true"
 								/>
       <preference id="newfilter.runArchiving" 
 	              name="extensions.quickfilters.newfilter.runArchiving"
@@ -122,8 +123,13 @@
       <preference id="newfilter.runPostOutgoing" 
 	              name="extensions.quickfilters.newfilter.runPostOutgoing"
 								type="bool"  
+								instantApply="true"
 								/>
-								
+      <preference id="newfilter.runPeriodically"
+	              name="extensions.quickfilters.newfilter.runPeriodically"
+								type="bool"  
+								instantApply="true"
+								/>
 								
       <preference id="newfilter.insertAlphabetical" 
 	              name="extensions.quickfilters.newfilter.insertAlphabetical"
@@ -249,7 +255,7 @@
 			<tab label="&qf.tab.gopro;"  id="quickFilters-Pro" class="free" />
 		</tabs>
 
-		<tabpanels id="quickFilters-Panels" onselect="quickFilters.Options.onTabSelect(this,event);">
+		<tabpanels id="quickFilters-Panels">
 		
 			<tabpanel id="quickFilters-Options-actions"
 			          orient="vertical" 
@@ -367,6 +373,11 @@
 						<checkbox id="chkAfterSending" 
 								preference="newfilter.runPostOutgoing"
 								label="&chkAfterSending.label;" 
+								/>
+						<checkbox id="chkPeriodically" 
+								preference="newfilter.runPeriodically"
+								label="&chkPeriodically.label;" 
+								tooltiptext="&chkPeriodically.tooltip;" 
 								/>
 					</vbox>
 				</html:fieldset>
@@ -519,23 +530,24 @@
 		<!-- Licensing tab -->
 		<tabpanel id="quickFilters-Options-goPro" orient="vertical">
 			<description>&qf.label.insertLicense;</description>
-			<hbox id="licenseContainer" align="start">
+			<vbox id="licenseContainer">
 				<html:textarea id="txtLicenseKey"
-								 class="licenseKey"
-								 flex="1"
-								 multiline="true"
-								 rows="4"
-								 style="min-height: 4.5em;"
-								 tooltiptext="&qf.label.insertLicense.tooltip;"></html:textarea>
-				<vbox>
+							 class="licenseKey"
+							 flex="1"
+							 multiline="true"
+							 rows="4"
+							 style="min-height: 4.5em;"
+							 tooltiptext="&qf.label.insertLicense.tooltip;"></html:textarea>
+				<hbox>
+					<spacer flex="1" />
 					<button id="btnPasteLicense"
 									label="&qf.button.pasteLicense;"
 									oncommand="quickFilters.Options.pasteLicense();" />
 					<button id="btnValidateLicense"
 									label="&qf.button.validateLicense;"
 									oncommand="quickFilters.Options.validateLicenseInOptions(false);" />
-				</vbox>
-			</hbox>
+				</hbox>
+			</vbox>
 			<separator class = "licenseSeparator" />
 			<hbox id="validationResults">
 				<vbox>
@@ -555,7 +567,7 @@
 			</hbox>
 			<separator  style="height:1em;" />
 			<hbox>
-				<html:fieldset id="premiumConfig" disabled="true">
+				<html:fieldset id="premiumConfig" >
 					<html:legend>&qf.premiumConfig;</html:legend>
 					<vbox>
 						<hbox>

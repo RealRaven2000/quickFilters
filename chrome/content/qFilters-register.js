@@ -541,6 +541,11 @@ quickFilters.Licenser = {
         hasDefaultIdentity = false,
         myAccounts = this.Accounts,
         ForceSecondaryMail = prefs.getBoolPref('licenser.forceSecondaryIdentity');
+				
+		if (quickFilters.Crypto.key_type==1) {
+			ForceSecondaryMail = false;
+			util.logToConsole	("Sorry, but forcing secondary email addresses with a Domain license is not supported!");
+		}
     if (ForceSecondaryMail) {
       // switch for secondary email licensing
       this.AllowSecondaryMails = true;

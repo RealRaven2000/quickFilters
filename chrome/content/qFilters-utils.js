@@ -31,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "4.0.2",
+  HARDCODED_CURRENTVERSION : "4.1",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -497,21 +497,32 @@ quickFilters.Util = {
     if (util.hasPremiumLicense(false))
       return;
 		
-		switch(util.Application) {
-			case 'Postbox': 
-				notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
-				break;
-			case 'Thunderbird': 
-				notificationId = 'mail-notification-box'
-				break;
-			case 'SeaMonkey':
-				notificationId = null;
-				break;
+		let notifyBox,
+		    mainWin = util.getMail3PaneWindow();
+		if (typeof specialTabs == 'object' && specialTabs.msgNotificationBar) { // Tb 68
+			notifyBox = specialTabs.msgNotificationBar;
 		}
-		let notifyBox = document.getElementById (notificationId);
-    if (!notifyBox) {
-      notifyBox = util.getMail3PaneWindow().document.getElementById (notificationId);
-    }
+		else if( typeof gNotification == 'object' && gNotification.notificationbox) { // Tb 68
+			notifyBox = gNotification.notificationbox;
+		}
+		else {
+			switch(util.Application) {
+				case 'Postbox': 
+					notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
+					break;
+				case 'Thunderbird': 
+					notificationId = 'mail-notification-box'
+					break;
+				case 'SeaMonkey':
+					notificationId = null;
+					break;
+			}
+			notifyBox = document.getElementById (notificationId);
+			if (!notifyBox) {
+				notifyBox = mainWin.document.getElementById (notificationId);
+			}
+		}
+
 		let title = util.getBundleString("quickfilters.notification.proFeature.title", "Premium Feature"),
 		    theText = util.getBundleString("quickfilters.notification.premium.text",
 				"{1} is a Premium feature, please get a quickFilters Pro License for using it permanently. "),
@@ -1472,6 +1483,8 @@ quickFilters.Util = {
 	} ,
 	
 	getActionCount: function getActionCount(filter) {
+		if (typeof filter.actionCount != "undefined") 
+			return filter.actionCount;
 	  let actions = filter.actionList ? filter.actionList : filter.sortedActionList,
 		    actionCount = actions.Count ? actions.Count() : actions.length;
 		return actionCount;
@@ -2573,9 +2586,7 @@ quickFilters.mimeDecoder = {
 if (Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).ID != "postbox@postbox-inc.com") {
 	const util = quickFilters.Util;
 	if (util.versionGreaterOrEqual(util.AppverFull, "61")) 
-		ChromeUtils.import("resource:///modules/MailUtils.jsm");
+		var {MailUtils} = ChromeUtils.import("resource:///modules/MailUtils.jsm");
 	else
 		Components.utils.import("resource:///modules/MailUtils.js");
-  // Here, Postbox declares fixIterator
-  Components.utils.import("resource:///modules/iteratorUtils.jsm");  
 }

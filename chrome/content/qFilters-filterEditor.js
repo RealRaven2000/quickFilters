@@ -13,7 +13,7 @@ END LICENSE BLOCK
 if (typeof ChromeUtils.import == "undefined")
 	Components.utils.import("resource://gre/modules/Services.jsm");
 else
-	ChromeUtils.import("resource://gre/modules/Services.jsm");
+	var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
 
 // highlight removable filter conditions (duplicates)
 // window.onload = function()
@@ -190,7 +190,7 @@ quickFilters.FilterEditor = {
     if (argPos>0)
       hdr = hdr.substring(0, argPos);
 		// make sure this is a known header!
-    if (['from', 'to', 'cc', 'bcc', 'subject', 'subjectRegex'].indexOf(hdr) < 0) {
+    if (!(['from', 'to', 'cc', 'bcc', 'subject', 'subjectRegex'].includes(hdr))) {
       isCustom = true;
       if (!util.checkCustomHeaderExists(hdr)) {
         txt = util.getBundleString('quickfilters.prompt.createCustomHeader', 
