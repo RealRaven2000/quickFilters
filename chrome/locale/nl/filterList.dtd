@@ -18,7 +18,7 @@
 <!ENTITY quickfilters.button.sort "Sorteren">
 <!ENTITY quickfilters.button.sort.tooltiptext "Alfabetisch sorteren">
 <!ENTITY quickfilters.button.bug "Foutopsporing">
-<!ENTITY quickfilters.button.bug.tooltiptext "Foutopsporing - problemen met filters die niet werken opsporen">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Probleemoplossing: 1. filters die niet automatisch worden uitgevoerd 2. ongeldige doelmappen 3. valideert aangepaste acties">
 <!ENTITY quickfilters.menu.cut "Knippen">
 <!ENTITY quickfilters.menu.copy "Kopiëren">
 <!ENTITY quickfilters.menu.paste "Plakken">

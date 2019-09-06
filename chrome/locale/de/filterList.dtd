@@ -16,8 +16,8 @@
 <!ENTITY quickfilters.button.clone.accesskey "K">
 <!ENTITY quickfilters.button.clone.tooltiptext "Filter klonen">
 <!ENTITY quickfilters.button.sort "Sortieren">
-<!ENTITY quickfilters.button.bug "Debug">
-<!ENTITY quickfilters.button.bug.tooltiptext "Debug - überprüft Filter, die nicht automatisch laufen">
+<!ENTITY quickfilters.button.bug "Fehlersuche">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Fehlersuche - 1. überprüft Filter, die nicht automatisch laufen 2. ungültige Zielverzeichnisse 3. verifiziert Custom Aktionen">
 <!ENTITY quickfilters.button.sort.tooltiptext "Alphabetisch sortieren">
 <!ENTITY quickfilters.menu.cut "Ausschneiden">
 <!ENTITY quickfilters.menu.copy "Kopieren">

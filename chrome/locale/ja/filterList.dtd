@@ -18,7 +18,7 @@
 <!ENTITY quickfilters.button.sort "並べ替え">
 <!ENTITY quickfilters.button.sort.tooltiptext "アルファベット順に並べ替えます">
 <!ENTITY quickfilters.button.bug "デバッグ">
-<!ENTITY quickfilters.button.bug.tooltiptext "デバッグ - 自動で実行されないフィルタの問題を見つけます">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validates custom actions">
 <!ENTITY quickfilters.menu.cut "切り取り">
 <!ENTITY quickfilters.menu.copy "コピー">
 <!ENTITY quickfilters.menu.paste "貼り付け">

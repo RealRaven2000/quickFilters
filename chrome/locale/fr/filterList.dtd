@@ -17,8 +17,8 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "Clone un filtre">
 <!ENTITY quickfilters.button.sort "Trier">
 <!ENTITY quickfilters.button.sort.tooltiptext "Ordre alphabétique">
-<!ENTITY quickfilters.button.bug "Debug">
-<!ENTITY quickfilters.button.bug.tooltiptext "Debug - find problems with filters that don't run automatically">
+<!ENTITY quickfilters.button.bug "Troubleshoot">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validates custom actions">
 <!ENTITY quickfilters.menu.cut "Couper">
 <!ENTITY quickfilters.menu.copy "Copier">
 <!ENTITY quickfilters.menu.paste "Coller">
