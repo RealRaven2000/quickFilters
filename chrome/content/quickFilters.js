@@ -368,10 +368,16 @@ END LICENSE BLOCK
 		# Fixed notification bars for Thunderbird 68.
 		# Added support for the "run periodially" option (can be set as default for new filters).
 		# Fixed some spacing issues with the licensing field / validation buttons.
+		
+	4.1.1 WIP
+	  # Run Filters on Folder button - stopped working because Thunderbird 
+		  renamed mailServices to MailServices
+	  # Improved labelling for troubleshooting button and "running filters on folder" notifications
 	
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
+		# [Bug 26690] Add Extra Column In Filter Browser "Auto"
 		# [Bug 26373] Sort definitions within a filter
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
     # [Bug 25801]	Assistant in Merge mode, cancel does not undo changes 
@@ -767,13 +773,10 @@ var quickFilters = {
 					Cc = Components.classes,
 					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);
 
-		if (util.versionGreaterOrEqual(util.AppverFull, "67")) {
-		  var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm"); // new module spelling
-		}
-		else 
-			Components.utils.import("resource:///modules/mailServices.js", {});
-		
-					
+		var {MailServices} = 
+		  (util.versionGreaterOrEqual(util.AppverFull, "64")) ?
+				ChromeUtils.import("resource:///modules/MailServices.jsm") : // new module spelling
+				Components.utils.import("resource:///modules/mailServices.js", {});
 					
 		if (util.isDebug) debugger;
 		let folder = util.getCurrentFolder(),
@@ -783,8 +786,8 @@ var quickFilters = {
 				
 		// from  MsgApplyFiltersToSelection()
 		if (!silent && quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
-			let text = quickFilters.Util.getBundleString('quickfilters.runFiltersOnFolder.notify', 'Ran filters on current folder');
-			util.slideAlert(text, 'quickFilters');
+			let text = quickFilters.Util.getBundleString('quickfilters.runningFiltersOnFolder.notify', 'Running filters on folder {1}');
+			util.slideAlert(text.replace("{1}",folder.prettyName), 'quickFilters');
 		}		
 
 		if (util.isDebug) debugger;
@@ -805,8 +808,7 @@ var quickFilters = {
 			// disabled filters because the Filter Dialog filter after the fact
 			// code would have to clone filters to allow disabled filters to run,
 			// and we don't support cloning filters currently.
-			let mserv = MailServices,
-			    tempFilterList = mserv.filters.getTempFilterList(folder),
+			let tempFilterList = MailServices.filters.getTempFilterList(folder),
 			    numFilters = curFilterList.filterCount,
 					selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
 			selectedFolders.appendElement(folder, false);
@@ -830,7 +832,7 @@ var quickFilters = {
 				util.logException(ex);
 			}
 			if (util.isDebug) debugger;
-			mserv.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
+			MailServices.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
 		}
   },
   

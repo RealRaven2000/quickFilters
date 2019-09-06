@@ -187,7 +187,7 @@
 			<toolbarbutton id="quickFiltersBtnDebug"
 			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.bug;"
-			  tooltiptext = "&quickfilters.button.bug.tooltiptext;"
+			  tooltiptext = "&quickfilters.button.bug.tooltiptext1;"
 			  oncommand = "quickFilters.List.debug();"
 			  />
 			  

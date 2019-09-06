@@ -2552,7 +2552,6 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			
 			util.logDebug(ask + names);
 			Services.prompt.alert(null, "quickFilters", ask + '\n' + names);
-			
 		}
 		
 		// ==== MISSING custom actions  ====
