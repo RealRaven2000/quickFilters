@@ -2557,8 +2557,8 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		// ==== MISSING custom actions  ====
 		if (errorsCustomAction.length) {
 			let question = util.getBundleString('quickfilters.debug.fixFilters.customActionErrors', 
-						"Found {0} filters with unresolved custom actions."
-						+ " You may miss a third party Add-on or need to configure it do support custom actions."),
+						"Found {0} filters with unresolved custom actions. "
+						+ "You may be missing a third party Add-on or need to configure it to support custom actions."),
 					names = makeNameList(errorsCustomAction),
 			    ask = question.replace("{0}", errorsCustomAction.length) + "\n";
 					

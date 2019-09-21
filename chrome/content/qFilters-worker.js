@@ -1257,6 +1257,7 @@ quickFilters.Worker = {
           }
 				}               
 				break;
+        
       case 'custom':
         util.popupProFeature("customTemplate", true);    
         // retrieve the name of name customTemplate
@@ -1268,8 +1269,10 @@ quickFilters.Worker = {
 				
 				// build array of own emails to omit if multiple mails are evaluated to avoid adding damaging filter conditions:
 				// overwrite it with an empty array if only one email is selected.
-				if (messageList.length <= 1)
-				  myMailAddresses = null;
+				/* if (messageList.length <= 1)
+				  myMailAddresses = null; */
+        
+        
         // 2. copy Terms, replacing all variables
         //    replaceTerms={msgHdr,messageURI} as 4th parameter is REQUIRED in order to parse all mime headers!!
 				for (let i=0; i<messageList.length; i++) {

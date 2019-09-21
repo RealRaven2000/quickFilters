@@ -369,11 +369,17 @@ END LICENSE BLOCK
 		# Added support for the "run periodially" option (can be set as default for new filters).
 		# Fixed some spacing issues with the licensing field / validation buttons.
 		
-	4.1.1 WIP
+	4.1.1 09/09/2019
 	  # Run Filters on Folder button - stopped working because Thunderbird 
 		  renamed mailServices to MailServices
 	  # Improved labelling for troubleshooting button and "running filters on folder" notifications
 	
+  4.2 - WIP
+    # The buttons on the QuickFolders "current folder toolbar" are not displayed anymore in Thunderbird 68
+    # Custom filters: removing / avoiding own email addresses from new filter conditions is not working 
+      in Custom Filters. This is now remedied. If you need to add your own email address to the filter conditions
+      its probably a safe bet you would want to do it manually.
+  
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
@@ -1118,8 +1124,8 @@ var quickFilters = {
     return false;
   } ,
   
+  // read QF options and hide buttons from current folder bar
   toggleCurrentFolderButtons: function toggleCurrentFolderButtons() {
-    // to do - read options and hide buttons from current folder bar
     // options:
     //   quickfolders.curFolderbar.listbutton
     //   quickfolders.curFolderbar.folderbutton
@@ -1129,15 +1135,29 @@ var quickFilters = {
         win = util.getMail3PaneWindow();
     util.logDebug('toggleCurrentFolderButtons()');
     try {
-      let btn = win.document.getElementById('quickfilters-current-listbutton');
-			if (btn) {
-				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
-				btn = win.document.getElementById('quickfilters-current-runbutton');
-				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
-				btn = win.document.getElementById('quickfilters-current-msg-runbutton');
-				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
-				btn = win.document.getElementById('quickfilters-current-searchfilterbutton');
-				btn.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.findfilterbutton');
+      // in tb 68 we need to move the buttons into the correct place first,
+      let btnList = win.document.getElementById('quickfilters-current-listbutton');
+			if (btnList) { 
+        let injected = win.document.getElementById('quickFilters-injected'),
+            btnRun = win.document.getElementById('quickfilters-current-runbutton'),
+            btnMsgRun = win.document.getElementById('quickfilters-current-msg-runbutton'),
+            btnSearch = win.document.getElementById('quickfilters-current-searchfilterbutton');
+            
+        if (injected)  { // Thunderbird 68 specific part.
+          // insert after QuickFolders-currentFolderFilterActive
+          let toolbar = win.document.getElementById('QuickFolders-CurrentFolderTools');
+          if (toolbar) {
+            let refNode = win.document.getElementById('QuickFolders-Options');
+            toolbar.insertBefore(btnList, refNode);
+            toolbar.insertBefore(btnRun, refNode);
+            toolbar.insertBefore(btnMsgRun, refNode);
+            toolbar.insertBefore(btnSearch, refNode);
+          }
+        }
+				btnList.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
+				btnRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
+				btnMsgRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
+				btnSearch.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.findfilterbutton');
 			}
     }
     catch (ex) {

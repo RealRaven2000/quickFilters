@@ -18,7 +18,7 @@
 <!ENTITY quickfilters.button.sort "Ordina">
 <!ENTITY quickfilters.button.sort.tooltiptext "Ordina alfabeticamente">
 <!ENTITY quickfilters.button.bug "Debug">
-<!ENTITY quickfilters.button.bug.tooltiptext1 "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validates custom actions">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Problemi: 1. Filtri non eseguiti automaticamente 2. cartelle destinazione non valide 3. Azioni personalizzate da convalidare">
 <!ENTITY quickfilters.menu.cut "Taglia">
 <!ENTITY quickfilters.menu.copy "Copia">
 <!ENTITY quickfilters.menu.paste "Incolla">
