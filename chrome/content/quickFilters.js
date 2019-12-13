@@ -380,7 +380,7 @@ END LICENSE BLOCK
       in Custom Filters. This is now remedied. If you need to add your own email address to the filter conditions
       its probably a safe bet you would want to do it manually.
       
-  4.3 - WIP
+  4.3.1 - 13/12/2019
     # missing notifyBox can lead to problems when toggling assistant
     # premium feature: run filters local inbox didn't work depending on local folder hostname,
       changed method of determining whether an inbox is in local folders (to force filter running)    
