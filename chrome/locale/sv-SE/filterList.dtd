@@ -18,7 +18,8 @@
 <!ENTITY quickfilters.button.sort "Sortera">
 <!ENTITY quickfilters.button.sort.tooltiptext "Sortera i bokstavsordning">
 <!ENTITY quickfilters.button.bug "Felsökning">
-<!ENTITY quickfilters.button.bug.tooltiptext1 "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validates custom actions">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Felsökning: 1. filter som inte körs automatiskt 2. ogiltiga målmappar 3. validera anpassade åtgärder">
+<!ENTITY quickfilters.button.bug.tooltiptext2 "4. Blandade villkor &quot;Alla&quot; / &quot;Någon av följande&quot;. Högerklicka för att konfigurera steg.">
 <!ENTITY quickfilters.menu.cut "Klipp ut">
 <!ENTITY quickfilters.menu.copy "Kopiera">
 <!ENTITY quickfilters.menu.paste "Klistra in">

@@ -128,7 +128,7 @@
 			  tooltiptext = "&quickfilters.menu.paste;"
 			  oncommand = "quickFilters.List.pasteFilters(false);"
 			  />
-		    <toolbarseparator />
+		  <toolbarseparator />
 			<toolbarbutton id="quickFiltersBtnMerge"
 			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.merge;"
@@ -183,12 +183,14 @@
 				<!-- fill with JS -->
 			    </menupopup>
 				</menulist>
-				
-			<toolbarbutton id="quickFiltersBtnDebug"
+
+			<toolbarbutton id="quickFiltersTroubleshoot"
 			  class = "toolbarbutton-1" 
 			  label = "&quickfilters.button.bug;"
-			  tooltiptext = "&quickfilters.button.bug.tooltiptext1;"
-			  oncommand = "quickFilters.List.debug();"
+			  tooltiptext = "&quickfilters.button.bug.tooltiptext1; &quickfilters.button.bug.tooltiptext2;"
+			  oncommand = "quickFilters.List.troubleshoot();"
+        oncontextmenu = "quickFilters.List.configureTroubleshooter(this);"
+        context = "dummy"
 			  />
 			  
 			<toolbarbutton id="quickFiltersBtnStart"

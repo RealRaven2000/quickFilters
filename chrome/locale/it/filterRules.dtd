@@ -7,12 +7,12 @@
 <!ENTITY quickfilters.customHeader.To "A">
 <!ENTITY quickfilters.customHeader.CarbonCopy "Copia Conforme (CC)">
 <!ENTITY quickfilters.customHeader.BlindCarbonCopy "Copia Conforme Nascosta (CCN)">
-<!ENTITY quickfilters.customHeader.ReplyTo "Rispondi A">
+<!ENTITY quickfilters.customHeader.ReplyTo "Rispondi a">
 <!ENTITY quickfilters.customHeader.Subject "Oggetto">
 <!ENTITY quickfilters.customHeader.SubjectRegex "Espressioni regolari nell'oggetto">
 <!ENTITY quickfilters.customHeader.ListId "List Id">
 <!ENTITY quickfilters.customHeader.ListPost "List Post">
-<!ENTITY quickfilters.customHeader.Newsgroups "Gruppi di discusasione">
+<!ENTITY quickfilters.customHeader.Newsgroups "Gruppi di discussione">
 <!-- These are the different components of an email address (e.g of "Fred Smith <fredsmith@example.com>") -->
 <!ENTITY quickfilters.customHeader.Email "Indirizzo di posta elettronica">
 <!ENTITY quickfilters.customHeader.Domain "Dominio dell'indirizzo di posta elettronica">

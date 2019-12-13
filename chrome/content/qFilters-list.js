@@ -402,7 +402,7 @@ quickFilters.List = {
     }
     else {
 			let wrn = util.getBundleString('quickfilters.merge.warning.selectTarget',
-                                                 'A target filter must be selected for merging!')
+                                     'A target filter must be selected for merging!')
       util.popupAlert(wrn);
 			return;
     }
@@ -2067,7 +2067,6 @@ quickFilters.List = {
 					for (let j = 0; j< filtersList.filterCount; j++) {
 						if (filtersList.getFilterAt(j).filterName == targetFilter.filterName) {
 							bExists = true;
-							debugger;
 							// delete original
 							util.logDebug ('deleting original filter at ' + j); 
 							filtersList.removeFilterAt(j);
@@ -2385,17 +2384,23 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
     this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
   } ,
 	
+  // troubleshooter - generates error list(s)
 	checkErrors: function checkFilterErrors() {
     const util = quickFilters.Util,
           settings = quickFilters.Settings,
 					ff = util.FolderFlags,
 					nsMsgFilterType = Ci.nsMsgFilterType,
-					FA = Ci.nsMsgFilterAction;
+					FA = Ci.nsMsgFilterAction,
+          prefs = quickFilters.Preferences;
 		let qfList = quickFilters.List, // this object
 				filtersList = this.FilterList,
 				sourceFolder = quickFilters.Shim.findInboxFromRoot(filtersList.folder, ff),
 				errorList = [],
 				isInbox=false, isNewsgroup=false;
+        
+    function isEnabled(troubleshootWhat) {
+      return prefs.getBoolPref("troubleshoot." + troubleshootWhat);
+    }
 		
 		if(sourceFolder){
 			isInbox = sourceFolder.getFlag(ff.Inbox);
@@ -2406,55 +2411,86 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			isInbox = (filtersList.folder.username == 'nobody');
 		}
 				
-					
 		for (let i = 0; i < filtersList.filterCount; i++) {
 			let filter = filtersList.getFilterAt(i),
 			    incomingFaulty = false;
 			// Incoming = InboxRule | InboxJavaScript | NewsRule | NewsJavaScript
 			
 			// Test 1: can filter autorun?
-			if (isInbox || isNewsgroup) {
-				incomingFaulty = ((filter.filterType & nsMsgFilterType.Incoming)==0);
-			}
-			if (incomingFaulty) {
-				errorList.push ( { index:i, flt:filter, type: 'incoming'} );
-			}
-			// Test 2: invalid target folder
+      if (isEnabled('incomingFlag')) {
+        if (isInbox || isNewsgroup) {
+          // We probably should omit disabled filters!!
+          incomingFaulty = ((filter.filterType & nsMsgFilterType.Incoming)==0);
+        }
+        if (incomingFaulty) {
+          errorList.push ( { index:i, flt:filter, type: 'incoming'} );
+        }
+      }
+			
+      
       let actionCount = util.getActionCount(filter);
       for (let a = 0; a < actionCount; a++) {
-				let ac = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
-				if (ac.type==FA.MoveToFolder || ac.type==FA.CopyToFolder) {
-					// check url
-					let fld = util.getMsgFolderFromUri(ac.targetFolderUri, true); // check if it exists
-					if (fld==null) {
-						errorList.push ( { index:i, flt:filter, type: 'folderUri'} );
-					}
-				}
-				if (ac.type == FA.Custom) {  // -1
-				  let isError = false;
-					try { 
-					  let customAction = ac.customAction;
-						if (!customAction) isError=true;
-					}
-					catch(ex) {
-						isError=true;
-					}
-					if (isError) {
-						util.logDebug("Missing custom action in filter [" + filter.filterName + "]: " + ac.customId);
-						errorList.push ( { index:i, flt:filter, type: 'customAction'} );
-					}
-				}
+        let ac = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
+        // Test 2: invalid target folder
+        if (isEnabled('invalidTargetFolder')) {
+          if (ac.type==FA.MoveToFolder || ac.type==FA.CopyToFolder) {
+            // check url
+            let fld = util.getMsgFolderFromUri(ac.targetFolderUri, true); // check if it exists
+            if (fld==null) {
+              errorList.push ( { index:i, flt:filter, type: 'folderUri'} );
+            }
+          }
+        }
+        // Test 3: invalid  custom Actions
+        if (ac.type == FA.Custom && isEnabled('customActions')) {  // -1
+          let isError = false;
+          try { 
+            let customAction = ac.customAction;
+            if (!customAction) isError=true;
+          }
+          catch(ex) {
+            isError=true;
+          }
+          if (isError) {
+            util.logDebug("Missing custom action in filter [" + filter.filterName + "]: " + ac.customId);
+            errorList.push ( { index:i, flt:filter, type: 'customAction'} );
+          }
+        }
 			}
-			
+      
+      // Test 4. check for mixed booleanAnd properties:
+      if (isEnabled('mixedAnyAndAll')) {
+        let TargetTerms = util.querySearchTermsArray(filter.searchTerms),
+            targetBoolean = util.querySearchTermsAt(TargetTerms, 0).booleanAnd,
+            theCount = TargetTerms.Count(),
+            fixedConditions = 0;
+        for (let t = 0; t < theCount; t++) {
+          let searchTerm = util.querySearchTermsAt(TargetTerms, t);
+          if (searchTerm.booleanAnd != targetBoolean) {
+            fixedConditions++;
+          }
+        }
+        if (fixedConditions) {
+          let el = { index:i, 
+                     flt:filter, 
+                     type: 'mixedAnyAndAll',
+                     booleanAnd: targetBoolean, 
+                     conditionCount: fixedConditions
+                   } 
+          errorList.push (el);
+        }
+      }
+      
+      
 		}
 		if (errorList.length) 
-			document.getElementById('quickFiltersBtnDebug').classList.add("faulty");
+			document.getElementById('quickFiltersTroubleshoot').classList.add("faulty");
 		else 
-			document.getElementById('quickFiltersBtnDebug').classList.remove("faulty");
+			document.getElementById('quickFiltersTroubleshoot').classList.remove("faulty");
 		return errorList;
 	} ,
 	
-	debug: function debugFilterList() {
+	troubleshoot: function troubleshootFilterList() {
 		// go through list and check for flags InboxRule / InboxRuleJavaScript / NewsRule / NewsRuleJavascript
     const util = quickFilters.Util,
           settings = quickFilters.Settings,
@@ -2482,14 +2518,17 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			return names;
 		}
 					
-		let sourceFolder = quickFilters.Shim.findInboxFromRoot(filtersList.folder, ff),
-				isInbox=false, isNewsgroup=false; // flag setters
-					
 		if (typeof ChromeUtils.import == "undefined")
 			Components.utils.import("resource://gre/modules/Services.jsm");
 		else
 			var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
+    const PromptService = Services.prompt,
+          flags = (PromptService.BUTTON_POS_0 * PromptService.BUTTON_TITLE_YES) +
+                  (PromptService.BUTTON_POS_1 * PromptService.BUTTON_TITLE_NO);
 
+
+		let sourceFolder = quickFilters.Shim.findInboxFromRoot(filtersList.folder, ff),
+				isInbox=false, isNewsgroup=false; // flag setters
 					
 		if (sourceFolder) {
 			isInbox = sourceFolder.getFlag(ff.Inbox);
@@ -2499,10 +2538,12 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			// local folder
 			isInbox = (filtersList.folder.username == 'nobody');
 		}
+    
 		let errorList = qfList.checkErrors(),
 		    errorsIncoming = errorList.filter(el => el.type == 'incoming'),
 				errorsURI = errorList.filter(el => el.type == 'folderUri'),
-				errorsCustomAction = errorList.filter(el => el.type == 'customAction');
+				errorsCustomAction = errorList.filter(el => el.type == 'customAction'),
+        errorsAnyAndAll = errorList.filter(el => el.type == 'mixedAnyAndAll');
 		
 		// ==== INVALID Incoming flag  ====
 		if (errorsIncoming.length) {
@@ -2514,34 +2555,75 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					
 			util.logDebug(ask + names);
 			
-			if (Services.prompt.confirm(null,"quickFilters",ask + names)) {
-				let filtersList = this.FilterList;
-				// start fixing the list...
-				let err, countFixed=0;
-				while (errorList.length) {
-					err = errorList.pop();
+      // 0=Yes, 1=No
+			if (0 == PromptService.confirmEx(null, "quickFilters", ask + names, flags, null, null, null, null, {})) {
+				let filtersList = this.FilterList,
+				    err, 
+            countFixed=0;
+        // start fixing the list...
+				while (errorsIncoming.length) {
+					err = errorsIncoming.pop();
 					let filter = filtersList.getFilterAt(err.index);
-					if (err.type  == 'incoming') {
-						util.logDebug("Fixing Filter[" + err.index + "] INCOMING FLAG: " + filter.filterName);
-						if (isInbox)
-							filter.filterType = filter.filterType | nsMsgFilterType.InboxRule;
-						if (isNewsgroup)
-							filter.filterType = filter.filterType | nsMsgFilterType.NewsRule;
-						countFixed++;
-					}
+          
+          util.logDebug("Fixing Filter[" + err.index + "] INCOMING FLAG: " + filter.filterName);
+          if (isInbox)
+            filter.filterType = filter.filterType | nsMsgFilterType.InboxRule;
+          if (isNewsgroup)
+            filter.filterType = filter.filterType | nsMsgFilterType.NewsRule;
+          countFixed++;
 				}
 				// store changes
 				qfList.rebuildFilterList();
-				document.getElementById('quickFiltersBtnDebug').classList.remove("faulty");
+				document.getElementById('quickFiltersTroubleshoot').classList.remove("faulty");
 				// show result
 				// but do not show list of names as they don't wrap nicely in notification panel.
-				util.popupAlert(
-				  util.getBundleString('quickfilters.debug.fixFilters.result','{0} filters were fixed.').replace('{0}',countFixed),
-					"quickFilters", "debug-success.png", 0
-				);
+        if (countFixed)
+          util.popupAlert(
+            util.getBundleString('quickfilters.debug.fixFilters.result','{0} filters were fixed.').replace('{0}',countFixed),
+            "quickFilters", "debug-success.png", 0
+          );
 			}
 		}
-		
+
+    if (errorsAnyAndAll.length) {
+      let question = util.getBundleString('quickfilters.debug.fixFilters.AnyAll', 
+				  "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"),
+          names = makeNameList(errorsAnyAndAll);
+      // 0=Yes, 1=No
+			if (0 == PromptService.confirmEx(null, "quickFilters", question + '\n' + names, flags, null, null, null, null, {})) {
+        // to do - fix any and all mixes
+        let countFixed = 0;
+				while (errorsAnyAndAll.length) {
+					let err = errorsAnyAndAll.pop(),
+					    filter = filtersList.getFilterAt(err.index);
+          util.logDebug("Fixing Filter[" + err.index + "] MIXED ANY/ALL CONDITIONS: " + filter.filterName);
+          
+          let TargetTerms = util.querySearchTermsArray(filter.searchTerms),
+              targetBoolean = util.querySearchTermsAt(TargetTerms, 0).booleanAnd,
+              theCount = TargetTerms.Count();
+          for (let t = 0; t < theCount; t++) {
+            let searchTerm = util.querySearchTermsAt(TargetTerms, t);
+            if (searchTerm.booleanAnd != targetBoolean) {
+              searchTerm.booleanAnd = targetBoolean;
+              util.logDebug("Changing condition[" + t  + "] - booleanAnd = " + targetBoolean);
+            }
+          }
+          countFixed++;
+				}
+        
+        if (countFixed) {
+          util.popupAlert(
+            util.getBundleString('quickfilters.debug.fixFilters.result','{0} filters were fixed.').replace('{0}',countFixed),
+            "quickFilters", "debug-success.png", 0
+          );        
+          // store changes
+          qfList.rebuildFilterList();
+          document.getElementById('quickFiltersTroubleshoot').classList.remove("faulty");
+        }
+        
+      }
+    }
+    
 		// ==== INVALID target URIs  ====
 		if (errorsURI.length) {
 			let question = util.getBundleString('quickfilters.debug.fixFilters.invalidUris', 
@@ -2551,9 +2633,9 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			    ask = question.replace("{0}", errorsURI.length) + "\n";
 			
 			util.logDebug(ask + names);
-			Services.prompt.alert(null, "quickFilters", ask + '\n' + names);
-		}
-		
+			PromptService.alert(null, "quickFilters", ask + '\n' + names);
+		}    
+    
 		// ==== MISSING custom actions  ====
 		if (errorsCustomAction.length) {
 			let question = util.getBundleString('quickfilters.debug.fixFilters.customActionErrors', 
@@ -2562,8 +2644,9 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					names = makeNameList(errorsCustomAction),
 			    ask = question.replace("{0}", errorsCustomAction.length) + "\n";
 					
-			Services.prompt.alert(null, "quickFilters", ask + '\n' + names);
+			PromptService.alert(null, "quickFilters", ask + '\n' + names);
 		}
+        
 		
 		if (!errorList.length) {
 				util.popupAlert(
@@ -2571,11 +2654,14 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					"quickFilters", "debug-success.png", 0
 				);
 			util.logDebug();
-			document.getElementById('quickFiltersBtnDebug').classList.remove("faulty");
+			document.getElementById('quickFiltersTroubleshoot').classList.remove("faulty");
 		}
 		
 	} ,
-	
+  
+  configureTroubleshooter: function configureTroubleshooter(el) {
+    quickFilters.Util.showAboutConfig(el, 'quickfilters.troubleshoot', true);
+  } ,
   
   dummy: function() {
 		/* 

@@ -18,7 +18,8 @@
 <!ENTITY quickfilters.button.sort "Ordina">
 <!ENTITY quickfilters.button.sort.tooltiptext "Ordina alfabeticamente">
 <!ENTITY quickfilters.button.bug "Debug">
-<!ENTITY quickfilters.button.bug.tooltiptext1 "Problemi: 1. Filtri non eseguiti automaticamente 2. cartelle destinazione non valide 3. Azioni personalizzate da convalidare">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Possibili cause: 1. Filtri che non possono essere eseguiti automaticamente 2. Cartelle destinazione non valide 3. Azioni personalizzate da convalidare">
+<!ENTITY quickfilters.button.bug.tooltiptext2 "4. 'Tutte'/'Anche una sola condizione' mescolate. Per la sequenza di configurazione, fare clic sul pulsante dx del mouse">
 <!ENTITY quickfilters.menu.cut "Taglia">
 <!ENTITY quickfilters.menu.copy "Copia">
 <!ENTITY quickfilters.menu.paste "Incolla">

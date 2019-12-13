@@ -571,8 +571,12 @@ quickFilters.Licenser = {
       if (ac.defaultIdentity && !ForceSecondaryMail) {
         util.logDebugOptional("premium.licenser", "Iterate accounts: [" + ac.key + "] Default Identity =\n" 
           + logIdentity(ac.defaultIdentity));
-				if (!ac.defaultIdentity || !ac.defaultIdentity.email)
+				if (!ac.defaultIdentity || !ac.defaultIdentity.email) {
+					if (ac.incomingServer.username != "nobody") {
+						util.logDebug("Account " + ac.incomingServer.prettyName + " has no default identity!");
+					}
 					continue;
+        }
         if (isIdMatchedLicense(ac.defaultIdentity.email, licensedMail)) {
           isMatched = true;
           break;

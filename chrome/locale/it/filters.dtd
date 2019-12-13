@@ -1,4 +1,4 @@
-<!ENTITY qf.filters.title "Creazione Filtri">
+<!ENTITY qf.filters.title "Creazione filtri">
 <!ENTITY qf.filters.template.from "Basato sul mittente (Mittente/Da:)">
 <!ENTITY qf.filters.template.domain "Basato sul dominio del mittente">
 <!ENTITY qf.filters.template.multifrom "Gruppo (raccoglie i mittenti di più messaggi)">

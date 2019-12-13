@@ -1,8 +1,5 @@
 // Default preference values. These are accessible via the preferences system
 // or via the optional chrome/content/options.xul preferences dialog.
-
-// These are here as an example only. Please remove them or rename them to
-// something useful.
 pref("extensions.quickfilters.debug", false);
 pref("extensions.quickfilters.debug.buildFilter", false);
 pref("extensions.quickfilters.debug.clipboard", false);
@@ -86,6 +83,13 @@ pref("extensions.quickfilters.quickfolders.curFolderbar.folderbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.messagesbutton", false);
 pref("extensions.quickfilters.quickfolders.curFolderbar.findfilterbutton", true);
 pref("extensions.quickfilters.notTB.searchbox", false);
+
+// Troubleshooter (button in filterlist)
+pref("extensions.quickfilters.troubleshoot.incomingFlag", true);
+pref("extensions.quickfilters.troubleshoot.invalidTargetFolder", true);
+pref("extensions.quickfilters.troubleshoot.customActions", true);
+pref("extensions.quickfilters.troubleshoot.mixedAnyAndAll", true);
+
 
 // filter by reply-to
 pref("extensions.quickfilters.templates.replyTo", false);

@@ -10,11 +10,11 @@
 <!ENTITY chkToolbar.accesskey "M">
 <!ENTITY chkShowList.label "Mostrar lista de filtros tras la creación de un filtro">
 <!ENTITY chkShowList.tooltip "Muestra la lista para que ejecute el nuevo filtro sobre todos los mensajes para realizar pruebas.">
-<!ENTITY chkShowEditor.label "Open Editor after filter creation">
+<!ENTITY chkShowEditor.label "Editor abierto después de la creación del filtro">
 <!ENTITY chkImapOnRead.label "Ejecutar también el filtro sobre correos leídos en cuentas IMAP.">
 <!ENTITY donate.label "Donar">
-<!ENTITY qf.youtube.description "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel.">
-<!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
+<!ENTITY qf.youtube.description "Para obtener información detallada sobre complementos de Thunderbird y videos sobre cómo usar quickFilters, visite mi canal de YouTube.">
+<!ENTITY qf.youtube.link "Mira videos de quickFilters en Thunderbird Daily ...">
 <!ENTITY qf.description.about "Puede encontrar una descripción rápida de quickFilters en el siguiente sitio:">
 <!ENTITY qf.label.aboutLink "Sitio web de quickFilters…">
 <!ENTITY qf.description.contactMe "También puede contactar conmigo personalmente en axelg@gofree.indigo.ie:">
@@ -29,19 +29,19 @@
 <!ENTITY qf.tab.support "Soporte">
 <!ENTITY qf.grp.whenToRun "Aplicar filtro cuando">
 <!ENTITY chkAutoRun.label "Aplicar filtro al recibir correo nuevo">
-<!ENTITY chkRunManual.label "Run manually">
+<!ENTITY chkRunManual.label "Ejecutar manualmente">
 <!ENTITY chkAfterJunk.label "Filtrar tras identificar el correo basura">
 <!ENTITY chkWhenArchiving.label "Archivado">
 <!ENTITY chkAfterSending.label "Tras enviar">
-<!ENTITY chkPeriodically.label "Run Periodically">
-<!ENTITY chkPeriodically.tooltip "Runs the filter in regular intervals">
+<!ENTITY chkPeriodically.label "Correr periódicamente">
+<!ENTITY chkPeriodically.tooltip "Ejecuta el filtro a intervalos regulares.">
 <!ENTITY chkAlphabetic.label "Insertar nuevos filtros en orden alfabético">
 <!ENTITY chkAlphabetic.tooltip "Usa el nombre del filtro para determinar su posición. Recomendado con la regla de nomenclatura de la carpeta antecesora. ¡Observe que esto afecta al orden de ejecución de filtros!">
 <!ENTITY qf.label.naming "Reglas de nomenclatura">
 <!ENTITY qf.label.naming.parentFolder "Añadir nombre de la carpeta antecesora">
 <!ENTITY qf.label.naming.parentFolder.accesskey "n">
-<!ENTITY qf.label.naming.folderDelimiter "Delimiter:">
-<!ENTITY qf.tooltip.naming.folderDelimiter "Character inserted between parent folder and name">
+<!ENTITY qf.label.naming.folderDelimiter "Delimitador:">
+<!ENTITY qf.tooltip.naming.folderDelimiter "Carácter insertado entre la carpeta principal y el nombre">
 <!ENTITY qf.label.naming.keyWord "Añadir palabra clave específica para la regla">
 <!ENTITY qf.label.naming.keyWord.accesskey "p">
 <!ENTITY qf.templates.advanced "Plantillas avanzadas">
@@ -63,7 +63,7 @@
 <!ENTITY chkMergeAuto.tooltip "Si ya existe un filtro, esto seleccionará automáticamente el modo de combinado y el primer filtro coincidente.">
 <!ENTITY chkMergeSkip.label "Saltar hasta el paso de la plantilla">
 <!ENTITY chkMergeSkip.tooltip "Esto omitirá el paso 'seleccionar objetivo de combinado' e irá directo a 'seleccionar plantilla'.">
-<!ENTITY chkInsertRulesAtTop.label "Add new rules on top of list.">
+<!ENTITY chkInsertRulesAtTop.label "Agregue nuevas reglas al principio de la lista.">
 <!ENTITY qf.cloned.label "Añadir al nombre del filtro clonado:">
 <!ENTITY qf.onewayaddress.label "Deshabilitar las condiciones de búsqueda de direcciones para ambos sentidos">
 <!ENTITY qf.onewayaddress.tooltip "Por defecto, quickFilters añade condiciones de búsqueda tanto para 'De' como para 'A'  para la asistencia al filtrado de hilos completos de mensajes, incluyendo sus propios correos para el destinatario. Si quiere mantener siempre sus respuestas en la carpeta Enviados, puede deshabilitar este comportamiento aquí. El complemento 'Copy Sent to Current' (copiar enviados a actual) se puede usar para mantener las respuestas junto a los correos que las originan.">
@@ -73,7 +73,7 @@
 <!ENTITY qf.listener.tags.autofilter "Ejecutar filtros automáticamente al cambiar las etiquetas">
 <!-- quickFilters Pro stuff -->
 <!ENTITY qf.tab.gopro "quickFilters Pro">
-<!ENTITY qf.label.supportWithLicense "Support quickFilters by getting a license!">
+<!ENTITY qf.label.supportWithLicense "¡Apoye quickFilters comprando una licencia!">
 <!ENTITY qf.label.insertLicense "Inserte su clave de licencia personal aquí:">
 <!ENTITY qf.label.insertLicense.tooltip "Su clave de licencia está incluida en su correo de confirmación de orden recibido desde FastSpring.">
 <!ENTITY qf.button.pasteLicense "pegar">
@@ -87,4 +87,4 @@
 <!ENTITY qf.licenseValidation.notMatchedMail "La dirección de correo electrónico cifrada no coincide con la legible.">
 <!ENTITY qf.premiumConfig "Características Premium">
 <!ENTITY qf.label.premiumFeaturesSite "Lea más sobre las características Premium en nuestro sitio web">
-<!ENTITY chkLocalFoldersAutorun.label "Run filters on Local Folders Inbox automatically">
+<!ENTITY chkLocalFoldersAutorun.label "Ejecute filtros en la Bandeja de entrada de carpetas locales automáticamente">

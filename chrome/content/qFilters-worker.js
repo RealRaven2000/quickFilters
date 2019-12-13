@@ -76,7 +76,7 @@ quickFilters.Worker = {
 						notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
 						break;
 					case 'Thunderbird':
-						notificationId = 'mail-notification-box'
+						notificationId = 'mail-notification-box';
 						break;
 					case 'SeaMonkey':
 						notificationId = null;
@@ -89,14 +89,20 @@ quickFilters.Worker = {
       
       // do a tidy up in case this is already open!
       if (notificationId) { // SeaMonkey: no such thing yet.
-				try {
-					if (window.QuickFolders) 
-						removeOldNotification(notifyBox, false, 'quickfolders-filter');
-				} catch(ex) {;}				
-				
-        let item = notifyBox.getNotificationWithValue(notificationKey);
-        if (item)
-          notifyBox.removeNotification(item, (util.Application == 'Postbox')); // second parameter in Postbox(not documented): skipAnimation
+        if (notifyBox) {
+          try {
+            if (window.QuickFolders) 
+              removeOldNotification(notifyBox, false, 'quickfolders-filter');
+          } catch(ex) {;}				
+          
+          let item = notifyBox.getNotificationWithValue(notificationKey);
+          if (item)
+            notifyBox.removeNotification(item, (util.Application == 'Postbox')); // second parameter in Postbox(not documented): skipAnimation
+        }
+        else {
+          util.logToConsole("Sorry - I cannot show notifyBox, cannot find element '" + notificationId + "'\n" +
+            "toggle_FilterMode(active=" + active + ", silent=false);");
+        }
       }
 
       if (active

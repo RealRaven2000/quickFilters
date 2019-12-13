@@ -131,41 +131,6 @@ quickFilters.Options = {
     return false // this.updateMainWindow();
   },
   
-  showAboutConfig: function(clickedElement, filter, readOnly) {
-    const name = "Preferences:ConfigManager",
-		      util = quickFilters.Util,
-          Ci = Components.interfaces, 
-          Cc = Components.classes;
-    let uri = "chrome://global/content/config.xul";
-		if (util.Application)
-			uri += "?debug";
-
-    let mediator = Cc["@mozilla.org/appshell/window-mediator;1"].getService(Ci.nsIWindowMediator),
-        w = mediator.getMostRecentWindow(name),
-        win = clickedElement ?
-		          (clickedElement.ownerDocument.defaultView ? clickedElement.ownerDocument.defaultView : window)
-							: window;
-    if (!w) {
-      let watcher = Cc["@mozilla.org/embedcomp/window-watcher;1"].getService(Ci.nsIWindowWatcher);
-      w = watcher.openWindow(win, uri, name, "dependent,chrome,resizable,centerscreen,alwaysRaised,width=500px,height=350px", null);
-    }
-    w.focus();
-    w.addEventListener('load', 
-      function () {
-        let flt = w.document.getElementById("textbox");
-        if (flt) {
-          flt.value=filter;
-          // make filter box readonly to prevent damage!
-          if (!readOnly)
-            flt.focus();
-          else
-            flt.setAttribute('readonly',true);
-          if (w.self.FilterPrefs) {
-            w.self.FilterPrefs();
-          }
-        }
-      });
-  },
 
   addConfigFeature: function(filter, Default, textPrompt) {
     // adds a new boolean option to about:config, that isn't there by default
@@ -174,7 +139,7 @@ quickFilters.Options = {
       quickFilters.Preferences.setBoolPrefNative(filter, Default);
 
       // last parameter is Readonly.
-      quickFilters.Options.showAboutConfig(null, filter, true); 
+      quickFilters.Util.showAboutConfig(null, filter, true); 
     }
   },
   

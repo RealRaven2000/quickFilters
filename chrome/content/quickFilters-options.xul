@@ -498,7 +498,7 @@
 									preference="debug" 
 									label="&chkDebug.label;" 
 									accesskey="&chkDebug.accesskey;"
-									oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Options.showAboutConfig(this, 'quickfilters.debug', true);return false;"/>
+									oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Util.showAboutConfig(this, 'quickfilters.debug', true);return false;"/>
 			</hbox>
 			<separator />
 	  </tabpanel> 

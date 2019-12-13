@@ -22,14 +22,14 @@
 <!ENTITY qf.filters.actions.star "Estrella">
 <!ENTITY qf.filters.actions.star.accesskey "s">
 <!ENTITY qf.filters.actions.tooltip "El filtro copia estos atributos del correo original">
-<!ENTITY qf.filters.steps.tooltip "Which screens to show after filter creation">
-<!ENTITY qf.filters.steps.caption "Next Steps">
-<!ENTITY qf.filters.steps.showEditor "Filter Rules">
-<!ENTITY qf.filters.steps.showEditor.tooltip "Edit the filter details after the Assistant has created it.">
-<!ENTITY qf.filters.steps.showList "Filters List">
-<!ENTITY qf.filters.steps.showList.tooltip "Displays the filter in context so you can try it out">
-<!ENTITY qf.filters.steps.autoRunFilter "Run Automatically">
-<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Automatically runs the filter on the originating Inbox after creation.">
+<!ENTITY qf.filters.steps.tooltip "Qué pantallas mostrar después de la creación del filtro">
+<!ENTITY qf.filters.steps.caption "Próximos pasos">
+<!ENTITY qf.filters.steps.showEditor "Reglas de filtro">
+<!ENTITY qf.filters.steps.showEditor.tooltip "Edite los detalles del filtro después de que el Asistente lo haya creado.">
+<!ENTITY qf.filters.steps.showList "Lista de filtros">
+<!ENTITY qf.filters.steps.showList.tooltip "Muestra el filtro en contexto para que pueda probarlo.">
+<!ENTITY qf.filters.steps.autoRunFilter "Ejecutar automáticamente">
+<!ENTITY qf.filters.steps.autoRunFilter.tooltip "Ejecuta automáticamente el filtro en la bandeja de entrada de origen después de la creación.">
 <!ENTITY qf.label.donate "Donar">
 <!ENTITY qf.donate.tooltip "¡Apoye el desarrollo de quickFilters!">
 <!ENTITY qf.label.cancel "Cancelar">

@@ -374,11 +374,19 @@ END LICENSE BLOCK
 		  renamed mailServices to MailServices
 	  # Improved labelling for troubleshooting button and "running filters on folder" notifications
 	
-  4.2 - WIP
+  4.2 - 21/09/2019
     # The buttons on the QuickFolders "current folder toolbar" are not displayed anymore in Thunderbird 68
     # Custom filters: removing / avoiding own email addresses from new filter conditions is not working 
       in Custom Filters. This is now remedied. If you need to add your own email address to the filter conditions
       its probably a safe bet you would want to do it manually.
+      
+  4.3 - WIP
+    # missing notifyBox can lead to problems when toggling assistant
+    # premium feature: run filters local inbox didn't work depending on local folder hostname,
+      changed method of determining whether an inbox is in local folders (to force filter running)    
+    # made modification of toolbar more reliable
+    # fixed licensing problem with accounts that have no default identity
+    # [issue 2] Merged filters: some conditions not working
   
   ============================================================================================================
   FUTURE WORK:
@@ -1393,6 +1401,7 @@ quickFilters.FolderListener = {
 				let h = item.QueryInterface(Ci.nsIMsgDBHdr);
 				// avoid duplicates
 				if (!quickFilters.FolderListener.localMoved.find(o => o.messageKey == h.messageKey)) {
+          util.logDebugOptional("msgMove", "Adding 1 message to list of localMoved");
 					quickFilters.FolderListener.localMoved.push(
 					{ hdr: h,
 						key: h.messageKey}
@@ -1464,13 +1473,17 @@ quickFilters.FolderListener = {
           // find filters with this target and correct them?
           break;
         case "DeleteOrMoveMsgCompleted":
-          let isAssistant = worker.FilterMode;
+          let isAssistant = worker.FilterMode,
+              srcName = (item ? (item.prettyName ? item.prettyName : item) : '<no folder>')
+              
           util.logDebugOptional("events,msgMove","DeleteOrMoveMsgCompleted(" + 
-            (item ? (item.prettyName ? item.prettyName : item) : '<no folder>') +
-						")\n" +
+            srcName + ")\n" +
             'Assistant is ' + (isAssistant ? 'active' : 'off'));
+          let isLocal = util.isLocalInbox(item);
+          util.logDebugOptional("msgMove", "Source folder (" + srcName + ") is local inbox = " + isLocal);
 					if (!isAssistant && !util.isLocalInbox(item)) { // item is the source folder (usually another inbox, not local folders)
 					let LM = quickFilters.FolderListener.localMoved;
+          util.logDebugOptional("msgMove", "List of LocalMoved = " + (LM ? (LM.length + " items.") : "NULL!"));
 						if (LM.length) {
 							let target = LM[0].hdr.folder;
 							util.logDebugOptional("msgMove", "Running filters on " + LM.length + " messages in " + target.prettyName + "...");

@@ -8,7 +8,7 @@
 <!ENTITY yearlyLicense.premiumFeatures "quickFilters Pro le proporciona acceso completo no restringido a las características Premium.">
 <!ENTITY yearlyLicense.premiumFeatures.moreInfoLink "Más acerca de las características Premium.">
 <!ENTITY yearlyLicense.usageTerm "La licencia es para su uso personal y está ligada a su dirección de correo electrónico. Puede instalarla en múltiples clientes de correo siempre que estén configurados para usar esa dirección.">
-<!ENTITY yearlyLicense.usageTerm1 "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab.">
+<!ENTITY yearlyLicense.usageTerm1 "Las direcciones de correo electrónico adicionales no son un problema, no requieren una licencia por separado. En caso de preguntas, puede comunicarse conmigo a través de la pestaña de soporte.">
 <!ENTITY domainLicense.email "Contactaremos con usted usando esta dirección de correo electrónico para generar la licencia de su dominio; por favor, concédanos dos días laborables para que nos pongamos en contacto con usted. Introduzca el nombre del dominio para la licencia en la página siguiente.">
 <!ENTITY domainLicense.header "Dominio de correo electrónico licenciado">
 <!ENTITY domainLicense.instruct "La licencia tiene una clave ligada al dominio de su compañía. La licencia permitirá que los usuarios cuyas direcciones de correo electrónico acaben con este dominio de correo usen quickFilters Pro. Por ejemplo, si introduce el nombre de dominio 'abc.com' entonces los usuarios de correo como fred@abc.com, marta@abc.com, miki.nadie@abc.com, etc., tendrán permitido usar la licencia. El número máximo de usuarios individuales válidos es el número que introdujo en la pantalla inicial.">

@@ -283,7 +283,7 @@ quickFilters.Util = {
 		 return folder.flags && 
 			    (folder.flags & this.FolderFlags.Inbox) &&
 			    (folder.flags & this.FolderFlags.Mail) && 
-					(folder.hostname == "Local Folders") ? true : false;
+					(folder.server.username == "nobody" && folder.server.type == "none") ? true : false;
 		return false;
 	} ,
 	
@@ -1152,8 +1152,15 @@ quickFilters.Util = {
       this.logDebug("toolbar.insertItem(" + id  + "," + before + ")");
       toolbar.insertItem(id, before);
       toolbar.setAttribute("currentset", toolbar.currentSet);
-      this.logDebug("document.persist" + toolbar.id + ")");
-      document.persist(toolbar.id, "currentset");
+      this.logDebug("document.persist(" + toolbar.id + ")");
+      if (document.persist)
+        document.persist(toolbar.id, "currentset");
+      else { // code from customizeToolbar.js
+        var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm"),
+            currentSet = toolbar.currentSet;
+        toolbar.setAttribute("currentset", currentSet);
+        Services.xulStore.persist(toolbar, "currentset");
+      }
 
     }
   }  ,
@@ -1325,6 +1332,7 @@ quickFilters.Util = {
 	},	
     
 	// replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
+  // fromFilter is a JSON object, not a filter!
 	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, oReplaceTerms, isArray, mailsToOmit) {
 		const Ci = Components.interfaces,
 		      AC = Ci.nsMsgSearchAttrib,
@@ -1332,8 +1340,20 @@ quickFilters.Util = {
           util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
 		if (prefs.isDebugOption('createFilter')) debugger;
+    
+    // convert into an Array
+		let stCollection = isArray ? fromFilter.searchTerms : util.querySearchTermsArray(fromFilter.searchTerms),
+        TargetTerms = util.querySearchTermsArray(toFilter.searchTerms),
+        isBooleanTarget = (TargetTerms.Count()>0),
+        targetBoolean; // has boolean search terms which may need to be overwritten.
+    if (isBooleanTarget) {
+      let firstFromTerm = 
+        isArray ? stCollection[0] : util.querySearchTermsAt(stCollection, 0);
+      
+      if (firstFromTerm)
+        targetBoolean = firstFromTerm.booleanAnd;
+    }
 		
-		let stCollection = isArray? fromFilter.searchTerms : util.querySearchTermsArray(fromFilter.searchTerms);
     if (oReplaceTerms) {
       if (oReplaceTerms.messageURI) {
         util.CurrentMessage = oReplaceTerms.msgHdr;
@@ -1353,7 +1373,7 @@ quickFilters.Util = {
 			    newTerm;
 			if (isCopy) {
 			  newTerm = toFilter.createTerm();
-				if (searchTerm.attrib) {
+				if (searchTerm.attrib || searchTerm.attrib==0) { // [issue 3]
 					newTerm.attrib = searchTerm.attrib;
 				}
 				// nsMsgSearchOpValue
@@ -1361,6 +1381,9 @@ quickFilters.Util = {
 				if (searchTerm.value) {
 				  let val = newTerm.value; // nsIMsgSearchValue
 					val.attrib = searchTerm.value.attrib;  
+          if (val.attrib==0) {// fix [issue 3]
+            newTerm.attrib = 0;
+          }
 					if (quickFilters.Util.isStringAttrib(val.attrib)) {
             let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
             if (oReplaceTerms) {
@@ -1461,7 +1484,13 @@ quickFilters.Util = {
 					}
 				}
 				
-				newTerm.booleanAnd = searchTerm.booleanAnd;
+        // needs to be changed to the targetFilter format when merging!
+        if (isBooleanTarget) {
+          newTerm.booleanAnd = targetBoolean; // make sure filter is consistent with target (no mixed any / all)!
+        }
+        else
+          newTerm.booleanAnd = searchTerm.booleanAnd;
+        
 				if ('arbitraryHeader' in searchTerm) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
 				if ('hdrProperty' in searchTerm) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
 				if ('customId' in searchTerm) newTerm.customId = searchTerm.customId;
@@ -1581,7 +1610,7 @@ quickFilters.Util = {
 			//   stCollection.queryElementAt(t, Components.interfaces.nsIMsgSearchTerm),
 			let searchTerm = util.querySearchTermsAt(stCollection, t),
 					atomTerm = {};
-			if (searchTerm.attrib) {
+			if (searchTerm.attrib || searchTerm.attrib==0) {
 				atomTerm.attrib = searchTerm.attrib;
 			}
 			// nsMsgSearchOpValue
@@ -2074,6 +2103,42 @@ quickFilters.Util = {
     }
     return 0;
   } ,	
+  
+  showAboutConfig: function(clickedElement, filter, readOnly) {
+    const name = "Preferences:ConfigManager",
+		      util = quickFilters.Util,
+          Ci = Components.interfaces, 
+          Cc = Components.classes;
+    let uri = "chrome://global/content/config.xul";
+		if (util.Application)
+			uri += "?debug";
+
+    let mediator = Cc["@mozilla.org/appshell/window-mediator;1"].getService(Ci.nsIWindowMediator),
+        w = mediator.getMostRecentWindow(name),
+        win = clickedElement ?
+		          (clickedElement.ownerDocument.defaultView ? clickedElement.ownerDocument.defaultView : window)
+							: window;
+    if (!w) {
+      let watcher = Cc["@mozilla.org/embedcomp/window-watcher;1"].getService(Ci.nsIWindowWatcher);
+      w = watcher.openWindow(win, uri, name, "dependent,chrome,resizable,centerscreen,alwaysRaised,width=500px,height=350px", null);
+    }
+    w.focus();
+    w.addEventListener('load', 
+      function () {
+        let flt = w.document.getElementById("textbox");
+        if (flt) {
+          flt.value=filter;
+          // make filter box readonly to prevent damage!
+          if (!readOnly)
+            flt.focus();
+          else
+            flt.setAttribute('readonly',true);
+          if (w.self.FilterPrefs) {
+            w.self.FilterPrefs();
+          }
+        }
+      });
+  },
 	
   dummy: function() {
 		/* 
