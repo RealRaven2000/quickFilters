@@ -1,0 +1,308 @@
+---
+layout: base.njk
+title: Filtaquilla Versions
+permalink: fq-versions.html
+---
+
+<link rel="stylesheet" href="/css/myProjects.css?v=13" type="text/css">
+<link rel="stylesheet" href="/css/survey.css?v=2" type="text/css">
+<link rel="stylesheet" href="/css/xmas.css?v=1" type="text/css">
+
+
+<style>
+  h2.page-header.fq:before {
+    content: url(http://quickfilters.mozdev.org/img/filtaquilla-32.png) !important;
+  }
+  h3:before {
+    content: url(http://quickfilters.mozdev.org/img/filtaQuilla.png) !important;
+  }
+
+  td.navigation-list a[href$="fq-versions.html"] {
+    background-color: rgb(203,96,179);
+    background-image: linear-gradient(to bottom, rgba(203,96,179,1) 0%,rgba(173,18,131,1) 50%,rgba(222,71,172,1) 100%);
+    border-bottom-color: #93105A !important;
+    color: #FFF !important;
+  } 
+  
+  pre.code {
+    max-width: 800px;
+  }
+  
+  pre.code, 
+  p.code {
+    font-size: small;
+    background: white;
+    padding: 0.3em;
+    margin: 0.3em;
+    border: 1px solid rgb(180,180,180);
+  }
+  
+  #version-history h4 {
+    min-width: 20em;
+    border-radius: 0;
+    border: 1px rgba(60,60,60,0.5) solid;
+  }
+  
+  *.callout {
+    background: rgba(20,20,20,0.9);
+    color: yellow;
+  }
+
+  h5.callout {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 8px;
+  }
+  span.callout {
+    padding: 3px;
+  }
+</style>
+
+<h2 class="page-header fq">FiltaQuilla - Change Log</h2><br>
+
+
+<a name="about"> </a>
+
+
+<div class="entry-content">
+  <h3>Official Versions</h3>
+  <p>FiltaQuilla is officially distributed on <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/">addons.thunderbird.net.</a></p>
+  <p>Please go to the github 
+    <a href="https://github.com/RealRaven2000/FiltaQuilla/issues">FiltaQuilla Issue Tracker</a> on github
+    for reporting bugs!
+  </p>
+  
+  <h3>Version History</h3>
+  
+<!-- Start Version History -->
+
+<ul id="version-history">
+<a name="latest"></a>
+
+<div id="infoTabs">
+  <div class="infoTab" id="whats-new">
+    <h5 class="infoHeader">Support FiltaQuilla</h5>
+    <p>12/Dec/2019</p>
+    <p> This Add-on was adopted from its previous author and creator R. Kent James who 
+      had to retire from Add-on development. It has been largely rewritten for 
+      Thunderbird 68 in December 2019, with substantial help from 
+      <a href="https://github.com/ptomulik" target="_blank">Paweł Tomulik</a>.
+    </p>  
+    <h5 class="callout">Support My Work!</h5>
+    <p>As I am often asked about added features 
+      for filter conditions and actions for my Add-on 
+      <a href="https://addons.thunderbird.net/addon/quickfilters/">quickFilters</a> this is a good 
+      location for extending Filter behavior. 
+      If you want to <b>support the FiltaQuilla project</b>, please install quickFilters and 
+      <br>
+      <span class="callout">
+      purchase a 
+      <a href="http://quickfilters.mozdev.org/donate.html">quickFilters Pro</a> license.
+      </span>
+    </p>
+    <p>
+      I am keeping the license for FiltaQuilla as GPL 3.0 for the time being.
+    </p>
+  </div>
+</div>
+
+
+<!--
+  <a name="2.x"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
+       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">FiltaQuilla 2.x - WIP</a>
+    </h4>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </li>
+  
+-->
+
+  <a name="2.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
+       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">FiltaQuilla 2.1 - WIP</a>
+    </h4>
+    <ul>
+      <li>Fixed <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/34">issue #34</a> 
+				Action "add sender to Address list" not working.
+			</li>
+      <li></li>
+      <li></li>
+    </ul>
+  </li>
+  
+
+
+  <a name="2.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/2.0/">FiltaQuilla 2.0 - 13/12/2019</a>
+    </h4>
+    <ul>
+      <li>Made Compatible with THunderbird 68. FiltaQuilla had to be largely rewritten for 
+        Thunderbird 68, with substantial help from 
+        <a href="https://github.com/ptomulik" target="_blank">Paweł Tomulik</a>.
+        Going forward most bugfixes / new features will be exclusively available 
+        for Thunderbird 68. The reason for this is that through architectural changes 
+        on the Mozilla code platform the code for Thunderbird 60 and earlier 
+        is substantially different.
+      </li>
+      <li> Check the new <a href="https://github.com/RealRaven2000/FiltaQuilla/issues">Issue Tracker</a>
+        for open problems.
+      </li>
+      <li> Added links to the quickFilters page for supporting the development team. </li>
+    </ul>
+  </li>
+  
+  <a name="1.5"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.5">FiltaQuilla 1.5 - June 28, 2019</a>
+    </h4>
+    <ul>
+      <li>Completed Dutch translation - thanks to Markh van BabelZilla.org</li>
+      <li>Completed Swedish translation - thanks to A. Regnander - Phoenix</li>
+      <li>Fixed <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/9">issue #9</a> Error in Console - Services.prefs.getStringPref is not a function - affecting older versions of Thunderbird.</li>
+      <li>Added debug option for future trouble shooting.</li>
+      <li>Added support icons for filter actions and search terms: these open dedicated topics on the support pages.</li>
+      <li>Added back inheritpane service module.</li>
+      <li>Raised minimum version to Thunderbird 52. It is likely that the next version will be minimum 60, once it starts to support Thunderbird 68 to be future proof for 2020.</li>
+    </ul>
+  </li>
+  
+  <a name="1.4.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.4.1">FiltaQuilla 1.4.1 - Nov. 15, 2018</a>
+    </h4>
+    <ul>
+      <li>Fixed a problem with minver. Still compatible with Thunderbird 60.3 / ESR </li>
+    </ul>
+  </li>
+  
+  
+  <a name="1.4"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.4">FiltaQuilla 1.4 - Nov. 10, 2018</a>
+    </h4>
+    <ul>
+      <li>Made compatible with Thunderbird 60</li>
+      <li>Added localisation (German locale)</li>
+      <li>If you want to help with translation into your language, check on: 
+        <a href="https://www.babelzilla.org/index.php?option=com_wts&Itemid=0&type=show&extension=5774">Babelzilla.</a>
+        (you will need a Babelzilla Login for this) </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.3.2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.3.2">FiltaQuilla 1.3.2 - May 24, 2016 </a>
+    </h4>
+    <ul>
+      <li> This version fixes broken filter actions MoveLater and CopyAsSend caused by changes in recent versions of Thunderbird </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.3.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.3.1">FiltaQuilla 1.3.1 - May 22, 2015</a>
+    </h4>
+    <ul>
+      <li> Version 1.3.1 fixes an error that prevented filter actions that train the junk filter.  </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.3.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.3.0">FiltaQuilla 1.3.0 -  Oct. 18, 2014</a>
+    </h4>
+    <ul>
+      <li>Fixes issues in printing</li>
+      <li>Adds optional file type when saving message </li>
+    </ul>
+  </li>
+
+ 
+  
+  <a name="1.2.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.2.0">FiltaQuilla 1.2.0 - June 6, 2011 </a>
+    </h4>
+    <p>Provides compatibility with Thunderbird 5.0</p>
+    <h5>Bug Fixes</h5>
+    <ul>
+      <li>bug 313 Non-ascii characters don’t work in subjectRegEx</li>
+      <li>bug 843 Remove lower case from headerRegEx (which prevented certain headers from being properly processed)</li>
+    </ul>
+    <h5>New Features</h5>
+    <ul>
+      <li>Search term: Folder Name</li>
+      <li>Custom action: Save Message to Folder</li>
+      <li>Custom Action: Move Later </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.1.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.1.0">FiltaQuilla 1.1.0 - April 30, 2010</a>
+    </h4>
+    <h5>Bug Fixes</h5>
+    <ul>
+      <li>A core bug that prevented custom searches from working in non-filter contexts 
+        was fixed in Thunderbird 3.0.5/3.1 beta 2.</li>
+      <li>A core feature was added, beginning with Thunderbird 3.1 beta 2, 
+         that allows IMAP filter actions that need the message body to work. This FiltaQuilla 
+         version adds support for that term.</li>
+      <li>Enabling of filter actions and search terms was divided into separate pages to prevent 
+        issues with view overflow.</li>
+    </ul>
+    <h5>New Features</h5>
+    <ul>
+      <li>Custom action: javascript and javascript (needs body)</li>
+      <li>Custom action: detach attachments from message (requires Thunderbird 3.1 beta 2 or later)</li>
+      <li>Custom action: Suffix to subject. Previous action "append to subject", 
+        which was misnamed, was renamed to "prepend to subject" 
+        though existing defined actions will still work. </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.0.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.0.1">FiltaQuilla 1.0.1 -  Jan. 18, 2010</a>
+    </h4>
+    <p>This revision fixes three bugs:</p>
+    <ul>
+      <li>Fixed: M164 Filter action “Run” fails with second after-the-fact action</li>
+      <li>Fixed: M165 RegEx search term has no method to add flags like case insensitive</li>
+      <li>Fixed: M166 Custom search term values are not appearing in customize view </li>
+    </ul>
+  </li>
+
+
+</ul>  
+      
+</div>

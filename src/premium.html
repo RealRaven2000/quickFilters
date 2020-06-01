@@ -1,0 +1,210 @@
+---
+layout: base.njk
+title: Premium
+permalink: premium.html
+---
+
+  <link rel="stylesheet" href="/css/premium.css?v=2" type="text/css">
+	<link rel="stylesheet" href="/css/myProjects.css?v=11" type="text/css">
+
+	<!--- **************** START OF CONTENT *********** -->
+	<table class="quickFiltersFreeUser bargain" style="margin-top: 0.8em;"> 
+		<tr>
+			<td style="vertical-align:top;">
+				<h3 class="shillBox"> QUICKFILTERS PRO <!-- - YEAR END SALE - Dec 30th and 31st --></h3>
+				<!--
+				<p>Get the NEW YEAR SPECIAL DEAL for 25% off on 30th &amp; 31st December!</p>
+				-->
+				<p>
+					Now you can support the future development of quickFilters and save money while enjoying 
+					unlimited <a href="premium.html#featureList">Premium Features</a>. 
+					Install quickFilters 
+					<a target="_blank" 
+					   href="https://addons.thunderbird.net/en-US/thunderbird/addon/quickfilters/versions/3.4">version 3.4</a>
+					or higher and then
+					click the <i>Buy License</i> item from the quickFilters Pro tab on the Options dialog:
+				</p>
+				<p style="text-align:center;">
+					<img style="max-width: 560px;" src="img/pro/quickFilters-preferences-pro.png" alt="How to buy a license from options dialog"/>
+				</p>
+				<p>
+					It's the easiest way to get a license as you get to select an email address for registration and delivery.
+					If you prefer, you can also go to the web shop directly: 
+					<a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-premium-page">FastSpring Web Shop</a>
+				</p>
+				<p>
+				  I have kept the process as simple and hassle free as possible, and you can use 
+					quickFilters Pro on as many Thunderbird installations as you like as long 
+					as it has your registered email address on it. Also, the email address is not given to any third 
+					parties, it is only used for order fulfillment and license verification.
+				</p>
+			</td>
+				<!--
+			<td style="vertical-align:top; max-width:0">
+			  <a class="nohover" href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-premium-page-bargain">
+					<img id="bargainStar" src="img/bargain-new-year-25.png" />
+				</a>
+			</td>
+			-->
+		</tr>
+	</table>
+	
+	<h2 class="page-header">quickFilters Pro : Premium Features</h2>
+
+	<p>
+		Premium features are power functions which are an incentive for users to regularly support 
+		the quickFilters project through a yearly contribution, called quickFilters Pro license. 
+		My aim is that instead of very few people trying to carry the project with sometimes large
+		donations to try involving more supporters. It is a lot of work to keep the project 
+		going and up to date with all the latest code changes which happen every 6 weeks on the Mozilla code base.
+		Staying in sync with the three applications (Thunderbird, Postbox and SeaMonkey) and to support multiple 
+		platforms (Windows, Linux and Mac) and languages and writing support emails and fixing bugs is actually a lot of work. 
+		I would rather actually spend more time on this as opposed to maybe 6 to 12 hours / week, but for this it 
+		needs to be financially viable.
+	</p>
+	
+	<a name="featureList"></a>
+	<h3>Premium Features Included</h3>
+	<p>Here is a list of Premium features that are unrestricted to licensed users of quickFilters Pro.</p> 
+	<p>For non-licensed users, the premium features may be restricted and when used display a notification bar
+		in order to promote buying a license. I feel this is the best way as it gives you a chance to try them out and 
+		get an idea on what other great future functionality will be funded by supporters:
+	<p>
+	<table class="featureList">
+		<tr>
+			<th>Premium Feature</th>
+			<th>What does it do?</th>
+		</tr>
+		<tr>
+			<td>Sort Filters</td>
+			<td>
+				<img src="img/premium-sort.png" alt="sort" class="inlineImage"/>
+				<span>
+					use this to sort all selected filters by alphabet. Be careful as the order
+					the filters are displayed in is also the execution order. This means that 
+					you may have to rename some more specialised filters so they appear before
+					more general ones (e.g. have the filter move to <i>clients\Acme</i> filter listed 
+					<i>before</i> the move to <i>clients</i> filter.)<br>
+					Otherwise you may find your emails in unexpected locations: An email that has already
+					been moved away from the Inbox will not be treated by the following filters.
+				</span>
+				<p class="smaller">
+					There is also an option on the "New Filter Properties" tab that enables to <i>insert 
+					new filters in alphabetical order</i>. This will work best if the existing list of
+					filters is already sorted alphabetically. This is becayse it will not "look ahead" beyond 
+					alphabetically lower entries and attempt to insert the new filter after them.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>Custom Templates</td>
+			<td>
+				These "Advanced Templates" can be created from the <i>Advanced</i> tab of the
+				quickFilters preferences dialog. These are new filter templates that will then
+				show up during the filte assistant process as choices for new filters. They will
+				preselect &amp; prefill some filter conditions based on a big number of mail
+				attributes.
+				<p class="smaller">
+				  Custom Templates are stored like standard filters but are located in the "Local Folders" account
+					and have the string "quickFilterCustomTemplate" in the start of their name.
+					The rest of the name is what is shown in the assistant dialog.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>Backup / Restore</td>
+			<td>
+			  <img src="img/backup-restore.png" alt="backup / restore filters" class="screenshot">
+				<br>
+				[Available from <a href="version.html#3.5">version 3.5</a>] - you can now save your filters 
+				for each mailbox to a file and  load them later or transfer to a different Thunderbird profile. 
+				For technical reasons, currently old filters will not be overwritten - therefore unwanted filters should be 
+				removed manually after restoring to avoid duplication.
+				<p class="smaller">
+				  When transferring to a different profile, Custom filter actions (e.g. create with FilteQuilla) will only work 
+					if they are set up exactly the same on both 
+					profiles.
+				</p>
+			</td>
+		</tr>		
+		<tr>
+			<td>Search Folders for Filters</td>
+			<td>
+				<img src="img/premium-searchFilters.png" alt="sort" class="inlineImage"/>
+				This command makes it possible to find all filters that move emails to a specific
+				folder. this is especially helpful when mail is moved / copied across different
+				mail accounts or into Local Folders. Right-click a mail folder from the 
+				folder tree on the left hand side of Thunderbird's 3 pane window and select
+				<i>Find Filters...</i>.
+				<p class="smaller">
+					<a href="http://quickfolders.org/" target="_blank">QuickFolders</a> users can also add this button to the
+					<a href="http://quickfolders.org/index#CurrentFolderToolbar" target="_blank"><i>Current Folder toolbar</i></a>.
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>Find Duplicates</td>
+			<td>
+				<img src="img/premium-duplicates.png" alt="duplicates" class="inlineImage"/>
+				This is a button on the quickFilters toolbar in the Filters List which searches 
+				for various types of duplicates, such as filters that do the same thing 
+				(like move mails to the same folder) or have duplicate conditions. It is a great
+				utility for tidying up unclear filters or even find filters that do unexpected stuff.
+			</td>
+		</tr>
+		<tr>
+			<td>Local Inbox</td>
+			<td>
+			Option to run filters on Local Folders Inbox automatically.
+			With this new option, any emails that are moved to the Local Folders Inbox will be automatically
+			processed again using the filters defined there. With Thunderbird out of the box this behavior
+			cannot be achieved as there is no "Get new Mail" event on Local Folders. 
+			You can activate it on the <i>Pro</i> tab of quickFilters options.
+			</td>
+		</tr>
+	</table>	
+	
+	<h3>Other Benefits of having a Yearly License</h3>
+	<p>
+		You know that you support the project and that the development and support will be continue.
+		There is a huge amount of work involved not just programming and keeping quickFilters up to date 
+		but also supporting users, coming up with better ways of doing things, fixing bugs, and keeping 
+		quickFilters usable across various platforms and host programs (at the moment I support Thunderbird, 
+		SeaMonkey and Postbox). I am constantly helping people with using quickFilters and their mail program 
+		and how to get the most out of email on the desktop.
+	</p>
+	<p>
+		All notification messages that indicate premium features are omitted.
+	</p>
+	<p>
+		The donation screen (which is normally shown after every Update) is hidden.
+	</p>
+	<h3>Alternative Monetisation Models</h3>
+	<p>
+		There are quite a few software developers (and also some users) who believe
+		that software should generally financed by advertisement or even by selling 
+		information about their users. 
+		I am firmly opposed to this way of making money as it impacts 
+		both productivity and privacy rights; also in the world of Email I would 
+		find this way of generating value deeply problematic - even if it was 
+		strictly opt-in. There is a lot of personal information in our daily mail 
+		and a lot of knowledge that is being stored and retrieved with this powerful 
+		tool. 
+	</p>
+	<p>
+		One of the reasons for a personal Email Client on the desktop 
+		is the fact that we can store our data on our personal hardware and use it 
+		any way we like. On the other hand, if we use a web mail client (like gmail) 
+		we can never be sure whether the information is used otherwise and whether 
+		we get targeted with distracting information (be it by injecting advertisements or via 
+		targeted advertisement emails) - it is one of the goals of any mail desktop client 
+		to eliminiate these distractions as much as possible, and focus on one thing only:
+		managing communication.
+	</p>
+	<p>
+		quickFilters is an especially powerful set of tools to harness this 
+		information and it will evolve and keep saving time and make your experience 
+		of mail more meaningful and intuitive.
+	</p>
+	
+	

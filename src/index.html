@@ -1,0 +1,296 @@
+---
+layout: base.njk
+title: Home
+---
+
+<link rel="stylesheet" href="/css/myProjects.css?v2" type="text/css">
+<link rel="stylesheet" href="/css/index.css?v6" type="text/css">
+
+<!-- ***************** INFO/NEWS *************** -->
+<a name='news'> </a>
+<div id="infoTabs">
+<div class="infoTab" id="whats-new">
+<h5 class="infoHeader">What's New / Highlights</h5>
+<ul>
+<li>Version <a href="version.html#3.12">3.12</a> Made quickFilters compatible with Thunderbird 67 - future proofing for 2020 is ongoing!</li>
+<li>Version <a href="version.html#3.11">3.11</a> Streamlined filter creation: optionally auto-run filters after creation.</li>
+<li>Version <a href="version.html#3.10">3.10</a> Options to skip Edit / List displays</li>
+<li>Version <a href="version.html#3.9">3.9</a> Link to <a href="https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V">YouTube demonstration videos</a></li>
+<li>Version <a href="version.html#3.8">3.8</a> Added troubleshoot tool for filters that do not run automatically.</li>
+<li>Version <a href="version.html#3.7">3.7</a> Added UI for default "when to run" settings.</li>
+<li>Version <a href="version.html#3.6">3.6</a> Custom Templates: Support collecting multiple email addresses.</li>
+<li>Version <a href="version.html#3.5">3.5</a> Backup and Restore feature.</li>
+<li>Version <a href="version.html#3.4">3.4</a> Created quickFilters Pro version.</li>
+<li>Version <a href="version.html#3.3">3.3</a> Insert new Filter in alphabetical order.</li>
+<li>Version <a href="version.html#3.2">3.2</a> Add option to run filters on read IMAP mails</li>
+<li>Version <a href="version.html#3.1">3.1</a> Fix for Tag Listener</li>
+<li>Version <a href="version.html#3.0.2">3.0.2</a> Support for Move to Folder context menu</li>
+<li>Version <a href="version.html#3.0">3.0</a> Support for Move to Folder context menu</li>
+<li>Version <a href="version.html#2.9">2.9</a> Custom Templates</li>
+<li>Version <a href="version.html#2.7">2.8</a> Optional Merge Auto-Select.</li>
+<li>Version <a href="version.html#2.7">2.7</a> Sort Filters feature.</li>
+<li>Version <a href="version.html#2.2">2.2</a> Support creating filters based on Tag changes.</li>
+<li>Version <a href="version.html#2.2">2.1</a> Cloning filters. Group Filter template from multiple mails</li>
+<li>Version <a href="version.html#2.0">2.0</a> Added Toolbar and Postbox compatibility</li>
+<li><a href="http://www.mozdev.org/">mozdev.org</a></li>
+</ul>
+</div>
+
+
+<!--
+<div class="infoTab" id="other-stuff">
+<h5 class="infoHeader">Other Stuff</h5>
+<ul>
+<li>stuff goes here</li>
+<li>more stuff goes here</li>
+</ul>
+</div>
+-->
+
+<!-- alternative image/table base tab works better in NS4 -->
+<!--
+<div class="infoTab" id="whats-new-image">
+<h5 class="infoHeader"><img src="http://www.mozdev.org/sharedimg/whatsnew_top.gif" width="154" alt="What's New"></h5>
+<div class="infoItems">
+<div>News item goes here</div>
+<div>More news item goes here</div>
+<div><a href="http://mozdev.org/">mozdev.org</a></div>
+</div>
+</div>
+-->
+</div>
+<!-- ***************** INFO/NEWS *************** -->
+
+<!-- MAIN CONTENT -->
+
+
+<a name='main'></a>
+<h2 class="page-header">quickFilters :: homepage</h2>
+
+<p>Thanks for installing quickFilters! </p>
+<p>Here is a video that shows how to set up some filters. Anybody can do it, and if you 
+   put in a few minutes to understand it you will be creating filters within seconds which are going
+   to tidy up your inbox automatically:<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ISheZHpACxM" frameborder="0" allowfullscreen></iframe>
+
+<p>This extension makes it much easier to create new mail filters, by simply dragging emails into folders and let quickFilters do the "heavy lifting" 
+of filling in the sometimes complicated settings in the filter settings. Filters are usually used to move emails to other folders, automatically, so it makes
+sense to show Thunderbird "what to do" by dragging one typical email manually, rather than filling in all the complicated details.
+</p>
+
+<a name='howToUse'> </a>
+<h3>How to use quickFilters</h3>
+<p>
+With this, it is very easy to create new filters very quickly. 
+</p>
+<p>It will prefill the destination folder and other relevant fields after you have dragged the email into a different folder in the tree.
+</p>
+<ol>
+  <li> Click on the quickFilters button on the main toolbar<br/>
+  <img class="screenshot" src="img/quickFilters-ToolbarButton.png" alt="main menu: filter assistant">
+
+  <li>The button will change depicting a glowing wheel instead of the mail icon and there will be sliding notification:<br/>
+  <img class="screenshot" src="img/quickFilters-Notification.png" alt="filter notification" title="filter notification assistant">
+
+  <li>Drag an email into a folder on the left hand folder tree. This will open the Filter Assistant screen.<br/>
+  <img class="screenshot" src="img/quickFilters-Assistant-1.6.png" alt="filter wizard" title="filter wizard">
+  
+  <li>select a template (e.g. "based on Sender") and click [Create Filter...] - in the example I have pulled an email into the QuickFolders folder.
+  See below for a detailed description.  
+
+  <li>Next, the Edit Filter dialog is displayed - as you can see it already tries to "guess" what  you want the filter to do when it should be applied, 
+  <u>based on the email that you dragged to the folder</u>:<br/>
+  <img class="screenshot" src="img/filter-Rules.png" alt="filter rules">
+  <br/>Since in this case I chose "Based on Sender", it will pull all conversations from and to <i>joe@quickFolders.com</i> into the QuickFolders folder. 
+  No need to select the folder (as it has been done automatically) or to enter any condition (this is based on the template that you have chosen).
+
+  <li>Now tweak the filter as usual and click Ok to save it (and try it out in the Filter List)
+  <li>You can also click Cancel to not create the filter
+  
+  <li> in the last step Thundebird's list of filters is shown. <br/>
+  <img class="screenshot" src="img/filters-List.png" alt="list of filters">
+
+  <li>You can repeat the process from step 2 to create more filters
+
+  <li>When you're done, click the filter button again to disable "Filter Wizard" mode.
+</ol>
+
+<a name='assistant'> </a>
+<h3>The Filter Assistant</h3>
+  <p>On this screen, you select what type of information (conditions) will trigger the filter action, 
+	   and what kind of actions the filter will carry out. A condition is a 'fact' that applies to the 
+		 incoming email, such as 'the sender is fred', 'the mail is tagged as important', 
+		 'this message is more than a month old' etc. The action can be 'move message to freds folder',
+		 'tag message as personal', 'set message low priority', 'mark message with a star'.</p>
+		 <img src="img/quickFilters-Assistant-2.3.png" alt="quickFilters Assistant"/><br/>
+		 <p>
+		 The templates offered here make this a much easier and quicker process and fill prefill the 
+		 new filter accordingly.</p>
+
+<a name='templates'> </a>
+<h3>Filter Templates</h3>
+
+<p>This section describes the different patterns used to create filters based on the dragged email. 
+I will probably add more templates in future, if I get good requests from the users. 
+Simply head over to the <a href="bugs.html">bugs section</a> to suggest new templates.
+<br/>
+<div id='templates'>
+	<h4>Based on Sender (from)</h4>
+	<p>Probably the most used pattern: this will retrieve the sender's email address and paste it into the from and to filter conditions fields.
+	This way a whole conversation with the sender will be moved to the new folder.
+	</p>
+	<h4>Based on Recipient (to)</h4>
+	<p>Similar to 'Based on Sender': use this when you move an email from yourself 
+	to somebody else. This will retrieve the recpient's email address and paste it into 
+	the from and to filter conditions fields. This way the complete conversation with 
+	the contact will be moved to the new folder.</p>
+	<h4>Mailing List</h4>
+	<p>
+	Similar to Based on Sender, but it doesn't fill the 'to' condition field.
+	</p>
+	<h4>Subscriptions - By Subject [Keyword]</h4>
+	<p>
+	This will look for special "bracketed" expressions, e.g. [amo-editors] or {Mozilla} and create a filter condition based on these; a lot of
+	mass email is set up using this pattern, so it is really easy to use.
+	</p>
+	<h4>By Tags</h4>
+	<p>
+	Uses the tags of the email and adds them as filter conditions.
+	</p>
+</div>
+
+<a name='merge'> </a>
+<h3>Merging Filters</h3>
+<p>This is a special screen on the filter assistant which is shown if there are already filters that carry out the same action
+   as the one you want your new filter to do. It can also be invoked using the 'Merge Filters' button on the filter toolbar.
+	 Note that you can only merge filters that have the same action (such as move to a certain folder or add a certain tag), quickFilters
+	 makes sure that no other filters can be merged together.</p>
+	 
+<img src="img/NewFilter-Merge.png" alt="quickFilters Merge"/><br/>
+ 
+
+<a name='messagesAlreadyMoved'> </a>
+<h3>Mail that's already moved</h3>
+
+
+<p>What if already have moved my Mails to another folder? 
+Chances are that sometimes forget switching on the filter assistant, or we have already moved a lot of mail around manually.
+In this case the quickFilters version 1.6 now adds a context menu to the message list:<br/>
+<img src="img/contextMenu.png" alt="Creating a filter from a moved message"/><br/>
+just right-click the mail you want to choose for your filter, and then click on QuickFilters: "Create Filter from Message...". 
+Alternatively, simply select the message and use the "Message" menu.
+</p>
+
+<a name='messageFilterList'> </a>
+<h3>The Message Filters List</h3>
+
+<p>QuickFilters adds more functions to the filter list dialog - which becomes necessary after creating many filters was so easy.</p>
+<!--<img src="img/messageFilters.png" alt="Message Filters: new features"/><br/> -->
+<p>The biggest new feature here is the addition of a Search box, which allows filtering the number of results. 
+I was able to submit this as a patch to Thunderbird itself and it is now part of the main product. With quickFilters,
+search has many new features which can be selected with the search settings button:<br>
+<img class="screenshot" src="img/extended-search.png" alt="extended search">
+<ul>
+  <li> Name - search the text within all filter names</li>
+	<li> Target Folder - filters that move or copy to a specific folder</li>
+	<li> Search Condition - all filter conditions that are text related (such as subject, body or sender)</li>
+	<li> Add Tag (label) - find filters that tag messages</li>
+	<li> Reply with Template - search for a template by searching subject lines</li>
+</ul>
+</p>
+<img class="screenshot" src="img/toolbar.png" alt="toolbar">
+<p>The toolbar has some useful functions that Thunderbird was missing:</p>
+<ul>
+  <li> Cut / copy / paste: these are designed to transfer filters from one account to another. 
+	     Select one ore more filters, then push cut or or copy, then select a new account (in the 'Filters for' drop down), 
+			 then paste the filters to the other account.</li>
+	<li> Merge filters: allows putting multiple filters into one, provided they do th same action. E.g. if two filters all
+	     move mails to the 'Fred' folder, you can merge them together into one filter. The assistant will ask you to select
+			 the "Target" filter, which is the one that gets the conditions from the other filters. Once you confirm the "Target Filter"
+			 by clicking Ok, the merged filters will be deleted.</li>
+	<li> Clone filter: makes a copy of a filter in the account and opens the edit dialog so it can be modified. </li>
+	<li> Sort Alphabetically - implemented by popular demand. When using this feature you have to be aware that the list order
+	     on screen also determines in which order the filters are executed. So if a filter on top moves a message the filter 
+			 below it cannot apply any more. Therefore, some caution is advised while using this feature.</li>
+	<li> Find Duplicates (Thunderbird only): This button is a powerful tool to detect filters that might do the same (and they might also be candidates for 
+	     the "Merge" process, as you might be able to combine them into one.
+			 If duplicates are found they are shown in this drop-down: <br>
+			 <img class="screenshot" src="img/find-duplicates-dropdown.png" alt="duplicates"><br>
+			 Clicking an entry will automatically filter the results list to show the duplicate filters only:<br>
+			 <img class="screenshot" src="img/find-duplicates-resultlist.png" alt="duplicates list"><br>
+			 The context menu adds a command "Remove duplicate..." for editing the part that makes this filter a duplicate. 
+			 Alternatively you can select both filters and try the "Merge" button.
+			 </li>
+	<li> Filter assistant mode toggle: once this is active, quickFilters will listen for manual mail movement and tagging emails. 
+	     If any of these actions occur, the assistant is started so that a filter can be created based on this action</li>
+	<li> The Support Site button opens this page. </li>
+	<li> The wrench button displays quickFilters global preferences. </li>
+</ul>
+<p>Also you can now move the filter to the top of the bottom of the list. This is actually significant as the 
+order you see on screen is the same as the order in which the filters are executed. This also means, if a filter
+on the top moves a message from the inbox then the filters below will not get a chance to execute on this message;
+as the filters are only executed on messages in the inbox, they will simply be ignored. Therefore it is very important 
+that it remains easy to re-order the relative positions of the filters. This also works while the search box is active.</p>
+
+<a name='options'> </a>
+<h3>Preferences Dialog</h3>
+
+<p>Options Tab - sets global preference of quickFilters. </p>
+<img src="img/quickFilters-Options.png" alt="quickFilters Preferences"/><br/>
+
+<ul>
+  <li>Exit Filter Assistant after a filter has been created. Default:on.</li>
+  <li>Automatically start Filter Assistant mode with application. If you want to full automate all mail movement
+	    then you would activate this option and keep quickFilters paying attention to anything you do manually.
+	    Default: off.</li>
+  <li>Display Toolbar in Filter Manager. I highly recommend leaving it on as it gives you extra options (Merge, Clone). 
+	    Default: on.</li>
+	<li>Listen for Tag changes. The Assistant will detect if a message is tagged manually.</li>
+	<li>Support quick move feature - the Assistant will be triggered when Postbox' "quick move" is used.</li>
+<ul>
+<h4 class="header">Naming Rules</h4>
+<p>quickFilters automatically generates filter names, so it is important to be consistent:</p>
+</ul>
+	<li>Disable two-way address conditions - by default the templates "Based on Sender" and "Based on Recipient" 
+	    will fill in two conditions, from XXX and to XXX. This is so whole conversations can be filtered 
+			(including your personal replies) and moved to a folder. This is especially helpful when using 
+			the "Copy Sent to Current" addon, and avoids messages being "orphaned" in the Sent Mail folder.</li>
+  <li>Add parent folder name. Default:on.</li>
+  <li>Add rule specific key word. Default:off.</li>
+	<li>Append to name of cloned filter - to avoid confusion when creating multiple versions of the same filter. Default: "(copy)"</li>
+</ul>
+<p>Debug Mode: Use this for trouble shooting. With this option enabled quickFilters will print information in the Javascript Console.
+The console can be shown via tools &gt; error console. Additional log detail can be switched on via right-click on the checkbox.</p>
+
+
+
+<h3><a name="other">My other Extensions - highly recommended</a></h3>
+<br/>
+
+<div id='myProjects'>
+	<h4 class="QuickFolders"><a href="https://addons.mozilla.org/en-US/thunderbird/addon/quickfolders-tabbed-folders/">QuickFolders</a></h4>
+	<p>
+	<a href="https://addons.mozilla.org/en-US/thunderbird/addon/quickfolders-tabbed-folders/">QuickFolders</a>
+	(Thunderbird / Postbox) takes the pain out of working with many mail folders; has currently 22,000 daily users and the top rated message reading extensions.<br>
+	</p>
+
+	<h4 class="ZombieKeys"><a href="https://addons.mozilla.org/en-US/firefox/addon/zombie-keys/">Zombie Keys</a></h4>
+	<p>
+	<a href="https://addons.mozilla.org/en-US/firefox/addon/zombie-keys/">Zombie Keys for Firefox / SeaMonkey</a> ; 
+	<a href="https://addons.mozilla.org/en-US/thunderbird/addon/zombie-keys/">Zombie Keys for Thunderbird / Postbox</a>
+	<br>
+	<p>Entering European languages (which include diacritics (accented characters, diaeresis, umlauts, etc.), ligatures, the Euro sign, etc.) 
+	into Mozilla applications using a non-native keyboards doesn't have to be a pain any more! 
+	</p>
+
+	<h4 class="QuickPasswords"><a href="https://addons.mozilla.org/en-US/firefox/addon/quickpasswords">QuickPasswords</a></h4>
+	<p>
+	<a href="https://addons.mozilla.org/en-US/firefox/addon/quickpasswords">QuickPasswords for Firefox / SeaMonkey</a>;
+	<a href="https://addons.mozilla.org/en-US/thunderbird/addon/quickpasswords">QuickPasswords for Thunderbird / Postbox</a>
+	<br>
+	this is a very neat and quick way to retrieve and use a growing number
+	of passwords, without displaying them on screen or having to re-type them. 
+	Also supports renaming of multiple passwords!
+	</p>
+</div>
+

@@ -1,0 +1,16 @@
+{
+  "name": "SmartTemplatesWebsite",
+  "version": "0.0.1",
+  "main": "",
+  "scripts": {
+    "build": "eleventy --formats=md,html",
+    "serve": "eleventy --formats=md,html --watch --serve"
+  },
+  "keywords": [],
+  "author": "Avinash Kundaliya",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  }
+}

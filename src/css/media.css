@@ -1,0 +1,126 @@
+
+/* fix spacings on narrow browser windows */
+#main-content-no-nav {
+  transition: margin 0.5s;
+}
+#infoTabs {
+  transition: margin 0.5s;
+}
+
+
+@media only screen  and (max-width: 500px) {
+  #main-content-no-nav, .main_content {
+    border-radius: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  #main-content-no-nav > * > li {
+    margin-left: 0;
+  }
+  
+  #main-content-no-nav ol {
+    padding-left: 15px;
+    padding-right: 5px;
+  }  
+  #main-content-no-nav > * > li img.screenshot {
+    margin-left: -20px;
+    margin-right: 5px;
+    max-width: 100% !important;
+  }
+  iframe {
+    width: 100%;
+    margin-left: -6px !important;
+  }
+  h2.page-header {
+    font-size: 15pt;   
+  }
+  h3 {
+    font-size: 1.05em;
+  }
+}
+
+
+@media only screen and (max-width: 970px) {
+  #infoTabs, #mozdev-logo, #mozdev-date {
+    display: none;
+  }
+  #main-content-no-nav {
+    border-radius: 0 !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+
+@media only screen and (min-width: 500px) and (max-width: 1010px) {
+  #main-content-no-nav, .main_content {
+    border-radius: 0;
+    margin-top: 0;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+  #infoTabs {
+    margin: 0px 0px 20px 0.2em !important;  
+  }
+}
+
+@media only screen and (min-width: 1010px) and (max-width: 1070px) {
+  #main-content-no-nav, .main_content {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+  #infoTabs {
+    margin: 0px 0px 20px 0.2em !important;  
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  table.quickFiltersFreeUser, table.quickFiltersProRenew {
+    margin-left: -1em !important;
+    margin-right: -1em !important;
+    border-radius: 0 !important;
+  }
+  .quickFiltersProRenew p, .quickFiltersFreeUser p {
+    font-size: 1em !important;
+  }
+}
+
+@media only screen and (min-width: 620px) and (max-width: 1070px) {
+  table.quickFiltersFreeUser, table.quickFiltersProRenew {
+    margin-left: 0 !important;;
+  }
+  #infoTabs {
+    font-size: 0.8em !important;
+    margin-left: 10px !important;
+  }
+}
+
+@media (min-width: 1070px) and (max-width: 1200px) {
+  #main-content-no-nav, .main_content {
+    margin-left: 60px !important;
+    margin-right: 60px !important;
+  }
+  #infoTabs {
+    margin: 0px -55px 20px 1em !important;  
+    font-size: 0.8em !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  #main-content-no-nav {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+  #main-content-no-nav > p,
+  #main-content-no-nav > div p
+  {
+    max-width: 70em;
+  }
+  #infoTabs {
+    max-width: 40% !important;
+    margin: 0px -55px 20px 1em !important;  
+    font-size: 0.9em !important;
+  }
+}
