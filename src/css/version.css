@@ -52,14 +52,14 @@ ul#version-history > li ul li {
 
 
 #version-history li > h4 {
-  color: #ffffff;
+  color: rgb(0,0,0,0.8);
   cursor: default;
   font-weight: normal;
   font-size: 10pt;
   margin-right: auto !important;
   padding-bottom: 0.3em;
-  background: rgb(218,40,179);
-  background: linear-gradient(to bottom,  rgba(218,40,179,1) 0%, rgba(169,29,141,1) 15%, rgba(90,4,68,1) 50%, rgba(150,26,125,1) 83%, rgba(179,31,149,1) 100%);
+  background: rgba(218,40,179,0.4);
+  /*! background: linear-gradient(to bottom,  rgba(218,40,179,1) 0%, rgba(169,29,141,1) 15%, rgba(90,4,68,1) 50%, rgba(150,26,125,1) 83%, rgba(179,31,149,1) 100%); */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#da28b3', endColorstr='#b31f95',GradientType=0 );  
 }
 
