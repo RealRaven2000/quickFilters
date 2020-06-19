@@ -86,5 +86,7 @@
 <!ENTITY qf.licenseValidation.invalidMail "L'adresse électronique associée à la clé de licence [{1}] n'est pas listée dans un de vos comptes courriel. Veuillez me contacter à partir de l'onglet d'aide.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Une adresse électronique chiffrée ne peut être reconnue.">
 <!ENTITY qf.premiumConfig "Fonctionnalités Premium">
+<!ENTITY qf.label.shortcut.runFolder "Shortcut for Running Filters on Folder: Shift + ">
+<!ENTITY qf.label.shortcut.runMails "Shortcut for Running Filters on Selected Mails: Shift + ">
 <!ENTITY qf.label.premiumFeaturesSite "Read more about Premium Features on our Website">
 <!ENTITY chkLocalFoldersAutorun.label "Run filters on Local Folders Inbox automatically">

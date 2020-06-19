@@ -86,5 +86,7 @@
 <!ENTITY qf.licenseValidation.invalidMail "ライセンスキー [{1}] に紐付けされたメールアドレスのメールアカウントがリストに見当たりません。問題解決のため、サポートタブからお問い合わせください。">
 <!ENTITY qf.licenseValidation.notMatchedMail "暗号化されたメールアドレスが読めるメールアドレスと一致しません。">
 <!ENTITY qf.premiumConfig "有料機能">
+<!ENTITY qf.label.shortcut.runFolder "Shortcut for Running Filters on Folder: Shift + ">
+<!ENTITY qf.label.shortcut.runMails "Shortcut for Running Filters on Selected Mails: Shift + ">
 <!ENTITY qf.label.premiumFeaturesSite "有料機能についての詳細はウェブサイトをご覧ください">
 <!ENTITY chkLocalFoldersAutorun.label "フィルタをローカルフォルダの受信トレイに自動的に適用する">

@@ -81,11 +81,13 @@ hbox > button {
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
 }
 
+#chkFoldersShortcut .checkbox-icon, /* pro tab: shortcuts option */
 #chkCurrentToolbarFolderButton .checkbox-icon { 
   list-style-image: url("chrome://quickfilters/skin/run-filters-folder-16.png"); 
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
 }
 
+#chkMailsShortcut .checkbox-icon,  /* pro tab: shortcuts option */
 #chkCurrentToolbarMessagesButton .checkbox-icon { 
   list-style-image: url("chrome://quickfilters/skin/run-filters-msg-16.png"); 
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
@@ -95,6 +97,7 @@ hbox > button {
   list-style-image: url("chrome://quickfilters/skin/searchFilters_16.png"); 
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
 }
+
 
 
 /****** support tab	********/

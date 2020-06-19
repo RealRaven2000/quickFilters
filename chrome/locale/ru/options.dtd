@@ -86,5 +86,7 @@
 <!ENTITY qf.licenseValidation.invalidMail "Адрес, привязанный к лицензионному ключу [{1}] не используется ни в одной учётной записи почты. Свяжитесь со мной, контактные данные можно найти в настройках.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Зашифрованный адрес не совпадает с имеющимся.">
 <!ENTITY qf.premiumConfig "Премиум-функции">
+<!ENTITY qf.label.shortcut.runFolder "Shortcut for Running Filters on Folder: Shift + ">
+<!ENTITY qf.label.shortcut.runMails "Shortcut for Running Filters on Selected Mails: Shift + ">
 <!ENTITY qf.label.premiumFeaturesSite "Узнать больше о премиум-функциях на нашей странице">
 <!ENTITY chkLocalFoldersAutorun.label "Run filters on Local Folders Inbox automatically">

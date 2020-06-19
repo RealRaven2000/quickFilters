@@ -86,6 +86,8 @@
 <!ENTITY qf.licenseValidation.invalidMail "Die Email-Adresse welche im Lizenzschlüssel verknüpft ist [{1}] ist derzeit in keinem Ihrer Email-Konten vorhanden. Für Hilfe damit kontaktieren Sie mich bitte über den Support tab.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein.">
 <!ENTITY qf.premiumConfig "Premium Funktionen">
+<!ENTITY qf.label.shortcut.runFolder "Tastenkürzel um Filter auf Ordner anzuwenden: Shift + ">
+<!ENTITY qf.label.shortcut.runMails "Tastenkürzel um Filter auf ausgewählte EMails anzuwenden: Shift + ">
 <!ENTITY qf.label.premiumFeaturesSite "Lesen Sie mehr über die Premium Funktionen auf unserer Webseite">
 <!ENTITY chkLocalFoldersAutorun.label "Filters in Lokalem Inbox-Verzeichnis automatisch ausführen">
 

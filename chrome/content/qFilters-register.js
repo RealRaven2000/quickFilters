@@ -352,7 +352,7 @@ quickFilters.Licenser = {
   } ,
   
   premiumInfo: function premiumInfo(event) {
-    quickFilters.Util.openURL(event,'http://quickfilters.mozdev.org/premium.html');
+    quickFilters.Util.openURL(event,'http://quickfilters.quickfolders.org/premium.html');
   },
   
   // format QI-EMAIL:DATE;CRYPTO

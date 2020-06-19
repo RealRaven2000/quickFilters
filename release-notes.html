@@ -1,25 +1,17 @@
-quickFilters Change Log - Version 4.3.1
+quickFilters Change Log - Version 4.4
+
+
+I am currently paying somebody to migrate all my Add-on support sites away from the free host on mozdev.org, which is closing operation end of June. To keep having support sites and ongoing development, please <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-notes">buy a license</a> (the complete migration cost me $650, so there are some expense I hope to recover from the community of users).
+
+I will also have to rewrite all mail Add-ons as web extensions, which is currently not yet possible as all necessary APIs to replace the deprecated tech has not been implemented. As in between step I plan to release QuickFolders as a "web experiment" for Thunderbird 78+ but this will take a few weeks of work. If you are interested in using a version of quickFilters that works with Thunderbird 78, <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-notes">buy a license</a> to support the project.
 
 <ul>
-<li>Missing notifyBox can lead to problems when toggling assistant</li>
-<li>Premium feature: run filters local inbox didn't work depending on local folder hostname, changed method of determining whether an inbox is in local folders (to force filter running)</li>
-<li>Made modification of toolbar more reliable</li>
-<li>Fixed licensing problem with accounts that have no default identity</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/2">[issue 2]</a> Merged filters: some conditions may end up not working.
-
-When merging multiple filters, sometimes conditions will not work. This is caused by mixing filters with different radio buttons "all conditions" vs "any conditions". Apparently the merged filter conditions internal "booleanAnd" attributes are not changed towards that of the target filter. So if the target (first) filter has "any" and the merged filter has "all" it may lead to some (or all) of it's conditions being to ignored.</li>
-<li>Added configuration options to troubleshooter. Simply right-click the troubleshoot button to get a choice between the following tests:
-<ol>
- <li><code>incomingFlag</code> - filters sometimes are missing this flag and will never be executed when downloading new mail. However you may want to have some filters that you only want to run manually so you may want to generally disable this check.</li>
- <li><code>invalidTargetFolder</code> - can occur when filters are imported from other / older mail profiles or folders are moved / deleted on Imap.
- </li>
- <li><code>customActions</code> - finds invalid custom actions which may have been added by 3rd party add-ons (e.g FiltaQuilla); this problem will occur such Add-ons are disabled or uninstalled.
- </li>
- <li><code>mixedAnyAndAll</code> - NEW TROUBLESHOOTING STEP: Fix filters that have both mixed Any and All conditions. This can occur when merging filters that have different Any/All definitions and may lead to some conditions being omitted.
- </li>
-</ol>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/2">[issue 12]</a> Pro Feature: Add keyboard shortcuts for Run Filters buttons. These can be enabled and configured on  the quickFilters Pro tab. This feature is useful for archiving or anti-Junkfilters which should be configured to only run manually.
+      
+      Default shortcuts are:
+        Shift + F: Run Filters on folder
+        Shift + R: Run Filters on selected mails
 </li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/3">[issue 3]</a> 
-Filter conditions which deal with subject are not exported correctly during backup. This will lead to the condition having a "disabled" subject attribute in the editor after importing them.
-</li>  
+<li>migrated support website from free server mozdev.org to github.</li>  
 </ul>
+

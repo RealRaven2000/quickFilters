@@ -169,17 +169,44 @@ quickFilters.Preferences = {
 	  return this.setBoolPref('actions.moveFolder', b);
 	} ,
 	
-  getCurrentFilterTemplate : function()
-  {
+  getCurrentFilterTemplate : function() {
 		let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");
 		if (current == "undefined") current = null;
     return current;
   } ,
   
-  setCurrentFilterTemplate : function(pref)
-  {
+  setCurrentFilterTemplate : function(pref) {
     return quickFilters.Preferences.setStringPref("filters.currentTemplate", pref);
-  } 
+  } ,
+  
+  // scope: "folder" | "mails"
+  isShortcut : function(scope) {
+    switch (scope) {
+      case "folder":
+        break;
+      case "mails":
+        break;
+      default: 
+        return false;
+    }
+    try {
+      return this.getBoolPref("shortcuts." + scope);
+    }
+    catch(x) {;}
+    return false;
+  } ,
+  
+  getShortcut : function(scope) {
+    switch (scope) {
+      case "folder":
+        break;
+      case "mails":
+        break;
+      default: 
+        return null;
+    }
+    return this.getStringPref("shortcuts." + scope + ".key");
+  }
   
 	
 

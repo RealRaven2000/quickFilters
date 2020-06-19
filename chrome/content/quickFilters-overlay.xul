@@ -5,10 +5,10 @@
 <overlay id="quickfilters-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
 	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-rsa.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-register.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
 	<script type="application/x-javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
 

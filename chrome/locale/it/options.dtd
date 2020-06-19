@@ -86,5 +86,7 @@
 <!ENTITY qf.licenseValidation.invalidMail "L'indirizzo di posta elettronica collegato alla chiave di licenza [{1}] non è attualmente presente tra gli account. Per avere assistenza, contattatemi tramite la scheda 'Supporto'.">
 <!ENTITY qf.licenseValidation.notMatchedMail "L'indirizzo di posta elettronica crittografato non corrisponde a quello in chiaro">
 <!ENTITY qf.premiumConfig "Caratteristiche Premium">
+<!ENTITY qf.label.shortcut.runFolder "Scorciatoia per eseguire i filtri sulla cartella: Maiusc +">
+<!ENTITY qf.label.shortcut.runMails "Scorciatoia per eseguire i filtri sui messaggi selezionati: Maiusc +">
 <!ENTITY qf.label.premiumFeaturesSite "Maggiori informazioni sulle Caratteristiche Premium sul nostro sito web">
 <!ENTITY chkLocalFoldersAutorun.label "Esecuzione automatica dei filtri sulla Posta in arrivo delle Cartelle locali">

@@ -211,6 +211,26 @@
 								type="bool"  
 								instantApply="true"
 								/>
+      <preference id="ShortcutFolders"
+	              name="extensions.quickfilters.shortcuts.folder" 
+								type="bool"  
+								instantApply="true"
+                onchange="quickFilters.Options.configureShortcut(this,'folder');" />
+                />
+      <preference id="Key_ShortcutFolders"
+	              name="extensions.quickfilters.shortcuts.folder.key" 
+								type="string"  
+                />
+      <preference id="ShortcutSelectedMails"
+	              name="extensions.quickfilters.shortcuts.mails" 
+								type="bool"  
+								instantApply="true"
+                onchange="quickFilters.Options.configureShortcut(this,'mails');" />
+                />
+      <preference id="Key_ShortcutSelectedMails"
+	              name="extensions.quickfilters.shortcuts.mails.key" 
+								type="string"  
+                />
 
     </preferences>
 	
@@ -511,7 +531,7 @@
         <description class="quickhelp-desc">&qf.description.about;</description>
         <label id="L1" 
                class="text-link" 
-               tooltiptext="http://quickfilters.mozdev.org/"
+               tooltiptext="http://quickfilters.quickfolders.org/"
                onclick="quickFilters.Util.showHomePage();">&qf.label.aboutLink;</label>
         <separator />
 				
@@ -572,8 +592,28 @@
 					<vbox>
 						<hbox>
 							<label class="plain-link" 
-									 tooltiptext="http://quickfilters.mozdev.org/"
+									 tooltiptext="http://quickfilters.quickfolders.org/"
 									 onclick="quickFilters.Util.showPremiumFeatures();">&qf.label.premiumFeaturesSite;</label>
+						</hbox>
+						<hbox>
+              <checkbox id="chkFoldersShortcut" 
+                  preference="ShortcutFolders" 
+                  label="&qf.label.shortcut.runFolder;"
+                  />
+							<textbox 
+									style = "width: 3em;"
+									preference = "Key_ShortcutFolders" 
+									/>
+						</hbox>
+						<hbox>
+              <checkbox id="chkMailsShortcut" 
+                  preference="ShortcutSelectedMails" 
+                  label="&qf.label.shortcut.runMails;"
+                  />
+							<textbox 
+									style = "width: 3em;"
+									preference = "Key_ShortcutSelectedMails" 
+									/>
 						</hbox>
 						<checkbox id="chkLocalFoldersAutorun" 
 								preference="localFoldersRun" 

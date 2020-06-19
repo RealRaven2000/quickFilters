@@ -387,7 +387,13 @@ END LICENSE BLOCK
     # made modification of toolbar more reliable
     # fixed licensing problem with accounts that have no default identity
     # [issue 2] Merged filters: some conditions not working
-  
+    
+  4.4 - WIP 
+    # [issue 12] Pro Feature: Add keyboard shortcuts for Run Filters buttons. 
+      Default shortcuts are:
+      Shift + F: Run Filters on folder
+      Shift + R: Run Filters on selected mails
+   
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
@@ -592,8 +598,11 @@ var quickFilters = {
       }
       
       util.logDebugOptional("events","setTimeout() - checkFirstRun");
-      setTimeout(function() { quickFilters.checkFirstRun(); }, 1000);
-      
+      setTimeout(function() { 
+          quickFilters.checkFirstRun(); 
+          quickFilters.addKeyListener();
+        }, 1000);
+        
       quickFilters.toggleCurrentFolderButtons();
     }
     catch(ex) {
@@ -1305,6 +1314,85 @@ var quickFilters = {
 		}
 	},
   
+  windowKeyPress: function windowKeyPress(e,dir) {
+    const util = quickFilters.Util,
+          prefs = quickFilters.Preferences,
+          isRunFolderKey = prefs.isShortcut("folder"),
+          isSelectedMailsKey = prefs.isShortcut("mails");
+		let isAlt = e.altKey,
+		    isCtrl = e.ctrlKey,
+		    isShift = e.shiftKey,
+        eventTarget = e.target,
+        isHandled = false, 
+				isShortcutMatched = false; 
+          
+    // shortcuts should only work in thread tree, folder tree and email preview (exclude conversations as it might be in edit mode)
+    let tag = eventTarget.tagName ? eventTarget.tagName.toLowerCase() : '';
+    if (   eventTarget.id != 'threadTree' 
+        && eventTarget.id != 'folderTree'
+        && eventTarget.id != 'accountTree'
+        && (
+          (tag
+            &&       
+            (tag == 'textarea'  // Postbox quick reply
+            ||
+            tag == 'textbox'    // any textbox
+            ||
+            tag == 'input'      // Thunderbird 68 textboxes.
+						||
+						tag == 'findbar')   // [Bug 26654] in-mail search
+          )
+					||
+					(eventTarget.baseURI 
+					  &&
+					 eventTarget.baseURI.toString().lastIndexOf("chrome://conversations",0)===0)
+				)
+       )
+    {
+      return; // NOP
+    }
+    
+    if (window) {
+      let tabmail = window.document.getElementById("tabmail"),
+          selectedTab = util.tabContainer.selectedIndex,
+          tabMode = null;
+      if (selectedTab>=0) {
+        let tab = util.getTabInfoByIndex(tabmail, selectedTab);
+        if (tab) {
+          tabMode = util.getTabMode(tab);  // test in Postbox
+          if (tabMode == "glodaSearch" && tab.collection) { //distinguish gloda search result
+            tabMode = "glodaSearch-result";
+          }
+        }
+        else {
+          if (!tabmail.tabInfo.length)
+            tabMode = "3pane";
+          else
+            tabMode = ""; 
+        }      
+      }
+      if ((tabMode == 'message' || tabMode == 'folder' || tabMode == '3pane')) {
+				let isShiftOnly = !isAlt && !isCtrl && isShift && dir!='up',
+            isNoAccelerator = !isAlt && !isCtrl && !isShift && dir!='up',
+				    theKeyPressed = (String.fromCharCode(e.charCode)).toLowerCase();
+        if (isRunFolderKey) {
+          if (isShiftOnly && theKeyPressed == prefs.getShortcut("folder").toLowerCase()) {
+            util.logDebug("detected: Shortcut for Run filters on Folder");
+            quickFilters.onApplyFilters();
+            return; 
+          }
+        }
+        if (isSelectedMailsKey) {
+          if (isShiftOnly && theKeyPressed == prefs.getShortcut("mails").toLowerCase()) {
+            util.logDebug("detected: Shortcut for Run filters on Selected Mails");
+            quickFilters.onApplyFiltersToSelection();
+            return; 
+          }
+        }
+      }
+    }
+  } ,
+  
 	// this is the wrapped MsgMoveMessage
 	executeMoveMessage: null  
 
@@ -1609,6 +1697,28 @@ quickFilters.CustomTermReplyTo = {
   quickFilters.mailSession.AddFolderListener(quickFilters.FolderListener, 
 	  IFL.event | IFL.added);
 })();
+
+// [issue 12] shortcuts for run filter buttons.
+quickFilters.addKeyListener = function() {
+  const util = quickFilters.Util,
+	      prefs = quickFilters.Preferences;
+  if (util.isDebug) debugger;
+  let isRunFolderKey = prefs.isShortcut("folder"),
+      isSelectedMailsKey = prefs.isShortcut("mails");
+      
+  if (isRunFolderKey || isSelectedMailsKey) {
+    const win = util.getMail3PaneWindow();
+      // check main instance 
+      let main = win.quickFilters;
+      if (!main.isKeyListener) {
+        win.addEventListener("keypress", this.keyListen = function(e) {
+          main.windowKeyPress(e,'down');
+        }, true)    
+        win.quickFilters.isKeyListener = true;
+      }
+  }
+};
+
 // jcranmer suggest using  this
 // quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Ci.nsIFolderListener.all);
 quickFilters.addTagListener = function() {

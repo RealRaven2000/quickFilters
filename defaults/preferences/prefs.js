@@ -114,7 +114,11 @@ pref("extensions.quickfilters.licenseType", 0); // private license, 1-domain
 pref("extensions.quickfilters.LicenseKey", "");
 pref("extensions.quickfilters.licenser.renewalReminder", 0); // 0 - no renewal necessary, 1 - renewal reminder, 2 - disable reminder
 pref("extensions.quickfilters.localFoldersRun", false);
-
+// [issue 12] Add shortcuts for run fitler buttons
+pref("extensions.quickfilters.shortcuts.folder", false);
+pref("extensions.quickfilters.shortcuts.mails", false);
+pref("extensions.quickfilters.shortcuts.folder.key", "F");
+pref("extensions.quickfilters.shortcuts.mails.key", "R");
 
 pref("extensions.quickfilters.mime.resolveAB", false);
 pref("extensions.quickfilters.mime.resolveAB.preferNick", false);

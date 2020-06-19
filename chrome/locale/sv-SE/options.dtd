@@ -86,5 +86,7 @@
 <!ENTITY qf.licenseValidation.invalidMail "E-postadressen som är knuten till licensnyckeln [{1}] är för närvarande inte listad i något av dina e-postkonton. Kontakta oss via supportfliken för assistans.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Den krypterade e-postadressen matchar inte den läsbara adressen.">
 <!ENTITY qf.premiumConfig "Premiumfunktioner">
+<!ENTITY qf.label.shortcut.runFolder "Shortcut for Running Filters on Folder: Shift + ">
+<!ENTITY qf.label.shortcut.runMails "Shortcut for Running Filters on Selected Mails: Shift + ">
 <!ENTITY qf.label.premiumFeaturesSite "Läs mer om premiumfunktioner på vår webbplats">
 <!ENTITY chkLocalFoldersAutorun.label "Kör filter i inkorgens lokala mappar automatiskt">

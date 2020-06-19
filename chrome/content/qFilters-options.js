@@ -187,8 +187,12 @@ quickFilters.Options = {
   
   enablePremiumConfig: function enablePremiumConfig(isEnabled) {
     let getElement      = document.getElementById.bind(document),
-        chkLocalFoldersAutorun = getElement('chkLocalFoldersAutorun');
+        chkLocalFoldersAutorun = getElement('chkLocalFoldersAutorun'),
+        chkFoldersShortcut = getElement('chkFoldersShortcut'),
+        chkMailsShortcut = getElement('chkMailsShortcut');
     chkLocalFoldersAutorun.disabled = !isEnabled;
+    chkFoldersShortcut.disabled = !isEnabled;
+    chkMailsShortcut.disabled = !isEnabled;
   },
   
   decryptLicense: function decryptLicense(testMode) {
@@ -486,7 +490,15 @@ quickFilters.Options = {
 			  return buyLabel;
 		}
 		return "";
-	}
+	} ,
+  
+  configureShortcut: function configureShortcut(el, scope) {
+		const prefs = quickFilters.Preferences,
+		      util = quickFilters.Util;
+    util.logDebug("Changing shortcut setting for run filters on " + scope);
+    const win = util.getMail3PaneWindow();
+    setTimeout( function() { win.quickFilters.addKeyListener(); }, 1000); // will enable key listener if previously disabled.
+  }
 
 
 	

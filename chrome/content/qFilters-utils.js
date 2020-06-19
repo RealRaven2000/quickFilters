@@ -25,13 +25,13 @@ quickFilters.Properties = {
 var QuickFilters_TabURIregexp = {
   get _thunderbirdRegExp() {
     delete this._thunderbirdRegExp;
-    return this._thunderbirdRegExp = new RegExp("^http://quickfilters.mozdev.org/");
+    return this._thunderbirdRegExp = new RegExp("^http://quickfilters.quickfolders.org/");
   }
 };
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "4.3.1",
+  HARDCODED_CURRENTVERSION : "4.4",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -1170,12 +1170,12 @@ quickFilters.Util = {
     let version = util.VersionSanitized,
         sPrompt = util.getBundleString("quickfilters.confirmVersionLink", "Display version history for quickFilters");
     if (!ask || confirm(sPrompt)) {
-      util.openURL(null, util.makeUriPremium("http://quickfilters.mozdev.org/version.html") + "#" + version);
+      util.openURL(null, util.makeUriPremium("http://quickfilters.quickfolders.org/version.html") + "#" + version);
     }
   } ,
 
   showLicensePage: function showLicensePage() {
-    quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/donate.html');
+    quickFilters.Util.openURLInTab('http://quickfilters.quickfolders.org/donate.html');
   }  ,
 	
 	showYouTubePage: function showYouTubePage() {
@@ -1184,7 +1184,7 @@ quickFilters.Util = {
 
   showHomePage: function showHomePage(queryString) {
 	  if (!queryString) queryString='index.html';
-    quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/' + queryString);
+    quickFilters.Util.openURLInTab('http://quickfilters.quickfolders.org/' + queryString);
   } ,
 	
   showBug: function showBug(bugNumber) {
@@ -1196,7 +1196,7 @@ quickFilters.Util = {
 	} ,
 	
 	showPremiumFeatures: function showPremiumFeatures() {
-    quickFilters.Util.openURLInTab('http://quickfilters.mozdev.org/premium.html');
+    quickFilters.Util.openURLInTab('http://quickfilters.quickfolders.org/premium.html');
 	} ,
 	
   // Postbox special functions to avoid line being truncated
@@ -2008,7 +2008,7 @@ quickFilters.Util = {
 			// make sure we can sanitize all pages for our premium users!
 			if (   uType
 			    && URL.indexOf("user=")==-1 
-					&& URL.indexOf("quickfilters.mozdev.org")>0 ) {
+					&& URL.indexOf("quickfilters.quickfolders.org")>0 ) {
 				// remove #NAMED anchors
 				let x = URL.indexOf("#"),
 				    anchor = '';

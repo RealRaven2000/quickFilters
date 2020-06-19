@@ -86,5 +86,7 @@
 <!ENTITY qf.licenseValidation.invalidMail "La dirección de correo electrónico ligada a la clave de licencia [{1}] actualmente no está listada en ninguna de sus cuentas de correo. Por favor, contacte conmigo desde la pestaña Soporte para asistencia.">
 <!ENTITY qf.licenseValidation.notMatchedMail "La dirección de correo electrónico cifrada no coincide con la legible.">
 <!ENTITY qf.premiumConfig "Características Premium">
+<!ENTITY qf.label.shortcut.runFolder "Shortcut for Running Filters on Folder: Shift + ">
+<!ENTITY qf.label.shortcut.runMails "Shortcut for Running Filters on Selected Mails: Shift + ">
 <!ENTITY qf.label.premiumFeaturesSite "Lea más sobre las características Premium en nuestro sitio web">
 <!ENTITY chkLocalFoldersAutorun.label "Ejecute filtros en la Bandeja de entrada de carpetas locales automáticamente">

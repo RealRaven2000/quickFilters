@@ -86,5 +86,7 @@
 <!ENTITY qf.licenseValidation.invalidMail "Het aan de licentiesleutel [{1}] verbonden e-mailadres staat momenteel niet bij uw e-mailaccounts. Neem voor hulp contact met me op via het tabblad Ondersteuning.">
 <!ENTITY qf.licenseValidation.notMatchedMail "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres.">
 <!ENTITY qf.premiumConfig "Premiumfuncties">
+<!ENTITY qf.label.shortcut.runFolder "Shortcut for Running Filters on Folder: Shift + ">
+<!ENTITY qf.label.shortcut.runMails "Shortcut for Running Filters on Selected Mails: Shift + ">
 <!ENTITY qf.label.premiumFeaturesSite "Lees meer over Premium-functies op onze website">
 <!ENTITY chkLocalFoldersAutorun.label "Filters op Postvak IN in Lokale mappen automatisch toepassen">
