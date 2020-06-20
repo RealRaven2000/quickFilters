@@ -4,7 +4,7 @@
   <Description about="urn:mozilla:install-manifest">
     <em:type>2</em:type> 
     <em:id>quickFilters@axelg.com</em:id>
-    <em:version>4.4</em:version>
+    <em:version>4.4.1</em:version>
     <em:creator>Axel Grude</em:creator>
     <em:description>Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.</em:description>
     <!-- Thunderbird -->

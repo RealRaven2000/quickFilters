@@ -216,7 +216,6 @@
 								type="bool"  
 								instantApply="true"
                 onchange="quickFilters.Options.configureShortcut(this,'folder');" />
-                />
       <preference id="Key_ShortcutFolders"
 	              name="extensions.quickfilters.shortcuts.folder.key" 
 								type="string"  
@@ -226,7 +225,6 @@
 								type="bool"  
 								instantApply="true"
                 onchange="quickFilters.Options.configureShortcut(this,'mails');" />
-                />
       <preference id="Key_ShortcutSelectedMails"
 	              name="extensions.quickfilters.shortcuts.mails.key" 
 								type="string"  
