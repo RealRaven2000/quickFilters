@@ -1,0 +1,112 @@
+/* special style for license button */
+#quickFilters-Options-goPro #btnLicense {
+	position: fixed;
+	top:   10px;
+	right: 20px;
+	max-width: 30em;
+	cursor: pointer;
+	outline: 1px solid rgba(0,0,0,0.0);
+	transition: outline-color 1.6s ease-out, outline-width 1.2s ease;
+}
+
+#quickFilters-Options-goPro #btnLicense:hover {
+	animation: none !important;
+	outline: 580px solid rgba(0,0,0,0.4); /* dim background on hover */
+	transition: outline-color 1s ease;
+}
+
+@keyframes quickfiltersPulse {
+	to {box-shadow: 0 0 0 10px rgba(150, 80, 60, 0.12)};
+}
+
+.btnLicenseContainer {
+	height: 60px;
+}
+
+
+#btnLicense.register, #btnLicense.expired {
+  animation: quickfiltersPulse  2s infinite cubic-bezier(0.66, 0, 0, 1);
+	box-shadow: 0 0 0 0px rgba(40, 40, 40, 0.0);
+}
+
+#btnLicense.register:hover, #btnLicense.expired:hover {
+	animation-play-state: paused;
+	opacity: 1 !important;
+	font-size: 1.3em !important;
+}
+
+#btnLicense label,
+#btnDomainLicense label,
+#btnEnterCode label
+{
+  padding-bottom: 0.6em;
+  padding-top: 0.6em;
+	padding-left: 1em;
+	padding-right: 1em;
+	max-height: 2em; /* slimmer donate button */
+}
+
+#btnLicense, #btnEnterCode, #btnDomainLicense {
+	cursor: pointer;
+  font-family: cambria, Georgia, serif; /* see also .niceFont in options.css */
+  font-size: 10.2pt;
+	font-style: normal;
+	margin: 2px 2px 2px 2px !important;
+}
+
+#btnLicense, #btnDomainLicense {
+	-moz-appearance: none;
+	background-color: rgb(7, 97, 48) !important;
+	background: linear-gradient(to bottom, rgba(184,211,27,1) 0%,rgba(122,166,18,1) 50%,rgba(92,138,0,1) 51%,rgba(135,181,19,1) 100%) !important;
+	border: 1px solid #fff;
+	border-radius: 0.4em;
+	box-shadow: 3px 3px 4px -1px rgba(0, 0, 0, 0.5);
+	color: #FFFFFF;
+	font-weight: bold;
+	transition-property: box-shadow, margin;
+	transition-duration: 0.75s, 0.2s;
+}
+
+#btnLicense:hover,
+#btnDomainLicense:hover
+{
+	/* margin: 4px 0px 0px 4px !important; */
+	box-shadow: 2px 2px 2px -1px rgba(0, 0, 0, 0.8);
+	background: rgb(254,222,178);
+	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+	box-shadow: 1px 1px 4px -1px rgba(0, 0, 0, 0.7);
+}
+
+#btnDomainLicense {
+	background: linear-gradient(to bottom, rgb(104, 30, 154) 0%, rgb(132, 42, 216) 50%, rgb(123, 32, 202) 51%, rgb(179, 126, 232) 100%) !important;
+}
+
+#btnDomainLicense:hover {
+	background: linear-gradient(to bottom, rgba(200, 86, 175, 0.9) 0%, rgba(140, 15, 106, 0.9) 48%, rgba(109, 5, 76, 0.8) 100%) !important;
+}
+
+#btnLicense:active,
+#btnDomainLicense:active
+{
+	margin: 4px 0px 0px 4px !important;
+	box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.9);
+	background: rgb(254,222,178);
+	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+}
+
+.shilling {
+	margin-right:2em;
+	text-align: left;
+	max-width: 600px;
+}
+#haveLicense, #buyBox {
+	color: rgba(30, 100, 190, 0.8);
+	font-size: 8pt;
+	text-align: center;
+	font-style: italic;
+}
+.buyAction td {
+	padding:3px;
+	vertical-align: middle;
+}
+

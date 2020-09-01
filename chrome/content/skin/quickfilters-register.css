@@ -1,0 +1,121 @@
+@import url('chrome://quickfilters/skin/license.css');
+ 
+#qf-register {
+  max-width: 850px !important;
+}
+label.ref {
+  padding-top: 4px;
+}
+#email {
+  min-width: 200px;
+	width:auto;
+}
+#qfLicenseTerm {
+  padding: 1em 1em;
+}
+
+@keyframes quickfiltersRenew {
+	0% { opacity: 0.7; }
+	50% { opacity: 1; }
+	100% { opacity: 0.7; }
+}
+
+#qfLicenseTerm.expired {
+	animation: quickfiltersRenew 3s 5s ease-in-out infinite;
+	background-color: #990038; /* dark purple */
+	background-image: linear-gradient(to bottom, #bf376b 0%,#990038 51%,#700029 100%); 
+	color: white !important;
+}
+.product, .para, .heading {
+	margin-left: 12px !important;
+	margin-right: 12px !important;
+}
+table {
+  display: table;
+}
+tr {
+  display: table-row;
+}
+td {
+  display: table-cell;
+	-moz-box-align: start;
+	-moz-box-orient: vertical;
+	-moz-box-pack: justify;
+  vertical-align: top;
+}
+
+#thePage, #buyBox {
+  background-color: #ffffff;
+	-moz-box-align: start;
+	border: 1px solid rgba(88,88,88,0.4);
+	margin: 1em;
+}
+
+#thePage {
+	box-shadow: 2px 2px 4px rgba(80, 80, 80, 0.4);
+}
+
+#buyBox {
+	box-shadow: inset 2px 2px 4px rgba(80, 80, 80, 0.4);
+	background-image: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 100%);
+	padding: 6px 10px 4px 0 !important;
+}
+
+
+/* main font - reflect in order  button */
+.para {
+  font-family: Cambria, Georgia, serif;
+  font-size: 10.2pt;
+	color: rgb(0, 0, 0);
+}
+.product:before {
+  content: url('chrome://quickfilters/skin/QuickFilters_32.png'); 
+  margin: 0.2em 0.5em 0 0;
+  vertical-align: middle;
+  display: inline-block; /* added 02.09.12 to center font in box */
+}
+.product {
+  background: rgb(234, 85, 7);
+  background: linear-gradient(to bottom, #fceabb 0%,#fccd4d 45%,#f8b500 56%,#fbdf93 100%);
+  border: 1px solid #d0d0d0 !important;
+  border-radius: 0.1em 0.1em 0.1em 0.1em;
+  box-shadow: 2px 2px 1px 0 rgba(40,30,0,0.3);
+  color: #4C3500;
+  display: inline-block;
+  font-family: calibri, arial, sans-serif;
+  font-size: 16pt;
+  font-weight: 600;
+  height: auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 0.3em 1em 0.2em 1em;
+  text-shadow: 1px 1px 0 0 rgba(40,30,0,0.3);
+  vertical-align: middle;
+}
+.para {
+  margin: 0.5em 0;
+	text-align: justify;
+}
+.link {
+  cursor: pointer;
+	text-decoration: underline;
+}
+.heading {
+  background: none;
+  border: 1px solid rgba(140,140,140,0.5) !important;
+	border-radius: 12px;
+	color: rgb(0, 0, 0);
+  display: inline-block;
+  font-family: calibri, arial, sans-serif;
+  font-size: 13pt;
+  font-weight: 600;
+  font-size: 1.2em;
+	margin-top: 10px;
+  padding: 0.4em 1em 0.4em 1em;
+  text-shadow: 1px 1px 2px #FFF;
+  vertical-align: middle;
+	white-space: nowrap;
+}
+.form {
+	margin: 0 1em;
+}
