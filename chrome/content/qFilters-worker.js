@@ -774,7 +774,7 @@ quickFilters.Worker = {
           // **************************************************************
           // *******   SYNCHRONOUS PART: Shows Filter Assistant!    *******
           // **************************************************************
-          let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xul',
+          let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xhtml',
             'quickfilters-filterTemplate',
             'chrome,titlebar,alwaysRaised,modal,resizable,cancel,extra1,extra2', // ,accept,cancel,moveable
             params,
@@ -1450,7 +1450,7 @@ quickFilters.Worker = {
 				***       FILTER RULES DIALOG   ***
 				***********************************
 				*/
-			window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
+			window.openDialog("chrome://messenger/content/FilterEditor.xhtml", "",
 												"chrome, modal, resizable,centerscreen,dialog=yes", args);
 												
 			isAccepted = ("refresh" in args && args.refresh)  // was [Ok] clicked?

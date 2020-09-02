@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- tb 64 -->
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<!--  tb 59 -->
+<?xml-stylesheet href="chrome://messenger/skin/preferences/preferences.css" type="text/css" ?>
+<?xml-stylesheet href="filterTemplate.css" type="text/css"?>
+<?xml-stylesheet href="filterWidgets.css" type="text/css"?>
+
+<!-- multiple language resources -->
+<!DOCTYPE dialog [
+  <!ENTITY % templateDTD SYSTEM "chrome://quickfilters/locale/filters.dtd">
+  %templateDTD;
+  <!ENTITY % commonDTD SYSTEM "chrome://quickfilters/locale/filterList.dtd">
+  %commonDTD;
+]>
+
+<dialog title="&qf.filters.title;"
+	id="qf-template"
+	buttons="cancel,extra1,extra2"
+	defaultButton="extra1"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	buttonlabelcancel="&qf.label.cancel;"
+	buttonlabelextra1="&qf.continueFilter.label;"
+	buttonlabelextra2="&qf.label.donate;"
+	ondialogextra2="quickFilters.Util.showLicensePage();"
+	ondialogcancel="return quickFilters.Assistant.cancelTemplate();"
+	ondialogextra1="event.preventDefault(); return quickFilters.Assistant.next();"
+	onload="quickFilters.Assistant.loadAssistant();"
+>
+
+	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
+	<script type="application/javascript" src="chrome://shimQuickFilters/content/qFilters-shim-ecma.js" />
+	
+	
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="bundle_filter" src="chrome://quickfilters/locale/filters.properties"/>
+  </stringbundleset>
+
+	<preferences>
+		<preference id="QuickFilters-Preferences-SelectedFilterTemplate" 
+					name="extensions.quickfilters.filters.currentTemplate" 
+					type="string" />
+		<preference id="tags" 
+					name="extensions.quickfilters.actions.tags" 
+					type="bool"
+					instantApply="true"
+					/>
+		<preference id="moveFolder" 
+					name="extensions.quickfilters.actions.moveFolder" 
+					type="bool"
+					instantApply="true"
+					/>
+		<preference id="star" 
+					name="extensions.quickfilters.actions.star" 
+					type="bool"  
+					instantApply="true"
+					/>
+		<preference id="flag" 
+					name="extensions.quickfilters.actions.flag" 
+					type="bool"  
+					instantApply="true"
+					/>
+		<preference id="priority" 
+					name="extensions.quickfilters.actions.priority" 
+					type="bool" 
+					instantApply="true"
+					/>
+		<preference id="showEditorAfterCreateFilter" 
+							name="extensions.quickfilters.showEditorAfterCreateFilter" 
+							type="bool"  
+							instantApply="true"
+							/>
+		<preference id="showListAfterCreateFilter" 
+							name="extensions.quickfilters.showListAfterCreateFilter" 
+							type="bool"  
+							instantApply="true"
+							/>
+		<preference id="runFilterAfterCreate" 
+							name="extensions.quickfilters.runFilterAfterCreate" 
+							type="bool"  
+							instantApply="true"
+							/>
+
+					
+	</preferences>
+	
+	<prefpane id="qf-template-prefpane" >
+	  <vbox>
+		<hbox id="header">
+			<image id="qf-title" src="chrome://quickfilters/skin/QuickFilters-title.png" flex="0"/>
+			<toolbar id="quickFiltersHelpBar">
+				<toolbarbutton id="quickFiltersBtnHelp"
+					class = "toolbarbutton-1 chromeclass-toolbar-additional" 
+					label = ""
+					tooltiptext = "&quickfilters.button.support;"
+					oncommand = "quickFilters.Assistant.help();"
+					/>
+			</toolbar>
+		</hbox>
+		
+		<deck selectedIndex="1" 
+					id="assistantDeck" 
+				orient = "vertical">
+			<vbox class="deckChild">
+				<description id="mergeSummary">
+					QuickFilters Assistant found some filters that already do the same action.
+				</description>
+				<description id="mergeInstructions">
+					You can either extend one of these or create a completely new filter.
+				</description>
+				<checkbox id="chkMerge" 
+							label="&qf.check.mergeWithExisting;" 
+							checked="false"
+							oncommand="quickFilters.Assistant.selectMerge(this);"
+							/>
+				<hbox>		  
+					<richlistbox id="filterMatches"
+							 seltype="single"
+							 ondblclick="quickFilters.Assistant.selectMatch(this);"
+							 onselect="quickFilters.Assistant.selectMatchFromList(this);" />
+					<description id="filterDescription">
+					Select a Filter to extend with new rules.
+					</description>
+				</hbox>
+				<checkbox id="chkCreateNew" 
+							label="&qf.check.createNew;" 
+							checked="true"
+							oncommand="quickFilters.Assistant.selectCreateNew(this);"
+							/>
+					</vbox>
+			
+		
+			<vbox class="deckChild">
+				<hbox class="myWizard">
+					<richlistbox 
+						id="qf-filter-templates"
+						ondblclick="quickFilters.Assistant.selectTemplate(this);"
+						onselect="quickFilters.Assistant.selectTemplateFromListTmr(this);"
+						preference="QuickFilters-Preferences-SelectedFilterTemplate"
+						flex = "2"
+						tooltiptext="&qf.filters.instructions;"
+						>
+						<richlistitem value='from'><description>&qf.filters.template.from;</description></richlistitem>
+						<richlistitem value='domain'><description>&qf.filters.template.domain;</description></richlistitem>
+						<richlistitem value='to'><description>&qf.filters.template.to;</description></richlistitem>
+						<richlistitem value='replyto'><description>&qf.filters.template.replyto;</description></richlistitem>
+						<richlistitem value='multifrom'><description>&qf.filters.template.multifrom;</description></richlistitem>
+						<richlistitem value='maillist'><description>&qf.filters.template.maillist;</description></richlistitem>
+						<richlistitem value='topic'><description>&qf.filters.template.topic;</description></richlistitem>
+						<richlistitem value='tag'><description>&qf.filters.template.tag;</description></richlistitem>
+					</richlistbox>
+					<html:fieldset orient="vertical"
+								tooltiptext="&qf.filters.actions.tooltip;">
+						<html:legend>&qf.filters.actions.caption;</html:legend>
+						<vbox>
+							<checkbox id="chkActionTargetFolder" 
+												preference="moveFolder"
+									label="&qf.filters.actions.targetFolder;" 
+									checked="true"
+									/>
+							<checkbox id="chkActionTags" 
+									preference="tags" 
+									label="&qf.filters.actions.tag;" 
+									accesskey="&qf.filters.actions.tag.accesskey;"
+									/>
+							<checkbox id="chkActionPriority" 
+									preference="priority" 
+									label="&qf.filters.actions.priority;" 
+									accesskey="&qf.filters.actions.priority.accesskey;"
+									/>
+							<!-- Thunderbird only -->
+							<checkbox id="chkActionStar" 
+									preference="star" 
+									label="&qf.filters.actions.star;" 
+									accesskey="&qf.filters.actions.star.accesskey;"
+									/>
+							<!-- SeaMonkey  -->
+							<checkbox id="chkActionFlag" 
+									preference="flag" 
+									label="&qf.filters.actions.flag;" 
+									accesskey="&qf.filters.actions.flag.accesskey;"
+									/>
+						</vbox>
+					</html:fieldset>
+					<html:fieldset orient="vertical"
+								tooltiptext="&qf.filters.steps.tooltip;">
+						<html:legend>&qf.filters.steps.caption;</html:legend>
+						<vbox>
+							<checkbox id="chkShowEditor"
+									preference="showEditorAfterCreateFilter"
+									label="&qf.filters.steps.showEditor;" 
+									tooltiptext="&qf.filters.steps.showEditor.tooltip;"
+									oncommand="quickFilters.Assistant.setNextSteps();"
+									/>
+							<checkbox id="chkShowList"
+									preference="showListAfterCreateFilter"
+									label="&qf.filters.steps.showList;" 
+									tooltiptext="&qf.filters.steps.showList.tooltip;"
+									oncommand="quickFilters.Assistant.setNextSteps();"
+									/>
+							<checkbox id="chkAutoRun"
+									preference="runFilterAfterCreate"
+									label="&qf.filters.steps.autoRunFilter;" 
+									tooltiptext="&qf.filters.steps.autoRunFilter.tooltip;"
+									oncommand="quickFilters.Assistant.setNextSteps();"
+									/>
+									
+						</vbox>
+					</html:fieldset>
+				</hbox>
+				<hbox id="boxDescription">
+					<label id="templateLabel" value="&qf.filters.templates.description.label;" />
+					<description id="templateDescription"></description>
+				</hbox>
+				<html:fieldset id="preview" orient="vertical">
+					<html:legend id="previewCaption">Email(s)</html:legend>
+					<vbox class="fieldset-body">
+						<description class="plain" id="previewFrom" value="Author: " />
+						<description class="plain" id="previewTo" value="Recipients: " />
+						<description class="plain" id="previewSubject" value="Subject: " />
+						<hbox>
+							<description class="plain" id="previewDate" value="Date: " />
+							<spacer flex="1"/>
+							<description class="plain" id="previewLines" value="Lines: " />
+						</hbox>
+					</vbox>
+				</html:fieldset>
+			</vbox>
+		</deck>
+		</vbox>
+  </prefpane>
+		
+	<script type="application/javascript" src="chrome://global/content/preferencesBindings.js" />
+	<script>
+	  quickFilters.Assistant.loadPreferences(); /* Tb 66 compatibility. Should be called _before_ DOMcontent Loaded event */
+	</script>
+</dialog>
+

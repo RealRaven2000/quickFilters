@@ -190,7 +190,7 @@ quickFilters.List = {
 			// 4. open the editor
 			let args = { filter:newFilter, filterList: filtersList};
 			// check http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.js
-			window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
+			window.openDialog("chrome://messenger/content/FilterEditor.xhtml", "",
 												"chrome, modal, resizable,centerscreen,dialog=yes", args);
 												
 			if ("refresh" in args && args.refresh) {
@@ -378,7 +378,7 @@ quickFilters.List = {
     // *******   SYNCHRONOUS PART: Shows Filter Assistant!    *******
     // **************************************************************
     util.logDebugOptional("merge", "OPENING MODAL DIALOG\n==========================");
-    let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xul',
+    let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xhtml',
       'quickfilters-filterTemplate',
       'chrome,titlebar,centerscreen,modal,centerscreen,resizable=yes,accept=yes,cancel=yes',
       params,
@@ -474,7 +474,7 @@ quickFilters.List = {
     //args.filterName = targetFilter.filterName;
     // check http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/FilterEditor.js
     // => filterEditorOnLoad()
-    window.openDialog("chrome://messenger/content/FilterEditor.xul", "",
+    window.openDialog("chrome://messenger/content/FilterEditor.xhtml", "",
                       "chrome, modal, resizable,centerscreen,dialog=yes", args);
 
     // If the user hits ok in the filterEditor dialog we set args.refresh=true
@@ -1921,7 +1921,7 @@ quickFilters.List = {
       filterConditionActionType: termActionType  // use this to scroll to and highlight the action needing to be removed
     };
     // for this functionality, we need to overload chrome://messenger/content/FilterEditor.xul
-    window.openDialog("chrome://messenger/content/FilterEditor.xul", "FilterEditor", "chrome,modal,titlebar,resizable,centerscreen", args);
+    window.openDialog("chrome://messenger/content/FilterEditor.xhtml", "FilterEditor", "chrome,modal,titlebar,resizable,centerscreen", args);
 
     if ("refresh" in args && args.refresh) {
       // reset search if edit was okay (name change might lead to hidden entry!)

@@ -115,7 +115,7 @@ quickFilters.Licenser = {
   
   showDialog: function showDialog(featureName) {
 		let params = {inn:{referrer:featureName, instance: quickFilters}, out:null};
-		quickFilters.Util.getMail3PaneWindow().openDialog('chrome://quickfilters/content/register.xul','quickfilters-register','chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply',quickFilters,params).focus();
+		quickFilters.Util.getMail3PaneWindow().openDialog('chrome://quickfilters/content/register.xhtml','quickfilters-register','chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply',quickFilters,params).focus();
   } ,
   // list of eligible accounts
   get Accounts() {

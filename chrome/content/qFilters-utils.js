@@ -1956,7 +1956,7 @@ quickFilters.Util = {
         */
       setTimeout( function() {
         let args = { filter:targetFilter, filterList: filtersList};
-        util.getMail3PaneWindow().openDialog("chrome://messenger/content/FilterEditor.xul", "",
+        util.getMail3PaneWindow().openDialog("chrome://messenger/content/FilterEditor.xhtml", "",
                           "chrome, modal, resizable,centerscreen,dialog=yes", args);
         if ("refresh" in args && args.refresh) {
           // [Ok]
@@ -2034,7 +2034,7 @@ quickFilters.Util = {
         params = {inn:{mode:"licenseKey",tab:-1, message: "", instance: win.quickFilters}, out:null};
         
 		// open options and open the last tab!
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
 				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
 				quickFilters,
 				params).focus();
@@ -2044,7 +2044,7 @@ quickFilters.Util = {
 	viewSupport: function viewSupport() {
 		let win = quickFilters.Util.getMail3PaneWindow(),
 		    params = {inn:{mode:"supportOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
 				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
 				quickFilters,
 				params).focus();
@@ -2053,7 +2053,7 @@ quickFilters.Util = {
 	viewAdvanced: function viewAdvanced() {
 		let win = quickFilters.Util.getMail3PaneWindow(),
 		    params = {inn:{mode:"advancedOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
 				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
 				quickFilters,
 				params).focus();
@@ -2062,7 +2062,7 @@ quickFilters.Util = {
 	viewFilterProps: function viewFilterProps() {
 		let win = quickFilters.Util.getMail3PaneWindow(),
 		    params = {inn:{mode:"newFilter",tab:-1, message: "", instance: win.quickFilters}, out:null};
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xul',
+    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
 				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
 				quickFilters,
 				params).focus();

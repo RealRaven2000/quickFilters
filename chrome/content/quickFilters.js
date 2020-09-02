@@ -620,7 +620,7 @@ var quickFilters = {
   },
 
   showOptions: function showOptions() {
-    window.openDialog('chrome://quickfilters/content/quickFilters-options.xul','quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply').focus();
+    window.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml','quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply').focus();
   },
 
   checkFirstRun: function checkFirstRun() {
