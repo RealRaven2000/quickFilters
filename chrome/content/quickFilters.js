@@ -1403,8 +1403,8 @@ var quickFilters = {
 //if (document.getElementById('messengerWindow').getAttribute('windowtype') === "mail:3pane") {
 // adding the SetTimeOut for debugging this!
 //  window.addEventListener("load", function () { setTimeout( function () {quickFilters.onLoad()}, 30000 ) }, false);
-  window.addEventListener("load", function () { quickFilters.onLoad(); }, false);
-  window.addEventListener("unload", function () { quickFilters.onUnload(); }, false);
+//78  window.addEventListener("load", function () { quickFilters.onLoad(); }, false);
+//78  window.addEventListener("unload", function () { quickFilters.onUnload(); }, false);
 //}
 
 // https://mxr.mozilla.org/addons/source/3376/chrome/content/mailclassifier/js/main.js#91

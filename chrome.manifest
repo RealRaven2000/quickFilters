@@ -13,7 +13,7 @@ locale    quickfilters   ru            chrome/locale/ru/
 locale    quickfilters   vi            chrome/locale/vi/
 locale    quickfilters   zh-CN         chrome/locale/zh-CN/
 
-overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
+#overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
 style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css appversion<59.0a1
 style   chrome://messenger/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css appversion>=59.0a1
 style   chrome://messenger/content/FilterEditor.xul chrome://quickfilters/content/filterWidgets.css
