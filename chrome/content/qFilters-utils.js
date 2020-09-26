@@ -2109,7 +2109,7 @@ quickFilters.Util = {
 		      util = quickFilters.Util,
           Ci = Components.interfaces, 
           Cc = Components.classes;
-    let uri = "chrome://global/content/config.xul";
+    let uri = "chrome://global/content/config.xhtml";
 		if (util.Application)
 			uri += "?debug";
 

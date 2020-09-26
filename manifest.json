@@ -4,14 +4,7 @@
   "description": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
   "version": "5.0.1",
   "author": "Axel Grude, Klaus Buecher/opto",
-  "legacy": {
-    "type": "xul",
-    "options": {
-      "page": "chrome://quickfilters/content/quickFilters-options.xhtml",
-      "open_in_tab": false
-    }
-  }	,
-  "developer": {
+   "developer": {
 	  "name": "Axel Grude, Klaus Buecher/opto",
     "url": "http://quickfilters.quickfolders.org/index.html"
 	},
