@@ -13,7 +13,7 @@ locale    quickfilters   ru            chrome/locale/ru/
 locale    quickfilters   vi            chrome/locale/vi/
 locale    quickfilters   zh-CN         chrome/locale/zh-CN/
 
-#overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
+##overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
 style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css appversion<59.0a1
 style   chrome://messenger/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css appversion>=59.0a1
 style   chrome://messenger/content/FilterEditor.xul chrome://quickfilters/content/filterWidgets.css
@@ -28,7 +28,7 @@ content myXUL chrome://quickfolders/content/xulPb/ application=postbox@postbox-i
 
 # The following overlay on overly does not work in THunderbird from 68 :( :(
 overlay chrome://myXUL/content/overlayCurrentfolder.xul  chrome://quickfilters/content/qFilters-QuickFolders.xul appversion<64
-overlay chrome://messenger/content/messenger.xul  chrome://quickfilters/content/qFilters-QF-tb68.xul appversion>=64
+##overlay chrome://messenger/content/messenger.xul  chrome://quickfilters/content/qFilters-QF-tb68.xul appversion>=64
 
 # shim-JS for platforms>11 - this section will avoid the pesky errors in THunderbird about for..in being outdated
 # while also avoid Postbox crashing us for syntax when we use for..of

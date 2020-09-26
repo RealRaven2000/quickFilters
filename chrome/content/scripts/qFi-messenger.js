@@ -90,6 +90,42 @@ function onLoad(activatedWhileWindowOpen) {
        
 `, ["chrome://quickfilters/locale/overlay.dtd"]);
 
+//from qFilters-QF-tb68.xul
+
+WL.injectElements(`
+<toolbar id="mail-bar3">
+<hbox id="quickFilters-injected" collapsed="true">
+  <toolbarbutton id="quickfilters-current-listbutton"
+           class="icon"
+           insertafter="QuickFolders-currentFolderFilterActive"
+           label=""
+           tooltiptext="&quickfilters.ListButton.tooltip;"
+           oncommand="quickFilters.onToolbarListCommand();"/>
+  <toolbarbutton id="quickfilters-current-searchfilterbutton"
+           class="icon"
+           insertafter="quickfilters-current-listbutton"
+           label=""
+           tooltiptext="&quickfilters.findFiltersForFolder.menu;"
+           oncommand="quickFilters.searchFiltersFromFolder();"/>
+  <toolbarbutton id="quickfilters-current-runbutton"
+           class="icon"
+           insertafter="quickfilters-current-listbutton"
+           label=""
+           tooltiptext="&quickfilters.RunButton.tooltip;"
+           oncommand="quickFilters.onApplyFilters();"/>
+  <toolbarbutton id="quickfilters-current-msg-runbutton"
+           class="icon"
+           insertafter="quickfilters-current-runbutton"
+           label=""
+           tooltiptext="&quickfilters.RunButtonMsg.tooltip;"
+           oncommand="quickFilters.onApplyFiltersToSelection();"/>
+</hbox>
+</toolbar>
+
+
+`, ["chrome://quickfilters/locale/overlay.dtd"]);
+
+
     window.quickFilters.onLoad();
 
     
