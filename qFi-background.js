@@ -41,10 +41,10 @@ async function main() {
     messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickfoldersDefaults.js");
     
     messenger.WindowListener.registerChromeUrl([ 
-        ["content", "quickfolders", "chrome/content/"],
-        ["locale", "quickfolders", "en-US", "chrome/locale/en-US/"],
-        ["locale", "quickfolders", "ca", "chrome/locale/ca/"],
-        ["locale", "quickfolders", "de", "chrome/locale/de/"],
+        ["content", "quickfilters", "chrome/content/"],
+        ["locale", "quickfilters", "en-US", "chrome/locale/en-US/"],
+//        ["locale", "quickfolders", "ca", "chrome/locale/ca/"],
+/*        ["locale", "quickfilters", "de", "chrome/locale/de/"],
         ["locale", "quickfolders", "es-MX", "chrome/locale/es-MX/"],
         ["locale", "quickfolders", "es", "chrome/locale/es/"],
         ["locale", "quickfolders", "fr", "chrome/locale/fr/"],
@@ -64,9 +64,10 @@ async function main() {
         ["locale", "quickfolders", "zh", "chrome/locale/zh/"],
         ["locale", "quickfolders", "zh-CHT", "chrome/locale/zh/"],
         ["locale", "quickfolders", "zh-TW", "chrome/locale/zh/"]
-    ]);
+    */
+      ]);
  
-    messenger.WindowListener.registerOptionsPage("chrome://quickfolders/content/options.xhtml"); 
+   // messenger.WindowListener.registerOptionsPage("chrome://quickfolders/content/options.xhtml"); 
     
  //attention: each target window (like messenger.xul) can appear only once
  // this is different from chrome.manifest
@@ -81,8 +82,8 @@ async function main() {
     messenger.WindowListener.registerWindow("chrome://messenger/content/messageWindow.xul", "chrome/content/scripts/qf-messageWindow.js");
    */ 
     messenger.WindowListener.registerWindow("chrome://messenger/content/messenger.xhtml", "chrome/content/scripts/qFi-messenger.js");
-/*    messenger.WindowListener.registerWindow("chrome://messenger/content/messengercompose.xhtml", "chrome/content/scripts/qf-composer.js");
-    messenger.WindowListener.registerWindow("chrome://messenger/content/FilterListDialog.xhtml", "chrome/content/scripts/qf-filterlist.js");
+    messenger.WindowListener.registerWindow("chrome://messenger/content/FilterEditor.xhtml", "chrome/content/scripts/qFi-FilterEditor.js");
+/*    messenger.WindowListener.registerWindow("chrome://messenger/content/FilterListDialog.xhtml", "chrome/content/scripts/qf-filterlist.js");
     messenger.WindowListener.registerWindow("chrome://messenger/content/SearchDialog.xhtml", "chrome/content/scripts/qf-searchDialog.js");
     messenger.WindowListener.registerWindow("chrome://messenger/content/customizeToolbar.xhtml", "chrome/content/scripts/qf-customizetoolbar.js");
     messenger.WindowListener.registerWindow("chrome://messenger/content/messageWindow.xhtml", "chrome/content/scripts/qf-messageWindow.js");  
