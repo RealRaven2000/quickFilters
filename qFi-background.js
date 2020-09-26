@@ -5,7 +5,7 @@
 
 async function main() {
 
-
+//TODO: textbox in CSS, search box??
 
   messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
       

@@ -234,7 +234,7 @@ function onLoad(activatedWhileWindowOpen) {
 				insertbefore="searchBox"
 			/>
 			
-			<textbox id="quickFilters-Search"
+			<html:input id="quickFilters-Search"
 				flex="7"
 				type="search"
 				oncommand="quickFilters.List.onFindFilter(true);"
