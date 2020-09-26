@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  	<title>Update Landing Screen</title>
+  	<link rel="stylesheet" href="popup.css" type="text/css">
+		<script type="application/javascript" src="update.js"></script>
+  </head>
+  <body>
+    <div id="innerwrapper">
+    <h1>{addon} Updated</h1>
+    <p>Thank you for updating {addon}. You are now running <b class="versionnumber">version {version}</b> on Thunderbird {appver}.</p>
+    
+    <p>My Add-ons require fundamental changes in order to
+      remain compatible with the Mozilla platform. My team at github.com
+      (realraven2000, opto and paenglab) is working to make {addon} fully 
+      functional again.
+    </p>
+      
+    <p>
+      We have already spent over 200 hours on the conversion project - and there is more work in
+      fixing regressions and problems caused by changes in Thunderbird.
+    </p>
+    
+    <p>To help {addon} stay functional and alive:</p>
+    <ul class="actions">
+      <li>Purchase a license</li>
+      <li>Help out with a one time donation.</li>
+    </ul>
+      
+    <h2>Buy a License!</h2>
+    
+    <p>In the case of {addon}, alterations to the new legacy-less
+      model already took multiple weeks and are still ongoing, while 
+      it is likely that we will be losing some functionality. With a 
+      complex Add-on like this its inevitable.</p>
+      
+	    <p class="actionlinks">
+	      <a id="register">I want to buy a license</a>
+	    </p>  
+      
+    <h2>Help with a Donation!</h2>
+    
+    <p>Software  development costs time and money - unlike many platform apps,
+      Add-ons are not written
+      by large corporations, nor are they sponsored in any way by Mozilla.
+      Mozilla only provide us with a platform to bring our software to you,
+      the end users - if we need to charge or ask for help we cannot do
+      this from addons.thunderbird.net - it is not an "app store" with built in
+      paywalls or license management like iTunes or google play.</p>
+      
+    <p>In order to remain useful, Add-on authors have to now raise the funds
+      necessary to repair and rewrite so that our users can keep benefiting
+      from the functionality we bring to the table. </p>
+      
+    <p class="actionlinks">
+      <a id="donate">I want to contribute with a one time donation</a>
+    </p>
+    <p> </p>
+    <p>
+      
+      <input type="checkbox" id= "remind"  name="remind"
+      checked>
+      <label for = "remind" > Remind me again in 10 days</label>
+    </p>
+    </div>
+  </body>
+</html>
