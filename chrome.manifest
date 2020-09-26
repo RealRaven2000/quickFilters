@@ -57,9 +57,9 @@ style   chrome://quickfilters/content/register.xul chrome://quickfilters/content
 
 
 # Message Filter List overlays - collaborates with changes from [Bug 450302] 
-overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={3550f703-e582-4d05-9a08-453d09bdfdc6}
-overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
-overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application=postbox@postbox-inc.com
+##overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={3550f703-e582-4d05-9a08-453d09bdfdc6}
+##overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application={92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}
+##overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application=postbox@postbox-inc.com
 
 # Filter Editor overlay
 overlay  chrome://messenger/content/FilterEditor.xul  chrome://quickfilters/content/overlayFilterRules.xul
