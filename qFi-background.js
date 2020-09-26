@@ -42,29 +42,29 @@ async function main() {
     
     messenger.WindowListener.registerChromeUrl([ 
         ["content", "quickfilters", "chrome/content/"],
-        ["locale", "quickfilters", "en-US", "chrome/locale/en-US/"],
+        ["locale", "quickfilters", "en", "chrome/locale/en/"],
 //        ["locale", "quickfolders", "ca", "chrome/locale/ca/"],
-/*        ["locale", "quickfilters", "de", "chrome/locale/de/"],
-        ["locale", "quickfolders", "es-MX", "chrome/locale/es-MX/"],
-        ["locale", "quickfolders", "es", "chrome/locale/es/"],
-        ["locale", "quickfolders", "fr", "chrome/locale/fr/"],
+        ["locale", "quickfilters", "de", "chrome/locale/de/"],
+        ["locale", "quickfilters", "es-AR", "chrome/locale/es-MX/"],
+        ["locale", "quickfilters", "es", "chrome/locale/es/"],
+        ["locale", "quickfilters", "fr", "chrome/locale/fr/"],
         ["locale", "quickfolders", "hu-HU", "chrome/locale/hu-HU/"],
-        ["locale", "quickfolders", "it", "chrome/locale/it/"],
-        ["locale", "quickfolders", "ja-JP", "chrome/locale/ja-JP/"],
-        ["locale", "quickfolders", "nl", "chrome/locale/nl/"],
-        ["locale", "quickfolders", "pl", "chrome/locale/pl/"],
-        ["locale", "quickfolders", "pt-BR", "chrome/locale/pt-BR/"],
-        ["locale", "quickfolders", "ru", "chrome/locale/ru/"],
-        ["locale", "quickfolders", "sl-SI", "chrome/locale/sl-SI/"],
-        ["locale", "quickfolders", "sr", "chrome/locale/sr/"],
-        ["locale", "quickfolders", "sv-SE", "chrome/locale/sv-SE/"],
-        ["locale", "quickfolders", "vi", "chrome/locale/vi/"],
-        ["locale", "quickfolders", "zh-CN", "chrome/locale/zh-CN/"],
-        ["locale", "quickfolders", "zh-CHS", "chrome/locale/zh-CN/"],
-        ["locale", "quickfolders", "zh", "chrome/locale/zh/"],
-        ["locale", "quickfolders", "zh-CHT", "chrome/locale/zh/"],
-        ["locale", "quickfolders", "zh-TW", "chrome/locale/zh/"]
-    */
+        ["locale", "quickfilters", "it", "chrome/locale/it/"],
+        ["locale", "quickfilters", "ja", "chrome/locale/ja/"],
+        ["locale", "quickfilters", "nl", "chrome/locale/nl/"],
+//        ["locale", "quickfolders", "pl", "chrome/locale/pl/"],
+//        ["locale", "quickfolders", "pt-BR", "chrome/locale/pt-BR/"],
+        ["locale", "quickfilters", "ru", "chrome/locale/ru/"],
+//        ["locale", "quickfolders", "sl-SI", "chrome/locale/sl-SI/"],
+//        ["locale", "quickfolders", "sr", "chrome/locale/sr/"],
+        ["locale", "quickfilters", "sv-SE", "chrome/locale/sv-SE/"],
+        ["locale", "quickfilters", "vi", "chrome/locale/vi/"],
+        ["locale", "quickfilters", "zh-CN", "chrome/locale/zh-CN/"]
+//        ["locale", "quickfolders", "zh-CHS", "chrome/locale/zh-CN/"],
+//        ["locale", "quickfolders", "zh", "chrome/locale/zh/"],
+//        ["locale", "quickfolders", "zh-CHT", "chrome/locale/zh/"],
+//        ["locale", "quickfolders", "zh-TW", "chrome/locale/zh/"]
+    
       ]);
  
    // messenger.WindowListener.registerOptionsPage("chrome://quickfolders/content/options.xhtml"); 

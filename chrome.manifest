@@ -1,17 +1,17 @@
-content   quickfilters                 chrome/content/
+#content   quickfilters                 chrome/content/
 skin      quickfilters   classic/1.0   chrome/skin/
-locale    quickfilters   en            chrome/locale/en/
-locale    quickfilters   es            chrome/locale/es/
-locale    quickfilters   es-AR         chrome/locale/es-AR/
-locale    quickfilters   de            chrome/locale/de/
-locale    quickfilters   it            chrome/locale/it/
-locale    quickfilters   fr            chrome/locale/fr/
-locale    quickfilters   ja            chrome/locale/ja/
-locale    quickfilters   nl            chrome/locale/nl/
-locale    quickfilters   sv-SE         chrome/locale/sv-SE/
-locale    quickfilters   ru            chrome/locale/ru/
-locale    quickfilters   vi            chrome/locale/vi/
-locale    quickfilters   zh-CN         chrome/locale/zh-CN/
+#locale    quickfilters   en            chrome/locale/en/
+#locale    quickfilters   es            chrome/locale/es/
+#locale    quickfilters   es-AR         chrome/locale/es-AR/
+#locale    quickfilters   de            chrome/locale/de/
+#l#ocale    quickfilters   it            chrome/locale/it/
+#locale    quickfilters   fr            chrome/locale/fr/
+#locale    quickfilters   ja            chrome/locale/ja/
+#locale    quickfilters   nl            chrome/locale/nl/
+#locale    quickfilters   sv-SE         chrome/locale/sv-SE/
+#locale    quickfilters   ru            chrome/locale/ru/
+#locale    quickfilters   vi            chrome/locale/vi/
+#locale    quickfilters   zh-CN         chrome/locale/zh-CN/
 
 ##overlay chrome://messenger/content/messenger.xul     chrome://quickfilters/content/quickFilters-overlay.xul
 style   chrome://global/content/customizeToolbar.xul chrome://quickfilters/skin/quickFilters.css appversion<59.0a1
@@ -62,6 +62,6 @@ style   chrome://quickfilters/content/register.xul chrome://quickfilters/content
 ##overlay  chrome://messenger/content/FilterListDialog.xul   chrome://quickfilters/content/overlayFilterList.xul application=postbox@postbox-inc.com
 
 # Filter Editor overlay
-overlay  chrome://messenger/content/FilterEditor.xul  chrome://quickfilters/content/overlayFilterRules.xul
+##overlay  chrome://messenger/content/FilterEditor.xul  chrome://quickfilters/content/overlayFilterRules.xul
 
 # overlay	chrome://messenger/content/mailWindowOverlay.xul	chrome://quickfilters/content/quickFilters-overlay.xul
