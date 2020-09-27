@@ -74,7 +74,7 @@ addEventListener("load", async (event) => {
   });  
 
 
-  licenseLog();
+  //TODOlicenseLog();
 
 
 
