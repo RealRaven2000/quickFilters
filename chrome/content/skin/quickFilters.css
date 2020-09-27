@@ -33,6 +33,7 @@ toolbar[brighttext] #quickfilters-toolbar-button.toolbarbutton-1
 toolbar[iconsize="small"][brighttext] #quickfilters-toolbar-button.toolbarbutton-1,
 #quickFilters-wizard,
 #quickFilters-fromMessage,
+#quickFilters-fromMessageInMenu,
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive,
 #QuickFolders-Toolbar #QuickFolders-filterActive,
 menuitem.cmd[tagName="qfFilter"],
@@ -52,6 +53,7 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon
 [iconsize="small"] #quickfilters-toolbar-button:hover,
 #quickFilters-wizard:hover,
 #quickFilters-fromMessage:hover,
+#quickFilters-fromMessageInMenu:hover,
 menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon,
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive:hover
 {

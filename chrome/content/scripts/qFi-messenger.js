@@ -12,7 +12,7 @@ function onLoad(activatedWhileWindowOpen) {
     console.log (Services.appinfo.version);
     let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
     
-
+    // from quickfilters-overlay.xul
     WL.injectElements(`
   <stringbundleset id="stringbundleset">
     <stringbundle id="quickFilters-strings" src="chrome://quickfilters/locale/overlay.properties"/>
@@ -68,18 +68,18 @@ function onLoad(activatedWhileWindowOpen) {
   </menupopup>
   
   <menupopup id="messageMenuPopup">
-    <menuitem id="quickFilters-fromMessage"
+    <menuitem id="quickFilters-fromMessageInMenu"
               class="menuitem-iconic"
               insertBefore="createFilter"
               label="&quickfilters.FromMessage.label;"
-			  accesskey="&quickfilters.FromMessage.accesskey;"
+			        accesskey="&quickfilters.FromMessage.accesskey;"
               oncommand="quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');"
 			  />
   </menupopup>
   
   <!-- Thunderbird -->
   <popup id="mailContext">
-    <menuitem id="quickFilters-fromMessage1"
+    <menuitem id="quickFilters-fromMessage"
               class="menuitem-iconic"
               label="&quickfilters.FromMessage.label;"
               accesskey="&quickfilters.FromMessage.accesskey;"
