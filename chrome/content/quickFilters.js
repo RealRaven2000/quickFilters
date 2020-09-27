@@ -19,6 +19,7 @@ END LICENSE BLOCK
 
   Personnel:
   AG - Lead Developer and owner of the Mozdev project
+  KB - head developer for Thunderbird 78 conversion
 
   04/05/2012 - 0.5
     # Created Prototype using major portions of code from QuickFolders
@@ -388,11 +389,21 @@ END LICENSE BLOCK
     # fixed licensing problem with accounts that have no default identity
     # [issue 2] Merged filters: some conditions not working
     
-  4.4 - WIP 
+  4.4 - 09/06/2020 
     # [issue 12] Pro Feature: Add keyboard shortcuts for Run Filters buttons. 
       Default shortcuts are:
       Shift + F: Run Filters on folder
       Shift + R: Run Filters on selected mails
+    # migrated support site from mozdev to quickfolders.org
+    
+  4.4.1 - 20/06/2020 
+    # Fixed a layout problem in settings that caused some bad text characters showing at the top of the dialog.
+      
+  5.0 - WIP
+    # [issue 14] make quickFilters compatible with THUNDERBIRD 78
+    #            convert to web experiment
+    #            subscribe to https://github.com/RealRaven2000/quickFilters/issues/14 for up-to-date news on this
+    
    
   ============================================================================================================
   FUTURE WORK:
