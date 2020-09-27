@@ -6,7 +6,7 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-util
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-rsa.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-register.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
-Services.scriptloader.loadSubScript("chrome://shimQuickFilters/content/qFilters-shim-ecma.js", window, "UTF-8");
+Services.scriptloader.loadSubScript("chrome://quickfilters/content/shimEcma/qFilters-shim-ecma.js", window, "UTF-8");
 
 function onLoad(activatedWhileWindowOpen) {
     console.log (Services.appinfo.version);
@@ -79,7 +79,7 @@ function onLoad(activatedWhileWindowOpen) {
   
   <!-- Thunderbird -->
   <popup id="mailContext">
-    <menuitem id="quickFilters-fromMessage"
+    <menuitem id="quickFilters-fromMessage1"
               class="menuitem-iconic"
               label="&quickfilters.FromMessage.label;"
               accesskey="&quickfilters.FromMessage.accesskey;"
@@ -143,9 +143,9 @@ function onUnload(isAddOnShutown) {
     if (window.QuickFolders.FolderTree.GetCellProperties) {
       window.gFolderTreeView.getCellProperties = window.QuickFolders.FolderTree.GetCellProperties;
       delete window.QuickFolders.FolderTree["GetCellProperties"];
-    */
       }
+    */
 
 
   }
-}
+

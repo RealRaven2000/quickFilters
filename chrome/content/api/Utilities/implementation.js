@@ -34,7 +34,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
 
         getAddonVersion() {
-          return win.QuickFolders.Util.Version;
+          return "qFi yyy";//TODOwin.QuickFolders.Util.Version;
         },
 
         getTBVersion() { //somehow(??), we can also get this in MX
@@ -43,7 +43,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
 
         getAddonName() {
-          return win.QuickFolders.Util.ADDON_NAME;
+          return "qFi";//TODOwin.QuickFolders.Util.ADDON_NAME;
         },
 
 

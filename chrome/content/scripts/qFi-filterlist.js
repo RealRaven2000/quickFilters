@@ -7,7 +7,7 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-list
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 //!-- execute quickFilters.List.onLoadFilterList() when loading window -->
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/overlayFilterList.js", window, "UTF-8");
-Services.scriptloader.loadSubScript("chrome://shimQuickFilters/content/qFilters-shim-ecma.js", window, "UTF-8");
+Services.scriptloader.loadSubScript("chrome://quickfilters/content/shimEcma/qFilters-shim-ecma.js", window, "UTF-8");
 
 function onLoad(activatedWhileWindowOpen) {
  //   let layout = WL.injectCSS("chrome://quickfilters/content/filterList.css");
