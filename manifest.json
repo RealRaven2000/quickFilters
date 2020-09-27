@@ -14,7 +14,60 @@
       "strict_min_version": "78.0"
     }
   },
-  "icons": {
+  "background": {
+    "scripts": ["qFi-background.js"]
+  },
+  "experiment_apis": {
+    "WindowListener": {
+      "schema": "chrome/content/api/WindowListener/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["WindowListener"]],
+        "script": "chrome/content/api/WindowListener/implementation.js"
+      }
+    },  
+    "LegacyPrefs": {
+      "schema": "chrome/content/api/LegacyPrefs/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["LegacyPrefs"]],
+        "script": "chrome/content/api/LegacyPrefs/implementation.js"
+      
+      }
+    },
+    "background": {
+      "scripts": ["qf-background.js"]
+    },
+    "experiment_apis": {
+      "WindowListener": {
+        "schema": "chrome/content/api/WindowListener/schema.json",
+        "parent": {
+          "scopes": ["addon_parent"],
+          "paths": [["WindowListener"]],
+          "script": "chrome/content/api/WindowListener/implementation.js"
+        }
+      },  
+      "LegacyPrefs": {
+        "schema": "chrome/content/api/LegacyPrefs/schema.json",
+        "parent": {
+          "scopes": ["addon_parent"],
+          "paths": [["LegacyPrefs"]],
+          "script": "chrome/content/api/LegacyPrefs/implementation.js"
+        
+        }
+      },
+      "Utilities": {
+        "schema": "chrome/content/api/Utilities/schema.json",
+        "parent": {
+          "scopes": ["addon_parent"],
+          "paths": [["Utilities"]],
+          "script": "chrome/content/api/Utilities/implementation.js"
+        
+         }
+      }
+    },
+
+    "icons": {
     "32": "chrome/content/skin/QuickFilters_32.png",
     "64": "chrome/content/skin/QuickFilters_64.png"
   }

@@ -1,0 +1,67 @@
+[
+  {
+    "namespace": "Utilities",
+    "functions": [
+     
+      {
+        "name": "isLicensed",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+
+
+      {
+        "name": "getAddonVersion",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+
+      {
+        "name": "getTBVersion",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+
+
+      {
+        "name": "getAddonName",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+
+
+      {
+        "name": "showXhtmlPage",
+        "type": "function",
+        "parameters": [
+          {
+            "name": "url",
+            "type": "string",
+            "description": "url to open in browser"
+          }
+
+
+        ]
+      },
+
+      {
+        "name": "openLinkExternally",
+        "type": "function",
+        "parameters": [
+          {
+            "name": "url",
+            "type": "string",
+            "description": "url to open in browser"
+          }
+ 
+
+        ]
+      }
+
+   ]
+  }
+]

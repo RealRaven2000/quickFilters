@@ -11,7 +11,7 @@ function onLoad(activatedWhileWindowOpen) {
  //   let layout = WL.injectCSS("chrome://quickfilters/content/filterList.css");
  // do we need "chrome://global/skin/"??
 //    let layout1 = WL.injectCSS("chrome://quickfilters/content/filterList.css");
-//    let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
+    let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
  
     WL.injectElements(`
     

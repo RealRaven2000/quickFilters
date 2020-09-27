@@ -5,7 +5,7 @@ Services.scriptloader.loadSubScript("chrome://quickfolders/content/quickfolders-
 
 function onLoad(activatedWhileWindowOpen) {
      
-    window.QuickFolders.Util.logDebug('Adding Compose xul...');
+    window.QuickFolders.Util.logDebug('Adding Compose xhtml...');
 }
 
 function onUnload(isAddOnShutDown) {

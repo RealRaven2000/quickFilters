@@ -6,7 +6,8 @@
 async function main() {
 
 //TODO: textbox in CSS, search box??
-
+//TODO mailWindowOverlay: was never in use??
+debugger;
   messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
       
     // if (temporary) return; // skip during development
