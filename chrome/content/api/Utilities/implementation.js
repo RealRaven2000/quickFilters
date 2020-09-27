@@ -1,15 +1,12 @@
 /* eslint-disable object-shorthand */
 
-var { ExtensionCommon } = ChromeUtils.import("resource://gre/modules/ExtensionCommon.jsm");
-var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+var { ExtensionCommon } = ChromeUtils.import("resource://gre/modules/ExtensionCommon.jsm"),
+    { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm"),
+    win = Services.wm.getMostRecentWindow("mail:3pane");
 //das geht nicht:
-//var { QF } = ChromeUtils.import("chrome://quickfolders/content/quickfolders.js");  
-//var { utils } = ChromeUtils.import("chrome://quickfolders/content/quickfolders-util.js");
-//var { addonPrefs } = ChromeUtils.import("chrome://quickfolders/content/quickfolders-preferences.js");
 //Services.scriptloader.loadSubScript("chrome://quickfolders/content/quickfolders-preferences.js", window, "UTF-8");
-var win= Services.wm.getMostRecentWindow("mail:3pane");
 
-console.log("impl utilities");
+console.log("quickFilters - implementation utilities");
 var Utilities = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {    
     
@@ -24,26 +21,27 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
       Utilities: {
 
         isLicensed() {
-          const util = win.QuickFolders.Util;
-          let licenser = util.Licenser;
+          const util = win.quickFilters.Util,
+                licenser = util.Licenser;
+                
           let isPremiumLicense = util.hasPremiumLicense(false) || util.Licenser.isExpired;
-      
-        return  isPremiumLicense;//(win.QuickFolders.Licenser).isLicensed;
-         
+          return  isPremiumLicense;//(win.quickFilters.Licenser).isLicensed;
         },
 
 
         getAddonVersion() {
-          return "qFi yyy";//TODOwin.QuickFolders.Util.Version;
+          const util = win.quickFilters.Util;
+          return util.Version;
         },
 
         getTBVersion() { //somehow(??), we can also get this in MX
-          return Services.appinfo.version;//win.QuickFolders.Util.VersionSanitized;
+          return Services.appinfo.version;//win.quickFilters.Util.VersionSanitized;
         },
 
 
         getAddonName() {
-          return "qFi";//TODOwin.QuickFolders.Util.ADDON_NAME;
+          const util = win.quickFilters.Util;
+          return 'quickFilters';
         },
 
 
@@ -60,8 +58,8 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
         showXhtmlPage(uri) {
           let mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-          .getService(Components.interfaces.nsIWindowMediator)
-          .getMostRecentWindow("mail:3pane");  
+            .getService(Components.interfaces.nsIWindowMediator)
+            .getMostRecentWindow("mail:3pane");  
           mail3PaneWindow.openDialog(uri);
         }
   
