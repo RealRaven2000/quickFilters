@@ -39,7 +39,7 @@
 addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("register")) {
 	console.log ( messenger.Utilities.isLicensed()  );
-	messenger.Utilities.openLinkExternally("http://sites.fastspring.com/quickfolders/product/quickfolders?referrer=landing-update");
+	messenger.Utilities.openLinkExternally("http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
 	}
   });
 
@@ -47,7 +47,7 @@ addEventListener("click", async (event) => {
   addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("donate")) {
 
-	  messenger.Utilities.openLinkExternally("http://quickfolders.org/donate.html");
+	  messenger.Utilities.openLinkExternally("http://quickfilters.quickfolders.org/donate.html");
 	}
   });  
 
@@ -57,8 +57,8 @@ addEventListener("load", async (event) => {
 	//debugger;
   const mxUtilties = messenger.Utilities;
 	let text = document.body.innerHTML,//	
-	    htmltext = text.replace(/{addon}/g, await browser.runtime.getManifest().name ),    //oder mxUtilties.getAddonName());
-	    htmltext2 = htmltext.replace(/{version}/g, await mxUtilties.getAddonVersion()); //oder: browser.runtime.getManifest().version
+	    htmltext = text.replace(/{addon}/g, await browser.runtime.getManifest().name ),    // or mxUtilties.getAddonName());
+	    htmltext2 = htmltext.replace(/{version}/g, await mxUtilties.getAddonVersion());    // or browser.runtime.getManifest().version
       
 	htmltext = htmltext2.replace(/{appver}/g, await mxUtilties.getTBVersion());
 		//same for license,   let htmltext=text.replace(/{addon}/g, await mxUtilties.getAddonName());

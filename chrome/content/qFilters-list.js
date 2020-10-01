@@ -49,8 +49,6 @@ quickFilters.List = {
     try {
       if (typeof gCurrentFilterList !== "undefined")
         return gCurrentFilterList;
-      if (currentFilterList)
-        return currentFilterList(); // Sm
     }
     catch(ex) {
       quickFilters.Util.logException('quickFilters.List.FilterList: ', ex);
@@ -67,32 +65,14 @@ quickFilters.List = {
 	
   get ServerMenu() {
     switch(quickFilters.Util.Application) {
-      case 'SeaMonkey':
-        return document.getElementById("serverMenu");
       case 'Thunderbird':
-        return document.getElementById("serverMenu");
-      case 'Postbox':
         return document.getElementById("serverMenu");
     }
     return null;
   } ,
   
   get ServerMenuPopup() {
-    switch(quickFilters.Util.Application) {
-      case 'SeaMonkey':
-        return document.getElementById("serverMenuPopup");
-      case 'Thunderbird':
-        return document.getElementById("serverMenuPopup");
-      case 'Postbox':
-        let parent = document.getElementById("serverMenu");
-        for (let i=0; i<parent.childNodes.length; i++) {
-          let p = parent.childNodes[i];
-          if (p.tagName && p.tagName == 'menupopup')
-            return p;
-        }
-        return null;
-    }
-    return null;
+    return document.getElementById("serverMenuPopup");
   } ,
 
   getSelectedFilterAt: function getSelectedFilterAt(list, i) {
@@ -133,9 +113,6 @@ quickFilters.List = {
   
   // Postbox: doesn't have selectedIndex; instead we use view.selection.currentIndex
   getSelectedIndex: function getSelectedIndex(list) {
-    if (list.view && list.view.selection) {
-      return list.view.selection.currentIndex;
-    }
     return list.selectedIndex;
   } ,
 	
@@ -521,25 +498,12 @@ quickFilters.List = {
 	
 	set RunFolder(f) {
 		// research: https://dxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js
-		switch (quickFilters.Util.Application) {
-			case 'SeaMonkey':
-				let runMenu = document.getElementById("runFiltersPopup");
-				runMenu.selectFolder(getFirstFolder(f));
-				break;
-			case 'Postbox':
-				// Postbox
-				if (typeof gRunFiltersFolderPicker !== 'undefined')
-					gRunFiltersFolderPicker.setAttribute("ref", f.URI);
-			  break;
-			default: // Tb
-				if (typeof setRunFolder !== 'undefined') // Tb52
-					setRunFolder(f);
-				else {
-					let runMenu = document.getElementById("runFiltersPopup");
-					if (runMenu) runMenu.selectFolder(f);
-				}
-			  break;
-		}
+    if (typeof setRunFolder !== 'undefined') // Tb52
+      setRunFolder(f);
+    else {
+      let runMenu = document.getElementById("runFiltersPopup");
+      if (runMenu) runMenu.selectFolder(f);
+    }
 		
 		if (typeof updateButtons !== 'undefined')
 			updateButtons();
@@ -629,9 +593,7 @@ quickFilters.List = {
 		}
 		this.clipboardList.splice(0); // discard old list
 		this.clipboardServer = this.CurrentFolder; // original account when copying to clipboard!
-		let cutFiltersList = (util.Application === 'Postbox') ?
-			sourceFolder.getFilterList(gFilterListMsgWindow) : 
-			sourceFolder.getEditableFilterList(gFilterListMsgWindow);
+		let cutFiltersList = sourceFolder.getEditableFilterList(gFilterListMsgWindow);
 				
 		// get all selected filters and sort them by their list position
 		// then copy to clipboardList array
@@ -728,13 +690,7 @@ quickFilters.List = {
           sourceFolder = this.clipboardServer.rootFolder,
           cutFiltersList;
 			if (isRemove) {
-        if (util.Application === 'Postbox') {
-          // mailWindowOverlay.js:1790
-          cutFiltersList = sourceFolder.getFilterList(gFilterListMsgWindow);
-        }
-        else {
-          cutFiltersList = sourceFolder.getEditableFilterList(gFilterListMsgWindow);
-        }
+        cutFiltersList = sourceFolder.getEditableFilterList(gFilterListMsgWindow);
       }
       if (isMove && !isSort) {  // we are moving within the same server, so let's get rid of all icons to avoid confusion.
         this.resetClipboardStylings();
@@ -944,9 +900,7 @@ quickFilters.List = {
   } ,
 
   getListElementCount: function getListElementCount(list) {
-    if (typeof list.getRowCount !== "undefined")
-      return list.getRowCount();
-    return list.view.rowCount; // SM/Postbox: treeview
+    return list.getRowCount();
   } ,
 
   // remove any icons that were added as part of copy or cut functions
@@ -1193,26 +1147,6 @@ quickFilters.List = {
         }
       }
 
-      // the following changes to the dialog layout are fairly fundamental, but they follow the (UI-reviewed)
-      // modifications in  [Bug 450302].
-      // 1. [Run Now] is relocated to the bottom, between filter target drop down and Filter Log.
-      //    there is a certain functional logic to this order
-      // 2. The search {filters} box is inserted to the right of the servers dropdown.
-      //    Again this makes sense as both elements cause the list contents to change.
-      // 3. An item count is appended to the right of the list description label
-      //    TO DO: description should be collapsible in favor of item count.
-			/// OLD CODE: Thunderbird < 24.0
-      if (util.Application === 'Thunderbird') {
-				util.logToConsole('Old Thunderbird application (no search box) - sorry, search is not supported in thie version of quickFilters.');
-      }
-      else {
-        util.logDebugOptional('filterList', 'SeaMonkey / Postbox: search box not supported.');
-        // for the moment we do not support this on SM / Postbox as I have problems with removing stuff from the treeview!
-        // in future we need to build our own tree
-        // build a treeview that supports hidden elements and overwrite gFilterTreeView
-        // #maildev@Neil: could create a virtual list, the SeaMonkey view is only interested in the filterCount property and the getFilterAt method
-        searchBox.collapsed = true;
-      }
     /************************************ 
      **    MODIFICATIONS  END          **
      ***********************************/
@@ -1305,9 +1239,8 @@ quickFilters.List = {
           list.ensureElementIsVisible(item);
           list.selectItem(item);
         } 
-        else {  // tree (Postbox + SeaMonkey)
-          list.view.selection.select(idx);
-          list.treeBoxObject.ensureRowIsVisible(idx);
+        else {  // tree (Postbox + SeaMonkey)#
+          alert("incompatible code in selectFilter!");
         }
         break;
       }
@@ -1347,11 +1280,6 @@ quickFilters.List = {
 				rebuildFilterList(gCurrentFilterList);
 			}
 			else {
-				if (util.Application === 'Postbox') {
-					refresh();
-					this.updateCountBox();
-					return;
-				}
 
 				// force a repaint through the BoxObject
 				let fl = this.FilterListElement,
@@ -1365,7 +1293,6 @@ quickFilters.List = {
 			this.updateCountBox();
 		}
 		catch(ex) { util.logException('rebuildFilterList()', ex) }
-		
   } ,
 
 /**

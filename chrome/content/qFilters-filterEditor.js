@@ -166,8 +166,6 @@ quickFilters.FilterEditor = {
       hbox.insertBefore(templateLabel, filterNameElement);
       templateLabel.setAttribute('collapsed', false);
       filterNameElement.setAttribute('flex', 8);
-      if (util.Application == 'Postbox')
-        window.resizeBy(0,customEl.clientHeight);
     }
   },
 
@@ -264,9 +262,9 @@ quickFilters.FilterEditor = {
         let iCustomHdr = util.checkCustomHeaderExists(hdr);
         if ('customId' in searchTerm)
           searchTerm.customId = iCustomHdr ? iCustomHdr.toString() : hdr; //Tb
-        else {
-          searchTerm.attrib = iCustomHdr.toString() ; // Postbox specific
-        }
+        //else {
+        //  searchTerm.attrib = iCustomHdr.toString() ; // Postbox specific
+        //}
 				if ('arbitraryHeader' in searchTerm)
 					searchTerm.arbitraryHeader = hdr;
         break;

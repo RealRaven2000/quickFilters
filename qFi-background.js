@@ -32,20 +32,12 @@ async function main() {
   });
    
       
-      
-      
-   
-
-
-
-
-
-//    messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickfoldersDefaults.js");
+  // load defaults
+  messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
     
-    messenger.WindowListener.registerChromeUrl([ 
+  messenger.WindowListener.registerChromeUrl([ 
         ["content", "quickfilters", "chrome/content/"],
         ["locale", "quickfilters", "en", "chrome/locale/en/"],
-//        ["locale", "quickfolders", "ca", "chrome/locale/ca/"],
         ["locale", "quickfilters", "de", "chrome/locale/de/"],
         ["locale", "quickfilters", "es-AR", "chrome/locale/es-MX/"],
         ["locale", "quickfilters", "es", "chrome/locale/es/"],
@@ -54,22 +46,15 @@ async function main() {
         ["locale", "quickfilters", "it", "chrome/locale/it/"],
         ["locale", "quickfilters", "ja", "chrome/locale/ja/"],
         ["locale", "quickfilters", "nl", "chrome/locale/nl/"],
-//        ["locale", "quickfolders", "pl", "chrome/locale/pl/"],
-//        ["locale", "quickfolders", "pt-BR", "chrome/locale/pt-BR/"],
         ["locale", "quickfilters", "ru", "chrome/locale/ru/"],
-//        ["locale", "quickfolders", "sl-SI", "chrome/locale/sl-SI/"],
-//        ["locale", "quickfolders", "sr", "chrome/locale/sr/"],
         ["locale", "quickfilters", "sv-SE", "chrome/locale/sv-SE/"],
         ["locale", "quickfilters", "vi", "chrome/locale/vi/"],
         ["locale", "quickfilters", "zh-CN", "chrome/locale/zh-CN/"]
-//        ["locale", "quickfolders", "zh-CHS", "chrome/locale/zh-CN/"],
-//        ["locale", "quickfolders", "zh", "chrome/locale/zh/"],
-//        ["locale", "quickfolders", "zh-CHT", "chrome/locale/zh/"],
-//        ["locale", "quickfolders", "zh-TW", "chrome/locale/zh/"]
     
       ]);
  
-   // messenger.WindowListener.registerOptionsPage("chrome://quickfolders/content/options.xhtml"); 
+    messenger.WindowListener.registerOptionsPage("chrome://quickfilters/content/quickFilters-options.xhtml"); 
+   
     
  //attention: each target window (like messenger.xul) can appear only once
  // this is different from chrome.manifest
@@ -77,10 +62,10 @@ async function main() {
     // messenger.WindowListener.registerWindow("chrome://messenger/content/messenger.xhtml", "chrome/content/scripts/qf-messenger.js");
     /* not necessary in Tb78+    */
     messenger.WindowListener.registerWindow("chrome://messenger/content/messenger.xul", "chrome/content/scripts/qFi-messenger.js");
+    messenger.WindowListener.registerWindow("chrome://messenger/content/customizeToolbar.xul", "chrome/content/scripts/qf-customizetoolbar.js");
  /*   messenger.WindowListener.registerWindow("chrome://messenger/content/messengercompose.xul", "chrome/content/scripts/qf-composer.js");
     messenger.WindowListener.registerWindow("chrome://messenger/content/FilterListDialog.xul", "chrome/content/scripts/qf-filterlist.js");
     messenger.WindowListener.registerWindow("chrome://messenger/content/SearchDialog.xul", "chrome/content/scripts/qf-searchDialog.js");
-    messenger.WindowListener.registerWindow("chrome://messenger/content/customizeToolbar.xul", "chrome/content/scripts/qf-customizetoolbar.js");
     messenger.WindowListener.registerWindow("chrome://messenger/content/messageWindow.xul", "chrome/content/scripts/qf-messageWindow.js");
    */ 
     messenger.WindowListener.registerWindow("chrome://messenger/content/messenger.xhtml", "chrome/content/scripts/qFi-messenger.js");
