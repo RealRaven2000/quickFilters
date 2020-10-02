@@ -224,39 +224,15 @@ function onLoad(activatedWhileWindowOpen) {
 		  </toolbar>
 	  </toolbox>
 		
-    <hbox id="searchBoxContainer" collapsed="true">
+    <hbox id="filterHeader">
 			<button id="quickFilters-SearchOptions"
 				label=""
 				tooltiptext="&quickfilters.button.searchProperties;"
 				context="quickFiltersSearchContext"
 				onclick="quickFilters.List.showPopup(this,'quickFiltersSearchContext', event);"
-				collapsed="true"
+				collapsed="false"
 				insertbefore="searchBox"
 			/>
-			
-			<html:input id="quickFilters-Search"
-				flex="7"
-				type="search"
-				oncommand="quickFilters.List.onFindFilter(true);"
-				emptytext="&qf.textbox.searchBox.emptyText;"
-				tooltiptext="&qf.textbox.searchBox.toolTip;"
-				isempty="true"
-				timeout="300"
-			/>
-			
-		  <spacer flex="1" id="quickFiltersSearchSpacer" collapsed="true" />
-			<label id="quickFilters-Count-n-of-m"
-				hidden="true"
-				value="&qf.label.filterCountN_of_M;" />
-
-			<label id="quickFilters-Count-items"
-				hidden="true"
-				value="&qf.label.filterEntities;" />	
-			<label id="quickFilters-Count-1-item"
-				hidden="true"
-				value="&qf.label.filterSingleEntity;" />
-
-			<label id="quickFilters-Count"/>
 		</hbox>
 		
 		<button
@@ -289,7 +265,11 @@ function onLoad(activatedWhileWindowOpen) {
 	</window>
     
     `, ["chrome://quickfilters/locale/filterList.dtd"]);
-
+    
+  const util = window.QuickFolders.Util,
+        list = window.QuickFolders.FilterList;
+  util.logDebug('Adding FilterList...');
+  list.onLoadFilterList();
 /*    
     window.QuickFolders.Util.logDebug('Adding FilterList...');
     // obsolete window.addEventListener("load", function(e) { QuickFolders.FilterList.onLoadFilterList(e);}, false); 

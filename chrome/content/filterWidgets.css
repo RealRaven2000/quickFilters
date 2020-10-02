@@ -5,7 +5,7 @@
 }
 
 #quickFiltersBtnHelp {
-	list-style-image: url("chrome://quickfilters/skin/help_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/help_24.png");
 }
 
 #quickFiltersHelpBar {
@@ -25,7 +25,7 @@
 }
 
 .search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] .textbox-input {
-	background-image:  url("chrome://quickfilters/skin/qFilters-watermark.png");
+	background-image:  url("chrome://quickfilters/content/skin/qFilters-watermark.png");
 	background-repeat: no-repeat;
 	background-position: right center;
 	background-position: right center;
@@ -46,7 +46,7 @@
 #customLogo {
   margin-left: 5px;
 	/* just a hack as I don't appear to be able to use img url for a chrome address? */
-	background-image:url("chrome://quickfilters/skin/proFeature24.png"); 
+	background-image:url("chrome://quickfilters/content/skin/proFeature24.png"); 
 	width: 54px;
 	height: 24px;
 }
@@ -95,15 +95,15 @@
 /* ICON RULE TO OVERWRITE IN PRO VERSION */
 /* menuitem.cmd[tagName="qfRegister"],  */
 tab#quickFilters-Pro {
-	list-style-image : url('chrome://quickfilters/skin/pro.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/pro.png') !important;
 }
 
 tab#quickFilters-Pro.paid {
-	list-style-image : url('chrome://quickfilters/skin/pro-paid.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/pro-paid.png') !important;
 }
 
 tab#quickFilters-Pro.expired {
-	list-style-image : url('chrome://quickfilters/skin/pro-expired.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/pro-expired.png') !important;
 }
 
 
@@ -115,19 +115,19 @@ menuitem.cmd[tagName="qfRegister"] .menu-iconic-icon {
 */
 
 tab#quickFilters-Actions {
-	list-style-image: url('chrome://quickfilters/skin/fugue-drill.png');
+	list-style-image: url('chrome://quickfilters/content/skin/fugue-drill.png');
 }
 
 tab#quickFilters-FilterProperties {
-	list-style-image : url('chrome://quickfilters/skin/fugue-asterisk.png');
+	list-style-image : url('chrome://quickfilters/content/skin/fugue-asterisk.png');
 }
 
 tab#quickFilters-Advanced {
-	list-style-image : url('chrome://quickfilters/skin/settings-advanced.png');
+	list-style-image : url('chrome://quickfilters/content/skin/settings-advanced.png');
 }
 
 tab#quickFilters-Support {
-	list-style-image : url('chrome://quickfilters/skin/info16.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/info16.png') !important;
 }
 
 /* dual state animated icons (menuitems / tabs) */

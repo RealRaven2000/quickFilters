@@ -203,7 +203,8 @@ quickFilters.Util = {
           if(versionLabel) {
             versionLabel.setAttribute("value", addon.version);
             // move version into the box, depending on label length
-            util.logDebug("Version Box: " + versionLabel.boxObject.width + "px");
+            // boxObject is deprecated:
+            util.logDebug("Version Box: " + versionLabel.getBoundingClientRect().width + "px");
             // versionLabel.style.setProperty('margin-left', ((versionLabel.boxObject.width + 32)*(-1)).toString() + 'px', 'important');
           }
         }
@@ -424,9 +425,9 @@ quickFilters.Util = {
 					util = quickFilters.Util;
     try {
       if (!icon)
-        icon = "chrome://quickfilters/skin/QuickFilters_32.png";
+        icon = "chrome://quickfilters/content/skin/QuickFilters_32.png";
       else
-        icon = "chrome://quickfilters/skin/" + icon;
+        icon = "chrome://quickfilters/content/skin/" + icon;
       if (!title)
         title = "quickFilters";
       util.logToConsole('popupAlert(' + text + ', ' + title + ')');
@@ -447,9 +448,9 @@ quickFilters.Util = {
 			let isTimeout = !(timeOut == 0);
 			if (!timeOut) timeOut = 4000;
       if (!icon)
-        icon = "chrome://quickfilters/skin/QuickFilters_32.png";
+        icon = "chrome://quickfilters/content/skin/QuickFilters_32.png";
       else
-        icon = "chrome://quickfilters/skin/" + icon;
+        icon = "chrome://quickfilters/content/skin/" + icon;
       if (!title)
         title = "quickFilters";
       let panel = document.getElementById('quickFilterNotification');
@@ -604,7 +605,7 @@ quickFilters.Util = {
 		
 			notifyBox.appendNotification( theText, 
 					notificationKey , 
-					"chrome://quickfilters/skin/proFeature.png" , 
+					"chrome://quickfilters/content/skin/proFeature.png" , 
 					notifyBox.PRIORITY_INFO_HIGH, 
 					nbox_buttons ); // , eventCallback
 			if (util.Application == 'Postbox') {

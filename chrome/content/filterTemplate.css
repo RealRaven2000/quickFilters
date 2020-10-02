@@ -5,7 +5,7 @@ image#logo {
 }
 
 #header {
-  background-image: url("chrome://quickfilters/skin/filterTemplate.png");
+  background-image: url("chrome://quickfilters/content/skin/filterTemplate.png");
   padding-left: 102px;
   background-repeat: no-repeat;
   background-position: 0px 4px;
@@ -76,7 +76,7 @@ image#logo {
 }
 
 .extra1 {
-	list-style-image: url("chrome://quickfilters/skin/QuickFilters_16_Simple.png");
+	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16_Simple.png");
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 

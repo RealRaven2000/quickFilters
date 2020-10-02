@@ -157,7 +157,7 @@ quickFilters.Worker = {
           
           notifyBox.appendNotification( theText,
               notificationKey ,
-              "chrome://quickfilters/skin/filterTemplate.png" ,
+              "chrome://quickfilters/content/skin/filterTemplate.png" ,
               notifyBox.PRIORITY_INFO_LOW,
               nbox_buttons,
               function(eventType) { worker.onCloseNotification(eventType, notifyBox, notificationKey); } // eventCallback

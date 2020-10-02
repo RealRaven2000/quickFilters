@@ -14,7 +14,7 @@
 	  ondialogaccept = "{ return quickFilters.Util.acceptEditFilter(window); }" >
 		
 		<hbox id="quickFilters-CustomTemplate" collapsed="true" >
-			<img src="chrome:///quickfilters/skin/proFeature24.png" id="customLogo" />
+			<img src="chrome:///quickfilters/content/skin/proFeature24.png" id="customLogo" />
 			<spacer flex="1" />
 			<label id="quickFilters-CustomTitle"
 			       value="&quickfilters.customTemplate.title;"/>

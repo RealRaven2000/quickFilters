@@ -369,14 +369,14 @@ quickFilters.Options = {
 				  	btnLicense.collapsed = true;
 					replaceCssClass(proTab, 'paid');
 					replaceCssClass(btnLicense, 'paid');
-					beautyTitle.setAttribute('src', "chrome://quickfilters/skin/QuickFilters-title-pro.png");
+					beautyTitle.setAttribute('src', "chrome://quickfilters/content/skin/QuickFilters-title-pro.png");
 				  break;
 				case State.Expired:
 					options.labelLicenseBtn(btnLicense, "renew");
 					replaceCssClass(proTab, 'expired');
 					replaceCssClass(btnLicense, 'expired');
 				  btnLicense.collapsed = false;
-					beautyTitle.setAttribute('src', "chrome://quickfilters/skin/QuickFilters-title-pro.png");
+					beautyTitle.setAttribute('src', "chrome://quickfilters/content/skin/QuickFilters-title-pro.png");
 					break;
 				default:
 					options.labelLicenseBtn(btnLicense, "buy");

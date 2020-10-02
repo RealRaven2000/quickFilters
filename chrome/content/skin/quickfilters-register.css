@@ -1,4 +1,4 @@
-@import url('chrome://quickfilters/skin/license.css');
+@import url('chrome://quickfilters/content/skin/license.css');
  
 #qf-register {
   max-width: 850px !important;
@@ -69,7 +69,7 @@ td {
 	color: rgb(0, 0, 0);
 }
 .product:before {
-  content: url('chrome://quickfilters/skin/QuickFilters_32.png'); 
+  content: url('chrome://quickfilters/content/skin/QuickFilters_32.png'); 
   margin: 0.2em 0.5em 0 0;
   vertical-align: middle;
   display: inline-block; /* added 02.09.12 to center font in box */

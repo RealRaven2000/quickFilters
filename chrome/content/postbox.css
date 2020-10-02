@@ -9,7 +9,7 @@
 #pbSearchThresholdNotifcationBar notification[value=quickfilters-filter] button:nth-child(2) {
    -moz-appearance: toolbarbutton;
    /* background-image: close-button-option */
-   list-style-image: url("chrome://quickfilters/skin/close-button.png");
+   list-style-image: url("chrome://quickfilters/content/skin/close-button.png");
    min-width: 16px;
    background-image: none;
 }

@@ -627,6 +627,13 @@ var quickFilters = {
   },
 
   onUnload: function onUnload() {
+    // disable assistant mode if it is active
+    const filterWorker = quickFilters.Worker
+    if (filterWorker.FilterMode) {
+      // or we do 
+      quickFilters.onToolbarButtonCommand();
+      // filterWorker.toggleFilterMode(false, false);
+    }
     // remove the event handlers!
   },
 
@@ -978,41 +985,14 @@ var quickFilters = {
         dataTransfer,
         dragSession;
 		util.logDebugOptional("events,msgMove", "onFolderTreeViewDrop");
-    switch(util.Application) {
-      case 'Thunderbird':
-        dataTransfer = treeView._currentTransfer;
-        break;
-      case 'SeaMonkey': // messengerdnd.js: dragService
-        dragSession = dragService.getCurrentSession();
-        if (!dragSession)
-          return;
-        dataTransfer = dragSession.dataTransfer;
-        break;
-      case 'Postbox':
-        dragSession = dragService.getCurrentSession();
-        if (!dragSession)
-          return;
-        dataTransfer = dragSession.dataTransfer;
-        break;
-    }
+    dataTransfer = treeView._currentTransfer;
 
     // let array = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
     let types = dataTransfer.mozTypesAt(0);  // one flavor
-    if (Array.indexOf(types, "text/x-moz-message") === -1 || (!worker.FilterMode))
+    if (!types.contains("text/x-moz-message") || (!worker.FilterMode))
       return;
 
-    let targetFolder;
-    switch(util.Application) {
-      case 'Thunderbird':
-        targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Ci.nsIMsgFolder);
-        break;
-      case 'SeaMonkey': // messengerdnd.js: dragService
-        targetFolder = GetFolderResource(quickFilters.folderTree, aRow).QueryInterface(Ci.nsIMsgFolder);
-        break;
-      case 'Postbox':
-        targetFolder = GetFolderResource(quickFilters.folderTree, aRow).QueryInterface(Ci.nsIMsgFolder);
-        break;
-    }
+    let targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Ci.nsIMsgFolder);
 
     let sourceFolder,
         messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
@@ -1025,7 +1005,7 @@ var quickFilters = {
         sourceFolder = msgHdr.folder;
       }
 
-      //dataObj = dataObj.value.QueryInterface(Ci.nsISupportsString);
+     //dataObj = dataObj.value.QueryInterface(Ci.nsISupportsString);
       //let messageUri = dataObj.data.substring(0, len.value);
 
       messageUris.push(messageUri);
@@ -1081,7 +1061,7 @@ var quickFilters = {
         treeView = quickFilters.folderTreeView,
         dataTransfer = evt.dataTransfer ? evt.dataTransfer : treeView._currentTransfer,
         types = dataTransfer.mozTypesAt(0);  // one flavor
-    if (Array.indexOf(types, "text/x-moz-message") === -1 || (!worker.FilterMode))
+    if (!types.contains("text/x-moz-message") || (!worker.FilterMode))
       return false;
 
     util.logDebugOptional("dnd", "buttonDragObserver.onDrop flavor[0]=" + types[0].toString());
@@ -1236,18 +1216,10 @@ var quickFilters = {
 							uri : rdf.GetResource(uri),
 						destMsgFolder = destResource.QueryInterface(Ci.nsIMsgFolder),						
 						// get selected message uris - see case 'createFilterFromMsg'
-						selectedMessages,
-						selectedMessageUris,
+						selectedMessages = gFolderDisplay.selectedMessages,
+						selectedMessageUris = gFolderDisplay.selectedMessageUris,
 						messageList = [];
-				if (typeof gFolderDisplay =='undefined' || !gFolderDisplay.selectedMessageUris) {
-					// old Postbox
-					selectedMessages = util.pbGetSelectedMessages();
-					selectedMessageUris = util.pbGetSelectedMessageUris();
-				}
-				else {
-					selectedMessages = gFolderDisplay.selectedMessages; 
-					selectedMessageUris = gFolderDisplay.selectedMessageUris;
-				}	
+            
 				util.logDebugOptional('msgMove', 'MsgMoveCopy_Wrapper(): ' + selectedMessages.length + ' selected Messages counted.');
 				//
 				let i;

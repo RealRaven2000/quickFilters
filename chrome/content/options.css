@@ -1,5 +1,5 @@
 @import url('chrome://quickfilters/content/contribute.css');
-@import url('chrome://quickfilters/skin/license.css');
+@import url('chrome://quickfilters/content/skin/license.css');
 
 /****** window & top panel ******/
 #quickfilters-preferences {
@@ -77,24 +77,24 @@ hbox > button {
 
 /****** advanced tab	********/
 #chkCurrentToolbarFiltersButton .checkbox-icon { 
-  list-style-image: url("chrome://quickfilters/skin/filterList_16.png"); 
+  list-style-image: url("chrome://quickfilters/content/skin/filterList_16.png"); 
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
 }
 
 #chkFoldersShortcut .checkbox-icon, /* pro tab: shortcuts option */
 #chkCurrentToolbarFolderButton .checkbox-icon { 
-  list-style-image: url("chrome://quickfilters/skin/run-filters-folder-16.png"); 
+  list-style-image: url("chrome://quickfilters/content/skin/run-filters-folder-16.png"); 
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
 }
 
 #chkMailsShortcut .checkbox-icon,  /* pro tab: shortcuts option */
 #chkCurrentToolbarMessagesButton .checkbox-icon { 
-  list-style-image: url("chrome://quickfilters/skin/run-filters-msg-16.png"); 
+  list-style-image: url("chrome://quickfilters/content/skin/run-filters-msg-16.png"); 
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
 }
 
 #chkCurrentFindFilterButton .checkbox-icon { 
-  list-style-image: url("chrome://quickfilters/skin/searchFilters_16.png"); 
+  list-style-image: url("chrome://quickfilters/content/skin/searchFilters_16.png"); 
 	-moz-image-region: rect(0px, 16px, 16px, 0px); 
 }
 

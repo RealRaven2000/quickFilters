@@ -1288,7 +1288,9 @@ quickFilters.List = {
 
 				//Calling getFilterList will detect any errors in rules.dat, backup the file, and alert the user
 				this.gFilterTreeView.filterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
-				fl.boxObject.invalidate();
+        //
+        util.logDebug("rebuildFilterList_qF: THUNDERBIRD 78 - boxObject is deprecated so I don't know how to invalidate!")
+				// fl.boxObject.invalidate();
 			}
 			this.updateCountBox();
 		}
@@ -1337,6 +1339,7 @@ quickFilters.List = {
           if (prefs.isDebugOption('filterSearch.detail')) debugger;    
           matched = false;
           filterList.view.performActionOnRow("delete", i); // the view is same as gFilterTreeView
+          debugger; // can we use treeView here?
           filterList.boxObject.invalidateRow(i);
           filterList.boxObject.rowCountChanged(i+1, -1); // was i + 1  -- same as gFilterTreeView.tree
 					hiddenCount++;

@@ -262,9 +262,6 @@ quickFilters.FilterEditor = {
         let iCustomHdr = util.checkCustomHeaderExists(hdr);
         if ('customId' in searchTerm)
           searchTerm.customId = iCustomHdr ? iCustomHdr.toString() : hdr; //Tb
-        //else {
-        //  searchTerm.attrib = iCustomHdr.toString() ; // Postbox specific
-        //}
 				if ('arbitraryHeader' in searchTerm)
 					searchTerm.arbitraryHeader = hdr;
         break;

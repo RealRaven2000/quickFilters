@@ -19,7 +19,7 @@ function onLoad(activatedWhileWindowOpen) {
 	  ondialogaccept = "{ return quickFilters.Util.acceptEditFilter(window); }" >
 		
 		<hbox id="quickFilters-CustomTemplate" collapsed="true" >
-			<img src="chrome:///quickfilters/skin/proFeature24.png" id="customLogo" />
+			<img src="chrome:///quickfilters/content/skin/proFeature24.png" id="customLogo" />
 			<spacer flex="1" />
 			<label id="quickFilters-CustomTitle"
 			       value="&quickfilters.customTemplate.title;"/>
@@ -108,11 +108,6 @@ function onLoad(activatedWhileWindowOpen) {
     
     `, ["chrome://quickfilters/locale/filterRules.dtd"]);
 
-/*    
-    window.QuickFolders.Util.logDebug('Adding FilterList...');
-    // obsolete window.addEventListener("load", function(e) { QuickFolders.FilterList.onLoadFilterList(e);}, false); 
-    window.QuickFolders.FilterList.onLoadFilterList();  //? event needed?
-*/
 }
 
 function onUnload(isAddOnShutDown) {

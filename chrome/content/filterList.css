@@ -52,7 +52,7 @@
 	-moz-image-region: rect(0px, 16px, 16px, 0px);
 	margin-left: auto;
 	margin-right: 2px;
-	list-style-image: url("chrome://quickfilters/skin/settings.png");
+	list-style-image: url("chrome://quickfilters/content/skin/settings.png");
 }
 #searchBox {
   margin-left: 0px;
@@ -60,15 +60,15 @@
 
 /* Cut */
 .quickFiltersCut, #quickFiltersCut {
-	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-scissors.png");
 }
 
 [iconsize="small"] #quickFiltersBtnCut {
-	list-style-image: url("chrome://quickfilters/skin/fugue-scissors.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-scissors.png");
 }
 
 #quickFiltersBtnCut {
-	list-style-image: url("chrome://quickfilters/skin/fugue-scissors_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-scissors_24.png");
 	-moz-image-region:rect(0px 24px 24px 0px);
 }
 #quickFiltersBtnCut[disabled="true"] {
@@ -78,42 +78,42 @@
 
 /* Copy */
 .quickFiltersCopy, #quickFiltersCopy {
-	list-style-image: url("chrome://quickfilters/skin/fugue-copy.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-copy.png");
 }
 
 [iconsize="small"] #quickFiltersBtnCopy {
-	list-style-image: url("chrome://quickfilters/skin/fugue-copy.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-copy.png");
 }
 #quickFiltersBtnCopy {
-	list-style-image: url("chrome://quickfilters/skin/fugue-copy_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-copy_24.png");
 }
 
 
 /* Paste */
 #quickFiltersPaste {
-	list-style-image: url("chrome://quickfilters/skin/fugue-paste.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-paste.png");
 }
 
 [iconsize="small"] #quickFiltersBtnPaste {
-	list-style-image: url("chrome://quickfilters/skin/fugue-paste.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-paste.png");
 }
 
 #quickFiltersBtnPaste {
-	list-style-image: url("chrome://quickfilters/skin/fugue-paste_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-paste_24.png");
 }
 
 /* Merge */
 [iconsize="small"] #quickFiltersBtnMerge {
-	list-style-image: url("chrome://quickfilters/skin/fugue-join.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-join.png");
 }
 
 #quickFiltersBtnMerge {
-	list-style-image: url("chrome://quickfilters/skin/fugue-join_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-join_24.png");
 	-moz-image-region:rect(0px 24px 24px 0px);
 }
 /* Sort */
 #quickFiltersBtnSort {
-	list-style-image: url("chrome://quickfilters/skin/sort_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/sort_24.png");
 	-moz-image-region:rect(0px 24px 24px 0px);
 }
 /* Merge + Sort */
@@ -125,11 +125,11 @@
 
 /* Duplicate */
 #quickFiltersRemoveDuplicate {
-	list-style-image: url("chrome://quickfilters/skin/duplicates16.png");
+	list-style-image: url("chrome://quickfilters/content/skin/duplicates16.png");
 }
 
 #quickFiltersBtnClone {
-	list-style-image: url("chrome://quickfilters/skin/clone.png");
+	list-style-image: url("chrome://quickfilters/content/skin/clone.png");
 	-moz-image-region:rect(0px 24px 24px 0px);
 }
 #quickFiltersBtnClone:hover {
@@ -144,7 +144,7 @@
 
 
 #quickFiltersTroubleshoot {
-	list-style-image: url("chrome://quickfilters/skin/bug.png");
+	list-style-image: url("chrome://quickfilters/content/skin/bug.png");
 	-moz-image-region:rect(0px 28px 25px 0px);
 }
 #quickFiltersTroubleshoot:hover {
@@ -159,14 +159,14 @@
 
 
 #quickFiltersBtnDupe {
-  list-style-image: url("chrome://quickfilters/skin/duplicates24.png");
+  list-style-image: url("chrome://quickfilters/content/skin/duplicates24.png");
 }
 #quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound {
-  list-style-image: url("chrome://quickfilters/skin/cancelDuplicates.png");
+  list-style-image: url("chrome://quickfilters/content/skin/cancelDuplicates.png");
 }
 
 #quickFiltersBtnStart {
-	list-style-image: url("chrome://quickfilters/skin/QuickFilters_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_24.png");
 	-moz-image-region: rect(0px 24px 24px 0px);
 }
 #quickFiltersBtnStart:hover {  -moz-image-region: rect(24px 24px 48px  0px); }
@@ -174,7 +174,7 @@
 /* Assistant */
 
 [iconsize="small"] #quickFiltersBtnStart {
-	list-style-image: url("chrome://quickfilters/skin/QuickFilters_16.png");
+	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16.png");
 	-moz-image-region: rect(0px 16px 16px 0px);
 }
 [iconsize="small"] #quickFiltersBtnStart[checked="true"] {
@@ -187,26 +187,26 @@
 
 /* Options - Icon from  Aha-Soft Team http://www.small-icons.com/ */
 #quickFiltersBtnSettings {
-	list-style-image: url("chrome://quickfilters/skin/wrench.png");
+	list-style-image: url("chrome://quickfilters/content/skin/wrench.png");
 }
 /* Sorting and Ordering ...  */
 #quickFilters-reorderButtonTop {
-	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-top.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-top.png");
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 
 #quickFilters-reorderButtonBottom {
-	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-bottom.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-bottom.png");
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 
 #reorderDownButton {
-	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-down.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-down.png");
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 
 #reorderUpButton {
-	list-style-image: url("chrome://quickfilters/skin/fugue-arrow-up.png");
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-up.png");
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 
@@ -220,7 +220,7 @@
 }
 
 #quickFilters-mergeButton {
-	list-style-image: url("chrome://quickfilters/skin/QuickFilters_16_Simple.png");
+	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16_Simple.png");
 	-moz-image-region: rect(0, 16px, 16px, 0);
 }
 
@@ -235,10 +235,10 @@
 }
 
 #btnSaveFilters {
-	list-style-image: url("chrome://quickfilters/skin/fugue-disk.png") !important;
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-disk.png") !important;
 	-moz-image-region: rect(0, 24px, 24px, 0);
 }
 #btnLoadFilters {
-	list-style-image: url("chrome://quickfilters/skin/fugue-folder-open.png") !important;
+	list-style-image: url("chrome://quickfilters/content/skin/fugue-folder-open.png") !important;
 	-moz-image-region: rect(0, 24px, 24px, 0);
 }
