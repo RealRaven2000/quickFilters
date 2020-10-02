@@ -503,20 +503,7 @@ var quickFilters = {
 
       // let's wrap the drop function in our own (unless it already is quickFilters_originalDrop would be defined])
       if (!tree.quickFilters_originalDrop) {  
-        switch (util.Application) {
-          case 'Postbox':  
-            // tree.quickFilters_originalDrop = treeView.drop;
-            // tree.addObserver (quickFilters.folderObserver);
-            tree.removeEventListener("drop", quickFilters.pbDropEvent);
-            tree.addEventListener("drop", quickFilters.pbDropEvent);
-            break;
-          case 'SeaMonkey':
-            tree.quickFilters_originalDrop = folderObserver.onDrop; // backup old drop function
-            break;
-          case 'Thunderbird':
-            tree.quickFilters_originalDrop = treeView.drop;
-            break;
-        }
+        tree.quickFilters_originalDrop = treeView.drop;
         if (tree.quickFilters_originalDrop) {
           // new drop function, wraps original one
           /**************************************/
@@ -532,19 +519,7 @@ var quickFilters = {
           }
           /**************************************/
 
-          switch (util.Application) {
-            case 'Postbox':  // to test!
-              treeView.drop = newDrop;
-              // treeview is wrapped [Cannot modify properties of a WrappedNative = NS_ERROR_XPC_CANT_MODIFY_PROP_ON_WN]
-              // therefore we can't add treeView.quickFiltersDropper
-              break;
-            case 'SeaMonkey':
-              folderObserver.onDrop = newDrop;
-              break;
-            case 'Thunderbird':
-              treeView.drop = newDrop;
-              break;
-          }
+          treeView.drop = newDrop;
         }
       }
 
@@ -660,17 +635,7 @@ var quickFilters = {
       util.logDebug("firstRun = " + firstRun + "  - currentVersion = " + currentVersion + "  - installed = " + installedVersion);
       let toolbarId = '';
       if (firstRun) {
-        switch(util.Application) {
-          case 'Thunderbird':
-            toolbarId = "mail-bar3";
-            break;
-          case 'SeaMonkey':
-            toolbarId = "msgToolbar";
-            break;
-          case 'Postbox':
-            toolbarId = "mail-bar7";
-            break;
-        }
+        toolbarId = "mail-bar3";
         util.installButton(toolbarId, "quickfilters-toolbar-button");
         util.installButton(toolbarId, "quickfilters-toolbar-listbutton");
         prefs.setBoolPref("firstRun", false);
@@ -721,17 +686,8 @@ var quickFilters = {
 				let selectedMessages,
             selectedMessageUris,
 				    messageList = [];
-				if (util.Application=='Postbox' 
-				    && 
-						(typeof gFolderDisplay =='undefined' || !gFolderDisplay.selectedMessageUris)) {
-					// old Postbox
-				  selectedMessages = util.pbGetSelectedMessages();
-          selectedMessageUris = util.pbGetSelectedMessageUris();
-				}
-				else {
-				  selectedMessages = gFolderDisplay.selectedMessages; 
-          selectedMessageUris = gFolderDisplay.selectedMessageUris;
-				}
+			  selectedMessages = gFolderDisplay.selectedMessages; 
+        selectedMessageUris = gFolderDisplay.selectedMessageUris;
 				// && selectedMessages[0].folder.server.canHaveFilters
 				if (selectedMessages.length > 0 && selectedMessages[0].folder ) {
 					// check the tags
@@ -982,10 +938,9 @@ var quickFilters = {
 				util = quickFilters.Util,
         treeView = quickFilters.folderTreeView;
 		let worker = quickFilters.Worker,
-        dataTransfer,
+        dataTransfer = treeView._currentTransfer,
         dragSession;
 		util.logDebugOptional("events,msgMove", "onFolderTreeViewDrop");
-    dataTransfer = treeView._currentTransfer;
 
     // let array = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
     let types = dataTransfer.mozTypesAt(0);  // one flavor

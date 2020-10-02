@@ -31,7 +31,7 @@ quickFilters.Worker = {
         let item = notifyBox.getNotificationWithValue(notificationKey);
         if(item) {
           // http://mxr.mozilla.org/mozilla-central/source/toolkit/content/widgets/notification.xml#164
-          notifyBox.removeNotification(item, (quickFilters.Util.Application == 'Postbox'));  // skipAnimation
+          notifyBox.removeNotification(item, false);  // skipAnimation  (quickFilters.Util.Application == 'Postbox')->false
         }
       }, 200);
   } ,
@@ -54,7 +54,7 @@ quickFilters.Worker = {
       if (!active && box) {
         let item = box.getNotificationWithValue(id);
         if(item)
-          box.removeNotification(item, (util.Application == 'Postbox'));
+          box.removeNotification(item, false); // (quickFilters.Util.Application == 'Postbox')->false
       }   
     }
     
@@ -97,7 +97,7 @@ quickFilters.Worker = {
           
           let item = notifyBox.getNotificationWithValue(notificationKey);
           if (item)
-            notifyBox.removeNotification(item, (util.Application == 'Postbox')); // second parameter in Postbox(not documented): skipAnimation
+            notifyBox.removeNotification(item, false); // second parameter in Postbox(not documented): skipAnimation
         }
         else {
           util.logToConsole("Sorry - I cannot show notifyBox, cannot find element '" + notificationId + "'\n" +
@@ -123,28 +123,7 @@ quickFilters.Worker = {
 
         if (notifyBox) {
           // button for disabling this notification in the future
-          let nbox_buttons;
-          // the close button in Postbox is broken: skipAnimation defaults to false and 
-          // creates a invisible label with margin = (-height) pixeles, covering toolbars above
-          // therefore we implement our own close button in Postbox!!
-          if (util.Application == 'Postbox') {
-            nbox_buttons = [
-              {
-                label: dontShow,
-                accessKey: null,
-                callback: function() { worker.showMessage(false); },
-                popup: null
-              },
-              {
-                label: 'X',
-                accessKey: 'x',
-                callback: function() { worker.onCloseNotification(null, notifyBox, notificationKey); },
-                popup: null
-              }
-            ];
-          }
-          else {
-            nbox_buttons = [
+          let nbox_buttons = [
               {
                 label: dontShow,
                 accessKey: null,
@@ -152,7 +131,6 @@ quickFilters.Worker = {
                 popup: null
               }
             ];
-          }
           
           
           notifyBox.appendNotification( theText,
@@ -163,9 +141,6 @@ quickFilters.Worker = {
               function(eventType) { worker.onCloseNotification(eventType, notifyBox, notificationKey); } // eventCallback
               ); 
               
-          if (util.Application == 'Postbox') {
-            util.fixLineWrap(notifyBox, notificationKey);
-          }           
         }
         else {
           // fallback for systems that do not support notification (currently: SeaMonkey)
@@ -262,16 +237,7 @@ quickFilters.Worker = {
   } ,
 
 	parseHeader : function parseHeader(parser, msgHeader) {
-		const util = quickFilters.Util;
-		if (util.Application === 'Postbox' && util.PlatformVersion<50) {
-			// guessing guessing guessing ...
-			// somehow this takes the C++ signature?
-			return parser.extractHeaderAddressMailboxes(null, msgHeader);
-		}
-		else {
-			// Tb + SM
 			return parser.extractHeaderAddressMailboxes(msgHeader);
-		}
 	} ,
 	
 	// add a "cloned" version of messageHeader to the messageList array.
@@ -575,10 +541,6 @@ quickFilters.Worker = {
     if (!sourceFolder) {
       let txtMessage = 'Sorry but I cannot determine the original folder (SourceFolder) for this Message.\n'
         + 'Filter creation had to be abandoned.';
-      if (util.Application === 'Postbox' && util.PlatformVersion<50) {
-        txtMessage += '\n\nIn Postbox, I currently have no method for determining the origin of this message,'
-         + '\ninstead please activate the filter assistant and then move or tag mails.'
-      }
       util.popupAlert(txtMessage);
       util.logDebug(txtMessage);
       this.promiseCreateFilter = false;
@@ -728,9 +690,8 @@ quickFilters.Worker = {
           
           if (sourceFolder) {
             // mailWindowOverlay.js:1790
-            filtersList = (util.Application === 'Postbox') 
-              ? sourceFolder.getFilterList(msgWindow)
-              : sourceFolder.getEditableFilterList(msgWindow);
+            filtersList =
+              sourceFolder.getEditableFilterList(msgWindow);
           }
           // we can clone a new nsIMsgFilterList that has matching target folders.
           let matchingFilters = [];
@@ -963,9 +924,7 @@ quickFilters.Worker = {
       
       let localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
           localFolderList = 
-            (util.Application === 'Postbox') 
-              ? localFolder.getFilterList(null)
-              : localFolder.getEditableFilterList(null),
+            localFolder.getEditableFilterList(null),
           filterCount = localFolderList.filterCount;
       for (let i = 0; i < filterCount; i++) {
         let filter = localFolderList.getFilterAt(i);
@@ -1436,7 +1395,7 @@ quickFilters.Worker = {
 				let text = util.getBundleString('quickfilters.merge.addressesOmitted', 
 							"Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"), 
 						list = '',
-						newLine = (util.Application == 'Postbox') ? ' ' : '\n';
+						newLine = '\n';
 				for (let i=0; i<excludedAddresses.length; i++) {
 					list += newLine + excludedAddresses[i];
 				}
@@ -1776,9 +1735,7 @@ quickFilters.Assistant = {
       // local folder uri = mailbox://nobody@Local%20Folders
       // serverMenu item! 
       let localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
-          localFolderList = (util.Application === 'Postbox') 
-                            ? localFolder.getFilterList(null)
-                            : localFolder.getEditableFilterList(null),
+          localFolderList = localFolder.getEditableFilterList(null),
           filterCount = localFolderList.filterCount;
       if (filterCount) {
         for (let i = 0; i < filterCount; i++) {

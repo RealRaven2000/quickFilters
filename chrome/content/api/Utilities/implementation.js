@@ -20,12 +20,20 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
     return {
       Utilities: {
 
+        logDebug (text) {
+          win.quickFilters.Util.logDebug(text);
+        },
+
         isLicensed() {
-          const util = win.quickFilters.Util,
-                licenser = util.Licenser;
-                
-          let isPremiumLicense = util.hasPremiumLicense(false) || util.Licenser.isExpired;
-          return  isPremiumLicense;//(win.quickFilters.Licenser).isLicensed;
+          return  (win.quickFilters.Licenser).isValidated;
+        },
+        
+        LicenseIsExpired() {
+          return  win.quickFilters.Licenser.isExpired;
+        },
+
+        LicenseIsProUser() {
+          return  win.quickFilters.Util.hasPremiumLicense(false);
         },
 
 

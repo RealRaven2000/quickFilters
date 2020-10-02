@@ -64,11 +64,7 @@ quickFilters.List = {
   } ,
 	
   get ServerMenu() {
-    switch(quickFilters.Util.Application) {
-      case 'Thunderbird':
-        return document.getElementById("serverMenu");
-    }
-    return null;
+    return document.getElementById("serverMenu");
   } ,
   
   get ServerMenuPopup() {
@@ -497,13 +493,8 @@ quickFilters.List = {
 	} ,
 	
 	set RunFolder(f) {
-		// research: https://dxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js
-    if (typeof setRunFolder !== 'undefined') // Tb52
-      setRunFolder(f);
-    else {
-      let runMenu = document.getElementById("runFiltersPopup");
-      if (runMenu) runMenu.selectFolder(f);
-    }
+    let runMenu = document.getElementById("runFiltersPopup");
+    if (runMenu) runMenu.selectFolder(f);
 		
 		if (typeof updateButtons !== 'undefined')
 			updateButtons();
@@ -511,10 +502,6 @@ quickFilters.List = {
 	
 	get RunFolder() {
 		// research: https://dxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js
-		if (quickFilters.Util.Application === 'SeaMonkey') {
-			let runMenu = document.getElementById("runFiltersPopup");
-			return getFirstFolder(runMenu._parentFolder);
-		}
 		if (typeof gRunFiltersFolder !== 'undefined') // Tb
 			return gRunFiltersFolder._folder;
 		if (typeof gRunFiltersFolderPicker !== 'undefined') // Pb 
@@ -575,14 +562,9 @@ quickFilters.List = {
 					filtersList = this.FilterList,
 					sourceFolder = filtersList.folder;
 		function getListIndex(filter) {
-			if (util.Application == 'Thunderbird')
-				for (let i=0; i<filtersList.filterCount; i++) {
-					if (list.getItemAtIndex(i)._filter == filter) return i;
-				}
-			else
-				for (let i=0; i<filtersList.filterCount; i++) {
-					if (getFilter(i) == filter) return i;  // getItemAtIndex does not exist in Pb/Sm
-				}
+			for (let i=0; i<filtersList.filterCount; i++) {
+				if (list.getItemAtIndex(i)._filter == filter) return i;
+			}
 			return -1;
 		}
 		let count = this.getSelectedCount(list);
@@ -851,7 +833,6 @@ quickFilters.List = {
           newIndex--;
         filtersList.insertFilterAt(newIndex, activeFilter);
         this.rebuildFilterList();
-        //  To DO: need special code for POstbox...
         list.selectedIndex = newIndex;
 
       }
@@ -1037,12 +1018,7 @@ quickFilters.List = {
             searchSpacer = getElement ('quickFiltersSearchSpacer'),
             rows = hbox.getElementsByTagName("rows")[0];
         rows.insertBefore(searchBoxContainer, rows.firstChild.nextSibling);
-        // use this flag to allow (experimental) search box in SM/Postbox
-        if (prefs.getBoolPref('notTB.searchbox')) {
-          searchBoxContainer.collapsed = false;
-          searchSpacer.collapsed = false;
-					qList.updateCountBox();
-        }
+        // (obsolete code removed)
       }
     }
     
@@ -1276,22 +1252,7 @@ quickFilters.List = {
   rebuildFilterList: function rebuildFilterList_qF() {
 		const util = quickFilters.Util;
 		try {
-			if (typeof gCurrentFilterList !== "undefined") { // Thunderbird
-				rebuildFilterList(gCurrentFilterList);
-			}
-			else {
-
-				// force a repaint through the BoxObject
-				let fl = this.FilterListElement,
-						// from: SM's setServer(uri) function
-						msgFolder = this.CurrentFolder;
-
-				//Calling getFilterList will detect any errors in rules.dat, backup the file, and alert the user
-				this.gFilterTreeView.filterList = msgFolder.getEditableFilterList(gFilterListMsgWindow);
-        //
-        util.logDebug("rebuildFilterList_qF: THUNDERBIRD 78 - boxObject is deprecated so I don't know how to invalidate!")
-				// fl.boxObject.invalidate();
-			}
+			rebuildFilterList(gCurrentFilterList);
 			this.updateCountBox();
 		}
 		catch(ex) { util.logException('rebuildFilterList()', ex) }
@@ -1874,8 +1835,7 @@ quickFilters.List = {
 		
 		if (prefs.isDebugOption('filterSearch')) debugger;
 		
-		if (util.versionGreaterOrEqual(util.AppverFull, "67")) 
-		  var {MailServices} =  ChromeUtils.import("resource:///modules/MailServices.jsm");
+    var { MailUtils } = ChromeUtils.import("resource:///modules/MailUtils.jsm");
 
     
     // find out of we need to change server:
@@ -1885,6 +1845,7 @@ quickFilters.List = {
         uri = item.getAttribute('targetFolderUri'),
         actionType = item.getAttribute('actionType'),    
         // change server to correct account (originating inbox)
+        // PROBLEM HERE!! -->
         aFolder = account ?
 					(MailUtils ? 
 					  (MailUtils.getExistingFolder ? MailUtils.getExistingFolder(account.serverURI) : MailUtils.getFolderForURI(account.serverURI)) 
@@ -1909,13 +1870,11 @@ quickFilters.List = {
 					if (typeof setServer !== 'undefined') setServer(aFolder);
 				}
 			}
-			if (util.Application !== 'Postbox') {
-				// rebuild list in case of server change
-				if (typeof gCurrentFilterList !== 'undefined')  // Tb
-					gCurrentFilterList = aFolder.getEditableFilterList(gFilterListMsgWindow);
-				qList.rebuildFilterList();
-				qList.RunFolder = aFolder;  // also refreshes buttons
-			}
+			// rebuild list in case of server change
+			if (typeof gCurrentFilterList !== 'undefined')  // Tb
+				gCurrentFilterList = aFolder.getEditableFilterList(gFilterListMsgWindow);
+			qList.rebuildFilterList();
+			qList.RunFolder = aFolder;  // also refreshes buttons
 		}
   
     // select found filter
@@ -2081,18 +2040,6 @@ quickFilters.List = {
 					let lastPath = path.substr(0, lastSlash);
 					util.logDebug("Storing Path: " + lastPath);
 					prefs.setStringPref('files.path', lastPath);
-          if (util.Application=='Postbox' && util.PlatformVersion<50) {
-            switch (mode) {
-              case 'load':
-                let settings = quickFilters.Util.Postbox_readFile(path);
-                readData(settings);
-                return;
-              case 'save':
-                quickFilters.Util.Postbox_writeFile(path, jsonData)
-                return;
-            }
-            throw ('invalid mode: ' + mode);
-          }
           
 					const {OS} = (typeof ChromeUtils.import == "undefined") ?
 						Components.utils.import("resource://gre/modules/osfile.jsm", {}) :
@@ -2144,63 +2091,10 @@ quickFilters.List = {
     
 		if (fp.open)
 			fp.open(fpCallback);		
-  	else { // Postbox
-		  fpCallback(fp.show());
-  	}
     
     return true;    
   } ,
   
-  Postbox_writeFile: function Pb_writeFile(path, jsonData) {
-    const Ci = Components.interfaces,
-          Cc = Components.classes,
-					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
-    
-    let file = Cc["@mozilla.org/file/local;1"].createInstance(NSIFILE); // Postbox specific. deprecated in Tb 57
-    file.initWithPath(path);
-    // stateString.data = aData;
-    // Services.obs.notifyObservers(stateString, "sessionstore-state-write", "");
-
-    // Initialize the file output stream.
-    let ostream = Cc["@mozilla.org/network/safe-file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
-    ostream.init(file, 
-                 0x02 | 0x08 | 0x20,   // write-only,create file, reset if exists
-                 0x600,   // read+write permissions
-                 ostream.DEFER_OPEN); 
-
-    // Obtain a converter to convert our data to a UTF-8 encoded input stream.
-    let converter = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
-    converter.charset = "UTF-8";
-
-    // Asynchronously copy the data to the file.
-    let istream = converter.convertToInputStream(jsonData); // aData
-    NetUtil.asyncCopy(istream, ostream, function(rc) {
-      if (Components.isSuccessCode(rc)) {
-        // do something for success
-      }
-    });
-  } ,
-  
-  Postbox_readFile: function Pb_readFile(path) {
-    const Ci = Components.interfaces,
-          Cc = Components.classes,
-					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
-    let file = Cc["@mozilla.org/file/local;1"].createInstance(NSIFILE); // Postbox specific. deprecated in Tb 57
-    file.initWithPath(path);
-          
-    let fstream = Cc["@mozilla.org/network/file-input-stream;1"].
-                  createInstance(Ci.nsIFileInputStream);
-    fstream.init(file, -1, 0, 0);
-
-    let cstream = Cc["@mozilla.org/intl/converter-input-stream;1"].
-                  createInstance(Ci.nsIConverterInputStream);
-    cstream.init(fstream, "UTF-8", 0, 0);
-
-    let string  = {};
-    cstream.readString(-1, string);
-    cstream.close();
-    return string.value;    
-  }, 
 	
 /*
 nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)

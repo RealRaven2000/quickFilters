@@ -6,7 +6,6 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-util
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-rsa.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-register.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
-Services.scriptloader.loadSubScript("chrome://quickfilters/content/shimEcma/qFilters-shim-ecma.js", window, "UTF-8");
 
 function onLoad(activatedWhileWindowOpen) {
     console.log (Services.appinfo.version);
