@@ -266,8 +266,8 @@ function onLoad(activatedWhileWindowOpen) {
     
     `, ["chrome://quickfilters/locale/filterList.dtd"]);
     
-  const util = window.QuickFolders.Util,
-        list = window.QuickFolders.FilterList;
+  const util = window.quickFilters.Util,
+        list = window.quickFilters.List;
   util.logDebug('Adding FilterList...');
   list.onLoadFilterList();
 /*    
