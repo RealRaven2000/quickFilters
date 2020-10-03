@@ -1,5 +1,5 @@
 @import url('chrome://quickfilters/content/skin/license.css');
- 
+
 #qf-register {
   max-width: 850px !important;
 }
@@ -23,7 +23,7 @@ label.ref {
 #qfLicenseTerm.expired {
 	animation: quickfiltersRenew 3s 5s ease-in-out infinite;
 	background-color: #990038; /* dark purple */
-	background-image: linear-gradient(to bottom, #bf376b 0%,#990038 51%,#700029 100%); 
+	background-image: linear-gradient(to bottom, #bf376b 0%,#990038 51%,#700029 100%);
 	color: white !important;
 }
 .product, .para, .heading {
@@ -69,7 +69,7 @@ td {
 	color: rgb(0, 0, 0);
 }
 .product:before {
-  content: url('chrome://quickfilters/content/skin/QuickFilters_32.png'); 
+  content: url('chrome://quickfilters/content/skin/QuickFilters_32.svg');
   margin: 0.2em 0.5em 0 0;
   vertical-align: middle;
   display: inline-block; /* added 02.09.12 to center font in box */

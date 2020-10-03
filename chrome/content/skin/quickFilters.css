@@ -13,85 +13,36 @@
 	-moz-image-region: rect(32px, 16px, 48px, 0px);
 }
 
-/* large icon */
 #quickfilters-toolbar-button,
-toolbar[brighttext] #quickfilters-toolbar-button.toolbarbutton-1
-{
-  list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_24.png");
-  -moz-image-region: rect(0px 24px 24px 0px);
-}
-#quickfilters-toolbar-button:hover
-{
-  -moz-image-region: rect(24px 24px 48px  0px);
-}
-#quickfilters-toolbar-button[checked="true"]
-{
-  -moz-image-region: rect(48px 24px 72px 0px) !important;
-}
-
-[iconsize="small"] #quickfilters-toolbar-button,
-toolbar[iconsize="small"][brighttext] #quickfilters-toolbar-button.toolbarbutton-1,
 #quickFilters-wizard,
 #quickFilters-fromMessage,
 #quickFilters-fromMessageInMenu,
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive,
 #QuickFolders-Toolbar #QuickFolders-filterActive,
 menuitem.cmd[tagName="qfFilter"],
-menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon
-{
-  list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16.png") !important;
-  -moz-image-region: rect( 0px 16px 16px 0px);
+menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
+  list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
 }
 
 [iconsize="small"] #quickfilters-toolbar-button[checked="true"],
 #quickFilters-wizard[checked="true"],
-#QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive[mode="filter"]
-{
-  -moz-image-region: rect(32px 16px 48px 0px) !important;
+#QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive[mode="filter"] {
+  fill:
 }
 
-[iconsize="small"] #quickfilters-toolbar-button:hover,
-#quickFilters-wizard:hover,
-#quickFilters-fromMessage:hover,
-#quickFilters-fromMessageInMenu:hover,
-menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon,
-#QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive:hover
-{
-  -moz-image-region: rect(16px 16px 32px 0px) !important;
-}
-
-menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon { 
-  list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16.png") !important;
-  -moz-image-region: rect(16px, 16px, 32px, 0px) !important; 
-}
-
-#quickfilters-toolbar-listbutton {
-  list-style-image: url("chrome://quickfilters/content/skin/filterList_24.png");
-}
-#mail-toolbox > toolbar[brighttext] #quickfilters-toolbar-listbutton.toolbarbutton-1 {
-  list-style-image: url("chrome://quickfilters/content/skin/filterList_24bright.png");
+#quickfilters-toolbar-listbutton,
+#quickfilters-current-listbutton {
+  list-style-image: url("chrome://quickfilters/content/skin/filterList.svg");
 }
 
 
-[iconsize="small"] #quickfilters-toolbar-listbutton,
-#quickfilters-current-listbutton,
-#mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-current-listbutton.toolbarbutton-1 {
-  -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/content/skin/filterList_16.png");
+#quickfilters-toolbar-runbutton {
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
 }
 
-
-#quickfilters-toolbar-runbutton,
-#mail-toolbox > toolbar[brighttext] #quickfilters-toolbar-runbutton.toolbarbutton-1 {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters.png");
+#quickfilters-toolbar-msg-runbutton {
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg") !important;
 }
-
-#quickfilters-toolbar-msg-runbutton,
-#mail-toolbox > toolbar[brighttext] #quickfilters-msg-runbutton.toolbarbutton-1 {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.png") !important;
-}
-
-
 
 #quickfilters-current-runbutton,
 #mail-toolbox > toolbar[brighttext] #quickfilters-current-runbutton.toolbarbutton-1 {
@@ -103,7 +54,6 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/content/skin/searchFilters_16.png");
 }
-
 
 [iconsize="small"] #quickfilters-toolbar-msg-runbutton,
 #mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-toolbar-msg-runbutton.toolbarbutton-1,
@@ -154,19 +104,9 @@ menuitem.cmd[tagName="qfFilter"]:hover .menu-iconic-icon {
   -moz-image-region: rect( 32px 16px 48px 0px);
 }
 
-
-toolbar:not([iconsize="small"]) #quickfilters-toolbar-button image,
-toolbar:not([iconsize="small"]) #quickfilters-toolbar-listbutton image,
-toolbar:not([iconsize="small"]) #quickfilters-toolbar-runbutton image,
-toolbar:not([iconsize="small"]) #quickfilters-toolbar-msg-runbutton image
-{
-  width: 24px;
-  height: 24px;
-}
-
 /* buy now button */
-@keyframes quickfiltersNotificationPulse {	
-  to {box-shadow: 0 0 0 10px rgba(150, 80, 60, 0.12);} 
+@keyframes quickfiltersNotificationPulse {
+  to {box-shadow: 0 0 0 10px rgba(150, 80, 60, 0.12);}
 }
 
 notification[value="quickfilters-proFeature"] .notification-button[accesskey] {

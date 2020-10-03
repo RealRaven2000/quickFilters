@@ -35,7 +35,7 @@ image#logo {
 #assistantDeck, #header, .deckChild, hbox.myWizard {
   max-width: 900px;
 }
-.paneDeckContainer { 
+.paneDeckContainer {
   max-width: 930px;
 }
 
@@ -76,8 +76,7 @@ image#logo {
 }
 
 .extra1 {
-	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16_Simple.png");
-	-moz-image-region: rect(0, 16px, 16px, 0);
+	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg");
 }
 
 /* donate button (extra2) */
