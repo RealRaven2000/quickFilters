@@ -285,7 +285,7 @@ quickFilters.Licenser = {
   } ,
   
   goPro: function goPro(license_type) {
-    const productDetail = "http://sites.fastspring.com/quickfolders/product/quickfilters",
+    const productDetail = "https://sites.fastspring.com/quickfolders/product/quickfilters",
 					prefs = quickFilters.Preferences,
           util = quickFilters.Util;
     // redirect to registration site; pass in the feature that brought user here
@@ -300,11 +300,11 @@ quickFilters.Licenser = {
 			  break;
 			case 1: // domain license
 			  alert("Sorry - Domain licenses for quickFilters are still under development. Please contact me directy to discuss this.");
-				shortOrder = "http://sites.fastspring.com/quickfolders/instant/quickfiltersdomain";
+				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersdomain";
 				return; // EARLY EXIT EXIT EXIT
 			  break;
 			case 2: // license renewal
-				shortOrder = "http://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
+				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
 				// addQuery = "&renewal=" + encodeURI(prefs.getStringPref('LicenseKey'));
 				featureName = encodeURI(prefs.getStringPref('LicenseKey'));
 				// should we autoselect the correct email address?
@@ -331,7 +331,7 @@ quickFilters.Licenser = {
 
    /* obsolete form submission from code */
   postForm  : function postForm_obsolete(util) {
-    let url ="http://sites.fastspring.com/quickfolders/product/quickfilters?action=order",
+    let url ="https://sites.fastspring.com/quickfolders/product/quickfilters?action=order",
         oReq;
     
     if (util.PlatformVersion >=16.0) {
