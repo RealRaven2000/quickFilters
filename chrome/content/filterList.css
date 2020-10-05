@@ -1,3 +1,12 @@
+:root[lwt-tree-brighttext] #quickfilters-toolbar {
+  --toolbarbutton-hover-background: var(--lwt-toolbarbutton-hover-background, rgba(0, 0, 0, .1));
+  --toolbarbutton-hover-bordercolor: var(--lwt-toolbarbutton-hover-background, rgba(0, 0, 0, .1));
+  --toolbarbutton-active-background: var(--lwt-toolbarbutton-active-background, rgba(0, 0, 0, .15));
+  --toolbarbutton-active-bordercolor: var(--lwt-toolbarbutton-active-background, rgba(0, 0, 0, .15));
+  --toolbarbutton-active-boxshadow: 0 0 0 1px var(--lwt-toolbarbutton-active-background, rgba(0, 0, 0, .15)) inset;
+  --toolbarbutton-checkedhover-backgroundcolor: var(--lwt-toolbarbutton-hover-background, rgba(0, 0, 0, .2));
+}
+
 #quickFilterNotificationBox {
 	width: 100%;
 }
@@ -11,26 +20,18 @@
 }
 
 /* All toolbar buttons */
-#quickFiltersBtnCut, #quickFiltersBtnCopy, #quickFiltersBtnPaste, #quickFiltersBtnMerge, #quickFiltersBtnSort,
-#quickFiltersBtnSettings, #quickFiltersBtnStart, #quickFiltersBtnClone, #quickFiltersBtnDupe, 
-#quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound,
-#btnSaveFilters, #btnLoadFilters {
+#quickfilters-toolbar > toolbabutton {
   display: -moz-box;
-	margin-top: 4px;
-	margin-bottom: 4px;
-}
-
-#quickfilters-toolbar .toolbarbutton-1 .toolbarbutton-icon {
-	width: 24px !important;
-	height: 24px !important;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 #quickFiltersDuplicateList, #quickFiltersFoundResults {
   margin-top: 8px;
   margin-bottom: 8px;
-	max-width: 45em;
+  max-width: 45em;
 }
- 
+
 
 /* Clipboard in-list styles - affect filter entries that are marked to cut / copy */
 .quickFiltersCopy listcell:first-child,
@@ -46,182 +47,111 @@
 	border-style: none !important;
 	min-height:16px;
 	min-width:24px;
-	height:16px !important; 
+	height:16px !important;
 	padding-top: 0;
 	padding-bottom: 0;
 	-moz-image-region: rect(0px, 16px, 16px, 0px);
 	margin-left: auto;
 	margin-right: 2px;
-	list-style-image: url("chrome://quickfilters/content/skin/settings.png");
+	list-style-image: url("chrome://quickfilters/content/skin/settings.svg");
+	-moz-context-properties: fill;
+	fill: currentColor;
 }
 #searchBox {
   margin-left: 0px;
 }
 
 /* Cut */
-.quickFiltersCut, #quickFiltersCut {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-scissors.png");
-}
-
-[iconsize="small"] #quickFiltersBtnCut {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-scissors.png");
-}
-
+.quickFiltersCut,
+#quickFiltersCut,
 #quickFiltersBtnCut {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-scissors_24.png");
-	-moz-image-region:rect(0px 24px 24px 0px);
-}
-#quickFiltersBtnCut[disabled="true"] {
-	-moz-image-region:rect(24px 24px 48px 0px);
+	list-style-image: url("chrome://messenger/skin/icons/cut.svg");
 }
 
 
 /* Copy */
-.quickFiltersCopy, #quickFiltersCopy {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-copy.png");
-}
-
-[iconsize="small"] #quickFiltersBtnCopy {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-copy.png");
-}
+.quickFiltersCopy,
+#quickFiltersCopy,
 #quickFiltersBtnCopy {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-copy_24.png");
+	list-style-image: url("chrome://messenger/skin/icons/copy.svg");
 }
 
 
 /* Paste */
-#quickFiltersPaste {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-paste.png");
-}
-
-[iconsize="small"] #quickFiltersBtnPaste {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-paste.png");
-}
-
+#quickFiltersPaste,
 #quickFiltersBtnPaste {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-paste_24.png");
+	list-style-image: url("chrome://messenger/skin/icons/paste.svg");
 }
 
 /* Merge */
-[iconsize="small"] #quickFiltersBtnMerge {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-join.png");
-}
-
 #quickFiltersBtnMerge {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-join_24.png");
-	-moz-image-region:rect(0px 24px 24px 0px);
+	list-style-image: url("chrome://quickfilters/content/skin/join.svg");
 }
 /* Sort */
 #quickFiltersBtnSort {
-	list-style-image: url("chrome://quickfilters/content/skin/sort_24.png");
-	-moz-image-region:rect(0px 24px 24px 0px);
+	list-style-image: url("chrome://quickfilters/content/skin/sort.svg");
 }
-/* Merge + Sort */
-#quickFiltersBtnMerge[disabled="true"], #quickFiltersBtnSort[disabled="true"] {
-	-moz-image-region:rect(24px 24px 48px 0px);
-}
-
-
 
 /* Duplicate */
 #quickFiltersRemoveDuplicate {
-	list-style-image: url("chrome://quickfilters/content/skin/duplicates16.png");
+	list-style-image: url("chrome://quickfilters/content/skin/duplicates.svg");
 }
 
 #quickFiltersBtnClone {
-	list-style-image: url("chrome://quickfilters/content/skin/clone.png");
-	-moz-image-region:rect(0px 24px 24px 0px);
+	list-style-image: url("chrome://quickfilters/content/skin/clone.svg");
 }
-#quickFiltersBtnClone:hover {
-	-moz-image-region:rect(24px 24px 48px 0px);
-}
-#quickFiltersBtnClone:active {
-	-moz-image-region:rect(48px 24px 72px 0px);
-}
-#quickFiltersBtnClone[disabled="true"] {
-	-moz-image-region:rect(72px 24px 96px 0px);
-}
-
 
 #quickFiltersTroubleshoot {
-	list-style-image: url("chrome://quickfilters/content/skin/bug.png");
-	-moz-image-region:rect(0px 28px 25px 0px);
-}
-#quickFiltersTroubleshoot:hover {
-	-moz-image-region:rect(25px 28px 50px 0px);
+	list-style-image: url("chrome://quickfilters/content/skin/bug.svg");
 }
 #quickFiltersTroubleshoot.faulty {
-	-moz-image-region:rect(50px 28px 75px 0px);
+	fill: red;
 }
-#quickFiltersTroubleshoot.disabled {
-	-moz-image-region:rect(75px 28px 100px 0px);
-}
-
 
 #quickFiltersBtnDupe {
-  list-style-image: url("chrome://quickfilters/content/skin/duplicates24.png");
+  list-style-image: url("chrome://quickfilters/content/skin/duplicates.svg");
 }
 #quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound {
-  list-style-image: url("chrome://quickfilters/content/skin/cancelDuplicates.png");
+  list-style-image: url("chrome://quickfilters/content/skin/cancel.svg");
 }
 
 #quickFiltersBtnStart {
-	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_24.png");
-	-moz-image-region: rect(0px 24px 24px 0px);
-}
-#quickFiltersBtnStart:hover {  -moz-image-region: rect(24px 24px 48px  0px); }
-#quickFiltersBtnStart[checked="true"] {   -moz-image-region: rect(48px 24px 72px 0px) !important;}
-/* Assistant */
-
-[iconsize="small"] #quickFiltersBtnStart {
-	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16.png");
-	-moz-image-region: rect(0px 16px 16px 0px);
-}
-[iconsize="small"] #quickFiltersBtnStart[checked="true"] {
-   -moz-image-region: rect(32px 16px 48px 0px) !important;
-}
-[iconsize="small"] #quickFiltersBtnStart:hover {
-  -moz-image-region: rect(16px 16px 32px 0px) !important;
+	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg");
 }
 
-
-/* Options - Icon from  Aha-Soft Team http://www.small-icons.com/ */
 #quickFiltersBtnSettings {
-	list-style-image: url("chrome://quickfilters/content/skin/wrench.png");
-}
-/* Sorting and Ordering ...  */
-#quickFilters-reorderButtonTop {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-top.png");
-	-moz-image-region: rect(0, 16px, 16px, 0);
+	list-style-image: url("chrome://quickfilters/content/skin/wrench.svg");
 }
 
-#quickFilters-reorderButtonBottom {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-bottom.png");
-	-moz-image-region: rect(0, 16px, 16px, 0);
+/* Sorting and Ordering ...  */
+#reorderTopButton {
+	list-style-image: url("chrome://messenger/skin/icons/move-top.svg");
+}
+
+#reorderBottomButton {
+	list-style-image: url("chrome://messenger/skin/icons/move-bottom.svg");
 }
 
 #reorderDownButton {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-down.png");
-	-moz-image-region: rect(0, 16px, 16px, 0);
+	list-style-image: url("chrome://messenger/skin/icons/move-down.svg");
 }
 
 #reorderUpButton {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-arrow-up.png");
-	-moz-image-region: rect(0, 16px, 16px, 0);
+	list-style-image: url("chrome://messenger/skin/icons/move-up.svg");
 }
 
 
-#quickFilters-reorderButtonTop[disabled="true"],
-#quickFilters-reorderButtonBottom[disabled="true"],
-#reorderDownButton[disabled="true"],
-#reorderUpButton[disabled="true"]
-{
-	-moz-image-region: rect(16px, 16px, 32px, 0);
+#reorderTopButton .button-icon,
+#reorderBottomButton .button-icon,
+#reorderDownButton .button-icon,
+#reorderUpButton .button-icon {
+    margin-inline-end: 2px;
+	-moz-context-properties: fill;
+	fill: currentColor;
 }
 
 #quickFilters-mergeButton {
-	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_16_Simple.png");
-	-moz-image-region: rect(0, 16px, 16px, 0);
+	list-style-image: url("chrome://quickfilters/content/skin/merge.svg");
 }
 
 /* obsolete ? */
@@ -235,10 +165,9 @@
 }
 
 #btnSaveFilters {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-disk.png") !important;
-	-moz-image-region: rect(0, 24px, 24px, 0);
+	list-style-image: url("chrome://quickfilters/content/skin/save.svg");
 }
+
 #btnLoadFilters {
-	list-style-image: url("chrome://quickfilters/content/skin/fugue-folder-open.png") !important;
-	-moz-image-region: rect(0, 24px, 24px, 0);
+	list-style-image: url("chrome://quickfilters/content/skin/open.svg");
 }

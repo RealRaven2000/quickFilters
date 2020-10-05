@@ -4,13 +4,6 @@
 	padding: 0px 2px;
 	margin: 0;
 	min-height: 20px;
-	-moz-image-region: rect(32px, 16px, 48px, 0px) !important; /* make toggle color consistent */
-}
-
-/* disable filter */
-#QuickFolders-CurrentFolderTools toolbarbutton#QuickFolders-currentFolderFilterActive[mode="filter"]:hover,
-#QuickFolders-Toolbar toolbarbutton#QuickFolders-filterActive:hover {
-	-moz-image-region: rect(32px, 16px, 48px, 0px);
 }
 
 #quickfilters-toolbar-button,
@@ -24,10 +17,8 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
 }
 
-[iconsize="small"] #quickfilters-toolbar-button[checked="true"],
-#quickFilters-wizard[checked="true"],
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive[mode="filter"] {
-  fill:
+  fill: #4fc825;
 }
 
 #quickfilters-toolbar-listbutton,
@@ -41,7 +32,7 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
 }
 
 #quickfilters-toolbar-msg-runbutton {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg") !important;
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
 }
 
 #quickfilters-current-runbutton,
@@ -52,37 +43,18 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
 
 #quickfilters-current-searchfilterbutton {
   -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/content/skin/searchFilters_16.png");
+  list-style-image: url("chrome://quickfilters/content/skin/searchFilters.svg");
 }
 
-[iconsize="small"] #quickfilters-toolbar-msg-runbutton,
-#mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-toolbar-msg-runbutton.toolbarbutton-1,
-#quickfilters-current-msg-runbutton
-{
+#quickfilters-current-msg-runbutton {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/content/skin/run-filters-msg-16.png");
 }
-
-#quickfilters-current-runbutton:hover,
-#quickfilters-current-msg-runbutton:hover,
-[iconsize="small"] #quickfilters-toolbar-msg-runbutton:hover
-{
- -moz-image-region: rect( 16px 16px 32px 0px);
-}
-
-#quickfilters-current-runbutton:active,
-#quickfilters-current-msg-runbutton:active,
-[iconsize="small"] #quickfilters-toolbar-msg-runbutton:active
-{
-  -moz-image-region: rect( 32px 16px 48px 0px);
-}
-
 
 #quickfilters-menu-findFilter {
   -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/content/skin/findFilters-small.png");
 }
-
 
 [iconsize="small"] #quickfilters-toolbar-runbutton,
 #mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-toolbar-runbutton.toolbarbutton-1,

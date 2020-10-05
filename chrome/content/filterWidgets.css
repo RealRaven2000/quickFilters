@@ -5,7 +5,7 @@
 }
 
 #quickFiltersBtnHelp {
-	list-style-image: url("chrome://quickfilters/content/skin/help_24.png");
+	list-style-image: url("chrome://quickfilters/content/skin/help.svg");
 }
 
 #quickFiltersHelpBar {
@@ -46,7 +46,7 @@
 #customLogo {
   margin-left: 5px;
 	/* just a hack as I don't appear to be able to use img url for a chrome address? */
-	background-image:url("chrome://quickfilters/content/skin/proFeature24.png"); 
+	background-image:url("chrome://quickfilters/content/skin/proFeature24.png");
 	width: 54px;
 	height: 24px;
 }
@@ -61,7 +61,7 @@
 /*  shorthand:
     animation : animation-name animation-duration animation-timing-function animation-delay animation-iteration-count animation-direction
 		*/
-		
+
 @keyframes quickfiltersRotateY {
   from {
 	  transform: rotateY(0deg);
