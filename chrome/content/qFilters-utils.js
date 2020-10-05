@@ -25,7 +25,7 @@ quickFilters.Properties = {
 var QuickFilters_TabURIregexp = {
   get _thunderbirdRegExp() {
     delete this._thunderbirdRegExp;
-    return this._thunderbirdRegExp = new RegExp("^http://quickfilters.quickfolders.org/");
+    return this._thunderbirdRegExp = new RegExp("^https://quickfilters.quickfolders.org/");
   }
 };
 
@@ -1035,12 +1035,12 @@ quickFilters.Util = {
     let version = util.VersionSanitized,
         sPrompt = util.getBundleString("quickfilters.confirmVersionLink", "Display version history for quickFilters");
     if (!ask || confirm(sPrompt)) {
-      util.openURL(null, util.makeUriPremium("http://quickfilters.quickfolders.org/version.html") + "#" + version);
+      util.openURL(null, util.makeUriPremium("https://quickfilters.quickfolders.org/version.html") + "#" + version);
     }
   } ,
 
   showLicensePage: function showLicensePage() {
-    quickFilters.Util.openURLInTab('http://quickfilters.quickfolders.org/donate.html');
+    quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/donate.html');
   }  ,
 	
 	showYouTubePage: function showYouTubePage() {
@@ -1049,7 +1049,7 @@ quickFilters.Util = {
 
   showHomePage: function showHomePage(queryString) {
 	  if (!queryString) queryString='index.html';
-    quickFilters.Util.openURLInTab('http://quickfilters.quickfolders.org/' + queryString);
+    quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/' + queryString);
   } ,
 	
   showBug: function showBug(bugNumber) {
@@ -1061,7 +1061,7 @@ quickFilters.Util = {
 	} ,
 	
 	showPremiumFeatures: function showPremiumFeatures() {
-    quickFilters.Util.openURLInTab('http://quickfilters.quickfolders.org/premium.html');
+    quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/premium.html');
 	} ,
 	
   // Postbox special functions to avoid line being truncated
