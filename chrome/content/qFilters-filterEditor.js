@@ -22,6 +22,7 @@ quickFilters.FilterEditor = {
     const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
     util.logDebug('quickFilters.loadEditor()');
+    debugger;
     // filterEditorOnLoad(); was already called as we now use a listener!
     setTimeout( function() {
       function matchAction(actionType, actionString) {
@@ -131,7 +132,9 @@ quickFilters.FilterEditor = {
          util.logDebug('No window arguments!');
     }, 100);
     
-    setTimeout( function() { quickFilters.FilterEditor.showTitle();}, 100);
+    setTimeout( function() { 
+      quickFilters.FilterEditor.showTitle();
+      }, 100);
   },
 
   showTitle: function editorShowTitle() {

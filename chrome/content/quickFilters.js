@@ -525,21 +525,6 @@ var quickFilters = {
 
       this.initialized = true;
       
-      if (util.Application == 'Postbox') {
-				if (gQuickfilePanel && !gQuickfilePanel.executeQuickfilePanel) {
-					gQuickfilePanel.executeQuickfilePanel = gQuickfilePanel.execute;
-					gQuickfilePanel.execute = function() {
-						let restoreFunction = MsgMoveMessage;
-						quickFilters.executeQuickfilePanelPreEvent(gQuickfilePanel);
-						gQuickfilePanel.executeQuickfilePanel();  // the actual workload, 
-																											// includes creating the filter and calling the wrapped MsgMoveMessage
-																											// all contained in the wrapper MsgMoveMessage
-																											// the actual move isn't done until quickFilters.Worker.createFilter
-																											// has done its work and resets the promiseCreateFilter semaphor
-					}
-				}
-      }
-			// use also in Postbox:
 			if (!quickFilters.executeMoveMessage
 					&&
 					quickFilters.MsgMove_Wrapper != MsgMoveMessage) {
@@ -1223,35 +1208,7 @@ var quickFilters = {
       setTimeout(promiseDone, 20);
     }					
   },
-	
-	executeQuickfilePanelPreEvent: function executeQuickfilePanelPreEvent(panel) {
-	  // postbox specific 'quickMove' function
-		// we need to wrap MsgMoveMessage before calling the original gQuickfilePanel.execute
-    const util = quickFilters.Util,
-          worker = quickFilters.Worker,
-          prefs = quickFilters.Preferences;
-		if (!worker.FilterMode) return;
-		if (!prefs.getBoolPref('postbox.quickmove')) return;
-		
-	  if (panel.panel._type === "file") {
-		  // wrap the MsgMoveMessage
-			try {
-			  // we need a closure for executeMoveMessage, cannot store it in the object as 
-				// this context might be lost when callint it
-        util.logDebugOptional('msgMove', ' Wrapping MsgMoveMessage...');
-        if (quickFilters.executeMoveMessage != MsgMoveMessage
-            &&
-            quickFilters.MsgMove_Wrapper != MsgMoveMessage) {
-          quickFilters.executeMoveMessage = MsgMoveMessage;
-          MsgMoveMessage = quickFilters.MsgMove_Wrapper;
-        }
-			}
-			catch(ex) {
-			  util.logException("executeQuickfilePanelPreEvent", ex);
-			}
-		}
-	},
-  
+	  
   windowKeyPress: function windowKeyPress(e,dir) {
     const util = quickFilters.Util,
           prefs = quickFilters.Preferences,

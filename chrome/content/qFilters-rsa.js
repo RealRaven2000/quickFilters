@@ -718,8 +718,7 @@ quickFilters.RSA = {
  *                      instance of a key object that can be
  *                      used to encrypt/decrypt messages.
  */
-  RSAKeyPair: function RSAKeyPair(encryptionExponent, decryptionExponent, modulus, keylength) {
-    if (typeof keylength === 'undefined') keylength = 0; // Unfortunately Postbox cannot do default parameters
+  RSAKeyPair: function RSAKeyPair(encryptionExponent, decryptionExponent, modulus, keylength = 0) {
     let RSA = quickFilters.RSA,
         BInt = RSA.BigIntModule;
     BInt.init();

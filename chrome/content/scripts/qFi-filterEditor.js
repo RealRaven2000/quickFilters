@@ -8,7 +8,6 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-work
 
 function onLoad(activatedWhileWindowOpen) {
  //   let layout = WL.injectCSS("chrome://quickfilters/content/filterList.css");
- // do we need "chrome://global/skin/"??
 //    let layout1 = WL.injectCSS("chrome://quickfilters/content/filterList.css");
     let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
  
@@ -106,8 +105,13 @@ function onLoad(activatedWhileWindowOpen) {
 	</dialog>
     
     `, ["chrome://quickfilters/locale/filterRules.dtd"]);
+    
+  if (!activatedWhileWindowOpen) {
+    window.quickFilters.FilterEditor.onLoad();
+  }
 
 }
 
 function onUnload(isAddOnShutDown) {
+  
 }
