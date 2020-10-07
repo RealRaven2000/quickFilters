@@ -98,29 +98,6 @@ quickFilters.Options = {
 		
   } ,
   
-/*	
-	// Tb 66 compatibility.
-	loadPreferences: function qi_loadPreferences() {
-		const util = quickFilters.Util;
-		if (typeof Preferences == 'undefined') {
-			util.logDebug("Skipping loadPreferences - Preferences object not defined");
-			return; // older versions of Thunderbird do not need this.
-		}		
-		let myprefs = document.getElementsByTagName("preference");
-		if (myprefs.length) {
-			let prefArray = [];
-			for (let i=0; i<myprefs.length; i++) {
-				let it = myprefs.item(i),
-				    p = new Object({ id: it.getAttribute('name'), name: it.getAttribute('name'), type: it.getAttribute('type') });
-				if (it.getAttribute('instantApply') == "true") p.instantApply = true;
-				prefArray.push(p);
-			}
-			if (Preferences)
-				Preferences.addAll(prefArray);
-		}							
-	},
-
-	*/
 //from QF, modified
 	loadPreferences: function qi_loadPreferences() {
 		const util = quickFilters.Util;
