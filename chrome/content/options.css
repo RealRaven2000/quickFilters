@@ -28,16 +28,20 @@
 #qf-header-container {
 	width: 100%;
 	-moz-box-sizing: border-box;
-	background-image: url("chrome://messenger/skin/preferences/background.png");
-	background-color: transparent;
-	color: -moz-fieldtext;
 }
 
 #qf-options-icon {
-	height: 32px !important;
-	width: 32px !important;
+	height: 64px !important;
+	width: 64px !important;
 	padding: 0;
-	margin: 0 5px;
+	margin: 15px 5px 0;
+}
+
+#qf-youtubeBox {
+    margin-top: 25px;
+    margin-inline-start: 20px;
+    padding: 10px;
+    background-color: white;
 }
 
 #qf-youtube {
@@ -46,7 +50,8 @@
 }
 
 #qf-options-header {
-	margin: 5px 5px 5px 5px;
+	margin: 5px;
+    padding-block: 20px;
 	border: none;
 	color: #ffffff;
 	background-color: transparent !important;
