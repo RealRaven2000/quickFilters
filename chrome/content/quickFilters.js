@@ -863,9 +863,11 @@ var quickFilters = {
                   actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList,
                   acLength = actionList.Count ? actionList.Count() : actionList.length;
               for (let index = 0; index < acLength; index++) { 
-                let action = actionList.queryElementAt ? 
+                let action = actionList[index].QueryInterface(Components.interfaces.nsIMsgRuleAction);
+                /* actionList.queryElementAt ? 
                              actionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction) :
                              actionList.QueryElementAt(index, Components.interfaces.nsIMsgRuleAction);
+                             */
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) { 
                     msg += "[" + i + "] Current Filter URI:" +  action.targetFolderUri + "\n";

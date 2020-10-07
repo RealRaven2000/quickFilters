@@ -160,10 +160,6 @@
 	width:70%;
 }
 
-#quickFilters-Count {
-	text-align: right;
-}
-
 #btnSaveFilters {
 	list-style-image: url("chrome://quickfilters/content/skin/save.svg");
 }

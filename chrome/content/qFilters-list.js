@@ -400,7 +400,7 @@ quickFilters.List = {
 			for (let a = 0; a < aCollection.Count(); a++) {
 			  let append = true;
 			  for (let b = 0; b < util.getActionCount(newFilter); b++) { 
-					let ac = newActions.queryElementAt(b, Ci.nsIMsgRuleAction);
+					let ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction); // newActions.queryElementAt(b, Ci.nsIMsgRuleAction);
 				  if (ac.type == aCollection.GetElementAt(a).type
 					    &&
 							ac.strValue == aCollection.GetElementAt(a).strValue) {
@@ -745,141 +745,6 @@ quickFilters.List = {
 		
 	},
 
-  onTop : function onTop(evt) {
-		const util = quickFilters.Util;
-    let filtersList = this.FilterList, // Tb / SM
-        list = this.FilterListElement;
-    try {
-      if (this.getSelectedCount(list) != 1) {
-				let wrn = util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
-				util.popupAlert(wrn);
-        return;
-      }
-      let activeFilter = this.getSelectedFilterAt(list, 0);
-      if (activeFilter) {
-        filtersList.removeFilter(activeFilter);
-        filtersList.insertFilterAt(0, activeFilter);
-        this.rebuildFilterList();  // not on SM?
-        // SM
-        if (list.view) {
-          list.view.selection.clearSelection();  // Pb: gFilterTree
-          list.view.selection.select(0);
-          list.focus();
-        }
-        else
-          this.onFindFilter(false);
-
-        document.getElementById("quickFilters-reorderButtonTop").disabled=true;
-      }
-    }
-    catch(ex) {
-      util.logException('Exception while moving filter to top: ', ex);
-    }
-  } ,
-
-  onBottom : function onBottom(evt) {
-		const util = quickFilters.Util;
-    let filtersList = this.FilterList,
-        list =this.FilterListElement;
-    try {
-      if (this.getSelectedCount(list) != 1) {
-        let wrn = util.getBundleString('quickfilters.move.selectOne', 'Exactly one filter entry must be selected!');
-				util.popupAlert(wrn);
-        return;
-      }
-      let activeFilter = this.getSelectedFilterAt(list, 0);
-      if (activeFilter) {
-        filtersList.removeFilter(activeFilter);
-        filtersList.insertFilterAt(filtersList.filterCount, activeFilter); // rolled back :P
-        this.rebuildFilterList();
-        // SM
-        if (list.view) {
-          list.view.selection.clearSelection();  // Pb: gFilterTree
-          list.view.selection.select(filtersList.filterCount-1);
-          list.focus();
-        }
-        else
-          this.onFindFilter(false);
-
-        document.getElementById("quickFilters-reorderButtonBottom").disabled=true;
-      }
-    }
-    catch(ex) {
-      util.logException('Exception while moving filter to bottom: ', ex);
-    }
-  } ,
-
-  onUp: function onUp(event) {
-    let searchBox = document.getElementById("quickFilters-Search");
-    if (searchBox.value) {
-      let filtersList = this.FilterList, // Tb / SM
-          list = this.FilterListElement;
-      if (this.getSelectedCount(list) != 1)
-        return;
-
-      let activeFilter = this.getSelectedFilterAt(list, 0);
-      if (activeFilter) try {
-        let nextIndex = this.getSelectedIndex(list) - 1,
-            nextFilter = list.getItemAtIndex(nextIndex)._filter;
-        this.rebuildFilterList();
-
-        // assumption: item stays selected even after removing the search condition
-        let newIndex = this.getSelectedIndex(list)-1;
-        filtersList.removeFilter(activeFilter);
-
-        // insert before next visible item
-        // go up from selected index until finding the correct filter name
-        while (nextFilter.filterName!=list.getItemAtIndex(newIndex)._filter.filterName && nextIndex<this.getListElementCount(list))
-          newIndex--;
-        filtersList.insertFilterAt(newIndex, activeFilter);
-        this.rebuildFilterList();
-        list.selectedIndex = newIndex;
-
-      }
-      catch (ex) {
-        quickFilters.Util.logException('quickFilters.List.onDown: ', ex);
-      }
-      this.onFindFilter(false);
-    }
-    else
-      moveCurrentFilter(Components.interfaces.nsMsgFilterMotion.up);
-  } ,
-
-  onDown: function onDown(event) {
-    let searchBox = document.getElementById("quickFilters-Search");
-    if (searchBox.value) {
-      let filtersList = this.FilterList, // Tb / SM
-          list = this.FilterListElement;
-      if (this.getSelectedCount(list) != 1)
-        return;
-
-      let activeFilter = this.getSelectedFilterAt(list, 0);
-      if (activeFilter) try {
-        let nextIndex = list.selectedIndex+1,
-            nextFilter = list.getItemAtIndex(nextIndex)._filter;
-        this.rebuildFilterList();
-
-        // assumption: item stays selected even after removing the search condition
-        let newIndex = list.selectedIndex+1;
-        filtersList.removeFilter(activeFilter);
-
-        // insert after next visible item
-        // go down from selected index until finding the correct filter name
-        while (nextFilter.filterName!=list.getItemAtIndex(newIndex)._filter.filterName && nextIndex<this.getListElementCount(list))
-          newIndex++;
-        filtersList.insertFilterAt(newIndex, activeFilter);
-        this.rebuildFilterList();
-        list.selectedIndex = newIndex;
-      }
-      catch (ex) {
-        quickFilters.Util.logException('quickFilters.List.onDown: ', ex);
-      }
-      this.onFindFilter(false);
-    }
-    else
-      moveCurrentFilter(Components.interfaces.nsMsgFilterMotion.down);
-  } ,
-
   getListElementCount: function getListElementCount(list) {
     return list.getRowCount();
   } ,
@@ -933,8 +798,14 @@ quickFilters.List = {
 		      prefs = quickFilters.Preferences,
 					qList = quickFilters.List;
     function removeElement(el) {
-      el.collapsed = true;
+      try {
+        el.collapsed = true;
+      }
+      catch(ex) {
+        util.logException('onLoadFilterList - removeElement() failed', ex);
+      }
     }
+    
     function formatListLabel(el) {
       if (el) {
         el.setAttribute('crop','end');
@@ -992,15 +863,12 @@ quickFilters.List = {
 		filterListEl.setAttribute('context','quickFiltersContext');
 
     // check whether [Bug 450302] has landed - Thunderbird 24.0
-    let nativeSearchBox = getElement("searchBox"),
-    // check whether QuickFolder_s already does these modifications
-        quickFolderSearchBox = getElement("quickFilters-Search");
+    let nativeSearchBox = getElement("searchBox");
     //move buttons to the correct place
     let buttonBottom = getElement("quickFilters-reorderButtonBottom"),
         buttonTop = getElement("quickFilters-reorderButtonTop"),
         down = getElement("reorderDownButton"),
         up = getElement("reorderUpButton"),
-        searchBox = getElement("quickFilters-Search"),
         countBox = getElement("quickFilters-Count"),
         mergeButton = getElement("quickFilters-mergeButton");
     if (mergeButton) {
@@ -1010,7 +878,7 @@ quickFilters.List = {
 				down.parentNode.insertBefore(mergeButton, getElement("deleteButton").nextSibling);
     }
     
-    if (!nativeSearchBox) {
+ /* if (!nativeSearchBox) {
 			if (prefs.isDebugOption('filterSearch')) debugger;
       if (hbox && util.Application != 'Thunderbird') {
         // go into grid (into its own row!)
@@ -1018,36 +886,25 @@ quickFilters.List = {
             searchSpacer = getElement ('quickFiltersSearchSpacer'),
             rows = hbox.getElementsByTagName("rows")[0];
         rows.insertBefore(searchBoxContainer, rows.firstChild.nextSibling);
-        // (obsolete code removed)
       }
-    }
+    } */
     
-    let sb = nativeSearchBox || quickFolderSearchBox;
+    let sb = nativeSearchBox;
     if (sb) {
       util.logDebugOptional('filterList', 'got search box, extending functionality...');
       let btnOptions = getElement('quickFilters-SearchOptions');
       btnOptions.collapsed = false;
       btnOptions = sb.parentNode.insertBefore(btnOptions, sb);
       // extend search methods:
-      if (util.Application == 'Thunderbird') {
-        filterSearchMatch = qList.filterSearchMatchExtended;
-        if (rebuildFilterList) {
-          if (!this.rebuildFilterList_Orig) {
-            this.rebuildFilterList_Orig = rebuildFilterList;
-            rebuildFilterList = function() { 
-              qList.rebuildFilterList_Orig(); 
-              qList.rebuildPost(); // step for styling the list after rebuilding
-            }
+      filterSearchMatch = qList.filterSearchMatchExtended;
+      if (rebuildFilterList) {
+        if (!this.rebuildFilterList_Orig) {
+          this.rebuildFilterList_Orig = rebuildFilterList;
+          rebuildFilterList = function() { 
+            qList.rebuildFilterList_Orig(); 
+            qList.rebuildPost(); // step for styling the list after rebuilding
           }
         }
-      }
-      else {
-        // we do not define the global rebuildFilterList if it does not exist.
-        // if (!window.rebuildFilterList)
-        // window.rebuildFilterList = function() { 
-          // qList.rebuildFilterList(); 
-          // qList.rebuildPost(); // step for styling the list after rebuilding
-        // }
       }
     
       // once [Bug 450302] has landed, we do not need to add this functionality ourselves :)
@@ -1055,7 +912,6 @@ quickFilters.List = {
       removeElement(buttonTop);
       removeElement(buttonBottom);
       if (nativeSearchBox) {
-        removeElement(searchBox);
         removeElement(countBox);
       }
       // in this case, this id should be assigned already by the bugfix
@@ -1143,15 +999,22 @@ quickFilters.List = {
         if (args[i].alphabetic) isAlphabetic = args[i].alphabetic;
       }
       if (targetFilter) {
-        this.selectFilter(targetFilter);
-				if (isAlphabetic)
-					this.moveAlphabetic(targetFilter);
-				if (typeof getFirstFolder != 'undefined') {
-					// set run folder:
-					let rootFolder = qList.CurrentFolder.rootFolder,
-							first = getFirstFolder(rootFolder);
-					if (first) qList.RunFolder = first; 
-				}
+        // Tb78
+        // trying timeout because this causes call to rebuildFilterList with exception "gSearchBox is null"
+        // maybe document isn't ready at this stage?
+        setTimeout(
+          function() {
+            this.selectFilter(targetFilter);
+            if (isAlphabetic)
+              this.moveAlphabetic(targetFilter);
+            if (typeof getFirstFolder != 'undefined') {
+              // set run folder:
+              let rootFolder = qList.CurrentFolder.rootFolder,
+                  first = getFirstFolder(rootFolder);
+              if (first) qList.RunFolder = first; 
+            }
+          }, 150
+        );
       }  
       if (targetFolder) {
         // prepare a dropdown with results!
@@ -1191,10 +1054,15 @@ quickFilters.List = {
 		const util = quickFilters.Util;
     // highlight last edited filter: (after merge!!)
     // [Bug 25802] After editing existing Filter, it should be selected in List 
-    util.logDebugOptional('filterList', 'targetFilter argument passed:');
+    util.logDebugOptional('filterList', 'targetFilter argument passed: ' + targetFilter ? targetFilter.filterName : 'null');
     // reset the filter first
-    if (typeof resetSearchBox !== "undefined")  { // not in Postbox
+    try {
       resetSearchBox();  // http://mxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#920
+    }
+    catch(ex) {
+      debugger;
+    }
+    finally {
       rebuildFilterList();
     }
     // if passed to window arguments, iterate and highlight matching filter
@@ -1224,6 +1092,7 @@ quickFilters.List = {
   } ,
   
 	// here is a hack for filtering, because the filtered view returns incorect rowCount
+  // Tb78 obsolete?
   updateCountBox: function updateCountBox(forceCount) {
 		try {
 			let countBox = document.getElementById("quickFilters-Count"),
@@ -1253,7 +1122,7 @@ quickFilters.List = {
 		const util = quickFilters.Util;
 		try {
 			rebuildFilterList(gCurrentFilterList);
-			this.updateCountBox();
+			this.updateCountBox(); // is this obsolete? uses the now non-existent quickFilters-Count element
 		}
 		catch(ex) { util.logException('rebuildFilterList()', ex) }
   } ,
@@ -1267,7 +1136,7 @@ quickFilters.List = {
   onFindFilter: function onFindFilter(focusSearchBox) {
     const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
-    let searchBox = document.getElementById("quickFilters-Search"),
+    let searchBox = document.getElementById("searchBox"), // quickFilters-Search
         filterList = this.FilterListElement,
         keyWord = searchBox.value.toLocaleLowerCase();
 

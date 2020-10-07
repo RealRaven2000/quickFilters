@@ -756,9 +756,6 @@ quickFilters.Util = {
       if (ids.queryElementAt) {
         return ids.queryElementAt(index, Ci.nsIMsgIdentity);
       }
-      if (ids.QueryElementAt) {  // Postbox
-        return ids.QueryElementAt(index, Ci.nsIMsgIdentity);
-      }
       return null;
     }
     catch(ex) {
@@ -1591,9 +1588,12 @@ quickFilters.Util = {
       }
 			// avoid duplicate actions?
 			for (let b = 0; b < this.getActionCount(toFilter); b++) { 
-				let ac = newActions.queryElementAt ?
-					newActions.queryElementAt(b, Ci.nsIMsgRuleAction):
-					newActions.QueryElementAt(b, Ci.nsIMsgRuleAction);
+				let ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction);
+        /*
+          newActions.queryElementAt ?
+            newActions.queryElementAt(b, Ci.nsIMsgRuleAction):
+            newActions.QueryElementAt(b, Ci.nsIMsgRuleAction);
+            */
         // eliminate duplicates
 				if (ac.type == act.type
 						&& 
@@ -2603,8 +2603,8 @@ if (!quickFilters.Shim) {
 										actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList,
 										acLength = actionList.Count ? actionList.Count() : actionList.length;
 								for (let index = 0; index < acLength; index++) {
-									let qryAt = actionList.queryElementAt ? actionList.queryElementAt : actionList.QueryElementAt,
-											action = qryAt(index, Ci.nsIMsgRuleAction);
+									let // qryAt = actionList.queryElementAt ? actionList.queryElementAt : actionList.QueryElementAt,
+											action = actionList[index].QueryInterface(Ci.nsIMsgRuleAction);  // qryAt(index, Ci.nsIMsgRuleAction);
 									if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
 										if (action.targetFolderUri)
 											msg += "[" + index + "] Current Filter URI:" +  action.targetFolderUri + "\n";

@@ -243,23 +243,6 @@ function onLoad(activatedWhileWindowOpen) {
 			oncommand="quickFilters.List.merge(event);"
 		/>
 
-		<button
-			id="quickFilters-reorderButtonTop"
-			insertbefore="reorderUpButton"
-			label="&qf.button.reorderButtonTop;"
-			accesskey="&qf.button.reorderButtonTop.accessKey;"
-			tooltiptext="&qf.button.reorderButtonTop.toolTip;"
-			oncommand="quickFilters.List.onTop(event);"
-		/>
-
-		<button
-			id="quickFilters-reorderButtonBottom"
-			insertafter="reorderDownButton"
-			label="&qf.button.reorderButtonBottom;"
-			accesskey="&qf.button.reorderButtonBottom.accessKey;"
-			tooltiptext="&qf.button.reorderButtonBottom.toolTip;"
-			oncommand="quickFilters.List.onBottom(event);"
-		/>
 		
 	</window>
     

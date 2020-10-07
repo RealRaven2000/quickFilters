@@ -1337,9 +1337,11 @@ quickFilters.Worker = {
 					// avoid duplicates
 					for (let b = 0; b < util.getActionCount(targetFilter); b++) { 
 						let newActions = targetFilter.actionList ? targetFilter.actionList : targetFilter.sortedActionList,
-						    ac = newActions.queryElementAt ?
+						    ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction);
+                  /* newActions.queryElementAt ?
                         newActions.queryElementAt(b, Ci.nsIMsgRuleAction) :
                         newActions.QueryElementAt(b, Ci.nsIMsgRuleAction);
+                        */
 						if (ac.type == nsMsgFilterAction.AddTag
 								&& 
 								ac.strValue == tagActionValue) {
