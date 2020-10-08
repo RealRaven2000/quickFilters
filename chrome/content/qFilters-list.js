@@ -22,11 +22,16 @@ quickFilters.List = {
   updateButtons: function updateButtons() {
     let numFiltersSelected = this.getSelectedCount(this.FilterListElement),
         oneFilterSelected = (numFiltersSelected == 1);
-    document.getElementById("quickFiltersBtnClone").disabled = !oneFilterSelected;
-    document.getElementById("quickFiltersBtnMerge").disabled = (numFiltersSelected<2);
-    document.getElementById("quickFiltersBtnSort").disabled = (numFiltersSelected<2);
-    document.getElementById("quickFiltersBtnCut").disabled = (numFiltersSelected==0);
-    document.getElementById("quickFiltersBtnCopy").disabled = (numFiltersSelected==0);
+    try {
+      document.getElementById("quickFiltersBtnClone").disabled = !oneFilterSelected;
+      document.getElementById("quickFiltersBtnMerge").disabled = (numFiltersSelected<2);
+      document.getElementById("quickFiltersBtnSort").disabled = (numFiltersSelected<2);
+      document.getElementById("quickFiltersBtnCut").disabled = (numFiltersSelected==0);
+      document.getElementById("quickFiltersBtnCopy").disabled = (numFiltersSelected==0);
+    }
+    catch(ex) {
+      quickFilters.Util.logException('quickFilters.List.updateButtons: ', ex);
+    }
 		let runInFolderName = "N/A";
 		if (quickFilters.List.RunFolder)
 			runInFolderName = quickFilters.List.RunFolder.prettyName;
@@ -781,16 +786,12 @@ quickFilters.List = {
     let list = this.FilterListElement,
         numFiltersSelected = this.getSelectedCount(list),
         oneFilterSelected = (numFiltersSelected === 1),
-        buttonTop = document.getElementById("quickFilters-reorderButtonTop"),
-        buttonBottom = document.getElementById("quickFilters-reorderButtonBottom"),
         upDisabled = !(oneFilterSelected &&
                        this.getSelectedFilterAt(list, 0) != list.childNodes[1]);
     if (list.currentIndex === 0) // SM
       upDisabled = true;
-    buttonTop.disabled = upDisabled;
     let downDisabled = (!oneFilterSelected
         || list.currentIndex === this.getListElementCount(list)-1);
-    buttonBottom.disabled = downDisabled;
   } ,
 
   onLoadFilterList: function onLoadFilterList(evt) {
@@ -865,11 +866,7 @@ quickFilters.List = {
     // check whether [Bug 450302] has landed - Thunderbird 24.0
     let nativeSearchBox = getElement("searchBox");
     //move buttons to the correct place
-    let buttonBottom = getElement("quickFilters-reorderButtonBottom"),
-        buttonTop = getElement("quickFilters-reorderButtonTop"),
-        down = getElement("reorderDownButton"),
-        up = getElement("reorderUpButton"),
-        countBox = getElement("quickFilters-Count"),
+    let down = getElement("reorderDownButton"),
         mergeButton = getElement("quickFilters-mergeButton");
     if (mergeButton) {
 		  if (isToolbar)
@@ -907,13 +904,6 @@ quickFilters.List = {
         }
       }
     
-      // once [Bug 450302] has landed, we do not need to add this functionality ourselves :)
-      // also same functionality is provided by QuickFolder_s already, so no need to do it from here
-      removeElement(buttonTop);
-      removeElement(buttonBottom);
-      if (nativeSearchBox) {
-        removeElement(countBox);
-      }
       // in this case, this id should be assigned already by the bugfix
       formatListLabel(getElement("filterListLabel"));
     }
@@ -924,13 +914,6 @@ quickFilters.List = {
       /** Add Top + Bottom Buttons **/
       // DOMi ugliness.
       util.logDebugOptional('filterList', 'no search box, adding top/bottom buttons...');
-      
-      if (up){
-        up.parentNode.insertBefore(buttonTop, up);
-      }
-      if (down){
-        down.parentNode.insertBefore(buttonBottom, down.nextSibling);
-      }
 		
       // overwrite handlers for moving filters while search is active
       // add additional listener for the filter list to select event
@@ -1095,6 +1078,7 @@ quickFilters.List = {
   // Tb78 obsolete?
   updateCountBox: function updateCountBox(forceCount) {
 		try {
+      return;
 			let countBox = document.getElementById("quickFilters-Count"),
 					sum = this.FilterList.filterCount,
 					filterList = this.FilterListElement,
@@ -1122,7 +1106,7 @@ quickFilters.List = {
 		const util = quickFilters.Util;
 		try {
 			rebuildFilterList(gCurrentFilterList);
-			this.updateCountBox(); // is this obsolete? uses the now non-existent quickFilters-Count element
+			// this.updateCountBox(); // is this obsolete? uses the now non-existent quickFilters-Count element
 		}
 		catch(ex) { util.logException('rebuildFilterList()', ex) }
   } ,
@@ -1142,7 +1126,7 @@ quickFilters.List = {
 
     // simplest case: if filter was added or removed and searchbox is empty
     if (!keyWord && !focusSearchBox) {
-      this.updateCountBox();
+      //this.updateCountBox();
       return;
     }
 
@@ -1192,7 +1176,7 @@ quickFilters.List = {
       if (matched)
         util.logDebugOptional("filters", "matched filter: " + title);
     }
-    this.updateCountBox(rows-hiddenCount);
+    // this.updateCountBox(rows-hiddenCount);
     if (focusSearchBox)
       searchBox.focus();
 

@@ -899,7 +899,7 @@ var quickFilters = {
     let aFolder = matchedAccount ? matchedAccount.rootMsgFolder : null,
         win = util.getLastFilterListWindow(); 
     // close old window
-    if (win) win.close();
+    // if (win) win.close();
 
     quickFilters.Worker.openFilterList(true, aFolder, matchedFilter, targetFolder);
     
