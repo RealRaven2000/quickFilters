@@ -132,6 +132,17 @@ WL.injectElements(`
 
 function onUnload(isAddOnShutown) {
     window.quickFilters.onUnload();
+    function deleteBtn(id) {
+      let btn = window.document.getElementById(id);
+      if (btn)
+        btn.parentNode.removeChild(btn);
+    }
+    
+    // clean up current folder bar (if QuickFolders is installed)
+    deleteBtn('quickfilters-current-listbutton');
+    deleteBtn('quickfilters-current-runbutton');
+    deleteBtn('quickfilters-current-msg-runbutton');
+    deleteBtn('quickfilters-current-searchfilterbutton');
 /*
   let treeView = window.gFolderTreeView;
   if (treeView) {
