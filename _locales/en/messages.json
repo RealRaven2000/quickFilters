@@ -1,0 +1,31 @@
+{
+  "extensionName": {
+    "message": "QuickFolders (en)",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "(en)Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
+    "description": "Description of the extension."
+  },
+
+  "notificationTitle": {
+    "message": "Click notification",
+    "description": "Title of the click notification."
+  },
+  "Updated": {
+    "message": "Updated (en)",
+    "description": ""
+  },
+
+  "notificationContent": {
+    "message": "You clicked $URL$.",
+    "description": "Tells the user which link they clicked.",
+    "placeholders": {
+      "url" : {
+        "content" : "$1",
+        "example" : "https://developer.mozilla.org"
+      }
+    }
+  }
+}
