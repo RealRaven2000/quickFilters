@@ -80,7 +80,7 @@ notification[value="quickfilters-proFeature"] .notification-button[accesskey] {
 	border: 1px solid white;
 	border-radius: 1px;
 	box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.5);
-	color: #FFFFFF;
+	color: #fff !important;
 	cursor: pointer !important;
 	font-weight: bold;
 	transition-property: box-shadow, margin;
@@ -97,7 +97,7 @@ notificationbox *[value="quickfilters-proFeature"] .notification-button[accesske
 }
 
 notification[value="quickfilters-filter"] image.messageImage,
-notification[value="quickfilters-proFeature"] image.messageImage
+notification[value="quickfilters-proFeature"] image.messageImage,
 notificationbox *[value="quickfilters-filter"] image.messageImage,
 notificationbox *[value="quickfilters-proFeature"] image.messageImage {
 	/* filterTemplate.png */
