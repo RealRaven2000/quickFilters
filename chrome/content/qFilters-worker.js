@@ -71,17 +71,7 @@ quickFilters.Worker = {
 				notifyBox = gNotification.notificationbox;
 			}
 			else {
-				switch(util.Application) {
-					case 'Postbox':
-						notificationId = 'pbSearchThresholdNotifcationBar';  // msgNotificationBar
-						break;
-					case 'Thunderbird':
-						notificationId = 'mail-notification-box';
-						break;
-					case 'SeaMonkey':
-						notificationId = null;
-						break;
-				}
+        notificationId = 'mail-notification-box';
 				notifyBox = document.getElementById (notificationId);
 			}
       let notificationKey = "quickfilters-filter";
@@ -136,7 +126,7 @@ quickFilters.Worker = {
           notifyBox.appendNotification( theText,
               notificationKey ,
               "chrome://quickfilters/content/skin/filterTemplate.png" ,
-              notifyBox.PRIORITY_INFO_LOW,
+              notifyBox.PRIORITY_WARNING_MEDIUM,
               nbox_buttons,
               function(eventType) { worker.onCloseNotification(eventType, notifyBox, notificationKey); } // eventCallback
               ); 
