@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
   "name": "quickFilters",
-  "description": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
+  "description": "__MSG_extensionDescription__",
   "version": "5.0pre46",
+  "default_locale": "en",
   "author": "Axel Grude, Klaus Buecher/opto",
    "developer": {
 	  "name": "Axel Grude, Klaus Buecher/opto",
