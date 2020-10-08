@@ -120,7 +120,7 @@
 }
 
 #quickFiltersBtnSettings {
-	list-style-image: url("chrome://quickfilters/content/skin/wrench.svg");
+	list-style-image: url("chrome://quickfilters/content/skin/settings.svg");
 }
 
 /* Sorting and Ordering ...  */

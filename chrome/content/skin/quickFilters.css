@@ -17,6 +17,11 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
 }
 
+#QuickFolders-Toolbar #QuickFolders-filterActive {
+  -moz-context-properties: fill;
+  fill: currentColor;
+}
+
 #quickfilters-toolbar-button[checked="true"] {
   fill: #f30606;
 }
@@ -42,42 +47,24 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
 #quickfilters-current-runbutton,
 #mail-toolbox > toolbar[brighttext] #quickfilters-current-runbutton.toolbarbutton-1 {
   -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/content/skin/run-filters-folder-16.png");
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
 }
 
 #quickfilters-current-searchfilterbutton {
   -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/content/skin/searchFilters.svg");
+  list-style-image: url("chrome://quickfilters/content/skin/findFilters.svg");
 }
 
 #quickfilters-current-msg-runbutton {
-  -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/content/skin/run-filters-msg-16.png");
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
 }
 
 #quickfilters-menu-findFilter {
-  -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/content/skin/findFilters-small.png");
+  list-style-image: url("chrome://quickfilters/content/skin/findFilters.svg");
 }
 
-[iconsize="small"] #quickfilters-toolbar-runbutton,
-#mail-toolbox > toolbar[brighttext][iconsize="small"] #quickfilters-toolbar-runbutton.toolbarbutton-1,
-#quickfilters-menu-runMenu
-{
-  -moz-image-region: rect( 0px 16px 16px 0px);
-  list-style-image: url("chrome://quickfilters/content/skin/run-filters-folder-16.png");
-}
-
-[iconsize="small"] #quickfilters-toolbar-runbutton:hover,
-#quickfilters-menu-findFilter:hover
-{
-  -moz-image-region: rect( 16px 16px 32px 0px);
-}
-
-[iconsize="small"] #quickfilters-toolbar-runbutton:active,
-#quickfilters-menu-findFilter:active
-{
-  -moz-image-region: rect( 32px 16px 48px 0px);
+#quickfilters-menu-runMenu {
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
 }
 
 /* buy now button */
@@ -122,21 +109,11 @@ notificationbox *[value="quickfilters-proFeature"] image.messageImage {
 
 notification[value="quickfilters-filter"] .messageCloseButton,
 notificationbox *[value="quickfilters-filter"] .messageCloseButton {
-	background-color: rgba(255, 255, 255, 0.5);
-	border-radius: 2px;
-	border-radius: 2px;
-	margin: 0 1em;
+	margin-inline-start: 1em;
 }
 
 notificationbox *[value="quickfilters-proFeature"] .messageCloseButton {
 	/* display: none; */
-}
-
-notification[value="quickfilters-filter"] .messageCloseButton:hover,
-notification[value="quickfilters-proFeature"] .messageCloseButton:hover,
-notificationbox *[value="quickfilters-filter"] .messageCloseButton:hover,
-notificationbox *[value="quickfilters-proFeature"] .messageCloseButton:hover {
-	background-color: rgba(255, 255, 255, 1);
 }
 
 /* postbox - this description simply won't wrap! */

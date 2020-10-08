@@ -115,30 +115,17 @@ menuitem.cmd[tagName="qfRegister"] .menu-iconic-icon {
 */
 
 tab#quickFilters-Actions {
-	list-style-image: url('chrome://quickfilters/content/skin/fugue-drill.png');
+	list-style-image: url('chrome://quickfilters/content/skin/wrench.svg');
 }
 
 tab#quickFilters-FilterProperties {
-	list-style-image : url('chrome://quickfilters/content/skin/fugue-asterisk.png');
+	list-style-image : url('chrome://quickfilters/content/skin/QuickFilters.svg');
 }
 
 tab#quickFilters-Advanced {
-	list-style-image : url('chrome://quickfilters/content/skin/settings-advanced.png');
+	list-style-image : url('chrome://quickfilters/content/skin/settings.svg');
 }
 
 tab#quickFilters-Support {
-	list-style-image : url('chrome://quickfilters/content/skin/info16.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/info.svg') !important;
 }
-
-/* dual state animated icons (menuitems / tabs) */
-tab#quickFilters-Support:not([selected]),
-tab#quickFilters-Advanced:not([selected])
-{
-	-moz-image-region: rect(0px, 16px, 16px, 0px) !important;
-}
-tab#quickFilters-Support[selected="true"],
-tab#quickFilters-Advanced[selected="true"]
-{
-	-moz-image-region: rect(16px, 16px, 32px, 0px) !important;
-}
-
