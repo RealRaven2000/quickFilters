@@ -14,6 +14,18 @@
     "description": "Title of the click notification."
   },
   
+ 
+  "window-title": {
+    "message": "Willkommen bei $addonName$",
+    "description": "Seitentitel. Der erste placeholder $0$ wird durch den Add-on Namen ersetzt",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+
   "heading-updated": {
     "message": "$addonName$ erfolgreich aktualisiert",
     "description": "Seitenheader. Der erste placeholder $0$ wird durch den Add-on Namen ersetzt",
