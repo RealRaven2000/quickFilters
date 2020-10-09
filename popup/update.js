@@ -119,6 +119,11 @@
       remind.innerText = messenger.i18n.getMessage("label-remind-me", remindInDays);
       
     }
+    
+    let title = document.getElementById('window-title');
+    title.innerText = messenger.i18n.getMessage("window-title", addonName);
+    
+    
 
   });  
 
