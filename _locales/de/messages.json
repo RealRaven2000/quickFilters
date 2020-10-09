@@ -1,11 +1,11 @@
 {
   "extensionName": {
-    "message": "QuickFolders (de)",
+    "message": "quickFilters",
     "description": "Name of the extension."
   },
 
   "extensionDescription": {
-    "message": "(de)Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
+    "message": Auf die Schnelle neue Filter erzeugen, einfach während man Email in Verzeichnisse einordnet. Filter in weniger als 10 Sekunden erzeugen. Mehrere Filter zusammenführen, und auf andere Konten übertragen.",
     "description": "Description of the extension."
   },
 

@@ -1,11 +1,11 @@
 {
   "extensionName": {
-    "message": "QuickFolders (en)",
+    "message": "quickFilters",
     "description": "Name of the extension."
   },
 
   "extensionDescription": {
-    "message": "(en)Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
+    "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
     "description": "Description of the extension."
   },
 
