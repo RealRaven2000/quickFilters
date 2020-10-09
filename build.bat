@@ -3,7 +3,7 @@ set /P quickFiltersWebRev=<revision.txt
 set /a oldQIWebRev=%quickFiltersWebRev%
 set /a quickFiltersWebRev+=1
 pwsh -Command "(gc -en UTF8NoBOM manifest.json) -replace 'pre%oldQIWebRev%', 'pre%quickFiltersWebRev%' | Out-File manifest.json"
-"C:\Program Files\7-Zip\7z" a -xr!.svn quickFiltersWeb.zip manifest.json install.rdf chrome.manifest chrome popup qFi-background.js license.txt release-notes.html`
+"C:\Program Files\7-Zip\7z" a -xr!.svn quickFiltersWeb.zip manifest.json install.rdf _locales chrome.manifest chrome popup *.js license.txt release-notes.html`
 echo %quickFiltersWebRev% > revision.txt
 move quickFilters*.xpi ..\..\..\_Test\5.0
 pwsh -Command "Start-Sleep -m 50"

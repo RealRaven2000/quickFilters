@@ -13,10 +13,44 @@
     "message": "Click notification",
     "description": "Title of the click notification."
   },
-  "Updated": {
-    "message": "Updated (de)",
-    "description": ""
+  
+  "heading-updated": {
+    "message": "$addonName$ erfolgreich aktualisiert",
+    "description": "Seitenheader. Der erste placeholder $0$ wird durch den Add-on Namen ersetzt",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
+  
+ "thanks-for-updating-intro": {
+    "message": "Danke dass Sie $addonName$ aktualisiert haben.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  
+ "active-version-info" : {
+    "message":"Es läuft jetzt {boldStart} Version $addonVer$ {boldEnd} auf Thunderbird $appVer$.",
+    "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "placeholders": {
+      "addonVer" : {
+        "content" : "$1", 
+        "example" : "5.0.1"
+      },
+      "appVer" : {
+        "content" : "$2",
+        "example" : "78.0b4"
+      }
+      
+    }
+  },  
+  
   "notificationContent": {
     "message": "You clicked $URL$.",
     "description": "Tells the user which link they clicked.",
