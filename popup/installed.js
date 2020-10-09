@@ -2,7 +2,7 @@
 addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("register")) {
 
-	  messenger.Utilities.openLinkExternally("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
+	  messenger.Utilities.openLinkExternally("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-install");
 	}
   });
 
