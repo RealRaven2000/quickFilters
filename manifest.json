@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.0pre51",
+  "version": "5.0pre52",
   "default_locale": "en",
   "author": "Axel Grude, Klaus Buecher/opto",
    "developer": {

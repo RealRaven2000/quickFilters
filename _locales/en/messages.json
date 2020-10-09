@@ -51,6 +51,97 @@
     }
   },  
   
+  "time-and-effort": { 
+    "message": "My Add-ons require fundamental changes in order to remain compatible with the Mozilla platform. My development team at Github (Realraven2000, opto and paenglab) is working diligently to restore full functionality for $addonName$ .",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  
+  "hours-effort" : {
+    "message": "We have already spent significant resources (over $hoursSpent$ hours) on the conversion project - and there is more work in fixing regressions and issues caused by changes in Thunderbird.",
+    "placeholders": {
+      "hoursSpent" : {
+        "content" : "$1", 
+        "example" : "250"
+      }    
+    }    
+  },
+  
+  "support-suggestion" : {
+    "message": "So that $addonName$ stays functional and alive, please do it a vital favor:",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  
+  "purchase-a-license" : {
+    "message" : "Purchase a license."
+  }, 
+      
+  "donate" : {
+    "message" : "Help out with a one time donation."
+  },   
+   
+  "purchase-heading" : {
+    "message" : "Buying a License!"
+  }, 
+  
+  "support-preference" : {
+    "message": "This is the preferred way of supporting $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  }, 
+
+  "ongoing-work": {
+    "message": "The necessary alterations to switch to the new legacy-less model (mail experiment) already took multiple weeks and are still ongoing, while it is possible that we will be losing some functionality. With a complex Add-on like this, expensive work becomes inevitable."
+  },
+  
+  "btn-want-a-license": {
+    "message" : "I want to buy a license"
+  } ,
+
+  "donate-heading" : {
+    "message" : "Help by Donating!"
+  } ,
+
+  "cost-of-independence" : {
+    "message" : "Software development costs time and money - unlike many platform apps, Add-ons are not written by large corporations, nor are they sponsored in any way by Mozilla."
+  } ,
+  
+  "mozillas-basic-platform" : {
+    "message" : "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
+  } ,
+  
+  "addon-authors-struggle" : {
+    "message" : "To continue to be useful, Add-on developers now need to step up the resources needed to fix and rewrite so that our users can keep benefiting from the functionality we bring to the table."
+  } ,
+  
+  "btn-want-to-donate" : {
+    "message" : "I want to help with a one time donation."
+  } ,
+  
+  "label-remind-me" : {
+    "message": "Remind me again in $countDays$ days.",
+    "placeholders": {
+      "countDays" : {
+        "content" : "$1", 
+        "example" : "10"
+      }    
+    }    
+  },  
+  
+  
   "notificationContent": {
     "message": "You clicked $URL$.",
     "description": "Tells the user which link they clicked.",

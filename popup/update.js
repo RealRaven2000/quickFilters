@@ -51,7 +51,10 @@
 
 
   addEventListener("load", async (event) => {
-    const addonName = "quickFilters";
+    const addonName = await browser.runtime.getManifest().name, // or mxUtilties.getAddonName()); == 'quickFilters'
+          hoursWorked = 250,
+          remindInDays = 10;
+
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
     i18n.updateDocument();
@@ -69,7 +72,6 @@
       
     let h1 = document.getElementById('heading-updated');
     if (h1) {
-      let addonName = await browser.runtime.getManifest().name; // or mxUtilties.getAddonName());
       // this api function can do replacements for us
       h1.innerText = messenger.i18n.getMessage('heading-updated', addonName);
     }
@@ -90,6 +92,32 @@
       verInfo.innerHTML = messenger.i18n.getMessage("active-version-info", [addonVer, appVer])
         .replace("{boldStart}","<b class='versionnumber'>")
         .replace("{boldEnd}","</b>");
+    }
+    
+    let timeAndEffort =  document.getElementById('time-and-effort');
+    if (timeAndEffort) {
+      timeAndEffort.innerText = messenger.i18n.getMessage("time-and-effort", addonName);
+    }
+    
+    let measuredEffort =  document.getElementById('hours-effort');
+    if (measuredEffort) {
+      measuredEffort.innerText = messenger.i18n.getMessage("hours-effort", hoursWorked);
+    }
+    
+    let suggestion = document.getElementById('support-suggestion');
+    if (suggestion) {
+      suggestion.innerText = messenger.i18n.getMessage("support-suggestion", addonName);
+    }
+    
+    let preference = document.getElementById('support-preference');
+    if (preference) {
+      preference.innerText = messenger.i18n.getMessage("support-preference", addonName);
+    }
+    
+    let remind = document.getElementById('label-remind-me');
+    if (remind) {
+      remind.innerText = messenger.i18n.getMessage("label-remind-me", remindInDays);
+      
     }
 
   });  
