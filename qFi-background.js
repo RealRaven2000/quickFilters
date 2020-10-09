@@ -9,11 +9,12 @@ async function main() {
 //TODO mailWindowOverlay: was never in use??
 //debugger;
   messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
-      
+    console.log("onInstalled - Listener(reason: " + reason + ")");
     // if (temporary) return; // skip during development
     switch (reason) {
       case "install":
       {
+        console.log("install...");
         let url = browser.runtime.getURL("popup/installed.html");
         //await browser.tabs.create({ url });
         await browser.windows.create({ url, type: "popup", width: 910, height: 750, });
@@ -22,6 +23,7 @@ async function main() {
       // see below
       case "update":
       {
+        console.log("update...");
         let url = browser.runtime.getURL("popup/update.html");
         //await browser.tabs.create({ url });
         await browser.windows.create({ url, type: "popup", width: 910, height: 750, });

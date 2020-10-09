@@ -17,7 +17,7 @@
  
   "window-title": {
     "message": "Willkommen bei $addonName$",
-    "description": "Seitentitel. Der erste placeholder $0$ wird durch den Add-on Namen ersetzt",
+    "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -28,7 +28,18 @@
 
   "heading-updated": {
     "message": "$addonName$ erfolgreich aktualisiert",
-    "description": "Seitenheader. Der erste placeholder $0$ wird durch den Add-on Namen ersetzt",
+    "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  
+  "heading-installed": {
+    "message": "$addonName$ erfolgreich installiert",
+    "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -46,6 +57,17 @@
       }    
     }
   },
+  
+ "thanks-for-installing-intro": {
+    "message": "Danke dass Sie $addonName$ installiert haben.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  
   
  "active-version-info" : {
     "message":"Es läuft jetzt {boldStart} Version $addonVer$ {boldEnd} auf Thunderbird $appVer$.",

@@ -18,10 +18,10 @@
         
 		await mxUtilties.logDebug (
         "====== update.js script  ====== \n "
-      + " Addon Name: " + name + "\n"
-      + " isLicensed: " + lis + "\n"
-      + " Addon Version: " + ver  + "\n"
-      + " isProUser: " + isProUser + "\n"
+      + " Addon Name: " + name        + "\n"
+      + " isLicensed: " + lis         + "\n"
+      + " Addon Version: " + ver      + "\n"
+      + " isProUser: " + isProUser    + "\n"
       + "=============================== \n "
       ) ;
 
@@ -54,20 +54,12 @@
     const addonName = await browser.runtime.getManifest().name, // or mxUtilties.getAddonName()); == 'quickFilters'
           hoursWorked = 250,
           remindInDays = 10;
+    const mxUtilties = messenger.Utilities;
 
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
     i18n.updateDocument();
     
-    //debugger;
-    const mxUtilties = messenger.Utilities;
-/*    let text = document.body.innerHTML,//	
-        htmltext = text,    
-        htmltext2 = htmltext.replace(/{version}/g, await mxUtilties.getAddonVersion());    // or browser.runtime.getManifest().version
-   htmltext = htmltext2.replace(/{appver}/g, await mxUtilties.getTBVersion());
-    //same for license,   let htmltext=text.replace(/{addon}/g, await mxUtilties.getAddonName());
-    document.body.innerHTML = htmltext;
-        */
         
       
     let h1 = document.getElementById('heading-updated');
