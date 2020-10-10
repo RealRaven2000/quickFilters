@@ -18,8 +18,9 @@ END LICENSE BLOCK
   Note: All Dates here are given in UK format - dd/MM/yyyy
 
   Personnel:
-  AG - Lead Developer and owner of the Mozdev project
-  KB - head developer for Thunderbird 78 conversion
+  AG - Axel Grude - Lead Developer, Marketing and owner of this project
+  KB - Klaus Buecher - Head Developer for Thunderbird 78 conversion
+  RM - Richard Marti - Icon Design + Layout Tb78
 
   04/05/2012 - 0.5
     # Created Prototype using major portions of code from QuickFolders

@@ -78,7 +78,7 @@ quickFilters.Worker = {
 			
       
       // do a tidy up in case this is already open!
-      if (notificationId) { // SeaMonkey: no such thing yet.
+      if (notificationId) { 
         if (notifyBox) {
           try {
             if (window.QuickFolders) 

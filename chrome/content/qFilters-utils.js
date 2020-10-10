@@ -1706,7 +1706,6 @@ quickFilters.Util = {
       let list = fWin.quickFilters.List;
       if (list) {
         list.toggleSearchType('name');
-        // this will currently not work with SeaMonkey / Postbox (no search box)
         let searchBox = fWin.document.getElementById("searchBox");
         util.logDebugOptional('template.custom','filterCustomTemplates - searchBox=' + searchBox);
         if (searchBox) {
