@@ -37,12 +37,12 @@ var i18n = {
 	},
 
 	updateDocument(options = {}) {		
-		this.extension = options?.extension
-			? options.extension
-			: null;		
-		this.keyPrefix = options?.keyPrefix
-			? options.keyPrefix
-			: "__MSG_";
+		this.extension = null;
+		this.keyPrefix = "__MSG_";
+		if (options) {
+			if (options.extension) this.extension = options.extension;
+			if (options.keyPrefix) this.keyPrefix = options.keyPrefix;
+		}
 		this.updateSubtree(document);
 	}
 };
