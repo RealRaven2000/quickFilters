@@ -1143,36 +1143,16 @@ quickFilters.List = {
         
     for (let i = rows - 1; i>=0; i--) {
       let matched = true;
-       // SeaMonkey (Postbox) vs Thunderbird - treeview vs listbox
-      if (filterList.nodeName === 'tree') {
-        // http://mxr.mozilla.org/comm-central/source/suite/mailnews/search/FilterListDialog.js
-        // SeaMonkey
-        item = getFilter(i); // SM / Postbox: defined in FilterListDialog.js 
-        title = item.filterName;
-        if (!this.filterSearchMatchExtended(item, keyWord)){
-          if (prefs.isDebugOption('filterSearch.detail')) debugger;    
-          matched = false;
-          filterList.view.performActionOnRow("delete", i); // the view is same as gFilterTreeView
-          debugger; // can we use treeView here?
-          filterList.boxObject.invalidateRow(i);
-          filterList.boxObject.rowCountChanged(i+1, -1); // was i + 1  -- same as gFilterTreeView.tree
-					hiddenCount++;
-          // problem: gFilterTreeView.filterList is not updated; see setServer(uri) in FilterListDialog.js
-          // maybe we can replace set filterList(val) { ... }
-          //   this.mFilterList = val  => replace with the "filtered" values
-        }
+      // Thunderbird
+      item = filterList.getItemAtIndex(i);
+      // in Tb78, this is now a richlistitem. It's first child is a label element with a value
+      title = item.firstChild.value; // item.firstChild.getAttribute("label");
+      if (title.toLocaleLowerCase().indexOf(keyWord) === -1)
+      {
+        matched = false;
+        filterList.removeChild(item);
       }
-      else {
-        // Thunderbird
-        item = filterList.getItemAtIndex(i);
-        title = item.firstChild.getAttribute("label");
-        if (title.toLocaleLowerCase().indexOf(keyWord) === -1)
-        {
-          matched = false;
-          filterList.removeChild(item);
-        }
 
-      }
       if (matched)
         util.logDebugOptional("filters", "matched filter: " + title);
     }
