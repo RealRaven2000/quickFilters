@@ -27,7 +27,7 @@
   },
 
   "heading-updated": {
-    "message": "$addonName$ erfolgreich aktualisiert",
+    "message": "$addonName$ wurde erfolgreich aktualisiert",
     "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
     "placeholders": {
       "addonName" : {
@@ -38,7 +38,7 @@
   },
   
   "heading-installed": {
-    "message": "$addonName$ erfolgreich installiert",
+    "message": "$addonName$ wurde erfolgreich installiert",
     "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
     "placeholders": {
       "addonName" : {

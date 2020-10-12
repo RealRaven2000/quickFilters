@@ -46,3 +46,4 @@ var i18n = {
 		this.updateSubtree(document);
 	}
 };
+
