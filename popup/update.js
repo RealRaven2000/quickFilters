@@ -10,26 +10,6 @@
                 "-------------------------------------------");
     */
     
-    
-		let name = await mxUtilties.getAddonName(),    
-		    lis = await mxUtilties.isLicensed(),	
-		    ver = await mxUtilties.getAddonVersion(),
-		    isProUser = await mxUtilties.LicenseIsProUser();
-        
-		await mxUtilties.logDebug (
-        "====== update.js script  ====== \n "
-      + " Addon Name: " + name        + "\n"
-      + " isLicensed: " + lis         + "\n"
-      + " Addon Version: " + ver      + "\n"
-      + " isProUser: " + isProUser    + "\n"
-      + "=============================== \n "
-      ) ;
-
-    
-		if (isProUser) {
-      let isExpired = await mxUtilties.LicenseIsExpired();		
-      mxUtilties.logDebug ("License is expired: " + isExpired);
-    } 
 
 	}
 
@@ -40,7 +20,13 @@
       messenger.Utilities.openLinkExternally("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
       }
   });
-
+  
+  addEventListener("click", async (event) => {
+    if (event.target.id.startsWith("extend")) {
+      messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
+      window.close();
+    }
+  });
 
   addEventListener("click", async (event) => {
     if (event.target.id.startsWith("donate")) {
@@ -115,6 +101,31 @@
     let title = document.getElementById('window-title');
     title.innerText = messenger.i18n.getMessage("window-title", addonName);
     
+    // LICENSING FLOW
+    let isLicensed = await mxUtilties.isLicensed(true),
+        isExpired = await mxUtilties.LicenseIsExpired();
+          
+    console.log("Addon " + addonName + "\n" +
+      "isLicensed = " + isLicensed + "\n" +
+      "isExpired = " + isExpired + "\n"
+    );    
+    
+    // renew-your-license - already collapsed
+    // renewLicenseListItem - already collapsed
+    // purchaseLicenseListItem - not collapsed
+    if (isLicensed) {
+      document.getElementById('purchaseLicenseListItem').setAttribute('collapsed',true);
+      if (isExpired) { // License Renewal
+        document.getElementById('renewLicenseListItem').setAttribute('collapsed',false);
+        document.getElementById('extend').setAttribute('collapsed',false);
+        document.getElementById('register').setAttribute('collapsed',true);
+      }
+      else { // License Extension
+        document.getElementById('extendLicenseListItem').setAttribute('collapsed',true);
+        document.getElementById('extend').setAttribute('collapsed',true);
+        document.getElementById('register').setAttribute('collapsed',false);
+      }
+    }
     
 
   });  

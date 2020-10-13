@@ -52,6 +52,17 @@ ul.actions {
   background-image: linear-gradient(to bottom, #633b00 0%,#750202 34%,#ef8204 100%);
 }
 
+ul.actions *[collapsed=true],
+.actionlinks a[collapsed=true] {
+  visibility: collapse;
+  display :none;
+}
+#purchaseLicenseListItem { /* test */
+/*
+  background-color: lightyellow;
+  color: rgb(120,0,0);
+  */
+}
 
 
 body, body * {

@@ -33,7 +33,12 @@
         "name": "isLicensed",
         "type": "function",
         "async": true,
-        "parameters": []
+        "parameters": [
+          {
+            "name" : "forceValidation",
+            "type" : "boolean"
+          }
+        ]
       },
 
 

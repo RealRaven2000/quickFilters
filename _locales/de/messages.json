@@ -118,13 +118,21 @@
   "purchase-a-license" : {
     "message" : "Kaufen Sie eine Lizenz."
   }, 
+  
+  "renew-your-license" : {
+    "message" : "Erneuern Sie Ihre Lizenz."
+  },  
+  
+  "extend-your-license" : {
+    "message" : "Verlängern Sie Ihre Lizenz um ein Jahr."
+  },    
       
   "donate" : {
     "message" : "Helfen Sie mit einer einmaligen Spende."
   },   
 
   "purchase-heading" : {
-    "message" : "Lizenz kaufen!"
+    "message" : "Lizenz erwerben!"
   }, 
   
   "support-preference" : {
@@ -145,6 +153,11 @@
   "btn-want-a-license": {
     "message" : "Ich möchte eine Lizenz kaufen"
   } ,
+  
+  "btn-extend-license": {
+    "message" : "Ich möchte meine Lizenz verlängern"
+  } ,
+  
   
   "donate-heading" : {
     "message" : "Helfen durch Spenden!"

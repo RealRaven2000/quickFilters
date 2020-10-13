@@ -24,8 +24,15 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           win.quickFilters.Util.logDebug(text);
         },
 
-        isLicensed() {
-          return  (win.quickFilters.Licenser).isValidated;
+        // returns true if a valid license is there, but also when the license is expired.
+        // this gives us an option to check whether to show extension links instead after 
+        // we check for the license
+        isLicensed(forceValidation) {
+          let hasLicense =  // (win.quickFilters.Licenser).isValidated;
+            win.quickFilters.Util.hasPremiumLicense(forceValidation);
+          if (!hasLicense)
+            return win.quickFilters.Licenser.isExpired; // if it is expired, we say it is still "licensed" for the purposes of this api!
+          return hasLicense;
         },
         
         LicenseIsExpired() {
@@ -35,7 +42,6 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         LicenseIsProUser() {
           return  win.quickFilters.Util.hasPremiumLicense(false);
         },
-
 
         getAddonVersion() {
           const util = win.quickFilters.Util;
@@ -68,7 +74,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           let mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]
             .getService(Components.interfaces.nsIWindowMediator)
             .getMostRecentWindow("mail:3pane");  
-          mail3PaneWindow.openDialog(uri);
+          mail3PaneWindow.openDialog(uri).focus();
         }
   
         // get may only return something, if a value is set

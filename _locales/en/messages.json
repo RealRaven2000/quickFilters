@@ -118,6 +118,14 @@
     "message" : "Purchase a license."
   }, 
       
+  "renew-your-license" : {
+    "message" : "Renew your license."
+  },  
+  
+  "extend-your-license" : {
+    "message" : "Consider extending your license by a year."
+  },  
+  
   "donate" : {
     "message" : "Help out with a one time donation."
   },   
@@ -142,6 +150,10 @@
   
   "btn-want-a-license": {
     "message" : "I want to buy a license"
+  } ,
+
+  "btn-extend-license": {
+    "message" : "I want to extend my license"
   } ,
 
   "donate-heading" : {
