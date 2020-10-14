@@ -3,38 +3,15 @@ addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("register")) {
 	  messenger.Utilities.openLinkExternally("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-install");
 	}
-});
-
-addEventListener("click", async (event) => {
-	if (event.target.id.startsWith("extend")) {
+	if (event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
 	  messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
     window.close();
 	}
-});
-
-
-
-addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("donate")) {
-
 	  messenger.Utilities.openLinkExternally("https://quickfilters.quickfolders.org/donate.html");
 	}
 });  
 
-
-
-  
-	async function loglic() {
-		
-		let name = await messenger.Utilities.getAddonName(),
-		    lis = await messenger.Utilities.isLicensed(),		 
-		    ver = await messenger.Utilities.getAddonVersion();	
-		//console.log ( 		 name);
-		//console.log ( 		 lis);
-		//console.log ( 		 ver);	
-    
-
-	}
 
 
   addEventListener("load", async (event) => {
@@ -87,36 +64,11 @@ addEventListener("click", async (event) => {
     if (title)
       title.innerText = messenger.i18n.getMessage("window-title", addonName);
     
-    // LICENSING FLOW
-    let isLicensed = await mxUtilties.isLicensed(true),
-        isExpired = await mxUtilties.LicenseIsExpired();
-          
-    console.log("Addon " + addonName + "\n" +
-      "isLicensed = " + isLicensed + "\n" +
-      "isExpired = " + isExpired + "\n"
-    );
-    
-    // renew-your-license
-    // renewLicenseListItem
-    // purchaseLicenseListItem
-    if (isLicensed) {
-      document.getElementById('purchaseLicenseListItem').setAttribute('collapsed',true);
-      if (isExpired) { // License Renewal
-        document.getElementById('renewLicenseListItem').setAttribute('collapsed',false);
-        document.getElementById('extend').setAttribute('collapsed',false);
-        document.getElementById('register').setAttribute('collapsed',true);
-      }
-      else { // License Extension
-        document.getElementById('extendLicenseListItem').setAttribute('collapsed',true);
-        document.getElementById('extend').setAttribute('collapsed',true);
-        document.getElementById('register').setAttribute('collapsed',false);
-      }
-    }
-    
+    updateActions(addonName);
 
+    addAnimation('body');
   });  
-
-  loglic();
+  
 
 
 

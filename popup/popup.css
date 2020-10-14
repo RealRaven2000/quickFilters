@@ -80,6 +80,16 @@ body p, body li {
   color: darkblue;
 }
 
+/* animation */
+#gimmick {
+    display:block;
+    pointer-events:none;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 0.13;
+}
+
 
 
 /*

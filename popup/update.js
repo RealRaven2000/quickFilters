@@ -1,34 +1,13 @@
 
-	async function licenseLog() {
-    // messenger.Utilities is our own function which communicates with the main QF instance.
-    // see api/utilities/implementation.js
-    const mxUtilties = messenger.Utilities;
-		// Test functions
-    /*
-    await messenger.Utilities.logDebug ("-------------------------------------------\n" +
-                "logic function == update popup\n",
-                "-------------------------------------------");
-    */
-    
-
-	}
-
 
   addEventListener("click", async (event) => {
     if (event.target.id.startsWith("register")) {
-      console.log ( messenger.Utilities.isLicensed()  );
       messenger.Utilities.openLinkExternally("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
-      }
-  });
-  
-  addEventListener("click", async (event) => {
-    if (event.target.id.startsWith("extend")) {
-      messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
-      window.close();
     }
-  });
-
-  addEventListener("click", async (event) => {
+    if (event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
+      messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
+      window.close(); // not allowed by content script!
+    }
     if (event.target.id.startsWith("donate")) {
       messenger.Utilities.openLinkExternally("https://quickfilters.quickfolders.org/donate.html");
     }
@@ -100,42 +79,16 @@
     
     let title = document.getElementById('window-title');
     title.innerText = messenger.i18n.getMessage("window-title", addonName);
-    
-    // LICENSING FLOW
-    let isLicensed = await mxUtilties.isLicensed(true),
-        isExpired = await mxUtilties.LicenseIsExpired();
-          
-    console.log("Addon " + addonName + "\n" +
-      "isLicensed = " + isLicensed + "\n" +
-      "isExpired = " + isExpired + "\n"
-    );    
-    
-    // renew-your-license - already collapsed
-    // renewLicenseListItem - already collapsed
-    // purchaseLicenseListItem - not collapsed
-    if (isLicensed) {
-      document.getElementById('purchaseLicenseListItem').setAttribute('collapsed',true);
-      if (isExpired) { // License Renewal
-        document.getElementById('renewLicenseListItem').setAttribute('collapsed',false);
-        document.getElementById('extend').setAttribute('collapsed',false);
-        document.getElementById('register').setAttribute('collapsed',true);
-      }
-      else { // License Extension
-        document.getElementById('extendLicenseListItem').setAttribute('collapsed',true);
-        document.getElementById('extend').setAttribute('collapsed',true);
-        document.getElementById('register').setAttribute('collapsed',false);
-      }
-    }
-    
+           
+    updateActions(addonName);
+
+    addAnimation('body');
 
   });  
 
   addEventListener("unload", async (event) => {
     let remindMe = document.getElementById("remind").checked;
   });  
-
-
-  licenseLog();
 
 
 

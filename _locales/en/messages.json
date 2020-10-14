@@ -145,7 +145,7 @@
   }, 
 
   "ongoing-work": {
-    "message": "The necessary alterations to switch to the new legacy-less model (mail experiment) already took multiple weeks and are still ongoing, while it is possible that we will be losing some functionality. With a complex Add-on like this, expensive work becomes inevitable."
+    "message": "The necessary alterations to switch to the new legacy-less model (mail experiment) already took multiple weeks and are still ongoing, while some functions could be impacted. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this."
   },
   
   "btn-want-a-license": {
@@ -153,8 +153,14 @@
   } ,
 
   "btn-extend-license": {
-    "message" : "I want to extend my license"
+    "message" : "I want to extend my license by one year"
   } ,
+
+
+  "btn-renew-license": {
+    "message" : "I want to renew my license"
+  } ,
+
 
   "donate-heading" : {
     "message" : "Help by Donating!"
@@ -169,7 +175,7 @@
   } ,
   
   "addon-authors-struggle" : {
-    "message" : "To continue to be useful, Add-on developers now need to step up the resources needed to fix and rewrite so that our users can keep benefiting from the functionality we bring to the table."
+    "message" : "To continue to be useful, Add-on developers now need to fund the resources needed to fix and rewrite so that our users can keep benefiting from the functionality we bring to the table."
   } ,
   
   "btn-want-to-donate" : {

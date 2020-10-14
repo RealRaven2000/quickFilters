@@ -146,7 +146,7 @@
   }, 
   
   "ongoing-work": {
-    "message": "Die notwendigen Änderungen, um auf das neue Modell ohne Legacy (Mail-Experiment) umzusteigen, haben bereits mehrere Wochen gedauert und dauern noch an, während wir möglicherweise einige Funktionen verlieren werden. Mit einem komplexen Add-On wie diesem wird teure Arbeit unvermeidlich."
+    "message": "Die notwendigen Änderungen, um auf das neue Modell ohne Legacy (Mail-Experiment) umzusteigen, dauerten bereits mehrere Wochen und dauern noch an, während einige Funktionen beeinträchtigt werden könnten. Mit einem komplexen Add-On wie diesem wird teure Arbeit unvermeidlich. Bitte helfen Sie uns dabei."
   },
 
   
@@ -155,7 +155,11 @@
   } ,
   
   "btn-extend-license": {
-    "message" : "Ich möchte meine Lizenz verlängern"
+    "message" : "Ich möchte meine Lizenz um ein Jahr verlängern"
+  } ,
+  
+  "btn-renew-license": {
+    "message" : "Ich möchte meine Lizenz erneuern"
   } ,
   
   
