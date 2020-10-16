@@ -26,7 +26,9 @@ async function main() {
         console.log("update...");
         let url = browser.runtime.getURL("popup/update.html");
         //await browser.tabs.create({ url });
-        await browser.windows.create({ url, type: "popup", width: 910, height: 750, });
+        let screenH = window.screen.height,
+            windowHeight = (screenH > 920) ? 920 : screenH;
+        await browser.windows.create({ url, type: "popup", width: 910, height: windowHeight, });
       }
       break;
     // see below

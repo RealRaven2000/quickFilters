@@ -12,7 +12,7 @@
 }
 
 #innerwrapper {
-  position: relative.;
+  position: relative;
   background-color: white;
   padding-left: 10%;
   padding-right: 10%;
@@ -36,10 +36,10 @@
   background-image: url("../chrome/content/skin/QuickFilters_32.svg");
   background-position: 2em 3em; 
   background-repeat: no-repeat; 
-  background-size: 33%;
+  background-size: 70%;
   margin-left: -10%;
-  height: 100%;
-  width: 100%;
+  height: 45%;
+  width: 40%;
 }
 
 ul.actions {
