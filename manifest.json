@@ -27,14 +27,14 @@
           "paths": [["WindowListener"]],
           "script": "chrome/content/api/WindowListener/implementation.js"
         }
-      },  
+      },
       "LegacyPrefs": {
         "schema": "chrome/content/api/LegacyPrefs/schema.json",
         "parent": {
           "scopes": ["addon_parent"],
           "paths": [["LegacyPrefs"]],
           "script": "chrome/content/api/LegacyPrefs/implementation.js"
-        
+
         }
       },
       "Utilities": {
@@ -43,13 +43,13 @@
           "scopes": ["addon_parent"],
           "paths": [["Utilities"]],
           "script": "chrome/content/api/Utilities/implementation.js"
-        
+
          }
       }
     },
 
     "icons": {
-    "32": "chrome/content/skin/QuickFilters_32.png",
-    "64": "chrome/content/skin/QuickFilters_64.png"
+    "32": "chrome/content/skin/QuickFilters_32.svg",
+    "64": "chrome/content/skin/QuickFilters_32.svg"
   }
 }
