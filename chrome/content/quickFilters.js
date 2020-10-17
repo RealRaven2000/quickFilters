@@ -858,8 +858,8 @@ var quickFilters = {
             let numFilters = filterList.filterCount;
             util.logDebugOptional("filterSearch", "checking account [" + ac.prettyName + "] for target folder: " +  targetFolder.URI + '\n'
                                                + "iterating " + numFilters + " filters...");
-            for (let i = 0; i < numFilters; i++)
-            {
+
+            for (let i = 0; i < numFilters; i++) {
               let curFilter = filterList.getFilterAt(i),
                   actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList,
                   acLength = actionList.Count ? actionList.Count() : actionList.length;
@@ -871,9 +871,14 @@ var quickFilters = {
                              */
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) { 
-                    msg += "[" + i + "] Current Filter URI:" +  action.targetFolderUri + "\n";
-                    if (action.targetFolderUri === targetFolder.URI) {
-                      util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
+                    let isTargetMatch = action.targetFolderUri === targetFolder.URI,
+                        title = isTargetMatch ? "MATCHED TARGET: " : 
+                                                "Target URI:     " ;
+                    
+                    msg += "[" + i + "] " + title + action.targetFolderUri + "\n";
+                    if (isTargetMatch) {
+                      util.logDebugOptional("filterSearch", "FOUND FILTER MATCH at index [" + i + "]:\n" 
+                        + "filter '" + curFilter.filterName + "'");
                       matchedFilter = curFilter;
                       matchedAccount = ac;
                       break;

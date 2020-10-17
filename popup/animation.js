@@ -29,7 +29,6 @@ async function addAnimation(el) {
       drawloop();
     }
     coin.src = 'coins-animation-dlr.png';
-    debugger;
 
     function drawloop() {
         if (focused) {

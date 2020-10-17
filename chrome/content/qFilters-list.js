@@ -981,6 +981,10 @@ quickFilters.List = {
         if (args[i].targetFolder) targetFolder = args[i].targetFolder;
         if (args[i].alphabetic) isAlphabetic = args[i].alphabetic;
       }
+      if (targetFolder) {
+        // prepare a dropdown with results!
+        this.findFromTargetFolder(targetFolder);
+      }
       if (targetFilter) {
         // Tb78
         // trying timeout because this causes call to rebuildFilterList with exception "gSearchBox is null"
@@ -999,10 +1003,6 @@ quickFilters.List = {
           }, 150
         );
       }  
-      if (targetFolder) {
-        // prepare a dropdown with results!
-        this.findFromTargetFolder(targetFolder);
-      }
     }
     // set zlevel to raisedZ
     // https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIXULWindow
@@ -1163,7 +1163,7 @@ quickFilters.List = {
   } ,
 
   validateFilterTargets: function validateFilterTargets(sourceURI, targetURI) {
-		quickFilters.Shim.validateFilterTargets(sourceURI, targetURI);
+		quickFilters.Util.validateFilterTargets(sourceURI, targetURI);
   },
 	
 	toggleAssistant: function toggleAssistant(btn) {
@@ -1687,22 +1687,8 @@ quickFilters.List = {
 
 		// check whether we changed to a different server:		
 		if (qList.CurrentFolder != aFolder) {
-			if (typeof onFilterFolderClick !== 'undefined') {
-				// Old Thunderbird specific code. Deprecated in Tb52
-				onFilterFolderClick(aFolder);
-			}
-			else {
-				if (typeof selectServer !== 'undefined') {
-					selectServer(aFolder.URI); // TB + Postbox!
-					if (typeof setFolder !== 'undefined') setFolder(aFolder); // roots the tree
-				}
-				else {
-					// Sm
-					let serverPopup = qList.ServerMenuPopup;
-					serverPopup.selectFolder(aFolder); // this didn't rebuild anymore!
-					if (typeof setServer !== 'undefined') setServer(aFolder);
-				}
-			}
+      let serverPopup = qList.ServerMenuPopup;
+      serverPopup.selectFolder(aFolder); // this didn't rebuild anymore!
 			// rebuild list in case of server change
 			if (typeof gCurrentFilterList !== 'undefined')  // Tb
 				gCurrentFilterList = aFolder.getEditableFilterList(gFilterListMsgWindow);
@@ -1718,12 +1704,13 @@ quickFilters.List = {
   // search results are able to select a different server and thus may not be reset by changing the server manually
   // initial implementation: see quickFilters.searchFiltersFromFolder()
   findFromTargetFolder: function findFromTargetFolder(targetFolder) {
+    const util = quickFilters.Util;
     this.searchFilterResults = [];
-    quickFilters.Util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ')');
+    util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ')');
     
-		quickFilters.Shim.findFromTargetFolder(targetFolder, this.searchFilterResults);
+		util.findFromTargetFolder(targetFolder, this.searchFilterResults);
 		
-    quickFilters.Util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ') COMPLETE \n' 
+    util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ') COMPLETE \n' 
                                 + this.searchFilterResults.length + ' matches found');
   } ,
 	
