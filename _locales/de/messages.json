@@ -183,6 +183,11 @@
     "message" : "Ich möchte mit einer einmaligen Spende helfen."
   } ,
   
+  "translated-by-google" : {
+    "message": "translations provided by google",
+    "description": "disclaimer."
+  },
+  
   "label-remind-me" : {
     "message": "Erinnern Sie mich noch einmal in $ countDays $ Tagen.",
     "placeholders": {
@@ -191,16 +196,5 @@
         "example" : "10"
       }    
     }    
-  },  
-  
-  "notificationContent": {
-    "message": "You clicked $URL$.",
-    "description": "Tells the user which link they clicked.",
-    "placeholders": {
-      "url" : {
-        "content" : "$1",
-        "example" : "https://developer.mozilla.org"
-      }
-    }
   }
 }

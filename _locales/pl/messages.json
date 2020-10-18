@@ -5,7 +5,7 @@
   },
 
   "extensionDescription": {
-    "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
+    "message": "Szybko generuj reguły filtrowania poczty w locie, przeciągając i upuszczając wiadomości oraz analizując ich atrybuty.",
     "description": "Description of the extension."
   },
 
@@ -15,7 +15,7 @@
   },
   
   "window-title": {
-    "message": "Welcome to $addonName$",
+    "message": "Witamy w $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",
     "placeholders": {
       "addonName" : {
@@ -26,7 +26,7 @@
   },
 
   "heading-updated": {
-    "message": "$addonName$ Updated Successfully",
+    "message": "$addonName$ Zaktualizowano pomyślnie",
     "description": "page heading. first placeholder will be replaced with Add-on name",
     "placeholders": {
       "addonName" : {
@@ -37,7 +37,7 @@
   },
   
   "heading-installed": {
-    "message": "Successfully installed $addonName$",
+    "message": "Pomyślnie zainstalowano $addonName$",
     "description": "page heading. first placeholder will be replaced with Add-on name",
     "placeholders": {
       "addonName" : {
@@ -49,7 +49,7 @@
   
   
   "thanks-for-updating-intro": {
-    "message": "Thank you for updating $addonName$.",
+    "message": "Dziękujemy za aktualizację $addonName$.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -59,7 +59,7 @@
   },
   
   "thanks-for-installing-intro": {
-    "message": "Thank you for installing $addonName$.",
+    "message": "Dziękujemy za zainstalowanie programu $addonName$.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -69,7 +69,7 @@
   },  
   
  "active-version-info" : {
-    "message": "You are now running {boldStart} version $addonVer$ {boldEnd} on Thunderbird $appVer$.",
+    "message": "Używasz teraz {boldStart} wersji $addonVer$ {boldEnd} na Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer" : {
@@ -85,7 +85,7 @@
   },  
   
   "time-and-effort": { 
-    "message": "My Add-ons require fundamental changes in order to remain compatible with the Mozilla platform. My development team at Github (Realraven2000, opto and paenglab) is working diligently to restore full functionality for $addonName$ .",
+    "message": "Moje dodatki wymagają fundamentalnych zmian, aby pozostać kompatybilnymi z platformą Mozilla. Mój zespół programistów w Github (Realraven2000, opto i paenglab) pilnie pracuje, aby przywrócić pełną funkcjonalność $addonName$.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -95,7 +95,7 @@
   },
   
   "hours-effort" : {
-    "message": "We have already spent significant resources (over $hoursSpent$ hours) on the conversion project - and there is more work in fixing regressions and issues caused by changes in Thunderbird.",
+    "message": "Wydaliśmy już znaczne zasoby (ponad $hoursSpent$ godzin) na projekt konwersji - i jest więcej pracy w naprawianiu regresji i problemów spowodowanych zmianami w Thunderbirdzie.",
     "placeholders": {
       "hoursSpent" : {
         "content" : "$1", 
@@ -105,7 +105,7 @@
   },
   
   "support-suggestion" : {
-    "message": "So that $addonName$ stays functional and alive, please do it a vital favor:",
+    "message": "Aby $addonName$ działało i żyło, zrób to bardzo ważną przysługę:",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -115,27 +115,27 @@
   },
   
   "purchase-a-license" : {
-    "message" : "Purchase a license."
+    "message" : "Kup licencję."
   }, 
       
   "renew-your-license" : {
-    "message" : "Renew your license."
+    "message" : "Odnów licencję."
   },  
   
   "extend-your-license" : {
-    "message" : "Consider extending your license by a year."
+    "message" : "Rozważ przedłużenie licencji o rok."
   },  
-  
+      
   "donate" : {
-    "message" : "Help out with a one time donation."
+    "message" : "Pomóż w postaci jednorazowej darowizny."
   },   
    
   "purchase-heading" : {
-    "message" : "Buying a License!"
+    "message" : "Kupowanie licencji!"
   }, 
   
   "support-preference" : {
-    "message": "This is the preferred way of supporting $addonName$.",
+    "message": "Jest to preferowany sposób obsługi $addonName$.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -145,50 +145,49 @@
   }, 
 
   "ongoing-work": {
-    "message": "The necessary alterations to switch to the new legacy-less model (mail experiment) already took multiple weeks and are still ongoing, while some functions could be impacted. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this."
+    "message": "Niezbędne zmiany w celu przejścia na nowy model bez starszych wersji (eksperyment z pocztą) zajęły już wiele tygodni i nadal trwają, chociaż może to mieć wpływ na niektóre funkcje. Z tak złożonym dodatkiem, kosztowna praca staje się nieunikniona. Proszę, pomóż nam w tym."
   },
   
   "btn-want-a-license": {
-    "message" : "I want to buy a license"
+    "message" : "Chcę kupić licencję"
   } ,
 
   "btn-extend-license": {
-    "message" : "I want to extend my license by one year"
+    "message" : "Chcę przedłużyć moją licencję o rok"
   } ,
 
 
   "btn-renew-license": {
-    "message" : "I want to renew my license"
+    "message" : "Chcę odnowić licencję"
   } ,
 
-
   "donate-heading" : {
-    "message" : "Help by Donating!"
+    "message" : "Pomóż poprzez darowiznę!"
   } ,
 
   "cost-of-independence" : {
-    "message" : "Software development costs time and money - unlike many platform apps, Add-ons are not written by large corporations, nor are they sponsored in any way by Mozilla."
+    "message" : "Tworzenie oprogramowania kosztuje czas i pieniądze - w przeciwieństwie do wielu aplikacji platformowych, dodatki nie są pisane przez duże korporacje ani w żaden sposób nie są sponsorowane przez Mozillę."
   } ,
   
   "mozillas-basic-platform" : {
-    "message" : "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
+    "message" : "Mozilla zapewnia jedynie podstawową platformę do dostarczania naszego oprogramowania użytkownikom końcowym. Jeśli musimy poprosić naszych użytkowników o płatność lub wsparcie, nie możemy tego zrobić z addons.thunderbird.net - nie jest to „sklep z aplikacjami” z wbudowanymi paywallami lub zarządzaniem licencjami, jak iTunes czy Google Play."
   } ,
   
   "addon-authors-struggle" : {
-    "message" : "To continue to be useful, Add-on developers now need to fund the resources needed to fix and rewrite so that our users can keep benefiting from the functionality we bring to the table."
+    "message" : "Aby nadal być użytecznym, my, programiści dodatków, musimy teraz finansować zasoby potrzebne do naprawy i przepisywania, aby nasi użytkownicy mogli nadal korzystać z oferowanych przez nas funkcji."
   } ,
   
   "btn-want-to-donate" : {
-    "message" : "I want to help with a one time donation."
+    "message" : "Chcę pomóc w sprawie jednorazowej darowizny."
   } ,
   
   "translated-by-google" : {
-    "message": "translations provided by google",
+    "message": "tłumaczenia dostarczone przez Google",
     "description": "disclaimer."
   },
   
   "label-remind-me" : {
-    "message": "Remind me again in $countDays$ days.",
+    "message": "Przypomnij mi ponownie za $countDays$ dni.",
     "placeholders": {
       "countDays" : {
         "content" : "$1", 
