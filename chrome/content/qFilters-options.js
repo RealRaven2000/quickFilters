@@ -10,11 +10,8 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-if (typeof ChromeUtils.import == "undefined")
-	Components.utils.import('resource://gre/modules/Services.jsm');
-else
-	// ChromeUtils.defineModuleGetter(this, "Services", 'resource://gre/modules/Services.jsm');
-	var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
+// ChromeUtils.defineModuleGetter(this, "Services", 'resource://gre/modules/Services.jsm');
+var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 quickFilters.Options = {
 	optionsMode : "",  // filter out certain pages (for support / help only)
@@ -107,8 +104,8 @@ quickFilters.Options = {
 		}	
 		util.logDebug("loadPreferences - start:");
     
-    let myprefElements = document.querySelectorAll("[preference]");
-		let foundElements = {};
+    let myprefElements = document.querySelectorAll("[preference]"),
+		    foundElements = {};
 		for (let myprefElement of myprefElements) {
       let legacyPrefId = myprefElement.getAttribute("preference");
 			foundElements[legacyPrefId] = myprefElement;
@@ -118,13 +115,13 @@ quickFilters.Options = {
 		if (myprefs.length) {
 			let prefArray = [];
 			for (let it of myprefs) {
-				let p = new Object({ id: it.getAttribute('name'), 
-						      name: it.getAttribute('name'),
-						      type: it.getAttribute('type') });
-				// not supported
-				// if (it.getAttribute('instantApply') == "true") p.instantApply = true;
+				let p = { 
+          id: it.getAttribute('name'), 
+          name: it.getAttribute('name'),
+          type: it.getAttribute('type') 
+        };
 				prefArray.push(p);
-			    // manually change the shortname in the preference attribute to the actual
+        // manually change the shortname in the preference attribute to the actual
 				// preference "id" (as in the preference manager)
 				foundElements[it.id].setAttribute("preference", it.getAttribute("name"));
 			}
