@@ -540,7 +540,6 @@ var quickFilters = {
 			}
       // for move to / copy to recent context menus we might have to wrap mailWindowOverlay.js:MsgMoveMessage in Tb!
       
-      
       // problem with setTimeout in SeaMonkey - it opens the window and then never calls the function?
       if (quickFilters.Preferences.getBoolPref("autoStart") &&  !quickFilters.Worker.FilterMode) 
       {
@@ -594,6 +593,12 @@ var quickFilters = {
       // or we do 
       quickFilters.onToolbarButtonCommand();
       // filterWorker.toggleFilterMode(false, false);
+    }
+    if (quickFilters.executeMoveMessage) {
+      MsgMoveMessage = quickFilters.executeMoveMessage;
+    }
+    if (quickFilters.MsgCopy_Wrapper) {
+      MsgCopyMessage = quickFilters.executeCopyMessage;
     }
     // remove the event handlers!
   },
@@ -1151,8 +1156,9 @@ var quickFilters = {
     const util = quickFilters.Util,
           worker = quickFilters.Worker,
           prefs = quickFilters.Preferences,
-					Ci = Components.interfaces,
-		      rdf = Components.classes['@mozilla.org/rdf/rdf-service;1'].getService(Ci.nsIRDFService);
+					Ci = Components.interfaces;
+		      // obsolete in TB78
+          // rdf = Components.classes['@mozilla.org/rdf/rdf-service;1'].getService(Ci.nsIRDFService);
 					
     // MsgMoveMessage wrapper function
     try {
@@ -1160,8 +1166,7 @@ var quickFilters = {
       if (prefs.isDebug) debugger;
 			if (worker.FilterMode) {
 				let sourceFolder = util.getCurrentFolder(),
-						destResource = (uri.QueryInterface && uri.QueryInterface(Ci.nsIMsgFolder)) ? 
-							uri : rdf.GetResource(uri),
+						destResource = uri,  // remove rdf.GetResource(uri) - this really is a wrapper for the folder!
 						destMsgFolder = destResource.QueryInterface(Ci.nsIMsgFolder),						
 						// get selected message uris - see case 'createFilterFromMsg'
 						selectedMessages = gFolderDisplay.selectedMessages,

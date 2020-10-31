@@ -84,25 +84,13 @@ quickFilters.Util = {
 					Ci =  Components.interfaces;
     let msgfolder = null;
     var { MailUtils } = ChromeUtils.import("resource:///modules/MailUtils.jsm");
-    if (typeof MailUtils != 'undefined') {
-			if (MailUtils.getExistingFolder)
-				return MailUtils.getExistingFolder(uri, checkFolderAttributes);
-			else	
-				return MailUtils.getFolderForURI(uri, checkFolderAttributes);
-    }
     try {
-			let rdfService = Cc['@mozilla.org/rdf/rdf-service;1'].getService(Ci.nsIRDFService);
-			msgfolder = rdfService.GetResource(uri);
-			if (!msgfolder) {
-				let main = this.getMail3PaneWindow(),
-						resource = main.GetMsgFolderFromUri ? main.GetMsgFolderFromUri(uri, checkFolderAttributes) : main.GetResourceFromUri(uri); 
-				msgfolder = resource.QueryInterface(Components.interfaces.nsIMsgFolder);
-			}
-			if (checkFolderAttributes) {
-				if (!(msgfolder && (msgfolder.parent || msgfolder.isServer))) {
-					msgfolder = null;
-				}
-			}
+      if (typeof MailUtils != 'undefined') {
+        if (MailUtils.getExistingFolder)
+          return MailUtils.getExistingFolder(uri, checkFolderAttributes);
+        else	
+          return MailUtils.getFolderForURI(uri, checkFolderAttributes);
+      }
     }
     catch (ex) {
        //dump("failed to get the folder resource\n");

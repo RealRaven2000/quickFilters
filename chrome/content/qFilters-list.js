@@ -991,9 +991,9 @@ quickFilters.List = {
         // maybe document isn't ready at this stage?
         setTimeout(
           function() {
-            this.selectFilter(targetFilter);
+            qList.selectFilter(targetFilter);
             if (isAlphabetic)
-              this.moveAlphabetic(targetFilter);
+              qList.moveAlphabetic(targetFilter);
             if (typeof getFirstFolder != 'undefined') {
               // set run folder:
               let rootFolder = qList.CurrentFolder.rootFolder,
@@ -1079,6 +1079,7 @@ quickFilters.List = {
   updateCountBox: function updateCountBox(forceCount) {
 		try {
       return;
+/*      
 			let countBox = document.getElementById("quickFilters-Count"),
 					sum = this.FilterList.filterCount,
 					filterList = this.FilterListElement,
@@ -1094,6 +1095,7 @@ quickFilters.List = {
 				countBox.value = document.getElementById ('quickFilters-Count-n-of-m').value
 					.replace('{0}', len.toString())
 					.replace('{1}', sum.toString());
+*/
 		}
 		catch(ex) {
 			quickFilters.Util.logException("Exception in quickFilters.List.updateCountBox()", ex);
