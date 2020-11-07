@@ -194,10 +194,5 @@
         "example" : "10"
       }    
     }    
-  },  
-  
-  "translated-by-google" : {
-    "message": "谷歌提供的翻譯",
-    "description": "disclaimer."
   }
 }
