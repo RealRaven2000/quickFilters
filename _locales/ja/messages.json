@@ -69,7 +69,7 @@
   },  
   
  "active-version-info" : {
-    "message": "これで、Thunderbird $appVer$ で{boldStart}バージョン $addonVer$ {boldEnd}を実行しています。",
+    "message": "Thunderbird $appVer$ 上で{boldStart}バージョン $addonVer$ {boldEnd}を実行しています。",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer" : {
@@ -85,7 +85,7 @@
   },  
   
   "time-and-effort": { 
-    "message": "私のアドオンは、Mozillaプラットフォームとの互換性を維持するために、根本的な変更が必要です。 Githubの私の開発チーム（Realraven2000、opto、paenglab）は、$addonName$ の全機能を復元するために熱心に取り組んでいます。",
+    "message": "私のアドオンは、Mozilla プラットフォームとの互換性を維持するために、根本的な変更を必要としています。Github の私の開発チーム (Realraven2000、opto、paenglab) は、$addonName$ の全機能を復元するために熱心に取り組んでいます。",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -95,7 +95,7 @@
   },
   
   "hours-effort" : {
-    "message": "変換プロジェクトにはすでにかなりのリソース（$hoursSpent$時間以上）を費やしており、Thunderbirdの変更によって引き起こされるリグレッションや問題の修正にはさらに多くの作業があります。",
+    "message": "変換プロジェクトにはすでにかなりのリソース ($hoursSpent$ 時間以上) を費やしており、Thunderbird の変更によって引き起こされるリグレッションや問題の修正にはさらに多くの作業が必要です。",
     "placeholders": {
       "hoursSpent" : {
         "content" : "$1", 
@@ -105,7 +105,7 @@
   },
   
   "support-suggestion" : {
-    "message": "$addonName$が機能し、存続するように、それを非常に重要なものにしてください。",
+    "message": "$addonName$ が機能し、存続できるように、重要なお願いがあります。",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -115,19 +115,19 @@
   },
   
   "purchase-a-license" : {
-    "message" : "ライセンスを購入します。"
+    "message" : "ライセンスを購入する。"
   }, 
       
   "renew-your-license" : {
-    "message" : "ライセンスを更新します。"
+    "message" : "ライセンスを更新する。"
   },  
   
   "extend-your-license" : {
-    "message" : "ライセンスを1年延長することを検討してください。"
+    "message" : "ライセンスを 1 年延長する。"
   },  
       
   "donate" : {
-    "message" : "一度の寄付を手伝ってください。"
+    "message" : "1 回限りの寄付を行う。"
   },   
    
   "purchase-heading" : {
@@ -135,7 +135,7 @@
   }, 
   
   "support-preference" : {
-    "message": "これは、$addonName$をサポートするための推奨される方法です。",
+    "message": "これは、$addonName$ をサポートするために推奨される方法です。",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -145,32 +145,32 @@
   }, 
 
   "ongoing-work": {
-    "message": "新しいレガシーレスモデル（メール実験）に切り替えるために必要な変更は、すでに数週間かかり、現在も進行中ですが、一部の機能が影響を受ける可能性があります。 このような複雑なアドオンを使用すると、高価な作業が避けられなくなります。 これで私たちを助けてください。"
+    "message": "新しいレガシーレスモデル（メール実験）に切り替えるために必要な変更は、すでに数週間かかり、現在も進行中ですが、一部の機能が影響を受ける可能性があります。このような複雑なアドオンのためには、多額のコストが避けられません。支援をお願いします。"
   },
   
   "btn-want-a-license": {
-    "message" : "ライセンスを購入したい"
+    "message" : "ライセンスを購入します"
   } ,
 
   "btn-extend-license": {
-    "message" : "ライセンスを1年延長したい"
+    "message" : "ライセンスを 1 年延長します"
   } ,
 
 
   "btn-renew-license": {
-    "message" : "ライセンスを更新したい"
+    "message" : "ライセンスを更新します"
   } ,
 
   "donate-heading" : {
-    "message" : "寄付して助けてください！"
+    "message" : "寄付する！"
   } ,
 
   "cost-of-independence" : {
-    "message" : "ソフトウェア開発には時間とお金がかかります-多くのプラットフォームアプリとは異なり、アドオンは大企業によって作成されておらず、Mozillaによって後援されていません。"
+    "message" : "ソフトウェア開発には時間とお金がかかります - 多くのプラットフォームアプリとは異なり、アドオンは大企業によって作成されているわけではなく、Mozilla による支援もありません。"
   } ,
   
   "mozillas-basic-platform" : {
-    "message" : "Mozillaは、エンドユーザーであるあなたにソフトウェアを提供するための基本的なプラットフォームのみを提供します。 ユーザーに支払いやサポートを依頼する必要がある場合、addons.thunderbird.netからこれを行うことはできません。これは、ペイウォールやiTunesやGooglePlayのようなライセンス管理が組み込まれた「アプリストア」ではありません。"
+    "message" : "Mozilla は、エンドユーザーであるあなたにソフトウェアを提供するための基本的なプラットフォームのみを提供します。ユーザーに支払いやサポートを依頼する必要がある場合、addons.thunderbird.net からこれを行うことはできません。これは、アプリ内決済機能や、iTunes や Google Play のようなライセンス管理が組み込まれた「アプリストア」ではありません。"
   } ,
   
   "addon-authors-struggle" : {
@@ -178,7 +178,7 @@
   } ,
   
   "btn-want-to-donate" : {
-    "message" : "一度の寄付を手伝いたいです。"
+    "message" : "1 回限りの寄付を行います"
   } ,
   
   "translated-by-google" : {
@@ -187,7 +187,7 @@
   },
   
   "label-remind-me" : {
-    "message": "$countDays$日後にもう一度思い出してください。",
+    "message": "$countDays$ 日後にもう一度表示します。",
     "placeholders": {
       "countDays" : {
         "content" : "$1", 
