@@ -1695,12 +1695,10 @@ quickFilters.Assistant = {
           prefs = quickFilters.Preferences;
 
     // wire up dialog buttons manually in Thunderbird 68 (something going wrong there with the click events)    
-    if (util.Application=="Thunderbird" && util.PlatformVersion>=68.0) {
-      let dlgButtons = document.getElementsByTagName('dialog')[0]._buttons;
-      dlgButtons['extra1'].addEventListener("click", function(event) {return quickFilters.Assistant.next();});
-      dlgButtons['cancel'].addEventListener("click", function(event) {return quickFilters.Assistant.cancelTemplate();});
-      dlgButtons['extra2'].addEventListener("click", function(event) {quickFilters.Util.showLicensePage();});
-    }
+    let dlgButtons = document.getElementsByTagName('dialog')[0]._buttons;
+    dlgButtons['extra1'].addEventListener("click", function(event) {return quickFilters.Assistant.next();});
+    dlgButtons['cancel'].addEventListener("click", function(event) {return quickFilters.Assistant.cancelTemplate();});
+    dlgButtons['extra2'].addEventListener("click", function(event) {quickFilters.Util.showLicensePage();});
     
           
     if (prefs.isDebugOption('buildFilter')) debugger;
@@ -1815,19 +1813,14 @@ quickFilters.Assistant = {
     templateList.value = prefs.getCurrentFilterTemplate();
     // ensureIndexIsVisible ?
     window.sizeToContent();
+    // Tb 78 for some reason moves the window to the top left?
+    // move assistant to center of screen
+    util.centerWindow(window);
+    
     templateList.ensureIndexIsVisible(templateList.selectedIndex);
     
     // hide flag / star checkbox depending on application
-    let hideCheckbox;
-    switch(util.Application) {
-      case 'Thunderbird':
-        hideCheckbox = 'chkActionFlag';
-        break;
-      case 'SeaMonkey':
-        hideCheckbox = 'chkActionStar';
-        break;
-    }
-    
+    const hideCheckbox = 'chkActionFlag';
     let chk = document.getElementById(hideCheckbox);
     if (chk)
       chk.collapsed = true;

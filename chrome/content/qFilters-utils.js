@@ -2130,6 +2130,19 @@ quickFilters.Util = {
     }  
     
   } ,  
+  
+  // center a window on screen
+  centerWindow: function(window) {
+    if (!window) return;
+    if (window.screenX==0) {
+      let dx = window.outerHeight / 2,
+          dy = window.outerWidth / 2;
+      window.moveTo(window.screen.availWidth/2 - dx,
+                    window.screen.availHeight/2 -dy);
+      
+    }
+  } ,
+
 	
   dummy: function() {
 		/* 
@@ -2629,12 +2642,7 @@ quickFilters.mimeDecoder = {
 
 
 /*** Code moved from chimEcma/qFilters-shim-ecma.js  ===> **/
-// MODERN SHIM CODE
-if (typeof ChromeUtils.import == "undefined")
-	Components.utils.import('resource://gre/modules/Services.jsm');
-else
-	// ChromeUtils.defineModuleGetter(this, "Services", 'resource://gre/modules/Services.jsm');
-	var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 	
 if (!quickFilters.Util.Accounts) {
 	Object.defineProperty(quickFilters.Util, "Accounts",

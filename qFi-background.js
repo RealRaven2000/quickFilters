@@ -41,19 +41,19 @@ async function main() {
     
   messenger.WindowListener.registerChromeUrl([ 
         ["content", "quickfilters", "chrome/content/"],
-        ["locale", "quickfilters", "en", "chrome/locale/en/"],
-        ["locale", "quickfilters", "de", "chrome/locale/de/"],
-        ["locale", "quickfilters", "es-AR", "chrome/locale/es-MX/"],
-        ["locale", "quickfilters", "es", "chrome/locale/es/"],
-        ["locale", "quickfilters", "fr", "chrome/locale/fr/"],
-        ["locale", "quickfolders", "hu-HU", "chrome/locale/hu-HU/"],
-        ["locale", "quickfilters", "it", "chrome/locale/it/"],
-        ["locale", "quickfilters", "ja", "chrome/locale/ja/"],
-        ["locale", "quickfilters", "nl", "chrome/locale/nl/"],
-        ["locale", "quickfilters", "ru", "chrome/locale/ru/"],
-        ["locale", "quickfilters", "sv-SE", "chrome/locale/sv-SE/"],
-        ["locale", "quickfilters", "vi", "chrome/locale/vi/"],
-        ["locale", "quickfilters", "zh-CN", "chrome/locale/zh-CN/"]
+        ["locale",  "quickfilters", "en",    "chrome/locale/en/"],
+        ["locale",  "quickfilters", "de",    "chrome/locale/de/"],
+        ["locale",  "quickfilters", "es-AR", "chrome/locale/es-MX/"],
+        ["locale",  "quickfilters", "es",    "chrome/locale/es/"],
+        ["locale",  "quickfilters", "fr",    "chrome/locale/fr/"],
+        ["locale",  "quickfolders", "hu-HU", "chrome/locale/hu-HU/"],
+        ["locale",  "quickfilters", "it",    "chrome/locale/it/"],
+        ["locale",  "quickfilters", "ja",    "chrome/locale/ja/"],
+        ["locale",  "quickfilters", "nl",    "chrome/locale/nl/"],
+        ["locale",  "quickfilters", "ru",    "chrome/locale/ru/"],
+        ["locale",  "quickfilters", "sv-SE", "chrome/locale/sv-SE/"],
+        ["locale",  "quickfilters", "vi",    "chrome/locale/vi/"],
+        ["locale",  "quickfilters", "zh-CN", "chrome/locale/zh-CN/"]
     
       ]);
  

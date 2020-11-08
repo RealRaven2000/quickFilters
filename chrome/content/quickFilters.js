@@ -1208,11 +1208,13 @@ var quickFilters = {
         else {
           if (isCopy) {
             util.logDebugOptional('msgMove', "Executing original CopyMessage [[");
-            quickFilters.executeCopyMessage(uri);
+            // calls original copy message function of Thunderbird
+            quickFilters.executeCopyMessage(uri); 
           }
           else {
             util.logDebugOptional('msgMove', "Executing original MoveMessage [[");
-            quickFilters.executeMoveMessage(uri); // calls original MsgMoveMessage
+            // call original move message function of Thunderbird
+            quickFilters.executeMoveMessage(uri); 
           }
           util.logDebugOptional('msgMove', "After original Move/CopyMessage.]]");
         }
