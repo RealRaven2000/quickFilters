@@ -17,18 +17,30 @@
   background-image: none !important;
 }
 
-.search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] {
-  -moz-binding: url("chrome://quickfilters/content/bindings.xml#textbox");
-	/* -moz-appearance: textfield; from fx forms.css  */
-	/* background-color: #FFFF66; light yellow, for testing, add qF icon later */
-	/*-moz-binding: url("chrome://global/content/bindings/textbox.xml#textbox");*/
+/*custom search conditions: overloading the textbox */
+
+/* style the file picker + textbox elements so that the textbox stretches */
+hbox.flexelementcontainer {
+  display: inline-flex !important;
+}
+hbox.flexelementcontainer[hidden] {
+  display: none !important;
+}
+input.flexinput {
+  flex-grow: 2 !important;
 }
 
-.search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] .textbox-input {
-	background-image:  url("chrome://quickfilters/content/skin/qFilters-watermark.png");
+/* bindings removed for Thunderbird 78 */
+.search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] {
+  -moz-box-flex: 1;
+}
+
+.search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] .qi-textbox {
+	background-image:  url("chrome://quickfilters/content/skin/QuickFilters_32.svg");
+  background-size: auto 16px;
+  padding-left: 18px;
 	background-repeat: no-repeat;
-	background-position: right center;
-	background-position: right center;
+	background-position: left center;
 }
 
 #quickFilters-CustomTemplate {

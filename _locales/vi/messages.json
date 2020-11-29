@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Cảm ơn bạn đã gia hạn giấy phép gần đây hoặc nếu bạn đã đóng góp. Vì bạn đã giúp chứng minh Tiện ích bổ sung này trong tương lai, bạn có thể chỉ cần đóng cửa sổ này.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "Tiện ích bổ sung của tôi yêu cầu những thay đổi cơ bản để vẫn tương thích với nền tảng Mozilla. Nhóm phát triển của tôi tại Github (Realraven2000, opto và paenglab) đang làm việc siêng năng để khôi phục toàn bộ chức năng cho $addonName$.",
     "placeholders": {

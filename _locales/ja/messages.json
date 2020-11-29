@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "最近ライセンスを延長するか、寄付していただきありがとうございます。 このアドオンの将来の保証に役立ったので、このウィンドウを閉じるだけです。",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "私のアドオンは、Mozilla プラットフォームとの互換性を維持するために、根本的な変更を必要としています。Github の私の開発チーム (Realraven2000、opto、paenglab) は、$addonName$ の全機能を復元するために熱心に取り組んでいます。",
     "placeholders": {

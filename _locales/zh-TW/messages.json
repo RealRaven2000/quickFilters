@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "感謝您最近延長許可證或捐贈。 當您幫助將來對該插件進行驗證時，只需關閉此窗口即可。",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "我的附加組件需要進行基本更改，以保持與Mozilla平台的兼容性。 我在Github的開發團隊（Realraven2000，opto和paenglab）正在努力恢復$addonName$的全部功能。",
     "placeholders": {

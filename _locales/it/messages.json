@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Grazie per aver recentemente esteso la tua licenza o se hai donato. Poiché hai contribuito a rendere questo componente aggiuntivo a prova di futuro, puoi semplicemente chiudere questa finestra.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "I miei componenti aggiuntivi richiedono modifiche fondamentali per rimanere compatibili con la piattaforma Mozilla. Il mio team di sviluppo in Github (Realraven2000, opto e paenglab) sta lavorando diligentemente per ripristinare la piena funzionalità di $addonName$.",
     "placeholders": {

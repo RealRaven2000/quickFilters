@@ -1,3 +1,11 @@
+/* BEGIN LICENSE BLOCK
+
+quickFilters is released under the Creative Commons (CC BY-ND 4.0)
+Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) 
+For details, please refer to license.txt in the root folder of this extension
+
+END LICENSE BLOCK */
+// Script for splash screen displayed when installing this Extension
 
 addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("register")) {
@@ -15,11 +23,14 @@ addEventListener("click", async (event) => {
 
 
   addEventListener("load", async (event) => {
-    const addonName = await browser.runtime.getManifest().name, // or mxUtilties.getAddonName()); == 'quickFilters'
-          hoursWorked = 250;
+    const manifest = await messenger.runtime.getManifest(),
+          browserInfo = await messenger.runtime.getBrowserInfo(),
+          addonName = manifest.name, 
+          addonVer = manifest.version,
+          appVer = browserInfo.version,
+          hoursWorked = 290;
     const mxUtilties = messenger.Utilities;
 
-    console.log("load event install case.");
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
     i18n.updateDocument();
@@ -32,15 +43,11 @@ addEventListener("click", async (event) => {
     
     let thanksInfo = document.getElementById('thanks-for-installing-intro');
     if (thanksInfo) {
-      console.log("thanksInfo = v v v ");
-      console.log(thanksInfo);
       thanksInfo.innerText = messenger.i18n.getMessage("thanks-for-installing-intro", addonName);
     }
     
     let verInfo = document.getElementById('active-version-info');
     if (verInfo) {
-      let addonVer = await mxUtilties.getAddonVersion(),
-          appVer = await mxUtilties.getTBVersion();
       
       // use the i18n API      
       // You are now running <b class="versionnumber">version {version}</b> on Thunderbird {appver}.

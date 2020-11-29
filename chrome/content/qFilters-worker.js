@@ -1011,7 +1011,7 @@ quickFilters.Worker = {
         // [Bug 25714] Fixed two-way Addressing
         // [Bug 25876] Fixed ONE-way addressing
         let twoWayAddressing = !prefs.getBoolPref("searchterm.addressesOneWay");
-        if (twoWayAddressing || template=='from' || template=='domain') {
+        if ((twoWayAddressing && template!='replyto') || template=='from' || template=='domain') {
           // from
           addressArray = emailAddress.split(",");
           let op =  (template === 'domain') ? typeOperator.EndsWith : typeOperator.Contains;

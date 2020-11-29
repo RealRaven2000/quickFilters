@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Dziękujemy za niedawne przedłużenie licencji lub przekazanie darowizny. Ponieważ pomogłeś w przygotowaniu tego dodatku w przyszłości, możesz po prostu zamknąć to okno.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "Moje dodatki wymagają fundamentalnych zmian, aby pozostać kompatybilnymi z platformą Mozilla. Mój zespół programistów w Github (Realraven2000, opto i paenglab) pilnie pracuje, aby przywrócić pełną funkcjonalność $addonName$.",
     "placeholders": {

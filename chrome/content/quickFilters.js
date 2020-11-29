@@ -400,11 +400,14 @@ END LICENSE BLOCK
   4.4.1 - 20/06/2020 
     # Fixed a layout problem in settings that caused some bad text characters showing at the top of the dialog.
       
-  5.0 - WIP
+  5.0 - 29/11/2020
     # [issue 14] make quickFilters compatible with THUNDERBIRD 78
     #            convert to web experiment
     #            subscribe to https://github.com/RealRaven2000/quickFilters/issues/14 for up-to-date news on this
-    
+    # [issue 39] Rewrite "Reply-To" custom condition to work without bindings.
+    # [issue 33] Copy  / move mail context menu broken with quickfilters
+    # [issue 27] Filter creation (merging) window not sized constrained when many test items.
+    # [issue 26] "Next Steps" does not over-ride "Settings/Actions."
    
   ============================================================================================================
   FUTURE WORK:
@@ -1541,12 +1544,10 @@ quickFilters.CustomTermReplyTo = {
   getAvailable: function customTermReplyTo_getAvailable(scope, op) {
     return this._isLocalSearch(scope); // && Preferences.getBoolPref(customTermReplyToEnabled);
   },
-  getAvailableOperators: function customTermReplyTo_getAvailableOperators(scope, length) {
+  getAvailableOperators: function customTermReplyTo_getAvailableOperators(scope) {
     if (!this._isLocalSearch(scope)) {
-      length.value = 0;
       return [];
     }
-    length.value = 6;
     let nsMsgSearchOp = Components.interfaces.nsMsgSearchOp;
     return [nsMsgSearchOp.Contains, nsMsgSearchOp.DoesntContain, nsMsgSearchOp.Is, nsMsgSearchOp.Isnt, nsMsgSearchOp.BeginsWith, nsMsgSearchOp.EndsWith];
   },

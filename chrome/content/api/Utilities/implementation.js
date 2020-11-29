@@ -3,8 +3,6 @@
 var { ExtensionCommon } = ChromeUtils.import("resource://gre/modules/ExtensionCommon.jsm"),
     { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm"),
     win = Services.wm.getMostRecentWindow("mail:3pane");
-//das geht nicht:
-//Services.scriptloader.loadSubScript("chrome://quickfolders/content/quickfolders-preferences.js", window, "UTF-8");
 
 console.log("quickFilters - implementation utilities");
 var Utilities = class extends ExtensionCommon.ExtensionAPI {
@@ -41,6 +39,13 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
         LicenseIsProUser() {
           return  win.quickFilters.Util.hasPremiumLicense(false);
+        },
+
+        LicensedDaysLeft() {
+          let today = new Date(),
+              licensedDate = new Date(win.quickFilters.Licenser.DecryptedDate),
+              daysLeft = parseInt((licensedDate - today) / (1000 * 60 * 60 * 24)); 
+          return daysLeft;
         },
 
         getAddonVersion() {

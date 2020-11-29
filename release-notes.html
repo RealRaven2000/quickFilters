@@ -1,18 +1,16 @@
-quickFilters Change Log - Version 4.4.1
-
-
-I am currently paying somebody to migrate all my Add-on support sites away from the free host on mozdev.org, which is closing operation end of June. To keep having support sites and ongoing development, please <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-notes">buy a license</a> (the complete migration cost me $650, so there are some expense I hope to recover from the community of users).
-
-I will also have to rewrite all mail Add-ons as web extensions, which is currently not yet possible as all necessary APIs to replace the deprecated tech has not been implemented. As in between step I plan to release QuickFolders as a "web experiment" for Thunderbird 78+ but this will take a few weeks of work. If you are interested in using a version of quickFilters that works with Thunderbird 78, <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-notes">buy a license</a> to support the project.
+quickFilters Change Log - Version 5.0
 
 <ul>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/2">[issue 12]</a> Pro Feature: Add keyboard shortcuts for Run Filters buttons. These can be enabled and configured on  the quickFilters Pro tab. This feature is useful for archiving or anti-Junkfilters which should be configured to only run manually.
-      
-      Default shortcuts are:
-        Shift + F: Run Filters on folder
-        Shift + R: Run Filters on selected mails
-</li>
-<li>migrated support website from free server mozdev.org to github.</li>  
-<li>4.4.1 - Fixed a layout problem in settings that caused some bad text characters showing at the top of the dialog.</li>
-</ul>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/14">[issue 14]</a> quickFilters  was migrated to Thunderbird 78, and is now finally available after a lengthy beta phase on addons.thunderbird.net. This years conversion work was expensive and deep - I hired external developer Klaus Buecher  for the main conversion phase and also got some lovely new icons contributed by @Panglab who did a lot of design work for Thunderbird Core.
 
+I had a lot of extra days of work and around 3,500$ of expenses for this years Add-on conversions and releases -  also the web site had to be migrated from the now decommissioned free hosting on mozdev.org to github pages. To help fund quickFilters for the next year and the unavoidable changes necessary to switch over to an API  based approach, you should <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-page">buy a quickFilters Pro license</a>.
+</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/33">[issue 33]</a>Copy  / move mail context menu broken with quickfilters</li>
+</ul>    
+<b> Thunderbird 78 Regressions Fixed </b>
+<ul>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/39">[issue 39]</a> Rewrite "Reply-To" custom condition to work without bindings. As bindings have been completely removed from Thunderbird 78 the custom condition for editing the Reply-to header have to be rewritten using JavaScript - I am using similar code to FiltaQuilla (mutation observers) which took me quite a few difficult days to develop.</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/27">[issue 27]</a> Filter creation (merging) window not sized constrained when many test items.</li>
+<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/26">[issue 26]</a> "Next Steps" does not over-ride "Settings/Actions."</li>
+
+</ul>

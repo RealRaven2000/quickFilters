@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Merci d'avoir récemment prolongé votre licence ou si vous avez fait un don. Comme vous avez contribué à la pérennité de cet add-on, vous pouvez simplement fermer cette fenêtre.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "Mes Add-ons nécessitent des changements fondamentaux afin de rester compatibles avec la plateforme Mozilla. Mon équipe de développement chez Github (Realraven2000, opto et paenglab) travaille avec diligence pour restaurer toutes les fonctionnalités de $addonName$.",
     "placeholders": {

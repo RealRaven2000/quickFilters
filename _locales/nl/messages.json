@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Bedankt voor het onlangs verlengen van uw licentie of als u heeft gedoneerd. Omdat u heeft geholpen om deze add-on toekomstbestendig te maken, kunt u dit venster eenvoudig sluiten.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "Mijn add-ons vereisen fundamentele wijzigingen om compatibel te blijven met het Mozilla-platform. Mijn ontwikkelingsteam bij Github (Realraven2000, opto en paenglab) werkt hard om de volledige functionaliteit voor $addonName$ te herstellen.",
     "placeholders": {

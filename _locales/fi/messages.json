@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Kiitos, että lisenssit äskettäin tai olet lahjoittanut. Koska olet auttanut todistamaan tämän lisäosan tulevaisuudessa, voit yksinkertaisesti sulkea tämän ikkunan.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "Omat lisäosat edellyttävät perusteellisia muutoksia pysyäkseen yhteensopivina Mozilla-alustan kanssa. Kehitystiimini Githubissa (Realraven2000, opto ja paenglab) työskentelee ahkerasti palauttamaan $addonName$: n kaikki toiminnot.",
     "placeholders": {

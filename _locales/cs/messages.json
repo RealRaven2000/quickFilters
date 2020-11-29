@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Děkujeme, že jste nedávno prodloužili licenci nebo jste darovali. Jelikož jste pomohli doložit tento doplněk do budoucna, můžete toto okno jednoduše zavřít.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "Moje doplňky vyžadují zásadní změny, aby zůstaly kompatibilní s platformou Mozilla. Můj vývojový tým v Githubu (Realraven2000, opto a paenglab) pilně pracuje na obnovení plné funkčnosti pro $addonName$.",
     "placeholders": {

@@ -84,6 +84,11 @@
     }
   },  
   
+  "license-is-extended" : {
+    "message": "Tack för att du nyligen förlängde din licens eller om du har donerat. Eftersom du har hjälpt till att framtida bevisa detta tillägg kan du helt enkelt stänga det här fönstret.",
+    "description": "Shown if license expires more than a year from now"
+  },
+  
   "time-and-effort": { 
     "message": "Mina tillägg kräver grundläggande ändringar för att förbli kompatibla med Mozilla-plattformen. Mitt utvecklingsteam på Github (Realraven2000, opto och paenglab) arbetar flitigt med att återställa full funktionalitet för  $addonName$.",
     "placeholders": {
