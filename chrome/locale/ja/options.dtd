@@ -17,7 +17,7 @@
 <!ENTITY qf.youtube.link "Thunderbird Daily で quickFilters の動画を見る...">
 <!ENTITY qf.description.about "quickFilters の簡単な説明は次のサイトにあります:">
 <!ENTITY qf.label.aboutLink "quickFilters の Web サイト...">
-<!ENTITY qf.description.contactMe "個人的なお問い合わせは axelg@gofree.indigo.ie まで:">
+<!ENTITY qf.description.contactMe "個人的なお問い合わせは axel.grude@gmail.com まで:">
 <!ENTITY qf.label.contactLink "問い合わせる (英語またはドイツ語のみ)...">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "右クリックでバージョン履歴を表示します。">

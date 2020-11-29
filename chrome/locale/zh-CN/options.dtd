@@ -17,7 +17,7 @@
 <!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "您可以在以下站点找到 quickFilters 的简要说明:">
 <!ENTITY qf.label.aboutLink "quickFilters 网站…">
-<!ENTITY qf.description.contactMe "您也可以通过 axelg@gofree.indigo.ie 私下联系我:">
+<!ENTITY qf.description.contactMe "您也可以通过 axel.grude@gmail.com 私下联系我:">
 <!ENTITY qf.label.contactLink "联系我 (使用英语或德语)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "右击查看版本历史。">

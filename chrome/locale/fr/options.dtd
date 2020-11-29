@@ -17,7 +17,7 @@
 <!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "Une description rapide de quickFilters peut être trouvée sur le site suivant :">
 <!ENTITY qf.label.aboutLink "Site Web de quickFilters…">
-<!ENTITY qf.description.contactMe "Vous pouvez également me contacter personnellement par courriel axelg@gofree.indigo.ie :">
+<!ENTITY qf.description.contactMe "Vous pouvez également me contacter personnellement par courriel axel.grude@gmail.com :">
 <!ENTITY qf.label.contactLink "Me contacter (en anglais ou en allemand)…">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Clic-droit pour l'historique de versions.">

@@ -17,7 +17,7 @@
 <!ENTITY qf.youtube.link "Watch quickFilters Videos at Thunderbird Daily…">
 <!ENTITY qf.description.about "Краткое описание quickFilters на следующей странице:">
 <!ENTITY qf.label.aboutLink "страница quickFilters…">
-<!ENTITY qf.description.contactMe "Мой личный адрес axelg@gofree.indigo.ie:">
+<!ENTITY qf.description.contactMe "Мой личный адрес axel.grude@gmail.com:">
 <!ENTITY qf.label.contactLink "Написать мне (на английском или немецком)">
 <!ENTITY qf.label.quickfilters "quickFilters">
 <!ENTITY qf.options.versionnumber.tooltip "Нажмите правой кнопкой мышки для получения истории изменений.">
