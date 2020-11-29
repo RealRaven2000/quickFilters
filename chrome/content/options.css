@@ -12,7 +12,8 @@
 
 #qf-options-version {
   margin-top: 13px;
-  margin-left: -5em;
+  margin-left: -4em; /* force into title the box */
+  padding-right: 4em;
   font: 12pt Calibri,arial,sans-serif;
   font-weight: bold;
   color: #FFFFFF;
@@ -38,10 +39,8 @@
 }
 
 #qf-youtubeBox {
-    margin-top: 25px;
-    margin-inline-start: 20px;
-    padding: 10px;
-    background-color: white;
+  margin-top: 25px;
+  padding: 10px;
 }
 
 #qf-youtube {
