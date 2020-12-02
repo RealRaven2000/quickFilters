@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.0",
+  "version": "5.0.2",
   "default_locale": "en",
   "author": "Axel Grude, Klaus Buecher/opto",
    "developer": {
@@ -16,9 +16,6 @@
       "strict_max_version" : "78.*"
     }
   },
-  "options_ui": {
-    "page": "chrome/content/quickFilters-options.xhtml"
-  },  
   "background": {
       "scripts": ["qFi-background.js"]
     },

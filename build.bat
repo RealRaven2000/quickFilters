@@ -7,4 +7,4 @@ pwsh -Command "(gc -en UTF8NoBOM manifest.json) -replace 'pre%oldQIWebRev%', 'pr
 echo %quickFiltersWebRev% > revision.txt
 move quickFilters*.xpi ..\..\..\_Test\5.0
 pwsh -Command "Start-Sleep -m 50"
-rename quickFiltersWeb.zip quickFilters-wx-5.0pre%quickFiltersWebRev%.xpi
+rename quickFiltersWeb.zip quickFilters-wx-5.0.2pre%quickFiltersWebRev%.xpi

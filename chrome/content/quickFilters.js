@@ -409,6 +409,13 @@ END LICENSE BLOCK
     # [issue 27] Filter creation (merging) window not sized constrained when many test items.
     # [issue 26] "Next Steps" does not over-ride "Settings/Actions."
    
+  5.0.1 - 01/12/2020
+    # 5.0.1 - fixed the broken options screen that comes up on Add-ons Manager. You cannot currently open options from there. 
+      Please use the tools / addons menu or right-click the main icon (quickFilters assistant) on the toolbar
+      
+  5.0.2 - WIP
+    # Add-on was broken (no toolbar buttons / options dialog) for Spanish and Hungarian users due to a problem with localisation  
+   
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:

@@ -16,7 +16,9 @@ function onLoad(activatedWhileWindowOpen) {
   <stringbundleset id="stringbundleset">
     <stringbundle id="quickFilters-strings" src="chrome://quickfilters/locale/overlay.properties"/>
   </stringbundleset>
+`);
   
+    WL.injectElements(`  
   <popup id="folderPaneContext">
     <menuitem id="quickfilters-menu-runMenu" 
 	          label="&quickfilters.RunButton.label;" 
@@ -29,7 +31,9 @@ function onLoad(activatedWhileWindowOpen) {
 				oncommand="quickFilters.searchFiltersFromFolder(event);"
 			  />
   </popup>
+`, ["chrome://quickfilters/locale/overlay.dtd"]);
   
+    WL.injectElements(`
 
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="quickfilters-toolbar-button"
@@ -56,7 +60,9 @@ function onLoad(activatedWhileWindowOpen) {
                    tooltiptext="&quickfilters.RunButtonMsg.tooltip;"
                    oncommand="quickFilters.onApplyFiltersToSelection();"/>
   </toolbarpalette>
-
+`, ["chrome://quickfilters/locale/overlay.dtd"]);
+  
+    WL.injectElements(`
   <menupopup id="taskPopup">
     <menuitem id="quickFilters-wizard"
               class="menuitem-iconic"
@@ -86,7 +92,6 @@ function onLoad(activatedWhileWindowOpen) {
               oncommand="quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');"
 			  />
   </popup>
-       
 `, ["chrome://quickfilters/locale/overlay.dtd"]);
 
 //from qFilters-QF-tb68.xul
@@ -120,8 +125,6 @@ WL.injectElements(`
            oncommand="quickFilters.onApplyFiltersToSelection();"/>
 </hbox>
 </toolbar>
-
-
 `, ["chrome://quickfilters/locale/overlay.dtd"]);
 
 

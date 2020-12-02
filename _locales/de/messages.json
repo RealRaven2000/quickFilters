@@ -75,7 +75,7 @@
     "placeholders": {
       "addonVer" : {
         "content" : "$1", 
-        "example" : "5.0.1"
+        "example" : "5.0.2"
       },
       "appVer" : {
         "content" : "$2",
