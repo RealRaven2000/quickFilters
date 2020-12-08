@@ -92,16 +92,23 @@ permalink: fq-versions.html
     <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
        onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">FiltaQuilla 3.0 - WIP</a>
     </h4>
+    <p>If you would like to support FiltaQuilla with donation you can now <a href="https://quickfilters.quickfolders.org/filtaquilla.html#donate">do so here</a></p>
     <ul>
       <li>New version compatible with Thunderbird 78. Due to its "free as in beer" nature, this took a little longer than expected. 
         The work was tough, see details below:
       </li>
-      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/14">[issue 14]</a> Make quickFilters compatible 
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/64">[issue 64]</a> Make FiltaQuilla compatible 
       with Thunderbird 78 ESR. The gruelling detail on all the necessary work can be read there.</li>
       <li> All bindings were replaced with pure JavaScript. This affected editing <i>all</i> conditions 
       that FiltaQuilla adds to the Filter Editor.</li>
-      <li> Printing didn't work anymore </p>
-      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/45">[issue 45]</a> Fixed "Move later" / "Copy as Read" For Thunderbird versions > 64 </li>
+      <li> Printing didn't work anymore, that is fixed now. </p>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/45">[issue 45]</a> Fixed "Move later" / "Copy as Read" For Thunderbird versions > 64 
+      </li>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/76">[issue 76]</a> Fixed detach attachments - if the attachment was already removed then no empty file is generated, but a message is shown 
+        in error console showinbg the "last seen location" where the attachment was originally detached to.
+      </li>
+      <li> Fixed behavior of opening FiltaQuilla page jumping to in-page links when a tab with the same basic URL is already shown</li>
     </ul>
   </li>
 
@@ -109,8 +116,7 @@ permalink: fq-versions.html
   <a name="2.1.1"> &nbsp; </a>
   <li>
     <h4>
-    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
-       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">FiltaQuilla 2.1.1 - 01/12/2020</a>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/2.1.1">FiltaQuilla 2.1.1 - 01/12/2020</a>
     </h4>
     <ul>
       <li> Currently working on a version for Thunderbird 78  - you can already <a href="https://github.com/RealRaven2000/FiltaQuilla/releases/">get prereleases on my github</a>. Complete conversion is discussed at <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/64">[issue 64]</a></li>
@@ -120,6 +126,8 @@ permalink: fq-versions.html
 			</li>
       <li> Added Icons and fixed look on Address book picker in Filter Editor</li>
       <li> Corrected a string in german locale from "Nicht ändern" to "Nicht benachrichtigen"</li>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/67">[issue 67]</a> Help links 
+        in options dialog were misdirected to the wrong page</li>
     </ul>
   </li>
   
