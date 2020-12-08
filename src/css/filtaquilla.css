@@ -64,10 +64,10 @@ ul#version-history > li {
 }
 
 #version-history li > h4 > a {
+  color: rgba(0, 0, 0, 0.75) !important;
   cursor: pointer;
   display: inline-block;
   font-size: 12pt;
-  color: #ffffff;
   margin-right: 0.5em;
   margin-top: 0.3em;
   padding-bottom: 0;
