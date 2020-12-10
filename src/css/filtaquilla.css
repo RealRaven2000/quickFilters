@@ -79,3 +79,9 @@ ul#version-history > li {
   margin-right: 0.5em;
   margin-top: 0.5em;
 }
+
+/* hide the quickFilters label */
+h1.project-name {
+  display: none !important;
+}
+
