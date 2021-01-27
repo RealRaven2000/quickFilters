@@ -1326,7 +1326,7 @@ quickFilters.Worker = {
           let append = true;
           // avoid duplicates
           for (let b = 0; b < util.getActionCount(targetFilter); b++) { 
-            let newActions = targetFilter.actionList ? targetFilter.actionList : targetFilter.sortedActionList,
+            let newActions = targetFilter.sortedActionList,
                 ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction);
                   /* newActions.queryElementAt ?
                         newActions.queryElementAt(b, Ci.nsIMsgRuleAction) :

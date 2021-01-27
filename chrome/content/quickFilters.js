@@ -413,8 +413,16 @@ END LICENSE BLOCK
     # 5.0.1 - fixed the broken options screen that comes up on Add-ons Manager. You cannot currently open options from there. 
       Please use the tools / addons menu or right-click the main icon (quickFilters assistant) on the toolbar
       
-  5.0.2 - WIP
+  5.0.2 - 02/12/2020
     # Add-on was broken (no toolbar buttons / options dialog) for Spanish and Hungarian users due to a problem with localisation  
+    
+  5.1 - 27/02/2021
+    # Filter Editor: The reply-to field can be broken / disabled if certain character combinations are used 
+    #     (usually involving parentheses or angle brackets)
+    # [issue 41] Merge filters (at least manually) is broken
+    # [issue 42] All cut / copied filters in list should be highlighted with icon
+    # [issue 44] Folder names default delimiter shows black diamond �  instead »
+    ## Improved reopening any support sites already open in a tab by jumping to the correct place if necessary
    
   ============================================================================================================
   FUTURE WORK:
@@ -423,7 +431,7 @@ END LICENSE BLOCK
 		# [Bug 26373] Sort definitions within a filter
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
     # [Bug 25801]	Assistant in Merge mode, cancel does not undo changes 
-		
+    
 	 */
   
 var quickFilters = {
@@ -771,15 +779,11 @@ var quickFilters = {
 					Cc = Components.classes,
 					filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);
 
-		var {MailServices} = 
-		  (util.versionGreaterOrEqual(util.AppverFull, "64")) ?
-				ChromeUtils.import("resource:///modules/MailServices.jsm") : // new module spelling
-				Components.utils.import("resource:///modules/mailServices.js", {});
+		var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
 					
 		if (util.isDebug) debugger;
 		let folder = util.getCurrentFolder(),
         firstItem = getFilterFolderForSelection(folder),
-		    folders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray),
 				msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow)
 				
 		// from  MsgApplyFiltersToSelection()
@@ -808,8 +812,13 @@ var quickFilters = {
 			// and we don't support cloning filters currently.
 			let tempFilterList = MailServices.filters.getTempFilterList(folder),
 			    numFilters = curFilterList.filterCount,
-					selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
-			selectedFolders.appendElement(folder, false);
+          isListArray = util.versionGreaterOrEqual(util.AppverFull, "85"),
+					selectedFolders = 
+            isListArray ? [] : Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
+			if (isListArray) 
+        selectedFolders.push(folder);
+      else
+        selectedFolders.appendElement(folder, false);
 			// make sure the temp filter list uses the same log stream
 			tempFilterList.logStream = curFilterList.logStream;
 			tempFilterList.loggingEnabled = curFilterList.loggingEnabled;
@@ -876,14 +885,10 @@ var quickFilters = {
 
             for (let i = 0; i < numFilters; i++) {
               let curFilter = filterList.getFilterAt(i),
-                  actionList = curFilter.actionList ? curFilter.actionList : curFilter.sortedActionList,
-                  acLength = actionList.Count ? actionList.Count() : actionList.length;
+                  actionList = curFilter.sortedActionList,
+                  acLength = actionList.length;
               for (let index = 0; index < acLength; index++) { 
                 let action = actionList[index].QueryInterface(Components.interfaces.nsIMsgRuleAction);
-                /* actionList.queryElementAt ? 
-                             actionList.queryElementAt(index, Components.interfaces.nsIMsgRuleAction) :
-                             actionList.QueryElementAt(index, Components.interfaces.nsIMsgRuleAction);
-                             */
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) { 
                     let isTargetMatch = action.targetFolderUri === targetFolder.URI,

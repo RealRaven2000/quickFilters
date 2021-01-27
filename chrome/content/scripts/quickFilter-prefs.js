@@ -33,7 +33,7 @@ pref("extensions.quickfilters.debug.mime.split", false);
 //pref("extensions.quickfilters.intpref", 0);
 //pref("extensions.quickfilters.stringpref", "A string");
 pref("extensions.quickfilters.naming.parentFolder", true);
-pref("extensions.quickfilters.naming.folderDelimiter", "»"); // »
+pref("extensions.quickfilters.naming.folderDelimiter", "»"); // UTF8 - for some reason not read correctly.
 pref("extensions.quickfilters.naming.keyWord", false);
 pref("extensions.quickfilters.naming.clonedLabel", ""); // set from locale!
 pref("extensions.quickfilters.naming.mergeToken"," +m");

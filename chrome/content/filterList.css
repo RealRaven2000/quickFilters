@@ -62,20 +62,29 @@
 }
 
 /* Cut */
-.quickFiltersCut,
 #quickFiltersCut,
 #quickFiltersBtnCut {
 	list-style-image: url("chrome://messenger/skin/icons/cut.svg");
 }
 
+.quickFiltersCut label {
+  background-image: url("chrome://messenger/skin/icons/cut.svg") !important;
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
+
 
 /* Copy */
-.quickFiltersCopy,
 #quickFiltersCopy,
 #quickFiltersBtnCopy {
 	list-style-image: url("chrome://messenger/skin/icons/copy.svg");
 }
 
+.quickFiltersCopy label {
+  background-image: url("chrome://messenger/skin/icons/copy.svg") !important;
+  background-repeat: no-repeat;
+  padding-left: 18px;
+}
 
 /* Paste */
 #quickFiltersPaste,

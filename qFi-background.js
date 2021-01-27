@@ -23,12 +23,23 @@ async function main() {
       // see below
       case "update":
       {
-        console.log("update...");
+        const mxUtilties = messenger.Utilities;
+        let isLicensed = await mxUtilties.isLicensed(true);
+        if (isLicensed) {
+          // suppress update popup for users with licenses that have been recently renewed
+          let gpdays = await mxUtilties.LicensedDaysLeft();
+          console.log("Licensed - " + gpdays  + " Days left.");
+          if (gpdays>40) {
+            console.log("Omitting update popup!");
+            return;
+          }
+        }
+        
         let url = browser.runtime.getURL("popup/update.html");
         //await browser.tabs.create({ url });
         let screenH = window.screen.height,
-            windowHeight = (screenH > 825) ? 825 : screenH;
-        await browser.windows.create({ url, type: "popup", width: 940, height: windowHeight, });
+            windowHeight = (screenH > 870) ? 870 : screenH;
+        await browser.windows.create({ url, type: "popup", width: 950, height: windowHeight, });
       }
       break;
     // see below

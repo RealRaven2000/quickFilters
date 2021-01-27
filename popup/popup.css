@@ -80,7 +80,8 @@ ul.actions {
 
 ul.actions *[collapsed=true],
 .actionlinks a[collapsed=true],
-p[collapsed=true]{
+p[collapsed=true],
+div[collapsed=true]{
   visibility: collapse;
   display :none;
 }

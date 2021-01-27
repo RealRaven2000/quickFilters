@@ -1,19 +1,18 @@
-quickFilters Change Log - Version 5.0.2
+quickFilters Change Log - Version 5.1
 
 <ul>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/14">[issue 14]</a> quickFilters  was migrated to Thunderbird 78, and is now finally available after a lengthy beta phase on addons.thunderbird.net. This years conversion work was expensive and deep - I hired external developer Klaus Buecher  for the main conversion phase and also got some lovely new icons contributed by @Panglab who did a lot of design work for Thunderbird Core.
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/14">[issue 14]</a> quickFilters  was migrated to Thunderbird 78, and is now finally available after a lengthy beta phase on addons.thunderbird.net. Last year's conversion work was expensive and deep - I hired external developer Klaus Buecher for the main conversion phase and also got some lovely new icons contributed by @Panglab who did a lot of design work for Thunderbird Core.
 
 I had a lot of extra days of work and around 3,500$ of expenses for this years Add-on conversions and releases -  also the web site had to be migrated from the now decommissioned free hosting on mozdev.org to github pages. To help fund quickFilters for the next year and the unavoidable changes necessary to switch over to an API  based approach, you should <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-page">buy a quickFilters Pro license</a>.
 </li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/33">[issue 33]</a>Copy  / move mail context menu broken with quickfilters</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/33">[issue 33]</a> Copy  / move mail context menu broken with quickfilters</li>
+<li>Improved reopening any support sites already open in a tab by jumping to the correct place if necessary.</li>
 </ul>    
 <b> Thunderbird 78 Regressions Fixed </b>
 <ul>
-<li> 5.0.2 - Add-on was broken (no toolbar buttons / options dialog) for Spanish and Hungarian users due to a problem with localisation</li>
-<li> 5.0.1 - fixed the broken options screen that comes up on Add-ons Manager. You cannot currently open options from there. PLease use the tools / addons menu or right-click the main icon (quickFilters assistant) on the toolbar</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/39">[issue 39]</a> Rewrite "Reply-To" custom condition to work without bindings. As bindings have been completely removed from Thunderbird 78 the custom condition for editing the Reply-to header have to be rewritten using JavaScript - I am using similar code to FiltaQuilla (mutation observers) which took me quite a few difficult days to develop.</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/27">[issue 27]</a> Filter creation (merging) window not sized constrained when many test items.</li>
-<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/26">[issue 26]</a> "Next Steps" does not over-ride "Settings/Actions."</li>
-
-
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/41">[issue 41]</a> Fixed: Merge filters (at least manually) is broken. </li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/42">[issue 42]</a> All cut / copied filters in list should be highlighted with icon. </li>
+<li>Fixed: Filter Editor: The reply-to condition field can be broken / disabled if certain character combinations are used (usually involving parentheses or angle brackets)</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/44">[issue 44]</a> Folder names default delimiter shows black diamond � instead » </li>
+<li> Thunderbird 85 beta - Fixed the buttons "Run filters on folder" and "Run filters on selected mails" which stopped working due to a parameter change in the function MailServices.filters.applyFiltersToFolders(). Although I fixed this particular issue I make no guarantees for any functionality if you are using beta versions. During the ESR period I can only fully support the current ESR version Thunderbird 78.1 - 78.*.</li>
 </ul>

@@ -396,35 +396,26 @@ quickFilters.List = {
     let newFilter = filtersList.createFilter(newName);
 		newFilter.clearActionList();
     let aList = [],
-        actions = targetFilter.actionList ? targetFilter.actionList : targetFilter.sortedActionList; // Tb : Sm
-		if (targetFilter.actionList) {
+        actions = targetFilter.sortedActionList; // apparently actionList has been removed for this one
+		if (targetFilter.sortedActionList) {
 		  // Thunderbird
-			let aCollection = actions.QueryInterface(Ci.nsICollection),
-			// targetFilter.getSortedActionList(aList);
-			    newActions = newFilter.actionList ? newFilter.actionList : newFilter.sortedActionList;
-			for (let a = 0; a < aCollection.Count(); a++) {
+			let newActions = newFilter.sortedActionList;
+			for (let a = 0; a <actions.length; a++) {
 			  let append = true;
-			  for (let b = 0; b < util.getActionCount(newFilter); b++) { 
-					let ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction); // newActions.queryElementAt(b, Ci.nsIMsgRuleAction);
-				  if (ac.type == aCollection.GetElementAt(a).type
+			  for (let b = 0; b < newActions.length; b++) { 
+          let ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction); // newActions.queryElementAt(b, Ci.nsIMsgRuleAction);
+				  if (ac.type == actions[a].type
 					    &&
-							ac.strValue == aCollection.GetElementAt(a).strValue) {
-					  append = false;
+							ac.strValue == actions[a].strValue) {
+					  append = false; // avoid duplicated actions
 						break;
 					}
 				}
 				if (append)
-				  newFilter.appendAction(aCollection.GetElementAt(a));
+				  newFilter.appendAction(actions[a]);
 			}
 		}
-		else {
-			// SeaMonkey - a simple nsIArray - we get an enumerator 
-			let enumerator = actions.enumerate();
-			while (enumerator.hasMoreElements()) {
-				let ac = enumerator.getNext();
-				newFilter.appendAction(ac);
-			}
-		}
+
 
     // 2. now copy the filter search terms of the filters in the array to the new filter
     // then delete the other filters

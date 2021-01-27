@@ -300,11 +300,12 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
     try {
       let textbox = window.MozXULElement.parseXULToFragment(
         ` <html:input class="search-value-textbox flexinput qi-textbox" inherits="disabled" 
-          value = "` + es.getAttribute("value") + `"
           onchange="this.parentNode.setAttribute('value', this.value); this.parentNode.value=this.value;"> 
           </html:input>`
       );
       es.appendChild(textbox);
+      // injection of the value can screw up the XUL parser!
+      es.lastChild.value = es.getAttribute("value");
       es.classList.add("flexelementcontainer");
       es.setAttribute('fq-patched', "true");
       return true;

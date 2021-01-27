@@ -119,3 +119,6 @@ td {
 .form {
 	margin: 0 1em;
 }
+#referrer[collapsed=true] {
+  display: none;
+}

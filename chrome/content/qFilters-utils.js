@@ -31,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "5.0.2",
+  HARDCODED_CURRENTVERSION : "5.1",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -292,8 +292,13 @@ quickFilters.Util = {
 					f = folder.getChildNamed('Inbox');
 				if (f) folder = f;
 			}
-			let selectedFolders = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
-			selectedFolders.appendElement(folder);
+      
+			let isListArray = util.versionGreaterOrEqual(util.AppverFull, "85"),
+          selectedFolders = isListArray ? [] : Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
+      if (isListArray)
+        selectedFolders.push(folder);
+			else
+        selectedFolders.appendElement(folder);
 			
 			// create a new filter list and copy over the enabled filters to it.
 			
@@ -787,6 +792,7 @@ quickFilters.Util = {
 	
 	findMailTab: function findMailTab(tabmail, URL) {
 		const util = quickFilters.Util;
+    var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 		// mail: tabmail.tabInfo[n].browser		
 		let baseURL = util.getBaseURI(URL),
 				numTabs = util.getTabInfoLength(tabmail);
@@ -797,7 +803,15 @@ quickFilters.Util = {
 				let tabUri = util.getBaseURI(info.browser.currentURI.spec);
 				if (tabUri == baseURL) {
 					tabmail.switchToTab(i);
-					info.browser.loadURI(URL);
+          try {
+            let params = {
+              triggeringPrincipal: Services.scriptSecurityManager.getSystemPrincipal()
+            }
+            info.browser.loadURI(URL, params);
+          }
+          catch(ex) {
+            util.logException(ex);
+          }
 					return true;
 				}
 			}
@@ -1364,11 +1378,7 @@ quickFilters.Util = {
 	} ,
 	
 	getActionCount: function getActionCount(filter) {
-		if (typeof filter.actionCount != "undefined") 
-			return filter.actionCount;
-	  let actions = filter.actionList ? filter.actionList : filter.sortedActionList,
-		    actionCount = actions.Count ? actions.Count() : actions.length;
-		return actionCount;
+    return filter.actionCount;
 	} ,
 	
 	// create a JSON object from a filter
@@ -1566,7 +1576,7 @@ quickFilters.Util = {
 		for (let a = 0; a < actionCount; a++) {
 			let act = fromFilter.getActionAt(a),
 			    append = true,
-			    newActions = toFilter.actionList ? toFilter.actionList : toFilter.sortedActionList;
+			    newActions = toFilter.sortedActionList;
 			act = isArray ? act : act.QueryInterface(Ci.nsIMsgRuleAction);
       // don't add dummy action to filter (customTemplate uses set prio=normal as only action)
       if (actionCount==1 
@@ -2062,8 +2072,7 @@ quickFilters.Util = {
                   acLength = actionList.length;
               // Match Target Folder by iterating all actions
               for (let index = 0; index < acLength; index++) {
-                let // qryAt = actionList.queryElementAt ? actionList.queryElementAt : actionList.QueryElementAt,
-                    action = actionList[index].QueryInterface(Ci.nsIMsgRuleAction);  // qryAt(index, Ci.nsIMsgRuleAction);
+                let action = actionList[index].QueryInterface(Ci.nsIMsgRuleAction);  // qryAt(index, Ci.nsIMsgRuleAction);
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) {
                     let isMatch = (action.targetFolderUri === targetFolder.URI),
