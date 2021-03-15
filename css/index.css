@@ -1,0 +1,25 @@
+#templates {
+   margin-left: 5em;
+}
+#templates h4 {
+  font-size: 1em;
+  margin-left: -2.5em;
+}
+
+td.navigation-list a[href*='index.html'] {
+  background-color: rgb(203,96,179);
+  background: linear-gradient(to bottom,  rgba(203,96,179,1) 0%,rgba(173,18,131,1) 50%,rgba(222,71,172,1) 100%);
+  border-bottom-color:  #93105A !important;
+  color: #FFF !important;
+  height: 27px !important;
+  font-weight: normal;
+}
+
+#main-content-no-nav > * > li {
+  list-style: square outside url('/img/square-orange-small.png');
+	margin-left: 4em;
+} 
+p, li {
+	max-width:55em;
+}
+
