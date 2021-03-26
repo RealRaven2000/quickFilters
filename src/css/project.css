@@ -86,7 +86,7 @@ td.navigation-list a[href$='donate.html'], td.navigation-list a[href$='donate.ht
   color: #000;
 }
 
-td.navigation-list a:hover
+td.navigation-list a:hover.not(.bargain)
 {
   background-color: rgb(217,141,201);
   background: linear-gradient(to bottom,  rgba(217,141,201,1) 0%,rgba(173,36,161,1) 50%,rgba(231,123,195,1) 100%);
