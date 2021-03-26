@@ -55,7 +55,7 @@ ul#version-history > li ul li {
   color: rgb(0,0,0,0.8);
   cursor: default;
   font-weight: normal;
-  font-size: 10pt;
+  font-size: 1.2em;
   margin-right: auto !important;
   padding-bottom: 0.3em;
   background: rgba(218,40,179,0.4);
@@ -66,12 +66,12 @@ ul#version-history > li ul li {
 #version-history li > h4 > a {
   cursor: pointer;
   display: inline-block;
-  font-size: 12pt;
+  font-size: 1.1em;
   color: #ffffff;
   margin-right: 0.5em;
   margin-top: 0.3em;
   padding-bottom: 0;
-  font-weight:450;
+  font-weight: bold;
   text-decoration: none;
 }
 #version-history li > h4 > a:hover {
