@@ -353,13 +353,13 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
       }
       theFilter.searchTerms = stCopy; 
       
-      for (let x of sortedArray) {
-        theFilter.appendTerm(x);
-      }
-
       while (gTotalSearchTerms > 0) {
         removeSearchRow(0);
         --gTotalSearchTerms;
+      }
+      
+      for (let x of sortedArray) {
+        theFilter.appendTerm(x);
       }
       
       initializeDialog(theFilter); // this will duplicate the actions.
