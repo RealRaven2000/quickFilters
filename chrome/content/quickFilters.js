@@ -388,17 +388,24 @@ END LICENSE BLOCK
     # fixed licensing problem with accounts that have no default identity
     # [issue 2] Merged filters: some conditions not working
     
-  4.4 - WIP 
+  4.4.1 - 20/06/2020 
     # [issue 12] Pro Feature: Add keyboard shortcuts for Run Filters buttons. 
       Default shortcuts are:
       Shift + F: Run Filters on folder
       Shift + R: Run Filters on selected mails
+    # Fixed a layout problem in settings that caused some bad text characters showing at the top of the dialog.
+      
+  4.5 - 05/04/2021
+    # [issue 51] Fixed: Merging filters can lead to duplicate conditions
+    # [issue 52] Own Emails are not automatically suggested for merging when using context menu
+    # [issue 23] Avoid Empty Conditions list due to removed recipients - filter cannot be edited
+
    
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
+		# [issue 11] Sort definitions within a filter
 		# [Bug 26690] Add Extra Column In Filter Browser "Auto"
-		# [Bug 26373] Sort definitions within a filter
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
     # [Bug 25801]	Assistant in Merge mode, cancel does not undo changes 
 		

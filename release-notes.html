@@ -1,18 +1,13 @@
-quickFilters Change Log - Version 4.4.1
+quickFilters Change Log - Version 4.5
 
 
-I am currently paying somebody to migrate all my Add-on support sites away from the free host on mozdev.org, which is closing operation end of June. To keep having support sites and ongoing development, please <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-notes">buy a license</a> (the complete migration cost me $650, so there are some expense I hope to recover from the community of users).
+I am currently working on compatibility with Thunderbird beta 88.0 for preparing next years ESR period (2021/2022).
 
-I will also have to rewrite all mail Add-ons as web extensions, which is currently not yet possible as all necessary APIs to replace the deprecated tech has not been implemented. As in between step I plan to release QuickFolders as a "web experiment" for Thunderbird 78+ but this will take a few weeks of work. If you are interested in using a version of quickFilters that works with Thunderbird 78, <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-notes">buy a license</a> to support the project.
+I will also have to eventually rewrite all mail Add-ons as web extensions, which is currently not yet possible as all necessary APIs to replace the deprecated tech has not been implemented. As in between step I have released quickFilters 5.1 as a "mail experiment" for Thunderbird 78+. If you are interested in using a version of quickFilters that works with Thunderbird 78, <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-notes">buy a license</a> to support the project.
 
 <ul>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/2">[issue 12]</a> Pro Feature: Add keyboard shortcuts for Run Filters buttons. These can be enabled and configured on  the quickFilters Pro tab. This feature is useful for archiving or anti-Junkfilters which should be configured to only run manually.
-      
-      Default shortcuts are:
-        Shift + F: Run Filters on folder
-        Shift + R: Run Filters on selected mails
-</li>
-<li>migrated support website from free server mozdev.org to github.</li>  
-<li>4.4.1 - Fixed a layout problem in settings that caused some bad text characters showing at the top of the dialog.</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/51">[issue 51]</a> Fixed: Merging new filter conditions may lead to duplicate conditions.</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/52">[issue 52]</a> Own Emails are not automatically suggested for merging when using context menu</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/23">[issue 23]</a> Avoid Empty Conditions list due to removed recipients - filter cannot be edited.</li>
 </ul>
 

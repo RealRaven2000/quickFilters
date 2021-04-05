@@ -398,6 +398,24 @@ quickFilters.Worker = {
 					}
 				}                       
 			}
+      else {
+        // [issue 52] Own Emails are not automatically suggested for merging
+        // no accountKey - let's determine using the from address if we sent out the email!
+        let fromMail = this.parseHeader( Cc["@mozilla.org/messenger/headerparser;1"].getService(Ci.nsIMsgHeaderParser), msg.author);
+        if (fromMail) {
+          for (let a=0; a<aAccounts.length; a++) {
+            let ac = aAccounts[a];
+            if (ac.defaultIdentity  
+                && ac.incomingServer 
+                && ac.incomingServer.canHaveFilters
+                && ac.defaultIdentity.email == fromMail) {
+                sourceFolder = ac.incomingServer.rootFolder;
+                util.logDebugOptional('createFilter', "rootfolder via from address: " + sourceFolder.prettyName || '(empty)');
+              break;
+            }
+          }
+        }
+      }
 			return sourceFolder; 
 		}
 		catch(ex) {
@@ -477,16 +495,7 @@ quickFilters.Worker = {
     if (!this.refreshHeaders(messageList, targetFolder, sourceFolder)) {
       return rerun('targetFolder Database not ready');
     }
-    if (!firstMessage.msgHeader 
-        || firstMessage.msgHeader.messageId != firstMessage.messageId 
-        || !firstMessage.msgHeader.accountKey
-				|| !firstMessage.msgClone) {
-			// if (quickFilters.Worker.reRunCount==3) { 
-			  // // open folder temporarily in a tab to force refreshing headers.
-				// let background = (util.Application=='Postbox') ? false : true;
-				// util.openTempFolderInNewTab(targetFolder, background);
-			// }
-    }
+
 		// util.closeTempFolderTab(); // tidy up if it was necessary
     let messageDb = targetFolder.msgDatabase ? targetFolder.msgDatabase : targetFolder.getMsgDatabase(null);
     
@@ -822,6 +831,12 @@ quickFilters.Worker = {
           util = quickFilters.Util,
 					prefs = quickFilters.Preferences;
 		function addTerm(target, term) {
+      // avoid duplicate:
+      if (util.checkExistsTerm(target.searchTerms, term)) {
+        util.logToConsole("Not adding already existing term to avoid duplicate: " + term.termAsString);
+        return false;
+      }
+      
 			if (isMerge && prefs.getBoolPref('searchterm.insertOnTop')) {
 				try {
 					// [Bug 26664] add condition on top instead of appending at bottom
@@ -835,7 +850,8 @@ quickFilters.Worker = {
 			}
 			else {
 				target.appendTerm(term);
-			}			
+			}
+      return true;
 		}
 					
     function createTerm(filter, attrib, op, val, customId) {
@@ -1115,14 +1131,15 @@ quickFilters.Worker = {
 						}
 						else if (mailAddresses.indexOf(emailAddress) == -1) { // avoid duplicates
 							searchTerm = createTerm(targetFilter, typeAttrib.Sender, typeOperator.Contains, emailAddress);
-							addTerm(targetFilter, searchTerm);
-							util.logDebugOptional ('template.multifrom', 'Added to multiple(from) filter: ' + emailAddress);
-							mailAddresses.push(emailAddress);
+              if (addTerm(targetFilter, searchTerm)) {
+                util.logDebugOptional ('template.multifrom', 'Added to multiple(from) filter: ' + emailAddress);
+                mailAddresses.push(emailAddress);
+              }
 						}
 					}
 				}
 				// should this specifically add first names?
-				if (prefs.getBoolPref("naming.keyWord"))
+				if (!isMerge && prefs.getBoolPref("naming.keyWord"))
 					filterName += " - group ";
 				break;
 				
@@ -1416,7 +1433,28 @@ quickFilters.Worker = {
 			targetFilter.appendAction(starAction);
 		}       
 
+
+    let warningOmitted = "";
 		if (!isMerge) {
+			if (excludedAddresses && excludedAddresses.length>0) {
+				warningOmitted = util.getBundleString('quickfilters.merge.addressesOmitted', 
+							"Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:");
+				let	list = '',
+						newLine = (util.Application == 'Postbox') ? ' ' : '\n';
+				for (let i=0; i<excludedAddresses.length; i++) {
+					list += newLine + excludedAddresses[i];
+				}
+        warningOmitted = warningOmitted + list;
+			}
+      
+      // [issue 23] avoid empty filters:
+      if (targetFilter.searchTerms.length==0) {
+        let txtAbort = "Filter could not be created: no valid Search Terms were be added, so filter would not be editable.\n",
+            prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
+        prompts.alert(window, "quickFilters", txtAbort + warningOmitted); 
+        return;
+      }
+      
 			// Add filter to the top
 			util.logDebug("Adding new Filter '" + targetFilter.filterName + "' "
 					 + "for email " + emailAddress
@@ -1433,14 +1471,7 @@ quickFilters.Worker = {
 		if (showEditor) {
 			let args = { filter:targetFilter, filterList: filtersList};
 			if (excludedAddresses && excludedAddresses.length>0) {
-				let text = util.getBundleString('quickfilters.merge.addressesOmitted', 
-							"Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"), 
-						list = '',
-						newLine = (util.Application == 'Postbox') ? ' ' : '\n';
-				for (let i=0; i<excludedAddresses.length; i++) {
-					list += newLine + excludedAddresses[i];
-				}
-				util.slideAlert(text + list, 'quickFilters');
+				util.slideAlert(warningOmitted, 'quickFilters');
 			}
 			
 			//args.filterName = targetFilter.filterName;

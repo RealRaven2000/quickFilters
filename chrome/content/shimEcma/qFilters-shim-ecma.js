@@ -14,7 +14,7 @@ if (!quickFilters.Util.Accounts) {
 							util = quickFilters.Util;
 				let aAccounts=[];
 				if (util.Application == 'Postbox') 
-					aAccounts = util.getAccountsPostbox(); // actuallyu for of inclusion below will fail anyway.
+					aAccounts = util.getAccountsPostbox(); // actually for of inclusion below will fail anyway.
 				else {
 					let accounts = Cc["@mozilla.org/messenger/account-manager;1"]
 											 .getService(Ci.nsIMsgAccountManager).accounts;

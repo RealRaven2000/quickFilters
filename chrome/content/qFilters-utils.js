@@ -31,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "4.4.1",
+  HARDCODED_CURRENTVERSION : "4.5",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -1436,7 +1436,13 @@ quickFilters.Util = {
 						for (let e = 0; e < existingTerms.Count(); e++) {
 							let existingTerm = util.querySearchTermsAt(existingTerms, e),
 									existingVal = existingTerm.value; // nsIMsgSearchValue
-							if (existingVal && val.attrib == existingVal.attrib) {
+                  
+              if (existingTerm.termAsString == newTerm.termAsString) {
+                isFound = true;
+                util.logDebug("Custom Template - omitting duplicate term: " + existingTerm.termAsString);
+                break;
+              }
+							else if (existingVal && val.attrib == existingVal.attrib) {
 								if (existingVal.str == val.str) { // avoid duplicates
 									isFound = true; 
 									util.logDebug("Custom Template: omitting duplicate term of type[" + newTerm.value.attrib + "]\n"
@@ -1447,7 +1453,6 @@ quickFilters.Util = {
 						}
 						if (isFound) continue; // skip this term, as it already exists
 						
-						if (mailsToOmit) debugger;
 						// avoid own addresses when multiple mail is selected
 						if (mailsToOmit && 
 						    (searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.Is || 
@@ -1504,7 +1509,8 @@ quickFilters.Util = {
 			
 			toFilter.appendTerm(newTerm);
 		}
-        // remove special variables
+    
+    // remove special variables
     if (oReplaceTerms) {
       delete (util.CurrentHeader);   
       delete (util.CurrentMessage);
@@ -2067,6 +2073,25 @@ quickFilters.Util = {
 				quickFilters,
 				params).focus();
 	},
+  
+  // helper function to see whether a search condition already exists
+  checkExistsTerm: function checkExistsTerm(searchTerms, searchTerm) {
+    const util = quickFilters.Util;
+    let len = util.querySearchTermsLength(searchTerms);
+    for (let i=0; i<len; i++) {
+      let t = util.querySearchTermsAt(searchTerms, i);
+      if (t.termAsString && t.termAsString == searchTerm.termAsString) return true;
+      
+      if (t.attrib == searchTerm.attrib && searchTerm.value && t.value && util.isStringAttrib(searchTerm.value.attrib) && util.isStringAttrib(t.value.attrib)) {
+			  if (t.op == searchTerm.op && 
+            searchTerm.value.attrib == t.value.attrib && 
+            searchTerm.value.str == t.value.str) {
+          return true;
+        }
+      }
+    }
+    return false;
+  } ,  
 	
 	querySearchTermsArray: function querySearchTermsArray(searchTerms) {
 		if (searchTerms.QueryElementAt)
@@ -2083,6 +2108,14 @@ quickFilters.Util = {
 			return searchTerms.queryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
 		return null;
 	} ,
+  
+  querySearchTermsLength: function querySearchTermsLength(searchTerms) {
+    if (!searchTerms) return null;
+    // old code: Count
+    if (searchTerms.Count)
+      return searchTerms.Count();
+    return null;
+  },
 	
   checkCustomHeaderExists: function checkCustomHeaderExists(hdr) {
     // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19
