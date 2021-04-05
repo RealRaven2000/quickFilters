@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Prosimo, pomagajte quickFilters nadaljevati!"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate pri preverjanju prihodnosti quickFilters. Prihaja še več sprememb na Thunderbirdu in za nadaljevanje potrebujem {boldStart} vašo pomoč {boldEnd}!"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {boldStart} 30% znižanje {boldEnd} cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {boldStart} 16. aprila {boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "Kaj je novega?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Poudarki"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1} Nova funkcija: razvrstite iskalne izraze v filtru (funkcija Pro). {L2} {L1} Ne pozabite na seznam kopiranih filtrov, ki jih želite vstaviti v več računov (funkcija Pro). {L2} {L1} Odpravljena težava s podvojenimi iskalnimi izrazi pri združevanju filtri. {L2} {L1} Različni popravki za združljivost s Thunderbird 88. {L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "Moji dodatki zahtevajo temeljne spremembe, da bi ostali združljivi s platformo Mozilla. Moja razvojna skupina pri Githubu (Realraven2000, opto in paenglab) si prizadevno prizadeva obnoviti popolno funkcionalnost za $addonName$.",
+    "message": "$addonName$ zahteva stalne spremembe, da ostane združljiv s platformo Mozilla. Nenehno si prizadevam, da bi ohranil čim več funkcionalnosti za prihodnje različice Thunderbirda.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "Za projekt pretvorbe smo že porabili pomembna sredstva (več kot $hoursSpent$ ur) - in še veliko dela je pri odpravljanju regresij in težav, ki jih povzročajo spremembe v storitvi Thunderbird.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "Potrebne spremembe za prehod na novi model, ki ne vsebuje starejših različic (eksperiment s pošto), so trajale že več tednov in še vedno potekajo, medtem ko bi to lahko vplivalo na nekatere funkcije. S takšnim kompleksnim dodatkom postane drago delo neizogibno. Prosim, pomagajte nam pri tem."
+    "message": "Spremembe pretvorbe $addonName$ v novi programski model so trajale tedne in so bile drage. Za naslednjo različico iz leta 2022 je še veliko sprememb. S takšnim kompleksnim dodatkom postane drago delo neizogibno. Prosim, pomagajte nam pri tem.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {

@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Pomóż quickFilters, aby kontynuować!"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart} Witaj {name} {boldEnd}, możesz teraz pomóc quickFilters w przygotowaniu na przyszłość. Nadchodzą kolejne duże zmiany w Thunderbirdzie i potrzebuję {boldStart} Twojej pomocy {boldEnd}, aby nadążyć!"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "Teraz jest najlepsza okazja do zdobycia licencji, ponieważ istnieje {boldStart} 30% zniżki {boldEnd} na cenę licencji quickFilters Pro z okazji 9-lecia quickFilters! Ta oferta specjalna będzie dostępna do {boldStart} 16 kwietnia {boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "Co nowego?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Najważniejsze"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1} Nowa funkcja: Sortuj wyszukiwane hasła w filtrze (funkcja Pro). {L2} {L1} Zapamiętaj listę skopiowanych filtrów, aby wstawić je do wielu kont (funkcja Pro). {L2} {L1} Naprawiono problem z powielaniem wyszukiwanych haseł podczas scalania filtry. {L2} {L1} Różne poprawki zgodności z Thunderbirdem 88. {L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "Moje dodatki wymagają fundamentalnych zmian, aby pozostać kompatybilnymi z platformą Mozilla. Mój zespół programistów w Github (Realraven2000, opto i paenglab) pilnie pracuje, aby przywrócić pełną funkcjonalność $addonName$.",
+    "message": "$addonName$ wymaga ciągłych zmian, aby pozostać kompatybilnym z platformą Mozilla. Nieustannie pracuję nad zachowaniem jak największej funkcjonalności dla przyszłych wersji Thunderbirda.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "Wydaliśmy już znaczne zasoby (ponad $hoursSpent$ godzin) na projekt konwersji - i jest więcej pracy w naprawianiu regresji i problemów spowodowanych zmianami w Thunderbirdzie.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "Niezbędne zmiany w celu przejścia na nowy model bez starszych wersji (eksperyment z pocztą) zajęły już wiele tygodni i nadal trwają, chociaż może to mieć wpływ na niektóre funkcje. Z tak złożonym dodatkiem, kosztowna praca staje się nieunikniona. Proszę, pomóż nam w tym."
+    "message": "Modyfikacje mające na celu konwersję $addonName$ do nowego modelu programowania zajęły tygodnie i były kosztowne. W następnej wersji 2022 jest znacznie więcej zmian. Z tak złożonym dodatkiem, kosztowna praca staje się nieunikniona. Proszę, pomóż nam w tym.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {

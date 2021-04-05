@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Snälla hjälp quickFilters att fortsätta!"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart} Kära {name} {boldEnd}, nu kan du hjälpa framtidssäkra quickFilters. Fler stora förändringar på Thunderbird kommer och jag behöver {boldStart} din hjälp {boldEnd} för att fortsätta!"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {boldStart} 30% rabatt {boldEnd} på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {boldStart} 16 april {boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Läs den detaljerade ändringsloggen här (endast engelska):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "Vad är nytt?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Höjdpunkter"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1} Ny funktion: Sortera söktermer i ett filter (Pro-funktion). {L2} {L1} Kom ihåg kopierade filter Lista för att infoga till flera konton (Pro-funktion). {L2} {L1} Fixade duplicerade söktermerproblem vid sammanslagning filter. {L2} {L1} Olika korrigeringar för kompatibilitet med Thunderbird 88. {L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "Mina tillägg kräver grundläggande ändringar för att förbli kompatibla med Mozilla-plattformen. Mitt utvecklingsteam på Github (Realraven2000, opto och paenglab) arbetar flitigt med att återställa full funktionalitet för  $addonName$.",
+    "message": "$addonName$ kräver pågående ändringar för att förbli kompatibel med Mozilla-plattformen. Jag arbetar ständigt med att behålla så mycket funktionalitet som möjligt för framtida versioner av Thunderbird.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "Vi har redan spenderat betydande resurser (över $hoursSpent$ timmar) på konverteringsprojektet - och det finns mycket mer arbete med att fixa regressioner och problem som orsakas av förändringar i Thunderbird.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "De nödvändiga ändringarna för att byta till den nya arvslösa modellen (mailexperiment) tog redan flera veckor och pågår fortfarande, medan vissa funktioner kan påverkas. Med ett komplext tillägg som detta blir dyrt arbete oundvikligt. Snälla hjälp oss med detta."
+    "message": "Ändringarna för att konvertera $addonName$ till den nya programmeringsmodellen tog veckor och var kostsamma. Det finns många fler ändringar för nästa 2022-version. Med ett komplext tillägg som detta blir dyrt arbete oundvikligt. Snälla hjälp oss med detta.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {

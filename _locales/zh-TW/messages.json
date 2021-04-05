@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "請幫助quickFilters繼續！"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart}尊敬的{name} {boldEnd}：您現在可以幫助將來的quickFilters。 雷鳥的更多重大變化即將到來，我需要{boldStart}您的幫助{boldEnd}來跟上！"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {boldStart} 30％{boldEnd}！ 此特別優惠將持續到 {boldStart} 4月16日{boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "什麼是新的？"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "強調"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1}新功能：對過濾器中的搜索詞進行排序（Pro功能）。{L2} {L1}記住複製的過濾器列表以插入到多個帳戶中（Pro功能）。{L2} {L1}解決了合併時重複的搜索詞問題 過濾器。{L2} {L1}與Thunderbird 88兼容的各種修復程序。{L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "我的附加組件需要進行基本更改，以保持與Mozilla平台的兼容性。 我在Github的開發團隊（Realraven2000，opto和paenglab）正在努力恢復$addonName$的全部功能。",
+    "message": "$addonName$ 需要進行不斷的更改，以保持與Mozilla平台的兼容性。 我一直在努力為Thunderbird的未來版本保留盡可能多的功能。",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "我們已經在轉換項目上花費了大量資源（超過$hoursSpent$小時），並且還有很多工作可以解決由Thunderbird更改引起的回歸和問題。",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "切換到新的無遺留模型的必要更改（郵件實驗）已經花費了數週時間，並且仍在進行中，同時某些功能可能會受到影響。 有了這樣複雜的附加組件，昂貴的工作就變得不可避免。 請幫助我們。"
+    "message": "將 $addonName$ 轉換為新編程模型的更改花費了數週時間，而且成本很高。 下一個2022版本將有更多更改。 有了這樣複雜的附加組件，昂貴的工作就變得不可避免。 請幫助我們。",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {

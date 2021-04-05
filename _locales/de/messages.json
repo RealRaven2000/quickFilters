@@ -16,7 +16,7 @@
   
  
   "window-title": {
-    "message": "Willkommen bei $addonName$",
+    "message": "Willkommen zu $addonName$",
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
     "placeholders": {
       "addonName" : {
@@ -90,22 +90,40 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt quickFilters zukunftssicher machen. Weitere große Änderungen an Thunderbird kommen und ich brauche {boldStart}Ihre Hilfe{boldEnd}, um Schritt zu halten!"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um 30% gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}16. April{boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "Was gibt's Neues?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Highlights"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1} Neue Funktion: Suchbegriffe im Filter sortieren (Pro-Funktion). {L2} {L1} Liste der kopierten Filter zum Einfügen in mehrere Konten einfügen (Pro-Funktion). {L2} {L1} Fix: keine Verdopplung von Suchbegriffen beim Zusammenführen von Filtern. {L2} {L1} Diverse Korrekturen für die Kompatibilität mit Thunderbird 88. {L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "Meine Add-Ons erfordern grundlegende Änderungen, um mit der Mozilla-Plattform kompatibel zu bleiben. Mein Entwicklungsteam auf Github (Realraven2000, opto und paenglab) arbeitet fleißig daran, die volle Funktionalität für $addonName$ wiederherzustellen.",
+    "message": "$addonName$ erfordert fortlaufend Änderungen, um mit der Mozilla-Plattform kompatibel zu bleiben. Ich arbeite ständig daran, so viele Funktionen wie möglich für zukünftige Versionen von Thunderbird beizubehalten.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "hours-effort" : {
-    "message": "Wir haben bereits erhebliche Ressourcen (über $hoursSpent$ Stunden) für das Konvertierungsprojekt aufgewendet - und es gibt mehr Arbeit bei der Behebung von Regressionen und Problemen, die durch Änderungen in Thunderbird verursacht werden.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
       }    
     }
   },
@@ -151,7 +169,13 @@
   }, 
   
   "ongoing-work": {
-    "message": "Die notwendigen Änderungen, um auf das neue Modell ohne Legacy (Mail-Experiment) umzusteigen, dauerten bereits mehrere Wochen und dauern noch an, während einige Funktionen beeinträchtigt werden könnten. Mit einem komplexen Add-On wie diesem wird teure Arbeit unvermeidlich. Bitte helfen Sie uns dabei."
+    "message": "Die Änderungen zur Konvertierung von $addonName$ auf das neue Programmiermodell dauerten Wochen und waren kostspielig. Es gibt viele weitere Änderungen für die nächste Version 2022. Bitte helfen Sie uns dabei.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
 
   

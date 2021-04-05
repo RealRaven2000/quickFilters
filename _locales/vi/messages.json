@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Vui lòng giúp quickFilters để tiếp tục!"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart} Kính gửi {name} {boldEnd}, bạn hiện có thể trợ giúp các bộ lọc quickFilters trong tương lai. Sắp có nhiều thay đổi lớn hơn trên Thunderbird và tôi cần {boldStart} sự trợ giúp của bạn {boldEnd} để theo kịp!"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {boldStart} giảm 30% {boldEnd} giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} ngày 16 tháng 4 {boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "Có gì mới?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Điểm nổi bật"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1} Chức năng mới: Sắp xếp Cụm từ tìm kiếm trong bộ lọc (tính năng Pro). {L2} {L1} Ghi nhớ Bộ lọc đã sao chép Danh sách để chèn vào nhiều Tài khoản (tính năng Pro). {L2} {L1} Đã khắc phục sự cố cụm từ tìm kiếm trùng lặp khi hợp nhất bộ lọc. {L2} {L1} Các bản sửa lỗi khác nhau để tương thích với Thunderbird 88. {L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "Tiện ích bổ sung của tôi yêu cầu những thay đổi cơ bản để vẫn tương thích với nền tảng Mozilla. Nhóm phát triển của tôi tại Github (Realraven2000, opto và paenglab) đang làm việc siêng năng để khôi phục toàn bộ chức năng cho $addonName$.",
+    "message": "$addonName$ yêu cầu các thay đổi liên tục để vẫn tương thích với nền tảng Mozilla. Tôi không ngừng làm việc để giữ lại nhiều chức năng nhất có thể cho các phiên bản Thunderbird trong tương lai.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "Chúng tôi đã dành nguồn lực đáng kể (hơn $hoursSpent$ giờ) cho dự án chuyển đổi - và còn rất nhiều việc phải làm trong việc khắc phục các sự cố hồi quy và các vấn đề do các thay đổi trong Thunderbird gây ra.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "Các thay đổi cần thiết để chuyển sang mô hình kế thừa mới (thử nghiệm thư) đã mất nhiều tuần và vẫn đang tiếp tục, trong khi một số chức năng có thể bị ảnh hưởng. Với một Add-on phức tạp như thế này, việc tốn kém trở thành điều tất yếu. Hãy giúp chúng tôi với điều này."
+    "message": "Các thay đổi để chuyển $addonName$ sang mô hình lập trình mới mất hàng tuần và tốn kém. Có nhiều thay đổi nữa cho phiên bản 2022 tiếp theo. Với một Add-on phức tạp như thế này, việc tốn kém trở thành điều tất yếu. Xin hãy giúp chúng tôi với điều này.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {

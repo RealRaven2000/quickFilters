@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Please help quickFilters to continue!"
+  },
+  
+  "special-offer-intro" : {
+    "message": "{boldStart}Dear {name}{boldEnd}, you can now help future-proofing quickFilters. More big changes on Thunderbird are coming and I need {boldStart}your help{boldEnd} to keep up!"
+  },
+  
+  "special-offer-content" : {
+    "message": "Now is the best opportunity to get a License as there is a {boldStart}30% reduction{boldEnd} on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {boldStart}April 16th{boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Read the detailed change log here (English only):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "What's new?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Highlights"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1}New function: Sort Search Terms in a filter (Pro feature).{L2}{L1}Remember Copied filters List to insert to multiple Accounts (Pro feature).{L2}{L1}Fixed duplicated search terms issue when merging filters.{L2}{L1}Various fixes for compatibility with Thunderbird 88.{L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "My Add-ons require fundamental changes in order to remain compatible with the Mozilla platform. My development team at Github (Realraven2000, opto and paenglab) is working diligently to restore full functionality for $addonName$ .",
+    "message": "$addonName$ requires ongoing changes in order to remain compatible with the Mozilla platform. I am constantly working to retain as much functionality as possible for future versions of Thunderbird.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "We have already spent significant resources (over $hoursSpent$ hours) on the conversion project - and there is more work in fixing regressions and issues caused by changes in Thunderbird.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "The necessary alterations to switch to the new legacy-less model (mail experiment) already took multiple weeks and are still ongoing, while some functions could be impacted. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this."
+    "message": "The alterations to convert $addonName$ to the new programming model took weeks and were costly. There are many more changes for the next 2022 version. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {

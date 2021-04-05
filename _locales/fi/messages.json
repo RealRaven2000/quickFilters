@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Auttakaa quickFilters jatkaaksesi!"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart} Hyvä {name} {boldEnd}, jvoit nyt auttaa tulevaisuuden suojaamisessa quickFilters. Lisää suuria muutoksia Thunderbirdiin on tulossa, ja tarvitsen {boldStart} apuasi {boldEnd} pysyäksesi mukana!"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "Nyt on paras mahdollisuus hankkia lisenssi, koska quickFilters Pro -lisenssin hinta on {boldStart} 30% alempi {boldEnd} juhlimaan 9 vuotta quickFilters! Tämä erikoistarjous on saatavilla {boldStart}16.4.{boldEnd} asti."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "Mikä on uutta?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Kohokohdat"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1} Uusi toiminto: Lajittele hakutermit suodattimessa (Pro-ominaisuus). {L2} {L1} Muista kopioitu suodatinluettelo lisätäksesi useille tileille (Pro-ominaisuus). {L2} {L1} Korjattu päällekkäiset hakutermit sulautettaessa suodattimet. {L2} {L1} Erilaisia korjauksia yhteensopivuuteen Thunderbird 88: n kanssa. {L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "Omat lisäosat edellyttävät perusteellisia muutoksia pysyäkseen yhteensopivina Mozilla-alustan kanssa. Kehitystiimini Githubissa (Realraven2000, opto ja paenglab) työskentelee ahkerasti palauttamaan $addonName$: n kaikki toiminnot.",
+    "message": "$addonName$ vaatii jatkuvia muutoksia, jotta se pysyy yhteensopivana Mozilla-alustan kanssa. Pyrin jatkuvasti säilyttämään mahdollisimman paljon toiminnallisuutta tuleville Thunderbird-versioille.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "Olemme jo käyttäneet huomattavia resursseja (yli $hoursSpent$ tuntia) konversioprojektiin - ja Thunderbirdin muutosten aiheuttamien regressioiden ja ongelmien korjaamisessa on paljon enemmän työtä.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "Tarvittavat muutokset siirtymiseksi uuteen vanhaan malliin (postikokeilu) kesti jo useita viikkoja ja ovat edelleen käynnissä, vaikka joihinkin toimintoihin voi olla vaikutusta. Tällaisen monimutkaisen lisäosan avulla kalliista työstä tulee väistämätöntä. Auta meitä tässä."
+    "message": "Muutokset $addonName$ muuntamiseksi uudeksi ohjelmointimalliksi kesti viikkoja ja olivat kalliita. Seuraavaa versiota 2022 on paljon enemmän. Tällaisen monimutkaisen lisäosan avulla kalliista työstä tulee väistämätöntä. Auta meitä tässä.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {

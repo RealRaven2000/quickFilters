@@ -89,24 +89,42 @@
     "description": "Shown if license expires more than a year from now"
   },
   
+  "special-offer-head" : {
+    "message": "Help quickFilters om door te gaan!"
+  } ,  
+
+  "special-offer-intro" : {
+    "message": "{boldStart} Beste {naam} {boldEnd}, u kunt nu helpen om quickFilters toekomstbestendig te maken. Er komen meer grote veranderingen aan in Thunderbird en ik heb {boldStart} uw hulp {boldEnd} nodig om bij te blijven!"
+  } ,
+  
+  "special-offer-content" : {
+    "message": "Dit is de beste kans om een licentie te krijgen, want er is een {boldStart} 30% korting {boldEnd} op de prijs van een quickFilters Pro-licentie om 9 jaar quickFilters te vieren! Deze speciale aanbieding is beschikbaar tot {boldStart} 16 april {boldEnd}."
+  },
+  
+  "whats-new-intro" : {
+    "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):" 
+  },
+  
+  "whats-new-btn" : {
+    "message": "Wat is er nieuw?"
+  }, 
+  
+  "whats-new-head" : {
+    "message": "Hoogtepunten"
+  },
+  
+  "whats-new-list" : {
+    "message" : "{L1} Nieuwe functie: zoektermen sorteren in een filter (Pro-functie). {L2} {L1} Lijst met gekopieerde filters onthouden om in meerdere accounts in te voegen (Pro-functie). {L2} {L1} Probleem opgelost met dubbele zoektermen bij samenvoegen filters. {L2} {L1} Diverse oplossingen voor compatibiliteit met Thunderbird 88. {L2}"
+  },  
+  
   "time-and-effort": { 
-    "message": "Mijn add-ons vereisen fundamentele wijzigingen om compatibel te blijven met het Mozilla-platform. Mijn ontwikkelingsteam bij Github (Realraven2000, opto en paenglab) werkt hard om de volledige functionaliteit voor $addonName$ te herstellen.",
+    "message": "$addonName$ vereist voortdurende wijzigingen om compatibel te blijven met het Mozilla-platform. Ik ben constant bezig om zoveel mogelijk functionaliteit te behouden voor toekomstige versies van Thunderbird.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
         "example" : "quickFilters"
       }    
     }
-  },
-  
-  "hours-effort" : {
-    "message": "We hebben al aanzienlijke middelen (meer dan $hoursSpent$ uur) besteed aan het conversieproject - en er is nog veel meer werk aan het oplossen van regressies en problemen veroorzaakt door veranderingen in Thunderbird.",
-    "placeholders": {
-      "hoursSpent" : {
-        "content" : "$1", 
-        "example" : "250"
-      }    
-    }    
   },
   
   "support-suggestion" : {
@@ -150,7 +168,13 @@
   }, 
 
   "ongoing-work": {
-    "message": "De noodzakelijke wijzigingen om over te schakelen naar het nieuwe legacy-less model (mail-experiment) hebben al meerdere weken geduurd en zijn nog steeds aan de gang, terwijl sommige functies hierdoor kunnen worden beïnvloed. Met een complexe add-on als deze wordt duur werk onvermijdelijk. Help ons hier alstublieft mee."
+    "message": "De aanpassingen om $addonName$ om te zetten naar het nieuwe programmeermodel duurden weken en waren kostbaar. Er zijn veel meer wijzigingen voor de volgende 2022-versie. Met een complexe add-on als deze wordt duur werk onvermijdelijk. Help ons hier alstublieft mee.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
   "btn-want-a-license": {
