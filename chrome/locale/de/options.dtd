@@ -58,6 +58,8 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Findet Filter, die Emails in das aktive Verzeichnis verschieben.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders Aktiv-Verzeichnis Werkzeugleiste">
 <!ENTITY qf.description.currentFolderButtons "Diese Optionen gelten nur wenn die QuickFolders Erweiterung installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt.">
+<!ENTITY qf.filterlist.group "Filterlistenfunktionen">
+<!ENTITY qf.filterlist.multipaste "Aktiviert das Einfügen von Filtern in mehrere Konten">
 <!ENTITY grpMerge.label "Regeln zum Kombinieren">
 <!ENTITY chkMergeAuto.label "Automatisch Kombinieren">
 <!ENTITY chkMergeAuto.tooltip "Falls schon ein Filter vorhanden ist, wird Kombinieren voreingestellt und der erste Filter als Ziel markiert.">
@@ -67,7 +69,6 @@
 <!ENTITY qf.cloned.label "Endwort für geklonten Filter:">
 <!ENTITY qf.onewayaddress.label "Zweiweg Mailaddressen abschalten">
 <!ENTITY qf.onewayaddress.tooltip "Standardmäßig fügt quickFilters sowohl 'Von' (Absender) und 'An' (Empfänger) in die Suchbedingungen ein, damit die komplette Konversation inklusive der eigenen Emails an diesen Empfänger gefiltert wird. Falls Sie Ihre eigene Email immer im 'Gesendet' Verzeichnis belassen wollen, kann diese Vorgehen hier deaktiviert werden. Das Addon 'Copy Sent to Current' kann benutzt werden um Antworten mit ihren ursprünglichen Emails zusammen zu halten.">
-<!ENTITY qf.postbox.quickmove "Postbox: das 'quickmove' feature unterstützen">
 <!ENTITY qf.listener.tags "Schlagwörter beobachten">
 <!ENTITY qf.listener.tags.tooltip "Wenn der Filter Assistent aktiv ist, wird er auch aufgerufen falls Sie einer EMail ein Schlagwort hinzufügen.">
 <!ENTITY qf.listener.tags.autofilter "Mails automatisch filtern, wenn Schlagwörter gesetzt werden">

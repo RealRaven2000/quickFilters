@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "Mallnamn:">
 <!ENTITY quickfilters.customVariable.label "Anpassade variabler">
 <!ENTITY quickfilters.customVariable.tooltip "När filter skapas ersätts dessa variabler med motsvarande e-postsidhuvuden i det aktuella e-postmeddelandet.">
+<!ENTITY quickfilters.sort "Sortera">
+<!ENTITY quickfilters.sort.tooltip "Sortera söktermer">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "Från">
 <!ENTITY quickfilters.customHeader.To "Till">

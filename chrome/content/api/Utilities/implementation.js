@@ -64,7 +64,21 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         },
 
 
-        openLinkExternally(url) {
+        getUserName : function () {
+          const util = win.quickFilters.Util;
+          let Accounts = util.Accounts; 
+          for (let a=0; a<Accounts.length; a++) {
+            let account = Accounts[a];
+            if (account.defaultIdentity) 
+            { 
+              let name = account.defaultIdentity.fullName;
+              if (name) return name;
+            }
+          }    
+          return "user"; // anonymous
+        },
+        
+        openLinkExternally: function(url) {
           let uri = url;
           if (!(uri instanceof Ci.nsIURI)) {
             uri = Services.io.newURI(url);
@@ -73,6 +87,11 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           Cc["@mozilla.org/uriloader/external-protocol-service;1"]
             .getService(Ci.nsIExternalProtocolService)
             .loadURI(uri);
+        },
+        
+        showVersionHistory: function(ask) {
+          const util = win.quickFilters.Util;
+          util.showVersionHistory(ask);
         },
 
         showXhtmlPage(uri) {

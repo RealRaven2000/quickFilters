@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "テンプレート名:">
 <!ENTITY quickfilters.customVariable.label "カスタム変数">
 <!ENTITY quickfilters.customVariable.tooltip "フィルタ作成時に、これらの変数は現在のメールの対応するメールヘッダと置き換えられます。">
+<!ENTITY quickfilters.sort "ソート">
+<!ENTITY quickfilters.sort.tooltip "検索語を並べ替える">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "差出人">
 <!ENTITY quickfilters.customHeader.To "宛先">

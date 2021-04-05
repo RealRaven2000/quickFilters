@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "Имя шаблона:">
 <!ENTITY quickfilters.customVariable.label "Переменные">
 <!ENTITY quickfilters.customVariable.tooltip "При создании фильтра эти переменные будут заменены на их значения из текущего сообщения.">
+<!ENTITY quickfilters.sort "Сортировать">
+<!ENTITY quickfilters.sort.tooltip "Сортировать поисковые запросы">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "От кого">
 <!ENTITY quickfilters.customHeader.To "Кому">

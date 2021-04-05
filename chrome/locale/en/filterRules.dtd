@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "Template Name:">
 <!ENTITY quickfilters.customVariable.label "Custom Variables">
 <!ENTITY quickfilters.customVariable.tooltip "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail.">
+<!ENTITY quickfilters.sort "Sort">
+<!ENTITY quickfilters.sort.tooltip "Sort search terms">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "From">
 <!ENTITY quickfilters.customHeader.To "To">

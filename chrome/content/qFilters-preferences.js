@@ -149,15 +149,7 @@ quickFilters.Preferences = {
 	},
 	
 	get isStarAction() {
-	  let pref;
-		switch(quickFilters.Util.Application) {
-			case 'Thunderbird': case 'Postbox':
-				pref = 'actions.star';
-				break;
-			case 'SeaMonkey':
-				pref = 'actions.flag';
-				break;
-		}
+	  let pref = 'actions.star';  // SeaMonkey: actions.flag
 		return this.getBoolPref(pref);
 	} ,
 	

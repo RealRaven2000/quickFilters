@@ -58,6 +58,8 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Hitta alla filter som flyttar meddelanden till denna mapp.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders verktygsfält för aktuell meddelandemapp">
 <!ENTITY qf.description.currentFolderButtons "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen.">
+<!ENTITY qf.filterlist.group "Filterlistfunktioner">
+<!ENTITY qf.filterlist.multipaste "Aktivera kopiering och klistra in filter till flera konton">
 <!ENTITY grpMerge.label "Sammanslagningsregler">
 <!ENTITY chkMergeAuto.label "Välj Slå samman automatiskt">
 <!ENTITY chkMergeAuto.tooltip "Om ditt nya filter redan finns kommer quickFilters automatiskt att slå samman det med det första matchande filtret.">
@@ -67,7 +69,6 @@
 <!ENTITY qf.cloned.label "Bifoga följande till namnet på duplicerat filter:">
 <!ENTITY qf.onewayaddress.label "Inaktivera tvåvägssökvillkor för adresser">
 <!ENTITY qf.onewayaddress.tooltip "Som standard lägger quickFilters till sökvillkor för både &quot;från&quot; och &quot;till&quot;, för att underlätta fullständig filtrering av meddelandetrådar som innehåller dina egna e-brev till mottagaren. Om du alltid vill förvara dina svar i mappen Skickat, så kan du inaktivera detta beteende här. Tillägget &quot;Copy Sent to Current&quot; kan användas för att behålla svarsmeddelanden tillsammans med de ursprungliga e-breven.">
-<!ENTITY qf.postbox.quickmove "Postbox: stöder funktionen snabbflyttning">
 <!ENTITY qf.listener.tags "Lyssna efter etikettsändringar">
 <!ENTITY qf.listener.tags.tooltip "När detta alternativ är aktiverat kommer Filterassistenten även att startas när du etiketterar ett meddelande.">
 <!ENTITY qf.listener.tags.autofilter "Kör filter automatiskt när taggar ändras">

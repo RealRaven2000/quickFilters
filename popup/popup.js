@@ -21,10 +21,26 @@ async function updateActions(addonName) {
   //);
   
   function hide(id) {
-    document.getElementById(id).setAttribute('collapsed',true);
+    let el = document.getElementById(id);
+    if (el) {
+      el.setAttribute('collapsed',true);
+      return el;
+  }
+    return null;
+  }
+  function hideSelectorItems(cId) {
+    let elements = document.querySelectorAll(cId);
+		for (let el of elements) {
+      el.setAttribute('collapsed',true);
+		}	    
   }
   function show(id) {
-    document.getElementById(id).setAttribute('collapsed',false);
+    let el = document.getElementById(id);
+    if (el) {
+      el.setAttribute('collapsed',false);
+      return el;
+    }
+    return null;
   }
   // renew-your-license - already collapsed
   // renewLicenseListItem - already collapsed
@@ -53,6 +69,14 @@ async function updateActions(addonName) {
         hide('extendLicenseListItem');
         hide('extend');
       }
+    }
+  }  
+  else {
+    let currentTime=new Date(),
+        endSale = new Date("2021-04-16");
+    if (currentTime < endSale) {
+      show('specialOffer');
+      hideSelectorItems('.donations');
     }
   }  
   

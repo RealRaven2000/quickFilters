@@ -58,6 +58,8 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Trova i filtri che spostano i messaggi in questa cartella">
 <!ENTITY qf.label.currentFolderButtons "Barra degli strumenti della cartella corrente di QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Questa opzione è utilizzabile solo se si sta usando anche l'estensione QuickFolders che aggiunge una piccola barra degli strumenti in cima al riquadro di anteprima del messaggio">
+<!ENTITY qf.filterlist.group "Funzioni elenco filtri">
+<!ENTITY qf.filterlist.multipaste "Abilita i filtri copia e incolla su più account">
 <!ENTITY grpMerge.label "Regole Unione">
 <!ENTITY chkMergeAuto.label "Seleziona automaticamente Unione">
 <!ENTITY chkMergeAuto.tooltip "Se esiste già un filtro, questa opzione seleziona automaticamente la modalità unione e il primo filtro corrispondente">
@@ -67,7 +69,6 @@
 <!ENTITY qf.cloned.label "Accoda al nome del filtro clonato:">
 <!ENTITY qf.onewayaddress.label "Disabilita il criterio di ricerca 'A due vie' degli indirizzi">
 <!ENTITY qf.onewayaddress.tooltip "In modalità predefinita, quickFilters usa sia il criterio di ricerca &quot;Mittente/Da:&quot; sia &quot;Destinatario/A:&quot; per filtrare completamente i messaggi relativi ad un certo argomento, ivi compresi i propri messaggi spediti al destinatario. Se però si vogliono mantenere le proprie risposte nella cartella 'Posta inviata', utilizzando questa opzione si può disabilitare tale comportamento. È anche possibile usare l'estensione 'Copy Sent to Current' per mantenere le risposte assieme ai messaggi che le hanno originate.">
-<!ENTITY qf.postbox.quickmove "Supporto della caratteristica 'Sposta rapidamente' di Postbox">
 <!ENTITY qf.listener.tags "Percepisci eventuali modifiche alle etichette">
 <!ENTITY qf.listener.tags.tooltip "Se questa opzione è attiva, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio.">
 <!ENTITY qf.listener.tags.autofilter "Esegui i filtri automaticamente quando le etichette vengono modificate">

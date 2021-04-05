@@ -422,13 +422,23 @@ END LICENSE BLOCK
     # [issue 41] Merge filters (at least manually) is broken
     # [issue 42] All cut / copied filters in list should be highlighted with icon
     # [issue 44] Folder names default delimiter shows black diamond �  instead »
-    ## Improved reopening any support sites already open in a tab by jumping to the correct place if necessary
+    # Improved reopening any support sites already open in a tab by jumping to the correct place if necessary
+    
+  5.2 - WIP
+    # [issue 11] Feature request: Sort Search Terms in a filter
+    # [issue 20] allow pasting filters multiple accounts across different accounts.
+    # [issue 51] Merging filters can lead to duplicate conditions
+    # [issue 52] Own Emails are not automatically suggested for merging when using context menu
+    # [issue 23] Avoid Empty Conditions list due to removed recipients - filter cannot be edited
+    # Moved settings from tools menu to Add-on Manager (according to standard)
+    # [issue 48] Make quickFilters compatible with Thunderbird 87 beta (ongoing):
+      - open sites in tab was broken because of modified openTab parameters
+      - search terms now in a different type of collection can lead to failures when defining new filters.
    
   ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
 		# [Bug 26690] Add Extra Column In Filter Browser "Auto"
-		# [Bug 26373] Sort definitions within a filter
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
     # [Bug 25801]	Assistant in Merge mode, cancel does not undo changes 
     
@@ -753,11 +763,7 @@ var quickFilters = {
   },
 
   onToolbarListCommand: function onToolbarListCommand(e) {
-	  if (quickFilters.Util.Application == 'Postbox') {
-			MsgFilters(null, null);
-		}
-		else 
-      goDoCommand('cmd_displayMsgFilters');
+    goDoCommand('cmd_displayMsgFilters');
   },
 
   onApplyFilters: function onApplyFilters(silent) {

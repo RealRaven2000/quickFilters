@@ -58,6 +58,8 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Filters die e-mail naar deze map verplaatsen zoeken.">
 <!ENTITY qf.label.currentFolderButtons "Werkbalk Huidige map QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Deze optie is alleen van toepassing als u de add-on QuickFolders gebruikt, die een kleine werkbalk bovenop het berichtenvenster plaatst.">
+<!ENTITY qf.filterlist.group "Filterlijstfuncties">
+<!ENTITY qf.filterlist.multipaste "Schakel het kopiëren en plakken van filters naar meerdere accounts in">
 <!ENTITY grpMerge.label "Regels samenvoegen">
 <!ENTITY chkMergeAuto.label "Samenvoegen automatisch selecteren">
 <!ENTITY chkMergeAuto.tooltip "Als een filter al bestaat selecteert dit automatisch de samenvoegmodus en het eerste overeenkomende filter.">
@@ -67,7 +69,6 @@
 <!ENTITY qf.cloned.label "Aan naam van gekloond filter toevoegen:">
 <!ENTITY qf.onewayaddress.label "Tweeweg-adreszoekvoorwaarden uitschakelen">
 <!ENTITY qf.onewayaddress.tooltip "Standaard voegt quickFilters de zoekvoorwaarden ‘van’ en ‘aan’ toe om te helpen bij het uitfilteren van volledige discussies met daarin uw eigen e-mailberichten aan de ontvanger. Als u altijd uw antwoorden in de map Verzonden wilt houden, dan kunt u hier dat gedrag uitschakelen. De add-on ‘Copy Sent to Current’ kan worden gebruikt om antwoorden met hun oorspronkelijke berichten te bewaren.">
-<!ENTITY qf.postbox.quickmove "Postvak: ondersteuning voor functie snel verplaatsen">
 <!ENTITY qf.listener.tags "Markeringswijzigingen volgen">
 <!ENTITY qf.listener.tags.tooltip "Indien geactiveerd zal de filterassistent ook starten als u een bericht markeert.">
 <!ENTITY qf.listener.tags.autofilter "Filters automatisch toepassen als markeringen worden gewijzigd">

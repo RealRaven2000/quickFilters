@@ -416,6 +416,9 @@ quickFilters.Licenser = {
                      + parent.licenseDescription(parent.ValidationStatus)
                      + '   [' + parent.ValidationStatus + ']');
     }
+    
+    if (!LicenseKey && this.LicenseKey) 
+      LicenseKey = this.LicenseKey;
 		
     function isIdMatchedLicense(idMail, licenseMail) {
 			try {

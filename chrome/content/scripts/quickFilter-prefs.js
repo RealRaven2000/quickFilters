@@ -60,7 +60,6 @@ pref("extensions.quickfilters.refreshHeaders.wait", 150);
 
 pref("extensions.quickfilters.filters.currentTemplate", "from");
 pref("extensions.quickfilters.nostalgySupport", false);
-pref("extensions.quickfilters.postbox.quickmove", true);
 pref("extensions.quickfilters.listener.tags", true);
 pref("extensions.quickfilters.listener.tags.autofilter", false); // Bug 26457 
 pref("extensions.quickfilters.searchterm.addressesOneWay", false); // Bug 25714
@@ -82,7 +81,6 @@ pref("extensions.quickfilters.quickfolders.curFolderbar.listbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.folderbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.messagesbutton", false);
 pref("extensions.quickfilters.quickfolders.curFolderbar.findfilterbutton", true);
-pref("extensions.quickfilters.notTB.searchbox", false);
 
 // Troubleshooter (button in filterlist)
 pref("extensions.quickfilters.troubleshoot.incomingFlag", true);
@@ -95,6 +93,9 @@ pref("extensions.quickfilters.troubleshoot.mixedAnyAndAll", true);
 pref("extensions.quickfilters.templates.replyTo", false);
 // custom templates
 pref("extensions.quickfilters.templates.custom", false);
+
+// issue 20 - Remember Copied filters List to insert to other Accounts multiple times
+pref("extensions.quickfilters.multipaste", false);
 
 pref("extensions.quickfilters.notifications.runFilter", true);
 

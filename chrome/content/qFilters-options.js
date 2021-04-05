@@ -205,10 +205,12 @@ quickFilters.Options = {
     let getElement      = document.getElementById.bind(document),
         chkLocalFoldersAutorun = getElement('chkLocalFoldersAutorun'),
         chkFoldersShortcut = getElement('chkFoldersShortcut'),
-        chkMailsShortcut = getElement('chkMailsShortcut');
+        chkMailsShortcut = getElement('chkMailsShortcut'),
+        chkMultiPaste = getElement('chkMultiPaste');
     chkLocalFoldersAutorun.disabled = !isEnabled;
     chkFoldersShortcut.disabled = !isEnabled;
     chkMailsShortcut.disabled = !isEnabled;
+    chkMultiPaste.disabled = !isEnabled;
   },
   
   decryptLicense: function decryptLicense(testMode) {

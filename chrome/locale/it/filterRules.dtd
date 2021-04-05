@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "Nome del modello:">
 <!ENTITY quickfilters.customVariable.label "Variabili personalizzate">
 <!ENTITY quickfilters.customVariable.tooltip "Quando viene creato il fltro, queste variabili vengono rimpiazzate dalle corrispondenti intestazioni presenti nel messaggio di posta elettronica corrente">
+<!ENTITY quickfilters.sort "Ordinare">
+<!ENTITY quickfilters.sort.tooltip "Ordina i termini di ricerca">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "Da">
 <!ENTITY quickfilters.customHeader.To "A">

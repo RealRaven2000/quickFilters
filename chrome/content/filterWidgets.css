@@ -141,3 +141,19 @@ tab#quickFilters-Advanced {
 tab#quickFilters-Support {
 	list-style-image : url('chrome://quickfilters/content/skin/info.svg') !important;
 }
+
+/* filter editor tools */
+#quickFiltersEditorTools {
+  display: inline-block;
+  background: rgba(80,80,80,0.2); /*test */
+}
+/* Sort */
+#quickFiltersEditorTools #quickFiltersBtnSort {
+	list-style-image: url("chrome://quickfilters/content/skin/sort.svg");
+}
+
+#quickFiltersEditorTools #quickFiltersBtnSort > image,
+#quickFiltersEditorTools #quickFiltersBtnSort > label {
+  display: inline-block;
+}
+

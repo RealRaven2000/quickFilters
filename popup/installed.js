@@ -67,6 +67,11 @@ addEventListener("click", async (event) => {
       preference.innerText = messenger.i18n.getMessage("support-preference", addonName);
     }
 
+    let ongoing = document.getElementById('ongoing-work');
+    if (ongoing) {
+      ongoing.innerText = messenger.i18n.getMessage("ongoing-work", addonName);
+    }
+    
     let title = document.getElementById('window-title');
     if (title)
       title.innerText = messenger.i18n.getMessage("window-title", addonName);

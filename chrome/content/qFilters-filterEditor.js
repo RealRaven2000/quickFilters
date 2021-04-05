@@ -284,7 +284,94 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
       gSearchTermList.ensureIndexIsVisible(rowIndex);
     }, 
     
+    sortConditions: function sortConditions(theFilter) {
+      
+      function compareTerms(a,b) {
+        try {
+          // Ci.nsMsgSearchAttrib - long
+          if (a.attrib > b.attrib)
+            return 1;
+          if (a.attrib < b.attrib)
+            return -1;
+          // Ci.nsMsgSearchOp - long
+          if (a.op > a.op)
+            return 1;
+          if (a.op < a.op)
+            return -1;
+          // atrtirbute and operand are the same, now let's sort equal values
+          if (util.isStringAttrib(a.value.attrib)) {
+            if (a.value.str > b.value.str) return 1;
+            if (a.value.str < b.value.str) return -1;
+          }
+        }
+        catch(ex) { }
+        // we don't care about the rest
+        return 0;
+      }
+      
+      
+      if (!util.hasPremiumLicense(true)) {
+        util.popupProFeature("sortSearchTerms", true);
+        return;
+      }
+      // 1st save in case there were edits on screen!
+      saveSearchTerms(theFilter.searchTerms, theFilter);
+      
+      let stCollection = util.querySearchTermsArray(theFilter.searchTerms),
+          newSearchArray = [],
+          len = util.querySearchTermsLength(stCollection)
+      for (let t = 0; t<len; t++) {
+        let searchTerm = util.querySearchTermsAt(stCollection, t);
+        // 
+        if (searchTerm.value) {
+          let val = searchTerm.value, // nsIMsgSearchValue
+              AC = Ci.nsMsgSearchAttrib;
+          if (val && util.isStringAttrib(val.attrib)) {
+            let conditionStr = searchTerm.value.str || '';  
+          }
+        }
+        newSearchArray.push(searchTerm);
+      }
+      let sortedArray = newSearchArray.sort(compareTerms),
+          iCount = 0,
+          log = "Re-sorted Search Terms:\n";
+      for (let x of sortedArray) {
+        let sTerm = "[" + iCount + "] " + x.termAsString;
+        log = log + sTerm + "\n";
+        iCount++;
+      }
+      util.logDebug(log);
+      // Tb 78 attribute nsIMutableArray searchTerms;
+      // Tb 88 attribute Array<nsIMsgSearchTerm> searchTerms;
+      let stCopy = theFilter.searchTerms;
+      if (stCopy.clear)  {
+        stCopy.clear();
+      }
+      else {
+        debugger;
+        while (stCopy.length) stCopy.pop();
+      }
+      theFilter.searchTerms = stCopy; 
+      
+      for (let x of sortedArray) {
+        theFilter.appendTerm(x);
+      }
 
+      while (gTotalSearchTerms > 0) {
+        removeSearchRow(0);
+        --gTotalSearchTerms;
+      }
+      
+      initializeDialog(theFilter); // this will duplicate the actions.
+      
+      let ruleActions = Array.from(document.querySelectorAll(".ruleaction")),
+          count = ruleActions.length;
+      for (let a = 0; a<count;  a++) {
+        if (a<count/2)
+          ruleActions[a].removeRow();
+      }
+      // call filterEditorOnLoad(); ??
+    }
   }
 
   // we need to closure these objects for our observer callback:

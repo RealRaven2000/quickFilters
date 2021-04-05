@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "Sjabloonnaam:">
 <!ENTITY quickfilters.customVariable.label "Aangepaste variabelen">
 <!ENTITY quickfilters.customVariable.tooltip "Bij aanmaken van het filter worden deze variabelen vervangen door de overeenkomstige headers van het huidige e-mailbericht.">
+<!ENTITY quickfilters.sort "Soort">
+<!ENTITY quickfilters.sort.tooltip "Sorteer zoektermen">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "Van">
 <!ENTITY quickfilters.customHeader.To "Aan">

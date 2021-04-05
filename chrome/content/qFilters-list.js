@@ -615,6 +615,7 @@ quickFilters.List = {
 	
 	pasteFilters: function pasteFilters(isSort) {
 		const util = quickFilters.Util,
+		      prefs = quickFilters.Preferences,
 		      Ci = Components.interfaces;
 		let clpFilters = this.clipboardList,
         sortedFiltersList,
@@ -736,7 +737,9 @@ quickFilters.List = {
 				let filter = clpFilters[i].QueryInterface(Ci.nsIMsgFilter);
 			}
 		}
-		this.clipboardPending = ''; // reset copy/cut mode.
+    if (!prefs.getBoolPref("multipaste") ) {
+      this.clipboardPending = ''; // reset copy/cut mode.
+    }
 		this.rebuildFilterList();
 		
 	},
@@ -768,8 +771,7 @@ quickFilters.List = {
       // reset duplicates list + hide: only if we are not in Search mode.
       this.clearDuplicatePopup(false);
       document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
-      if (util.Application == 'Thunderbird')
-        document.getElementById('quickFiltersBtnDupe').collapsed = false;
+      document.getElementById('quickFiltersBtnDupe').collapsed = false;
     }
 	} ,
 	
@@ -817,10 +819,7 @@ quickFilters.List = {
     }
 		// Toolbar
 		let toolbox = getElement("quickfilters-toolbox"),
-		    hbs = document.getElementsByTagName(
-		    (util.Application == 'Thunderbird')
-			? 'hbox'
-		  : 'grid'),
+		    hbs = document.getElementsByTagName('hbox'),
 		  hbox = hbs ? hbs[0] : null ;
 		let isToolbar = false;
 		if (!prefs.getBoolPref("toolbar")) {
@@ -835,11 +834,6 @@ quickFilters.List = {
 				button.checked = true;			
 			}
 		}
-		
-    if (util.Application != 'Thunderbird') {
-      let duplicateBtn = getElement('quickFiltersBtnDupe');
-      duplicateBtn.collapsed = true;
-    }
 		
 		// add event listener for changing account
     let dropDown = getElement("serverMenu");
@@ -866,17 +860,6 @@ quickFilters.List = {
 				down.parentNode.insertBefore(mergeButton, getElement("deleteButton").nextSibling);
     }
     
- /* if (!nativeSearchBox) {
-			if (prefs.isDebugOption('filterSearch')) debugger;
-      if (hbox && util.Application != 'Thunderbird') {
-        // go into grid (into its own row!)
-        let searchBoxContainer = getElement('searchBoxContainer'),
-            searchSpacer = getElement ('quickFiltersSearchSpacer'),
-            rows = hbox.getElementsByTagName("rows")[0];
-        rows.insertBefore(searchBoxContainer, rows.firstChild.nextSibling);
-      }
-    } */
-    
     let sb = nativeSearchBox;
     if (sb) {
       util.logDebugOptional('filterList', 'got search box, extending functionality...');
@@ -898,65 +881,6 @@ quickFilters.List = {
       // in this case, this id should be assigned already by the bugfix
       formatListLabel(getElement("filterListLabel"));
     }
-    else {  
-      /*********************************** 
-      **    MODIFICATIONS  START        **
-      ***********************************/
-      /** Add Top + Bottom Buttons **/
-      // DOMi ugliness.
-      util.logDebugOptional('filterList', 'no search box, adding top/bottom buttons...');
-		
-      // overwrite handlers for moving filters while search is active
-      // add additional listener for the filter list to select event
-      filterListEl = this.FilterListElement;
-      if (filterListEl) {
-        util.logDebugOptional('filterList', 'adding select events for button updates...');
-      
-        filterListEl.addEventListener("select",
-          function(e) { quickFilters.List.onSelectFilter(e);},
-          false);
-        // make sure to disable the correct buttons on dialog load
-        // the delay times are picked somewhat arbitrarily, sorry.
-        window.setTimeout(function() { quickFilters.List.onSelectFilter(null);}, 250);
-        // add a context menu:
-
-        // Update filter counts after new and delete:
-        // removed DOM_NodeInserted events and chose some monkey patching instead.
-        if (!qList.eventsAreHooked) {
-          let theOnNew = onNewFilter;
-          if (theOnNew) {
-            onNewFilter = function() {
-              theOnNew(arguments);
-              try {
-                qList.updateCountBox();
-              }
-              catch(e) {
-                if (quickFilters && util)
-                  util.logException('onNewFilter - ',e);
-              }
-            }
-          }
-          let theOnDelete = onDeleteFilter;
-          if (theOnDelete) {
-            onDeleteFilter = function() {
-              theOnDelete(arguments);
-              try {
-                qList.updateCountBox();
-              }
-              catch(e) {
-                if (quickFilters && util)
-                  util.logException('onDeleteFilter - ',e);
-              }
-            }
-          }
-          qList.eventsAreHooked = true; // avoid multiple hooking.
-        }
-      }
-
-    /************************************ 
-     **    MODIFICATIONS  END          **
-     ***********************************/
-		} // no native search box
     
     // highlight target filter if passed into window
     if (window.arguments.length) {
@@ -1226,7 +1150,7 @@ quickFilters.List = {
         return false;
       case 'condition':
         let stCollection = util.querySearchTermsArray(aFilter.searchTerms);
-        for (let t = 0; t < stCollection.Count(); t++) {
+        for (let t = 0; t < util.querySearchTermsLength(stCollection); t++) {
           // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
           // searchTerms.QueryElementAt(i, Ci.nsIMsgSearchTerm);
           let searchTerm = util.querySearchTermsAt(stCollection, t);
@@ -1458,7 +1382,7 @@ quickFilters.List = {
       let filter = filtersList.getFilterAt(idx),
       // 1. Search Conditions
           stCollection = util.querySearchTermsArray(filter.searchTerms);
-      for (let t = 0; t < stCollection.Count(); t++) {
+      for (let t = 0; t < util.querySearchTermsLength(stCollection); t++) {
         // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
         // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
         let searchTerm = util.querySearchTermsAt(stCollection, t);
@@ -1752,6 +1676,7 @@ quickFilters.List = {
 				}
 			}
 			
+      if (prefs.isDebug) debugger;
 			let iAdded = 0, 
 					iReplaced = 0,
 			    iFailure = 0,
@@ -2098,8 +2023,8 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
       // Test 4. check for mixed booleanAnd properties:
       if (isEnabled('mixedAnyAndAll')) {
         let TargetTerms = util.querySearchTermsArray(filter.searchTerms),
-            targetBoolean = util.querySearchTermsAt(TargetTerms, 0).booleanAnd,
-            theCount = TargetTerms.Count(),
+            theCount = TargetTerms ? util.querySearchTermsLength(TargetTerms) : 0,
+            targetBoolean = theCount ? util.querySearchTermsAt(TargetTerms, 0).booleanAnd : null,
             fixedConditions = 0;
         for (let t = 0; t < theCount; t++) {
           let searchTerm = util.querySearchTermsAt(TargetTerms, t);
@@ -2113,6 +2038,15 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
                      type: 'mixedAnyAndAll',
                      booleanAnd: targetBoolean, 
                      conditionCount: fixedConditions
+                   } 
+          errorList.push (el);
+        }
+        if (!theCount) {
+          let el = { index:i, 
+                     flt:filter, 
+                     type: 'missingSearchTerms',
+                     booleanAnd: targetBoolean, 
+                     conditionCount: 0
                    } 
           errorList.push (el);
         }
@@ -2180,7 +2114,8 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		    errorsIncoming = errorList.filter(el => el.type == 'incoming'),
 				errorsURI = errorList.filter(el => el.type == 'folderUri'),
 				errorsCustomAction = errorList.filter(el => el.type == 'customAction'),
-        errorsAnyAndAll = errorList.filter(el => el.type == 'mixedAnyAndAll');
+        errorsAnyAndAll = errorList.filter(el => el.type == 'mixedAnyAndAll'),
+        errorsNoSearchTerms = errorList.filter(el => el.type == 'missingSearchTerms');
 		
 		// ==== INVALID Incoming flag  ====
 		if (errorsIncoming.length) {
@@ -2236,8 +2171,8 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
           util.logDebug("Fixing Filter[" + err.index + "] MIXED ANY/ALL CONDITIONS: " + filter.filterName);
           
           let TargetTerms = util.querySearchTermsArray(filter.searchTerms),
-              targetBoolean = util.querySearchTermsAt(TargetTerms, 0).booleanAnd,
-              theCount = TargetTerms.Count();
+              theCount = util.querySearchTermsLength(TargetTerms),
+              targetBoolean = theCount ? util.querySearchTermsAt(TargetTerms, 0).booleanAnd : false;
           for (let t = 0; t < theCount; t++) {
             let searchTerm = util.querySearchTermsAt(TargetTerms, t);
             if (searchTerm.booleanAnd != targetBoolean) {
@@ -2259,6 +2194,12 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
         }
         
       }
+    }
+    
+    if (errorsNoSearchTerms.length) {
+      let question = "Some filters have no search terms - you should delete these:",
+          names = makeNameList(errorsNoSearchTerms);
+      PromptService.alert(null, "quickFilters", question + "\n" + names);
     }
     
 		// ==== INVALID target URIs  ====

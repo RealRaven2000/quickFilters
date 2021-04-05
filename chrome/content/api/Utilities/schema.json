@@ -89,6 +89,7 @@
       {
         "name": "openLinkExternally",
         "type": "function",
+        "async": true,
         "parameters": [
           {
             "name": "url",
@@ -98,6 +99,25 @@
  
 
         ]
+      },
+      
+      {
+        "name": "showVersionHistory",
+        "type": "function",
+        "parameters": [
+          {
+            "name": "ask",
+            "type": "boolean",
+            "description": "ask before showing change log tab"
+          }
+        ]
+      },      
+      
+      {
+        "name": "getUserName",
+        "type": "function",
+        "async": true,
+        "parameters": []
       }
 
    ]

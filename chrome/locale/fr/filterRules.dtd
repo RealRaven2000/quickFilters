@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "Nom du modèle :">
 <!ENTITY quickfilters.customVariable.label "Variables personnalisées">
 <!ENTITY quickfilters.customVariable.tooltip "Lors de la création de filtre, ces variables sont remplacées par les entêtes de mail correspondantes du courriel courant.">
+<!ENTITY quickfilters.sort "Trier">
+<!ENTITY quickfilters.sort.tooltip "Trier les termes de recherche">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "Expéditeur">
 <!ENTITY quickfilters.customHeader.To "Pour">

@@ -31,7 +31,7 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "5.1",
+  HARDCODED_CURRENTVERSION : "5.2",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
   VersionProxyRunning: false,
@@ -469,8 +469,8 @@ quickFilters.Util = {
 		
 		let notifyBox,
 		    mainWin = util.getMail3PaneWindow();
-		if (typeof specialTabs == 'object' && specialTabs.msgNotificationBar) { // Tb 68
-			notifyBox = specialTabs.msgNotificationBar;
+		if (typeof mainWin.specialTabs == 'object' && mainWin.specialTabs.msgNotificationBar) { // Tb 68
+			notifyBox = mainWin.specialTabs.msgNotificationBar;
 		}
 		else if( typeof gNotification == 'object' && gNotification.notificationbox) { // Tb 68
 			notifyBox = gNotification.notificationbox;
@@ -567,17 +567,18 @@ quickFilters.Util = {
 			notifyBox.appendNotification( theText, 
 					notificationKey , 
 					"chrome://quickfilters/content/skin/proFeature.png" , 
-					notifyBox.PRIORITY_INFO_HIGH, 
+					notifyBox.PRIORITY_WARNING_HIGH, 
 					nbox_buttons ); // , eventCallback
 		}
 		else {
 			// fallback for systems that do not support notification (currently: SeaMonkey)
 			let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]  
 															.getService(Components.interfaces.nsIPromptService),  
-			    check = {value: false},   // default the checkbox to true  
-			    result = prompts.alertCheck(null, title, theText, dontShow, check);
-			if (check.value==true)
-				util.disableFeatureNotification(featureName);
+			    // check = {value: false},   // default the checkbox to true  
+			    // result = prompts.alertCheck(null, title, theText, dontShow, check);
+			    result = prompts.alert(null, title, theText); 
+			// if (check.value==true)
+				// util.disableFeatureNotification(featureName);
 		}
 	} ,  
 
@@ -844,18 +845,13 @@ quickFilters.Util = {
         Ci = Components.interfaces,
 				util = quickFilters.Util;
 		linkURI = util.makeUriPremium(linkURI);
-    if (quickFilters.Util.Application === 'Thunderbird') {
-      let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
-                      .getService(Ci.nsIExternalProtocolService),
-          ioservice = Cc["@mozilla.org/network/io-service;1"]
-                        .getService(Ci.nsIIOService);
-      service.loadURI(ioservice.newURI(linkURI, null, null));
-      if(null !== evt)
-        evt.stopPropagation();
-    }
-    else {
-      this.openLinkInBrowserForced(linkURI);
-    }
+    let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
+                    .getService(Ci.nsIExternalProtocolService),
+        ioservice = Cc["@mozilla.org/network/io-service;1"]
+                      .getService(Ci.nsIIOService);
+    service.loadURI(ioservice.newURI(linkURI, null, null));
+    if(null !== evt)
+      evt.stopPropagation();
   },
 
   // moved from options.js (then called
@@ -888,14 +884,14 @@ quickFilters.Util = {
 				if (!util.findMailTab(tabmail, URL)) {
           sTabMode = "contentTab";  // "3pane" for Apver <= 3
 					tabmail.openTab(sTabMode,
-					{contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
+					{contentPage: URL, url: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
 				}
 			}
 			else {
 				window.openDialog("chrome://messenger/content/", "_blank",
 									"chrome,dialog=no,all", null,
 					{ tabType: "contentTab", 
-						tabParams: {contentPage: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);", id:"QuickFilters_Weblink"} 
+						tabParams: {contentPage: URL, url: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);", id:"QuickFilters_Weblink"} 
 					} 
 				);
 			}
@@ -1057,6 +1053,10 @@ quickFilters.Util = {
     quickFilters.Util.openURLInTab('https://www.mozdev.org/bugs/show_bug.cgi?id=' + bugNumber);
   } ,
   
+  showIssue: function showIssue(issueNumber) {
+    quickFilters.Util.openURLInTab('https://github.com/RealRaven2000/quickFilters/issues/' + issueNumber);
+  } ,
+  
 	showYouTube: function showYouTube() {
 		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/c/thunderbirddaily');
 	} ,
@@ -1154,10 +1154,10 @@ quickFilters.Util = {
 		try {
 			switch(token) {
 				case "subject":
-					let ret = quickFilters.mimeDecoder.decode(hdr.get("Subject"), charset);
+					let ret = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset);
 					return finalize(token, ret);
 				case "subjectRegex":
-					let subj = quickFilters.mimeDecoder.decode(hdr.get("Subject"), charset),
+					let subj = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset),
 					    regex = new RegExp(arg),
 							found = regex.exec(subj),
 							sSubject = found.length ? found[0] : ''; // take the first match only
@@ -1210,7 +1210,7 @@ quickFilters.Util = {
     // convert into an Array
 		let stCollection = isArray ? fromFilter.searchTerms : util.querySearchTermsArray(fromFilter.searchTerms),
         TargetTerms = util.querySearchTermsArray(toFilter.searchTerms),
-        isBooleanTarget = (TargetTerms.Count()>0),
+        isBooleanTarget = TargetTerms ? (util.querySearchTermsLength(TargetTerms)>0) : false,
         targetBoolean; // has boolean search terms which may need to be overwritten.
     if (isBooleanTarget) {
       let firstFromTerm = 
@@ -1232,7 +1232,7 @@ quickFilters.Util = {
     }
 		// Iterate Search Terms of Custom Template
 		// support passing in a deserialized array from JSON object for reading filters
-		let theCount = isArray ? stCollection.length : stCollection.Count();
+		let theCount = isArray ? stCollection.length : util.querySearchTermsLength(stCollection);
 		for (let t = 0; t < theCount; t++) {
 			// let searchTerm = stCollection.GetElementAt(t);
 			let searchTerm = isArray ? stCollection[t] : util.querySearchTermsAt(stCollection, t),
@@ -1298,11 +1298,17 @@ quickFilters.Util = {
 					// [Bug 26543] Support gathering address fields from multiple mails:
 					if (util.isStringAttrib(val.attrib)) {
 						let existingTerms = util.querySearchTermsArray(toFilter.searchTerms),
-								isFound = false;
-						for (let e = 0; e < existingTerms.Count(); e++) {
+								isFound = false; 
+						for (let e = 0; e < util.querySearchTermsLength(existingTerms); e++) {
 							let existingTerm = util.querySearchTermsAt(existingTerms, e),
 									existingVal = existingTerm.value; // nsIMsgSearchValue
-							if (existingVal && val.attrib == existingVal.attrib) {
+
+              if (existingTerm.termAsString == newTerm.termAsString) {
+                isFound = true;
+                util.logDebug("Custom Template - omitting duplicate term: " + existingTerm.termAsString);
+                break;
+              }
+							else if (existingVal && val.attrib == existingVal.attrib) {
 								if (existingVal.str == val.str) { // avoid duplicates
 									isFound = true; 
 									util.logDebug("Custom Template: omitting duplicate term of type[" + newTerm.value.attrib + "]\n"
@@ -1467,7 +1473,7 @@ quickFilters.Util = {
 		let stCollection = util.querySearchTermsArray(filter.searchTerms); 
 		
 		atom.searchTerms = [];
-		for (let t = 0; t < stCollection.Count(); t++) {
+		for (let t = 0; t < util.querySearchTermsLength(stCollection); t++) {
 			// let searchTerm = stCollection.GetElementAt(t);
 			//   stCollection.queryElementAt(t, Components.interfaces.nsIMsgSearchTerm),
 			let searchTerm = util.querySearchTermsAt(stCollection, t),
@@ -1649,10 +1655,14 @@ quickFilters.Util = {
 								//   part of the filter backup / msgFilterRules.dat?)
 								//   specifically, [how] are the methods validateActionValue(), apply() and
 								//   isValidForType() implemented / persisted?
-								action.customAction = {};
-								action.customAction.id = cA.id;
-								action.customAction.name = cA.name;
-								action.customAction.allowDuplicates = cA.allowDuplicates;
+								if (!action.customAction) {
+                  action.customAction = {};
+								  action.customAction.id = cA.id;
+								  action.customAction.name = cA.name;
+								  action.customAction.allowDuplicates = cA.allowDuplicates;
+                }
+                if (act.hasOwnProperty('strValue'))
+                  action.strValue = act.strValue;
 							}
 						default:
 						  if (act.strValue) 
@@ -1767,7 +1777,7 @@ quickFilters.Util = {
 					prefs = quickFilters.Preferences,
 					util = quickFilters.Util,
 					prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
-					
+    
     let input = {value: ""},
         check = {value: false},
         promptLabel = util.getBundleString('quickfilters.prompt.customTemplateName', 
@@ -1931,13 +1941,24 @@ quickFilters.Util = {
 				quickFilters,
 				params).focus();
 	},
+  
+  // helper function to see whether a search condition already exists
+  checkExistsTerm: function checkExistsTerm(searchTerms, searchTerm) {
+    const util = quickFilters.Util;
+    let len = util.querySearchTermsLength(searchTerms);
+    for (let i=0; i<len; i++) {
+      let t = util.querySearchTermsAt(searchTerms, i);
+      if (t.termAsString == searchTerm.termAsString) return true;
+    }
+    return false;
+  } ,
 	
 	querySearchTermsArray: function querySearchTermsArray(searchTerms) {
 		if (searchTerms.QueryElementAt)
 			return searchTerms.QueryInterface(Components.interfaces.nsICollection); // old version
 		if (searchTerms.queryElementAt)
 			return searchTerms.QueryInterface(Components.interfaces.nsIMutableArray);
-		return null;
+		return searchTerms; // Tb 87+
 	} ,
 	
 	querySearchTermsAt: function querySearchTermsAt(searchTerms, i) {
@@ -1945,8 +1966,16 @@ quickFilters.Util = {
 			return searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
 		if (searchTerms.queryElementAt)
 			return searchTerms.queryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
-		return null;
+		return searchTerms[i]; // Tb 87+
 	} ,
+  
+  querySearchTermsLength: function querySearchTermsLength(searchTerms) {
+    if (!searchTerms) return null;
+    // old code: Count
+    if (searchTerms.Count)
+      return searchTerms.Count();
+    return searchTerms.length; // Tb 87+
+  },
 	
   checkCustomHeaderExists: function checkCustomHeaderExists(hdr) {
     // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19
@@ -1974,8 +2003,7 @@ quickFilters.Util = {
           Ci = Components.interfaces, 
           Cc = Components.classes;
     let uri = "chrome://global/content/config.xhtml";
-		if (util.Application)
-			uri += "?debug";
+		uri += "?debug";
 
     let mediator = Cc["@mozilla.org/appshell/window-mediator;1"].getService(Ci.nsIWindowMediator),
         w = mediator.getMostRecentWindow(name),
@@ -2012,14 +2040,8 @@ quickFilters.Util = {
     // fix any filters that might still point to the moved folder.
     // 1. nsIMsgAccountManager  loop through list of servers
     try {
-      let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                          .getService(Ci.nsIMsgAccountManager);
-      if (typeof ChromeUtils.import == "undefined")
-        Components.utils.import("resource:///modules/iteratorUtils.jsm");  
-      else
-        var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
                           
-      for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
+      for (let account of util.Accounts) {
         if (account.incomingServer && account.incomingServer.canHaveFilters )
         {
           let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
@@ -2039,22 +2061,14 @@ quickFilters.Util = {
   }	,
   
   findFromTargetFolder: function findFromTargetFolder(targetFolder, searchFilterResults) {
-    const Util = quickFilters.Util,
+    const util = quickFilters.Util,
           Ci = Components.interfaces,
           FA = Ci.nsMsgFilterAction;
             
     try {
-      let acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                          .getService(Ci.nsIMsgAccountManager);
-      
-      if (typeof ChromeUtils.import == "undefined")
-        Components.utils.import("resource:///modules/iteratorUtils.jsm");
-      else
-        var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
-      
       // 1. create a list of matched filters and corresponding accounts 
       //    (these will be linked via index
-      for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
+      for (let account of util.Accounts) {
         if (account.incomingServer && account.incomingServer.canHaveFilters ) {
           let msg ='',
               ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer),
@@ -2063,7 +2077,7 @@ quickFilters.Util = {
           if (filtersList) {
             // build a dictionary of terms; this might take some time!
             let numFilters = filtersList.filterCount;
-            Util.logDebugOptional("filterSearch", "checking account [" + ac.prettyName + "] "
+            util.logDebugOptional("filterSearch", "checking account [" + ac.prettyName + "] "
                                    + "for target folder: " +  targetFolder.URI + '\n'
                                    + "iterating " + numFilters + " filters...");
             for (let idx = 0; idx < numFilters; idx++) {
@@ -2079,7 +2093,7 @@ quickFilters.Util = {
                         label = isMatch ? "MATCHED URI: " : "Target URI:  ";
                     msg += "[" + idx + "] " + label +  action.targetFolderUri + "\n";
                     if (action.targetFolderUri === targetFolder.URI) { 
-                      Util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
+                      util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
                       searchFilterResults.push (
                         {
                           Filter: curFilter,
@@ -2095,10 +2109,10 @@ quickFilters.Util = {
               // .. End Match Action Loop
             }       
           }
-          Util.logDebugOptional("filterSearch.detail", msg);
+          util.logDebugOptional("filterSearch.detail", msg);
         }
       }
-      Util.logDebugOptional("filterSearch", "Matches found: " + searchFilterResults.length);
+      util.logDebugOptional("filterSearch", "Matches found: " + searchFilterResults.length);
       
       // 2. Persist in dropdown
       // dropdown with terms
@@ -2135,7 +2149,7 @@ quickFilters.Util = {
       
     }
     catch(ex) {
-      Util.logException("Exception in quickFilters.Util.findFromTargetFolder ", ex);
+      util.logException("Exception in quickFilters.Util.findFromTargetFolder ", ex);
     }  
     
   } ,  
@@ -2655,42 +2669,28 @@ var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 	
 if (!quickFilters.Util.Accounts) {
 	Object.defineProperty(quickFilters.Util, "Accounts",
-		{ get: function() {
-				const Ci = Components.interfaces,
-							Cc = Components.classes,
-							util = quickFilters.Util;
-				let aAccounts=[],
-            accounts = Cc["@mozilla.org/messenger/account-manager;1"]
-                     .getService(Ci.nsIMsgAccountManager).accounts;
-
-        if (typeof ChromeUtils.import == "undefined")
-          Components.utils.import("resource:///modules/iteratorUtils.jsm");  
-        else
-          var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");  
-
-        for (let ac of fixIterator(accounts, Ci.nsIMsgAccount)) {
+    { get: function() {
+        var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm"); // replace account-manager
+        
+        let acMgr = MailServices.accounts,
+            aAccounts = [];
+            
+        for (let ac of acMgr.accounts) {
           aAccounts.push(ac);
         };
-				return aAccounts;
-			}
-		});
+        return aAccounts;
+      }
+    }
+  );
 }
 
 if (!quickFilters.Shim) {
 	quickFilters.Shim = {
 		
 		getIdentityMailAddresses: function getIdentityMailAddresses(MailAddresses) {
-			const Util = quickFilters.Util,
-						Ci = Components.interfaces,
-						acctMgr = Components.classes["@mozilla.org/messenger/account-manager;1"]
-													.getService(Ci.nsIMsgAccountManager);
+			const util = quickFilters.Util;
 													
-			if (typeof ChromeUtils.import == "undefined")
-				Components.utils.import("resource:///modules/iteratorUtils.jsm");
-			else
-				var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm");
-			
-			for (let account of fixIterator(acctMgr.accounts, Ci.nsIMsgAccount)) {
+			for (let account of util.Accounts) {
 				try {
 					let idMail = '';
 					if (account.defaultIdentity) {
@@ -2700,7 +2700,7 @@ if (!quickFilters.Shim) {
 						idMail = account.identities[0].email; // outgoing identities
 					}
 					else {
-						Util.logDebug('getIdentityMailAddresses() found account without identities: ' + account.key);
+						util.logDebug('getIdentityMailAddresses() found account without identities: ' + account.key);
 					}
 					if (idMail) {
 						idMail = idMail.toLowerCase();
@@ -2709,7 +2709,7 @@ if (!quickFilters.Shim) {
 					}
 				}
 				catch(ex) {
-					Util.logException ('getIdentityMailAddresses()', ex);
+					util.logException ('getIdentityMailAddresses()', ex);
 				}
 			}
 		} ,

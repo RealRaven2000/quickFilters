@@ -170,6 +170,13 @@
 									type="bool"
 									instantApply="true"
 									/>
+                  
+			<preference id="filters.multipaste"
+									name="extensions.quickfilters.multipaste"
+									type="bool"
+									instantApply="true"
+									/>
+                  
 			<preference id="curFolderbar.listbutton"
 									name="extensions.quickfilters.quickfolders.curFolderbar.listbutton"
 									type="bool"
@@ -190,11 +197,6 @@
 									type="bool"
 									instantApply="true"
 									/>
-			<preference id="searchBox"
-									name="extensions.quickfilters.notTB.searchbox"
-									type="bool"
-									instantApply="true"
-						/>
       <preference id="debug"
 	              name="extensions.quickfilters.debug"
 								type="bool"
@@ -474,32 +476,51 @@
 				<html:legend>&qf.label.currentFolderButtons;</html:legend>
 				<vbox>
 					<description id="currentFolderDescription">&qf.description.currentFolderButtons;</description>
-					<checkbox id="chkCurrentToolbarFiltersButton"
-						preference="curFolderbar.listbutton"
-						label="&chkCurrentToolbar.btn.FilterList.label;"
-						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-					<checkbox id="chkCurrentToolbarFolderButton"
-						preference="curFolderbar.folderbutton"
-						label="&chkCurrentToolbar.btn.RunOnFolder.label;"
-						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-					<checkbox id="chkCurrentToolbarMessagesButton"
-						preference="curFolderbar.messagesbutton"
-						label="&chkCurrentToolbar.btn.RunOnMessages.label;"
-						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
-					<checkbox id="chkCurrentFindFilterButton"
-						preference="curFolderbar.findfilterbutton"
-						label="&chkCurrentToolbar.btn.FindFilter.label;"
-						tooltiptext="&chkCurrentToolbar.btn.FindFilter.tooltip;"
-						oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+          <hbox>
+            <vbox flex="1">
+              <checkbox id="chkCurrentToolbarFiltersButton"
+                preference="curFolderbar.listbutton"
+                label="&chkCurrentToolbar.btn.FilterList.label;"
+                oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+              <checkbox id="chkCurrentToolbarFolderButton"
+                preference="curFolderbar.folderbutton"
+                label="&chkCurrentToolbar.btn.RunOnFolder.label;"
+                oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+            </vbox>
+            <vbox flex="1">
+              <checkbox id="chkCurrentToolbarMessagesButton"
+                preference="curFolderbar.messagesbutton"
+                label="&chkCurrentToolbar.btn.RunOnMessages.label;"
+                oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+              <checkbox id="chkCurrentFindFilterButton"
+                preference="curFolderbar.findfilterbutton"
+                label="&chkCurrentToolbar.btn.FindFilter.label;"
+                tooltiptext="&chkCurrentToolbar.btn.FindFilter.tooltip;"
+                oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
+            </vbox>
+          </hbox>
 				</vbox>
 			</html:fieldset>
+			<html:fieldset orient="vertical" id="filterListGroup">
+				<html:legend>&qf.filterlist.group;</html:legend>
+        <vbox>
+					<hbox>
+            <checkbox id="chkMultiPaste"
+              preference="filters.multipaste"
+              label="&qf.filterlist.multipaste;"/>   
+						<label class="plain-link"
+									 tooltiptext="https://github.com/RealRaven2000/quickFilters/issues/20"
+									 onclick="quickFilters.Util.showIssue(20);">[Issue 20]</label>
+					</hbox>
+            
+        </vbox>
+         
+			</html:fieldset>
+      
+      
 			<spacer flex="1" />
 			<hbox>
 
-				<checkbox id="chkSearchBox"
-									preference="searchBox"
-									label="Search Filters Box (Experimental)"
-									/>
 				<spacer flex="1" />
 				<checkbox id="chkDebug"
 									preference="debug"
@@ -568,7 +589,7 @@
 				<spacer flex="1"/>
 			</hbox>
 			<separator class="licenseSeparator" />
-			<hbox id="validationDate">
+			<hbox id="validationDate" align="center">
 				<label>&qf.label.licenseValid;</label>
 				<label id="licenseDate" value="-" />
 			</hbox>

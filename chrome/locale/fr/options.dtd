@@ -58,6 +58,8 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Trouve tous les fichiers qui ont déplacé le message vers ce dossier.">
 <!ENTITY qf.label.currentFolderButtons "Barre d'outils du dossier courant QuickFolders">
 <!ENTITY qf.description.currentFolderButtons "Cette option ne peut être appliquée que si vous utilisez l'extension QuickFolders, qui ajoute une petite barre d'outils en haut du panneau d'aperçu du message.">
+<!ENTITY qf.filterlist.group "Caractéristiques de la liste de filtres">
+<!ENTITY qf.filterlist.multipaste "Activer le copier-coller des filtres sur plusieurs comptes">
 <!ENTITY grpMerge.label "Règles de fusion">
 <!ENTITY chkMergeAuto.label "Sélectionner automatiquement la fusion">
 <!ENTITY chkMergeAuto.tooltip "Si un filtre existe déjà, cela va automatiquement sélectionner le mode fusion et le premier filtre correspondant.">
@@ -67,7 +69,6 @@
 <!ENTITY qf.cloned.label "Ajouter au nom du filtre cloné :">
 <!ENTITY qf.onewayaddress.label "Désactiver les doubles-conditions de recherche d'adresse">
 <!ENTITY qf.onewayaddress.tooltip "Par défaut, quickFilters ajoute les deux conditions de recherche &quot;De&quot; et &quot;Pour&quot; afin d'aider à la filtration des discussions terminées en incluant vos propres courriels au destinataire. Si vous souhaitez toujours conserver vos réponses dans le dossier d'envoi, vous pouvez désactiver ce comportement ici. L'extension &quot;Copy Sent to Current&quot; peut être utilisée pour garder les réponses avec leur message d'origine.">
-<!ENTITY qf.postbox.quickmove "Boîte aux lettres : prend en charge la fonctionnalité de déplacement rapide">
 <!ENTITY qf.listener.tags "Prendre en compte les modifications de marquage">
 <!ENTITY qf.listener.tags.tooltip "Lorsqu'activé, l'assistant de filtre sera également lancé quand vous marquerez un message.">
 <!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">

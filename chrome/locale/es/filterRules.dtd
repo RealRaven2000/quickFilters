@@ -2,6 +2,8 @@
 <!ENTITY quickfilters.customTemplate.name "Nombre de la plantilla:">
 <!ENTITY quickfilters.customVariable.label "Variables personalizadas">
 <!ENTITY quickfilters.customVariable.tooltip "Al crear filtros, estas variables se reemplazan con las correspondientes cabeceras de correo del correo actual.">
+<!ENTITY quickfilters.sort "Clasificar">
+<!ENTITY quickfilters.sort.tooltip "Ordenar términos de búsqueda">
 <!-- Email Headers -->
 <!ENTITY quickfilters.customHeader.From "De">
 <!ENTITY quickfilters.customHeader.To "A">

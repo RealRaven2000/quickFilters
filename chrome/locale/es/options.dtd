@@ -58,6 +58,8 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Busca cualquier filtro que mueva correo a esta carpeta.">
 <!ENTITY qf.label.currentFolderButtons "Barra de herramientas de la carpeta actual de quickFolders">
 <!ENTITY qf.description.currentFolderButtons "Esta opción sólo es aplicable si está usando el complemento quickFolders, que añade una pequeña barra de herramientas en la parte superior del panel de previsualización.">
+<!ENTITY qf.filterlist.group "Funciones de la lista de filtros">
+<!ENTITY qf.filterlist.multipaste "Habilite copiar y pegar filtros en varias cuentas">
 <!ENTITY grpMerge.label "Reglas de combinado">
 <!ENTITY chkMergeAuto.label "Seleccionar combinar automáticamente">
 <!ENTITY chkMergeAuto.tooltip "Si ya existe un filtro, esto seleccionará automáticamente el modo de combinado y el primer filtro coincidente.">
@@ -67,7 +69,6 @@
 <!ENTITY qf.cloned.label "Añadir al nombre del filtro clonado:">
 <!ENTITY qf.onewayaddress.label "Deshabilitar las condiciones de búsqueda de direcciones para ambos sentidos">
 <!ENTITY qf.onewayaddress.tooltip "Por defecto, quickFilters añade condiciones de búsqueda tanto para 'De' como para 'A'  para la asistencia al filtrado de hilos completos de mensajes, incluyendo sus propios correos para el destinatario. Si quiere mantener siempre sus respuestas en la carpeta Enviados, puede deshabilitar este comportamiento aquí. El complemento 'Copy Sent to Current' (copiar enviados a actual) se puede usar para mantener las respuestas junto a los correos que las originan.">
-<!ENTITY qf.postbox.quickmove "Postbox: Soportar la característica de movimiento rápido">
 <!ENTITY qf.listener.tags "Atender cambios de etiquetas">
 <!ENTITY qf.listener.tags.tooltip "Cuando está activada, el asistente de filtros se abrirá también cuando etiquete un mensaje.">
 <!ENTITY qf.listener.tags.autofilter "Ejecutar filtros automáticamente al cambiar las etiquetas">

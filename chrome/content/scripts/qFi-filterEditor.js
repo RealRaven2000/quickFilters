@@ -7,8 +7,6 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-filt
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 
 function onLoad(activatedWhileWindowOpen) {
- //   let layout = WL.injectCSS("chrome://quickfilters/content/filterList.css");
-//    let layout1 = WL.injectCSS("chrome://quickfilters/content/filterList.css");
     let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
  
     WL.injectElements(`
@@ -105,6 +103,28 @@ function onLoad(activatedWhileWindowOpen) {
 	</dialog>
     
     `, ["chrome://quickfilters/locale/filterRules.dtd"]);
+    
+  let filterName = document.getElementById("filterName");
+  // append a toolbar to the right of the filter name (there is some space here!)
+  if (filterName) {
+    let toolbar = document.createXULElement("toolbar");
+    toolbar.id = "quickFiltersEditorTools";
+    filterName.parentNode.appendChild(toolbar);
+    toolbar.setAttribute("mode", "full");
+    toolbar.classList.add("inline-toolbar");
+    toolbar.classList.add("chromeclass-toolbar");
+    WL.injectElements(`    
+      <toolbar id="quickFiltersEditorTools">
+        <toolbarbutton id="quickFiltersBtnSort"
+          class = "toolbarbutton-1" 
+          label = "&quickfilters.sort;"
+          tooltiptext = "&quickfilters.sort.tooltip;"
+          oncommand = "quickFilters.FilterEditor.sortConditions(gFilter);"
+          />
+      </toolbar>
+    `, ["chrome://quickfilters/locale/filterRules.dtd"]);    
+  }
+  
     
   if (!activatedWhileWindowOpen) {
     window.quickFilters.FilterEditor.onLoad();

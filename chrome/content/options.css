@@ -382,6 +382,30 @@ hbox.quickhelp-dbg {
   color: rgb(0,120,0);
 }
 
+#licenseDate {
+  margin-left: 1.5em;
+}
+
 #currentFolderDescription {
 	height: 32px; /* fix a problem with fieldset cutting into the last checkbox - force height of 2 lines! */
 }
+
+/* Dialog corrections */
+tabpanel checkbox {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+tabpanel label {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+tabpanel fieldset {
+  padding-top: 3px;
+}
+
+tabpanel fieldset legend {
+  margin-top: 8px;
+}
+

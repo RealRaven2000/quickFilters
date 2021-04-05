@@ -58,6 +58,8 @@
 <!ENTITY chkCurrentToolbar.btn.FindFilter.tooltip "Find any Filters that move mail to this folder.">
 <!ENTITY qf.label.currentFolderButtons "QuickFolders Current folder Toolbar">
 <!ENTITY qf.description.currentFolderButtons "This option is only applicable if you are using the Add-On QuickFolders, which adds a small toolbar on top of the message preview pane.">
+<!ENTITY qf.filterlist.group "Funciones de la lista de filtros">
+<!ENTITY qf.filterlist.multipaste "Permite pegar filtros en varias cuentas">
 <!ENTITY grpMerge.label "Merge Rules">
 <!ENTITY chkMergeAuto.label "Automatically select Merge">
 <!ENTITY chkMergeAuto.tooltip "If a filter exists already, this will automatically select merge mode and the first matching filter.">
@@ -67,7 +69,6 @@
 <!ENTITY qf.cloned.label "Append to name of cloned filter:">
 <!ENTITY qf.onewayaddress.label "Disable two-way address search conditions">
 <!ENTITY qf.onewayaddress.tooltip "By default, quickFilters adds both 'from' and 'to' search conditions to assist filtering complete message threads including your own emails to the recipient. If you always want to keep your replies in the Sent folder, you can disable this behavior here. The Addon 'Copy Sent to Current' can be used to keep replies with their originating emails.">
-<!ENTITY qf.postbox.quickmove "Postbox: support quick move feature">
 <!ENTITY qf.listener.tags "Listen for Tag changes">
 <!ENTITY qf.listener.tags.tooltip "When activated, the filter assistant will also be triggered when you tag a message.">
 <!ENTITY qf.listener.tags.autofilter "Run filters automatically when tags are changed">

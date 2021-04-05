@@ -14,8 +14,8 @@
 #innerwrapper {
   position: relative;
   background-color: white;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 /* make a nice watermark behind these */
@@ -37,7 +37,7 @@
   background-position: 2em 3em; 
   background-repeat: no-repeat; 
   background-size: 70%;
-  margin-left: -10%;
+  margin-left: -5%;
   height: 45%;
   width: 40%;
 }
@@ -85,6 +85,51 @@ div[collapsed=true]{
   visibility: collapse;
   display :none;
 }
+
+/* sales and other important announcments */
+.importantInfo {
+  background-color: rgba(0,0,0,0.9);
+  color: white;
+}
+
+.importantInfo p, 
+.importantInfo ul, 
+.importantInfo li {
+  color: white;
+}
+
+.importantInfo p b {
+  color: yellow !important;
+  background-color: transparent;
+}
+
+#specialOffer {
+  border-radius: 6px;
+  margin-left: -1em;
+  margin-right: -1em;
+  padding: 0.1em 1em;
+}
+
+#specialOffer h2 {
+  background: none !important;
+  margin-top: 16px;
+  text-shadow:
+     -1px -1px 0 #EEE,  
+      1px -1px 0 #EEE,
+      -1px 1px 0 #EEE,
+       1px 1px 0 #EEE !important;
+  
+}
+
+#specialOffer #bargainIcon {
+  background: transparent !important;
+  cursor: pointer;
+  float: right;
+  position: relative;
+  right: -2em;
+  top: -1em;
+}
+
 #purchaseLicenseListItem { /* test */
 /*
   background-color: lightyellow;
@@ -151,14 +196,14 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 25pt;
+  font-size: 1.8em;
 }
 
 h2 {
-  font-size: 20pt;
+  font-size: 1.5em;
   font-weight: normal;
 }
 
 h3 {
-  font-size: 16pt;
+  font-size: 1.2em;
 }

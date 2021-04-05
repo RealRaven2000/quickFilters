@@ -17,7 +17,7 @@ async function main() {
         console.log("install...");
         let url = browser.runtime.getURL("popup/installed.html");
         //await browser.tabs.create({ url });
-        await browser.windows.create({ url, type: "popup", width: 910, height: 750, });
+        await browser.windows.create({ url, type: "popup", width: 900, height: 750, });
       }
       break;
       // see below
@@ -39,7 +39,7 @@ async function main() {
         //await browser.tabs.create({ url });
         let screenH = window.screen.height,
             windowHeight = (screenH > 870) ? 870 : screenH;
-        await browser.windows.create({ url, type: "popup", width: 950, height: windowHeight, });
+        await browser.windows.create({ url, type: "popup", width: 850, height: windowHeight, });
       }
       break;
     // see below

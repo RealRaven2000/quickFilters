@@ -9,8 +9,11 @@ END LICENSE BLOCK */
 
 
   addEventListener("click", async (event) => {
-    if (event.target.id.startsWith("register")) {
+    if (event.target.id.startsWith("register") || event.target.id == 'bargainIcon') {
       messenger.Utilities.openLinkExternally("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
+    }
+    if (event.target.id=='whatsNew') {
+      messenger.Utilities.showVersionHistory(false);    
     }
     if (event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
       messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
@@ -65,11 +68,6 @@ END LICENSE BLOCK */
       timeAndEffort.innerText = messenger.i18n.getMessage("time-and-effort", addonName);
     }
     
-    let measuredEffort =  document.getElementById('hours-effort');
-    if (measuredEffort) {
-      measuredEffort.innerText = messenger.i18n.getMessage("hours-effort", hoursWorked);
-    }
-    
     let suggestion = document.getElementById('support-suggestion');
     if (suggestion) {
       suggestion.innerText = messenger.i18n.getMessage("support-suggestion", addonName);
@@ -86,6 +84,35 @@ END LICENSE BLOCK */
       
     }
     
+    let specialOffer = document.getElementById('specialOfferTxt');
+    if (specialOffer)
+      specialOffer.innerHTML = messenger.i18n.getMessage("special-offer-content")
+          .replace(/\{boldStart\}/g,"<b>")
+          .replace(/\{boldEnd\}/g,"</b>");
+          
+    let specialIntro = document.getElementById('specialOfferIntro');
+    if (specialIntro) {
+      let userName = await messenger.Utilities.getUserName();
+      specialIntro.innerHTML =  messenger.i18n.getMessage('special-offer-intro')
+        .replace(/\{boldStart\}/g,"<b>")
+        .replace(/\{boldEnd\}/g,"</b>")
+        .replace("{name}", userName);
+    }
+    
+    let whatsNewLst = document.getElementById('whatsNewList');
+    if (whatsNewLst) {
+      whatsNewLst.innerHTML =  messenger.i18n.getMessage('whats-new-list')
+        .replace(/\{L1\}/g,"<li>")
+        .replace(/\{L2\}/g,"</li>");
+    }
+    
+    
+    
+    let ongoing = document.getElementById('ongoing-work');
+    if (ongoing) {
+      ongoing.innerText = messenger.i18n.getMessage("ongoing-work", addonName);
+    }
+
     let title = document.getElementById('window-title');
     title.innerText = messenger.i18n.getMessage("window-title", addonName);
            
