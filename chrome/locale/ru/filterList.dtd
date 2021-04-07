@@ -17,9 +17,9 @@
 <!ENTITY quickfilters.button.clone.tooltiptext "Клонировать фильтр">
 <!ENTITY quickfilters.button.sort "Сортировка">
 <!ENTITY quickfilters.button.sort.tooltiptext "Сортировка по алфавиту">
-<!ENTITY quickfilters.button.bug "Troubleshoot">
-<!ENTITY quickfilters.button.bug.tooltiptext1 "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions">
-<!ENTITY quickfilters.button.bug.tooltiptext2 "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps.">
+<!ENTITY quickfilters.button.bug "Устранение неисправностей">
+<!ENTITY quickfilters.button.bug.tooltiptext1 "Устранение неисправностей: 1. Фильтры, которые не работают автоматически 2. Неверные целевые папки 3. Проверить пользовательские действия">
+<!ENTITY quickfilters.button.bug.tooltiptext2 "4. Смешанные «любые»/«все» условия. Щелкните правой кнопкой мыши, чтобы настроить шаги.">
 <!ENTITY quickfilters.menu.cut "Вырезать">
 <!ENTITY quickfilters.menu.copy "Копировать">
 <!ENTITY quickfilters.menu.paste "Вставить">
