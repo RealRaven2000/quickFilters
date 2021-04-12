@@ -114,7 +114,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1} Nová funkce: Řazení hledaných výrazů ve filtru (funkce Pro). {L2} {L1} Pamatujte si seznam zkopírovaných filtrů, který chcete vložit do více účtů (funkce Pro). {L2} {L1} Opravený problém s duplikovanými hledanými výrazy při slučování filtry. {L2} {L1} Různé opravy kompatibility s Thunderbirdem 88. {L2}"
+    "message" : "{L1} Nová funkce: Řazení hledaných výrazů ve filtru (funkce Pro). {L2} {L1} Pamatujte si seznam zkopírovaných filtrů, který chcete vložit do více účtů (funkce Pro). {L2} {L1} Opravený problém s duplikovanými hledanými výrazy při slučování filtry. {L2} {L1} Různé opravy kompatibility s Thunderbirdem 88. {L2}{L1} 5.2.1 - odstraněno tlačítko řazení z šablon vlastních filtrů {L2} {L1} 5.2.1 - Vylepšené ruské překlady od Igora Zhigunova aka ashed {L2}"
   },  
   
   "time-and-effort": { 

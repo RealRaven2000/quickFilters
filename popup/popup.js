@@ -47,6 +47,7 @@ async function updateActions(addonName) {
   // purchaseLicenseListItem - not collapsed
   hide('licenseExtended');
   
+  let isActionList = true;
   if (isLicensed) {
     hide('purchaseLicenseListItem');
     hide('register');
@@ -60,14 +61,15 @@ async function updateActions(addonName) {
       hide('renewLicenseListItem');
       hide('renew');
       let gpdays = await mxUtilties.LicensedDaysLeft();
-      if (gpdays<160) { // they may have seen this popup. Only show extend License section if it is < 160 days away
-      show('extendLicenseListItem');
-      show('extend');
+      if (gpdays<50) { // they may have seen this popup. Only show extend License section if it is < 50 days away
+        show('extendLicenseListItem');
+        show('extend');
       }
       else {
         show('licenseExtended');
         hide('extendLicenseListItem');
         hide('extend');
+        isActionList = false;
       }
     }
   }  
@@ -79,5 +81,8 @@ async function updateActions(addonName) {
       hideSelectorItems('.donations');
     }
   }  
+  if (!isActionList) {
+    hide('actionBox');
+  }
   
 }

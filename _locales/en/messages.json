@@ -114,7 +114,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1}New function: Sort Search Terms in a filter (Pro feature).{L2}{L1}Remember Copied filters List to insert to multiple Accounts (Pro feature).{L2}{L1}Fixed duplicated search terms issue when merging filters.{L2}{L1}Various fixes for compatibility with Thunderbird 88.{L2}"
+    "message" : "{L1}New function: Sort Search Terms in a filter (Pro feature).{L2}{L1}Remember Copied filters List to insert to multiple Accounts (Pro feature).{L2}{L1}Fixed duplicated search terms issue when merging filters.{L2}{L1}Various fixes for compatibility with Thunderbird 88.{L2}{L1}5.2.1 - removed sort button from custom filter templates{L2}{L1}5.2.1 - Improved Russian translations by Igor Zhigunov aka ashed{L2}"
   },  
   
   "time-and-effort": { 

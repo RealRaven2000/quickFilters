@@ -115,7 +115,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1} Neue Funktion: Suchbegriffe im Filter sortieren (Pro-Funktion). {L2} {L1} Liste der kopierten Filter zum Einfügen in mehrere Konten einfügen (Pro-Funktion). {L2} {L1} Fix: keine Verdopplung von Suchbegriffen beim Zusammenführen von Filtern. {L2} {L1} Diverse Korrekturen für die Kompatibilität mit Thunderbird 88. {L2}"
+    "message" : "{L1} Neue Funktion: Suchbegriffe im Filter sortieren (Pro-Funktion). {L2} {L1} Liste der kopierten Filter zum Einfügen in mehrere Konten einfügen (Pro-Funktion). {L2} {L1} Fix: keine Verdopplung von Suchbegriffen beim Zusammenführen von Filtern. {L2} {L1} Diverse Korrekturen für die Kompatibilität mit Thunderbird 88. {L2}{L1} 5.2.1 - Sortierschaltfläche aus benutzerdefinierten Filtervorlagen entfernt.{L2} {L1} 5.2.1 - Verbesserte russische Übersetzungen von Igor Zhigunov aka ashed {L2}"
   },  
   
   "time-and-effort": { 

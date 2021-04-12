@@ -114,7 +114,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1} Ny funktion: Sortera söktermer i ett filter (Pro-funktion). {L2} {L1} Kom ihåg kopierade filter Lista för att infoga till flera konton (Pro-funktion). {L2} {L1} Fixade duplicerade söktermerproblem vid sammanslagning filter. {L2} {L1} Olika korrigeringar för kompatibilitet med Thunderbird 88. {L2}"
+    "message" : "{L1} Ny funktion: Sortera söktermer i ett filter (Pro-funktion). {L2} {L1} Kom ihåg kopierade filter Lista för att infoga till flera konton (Pro-funktion). {L2} {L1} Fixade duplicerade söktermerproblem vid sammanslagning filter. {L2} {L1} Olika korrigeringar för kompatibilitet med Thunderbird 88. {L2}{L1} 5.2.1 - borttagen sorteringsknapp från anpassade filtermallar {L2} {L1} 5.2.1 - Förbättrade ryska översättningar av Igor Zhigunov aka ashed {L2}"
   },  
   
   "time-and-effort": { 

@@ -103,14 +103,14 @@ div[collapsed=true]{
   background-color: transparent;
 }
 
-#specialOffer {
+#specialBox {
   border-radius: 6px;
   margin-left: -1em;
   margin-right: -1em;
   padding: 0.1em 1em;
 }
 
-#specialOffer h2 {
+#specialBox h2 {
   background: none !important;
   margin-top: 16px;
   text-shadow:
@@ -128,6 +128,10 @@ div[collapsed=true]{
   position: relative;
   right: -2em;
   top: -1em;
+}
+
+#specialBox #specialOffer {
+  background: transparent !important;
 }
 
 #purchaseLicenseListItem { /* test */

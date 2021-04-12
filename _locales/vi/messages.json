@@ -114,7 +114,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1} Chức năng mới: Sắp xếp Cụm từ tìm kiếm trong bộ lọc (tính năng Pro). {L2} {L1} Ghi nhớ Bộ lọc đã sao chép Danh sách để chèn vào nhiều Tài khoản (tính năng Pro). {L2} {L1} Đã khắc phục sự cố cụm từ tìm kiếm trùng lặp khi hợp nhất bộ lọc. {L2} {L1} Các bản sửa lỗi khác nhau để tương thích với Thunderbird 88. {L2}"
+    "message" : "{L1} Chức năng mới: Sắp xếp Cụm từ tìm kiếm trong bộ lọc (tính năng Pro). {L2} {L1} Ghi nhớ Bộ lọc đã sao chép Danh sách để chèn vào nhiều Tài khoản (tính năng Pro). {L2} {L1} Đã khắc phục sự cố cụm từ tìm kiếm trùng lặp khi hợp nhất bộ lọc. {L2} {L1} Các bản sửa lỗi khác nhau để tương thích với Thunderbird 88. {L2}{L1} 5.2.1 - đã xóa nút sắp xếp khỏi các mẫu bộ lọc tùy chỉnh {L2} {L1} 5.2.1 - Bản dịch tiếng Nga được cải thiện bởi Igor Zhigunov hay còn gọi là tro tàn {L2}"
   },  
   
   "time-and-effort": { 

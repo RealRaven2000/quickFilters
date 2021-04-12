@@ -142,6 +142,7 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
           filterName = filterNameElement.value;
       util.logDebug('quickFilters.FilterEditor.showTitle() - filterName = ' + filterName);
       if (filterName && filterName.indexOf('quickFilterCustomTemplate')==0) {
+        // Custome Template Initialize:
         util.logDebug('Found Custom Filter Template:\n' + filterName);
         // show "QuickFilters Custom Template" Heading and move it on top of the Filter Name:
         let customEl = document.getElementById('quickFilters-CustomTemplate'),
@@ -168,6 +169,10 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
         hbox.insertBefore(templateLabel, filterNameElement);
         templateLabel.setAttribute('collapsed', false);
         filterNameElement.setAttribute('flex', 8);
+        // hide sort Button for custom templates
+        let sortBtn = document.getElementById("quickFiltersBtnSort");
+        sortBtn.parentNode.removeChild(sortBtn);
+        
       }
     },
 

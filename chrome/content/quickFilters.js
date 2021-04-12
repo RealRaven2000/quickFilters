@@ -424,16 +424,20 @@ END LICENSE BLOCK
     # [issue 44] Folder names default delimiter shows black diamond �  instead »
     # Improved reopening any support sites already open in a tab by jumping to the correct place if necessary
     
-  5.2 - WIP
+  5.2 - 06/04/2021
     # [issue 11] Feature request: Sort Search Terms in a filter
     # [issue 20] allow pasting filters multiple accounts across different accounts.
     # [issue 51] Merging filters can lead to duplicate conditions
     # [issue 52] Own Emails are not automatically suggested for merging when using context menu
     # [issue 23] Avoid Empty Conditions list due to removed recipients - filter cannot be edited
+    # [issue 47] Using the %subject% placeholder in custom templates doesn't work in Assistant
     # Moved settings from tools menu to Add-on Manager (according to standard)
     # [issue 48] Make quickFilters compatible with Thunderbird 87 beta (ongoing):
       - open sites in tab was broken because of modified openTab parameters
       - search terms now in a different type of collection can lead to failures when defining new filters.
+      
+  5.3 - WIP
+    # ...
    
   ============================================================================================================
   FUTURE WORK:

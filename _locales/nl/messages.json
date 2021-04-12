@@ -114,7 +114,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1} Nieuwe functie: zoektermen sorteren in een filter (Pro-functie). {L2} {L1} Lijst met gekopieerde filters onthouden om in meerdere accounts in te voegen (Pro-functie). {L2} {L1} Probleem opgelost met dubbele zoektermen bij samenvoegen filters. {L2} {L1} Diverse oplossingen voor compatibiliteit met Thunderbird 88. {L2}"
+    "message" : "{L1} Nieuwe functie: zoektermen sorteren in een filter (Pro-functie). {L2} {L1} Lijst met gekopieerde filters onthouden om in meerdere accounts in te voegen (Pro-functie). {L2} {L1} Probleem opgelost met dubbele zoektermen bij samenvoegen filters. {L2} {L1} Diverse oplossingen voor compatibiliteit met Thunderbird 88. {L2}{L1} 5.2.1 - sorteerknop verwijderd uit aangepaste filtersjablonen {L2} {L1} 5.2.1 - Verbeterde Russische vertalingen door Igor Zhigunov alias Ashed {L2}"
   },  
   
   "time-and-effort": { 

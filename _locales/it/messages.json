@@ -114,7 +114,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1} Nuova funzione: ordina i termini di ricerca in un filtro (funzione Pro). {L2} {L1} Ricorda l'elenco dei filtri copiati da inserire in più account (funzione Pro). {L2} {L1} Risolto il problema dei termini di ricerca duplicati durante l'unione filtri. {L2} {L1} Varie correzioni per la compatibilità con Thunderbird 88. {L2}"
+    "message" : "{L1} Nuova funzione: ordina i termini di ricerca in un filtro (funzione Pro). {L2} {L1} Ricorda l'elenco dei filtri copiati da inserire in più account (funzione Pro). {L2} {L1} Risolto il problema dei termini di ricerca duplicati durante l'unione filtri. {L2} {L1} Varie correzioni per la compatibilità con Thunderbird 88. {L2}{L1} 5.2.1 - pulsante di ordinamento rimosso dai modelli di filtri personalizzati {L2} {L1} 5.2.1 - Traduzioni in russo migliorate di Igor Zhigunov aka incenerite {L2}"
   },  
   
   "time-and-effort": { 

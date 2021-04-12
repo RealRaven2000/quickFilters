@@ -114,7 +114,7 @@
   },
   
   "whats-new-list" : {
-    "message" : "{L1} Nouvelle fonction: trier les termes de recherche dans un filtre (fonctionnalité Pro). {L2} {L1} Mémoriser les filtres copiés Liste à insérer dans plusieurs comptes (fonctionnalité Pro). {L2} {L1} Correction du problème des termes de recherche dupliqués lors de la fusion filtres. {L2} {L1} Divers correctifs pour la compatibilité avec Thunderbird 88. {L2}"
+    "message" : "{L1} Nouvelle fonction: trier les termes de recherche dans un filtre (fonctionnalité Pro). {L2} {L1} Mémoriser les filtres copiés Liste à insérer dans plusieurs comptes (fonctionnalité Pro). {L2} {L1} Correction du problème des termes de recherche dupliqués lors de la fusion filtres. {L2} {L1} Divers correctifs pour la compatibilité avec Thunderbird 88. {L2}{L1} 5.2.1 - Suppression du bouton de tri des modèles de filtres personnalisés {L2} {L1} 5.2.1 - Amélioration des traductions en russe par Igor Zhigunov aka ashed {L2}"
   },  
   
   "time-and-effort": { 
