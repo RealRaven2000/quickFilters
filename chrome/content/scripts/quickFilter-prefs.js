@@ -16,6 +16,7 @@ pref("extensions.quickfilters.debug.getSourceFolder", false);
 pref("extensions.quickfilters.debug.identities", false);
 pref("extensions.quickfilters.debug.listeners", false);
 pref("extensions.quickfilters.debug.merge", false);
+pref("extensions.quickfilters.debug.merge.detail", false);
 pref("extensions.quickfilters.debug.nostalgy", false);
 pref("extensions.quickfilters.debug.msgMove",false);
 pref("extensions.quickfilters.debug.replaceReservedWords",false);

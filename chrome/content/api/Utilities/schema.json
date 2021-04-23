@@ -81,8 +81,6 @@
             "type": "string",
             "description": "url to open in browser"
           }
-
-
         ]
       },
 

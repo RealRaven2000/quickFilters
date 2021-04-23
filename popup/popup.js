@@ -25,7 +25,7 @@ async function updateActions(addonName) {
     if (el) {
       el.setAttribute('collapsed',true);
       return el;
-  }
+		}
     return null;
   }
   function hideSelectorItems(cId) {

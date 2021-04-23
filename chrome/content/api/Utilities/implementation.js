@@ -94,7 +94,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           util.showVersionHistory(ask);
         },
 
-        showXhtmlPage(uri) {
+        showXhtmlPage: function(uri) {
           let mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]
             .getService(Components.interfaces.nsIWindowMediator)
             .getMostRecentWindow("mail:3pane");  

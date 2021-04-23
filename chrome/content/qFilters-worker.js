@@ -696,16 +696,21 @@ quickFilters.Worker = {
               primaryAction = null;
             }
             
+            
             // make a list of filters with matching primary action
             // see https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsMsgRuleActionType
             if (primaryAction && filterAction == primaryAction.type) {
               switch(primaryAction.type) {
                 case Ci.nsMsgFilterAction.MoveToFolder:
                 case Ci.nsMsgFilterAction.CopyToFolder:
-                  if (primaryAction.targetFolderUri 
-                      && 
-                      primaryAction.targetFolderUri == targetFolder.URI)  {
-                    matchingFilters.push(aFilter);
+                  if (primaryAction.targetFolderUri) {
+                    util.logDebugOptional("merge.detail", "Checking Filter " + aFilter.filterName + " - target folder = " + primaryAction.targetFolderUri)
+                    if (primaryAction.targetFolderUri == targetFolder.URI)  {
+                      matchingFilters.push(aFilter);
+                      util.logDebugOptional("merge, merge.detail", 
+                        "======================= MERGE MATCH  ===================\n" +
+                        "  Found filter [" + aFilter.filterName + "] merging match target folder. ADDING TO matchingFilters.");
+                    }
                   }
                   break;
                 case Ci.nsMsgFilterAction.AddTag:
@@ -716,6 +721,9 @@ quickFilters.Worker = {
                     let kw = msg.getStringProperty ? msg.getStringProperty("keywords") : msg.Keywords;
                     if (kw.indexOf(primaryAction.strValue)>=0)  {
                       matchingFilters.push(aFilter);
+                      util.logDebugOptional("merge, merge.detail", 
+                        "======================= MERGE MATCH  ===================\n" +
+                        "Found filter [" + aFilter.filterName + "] merging match tag: " + primaryAction.strValue);
                     }
                   }
                   break;
@@ -2017,3 +2025,28 @@ quickFilters.Assistant = {
 };  //Assistant
 
 
+//			//// CHEAT SHEET
+// 			// from comm-central/mailnews/test/resources/filterTestUtils.js
+// 			let ATTRIB_MAP = {
+// 				// Template : [attrib, op, field of value, otherHeader]
+// 				"subject" : [Ci.nsMsgSearchAttrib.Subject, contains, "str", null],
+// 				"from" : [Ci.nsMsgSearchAttrib.Sender, contains, "str", null],
+// 				"date" : [Ci.nsMsgSearchAttrib.Date, Ci.nsMsgSearchOp.Is, "date", null],
+// 				"size" : [Ci.nsMsgSearchAttrib.Size, Ci.nsMsgSearchOp.Is, "size", null],
+// 				"message-id" : [Ci.nsMsgSearchAttrib.OtherHeader+1, contains, "str", "Message-ID"],
+// 				"user-agent" : [Ci.nsMsgSearchAttrib.OtherHeader+2, contains, "str", "User-Agent"]
+// 			 };
+// 			 // And this maps strings to filter actions
+// 			 let ACTION_MAP = {
+// 				// Template : [action, auxiliary attribute field, auxiliary value]
+// 				"priority" : [Ci.nsMsgFilterAction.ChangePriority, "priority", 6],
+// 				"delete" : [Ci.nsMsgFilterAction.Delete],
+// 				"read" : [Ci.nsMsgFilterAction.MarkRead],
+// 				"unread" : [Ci.nsMsgFilterAction.MarkUnread],
+// 				"kill" : [Ci.nsMsgFilterAction.KillThread],
+// 				"watch" : [Ci.nsMsgFilterAction.WatchThread],
+// 				"flag" : [Ci.nsMsgFilterAction.MarkFlagged],
+// 				"stop": [Ci.nsMsgFilterAction.StopExecution],
+// 				"tag" : [Ci.nsMsgFilterAction.AddTag, "strValue", "tag"]
+// 				"move" : [Ci.nsMsgFilterAction.MoveToFolder, "folder"]
+// 			 };

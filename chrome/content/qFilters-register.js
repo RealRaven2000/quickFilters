@@ -292,7 +292,6 @@ quickFilters.Licenser = {
     // short order process
     if (util.isDebug) debugger;
     let shortOrder,
-		    addQuery = '',
 				featureName = document.getElementById('referrer').value; // hidden field
     switch	(license_type) {
 			case 0:  // personal license
@@ -305,7 +304,6 @@ quickFilters.Licenser = {
 			  break;
 			case 2: // license renewal
 				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
-				// addQuery = "&renewal=" + encodeURI(prefs.getStringPref('LicenseKey'));
 				featureName = encodeURI(prefs.getStringPref('LicenseKey'));
 				// should we autoselect the correct email address?
 			  break;
@@ -314,18 +312,14 @@ quickFilters.Licenser = {
     let firstName = document.getElementById('firstName').value,
         lastName = document.getElementById('lastName').value,
         email = document.getElementById('email').value,
+        addQuery = featureName ?  "&referrer=" + featureName : "",
         url = shortOrder 
             + "?contact_fname=" + firstName 
-            + "&contact_lname=" + lastName 
 						+ addQuery
+            + "&contact_lname=" + lastName 
             + "&contact_email=" + email;
         
-    let queryString = '';  // action=adds
-        
-    if (featureName) {
-      queryString = "&referrer=" + featureName;
-    }
-    util.openLinkInBrowser(null, url + queryString);
+    util.openLinkInBrowser(null, url);
     window.close();
   }  ,
 

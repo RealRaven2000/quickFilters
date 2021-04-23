@@ -32,7 +32,6 @@ END LICENSE BLOCK */
           addonName = manifest.name,
           addonVer = manifest.version,
           appVer = browserInfo.version,
-          hoursWorked = 300,
           remindInDays = 10;
 
     // force replacement for __MSG_xx__ entities

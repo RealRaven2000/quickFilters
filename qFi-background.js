@@ -60,7 +60,7 @@ async function main() {
         ["locale",  "quickfilters", "ja",    "chrome/locale/ja/"],
         ["locale",  "quickfilters", "nl",    "chrome/locale/nl/"],
         ["locale",  "quickfilters", "ru",    "chrome/locale/ru/"],
-        ["locale",  "quickfilters", "sv-SE", "chrome/locale/sv-SE/"],
+        ["locale",  "quickfilters", "sv",    "chrome/locale/sv/"],
         ["locale",  "quickfilters", "vi",    "chrome/locale/vi/"],
         ["locale",  "quickfilters", "zh-CN", "chrome/locale/zh-CN/"]
     
