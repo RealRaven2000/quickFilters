@@ -1,75 +1,5 @@
 {
-  "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
-  },
-
-  "extensionDescription": {
-    "message": "Auf die Schnelle neue Filter erzeugen, einfach während man Email in Verzeichnisse einordnet. Filter in weniger als 10 Sekunden erzeugen. Mehrere Filter zusammenführen, und auf andere Konten übertragen.",
-    "description": "Description of the extension."
-  },
-
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
-  },
-  
- 
-  "window-title": {
-    "message": "Willkommen zu $addonName$",
-    "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-
-  "heading-updated": {
-    "message": "$addonName$ wurde erfolgreich aktualisiert",
-    "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "heading-installed": {
-    "message": "$addonName$ wurde erfolgreich installiert",
-    "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
- "thanks-for-updating-intro": {
-    "message": "Danke dass Sie $addonName$ aktualisiert haben.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
- "thanks-for-installing-intro": {
-    "message": "Danke dass Sie $addonName$ installiert haben.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  
- "active-version-info" : {
+  "active-version-info" : {
     "message":"Es läuft jetzt {boldStart} Version $addonVer$ {boldEnd} auf Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
@@ -81,93 +11,83 @@
         "content" : "$2",
         "example" : "78.0b4"
       }
-      
     }
+  },   
+  "addon-authors-struggle" : {
+    "message" : "Um weiterhin nützlich zu sein, müssen Add-On-Entwickler nun vermehrt die für die Reparatur und das Umschreiben erforderlichen Mittel aufbringen, damit unsere Benutzer weiterhin von den Funktionen profitieren können, die wir an den Tisch bringen."
   },  
-  
+  "btn-extend-license": {
+    "message" : "Ich möchte meine Lizenz um ein Jahr verlängern"
+  },  
+  "btn-renew-license": {
+    "message" : "Ich möchte meine Lizenz erneuern"
+  },  
+  "btn-want-a-license": {
+    "message" : "Ich möchte eine Lizenz kaufen"
+  },  
+  "btn-want-to-donate" : {
+    "message" : "Ich möchte mit einer einmaligen Spende helfen."
+  },  
+  "cost-of-independence" : {
+    "message" : "Softwareentwicklung kostet Zeit und Geld - im Gegensatz zu vielen Plattform-Apps werden Add-Ons weder von großen Unternehmen geschrieben noch in irgendeiner Weise von Mozilla gesponsert."
+  },  
+  "donate" : {
+    "message" : "Helfen Sie mit einer einmaligen Spende."
+  },   
+  "donate-heading" : {
+    "message" : "Helfen durch Spenden!"
+  },  
+  "extend-your-license" : {
+    "message" : "Verlängern Sie Ihre Lizenz um ein Jahr."
+  },    
+  "extensionName": {
+    "message": "quickFilters",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Auf die Schnelle neue Filter erzeugen, einfach während man Email in Verzeichnisse einordnet. Filter in weniger als 10 Sekunden erzeugen. Mehrere Filter zusammenführen, und auf andere Konten übertragen.",
+    "description": "Description of the extension."
+  },
+  "heading-installed": {
+    "message": "$addonName$ wurde erfolgreich installiert",
+    "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "heading-updated": {
+    "message": "$addonName$ wurde erfolgreich aktualisiert",
+    "description": "Seitenheader. Der erste placeholder wird durch den Add-on Namen ersetzt",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "label-remind-me" : {
+    "message": "Erinnern Sie mich noch einmal in $ countDays $ Tagen.",
+    "placeholders": {
+      "countDays" : {
+        "content" : "$1", 
+        "example" : "10"
+      }    
+    }    
+  },
   "license-is-extended" : {
     "message": "Vielen Dank, dass Sie kürzlich Ihre Lizenz verlängert haben oder gespendet haben. Da Sie zur Zukunftssicherung dieses Add-ons beigetragen haben, können Sie dieses Fenster einfach schließen.",
     "description": "Shown if license expires more than a year from now"
   },
-  
-  "special-offer-head" : {
-    "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
-  } ,  
-
-  "special-offer-intro" : {
-    "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt quickFilters zukunftssicher machen. Weitere große Änderungen an Thunderbird kommen und ich brauche {boldStart}Ihre Hilfe{boldEnd}, um Schritt zu halten!"
-  } ,
-  
-  "special-offer-content" : {
-    "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um 30% gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}16. April{boldEnd}."
-  },
-  
-  "whats-new-intro" : {
-    "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):" 
-  },
-  
-  "whats-new-btn" : {
-    "message": "Was gibt's Neues?"
-  }, 
-  
-  "whats-new-head" : {
-    "message": "Highlights"
-  },
-  
-  "whats-new-list" : {
-    "message" : "{L1} Neue Funktion: Suchbegriffe im Filter sortieren (Pro-Funktion). {L2} {L1} Liste der kopierten Filter zum Einfügen in mehrere Konten einfügen (Pro-Funktion). {L2} {L1} Fix: keine Verdopplung von Suchbegriffen beim Zusammenführen von Filtern. {L2} {L1} Diverse Korrekturen für die Kompatibilität mit Thunderbird 88. {L2}{L1} 5.2.1 - Sortierschaltfläche aus benutzerdefinierten Filtervorlagen entfernt.{L2} {L1} 5.2.1 - Verbesserte russische Übersetzungen von Igor Zhigunov aka ashed {L2}"
-  },  
-  
-  "time-and-effort": { 
-    "message": "$addonName$ erfordert fortlaufend Änderungen, um mit der Mozilla-Plattform kompatibel zu bleiben. Ich arbeite ständig daran, so viele Funktionen wie möglich für zukünftige Versionen von Thunderbird beizubehalten.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "support-suggestion" : {
-    "message": "Damit $addonName$ weiterhin funktionsfähig und lebendig bleiben kann, tun Sie ihm bitte einen entscheidenden Gefallen:",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  } , 
-  
-  "purchase-a-license" : {
-    "message" : "Kaufen Sie eine Lizenz."
-  }, 
-  
-  "renew-your-license" : {
-    "message" : "Erneuern Sie Ihre Lizenz."
-  },  
-  
-  "extend-your-license" : {
-    "message" : "Verlängern Sie Ihre Lizenz um ein Jahr."
+  "mozillas-basic-platform" : {
+    "message" : "Mozilla bietet nur eine Basis-Plattform, um unsere Software für Sie als Endbenutzer weiterzuleiten. Wenn wir unsere Benutzer um Zahlung oder Support bitten müssen, können wir dies nicht über addons.thunderbird.net tun - es handelt sich nicht um einen App Store mit integrierten Paywalls oder Lizenzverwaltung wie iTunes oder Google Play."
   },    
-      
-  "donate" : {
-    "message" : "Helfen Sie mit einer einmaligen Spende."
-  },   
-
-  "purchase-heading" : {
-    "message" : "Lizenz erwerben!"
-  }, 
-  
-  "support-preference" : {
-    "message": "Dies ist die bevorzugte Methode zur Unterstützung von $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  }, 
-  
+  "notificationTitle": {
+    "message": "Click notification",
+    "description": "Title of the click notification."
+  },
   "ongoing-work": {
     "message": "Die Änderungen zur Konvertierung von $addonName$ auf das neue Programmiermodell dauerten Wochen und waren kostspielig. Es gibt viele weitere Änderungen für die nächste Version 2022. Bitte helfen Sie uns dabei.",
     "placeholders": {
@@ -177,53 +97,94 @@
       }    
     }
   },
-
-  
-  "btn-want-a-license": {
-    "message" : "Ich möchte eine Lizenz kaufen"
-  } ,
-  
-  "btn-extend-license": {
-    "message" : "Ich möchte meine Lizenz um ein Jahr verlängern"
-  } ,
-  
-  "btn-renew-license": {
-    "message" : "Ich möchte meine Lizenz erneuern"
-  } ,
-  
-  
-  "donate-heading" : {
-    "message" : "Helfen durch Spenden!"
-  } ,
-  
-  "cost-of-independence" : {
-    "message" : "Softwareentwicklung kostet Zeit und Geld - im Gegensatz zu vielen Plattform-Apps werden Add-Ons weder von großen Unternehmen geschrieben noch in irgendeiner Weise von Mozilla gesponsert."
-  } ,
-  
-  "mozillas-basic-platform" : {
-    "message" : "Mozilla bietet nur eine Basis-Plattform, um unsere Software für Sie als Endbenutzer weiterzuleiten. Wenn wir unsere Benutzer um Zahlung oder Support bitten müssen, können wir dies nicht über addons.thunderbird.net tun - es handelt sich nicht um einen App Store mit integrierten Paywalls oder Lizenzverwaltung wie iTunes oder Google Play."
-  } ,
-    
-  "addon-authors-struggle" : {
-    "message" : "Um weiterhin nützlich zu sein, müssen Add-On-Entwickler nun vermehrt die für die Reparatur und das Umschreiben erforderlichen Mittel aufbringen, damit unsere Benutzer weiterhin von den Funktionen profitieren können, die wir an den Tisch bringen."
-  } ,  
-      
-  "btn-want-to-donate" : {
-    "message" : "Ich möchte mit einer einmaligen Spende helfen."
-  } ,
-  
+  "purchase-a-license" : {
+    "message" : "Kaufen Sie eine Lizenz."
+  }, 
+  "purchase-heading" : {
+    "message" : "Lizenz erwerben!"
+  }, 
+  "renew-your-license" : {
+    "message" : "Erneuern Sie Ihre Lizenz."
+  },  
+  "special-offer-content" : {
+    "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um 30% gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}16. April{boldEnd}."
+  },
+  "special-offer-head" : {
+    "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
+  }, 
+  "special-offer-intro" : {
+    "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt quickFilters zukunftssicher machen. Weitere große Änderungen an Thunderbird kommen und ich brauche {boldStart}Ihre Hilfe{boldEnd}, um Schritt zu halten!"
+  },
+  "support-preference" : {
+    "message": "Dies ist die bevorzugte Methode zur Unterstützung von $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  }, 
+  "support-suggestion" : {
+    "message": "Damit $addonName$ weiterhin funktionsfähig und lebendig bleiben kann, tun Sie ihm bitte einen entscheidenden Gefallen:",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  }, 
+  "thanks-for-updating-intro": {
+    "message": "Danke dass Sie $addonName$ aktualisiert haben.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "thanks-for-installing-intro": {
+    "message": "Danke dass Sie $addonName$ installiert haben.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "time-and-effort": { 
+    "message": "$addonName$ erfordert fortlaufend Änderungen, um mit der Mozilla-Plattform kompatibel zu bleiben. Ich arbeite ständig daran, so viele Funktionen wie möglich für zukünftige Versionen von Thunderbird beizubehalten.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
   "translated-by-google" : {
     "message": "translations provided by google",
     "description": "disclaimer."
+  },  
+  "whats-new-intro" : {
+    "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):" 
+  },
+  "whats-new-btn" : {
+    "message": "Was gibt's Neues?"
+  }, 
+  "whats-new-head" : {
+    "message": "Highlights"
+  },
+  "whats-new-list" : {
+    "message" : "{L1} Neue Funktion: Suchbegriffe im Filter sortieren (Pro-Funktion). {L2} {L1} Liste der kopierten Filter zum Einfügen in mehrere Konten einfügen (Pro-Funktion). {L2} {L1} Fix: keine Verdopplung von Suchbegriffen beim Zusammenführen von Filtern. {L2} {L1} Diverse Korrekturen für die Kompatibilität mit Thunderbird 88. {L2}{L1} 5.2.1 - Sortierschaltfläche aus benutzerdefinierten Filtervorlagen entfernt.{L2} {L1} 5.2.1 - Verbesserte russische Übersetzungen von Igor Zhigunov aka ashed {L2}"
+  },  
+  "window-title": {
+    "message": "Willkommen zu $addonName$",
+    "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   },
   
-  "label-remind-me" : {
-    "message": "Erinnern Sie mich noch einmal in $ countDays $ Tagen.",
-    "placeholders": {
-      "countDays" : {
-        "content" : "$1", 
-        "example" : "10"
-      }    
-    }    
-  }
 }
