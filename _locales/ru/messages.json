@@ -1,227 +1,1251 @@
 {
-  "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
-  },
-
-  "extensionDescription": {
-    "message": "Быстро создавайте правила фильтрации почты на лету, перетаскивая письма и анализируя их атрибуты.",
-    "description": "Description of the extension."
-  },
-
-  "notificationTitle": {
-    "message": "Уведомление по щелчку",
-    "description": "Title of the click notification."
-  },
-  
-  "window-title": {
-    "message": "Добро пожаловать в $addonName$",
-    "description": "page title. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+    "about": {
+        "message": "О"
+    },
+    "account.label": {
+        "message": "Учётная запись:"
+    },
+    "active-version-info": {
+        "description": "The boldStart and boldEnd parts will be replaced with html tags",
+        "message": "Теперь вы используете {boldStart} версию $addonVer$ {boldEnd} на Thunderbird $appVer$.",
+        "placeholders": {
+            "addonVer": {
+                "content": "$1",
+                "example": "Version 1.1"
+            },
+            "appVer": {
+                "content": "$2",
+                "example": "78.0b4"
+            }
+        }
+    },
+    "addon-authors-struggle": {
+        "message": "Чтобы и дальше оставаться полезными, нам, разработчикам дополнений, теперь необходимо финансировать исправления, для того чтобы наши пользователи могли продолжать пользоваться предоставляемыми нами функциями."
+    },
+    "btn-extend-license": {
+        "message": "Я хочу продлить лицензию на один год"
+    },
+    "btn-renew-license": {
+        "message": "Я хочу обновить лицензию"
+    },
+    "btn-want-a-license": {
+        "message": "Я хочу купить лицензию"
+    },
+    "btn-want-to-donate": {
+        "message": "Я хочу помочь разовым пожертвованием."
+    },
+    "buyDomainLicense.button": {
+        "message": "Купить групповую лицензию"
+    },
+    "buyDomainLicense.instruct": {
+        "message": "Нужна лицензия для группы с пятью пользователями и более? Групповая лицензия будет дешевле:"
+    },
+    "buyLicense.instruct": {
+        "message": "Нужна лицензия только для себя? Лицензия для одного человека привязана к адресу электронной почты и может использоваться параллельно в несколько местах."
+    },
+    "buyPersonalLicense.button": {
+        "message": "Купить лицензию для одного человека!"
+    },
+    "chkAfterJunk.label": {
+        "message": "После фильтрации на спам"
+    },
+    "chkAfterSending.label": {
+        "message": "После отправки"
+    },
+    "chkAlphabetic.label": {
+        "message": "Вставлять новые фильтры в алфавитном порядке"
+    },
+    "chkAlphabetic.tooltip": {
+        "message": "Использовать имя фильтра для позиционирования. Рекомендуется при использовании имени вышестоящей папки. Учтите, что это влияет на порядок фильтрации!"
+    },
+    "chkAutoClose.accesskey": {
+        "message": "З"
+    },
+    "chkAutoClose.label": {
+        "message": "Закрывать ассистент после создания фильтра."
+    },
+    "chkAutoRun.label": {
+        "message": "Применить фильтры при получении новых сообщений"
+    },
+    "chkAutoStart.accesskey": {
+        "message": "а"
+    },
+    "chkAutoStart.label": {
+        "message": "Запустить режим создания фильтров при старте приложения"
+    },
+    "chkCurrentToolbar.btn.FilterList.label": {
+        "message": "Показывать список фильтров"
+    },
+    "chkCurrentToolbar.btn.FindFilter.label": {
+        "message": "Найти фильтры для папки"
+    },
+    "chkCurrentToolbar.btn.FindFilter.tooltip": {
+        "message": "Найти все фильтры, перемещающие сообщения в эту папку."
+    },
+    "chkCurrentToolbar.btn.RunOnFolder.label": {
+        "message": "Запустить фильтры в папке"
+    },
+    "chkCurrentToolbar.btn.RunOnMessages.label": {
+        "message": "Запустить фильтры на выбранных сообщениях"
+    },
+    "chkDebug.accesskey": {
+        "message": "Р"
+    },
+    "chkDebug.label": {
+        "message": "Режим отладки"
+    },
+    "chkImapOnRead.label": {
+        "message": "Фильтрация при чтении сообщений из учетной записи IMAP."
+    },
+    "chkInsertRulesAtTop.label": {
+        "message": "Добавить новые правила в начало списка."
+    },
+    "chkLocalFoldersAutorun.label": {
+        "message": "Автозапуск фильтров на локальной папке Входящие"
+    },
+    "chkMergeAuto.label": {
+        "message": "Автоматический выбор объединения"
+    },
+    "chkMergeAuto.tooltip": {
+        "message": "Если фильтр уже существует, то режим объединения и первый совпадающий фильтр будут выбраны автоматически."
+    },
+    "chkMergeSkip.label": {
+        "message": "Без выбора целевого фильтра"
+    },
+    "chkMergeSkip.tooltip": {
+        "message": "Пропустить &quot;выбор целевого фильтра&quot; и сразу перейти к  &quot;выбор шаблона&quot;."
+    },
+    "chkPeriodically.label": {
+        "message": "Запускать периодически"
+    },
+    "chkPeriodically.tooltip": {
+        "message": "Запускать фильтр через регулярные интервалы"
+    },
+    "chkRunManual.label": {
+        "message": "Запустить вручную"
+    },
+    "chkShowEditor.label": {
+        "message": "Открыть редактор после создания фильтра"
+    },
+    "chkShowList.label": {
+        "message": "Показывать список фильтров после создания фильтра"
+    },
+    "chkShowList.tooltip": {
+        "message": "Показывать список для запуска нового фильтра на всех сообщениях."
+    },
+    "chkToolbar.accesskey": {
+        "message": "П"
+    },
+    "chkToolbar.label": {
+        "message": "Панель инструментов в окне управления фильтрами"
+    },
+    "chkWhenArchiving.label": {
+        "message": "При архивации"
+    },
+    "cost-of-independence": {
+        "message": "Разработка программного обеспечения требует времени и денег - в отличие от многих приложений на платформе, надстройки не разрабатываются крупными корпорациями и никоим образом не спонсируются Mozilla."
+    },
+    "createdBy": {
+        "message": "Создан:"
+    },
+    "domainLicense.email": {
+        "message": "Мы свяжемся с вами в течении 2 рабочих дней по указанному адресу электронной почты для генерирования групповой лицензии. Укажите имя домена для лицензии на следующей странице."
+    },
+    "domainLicense.header": {
+        "message": "Имя домена для лицензии"
+    },
+    "domainLicense.instruct": {
+        "message": "Эта лицензия привязана к имени домена вашей компании. Эта лицензия позволяет пользователям с адресами электронной почты, начинающимеся на это доменное имя, пользоваться quickFilters Pro. К примеру, если указано доменное имя  'abc.com', то пользователи с адресами fred@abc.com, martha@abc.com, mike.doe@abc.com могут пользоваться этой лицензией. Максимальное число пользователей этой лицензии было указано в первом диалоге."
+    },
+    "domainLicense.validate": {
+        "message": "Введите доменное имя точно так, как оно указано в адресе электронной почты вашей компании (часть после знака @), так как мы будем использовать его для авторизации адресов электронной почты ваших пользователей."
+    },
+    "donate": {
+        "message": "Помогите с разовым пожертвованием."
+    },
+    "donate-heading": {
+        "message": "Помочь пожертвованием!"
+    },
+    "donate.label": {
+        "message": "Поддержка"
+    },
+    "email.label": {
+        "message": "Адрес:"
+    },
+    "enterLicenseKey.button": {
+        "message": "Ввести лицензионный ключ…"
+    },
+    "enterLicenseKey.tooltip": {
+        "message": "Ввести присланный лицензионный ключ."
+    },
+    "extend-your-license": {
+        "message": "Продлите лицензию на год."
+    },
+    "extensionDescription": {
+        "description": "Description of the extension.",
+        "message": "Быстро создавайте правила фильтрации почты на лету, перетаскивая письма и анализируя их атрибуты."
+    },
+    "extensionName": {
+        "description": "Name of the extension.",
+        "message": "quickFilters"
+    },
+    "extensions.quickfilters.description": {
+        "message": "Создавайте фильтры сообщений на лету, перетаскивая сообщения и анализируя их атрибуты."
+    },
+    "firstName.label": {
+        "message": "Имя:"
+    },
+    "freeLicense": {
+        "message": "Если вы недавно поддержали проект или помогли переводом или исправлением, возможно вам положен бесплатный лицензионный ключ.  Свяжитесь со мной, контактные данные можно найти в настройках."
+    },
+    "getquickFilters": {
+        "message": "Получить quickFilters Pro"
+    },
+    "grpMerge.label": {
+        "message": "Правила объединения"
+    },
+    "heading-installed": {
+        "description": "page heading. first placeholder will be replaced with Add-on name",
+        "message": "Успешно установлено $addonName$",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "heading-updated": {
+        "description": "page heading. first placeholder will be replaced with Add-on name",
+        "message": "$addonName$ успешно обновлен",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "homepage": {
+        "message": "Домашняя страница:"
+    },
+    "intro": {
+        "message": "Годовая лицензия позволяет использовать премиум-функции один год. У нас же появляется возможность поддерживать и расширять продукт, делая его более значимым."
+    },
+    "label-remind-me": {
+        "message": "Напомнить мне снова через $countDays$ дн.",
+        "placeholders": {
+            "countDays": {
+                "content": "$1",
+                "example": "10"
+            }
+        }
+    },
+    "lastName.label": {
+        "message": "Фамилия:"
+    },
+    "license-is-extended": {
+        "description": "Shown if license expires more than a year from now",
+        "message": "Спасибо, что недавно продлили лицензию или сделали пожертвование. Поскольку вы помогли подготовить это дополнение к будущему, вы можете просто закрыть это окно."
+    },
+    "licenseWindow.title": {
+        "message": "Лицензия quickFilters Pro"
+    },
+    "mozillas-basic-platform": {
+        "message": "Mozilla предоставляет только базовую платформу для доставки нашего программного обеспечения вам, конечным пользователям. Если нам нужно запросить у наших пользователей оплату или поддержку, мы не сможем сделать это через addons.thunderbird.net - это не «магазин приложений» со встроенными платными доступом или управлением лицензиями, такими как iTunes или Google Play."
+    },
+    "notificationTitle": {
+        "description": "Title of the click notification.",
+        "message": "Уведомление по щелчку"
+    },
+    "ongoing-work": {
+        "message": "Изменения для применения к $addonName$ новой модели программирования заняли много недель и были весьма дорогими. В следующей версии 2022 года запланирована масса изменений. С таким сложным дополнением  работа неизбежно становится дорогостоящей. Пожалуйста, помогите нам.",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "pane1.title": {
+        "message": "настройки quickFilters"
+    },
+    "prefwindow.title": {
+        "message": "настройки quickFilters"
+    },
+    "purchase-a-license": {
+        "message": "Купите лицензию."
+    },
+    "purchase-heading": {
+        "message": "Купить лицензию!"
+    },
+    "qf.button.createFilter": {
+        "message": "Создать новый фильтр…"
+    },
+    "qf.button.editFilter": {
+        "message": "Изменить фильтр…"
+    },
+    "qf.button.merge": {
+        "message": "Объединить"
+    },
+    "qf.button.next": {
+        "message": "Далее"
+    },
+    "qf.button.pasteLicense": {
+        "message": "вставить"
+    },
+    "qf.button.reorderButtonBottom": {
+        "message": "Последним"
+    },
+    "qf.button.reorderButtonBottom.accessKey": {
+        "message": "и"
+    },
+    "qf.button.reorderButtonBottom.toolTip": {
+        "message": "Фильтровать после других фильтров"
+    },
+    "qf.button.reorderButtonTop": {
+        "message": "Первым"
+    },
+    "qf.button.reorderButtonTop.accessKey": {
+        "message": "е"
+    },
+    "qf.button.reorderButtonTop.toolTip": {
+        "message": "Фильтровать до других фильтров"
+    },
+    "qf.button.targetSelected": {
+        "message": "Целевой фильтр выбран"
+    },
+    "qf.button.validateLicense": {
+        "message": "проверить"
+    },
+    "qf.check.createNew": {
+        "message": "Создать новый фильтр"
+    },
+    "qf.check.mergeWithExisting": {
+        "message": "Объединить с существующим фильтром:"
+    },
+    "qf.cloned.label": {
+        "message": "Добавить к имени клонированного фильтра:"
+    },
+    "qf.continueFilter.label": {
+        "message": "Создать фильтр…"
+    },
+    "qf.continueFilter.shortcut": {
+        "message": "С"
+    },
+    "qf.description.about": {
+        "message": "Краткое описание quickFilters на следующей странице:"
+    },
+    "qf.description.contactMe": {
+        "message": "Мой личный адрес axel.grude@gmail.com:"
+    },
+    "qf.description.currentFolderButtons": {
+        "message": "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее микропанель инструментов в область просмотра сообщений."
+    },
+    "qf.description.mergeAddInstructions": {
+        "message": "Все остальные фильтры в этом списке будут объединены в него и удалены."
+    },
+    "qf.description.mergeAddSummary": {
+        "message": "Выберите фильтр, который унаследует свойства других фильтров."
+    },
+    "qf.description.mergeInstructions": {
+        "message": "Вы можете расширить один из них или создать совершенно новый фильтр."
+    },
+    "qf.description.mergeSummary": {
+        "message": "Ассистент quickFilters нашел фильтры с подобным действием."
+    },
+    "qf.description.selectToExtend": {
+        "message": "Выберите фильтр, к которому будут добавлены новые критерии."
+    },
+    "qf.donate.tooltip": {
+        "message": "Поддержать развитие quickFilters!"
+    },
+    "qf.filterlist.group": {
+        "message": "Функции списка фильтров"
+    },
+    "qf.filterlist.multipaste": {
+        "message": "Разрешить копирование и вставку фильтров в несколько учетных записей"
+    },
+    "qf.filters.actions.caption": {
+        "message": "Действия"
+    },
+    "qf.filters.actions.flag": {
+        "message": "Флаг"
+    },
+    "qf.filters.actions.flag.accesskey": {
+        "message": "Ф"
+    },
+    "qf.filters.actions.priority": {
+        "message": "Важность"
+    },
+    "qf.filters.actions.priority.accesskey": {
+        "message": "В"
+    },
+    "qf.filters.actions.star": {
+        "message": "Звёздочка"
+    },
+    "qf.filters.actions.star.accesskey": {
+        "message": "З"
+    },
+    "qf.filters.actions.tag": {
+        "message": "Метки"
+    },
+    "qf.filters.actions.tag.accesskey": {
+        "message": "М"
+    },
+    "qf.filters.actions.targetFolder": {
+        "message": "Папка для сохранения"
+    },
+    "qf.filters.actions.tooltip": {
+        "message": "Следующие атрибуты сообщения будут скопированы"
+    },
+    "qf.filters.instructions": {
+        "message": "Пожалуйста выберите шаблон. Фильтр можно будет настроить на следующем этапе."
+    },
+    "qf.filters.steps.autoRunFilter": {
+        "message": "Запустить автоматически"
+    },
+    "qf.filters.steps.autoRunFilter.tooltip": {
+        "message": "Автоматически запустить фильтр на исходном почтовом ящике после создания."
+    },
+    "qf.filters.steps.caption": {
+        "message": "Следующие шаги"
+    },
+    "qf.filters.steps.showEditor": {
+        "message": "Правила фильтра"
+    },
+    "qf.filters.steps.showEditor.tooltip": {
+        "message": "Отредактируйте детали фильтра после того, как помощник создал его."
+    },
+    "qf.filters.steps.showList": {
+        "message": "Список фильтров"
+    },
+    "qf.filters.steps.showList.tooltip": {
+        "message": "Отображать фильтр в контексте для пробы"
+    },
+    "qf.filters.steps.tooltip": {
+        "message": "Какие экраны отображаются после создания фильтра"
+    },
+    "qf.filters.template.custom.description": {
+        "message": "Настраиваемый фильтр - поведение настраивается пользователем - используйте переменные %from% %to% %subject% итд."
+    },
+    "qf.filters.template.domain": {
+        "message": "По домену отправителя (от)"
+    },
+    "qf.filters.template.domain.description": {
+        "message": "Похоже на 'По отправителю (от)', но критерием является только домен (@xyz.com) адреса отправителя."
+    },
+    "qf.filters.template.from": {
+        "message": "По отправителю (от)"
+    },
+    "qf.filters.template.from.description": {
+        "message": "Наверное самый популярный шаблон: адрес отправителя используется как критерии 'отправитель' и 'адресат' фильтра. Вся переписка с отправителем перемещается в новую папку."
+    },
+    "qf.filters.template.list.description": {
+        "message": "Похож на шаблон 'По отправителю', но не заполняется критерий 'отправитель'."
+    },
+    "qf.filters.template.maillist": {
+        "message": "Список рассылки"
+    },
+    "qf.filters.template.maillist.description": {
+        "message": "Полезно для списков рассылки с полем «ID списка». Если это не установлено, вместо этого будет использовать адрес отправителя."
+    },
+    "qf.filters.template.multifrom": {
+        "message": "Группа (список отправителей из нескольких сообщений)"
+    },
+    "qf.filters.template.multifrom.description": {
+        "message": "Добавляет адреса отправителей всех выбранных сообщений как критерий (за исключением вашего собственного адреса)"
+    },
+    "qf.filters.template.replyto": {
+        "message": "По обратному адресу"
+    },
+    "qf.filters.template.replyto.description": {
+        "message": "Фильтр по обратному адресу."
+    },
+    "qf.filters.template.tag": {
+        "message": "По меткам"
+    },
+    "qf.filters.template.tag.description": {
+        "message": "Использует метки сообщения как критерии фильтра."
+    },
+    "qf.filters.template.to": {
+        "message": "По адресату (кому)"
+    },
+    "qf.filters.template.to.description": {
+        "message": "Похож на шаблон 'По отправителю': используется для отправленных сообщений. Адрес получателя используется как критерии 'отправитель' и 'адресат' фильтра. Вся переписка с получателем перемещается в новую папку."
+    },
+    "qf.filters.template.topic": {
+        "message": "По теме"
+    },
+    "qf.filters.template.topic.description": {
+        "message": "Критерий фильтра для сообщений со скобками в теме, как то [нумизматы] или {вегетарианцы}; фильтруются многие массовые рассылки, которые пользуются этим приемом."
+    },
+    "qf.filters.templates.description.label": {
+        "message": "Описание:"
+    },
+    "qf.filters.title": {
+        "message": "Создать фильтр"
+    },
+    "qf.grp.whenToRun": {
+        "message": "Условие запуска фильтра"
+    },
+    "qf.label.aboutLink": {
+        "message": "страница quickFilters…"
+    },
+    "qf.label.cancel": {
+        "message": "Отмена"
+    },
+    "qf.label.contactLink": {
+        "message": "Написать мне (на английском или немецком)"
+    },
+    "qf.label.currentFolderButtons": {
+        "message": "Панель инструментов QuickFolders для текущей папки"
+    },
+    "qf.label.donate": {
+        "message": "Пожертвовать"
+    },
+    "qf.label.filterCountN_of_M": {
+        "message": "{0} из {1}"
+    },
+    "qf.label.filterEntities": {
+        "message": "элементов"
+    },
+    "qf.label.filterSingleEntity": {
+        "message": "1 элемент"
+    },
+    "qf.label.haveLicense": {
+        "message": "Уже есть лицензионный ключ?"
+    },
+    "qf.label.insertLicense": {
+        "message": "Вставить лицензионный ключ сюда:"
+    },
+    "qf.label.insertLicense.tooltip": {
+        "message": "Ваш лицензионный ключ находится в сообщении от Fastspring, подтверждающем заказ."
+    },
+    "qf.label.licenseValid": {
+        "message": "Лицензионный ключ действителен до:"
+    },
+    "qf.label.naming": {
+        "message": "Правила присваивания имен"
+    },
+    "qf.label.naming.folderDelimiter": {
+        "message": "Разделитель:"
+    },
+    "qf.label.naming.keyWord": {
+        "message": "Добавить ключевое слово правила"
+    },
+    "qf.label.naming.keyWord.accesskey": {
+        "message": "к"
+    },
+    "qf.label.naming.parentFolder": {
+        "message": "Добавить имя вышестоящей папки"
+    },
+    "qf.label.naming.parentFolder.accesskey": {
+        "message": "о"
+    },
+    "qf.label.premiumFeaturesSite": {
+        "message": "Узнать больше о премиум-функциях на нашей странице"
+    },
+    "qf.label.quickfilters": {
+        "message": "quickFilters"
+    },
+    "qf.label.shortcut.runFolder": {
+        "message": "Ярлык для Запуск фильтров на папке: Shift + "
+    },
+    "qf.label.shortcut.runMails": {
+        "message": "Ярлык для Запуск фильтров на выбранных письмах: Shift + "
+    },
+    "qf.label.supportWithLicense": {
+        "message": "Поддержите quickFilters получив лицензию!"
+    },
+    "qf.licenseValidation.expired": {
+        "message": "Лицензионный ключ просрочен. Нажмите кнопку ниже для обновления лицензии."
+    },
+    "qf.licenseValidation.failed": {
+        "message": "Лицензионный ключ недействителен. Ещё раз посмотрите сообщение от FastSpring . Если их инструкции не помогут, обратитесь ко мне (см. &quot;Поддержка&quot;)."
+    },
+    "qf.licenseValidation.invalidAddon": {
+        "message": "Введённый лицензионный ключ может быть для другого дополнения. Лицензионные ключи для {0} начинаются с {1}."
+    },
+    "qf.licenseValidation.invalidMail": {
+        "message": "Адрес, привязанный к лицензионному ключу [{1}] не используется ни в одной учётной записи почты. Свяжитесь со мной, контактные данные можно найти в настройках."
+    },
+    "qf.licenseValidation.notMatchedMail": {
+        "message": "Зашифрованный адрес не совпадает с имеющимся."
+    },
+    "qf.licenseValidation.passed": {
+        "message": "Спасибо за регистрацию! Вы можете пользоваться всеми премиум функциями."
+    },
+    "qf.listener.tags": {
+        "message": "Реагировать на изменение меток"
+    },
+    "qf.listener.tags.autofilter": {
+        "message": "Фильтровать автоматически при изменении меток сообщения"
+    },
+    "qf.listener.tags.tooltip": {
+        "message": "Запускать ассистента создания фильтров при изменении меток сообщения."
+    },
+    "qf.notify.filterCreated": {
+        "message": "Успешно создан новый фильтр '{0}'."
+    },
+    "qf.notify.filterMergeUpdated": {
+        "message": "Успешно обновлён фильтр '{0}'."
+    },
+    "qf.onewayaddress.label": {
+        "message": "Отключить двусторонний поиск адреса"
+    },
+    "qf.onewayaddress.tooltip": {
+        "message": "По умолчанию quickFilters добавляет критерии 'отправитель' и 'адресат' к фильтру чтобы перемещать всё обсуждение включая ваши сообщения получателю. Если Вы хотите оставить ваши ответы в папке &quot;Отправленные&quot;, эта настройка отключает описанную возможность. Дополнение &quot;Copy Sent to Current&quot; можно использовать для того чтобы ответы хранились вместе с самими сообщениями."
+    },
+    "qf.options.versionnumber.tooltip": {
+        "message": "Нажмите правой кнопкой мыши чтобы получить историю изменений."
+    },
+    "qf.premiumConfig": {
+        "message": "Премиум-функции"
+    },
+    "qf.tab.actions": {
+        "message": "Действия"
+    },
+    "qf.tab.advanced": {
+        "message": "Дополнительные"
+    },
+    "qf.tab.gopro": {
+        "message": "quickFilters Pro"
+    },
+    "qf.tab.newFilterProps": {
+        "message": "Свойства нового фильтра"
+    },
+    "qf.tab.options": {
+        "message": "Настройки"
+    },
+    "qf.tab.support": {
+        "message": "Поддержка"
+    },
+    "qf.templates.advanced": {
+        "message": "Дополнительные шаблоны"
+    },
+    "qf.templates.customTemplate.edit": {
+        "message": "Редактировать…"
+    },
+    "qf.templates.customTemplate.label": {
+        "message": "Настраиваемые шаблоны"
+    },
+    "qf.templates.customTemplate.new": {
+        "message": "Создать новый…"
+    },
+    "qf.templates.customTemplate.tooltip": {
+        "message": "Позволяет создавать настраиваемые шаблоны, подробнее в описании бага."
+    },
+    "qf.templates.replyTo.label": {
+        "message": "Шаблон по обратному адресу"
+    },
+    "qf.templates.replyTo.tooltip": {
+        "message": "Показать шаблон по обратному адресу, подробнее в описании бага."
+    },
+    "qf.textbox.searchBox.emptyText": {
+        "message": "найти фильтры…"
+    },
+    "qf.textbox.searchBox.toolTip": {
+        "message": "Введите ключевое слово для поиска фильтра по имени"
+    },
+    "qf.tooltip.naming.folderDelimiter": {
+        "message": "Символ вставлен между родительской папкой и именем"
+    },
+    "qf.youtube.description": {
+        "message": "Для получения подробной информации о дополнениях Thunderbird и видео о том, как использовать QuickFilters, посетите мой канал YouTube."
+    },
+    "qf.youtube.link": {
+        "message": "Смотреть quickFilters видео на Thunderbird Daily…"
+    },
+    "qf.youtube.tbdaily": {
+        "message": "Посетите Thunderbird Daily - канал на YouTube с советами по использованию quickFilters"
+    },
+    "quickfilters.FilterAssistant.start": {
+        "message": "Начать создание фильтров…"
+    },
+    "quickfilters.FilterAssistant.stop": {
+        "message": "Закончить создание фильтров"
+    },
+    "quickfilters.FromMessage.accesskey": {
+        "message": "з"
+    },
+    "quickfilters.FromMessage.label": {
+        "message": "QuickFilters: Создать фильтр по сообщению…"
+    },
+    "quickfilters.ListButton.label": {
+        "message": "Фильтры..."
+    },
+    "quickfilters.ListButton.tooltip": {
+        "message": "Показать список фильтров сообщений"
+    },
+    "quickfilters.RunButton.label": {
+        "message": "Фильтровать"
+    },
+    "quickfilters.RunButton.tooltip": {
+        "message": "Применить фильтры к текущей папке"
+    },
+    "quickfilters.RunButtonMsg.label": {
+        "message": "Фильтровать выбранные сообщения"
+    },
+    "quickfilters.RunButtonMsg.tooltip": {
+        "message": "Применить фильтры к текущему сообщению"
+    },
+    "quickfilters.Start.label": {
+        "message": "Начать создание фильтров…"
+    },
+    "quickfilters.addTag.label": {
+        "message": "Присвоить сообщению метку"
+    },
+    "quickfilters.backup.archivingFilters": {
+        "message": "Архивирую {1} фильтров"
+    },
+    "quickfilters.backup.customErrors": {
+        "message": "Следующие фильтры имеют пользовательские действия, которые не могут быть полностью сохранены - сторонннее дополнение возможно отсутствует:"
+    },
+    "quickfilters.backup.failedFilters": {
+        "message": "{1} фильтров не были закодированы. Детали в журнале ошибок."
+    },
+    "quickfilters.button.assistant": {
+        "message": "Включить ассистент..."
+    },
+    "quickfilters.button.assistant.tooltiptext": {
+        "message": "Включить ассистент по созданию фильтров путем перетаскивания сообщений."
+    },
+    "quickfilters.button.bug": {
+        "message": "Устранение неисправностей"
+    },
+    "quickfilters.button.bug.tooltiptext1": {
+        "message": "Устранение неисправностей: 1. Фильтры, которые не работают автоматически 2. Неверные целевые папки 3. Проверить пользовательские действия"
+    },
+    "quickfilters.button.bug.tooltiptext2": {
+        "message": "4. Смешанные «любые»/«все» условия. Щелкните правой кнопкой мыши, чтобы настроить шаги."
+    },
+    "quickfilters.button.cancelDuplicates.label": {
+        "message": "Закончить поиск"
+    },
+    "quickfilters.button.cancelDuplicates.tooltip": {
+        "message": "Закончить поиск повторений"
+    },
+    "quickfilters.button.cancelFindInFolder.label": {
+        "message": "Прервать поиск"
+    },
+    "quickfilters.button.cancelFindInFolder.tooltip": {
+        "message": "Прервать поиск по папке"
+    },
+    "quickfilters.button.clone": {
+        "message": "Клонировать"
+    },
+    "quickfilters.button.clone.accesskey": {
+        "message": "К"
+    },
+    "quickfilters.button.clone.tooltiptext": {
+        "message": "Клонировать фильтр"
+    },
+    "quickfilters.button.findDuplicates.label": {
+        "message": "Найти повторения"
+    },
+    "quickfilters.button.findDuplicates.tooltip": {
+        "message": "Найти повторяющиеся атрибуты"
+    },
+    "quickfilters.button.getOtherAddon": {
+        "message": "Скачать {1}"
+    },
+    "quickfilters.button.loadFilters.tooltip": {
+        "message": "Восстанавливаю фильтры…"
+    },
+    "quickfilters.button.merge": {
+        "message": "Объединить"
+    },
+    "quickfilters.button.merge.accesskey": {
+        "message": "О"
+    },
+    "quickfilters.button.merge.tooltiptext": {
+        "message": "Объединить несколько фильтров с одинаковым действием"
+    },
+    "quickfilters.button.saveFilters.tooltip": {
+        "message": "Архивирую фильтры…"
+    },
+    "quickfilters.button.searchProperties": {
+        "message": "Свойство для поиска фильтра…"
+    },
+    "quickfilters.button.settings": {
+        "message": "Настройки quickFilters..."
+    },
+    "quickfilters.button.sort": {
+        "message": "Сортировка"
+    },
+    "quickfilters.button.sort.tooltiptext": {
+        "message": "Сортировка по алфавиту"
+    },
+    "quickfilters.button.support": {
+        "message": "Страница поддержки quickFilters"
+    },
+    "quickfilters.clone.label": {
+        "message": "(копия)"
+    },
+    "quickfilters.clone.selectOne": {
+        "message": "Для клонирования выберите только один фильтр."
+    },
+    "quickfilters.clone.undetermined": {
+        "message": "Непонятно какой фильтр выбран"
+    },
+    "quickfilters.confirmVersionLink": {
+        "message": "Показать историю изменений quickFilters?"
+    },
+    "quickfilters.copy.warning.emptyClipboard": {
+        "message": "Нет фильтров в буфере обмена!"
+    },
+    "quickfilters.copy.warning.selectFilter": {
+        "message": "Выберите пожалуйста как минимум один фильтр!"
+    },
+    "quickfilters.copy.warning.selectOtherAccount": {
+        "message": "Для вставки выберите другую учетную запись!"
+    },
+    "quickfilters.copyMessage.label": {
+        "message": "Копировать сообщение в"
+    },
+    "quickfilters.createFilter.warning.canNotHaveFilters": {
+        "message": "Учётная запись ({1}) не может иметь фильтров."
+    },
+    "quickfilters.createFilter.warning.minimum2Mails": {
+        "message": "Для этого шаблона нужно выбрать минимум 2 сообщения."
+    },
+    "quickfilters.createFilter.warning.noFilterFallback": {
+        "message": "Учётная запись-источник [{1}] не может иметь фильтров!\\nВместо использую текущую папку «Входящие»."
+    },
+    "quickfilters.createFilter.warning.noHeaderParser": {
+        "message": "К сожалению, в этой версии {1}, невозможно создавать фильтры, так как она не поддерживает чтение адресов из заголовка сообщения."
+    },
+    "quickfilters.createFilter.warning.noMessageDb": {
+        "message": "Не могу прочесть сообщения папки {1}"
+    },
+    "quickfilters.createFilter.warning.noMessageId": {
+        "message": "Не могу создать фильтр - не могу прочесть идентификатор первого сообщения в их списке!\\nМожет быть нужно запустить команду"
+    },
+    "quickfilters.createFilter.warning.noServer": {
+        "message": "Папке ({1}) не назначен сервер."
+    },
+    "quickfilters.createFilter.warning.suggestUpdate": {
+        "message": "Обновитесь до более новой версии, чтобы это заработало."
+    },
+    "quickfilters.createFromMail.inboxWarning": {
+        "message": "Создать фильтр из сообщения гораздо полезнее, если вы уже переместили почту в другую папку или добавить тег к нему, так как QuickFilters затем выберет соответствующее действие для вас.\\nСоздать фильтр из этого сообщения?"
+    },
+    "quickfilters.createFromMail.selectWarning": {
+        "message": "Для создания фильтра выберите одно единственное сообщение!"
+    },
+    "quickfilters.customHeader.BlindCarbonCopy": {
+        "message": "Скрытая копия (BCC)"
+    },
+    "quickfilters.customHeader.CarbonCopy": {
+        "message": "Копия (CC)"
+    },
+    "quickfilters.customHeader.Domain": {
+        "message": "Домен адреса"
+    },
+    "quickfilters.customHeader.Email": {
+        "message": "Адрес"
+    },
+    "quickfilters.customHeader.FirstName": {
+        "message": "Имя"
+    },
+    "quickfilters.customHeader.From": {
+        "message": "От кого"
+    },
+    "quickfilters.customHeader.LastName": {
+        "message": "Фамилия"
+    },
+    "quickfilters.customHeader.ListId": {
+        "message": "Идентификатор списка"
+    },
+    "quickfilters.customHeader.ListPost": {
+        "message": "Сообщение списка"
+    },
+    "quickfilters.customHeader.NamePart": {
+        "message": "ФИО"
+    },
+    "quickfilters.customHeader.Newsgroups": {
+        "message": "Группа новостей"
+    },
+    "quickfilters.customHeader.ReplyTo": {
+        "message": "Обратный адрес"
+    },
+    "quickfilters.customHeader.Subject": {
+        "message": "Тема"
+    },
+    "quickfilters.customHeader.SubjectRegex": {
+        "message": "Регулярное выражение для темы"
+    },
+    "quickfilters.customHeader.To": {
+        "message": "Кому"
+    },
+    "quickfilters.customTemplate.name": {
+        "message": "Имя шаблона:"
+    },
+    "quickfilters.customTemplate.title": {
+        "message": "quickFilters настраиваемый шаблон"
+    },
+    "quickfilters.customVariable.label": {
+        "message": "Переменные"
+    },
+    "quickfilters.customVariable.tooltip": {
+        "message": "При создании фильтра эти переменные будут заменены на их значения из текущего сообщения."
+    },
+    "quickfilters.customfilter.replyto": {
+        "message": "Обратный адрес"
+    },
+    "quickfilters.debug.fixFilters": {
+        "message": "Найденный фильтры {0} не имеют установленного флага «Входящий». Возможно не будут работать во время получения почты. Исправить их?"
+    },
+    "quickfilters.debug.fixFilters.AnyAll": {
+        "message": "Нашли условия, смешивающие «любой»/«все» - возможна некорректная работа. Исправить?"
+    },
+    "quickfilters.debug.fixFilters.customActionErrors": {
+        "message": "Найдено фильтров {0} с нерешенными пользовательскими действиями. Возможно отсутствует дополнение или требуется настроить его для поддержки пользовательских действий?"
+    },
+    "quickfilters.debug.fixFilters.invalidUris": {
+        "message": "Найдено {0} фильтров с неверными целевыми папками. Возможно некорректный импорт из профиля? Или целевая папка перемещена либо больше не существует."
+    },
+    "quickfilters.debug.fixFilters.none": {
+        "message": "Нет неисправных фильтров."
+    },
+    "quickfilters.debug.fixFilters.result": {
+        "message": "{0} фильтров исправлено."
+    },
+    "quickfilters.deleteFromPOP.label": {
+        "message": "Удалить с сервера POP"
+    },
+    "quickfilters.deleteMessage.label": {
+        "message": "Удалить сообщение"
+    },
+    "quickfilters.fetchFromPOP.label": {
+        "message": "Загрузить с сервера POP"
+    },
+    "quickfilters.filters.toggleMessage.dontShow": {
+        "message": "Более не показывать."
+    },
+    "quickfilters.filters.toggleMessage.notificationText": {
+        "message": "Включен режим создания фильтров. Перенос сообщений в другую папку запускает ассистент для создания фильтров. #1 перемещает сообщения с помощью фильтров на основе критериев"
+    },
+    "quickfilters.filters.toggleMessage.title": {
+        "message": "Режим создания фильтров"
+    },
+    "quickfilters.findFiltersForFolder.menu": {
+        "message": "Найти фильтры…"
+    },
+    "quickfilters.forwardTo.label": {
+        "message": "Переслать сообщение на"
+    },
+    "quickfilters.fpJsonFile": {
+        "message": "JSON файл"
+    },
+    "quickfilters.ignoreSubthread.label": {
+        "message": "Пропустить ветку обсуждения"
+    },
+    "quickfilters.ignoreThread.label": {
+        "message": "Пропустить обсуждение"
+    },
+    "quickfilters.licenseValidation.guessAddon": {
+        "message": "(Введённый ключ может быть для {2})."
+    },
+    "quickfilters.markMessageRead.label": {
+        "message": "Отметить как прочитанное"
+    },
+    "quickfilters.markMessageStarred.label": {
+        "message": "Отметить звёздочкой"
+    },
+    "quickfilters.markMessageUnread.label": {
+        "message": "Отметить как непрочитанное"
+    },
+    "quickfilters.menu.copy": {
+        "message": "Копировать"
+    },
+    "quickfilters.menu.cut": {
+        "message": "Вырезать"
+    },
+    "quickfilters.menu.paste": {
+        "message": "Вставить"
+    },
+    "quickfilters.menu.removeDupeAction": {
+        "message": "Удалить повторяющееся действие"
+    },
+    "quickfilters.menu.removeDupeCondition": {
+        "message": "Удалить повторяющийся критерий"
+    },
+    "quickfilters.merge.addressesOmitted": {
+        "message": "Адреса сообщения были исключены из критериев - невозможны фильтры с собственным адресом:"
+    },
+    "quickfilters.merge.warning.missingAction": {
+        "message": "Не могу определить основное действие фильтра: {1}"
+    },
+    "quickfilters.merge.warning.selectMismatch": {
+        "message": "Не могу объединить все выбранные фильтры: действе не совпадает с фильтром {1}!"
+    },
+    "quickfilters.merge.warning.selectMismatchContinue": {
+        "message": "Снять выделение с несоответствующих фильтров и продолжить?"
+    },
+    "quickfilters.merge.warning.selectMultiple": {
+        "message": "Для объединения выберите как минимум 2 фильтра."
+    },
+    "quickfilters.merge.warning.selectMultiple2": {
+        "message": "Не могу определить первый выбранный фильтр - для объединения выберите как минимум 2 фильтра!"
+    },
+    "quickfilters.merge.warning.selectTarget": {
+        "message": "Выберите целевой фильтр для объединения!"
+    },
+    "quickfilters.move.selectOne": {
+        "message": "Выберите только один фильтр!"
+    },
+    "quickfilters.moveMessage.label": {
+        "message": "Переместить сообщение в"
+    },
+    "quickfilters.notification.donate": {
+        "message": "Пожертвовать"
+    },
+    "quickfilters.notification.dontShowAgain": {
+        "message": "Более не показывать."
+    },
+    "quickfilters.notification.premium.btn.extendLicense": {
+        "message": "Extend License"
+    },
+    "quickfilters.notification.premium.btn.extendLicense.tooltip": {
+        "message": "Это продлит текущую лицензию на 1 год. Обычно дешевле, чем новая лицензия."
+    },
+    "quickfilters.notification.premium.btn.getLicense": {
+        "message": "Купить лицензию!"
+    },
+    "quickfilters.notification.premium.btn.hotKey": {
+        "message": "л"
+    },
+    "quickfilters.notification.premium.btn.renewLicense": {
+        "message": "Обновить лицензию"
+    },
+    "quickfilters.notification.premium.text": {
+        "message": "Зарегистрируйте quickFilters для постоянного пользования премиум-функцией {1}."
+    },
+    "quickfilters.notification.premium.title": {
+        "message": "Премиум-функция"
+    },
+    "quickfilters.notification.proFeature.notificationText": {
+        "message": "Функция {1} - профессиональная, если Вы часто ей пользуетесь - подумайте о пожертвовании на разработку quickFilters в этом году."
+    },
+    "quickfilters.notification.proFeature.title": {
+        "message": "Профессиональная функция"
+    },
+    "quickfilters.notification.register": {
+        "message": "Зарегистрировать {1}"
+    },
+    "quickfilters.option.searchProperty.addTag": {
+        "message": "Добавить метку"
+    },
+    "quickfilters.option.searchProperty.name": {
+        "message": "Имя"
+    },
+    "quickfilters.option.searchProperty.replyWithTemplate": {
+        "message": "Ответить по шаблону"
+    },
+    "quickfilters.option.searchProperty.searchCondition": {
+        "message": "Условия поиска (текст)"
+    },
+    "quickfilters.option.searchProperty.setCustomStringAction": {
+        "message": "Actions that modify Strings"
+    },
+    "quickfilters.option.searchProperty.targetFolder": {
+        "message": "Папка для сохранения"
+    },
+    "quickfilters.premium.renewLicense.tooltip": {
+        "message": "Ваша лицензия истекла {1} дней назад"
+    },
+    "quickfilters.premium.title.customTemplate": {
+        "message": "Настраиваемые шаблоны"
+    },
+    "quickfilters.premium.title.duplicatesFinder": {
+        "message": "Поиск повторений"
+    },
+    "quickfilters.premium.title.searchFolder": {
+        "message": "Найти фильтры для папки"
+    },
+    "quickfilters.premium.title.sortFilters": {
+        "message": "Сортировка по алфавиту"
+    },
+    "quickfilters.prompt.contact.subject": {
+        "message": "Введите тему сообщения:"
+    },
+    "quickfilters.prompt.contact.title": {
+        "message": "Связаться с поддержкой quickFilters"
+    },
+    "quickfilters.prompt.copiedCustomVar": {
+        "message": "Переменная {1} скопирована в буфер обмена, можете вставить ее в поисковый запрос."
+    },
+    "quickfilters.prompt.createCustomHeader": {
+        "message": "Добавьте термин '{1}' дополнительным заголовком для использования этого фильтра."
+    },
+    "quickfilters.prompt.customTemplateName": {
+        "message": "Имя настраиваемого шаблона:"
+    },
+    "quickfilters.promptDontRepeat": {
+        "message": "Не показывать это предупреждение снова."
+    },
+    "quickfilters.register.licenseValid.expired": {
+        "message": "Ваша лицензия истекает:"
+    },
+    "quickfilters.replyWithTemplate.label": {
+        "message": "Ответить по шаблону"
+    },
+    "quickfilters.runFiltersOnMails.notify": {
+        "message": "Применить фильтры к выбранным сообщениям…"
+    },
+    "quickfilters.runMultiFilterInFolder.status": {
+        "message": "Запустить {0} фильтры в папке {1}."
+    },
+    "quickfilters.runSingleFilterInFolder.status": {
+        "message": "Запустить фильтр '{0}' в папке {1}."
+    },
+    "quickfilters.runningFiltersOnFolder.notify": {
+        "message": "Запустить фильтры в папке '{1}'…"
+    },
+    "quickfilters.search.warning.noresults": {
+        "message": "Не нашлось фильтров для этой папки."
+    },
+    "quickfilters.setJunkScore.label": {
+        "message": "Установить метку спама"
+    },
+    "quickfilters.setPriority.label": {
+        "message": "Изменить важность на"
+    },
+    "quickfilters.sort": {
+        "message": "Сортировать"
+    },
+    "quickfilters.sort.tooltip": {
+        "message": "Сортировать поисковые запросы"
+    },
+    "quickfilters.sort.warning.selectMultiple": {
+        "message": "Для сортировки по алфавиту выберите как минимум 2 фильтра"
+    },
+    "quickfilters.stopExecution.label": {
+        "message": "Остановить выполнение фильтра"
+    },
+    "quickfilters.warning.templateNameNotUnique": {
+        "message": "Шаблон с таким именем уже существует! Имя должно быть уникальным."
+    },
+    "quickfilters.watchThread.label": {
+        "message": "Отслеживать обсуждение"
+    },
+    "quickfiltersToolbarButton.label": {
+        "message": "ассистент quickFilters"
+    },
+    "quickfiltersToolbarButton.tooltip": {
+        "message": "Активировать создание фильтров"
+    },
+    "renew-your-license": {
+        "message": "Обновите лицензию."
+    },
+    "special-offer-content": {
+        "message": "Сейчас это лучшая возможность получить лицензию, поскольку существует {boldStart} 30% скидка {boldEnd} на цену лицензии quickFilters Pro в честь 9-летия quickFilters! Это специальное предложение будет доступно до {boldStart} 16 апреля {boldEnd}."
+    },
+    "special-offer-head": {
+        "message": "Пожалуйста, помогите quickFilters продолжить развитие!"
+    },
+    "special-offer-intro": {
+        "message": "{boldStart} Дорогой {name} {boldEnd}, теперь вы можете помочь адаптировать quickFilters к будущему. Грядут ещё большие изменения в Thunderbird, и мне нужна {boldStart} ваша помощь {boldEnd}, чтобы не отставать!"
+    },
+    "support-preference": {
+        "message": "Это предпочтительный способ поддержки $addonName$.",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "support-suggestion": {
+        "message": "Чтобы $addonName$ развивался и оставался работоспособным, вдохните в него жизнь:",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "testDrive": {
+        "message": "Можно попробовать премиум-функции и в бесплатной версии, но они могут быть немного ограничены."
+    },
+    "thanks-for-installing-intro": {
+        "message": "Спасибо за установку $addonName$.",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "thanks-for-updating-intro": {
+        "message": "Спасибо за обновление $addonName$.",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "time-and-effort": {
+        "message": "$addonName$ требует постоянных изменений, чтобы оставаться совместимым с платформой Mozilla. Я постоянно работаю над сохранением как можно большего количества функциональных возможностей для будущих версий Thunderbird.",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "translated-by-google": {
+        "description": "disclaimer.",
+        "message": "переводы предоставлены google"
+    },
+    "updates.title": {
+        "message": "Обновления"
+    },
+    "updatesExpiry": {
+        "message": "quickFilters Pro обновляется автоматически. Через год можно будет либо продлить лицензию, либо пользоваться премиум-возможностями в ограниченном режиме. 'Эксклюзивные' возможности требуют регистрационный ключ."
+    },
+    "version": {
+        "message": "Версия:"
+    },
+    "vouchers.title": {
+        "message": "Ваучеры"
+    },
+    "whats-new-btn": {
+        "message": "Какие новости?"
+    },
+    "whats-new-head": {
+        "message": "Функциональность"
+    },
+    "whats-new-intro": {
+        "message": "Прочтите подробный журнал изменений здесь (только на английском языке):"
+    },
+    "whats-new-list": {
+        "message": "{L1} Новая функция: Сортировка поисковых запросов в фильтре (функция Pro). {L2} {L1} Запомнить список скопированных фильтров для вставки в несколько учётных записей (функция Pro). {L2} {L1} Исправлена проблема с дублированием условий поиска при объединении фильтров. {L2} {L1} Различные исправления для совместимости с Thunderbird 88. {L2}{L1} 5.2.1 - удалена кнопка сортировки из пользовательских шаблонов фильтров {L2} {L1} 5.2.1 - Улучшены русские переводы Игоря Жигунова aka ashed {L2}"
+    },
+    "window-title": {
+        "description": "page title. first placeholder will be replaced with Add-on name",
+        "message": "Добро пожаловать в $addonName$",
+        "placeholders": {
+            "addonName": {
+                "content": "$1",
+                "example": "quickFilters"
+            }
+        }
+    },
+    "yearlyLicense.premiumFeatures": {
+        "message": "quickFilters Pro позволяет неограниченно пользоваться премиум-функциями."
+    },
+    "yearlyLicense.premiumFeatures.moreInfoLink": {
+        "message": "Ещё о премиум-функциях."
+    },
+    "yearlyLicense.title": {
+        "message": "Годовая лицензия"
+    },
+    "yearlyLicense.usageTerm": {
+        "message": "Лицензия предназначена для частного пользования и привязана к адресу электронной почты. Её можно использовать на нескольких клиентах, если они используют зарегистрированный адрес."
+    },
+    "yearlyLicense.usageTerm1": {
+        "message": "Любые дополнительные адреса электронной почты не проблема - они не требуют отдельной лицензии. В случае вопросов вы можете связаться со мной через вкладку поддержки."
     }
-  },
-
-  "heading-updated": {
-    "message": "$addonName$ успешно обновлен",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "heading-installed": {
-    "message": "Успешно установлено $addonName$",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  
-  "thanks-for-updating-intro": {
-    "message": "Спасибо за обновление $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "thanks-for-installing-intro": {
-    "message": "Спасибо за установку $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },  
-  
- "active-version-info" : {
-    "message": "Теперь вы используете {boldStart} версию $addonVer$ {boldEnd} на Thunderbird $appVer$.",
-    "description": "The boldStart and boldEnd parts will be replaced with html tags",
-    "placeholders": {
-      "addonVer" : {
-        "content" : "$1", 
-        "example" : "Version 1.1"
-      },
-      "appVer" : {
-        "content" : "$2",
-        "example" : "78.0b4"
-      }
-      
-    }
-  },  
-  
-  "license-is-extended" : {
-    "message": "Спасибо, что недавно продлили лицензию или сделали пожертвование. Поскольку вы помогли подготовить это дополнение к будущему, вы можете просто закрыть это окно.",
-    "description": "Shown if license expires more than a year from now"
-  },
-  
-  "special-offer-head" : {
-    "message": "Пожалуйста, помогите quickFilters продолжить развитие!"
-  } ,  
-
-  "special-offer-intro" : {
-    "message": "{boldStart} Дорогой {name} {boldEnd}, теперь вы можете помочь адаптировать quickFilters к будущему. Грядут ещё большие изменения в Thunderbird, и мне нужна {boldStart} ваша помощь {boldEnd}, чтобы не отставать!"
-  } ,
-  
-  "special-offer-content" : {
-    "message": "Сейчас это лучшая возможность получить лицензию, поскольку существует {boldStart} 30% скидка {boldEnd} на цену лицензии quickFilters Pro в честь 9-летия quickFilters! Это специальное предложение будет доступно до {boldStart} 16 апреля {boldEnd}."
-  },
-  
-  "whats-new-intro" : {
-    "message": "Прочтите подробный журнал изменений здесь (только на английском языке):" 
-  },
-  
-  "whats-new-btn" : {
-    "message": "Какие новости?"
-  }, 
-  
-  "whats-new-head" : {
-    "message": "Функциональность"
-  },
-  
-  "whats-new-list" : {
-    "message" : "{L1} Новая функция: Сортировка поисковых запросов в фильтре (функция Pro). {L2} {L1} Запомнить список скопированных фильтров для вставки в несколько учётных записей (функция Pro). {L2} {L1} Исправлена проблема с дублированием условий поиска при объединении фильтров. {L2} {L1} Различные исправления для совместимости с Thunderbird 88. {L2}{L1} 5.2.1 - удалена кнопка сортировки из пользовательских шаблонов фильтров {L2} {L1} 5.2.1 - Улучшены русские переводы Игоря Жигунова aka ashed {L2}"
-  },  
-  
-  "time-and-effort": { 
-    "message": "$addonName$ требует постоянных изменений, чтобы оставаться совместимым с платформой Mozilla. Я постоянно работаю над сохранением как можно большего количества функциональных возможностей для будущих версий Thunderbird.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "support-suggestion" : {
-    "message": "Чтобы $addonName$ развивался и оставался работоспособным, вдохните в него жизнь:",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "purchase-a-license" : {
-    "message" : "Купите лицензию."
-  }, 
-      
-  "renew-your-license" : {
-    "message" : "Обновите лицензию."
-  },  
-  
-  "extend-your-license" : {
-    "message" : "Продлите лицензию на год."
-  },  
-      
-  "donate" : {
-    "message" : "Помогите с разовым пожертвованием."
-  },   
-   
-  "purchase-heading" : {
-    "message" : "Купить лицензию!"
-  }, 
-  
-  "support-preference" : {
-    "message": "Это предпочтительный способ поддержки $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  }, 
-
-  "ongoing-work": {
-    "message": "Изменения для применения к $addonName$ новой модели программирования заняли много недель и были весьма дорогими. В следующей версии 2022 года запланирована масса изменений. С таким сложным дополнением  работа неизбежно становится дорогостоящей. Пожалуйста, помогите нам.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "btn-want-a-license": {
-    "message" : "Я хочу купить лицензию"
-  } ,
-
-  "btn-extend-license": {
-    "message" : "Я хочу продлить лицензию на один год"
-  } ,
-
-
-  "btn-renew-license": {
-    "message" : "Я хочу обновить лицензию"
-  } ,
-
-  "donate-heading" : {
-    "message" : "Помочь пожертвованием!"
-  } ,
-
-  "cost-of-independence" : {
-    "message" : "Разработка программного обеспечения требует времени и денег - в отличие от многих приложений на платформе, надстройки не разрабатываются крупными корпорациями и никоим образом не спонсируются Mozilla."
-  } ,
-  
-  "mozillas-basic-platform" : {
-    "message" : "Mozilla предоставляет только базовую платформу для доставки нашего программного обеспечения вам, конечным пользователям. Если нам нужно запросить у наших пользователей оплату или поддержку, мы не сможем сделать это через addons.thunderbird.net - это не «магазин приложений» со встроенными платными доступом или управлением лицензиями, такими как iTunes или Google Play."
-  } ,
-  
-  "addon-authors-struggle" : {
-    "message" : "Чтобы и дальше оставаться полезными, нам, разработчикам дополнений, теперь необходимо финансировать исправления, для того чтобы наши пользователи могли продолжать пользоваться предоставляемыми нами функциями."
-  } ,
-  
-  "btn-want-to-donate" : {
-    "message" : "Я хочу помочь разовым пожертвованием."
-  } ,
-  
-  "translated-by-google" : {
-    "message": "переводы предоставлены google",
-    "description": "disclaimer."
-  },
-  
-  "label-remind-me" : {
-    "message": "Напомнить мне снова через $countDays$ дн.",
-    "placeholders": {
-      "countDays" : {
-        "content" : "$1", 
-        "example" : "10"
-      }    
-    }    
-  }
 }
