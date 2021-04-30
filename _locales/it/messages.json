@@ -809,7 +809,7 @@
         "message": "Questo modello richiede almeno 2 messaggi di posta"
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "L'account [{1}] di posta sorgente non può avere filtri.\\nAl suo posto sto usando la cartella \"Posta in arrivo\" corrente."
+        "message": "L'account [{1}] di posta sorgente non può avere filtri.\nAl suo posto sto usando la cartella \"Posta in arrivo\" corrente."
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "Spiacente, ma in questa versione di {1}, non è possibile creare filtri poiché non è supportata l'estrazione degli indirizzi dall'intestazione dei messaggi"
@@ -818,7 +818,7 @@
         "message": "Non posso accedere al database dei messaggi della cartella {1}"
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "Creazione del filtro non riuscita - è impossibile recuperare l'identificativo del messaggio dal primo elemento dell'elenco dei messaggi.\\nÈ opportuno eseguire il comando 'Riparazione della cartella'."
+        "message": "Creazione del filtro non riuscita - è impossibile recuperare l'identificativo del messaggio dal primo elemento dell'elenco dei messaggi.\nÈ opportuno eseguire il comando 'Riparazione della cartella'."
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "La cartella ({1}) non ha un server"
@@ -827,7 +827,7 @@
         "message": "Per disporre di questa caratteristica è necessario aggiornare a una versione più recente"
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "L'opzione 'Crea filtro da un messaggio' è tanto più utile se si è già spostata della posta in un'altra cartella o se vi si è aggiunta un'etichetta poiché quickFilters selezionerà per voi l'azione appropriata.\\nSi vuol ancora creare un filtro a partire da questo messaggio?"
+        "message": "L'opzione 'Crea filtro da un messaggio' è tanto più utile se si è già spostata della posta in un'altra cartella o se vi si è aggiunta un'etichetta poiché quickFilters selezionerà per voi l'azione appropriata.\nSi vuol ancora creare un filtro a partire da questo messaggio?"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "Per creare un filtro, selezionare un messaggio"

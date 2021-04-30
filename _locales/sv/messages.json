@@ -809,7 +809,7 @@
         "message": "Denna mall kräver åtminstone två (2) e-brev."
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "Kontot [{1}], som baseras på ett e-postkonto, kan inte ha filter!\\nAnvänd aktuell inkorg istället."
+        "message": "Kontot [{1}], som baseras på ett e-postkonto, kan inte ha filter!\nAnvänd aktuell inkorg istället."
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "Ledsen, men i denna version av {1} kan vi inte skapa filter, eftersom programmet saknar stöd för extraktion av adresser ur meddelandehuvudet."
@@ -818,7 +818,7 @@
         "message": "Det gick inte att få åtkomst till meddelandedatabasen för mappen {1}"
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "Det gick inte att skapa filtret: meddelande-ID:t för det första elementet i meddelandet kunde inte hämtas!\\nÖverväg att att köra kommandot"
+        "message": "Det gick inte att skapa filtret: meddelande-ID:t för det första elementet i meddelandet kunde inte hämtas!\nÖverväg att att köra kommandot"
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "Mappen {{1}} har ingen server."
@@ -827,7 +827,7 @@
         "message": "Överväg att uppdatera till en senare version för att få tillgång till denna funktion."
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "\"Skapa filter från meddelande\" är mycket mer användbart om du redan har flyttat e-postmeddelandet till en annan mapp eller lade till en tagg på den, då quickFilters kommer välja lämplig åtgärd åt dig.\\nVill du fortfarnade skapa ett filter från detta meddelande?"
+        "message": "\"Skapa filter från meddelande\" är mycket mer användbart om du redan har flyttat e-postmeddelandet till en annan mapp eller lade till en tagg på den, då quickFilters kommer välja lämplig åtgärd åt dig.\nVill du fortfarnade skapa ett filter från detta meddelande?"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "Vill du skapa ett filter måste du markera exakt ett e-brev!"

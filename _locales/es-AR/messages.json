@@ -648,7 +648,7 @@
         "message": "This template requires at least 2 mails."
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "Account [{1}] of mail origin cannot have filters!\\nUsing current Inbox instead."
+        "message": "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header."
@@ -657,7 +657,7 @@
         "message": "Cannot access message database for folder {1}"
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\\nConsider running the Repair Folder command."
+        "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\nConsider running the Repair Folder command."
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "Folder ({1}) does not have a server."
@@ -666,7 +666,7 @@
         "message": "Consider updating to a newer version to get this feature."
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\\nStill create a filter from this message?"
+        "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "To create a filter, please select exactly one email!"

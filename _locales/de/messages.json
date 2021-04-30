@@ -809,7 +809,7 @@
         "message": "Dieses Template benötigt mindestens 2 Emails."
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "Das Quellkonto der Nachricht [{1}] unterstützt keine Filter!\\nStattdessen wird Posteingang des Zielkontos verwendet."
+        "message": "Das Quellkonto der Nachricht [{1}] unterstützt keine Filter!\nStattdessen wird Posteingang des Zielkontos verwendet."
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "Leider können wir in dieser Version von {1} keine Filter erzeugen, da sie extrahieren der Adresse aus dem Message Header nicht unterstützt."
@@ -818,7 +818,7 @@
         "message": "Die Message Datenbank für Verzeichnis {1} kann nicht abgerufen werden."
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "Filter konnte nicht erstellt werden - die message id der ersten Nachricht konnte nicht ermittelt werden!\\nVielleicht Verzeichnis Reparieren versuchen."
+        "message": "Filter konnte nicht erstellt werden - die message id der ersten Nachricht konnte nicht ermittelt werden!\nVielleicht Verzeichnis Reparieren versuchen."
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "Das Verzeichnis ({1}) hat keinen Server."
@@ -827,7 +827,7 @@
         "message": "Erwägen Sie einen Update für diese Funktion."
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "'Filter aus Nachricht Erstellen' iost sinvoller wenn die Nachricht schon in aus der Inbox in einen anderen Ordner verschobem oder mit einem Schlagwort versehen wurde, da quickFilters dann die entsprechende Aktion einfügt.\\nTrotzdem Filter aus dieser Nachricht erzeugen?"
+        "message": "'Filter aus Nachricht Erstellen' iost sinvoller wenn die Nachricht schon in aus der Inbox in einen anderen Ordner verschobem oder mit einem Schlagwort versehen wurde, da quickFilters dann die entsprechende Aktion einfügt.\nTrotzdem Filter aus dieser Nachricht erzeugen?"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "Um einen neuen Filter zu erzeugen, bitte genau eine Nachricht selektieren!"

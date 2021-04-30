@@ -809,7 +809,7 @@
         "message": "Esta plantilla requiere al menos 2 correos."
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "¡La cuenta [{1}] de origen del correo no puede tener filtros!\\nSe usará la actual bandeja de entrada en su lugar."
+        "message": "¡La cuenta [{1}] de origen del correo no puede tener filtros!\nSe usará la actual bandeja de entrada en su lugar."
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "Lo sentimos, pero en esta versión de {1} no podemos crear filtros ya que no soporta la extracción de direcciones de la cabecera del mensaje."
@@ -818,7 +818,7 @@
         "message": "No se puede acceder a la base de datos de mensajes para la carpeta {1}"
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "No se pudo crear el filtro - ¡No se pudo obtener el identificador del mensaje para el primer elemento de la lista de mensajes!\\nConsidere ejecutar el comando Reparar Carpeta."
+        "message": "No se pudo crear el filtro - ¡No se pudo obtener el identificador del mensaje para el primer elemento de la lista de mensajes!\nConsidere ejecutar el comando Reparar Carpeta."
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "La carpeta ({1}) no tiene un servidor."
@@ -827,7 +827,7 @@
         "message": "Considere actualizar a una versión más reciente para obtener esta característica."
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "'Crear filtro a partir de mensaje' es mucho más útil si ya movió el correo a una carpeta diferente o le agregó una etiqueta, ya que quickFilters seleccionará la Acción adecuada para usted.\\n¿Todavía creará un filtro a partir de este mensaje?"
+        "message": "'Crear filtro a partir de mensaje' es mucho más útil si ya movió el correo a una carpeta diferente o le agregó una etiqueta, ya que quickFilters seleccionará la Acción adecuada para usted.\n¿Todavía creará un filtro a partir de este mensaje?"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "Para crear un filtro, por favor, ¡seleccione un solo correo!"

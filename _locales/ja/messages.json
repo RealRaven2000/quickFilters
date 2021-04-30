@@ -809,7 +809,7 @@
         "message": "このテンプレートは少なくとも 2 通のメールが必要です。"
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "アカウント [{1}] のメールフォルダにフィルタを設定できません！\\n代わりに現在の受信トレイを使用してください。"
+        "message": "アカウント [{1}] のメールフォルダにフィルタを設定できません！\n代わりに現在の受信トレイを使用してください。"
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "申し訳ありませんが、{1} のこのバージョンでは、メッセージヘッダからアドレスを抽出できないため、フィルタを作成できません。"
@@ -818,7 +818,7 @@
         "message": "フォルダ {1} のメッセージデータベースにアクセスできません"
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "フィルタ作成に失敗しました - メッセージリストの最初の要素のメッセージ ID を取得できません！\\nフォルダの修復を行ってください。"
+        "message": "フィルタ作成に失敗しました - メッセージリストの最初の要素のメッセージ ID を取得できません！\nフォルダの修復を行ってください。"
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "{{1}} フォルダはサーバが指定されていません。"
@@ -827,7 +827,7 @@
         "message": "この機能を利用するには、新しいバージョンに更新してください。"
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "メールを別のフォルダへ移動したりタグを付けたりしている場合、'メッセージからフィルタを作成' が役立ちます。quickFilters が適切な操作を選択します。\\nこのメッセージからフィルタを作成しますか？"
+        "message": "メールを別のフォルダへ移動したりタグを付けたりしている場合、'メッセージからフィルタを作成' が役立ちます。quickFilters が適切な操作を選択します。\nこのメッセージからフィルタを作成しますか？"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "フィルタを作成するときはメールを 1 通だけ選択してください！"

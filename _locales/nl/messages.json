@@ -809,7 +809,7 @@
         "message": "Dit sjabloon vereist ten minste 2 e-mailberichten."
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "Account [{1}] met e-mailoorsprong kan geen filters hebben!\\nPostvak IN wordt gebruikt."
+        "message": "Account [{1}] met e-mailoorsprong kan geen filters hebben!\nPostvak IN wordt gebruikt."
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "Sorry, maar in deze versie van {1} kunnen we geen filters maken, aangezien het programma het uit de berichtkoptekst halen van adressen niet ondersteunt."
@@ -818,7 +818,7 @@
         "message": "Kan berichtendatabase voor map {1} niet benaderen"
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "Kan filter niet aanmaken - kan geen berichtkenmerk voor het eerste element van de berichtenlijst ophalen!\\nOverweeg de opdracht Map repareren uit te voeren."
+        "message": "Kan filter niet aanmaken - kan geen berichtkenmerk voor het eerste element van de berichtenlijst ophalen!\nOverweeg de opdracht Map repareren uit te voeren."
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "Map ({1}) heeft geen server."
@@ -827,7 +827,7 @@
         "message": "Overweeg bij te werken naar een nieuwere versie om van deze functie gebruik te maken."
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "‘Filter van bericht maken’ is veel nuttiger als u het e-mailbericht al naar een andere map hebt verplaatst of er een label aan hebt gekoppeld, omdat quickFilters dan de passende actie voor u selecteert.\\nToch een filter van dit bericht maken?"
+        "message": "‘Filter van bericht maken’ is veel nuttiger als u het e-mailbericht al naar een andere map hebt verplaatst of er een label aan hebt gekoppeld, omdat quickFilters dan de passende actie voor u selecteert.\nToch een filter van dit bericht maken?"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "Selecteer precies één e-mailbericht om een filter te maken!"

@@ -809,7 +809,7 @@
         "message": "此模板需要至少2封邮件."
     },
     "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "邮件来源的账户 [{1}] 无法创建过滤器!\\n用当前收件箱替代."
+        "message": "邮件来源的账户 [{1}] 无法创建过滤器!\n用当前收件箱替代."
     },
     "quickfilters.createFilter.warning.noHeaderParser": {
         "message": "抱歉, 此版本的 {1} 不支持从消息头部提取地址，因此无法创建过滤器."
@@ -818,7 +818,7 @@
         "message": "无法连接目录{1}的消息数据库"
     },
     "quickfilters.createFilter.warning.noMessageId": {
-        "message": "创建过滤器失败 - 无法为获取消息列表内第一个元素的消息ID!\\n考虑运行 Repair Folder 命令."
+        "message": "创建过滤器失败 - 无法为获取消息列表内第一个元素的消息ID!\n考虑运行 Repair Folder 命令."
     },
     "quickfilters.createFilter.warning.noServer": {
         "message": "目录 ({1}) 尚未设置服务器."
@@ -827,7 +827,7 @@
         "message": "请考虑升级到新版以获取此功能."
     },
     "quickfilters.createFromMail.inboxWarning": {
-        "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\\nStill create a filter from this message?"
+        "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
     },
     "quickfilters.createFromMail.selectWarning": {
         "message": "创建过滤器前请选择并且只选择一封邮件!"
