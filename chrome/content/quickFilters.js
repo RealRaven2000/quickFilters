@@ -437,7 +437,8 @@ END LICENSE BLOCK
       - search terms now in a different type of collection can lead to failures when defining new filters.
       
   5.3 - WIP
-    # ...
+    # Using notifyTools for updating UI via background page (mail extension conversion)
+    # [mx l10n] Use new localization method (json files, more robust and compatible with mx)
    
   ============================================================================================================
   FUTURE WORK:

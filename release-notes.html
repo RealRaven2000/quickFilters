@@ -1,33 +1,4 @@
-quickFilters Change Log - Version 5.2.1
-
+quickFilters Change Log - Version 5.3
 <ul>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/14">[issue 14]</a> quickFilters  was migrated to Thunderbird 78, and is now finally available after a lengthy beta phase on addons.thunderbird.net. Last year's conversion work was expensive and deep - I hired external developer Klaus Buecher for the main conversion phase and also got some lovely new icons contributed by @Panglab who did a lot of design work for Thunderbird Core.
-
-I had a lot of extra days of work and around 3,500$ of expenses for this years Add-on conversions and releases -  also the web site had to be migrated from the now decommissioned free hosting on mozdev.org to github pages. To help fund quickFilters for the next year and the unavoidable changes necessary to switch over to an API  based approach, you should <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=atn-version-page">buy a quickFilters Pro license</a>.
-</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/55">[issue 55]</a> 5.2.1 - Russian translation fixed by: Igor Zhigunov aka ashed</li>
-<li> 5.2.1 - removed sort button from custom filter templates</li>
-
-
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/11">[issue 11]</a> New function: Sort Search Terms in a filter. To make it easy to view the list 
-correctly, the new search terms are sorted by search attribute, operator and value.</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/20">[issue 20]</a> New function: Remember Copied filters List to insert to other Accounts multiple times. You can now copy a selection of filters to different accounts without having to re-select the filters every time. To enable this feature, open quickFilters settings, advanced, and select the box "Enable pasting filters to multiple accounts".</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/51">[issue 51]</a> Fixed: Merging new filter conditions may lead to duplicate search terms.</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/52">[issue 52]</a> Own Emails are not automatically suggested for merging when using context menu</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/23">[issue 23]</a> Avoid Empty Conditions list due to removed recipients - filter cannot be edited. In this case, (when removing invalid emails would lead to a filter without any search conditions) an error message is displayed instead of displaying a filter dialog that cannot be edited.</li>
-<li>Added a step to the troubleshooter that finds filters without search terms.</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/47">[issue 47]</a> Fixed: Using the %subject% placeholder in custom templates doesn't work in Assistant. </li>
-<li>quickFilters settings can now be opened from the Add-ons Manager (via the ... menu). You can also still use the shortcut of right-clicking the filter assistant button on the main toolbar.</li>
-
-</ul>    
-<b> Thunderbird 87 Regressions Fixed </b>
-<ul>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/48">[issue 48]</a> Make quickFilters compatible with Thunderbird 87 beta (ongoing): 
-  <ul>
-  <li>Removed strict maximum version - you can now run quickFilters in Thunderbird 88 beta versions. Please do not expect higher versions to work, my goal for the moment is strictly supporting next years ESR version in time.</li>
-  <li>open sites in tab was broken because of modified openTab parameters</li>
-  <li>search terms now in a different type of collection can lead to failures when defining new filters.</li>
-  </ul>
-</li>
-
+<li>Using notifyTools for updating UI via background page (mail extension conversion)</li>
 </ul>

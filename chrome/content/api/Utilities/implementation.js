@@ -21,49 +21,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         logDebug (text) {
           win.quickFilters.Util.logDebug(text);
         },
-
-        // returns true if a valid license is there, but also when the license is expired.
-        // this gives us an option to check whether to show extension links instead after 
-        // we check for the license
-        isLicensed(forceValidation) {
-          let hasLicense =  // (win.quickFilters.Licenser).isValidated;
-            win.quickFilters.Util.hasPremiumLicense(forceValidation);
-          if (!hasLicense)
-            return win.quickFilters.Licenser.isExpired; // if it is expired, we say it is still "licensed" for the purposes of this api!
-          return hasLicense;
-        },
         
-        LicenseIsExpired() {
-          return  win.quickFilters.Licenser.isExpired;
-        },
-
-        LicenseIsProUser() {
-          return  win.quickFilters.Util.hasPremiumLicense(false);
-        },
-
-        LicensedDaysLeft() {
-          let today = new Date(),
-              licensedDate = new Date(win.quickFilters.Licenser.DecryptedDate),
-              daysLeft = parseInt((licensedDate - today) / (1000 * 60 * 60 * 24)); 
-          return daysLeft;
-        },
-
-        getAddonVersion() {
-          const util = win.quickFilters.Util;
-          return util.Version;
-        },
-
-        getTBVersion() { //somehow(??), we can also get this in MX
-          return Services.appinfo.version;//win.quickFilters.Util.VersionSanitized;
-        },
-
-
-        getAddonName() {
-          const util = win.quickFilters.Util;
-          return 'quickFilters';
-        },
-
-
         getUserName : function () {
           const util = win.quickFilters.Util;
           let Accounts = util.Accounts; 

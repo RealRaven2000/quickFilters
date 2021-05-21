@@ -29,7 +29,6 @@ addEventListener("click", async (event) => {
           addonVer = manifest.version,
           appVer = browserInfo.version,
           hoursWorked = 290;
-    const mxUtilties = messenger.Utilities;
 
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
@@ -48,7 +47,6 @@ addEventListener("click", async (event) => {
     
     let verInfo = document.getElementById('active-version-info');
     if (verInfo) {
-      
       // use the i18n API      
       // You are now running <b class="versionnumber">version {version}</b> on Thunderbird {appver}.
       // for multiple replacements, pass an array

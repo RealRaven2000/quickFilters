@@ -14,15 +14,14 @@
 
 <dialog id="quickfilters-preferences"
 				buttons="extra2,accept"
-				buttonlabelextra2="&donate.label;"
+				buttonlabelextra2="__MSG_donate.label__"
 				xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 				xmlns:html="http://www.w3.org/1999/xhtml"
-				title="&prefwindow.title;"
-				onload="quickFilters.Options.load();"
+				title="__MSG_prefwindow.title__"
 				autostretch="always"
 				minHeight="400"
 				ondialogextra2="setTimeout(function() {quickFilters.Licenser.showDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });"
-				tooltiptextextra2="&qf.label.supportWithLicense;"
+				tooltiptextextra2="__MSG_qf.label.supportWithLicense__"
 				>
 
 	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js" />
@@ -33,7 +32,7 @@
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-register.js" />
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
 
-  <prefpane id="mainOptions" label="&pane1.title;" flex="2" selected="true" orient="vertical">
+  <prefpane id="mainOptions" label="__MSG_pane1.title__" flex="2" selected="true" orient="vertical">
 
     <preferences>
 <!--Actions -->
@@ -232,7 +231,7 @@
 		<toolbarbutton id="quickFiltersBtnHelp"
 		  class = "toolbarbutton-1 chromeclass-toolbar-additional"
 		  label = ""
-		  tooltiptext = "&quickfilters.button.support;"
+		  tooltiptext = "__MSG_quickfilters.button.support__"
 		  oncommand = "quickFilters.Util.showHomePage('index.html#options');"
 		  />
 	</box>
@@ -245,14 +244,14 @@
 	  <image id="qf-title" src="chrome://quickfilters/content/skin/QuickFilters-title.png" flex="0"/>
 		<label id="qf-options-version"
 		       oncontextmenu="quickFilters.Util.showVersionHistory(true);setTimeout(function() {window.close();});return false;"
-		       tooltiptext="&qf.options.versionnumber.tooltip;"
+		       tooltiptext="__MSG_qf.options.versionnumber.tooltip__"
 		       value="0.1"/>
 	</hbox>
     <vbox>
     <box id="qf-youtubeBox">
 			<image id="qf-youtube"
 			       src="chrome://quickfilters/content/skin/youtube.png"
-			       tooltiptext="&qf.youtube.tbdaily;"
+			       tooltiptext="__MSG_qf.youtube.tbdaily__"
 			       onclick="quickFilters.Util.showYouTube();" />
     </box>
     </vbox>
@@ -260,64 +259,64 @@
 
 	<tabbox orient="vertical" flex="6" id="quickFilters-Options-Tabbox">
 		<tabs>
-			<tab label="&qf.tab.actions;" id="quickFilters-Actions" />
-			<tab label="&qf.tab.newFilterProps;" id="quickFilters-FilterProperties" />
-			<tab label="&qf.tab.advanced;" id="quickFilters-Advanced" />
-			<tab label="&qf.tab.support;" id="quickFilters-Support" />
-			<tab label="&qf.tab.gopro;"  id="quickFilters-Pro" class="free" />
+			<tab label="__MSG_qf.tab.actions__" id="quickFilters-Actions" />
+			<tab label="__MSG_qf.tab.newFilterProps__" id="quickFilters-FilterProperties" />
+			<tab label="__MSG_qf.tab.advanced__" id="quickFilters-Advanced" />
+			<tab label="__MSG_qf.tab.support__" id="quickFilters-Support" />
+			<tab label="__MSG_qf.tab.gopro__"  id="quickFilters-Pro" class="free" />
 		</tabs>
 
 		<tabpanels id="quickFilters-Panels">
 
 			<tabpanel id="quickFilters-Options-actions"
 			          orient="vertical"
-			          label="&qf.tab.options;"
+			          label="__MSG_qf.tab.options__"
 			          style="position:relative;">
 			<hbox>
 				<vbox>
 					<checkbox id="chkAutoClose"
 								preference="abort"
-								label="&chkAutoClose.label;"
-								accesskey="&chkAutoClose.accesskey;"
+								label="__MSG_chkAutoClose.label__"
+								accesskey="__MSG_chkAutoClose.accesskey__"
 								/>
 					<checkbox id="chkAutoStart"
 								preference="autoStart"
-								label="&chkAutoStart.label;"
-								accesskey="&chkAutoStart.accesskey;"
+								label="__MSG_chkAutoStart.label__"
+								accesskey="__MSG_chkAutoStart.accesskey__"
 								/>
 					<checkbox id="chkToolbar"
 								preference="toolbar"
-								label="&chkToolbar.label;"
-								accesskey="&chkToolbar.accesskey;"
+								label="__MSG_chkToolbar.label__"
+								accesskey="__MSG_chkToolbar.accesskey__"
 								/>
 					<checkbox id="chkShowList"
 								preference="showListAfterCreateFilter"
-								label="&chkShowList.label;"
-								tooltiptext="&chkShowList.tooltip;"
+								label="__MSG_chkShowList.label__"
+								tooltiptext="__MSG_chkShowList.tooltip__"
 								/>
 					<checkbox id="chkShowEditor"
 								preference="showEditorAfterCreateFilter"
-								label="&chkShowEditor.label;"
+								label="__MSG_chkShowEditor.label__"
 								/>
 					<checkbox
 								preference="runImapOnRead"
-								label="&chkImapOnRead.label;"
+								label="__MSG_chkImapOnRead.label__"
 								/>
 
 				</vbox>
 				<vbox>
 					<checkbox id="chkListTags"
 								preference="listen.tags"
-								label="&qf.listener.tags;"
-								tooltiptext="&qf.listener.tags.tooltip;"
+								label="__MSG_qf.listener.tags__"
+								tooltiptext="__MSG_qf.listener.tags.tooltip__"
 								/>
 					<checkbox id="chkListTags"
 								preference="listen.tags.autofilter"
-								label="&qf.listener.tags.autofilter;"
+								label="__MSG_qf.listener.tags.autofilter__"
 								/>
 					<checkbox preference="onewayaddresses"
-								label="&qf.onewayaddress.label;"
-								tooltiptext="&qf.onewayaddress.tooltip;"
+								label="__MSG_qf.onewayaddress.label__"
+								tooltiptext="__MSG_qf.onewayaddress.tooltip__"
 								/>
 
 					<label id="getCopySentToCurrent"
@@ -329,23 +328,23 @@
 			<separator class="groove-thin" />
 			<hbox>
 				<html:fieldset orient="vertical">
-					<html:legend>&grpMerge.label;</html:legend>
+					<html:legend>__MSG_grpMerge.label__</html:legend>
 					<vbox>
 						<checkbox id="chkMergeAuto"
 								preference="merge.autoSelect"
-								label="&chkMergeAuto.label;"
-								tooltiptext="&chkMergeAuto.tooltip;"
+								label="__MSG_chkMergeAuto.label__"
+								tooltiptext="__MSG_chkMergeAuto.tooltip__"
 								oncommand="quickFilters.Assistant.selectMergeAuto(this);"
 								/>
 						<checkbox id="chkMergeSkip"
 								preference="merge.silent"
-								label="&chkMergeSkip.label;"
-								tooltiptext="&chkMergeSkip.tooltip;"
+								label="__MSG_chkMergeSkip.label__"
+								tooltiptext="__MSG_chkMergeSkip.tooltip__"
 								oncommand="quickFilters.Assistant.selectMergeSkip(this);"
 								/>
 						<checkbox id="chkInsertRulesAtTop"
 								preference="insertNewTermTop"
-								label="&chkInsertRulesAtTop.label;"
+								label="__MSG_chkInsertRulesAtTop.label__"
 								/>
 					</vbox>
 
@@ -357,73 +356,73 @@
 
 	  <tabpanel id="quickFilters-Options-newFilterProps"
 			  orient="horizontal"
-			  label="&qf.tab.newFilterProps;"
+			  label="__MSG_qf.tab.newFilterProps__"
 			  style="position:relative;">
 			<vbox>
 				<html:fieldset orient="vertical">
-					<html:legend>&qf.grp.whenToRun;</html:legend>
+					<html:legend>__MSG_qf.grp.whenToRun__</html:legend>
 					<vbox>
 						<checkbox id="chkAutoRun"
 								preference="newfilter.autorun"
-								label="&chkAutoRun.label;"
+								label="__MSG_chkAutoRun.label__"
 								/>
 						<checkbox id="chkRunManual"
 								preference="newfilter.manual"
-								label="&chkRunManual.label;"
+								label="__MSG_chkRunManual.label__"
 								/>
 						<checkbox id="chkAfterJunk"
 								preference="newfilter.runAfterPlugins"
-								label="&chkAfterJunk.label;"
+								label="__MSG_chkAfterJunk.label__"
 								/>
 						<checkbox id="chkWhenArchiving"
 								preference="newfilter.runArchiving"
-								label="&chkWhenArchiving.label;"
+								label="__MSG_chkWhenArchiving.label__"
 								/>
 						<checkbox id="chkAfterSending"
 								preference="newfilter.runPostOutgoing"
-								label="&chkAfterSending.label;"
+								label="__MSG_chkAfterSending.label__"
 								/>
 						<checkbox id="chkPeriodically"
 								preference="newfilter.runPeriodically"
-								label="&chkPeriodically.label;"
-								tooltiptext="&chkPeriodically.tooltip;"
+								label="__MSG_chkPeriodically.label__"
+								tooltiptext="__MSG_chkPeriodically.tooltip__"
 								/>
 					</vbox>
 				</html:fieldset>
 				<checkbox id="chkAlphabetic"
 				preference="newfilter.insertAlphabetical"
-				label="&chkAlphabetic.label;"
-				tooltiptext="&chkAlphabetic.tooltip;"
+				label="__MSG_chkAlphabetic.label__"
+				tooltiptext="__MSG_chkAlphabetic.tooltip__"
 				/>
 			</vbox>
 
 			<vbox>
 				<html:fieldset orient="vertical" flex="0">
-					<html:legend>&qf.label.naming;</html:legend>
+					<html:legend>__MSG_qf.label.naming__</html:legend>
 					<vbox>
 						<hbox>
 							<checkbox id="chkNamingParentFolder"
 									preference="naming.parentFolder"
-									label="&qf.label.naming.parentFolder;"
-									accesskey="&qf.label.naming.parentFolder.accesskey;"
+									label="__MSG_qf.label.naming.parentFolder__"
+									accesskey="__MSG_qf.label.naming.parentFolder.accesskey__"
 									/>
 							<spacer flex="1" />
 							<label class = "textBoxLabel"
-									value="&qf.label.naming.folderDelimiter;" />
+									value="__MSG_qf.label.naming.folderDelimiter__" />
 							<html:input
 									style = "width: 3em;"
 									preference = "naming.folderDelimiter"
-									tooltiptext = "&qf.tooltip.naming.folderDelimiter;"
+									tooltiptext = "__MSG_qf.tooltip.naming.folderDelimiter__"
 									/>
 						</hbox>
 						<checkbox id="chkNamingKeyWord"
 								preference="naming.keyWord"
-								label="&qf.label.naming.keyWord;"
-								accesskey="&qf.label.naming.keyWord.accesskey;"
+								label="__MSG_qf.label.naming.keyWord__"
+								accesskey="__MSG_qf.label.naming.keyWord.accesskey__"
 								/>
 						<hbox>
 							<label class = "textBoxLabel"
-									 value="&qf.cloned.label;" />
+									 value="__MSG_qf.cloned.label__" />
 							<html:input id = "txtClonedName"
 									 preference = "cloned.append"
 									 />
@@ -435,16 +434,16 @@
 
 	  <tabpanel id="quickFilters-Options-Advanced"
 				  orient="vertical"
-				  label="&qf.tab.advanced;"
+				  label="__MSG_qf.tab.advanced__"
 				  style="position:relative;">
 
 			<html:fieldset orient="vertical" >
-				<html:legend>&qf.templates.advanced;</html:legend>
+				<html:legend>__MSG_qf.templates.advanced__</html:legend>
 				<vbox>
 					<hbox>
 						<checkbox preference="templates.replyTo"
-											label="&qf.templates.replyTo.label;"
-											tooltiptext="&qf.templates.replyTo.tooltip;"/>
+											label="__MSG_qf.templates.replyTo.label__"
+											tooltiptext="__MSG_qf.templates.replyTo.tooltip__"/>
 						<label class="plain-link"
 									 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25863"
 									 onclick="quickFilters.Util.showBug(25863);">[Bug 25863]</label>
@@ -452,13 +451,13 @@
 					<hbox>
 						<hbox>
 							<checkbox preference="templates.custom"
-												label="&qf.templates.customTemplate.label;"
-												tooltiptext="&qf.templates.customTemplate.tooltip;"/>
+												label="__MSG_qf.templates.customTemplate.label__"
+												tooltiptext="__MSG_qf.templates.customTemplate.tooltip__"/>
 							<button id="editCustomFilters"
-											label="&qf.templates.customTemplate.edit;"
+											label="__MSG_qf.templates.customTemplate.edit__"
 											oncommand="quickFilters.Util.editCustomTemplates(); window.close();" />
 							<button id="newCustomFilter"
-											label="&qf.templates.customTemplate.new;"
+											label="__MSG_qf.templates.customTemplate.new__"
 											oncommand="if (quickFilters.Util.createCustomTemplate()) {window.close();}" />
 						</hbox>
 						<vbox>
@@ -473,41 +472,41 @@
 
 			</html:fieldset>
 			<html:fieldset orient="vertical" id="currentFolderGroup">
-				<html:legend>&qf.label.currentFolderButtons;</html:legend>
+				<html:legend>__MSG_qf.label.currentFolderButtons__</html:legend>
 				<vbox>
-					<description id="currentFolderDescription">&qf.description.currentFolderButtons;</description>
+					<description id="currentFolderDescription">__MSG_qf.description.currentFolderButtons__</description>
           <hbox>
             <vbox flex="1">
               <checkbox id="chkCurrentToolbarFiltersButton"
                 preference="curFolderbar.listbutton"
-                label="&chkCurrentToolbar.btn.FilterList.label;"
+                label="__MSG_chkCurrentToolbar.btn.FilterList.label__"
                 oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
               <checkbox id="chkCurrentToolbarFolderButton"
                 preference="curFolderbar.folderbutton"
-                label="&chkCurrentToolbar.btn.RunOnFolder.label;"
+                label="__MSG_chkCurrentToolbar.btn.RunOnFolder.label__"
                 oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
             </vbox>
             <vbox flex="1">
               <checkbox id="chkCurrentToolbarMessagesButton"
                 preference="curFolderbar.messagesbutton"
-                label="&chkCurrentToolbar.btn.RunOnMessages.label;"
+                label="__MSG_chkCurrentToolbar.btn.RunOnMessages.label__"
                 oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
               <checkbox id="chkCurrentFindFilterButton"
                 preference="curFolderbar.findfilterbutton"
-                label="&chkCurrentToolbar.btn.FindFilter.label;"
-                tooltiptext="&chkCurrentToolbar.btn.FindFilter.tooltip;"
+                label="__MSG_chkCurrentToolbar.btn.FindFilter.label__"
+                tooltiptext="__MSG_chkCurrentToolbar.btn.FindFilter.tooltip__"
                 oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
             </vbox>
           </hbox>
 				</vbox>
 			</html:fieldset>
 			<html:fieldset orient="vertical" id="filterListGroup">
-				<html:legend>&qf.filterlist.group;</html:legend>
+				<html:legend>__MSG_qf.filterlist.group__</html:legend>
         <vbox>
 					<hbox>
             <checkbox id="chkMultiPaste"
               preference="filters.multipaste"
-              label="&qf.filterlist.multipaste;"/>   
+              label="__MSG_qf.filterlist.multipaste__"/>   
 						<label class="plain-link"
 									 tooltiptext="https://github.com/RealRaven2000/quickFilters/issues/20"
 									 onclick="quickFilters.Util.showIssue(20);">[Issue 20]</label>
@@ -524,8 +523,8 @@
 				<spacer flex="1" />
 				<checkbox id="chkDebug"
 									preference="debug"
-									label="&chkDebug.label;"
-									accesskey="&chkDebug.accesskey;"
+									label="__MSG_chkDebug.label__"
+									accesskey="__MSG_chkDebug.accesskey__"
 									oncontextmenu="quickFilters.Options.toggleBoolPreference(this,true);quickFilters.Util.showAboutConfig(this, 'quickfilters.debug', true);return false;"/>
 			</hbox>
 			<separator />
@@ -533,31 +532,31 @@
 
 	  <tabpanel id="quickFilters-Options-support"
 			          orient="vertical"
-			          label="&qf.tab.options;"
+			          label="__MSG_qf.tab.options__"
 			          style="position:relative;">
 
-        <description class="quickhelp-desc">&qf.description.about;</description>
+        <description class="quickhelp-desc">__MSG_qf.description.about__</description>
         <label id="L1"
                class="text-link"
                tooltiptext="https://quickfilters.quickfolders.org/"
-               onclick="quickFilters.Util.showHomePage();">&qf.label.aboutLink;</label>
+               onclick="quickFilters.Util.showHomePage();">__MSG_qf.label.aboutLink__</label>
         <separator />
 
-        <description class="quickhelp-desc">&qf.youtube.description;</description>
+        <description class="quickhelp-desc">__MSG_qf.youtube.description__</description>
         <label id="L2"
                class="text-link"
                tooltiptext="https://www.youtube.com/c/thunderbirddaily"
-               onclick="quickFilters.Util.showYouTubePage();">&qf.youtube.link;</label>
+               onclick="quickFilters.Util.showYouTubePage();">__MSG_qf.youtube.link__</label>
         <separator />
-        <description class="quickhelp-desc">&qf.description.contactMe;</description>
+        <description id="contactLabel" class="quickhelp-desc">__MSG_qf.description.contactMe__</description>
         <label id="L3"
                class="text-link"
-               onclick="quickFilters.Options.sendMail('axel.grude@gmail.com');" >&qf.label.contactLink;</label>
+               onclick="quickFilters.Options.sendMail();" >__MSG_qf.label.contactLink__</label>
 	  </tabpanel>
 
 		<!-- Licensing tab -->
 		<tabpanel id="quickFilters-Options-goPro" orient="vertical">
-			<description>&qf.label.insertLicense;</description>
+			<description>__MSG_qf.label.insertLicense__</description>
 			<vbox id="licenseContainer">
 				<html:textarea id="txtLicenseKey"
 							 class="licenseKey"
@@ -565,48 +564,48 @@
 							 multiline="true"
 							 rows="4"
 							 style="min-height: 4.5em;"
-							 tooltiptext="&qf.label.insertLicense.tooltip;"></html:textarea>
+							 tooltiptext="__MSG_qf.label.insertLicense.tooltip__"></html:textarea>
 				<hbox>
 					<spacer flex="1" />
 					<button id="btnPasteLicense"
-									label="&qf.button.pasteLicense;"
+									label="__MSG_qf.button.pasteLicense__"
 									oncommand="quickFilters.Options.pasteLicense();" />
 					<button id="btnValidateLicense"
-									label="&qf.button.validateLicense;"
+									label="__MSG_qf.button.validateLicense__"
 									oncommand="quickFilters.Options.validateLicenseInOptions(false);" />
 				</hbox>
 			</vbox>
 			<separator class = "licenseSeparator" />
 			<hbox id="validationResults">
 				<vbox>
-					<description id="validationPassed" class="niceFont" collapsed="true">&qf.licenseValidation.passed;</description>
-					<description id="validationFailed" class="niceFont licenseError" collapsed="true">&qf.licenseValidation.failed;</description>
-					<description id="validationExpired" class="niceFont licenseWarning" collapsed="true">&qf.licenseValidation.expired;</description>
-					<description id="validationInvalidEmail" class="niceFont licenseWarning" collapsed="true">&qf.licenseValidation.invalidMail;</description>
-					<description id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed="true">&qf.licenseValidation.notMatchedMail;</description>
-					<description id="validationInvalidAddon" class="niceFont licenseError" collapsed="true">&qf.licenseValidation.invalidAddon;</description>
+					<description id="validationPassed" class="niceFont" collapsed="true">__MSG_qf.licenseValidation.passed__</description>
+					<description id="validationFailed" class="niceFont licenseError" collapsed="true">__MSG_qf.licenseValidation.failed__</description>
+					<description id="validationExpired" class="niceFont licenseWarning" collapsed="true">__MSG_qf.licenseValidation.expired__</description>
+					<description id="validationInvalidEmail" class="niceFont licenseWarning" collapsed="true">__MSG_qf.licenseValidation.invalidMail__</description>
+					<description id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed="true">__MSG_qf.licenseValidation.notMatchedMail__</description>
+					<description id="validationInvalidAddon" class="niceFont licenseError" collapsed="true">__MSG_qf.licenseValidation.invalidAddon__</description>
 				</vbox>
 				<spacer flex="1"/>
 			</hbox>
 			<separator class="licenseSeparator" />
 			<hbox id="validationDate" align="center">
-				<label>&qf.label.licenseValid;</label>
+				<label>__MSG_qf.label.licenseValid__</label>
 				<label id="licenseDate" value="-" />
 			</hbox>
 			<separator  style="height:1em;" />
 			<hbox>
 				<html:fieldset id="premiumConfig" >
-					<html:legend>&qf.premiumConfig;</html:legend>
+					<html:legend>__MSG_qf.premiumConfig__</html:legend>
 					<vbox>
 						<hbox>
 							<label class="plain-link"
 									 tooltiptext="https://quickfilters.quickfolders.org/"
-									 onclick="quickFilters.Util.showPremiumFeatures();">&qf.label.premiumFeaturesSite;</label>
+									 onclick="quickFilters.Util.showPremiumFeatures();">__MSG_qf.label.premiumFeaturesSite__</label>
 						</hbox>
 						<hbox>
               <checkbox id="chkFoldersShortcut"
                   preference="ShortcutFolders"
-                  label="&qf.label.shortcut.runFolder;"
+                  label="__MSG_qf.label.shortcut.runFolder__"
                   />
 							<html:input
 									style = "width: 3em;"
@@ -616,7 +615,7 @@
 						<hbox>
               <checkbox id="chkMailsShortcut"
                   preference="ShortcutSelectedMails"
-                  label="&qf.label.shortcut.runMails;"
+                  label="__MSG_qf.label.shortcut.runMails__"
                   />
 							<html:input
 									style = "width: 3em;"
@@ -625,7 +624,7 @@
 						</hbox>
 						<checkbox id="chkLocalFoldersAutorun"
 								preference="localFoldersRun"
-								label="&chkLocalFoldersAutorun.label;"
+								label="__MSG_chkLocalFoldersAutorun.label__"
 								/>
 					</vbox>
 				</html:fieldset>

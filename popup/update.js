@@ -25,7 +25,6 @@ END LICENSE BLOCK */
   });  
 
 
-
   addEventListener("load", async (event) => {
     const manifest = await messenger.runtime.getManifest(),
           browserInfo = await messenger.runtime.getBrowserInfo(),

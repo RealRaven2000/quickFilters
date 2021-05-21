@@ -31,9 +31,10 @@ var QuickFilters_TabURIregexp = {
 
 
 quickFilters.Util = {
-  HARDCODED_CURRENTVERSION : "5.2.1",
+  HARDCODED_CURRENTVERSION : "5.3",
   HARDCODED_EXTENSION_TOKEN : ".hc",
   ADDON_ID: "quickFilters@axelg.com",
+  ADDON_SUPPORT_MAIL: "axel.grude@gmail.com",
   VersionProxyRunning: false,
   mAppver: null,
   mAppName: null,
@@ -54,6 +55,39 @@ quickFilters.Util = {
 		}
 		return quickFilters.Licenser;
 	} ,
+  
+  async init() {
+
+    const onBackgroundUpdates = (data) => {
+      if (data.licenseInfo) {
+        quickFilters.Util.licenseInfo = data.licenseInfo;
+        quickFilters.Util.logDebugOptional("notifications", "onBackgroundUpdates - dispatching licenseInfo ");
+        const event = new CustomEvent("quickFilters.BackgroundUpdate");
+        window.dispatchEvent(event); 
+      }
+      // Event forwarder - take event from background script and forward to windows with appropriate listeners
+      if (data.event) {
+        if (!data.hasOwnProperty("window") || data.window.includes(window.document.location.href.toString())) {
+          quickFilters.Util.logDebugOptional("notifications", 
+            `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
+            `into ${window.document.location.href.toString()}`);
+          const event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`);
+          window.dispatchEvent(event); 
+        }       
+      }      
+    }   
+    quickFilters.Util.notifyTools.registerListener(onBackgroundUpdates);
+    quickFilters.Util.licenseInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getLicenseInfo" });
+    quickFilters.Util.platformInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getPlatformInfo" });
+    quickFilters.Util.browserInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getBrowserInfo" });
+    quickFilters.Util.addonInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getAddonInfo" });
+    quickFilters.Util.logDebugOptional("notifications",
+    {
+      platformInfo: quickFilters.Util.platformInfo,
+      browserInfo: quickFilters.Util.browserInfo,
+      addonInfo: quickFilters.Util.addonInfo,
+    });
+  },  
 
   // return main quickFilters instance (if we are in a child window / dialog or come from an event)
   get mainInstance() {
@@ -99,18 +133,37 @@ quickFilters.Util = {
     return msgfolder;
   } ,
 
-  // gets string from overlay.properties
-  getBundleString: function getBundleString(id, defaultText) {
-    let s;
-    try {
-      s= quickFilters.Properties.getLocalized(id); 
+  getBundleString: function getBundleString(id, defaultText, substitions = []) { // moved from local copies in various modules.
+    // [mx-l10n]
+    var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+    let extension = ExtensionParent.GlobalManager.getExtension('quickFilters@axelg.com');
+    let localized = extension.localeData.localizeMessage(id, substitions);
+  
+    let s = "";
+    if (localized) {
+      s = localized;
     }
-    catch(e) {
+    else {
       s = defaultText;
-      this.logException ("Could not retrieve bundle string: " + id, e);
+      this.logToConsole ("Could not retrieve bundle string: " + id + "");
     }
     return s;
   } ,
+  
+  localize: function(window, buttons = null) {
+    Services.scriptloader.loadSubScript(
+      quickFilters.Util.extension.rootURI.resolve("chrome/content/i18n.js"),
+      window,
+      "UTF-8"
+    );
+    window.i18n.updateDocument({extension: quickFilters.Util.extension});
+    if (buttons) {
+      for (let [name, label] of Object.entries(buttons)) {
+        window.document.documentElement.getButton(name).label =  quickFilters.Util.extension.localeData.localizeMessage(label); // apply
+      }
+    }
+  } ,
+  
 
   getMail3PaneWindow: function getMail3PaneWindow() {
     let windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
@@ -2761,3 +2814,14 @@ if (!quickFilters.Shim) {
 };
 /*** <<<===== END Code moved from chimEcma/qFilters-shim-ecma.js  **/
 
+
+// the following adds the notifyTools API as a util method to communicate with the background page
+// this mechanism will be used to replace legacy code with API calls.
+var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+quickFilters.Util.extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+Services.scriptloader.loadSubScript(
+  quickFilters.Util.extension.rootURI.resolve("chrome/content/scripts/notifyTools.js"),
+  quickFilters.Util,
+  "UTF-8"
+);

@@ -3,33 +3,27 @@
 <?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
 <?xml-stylesheet href="chrome://quickfilters/content/skin/quickfilters-register.css" title="QuickFolderRegStyles" type="text/css"?>
 
-<!DOCTYPE dialog SYSTEM "chrome://quickfilters/locale/register.dtd" >
-
 <dialog 
-  title="&licenseWindow.title;"
+  title="__MSG_licenseWindow.title__"
 	id="qf-register"
 	buttons="none"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
   xmlns:html="http://www.w3.org/1999/xhtml"
-	ondialogcancel="var cancel=quickFilters.Licenser.cancel.bind(quickFilters.Licenser); cancel();"
-	onload="var load=quickFilters.Licenser.load.bind(quickFilters.Licenser); load();"
 >
 
-	<script type="application/x-javascript" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-rsa.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-register.js" />
-	<script type="application/x-javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
-
+	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-register-dlg.js" />
 	
 	<vbox id="thePage">
-		<hbox>
-			<div class="product">&getquickFilters;</div>
+		<hbox  style="vertical-align:middle;">
+			<div class="product">__MSG_getquickFilters__</div>
 			<spacer flex="1" />
 			<vbox align="center">
 				<spacer flex="1" />
 				<hbox id="qfLicenseTerm" class="para">
-					<label id="licenseDateLabel">&qf.label.licenseValid;</label>
+					<label id="licenseDateLabel">__MSG_qf.label.licenseValid__</label>
 					<label id="licenseDate" value="-" />
 				</hbox>
 				<spacer flex="1" />
@@ -38,50 +32,50 @@
 			<vbox>
 				<spacer flex="1"/>
 				<!-- align buttons bottom right -->
-				<label id="haveLicense">&qf.label.haveLicense;</label>
+				<label id="haveLicense">__MSG_qf.label.haveLicense__</label>
 				<hbox>
 					<button id="btnEnterCode"
-									label="&enterLicenseKey.button;"
-									tooltiptext="&enterLicenseKey.tooltip;"
+									label="__MSG_enterLicenseKey.button__"
+									tooltiptext="__MSG_enterLicenseKey.tooltip__"
 									oncommand="quickFilters.Util.viewLicense();window.close();" />
 				</hbox>
 			</vbox>
 			
 		</hbox>
 		
-		<description class="para">&intro;</description>
+		<description class="para">__MSG_intro__</description>
 
-		<description class="para">&testDrive;</description>
+		<description class="para">__MSG_testDrive__</description>
 			
 		<table>
 			<tr>
 			  <td>
-					<div class="heading">&yearlyLicense.title;</div>
+					<div class="heading">__MSG_yearlyLicense.title__</div>
 					<spacer flex="1" />
 				</td>
 			  <td>
-					<description class="para">&yearlyLicense.premiumFeatures;</description>
+					<description class="para">__MSG_yearlyLicense.premiumFeatures__</description>
 					<label class="para link" 
-					onclick="quickFilters.Licenser.premiumInfo(event);">&yearlyLicense.premiumFeatures.moreInfoLink;</label>
-					<description class="para">&yearlyLicense.usageTerm; &yearlyLicense.usageTerm1;</description>
+					onclick="Register.premiumInfo(event);">__MSG_yearlyLicense.premiumFeatures.moreInfoLink__</label>
+					<description class="para">__MSG_yearlyLicense.usageTerm__ __MSG_yearlyLicense.usageTerm1__</description>
 				</td>
 			</tr>	
 			<tr>	
 				<td>
-					<div class="heading">&updates.title;</div>
+					<div class="heading">__MSG_updates.title__</div>
 					<spacer flex="1" />
 				</td>
 			  <td>
-					<description class="para">&updatesExpiry;</description>
+					<description class="para">__MSG_updatesExpiry__</description>
 				</td>
 			</tr>	
 			<tr>	
 				<td>
-					<div class="heading">&vouchers.title;</div>
+					<div class="heading">__MSG_vouchers.title__</div>
 					<spacer flex="1" />
 				</td>
 				<td>
-					<description class="para">&freeLicense;</description>
+					<description class="para">__MSG_freeLicense__</description>
 				</td>
 			</tr>	
 		</table>
@@ -90,10 +84,10 @@
 	<hbox class="form">
 	  <vbox>
 			<hbox>
-				<label class="ref">&account.label;</label>
+				<label class="ref">__MSG_account.label__</label>
 				<menulist id="mailIdentity"
 					sizetopopup="none"
-					oncommand="quickFilters.Licenser.selectIdentity(this);"
+					oncommand="Register.selectIdentity(this);"
 					>
 					<menupopup>
 					</menupopup>
@@ -102,9 +96,9 @@
 			<hbox>
 				<label control="email"
 							 class="ref"
-							 value="&email.label;" 
+							 value="__MSG_email.label__" 
 							 />
-				<html:input id="email" />
+				<html:input type="text" id="email" />
 			</hbox>
 		</vbox>
 	  <spacer flex="1"/>
@@ -112,16 +106,16 @@
 			<hbox>
 				<label control="firstName"
 							 class="ref"
-							 value="&firstName.label;" 
+							 value="__MSG_firstName.label__" 
 							 />
-				<html:input id="firstName" />
+				<html:input type="text" id="firstName" />
 			</hbox>
 			<hbox>
 				<label control="lastName"
 				       class="ref"
-							 value="&lastName.label;" 
+							 value="__MSG_lastName.label__" 
 							 />
-				<html:input id="lastName" />
+				<html:input type="text" id="lastName" />
 			</hbox>
 		</vbox>
 		<spacer flex="3" />
@@ -133,13 +127,13 @@
 					<spacer flex="1" />
 				</td>
 				<td>
-					<label class="shilling">&buyLicense.instruct;</label>
+					<label class="shilling">__MSG_buyLicense.instruct__</label>
 				</td>
 				<td class="btnLicenseContainer">
 					<button id="btnLicense"
 					  class="register"
-						label="&buyPersonalLicense.button;"
-						oncommand="quickFilters.Licenser.goPro(0);" />
+						label="__MSG_buyPersonalLicense.button__"
+						oncommand="Register.goPro(0);" />
 				</td>
 			</tr>
 			<!-- hide these when releasing first version !!-->
@@ -148,15 +142,15 @@
 					<spacer flex="1" />
 				</td>
 				<td>
-					<label class="shilling">&buyDomainLicense.instruct;</label>
+					<label class="shilling">__MSG_buyDomainLicense.instruct__</label>
 				</td>
 				<td>
 					<button id="btnDomainLicense"
-						label="&buyDomainLicense.button;"
-						oncommand="quickFilters.Licenser.goPro(1);" />
+						label="__MSG_buyDomainLicense.button__"
+						oncommand="Register.goPro(1);" />
 				</td>
 			</tr>
 		</table>
 	</vbox>
-	<html:input id="referrer" collapsed="true"/>
+	<html:input type="text" id="referrer" collapsed="true"/>
 </dialog>

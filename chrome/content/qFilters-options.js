@@ -95,6 +95,18 @@ quickFilters.Options = {
 		
   } ,
   
+  l10n: function l10n() {
+    // [mx-l10n]
+    quickFilters.Util.localize(window, {extra2: "donate.label"}); // tooltip:  qf.label.supportWithLicense
+    
+    let supportLabel = document.getElementById('contactLabel'),
+        supportString = quickFilters.Util.getBundleString(
+          "qf.description.contactMe",
+          "You can also contact me directly via email.", 
+          [quickFilters.Util.ADDON_SUPPORT_MAIL]); // support email
+    supportLabel.textContent = supportString;
+  },
+
 //from QF, modified
 	loadPreferences: function qi_loadPreferences() {
 		const util = quickFilters.Util;
@@ -159,9 +171,10 @@ quickFilters.Options = {
     }
   },
   
-  sendMail: function(mailto)  {
+  sendMail: function()  {
     const Ci = Components.interfaces, 
-          Cc = Components.classes;
+          Cc = Components.classes,
+          mailto = quickFilters.Util.ADDON_SUPPORT_MAIL;
     let optionsWin = window,
         prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService),
         title = quickFilters.Util.getBundleString('quickfilters.prompt.contact.title', "Contact quickFilters Support"),
@@ -518,7 +531,18 @@ quickFilters.Options = {
     setTimeout( function() { win.quickFilters.addKeyListener(); }, 1000); // will enable key listener if previously disabled.
   }
 
+} // Options
 
-	
 
-}
+window.document.addEventListener('DOMContentLoaded', 
+  quickFilters.Options.l10n.bind(quickFilters.Options) , 
+  { once: true });
+  
+window.addEventListener('load', 
+  quickFilters.Options.load.bind(quickFilters.Options) , 
+  { once: true });
+  
+
+
+
+
