@@ -10,17 +10,6 @@ END LICENSE BLOCK
 */
 
 // moved import code to bottom for app version detection...
-quickFilters.Properties = {
-  bundle: Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties"),
-
-  getLocalized: function QFProps_getLocalized(msg) {
-    let b = this.bundle;
-    if (!b)
-      b = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService).createBundle("chrome://quickfilters/locale/overlay.properties");
-    return b.GetStringFromName(msg);
-    //return quickFilters.Properties.bundle.GetStringFromName(msg);
-  }
-};
 
 var QuickFilters_TabURIregexp = {
   get _thunderbirdRegExp() {
@@ -1746,6 +1735,7 @@ quickFilters.Util = {
   } ,
   
   extractEmail: function extractEmail(address, domainSwitch) {
+    if (!address) return "";
     // filter out only mail portion
     let adp = address.match(/[^@<\s]+@[^@\s>]+/g)[0];
     if (!adp) adp = address

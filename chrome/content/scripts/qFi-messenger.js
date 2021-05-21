@@ -11,63 +11,56 @@ function onLoad(activatedWhileWindowOpen) {
     console.log (Services.appinfo.version);
     let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
     
-    // from quickfilters-overlay.xul
-    WL.injectElements(`
-  <stringbundleset id="stringbundleset">
-    <stringbundle id="quickFilters-strings" src="chrome://quickfilters/locale/overlay.properties"/>
-  </stringbundleset>
-`);
-  
-    WL.injectElements(`  
+  WL.injectElements(`  
   <popup id="folderPaneContext">
     <menuitem id="quickfilters-menu-runMenu" 
-	          label="&quickfilters.RunButton.label;" 
+	          label="__MSG_quickfilters.RunButton.label__" 
 						class="menuitem-iconic"
             oncommand="quickFilters.onApplyFilters(event);"
 			  />
     <menuitem id="quickfilters-menu-findFilter" 
-				label="&quickfilters.findFiltersForFolder.menu;" 
+				label="__MSG_quickfilters.findFiltersForFolder.menu__" 
 			  class="menuitem-iconic"
 				oncommand="quickFilters.searchFiltersFromFolder(event);"
 			  />
   </popup>
-`, ["chrome://quickfilters/locale/overlay.dtd"]);
+`); 
   
-    WL.injectElements(`
+  WL.injectElements(`
 
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="quickfilters-toolbar-button"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="&quickfiltersToolbarButton.label;"
-                   tooltiptext="&quickfiltersToolbarButton.tooltip;"
+                   label="__MSG_quickfiltersToolbarButton.label__"
+                   tooltiptext="__MSG_quickfiltersToolbarButton.tooltip__"
                    oncommand="quickFilters.onToolbarButtonCommand();"
 				   context="dummy"
 				   oncontextmenu="quickFilters.showOptions();"
 				   />
     <toolbarbutton id="quickfilters-toolbar-listbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="&quickfilters.ListButton.label;"
-                   tooltiptext="&quickfilters.ListButton.tooltip;"
+                   label="__MSG_quickfilters.ListButton.label__"
+                   tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
                    oncommand="quickFilters.onToolbarListCommand();"/>
     <toolbarbutton id="quickfilters-toolbar-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="&quickfilters.RunButton.label;"
-                   tooltiptext="&quickfilters.RunButton.tooltip;"
+                   label="__MSG_quickfilters.RunButton.label__"
+                   tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
                    oncommand="quickFilters.onApplyFilters();"/>
     <toolbarbutton id="quickfilters-toolbar-msg-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="&quickfilters.RunButton.label;"
-                   tooltiptext="&quickfilters.RunButtonMsg.tooltip;"
+                   label="__MSG_quickfilters.RunButton.label__"
+                   tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
                    oncommand="quickFilters.onApplyFiltersToSelection();"/>
   </toolbarpalette>
-`, ["chrome://quickfilters/locale/overlay.dtd"]);
+`); 
   
-    WL.injectElements(`
+  WL.injectElements(`
   <menupopup id="taskPopup">
     <menuitem id="quickFilters-wizard"
               class="menuitem-iconic"
               insertBefore="applyFilters"
-              label="&quickfilters.Start.label;"
+              label="__MSG_quickfilters.Start.label__"
               oncommand="quickFilters.onMenuItemCommand(event, 'toggle_Filters');"
 			  />
   </menupopup>
@@ -76,8 +69,8 @@ function onLoad(activatedWhileWindowOpen) {
     <menuitem id="quickFilters-fromMessageInMenu"
               class="menuitem-iconic"
               insertBefore="createFilter"
-              label="&quickfilters.FromMessage.label;"
-			        accesskey="&quickfilters.FromMessage.accesskey;"
+              label="__MSG_quickfilters.FromMessage.label__"
+			        accesskey="__MSG_quickfilters.FromMessage.accesskey__"
               oncommand="quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');"
 			  />
   </menupopup>
@@ -86,50 +79,47 @@ function onLoad(activatedWhileWindowOpen) {
   <popup id="mailContext">
     <menuitem id="quickFilters-fromMessage"
               class="menuitem-iconic"
-              label="&quickfilters.FromMessage.label;"
-              accesskey="&quickfilters.FromMessage.accesskey;"
+              label="__MSG_quickfilters.FromMessage.label__"
+              accesskey="__MSG_quickfilters.FromMessage.accesskey__"
               insertbefore="mailContext-saveAs"
               oncommand="quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');"
 			  />
   </popup>
-`, ["chrome://quickfilters/locale/overlay.dtd"]);
+`);
 
-//from qFilters-QF-tb68.xul
+  // from qFilters-QF-tb68.xul
+  WL.injectElements(`
+  <toolbar id="mail-bar3">
+  <hbox id="quickFilters-injected" collapsed="true">
+    <toolbarbutton id="quickfilters-current-listbutton"
+             class="icon"
+             insertafter="QuickFolders-currentFolderFilterActive"
+             label=""
+             tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
+             oncommand="quickFilters.onToolbarListCommand();"/>
+    <toolbarbutton id="quickfilters-current-searchfilterbutton"
+             class="icon"
+             insertafter="quickfilters-current-listbutton"
+             label=""
+             tooltiptext="__MSG_quickfilters.findFiltersForFolder.menu__"
+             oncommand="quickFilters.searchFiltersFromFolder();"/>
+    <toolbarbutton id="quickfilters-current-runbutton"
+             class="icon"
+             insertafter="quickfilters-current-listbutton"
+             label=""
+             tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
+             oncommand="quickFilters.onApplyFilters();"/>
+    <toolbarbutton id="quickfilters-current-msg-runbutton"
+             class="icon"
+             insertafter="quickfilters-current-runbutton"
+             label=""
+             tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
+             oncommand="quickFilters.onApplyFiltersToSelection();"/>
+  </hbox>
+  </toolbar>
+`); 
 
-WL.injectElements(`
-<toolbar id="mail-bar3">
-<hbox id="quickFilters-injected" collapsed="true">
-  <toolbarbutton id="quickfilters-current-listbutton"
-           class="icon"
-           insertafter="QuickFolders-currentFolderFilterActive"
-           label=""
-           tooltiptext="&quickfilters.ListButton.tooltip;"
-           oncommand="quickFilters.onToolbarListCommand();"/>
-  <toolbarbutton id="quickfilters-current-searchfilterbutton"
-           class="icon"
-           insertafter="quickfilters-current-listbutton"
-           label=""
-           tooltiptext="&quickfilters.findFiltersForFolder.menu;"
-           oncommand="quickFilters.searchFiltersFromFolder();"/>
-  <toolbarbutton id="quickfilters-current-runbutton"
-           class="icon"
-           insertafter="quickfilters-current-listbutton"
-           label=""
-           tooltiptext="&quickfilters.RunButton.tooltip;"
-           oncommand="quickFilters.onApplyFilters();"/>
-  <toolbarbutton id="quickfilters-current-msg-runbutton"
-           class="icon"
-           insertafter="quickfilters-current-runbutton"
-           label=""
-           tooltiptext="&quickfilters.RunButtonMsg.tooltip;"
-           oncommand="quickFilters.onApplyFiltersToSelection();"/>
-</hbox>
-</toolbar>
-`, ["chrome://quickfilters/locale/overlay.dtd"]);
-
-
-    window.quickFilters.onLoad();
-
+  window.quickFilters.onLoad();
     
  }
 

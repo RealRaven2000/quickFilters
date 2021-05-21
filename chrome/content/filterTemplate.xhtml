@@ -7,33 +7,24 @@
 <?xml-stylesheet href="chrome://quickfilters/content/filterTemplate.css" type="text/css"?>
 <?xml-stylesheet href="chrome://quickfilters/content/filterWidgets.css" type="text/css"?>
 
-<!-- multiple language resources -->
-<!DOCTYPE dialog [
-  <!ENTITY % templateDTD SYSTEM "chrome://quickfilters/locale/filters.dtd">
-  %templateDTD;
-  <!ENTITY % commonDTD SYSTEM "chrome://quickfilters/locale/filterList.dtd">
-  %commonDTD;
-]>
 
-<dialog title="&qf.filters.title;"
+<dialog title="__MSG_qf.filters.title__"
 	id="qf-template"
 	buttons="cancel,extra1,extra2"
 	defaultButton="extra1"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml"
-	buttonlabelcancel="&qf.label.cancel;"
-	buttonlabelextra1="&qf.continueFilter.label;"
-	buttonlabelextra2="&qf.label.donate;"
 	ondialogextra2="quickFilters.Util.showLicensePage();"
 	ondialogcancel="return quickFilters.Assistant.cancelTemplate();"
 	ondialogextra1="event.preventDefault(); return quickFilters.Assistant.next();"
-	onload="quickFilters.Assistant.loadAssistant();"
+
 >
 
 	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js" />
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-assistant-dlg.js" />
 	
 	
   <stringbundleset id="stringbundleset">
@@ -96,7 +87,7 @@
 				<toolbarbutton id="quickFiltersBtnHelp"
 					class = "toolbarbutton-1 chromeclass-toolbar-additional" 
 					label = ""
-					tooltiptext = "&quickfilters.button.support;"
+					tooltiptext = "__MSG_quickfilters.button.support__"
 					oncommand = "quickFilters.Assistant.help();"
 					/>
 			</toolbar>
@@ -113,7 +104,7 @@
 					You can either extend one of these or create a completely new filter.
 				</description>
 				<checkbox id="chkMerge" 
-							label="&qf.check.mergeWithExisting;" 
+							label="__MSG_qf.check.mergeWithExisting__" 
 							checked="false"
 							oncommand="quickFilters.Assistant.selectMerge(this);"
 							/>
@@ -127,7 +118,7 @@
 					</description>
 				</hbox>
 				<checkbox id="chkCreateNew" 
-							label="&qf.check.createNew;" 
+							label="__MSG_qf.check.createNew__" 
 							checked="true"
 							oncommand="quickFilters.Assistant.selectCreateNew(this);"
 							/>
@@ -142,70 +133,70 @@
 						onselect="quickFilters.Assistant.selectTemplateFromListTmr(this);"
 						preference="QuickFilters-Preferences-SelectedFilterTemplate"
 						flex = "2"
-						tooltiptext="&qf.filters.instructions;"
+						tooltiptext="__MSG_qf.filters.instructions__"
 						>
-						<richlistitem value='from'><description>&qf.filters.template.from;</description></richlistitem>
-						<richlistitem value='domain'><description>&qf.filters.template.domain;</description></richlistitem>
-						<richlistitem value='to'><description>&qf.filters.template.to;</description></richlistitem>
-						<richlistitem value='replyto'><description>&qf.filters.template.replyto;</description></richlistitem>
-						<richlistitem value='multifrom'><description>&qf.filters.template.multifrom;</description></richlistitem>
-						<richlistitem value='maillist'><description>&qf.filters.template.maillist;</description></richlistitem>
-						<richlistitem value='topic'><description>&qf.filters.template.topic;</description></richlistitem>
-						<richlistitem value='tag'><description>&qf.filters.template.tag;</description></richlistitem>
+						<richlistitem value='from'><description>__MSG_qf.filters.template.from__</description></richlistitem>
+						<richlistitem value='domain'><description>__MSG_qf.filters.template.domain__</description></richlistitem>
+						<richlistitem value='to'><description>__MSG_qf.filters.template.to__</description></richlistitem>
+						<richlistitem value='replyto'><description>__MSG_qf.filters.template.replyto__</description></richlistitem>
+						<richlistitem value='multifrom'><description>__MSG_qf.filters.template.multifrom__</description></richlistitem>
+						<richlistitem value='maillist'><description>__MSG_qf.filters.template.maillist__</description></richlistitem>
+						<richlistitem value='topic'><description>__MSG_qf.filters.template.topic__</description></richlistitem>
+						<richlistitem value='tag'><description>__MSG_qf.filters.template.tag__</description></richlistitem>
 					</richlistbox>
 					<html:fieldset orient="vertical"
-								tooltiptext="&qf.filters.actions.tooltip;">
-						<html:legend>&qf.filters.actions.caption;</html:legend>
+								tooltiptext="__MSG_qf.filters.actions.tooltip__">
+						<html:legend>__MSG_qf.filters.actions.caption__</html:legend>
 						<vbox>
 							<checkbox id="chkActionTargetFolder" 
 												preference="moveFolder"
-									label="&qf.filters.actions.targetFolder;" 
+									label="__MSG_qf.filters.actions.targetFolder__" 
 									checked="true"
 									/>
 							<checkbox id="chkActionTags" 
 									preference="tags" 
-									label="&qf.filters.actions.tag;" 
-									accesskey="&qf.filters.actions.tag.accesskey;"
+									label="__MSG_qf.filters.actions.tag__" 
+									accesskey="__MSG_qf.filters.actions.tag.accesskey__"
 									/>
 							<checkbox id="chkActionPriority" 
 									preference="priority" 
-									label="&qf.filters.actions.priority;" 
-									accesskey="&qf.filters.actions.priority.accesskey;"
+									label="__MSG_qf.filters.actions.priority__" 
+									accesskey="__MSG_qf.filters.actions.priority.accesskey__"
 									/>
 							<!-- Thunderbird only -->
 							<checkbox id="chkActionStar" 
 									preference="star" 
-									label="&qf.filters.actions.star;" 
-									accesskey="&qf.filters.actions.star.accesskey;"
+									label="__MSG_qf.filters.actions.star__" 
+									accesskey="__MSG_qf.filters.actions.star.accesskey__"
 									/>
 							<!-- SeaMonkey  -->
 							<checkbox id="chkActionFlag" 
 									preference="flag" 
-									label="&qf.filters.actions.flag;" 
-									accesskey="&qf.filters.actions.flag.accesskey;"
+									label="__MSG_qf.filters.actions.flag__" 
+									accesskey="__MSG_qf.filters.actions.flag.accesskey__"
 									/>
 						</vbox>
 					</html:fieldset>
 					<html:fieldset orient="vertical"
-								tooltiptext="&qf.filters.steps.tooltip;">
-						<html:legend>&qf.filters.steps.caption;</html:legend>
+								tooltiptext="__MSG_qf.filters.steps.tooltip__">
+						<html:legend>__MSG_qf.filters.steps.caption__</html:legend>
 						<vbox>
 							<checkbox id="chkShowEditor"
 									preference="showEditorAfterCreateFilter"
-									label="&qf.filters.steps.showEditor;" 
-									tooltiptext="&qf.filters.steps.showEditor.tooltip;"
+									label="__MSG_qf.filters.steps.showEditor__" 
+									tooltiptext="__MSG_qf.filters.steps.showEditor.tooltip__"
 									oncommand="quickFilters.Assistant.setNextSteps();"
 									/>
 							<checkbox id="chkShowList"
 									preference="showListAfterCreateFilter"
-									label="&qf.filters.steps.showList;" 
-									tooltiptext="&qf.filters.steps.showList.tooltip;"
+									label="__MSG_qf.filters.steps.showList__" 
+									tooltiptext="__MSG_qf.filters.steps.showList.tooltip__"
 									oncommand="quickFilters.Assistant.setNextSteps();"
 									/>
 							<checkbox id="chkAutoRun"
 									preference="runFilterAfterCreate"
-									label="&qf.filters.steps.autoRunFilter;" 
-									tooltiptext="&qf.filters.steps.autoRunFilter.tooltip;"
+									label="__MSG_qf.filters.steps.autoRunFilter__" 
+									tooltiptext="__MSG_qf.filters.steps.autoRunFilter.tooltip__"
 									oncommand="quickFilters.Assistant.setNextSteps();"
 									/>
 									
@@ -213,7 +204,7 @@
 					</html:fieldset>
 				</hbox>
 				<hbox id="boxDescription">
-					<label id="templateLabel" value="&qf.filters.templates.description.label;" />
+					<label id="templateLabel" value="__MSG_qf.filters.templates.description.label__" />
 					<description id="templateDescription"></description>
 				</hbox>
 				<html:fieldset id="preview" orient="vertical">
