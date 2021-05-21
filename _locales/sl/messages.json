@@ -1,74 +1,8 @@
 {
-  "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
+  "_l10nstatus": {
+    "message": "SPLASH"
   },
-
-  "extensionDescription": {
-    "message": "Hitro generirajte pravila filtriranja pošte sproti, tako da povlečete in spustite pošto in analizirate njihove atribute.",
-    "description": "Description of the extension."
-  },
-
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
-  },
-  
-  "window-title": {
-    "message": "Dobrodošli v $addonName$",
-    "description": "page title. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-
-  "heading-updated": {
-    "message": "$addonName$ je bil uspešno posodobljen",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "heading-installed": {
-    "message": "Uspešno nameščen $addonName$",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  
-  "thanks-for-updating-intro": {
-    "message": "Hvala, ker ste posodobili $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "thanks-for-installing-intro": {
-    "message": "Hvala, ker ste namestili $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },  
-  
- "active-version-info" : {
+  "active-version-info" : {
     "message": "Zdaj izvajate {boldStart} različico $addonVer$ {boldEnd} na Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
@@ -83,90 +17,81 @@
       
     }
   },  
-  
+  "addon-authors-struggle" : {
+    "message" : "Da bomo še naprej koristni, moramo razvijalci dodatkov zdaj financirati vire, potrebne za popravljanje in prepisovanje, tako da bodo lahko naši uporabniki še naprej koristili funkcionalnost, ki jo ponujamo."
+  } ,
+  "btn-extend-license": {
+    "message" : "Licenco želim podaljšati za eno leto"
+  } ,
+  "btn-renew-license": {
+    "message" : "Želim obnoviti licenco"
+  } ,
+  "btn-want-a-license": {
+    "message" : "Želim kupiti licenco"
+  } ,
+  "btn-want-to-donate" : {
+    "message" : "Želim pomagati z enkratno donacijo."
+  } ,
+  "cost-of-independence" : {
+    "message" : "Razvoj programske opreme stane čas in denar - v nasprotju s številnimi platformnimi aplikacijami dodatkov ne pišejo velike korporacije niti jih Mozilla na noben način ne sponzorira."
+  } ,
+  "donate" : {
+    "message" : "Pomagajte z enkratno donacijo."
+  },   
+  "donate-heading" : {
+    "message" : "Pomoč z donacijo!"
+  } ,
+  "extend-your-license" : {
+    "message" : "Razmislite o podaljšanju licence za eno leto."
+  },  
+  "extensionDescription": {
+    "message": "Hitro generirajte pravila filtriranja pošte sproti, tako da povlečete in spustite pošto in analizirate njihove atribute.",
+    "description": "Description of the extension."
+  },
+  "extensionName": {
+    "message": "quickFilters",
+    "description": "Name of the extension."
+  },
+  "heading-installed": {
+    "message": "Uspešno nameščen $addonName$",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "heading-updated": {
+    "message": "$addonName$ je bil uspešno posodobljen",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "label-remind-me" : {
+    "message": "Ponovno me opomni čez $countDays$ dni.",
+    "placeholders": {
+      "countDays" : {
+        "content" : "$1", 
+        "example" : "10"
+      }    
+    }    
+  },
   "license-is-extended" : {
     "message": "Zahvaljujemo se vam za nedavno podaljšanje licence ali če ste prispevali. Ker ste pomagali pri prihodnjem preverjanju tega dodatka, lahko preprosto zaprete to okno.",
     "description": "Shown if license expires more than a year from now"
   },
-  
-  "special-offer-head" : {
-    "message": "Prosimo, pomagajte quickFilters nadaljevati!"
-  } ,  
-
-  "special-offer-intro" : {
-    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate pri preverjanju prihodnosti quickFilters. Prihaja še več sprememb na Thunderbirdu in za nadaljevanje potrebujem {boldStart} vašo pomoč {boldEnd}!"
+  "mozillas-basic-platform" : {
+    "message" : "Mozilla ponuja samo osnovno platformo za dostavo naše programske opreme vam, končnim uporabnikom. Če moramo uporabnike prositi za plačilo ali podporo, tega ne moremo storiti z addons.thunderbird.net - to ni 'trgovina z aplikacijami' z vgrajenimi plačilnimi zidovi ali upravljanjem licenc, kot sta iTunes ali google play."
   } ,
-  
-  "special-offer-content" : {
-    "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {boldStart} 30% znižanje {boldEnd} cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {boldStart} 16. aprila {boldEnd}."
+  "notificationTitle": {
+    "message": "Click notification",
+    "description": "Title of the click notification."
   },
-  
-  "whats-new-intro" : {
-    "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
-  },
-  
-  "whats-new-btn" : {
-    "message": "Kaj je novega?"
-  }, 
-  
-  "whats-new-head" : {
-    "message": "Poudarki"
-  },
-  
-  "whats-new-list" : {
-    "message" : "{L1} Nova funkcija: razvrstite iskalne izraze v filtru (funkcija Pro). {L2} {L1} Ne pozabite na seznam kopiranih filtrov, ki jih želite vstaviti v več računov (funkcija Pro). {L2} {L1} Odpravljena težava s podvojenimi iskalnimi izrazi pri združevanju filtri. {L2} {L1} Različni popravki za združljivost s Thunderbird 88. {L2}{L1} 5.2.1 - odstranjen gumb za razvrščanje iz predlog filtrov po meri {L2} {L1} 5.2.1 - Izboljšani ruski prevodi Igorja Žigunova, imenovanega pepel {L2}"
-  },  
-  
-  "time-and-effort": { 
-    "message": "$addonName$ zahteva stalne spremembe, da ostane združljiv s platformo Mozilla. Nenehno si prizadevam, da bi ohranil čim več funkcionalnosti za prihodnje različice Thunderbirda.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "support-suggestion" : {
-    "message": "Da bo $addonName$ ostal funkcionalen in živ, storite to zelo pomembno:",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "purchase-a-license" : {
-    "message" : "Nakup licence."
-  }, 
-      
-  "renew-your-license" : {
-    "message" : "Obnovite licenco."
-  },  
-  
-  "extend-your-license" : {
-    "message" : "Razmislite o podaljšanju licence za eno leto."
-  },  
-      
-  "donate" : {
-    "message" : "Pomagajte z enkratno donacijo."
-  },   
-   
-  "purchase-heading" : {
-    "message" : "Nakup licence!"
-  }, 
-  
-  "support-preference" : {
-    "message": "To je najprimernejši način podpore $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  }, 
-
   "ongoing-work": {
     "message": "Spremembe pretvorbe $addonName$ v novi programski model so trajale tedne in so bile drage. Za naslednjo različico iz leta 2022 je še veliko sprememb. S takšnim kompleksnim dodatkom postane drago delo neizogibno. Prosim, pomagajte nam pri tem.",
     "placeholders": {
@@ -176,52 +101,93 @@
       }    
     }
   },
-  
-  "btn-want-a-license": {
-    "message" : "Želim kupiti licenco"
+  "purchase-a-license" : {
+    "message" : "Nakup licence."
+  },       
+  "purchase-heading" : {
+    "message" : "Nakup licence!"
+  }, 
+  "renew-your-license" : {
+    "message" : "Obnovite licenco."
+  },  
+  "special-offer-content" : {
+    "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {boldStart} 30% znižanje {boldEnd} cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {boldStart} 16. aprila {boldEnd}."
+  },
+  "special-offer-head" : {
+    "message": "Prosimo, pomagajte quickFilters nadaljevati!"
+  } ,  
+  "special-offer-intro" : {
+    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate pri preverjanju prihodnosti quickFilters. Prihaja še več sprememb na Thunderbirdu in za nadaljevanje potrebujem {boldStart} vašo pomoč {boldEnd}!"
   } ,
-
-  "btn-extend-license": {
-    "message" : "Licenco želim podaljšati za eno leto"
-  } ,
-
-
-  "btn-renew-license": {
-    "message" : "Želim obnoviti licenco"
-  } ,
-
-  "donate-heading" : {
-    "message" : "Pomoč z donacijo!"
-  } ,
-
-  "cost-of-independence" : {
-    "message" : "Razvoj programske opreme stane čas in denar - v nasprotju s številnimi platformnimi aplikacijami dodatkov ne pišejo velike korporacije niti jih Mozilla na noben način ne sponzorira."
-  } ,
-  
-  "mozillas-basic-platform" : {
-    "message" : "Mozilla ponuja samo osnovno platformo za dostavo naše programske opreme vam, končnim uporabnikom. Če moramo uporabnike prositi za plačilo ali podporo, tega ne moremo storiti z addons.thunderbird.net - to ni 'trgovina z aplikacijami' z vgrajenimi plačilnimi zidovi ali upravljanjem licenc, kot sta iTunes ali google play."
-  } ,
-  
-  "addon-authors-struggle" : {
-    "message" : "Da bomo še naprej koristni, moramo razvijalci dodatkov zdaj financirati vire, potrebne za popravljanje in prepisovanje, tako da bodo lahko naši uporabniki še naprej koristili funkcionalnost, ki jo ponujamo."
-  } ,
-  
-  "btn-want-to-donate" : {
-    "message" : "Želim pomagati z enkratno donacijo."
-  } ,
-  
+  "support-preference" : {
+    "message": "To je najprimernejši način podpore $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  }, 
+  "support-suggestion" : {
+    "message": "Da bo $addonName$ ostal funkcionalen in živ, storite to zelo pomembno:",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "thanks-for-installing-intro": {
+    "message": "Hvala, ker ste namestili $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },  
+  "thanks-for-updating-intro": {
+    "message": "Hvala, ker ste posodobili $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "time-and-effort": { 
+    "message": "$addonName$ zahteva stalne spremembe, da ostane združljiv s platformo Mozilla. Nenehno si prizadevam, da bi ohranil čim več funkcionalnosti za prihodnje različice Thunderbirda.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
   "translated-by-google" : {
     "message": "prevode, ki jih google",
     "description": "disclaimer."
   },
-  
-  "label-remind-me" : {
-    "message": "Ponovno me opomni čez $countDays$ dni.",
+  "whats-new-btn" : {
+    "message": "Kaj je novega?"
+  }, 
+  "whats-new-head" : {
+    "message": "Poudarki"
+  },
+  "whats-new-intro" : {
+    "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
+  },
+  "whats-new-list" : {
+    "message" : "{L1} Nova funkcija: razvrstite iskalne izraze v filtru (funkcija Pro). {L2} {L1} Ne pozabite na seznam kopiranih filtrov, ki jih želite vstaviti v več računov (funkcija Pro). {L2} {L1} Odpravljena težava s podvojenimi iskalnimi izrazi pri združevanju filtri. {L2} {L1} Različni popravki za združljivost s Thunderbird 88. {L2}{L1} 5.2.1 - odstranjen gumb za razvrščanje iz predlog filtrov po meri {L2} {L1} 5.2.1 - Izboljšani ruski prevodi Igorja Žigunova, imenovanega pepel {L2}"
+  },  
+  "window-title": {
+    "message": "Dobrodošli v $addonName$",
+    "description": "page title. first placeholder will be replaced with Add-on name",
     "placeholders": {
-      "countDays" : {
+      "addonName" : {
         "content" : "$1", 
-        "example" : "10"
+        "example" : "quickFilters"
       }    
-    }    
+    }
   }
 }

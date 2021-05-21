@@ -1,74 +1,8 @@
 {
-  "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
+  "_l10nstatus": {
+    "message": "SPLASH"
   },
-
-  "extensionDescription": {
-    "message": "Rychle generujte pravidla pro filtrování pošty za chodu přetažením a přetažením e-mailů a analýzou jejich atributů.",
-    "description": "Description of the extension."
-  },
-
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
-  },
-  
-  "window-title": {
-    "message": "Vítejte v $addonName$",
-    "description": "page title. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-
-  "heading-updated": {
-    "message": "$addonName$ Úspěšně aktualizováno",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "heading-installed": {
-    "message": "Úspěšně nainstalován $addonName$",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  
-  "thanks-for-updating-intro": {
-    "message": "Děkujeme za aktualizaci $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "thanks-for-installing-intro": {
-    "message": "Děkujeme, že jste nainstalovali $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },  
-  
- "active-version-info" : {
+  "active-version-info" : {
     "message": "Nyní používáte {boldStart} verzi $addonVer$ {boldEnd} na Thunderbirdu $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
@@ -83,90 +17,72 @@
       
     }
   },  
-  
+  "addon-authors-struggle" : {
+    "message" : "Abychom byli i nadále užiteční, musíme nyní vývojáři doplňků financovat prostředky potřebné k opravě a přepsání, aby naši uživatelé mohli nadále těžit z funkcí, které poskytujeme."
+  } ,
+  "btn-extend-license": {
+    "message" : "Chci prodloužit licenci o jeden rok"
+  } ,
+  "btn-renew-license": {
+    "message" : "Chci si obnovit licenci"
+  } ,
+  "btn-want-a-license": {
+    "message" : "Chci koupit licenci"
+  } ,
+  "btn-want-to-donate" : {
+    "message" : "Chci pomoci s jednorázovým darem."
+  } ,
+  "cost-of-independence" : {
+    "message" : "Vývoj softwaru stojí čas a peníze - na rozdíl od mnoha aplikací na platformě nejsou doplňky napsány velkými korporacemi, ani nejsou žádným způsobem sponzorovány společností Mozilla."
+  } ,
+  "donate" : {
+    "message" : "Pomozte s jednorázovým darem."
+  },   
+  "donate-heading" : {
+    "message" : "Pomozte darováním!"
+  } ,
+  "extend-your-license" : {
+    "message" : "Zvažte prodloužení licence o rok."
+  },  
+  "extensionName": {
+    "message": "quickFilters",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Rychle generujte pravidla pro filtrování pošty za chodu přetažením a přetažením e-mailů a analýzou jejich atributů.",
+    "description": "Description of the extension."
+  },
+  "heading-updated": {
+    "message": "$addonName$ Úspěšně aktualizováno",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "heading-installed": {
+    "message": "Úspěšně nainstalován $addonName$",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
   "license-is-extended" : {
     "message": "Děkujeme, že jste nedávno prodloužili licenci nebo jste darovali. Jelikož jste pomohli doložit tento doplněk do budoucna, můžete toto okno jednoduše zavřít.",
     "description": "Shown if license expires more than a year from now"
   },
-  
-  "special-offer-head" : {
-    "message": "Prosím, pomozte quickFilters pokračovat!"
-  } ,  
-  
-  "special-offer-intro" : { 
-    "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci s kontrolou budoucnosti quickFilters. Chystají se další velké změny v Thunderbirdu a potřebuji {boldStart} vaši pomoc {boldEnd}, abych udržel krok!"
+  "mozillas-basic-platform" : {
+    "message" : "Mozilla poskytuje pouze základní platformu pro doručování našeho softwaru vám, koncovým uživatelům. Pokud potřebujeme požádat naše uživatele o platbu nebo podporu, nemůžeme to udělat z addons.thunderbird.net - nejedná se o „obchod s aplikacemi“ s vestavěnými paywally nebo správou licencí, jako je iTunes nebo Google Play."
   } ,
-  
-  "special-offer-content" : {
-    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {boldStart}30% snížení{boldEnd} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {boldStart}16. Dubna{boldEnd}."
+  "notificationTitle": {
+    "message": "Click notification",
+    "description": "Title of the click notification."
   },
-  
-  "whats-new-intro" : {
-    "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
-  },
-  
-  "whats-new-btn" : {
-    "message": "Co je nového?"
-  }, 
-  
-  "whats-new-head" : {
-    "message": "Hlavní body"
-  },
-  
-  "whats-new-list" : {
-    "message" : "{L1} Nová funkce: Řazení hledaných výrazů ve filtru (funkce Pro). {L2} {L1} Pamatujte si seznam zkopírovaných filtrů, který chcete vložit do více účtů (funkce Pro). {L2} {L1} Opravený problém s duplikovanými hledanými výrazy při slučování filtry. {L2} {L1} Různé opravy kompatibility s Thunderbirdem 88. {L2}{L1} 5.2.1 - odstraněno tlačítko řazení z šablon vlastních filtrů {L2} {L1} 5.2.1 - Vylepšené ruské překlady od Igora Zhigunova aka ashed {L2}"
-  },  
-  
-  "time-and-effort": { 
-    "message": "$addonName$ vyžaduje průběžné změny, aby zůstal kompatibilní s platformou Mozilla. Neustále pracuji na zachování co největší funkčnosti pro budoucí verze Thunderbirdu.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "support-suggestion" : {
-    "message": "Aby $addonName$ zůstalo funkční a živé, udělejte to zásadní laskavost:",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "purchase-a-license" : {
-    "message" : "Kupte si licenci."
-  }, 
-      
-  "renew-your-license" : {
-    "message" : "Obnovte si licenci."
-  },  
-  
-  "extend-your-license" : {
-    "message" : "Zvažte prodloužení licence o rok."
-  },  
-      
-  "donate" : {
-    "message" : "Pomozte s jednorázovým darem."
-  },   
-   
-  "purchase-heading" : {
-    "message" : "Nákup licence!"
-  }, 
-  
-  "support-preference" : {
-    "message": "Toto je upřednostňovaný způsob podpory $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  }, 
-
   "ongoing-work": {
     "message": "Změny převodu $addonName$ na nový programovací model trvaly týdny a byly nákladné. Pro příští verzi 2022 existuje mnoho dalších změn. S komplexním doplňkem, jako je tento, se drahá práce stává nevyhnutelnou. Pomozte nám s tím.",
     "placeholders": {
@@ -176,43 +92,93 @@
       }    
     }
   },
-  
-  "btn-want-a-license": {
-    "message" : "Chci koupit licenci"
+  "purchase-a-license" : {
+    "message" : "Kupte si licenci."
+  }, 
+  "purchase-heading" : {
+    "message" : "Nákup licence!"
+  }, 
+  "renew-your-license" : {
+    "message" : "Obnovte si licenci."
+  },  
+  "special-offer-head" : {
+    "message": "Prosím, pomozte quickFilters pokračovat!"
+  } ,   
+  "special-offer-intro" : { 
+    "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci s kontrolou budoucnosti quickFilters. Chystají se další velké změny v Thunderbirdu a potřebuji {boldStart} vaši pomoc {boldEnd}, abych udržel krok!"
   } ,
-
-  "btn-extend-license": {
-    "message" : "Chci prodloužit licenci o jeden rok"
-  } ,
-
-
-  "btn-renew-license": {
-    "message" : "Chci si obnovit licenci"
-  } ,
-
-  "donate-heading" : {
-    "message" : "Pomozte darováním!"
-  } ,
-
-  "cost-of-independence" : {
-    "message" : "Vývoj softwaru stojí čas a peníze - na rozdíl od mnoha aplikací na platformě nejsou doplňky napsány velkými korporacemi, ani nejsou žádným způsobem sponzorovány společností Mozilla."
-  } ,
-  
-  "mozillas-basic-platform" : {
-    "message" : "Mozilla poskytuje pouze základní platformu pro doručování našeho softwaru vám, koncovým uživatelům. Pokud potřebujeme požádat naše uživatele o platbu nebo podporu, nemůžeme to udělat z addons.thunderbird.net - nejedná se o „obchod s aplikacemi“ s vestavěnými paywally nebo správou licencí, jako je iTunes nebo Google Play."
-  } ,
-  
-  "addon-authors-struggle" : {
-    "message" : "Abychom byli i nadále užiteční, musíme nyní vývojáři doplňků financovat prostředky potřebné k opravě a přepsání, aby naši uživatelé mohli nadále těžit z funkcí, které poskytujeme."
-  } ,
-  
-  "btn-want-to-donate" : {
-    "message" : "Chci pomoci s jednorázovým darem."
-  } ,
-  
+  "special-offer-content" : {
+    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {boldStart}30% snížení{boldEnd} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {boldStart}16. Dubna{boldEnd}."
+  },
+  "support-preference" : {
+    "message": "Toto je upřednostňovaný způsob podpory $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  }, 
+  "support-suggestion" : {
+    "message": "Aby $addonName$ zůstalo funkční a živé, udělejte to zásadní laskavost:",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "thanks-for-updating-intro": {
+    "message": "Děkujeme za aktualizaci $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "thanks-for-installing-intro": {
+    "message": "Děkujeme, že jste nainstalovali $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },  
+  "time-and-effort": { 
+    "message": "$addonName$ vyžaduje průběžné změny, aby zůstal kompatibilní s platformou Mozilla. Neustále pracuji na zachování co největší funkčnosti pro budoucí verze Thunderbirdu.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
   "translated-by-google" : {
     "message": "překlady poskytované google",
     "description": "disclaimer."
+  },
+  "whats-new-btn" : {
+    "message": "Co je nového?"
+  }, 
+  "whats-new-head" : {
+    "message": "Hlavní body"
+  },
+  "whats-new-intro" : {
+    "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
+  },
+  "whats-new-list" : {
+    "message" : "{L1} Nová funkce: Řazení hledaných výrazů ve filtru (funkce Pro). {L2} {L1} Pamatujte si seznam zkopírovaných filtrů, který chcete vložit do více účtů (funkce Pro). {L2} {L1} Opravený problém s duplikovanými hledanými výrazy při slučování filtry. {L2} {L1} Různé opravy kompatibility s Thunderbirdem 88. {L2}{L1} 5.2.1 - odstraněno tlačítko řazení z šablon vlastních filtrů {L2} {L1} 5.2.1 - Vylepšené ruské překlady od Igora Zhigunova aka ashed {L2}"
+  },  
+  "window-title": {
+    "message": "Vítejte v $addonName$",
+    "description": "page title. first placeholder will be replaced with Add-on name",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
   }
-  
 }

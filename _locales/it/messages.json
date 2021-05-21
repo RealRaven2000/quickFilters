@@ -1,1251 +1,1259 @@
 {
-    "about": {
-        "message": "Info"
-    },
-    "account.label": {
-        "message": "Seleziona un account:"
-    },
-    "active-version-info": {
-        "description": "The boldStart and boldEnd parts will be replaced with html tags",
-        "message": "Stai ora eseguendo la {boldStart} versione $addonVer$ {boldEnd} su Thunderbird $appVer$.",
-        "placeholders": {
-            "addonVer": {
-                "content": "$1",
-                "example": "Version 1.1"
-            },
-            "appVer": {
-                "content": "$2",
-                "example": "78.0b4"
-            }
-        }
-    },
-    "addon-authors-struggle": {
-        "message": "Per continuare ad essere utili, noi sviluppatori di componenti aggiuntivi dobbiamo ora finanziare le risorse necessarie per correggere e riscrivere in modo che i nostri utenti possano continuare a beneficiare delle funzionalità che forniamo."
-    },
-    "btn-extend-license": {
-        "message": "Voglio estendere la mia licenza di un anno"
-    },
-    "btn-renew-license": {
-        "message": "Voglio rinnovare la mia licenza"
-    },
-    "btn-want-a-license": {
-        "message": "Voglio acquistare una licenza"
-    },
-    "btn-want-to-donate": {
-        "message": "Voglio aiutare con una donazione una tantum."
-    },
-    "buyDomainLicense.button": {
-        "message": "Acquista una licenza di dominio"
-    },
-    "buyDomainLicense.instruct": {
-        "message": "Avete bisogno di una licenza per un'azienda con più di cinque utilizzatori? Se acquisite una licenza di dominio ciò risulterà più conveniente:"
-    },
-    "buyLicense.instruct": {
-        "message": "Avete bisogno di una licenza solo per voi stessi? Acquisite una licenza per uso personale. Essa viene collegata ad un vostro account di posta elettronica e può essere utilizzata per installazioni multiple."
-    },
-    "buyPersonalLicense.button": {
-        "message": "Acquista una licenza personale"
-    },
-    "chkAfterJunk.label": {
-        "message": "Dopo aver discriminato lo spam"
-    },
-    "chkAfterSending.label": {
-        "message": "Dopo l'invio"
-    },
-    "chkAlphabetic.label": {
-        "message": "Inserimento  dei nuovi filtri in ordine alfabetico"
-    },
-    "chkAlphabetic.tooltip": {
-        "message": "Utilizza l'iniziale del nome del filtro per definirne la posizione relativa. È utile nel caso della regola di denominazione della cartella di livello superiore. Attenzione: in questo modo si influenza l'ordine di esecuzione dei filtri!"
-    },
-    "chkAutoClose.accesskey": {
-        "message": "D"
-    },
-    "chkAutoClose.label": {
-        "message": "Dopo aver creato un filtro esci dalla procedura guidata"
-    },
-    "chkAutoRun.label": {
-        "message": "Quando arrivano nuovi messaggi"
-    },
-    "chkAutoStart.accesskey": {
-        "message": "A"
-    },
-    "chkAutoStart.label": {
-        "message": "Attiva automaticamente la procedura guidata"
-    },
-    "chkCurrentToolbar.btn.FilterList.label": {
-        "message": "Mostra elenco filtri"
-    },
-    "chkCurrentToolbar.btn.FindFilter.label": {
-        "message": "Trova i filtri per la cartella"
-    },
-    "chkCurrentToolbar.btn.FindFilter.tooltip": {
-        "message": "Trova i filtri che spostano i messaggi in questa cartella"
-    },
-    "chkCurrentToolbar.btn.RunOnFolder.label": {
-        "message": "Esegue filtri sulla cartella"
-    },
-    "chkCurrentToolbar.btn.RunOnMessages.label": {
-        "message": "Esegue filtri sui messaggi selezionati"
-    },
-    "chkDebug.accesskey": {
-        "message": "M"
-    },
-    "chkDebug.label": {
-        "message": "Modalità di debug"
-    },
-    "chkImapOnRead.label": {
-        "message": "Esegui i filtri anche sui messaggi letti di account IMAP"
-    },
-    "chkInsertRulesAtTop.label": {
-        "message": "Aggiunge nuove regole in cima alla lista"
-    },
-    "chkLocalFoldersAutorun.label": {
-        "message": "Esecuzione automatica dei filtri sulla Posta in arrivo delle Cartelle locali"
-    },
-    "chkMergeAuto.label": {
-        "message": "Seleziona automaticamente Unione"
-    },
-    "chkMergeAuto.tooltip": {
-        "message": "Se esiste già un filtro, questa opzione seleziona automaticamente la modalità unione e il primo filtro corrispondente"
-    },
-    "chkMergeSkip.label": {
-        "message": "Salta al passaggio 'Tipologia'"
-    },
-    "chkMergeSkip.tooltip": {
-        "message": "Questa opzione salta il passaggio 'Seleziona destinazione unione' e va direttamente a 'Seleziona tipologia'"
-    },
-    "chkPeriodically.label": {
-        "message": "Esegui periodicamente"
-    },
-    "chkPeriodically.tooltip": {
-        "message": "Esegue il filtro a intervalli regolari"
-    },
-    "chkRunManual.label": {
-        "message": "Esegui in modalità manuale"
-    },
-    "chkShowEditor.label": {
-        "message": "Dopo la creazione di un filtro apri l'editor"
-    },
-    "chkShowList.label": {
-        "message": "Dopo la creazione di un filtro mostra l'intero elenco"
-    },
-    "chkShowList.tooltip": {
-        "message": "Mostra l'intero elenco per eseguire il nuovo filtro su tutti i messaggi a scopo di test"
-    },
-    "chkToolbar.accesskey": {
-        "message": "B"
-    },
-    "chkToolbar.label": {
-        "message": "Visualizza la barra degli strumenti nel Gestore dei filtri"
-    },
-    "chkWhenArchiving.label": {
-        "message": "Quando si sta archiviando"
-    },
-    "cost-of-independence": {
-        "message": "Lo sviluppo del software costa tempo e denaro: a differenza di molte app della piattaforma, i componenti aggiuntivi non sono scritti da grandi aziende, né sono sponsorizzati in alcun modo da Mozilla."
-    },
-    "createdBy": {
-        "message": "Creato da:"
-    },
-    "domainLicense.email": {
-        "message": "Vi contatteremo usando questo indirizzo di posta elettronica per generare la vostra licenza di dominio; lo faremo entro due giorni lavorativi. Nella pagina successiva, inserire il nome del dominio da collegare alla licenza."
-    },
-    "domainLicense.header": {
-        "message": "Dominio degli indirizzi di email collegati alla licenza"
-    },
-    "domainLicense.instruct": {
-        "message": "La licenza è collegata al dominio della vostra azienda. La licenza consente agli utenti con indirizzo di posta elettronica appartenente al dominio aziendale l'utilizzo di quickFilters Pro. Per esempio, se alla licenza viene collegato il nome di dominio 'xyz.it', utenti con indirizzo di posta elettronica quale: gianni@xyz.it, marta@xyz.it, michele@xyz.it ecc… possono usufruire della licenza. Il massimo numero di singoli utenti validi corrisponde al numero che è stato introdotto nella schermata iniziale."
-    },
-    "domainLicense.validate": {
-        "message": "Bisogna fare molta attenzione ad inserire *esattamente* il nome di dominio dell'azienda (cioè la parte *dopo* il segno @ [at]) dell'indirizzo di posta elettronica). Infatti questa stringa sarà utilizzata da quickFilters Pro per autorizzare gli indirizzi di posta elettronica degli utenti della vostra azienda."
-    },
-    "donate": {
-        "message": "Aiutaci con una donazione una tantum."
-    },
-    "donate-heading": {
-        "message": "Aiuta donando!"
-    },
-    "donate.label": {
-        "message": "Dona"
-    },
-    "email.label": {
-        "message": "Email:"
-    },
-    "enterLicenseKey.button": {
-        "message": "Inserire la chiave della licenza…"
-    },
-    "enterLicenseKey.tooltip": {
-        "message": "Inserire il codice della chiave della licenza inviato per posta elettronica"
-    },
-    "extend-your-license": {
-        "message": "Valuta di estendere la tua licenza di un anno."
-    },
-    "extensionDescription": {
-        "description": "Description of the extension.",
-        "message": "Genera rapidamente regole di filtro della posta al volo, trascinando e rilasciando i messaggi e analizzando i loro attributi."
-    },
-    "extensionName": {
-        "description": "Name of the extension.",
-        "message": "quickFilters"
-    },
-    "extensions.quickfilters.description": {
-        "message": "Genera al volo dei filtri per i messaggi trascinandoli e rilasciandoli e analizzandone gli attributi"
-    },
-    "firstName.label": {
-        "message": "Nome:"
-    },
-    "freeLicense": {
-        "message": "Se si è effettuata recentemente una donazione a favore del progetto quickFilters o se si è dato un contributo al suo sviluppo (per esempio traducendolo o creando delle patch), si è idonei a ricevere una chiave di registrazione gratuita. Contattatemi tramite la scheda 'Supporto' presente nelle Opzioni di quickFilters."
-    },
-    "getquickFilters": {
-        "message": "Acquista quickFilters Pro"
-    },
-    "grpMerge.label": {
-        "message": "Regole Unione"
-    },
-    "heading-installed": {
-        "description": "page heading. first placeholder will be replaced with Add-on name",
-        "message": "$addonName$ installato con successo",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "heading-updated": {
-        "description": "page heading. first placeholder will be replaced with Add-on name",
-        "message": "$addonName$ aggiornato con successo",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "homepage": {
-        "message": "Sito web:"
-    },
-    "intro": {
-        "message": "Una licenza annuale di quickFilters Pro consente l'accesso a tutte le caratteristiche della versione Premium per il periodo di un anno. Inoltre favorisce il supporto e l'ulteriore sviluppo del prodotto, così da renderlo ancor più completo."
-    },
-    "label-remind-me": {
-        "message": "Ricordamelo di nuovo tra $countDays$ giorni.",
-        "placeholders": {
-            "countDays": {
-                "content": "$1",
-                "example": "10"
-            }
-        }
-    },
-    "lastName.label": {
-        "message": "Cognome:"
-    },
-    "license-is-extended": {
-        "description": "Shown if license expires more than a year from now",
-        "message": "Grazie per aver recentemente esteso la tua licenza o se hai donato. Poiché hai contribuito a rendere questo componente aggiuntivo a prova di futuro, puoi semplicemente chiudere questa finestra."
-    },
-    "licenseWindow.title": {
-        "message": "Licenza di quickFilters Pro"
-    },
-    "mozillas-basic-platform": {
-        "message": "Mozilla fornisce solo una piattaforma di base per fornire il nostro software a voi, utenti finali. Se abbiamo bisogno di chiedere ai nostri utenti il pagamento o il supporto non possiamo farlo da addons.thunderbird.net - non è un 'app store' con paywall integrati o gestione delle licenze come iTunes o Google Play."
-    },
-    "notificationTitle": {
-        "description": "Title of the click notification.",
-        "message": "Click notification"
-    },
-    "ongoing-work": {
-        "message": "Le modifiche per convertire $addonName$ nel nuovo modello di programmazione hanno richiesto settimane ed erano costose. Ci sono molte altre modifiche per la prossima versione del 2022. Con un add-on complesso come questo, il lavoro costoso diventa inevitabile. Per favore aiutaci con questo.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "pane1.title": {
-        "message": "Opzioni di quickFilters"
-    },
-    "prefwindow.title": {
-        "message": "Preferenze di quickFilters"
-    },
-    "purchase-a-license": {
-        "message": "Acquista una licenza."
-    },
-    "purchase-heading": {
-        "message": "Acquisto di una licenza!"
-    },
-    "qf.button.createFilter": {
-        "message": "Crea nuovo filtro…"
-    },
-    "qf.button.editFilter": {
-        "message": "Modifica filtro…"
-    },
-    "qf.button.merge": {
-        "message": "Unione"
-    },
-    "qf.button.next": {
-        "message": "Successivo"
-    },
-    "qf.button.pasteLicense": {
-        "message": "Incolla"
-    },
-    "qf.button.reorderButtonBottom": {
-        "message": "Ultimo"
-    },
-    "qf.button.reorderButtonBottom.accessKey": {
-        "message": "U"
-    },
-    "qf.button.reorderButtonBottom.toolTip": {
-        "message": "Esecuzione del filtro selezionato per ultimo"
-    },
-    "qf.button.reorderButtonTop": {
-        "message": "Primo"
-    },
-    "qf.button.reorderButtonTop.accessKey": {
-        "message": "P"
-    },
-    "qf.button.reorderButtonTop.toolTip": {
-        "message": "Esecuzione del filtro selezionato per primo"
-    },
-    "qf.button.targetSelected": {
-        "message": "Filtro 'destinazione' selezionato"
-    },
-    "qf.button.validateLicense": {
-        "message": "Convalida"
-    },
-    "qf.check.createNew": {
-        "message": "Crea un nuovo filtro"
-    },
-    "qf.check.mergeWithExisting": {
-        "message": "Unione con un filtro esistente:"
-    },
-    "qf.cloned.label": {
-        "message": "Accoda al nome del filtro clonato:"
-    },
-    "qf.continueFilter.label": {
-        "message": "Crea filtro…"
-    },
-    "qf.continueFilter.shortcut": {
-        "message": "F"
-    },
-    "qf.description.about": {
-        "message": "Una rapida descrizione di quickFilters è disponibile nel sito:"
-    },
-    "qf.description.contactMe": {
-        "message": "È anche possibile contattarmi personalmente all'email axel.grude@gmail.com:"
-    },
-    "qf.description.currentFolderButtons": {
-        "message": "Questa opzione è utilizzabile solo se si sta usando anche l'estensione QuickFolders che aggiunge una piccola barra degli strumenti in cima al riquadro di anteprima del messaggio"
-    },
-    "qf.description.mergeAddInstructions": {
-        "message": "Tutti gli altri filtri di questo elenco entreranno a far parte di questo e saranno poi cancellati."
-    },
-    "qf.description.mergeAddSummary": {
-        "message": "Selezionare il filtro che erediterà le proprietà degli altri."
-    },
-    "qf.description.mergeInstructions": {
-        "message": "È possibile espandere uno di questi filtri o crearne uno di completamente nuovo."
-    },
-    "qf.description.mergeSummary": {
-        "message": "La procedura guidata di quickFilters ha trovato dei filtri che svolgono già la stessa azione."
-    },
-    "qf.description.selectToExtend": {
-        "message": "Selezionare un filtro da espandere con nuove regole"
-    },
-    "qf.donate.tooltip": {
-        "message": "Supporta lo sviluppo di quickFilters!"
-    },
-    "qf.filterlist.group": {
-        "message": "Funzioni elenco filtri"
-    },
-    "qf.filterlist.multipaste": {
-        "message": "Abilita i filtri copia e incolla su più account"
-    },
-    "qf.filters.actions.caption": {
-        "message": "Azioni"
-    },
-    "qf.filters.actions.flag": {
-        "message": "Contrassegnato"
-    },
-    "qf.filters.actions.flag.accesskey": {
-        "message": "C"
-    },
-    "qf.filters.actions.priority": {
-        "message": "Priorità"
-    },
-    "qf.filters.actions.priority.accesskey": {
-        "message": "P"
-    },
-    "qf.filters.actions.star": {
-        "message": "Speciale"
-    },
-    "qf.filters.actions.star.accesskey": {
-        "message": "S"
-    },
-    "qf.filters.actions.tag": {
-        "message": "Etichetta"
-    },
-    "qf.filters.actions.tag.accesskey": {
-        "message": "E"
-    },
-    "qf.filters.actions.targetFolder": {
-        "message": "Cartella destinazione"
-    },
-    "qf.filters.actions.tooltip": {
-        "message": "Il filtro copia questi attributi dal messaggio originale"
-    },
-    "qf.filters.instructions": {
-        "message": "Selezionare una tipologia. Nella schermata successiva si possono mettere a punto le regole del filtro"
-    },
-    "qf.filters.steps.autoRunFilter": {
-        "message": "Esegui automaticamente"
-    },
-    "qf.filters.steps.autoRunFilter.tooltip": {
-        "message": "Dopo la creazione, esegue automaticamente il filtro sulla cartella 'Posta in arrivo' di provenienza"
-    },
-    "qf.filters.steps.caption": {
-        "message": "Passi successivi"
-    },
-    "qf.filters.steps.showEditor": {
-        "message": "Regole del filtro"
-    },
-    "qf.filters.steps.showEditor.tooltip": {
-        "message": "Consente la modifica dei dettagli del filtro dopo la sua crezione mediante Procedura guidata"
-    },
-    "qf.filters.steps.showList": {
-        "message": "Elenco filtri"
-    },
-    "qf.filters.steps.showList.tooltip": {
-        "message": "Visualizza il filtro nel contesto così da poterlo testare"
-    },
-    "qf.filters.steps.tooltip": {
-        "message": "Quali schermate mostrare dopo la creazione del filtro"
-    },
-    "qf.filters.template.custom.description": {
-        "message": "Filtro personalizzato il cui comportamento è definito dall'utente. Usa variabili quali: %from% %to% %subject% ecc…"
-    },
-    "qf.filters.template.domain": {
-        "message": "Basato sul dominio del mittente"
-    },
-    "qf.filters.template.domain.description": {
-        "message": "Analogo al tipo 'Basato sul mittente' in cui però combacia solo il dominio dell'indirizzo di posta elettronica del mittente (per es. @xyz.com)"
-    },
-    "qf.filters.template.from": {
-        "message": "Basato sul mittente (Mittente/Da:)"
-    },
-    "qf.filters.template.from.description": {
-        "message": "Questo tipo di filtro è probabilmente il più usato: preleva l'indirizzo di posta elettronica del mittente e lo incolla nei campi \"Mittente/Da:\" e \"A:\" delle regole del filtro. In tal modo tutta la corrispondenza con quel mittente viene trasferita nella nuova cartella."
-    },
-    "qf.filters.template.list.description": {
-        "message": "Simile al tipo 'Basato sul mittente': in questa modalità però il campo 'A:' delle regole del filtro non viene riempito."
-    },
-    "qf.filters.template.maillist": {
-        "message": "Liste di distribuzione"
-    },
-    "qf.filters.template.maillist.description": {
-        "message": "Utile per liste di distribuzione con \"List-Id\". Se questo non è configurato, al suo posto verrà usato l'indirizzo del mittente"
-    },
-    "qf.filters.template.multifrom": {
-        "message": "Gruppo (raccoglie i mittenti di più messaggi)"
-    },
-    "qf.filters.template.multifrom.description": {
-        "message": "Usare questo tipo per trascinare più messaggi di posta e aggiungere tutti i mittenti come condizioni del filtro (con esclusione dei propri indirizzi di posta elettronica)"
-    },
-    "qf.filters.template.replyto": {
-        "message": "Basato sul campo 'Rispondi a'"
-    },
-    "qf.filters.template.replyto.description": {
-        "message": "Questo filtro è basato sul campo 'Rispondi a'."
-    },
-    "qf.filters.template.tag": {
-        "message": "Per etichetta"
-    },
-    "qf.filters.template.tag.description": {
-        "message": "Questo tipo utilizza come regola per la creazione del filtro le etichette con cui si possono contrassegnare i messaggi."
-    },
-    "qf.filters.template.to": {
-        "message": "Basato sul destinatario (A:)"
-    },
-    "qf.filters.template.to.description": {
-        "message": "Simile al tipo 'Basato sul mittente': selezionando un messaggio inviato ad un destinatario, viene prelevato l'indirizzo di posta elettronica di quest'ultimo che viene incollato nei campi 'Mittente/Da:' e 'A:' delle regole del filtro. In tal modo tutta la corrispondenza con quel contatto viene trasferita nella nuova cartella."
-    },
-    "qf.filters.template.topic": {
-        "message": "Per oggetto"
-    },
-    "qf.filters.template.topic.description": {
-        "message": "Questa modalità cerca nel campo 'Oggetto' particolari espressioni comprese fra parentesi quadre o graffe, per esempio [collezionisti di francobolli] o {vegani} e crea un filtro basato su di esse; usando questo tipo di filtro è facile riorganizzare una gran quantità di messaggi."
-    },
-    "qf.filters.templates.description.label": {
-        "message": "Descrizione:"
-    },
-    "qf.filters.title": {
-        "message": "Creazione filtri"
-    },
-    "qf.grp.whenToRun": {
-        "message": "Applica filtro"
-    },
-    "qf.label.aboutLink": {
-        "message": "Sito web di quickFilters…"
-    },
-    "qf.label.cancel": {
-        "message": "Annulla"
-    },
-    "qf.label.contactLink": {
-        "message": "Contattami (in lingua inglese o tedesca)…"
-    },
-    "qf.label.currentFolderButtons": {
-        "message": "Barra degli strumenti della cartella corrente di QuickFolders"
-    },
-    "qf.label.donate": {
-        "message": "Dona"
-    },
-    "qf.label.filterCountN_of_M": {
-        "message": "{0} di {1}"
-    },
-    "qf.label.filterEntities": {
-        "message": "elementi"
-    },
-    "qf.label.filterSingleEntity": {
-        "message": "1 elemento"
-    },
-    "qf.label.haveLicense": {
-        "message": "Avete già una licenza?"
-    },
-    "qf.label.insertLicense": {
-        "message": "Inserire qui la propria chiave di licenza:"
-    },
-    "qf.label.insertLicense.tooltip": {
-        "message": "La chiave di licenza è contenuta nel messaggio di email di conferma dell'ordine proveniente da Fastspring."
-    },
-    "qf.label.licenseValid": {
-        "message": "La licenza è valida fino a:"
-    },
-    "qf.label.naming": {
-        "message": "Regole di denominazione"
-    },
-    "qf.label.naming.folderDelimiter": {
-        "message": "Delimitatore:"
-    },
-    "qf.label.naming.keyWord": {
-        "message": "Aggiunge alla regola una parola-chiave specifica"
-    },
-    "qf.label.naming.keyWord.accesskey": {
-        "message": "C"
-    },
-    "qf.label.naming.parentFolder": {
-        "message": "Aggiungi alla regola il nome della cartella di livello superiore"
-    },
-    "qf.label.naming.parentFolder.accesskey": {
-        "message": "S"
-    },
-    "qf.label.premiumFeaturesSite": {
-        "message": "Maggiori informazioni sulle Caratteristiche Premium sul nostro sito web"
-    },
-    "qf.label.quickfilters": {
-        "message": "quickFilters"
-    },
-    "qf.label.shortcut.runFolder": {
-        "message": "Scorciatoia per eseguire i filtri sulla cartella: Maiusc +"
-    },
-    "qf.label.shortcut.runMails": {
-        "message": "Scorciatoia per eseguire i filtri sui messaggi selezionati: Maiusc +"
-    },
-    "qf.label.supportWithLicense": {
-        "message": "Supporta quickFilters acquistando una licenza!"
-    },
-    "qf.licenseValidation.expired": {
-        "message": "La chiave di licenza inserita è scaduta. Premere il pulsante sottostante per rinnovare la licenza."
-    },
-    "qf.licenseValidation.failed": {
-        "message": "La chiave di licenza inserita non è valida. Controllare il messaggio di email proveniente da FastSpring per avere istruzioni al riguardo. Se permanessero dei problemi, contattatemi tramite la scheda 'Supporto'."
-    },
-    "qf.licenseValidation.invalidAddon": {
-        "message": "La chiave di licenza inserita potrebbe essere relativa a un'altra estensione. Le chiavi di licenza per {0} iniziano con  {1}."
-    },
-    "qf.licenseValidation.invalidMail": {
-        "message": "L'indirizzo di posta elettronica collegato alla chiave di licenza [{1}] non è attualmente presente tra gli account. Per avere assistenza, contattatemi tramite la scheda 'Supporto'."
-    },
-    "qf.licenseValidation.notMatchedMail": {
-        "message": "L'indirizzo di posta elettronica crittografato non corrisponde a quello in chiaro"
-    },
-    "qf.licenseValidation.passed": {
-        "message": "Grazie di aver registrato quickFilters Pro. Tutte le caratteristiche della versione Premium sono ora disponibili."
-    },
-    "qf.listener.tags": {
-        "message": "Percepisci eventuali modifiche alle etichette"
-    },
-    "qf.listener.tags.autofilter": {
-        "message": "Esegui i filtri automaticamente quando le etichette vengono modificate"
-    },
-    "qf.listener.tags.tooltip": {
-        "message": "Se questa opzione è attiva, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio."
-    },
-    "qf.notify.filterCreated": {
-        "message": "Creato con successo il nuovo filtro '{0}'"
-    },
-    "qf.notify.filterMergeUpdated": {
-        "message": "Aggiornato con successo il filtro '{0}'"
-    },
-    "qf.onewayaddress.label": {
-        "message": "Disabilita il criterio di ricerca 'A due vie' degli indirizzi"
-    },
-    "qf.onewayaddress.tooltip": {
-        "message": "In modalità predefinita, quickFilters usa sia il criterio di ricerca &quot;Mittente/Da:&quot; sia &quot;Destinatario/A:&quot; per filtrare completamente i messaggi relativi ad un certo argomento, ivi compresi i propri messaggi spediti al destinatario. Se però si vogliono mantenere le proprie risposte nella cartella 'Posta inviata', utilizzando questa opzione si può disabilitare tale comportamento. È anche possibile usare l'estensione 'Copy Sent to Current' per mantenere le risposte assieme ai messaggi che le hanno originate."
-    },
-    "qf.options.versionnumber.tooltip": {
-        "message": "Per visualizzare la cronologia delle versioni fare clic col pulsante destro del mouse"
-    },
-    "qf.premiumConfig": {
-        "message": "Caratteristiche Premium"
-    },
-    "qf.tab.actions": {
-        "message": "Azioni"
-    },
-    "qf.tab.advanced": {
-        "message": "Avanzate"
-    },
-    "qf.tab.gopro": {
-        "message": "quickFilters Pro"
-    },
-    "qf.tab.newFilterProps": {
-        "message": "Proprietà del nuovo filtro"
-    },
-    "qf.tab.options": {
-        "message": "Opzioni"
-    },
-    "qf.tab.support": {
-        "message": "Supporto"
-    },
-    "qf.templates.advanced": {
-        "message": "Modelli avanzati"
-    },
-    "qf.templates.customTemplate.edit": {
-        "message": "Modifica…"
-    },
-    "qf.templates.customTemplate.label": {
-        "message": "Modelli personalizzati"
-    },
-    "qf.templates.customTemplate.new": {
-        "message": "Crea nuovo…"
-    },
-    "qf.templates.customTemplate.tooltip": {
-        "message": "Consente di generare modelli personalizzati (vedi descrizione bug per i dettagli)"
-    },
-    "qf.templates.replyTo.label": {
-        "message": "Modello 'Rispondi a'"
-    },
-    "qf.templates.replyTo.tooltip": {
-        "message": "Visualizza il modello 'Rispondi a' (vedi descrizione bug per i dettagli)"
-    },
-    "qf.textbox.searchBox.emptyText": {
-        "message": "Cerca i filtri per nome…"
-    },
-    "qf.textbox.searchBox.toolTip": {
-        "message": "Inserire una parola-chiave per cercare i filtri per nome"
-    },
-    "qf.tooltip.naming.folderDelimiter": {
-        "message": "Carattere inserito fra la cartella di livello superiore e il nome"
-    },
-    "qf.youtube.description": {
-        "message": "Per informazioni dettagliate sulle estensioni di Thunderbird e per visualizzare dei video su come usare quickFilters, visitare il mio canale YouTube"
-    },
-    "qf.youtube.link": {
-        "message": "Guarda i video su quickFilters su Thunderbird Daily…"
-    },
-    "qf.youtube.tbdaily": {
-        "message": "Per trovare suggerimenti e una guida introduttiva a quickFilters visitare il canale YouTube &quot;Thunderbird Daily&quot;"
-    },
-    "quickfilters.FilterAssistant.start": {
-        "message": "Avvia la Procedura guidata…"
-    },
-    "quickfilters.FilterAssistant.stop": {
-        "message": "Arresta la Procedura guidata"
-    },
-    "quickfilters.FromMessage.accesskey": {
-        "message": "Q"
-    },
-    "quickfilters.FromMessage.label": {
-        "message": "quickFilters: Creazione filtro dal messaggio…"
-    },
-    "quickfilters.ListButton.label": {
-        "message": "Filtri per i messaggi…"
-    },
-    "quickfilters.ListButton.tooltip": {
-        "message": "Mostra un elenco di filtri per i messaggi"
-    },
-    "quickfilters.RunButton.label": {
-        "message": "Esegui i filtri"
-    },
-    "quickfilters.RunButton.tooltip": {
-        "message": "Esegui i filtri configurati per la cartella corrente"
-    },
-    "quickfilters.RunButtonMsg.label": {
-        "message": "Filtra i messaggi selezionati"
-    },
-    "quickfilters.RunButtonMsg.tooltip": {
-        "message": "Esegui i filtri sul messaggio corrente"
-    },
-    "quickfilters.Start.label": {
-        "message": "Avvio della Procedura guidata…"
-    },
-    "quickfilters.addTag.label": {
-        "message": "Etichetta il messaggio"
-    },
-    "quickfilters.backup.archivingFilters": {
-        "message": "Sto archiviando {1} filtri"
-    },
-    "quickfilters.backup.customErrors": {
-        "message": "I filtri seguenti prevedono Azioni personalizzate che non possono essere completamente salvate. È possibile che manchi un'estensione di terze parti:"
-    },
-    "quickfilters.backup.failedFilters": {
-        "message": "Non è possibile codificare per il backup {1} filtri. Controllare il file di log degli errori per ulteriori dettagli"
-    },
-    "quickfilters.button.assistant": {
-        "message": "Attiva/disattiva la Procedura guidata…"
-    },
-    "quickfilters.button.assistant.tooltiptext": {
-        "message": "Attiva/disattiva la modalità &quot;Procedura guidata&quot;. Se questa è attiva, è sufficiente trascinare e rilasciare i messaggi per creare i filtri"
-    },
-    "quickfilters.button.bug": {
-        "message": "Debug"
-    },
-    "quickfilters.button.bug.tooltiptext1": {
-        "message": "Possibili cause: 1. Filtri che non possono essere eseguiti automaticamente 2. Cartelle destinazione non valide 3. Azioni personalizzate da convalidare"
-    },
-    "quickfilters.button.bug.tooltiptext2": {
-        "message": "4. 'Tutte'/'Anche una sola condizione' mescolate. Per la sequenza di configurazione, fare clic sul pulsante dx del mouse"
-    },
-    "quickfilters.button.cancelDuplicates.label": {
-        "message": "Annulla la ricerca dei duplicati"
-    },
-    "quickfilters.button.cancelDuplicates.tooltip": {
-        "message": "Reimposta la ricerca dei duplicati"
-    },
-    "quickfilters.button.cancelFindInFolder.label": {
-        "message": "Annulla ricerca"
-    },
-    "quickfilters.button.cancelFindInFolder.tooltip": {
-        "message": "Annulla la ricerca per cartella"
-    },
-    "quickfilters.button.clone": {
-        "message": "Clona"
-    },
-    "quickfilters.button.clone.accesskey": {
-        "message": "C"
-    },
-    "quickfilters.button.clone.tooltiptext": {
-        "message": "Clona un filtro"
-    },
-    "quickfilters.button.findDuplicates.label": {
-        "message": "Trova duplicati"
-    },
-    "quickfilters.button.findDuplicates.tooltip": {
-        "message": "Trova attributi dei duplicati"
-    },
-    "quickfilters.button.getOtherAddon": {
-        "message": "Scarica {1}"
-    },
-    "quickfilters.button.loadFilters.tooltip": {
-        "message": "Ripristino filtri…"
-    },
-    "quickfilters.button.merge": {
-        "message": "Unione"
-    },
-    "quickfilters.button.merge.accesskey": {
-        "message": "U"
-    },
-    "quickfilters.button.merge.tooltiptext": {
-        "message": "Unione di più filtri aventi la stessa azione"
-    },
-    "quickfilters.button.saveFilters.tooltip": {
-        "message": "Backup filtri…"
-    },
-    "quickfilters.button.searchProperties": {
-        "message": "Modifica i criteri di ricerca…"
-    },
-    "quickfilters.button.settings": {
-        "message": "Impostazioni di quickFilters…"
-    },
-    "quickfilters.button.sort": {
-        "message": "Ordina"
-    },
-    "quickfilters.button.sort.tooltiptext": {
-        "message": "Ordina alfabeticamente"
-    },
-    "quickfilters.button.support": {
-        "message": "Sito di supporto di quickFilters"
-    },
-    "quickfilters.clone.label": {
-        "message": "(copia)"
-    },
-    "quickfilters.clone.selectOne": {
-        "message": "Per clonare, selezionare un unico filtro"
-    },
-    "quickfilters.clone.undetermined": {
-        "message": "Non è possibile definire quale filtro sia stato selezionato"
-    },
-    "quickfilters.confirmVersionLink": {
-        "message": "Visualizzare la cronologia delle versioni di quickFilters?"
-    },
-    "quickfilters.copy.warning.emptyClipboard": {
-        "message": "Nessun filtro negli Appunti"
-    },
-    "quickfilters.copy.warning.selectFilter": {
-        "message": "Selezionare almeno un filtro"
-    },
-    "quickfilters.copy.warning.selectOtherAccount": {
-        "message": "Per incollare gli elementi, selezionare un altro account"
-    },
-    "quickfilters.copyMessage.label": {
-        "message": "Copia il messaggio in"
-    },
-    "quickfilters.createFilter.warning.canNotHaveFilters": {
-        "message": "L'account ({1}) non può avere filtri"
-    },
-    "quickfilters.createFilter.warning.minimum2Mails": {
-        "message": "Questo modello richiede almeno 2 messaggi di posta"
-    },
-    "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "L'account [{1}] di posta sorgente non può avere filtri.\nAl suo posto sto usando la cartella \"Posta in arrivo\" corrente."
-    },
-    "quickfilters.createFilter.warning.noHeaderParser": {
-        "message": "Spiacente, ma in questa versione di {1}, non è possibile creare filtri poiché non è supportata l'estrazione degli indirizzi dall'intestazione dei messaggi"
-    },
-    "quickfilters.createFilter.warning.noMessageDb": {
-        "message": "Non posso accedere al database dei messaggi della cartella {1}"
-    },
-    "quickfilters.createFilter.warning.noMessageId": {
-        "message": "Creazione del filtro non riuscita - è impossibile recuperare l'identificativo del messaggio dal primo elemento dell'elenco dei messaggi.\nÈ opportuno eseguire il comando 'Riparazione della cartella'."
-    },
-    "quickfilters.createFilter.warning.noServer": {
-        "message": "La cartella ({1}) non ha un server"
-    },
-    "quickfilters.createFilter.warning.suggestUpdate": {
-        "message": "Per disporre di questa caratteristica è necessario aggiornare a una versione più recente"
-    },
-    "quickfilters.createFromMail.inboxWarning": {
-        "message": "L'opzione 'Crea filtro da un messaggio' è tanto più utile se si è già spostata della posta in un'altra cartella o se vi si è aggiunta un'etichetta poiché quickFilters selezionerà per voi l'azione appropriata.\nSi vuol ancora creare un filtro a partire da questo messaggio?"
-    },
-    "quickfilters.createFromMail.selectWarning": {
-        "message": "Per creare un filtro, selezionare un messaggio"
-    },
-    "quickfilters.customHeader.BlindCarbonCopy": {
-        "message": "Copia Conforme Nascosta (CCN)"
-    },
-    "quickfilters.customHeader.CarbonCopy": {
-        "message": "Copia Conforme (CC)"
-    },
-    "quickfilters.customHeader.Domain": {
-        "message": "Dominio dell'indirizzo di posta elettronica"
-    },
-    "quickfilters.customHeader.Email": {
-        "message": "Indirizzo di posta elettronica"
-    },
-    "quickfilters.customHeader.FirstName": {
-        "message": "Nome"
-    },
-    "quickfilters.customHeader.From": {
-        "message": "Da"
-    },
-    "quickfilters.customHeader.LastName": {
-        "message": "Cognome"
-    },
-    "quickfilters.customHeader.ListId": {
-        "message": "List Id"
-    },
-    "quickfilters.customHeader.ListPost": {
-        "message": "List Post"
-    },
-    "quickfilters.customHeader.NamePart": {
-        "message": "Nome completo"
-    },
-    "quickfilters.customHeader.Newsgroups": {
-        "message": "Gruppi di discussione"
-    },
-    "quickfilters.customHeader.ReplyTo": {
-        "message": "Rispondi a"
-    },
-    "quickfilters.customHeader.Subject": {
-        "message": "Oggetto"
-    },
-    "quickfilters.customHeader.SubjectRegex": {
-        "message": "Espressioni regolari nell'oggetto"
-    },
-    "quickfilters.customHeader.To": {
-        "message": "A"
-    },
-    "quickfilters.customTemplate.name": {
-        "message": "Nome del modello:"
-    },
-    "quickfilters.customTemplate.title": {
-        "message": "Modello personalizzato di quickFilters"
-    },
-    "quickfilters.customVariable.label": {
-        "message": "Variabili personalizzate"
-    },
-    "quickfilters.customVariable.tooltip": {
-        "message": "Quando viene creato il fltro, queste variabili vengono rimpiazzate dalle corrispondenti intestazioni presenti nel messaggio di posta elettronica corrente"
-    },
-    "quickfilters.customfilter.replyto": {
-        "message": "Rispondi a"
-    },
-    "quickfilters.debug.fixFilters": {
-        "message": "Trovati {0} filtri che non hanno attiva l'opzione 'Scarico nuovi messaggi'. Questi filtri potenzialmente non funzionano alla ricezione dei messaggi. Correggerli?"
-    },
-    "quickfilters.debug.fixFilters.AnyAll": {
-        "message": "Trovate situazioni che mescolano 'Tutte'/'Anche una sola condizione'. Potrebbero non funzionare nel modo previsto. Debbo provvedere alla loro correzione?"
-    },
-    "quickfilters.debug.fixFilters.customActionErrors": {
-        "message": "Trovati {0} filtri con azioni personalizzate non risolte. Potrebbe mancare un'estensione di terze parti o essere necessario configurarla per supportare azioni personalizzate."
-    },
-    "quickfilters.debug.fixFilters.invalidUris": {
-        "message": "Trovati {0} filtri con cartella di destinazione non valida. Potrebbero essere stati importati da un profilo privo di corrispondenze. Alternativamente, la cartella di destinazione non esiste più o è stata spostata."
-    },
-    "quickfilters.debug.fixFilters.none": {
-        "message": "Non sono stati trovati filtri non funzionanti"
-    },
-    "quickfilters.debug.fixFilters.result": {
-        "message": "{0} filtri sono stati corretti"
-    },
-    "quickfilters.deleteFromPOP.label": {
-        "message": "Elimina dal POP server"
-    },
-    "quickfilters.deleteMessage.label": {
-        "message": "Elimina messaggio"
-    },
-    "quickfilters.fetchFromPOP.label": {
-        "message": "Scarica dal POP server"
-    },
-    "quickfilters.filters.toggleMessage.dontShow": {
-        "message": "Non mostrare più questo messaggio"
-    },
-    "quickfilters.filters.toggleMessage.notificationText": {
-        "message": "È stata avviata la Procedura guidata di creazione dei filtri. Ogni qualvolta si sposta un messaggio da una cartella di posta ad un'altra, parte la procedura guidata denominata \"Regole di creazione filtro\". #1 usa 'Filtri messaggi' per spostare automaticamente i messaggi in base a regole quali: \"Chi è il mittente?\", \"Nell'oggetto vi è una certa parola-chiave?\". Per arrestare questa modalità, fare nuovamente clic sul pulsante [Procedura guidata]"
-    },
-    "quickfilters.filters.toggleMessage.title": {
-        "message": "Modalità 'Procedura guidata'"
-    },
-    "quickfilters.findFiltersForFolder.menu": {
-        "message": "Trova filtri…"
-    },
-    "quickfilters.forwardTo.label": {
-        "message": "Inoltra il messaggio a"
-    },
-    "quickfilters.fpJsonFile": {
-        "message": "File JSON"
-    },
-    "quickfilters.ignoreSubthread.label": {
-        "message": "Ignora le sotto discussioni"
-    },
-    "quickfilters.ignoreThread.label": {
-        "message": "Ignora la discussione"
-    },
-    "quickfilters.licenseValidation.guessAddon": {
-        "message": "(La chiave inserita potrebbe essere relativa a {2})."
-    },
-    "quickfilters.markMessageRead.label": {
-        "message": "Segna come già letto"
-    },
-    "quickfilters.markMessageStarred.label": {
-        "message": "Aggiungi a Speciali"
-    },
-    "quickfilters.markMessageUnread.label": {
-        "message": "Segna come non letto"
-    },
-    "quickfilters.menu.copy": {
-        "message": "Copia"
-    },
-    "quickfilters.menu.cut": {
-        "message": "Taglia"
-    },
-    "quickfilters.menu.paste": {
-        "message": "Incolla"
-    },
-    "quickfilters.menu.removeDupeAction": {
-        "message": "Rimuovi l'azione di duplicazione"
-    },
-    "quickfilters.menu.removeDupeCondition": {
-        "message": "Rimuovi la condizione di duplicazione"
-    },
-    "quickfilters.merge.addressesOmitted": {
-        "message": "Gli indirizzi di posta elettronica sono stati omessi dalle condizioni - quickFilters disabilita il filtraggio di questi vostri indirizzi di posta elettronica:"
-    },
-    "quickfilters.merge.warning.missingAction": {
-        "message": "Impossibile definire l'azione principale del filtro:{1}"
-    },
-    "quickfilters.merge.warning.selectMismatch": {
-        "message": "Non si possono unire tutti i filtri selezionati: mancata corrispondenza con il filtro {1}"
-    },
-    "quickfilters.merge.warning.selectMismatchContinue": {
-        "message": "Deselezionare i filtri che non hanno corrispondenza e continuare?"
-    },
-    "quickfilters.merge.warning.selectMultiple": {
-        "message": "Per creare un'unione, selezionare almeno 2 filtri"
-    },
-    "quickfilters.merge.warning.selectMultiple2": {
-        "message": "Non riesco a definire il primo filtro selezionato - per creare un'unione bisogna selezionare almeno 2 filtri!"
-    },
-    "quickfilters.merge.warning.selectTarget": {
-        "message": "Per creare un'unione, bisogna selezionare un 'filtro destinazione'"
-    },
-    "quickfilters.move.selectOne": {
-        "message": "Selezionare un unico filtro"
-    },
-    "quickfilters.moveMessage.label": {
-        "message": "Sposta il messaggio in"
-    },
-    "quickfilters.notification.donate": {
-        "message": "Dona"
-    },
-    "quickfilters.notification.dontShowAgain": {
-        "message": "Non mostrare più questo messaggio"
-    },
-    "quickfilters.notification.premium.btn.extendLicense": {
-        "message": "Estendi licenza"
-    },
-    "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-        "message": "Questa modalità proroga di un anno la scadenza dell'attuale licenza, il che risulta economicamente più conveniente rispetto a sottoscrivere una nuova licenza"
-    },
-    "quickfilters.notification.premium.btn.getLicense": {
-        "message": "Acquista la licenza!"
-    },
-    "quickfilters.notification.premium.btn.hotKey": {
-        "message": "L"
-    },
-    "quickfilters.notification.premium.btn.renewLicense": {
-        "message": "Rinnova la licenza"
-    },
-    "quickfilters.notification.premium.text": {
-        "message": "{1} è una caratteristica della versione Premium. Registrare quickFilters per poterla usare permanentemente."
-    },
-    "quickfilters.notification.premium.title": {
-        "message": "Caratteristica della versione Premium"
-    },
-    "quickfilters.notification.proFeature.notificationText": {
-        "message": "La caratteristica {1} è di tipo Premium. Se la si usa regolarmente, si consideri una donazione in favore dello sviluppo di quickFilters entro quest'anno"
-    },
-    "quickfilters.notification.proFeature.title": {
-        "message": "Caratteristica della versione Premium"
-    },
-    "quickfilters.notification.register": {
-        "message": "Registra {1}"
-    },
-    "quickfilters.option.searchProperty.addTag": {
-        "message": "Aggiungi etichetta"
-    },
-    "quickfilters.option.searchProperty.name": {
-        "message": "Nome"
-    },
-    "quickfilters.option.searchProperty.replyWithTemplate": {
-        "message": "Rispondi con un modello"
-    },
-    "quickfilters.option.searchProperty.searchCondition": {
-        "message": "Condizioni di ricerca (Testo)"
-    },
-    "quickfilters.option.searchProperty.setCustomStringAction": {
-        "message": "Azioni che modificano le stringhe"
-    },
-    "quickfilters.option.searchProperty.targetFolder": {
-        "message": "Cartella destinazione"
-    },
-    "quickfilters.premium.renewLicense.tooltip": {
-        "message": "La licenza è scaduta {1} giorni fa"
-    },
-    "quickfilters.premium.title.customTemplate": {
-        "message": "Modelli personalizzati"
-    },
-    "quickfilters.premium.title.duplicatesFinder": {
-        "message": "Trova duplicati"
-    },
-    "quickfilters.premium.title.searchFolder": {
-        "message": "Cerca filtri della cartella"
-    },
-    "quickfilters.premium.title.sortFilters": {
-        "message": "Ordinamento filtri"
-    },
-    "quickfilters.prompt.contact.subject": {
-        "message": "Inserisci una breve motivazione:"
-    },
-    "quickfilters.prompt.contact.title": {
-        "message": "Contatta il supporto di quickFilters"
-    },
-    "quickfilters.prompt.copiedCustomVar": {
-        "message": "Incollare in un termine di ricerca la variabile {1} copiata negli Appunti"
-    },
-    "quickfilters.prompt.createCustomHeader": {
-        "message": "Aggiungere il termine '{1}' come intestazione personalizzata da usare in un filtro"
-    },
-    "quickfilters.prompt.customTemplateName": {
-        "message": "Nome del modello personalizzato:"
-    },
-    "quickfilters.promptDontRepeat": {
-        "message": "Non mostrare più questo avviso"
-    },
-    "quickfilters.register.licenseValid.expired": {
-        "message": "La licenza scadrà il giorno:"
-    },
-    "quickfilters.replyWithTemplate.label": {
-        "message": "Rispondi con un modello"
-    },
-    "quickfilters.runFiltersOnMails.notify": {
-        "message": "Applica i filtri ai messaggi selezionati…"
-    },
-    "quickfilters.runMultiFilterInFolder.status": {
-        "message": "Sto eseguendo {0} filtri nella cartella {1}"
-    },
-    "quickfilters.runSingleFilterInFolder.status": {
-        "message": "Sto eseguendo il filtro '{0}' nella cartella {1}"
-    },
-    "quickfilters.runningFiltersOnFolder.notify": {
-        "message": "Esegui filtri sulla cartella '{1}'…"
-    },
-    "quickfilters.search.warning.noresults": {
-        "message": "Nessun filtro ha per obbiettivo questa cartella"
-    },
-    "quickfilters.setJunkScore.label": {
-        "message": "Applica lo stato di Indesiderato"
-    },
-    "quickfilters.setPriority.label": {
-        "message": "Imposta priorità a"
-    },
-    "quickfilters.sort": {
-        "message": "Ordinare"
-    },
-    "quickfilters.sort.tooltip": {
-        "message": "Ordina i termini di ricerca"
-    },
-    "quickfilters.sort.warning.selectMultiple": {
-        "message": "Per ordinarli alfabeticamente, selezionare almeno 2 filtri"
-    },
-    "quickfilters.stopExecution.label": {
-        "message": "Interrompi l'esecuzione dei filtri"
-    },
-    "quickfilters.warning.templateNameNotUnique": {
-        "message": "Un modello con questo nome esiste già! Il nome deve essere univoco."
-    },
-    "quickfilters.watchThread.label": {
-        "message": "Tieni d'occhio la discussione"
-    },
-    "quickfiltersToolbarButton.label": {
-        "message": "Procedura guidata di quickFilters"
-    },
-    "quickfiltersToolbarButton.tooltip": {
-        "message": "Attiva la Procedura guidata"
-    },
-    "renew-your-license": {
-        "message": "Renouvelez votre licence."
-    },
-    "special-offer-content": {
-        "message": "Questa è la migliore opportunità per ottenere una licenza in quanto vi è una {boldStart} riduzione del 30% {boldEnd} sul prezzo di una licenza quickFilters Pro per celebrare i 9 anni di quickFilters! Questa offerta speciale sarà disponibile fino al {boldStart} 16 aprile {boldEnd}."
-    },
-    "special-offer-head": {
-        "message": "Aiuta quickFilters a continuare!"
-    },
-    "special-offer-intro": {
-        "message": "{boldStart} Gentile {name} {boldEnd}, ora puoi aiutare quickFilters a prova di futuro. Sono in arrivo altri grandi cambiamenti su Thunderbird e ho bisogno del tuo {boldStart} del tuo aiuto {boldEnd} per stare al passo!"
-    },
-    "support-preference": {
-        "message": "Questo è il modo migliore per supportare $addonName$.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "support-suggestion": {
-        "message": "Affinché $addonName$ rimanga funzionante e attivo, ti preghiamo di fare un favore fondamentale:",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "testDrive": {
-        "message": "È possibile provare le caratteristiche della versione Premium usando la versione gratuita di quickFilters. Le funzionalità però sono leggermente ridotte."
-    },
-    "thanks-for-installing-intro": {
-        "message": "Grazie per aver installato $addonName$.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "thanks-for-updating-intro": {
-        "message": "Grazie per aver aggiornato $addonName$.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "time-and-effort": {
-        "message": "$addonName$ richiede modifiche continue per rimanere compatibile con la piattaforma Mozilla. Lavoro costantemente per mantenere il maggior numero di funzionalità possibile per le future versioni di Thunderbird.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "translated-by-google": {
-        "description": "disclaimer.",
-        "message": "traduzioni fornite da google"
-    },
-    "updates.title": {
-        "message": "Aggiornamenti"
-    },
-    "updatesExpiry": {
-        "message": "quickFilters Pro viene automaticamente aggiornato tramite addons.thunderbird.net. È possibile rinnovare la licenza alla scadenza annuale o decidere di mantenere l'uso delle caratteristiche della versione Premium alle stesse condizioni degli utilizzatori della versione gratuita. Le caratteristiche 'Premium exclusive' richiedono una chiave di registrazione valida."
-    },
-    "version": {
-        "message": "Versione:"
-    },
-    "vouchers.title": {
-        "message": "Buoni"
-    },
-    "whats-new-btn": {
-        "message": "Cosa c'è di nuovo?"
-    },
-    "whats-new-head": {
-        "message": "Punti salienti"
-    },
-    "whats-new-intro": {
-        "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
-    },
-    "whats-new-list": {
-        "message": "{L1} Nuova funzione: ordina i termini di ricerca in un filtro (funzione Pro). {L2} {L1} Ricorda l'elenco dei filtri copiati da inserire in più account (funzione Pro). {L2} {L1} Risolto il problema dei termini di ricerca duplicati durante l'unione filtri. {L2} {L1} Varie correzioni per la compatibilità con Thunderbird 88. {L2}{L1} 5.2.1 - pulsante di ordinamento rimosso dai modelli di filtri personalizzati {L2} {L1} 5.2.1 - Traduzioni in russo migliorate di Igor Zhigunov aka incenerite {L2}"
-    },
-    "window-title": {
-        "description": "page title. first placeholder will be replaced with Add-on name",
-        "message": "Benvenuto in $addonName$",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "yearlyLicense.premiumFeatures": {
-        "message": "quickFilters Pro consente un accesso completo alle caratteristiche della versione Premium."
-    },
-    "yearlyLicense.premiumFeatures.moreInfoLink": {
-        "message": "Informazioni addizionali sulle caratteristiche della versione Premium."
-    },
-    "yearlyLicense.title": {
-        "message": "Licenza annuale"
-    },
-    "yearlyLicense.usageTerm": {
-        "message": "La licenza è per uso personale ed è collegata all'indirizzo di posta elettronica. È possibiile utilizzarla in molteplici installazioni di client di posta elettronica, sempre che questi siano configurati per utilizzare tale indirizzo di email."
-    },
-    "yearlyLicense.usageTerm1": {
-        "message": "Eventuali indirizzi di posta elettronica addizionali non richiedono ulteriori licenze. Per qualsiasi problema potete contattarmi tramite la scheda di supporto."
+  "_l10nstatus": {
+    "message": "SPLASH+UI"
+  },
+  "about": {
+    "message": "Info"
+  },
+  "account.label": {
+    "message": "Seleziona un account:"
+  },
+  "active-version-info": {
+    "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "Stai ora eseguendo la {boldStart} versione $addonVer$ {boldEnd} su Thunderbird $appVer$.",
+    "placeholders": {
+      "addonVer": {
+        "content": "$1",
+        "example": "Version 1.1"
+      },
+      "appVer": {
+        "content": "$2",
+        "example": "78.0b4"
+      }
     }
+  },
+  "addon-authors-struggle": {
+    "message": "Per continuare ad essere utili, noi sviluppatori di componenti aggiuntivi dobbiamo ora finanziare le risorse necessarie per correggere e riscrivere in modo che i nostri utenti possano continuare a beneficiare delle funzionalità che forniamo."
+  },
+  "btn-extend-license": {
+    "message": "Voglio estendere la mia licenza di un anno"
+  },
+  "btn-renew-license": {
+    "message": "Voglio rinnovare la mia licenza"
+  },
+  "btn-want-a-license": {
+    "message": "Voglio acquistare una licenza"
+  },
+  "btn-want-to-donate": {
+    "message": "Voglio aiutare con una donazione una tantum."
+  },
+  "buyDomainLicense.button": {
+    "message": "Acquista una licenza di dominio"
+  },
+  "buyDomainLicense.instruct": {
+    "message": "Avete bisogno di una licenza per un'azienda con più di cinque utilizzatori? Se acquisite una licenza di dominio ciò risulterà più conveniente:"
+  },
+  "buyLicense.instruct": {
+    "message": "Avete bisogno di una licenza solo per voi stessi? Acquisite una licenza per uso personale. Essa viene collegata ad un vostro account di posta elettronica e può essere utilizzata per installazioni multiple."
+  },
+  "buyPersonalLicense.button": {
+    "message": "Acquista una licenza personale"
+  },
+  "chkAfterJunk.label": {
+    "message": "Dopo aver discriminato lo spam"
+  },
+  "chkAfterSending.label": {
+    "message": "Dopo l'invio"
+  },
+  "chkAlphabetic.label": {
+    "message": "Inserimento  dei nuovi filtri in ordine alfabetico"
+  },
+  "chkAlphabetic.tooltip": {
+    "message": "Utilizza l'iniziale del nome del filtro per definirne la posizione relativa. È utile nel caso della regola di denominazione della cartella di livello superiore. Attenzione: in questo modo si influenza l'ordine di esecuzione dei filtri!"
+  },
+  "chkAutoClose.accesskey": {
+    "message": "D"
+  },
+  "chkAutoClose.label": {
+    "message": "Dopo aver creato un filtro esci dalla procedura guidata"
+  },
+  "chkAutoRun.label": {
+    "message": "Quando arrivano nuovi messaggi"
+  },
+  "chkAutoStart.accesskey": {
+    "message": "A"
+  },
+  "chkAutoStart.label": {
+    "message": "Attiva automaticamente la procedura guidata"
+  },
+  "chkCurrentToolbar.btn.FilterList.label": {
+    "message": "Mostra elenco filtri"
+  },
+  "chkCurrentToolbar.btn.FindFilter.label": {
+    "message": "Trova i filtri per la cartella"
+  },
+  "chkCurrentToolbar.btn.FindFilter.tooltip": {
+    "message": "Trova i filtri che spostano i messaggi in questa cartella"
+  },
+  "chkCurrentToolbar.btn.RunOnFolder.label": {
+    "message": "Esegue filtri sulla cartella"
+  },
+  "chkCurrentToolbar.btn.RunOnMessages.label": {
+    "message": "Esegue filtri sui messaggi selezionati"
+  },
+  "chkDebug.accesskey": {
+    "message": "M"
+  },
+  "chkDebug.label": {
+    "message": "Modalità di debug"
+  },
+  "chkImapOnRead.label": {
+    "message": "Esegui i filtri anche sui messaggi letti di account IMAP"
+  },
+  "chkInsertRulesAtTop.label": {
+    "message": "Aggiunge nuove regole in cima alla lista"
+  },
+  "chkLocalFoldersAutorun.label": {
+    "message": "Esecuzione automatica dei filtri sulla Posta in arrivo delle Cartelle locali"
+  },
+  "chkMergeAuto.label": {
+    "message": "Seleziona automaticamente Unione"
+  },
+  "chkMergeAuto.tooltip": {
+    "message": "Se esiste già un filtro, questa opzione seleziona automaticamente la modalità unione e il primo filtro corrispondente"
+  },
+  "chkMergeSkip.label": {
+    "message": "Salta al passaggio 'Tipologia'"
+  },
+  "chkMergeSkip.tooltip": {
+    "message": "Questa opzione salta il passaggio 'Seleziona destinazione unione' e va direttamente a 'Seleziona tipologia'"
+  },
+  "chkPeriodically.label": {
+    "message": "Esegui periodicamente"
+  },
+  "chkPeriodically.tooltip": {
+    "message": "Esegue il filtro a intervalli regolari"
+  },
+  "chkRunManual.label": {
+    "message": "Esegui in modalità manuale"
+  },
+  "chkShowEditor.label": {
+    "message": "Dopo la creazione di un filtro apri l'editor"
+  },
+  "chkShowList.label": {
+    "message": "Dopo la creazione di un filtro mostra l'intero elenco"
+  },
+  "chkShowList.tooltip": {
+    "message": "Mostra l'intero elenco per eseguire il nuovo filtro su tutti i messaggi a scopo di test"
+  },
+  "chkToolbar.accesskey": {
+    "message": "B"
+  },
+  "chkToolbar.label": {
+    "message": "Visualizza la barra degli strumenti nel Gestore dei filtri"
+  },
+  "chkWhenArchiving.label": {
+    "message": "Quando si sta archiviando"
+  },
+  "cost-of-independence": {
+    "message": "Lo sviluppo del software costa tempo e denaro: a differenza di molte app della piattaforma, i componenti aggiuntivi non sono scritti da grandi aziende, né sono sponsorizzati in alcun modo da Mozilla."
+  },
+  "createdBy": {
+    "message": "Creato da:"
+  },
+  "domainLicense.email": {
+    "message": "Vi contatteremo usando questo indirizzo di posta elettronica per generare la vostra licenza di dominio; lo faremo entro due giorni lavorativi. Nella pagina successiva, inserire il nome del dominio da collegare alla licenza."
+  },
+  "domainLicense.header": {
+    "message": "Dominio degli indirizzi di email collegati alla licenza"
+  },
+  "domainLicense.instruct": {
+    "message": "La licenza è collegata al dominio della vostra azienda. La licenza consente agli utenti con indirizzo di posta elettronica appartenente al dominio aziendale l'utilizzo di quickFilters Pro. Per esempio, se alla licenza viene collegato il nome di dominio 'xyz.it', utenti con indirizzo di posta elettronica quale: gianni@xyz.it, marta@xyz.it, michele@xyz.it ecc… possono usufruire della licenza. Il massimo numero di singoli utenti validi corrisponde al numero che è stato introdotto nella schermata iniziale."
+  },
+  "domainLicense.validate": {
+    "message": "Bisogna fare molta attenzione ad inserire *esattamente* il nome di dominio dell'azienda (cioè la parte *dopo* il segno @ [at]) dell'indirizzo di posta elettronica). Infatti questa stringa sarà utilizzata da quickFilters Pro per autorizzare gli indirizzi di posta elettronica degli utenti della vostra azienda."
+  },
+  "donate": {
+    "message": "Aiutaci con una donazione una tantum."
+  },
+  "donate-heading": {
+    "message": "Aiuta donando!"
+  },
+  "donate.label": {
+    "message": "Dona"
+  },
+  "email.label": {
+    "message": "Email:"
+  },
+  "enterLicenseKey.button": {
+    "message": "Inserire la chiave della licenza…"
+  },
+  "enterLicenseKey.tooltip": {
+    "message": "Inserire il codice della chiave della licenza inviato per posta elettronica"
+  },
+  "extend-your-license": {
+    "message": "Valuta di estendere la tua licenza di un anno."
+  },
+  "extensionDescription": {
+    "description": "Description of the extension.",
+    "message": "Genera rapidamente regole di filtro della posta al volo, trascinando e rilasciando i messaggi e analizzando i loro attributi."
+  },
+  "extensionName": {
+    "description": "Name of the extension.",
+    "message": "quickFilters"
+  },
+  "extensions.quickfilters.description": {
+    "message": "Genera al volo dei filtri per i messaggi trascinandoli e rilasciandoli e analizzandone gli attributi"
+  },
+  "firstName.label": {
+    "message": "Nome:"
+  },
+  "freeLicense": {
+    "message": "Se si è effettuata recentemente una donazione a favore del progetto quickFilters o se si è dato un contributo al suo sviluppo (per esempio traducendolo o creando delle patch), si è idonei a ricevere una chiave di registrazione gratuita. Contattatemi tramite la scheda 'Supporto' presente nelle Opzioni di quickFilters."
+  },
+  "getquickFilters": {
+    "message": "Acquista quickFilters Pro"
+  },
+  "grpMerge.label": {
+    "message": "Regole Unione"
+  },
+  "heading-installed": {
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ installato con successo",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "heading-updated": {
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ aggiornato con successo",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "homepage": {
+    "message": "Sito web:"
+  },
+  "intro": {
+    "message": "Una licenza annuale di quickFilters Pro consente l'accesso a tutte le caratteristiche della versione Premium per il periodo di un anno. Inoltre favorisce il supporto e l'ulteriore sviluppo del prodotto, così da renderlo ancor più completo."
+  },
+  "label-remind-me": {
+    "message": "Ricordamelo di nuovo tra $countDays$ giorni.",
+    "placeholders": {
+      "countDays": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "lastName.label": {
+    "message": "Cognome:"
+  },
+  "license-is-extended": {
+    "description": "Shown if license expires more than a year from now",
+    "message": "Grazie per aver recentemente esteso la tua licenza o se hai donato. Poiché hai contribuito a rendere questo componente aggiuntivo a prova di futuro, puoi semplicemente chiudere questa finestra."
+  },
+  "licenseWindow.title": {
+    "message": "Licenza di quickFilters Pro"
+  },
+  "mozillas-basic-platform": {
+    "message": "Mozilla fornisce solo una piattaforma di base per fornire il nostro software a voi, utenti finali. Se abbiamo bisogno di chiedere ai nostri utenti il pagamento o il supporto non possiamo farlo da addons.thunderbird.net - non è un 'app store' con paywall integrati o gestione delle licenze come iTunes o Google Play."
+  },
+  "notificationTitle": {
+    "description": "Title of the click notification.",
+    "message": "Click notification"
+  },
+  "ongoing-work": {
+    "message": "Le modifiche per convertire $addonName$ nel nuovo modello di programmazione hanno richiesto settimane ed erano costose. Ci sono molte altre modifiche per la prossima versione del 2022. Con un add-on complesso come questo, il lavoro costoso diventa inevitabile. Per favore aiutaci con questo.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "pane1.title": {
+    "message": "Opzioni di quickFilters"
+  },
+  "prefwindow.title": {
+    "message": "Preferenze di quickFilters"
+  },
+  "purchase-a-license": {
+    "message": "Acquista una licenza."
+  },
+  "purchase-heading": {
+    "message": "Acquisto di una licenza!"
+  },
+  "qf.button.createFilter": {
+    "message": "Crea nuovo filtro…"
+  },
+  "qf.button.editFilter": {
+    "message": "Modifica filtro…"
+  },
+  "qf.button.merge": {
+    "message": "Unione"
+  },
+  "qf.button.next": {
+    "message": "Successivo"
+  },
+  "qf.button.pasteLicense": {
+    "message": "Incolla"
+  },
+  "qf.button.reorderButtonBottom": {
+    "message": "Ultimo"
+  },
+  "qf.button.reorderButtonBottom.accessKey": {
+    "message": "U"
+  },
+  "qf.button.reorderButtonBottom.toolTip": {
+    "message": "Esecuzione del filtro selezionato per ultimo"
+  },
+  "qf.button.reorderButtonTop": {
+    "message": "Primo"
+  },
+  "qf.button.reorderButtonTop.accessKey": {
+    "message": "P"
+  },
+  "qf.button.reorderButtonTop.toolTip": {
+    "message": "Esecuzione del filtro selezionato per primo"
+  },
+  "qf.button.targetSelected": {
+    "message": "Filtro 'destinazione' selezionato"
+  },
+  "qf.button.validateLicense": {
+    "message": "Convalida"
+  },
+  "qf.check.createNew": {
+    "message": "Crea un nuovo filtro"
+  },
+  "qf.check.mergeWithExisting": {
+    "message": "Unione con un filtro esistente:"
+  },
+  "qf.cloned.label": {
+    "message": "Accoda al nome del filtro clonato:"
+  },
+  "qf.continueFilter.label": {
+    "message": "Crea filtro…"
+  },
+  "qf.continueFilter.shortcut": {
+    "message": "F"
+  },
+  "qf.description.about": {
+    "message": "Una rapida descrizione di quickFilters è disponibile nel sito:"
+  },
+  "qf.description.contactMe": {
+    "message": "Puoi anche contattarmi personalmente all'indirizzo $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "qf.description.currentFolderButtons": {
+    "message": "Questa opzione è utilizzabile solo se si sta usando anche l'estensione QuickFolders che aggiunge una piccola barra degli strumenti in cima al riquadro di anteprima del messaggio"
+  },
+  "qf.description.mergeAddInstructions": {
+    "message": "Tutti gli altri filtri di questo elenco entreranno a far parte di questo e saranno poi cancellati."
+  },
+  "qf.description.mergeAddSummary": {
+    "message": "Selezionare il filtro che erediterà le proprietà degli altri."
+  },
+  "qf.description.mergeInstructions": {
+    "message": "È possibile espandere uno di questi filtri o crearne uno di completamente nuovo."
+  },
+  "qf.description.mergeSummary": {
+    "message": "La procedura guidata di quickFilters ha trovato dei filtri che svolgono già la stessa azione."
+  },
+  "qf.description.selectToExtend": {
+    "message": "Selezionare un filtro da espandere con nuove regole"
+  },
+  "qf.donate.tooltip": {
+    "message": "Supporta lo sviluppo di quickFilters!"
+  },
+  "qf.filterlist.group": {
+    "message": "Funzioni elenco filtri"
+  },
+  "qf.filterlist.multipaste": {
+    "message": "Abilita i filtri copia e incolla su più account"
+  },
+  "qf.filters.actions.caption": {
+    "message": "Azioni"
+  },
+  "qf.filters.actions.flag": {
+    "message": "Contrassegnato"
+  },
+  "qf.filters.actions.flag.accesskey": {
+    "message": "C"
+  },
+  "qf.filters.actions.priority": {
+    "message": "Priorità"
+  },
+  "qf.filters.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "qf.filters.actions.star": {
+    "message": "Speciale"
+  },
+  "qf.filters.actions.star.accesskey": {
+    "message": "S"
+  },
+  "qf.filters.actions.tag": {
+    "message": "Etichetta"
+  },
+  "qf.filters.actions.tag.accesskey": {
+    "message": "E"
+  },
+  "qf.filters.actions.targetFolder": {
+    "message": "Cartella destinazione"
+  },
+  "qf.filters.actions.tooltip": {
+    "message": "Il filtro copia questi attributi dal messaggio originale"
+  },
+  "qf.filters.instructions": {
+    "message": "Selezionare una tipologia. Nella schermata successiva si possono mettere a punto le regole del filtro"
+  },
+  "qf.filters.steps.autoRunFilter": {
+    "message": "Esegui automaticamente"
+  },
+  "qf.filters.steps.autoRunFilter.tooltip": {
+    "message": "Dopo la creazione, esegue automaticamente il filtro sulla cartella 'Posta in arrivo' di provenienza"
+  },
+  "qf.filters.steps.caption": {
+    "message": "Passi successivi"
+  },
+  "qf.filters.steps.showEditor": {
+    "message": "Regole del filtro"
+  },
+  "qf.filters.steps.showEditor.tooltip": {
+    "message": "Consente la modifica dei dettagli del filtro dopo la sua crezione mediante Procedura guidata"
+  },
+  "qf.filters.steps.showList": {
+    "message": "Elenco filtri"
+  },
+  "qf.filters.steps.showList.tooltip": {
+    "message": "Visualizza il filtro nel contesto così da poterlo testare"
+  },
+  "qf.filters.steps.tooltip": {
+    "message": "Quali schermate mostrare dopo la creazione del filtro"
+  },
+  "qf.filters.template.custom.description": {
+    "message": "Filtro personalizzato il cui comportamento è definito dall'utente. Usa variabili quali: %from% %to% %subject% ecc…"
+  },
+  "qf.filters.template.domain": {
+    "message": "Basato sul dominio del mittente"
+  },
+  "qf.filters.template.domain.description": {
+    "message": "Analogo al tipo 'Basato sul mittente' in cui però combacia solo il dominio dell'indirizzo di posta elettronica del mittente (per es. @xyz.com)"
+  },
+  "qf.filters.template.from": {
+    "message": "Basato sul mittente (Mittente/Da:)"
+  },
+  "qf.filters.template.from.description": {
+    "message": "Questo tipo di filtro è probabilmente il più usato: preleva l'indirizzo di posta elettronica del mittente e lo incolla nei campi \"Mittente/Da:\" e \"A:\" delle regole del filtro. In tal modo tutta la corrispondenza con quel mittente viene trasferita nella nuova cartella."
+  },
+  "qf.filters.template.list.description": {
+    "message": "Simile al tipo 'Basato sul mittente': in questa modalità però il campo 'A:' delle regole del filtro non viene riempito."
+  },
+  "qf.filters.template.maillist": {
+    "message": "Liste di distribuzione"
+  },
+  "qf.filters.template.maillist.description": {
+    "message": "Utile per liste di distribuzione con \"List-Id\". Se questo non è configurato, al suo posto verrà usato l'indirizzo del mittente"
+  },
+  "qf.filters.template.multifrom": {
+    "message": "Gruppo (raccoglie i mittenti di più messaggi)"
+  },
+  "qf.filters.template.multifrom.description": {
+    "message": "Usare questo tipo per trascinare più messaggi di posta e aggiungere tutti i mittenti come condizioni del filtro (con esclusione dei propri indirizzi di posta elettronica)"
+  },
+  "qf.filters.template.replyto": {
+    "message": "Basato sul campo 'Rispondi a'"
+  },
+  "qf.filters.template.replyto.description": {
+    "message": "Questo filtro è basato sul campo 'Rispondi a'."
+  },
+  "qf.filters.template.tag": {
+    "message": "Per etichetta"
+  },
+  "qf.filters.template.tag.description": {
+    "message": "Questo tipo utilizza come regola per la creazione del filtro le etichette con cui si possono contrassegnare i messaggi."
+  },
+  "qf.filters.template.to": {
+    "message": "Basato sul destinatario (A:)"
+  },
+  "qf.filters.template.to.description": {
+    "message": "Simile al tipo 'Basato sul mittente': selezionando un messaggio inviato ad un destinatario, viene prelevato l'indirizzo di posta elettronica di quest'ultimo che viene incollato nei campi 'Mittente/Da:' e 'A:' delle regole del filtro. In tal modo tutta la corrispondenza con quel contatto viene trasferita nella nuova cartella."
+  },
+  "qf.filters.template.topic": {
+    "message": "Per oggetto"
+  },
+  "qf.filters.template.topic.description": {
+    "message": "Questa modalità cerca nel campo 'Oggetto' particolari espressioni comprese fra parentesi quadre o graffe, per esempio [collezionisti di francobolli] o {vegani} e crea un filtro basato su di esse; usando questo tipo di filtro è facile riorganizzare una gran quantità di messaggi."
+  },
+  "qf.filters.templates.description.label": {
+    "message": "Descrizione:"
+  },
+  "qf.filters.title": {
+    "message": "Creazione filtri"
+  },
+  "qf.grp.whenToRun": {
+    "message": "Applica filtro"
+  },
+  "qf.label.aboutLink": {
+    "message": "Sito web di quickFilters…"
+  },
+  "qf.label.cancel": {
+    "message": "Annulla"
+  },
+  "qf.label.contactLink": {
+    "message": "Contattami (in lingua inglese o tedesca)…"
+  },
+  "qf.label.currentFolderButtons": {
+    "message": "Barra degli strumenti della cartella corrente di QuickFolders"
+  },
+  "qf.label.donate": {
+    "message": "Dona"
+  },
+  "qf.label.filterCountN_of_M": {
+    "message": "{0} di {1}"
+  },
+  "qf.label.filterEntities": {
+    "message": "elementi"
+  },
+  "qf.label.filterSingleEntity": {
+    "message": "1 elemento"
+  },
+  "qf.label.haveLicense": {
+    "message": "Avete già una licenza?"
+  },
+  "qf.label.insertLicense": {
+    "message": "Inserire qui la propria chiave di licenza:"
+  },
+  "qf.label.insertLicense.tooltip": {
+    "message": "La chiave di licenza è contenuta nel messaggio di email di conferma dell'ordine proveniente da Fastspring."
+  },
+  "qf.label.licenseValid": {
+    "message": "La licenza è valida fino a:"
+  },
+  "qf.label.naming": {
+    "message": "Regole di denominazione"
+  },
+  "qf.label.naming.folderDelimiter": {
+    "message": "Delimitatore:"
+  },
+  "qf.label.naming.keyWord": {
+    "message": "Aggiunge alla regola una parola-chiave specifica"
+  },
+  "qf.label.naming.keyWord.accesskey": {
+    "message": "C"
+  },
+  "qf.label.naming.parentFolder": {
+    "message": "Aggiungi alla regola il nome della cartella di livello superiore"
+  },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "S"
+  },
+  "qf.label.premiumFeaturesSite": {
+    "message": "Maggiori informazioni sulle Caratteristiche Premium sul nostro sito web"
+  },
+  "qf.label.quickfilters": {
+    "message": "quickFilters"
+  },
+  "qf.label.shortcut.runFolder": {
+    "message": "Scorciatoia per eseguire i filtri sulla cartella: Maiusc +"
+  },
+  "qf.label.shortcut.runMails": {
+    "message": "Scorciatoia per eseguire i filtri sui messaggi selezionati: Maiusc +"
+  },
+  "qf.label.supportWithLicense": {
+    "message": "Supporta quickFilters acquistando una licenza!"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "La chiave di licenza inserita è scaduta. Premere il pulsante sottostante per rinnovare la licenza."
+  },
+  "qf.licenseValidation.failed": {
+    "message": "La chiave di licenza inserita non è valida. Controllare il messaggio di email proveniente da FastSpring per avere istruzioni al riguardo. Se permanessero dei problemi, contattatemi tramite la scheda 'Supporto'."
+  },
+  "qf.licenseValidation.invalidAddon": {
+    "message": "La chiave di licenza inserita potrebbe essere relativa a un'altra estensione. Le chiavi di licenza per {0} iniziano con  {1}."
+  },
+  "qf.licenseValidation.invalidMail": {
+    "message": "L'indirizzo di posta elettronica collegato alla chiave di licenza [{1}] non è attualmente presente tra gli account. Per avere assistenza, contattatemi tramite la scheda 'Supporto'."
+  },
+  "qf.licenseValidation.notMatchedMail": {
+    "message": "L'indirizzo di posta elettronica crittografato non corrisponde a quello in chiaro"
+  },
+  "qf.licenseValidation.passed": {
+    "message": "Grazie di aver registrato quickFilters Pro. Tutte le caratteristiche della versione Premium sono ora disponibili."
+  },
+  "qf.listener.tags": {
+    "message": "Percepisci eventuali modifiche alle etichette"
+  },
+  "qf.listener.tags.autofilter": {
+    "message": "Esegui i filtri automaticamente quando le etichette vengono modificate"
+  },
+  "qf.listener.tags.tooltip": {
+    "message": "Se questa opzione è attiva, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio."
+  },
+  "qf.notify.filterCreated": {
+    "message": "Creato con successo il nuovo filtro '{0}'"
+  },
+  "qf.notify.filterMergeUpdated": {
+    "message": "Aggiornato con successo il filtro '{0}'"
+  },
+  "qf.onewayaddress.label": {
+    "message": "Disabilita il criterio di ricerca 'A due vie' degli indirizzi"
+  },
+  "qf.onewayaddress.tooltip": {
+    "message": "In modalità predefinita, quickFilters usa sia il criterio di ricerca &quot;Mittente/Da:&quot; sia &quot;Destinatario/A:&quot; per filtrare completamente i messaggi relativi ad un certo argomento, ivi compresi i propri messaggi spediti al destinatario. Se però si vogliono mantenere le proprie risposte nella cartella 'Posta inviata', utilizzando questa opzione si può disabilitare tale comportamento. È anche possibile usare l'estensione 'Copy Sent to Current' per mantenere le risposte assieme ai messaggi che le hanno originate."
+  },
+  "qf.options.versionnumber.tooltip": {
+    "message": "Per visualizzare la cronologia delle versioni fare clic col pulsante destro del mouse"
+  },
+  "qf.premiumConfig": {
+    "message": "Caratteristiche Premium"
+  },
+  "qf.tab.actions": {
+    "message": "Azioni"
+  },
+  "qf.tab.advanced": {
+    "message": "Avanzate"
+  },
+  "qf.tab.gopro": {
+    "message": "quickFilters Pro"
+  },
+  "qf.tab.newFilterProps": {
+    "message": "Proprietà del nuovo filtro"
+  },
+  "qf.tab.options": {
+    "message": "Opzioni"
+  },
+  "qf.tab.support": {
+    "message": "Supporto"
+  },
+  "qf.templates.advanced": {
+    "message": "Modelli avanzati"
+  },
+  "qf.templates.customTemplate.edit": {
+    "message": "Modifica…"
+  },
+  "qf.templates.customTemplate.label": {
+    "message": "Modelli personalizzati"
+  },
+  "qf.templates.customTemplate.new": {
+    "message": "Crea nuovo…"
+  },
+  "qf.templates.customTemplate.tooltip": {
+    "message": "Consente di generare modelli personalizzati (vedi descrizione bug per i dettagli)"
+  },
+  "qf.templates.replyTo.label": {
+    "message": "Modello 'Rispondi a'"
+  },
+  "qf.templates.replyTo.tooltip": {
+    "message": "Visualizza il modello 'Rispondi a' (vedi descrizione bug per i dettagli)"
+  },
+  "qf.textbox.searchBox.emptyText": {
+    "message": "Cerca i filtri per nome…"
+  },
+  "qf.textbox.searchBox.toolTip": {
+    "message": "Inserire una parola-chiave per cercare i filtri per nome"
+  },
+  "qf.tooltip.naming.folderDelimiter": {
+    "message": "Carattere inserito fra la cartella di livello superiore e il nome"
+  },
+  "qf.youtube.description": {
+    "message": "Per informazioni dettagliate sulle estensioni di Thunderbird e per visualizzare dei video su come usare quickFilters, visitare il mio canale YouTube"
+  },
+  "qf.youtube.link": {
+    "message": "Guarda i video su quickFilters su Thunderbird Daily…"
+  },
+  "qf.youtube.tbdaily": {
+    "message": "Per trovare suggerimenti e una guida introduttiva a quickFilters visitare il canale YouTube &quot;Thunderbird Daily&quot;"
+  },
+  "quickfilters.FilterAssistant.start": {
+    "message": "Avvia la Procedura guidata…"
+  },
+  "quickfilters.FilterAssistant.stop": {
+    "message": "Arresta la Procedura guidata"
+  },
+  "quickfilters.FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "quickfilters.FromMessage.label": {
+    "message": "quickFilters: Creazione filtro dal messaggio…"
+  },
+  "quickfilters.ListButton.label": {
+    "message": "Filtri per i messaggi…"
+  },
+  "quickfilters.ListButton.tooltip": {
+    "message": "Mostra un elenco di filtri per i messaggi"
+  },
+  "quickfilters.RunButton.label": {
+    "message": "Esegui i filtri"
+  },
+  "quickfilters.RunButton.tooltip": {
+    "message": "Esegui i filtri configurati per la cartella corrente"
+  },
+  "quickfilters.RunButtonMsg.label": {
+    "message": "Filtra i messaggi selezionati"
+  },
+  "quickfilters.RunButtonMsg.tooltip": {
+    "message": "Esegui i filtri sul messaggio corrente"
+  },
+  "quickfilters.Start.label": {
+    "message": "Avvio della Procedura guidata…"
+  },
+  "quickfilters.addTag.label": {
+    "message": "Etichetta il messaggio"
+  },
+  "quickfilters.backup.archivingFilters": {
+    "message": "Sto archiviando {1} filtri"
+  },
+  "quickfilters.backup.customErrors": {
+    "message": "I filtri seguenti prevedono Azioni personalizzate che non possono essere completamente salvate. È possibile che manchi un'estensione di terze parti:"
+  },
+  "quickfilters.backup.failedFilters": {
+    "message": "Non è possibile codificare per il backup {1} filtri. Controllare il file di log degli errori per ulteriori dettagli"
+  },
+  "quickfilters.button.assistant": {
+    "message": "Attiva/disattiva la Procedura guidata…"
+  },
+  "quickfilters.button.assistant.tooltiptext": {
+    "message": "Attiva/disattiva la modalità &quot;Procedura guidata&quot;. Se questa è attiva, è sufficiente trascinare e rilasciare i messaggi per creare i filtri"
+  },
+  "quickfilters.button.bug": {
+    "message": "Debug"
+  },
+  "quickfilters.button.bug.tooltiptext1": {
+    "message": "Possibili cause: 1. Filtri che non possono essere eseguiti automaticamente 2. Cartelle destinazione non valide 3. Azioni personalizzate da convalidare"
+  },
+  "quickfilters.button.bug.tooltiptext2": {
+    "message": "4. 'Tutte'/'Anche una sola condizione' mescolate. Per la sequenza di configurazione, fare clic sul pulsante dx del mouse"
+  },
+  "quickfilters.button.cancelDuplicates.label": {
+    "message": "Annulla la ricerca dei duplicati"
+  },
+  "quickfilters.button.cancelDuplicates.tooltip": {
+    "message": "Reimposta la ricerca dei duplicati"
+  },
+  "quickfilters.button.cancelFindInFolder.label": {
+    "message": "Annulla ricerca"
+  },
+  "quickfilters.button.cancelFindInFolder.tooltip": {
+    "message": "Annulla la ricerca per cartella"
+  },
+  "quickfilters.button.clone": {
+    "message": "Clona"
+  },
+  "quickfilters.button.clone.accesskey": {
+    "message": "C"
+  },
+  "quickfilters.button.clone.tooltiptext": {
+    "message": "Clona un filtro"
+  },
+  "quickfilters.button.findDuplicates.label": {
+    "message": "Trova duplicati"
+  },
+  "quickfilters.button.findDuplicates.tooltip": {
+    "message": "Trova attributi dei duplicati"
+  },
+  "quickfilters.button.getOtherAddon": {
+    "message": "Scarica {1}"
+  },
+  "quickfilters.button.loadFilters.tooltip": {
+    "message": "Ripristino filtri…"
+  },
+  "quickfilters.button.merge": {
+    "message": "Unione"
+  },
+  "quickfilters.button.merge.accesskey": {
+    "message": "U"
+  },
+  "quickfilters.button.merge.tooltiptext": {
+    "message": "Unione di più filtri aventi la stessa azione"
+  },
+  "quickfilters.button.saveFilters.tooltip": {
+    "message": "Backup filtri…"
+  },
+  "quickfilters.button.searchProperties": {
+    "message": "Modifica i criteri di ricerca…"
+  },
+  "quickfilters.button.settings": {
+    "message": "Impostazioni di quickFilters…"
+  },
+  "quickfilters.button.sort": {
+    "message": "Ordina"
+  },
+  "quickfilters.button.sort.tooltiptext": {
+    "message": "Ordina alfabeticamente"
+  },
+  "quickfilters.button.support": {
+    "message": "Sito di supporto di quickFilters"
+  },
+  "quickfilters.clone.label": {
+    "message": "(copia)"
+  },
+  "quickfilters.clone.selectOne": {
+    "message": "Per clonare, selezionare un unico filtro"
+  },
+  "quickfilters.clone.undetermined": {
+    "message": "Non è possibile definire quale filtro sia stato selezionato"
+  },
+  "quickfilters.confirmVersionLink": {
+    "message": "Visualizzare la cronologia delle versioni di quickFilters?"
+  },
+  "quickfilters.copy.warning.emptyClipboard": {
+    "message": "Nessun filtro negli Appunti"
+  },
+  "quickfilters.copy.warning.selectFilter": {
+    "message": "Selezionare almeno un filtro"
+  },
+  "quickfilters.copy.warning.selectOtherAccount": {
+    "message": "Per incollare gli elementi, selezionare un altro account"
+  },
+  "quickfilters.copyMessage.label": {
+    "message": "Copia il messaggio in"
+  },
+  "quickfilters.createFilter.warning.canNotHaveFilters": {
+    "message": "L'account ({1}) non può avere filtri"
+  },
+  "quickfilters.createFilter.warning.minimum2Mails": {
+    "message": "Questo modello richiede almeno 2 messaggi di posta"
+  },
+  "quickfilters.createFilter.warning.noFilterFallback": {
+    "message": "L'account [{1}] di posta sorgente non può avere filtri.\nAl suo posto sto usando la cartella \"Posta in arrivo\" corrente."
+  },
+  "quickfilters.createFilter.warning.noHeaderParser": {
+    "message": "Spiacente, ma in questa versione di {1}, non è possibile creare filtri poiché non è supportata l'estrazione degli indirizzi dall'intestazione dei messaggi"
+  },
+  "quickfilters.createFilter.warning.noMessageDb": {
+    "message": "Non posso accedere al database dei messaggi della cartella {1}"
+  },
+  "quickfilters.createFilter.warning.noMessageId": {
+    "message": "Creazione del filtro non riuscita - è impossibile recuperare l'identificativo del messaggio dal primo elemento dell'elenco dei messaggi.\nÈ opportuno eseguire il comando 'Riparazione della cartella'."
+  },
+  "quickfilters.createFilter.warning.noServer": {
+    "message": "La cartella ({1}) non ha un server"
+  },
+  "quickfilters.createFilter.warning.suggestUpdate": {
+    "message": "Per disporre di questa caratteristica è necessario aggiornare a una versione più recente"
+  },
+  "quickfilters.createFromMail.inboxWarning": {
+    "message": "L'opzione 'Crea filtro da un messaggio' è tanto più utile se si è già spostata della posta in un'altra cartella o se vi si è aggiunta un'etichetta poiché quickFilters selezionerà per voi l'azione appropriata.\nSi vuol ancora creare un filtro a partire da questo messaggio?"
+  },
+  "quickfilters.createFromMail.selectWarning": {
+    "message": "Per creare un filtro, selezionare un messaggio"
+  },
+  "quickfilters.customHeader.BlindCarbonCopy": {
+    "message": "Copia Conforme Nascosta (CCN)"
+  },
+  "quickfilters.customHeader.CarbonCopy": {
+    "message": "Copia Conforme (CC)"
+  },
+  "quickfilters.customHeader.Domain": {
+    "message": "Dominio dell'indirizzo di posta elettronica"
+  },
+  "quickfilters.customHeader.Email": {
+    "message": "Indirizzo di posta elettronica"
+  },
+  "quickfilters.customHeader.FirstName": {
+    "message": "Nome"
+  },
+  "quickfilters.customHeader.From": {
+    "message": "Da"
+  },
+  "quickfilters.customHeader.LastName": {
+    "message": "Cognome"
+  },
+  "quickfilters.customHeader.ListId": {
+    "message": "List Id"
+  },
+  "quickfilters.customHeader.ListPost": {
+    "message": "List Post"
+  },
+  "quickfilters.customHeader.NamePart": {
+    "message": "Nome completo"
+  },
+  "quickfilters.customHeader.Newsgroups": {
+    "message": "Gruppi di discussione"
+  },
+  "quickfilters.customHeader.ReplyTo": {
+    "message": "Rispondi a"
+  },
+  "quickfilters.customHeader.Subject": {
+    "message": "Oggetto"
+  },
+  "quickfilters.customHeader.SubjectRegex": {
+    "message": "Espressioni regolari nell'oggetto"
+  },
+  "quickfilters.customHeader.To": {
+    "message": "A"
+  },
+  "quickfilters.customTemplate.name": {
+    "message": "Nome del modello:"
+  },
+  "quickfilters.customTemplate.title": {
+    "message": "Modello personalizzato di quickFilters"
+  },
+  "quickfilters.customVariable.label": {
+    "message": "Variabili personalizzate"
+  },
+  "quickfilters.customVariable.tooltip": {
+    "message": "Quando viene creato il fltro, queste variabili vengono rimpiazzate dalle corrispondenti intestazioni presenti nel messaggio di posta elettronica corrente"
+  },
+  "quickfilters.customfilter.replyto": {
+    "message": "Rispondi a"
+  },
+  "quickfilters.debug.fixFilters": {
+    "message": "Trovati {0} filtri che non hanno attiva l'opzione 'Scarico nuovi messaggi'. Questi filtri potenzialmente non funzionano alla ricezione dei messaggi. Correggerli?"
+  },
+  "quickfilters.debug.fixFilters.AnyAll": {
+    "message": "Trovate situazioni che mescolano 'Tutte'/'Anche una sola condizione'. Potrebbero non funzionare nel modo previsto. Debbo provvedere alla loro correzione?"
+  },
+  "quickfilters.debug.fixFilters.customActionErrors": {
+    "message": "Trovati {0} filtri con azioni personalizzate non risolte. Potrebbe mancare un'estensione di terze parti o essere necessario configurarla per supportare azioni personalizzate."
+  },
+  "quickfilters.debug.fixFilters.invalidUris": {
+    "message": "Trovati {0} filtri con cartella di destinazione non valida. Potrebbero essere stati importati da un profilo privo di corrispondenze. Alternativamente, la cartella di destinazione non esiste più o è stata spostata."
+  },
+  "quickfilters.debug.fixFilters.none": {
+    "message": "Non sono stati trovati filtri non funzionanti"
+  },
+  "quickfilters.debug.fixFilters.result": {
+    "message": "{0} filtri sono stati corretti"
+  },
+  "quickfilters.deleteFromPOP.label": {
+    "message": "Elimina dal POP server"
+  },
+  "quickfilters.deleteMessage.label": {
+    "message": "Elimina messaggio"
+  },
+  "quickfilters.fetchFromPOP.label": {
+    "message": "Scarica dal POP server"
+  },
+  "quickfilters.filters.toggleMessage.dontShow": {
+    "message": "Non mostrare più questo messaggio"
+  },
+  "quickfilters.filters.toggleMessage.notificationText": {
+    "message": "È stata avviata la Procedura guidata di creazione dei filtri. Ogni qualvolta si sposta un messaggio da una cartella di posta ad un'altra, parte la procedura guidata denominata \"Regole di creazione filtro\". #1 usa 'Filtri messaggi' per spostare automaticamente i messaggi in base a regole quali: \"Chi è il mittente?\", \"Nell'oggetto vi è una certa parola-chiave?\". Per arrestare questa modalità, fare nuovamente clic sul pulsante [Procedura guidata]"
+  },
+  "quickfilters.filters.toggleMessage.title": {
+    "message": "Modalità 'Procedura guidata'"
+  },
+  "quickfilters.findFiltersForFolder.menu": {
+    "message": "Trova filtri…"
+  },
+  "quickfilters.forwardTo.label": {
+    "message": "Inoltra il messaggio a"
+  },
+  "quickfilters.fpJsonFile": {
+    "message": "File JSON"
+  },
+  "quickfilters.ignoreSubthread.label": {
+    "message": "Ignora le sotto discussioni"
+  },
+  "quickfilters.ignoreThread.label": {
+    "message": "Ignora la discussione"
+  },
+  "quickfilters.licenseValidation.guessAddon": {
+    "message": "(La chiave inserita potrebbe essere relativa a {2})."
+  },
+  "quickfilters.markMessageRead.label": {
+    "message": "Segna come già letto"
+  },
+  "quickfilters.markMessageStarred.label": {
+    "message": "Aggiungi a Speciali"
+  },
+  "quickfilters.markMessageUnread.label": {
+    "message": "Segna come non letto"
+  },
+  "quickfilters.menu.copy": {
+    "message": "Copia"
+  },
+  "quickfilters.menu.cut": {
+    "message": "Taglia"
+  },
+  "quickfilters.menu.paste": {
+    "message": "Incolla"
+  },
+  "quickfilters.menu.removeDupeAction": {
+    "message": "Rimuovi l'azione di duplicazione"
+  },
+  "quickfilters.menu.removeDupeCondition": {
+    "message": "Rimuovi la condizione di duplicazione"
+  },
+  "quickfilters.merge.addressesOmitted": {
+    "message": "Gli indirizzi di posta elettronica sono stati omessi dalle condizioni - quickFilters disabilita il filtraggio di questi vostri indirizzi di posta elettronica:"
+  },
+  "quickfilters.merge.warning.missingAction": {
+    "message": "Impossibile definire l'azione principale del filtro:{1}"
+  },
+  "quickfilters.merge.warning.selectMismatch": {
+    "message": "Non si possono unire tutti i filtri selezionati: mancata corrispondenza con il filtro {1}"
+  },
+  "quickfilters.merge.warning.selectMismatchContinue": {
+    "message": "Deselezionare i filtri che non hanno corrispondenza e continuare?"
+  },
+  "quickfilters.merge.warning.selectMultiple": {
+    "message": "Per creare un'unione, selezionare almeno 2 filtri"
+  },
+  "quickfilters.merge.warning.selectMultiple2": {
+    "message": "Non riesco a definire il primo filtro selezionato - per creare un'unione bisogna selezionare almeno 2 filtri!"
+  },
+  "quickfilters.merge.warning.selectTarget": {
+    "message": "Per creare un'unione, bisogna selezionare un 'filtro destinazione'"
+  },
+  "quickfilters.move.selectOne": {
+    "message": "Selezionare un unico filtro"
+  },
+  "quickfilters.moveMessage.label": {
+    "message": "Sposta il messaggio in"
+  },
+  "quickfilters.notification.donate": {
+    "message": "Dona"
+  },
+  "quickfilters.notification.dontShowAgain": {
+    "message": "Non mostrare più questo messaggio"
+  },
+  "quickfilters.notification.premium.btn.extendLicense": {
+    "message": "Estendi licenza"
+  },
+  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
+    "message": "Questa modalità proroga di un anno la scadenza dell'attuale licenza, il che risulta economicamente più conveniente rispetto a sottoscrivere una nuova licenza"
+  },
+  "quickfilters.notification.premium.btn.getLicense": {
+    "message": "Acquista la licenza!"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "L"
+  },
+  "quickfilters.notification.premium.btn.renewLicense": {
+    "message": "Rinnova la licenza"
+  },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} è una caratteristica della versione Premium. Registrare quickFilters per poterla usare permanentemente."
+  },
+  "quickfilters.notification.premium.title": {
+    "message": "Caratteristica della versione Premium"
+  },
+  "quickfilters.notification.proFeature.notificationText": {
+    "message": "La caratteristica {1} è di tipo Premium. Se la si usa regolarmente, si consideri una donazione in favore dello sviluppo di quickFilters entro quest'anno"
+  },
+  "quickfilters.notification.proFeature.title": {
+    "message": "Caratteristica della versione Premium"
+  },
+  "quickfilters.notification.register": {
+    "message": "Registra {1}"
+  },
+  "quickfilters.option.searchProperty.addTag": {
+    "message": "Aggiungi etichetta"
+  },
+  "quickfilters.option.searchProperty.name": {
+    "message": "Nome"
+  },
+  "quickfilters.option.searchProperty.replyWithTemplate": {
+    "message": "Rispondi con un modello"
+  },
+  "quickfilters.option.searchProperty.searchCondition": {
+    "message": "Condizioni di ricerca (Testo)"
+  },
+  "quickfilters.option.searchProperty.setCustomStringAction": {
+    "message": "Azioni che modificano le stringhe"
+  },
+  "quickfilters.option.searchProperty.targetFolder": {
+    "message": "Cartella destinazione"
+  },
+  "quickfilters.premium.renewLicense.tooltip": {
+    "message": "La licenza è scaduta {1} giorni fa"
+  },
+  "quickfilters.premium.title.customTemplate": {
+    "message": "Modelli personalizzati"
+  },
+  "quickfilters.premium.title.duplicatesFinder": {
+    "message": "Trova duplicati"
+  },
+  "quickfilters.premium.title.searchFolder": {
+    "message": "Cerca filtri della cartella"
+  },
+  "quickfilters.premium.title.sortFilters": {
+    "message": "Ordinamento filtri"
+  },
+  "quickfilters.prompt.contact.subject": {
+    "message": "Inserisci una breve motivazione:"
+  },
+  "quickfilters.prompt.contact.title": {
+    "message": "Contatta il supporto di quickFilters"
+  },
+  "quickfilters.prompt.copiedCustomVar": {
+    "message": "Incollare in un termine di ricerca la variabile {1} copiata negli Appunti"
+  },
+  "quickfilters.prompt.createCustomHeader": {
+    "message": "Aggiungere il termine '{1}' come intestazione personalizzata da usare in un filtro"
+  },
+  "quickfilters.prompt.customTemplateName": {
+    "message": "Nome del modello personalizzato:"
+  },
+  "quickfilters.promptDontRepeat": {
+    "message": "Non mostrare più questo avviso"
+  },
+  "quickfilters.register.licenseValid.expired": {
+    "message": "La licenza scadrà il giorno:"
+  },
+  "quickfilters.replyWithTemplate.label": {
+    "message": "Rispondi con un modello"
+  },
+  "quickfilters.runFiltersOnMails.notify": {
+    "message": "Applica i filtri ai messaggi selezionati…"
+  },
+  "quickfilters.runMultiFilterInFolder.status": {
+    "message": "Sto eseguendo {0} filtri nella cartella {1}"
+  },
+  "quickfilters.runSingleFilterInFolder.status": {
+    "message": "Sto eseguendo il filtro '{0}' nella cartella {1}"
+  },
+  "quickfilters.runningFiltersOnFolder.notify": {
+    "message": "Esegui filtri sulla cartella '{1}'…"
+  },
+  "quickfilters.search.warning.noresults": {
+    "message": "Nessun filtro ha per obbiettivo questa cartella"
+  },
+  "quickfilters.setJunkScore.label": {
+    "message": "Applica lo stato di Indesiderato"
+  },
+  "quickfilters.setPriority.label": {
+    "message": "Imposta priorità a"
+  },
+  "quickfilters.sort": {
+    "message": "Ordinare"
+  },
+  "quickfilters.sort.tooltip": {
+    "message": "Ordina i termini di ricerca"
+  },
+  "quickfilters.sort.warning.selectMultiple": {
+    "message": "Per ordinarli alfabeticamente, selezionare almeno 2 filtri"
+  },
+  "quickfilters.stopExecution.label": {
+    "message": "Interrompi l'esecuzione dei filtri"
+  },
+  "quickfilters.warning.templateNameNotUnique": {
+    "message": "Un modello con questo nome esiste già! Il nome deve essere univoco."
+  },
+  "quickfilters.watchThread.label": {
+    "message": "Tieni d'occhio la discussione"
+  },
+  "quickfiltersToolbarButton.label": {
+    "message": "Procedura guidata di quickFilters"
+  },
+  "quickfiltersToolbarButton.tooltip": {
+    "message": "Attiva la Procedura guidata"
+  },
+  "renew-your-license": {
+    "message": "Renouvelez votre licence."
+  },
+  "special-offer-content": {
+    "message": "Questa è la migliore opportunità per ottenere una licenza in quanto vi è una {boldStart} riduzione del 30% {boldEnd} sul prezzo di una licenza quickFilters Pro per celebrare i 9 anni di quickFilters! Questa offerta speciale sarà disponibile fino al {boldStart} 16 aprile {boldEnd}."
+  },
+  "special-offer-head": {
+    "message": "Aiuta quickFilters a continuare!"
+  },
+  "special-offer-intro": {
+    "message": "{boldStart} Gentile {name} {boldEnd}, ora puoi aiutare quickFilters a prova di futuro. Sono in arrivo altri grandi cambiamenti su Thunderbird e ho bisogno del tuo {boldStart} del tuo aiuto {boldEnd} per stare al passo!"
+  },
+  "support-preference": {
+    "message": "Questo è il modo migliore per supportare $addonName$.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "support-suggestion": {
+    "message": "Affinché $addonName$ rimanga funzionante e attivo, ti preghiamo di fare un favore fondamentale:",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "testDrive": {
+    "message": "È possibile provare le caratteristiche della versione Premium usando la versione gratuita di quickFilters. Le funzionalità però sono leggermente ridotte."
+  },
+  "thanks-for-installing-intro": {
+    "message": "Grazie per aver installato $addonName$.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "thanks-for-updating-intro": {
+    "message": "Grazie per aver aggiornato $addonName$.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "time-and-effort": {
+    "message": "$addonName$ richiede modifiche continue per rimanere compatibile con la piattaforma Mozilla. Lavoro costantemente per mantenere il maggior numero di funzionalità possibile per le future versioni di Thunderbird.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "translated-by-google": {
+    "description": "disclaimer.",
+    "message": "traduzioni fornite da google"
+  },
+  "updates.title": {
+    "message": "Aggiornamenti"
+  },
+  "updatesExpiry": {
+    "message": "quickFilters Pro viene automaticamente aggiornato tramite addons.thunderbird.net. È possibile rinnovare la licenza alla scadenza annuale o decidere di mantenere l'uso delle caratteristiche della versione Premium alle stesse condizioni degli utilizzatori della versione gratuita. Le caratteristiche 'Premium exclusive' richiedono una chiave di registrazione valida."
+  },
+  "version": {
+    "message": "Versione:"
+  },
+  "vouchers.title": {
+    "message": "Buoni"
+  },
+  "whats-new-btn": {
+    "message": "Cosa c'è di nuovo?"
+  },
+  "whats-new-head": {
+    "message": "Punti salienti"
+  },
+  "whats-new-intro": {
+    "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
+  },
+  "whats-new-list": {
+    "message": "{L1} Nuova funzione: ordina i termini di ricerca in un filtro (funzione Pro). {L2} {L1} Ricorda l'elenco dei filtri copiati da inserire in più account (funzione Pro). {L2} {L1} Risolto il problema dei termini di ricerca duplicati durante l'unione filtri. {L2} {L1} Varie correzioni per la compatibilità con Thunderbird 88. {L2}{L1} 5.2.1 - pulsante di ordinamento rimosso dai modelli di filtri personalizzati {L2} {L1} 5.2.1 - Traduzioni in russo migliorate di Igor Zhigunov aka incenerite {L2}"
+  },
+  "window-title": {
+    "description": "page title. first placeholder will be replaced with Add-on name",
+    "message": "Benvenuto in $addonName$",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "yearlyLicense.premiumFeatures": {
+    "message": "quickFilters Pro consente un accesso completo alle caratteristiche della versione Premium."
+  },
+  "yearlyLicense.premiumFeatures.moreInfoLink": {
+    "message": "Informazioni addizionali sulle caratteristiche della versione Premium."
+  },
+  "yearlyLicense.title": {
+    "message": "Licenza annuale"
+  },
+  "yearlyLicense.usageTerm": {
+    "message": "La licenza è per uso personale ed è collegata all'indirizzo di posta elettronica. È possibiile utilizzarla in molteplici installazioni di client di posta elettronica, sempre che questi siano configurati per utilizzare tale indirizzo di email."
+  },
+  "yearlyLicense.usageTerm1": {
+    "message": "Eventuali indirizzi di posta elettronica addizionali non richiedono ulteriori licenze. Per qualsiasi problema potete contattarmi tramite la scheda di supporto."
+  }
 }

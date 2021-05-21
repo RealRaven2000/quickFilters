@@ -1,74 +1,8 @@
 {
-  "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
+  "_l10nstatus": {
+    "message": "SPLASH"
   },
-
-  "extensionDescription": {
-    "message": "通過拖放郵件並分析其屬性，快速動態生成郵件過濾器規則。",
-    "description": "Description of the extension."
-  },
-
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
-  },
-  
-  "window-title": {
-    "message": "歡迎使用 $addonName$",
-    "description": "page title. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-
-  "heading-updated": {
-    "message": "$addonName$ 已成功更新",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "heading-installed": {
-    "message": "$addonName$ 已成功安裝",
-    "description": "page heading. first placeholder will be replaced with Add-on name",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  
-  "thanks-for-updating-intro": {
-    "message": "感謝您更新 $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "thanks-for-installing-intro": {
-    "message": "感謝您安裝 $addonName$.",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },  
-  
- "active-version-info" : {
+  "active-version-info" : {
     "message": "您現在在Thunderbird $appVer$ 上運行{boldStart}版本 $addonVer$ {boldEnd}。",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
@@ -83,90 +17,81 @@
       
     }
   },  
-  
+  "addon-authors-struggle" : {
+    "message" : "為了繼續發揮作用，我們的附加組件開發人員現在需要資助修復和重寫所需的資源，以便我們的用戶可以繼續從我們提供的功能中受益。"
+  } ,
+  "btn-extend-license": {
+    "message" : "我想將我的執照延長一年"
+  } ,
+  "btn-renew-license": {
+    "message" : "我想續簽我的許可證"
+  } ,
+  "btn-want-a-license": {
+    "message" : "我想購買許可證"
+  } ,
+  "btn-want-to-donate" : {
+    "message" : "我想提供一次捐款。"
+  } ,
+  "cost-of-independence" : {
+    "message" : "軟件開發花費時間和金錢-與許多平台應用程序不同，附加組件不是由大公司編寫的，也不是由Mozilla以任何方式贊助的。"
+  } ,
+  "donate" : {
+    "message" : "一次性捐款幫助。"
+  },   
+  "donate-heading" : {
+    "message" : "捐贈幫助！"
+  } ,
+  "extend-your-license" : {
+    "message" : "考慮將您的許可證延長一年。"
+  },  
+  "extensionName": {
+    "message": "quickFilters",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "通過拖放郵件並分析其屬性，快速動態生成郵件過濾器規則。",
+    "description": "Description of the extension."
+  },
+  "heading-updated": {
+    "message": "$addonName$ 已成功更新",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "heading-installed": {
+    "message": "$addonName$ 已成功安裝",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "label-remind-me" : {
+    "message": "在$countDays$天后再次提醒我。",
+    "placeholders": {
+      "countDays" : {
+        "content" : "$1", 
+        "example" : "10"
+      }    
+    }    
+  },
   "license-is-extended" : {
     "message": "感謝您最近延長許可證或捐贈。 當您幫助將來對該插件進行驗證時，只需關閉此窗口即可。",
     "description": "Shown if license expires more than a year from now"
   },
-  
-  "special-offer-head" : {
-    "message": "請幫助quickFilters繼續！"
-  } ,  
-
-  "special-offer-intro" : {
-    "message": "{boldStart}尊敬的{name} {boldEnd}：您現在可以幫助將來的quickFilters。 雷鳥的更多重大變化即將到來，我需要{boldStart}您的幫助{boldEnd}來跟上！"
+  "mozillas-basic-platform" : {
+    "message" : "Mozilla僅提供一個基本平台，用於向您（最終用戶）交付我們的軟件。 如果我們需要向我們的用戶付款或提供支持，則不能通過addons.thunderbird.net進行操作-這不是內置付費界面或許可證管理（如iTunes或Google Play）的“應用商店”。"
   } ,
-  
-  "special-offer-content" : {
-    "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {boldStart} 30％{boldEnd}！ 此特別優惠將持續到 {boldStart} 4月16日{boldEnd}."
-  },
-  
-  "whats-new-intro" : {
-    "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
-  },
-  
-  "whats-new-btn" : {
-    "message": "什麼是新的？"
-  }, 
-  
-  "whats-new-head" : {
-    "message": "強調"
-  },
-  
-  "whats-new-list" : {
-    "message" : "{L1}新功能：對過濾器中的搜索詞進行排序（Pro功能）。{L2} {L1}記住複製的過濾器列表以插入到多個帳戶中（Pro功能）。{L2} {L1}解決了合併時重複的搜索詞問題 過濾器。{L2} {L1}與Thunderbird 88兼容的各種修復程序。{L2}{L1} 5.2.1-從自定義過濾器模板中刪除了排序按鈕{L2} {L1} 5.2.1-由Igor Zhigunov改進的俄語翻譯{L2}"
+  "notificationTitle": {
+    "message": "Click notification",
+    "description": "Title of the click notification."
   },  
-  
-  "time-and-effort": { 
-    "message": "$addonName$ 需要進行不斷的更改，以保持與Mozilla平台的兼容性。 我一直在努力為Thunderbird的未來版本保留盡可能多的功能。",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "support-suggestion" : {
-    "message": "為了使$addonName$保持功能性和活躍性，請務必這樣做：",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  },
-  
-  "purchase-a-license" : {
-    "message" : "購買許可證。"
-  }, 
-      
-  "renew-your-license" : {
-    "message" : "續訂您的許可證。"
-  },  
-  
-  "extend-your-license" : {
-    "message" : "考慮將您的許可證延長一年。"
-  },  
-      
-  "donate" : {
-    "message" : "一次性捐款幫助。"
-  },   
-   
-  "purchase-heading" : {
-    "message" : "購買許可證！"
-  }, 
-  
-  "support-preference" : {
-    "message": "這是支持$addonName$的首選方式。",
-    "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
-    }
-  }, 
-
   "ongoing-work": {
     "message": "將 $addonName$ 轉換為新編程模型的更改花費了數週時間，而且成本很高。 下一個2022版本將有更多更改。 有了這樣複雜的附加組件，昂貴的工作就變得不可避免。 請幫助我們。",
     "placeholders": {
@@ -176,52 +101,93 @@
       }    
     }
   },
-  
-  "btn-want-a-license": {
-    "message" : "我想購買許可證"
+  "purchase-a-license" : {
+    "message" : "購買許可證。"
+  }, 
+  "purchase-heading" : {
+    "message" : "購買許可證！"
+  }, 
+  "renew-your-license" : {
+    "message" : "續訂您的許可證。"
+  },  
+  "special-offer-head" : {
+    "message": "請幫助quickFilters繼續！"
+  } ,  
+  "special-offer-intro" : {
+    "message": "{boldStart}尊敬的{name} {boldEnd}：您現在可以幫助將來的quickFilters。 雷鳥的更多重大變化即將到來，我需要{boldStart}您的幫助{boldEnd}來跟上！"
   } ,
-
-  "btn-extend-license": {
-    "message" : "我想將我的執照延長一年"
-  } ,
-
-
-  "btn-renew-license": {
-    "message" : "我想續簽我的許可證"
-  } ,
-
-  "donate-heading" : {
-    "message" : "捐贈幫助！"
-  } ,
-
-  "cost-of-independence" : {
-    "message" : "軟件開發花費時間和金錢-與許多平台應用程序不同，附加組件不是由大公司編寫的，也不是由Mozilla以任何方式贊助的。"
-  } ,
-  
-  "mozillas-basic-platform" : {
-    "message" : "Mozilla僅提供一個基本平台，用於向您（最終用戶）交付我們的軟件。 如果我們需要向我們的用戶付款或提供支持，則不能通過addons.thunderbird.net進行操作-這不是內置付費界面或許可證管理（如iTunes或Google Play）的“應用商店”。"
-  } ,
-  
-  "addon-authors-struggle" : {
-    "message" : "為了繼續發揮作用，我們的附加組件開發人員現在需要資助修復和重寫所需的資源，以便我們的用戶可以繼續從我們提供的功能中受益。"
-  } ,
-  
-  "btn-want-to-donate" : {
-    "message" : "我想提供一次捐款。"
-  } ,
-  
+  "special-offer-content" : {
+    "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {boldStart} 30％{boldEnd}！ 此特別優惠將持續到 {boldStart} 4月16日{boldEnd}."
+  },
+  "support-preference" : {
+    "message": "這是支持$addonName$的首選方式。",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  }, 
+  "support-suggestion" : {
+    "message": "為了使$addonName$保持功能性和活躍性，請務必這樣做：",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
+  "thanks-for-updating-intro": {
+    "message": "感謝您更新 $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  }, 
+  "thanks-for-installing-intro": {
+    "message": "感謝您安裝 $addonName$.",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },    
+  "time-and-effort": { 
+    "message": "$addonName$ 需要進行不斷的更改，以保持與Mozilla平台的兼容性。 我一直在努力為Thunderbird的未來版本保留盡可能多的功能。",
+    "placeholders": {
+      "addonName" : {
+        "content" : "$1", 
+        "example" : "quickFilters"
+      }    
+    }
+  },
   "translated-by-google" : {
     "message": "谷歌提供的翻譯",
     "description": "disclaimer."
   },
-  
-  "label-remind-me" : {
-    "message": "在$countDays$天后再次提醒我。",
+  "whats-new-btn" : {
+    "message": "什麼是新的？"
+  }, 
+  "whats-new-head" : {
+    "message": "強調"
+  },
+  "whats-new-intro" : {
+    "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
+  },  
+  "whats-new-list" : {
+    "message" : "{L1}新功能：對過濾器中的搜索詞進行排序（Pro功能）。{L2} {L1}記住複製的過濾器列表以插入到多個帳戶中（Pro功能）。{L2} {L1}解決了合併時重複的搜索詞問題 過濾器。{L2} {L1}與Thunderbird 88兼容的各種修復程序。{L2}{L1} 5.2.1-從自定義過濾器模板中刪除了排序按鈕{L2} {L1} 5.2.1-由Igor Zhigunov改進的俄語翻譯{L2}"
+  },  
+  "window-title": {
+    "message": "歡迎使用 $addonName$",
+    "description": "page title. first placeholder will be replaced with Add-on name",
     "placeholders": {
-      "countDays" : {
+      "addonName" : {
         "content" : "$1", 
-        "example" : "10"
+        "example" : "quickFilters"
       }    
-    }    
+    }
   }
 }

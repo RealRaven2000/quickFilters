@@ -1,1251 +1,1259 @@
 {
-    "about": {
-        "message": "quickFilters について"
-    },
-    "account.label": {
-        "message": "アカウント選択:"
-    },
-    "active-version-info": {
-        "description": "The boldStart and boldEnd parts will be replaced with html tags",
-        "message": "Thunderbird $appVer$ 上で{boldStart}バージョン $addonVer$ {boldEnd}を実行しています。",
-        "placeholders": {
-            "addonVer": {
-                "content": "$1",
-                "example": "Version 1.1"
-            },
-            "appVer": {
-                "content": "$2",
-                "example": "78.0b4"
-            }
-        }
-    },
-    "addon-authors-struggle": {
-        "message": "引き続き有用であるために、アドオン開発者は、ユーザーが提供する機能の恩恵を受け続けることができるように、修正と書き換えに必要なリソースに資金を提供する必要があります。"
-    },
-    "btn-extend-license": {
-        "message": "ライセンスを 1 年延長します"
-    },
-    "btn-renew-license": {
-        "message": "ライセンスを更新します"
-    },
-    "btn-want-a-license": {
-        "message": "ライセンスを購入します"
-    },
-    "btn-want-to-donate": {
-        "message": "1 回限りの寄付を行います"
-    },
-    "buyDomainLicense.button": {
-        "message": "ドメインライセンスを購入"
-    },
-    "buyDomainLicense.instruct": {
-        "message": "5 人以上の企業向けにライセンスが必要なら、ドメインライセンスを取得してください。こちらのほうが安くなります:"
-    },
-    "buyLicense.instruct": {
-        "message": "自分用にライセンスが必要ならパーソナルライセンスを取得してください。個人用のメールアドレス向けのライセンスを複数の端末に適用できます。"
-    },
-    "buyPersonalLicense.button": {
-        "message": "パーソナルライセンスを購入"
-    },
-    "chkAfterJunk.label": {
-        "message": "迷惑メール分類後"
-    },
-    "chkAfterSending.label": {
-        "message": "送信後"
-    },
-    "chkAlphabetic.label": {
-        "message": "新しいフィルタをアルファベット順に挿入"
-    },
-    "chkAlphabetic.tooltip": {
-        "message": "フィルタ名の順に並べます。親フォルダの名前規則を推奨します。これはフィルタの実行順に影響するので注意してください！"
-    },
-    "chkAutoClose.accesskey": {
-        "message": "E"
-    },
-    "chkAutoClose.label": {
-        "message": "フィルタの作成後にフィルタ作成アシスタントを終了する"
-    },
-    "chkAutoRun.label": {
-        "message": "新着メール受信時にフィルタを適用する"
-    },
-    "chkAutoStart.accesskey": {
-        "message": "A"
-    },
-    "chkAutoStart.label": {
-        "message": "自動的にフィルタ支援モードを開始する"
-    },
-    "chkCurrentToolbar.btn.FilterList.label": {
-        "message": "フィルタリストを表示"
-    },
-    "chkCurrentToolbar.btn.FindFilter.label": {
-        "message": "このフォルダ用のフィルタを見つける"
-    },
-    "chkCurrentToolbar.btn.FindFilter.tooltip": {
-        "message": "メールをこのフォルダへ移動するフィルタを見つけます。"
-    },
-    "chkCurrentToolbar.btn.RunOnFolder.label": {
-        "message": "フォルダにフィルタを適用"
-    },
-    "chkCurrentToolbar.btn.RunOnMessages.label": {
-        "message": "選択したメッセージにフィルタを適用"
-    },
-    "chkDebug.accesskey": {
-        "message": "D"
-    },
-    "chkDebug.label": {
-        "message": "デバッグモード"
-    },
-    "chkImapOnRead.label": {
-        "message": "また、IMAP アカウント内の既読メールに対してフィルタを実行します。"
-    },
-    "chkInsertRulesAtTop.label": {
-        "message": "Add new rules on top of list."
-    },
-    "chkLocalFoldersAutorun.label": {
-        "message": "フィルタをローカルフォルダの受信トレイに自動的に適用する"
-    },
-    "chkMergeAuto.label": {
-        "message": "自動的に統合モードを選択する"
-    },
-    "chkMergeAuto.tooltip": {
-        "message": "フィルタが既に存在する場合、自動的に統合モードを選択して最初に一致するフィルタを統合します。"
-    },
-    "chkMergeSkip.label": {
-        "message": "テンプレートの手順へスキップする"
-    },
-    "chkMergeSkip.tooltip": {
-        "message": "'統合対象を選択'  する手順をスキップし、'テンプレートを選択' する手順へ進みます。"
-    },
-    "chkPeriodically.label": {
-        "message": "Run Periodically"
-    },
-    "chkPeriodically.tooltip": {
-        "message": "Runs the filter in regular intervals"
-    },
-    "chkRunManual.label": {
-        "message": "手動で実行"
-    },
-    "chkShowEditor.label": {
-        "message": "フィルタ生成後にエディタを開く"
-    },
-    "chkShowList.label": {
-        "message": "フィルタ作成後にフィルタリストを表示する"
-    },
-    "chkShowList.tooltip": {
-        "message": "リストを表示し、すべてのメッセージに対して新しいフィルタをテスト実行します。"
-    },
-    "chkToolbar.accesskey": {
-        "message": "T"
-    },
-    "chkToolbar.label": {
-        "message": "フィルタマネージャにツールバーを表示する"
-    },
-    "chkWhenArchiving.label": {
-        "message": "アーカイブ時"
-    },
-    "cost-of-independence": {
-        "message": "ソフトウェア開発には時間とお金がかかります - 多くのプラットフォームアプリとは異なり、アドオンは大企業によって作成されているわけではなく、Mozilla による支援もありません。"
-    },
-    "createdBy": {
-        "message": "作者:"
-    },
-    "domainLicense.email": {
-        "message": "あなたのドメインライセンスを生成するため、このメールアドレスに問い合わせます (2 営業日以内に確認のメールが送信されます)。次のページでライセンスのドメイン名を入力してください。"
-    },
-    "domainLicense.header": {
-        "message": "ライセンス登録済みのドメイン"
-    },
-    "domainLicense.instruct": {
-        "message": "このライセンスは、あなたの団体ドメインの鍵になります。ライセンスは、quickFilters Pro の使用をこのメールドメインが末尾に付くメールアドレスのユーザに許可します。例えば、ドメイン名に 'abc.com' と入力すると、fred@abc.com や martha@abc.com、mike.doe@abc.com などのユーザがライセンスの使用を許可されます。正規ユーザの最大数は、最初の画面で入力した数になります。"
-    },
-    "domainLicense.validate": {
-        "message": "あなたの団体のメールアドレスのドメイン名 (@ 記号の後ろ部分) は「正確に入力」してください。これは、ユーザのメールアドレスを認証するのに使用されます。"
-    },
-    "donate": {
-        "message": "1 回限りの寄付を行う。"
-    },
-    "donate-heading": {
-        "message": "寄付する！"
-    },
-    "donate.label": {
-        "message": "寄付"
-    },
-    "email.label": {
-        "message": "メールアドレス:"
-    },
-    "enterLicenseKey.button": {
-        "message": "ライセンスキーを入力..."
-    },
-    "enterLicenseKey.tooltip": {
-        "message": "メールに書かれたライセンスキーコードを入力してください。"
-    },
-    "extend-your-license": {
-        "message": "ライセンスを 1 年延長する。"
-    },
-    "extensionDescription": {
-        "description": "Description of the extension.",
-        "message": "メールをドラッグアンドドロップしてその属性を分析することにより、メールフィルタールールをその場ですばやく生成します。"
-    },
-    "extensionName": {
-        "description": "Name of the extension.",
-        "message": "quickFilters"
-    },
-    "extensions.quickfilters.description": {
-        "message": "メールをドラッグ＆ドロップすることにより、そのメールを解析してフィルタを作成します。"
-    },
-    "firstName.label": {
-        "message": "名:"
-    },
-    "freeLicense": {
-        "message": "quickFilters プロジェクトに最近ご寄付いただいた方や開発に貢献 (翻訳やパッチ提供) していただいている方は、無料ライセンスキーの取得資格があります。quickFilters オプションのサポートタブからお問い合わせください。"
-    },
-    "getquickFilters": {
-        "message": "quickFilters Pro の入手"
-    },
-    "grpMerge.label": {
-        "message": "規則を統合する"
-    },
-    "heading-installed": {
-        "description": "page heading. first placeholder will be replaced with Add-on name",
-        "message": "$addonName$ が正常にインストールされました",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "heading-updated": {
-        "description": "page heading. first placeholder will be replaced with Add-on name",
-        "message": "$addonName$ が正常に更新されました",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "homepage": {
-        "message": "ホームページ:"
-    },
-    "intro": {
-        "message": "quickFilters Pro の年間ライセンスは、すべての有料機能を 1 年間使用できるようにします。これは、製品開発のサポートと改善の助けになります。"
-    },
-    "label-remind-me": {
-        "message": "$countDays$ 日後にもう一度表示します。",
-        "placeholders": {
-            "countDays": {
-                "content": "$1",
-                "example": "10"
-            }
-        }
-    },
-    "lastName.label": {
-        "message": "姓:"
-    },
-    "license-is-extended": {
-        "description": "Shown if license expires more than a year from now",
-        "message": "最近ライセンスを延長するか、寄付していただきありがとうございます。 このアドオンの将来の保証に役立ったので、このウィンドウを閉じるだけです。"
-    },
-    "licenseWindow.title": {
-        "message": "quickFilters Pro ライセンス"
-    },
-    "mozillas-basic-platform": {
-        "message": "Mozilla は、エンドユーザーであるあなたにソフトウェアを提供するための基本的なプラットフォームのみを提供します。ユーザーに支払いやサポートを依頼する必要がある場合、addons.thunderbird.net からこれを行うことはできません。これは、アプリ内決済機能や、iTunes や Google Play のようなライセンス管理が組み込まれた「アプリストア」ではありません。"
-    },
-    "notificationTitle": {
-        "description": "Title of the click notification.",
-        "message": "Click notification"
-    },
-    "ongoing-work": {
-        "message": "$addonName$を新しいプログラミングモデルに変換するための変更には数週間かかり、費用がかかりました。 次の2022バージョンにはさらに多くの変更があります。 このような複雑なアドオンを使用すると、コストのかかる作業が避けられなくなります。 これで私たちを助けてください。",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "pane1.title": {
-        "message": "quickFilters 設定"
-    },
-    "prefwindow.title": {
-        "message": "quickFilters 設定"
-    },
-    "purchase-a-license": {
-        "message": "ライセンスを購入する。"
-    },
-    "purchase-heading": {
-        "message": "ライセンスを購入する！"
-    },
-    "qf.button.createFilter": {
-        "message": "新しいフィルタを作成..."
-    },
-    "qf.button.editFilter": {
-        "message": "フィルタ編集..."
-    },
-    "qf.button.merge": {
-        "message": "マージ"
-    },
-    "qf.button.next": {
-        "message": "次へ"
-    },
-    "qf.button.pasteLicense": {
-        "message": "貼り付け"
-    },
-    "qf.button.reorderButtonBottom": {
-        "message": "一番下へ"
-    },
-    "qf.button.reorderButtonBottom.accessKey": {
-        "message": "b"
-    },
-    "qf.button.reorderButtonBottom.toolTip": {
-        "message": "フィルタを最後に実行します"
-    },
-    "qf.button.reorderButtonTop": {
-        "message": "一番上へ"
-    },
-    "qf.button.reorderButtonTop.accessKey": {
-        "message": "o"
-    },
-    "qf.button.reorderButtonTop.toolTip": {
-        "message": "フィルタを最初に実行します"
-    },
-    "qf.button.targetSelected": {
-        "message": "対象のフィルタを選択"
-    },
-    "qf.button.validateLicense": {
-        "message": "認証"
-    },
-    "qf.check.createNew": {
-        "message": "新しいフィルタを作成する"
-    },
-    "qf.check.mergeWithExisting": {
-        "message": "既存のフィルタにマージする:"
-    },
-    "qf.cloned.label": {
-        "message": "複製したフィルタの名前に追加:"
-    },
-    "qf.continueFilter.label": {
-        "message": "フィルタ作成..."
-    },
-    "qf.continueFilter.shortcut": {
-        "message": "F"
-    },
-    "qf.description.about": {
-        "message": "quickFilters の簡単な説明は次のサイトにあります:"
-    },
-    "qf.description.contactMe": {
-        "message": "個人的なお問い合わせは axel.grude@gmail.com まで:"
-    },
-    "qf.description.currentFolderButtons": {
-        "message": "このオプションは、QuickFolders アドオンを使用している場合のみ使用できます。メッセージのプレビューペインに小さなツールバーが追加されます。"
-    },
-    "qf.description.mergeAddInstructions": {
-        "message": "このリストにある他のすべてのフィルタは、これにマージして削除されます。"
-    },
-    "qf.description.mergeAddSummary": {
-        "message": "他のプロパティを継承するフィルタを選択してください。"
-    },
-    "qf.description.mergeInstructions": {
-        "message": "片方のフィルタにまとめるか、新しいフィルタを作成してください。"
-    },
-    "qf.description.mergeSummary": {
-        "message": "QuickFilters アシスタントが同じ動作をするフィルタを見つけました。"
-    },
-    "qf.description.selectToExtend": {
-        "message": "新しい規則を追加するフィルタを選択してください。"
-    },
-    "qf.donate.tooltip": {
-        "message": "quickFilters の開発を支援します"
-    },
-    "qf.filterlist.group": {
-        "message": "フィルタリストの機能"
-    },
-    "qf.filterlist.multipaste": {
-        "message": "複数のアカウントへのフィルターのコピーと貼り付けを有効にする"
-    },
-    "qf.filters.actions.caption": {
-        "message": "操作"
-    },
-    "qf.filters.actions.flag": {
-        "message": "フラグ"
-    },
-    "qf.filters.actions.flag.accesskey": {
-        "message": "F"
-    },
-    "qf.filters.actions.priority": {
-        "message": "優先度"
-    },
-    "qf.filters.actions.priority.accesskey": {
-        "message": "P"
-    },
-    "qf.filters.actions.star": {
-        "message": "スター"
-    },
-    "qf.filters.actions.star.accesskey": {
-        "message": "S"
-    },
-    "qf.filters.actions.tag": {
-        "message": "タグ"
-    },
-    "qf.filters.actions.tag.accesskey": {
-        "message": "T"
-    },
-    "qf.filters.actions.targetFolder": {
-        "message": "対象フォルダ"
-    },
-    "qf.filters.actions.tooltip": {
-        "message": "元のメールからこれらの属性をコピーするフィルタです"
-    },
-    "qf.filters.instructions": {
-        "message": "テンプレートを選択してください。次の画面でフィルタルールを設定します。"
-    },
-    "qf.filters.steps.autoRunFilter": {
-        "message": "自動的に実行"
-    },
-    "qf.filters.steps.autoRunFilter.tooltip": {
-        "message": "作成後、フィルタを自動実行して元の受信トレイに適用します。"
-    },
-    "qf.filters.steps.caption": {
-        "message": "次のステップ"
-    },
-    "qf.filters.steps.showEditor": {
-        "message": "フィルタ規則"
-    },
-    "qf.filters.steps.showEditor.tooltip": {
-        "message": "アシスタントがフィルタを作成した後に詳細を編集します。"
-    },
-    "qf.filters.steps.showList": {
-        "message": "フィルタリスト"
-    },
-    "qf.filters.steps.showList.tooltip": {
-        "message": "対象のフィルタを表示してすぐに試せます"
-    },
-    "qf.filters.steps.tooltip": {
-        "message": "フィルタ作成後に表示する画面です"
-    },
-    "qf.filters.template.custom.description": {
-        "message": "カスタムフィルタ - ユーザ定義のフィルタは、%from% %to% %subject% などの変数を使用します。"
-    },
-    "qf.filters.template.domain": {
-        "message": "送信者のドメインを基準にする"
-    },
-    "qf.filters.template.domain.description": {
-        "message": "「送信者を基準にする」テンプレートと似ていますが、送信者のメールアドレスのドメイン名 (@xyz.com 部分) にのみマッチします。"
-    },
-    "qf.filters.template.from": {
-        "message": "送信者 (from) を基準にする"
-    },
-    "qf.filters.template.from.description": {
-        "message": "これはよく使われるパターンです: 差出人のメールアドレスを取得し、フィルタ条件の差出人のフィールドに貼り付けます。このフィルタ条件は、特定の差出人からのメールをすべて新しいフォルダに移動できます。"
-    },
-    "qf.filters.template.list.description": {
-        "message": "差出人に基づくフィルタと似ていますが、宛先のフィルタ条件は指定しません。"
-    },
-    "qf.filters.template.maillist": {
-        "message": "メーリングリスト"
-    },
-    "qf.filters.template.maillist.description": {
-        "message": "'List-Id' フィールドはメーリングリストで役立ちます。このフィールドが設定されていない場合、代わりに差出人のアドレスが使用されます。"
-    },
-    "qf.filters.template.multifrom": {
-        "message": "グループ (複数のメールの送信者を集めます)"
-    },
-    "qf.filters.template.multifrom.description": {
-        "message": "複数のメールをドラッグしてすべての送信者を条件に追加します。(ご自分のメールアドレスは除く)"
-    },
-    "qf.filters.template.replyto": {
-        "message": "返信先 (Reply-To) を基準にする"
-    },
-    "qf.filters.template.replyto.description": {
-        "message": "フィルタは Reply-To フィールドが基準になります。"
-    },
-    "qf.filters.template.tag": {
-        "message": "タグを基準にする"
-    },
-    "qf.filters.template.tag.description": {
-        "message": "メールに付けられたタグをフィルタ条件に追加します。"
-    },
-    "qf.filters.template.to": {
-        "message": "受信者 (To) を基準にする"
-    },
-    "qf.filters.template.to.description": {
-        "message": "差出人に基づくフィルタと似ています: あなたから誰かに送信したメールにマークを付けたい場合に使用できます。宛先のメールアドレスを取得し、フィルタ条件の差出人と宛先のフィールドに貼り付けます。このフィルタ条件は、特定の差出人と宛先の会話全体を新しいフォルダに移動できます。"
-    },
-    "qf.filters.template.topic": {
-        "message": "件名を基準にする"
-    },
-    "qf.filters.template.topic.description": {
-        "message": "これは特別な括弧 ([切手収集]や{菜食主義} など) で囲まれた文字列に基づくフィルタ条件を作成します。多くのメーリングリストなどの件名でこのような書き方がされているので、簡単に使用できます。"
-    },
-    "qf.filters.templates.description.label": {
-        "message": "説明:"
-    },
-    "qf.filters.title": {
-        "message": "フィルタ作成"
-    },
-    "qf.grp.whenToRun": {
-        "message": "フィルタの適用:"
-    },
-    "qf.label.aboutLink": {
-        "message": "quickFilters の Web サイト..."
-    },
-    "qf.label.cancel": {
-        "message": "キャンセル"
-    },
-    "qf.label.contactLink": {
-        "message": "問い合わせる (英語またはドイツ語のみ)..."
-    },
-    "qf.label.currentFolderButtons": {
-        "message": "QuickFolders の現在のフォルダツールバー"
-    },
-    "qf.label.donate": {
-        "message": "寄付"
-    },
-    "qf.label.filterCountN_of_M": {
-        "message": "{0} / {1}"
-    },
-    "qf.label.filterEntities": {
-        "message": "個のアイテム"
-    },
-    "qf.label.filterSingleEntity": {
-        "message": "1 個のアイテム"
-    },
-    "qf.label.haveLicense": {
-        "message": "ライセンス登録はお済みですか？"
-    },
-    "qf.label.insertLicense": {
-        "message": "個人ライセンスキーをここに記入してください:"
-    },
-    "qf.label.insertLicense.tooltip": {
-        "message": "ライセンスキーは FastSpring　からの支払い確認 (order confirmation) メールに含まれています。"
-    },
-    "qf.label.licenseValid": {
-        "message": "ライセンスの有効期限:"
-    },
-    "qf.label.naming": {
-        "message": "命名規則"
-    },
-    "qf.label.naming.folderDelimiter": {
-        "message": "デリミタ:"
-    },
-    "qf.label.naming.keyWord": {
-        "message": "規則通りのキーワードを追加する"
-    },
-    "qf.label.naming.keyWord.accesskey": {
-        "message": "k"
-    },
-    "qf.label.naming.parentFolder": {
-        "message": "親フォルダの名前を追加する"
-    },
-    "qf.label.naming.parentFolder.accesskey": {
-        "message": "p"
-    },
-    "qf.label.premiumFeaturesSite": {
-        "message": "有料機能についての詳細はウェブサイトをご覧ください"
-    },
-    "qf.label.quickfilters": {
-        "message": "quickFilters"
-    },
-    "qf.label.shortcut.runFolder": {
-        "message": "Shortcut for Running Filters on Folder: Shift + "
-    },
-    "qf.label.shortcut.runMails": {
-        "message": "Shortcut for Running Filters on Selected Mails: Shift + "
-    },
-    "qf.label.supportWithLicense": {
-        "message": "ライセンスを取得して quickFilters をサポート"
-    },
-    "qf.licenseValidation.expired": {
-        "message": "入力されたライセンスキーが有効期限切れです。下のボタンをクリックしてライセンスを更新してください。"
-    },
-    "qf.licenseValidation.failed": {
-        "message": "入力されたライセンスキーが正しくありません。FastSpring からのメールに書かれた手順を確認してください。何か問題がある場合は、サポートタブからお問い合わせください。"
-    },
-    "qf.licenseValidation.invalidAddon": {
-        "message": "入力されたライセンスキーは正しくありません。{0} のライセンスキーは {1} から始まります。"
-    },
-    "qf.licenseValidation.invalidMail": {
-        "message": "ライセンスキー [{1}] に紐付けされたメールアドレスのメールアカウントがリストに見当たりません。問題解決のため、サポートタブからお問い合わせください。"
-    },
-    "qf.licenseValidation.notMatchedMail": {
-        "message": "暗号化されたメールアドレスが読めるメールアドレスと一致しません。"
-    },
-    "qf.licenseValidation.passed": {
-        "message": "QuickFolders Pro のご登録ありがとうございます！ すべての有料機能がロック解除されました。"
-    },
-    "qf.listener.tags": {
-        "message": "タグ変更を監視する"
-    },
-    "qf.listener.tags.autofilter": {
-        "message": "タグの変更時にフィルタを自動的に実行する"
-    },
-    "qf.listener.tags.tooltip": {
-        "message": "有効にすると、メッセージにタグを付けた時にフィルタアシスタントが起動します。"
-    },
-    "qf.notify.filterCreated": {
-        "message": "新しいフィルタ '{0}' を作成しました。"
-    },
-    "qf.notify.filterMergeUpdated": {
-        "message": "フィルタ '{0}' を更新しました。"
-    },
-    "qf.onewayaddress.label": {
-        "message": "2 段階アドレス検索条件を無効にする"
-    },
-    "qf.onewayaddress.tooltip": {
-        "message": "既定では、quickFilters は '差出人' と '宛先' の両方の検索条件を追加して、あなたのメールアドレスを受信者に含む全メッセージスレッドのフィルタリングを支援します。返信メールを送信済みフォルダに常に保持したいときは、このオプションで無効にしてください。'Copy Sent to Current' アドオンを使用すると、元のメールとともに返信メールを保持することができます。"
-    },
-    "qf.options.versionnumber.tooltip": {
-        "message": "右クリックでバージョン履歴を表示します。"
-    },
-    "qf.premiumConfig": {
-        "message": "有料機能"
-    },
-    "qf.tab.actions": {
-        "message": "動作"
-    },
-    "qf.tab.advanced": {
-        "message": "詳細"
-    },
-    "qf.tab.gopro": {
-        "message": "QuickFolders Pro"
-    },
-    "qf.tab.newFilterProps": {
-        "message": "新規フィルタのプロパティ"
-    },
-    "qf.tab.options": {
-        "message": "オプション"
-    },
-    "qf.tab.support": {
-        "message": "サポート"
-    },
-    "qf.templates.advanced": {
-        "message": "詳細テンプレート"
-    },
-    "qf.templates.customTemplate.edit": {
-        "message": "編集..."
-    },
-    "qf.templates.customTemplate.label": {
-        "message": "カスタムテンプレート"
-    },
-    "qf.templates.customTemplate.new": {
-        "message": "新規作成..."
-    },
-    "qf.templates.customTemplate.tooltip": {
-        "message": "カスタムテンプレートの生成を許可します (詳細はバグの説明を参照)。"
-    },
-    "qf.templates.replyTo.label": {
-        "message": "Reply-To テンプレート"
-    },
-    "qf.templates.replyTo.tooltip": {
-        "message": "Reply-To テンプレートを表示します (詳細はバグの説明を参照)。"
-    },
-    "qf.textbox.searchBox.emptyText": {
-        "message": "フィルタ名で検索..."
-    },
-    "qf.textbox.searchBox.toolTip": {
-        "message": "検索するフィルタの名前を入力してください"
-    },
-    "qf.tooltip.naming.folderDelimiter": {
-        "message": "親フォルダと名前の間に挿入する文字"
-    },
-    "qf.youtube.description": {
-        "message": "Thunderbird アドオンと quickFilters の説明についての動画は、私の YouTube チャンネルでご覧ください。"
-    },
-    "qf.youtube.link": {
-        "message": "Thunderbird Daily で quickFilters の動画を見る..."
-    },
-    "qf.youtube.tbdaily": {
-        "message": "Thunderbird Daily をご視聴ください - quickFilters とデスクトップのメールを使うためのヒントとチュートリアルを紹介する YouTube チャンネルです"
-    },
-    "quickfilters.FilterAssistant.start": {
-        "message": "フィルタ作成支援を開始..."
-    },
-    "quickfilters.FilterAssistant.stop": {
-        "message": "フィルタ作成支援を終了..."
-    },
-    "quickfilters.FromMessage.accesskey": {
-        "message": "Q"
-    },
-    "quickfilters.FromMessage.label": {
-        "message": "QuickFilters: メッセージからフィルタを作成..."
-    },
-    "quickfilters.ListButton.label": {
-        "message": "メッセージフィルタ..."
-    },
-    "quickfilters.ListButton.tooltip": {
-        "message": "メッセージフィルタの一覧を表示します"
-    },
-    "quickfilters.RunButton.label": {
-        "message": "フィルタ実行"
-    },
-    "quickfilters.RunButton.tooltip": {
-        "message": "現在のフォルダにセットアップしたフィルタを適用します"
-    },
-    "quickfilters.RunButtonMsg.label": {
-        "message": "選択したメールにフィルタを適用"
-    },
-    "quickfilters.RunButtonMsg.tooltip": {
-        "message": "現在のメールにフィルタを適用します"
-    },
-    "quickfilters.Start.label": {
-        "message": "フィルタ作成アシスタントを開始..."
-    },
-    "quickfilters.addTag.label": {
-        "message": "メッセージにタグを付ける"
-    },
-    "quickfilters.backup.archivingFilters": {
-        "message": "{1} 個のフィルターをアーカイブ"
-    },
-    "quickfilters.backup.customErrors": {
-        "message": "次のフィルタには保存できないカスタム動作が含まれています。サードパーティのアドオンが足りません:"
-    },
-    "quickfilters.backup.failedFilters": {
-        "message": "{1} 個のフィルターがエンコードできませんでした。詳細はエラーログを確認してください。"
-    },
-    "quickfilters.button.assistant": {
-        "message": "アシスタントを切り替え..."
-    },
-    "quickfilters.button.assistant.tooltiptext": {
-        "message": "フィルタアシスタントモードを切り替えます。有効にした場合、メールをドラッグ＆ドロップしてフィルタを作成できます。"
-    },
-    "quickfilters.button.bug": {
-        "message": "デバッグ"
-    },
-    "quickfilters.button.bug.tooltiptext1": {
-        "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
-    },
-    "quickfilters.button.bug.tooltiptext2": {
-        "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
-    },
-    "quickfilters.button.cancelDuplicates.label": {
-        "message": "重複をキャンセル"
-    },
-    "quickfilters.button.cancelDuplicates.tooltip": {
-        "message": "重複した検索をリセットします"
-    },
-    "quickfilters.button.cancelFindInFolder.label": {
-        "message": "検索中止"
-    },
-    "quickfilters.button.cancelFindInFolder.tooltip": {
-        "message": "フォルダの検索をキャンセルします"
-    },
-    "quickfilters.button.clone": {
-        "message": "複製"
-    },
-    "quickfilters.button.clone.accesskey": {
-        "message": "C"
-    },
-    "quickfilters.button.clone.tooltiptext": {
-        "message": "フィルタを複製します"
-    },
-    "quickfilters.button.findDuplicates.label": {
-        "message": "重複を見つける"
-    },
-    "quickfilters.button.findDuplicates.tooltip": {
-        "message": "重複した属性を見つけます"
-    },
-    "quickfilters.button.getOtherAddon": {
-        "message": "{1} を入手"
-    },
-    "quickfilters.button.loadFilters.tooltip": {
-        "message": "フィルターを復元します..."
-    },
-    "quickfilters.button.merge": {
-        "message": "マージ"
-    },
-    "quickfilters.button.merge.accesskey": {
-        "message": "M"
-    },
-    "quickfilters.button.merge.tooltiptext": {
-        "message": "同じ動作をする複数のフィルタを併合します"
-    },
-    "quickfilters.button.saveFilters.tooltip": {
-        "message": "フィルターを保存します..."
-    },
-    "quickfilters.button.searchProperties": {
-        "message": "検索プロパティを変更..."
-    },
-    "quickfilters.button.settings": {
-        "message": "quickFilters 設定..."
-    },
-    "quickfilters.button.sort": {
-        "message": "並べ替え"
-    },
-    "quickfilters.button.sort.tooltiptext": {
-        "message": "アルファベット順に並べ替えます"
-    },
-    "quickfilters.button.support": {
-        "message": "quickFilters サポートサイト"
-    },
-    "quickfilters.clone.label": {
-        "message": "(コピー)"
-    },
-    "quickfilters.clone.selectOne": {
-        "message": "複製するには、フィルタを 1 個だけ選択してください。"
-    },
-    "quickfilters.clone.undetermined": {
-        "message": "選択されたフィルタを決定できませんでした"
-    },
-    "quickfilters.confirmVersionLink": {
-        "message": "quickFilters のバージョン履歴を表示しますか？"
-    },
-    "quickfilters.copy.warning.emptyClipboard": {
-        "message": "クリップボードにフィルタがありません！"
-    },
-    "quickfilters.copy.warning.selectFilter": {
-        "message": "少なくとも 1 個のフィルタを選択してください！"
-    },
-    "quickfilters.copy.warning.selectOtherAccount": {
-        "message": "異なるアカウントを選択してアイテムを貼り付けてください！"
-    },
-    "quickfilters.copyMessage.label": {
-        "message": "メッセージをコピーする"
-    },
-    "quickfilters.createFilter.warning.canNotHaveFilters": {
-        "message": "アカウント {{1}} にはフィルタがありません。"
-    },
-    "quickfilters.createFilter.warning.minimum2Mails": {
-        "message": "このテンプレートは少なくとも 2 通のメールが必要です。"
-    },
-    "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "アカウント [{1}] のメールフォルダにフィルタを設定できません！\n代わりに現在の受信トレイを使用してください。"
-    },
-    "quickfilters.createFilter.warning.noHeaderParser": {
-        "message": "申し訳ありませんが、{1} のこのバージョンでは、メッセージヘッダからアドレスを抽出できないため、フィルタを作成できません。"
-    },
-    "quickfilters.createFilter.warning.noMessageDb": {
-        "message": "フォルダ {1} のメッセージデータベースにアクセスできません"
-    },
-    "quickfilters.createFilter.warning.noMessageId": {
-        "message": "フィルタ作成に失敗しました - メッセージリストの最初の要素のメッセージ ID を取得できません！\nフォルダの修復を行ってください。"
-    },
-    "quickfilters.createFilter.warning.noServer": {
-        "message": "{{1}} フォルダはサーバが指定されていません。"
-    },
-    "quickfilters.createFilter.warning.suggestUpdate": {
-        "message": "この機能を利用するには、新しいバージョンに更新してください。"
-    },
-    "quickfilters.createFromMail.inboxWarning": {
-        "message": "メールを別のフォルダへ移動したりタグを付けたりしている場合、'メッセージからフィルタを作成' が役立ちます。quickFilters が適切な操作を選択します。\nこのメッセージからフィルタを作成しますか？"
-    },
-    "quickfilters.createFromMail.selectWarning": {
-        "message": "フィルタを作成するときはメールを 1 通だけ選択してください！"
-    },
-    "quickfilters.customHeader.BlindCarbonCopy": {
-        "message": "Bcc"
-    },
-    "quickfilters.customHeader.CarbonCopy": {
-        "message": "Cc"
-    },
-    "quickfilters.customHeader.Domain": {
-        "message": "メールアドレスのドメイン"
-    },
-    "quickfilters.customHeader.Email": {
-        "message": "メールアドレス"
-    },
-    "quickfilters.customHeader.FirstName": {
-        "message": "名"
-    },
-    "quickfilters.customHeader.From": {
-        "message": "差出人"
-    },
-    "quickfilters.customHeader.LastName": {
-        "message": "姓"
-    },
-    "quickfilters.customHeader.ListId": {
-        "message": "リスト ID"
-    },
-    "quickfilters.customHeader.ListPost": {
-        "message": "リストポスト"
-    },
-    "quickfilters.customHeader.NamePart": {
-        "message": "氏名"
-    },
-    "quickfilters.customHeader.Newsgroups": {
-        "message": "ニュースグループ"
-    },
-    "quickfilters.customHeader.ReplyTo": {
-        "message": "Reply To"
-    },
-    "quickfilters.customHeader.Subject": {
-        "message": "件名"
-    },
-    "quickfilters.customHeader.SubjectRegex": {
-        "message": "件名の正規表現"
-    },
-    "quickfilters.customHeader.To": {
-        "message": "宛先"
-    },
-    "quickfilters.customTemplate.name": {
-        "message": "テンプレート名:"
-    },
-    "quickfilters.customTemplate.title": {
-        "message": "quickFilters カスタムテンプレート"
-    },
-    "quickfilters.customVariable.label": {
-        "message": "カスタム変数"
-    },
-    "quickfilters.customVariable.tooltip": {
-        "message": "フィルタ作成時に、これらの変数は現在のメールの対応するメールヘッダと置き換えられます。"
-    },
-    "quickfilters.customfilter.replyto": {
-        "message": "Reply-To"
-    },
-    "quickfilters.debug.fixFilters": {
-        "message": "'受信' フラグがセットされていない {0} 個のフィルタが見つかりました。これらのメールは受信時にフィルタが適用されない可能性があります。フィルタを修正しますか？"
-    },
-    "quickfilters.debug.fixFilters.AnyAll": {
-        "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-    },
-    "quickfilters.debug.fixFilters.customActionErrors": {
-        "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
-    },
-    "quickfilters.debug.fixFilters.invalidUris": {
-        "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
-    },
-    "quickfilters.debug.fixFilters.none": {
-        "message": "問題のあるフィルタは見つかりませんでした。"
-    },
-    "quickfilters.debug.fixFilters.result": {
-        "message": "{0} 個のフィルタが修正されました。"
-    },
-    "quickfilters.deleteFromPOP.label": {
-        "message": "メッセージを POP サーバから削除する"
-    },
-    "quickfilters.deleteMessage.label": {
-        "message": "メッセージを削除する"
-    },
-    "quickfilters.fetchFromPOP.label": {
-        "message": "POP サーバから本文を取得する"
-    },
-    "quickfilters.filters.toggleMessage.dontShow": {
-        "message": "このメッセージを再び表示しない"
-    },
-    "quickfilters.filters.toggleMessage.notificationText": {
-        "message": "フィルタ作成支援モードを開始しました。メールを他のメールフォルダに移動すると「フィルタルール作成」アシスタントが開始されます。#1 は、「メールの差出人」と「件名に含まれる特定のキーワード」を基に自動的に移動するメッセージフィルタを使用します。フィルタ作成支援モードを終了するには、フィルタボタンをもう一度押してください。"
-    },
-    "quickfilters.filters.toggleMessage.title": {
-        "message": "フィルタ作成支援モード"
-    },
-    "quickfilters.findFiltersForFolder.menu": {
-        "message": "フィルタを検索..."
-    },
-    "quickfilters.forwardTo.label": {
-        "message": "メッセージを転送する"
-    },
-    "quickfilters.fpJsonFile": {
-        "message": "JSON ファイル"
-    },
-    "quickfilters.ignoreSubthread.label": {
-        "message": "サブスレッドを無視する"
-    },
-    "quickfilters.ignoreThread.label": {
-        "message": "スレッドを無視する"
-    },
-    "quickfilters.licenseValidation.guessAddon": {
-        "message": "(入力されたキーは {2} のものである可能性があります)"
-    },
-    "quickfilters.markMessageRead.label": {
-        "message": "メッセージを既読にする"
-    },
-    "quickfilters.markMessageStarred.label": {
-        "message": "メッセージにスターを付ける"
-    },
-    "quickfilters.markMessageUnread.label": {
-        "message": "メッセージを未読にする"
-    },
-    "quickfilters.menu.copy": {
-        "message": "コピー"
-    },
-    "quickfilters.menu.cut": {
-        "message": "切り取り"
-    },
-    "quickfilters.menu.paste": {
-        "message": "貼り付け"
-    },
-    "quickfilters.menu.removeDupeAction": {
-        "message": "重複する操作を削除"
-    },
-    "quickfilters.menu.removeDupeCondition": {
-        "message": "重複する条件を削除"
-    },
-    "quickfilters.merge.addressesOmitted": {
-        "message": "メールアドレスが条件から省略されました - quickFilters はあなた自身のメールアドレスのフィルタリングを無効にします:"
-    },
-    "quickfilters.merge.warning.missingAction": {
-        "message": "次のフィルタのメイン操作を行えませんでした: {1}"
-    },
-    "quickfilters.merge.warning.selectMismatch": {
-        "message": "選択されたすべてのフィルタをマージできません: フィルタ動作が {1} と一致しません！"
-    },
-    "quickfilters.merge.warning.selectMismatchContinue": {
-        "message": "一致しないフィルタの選択を解除して続行しますか？"
-    },
-    "quickfilters.merge.warning.selectMultiple": {
-        "message": "マージするには複数のフィルタを選択してください"
-    },
-    "quickfilters.merge.warning.selectMultiple2": {
-        "message": "最初に選択されたフィルタを特定できません - マージするには 2 個以上のフィルタを選択する必要があります！"
-    },
-    "quickfilters.merge.warning.selectTarget": {
-        "message": "マージ対象のフィルタが選択されていません！"
-    },
-    "quickfilters.move.selectOne": {
-        "message": "1 個のフィルタ項目だけを選択してください！"
-    },
-    "quickfilters.moveMessage.label": {
-        "message": "メッセージを移動する"
-    },
-    "quickfilters.notification.donate": {
-        "message": "寄付"
-    },
-    "quickfilters.notification.dontShowAgain": {
-        "message": "このメッセージを再び表示しない。"
-    },
-    "quickfilters.notification.premium.btn.extendLicense": {
-        "message": "ライセンスを延長"
-    },
-    "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-        "message": "これは、現在のライセンスを 1 年延長します。ライセンスを新規購入するよりも安くなっています。"
-    },
-    "quickfilters.notification.premium.btn.getLicense": {
-        "message": "ライセンス購入"
-    },
-    "quickfilters.notification.premium.btn.hotKey": {
-        "message": "L"
-    },
-    "quickfilters.notification.premium.btn.renewLicense": {
-        "message": "ライセンスを更新"
-    },
-    "quickfilters.notification.premium.text": {
-        "message": "{1} は有料の機能です。この機能を永続的に使用するには quickFilters Pro ライセンスを購入してください。"
-    },
-    "quickfilters.notification.premium.title": {
-        "message": "有料機能"
-    },
-    "quickfilters.notification.proFeature.notificationText": {
-        "message": "{1} の機能は有料版の機能です。この機能を常用したい場合は、quickFilters の開発への寄付をお願いします。"
-    },
-    "quickfilters.notification.proFeature.title": {
-        "message": "プレミアム機能"
-    },
-    "quickfilters.notification.register": {
-        "message": "{1} の登録"
-    },
-    "quickfilters.option.searchProperty.addTag": {
-        "message": "タグを追加 (ラベル)"
-    },
-    "quickfilters.option.searchProperty.name": {
-        "message": "プロパティ名"
-    },
-    "quickfilters.option.searchProperty.replyWithTemplate": {
-        "message": "テンプレートを使用して返信する"
-    },
-    "quickfilters.option.searchProperty.searchCondition": {
-        "message": "検索条件 (テキスト)"
-    },
-    "quickfilters.option.searchProperty.setCustomStringAction": {
-        "message": "文字列を変更する操作"
-    },
-    "quickfilters.option.searchProperty.targetFolder": {
-        "message": "対象フォルダ"
-    },
-    "quickfilters.premium.renewLicense.tooltip": {
-        "message": "ライセンスの有効期限が {1} 日前に切れています"
-    },
-    "quickfilters.premium.title.customTemplate": {
-        "message": "カスタムテンプレート"
-    },
-    "quickfilters.premium.title.duplicatesFinder": {
-        "message": "重複ファインダ"
-    },
-    "quickfilters.premium.title.searchFolder": {
-        "message": "フォルダに対するフィルタの検索"
-    },
-    "quickfilters.premium.title.sortFilters": {
-        "message": "フィルタの並べ替え"
-    },
-    "quickfilters.prompt.contact.subject": {
-        "message": "件名を短く入力してください:"
-    },
-    "quickfilters.prompt.contact.title": {
-        "message": "quickFilters サポートへの問い合わせ"
-    },
-    "quickfilters.prompt.copiedCustomVar": {
-        "message": "変数 {1} をクリップボードにコピーしました。検索語に貼り付けてください。"
-    },
-    "quickfilters.prompt.createCustomHeader": {
-        "message": "これをフィルタで使用するには '{1}' をカスタムヘッダとして追加してください。"
-    },
-    "quickfilters.prompt.customTemplateName": {
-        "message": "カスタムテンプレートの名前:"
-    },
-    "quickfilters.promptDontRepeat": {
-        "message": "今後はこの警告を表示しない"
-    },
-    "quickfilters.register.licenseValid.expired": {
-        "message": "ライセンスの有効期限:"
-    },
-    "quickfilters.replyWithTemplate.label": {
-        "message": "テンプレートを使用して返信する"
-    },
-    "quickfilters.runFiltersOnMails.notify": {
-        "message": "選択したメッセージにフィルタを適用..."
-    },
-    "quickfilters.runMultiFilterInFolder.status": {
-        "message": "Running {0} Filters in folder {1}."
-    },
-    "quickfilters.runSingleFilterInFolder.status": {
-        "message": "Running Filter '{0}' in folder {1}."
-    },
-    "quickfilters.runningFiltersOnFolder.notify": {
-        "message": "Run filters on folder '{1}'…"
-    },
-    "quickfilters.search.warning.noresults": {
-        "message": "このフォルダを対象とするフィルタはありません。"
-    },
-    "quickfilters.setJunkScore.label": {
-        "message": "迷惑メールかどうか設定する"
-    },
-    "quickfilters.setPriority.label": {
-        "message": "重要度を設定する"
-    },
-    "quickfilters.sort": {
-        "message": "ソート"
-    },
-    "quickfilters.sort.tooltip": {
-        "message": "検索語を並べ替える"
-    },
-    "quickfilters.sort.warning.selectMultiple": {
-        "message": "アルファベット順に並べ替えるには、2 個以上のフィルタを選択してください"
-    },
-    "quickfilters.stopExecution.label": {
-        "message": "フィルタの実行を中止する"
-    },
-    "quickfilters.warning.templateNameNotUnique": {
-        "message": "この名前のテンプレートはすでに存在します。別の名前を付けてください。"
-    },
-    "quickfilters.watchThread.label": {
-        "message": "注目スレッドに設定する"
-    },
-    "quickfiltersToolbarButton.label": {
-        "message": "quickFilters アシスタント"
-    },
-    "quickfiltersToolbarButton.tooltip": {
-        "message": "フィルタ作成アシスタントを有効にします"
-    },
-    "renew-your-license": {
-        "message": "ライセンスを更新する。"
-    },
-    "special-offer-content": {
-        "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {boldStart} 30％割引{boldEnd} されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{boldStart}4月16日{boldEnd} までご利用いただけます。"
-    },
-    "special-offer-head": {
-        "message": "続行するには、quickFiltersをご利用ください。"
-    },
-    "special-offer-intro": {
-        "message": "{boldStart}親愛なる{name} {boldEnd}、将来を見据えたquickFiltersを支援できるようになりました。 Thunderbirdのさらに大きな変更が予定されており、それに追いつくために{boldStart}あなたの助け{boldEnd}が必要です！"
-    },
-    "support-preference": {
-        "message": "これは、$addonName$ をサポートするために推奨される方法です。",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "support-suggestion": {
-        "message": "$addonName$ が機能し、存続できるように、重要なお願いがあります。",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "testDrive": {
-        "message": "無料バージョンでは、有料機能を試しに使うことができますが、一部の機能が制限されています。"
-    },
-    "thanks-for-installing-intro": {
-        "message": "$addonName$ をインストールしていただきありがとうございます。",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "thanks-for-updating-intro": {
-        "message": "$addonName$ を更新していただきありがとうございます。",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "time-and-effort": {
-        "message": "$addonName$ は、Mozillaプラットフォームとの互換性を維持するために、継続的な変更が必要です。 私はThunderbirdの将来のバージョンのために可能な限り多くの機能を保持するために絶えず取り組んでいます。",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "translated-by-google": {
-        "description": "disclaimer.",
-        "message": "グーグルによって提供される翻訳"
-    },
-    "updates.title": {
-        "message": "更新について"
-    },
-    "updatesExpiry": {
-        "message": "quickFilters Pro は、addons.thunderbird.net 経由で自動的に更新されます。ライセンスの有効期限が切れた後は、ライセンスを更新するか、無料版の利用規約の下で有料機能を使用し続けることができます。'Premium Exclusive' 機能を使用するには、正しい登録キーが必要になります。"
-    },
-    "version": {
-        "message": "バージョン:"
-    },
-    "vouchers.title": {
-        "message": "支払い免除"
-    },
-    "whats-new-btn": {
-        "message": "新着情報？"
-    },
-    "whats-new-head": {
-        "message": "ハイライト"
-    },
-    "whats-new-intro": {
-        "message": "ここで詳細な変更ログを読んでください（英語のみ）："
-    },
-    "whats-new-list": {
-        "message": "{L1}新機能：フィルター内の検索用語の並べ替え（Pro機能）。{L2} {L1}複数のアカウントに挿入するためにコピーされたフィルターリストを記憶する（Pro機能）。{L2} {L1}マージ時の重複検索用語の問題を修正しました。 フィルタ。{L2} {L1} Thunderbird88との互換性のためのさまざまな修正。{L2}{L1} 5.2.1-カスタムフィルターテンプレートから並べ替えボタンを削除{L2} {L1}5.2.1-Igor Zhigunov、別名ashed によるロシア語の翻訳の改善{L2}"
-    },
-    "window-title": {
-        "description": "page title. first placeholder will be replaced with Add-on name",
-        "message": "$addonName$ へようこそ",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "yearlyLicense.premiumFeatures": {
-        "message": "quickFilters Pro は、有料機能へのアクセス制限をすべて解除します。"
-    },
-    "yearlyLicense.premiumFeatures.moreInfoLink": {
-        "message": "有料機能についての詳細。"
-    },
-    "yearlyLicense.title": {
-        "message": "年間ライセンス"
-    },
-    "yearlyLicense.usageTerm": {
-        "message": "ライセンスは、あなたの個人使用に限り、あなたのメールアドレスが登録されます。このメールアドレスを使用するように設定すると、複数のメールクライアントにインストールできます。"
-    },
-    "yearlyLicense.usageTerm1": {
-        "message": "メールアドレスを追加しても問題ありません。別のライセンスは不要です。ご質問がありましたらサポートタブからお問い合わせください。"
+  "_l10nstatus": {
+    "message": "SPLASH+UI"
+  },
+  "about": {
+    "message": "quickFilters について"
+  },
+  "account.label": {
+    "message": "アカウント選択:"
+  },
+  "active-version-info": {
+    "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "Thunderbird $appVer$ 上で{boldStart}バージョン $addonVer$ {boldEnd}を実行しています。",
+    "placeholders": {
+      "addonVer": {
+        "content": "$1",
+        "example": "Version 1.1"
+      },
+      "appVer": {
+        "content": "$2",
+        "example": "78.0b4"
+      }
     }
+  },
+  "addon-authors-struggle": {
+    "message": "引き続き有用であるために、アドオン開発者は、ユーザーが提供する機能の恩恵を受け続けることができるように、修正と書き換えに必要なリソースに資金を提供する必要があります。"
+  },
+  "btn-extend-license": {
+    "message": "ライセンスを 1 年延長します"
+  },
+  "btn-renew-license": {
+    "message": "ライセンスを更新します"
+  },
+  "btn-want-a-license": {
+    "message": "ライセンスを購入します"
+  },
+  "btn-want-to-donate": {
+    "message": "1 回限りの寄付を行います"
+  },
+  "buyDomainLicense.button": {
+    "message": "ドメインライセンスを購入"
+  },
+  "buyDomainLicense.instruct": {
+    "message": "5 人以上の企業向けにライセンスが必要なら、ドメインライセンスを取得してください。こちらのほうが安くなります:"
+  },
+  "buyLicense.instruct": {
+    "message": "自分用にライセンスが必要ならパーソナルライセンスを取得してください。個人用のメールアドレス向けのライセンスを複数の端末に適用できます。"
+  },
+  "buyPersonalLicense.button": {
+    "message": "パーソナルライセンスを購入"
+  },
+  "chkAfterJunk.label": {
+    "message": "迷惑メール分類後"
+  },
+  "chkAfterSending.label": {
+    "message": "送信後"
+  },
+  "chkAlphabetic.label": {
+    "message": "新しいフィルタをアルファベット順に挿入"
+  },
+  "chkAlphabetic.tooltip": {
+    "message": "フィルタ名の順に並べます。親フォルダの名前規則を推奨します。これはフィルタの実行順に影響するので注意してください！"
+  },
+  "chkAutoClose.accesskey": {
+    "message": "E"
+  },
+  "chkAutoClose.label": {
+    "message": "フィルタの作成後にフィルタ作成アシスタントを終了する"
+  },
+  "chkAutoRun.label": {
+    "message": "新着メール受信時にフィルタを適用する"
+  },
+  "chkAutoStart.accesskey": {
+    "message": "A"
+  },
+  "chkAutoStart.label": {
+    "message": "自動的にフィルタ支援モードを開始する"
+  },
+  "chkCurrentToolbar.btn.FilterList.label": {
+    "message": "フィルタリストを表示"
+  },
+  "chkCurrentToolbar.btn.FindFilter.label": {
+    "message": "このフォルダ用のフィルタを見つける"
+  },
+  "chkCurrentToolbar.btn.FindFilter.tooltip": {
+    "message": "メールをこのフォルダへ移動するフィルタを見つけます。"
+  },
+  "chkCurrentToolbar.btn.RunOnFolder.label": {
+    "message": "フォルダにフィルタを適用"
+  },
+  "chkCurrentToolbar.btn.RunOnMessages.label": {
+    "message": "選択したメッセージにフィルタを適用"
+  },
+  "chkDebug.accesskey": {
+    "message": "D"
+  },
+  "chkDebug.label": {
+    "message": "デバッグモード"
+  },
+  "chkImapOnRead.label": {
+    "message": "また、IMAP アカウント内の既読メールに対してフィルタを実行します。"
+  },
+  "chkInsertRulesAtTop.label": {
+    "message": "Add new rules on top of list."
+  },
+  "chkLocalFoldersAutorun.label": {
+    "message": "フィルタをローカルフォルダの受信トレイに自動的に適用する"
+  },
+  "chkMergeAuto.label": {
+    "message": "自動的に統合モードを選択する"
+  },
+  "chkMergeAuto.tooltip": {
+    "message": "フィルタが既に存在する場合、自動的に統合モードを選択して最初に一致するフィルタを統合します。"
+  },
+  "chkMergeSkip.label": {
+    "message": "テンプレートの手順へスキップする"
+  },
+  "chkMergeSkip.tooltip": {
+    "message": "'統合対象を選択'  する手順をスキップし、'テンプレートを選択' する手順へ進みます。"
+  },
+  "chkPeriodically.label": {
+    "message": "Run Periodically"
+  },
+  "chkPeriodically.tooltip": {
+    "message": "Runs the filter in regular intervals"
+  },
+  "chkRunManual.label": {
+    "message": "手動で実行"
+  },
+  "chkShowEditor.label": {
+    "message": "フィルタ生成後にエディタを開く"
+  },
+  "chkShowList.label": {
+    "message": "フィルタ作成後にフィルタリストを表示する"
+  },
+  "chkShowList.tooltip": {
+    "message": "リストを表示し、すべてのメッセージに対して新しいフィルタをテスト実行します。"
+  },
+  "chkToolbar.accesskey": {
+    "message": "T"
+  },
+  "chkToolbar.label": {
+    "message": "フィルタマネージャにツールバーを表示する"
+  },
+  "chkWhenArchiving.label": {
+    "message": "アーカイブ時"
+  },
+  "cost-of-independence": {
+    "message": "ソフトウェア開発には時間とお金がかかります - 多くのプラットフォームアプリとは異なり、アドオンは大企業によって作成されているわけではなく、Mozilla による支援もありません。"
+  },
+  "createdBy": {
+    "message": "作者:"
+  },
+  "domainLicense.email": {
+    "message": "あなたのドメインライセンスを生成するため、このメールアドレスに問い合わせます (2 営業日以内に確認のメールが送信されます)。次のページでライセンスのドメイン名を入力してください。"
+  },
+  "domainLicense.header": {
+    "message": "ライセンス登録済みのドメイン"
+  },
+  "domainLicense.instruct": {
+    "message": "このライセンスは、あなたの団体ドメインの鍵になります。ライセンスは、quickFilters Pro の使用をこのメールドメインが末尾に付くメールアドレスのユーザに許可します。例えば、ドメイン名に 'abc.com' と入力すると、fred@abc.com や martha@abc.com、mike.doe@abc.com などのユーザがライセンスの使用を許可されます。正規ユーザの最大数は、最初の画面で入力した数になります。"
+  },
+  "domainLicense.validate": {
+    "message": "あなたの団体のメールアドレスのドメイン名 (@ 記号の後ろ部分) は「正確に入力」してください。これは、ユーザのメールアドレスを認証するのに使用されます。"
+  },
+  "donate": {
+    "message": "1 回限りの寄付を行う。"
+  },
+  "donate-heading": {
+    "message": "寄付する！"
+  },
+  "donate.label": {
+    "message": "寄付"
+  },
+  "email.label": {
+    "message": "メールアドレス:"
+  },
+  "enterLicenseKey.button": {
+    "message": "ライセンスキーを入力..."
+  },
+  "enterLicenseKey.tooltip": {
+    "message": "メールに書かれたライセンスキーコードを入力してください。"
+  },
+  "extend-your-license": {
+    "message": "ライセンスを 1 年延長する。"
+  },
+  "extensionDescription": {
+    "description": "Description of the extension.",
+    "message": "メールをドラッグアンドドロップしてその属性を分析することにより、メールフィルタールールをその場ですばやく生成します。"
+  },
+  "extensionName": {
+    "description": "Name of the extension.",
+    "message": "quickFilters"
+  },
+  "extensions.quickfilters.description": {
+    "message": "メールをドラッグ＆ドロップすることにより、そのメールを解析してフィルタを作成します。"
+  },
+  "firstName.label": {
+    "message": "名:"
+  },
+  "freeLicense": {
+    "message": "quickFilters プロジェクトに最近ご寄付いただいた方や開発に貢献 (翻訳やパッチ提供) していただいている方は、無料ライセンスキーの取得資格があります。quickFilters オプションのサポートタブからお問い合わせください。"
+  },
+  "getquickFilters": {
+    "message": "quickFilters Pro の入手"
+  },
+  "grpMerge.label": {
+    "message": "規則を統合する"
+  },
+  "heading-installed": {
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ が正常にインストールされました",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "heading-updated": {
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ が正常に更新されました",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "homepage": {
+    "message": "ホームページ:"
+  },
+  "intro": {
+    "message": "quickFilters Pro の年間ライセンスは、すべての有料機能を 1 年間使用できるようにします。これは、製品開発のサポートと改善の助けになります。"
+  },
+  "label-remind-me": {
+    "message": "$countDays$ 日後にもう一度表示します。",
+    "placeholders": {
+      "countDays": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "lastName.label": {
+    "message": "姓:"
+  },
+  "license-is-extended": {
+    "description": "Shown if license expires more than a year from now",
+    "message": "最近ライセンスを延長するか、寄付していただきありがとうございます。 このアドオンの将来の保証に役立ったので、このウィンドウを閉じるだけです。"
+  },
+  "licenseWindow.title": {
+    "message": "quickFilters Pro ライセンス"
+  },
+  "mozillas-basic-platform": {
+    "message": "Mozilla は、エンドユーザーであるあなたにソフトウェアを提供するための基本的なプラットフォームのみを提供します。ユーザーに支払いやサポートを依頼する必要がある場合、addons.thunderbird.net からこれを行うことはできません。これは、アプリ内決済機能や、iTunes や Google Play のようなライセンス管理が組み込まれた「アプリストア」ではありません。"
+  },
+  "notificationTitle": {
+    "description": "Title of the click notification.",
+    "message": "Click notification"
+  },
+  "ongoing-work": {
+    "message": "$addonName$を新しいプログラミングモデルに変換するための変更には数週間かかり、費用がかかりました。 次の2022バージョンにはさらに多くの変更があります。 このような複雑なアドオンを使用すると、コストのかかる作業が避けられなくなります。 これで私たちを助けてください。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "pane1.title": {
+    "message": "quickFilters 設定"
+  },
+  "prefwindow.title": {
+    "message": "quickFilters 設定"
+  },
+  "purchase-a-license": {
+    "message": "ライセンスを購入する。"
+  },
+  "purchase-heading": {
+    "message": "ライセンスを購入する！"
+  },
+  "qf.button.createFilter": {
+    "message": "新しいフィルタを作成..."
+  },
+  "qf.button.editFilter": {
+    "message": "フィルタ編集..."
+  },
+  "qf.button.merge": {
+    "message": "マージ"
+  },
+  "qf.button.next": {
+    "message": "次へ"
+  },
+  "qf.button.pasteLicense": {
+    "message": "貼り付け"
+  },
+  "qf.button.reorderButtonBottom": {
+    "message": "一番下へ"
+  },
+  "qf.button.reorderButtonBottom.accessKey": {
+    "message": "b"
+  },
+  "qf.button.reorderButtonBottom.toolTip": {
+    "message": "フィルタを最後に実行します"
+  },
+  "qf.button.reorderButtonTop": {
+    "message": "一番上へ"
+  },
+  "qf.button.reorderButtonTop.accessKey": {
+    "message": "o"
+  },
+  "qf.button.reorderButtonTop.toolTip": {
+    "message": "フィルタを最初に実行します"
+  },
+  "qf.button.targetSelected": {
+    "message": "対象のフィルタを選択"
+  },
+  "qf.button.validateLicense": {
+    "message": "認証"
+  },
+  "qf.check.createNew": {
+    "message": "新しいフィルタを作成する"
+  },
+  "qf.check.mergeWithExisting": {
+    "message": "既存のフィルタにマージする:"
+  },
+  "qf.cloned.label": {
+    "message": "複製したフィルタの名前に追加:"
+  },
+  "qf.continueFilter.label": {
+    "message": "フィルタ作成..."
+  },
+  "qf.continueFilter.shortcut": {
+    "message": "F"
+  },
+  "qf.description.about": {
+    "message": "quickFilters の簡単な説明は次のサイトにあります:"
+  },
+  "qf.description.contactMe": {
+    "message": "個人的な連絡は $supportMail$ まで:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "qf.description.currentFolderButtons": {
+    "message": "このオプションは、QuickFolders アドオンを使用している場合のみ使用できます。メッセージのプレビューペインに小さなツールバーが追加されます。"
+  },
+  "qf.description.mergeAddInstructions": {
+    "message": "このリストにある他のすべてのフィルタは、これにマージして削除されます。"
+  },
+  "qf.description.mergeAddSummary": {
+    "message": "他のプロパティを継承するフィルタを選択してください。"
+  },
+  "qf.description.mergeInstructions": {
+    "message": "片方のフィルタにまとめるか、新しいフィルタを作成してください。"
+  },
+  "qf.description.mergeSummary": {
+    "message": "QuickFilters アシスタントが同じ動作をするフィルタを見つけました。"
+  },
+  "qf.description.selectToExtend": {
+    "message": "新しい規則を追加するフィルタを選択してください。"
+  },
+  "qf.donate.tooltip": {
+    "message": "quickFilters の開発を支援します"
+  },
+  "qf.filterlist.group": {
+    "message": "フィルタリストの機能"
+  },
+  "qf.filterlist.multipaste": {
+    "message": "複数のアカウントへのフィルターのコピーと貼り付けを有効にする"
+  },
+  "qf.filters.actions.caption": {
+    "message": "操作"
+  },
+  "qf.filters.actions.flag": {
+    "message": "フラグ"
+  },
+  "qf.filters.actions.flag.accesskey": {
+    "message": "F"
+  },
+  "qf.filters.actions.priority": {
+    "message": "優先度"
+  },
+  "qf.filters.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "qf.filters.actions.star": {
+    "message": "スター"
+  },
+  "qf.filters.actions.star.accesskey": {
+    "message": "S"
+  },
+  "qf.filters.actions.tag": {
+    "message": "タグ"
+  },
+  "qf.filters.actions.tag.accesskey": {
+    "message": "T"
+  },
+  "qf.filters.actions.targetFolder": {
+    "message": "対象フォルダ"
+  },
+  "qf.filters.actions.tooltip": {
+    "message": "元のメールからこれらの属性をコピーするフィルタです"
+  },
+  "qf.filters.instructions": {
+    "message": "テンプレートを選択してください。次の画面でフィルタルールを設定します。"
+  },
+  "qf.filters.steps.autoRunFilter": {
+    "message": "自動的に実行"
+  },
+  "qf.filters.steps.autoRunFilter.tooltip": {
+    "message": "作成後、フィルタを自動実行して元の受信トレイに適用します。"
+  },
+  "qf.filters.steps.caption": {
+    "message": "次のステップ"
+  },
+  "qf.filters.steps.showEditor": {
+    "message": "フィルタ規則"
+  },
+  "qf.filters.steps.showEditor.tooltip": {
+    "message": "アシスタントがフィルタを作成した後に詳細を編集します。"
+  },
+  "qf.filters.steps.showList": {
+    "message": "フィルタリスト"
+  },
+  "qf.filters.steps.showList.tooltip": {
+    "message": "対象のフィルタを表示してすぐに試せます"
+  },
+  "qf.filters.steps.tooltip": {
+    "message": "フィルタ作成後に表示する画面です"
+  },
+  "qf.filters.template.custom.description": {
+    "message": "カスタムフィルタ - ユーザ定義のフィルタは、%from% %to% %subject% などの変数を使用します。"
+  },
+  "qf.filters.template.domain": {
+    "message": "送信者のドメインを基準にする"
+  },
+  "qf.filters.template.domain.description": {
+    "message": "「送信者を基準にする」テンプレートと似ていますが、送信者のメールアドレスのドメイン名 (@xyz.com 部分) にのみマッチします。"
+  },
+  "qf.filters.template.from": {
+    "message": "送信者 (from) を基準にする"
+  },
+  "qf.filters.template.from.description": {
+    "message": "これはよく使われるパターンです: 差出人のメールアドレスを取得し、フィルタ条件の差出人のフィールドに貼り付けます。このフィルタ条件は、特定の差出人からのメールをすべて新しいフォルダに移動できます。"
+  },
+  "qf.filters.template.list.description": {
+    "message": "差出人に基づくフィルタと似ていますが、宛先のフィルタ条件は指定しません。"
+  },
+  "qf.filters.template.maillist": {
+    "message": "メーリングリスト"
+  },
+  "qf.filters.template.maillist.description": {
+    "message": "'List-Id' フィールドはメーリングリストで役立ちます。このフィールドが設定されていない場合、代わりに差出人のアドレスが使用されます。"
+  },
+  "qf.filters.template.multifrom": {
+    "message": "グループ (複数のメールの送信者を集めます)"
+  },
+  "qf.filters.template.multifrom.description": {
+    "message": "複数のメールをドラッグしてすべての送信者を条件に追加します。(ご自分のメールアドレスは除く)"
+  },
+  "qf.filters.template.replyto": {
+    "message": "返信先 (Reply-To) を基準にする"
+  },
+  "qf.filters.template.replyto.description": {
+    "message": "フィルタは Reply-To フィールドが基準になります。"
+  },
+  "qf.filters.template.tag": {
+    "message": "タグを基準にする"
+  },
+  "qf.filters.template.tag.description": {
+    "message": "メールに付けられたタグをフィルタ条件に追加します。"
+  },
+  "qf.filters.template.to": {
+    "message": "受信者 (To) を基準にする"
+  },
+  "qf.filters.template.to.description": {
+    "message": "差出人に基づくフィルタと似ています: あなたから誰かに送信したメールにマークを付けたい場合に使用できます。宛先のメールアドレスを取得し、フィルタ条件の差出人と宛先のフィールドに貼り付けます。このフィルタ条件は、特定の差出人と宛先の会話全体を新しいフォルダに移動できます。"
+  },
+  "qf.filters.template.topic": {
+    "message": "件名を基準にする"
+  },
+  "qf.filters.template.topic.description": {
+    "message": "これは特別な括弧 ([切手収集]や{菜食主義} など) で囲まれた文字列に基づくフィルタ条件を作成します。多くのメーリングリストなどの件名でこのような書き方がされているので、簡単に使用できます。"
+  },
+  "qf.filters.templates.description.label": {
+    "message": "説明:"
+  },
+  "qf.filters.title": {
+    "message": "フィルタ作成"
+  },
+  "qf.grp.whenToRun": {
+    "message": "フィルタの適用:"
+  },
+  "qf.label.aboutLink": {
+    "message": "quickFilters の Web サイト..."
+  },
+  "qf.label.cancel": {
+    "message": "キャンセル"
+  },
+  "qf.label.contactLink": {
+    "message": "問い合わせる (英語またはドイツ語のみ)..."
+  },
+  "qf.label.currentFolderButtons": {
+    "message": "QuickFolders の現在のフォルダツールバー"
+  },
+  "qf.label.donate": {
+    "message": "寄付"
+  },
+  "qf.label.filterCountN_of_M": {
+    "message": "{0} / {1}"
+  },
+  "qf.label.filterEntities": {
+    "message": "個のアイテム"
+  },
+  "qf.label.filterSingleEntity": {
+    "message": "1 個のアイテム"
+  },
+  "qf.label.haveLicense": {
+    "message": "ライセンス登録はお済みですか？"
+  },
+  "qf.label.insertLicense": {
+    "message": "個人ライセンスキーをここに記入してください:"
+  },
+  "qf.label.insertLicense.tooltip": {
+    "message": "ライセンスキーは FastSpring　からの支払い確認 (order confirmation) メールに含まれています。"
+  },
+  "qf.label.licenseValid": {
+    "message": "ライセンスの有効期限:"
+  },
+  "qf.label.naming": {
+    "message": "命名規則"
+  },
+  "qf.label.naming.folderDelimiter": {
+    "message": "デリミタ:"
+  },
+  "qf.label.naming.keyWord": {
+    "message": "規則通りのキーワードを追加する"
+  },
+  "qf.label.naming.keyWord.accesskey": {
+    "message": "k"
+  },
+  "qf.label.naming.parentFolder": {
+    "message": "親フォルダの名前を追加する"
+  },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "p"
+  },
+  "qf.label.premiumFeaturesSite": {
+    "message": "有料機能についての詳細はウェブサイトをご覧ください"
+  },
+  "qf.label.quickfilters": {
+    "message": "quickFilters"
+  },
+  "qf.label.shortcut.runFolder": {
+    "message": "Shortcut for Running Filters on Folder: Shift + "
+  },
+  "qf.label.shortcut.runMails": {
+    "message": "Shortcut for Running Filters on Selected Mails: Shift + "
+  },
+  "qf.label.supportWithLicense": {
+    "message": "ライセンスを取得して quickFilters をサポート"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "入力されたライセンスキーが有効期限切れです。下のボタンをクリックしてライセンスを更新してください。"
+  },
+  "qf.licenseValidation.failed": {
+    "message": "入力されたライセンスキーが正しくありません。FastSpring からのメールに書かれた手順を確認してください。何か問題がある場合は、サポートタブからお問い合わせください。"
+  },
+  "qf.licenseValidation.invalidAddon": {
+    "message": "入力されたライセンスキーは正しくありません。{0} のライセンスキーは {1} から始まります。"
+  },
+  "qf.licenseValidation.invalidMail": {
+    "message": "ライセンスキー [{1}] に紐付けされたメールアドレスのメールアカウントがリストに見当たりません。問題解決のため、サポートタブからお問い合わせください。"
+  },
+  "qf.licenseValidation.notMatchedMail": {
+    "message": "暗号化されたメールアドレスが読めるメールアドレスと一致しません。"
+  },
+  "qf.licenseValidation.passed": {
+    "message": "QuickFolders Pro のご登録ありがとうございます！ すべての有料機能がロック解除されました。"
+  },
+  "qf.listener.tags": {
+    "message": "タグ変更を監視する"
+  },
+  "qf.listener.tags.autofilter": {
+    "message": "タグの変更時にフィルタを自動的に実行する"
+  },
+  "qf.listener.tags.tooltip": {
+    "message": "有効にすると、メッセージにタグを付けた時にフィルタアシスタントが起動します。"
+  },
+  "qf.notify.filterCreated": {
+    "message": "新しいフィルタ '{0}' を作成しました。"
+  },
+  "qf.notify.filterMergeUpdated": {
+    "message": "フィルタ '{0}' を更新しました。"
+  },
+  "qf.onewayaddress.label": {
+    "message": "2 段階アドレス検索条件を無効にする"
+  },
+  "qf.onewayaddress.tooltip": {
+    "message": "既定では、quickFilters は '差出人' と '宛先' の両方の検索条件を追加して、あなたのメールアドレスを受信者に含む全メッセージスレッドのフィルタリングを支援します。返信メールを送信済みフォルダに常に保持したいときは、このオプションで無効にしてください。'Copy Sent to Current' アドオンを使用すると、元のメールとともに返信メールを保持することができます。"
+  },
+  "qf.options.versionnumber.tooltip": {
+    "message": "右クリックでバージョン履歴を表示します。"
+  },
+  "qf.premiumConfig": {
+    "message": "有料機能"
+  },
+  "qf.tab.actions": {
+    "message": "動作"
+  },
+  "qf.tab.advanced": {
+    "message": "詳細"
+  },
+  "qf.tab.gopro": {
+    "message": "QuickFolders Pro"
+  },
+  "qf.tab.newFilterProps": {
+    "message": "新規フィルタのプロパティ"
+  },
+  "qf.tab.options": {
+    "message": "オプション"
+  },
+  "qf.tab.support": {
+    "message": "サポート"
+  },
+  "qf.templates.advanced": {
+    "message": "詳細テンプレート"
+  },
+  "qf.templates.customTemplate.edit": {
+    "message": "編集..."
+  },
+  "qf.templates.customTemplate.label": {
+    "message": "カスタムテンプレート"
+  },
+  "qf.templates.customTemplate.new": {
+    "message": "新規作成..."
+  },
+  "qf.templates.customTemplate.tooltip": {
+    "message": "カスタムテンプレートの生成を許可します (詳細はバグの説明を参照)。"
+  },
+  "qf.templates.replyTo.label": {
+    "message": "Reply-To テンプレート"
+  },
+  "qf.templates.replyTo.tooltip": {
+    "message": "Reply-To テンプレートを表示します (詳細はバグの説明を参照)。"
+  },
+  "qf.textbox.searchBox.emptyText": {
+    "message": "フィルタ名で検索..."
+  },
+  "qf.textbox.searchBox.toolTip": {
+    "message": "検索するフィルタの名前を入力してください"
+  },
+  "qf.tooltip.naming.folderDelimiter": {
+    "message": "親フォルダと名前の間に挿入する文字"
+  },
+  "qf.youtube.description": {
+    "message": "Thunderbird アドオンと quickFilters の説明についての動画は、私の YouTube チャンネルでご覧ください。"
+  },
+  "qf.youtube.link": {
+    "message": "Thunderbird Daily で quickFilters の動画を見る..."
+  },
+  "qf.youtube.tbdaily": {
+    "message": "Thunderbird Daily をご視聴ください - quickFilters とデスクトップのメールを使うためのヒントとチュートリアルを紹介する YouTube チャンネルです"
+  },
+  "quickfilters.FilterAssistant.start": {
+    "message": "フィルタ作成支援を開始..."
+  },
+  "quickfilters.FilterAssistant.stop": {
+    "message": "フィルタ作成支援を終了..."
+  },
+  "quickfilters.FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "quickfilters.FromMessage.label": {
+    "message": "QuickFilters: メッセージからフィルタを作成..."
+  },
+  "quickfilters.ListButton.label": {
+    "message": "メッセージフィルタ..."
+  },
+  "quickfilters.ListButton.tooltip": {
+    "message": "メッセージフィルタの一覧を表示します"
+  },
+  "quickfilters.RunButton.label": {
+    "message": "フィルタ実行"
+  },
+  "quickfilters.RunButton.tooltip": {
+    "message": "現在のフォルダにセットアップしたフィルタを適用します"
+  },
+  "quickfilters.RunButtonMsg.label": {
+    "message": "選択したメールにフィルタを適用"
+  },
+  "quickfilters.RunButtonMsg.tooltip": {
+    "message": "現在のメールにフィルタを適用します"
+  },
+  "quickfilters.Start.label": {
+    "message": "フィルタ作成アシスタントを開始..."
+  },
+  "quickfilters.addTag.label": {
+    "message": "メッセージにタグを付ける"
+  },
+  "quickfilters.backup.archivingFilters": {
+    "message": "{1} 個のフィルターをアーカイブ"
+  },
+  "quickfilters.backup.customErrors": {
+    "message": "次のフィルタには保存できないカスタム動作が含まれています。サードパーティのアドオンが足りません:"
+  },
+  "quickfilters.backup.failedFilters": {
+    "message": "{1} 個のフィルターがエンコードできませんでした。詳細はエラーログを確認してください。"
+  },
+  "quickfilters.button.assistant": {
+    "message": "アシスタントを切り替え..."
+  },
+  "quickfilters.button.assistant.tooltiptext": {
+    "message": "フィルタアシスタントモードを切り替えます。有効にした場合、メールをドラッグ＆ドロップしてフィルタを作成できます。"
+  },
+  "quickfilters.button.bug": {
+    "message": "デバッグ"
+  },
+  "quickfilters.button.bug.tooltiptext1": {
+    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
+  },
+  "quickfilters.button.bug.tooltiptext2": {
+    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
+  },
+  "quickfilters.button.cancelDuplicates.label": {
+    "message": "重複をキャンセル"
+  },
+  "quickfilters.button.cancelDuplicates.tooltip": {
+    "message": "重複した検索をリセットします"
+  },
+  "quickfilters.button.cancelFindInFolder.label": {
+    "message": "検索中止"
+  },
+  "quickfilters.button.cancelFindInFolder.tooltip": {
+    "message": "フォルダの検索をキャンセルします"
+  },
+  "quickfilters.button.clone": {
+    "message": "複製"
+  },
+  "quickfilters.button.clone.accesskey": {
+    "message": "C"
+  },
+  "quickfilters.button.clone.tooltiptext": {
+    "message": "フィルタを複製します"
+  },
+  "quickfilters.button.findDuplicates.label": {
+    "message": "重複を見つける"
+  },
+  "quickfilters.button.findDuplicates.tooltip": {
+    "message": "重複した属性を見つけます"
+  },
+  "quickfilters.button.getOtherAddon": {
+    "message": "{1} を入手"
+  },
+  "quickfilters.button.loadFilters.tooltip": {
+    "message": "フィルターを復元します..."
+  },
+  "quickfilters.button.merge": {
+    "message": "マージ"
+  },
+  "quickfilters.button.merge.accesskey": {
+    "message": "M"
+  },
+  "quickfilters.button.merge.tooltiptext": {
+    "message": "同じ動作をする複数のフィルタを併合します"
+  },
+  "quickfilters.button.saveFilters.tooltip": {
+    "message": "フィルターを保存します..."
+  },
+  "quickfilters.button.searchProperties": {
+    "message": "検索プロパティを変更..."
+  },
+  "quickfilters.button.settings": {
+    "message": "quickFilters 設定..."
+  },
+  "quickfilters.button.sort": {
+    "message": "並べ替え"
+  },
+  "quickfilters.button.sort.tooltiptext": {
+    "message": "アルファベット順に並べ替えます"
+  },
+  "quickfilters.button.support": {
+    "message": "quickFilters サポートサイト"
+  },
+  "quickfilters.clone.label": {
+    "message": "(コピー)"
+  },
+  "quickfilters.clone.selectOne": {
+    "message": "複製するには、フィルタを 1 個だけ選択してください。"
+  },
+  "quickfilters.clone.undetermined": {
+    "message": "選択されたフィルタを決定できませんでした"
+  },
+  "quickfilters.confirmVersionLink": {
+    "message": "quickFilters のバージョン履歴を表示しますか？"
+  },
+  "quickfilters.copy.warning.emptyClipboard": {
+    "message": "クリップボードにフィルタがありません！"
+  },
+  "quickfilters.copy.warning.selectFilter": {
+    "message": "少なくとも 1 個のフィルタを選択してください！"
+  },
+  "quickfilters.copy.warning.selectOtherAccount": {
+    "message": "異なるアカウントを選択してアイテムを貼り付けてください！"
+  },
+  "quickfilters.copyMessage.label": {
+    "message": "メッセージをコピーする"
+  },
+  "quickfilters.createFilter.warning.canNotHaveFilters": {
+    "message": "アカウント {{1}} にはフィルタがありません。"
+  },
+  "quickfilters.createFilter.warning.minimum2Mails": {
+    "message": "このテンプレートは少なくとも 2 通のメールが必要です。"
+  },
+  "quickfilters.createFilter.warning.noFilterFallback": {
+    "message": "アカウント [{1}] のメールフォルダにフィルタを設定できません！\n代わりに現在の受信トレイを使用してください。"
+  },
+  "quickfilters.createFilter.warning.noHeaderParser": {
+    "message": "申し訳ありませんが、{1} のこのバージョンでは、メッセージヘッダからアドレスを抽出できないため、フィルタを作成できません。"
+  },
+  "quickfilters.createFilter.warning.noMessageDb": {
+    "message": "フォルダ {1} のメッセージデータベースにアクセスできません"
+  },
+  "quickfilters.createFilter.warning.noMessageId": {
+    "message": "フィルタ作成に失敗しました - メッセージリストの最初の要素のメッセージ ID を取得できません！\nフォルダの修復を行ってください。"
+  },
+  "quickfilters.createFilter.warning.noServer": {
+    "message": "{{1}} フォルダはサーバが指定されていません。"
+  },
+  "quickfilters.createFilter.warning.suggestUpdate": {
+    "message": "この機能を利用するには、新しいバージョンに更新してください。"
+  },
+  "quickfilters.createFromMail.inboxWarning": {
+    "message": "メールを別のフォルダへ移動したりタグを付けたりしている場合、'メッセージからフィルタを作成' が役立ちます。quickFilters が適切な操作を選択します。\nこのメッセージからフィルタを作成しますか？"
+  },
+  "quickfilters.createFromMail.selectWarning": {
+    "message": "フィルタを作成するときはメールを 1 通だけ選択してください！"
+  },
+  "quickfilters.customHeader.BlindCarbonCopy": {
+    "message": "Bcc"
+  },
+  "quickfilters.customHeader.CarbonCopy": {
+    "message": "Cc"
+  },
+  "quickfilters.customHeader.Domain": {
+    "message": "メールアドレスのドメイン"
+  },
+  "quickfilters.customHeader.Email": {
+    "message": "メールアドレス"
+  },
+  "quickfilters.customHeader.FirstName": {
+    "message": "名"
+  },
+  "quickfilters.customHeader.From": {
+    "message": "差出人"
+  },
+  "quickfilters.customHeader.LastName": {
+    "message": "姓"
+  },
+  "quickfilters.customHeader.ListId": {
+    "message": "リスト ID"
+  },
+  "quickfilters.customHeader.ListPost": {
+    "message": "リストポスト"
+  },
+  "quickfilters.customHeader.NamePart": {
+    "message": "氏名"
+  },
+  "quickfilters.customHeader.Newsgroups": {
+    "message": "ニュースグループ"
+  },
+  "quickfilters.customHeader.ReplyTo": {
+    "message": "Reply To"
+  },
+  "quickfilters.customHeader.Subject": {
+    "message": "件名"
+  },
+  "quickfilters.customHeader.SubjectRegex": {
+    "message": "件名の正規表現"
+  },
+  "quickfilters.customHeader.To": {
+    "message": "宛先"
+  },
+  "quickfilters.customTemplate.name": {
+    "message": "テンプレート名:"
+  },
+  "quickfilters.customTemplate.title": {
+    "message": "quickFilters カスタムテンプレート"
+  },
+  "quickfilters.customVariable.label": {
+    "message": "カスタム変数"
+  },
+  "quickfilters.customVariable.tooltip": {
+    "message": "フィルタ作成時に、これらの変数は現在のメールの対応するメールヘッダと置き換えられます。"
+  },
+  "quickfilters.customfilter.replyto": {
+    "message": "Reply-To"
+  },
+  "quickfilters.debug.fixFilters": {
+    "message": "'受信' フラグがセットされていない {0} 個のフィルタが見つかりました。これらのメールは受信時にフィルタが適用されない可能性があります。フィルタを修正しますか？"
+  },
+  "quickfilters.debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "quickfilters.debug.fixFilters.customActionErrors": {
+    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
+  },
+  "quickfilters.debug.fixFilters.invalidUris": {
+    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
+  },
+  "quickfilters.debug.fixFilters.none": {
+    "message": "問題のあるフィルタは見つかりませんでした。"
+  },
+  "quickfilters.debug.fixFilters.result": {
+    "message": "{0} 個のフィルタが修正されました。"
+  },
+  "quickfilters.deleteFromPOP.label": {
+    "message": "メッセージを POP サーバから削除する"
+  },
+  "quickfilters.deleteMessage.label": {
+    "message": "メッセージを削除する"
+  },
+  "quickfilters.fetchFromPOP.label": {
+    "message": "POP サーバから本文を取得する"
+  },
+  "quickfilters.filters.toggleMessage.dontShow": {
+    "message": "このメッセージを再び表示しない"
+  },
+  "quickfilters.filters.toggleMessage.notificationText": {
+    "message": "フィルタ作成支援モードを開始しました。メールを他のメールフォルダに移動すると「フィルタルール作成」アシスタントが開始されます。#1 は、「メールの差出人」と「件名に含まれる特定のキーワード」を基に自動的に移動するメッセージフィルタを使用します。フィルタ作成支援モードを終了するには、フィルタボタンをもう一度押してください。"
+  },
+  "quickfilters.filters.toggleMessage.title": {
+    "message": "フィルタ作成支援モード"
+  },
+  "quickfilters.findFiltersForFolder.menu": {
+    "message": "フィルタを検索..."
+  },
+  "quickfilters.forwardTo.label": {
+    "message": "メッセージを転送する"
+  },
+  "quickfilters.fpJsonFile": {
+    "message": "JSON ファイル"
+  },
+  "quickfilters.ignoreSubthread.label": {
+    "message": "サブスレッドを無視する"
+  },
+  "quickfilters.ignoreThread.label": {
+    "message": "スレッドを無視する"
+  },
+  "quickfilters.licenseValidation.guessAddon": {
+    "message": "(入力されたキーは {2} のものである可能性があります)"
+  },
+  "quickfilters.markMessageRead.label": {
+    "message": "メッセージを既読にする"
+  },
+  "quickfilters.markMessageStarred.label": {
+    "message": "メッセージにスターを付ける"
+  },
+  "quickfilters.markMessageUnread.label": {
+    "message": "メッセージを未読にする"
+  },
+  "quickfilters.menu.copy": {
+    "message": "コピー"
+  },
+  "quickfilters.menu.cut": {
+    "message": "切り取り"
+  },
+  "quickfilters.menu.paste": {
+    "message": "貼り付け"
+  },
+  "quickfilters.menu.removeDupeAction": {
+    "message": "重複する操作を削除"
+  },
+  "quickfilters.menu.removeDupeCondition": {
+    "message": "重複する条件を削除"
+  },
+  "quickfilters.merge.addressesOmitted": {
+    "message": "メールアドレスが条件から省略されました - quickFilters はあなた自身のメールアドレスのフィルタリングを無効にします:"
+  },
+  "quickfilters.merge.warning.missingAction": {
+    "message": "次のフィルタのメイン操作を行えませんでした: {1}"
+  },
+  "quickfilters.merge.warning.selectMismatch": {
+    "message": "選択されたすべてのフィルタをマージできません: フィルタ動作が {1} と一致しません！"
+  },
+  "quickfilters.merge.warning.selectMismatchContinue": {
+    "message": "一致しないフィルタの選択を解除して続行しますか？"
+  },
+  "quickfilters.merge.warning.selectMultiple": {
+    "message": "マージするには複数のフィルタを選択してください"
+  },
+  "quickfilters.merge.warning.selectMultiple2": {
+    "message": "最初に選択されたフィルタを特定できません - マージするには 2 個以上のフィルタを選択する必要があります！"
+  },
+  "quickfilters.merge.warning.selectTarget": {
+    "message": "マージ対象のフィルタが選択されていません！"
+  },
+  "quickfilters.move.selectOne": {
+    "message": "1 個のフィルタ項目だけを選択してください！"
+  },
+  "quickfilters.moveMessage.label": {
+    "message": "メッセージを移動する"
+  },
+  "quickfilters.notification.donate": {
+    "message": "寄付"
+  },
+  "quickfilters.notification.dontShowAgain": {
+    "message": "このメッセージを再び表示しない。"
+  },
+  "quickfilters.notification.premium.btn.extendLicense": {
+    "message": "ライセンスを延長"
+  },
+  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
+    "message": "これは、現在のライセンスを 1 年延長します。ライセンスを新規購入するよりも安くなっています。"
+  },
+  "quickfilters.notification.premium.btn.getLicense": {
+    "message": "ライセンス購入"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "L"
+  },
+  "quickfilters.notification.premium.btn.renewLicense": {
+    "message": "ライセンスを更新"
+  },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} は有料の機能です。この機能を永続的に使用するには quickFilters Pro ライセンスを購入してください。"
+  },
+  "quickfilters.notification.premium.title": {
+    "message": "有料機能"
+  },
+  "quickfilters.notification.proFeature.notificationText": {
+    "message": "{1} の機能は有料版の機能です。この機能を常用したい場合は、quickFilters の開発への寄付をお願いします。"
+  },
+  "quickfilters.notification.proFeature.title": {
+    "message": "プレミアム機能"
+  },
+  "quickfilters.notification.register": {
+    "message": "{1} の登録"
+  },
+  "quickfilters.option.searchProperty.addTag": {
+    "message": "タグを追加 (ラベル)"
+  },
+  "quickfilters.option.searchProperty.name": {
+    "message": "プロパティ名"
+  },
+  "quickfilters.option.searchProperty.replyWithTemplate": {
+    "message": "テンプレートを使用して返信する"
+  },
+  "quickfilters.option.searchProperty.searchCondition": {
+    "message": "検索条件 (テキスト)"
+  },
+  "quickfilters.option.searchProperty.setCustomStringAction": {
+    "message": "文字列を変更する操作"
+  },
+  "quickfilters.option.searchProperty.targetFolder": {
+    "message": "対象フォルダ"
+  },
+  "quickfilters.premium.renewLicense.tooltip": {
+    "message": "ライセンスの有効期限が {1} 日前に切れています"
+  },
+  "quickfilters.premium.title.customTemplate": {
+    "message": "カスタムテンプレート"
+  },
+  "quickfilters.premium.title.duplicatesFinder": {
+    "message": "重複ファインダ"
+  },
+  "quickfilters.premium.title.searchFolder": {
+    "message": "フォルダに対するフィルタの検索"
+  },
+  "quickfilters.premium.title.sortFilters": {
+    "message": "フィルタの並べ替え"
+  },
+  "quickfilters.prompt.contact.subject": {
+    "message": "件名を短く入力してください:"
+  },
+  "quickfilters.prompt.contact.title": {
+    "message": "quickFilters サポートへの問い合わせ"
+  },
+  "quickfilters.prompt.copiedCustomVar": {
+    "message": "変数 {1} をクリップボードにコピーしました。検索語に貼り付けてください。"
+  },
+  "quickfilters.prompt.createCustomHeader": {
+    "message": "これをフィルタで使用するには '{1}' をカスタムヘッダとして追加してください。"
+  },
+  "quickfilters.prompt.customTemplateName": {
+    "message": "カスタムテンプレートの名前:"
+  },
+  "quickfilters.promptDontRepeat": {
+    "message": "今後はこの警告を表示しない"
+  },
+  "quickfilters.register.licenseValid.expired": {
+    "message": "ライセンスの有効期限:"
+  },
+  "quickfilters.replyWithTemplate.label": {
+    "message": "テンプレートを使用して返信する"
+  },
+  "quickfilters.runFiltersOnMails.notify": {
+    "message": "選択したメッセージにフィルタを適用..."
+  },
+  "quickfilters.runMultiFilterInFolder.status": {
+    "message": "Running {0} Filters in folder {1}."
+  },
+  "quickfilters.runSingleFilterInFolder.status": {
+    "message": "Running Filter '{0}' in folder {1}."
+  },
+  "quickfilters.runningFiltersOnFolder.notify": {
+    "message": "Run filters on folder '{1}'…"
+  },
+  "quickfilters.search.warning.noresults": {
+    "message": "このフォルダを対象とするフィルタはありません。"
+  },
+  "quickfilters.setJunkScore.label": {
+    "message": "迷惑メールかどうか設定する"
+  },
+  "quickfilters.setPriority.label": {
+    "message": "重要度を設定する"
+  },
+  "quickfilters.sort": {
+    "message": "ソート"
+  },
+  "quickfilters.sort.tooltip": {
+    "message": "検索語を並べ替える"
+  },
+  "quickfilters.sort.warning.selectMultiple": {
+    "message": "アルファベット順に並べ替えるには、2 個以上のフィルタを選択してください"
+  },
+  "quickfilters.stopExecution.label": {
+    "message": "フィルタの実行を中止する"
+  },
+  "quickfilters.warning.templateNameNotUnique": {
+    "message": "この名前のテンプレートはすでに存在します。別の名前を付けてください。"
+  },
+  "quickfilters.watchThread.label": {
+    "message": "注目スレッドに設定する"
+  },
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters アシスタント"
+  },
+  "quickfiltersToolbarButton.tooltip": {
+    "message": "フィルタ作成アシスタントを有効にします"
+  },
+  "renew-your-license": {
+    "message": "ライセンスを更新する。"
+  },
+  "special-offer-content": {
+    "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {boldStart} 30％割引{boldEnd} されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{boldStart}4月16日{boldEnd} までご利用いただけます。"
+  },
+  "special-offer-head": {
+    "message": "続行するには、quickFiltersをご利用ください。"
+  },
+  "special-offer-intro": {
+    "message": "{boldStart}親愛なる{name} {boldEnd}、将来を見据えたquickFiltersを支援できるようになりました。 Thunderbirdのさらに大きな変更が予定されており、それに追いつくために{boldStart}あなたの助け{boldEnd}が必要です！"
+  },
+  "support-preference": {
+    "message": "これは、$addonName$ をサポートするために推奨される方法です。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "support-suggestion": {
+    "message": "$addonName$ が機能し、存続できるように、重要なお願いがあります。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "testDrive": {
+    "message": "無料バージョンでは、有料機能を試しに使うことができますが、一部の機能が制限されています。"
+  },
+  "thanks-for-installing-intro": {
+    "message": "$addonName$ をインストールしていただきありがとうございます。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "thanks-for-updating-intro": {
+    "message": "$addonName$ を更新していただきありがとうございます。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "time-and-effort": {
+    "message": "$addonName$ は、Mozillaプラットフォームとの互換性を維持するために、継続的な変更が必要です。 私はThunderbirdの将来のバージョンのために可能な限り多くの機能を保持するために絶えず取り組んでいます。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "translated-by-google": {
+    "description": "disclaimer.",
+    "message": "グーグルによって提供される翻訳"
+  },
+  "updates.title": {
+    "message": "更新について"
+  },
+  "updatesExpiry": {
+    "message": "quickFilters Pro は、addons.thunderbird.net 経由で自動的に更新されます。ライセンスの有効期限が切れた後は、ライセンスを更新するか、無料版の利用規約の下で有料機能を使用し続けることができます。'Premium Exclusive' 機能を使用するには、正しい登録キーが必要になります。"
+  },
+  "version": {
+    "message": "バージョン:"
+  },
+  "vouchers.title": {
+    "message": "支払い免除"
+  },
+  "whats-new-btn": {
+    "message": "新着情報？"
+  },
+  "whats-new-head": {
+    "message": "ハイライト"
+  },
+  "whats-new-intro": {
+    "message": "ここで詳細な変更ログを読んでください（英語のみ）："
+  },
+  "whats-new-list": {
+    "message": "{L1}新機能：フィルター内の検索用語の並べ替え（Pro機能）。{L2} {L1}複数のアカウントに挿入するためにコピーされたフィルターリストを記憶する（Pro機能）。{L2} {L1}マージ時の重複検索用語の問題を修正しました。 フィルタ。{L2} {L1} Thunderbird88との互換性のためのさまざまな修正。{L2}{L1} 5.2.1-カスタムフィルターテンプレートから並べ替えボタンを削除{L2} {L1}5.2.1-Igor Zhigunov、別名ashed によるロシア語の翻訳の改善{L2}"
+  },
+  "window-title": {
+    "description": "page title. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ へようこそ",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "yearlyLicense.premiumFeatures": {
+    "message": "quickFilters Pro は、有料機能へのアクセス制限をすべて解除します。"
+  },
+  "yearlyLicense.premiumFeatures.moreInfoLink": {
+    "message": "有料機能についての詳細。"
+  },
+  "yearlyLicense.title": {
+    "message": "年間ライセンス"
+  },
+  "yearlyLicense.usageTerm": {
+    "message": "ライセンスは、あなたの個人使用に限り、あなたのメールアドレスが登録されます。このメールアドレスを使用するように設定すると、複数のメールクライアントにインストールできます。"
+  },
+  "yearlyLicense.usageTerm1": {
+    "message": "メールアドレスを追加しても問題ありません。別のライセンスは不要です。ご質問がありましたらサポートタブからお問い合わせください。"
+  }
 }

@@ -1,1251 +1,1259 @@
 {
-    "about": {
-        "message": "Giới thiệu"
-    },
-    "account.label": {
-        "message": "Select account:"
-    },
-    "active-version-info": {
-        "description": "The boldStart and boldEnd parts will be replaced with html tags",
-        "message": "Bạn hiện đang chạy phiên bản {boldStart} $addonVer$ {boldEnd} trên Thunderbird $appVer$.",
-        "placeholders": {
-            "addonVer": {
-                "content": "$1",
-                "example": "Version 1.1"
-            },
-            "appVer": {
-                "content": "$2",
-                "example": "78.0b4"
-            }
-        }
-    },
-    "addon-authors-struggle": {
-        "message": "Để tiếp tục hữu ích, các nhà phát triển Tiện ích bổ sung của chúng tôi hiện cần tài trợ các tài nguyên cần thiết để sửa và viết lại để người dùng của chúng tôi có thể tiếp tục hưởng lợi từ chức năng mà chúng tôi cung cấp."
-    },
-    "btn-extend-license": {
-        "message": "Tôi muốn gia hạn giấy phép của mình thêm một năm"
-    },
-    "btn-renew-license": {
-        "message": "Tôi muốn gia hạn giấy phép của mình"
-    },
-    "btn-want-a-license": {
-        "message": "Tôi muốn mua giấy phép"
-    },
-    "btn-want-to-donate": {
-        "message": "Tôi muốn giúp đỡ với khoản đóng góp một lần."
-    },
-    "buyDomainLicense.button": {
-        "message": "Buy Domain License"
-    },
-    "buyDomainLicense.instruct": {
-        "message": "Need Licenses for a company with more than five users? Getting a domain license will work out cheaper:"
-    },
-    "buyLicense.instruct": {
-        "message": "Need a license for yourself? Get a single user license. It is bound to your personal Email address and can be used in multiple installations."
-    },
-    "buyPersonalLicense.button": {
-        "message": "Buy Personal License!"
-    },
-    "chkAfterJunk.label": {
-        "message": "After junk classification"
-    },
-    "chkAfterSending.label": {
-        "message": "After Sending"
-    },
-    "chkAlphabetic.label": {
-        "message": "Insert new filters in alphabetical order"
-    },
-    "chkAlphabetic.tooltip": {
-        "message": "Uses filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!"
-    },
-    "chkAutoClose.accesskey": {
-        "message": "E"
-    },
-    "chkAutoClose.label": {
-        "message": "Thoát Filter Assistant sau khi một bộ lọc được tạo ra"
-    },
-    "chkAutoRun.label": {
-        "message": "Getting new mail"
-    },
-    "chkAutoStart.accesskey": {
-        "message": "A"
-    },
-    "chkAutoStart.label": {
-        "message": "Automatically start Filter Assistant mode with application"
-    },
-    "chkCurrentToolbar.btn.FilterList.label": {
-        "message": "Hiển thị danh sách bộ lọc"
-    },
-    "chkCurrentToolbar.btn.FindFilter.label": {
-        "message": "Tìm bộ lọc cho thư mục"
-    },
-    "chkCurrentToolbar.btn.FindFilter.tooltip": {
-        "message": "Tìm bất kỳ Bộ lọc nào di chuyển thư đến thư mục này."
-    },
-    "chkCurrentToolbar.btn.RunOnFolder.label": {
-        "message": "Chạy bộ lọc trên thư mục"
-    },
-    "chkCurrentToolbar.btn.RunOnMessages.label": {
-        "message": "Chạy bộ lọc trên các tin nhắn đã chọn"
-    },
-    "chkDebug.accesskey": {
-        "message": "D"
-    },
-    "chkDebug.label": {
-        "message": "Chế độ Sửa Lỗi"
-    },
-    "chkImapOnRead.label": {
-        "message": "Also run filter on read emails in IMAP accounts."
-    },
-    "chkInsertRulesAtTop.label": {
-        "message": "Add new rules on top of list."
-    },
-    "chkLocalFoldersAutorun.label": {
-        "message": "Run filters on Local Folders Inbox automatically"
-    },
-    "chkMergeAuto.label": {
-        "message": "Tự động chọn Hợp nhất"
-    },
-    "chkMergeAuto.tooltip": {
-        "message": "If a filter exists already, this will automatically select merge mode and the first matching filter."
-    },
-    "chkMergeSkip.label": {
-        "message": "Skip to Template Step"
-    },
-    "chkMergeSkip.tooltip": {
-        "message": "This will skip the step 'select merge target' and go straight to 'select template'."
-    },
-    "chkPeriodically.label": {
-        "message": "Run Periodically"
-    },
-    "chkPeriodically.tooltip": {
-        "message": "Runs the filter in regular intervals"
-    },
-    "chkRunManual.label": {
-        "message": "Run manually"
-    },
-    "chkShowEditor.label": {
-        "message": "Open Editor after filter creation"
-    },
-    "chkShowList.label": {
-        "message": "Display Filter List after filter creation"
-    },
-    "chkShowList.tooltip": {
-        "message": "Display list to run the new filter on all messages for testing."
-    },
-    "chkToolbar.accesskey": {
-        "message": "T"
-    },
-    "chkToolbar.label": {
-        "message": "Display Toolbar in Filter Manager"
-    },
-    "chkWhenArchiving.label": {
-        "message": "When Archiving"
-    },
-    "cost-of-independence": {
-        "message": "Việc phát triển phần mềm tốn kém thời gian và tiền bạc - không giống như nhiều ứng dụng nền tảng, Tiện ích bổ sung không được viết bởi các tập đoàn lớn, cũng như không được Mozilla tài trợ theo bất kỳ hình thức nào."
-    },
-    "createdBy": {
-        "message": "Tác giả:"
-    },
-    "domainLicense.email": {
-        "message": "We will contact you using this email address to generate your domain license; please allow two business days for us to get in touch. Enter the domain name for the license on the next page."
-    },
-    "domainLicense.header": {
-        "message": "Licensed Email Domain"
-    },
-    "domainLicense.instruct": {
-        "message": "The license is keyed to your company domain. The license will allow users with email addresses ending on this email domain to use quickFilters Pro. E.g. if you enter the domain name 'abc.com' then mail users like fred@abc.com, martha@abc.com, mike.doe@abc.com etc. are allowed to use the license. The maximum number of valid individual users is the number you have entered on the initial screen."
-    },
-    "domainLicense.validate": {
-        "message": "Make sure you enter the domain name *exactly as it is* on your Company's email addresses (the part *after* the @ sign), as it will be used to authorize the email addresses of your users."
-    },
-    "donate": {
-        "message": "Giúp đỡ với khoản đóng góp một lần."
-    },
-    "donate-heading": {
-        "message": "Giúp đỡ bằng cách quyên góp!"
-    },
-    "donate.label": {
-        "message": "Quyên góp"
-    },
-    "email.label": {
-        "message": "Email:"
-    },
-    "enterLicenseKey.button": {
-        "message": "Enter License Key…"
-    },
-    "enterLicenseKey.tooltip": {
-        "message": "Enter the License Key code sent to you via Email."
-    },
-    "extend-your-license": {
-        "message": "Xem xét gia hạn giấy phép của bạn thêm một năm."
-    },
-    "extensionDescription": {
-        "description": "Description of the extension.",
-        "message": "Nhanh chóng tạo các quy tắc lọc thư một cách nhanh chóng, bằng cách kéo và thả thư và phân tích các thuộc tính của chúng."
-    },
-    "extensionName": {
-        "description": "Name of the extension.",
-        "message": "quickFilters"
-    },
-    "extensions.quickfilters.description": {
-        "message": "Tạo bộ lọc thư một cách nhanh chóng khi đang xem, bằng cách kéo và thả các thư và phân tích thuộc tính của chúng."
-    },
-    "firstName.label": {
-        "message": "First Name:"
-    },
-    "freeLicense": {
-        "message": "If you have recently donated to the quickFilters project or have done contributory work, such as translating or writing patches, you may be eligible for a free license key. Contact me from the support tab in quickFilters Options."
-    },
-    "getquickFilters": {
-        "message": "Get quickFilters Pro"
-    },
-    "grpMerge.label": {
-        "message": "Merge Rules"
-    },
-    "heading-installed": {
-        "description": "page heading. first placeholder will be replaced with Add-on name",
-        "message": "Đã cài đặt thành công $addonName$",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "heading-updated": {
-        "description": "page heading. first placeholder will be replaced with Add-on name",
-        "message": "$addonName$ đã được cập nhật thành côngs",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "homepage": {
-        "message": "Trang chủ:"
-    },
-    "intro": {
-        "message": "An annual license for quickFilters Pro gives you all premium features for a year. It also enables us to support and grow the product further and turn it into something even more awesome."
-    },
-    "label-remind-me": {
-        "message": "Nhắc lại tôi sau $countDays$ ngày.",
-        "placeholders": {
-            "countDays": {
-                "content": "$1",
-                "example": "10"
-            }
-        }
-    },
-    "lastName.label": {
-        "message": "Last Name:"
-    },
-    "license-is-extended": {
-        "description": "Shown if license expires more than a year from now",
-        "message": "Cảm ơn bạn đã gia hạn giấy phép gần đây hoặc nếu bạn đã đóng góp. Vì bạn đã giúp chứng minh Tiện ích bổ sung này trong tương lai, bạn có thể chỉ cần đóng cửa sổ này."
-    },
-    "licenseWindow.title": {
-        "message": "quickFilters Pro License"
-    },
-    "mozillas-basic-platform": {
-        "message": "Mozilla chỉ cung cấp một nền tảng cơ bản để cung cấp phần mềm của chúng tôi cho bạn, những người dùng cuối. Nếu chúng tôi cần yêu cầu người dùng thanh toán hoặc hỗ trợ, chúng tôi không thể thực hiện việc này từ addons.thunderbird.net - nó không phải là một 'cửa hàng ứng dụng' có tường trả phí tích hợp hoặc quản lý giấy phép như iTunes hoặc google play."
-    },
-    "notificationTitle": {
-        "description": "Title of the click notification.",
-        "message": "Click notification"
-    },
-    "ongoing-work": {
-        "message": "Các thay đổi để chuyển $addonName$ sang mô hình lập trình mới mất hàng tuần và tốn kém. Có nhiều thay đổi nữa cho phiên bản 2022 tiếp theo. Với một Add-on phức tạp như thế này, việc tốn kém trở thành điều tất yếu. Xin hãy giúp chúng tôi với điều này.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "pane1.title": {
-        "message": "Cấu hình quickFilters"
-    },
-    "prefwindow.title": {
-        "message": "Cấu hình quickFilters"
-    },
-    "purchase-a-license": {
-        "message": "Mua giấy phép."
-    },
-    "purchase-heading": {
-        "message": "Mua Giấy phép!"
-    },
-    "qf.button.createFilter": {
-        "message": "Create New Filter…"
-    },
-    "qf.button.editFilter": {
-        "message": "Edit Filter…"
-    },
-    "qf.button.merge": {
-        "message": "Merge"
-    },
-    "qf.button.next": {
-        "message": "Next"
-    },
-    "qf.button.pasteLicense": {
-        "message": "paste"
-    },
-    "qf.button.reorderButtonBottom": {
-        "message": "Đưa xuống cuối"
-    },
-    "qf.button.reorderButtonBottom.accessKey": {
-        "message": "b"
-    },
-    "qf.button.reorderButtonBottom.toolTip": {
-        "message": "Sắp xếp lại bộ lọc để nó được thực thi sau tất cả các cái khác"
-    },
-    "qf.button.reorderButtonTop": {
-        "message": "Đưa lên đầu"
-    },
-    "qf.button.reorderButtonTop.accessKey": {
-        "message": "o"
-    },
-    "qf.button.reorderButtonTop.toolTip": {
-        "message": "Sắp xếp lại bộ lọc để nó được thực thi trước tất cả các cái khác"
-    },
-    "qf.button.targetSelected": {
-        "message": "Target Filter selected"
-    },
-    "qf.button.validateLicense": {
-        "message": "validate"
-    },
-    "qf.check.createNew": {
-        "message": "Create a New Filter"
-    },
-    "qf.check.mergeWithExisting": {
-        "message": "Merge with an existing filter:"
-    },
-    "qf.cloned.label": {
-        "message": "Append to name of cloned filter:"
-    },
-    "qf.continueFilter.label": {
-        "message": "Tạo Bộ Lọc…"
-    },
-    "qf.continueFilter.shortcut": {
-        "message": "T"
-    },
-    "qf.description.about": {
-        "message": "Mô tả ngắn về quickFilters có thể xem ở trang sau:"
-    },
-    "qf.description.contactMe": {
-        "message": "Bạn cũng có thể liên lạc riêng với tôi tại axel.grude@gmail.com:"
-    },
-    "qf.description.currentFolderButtons": {
-        "message": "Tùy chọn này chỉ có thể áp dụng nếu bạn đang sử dụng Add-On QuickFolders, thêm một thanh công cụ nhỏ ở phía trên của ngăn xem trước thư."
-    },
-    "qf.description.mergeAddInstructions": {
-        "message": "All other filters in this list will be merged into this and then deleted."
-    },
-    "qf.description.mergeAddSummary": {
-        "message": "Select the filter that will inherit the properties of the others."
-    },
-    "qf.description.mergeInstructions": {
-        "message": "You can either extend one of these or create a completely new filter."
-    },
-    "qf.description.mergeSummary": {
-        "message": "QuickFilters Assistant found some filters that already do the same action."
-    },
-    "qf.description.selectToExtend": {
-        "message": "Select a Filter to extend with new rules."
-    },
-    "qf.donate.tooltip": {
-        "message": "Trợ giúp sự phát triển của quickFilters!"
-    },
-    "qf.filterlist.group": {
-        "message": "Tính năng danh sách bộ lọc"
-    },
-    "qf.filterlist.multipaste": {
-        "message": "Cho phép sao chép và dán bộ lọc vào nhiều tài khoản"
-    },
-    "qf.filters.actions.caption": {
-        "message": "Actions"
-    },
-    "qf.filters.actions.flag": {
-        "message": "Flag"
-    },
-    "qf.filters.actions.flag.accesskey": {
-        "message": "F"
-    },
-    "qf.filters.actions.priority": {
-        "message": "Priority"
-    },
-    "qf.filters.actions.priority.accesskey": {
-        "message": "P"
-    },
-    "qf.filters.actions.star": {
-        "message": "Star"
-    },
-    "qf.filters.actions.star.accesskey": {
-        "message": "S"
-    },
-    "qf.filters.actions.tag": {
-        "message": "Tags"
-    },
-    "qf.filters.actions.tag.accesskey": {
-        "message": "T"
-    },
-    "qf.filters.actions.targetFolder": {
-        "message": "Target Folder"
-    },
-    "qf.filters.actions.tooltip": {
-        "message": "Filter copies these attributes from original email"
-    },
-    "qf.filters.instructions": {
-        "message": "Hãy chọn một mẫu. Bạn có thể tinh chỉnh các quy tắc của bộ lọc ở màn hình kế tiếp."
-    },
-    "qf.filters.steps.autoRunFilter": {
-        "message": "Run Automatically"
-    },
-    "qf.filters.steps.autoRunFilter.tooltip": {
-        "message": "Automatically runs the filter on the originating Inbox after creation."
-    },
-    "qf.filters.steps.caption": {
-        "message": "Next Steps"
-    },
-    "qf.filters.steps.showEditor": {
-        "message": "Filter Rules"
-    },
-    "qf.filters.steps.showEditor.tooltip": {
-        "message": "Edit the filter details after the Assistant has created it."
-    },
-    "qf.filters.steps.showList": {
-        "message": "Filters List"
-    },
-    "qf.filters.steps.showList.tooltip": {
-        "message": "Displays the filter in context so you can try it out"
-    },
-    "qf.filters.steps.tooltip": {
-        "message": "Which screens to show after filter creation"
-    },
-    "qf.filters.template.custom.description": {
-        "message": "Custom Filter - behavior is defined by User - use variables like %from% %to% %subject% etc."
-    },
-    "qf.filters.template.domain": {
-        "message": "Based on Sender's Domain"
-    },
-    "qf.filters.template.domain.description": {
-        "message": "Like 'based on sender' template but only matches the domain (e.g. @xyz.com) of the sender's email address"
-    },
-    "qf.filters.template.from": {
-        "message": "Dựa theo Người Gửi (gửi từ)"
-    },
-    "qf.filters.template.from.description": {
-        "message": "Đây có lẽ là mẫu được dùng nhiều nhất: nó sẽ lấy các địa chỉ thư điện tử của người gửi rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ các hội thoại với người gửi sẽ được di chuyển vào một thư mục mới."
-    },
-    "qf.filters.template.list.description": {
-        "message": "Tương tự như Dựa trên Người Gửi, nhưng nó không điền vùng điều kiện 'gửi đến'."
-    },
-    "qf.filters.template.maillist": {
-        "message": "Danh sách thư"
-    },
-    "qf.filters.template.maillist.description": {
-        "message": "Useful for mailing lists with 'List-Id' field. If this is not set it will use the sender's address instead."
-    },
-    "qf.filters.template.multifrom": {
-        "message": "Group (collects senders of multiple mails)"
-    },
-    "qf.filters.template.multifrom.description": {
-        "message": "Use this to drag multiple emails and add all senders to the condition. (Excludes your own mail addresses)"
-    },
-    "qf.filters.template.replyto": {
-        "message": "Based on Reply-To"
-    },
-    "qf.filters.template.replyto.description": {
-        "message": "Filter is based on the Reply-To field."
-    },
-    "qf.filters.template.tag": {
-        "message": "Theo các nhãn"
-    },
-    "qf.filters.template.tag.description": {
-        "message": "Dùng các nhãn của thư và thêm chúng vào các điều kiện bộ lọc."
-    },
-    "qf.filters.template.to": {
-        "message": "Dựa theo Người Nhận (gửi đến)"
-    },
-    "qf.filters.template.to.description": {
-        "message": "Tương tự như 'Dựa trên Người Gửi': dùng cái này khi bạn đánh dấu một thư mà bạn đã gửi cho ai đó. Nó sẽ lấy các địa chỉ thư điện tử của người nhận rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ hội thoại tới và từ người gửi sẽ được di chuyển vào một thư mục mới."
-    },
-    "qf.filters.template.topic": {
-        "message": "Theo tiêu đề"
-    },
-    "qf.filters.template.topic.description": {
-        "message": "Nó sẽ tìm kiếm các từ ngữ trong ngoặc đơn, ví dụ: [bộ sưu tập tem] hay {ăn chay} và tạo một điều kiện bộ lọc dựa trên đó; rất nhiều thư được cài đặt dùng mẫu này, nên nó thực sự rất dễ dùng."
-    },
-    "qf.filters.templates.description.label": {
-        "message": "Mô tả:"
-    },
-    "qf.filters.title": {
-        "message": "Tạo Bộ Lọc"
-    },
-    "qf.grp.whenToRun": {
-        "message": "Apply filter when"
-    },
-    "qf.label.aboutLink": {
-        "message": "Trang chủ quickFilters…"
-    },
-    "qf.label.cancel": {
-        "message": "Hủy bỏ"
-    },
-    "qf.label.contactLink": {
-        "message": "Liên lạc (bằng tiếng Anh hoặc Đức)..."
-    },
-    "qf.label.currentFolderButtons": {
-        "message": "QuickFolders Current folder Toolbar"
-    },
-    "qf.label.donate": {
-        "message": "Quên góp"
-    },
-    "qf.label.filterCountN_of_M": {
-        "message": "{0} trong {1}"
-    },
-    "qf.label.filterEntities": {
-        "message": "thứ"
-    },
-    "qf.label.filterSingleEntity": {
-        "message": "1 thứ"
-    },
-    "qf.label.haveLicense": {
-        "message": "Already have a License?"
-    },
-    "qf.label.insertLicense": {
-        "message": "Insert your personal License key here:"
-    },
-    "qf.label.insertLicense.tooltip": {
-        "message": "Your license key is contained in your order confirmation email from Fastspring."
-    },
-    "qf.label.licenseValid": {
-        "message": "Your license is valid until:"
-    },
-    "qf.label.naming": {
-        "message": "Quy tắc đặt tên"
-    },
-    "qf.label.naming.folderDelimiter": {
-        "message": "Delimiter:"
-    },
-    "qf.label.naming.keyWord": {
-        "message": "Thêm quy tắc từ khóa nhất định"
-    },
-    "qf.label.naming.keyWord.accesskey": {
-        "message": "k"
-    },
-    "qf.label.naming.parentFolder": {
-        "message": "Thêm tên thư mục mẹ"
-    },
-    "qf.label.naming.parentFolder.accesskey": {
-        "message": "p"
-    },
-    "qf.label.premiumFeaturesSite": {
-        "message": "Read more about Premium Features on our Website"
-    },
-    "qf.label.quickfilters": {
-        "message": "quickFilters"
-    },
-    "qf.label.shortcut.runFolder": {
-        "message": "Shortcut for Running Filters on Folder: Shift + "
-    },
-    "qf.label.shortcut.runMails": {
-        "message": "Shortcut for Running Filters on Selected Mails: Shift + "
-    },
-    "qf.label.supportWithLicense": {
-        "message": "Support quickFilters by getting a license!"
-    },
-    "qf.licenseValidation.expired": {
-        "message": "The license key you entered is expired. Please press the button below to renew your license."
-    },
-    "qf.licenseValidation.failed": {
-        "message": "The license key you entered is not valid. Check your email from FastSpring for instructions. If you still have problems, please contact me from the Support tab."
-    },
-    "qf.licenseValidation.invalidAddon": {
-        "message": "The license key you entered may be for a different Add-on. License keys for {0} start with {1}."
-    },
-    "qf.licenseValidation.invalidMail": {
-        "message": "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance."
-    },
-    "qf.licenseValidation.notMatchedMail": {
-        "message": "Encrypted Email address does not match readable one."
-    },
-    "qf.licenseValidation.passed": {
-        "message": "Thanks for registering quickFilters Pro! All premium features are now unlocked."
-    },
-    "qf.listener.tags": {
-        "message": "Listen for Tag changes"
-    },
-    "qf.listener.tags.autofilter": {
-        "message": "Run filters automatically when tags are changed"
-    },
-    "qf.listener.tags.tooltip": {
-        "message": "When activated, the filter assistant will also be triggered when you tag a message."
-    },
-    "qf.notify.filterCreated": {
-        "message": "Successfully created new filter '{0}'."
-    },
-    "qf.notify.filterMergeUpdated": {
-        "message": "Successfully updated filter '{0}'."
-    },
-    "qf.onewayaddress.label": {
-        "message": "Disable two-way address search conditions"
-    },
-    "qf.onewayaddress.tooltip": {
-        "message": "By default, quickFilters adds both 'from' and 'to' search conditions to assist filtering complete message threads including your own emails to the recipient. If you always want to keep your replies in the Sent folder, you can disable this behavior here. The Addon 'Copy Sent to Current' can be used to keep replies with their originating emails."
-    },
-    "qf.options.versionnumber.tooltip": {
-        "message": "Nhấp chuột phải để xem lịch sử phiên bản."
-    },
-    "qf.premiumConfig": {
-        "message": "Premium Features"
-    },
-    "qf.tab.actions": {
-        "message": "Actions"
-    },
-    "qf.tab.advanced": {
-        "message": "Advanced"
-    },
-    "qf.tab.gopro": {
-        "message": "quickFilters Pro"
-    },
-    "qf.tab.newFilterProps": {
-        "message": "New Filter Properties"
-    },
-    "qf.tab.options": {
-        "message": "Tùy chọn"
-    },
-    "qf.tab.support": {
-        "message": "Hỗ trợ"
-    },
-    "qf.templates.advanced": {
-        "message": "Advanced Templates"
-    },
-    "qf.templates.customTemplate.edit": {
-        "message": "Biên tập…"
-    },
-    "qf.templates.customTemplate.label": {
-        "message": "Custom Templates"
-    },
-    "qf.templates.customTemplate.new": {
-        "message": "Tạo mới…"
-    },
-    "qf.templates.customTemplate.tooltip": {
-        "message": "Cho phép tạo Mẫu tùy chỉnh, xem mô tả lỗi để biết chi tiết."
-    },
-    "qf.templates.replyTo.label": {
-        "message": "Reply-To Template"
-    },
-    "qf.templates.replyTo.tooltip": {
-        "message": "Display Reply-To Template, see bug description for detail."
-    },
-    "qf.textbox.searchBox.emptyText": {
-        "message": "Tìm bộ lọc theo tên…"
-    },
-    "qf.textbox.searchBox.toolTip": {
-        "message": "nhập từ khóa để tìm bộ lọc theo tên"
-    },
-    "qf.tooltip.naming.folderDelimiter": {
-        "message": "Character inserted between parent folder and name"
-    },
-    "qf.youtube.description": {
-        "message": "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel."
-    },
-    "qf.youtube.link": {
-        "message": "Watch quickFilters Videos at Thunderbird Daily…"
-    },
-    "qf.youtube.tbdaily": {
-        "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
-    },
-    "quickfilters.FilterAssistant.start": {
-        "message": "Khởi động Filter Assistant…"
-    },
-    "quickfilters.FilterAssistant.stop": {
-        "message": "Tắt Filter Assistant"
-    },
-    "quickfilters.FromMessage.accesskey": {
-        "message": "Q"
-    },
-    "quickfilters.FromMessage.label": {
-        "message": "QuickFilters: Create Filter from Message…"
-    },
-    "quickfilters.ListButton.label": {
-        "message": "Các Bộ Lọc Tin Nhắn…"
-    },
-    "quickfilters.ListButton.tooltip": {
-        "message": "Hiển thị danh sách các bộ lọc tin nhắn"
-    },
-    "quickfilters.RunButton.label": {
-        "message": "Chạy bộ lọc"
-    },
-    "quickfilters.RunButton.tooltip": {
-        "message": "Chạy các bộ lọc được thiết đặt cho thư mục hiện tại"
-    },
-    "quickfilters.RunButtonMsg.label": {
-        "message": "Filter selected mails"
-    },
-    "quickfilters.RunButtonMsg.tooltip": {
-        "message": "Run the filters on the selected mails"
-    },
-    "quickfilters.Start.label": {
-        "message": "Khởi động Filter Assistant…"
-    },
-    "quickfilters.addTag.label": {
-        "message": "Dán Nhãn cho Thư"
-    },
-    "quickfilters.backup.archivingFilters": {
-        "message": "Archiving {1} Filters"
-    },
-    "quickfilters.backup.customErrors": {
-        "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
-    },
-    "quickfilters.backup.failedFilters": {
-        "message": "{1} filters could not be encoded! Please check the error log for detail."
-    },
-    "quickfilters.button.assistant": {
-        "message": "Toggle assistant…"
-    },
-    "quickfilters.button.assistant.tooltiptext": {
-        "message": "Toggles filter assistant mode. When active, drag and drop emails to create filters."
-    },
-    "quickfilters.button.bug": {
-        "message": "Troubleshoot"
-    },
-    "quickfilters.button.bug.tooltiptext1": {
-        "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
-    },
-    "quickfilters.button.bug.tooltiptext2": {
-        "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
-    },
-    "quickfilters.button.cancelDuplicates.label": {
-        "message": "Cancel duplicates"
-    },
-    "quickfilters.button.cancelDuplicates.tooltip": {
-        "message": "Reset duplicate search"
-    },
-    "quickfilters.button.cancelFindInFolder.label": {
-        "message": "Cancel search"
-    },
-    "quickfilters.button.cancelFindInFolder.tooltip": {
-        "message": "Cancel search by folder"
-    },
-    "quickfilters.button.clone": {
-        "message": "Clone"
-    },
-    "quickfilters.button.clone.accesskey": {
-        "message": "C"
-    },
-    "quickfilters.button.clone.tooltiptext": {
-        "message": "Clone a filter"
-    },
-    "quickfilters.button.findDuplicates.label": {
-        "message": "Find duplicates"
-    },
-    "quickfilters.button.findDuplicates.tooltip": {
-        "message": "Find duplicate attributes"
-    },
-    "quickfilters.button.getOtherAddon": {
-        "message": "Get {1}"
-    },
-    "quickfilters.button.loadFilters.tooltip": {
-        "message": "Restore Filters…"
-    },
-    "quickfilters.button.merge": {
-        "message": "Merge"
-    },
-    "quickfilters.button.merge.accesskey": {
-        "message": "M"
-    },
-    "quickfilters.button.merge.tooltiptext": {
-        "message": "Merge multiple filters with the same action"
-    },
-    "quickfilters.button.saveFilters.tooltip": {
-        "message": "Backup Filters…"
-    },
-    "quickfilters.button.searchProperties": {
-        "message": "Change search properties…"
-    },
-    "quickfilters.button.settings": {
-        "message": "quickFilters Settings…"
-    },
-    "quickfilters.button.sort": {
-        "message": "Sort"
-    },
-    "quickfilters.button.sort.tooltiptext": {
-        "message": "Sort Alphabetically"
-    },
-    "quickfilters.button.support": {
-        "message": "quickFilters Support Site"
-    },
-    "quickfilters.clone.label": {
-        "message": "(copy)"
-    },
-    "quickfilters.clone.selectOne": {
-        "message": "To clone, select exactly one filter."
-    },
-    "quickfilters.clone.undetermined": {
-        "message": "Could not determine which filter is selected"
-    },
-    "quickfilters.confirmVersionLink": {
-        "message": "Hiển thị lịch sử phiên bản của quickFilters?"
-    },
-    "quickfilters.copy.warning.emptyClipboard": {
-        "message": "No filters in clipboard!"
-    },
-    "quickfilters.copy.warning.selectFilter": {
-        "message": "Please select at least one filter!"
-    },
-    "quickfilters.copy.warning.selectOtherAccount": {
-        "message": "Select a different account for pasting items!"
-    },
-    "quickfilters.copyMessage.label": {
-        "message": "Chép Thư tới"
-    },
-    "quickfilters.createFilter.warning.canNotHaveFilters": {
-        "message": "The account ({1}) cannot have filters."
-    },
-    "quickfilters.createFilter.warning.minimum2Mails": {
-        "message": "This template requires at least 2 mails."
-    },
-    "quickfilters.createFilter.warning.noFilterFallback": {
-        "message": "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
-    },
-    "quickfilters.createFilter.warning.noHeaderParser": {
-        "message": "Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header."
-    },
-    "quickfilters.createFilter.warning.noMessageDb": {
-        "message": "Cannot access message database for folder {1}"
-    },
-    "quickfilters.createFilter.warning.noMessageId": {
-        "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\nConsider running the Repair Folder command."
-    },
-    "quickfilters.createFilter.warning.noServer": {
-        "message": "Folder ({1}) does not have a server."
-    },
-    "quickfilters.createFilter.warning.suggestUpdate": {
-        "message": "Consider updating to a newer version to get this feature."
-    },
-    "quickfilters.createFromMail.inboxWarning": {
-        "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
-    },
-    "quickfilters.createFromMail.selectWarning": {
-        "message": "To create a filter, please select exactly one email!"
-    },
-    "quickfilters.customHeader.BlindCarbonCopy": {
-        "message": "Blind Carbon Copy (BCC)"
-    },
-    "quickfilters.customHeader.CarbonCopy": {
-        "message": "Carbon Copy (CC)"
-    },
-    "quickfilters.customHeader.Domain": {
-        "message": "Domain of Email"
-    },
-    "quickfilters.customHeader.Email": {
-        "message": "Email Address"
-    },
-    "quickfilters.customHeader.FirstName": {
-        "message": "First Name"
-    },
-    "quickfilters.customHeader.From": {
-        "message": "From"
-    },
-    "quickfilters.customHeader.LastName": {
-        "message": "Last Name"
-    },
-    "quickfilters.customHeader.ListId": {
-        "message": "List Id"
-    },
-    "quickfilters.customHeader.ListPost": {
-        "message": "List Post"
-    },
-    "quickfilters.customHeader.NamePart": {
-        "message": "Full Name"
-    },
-    "quickfilters.customHeader.Newsgroups": {
-        "message": "Newsgroups"
-    },
-    "quickfilters.customHeader.ReplyTo": {
-        "message": "Reply To"
-    },
-    "quickfilters.customHeader.Subject": {
-        "message": "Subject"
-    },
-    "quickfilters.customHeader.SubjectRegex": {
-        "message": "Subject Regular Expression"
-    },
-    "quickfilters.customHeader.To": {
-        "message": "To"
-    },
-    "quickfilters.customTemplate.name": {
-        "message": "Template Name:"
-    },
-    "quickfilters.customTemplate.title": {
-        "message": "quickFilters Custom Template"
-    },
-    "quickfilters.customVariable.label": {
-        "message": "Custom Variables"
-    },
-    "quickfilters.customVariable.tooltip": {
-        "message": "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail."
-    },
-    "quickfilters.customfilter.replyto": {
-        "message": "Reply-To"
-    },
-    "quickfilters.debug.fixFilters": {
-        "message": "Found {0} filters don't have the 'Incoming' flag set. These will potentially not run during get mail. Fix them?"
-    },
-    "quickfilters.debug.fixFilters.AnyAll": {
-        "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-    },
-    "quickfilters.debug.fixFilters.customActionErrors": {
-        "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
-    },
-    "quickfilters.debug.fixFilters.invalidUris": {
-        "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
-    },
-    "quickfilters.debug.fixFilters.none": {
-        "message": "No faulty filters found."
-    },
-    "quickfilters.debug.fixFilters.result": {
-        "message": "{0} filters were fixed."
-    },
-    "quickfilters.deleteFromPOP.label": {
-        "message": "Xóa trên Máy chủ POP"
-    },
-    "quickfilters.deleteMessage.label": {
-        "message": "Xóa Thư"
-    },
-    "quickfilters.fetchFromPOP.label": {
-        "message": "Lấy từ Máy chủ POP"
-    },
-    "quickfilters.filters.toggleMessage.dontShow": {
-        "message": "Không hiển thị thông báo này nữa."
-    },
-    "quickfilters.filters.toggleMessage.notificationText": {
-        "message": "Chế độ trợ giúp bộ lọc đã được khởi động. Bất cứ khi nào bạn di chuyển một thư vào một thư mục khác, bộ trợ giúp 'Tạo Quy Tắc Bộ Lọc' sẽ bắt đầu. #1 sử dụng các bộ lọc tin nhắn để tự động di chuyển các thư dựa trên các quy tắc như 'ai là người gửi?', 'một từ khóa nào đó có trong dòng tiêu đề không?'. Để tắt chế độ trợ giúp bộ lọc, ấn nút bộ lọc thêm lần nữa."
-    },
-    "quickfilters.filters.toggleMessage.title": {
-        "message": "Chế độ Filter Assist"
-    },
-    "quickfilters.findFiltersForFolder.menu": {
-        "message": "Find Filters…"
-    },
-    "quickfilters.forwardTo.label": {
-        "message": "Chuyển tiếp Thư tới"
-    },
-    "quickfilters.fpJsonFile": {
-        "message": "JSON File"
-    },
-    "quickfilters.ignoreSubthread.label": {
-        "message": "Bỏ qua Chủ đề con"
-    },
-    "quickfilters.ignoreThread.label": {
-        "message": "Bỏ qua Chủ đề"
-    },
-    "quickfilters.licenseValidation.guessAddon": {
-        "message": "(The key entered may be for {2})."
-    },
-    "quickfilters.markMessageRead.label": {
-        "message": "Đánh Dấu Đã Đọc"
-    },
-    "quickfilters.markMessageStarred.label": {
-        "message": "Thêm Sao"
-    },
-    "quickfilters.markMessageUnread.label": {
-        "message": "Mark As Unread"
-    },
-    "quickfilters.menu.copy": {
-        "message": "Copy"
-    },
-    "quickfilters.menu.cut": {
-        "message": "Cut"
-    },
-    "quickfilters.menu.paste": {
-        "message": "Paste"
-    },
-    "quickfilters.menu.removeDupeAction": {
-        "message": "Remove duplicate action"
-    },
-    "quickfilters.menu.removeDupeCondition": {
-        "message": "Remove duplicate condition"
-    },
-    "quickfilters.merge.addressesOmitted": {
-        "message": "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"
-    },
-    "quickfilters.merge.warning.missingAction": {
-        "message": "Could not get the main action of the filter: {1}"
-    },
-    "quickfilters.merge.warning.selectMismatch": {
-        "message": "Cannot merge all selected filters: action mismatch with filter {1}!"
-    },
-    "quickfilters.merge.warning.selectMismatchContinue": {
-        "message": "Deselect filters that do not match and continue?"
-    },
-    "quickfilters.merge.warning.selectMultiple": {
-        "message": "To merge, select at least 2 filters"
-    },
-    "quickfilters.merge.warning.selectMultiple2": {
-        "message": "Cannot determine first selected filter - to merge, you must select at least 2 filters!"
-    },
-    "quickfilters.merge.warning.selectTarget": {
-        "message": "A target filter must be selected for merging!"
-    },
-    "quickfilters.move.selectOne": {
-        "message": "Exactly one filter entry must be selected!"
-    },
-    "quickfilters.moveMessage.label": {
-        "message": "Di chuyển Thư tới"
-    },
-    "quickfilters.notification.donate": {
-        "message": "Donate"
-    },
-    "quickfilters.notification.dontShowAgain": {
-        "message": "Do not show this message again."
-    },
-    "quickfilters.notification.premium.btn.extendLicense": {
-        "message": "Extend License"
-    },
-    "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-        "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
-    },
-    "quickfilters.notification.premium.btn.getLicense": {
-        "message": "Buy License"
-    },
-    "quickfilters.notification.premium.btn.hotKey": {
-        "message": "L"
-    },
-    "quickfilters.notification.premium.btn.renewLicense": {
-        "message": "Renew License"
-    },
-    "quickfilters.notification.premium.text": {
-        "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
-    },
-    "quickfilters.notification.premium.title": {
-        "message": "Premium Feature"
-    },
-    "quickfilters.notification.proFeature.notificationText": {
-        "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
-    },
-    "quickfilters.notification.proFeature.title": {
-        "message": "Premium Feature"
-    },
-    "quickfilters.notification.register": {
-        "message": "Register {1}"
-    },
-    "quickfilters.option.searchProperty.addTag": {
-        "message": "Add Tag (label)"
-    },
-    "quickfilters.option.searchProperty.name": {
-        "message": "Name"
-    },
-    "quickfilters.option.searchProperty.replyWithTemplate": {
-        "message": "Trả lời bằng Thư mẫu"
-    },
-    "quickfilters.option.searchProperty.searchCondition": {
-        "message": "Search Condition (Text)"
-    },
-    "quickfilters.option.searchProperty.setCustomStringAction": {
-        "message": "Actions that modify Strings"
-    },
-    "quickfilters.option.searchProperty.targetFolder": {
-        "message": "Target folder"
-    },
-    "quickfilters.premium.renewLicense.tooltip": {
-        "message": "Your license expired {1} days ago"
-    },
-    "quickfilters.premium.title.customTemplate": {
-        "message": "Custom Templates"
-    },
-    "quickfilters.premium.title.duplicatesFinder": {
-        "message": "Duplicates Finder"
-    },
-    "quickfilters.premium.title.searchFolder": {
-        "message": "Search Filter for Folder"
-    },
-    "quickfilters.premium.title.sortFilters": {
-        "message": "Sort Filters"
-    },
-    "quickfilters.prompt.contact.subject": {
-        "message": "Please enter a short subject line:"
-    },
-    "quickfilters.prompt.contact.title": {
-        "message": "Contact quickFilters Support"
-    },
-    "quickfilters.prompt.copiedCustomVar": {
-        "message": "Copied variable {1} to clipboard, please paste in a search term."
-    },
-    "quickfilters.prompt.createCustomHeader": {
-        "message": "Please add the term '{1}' as a custom header to use this in a filter."
-    },
-    "quickfilters.prompt.customTemplateName": {
-        "message": "Name of Custom Template:"
-    },
-    "quickfilters.promptDontRepeat": {
-        "message": "Do not show this warning again."
-    },
-    "quickfilters.register.licenseValid.expired": {
-        "message": "Your license expired on:"
-    },
-    "quickfilters.replyWithTemplate.label": {
-        "message": "Trả lời bằng Thư mẫu"
-    },
-    "quickfilters.runFiltersOnMails.notify": {
-        "message": "Apply filters to selected messages…"
-    },
-    "quickfilters.runMultiFilterInFolder.status": {
-        "message": "Running {0} Filters in folder {1}."
-    },
-    "quickfilters.runSingleFilterInFolder.status": {
-        "message": "Running Filter '{0}' in folder {1}."
-    },
-    "quickfilters.runningFiltersOnFolder.notify": {
-        "message": "Run filters on folder '{1}'…"
-    },
-    "quickfilters.search.warning.noresults": {
-        "message": "No filters targeting this folder found."
-    },
-    "quickfilters.setJunkScore.label": {
-        "message": "Thiết lập Trạng thái Thư rác thành"
-    },
-    "quickfilters.setPriority.label": {
-        "message": "Thiết lập Mức ưu tiên thành"
-    },
-    "quickfilters.sort": {
-        "message": "Sắp xếp"
-    },
-    "quickfilters.sort.tooltip": {
-        "message": "Sắp xếp các cụm từ tìm kiếm"
-    },
-    "quickfilters.sort.warning.selectMultiple": {
-        "message": "To sort alphabetically, select at least 2 filters"
-    },
-    "quickfilters.stopExecution.label": {
-        "message": "Ngừng Thực thi Bộ lọc"
-    },
-    "quickfilters.warning.templateNameNotUnique": {
-        "message": "A template of this name already exists! The name must be unique."
-    },
-    "quickfilters.watchThread.label": {
-        "message": "Theo dõi Chủ đề"
-    },
-    "quickfiltersToolbarButton.label": {
-        "message": "quickFilters Assistant"
-    },
-    "quickfiltersToolbarButton.tooltip": {
-        "message": "Kích hoạt trợ giúp bộ lọc"
-    },
-    "renew-your-license": {
-        "message": "Gia hạn giấy phép của bạn."
-    },
-    "special-offer-content": {
-        "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {boldStart} giảm 30% {boldEnd} giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} ngày 16 tháng 4 {boldEnd}."
-    },
-    "special-offer-head": {
-        "message": "Vui lòng giúp quickFilters để tiếp tục!"
-    },
-    "special-offer-intro": {
-        "message": "{boldStart} Kính gửi {name} {boldEnd}, bạn hiện có thể trợ giúp các bộ lọc quickFilters trong tương lai. Sắp có nhiều thay đổi lớn hơn trên Thunderbird và tôi cần {boldStart} sự trợ giúp của bạn {boldEnd} để theo kịp!"
-    },
-    "support-preference": {
-        "message": "Đây là cách ưa thích để hỗ trợ $addonName$.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "support-suggestion": {
-        "message": "Để $addonName$ vẫn hoạt động và tồn tại, hãy làm điều đó một cách quan trọng:",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "testDrive": {
-        "message": "You can test drive the premium features with the free version, but they might be slightly restricted."
-    },
-    "thanks-for-installing-intro": {
-        "message": "Cảm ơn bạn đã cài đặt $addonName$.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "thanks-for-updating-intro": {
-        "message": "Cảm ơn bạn đã cập nhật $addonName$.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "time-and-effort": {
-        "message": "$addonName$ yêu cầu các thay đổi liên tục để vẫn tương thích với nền tảng Mozilla. Tôi không ngừng làm việc để giữ lại nhiều chức năng nhất có thể cho các phiên bản Thunderbird trong tương lai.",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "translated-by-google": {
-        "description": "disclaimer.",
-        "message": "bản dịch do google cung cấp"
-    },
-    "updates.title": {
-        "message": "Updates"
-    },
-    "updatesExpiry": {
-        "message": "quickFilters Pro will be automatically updated via addons.thunderbird.net as usual. After the year expires you can renew the license or keep using premium features under same terms as free users. 'Premium Exclusive' features will require a valid registration key."
-    },
-    "version": {
-        "message": "Phiên bản:"
-    },
-    "vouchers.title": {
-        "message": "Vouchers"
-    },
-    "whats-new-btn": {
-        "message": "Có gì mới?"
-    },
-    "whats-new-head": {
-        "message": "Điểm nổi bật"
-    },
-    "whats-new-intro": {
-        "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
-    },
-    "whats-new-list": {
-        "message": "{L1} Chức năng mới: Sắp xếp Cụm từ tìm kiếm trong bộ lọc (tính năng Pro). {L2} {L1} Ghi nhớ Bộ lọc đã sao chép Danh sách để chèn vào nhiều Tài khoản (tính năng Pro). {L2} {L1} Đã khắc phục sự cố cụm từ tìm kiếm trùng lặp khi hợp nhất bộ lọc. {L2} {L1} Các bản sửa lỗi khác nhau để tương thích với Thunderbird 88. {L2}{L1} 5.2.1 - đã xóa nút sắp xếp khỏi các mẫu bộ lọc tùy chỉnh {L2} {L1} 5.2.1 - Bản dịch tiếng Nga được cải thiện bởi Igor Zhigunov hay còn gọi là tro tàn {L2}"
-    },
-    "window-title": {
-        "description": "page title. first placeholder will be replaced with Add-on name",
-        "message": "Chào mừng bạn đến với $addonName$",
-        "placeholders": {
-            "addonName": {
-                "content": "$1",
-                "example": "quickFilters"
-            }
-        }
-    },
-    "yearlyLicense.premiumFeatures": {
-        "message": "quickFilters Pro gives you full unrestricted access to the premium features."
-    },
-    "yearlyLicense.premiumFeatures.moreInfoLink": {
-        "message": "More about premium features."
-    },
-    "yearlyLicense.title": {
-        "message": "Annual License"
-    },
-    "yearlyLicense.usageTerm": {
-        "message": "The license is for your personal use and is tied to your email address. You can install it on multiple email clients as long as they are configured to use that address."
-    },
-    "yearlyLicense.usageTerm1": {
-        "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
+  "_l10nstatus": {
+    "message": "SPLASH+UI"
+  },
+  "about": {
+    "message": "Giới thiệu"
+  },
+  "account.label": {
+    "message": "Select account:"
+  },
+  "active-version-info": {
+    "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "Bạn hiện đang chạy phiên bản {boldStart} $addonVer$ {boldEnd} trên Thunderbird $appVer$.",
+    "placeholders": {
+      "addonVer": {
+        "content": "$1",
+        "example": "Version 1.1"
+      },
+      "appVer": {
+        "content": "$2",
+        "example": "78.0b4"
+      }
     }
+  },
+  "addon-authors-struggle": {
+    "message": "Để tiếp tục hữu ích, các nhà phát triển Tiện ích bổ sung của chúng tôi hiện cần tài trợ các tài nguyên cần thiết để sửa và viết lại để người dùng của chúng tôi có thể tiếp tục hưởng lợi từ chức năng mà chúng tôi cung cấp."
+  },
+  "btn-extend-license": {
+    "message": "Tôi muốn gia hạn giấy phép của mình thêm một năm"
+  },
+  "btn-renew-license": {
+    "message": "Tôi muốn gia hạn giấy phép của mình"
+  },
+  "btn-want-a-license": {
+    "message": "Tôi muốn mua giấy phép"
+  },
+  "btn-want-to-donate": {
+    "message": "Tôi muốn giúp đỡ với khoản đóng góp một lần."
+  },
+  "buyDomainLicense.button": {
+    "message": "Buy Domain License"
+  },
+  "buyDomainLicense.instruct": {
+    "message": "Need Licenses for a company with more than five users? Getting a domain license will work out cheaper:"
+  },
+  "buyLicense.instruct": {
+    "message": "Need a license for yourself? Get a single user license. It is bound to your personal Email address and can be used in multiple installations."
+  },
+  "buyPersonalLicense.button": {
+    "message": "Buy Personal License!"
+  },
+  "chkAfterJunk.label": {
+    "message": "After junk classification"
+  },
+  "chkAfterSending.label": {
+    "message": "After Sending"
+  },
+  "chkAlphabetic.label": {
+    "message": "Insert new filters in alphabetical order"
+  },
+  "chkAlphabetic.tooltip": {
+    "message": "Uses filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!"
+  },
+  "chkAutoClose.accesskey": {
+    "message": "E"
+  },
+  "chkAutoClose.label": {
+    "message": "Thoát Filter Assistant sau khi một bộ lọc được tạo ra"
+  },
+  "chkAutoRun.label": {
+    "message": "Getting new mail"
+  },
+  "chkAutoStart.accesskey": {
+    "message": "A"
+  },
+  "chkAutoStart.label": {
+    "message": "Automatically start Filter Assistant mode with application"
+  },
+  "chkCurrentToolbar.btn.FilterList.label": {
+    "message": "Hiển thị danh sách bộ lọc"
+  },
+  "chkCurrentToolbar.btn.FindFilter.label": {
+    "message": "Tìm bộ lọc cho thư mục"
+  },
+  "chkCurrentToolbar.btn.FindFilter.tooltip": {
+    "message": "Tìm bất kỳ Bộ lọc nào di chuyển thư đến thư mục này."
+  },
+  "chkCurrentToolbar.btn.RunOnFolder.label": {
+    "message": "Chạy bộ lọc trên thư mục"
+  },
+  "chkCurrentToolbar.btn.RunOnMessages.label": {
+    "message": "Chạy bộ lọc trên các tin nhắn đã chọn"
+  },
+  "chkDebug.accesskey": {
+    "message": "D"
+  },
+  "chkDebug.label": {
+    "message": "Chế độ Sửa Lỗi"
+  },
+  "chkImapOnRead.label": {
+    "message": "Also run filter on read emails in IMAP accounts."
+  },
+  "chkInsertRulesAtTop.label": {
+    "message": "Add new rules on top of list."
+  },
+  "chkLocalFoldersAutorun.label": {
+    "message": "Run filters on Local Folders Inbox automatically"
+  },
+  "chkMergeAuto.label": {
+    "message": "Tự động chọn Hợp nhất"
+  },
+  "chkMergeAuto.tooltip": {
+    "message": "If a filter exists already, this will automatically select merge mode and the first matching filter."
+  },
+  "chkMergeSkip.label": {
+    "message": "Skip to Template Step"
+  },
+  "chkMergeSkip.tooltip": {
+    "message": "This will skip the step 'select merge target' and go straight to 'select template'."
+  },
+  "chkPeriodically.label": {
+    "message": "Run Periodically"
+  },
+  "chkPeriodically.tooltip": {
+    "message": "Runs the filter in regular intervals"
+  },
+  "chkRunManual.label": {
+    "message": "Run manually"
+  },
+  "chkShowEditor.label": {
+    "message": "Open Editor after filter creation"
+  },
+  "chkShowList.label": {
+    "message": "Display Filter List after filter creation"
+  },
+  "chkShowList.tooltip": {
+    "message": "Display list to run the new filter on all messages for testing."
+  },
+  "chkToolbar.accesskey": {
+    "message": "T"
+  },
+  "chkToolbar.label": {
+    "message": "Display Toolbar in Filter Manager"
+  },
+  "chkWhenArchiving.label": {
+    "message": "When Archiving"
+  },
+  "cost-of-independence": {
+    "message": "Việc phát triển phần mềm tốn kém thời gian và tiền bạc - không giống như nhiều ứng dụng nền tảng, Tiện ích bổ sung không được viết bởi các tập đoàn lớn, cũng như không được Mozilla tài trợ theo bất kỳ hình thức nào."
+  },
+  "createdBy": {
+    "message": "Tác giả:"
+  },
+  "domainLicense.email": {
+    "message": "We will contact you using this email address to generate your domain license; please allow two business days for us to get in touch. Enter the domain name for the license on the next page."
+  },
+  "domainLicense.header": {
+    "message": "Licensed Email Domain"
+  },
+  "domainLicense.instruct": {
+    "message": "The license is keyed to your company domain. The license will allow users with email addresses ending on this email domain to use quickFilters Pro. E.g. if you enter the domain name 'abc.com' then mail users like fred@abc.com, martha@abc.com, mike.doe@abc.com etc. are allowed to use the license. The maximum number of valid individual users is the number you have entered on the initial screen."
+  },
+  "domainLicense.validate": {
+    "message": "Make sure you enter the domain name *exactly as it is* on your Company's email addresses (the part *after* the @ sign), as it will be used to authorize the email addresses of your users."
+  },
+  "donate": {
+    "message": "Giúp đỡ với khoản đóng góp một lần."
+  },
+  "donate-heading": {
+    "message": "Giúp đỡ bằng cách quyên góp!"
+  },
+  "donate.label": {
+    "message": "Quyên góp"
+  },
+  "email.label": {
+    "message": "Email:"
+  },
+  "enterLicenseKey.button": {
+    "message": "Enter License Key…"
+  },
+  "enterLicenseKey.tooltip": {
+    "message": "Enter the License Key code sent to you via Email."
+  },
+  "extend-your-license": {
+    "message": "Xem xét gia hạn giấy phép của bạn thêm một năm."
+  },
+  "extensionDescription": {
+    "description": "Description of the extension.",
+    "message": "Nhanh chóng tạo các quy tắc lọc thư một cách nhanh chóng, bằng cách kéo và thả thư và phân tích các thuộc tính của chúng."
+  },
+  "extensionName": {
+    "description": "Name of the extension.",
+    "message": "quickFilters"
+  },
+  "extensions.quickfilters.description": {
+    "message": "Tạo bộ lọc thư một cách nhanh chóng khi đang xem, bằng cách kéo và thả các thư và phân tích thuộc tính của chúng."
+  },
+  "firstName.label": {
+    "message": "First Name:"
+  },
+  "freeLicense": {
+    "message": "If you have recently donated to the quickFilters project or have done contributory work, such as translating or writing patches, you may be eligible for a free license key. Contact me from the support tab in quickFilters Options."
+  },
+  "getquickFilters": {
+    "message": "Get quickFilters Pro"
+  },
+  "grpMerge.label": {
+    "message": "Merge Rules"
+  },
+  "heading-installed": {
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "Đã cài đặt thành công $addonName$",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "heading-updated": {
+    "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ đã được cập nhật thành côngs",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "homepage": {
+    "message": "Trang chủ:"
+  },
+  "intro": {
+    "message": "An annual license for quickFilters Pro gives you all premium features for a year. It also enables us to support and grow the product further and turn it into something even more awesome."
+  },
+  "label-remind-me": {
+    "message": "Nhắc lại tôi sau $countDays$ ngày.",
+    "placeholders": {
+      "countDays": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+  "lastName.label": {
+    "message": "Last Name:"
+  },
+  "license-is-extended": {
+    "description": "Shown if license expires more than a year from now",
+    "message": "Cảm ơn bạn đã gia hạn giấy phép gần đây hoặc nếu bạn đã đóng góp. Vì bạn đã giúp chứng minh Tiện ích bổ sung này trong tương lai, bạn có thể chỉ cần đóng cửa sổ này."
+  },
+  "licenseWindow.title": {
+    "message": "quickFilters Pro License"
+  },
+  "mozillas-basic-platform": {
+    "message": "Mozilla chỉ cung cấp một nền tảng cơ bản để cung cấp phần mềm của chúng tôi cho bạn, những người dùng cuối. Nếu chúng tôi cần yêu cầu người dùng thanh toán hoặc hỗ trợ, chúng tôi không thể thực hiện việc này từ addons.thunderbird.net - nó không phải là một 'cửa hàng ứng dụng' có tường trả phí tích hợp hoặc quản lý giấy phép như iTunes hoặc google play."
+  },
+  "notificationTitle": {
+    "description": "Title of the click notification.",
+    "message": "Click notification"
+  },
+  "ongoing-work": {
+    "message": "Các thay đổi để chuyển $addonName$ sang mô hình lập trình mới mất hàng tuần và tốn kém. Có nhiều thay đổi nữa cho phiên bản 2022 tiếp theo. Với một Add-on phức tạp như thế này, việc tốn kém trở thành điều tất yếu. Xin hãy giúp chúng tôi với điều này.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "pane1.title": {
+    "message": "Cấu hình quickFilters"
+  },
+  "prefwindow.title": {
+    "message": "Cấu hình quickFilters"
+  },
+  "purchase-a-license": {
+    "message": "Mua giấy phép."
+  },
+  "purchase-heading": {
+    "message": "Mua Giấy phép!"
+  },
+  "qf.button.createFilter": {
+    "message": "Create New Filter…"
+  },
+  "qf.button.editFilter": {
+    "message": "Edit Filter…"
+  },
+  "qf.button.merge": {
+    "message": "Merge"
+  },
+  "qf.button.next": {
+    "message": "Next"
+  },
+  "qf.button.pasteLicense": {
+    "message": "paste"
+  },
+  "qf.button.reorderButtonBottom": {
+    "message": "Đưa xuống cuối"
+  },
+  "qf.button.reorderButtonBottom.accessKey": {
+    "message": "b"
+  },
+  "qf.button.reorderButtonBottom.toolTip": {
+    "message": "Sắp xếp lại bộ lọc để nó được thực thi sau tất cả các cái khác"
+  },
+  "qf.button.reorderButtonTop": {
+    "message": "Đưa lên đầu"
+  },
+  "qf.button.reorderButtonTop.accessKey": {
+    "message": "o"
+  },
+  "qf.button.reorderButtonTop.toolTip": {
+    "message": "Sắp xếp lại bộ lọc để nó được thực thi trước tất cả các cái khác"
+  },
+  "qf.button.targetSelected": {
+    "message": "Target Filter selected"
+  },
+  "qf.button.validateLicense": {
+    "message": "validate"
+  },
+  "qf.check.createNew": {
+    "message": "Create a New Filter"
+  },
+  "qf.check.mergeWithExisting": {
+    "message": "Merge with an existing filter:"
+  },
+  "qf.cloned.label": {
+    "message": "Append to name of cloned filter:"
+  },
+  "qf.continueFilter.label": {
+    "message": "Tạo Bộ Lọc…"
+  },
+  "qf.continueFilter.shortcut": {
+    "message": "T"
+  },
+  "qf.description.about": {
+    "message": "Mô tả ngắn về quickFilters có thể xem ở trang sau:"
+  },
+  "qf.description.contactMe": {
+    "message": "Bạn cũng có thể liên lạc riêng với tôi tại $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "qf.description.currentFolderButtons": {
+    "message": "Tùy chọn này chỉ có thể áp dụng nếu bạn đang sử dụng Add-On QuickFolders, thêm một thanh công cụ nhỏ ở phía trên của ngăn xem trước thư."
+  },
+  "qf.description.mergeAddInstructions": {
+    "message": "All other filters in this list will be merged into this and then deleted."
+  },
+  "qf.description.mergeAddSummary": {
+    "message": "Select the filter that will inherit the properties of the others."
+  },
+  "qf.description.mergeInstructions": {
+    "message": "You can either extend one of these or create a completely new filter."
+  },
+  "qf.description.mergeSummary": {
+    "message": "QuickFilters Assistant found some filters that already do the same action."
+  },
+  "qf.description.selectToExtend": {
+    "message": "Select a Filter to extend with new rules."
+  },
+  "qf.donate.tooltip": {
+    "message": "Trợ giúp sự phát triển của quickFilters!"
+  },
+  "qf.filterlist.group": {
+    "message": "Tính năng danh sách bộ lọc"
+  },
+  "qf.filterlist.multipaste": {
+    "message": "Cho phép sao chép và dán bộ lọc vào nhiều tài khoản"
+  },
+  "qf.filters.actions.caption": {
+    "message": "Actions"
+  },
+  "qf.filters.actions.flag": {
+    "message": "Flag"
+  },
+  "qf.filters.actions.flag.accesskey": {
+    "message": "F"
+  },
+  "qf.filters.actions.priority": {
+    "message": "Priority"
+  },
+  "qf.filters.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "qf.filters.actions.star": {
+    "message": "Star"
+  },
+  "qf.filters.actions.star.accesskey": {
+    "message": "S"
+  },
+  "qf.filters.actions.tag": {
+    "message": "Tags"
+  },
+  "qf.filters.actions.tag.accesskey": {
+    "message": "T"
+  },
+  "qf.filters.actions.targetFolder": {
+    "message": "Target Folder"
+  },
+  "qf.filters.actions.tooltip": {
+    "message": "Filter copies these attributes from original email"
+  },
+  "qf.filters.instructions": {
+    "message": "Hãy chọn một mẫu. Bạn có thể tinh chỉnh các quy tắc của bộ lọc ở màn hình kế tiếp."
+  },
+  "qf.filters.steps.autoRunFilter": {
+    "message": "Run Automatically"
+  },
+  "qf.filters.steps.autoRunFilter.tooltip": {
+    "message": "Automatically runs the filter on the originating Inbox after creation."
+  },
+  "qf.filters.steps.caption": {
+    "message": "Next Steps"
+  },
+  "qf.filters.steps.showEditor": {
+    "message": "Filter Rules"
+  },
+  "qf.filters.steps.showEditor.tooltip": {
+    "message": "Edit the filter details after the Assistant has created it."
+  },
+  "qf.filters.steps.showList": {
+    "message": "Filters List"
+  },
+  "qf.filters.steps.showList.tooltip": {
+    "message": "Displays the filter in context so you can try it out"
+  },
+  "qf.filters.steps.tooltip": {
+    "message": "Which screens to show after filter creation"
+  },
+  "qf.filters.template.custom.description": {
+    "message": "Custom Filter - behavior is defined by User - use variables like %from% %to% %subject% etc."
+  },
+  "qf.filters.template.domain": {
+    "message": "Based on Sender's Domain"
+  },
+  "qf.filters.template.domain.description": {
+    "message": "Like 'based on sender' template but only matches the domain (e.g. @xyz.com) of the sender's email address"
+  },
+  "qf.filters.template.from": {
+    "message": "Dựa theo Người Gửi (gửi từ)"
+  },
+  "qf.filters.template.from.description": {
+    "message": "Đây có lẽ là mẫu được dùng nhiều nhất: nó sẽ lấy các địa chỉ thư điện tử của người gửi rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ các hội thoại với người gửi sẽ được di chuyển vào một thư mục mới."
+  },
+  "qf.filters.template.list.description": {
+    "message": "Tương tự như Dựa trên Người Gửi, nhưng nó không điền vùng điều kiện 'gửi đến'."
+  },
+  "qf.filters.template.maillist": {
+    "message": "Danh sách thư"
+  },
+  "qf.filters.template.maillist.description": {
+    "message": "Useful for mailing lists with 'List-Id' field. If this is not set it will use the sender's address instead."
+  },
+  "qf.filters.template.multifrom": {
+    "message": "Group (collects senders of multiple mails)"
+  },
+  "qf.filters.template.multifrom.description": {
+    "message": "Use this to drag multiple emails and add all senders to the condition. (Excludes your own mail addresses)"
+  },
+  "qf.filters.template.replyto": {
+    "message": "Based on Reply-To"
+  },
+  "qf.filters.template.replyto.description": {
+    "message": "Filter is based on the Reply-To field."
+  },
+  "qf.filters.template.tag": {
+    "message": "Theo các nhãn"
+  },
+  "qf.filters.template.tag.description": {
+    "message": "Dùng các nhãn của thư và thêm chúng vào các điều kiện bộ lọc."
+  },
+  "qf.filters.template.to": {
+    "message": "Dựa theo Người Nhận (gửi đến)"
+  },
+  "qf.filters.template.to.description": {
+    "message": "Tương tự như 'Dựa trên Người Gửi': dùng cái này khi bạn đánh dấu một thư mà bạn đã gửi cho ai đó. Nó sẽ lấy các địa chỉ thư điện tử của người nhận rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ hội thoại tới và từ người gửi sẽ được di chuyển vào một thư mục mới."
+  },
+  "qf.filters.template.topic": {
+    "message": "Theo tiêu đề"
+  },
+  "qf.filters.template.topic.description": {
+    "message": "Nó sẽ tìm kiếm các từ ngữ trong ngoặc đơn, ví dụ: [bộ sưu tập tem] hay {ăn chay} và tạo một điều kiện bộ lọc dựa trên đó; rất nhiều thư được cài đặt dùng mẫu này, nên nó thực sự rất dễ dùng."
+  },
+  "qf.filters.templates.description.label": {
+    "message": "Mô tả:"
+  },
+  "qf.filters.title": {
+    "message": "Tạo Bộ Lọc"
+  },
+  "qf.grp.whenToRun": {
+    "message": "Apply filter when"
+  },
+  "qf.label.aboutLink": {
+    "message": "Trang chủ quickFilters…"
+  },
+  "qf.label.cancel": {
+    "message": "Hủy bỏ"
+  },
+  "qf.label.contactLink": {
+    "message": "Liên lạc (bằng tiếng Anh hoặc Đức)..."
+  },
+  "qf.label.currentFolderButtons": {
+    "message": "QuickFolders Current folder Toolbar"
+  },
+  "qf.label.donate": {
+    "message": "Quên góp"
+  },
+  "qf.label.filterCountN_of_M": {
+    "message": "{0} trong {1}"
+  },
+  "qf.label.filterEntities": {
+    "message": "thứ"
+  },
+  "qf.label.filterSingleEntity": {
+    "message": "1 thứ"
+  },
+  "qf.label.haveLicense": {
+    "message": "Already have a License?"
+  },
+  "qf.label.insertLicense": {
+    "message": "Insert your personal License key here:"
+  },
+  "qf.label.insertLicense.tooltip": {
+    "message": "Your license key is contained in your order confirmation email from Fastspring."
+  },
+  "qf.label.licenseValid": {
+    "message": "Your license is valid until:"
+  },
+  "qf.label.naming": {
+    "message": "Quy tắc đặt tên"
+  },
+  "qf.label.naming.folderDelimiter": {
+    "message": "Delimiter:"
+  },
+  "qf.label.naming.keyWord": {
+    "message": "Thêm quy tắc từ khóa nhất định"
+  },
+  "qf.label.naming.keyWord.accesskey": {
+    "message": "k"
+  },
+  "qf.label.naming.parentFolder": {
+    "message": "Thêm tên thư mục mẹ"
+  },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "p"
+  },
+  "qf.label.premiumFeaturesSite": {
+    "message": "Read more about Premium Features on our Website"
+  },
+  "qf.label.quickfilters": {
+    "message": "quickFilters"
+  },
+  "qf.label.shortcut.runFolder": {
+    "message": "Shortcut for Running Filters on Folder: Shift + "
+  },
+  "qf.label.shortcut.runMails": {
+    "message": "Shortcut for Running Filters on Selected Mails: Shift + "
+  },
+  "qf.label.supportWithLicense": {
+    "message": "Support quickFilters by getting a license!"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "The license key you entered is expired. Please press the button below to renew your license."
+  },
+  "qf.licenseValidation.failed": {
+    "message": "The license key you entered is not valid. Check your email from FastSpring for instructions. If you still have problems, please contact me from the Support tab."
+  },
+  "qf.licenseValidation.invalidAddon": {
+    "message": "The license key you entered may be for a different Add-on. License keys for {0} start with {1}."
+  },
+  "qf.licenseValidation.invalidMail": {
+    "message": "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance."
+  },
+  "qf.licenseValidation.notMatchedMail": {
+    "message": "Encrypted Email address does not match readable one."
+  },
+  "qf.licenseValidation.passed": {
+    "message": "Thanks for registering quickFilters Pro! All premium features are now unlocked."
+  },
+  "qf.listener.tags": {
+    "message": "Listen for Tag changes"
+  },
+  "qf.listener.tags.autofilter": {
+    "message": "Run filters automatically when tags are changed"
+  },
+  "qf.listener.tags.tooltip": {
+    "message": "When activated, the filter assistant will also be triggered when you tag a message."
+  },
+  "qf.notify.filterCreated": {
+    "message": "Successfully created new filter '{0}'."
+  },
+  "qf.notify.filterMergeUpdated": {
+    "message": "Successfully updated filter '{0}'."
+  },
+  "qf.onewayaddress.label": {
+    "message": "Disable two-way address search conditions"
+  },
+  "qf.onewayaddress.tooltip": {
+    "message": "By default, quickFilters adds both 'from' and 'to' search conditions to assist filtering complete message threads including your own emails to the recipient. If you always want to keep your replies in the Sent folder, you can disable this behavior here. The Addon 'Copy Sent to Current' can be used to keep replies with their originating emails."
+  },
+  "qf.options.versionnumber.tooltip": {
+    "message": "Nhấp chuột phải để xem lịch sử phiên bản."
+  },
+  "qf.premiumConfig": {
+    "message": "Premium Features"
+  },
+  "qf.tab.actions": {
+    "message": "Actions"
+  },
+  "qf.tab.advanced": {
+    "message": "Advanced"
+  },
+  "qf.tab.gopro": {
+    "message": "quickFilters Pro"
+  },
+  "qf.tab.newFilterProps": {
+    "message": "New Filter Properties"
+  },
+  "qf.tab.options": {
+    "message": "Tùy chọn"
+  },
+  "qf.tab.support": {
+    "message": "Hỗ trợ"
+  },
+  "qf.templates.advanced": {
+    "message": "Advanced Templates"
+  },
+  "qf.templates.customTemplate.edit": {
+    "message": "Biên tập…"
+  },
+  "qf.templates.customTemplate.label": {
+    "message": "Custom Templates"
+  },
+  "qf.templates.customTemplate.new": {
+    "message": "Tạo mới…"
+  },
+  "qf.templates.customTemplate.tooltip": {
+    "message": "Cho phép tạo Mẫu tùy chỉnh, xem mô tả lỗi để biết chi tiết."
+  },
+  "qf.templates.replyTo.label": {
+    "message": "Reply-To Template"
+  },
+  "qf.templates.replyTo.tooltip": {
+    "message": "Display Reply-To Template, see bug description for detail."
+  },
+  "qf.textbox.searchBox.emptyText": {
+    "message": "Tìm bộ lọc theo tên…"
+  },
+  "qf.textbox.searchBox.toolTip": {
+    "message": "nhập từ khóa để tìm bộ lọc theo tên"
+  },
+  "qf.tooltip.naming.folderDelimiter": {
+    "message": "Character inserted between parent folder and name"
+  },
+  "qf.youtube.description": {
+    "message": "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel."
+  },
+  "qf.youtube.link": {
+    "message": "Watch quickFilters Videos at Thunderbird Daily…"
+  },
+  "qf.youtube.tbdaily": {
+    "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
+  },
+  "quickfilters.FilterAssistant.start": {
+    "message": "Khởi động Filter Assistant…"
+  },
+  "quickfilters.FilterAssistant.stop": {
+    "message": "Tắt Filter Assistant"
+  },
+  "quickfilters.FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "quickfilters.FromMessage.label": {
+    "message": "QuickFilters: Create Filter from Message…"
+  },
+  "quickfilters.ListButton.label": {
+    "message": "Các Bộ Lọc Tin Nhắn…"
+  },
+  "quickfilters.ListButton.tooltip": {
+    "message": "Hiển thị danh sách các bộ lọc tin nhắn"
+  },
+  "quickfilters.RunButton.label": {
+    "message": "Chạy bộ lọc"
+  },
+  "quickfilters.RunButton.tooltip": {
+    "message": "Chạy các bộ lọc được thiết đặt cho thư mục hiện tại"
+  },
+  "quickfilters.RunButtonMsg.label": {
+    "message": "Filter selected mails"
+  },
+  "quickfilters.RunButtonMsg.tooltip": {
+    "message": "Run the filters on the selected mails"
+  },
+  "quickfilters.Start.label": {
+    "message": "Khởi động Filter Assistant…"
+  },
+  "quickfilters.addTag.label": {
+    "message": "Dán Nhãn cho Thư"
+  },
+  "quickfilters.backup.archivingFilters": {
+    "message": "Archiving {1} Filters"
+  },
+  "quickfilters.backup.customErrors": {
+    "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
+  },
+  "quickfilters.backup.failedFilters": {
+    "message": "{1} filters could not be encoded! Please check the error log for detail."
+  },
+  "quickfilters.button.assistant": {
+    "message": "Toggle assistant…"
+  },
+  "quickfilters.button.assistant.tooltiptext": {
+    "message": "Toggles filter assistant mode. When active, drag and drop emails to create filters."
+  },
+  "quickfilters.button.bug": {
+    "message": "Troubleshoot"
+  },
+  "quickfilters.button.bug.tooltiptext1": {
+    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
+  },
+  "quickfilters.button.bug.tooltiptext2": {
+    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
+  },
+  "quickfilters.button.cancelDuplicates.label": {
+    "message": "Cancel duplicates"
+  },
+  "quickfilters.button.cancelDuplicates.tooltip": {
+    "message": "Reset duplicate search"
+  },
+  "quickfilters.button.cancelFindInFolder.label": {
+    "message": "Cancel search"
+  },
+  "quickfilters.button.cancelFindInFolder.tooltip": {
+    "message": "Cancel search by folder"
+  },
+  "quickfilters.button.clone": {
+    "message": "Clone"
+  },
+  "quickfilters.button.clone.accesskey": {
+    "message": "C"
+  },
+  "quickfilters.button.clone.tooltiptext": {
+    "message": "Clone a filter"
+  },
+  "quickfilters.button.findDuplicates.label": {
+    "message": "Find duplicates"
+  },
+  "quickfilters.button.findDuplicates.tooltip": {
+    "message": "Find duplicate attributes"
+  },
+  "quickfilters.button.getOtherAddon": {
+    "message": "Get {1}"
+  },
+  "quickfilters.button.loadFilters.tooltip": {
+    "message": "Restore Filters…"
+  },
+  "quickfilters.button.merge": {
+    "message": "Merge"
+  },
+  "quickfilters.button.merge.accesskey": {
+    "message": "M"
+  },
+  "quickfilters.button.merge.tooltiptext": {
+    "message": "Merge multiple filters with the same action"
+  },
+  "quickfilters.button.saveFilters.tooltip": {
+    "message": "Backup Filters…"
+  },
+  "quickfilters.button.searchProperties": {
+    "message": "Change search properties…"
+  },
+  "quickfilters.button.settings": {
+    "message": "quickFilters Settings…"
+  },
+  "quickfilters.button.sort": {
+    "message": "Sort"
+  },
+  "quickfilters.button.sort.tooltiptext": {
+    "message": "Sort Alphabetically"
+  },
+  "quickfilters.button.support": {
+    "message": "quickFilters Support Site"
+  },
+  "quickfilters.clone.label": {
+    "message": "(copy)"
+  },
+  "quickfilters.clone.selectOne": {
+    "message": "To clone, select exactly one filter."
+  },
+  "quickfilters.clone.undetermined": {
+    "message": "Could not determine which filter is selected"
+  },
+  "quickfilters.confirmVersionLink": {
+    "message": "Hiển thị lịch sử phiên bản của quickFilters?"
+  },
+  "quickfilters.copy.warning.emptyClipboard": {
+    "message": "No filters in clipboard!"
+  },
+  "quickfilters.copy.warning.selectFilter": {
+    "message": "Please select at least one filter!"
+  },
+  "quickfilters.copy.warning.selectOtherAccount": {
+    "message": "Select a different account for pasting items!"
+  },
+  "quickfilters.copyMessage.label": {
+    "message": "Chép Thư tới"
+  },
+  "quickfilters.createFilter.warning.canNotHaveFilters": {
+    "message": "The account ({1}) cannot have filters."
+  },
+  "quickfilters.createFilter.warning.minimum2Mails": {
+    "message": "This template requires at least 2 mails."
+  },
+  "quickfilters.createFilter.warning.noFilterFallback": {
+    "message": "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
+  },
+  "quickfilters.createFilter.warning.noHeaderParser": {
+    "message": "Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header."
+  },
+  "quickfilters.createFilter.warning.noMessageDb": {
+    "message": "Cannot access message database for folder {1}"
+  },
+  "quickfilters.createFilter.warning.noMessageId": {
+    "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\nConsider running the Repair Folder command."
+  },
+  "quickfilters.createFilter.warning.noServer": {
+    "message": "Folder ({1}) does not have a server."
+  },
+  "quickfilters.createFilter.warning.suggestUpdate": {
+    "message": "Consider updating to a newer version to get this feature."
+  },
+  "quickfilters.createFromMail.inboxWarning": {
+    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
+  },
+  "quickfilters.createFromMail.selectWarning": {
+    "message": "To create a filter, please select exactly one email!"
+  },
+  "quickfilters.customHeader.BlindCarbonCopy": {
+    "message": "Blind Carbon Copy (BCC)"
+  },
+  "quickfilters.customHeader.CarbonCopy": {
+    "message": "Carbon Copy (CC)"
+  },
+  "quickfilters.customHeader.Domain": {
+    "message": "Domain of Email"
+  },
+  "quickfilters.customHeader.Email": {
+    "message": "Email Address"
+  },
+  "quickfilters.customHeader.FirstName": {
+    "message": "First Name"
+  },
+  "quickfilters.customHeader.From": {
+    "message": "From"
+  },
+  "quickfilters.customHeader.LastName": {
+    "message": "Last Name"
+  },
+  "quickfilters.customHeader.ListId": {
+    "message": "List Id"
+  },
+  "quickfilters.customHeader.ListPost": {
+    "message": "List Post"
+  },
+  "quickfilters.customHeader.NamePart": {
+    "message": "Full Name"
+  },
+  "quickfilters.customHeader.Newsgroups": {
+    "message": "Newsgroups"
+  },
+  "quickfilters.customHeader.ReplyTo": {
+    "message": "Reply To"
+  },
+  "quickfilters.customHeader.Subject": {
+    "message": "Subject"
+  },
+  "quickfilters.customHeader.SubjectRegex": {
+    "message": "Subject Regular Expression"
+  },
+  "quickfilters.customHeader.To": {
+    "message": "To"
+  },
+  "quickfilters.customTemplate.name": {
+    "message": "Template Name:"
+  },
+  "quickfilters.customTemplate.title": {
+    "message": "quickFilters Custom Template"
+  },
+  "quickfilters.customVariable.label": {
+    "message": "Custom Variables"
+  },
+  "quickfilters.customVariable.tooltip": {
+    "message": "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail."
+  },
+  "quickfilters.customfilter.replyto": {
+    "message": "Reply-To"
+  },
+  "quickfilters.debug.fixFilters": {
+    "message": "Found {0} filters don't have the 'Incoming' flag set. These will potentially not run during get mail. Fix them?"
+  },
+  "quickfilters.debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "quickfilters.debug.fixFilters.customActionErrors": {
+    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
+  },
+  "quickfilters.debug.fixFilters.invalidUris": {
+    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
+  },
+  "quickfilters.debug.fixFilters.none": {
+    "message": "No faulty filters found."
+  },
+  "quickfilters.debug.fixFilters.result": {
+    "message": "{0} filters were fixed."
+  },
+  "quickfilters.deleteFromPOP.label": {
+    "message": "Xóa trên Máy chủ POP"
+  },
+  "quickfilters.deleteMessage.label": {
+    "message": "Xóa Thư"
+  },
+  "quickfilters.fetchFromPOP.label": {
+    "message": "Lấy từ Máy chủ POP"
+  },
+  "quickfilters.filters.toggleMessage.dontShow": {
+    "message": "Không hiển thị thông báo này nữa."
+  },
+  "quickfilters.filters.toggleMessage.notificationText": {
+    "message": "Chế độ trợ giúp bộ lọc đã được khởi động. Bất cứ khi nào bạn di chuyển một thư vào một thư mục khác, bộ trợ giúp 'Tạo Quy Tắc Bộ Lọc' sẽ bắt đầu. #1 sử dụng các bộ lọc tin nhắn để tự động di chuyển các thư dựa trên các quy tắc như 'ai là người gửi?', 'một từ khóa nào đó có trong dòng tiêu đề không?'. Để tắt chế độ trợ giúp bộ lọc, ấn nút bộ lọc thêm lần nữa."
+  },
+  "quickfilters.filters.toggleMessage.title": {
+    "message": "Chế độ Filter Assist"
+  },
+  "quickfilters.findFiltersForFolder.menu": {
+    "message": "Find Filters…"
+  },
+  "quickfilters.forwardTo.label": {
+    "message": "Chuyển tiếp Thư tới"
+  },
+  "quickfilters.fpJsonFile": {
+    "message": "JSON File"
+  },
+  "quickfilters.ignoreSubthread.label": {
+    "message": "Bỏ qua Chủ đề con"
+  },
+  "quickfilters.ignoreThread.label": {
+    "message": "Bỏ qua Chủ đề"
+  },
+  "quickfilters.licenseValidation.guessAddon": {
+    "message": "(The key entered may be for {2})."
+  },
+  "quickfilters.markMessageRead.label": {
+    "message": "Đánh Dấu Đã Đọc"
+  },
+  "quickfilters.markMessageStarred.label": {
+    "message": "Thêm Sao"
+  },
+  "quickfilters.markMessageUnread.label": {
+    "message": "Mark As Unread"
+  },
+  "quickfilters.menu.copy": {
+    "message": "Copy"
+  },
+  "quickfilters.menu.cut": {
+    "message": "Cut"
+  },
+  "quickfilters.menu.paste": {
+    "message": "Paste"
+  },
+  "quickfilters.menu.removeDupeAction": {
+    "message": "Remove duplicate action"
+  },
+  "quickfilters.menu.removeDupeCondition": {
+    "message": "Remove duplicate condition"
+  },
+  "quickfilters.merge.addressesOmitted": {
+    "message": "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"
+  },
+  "quickfilters.merge.warning.missingAction": {
+    "message": "Could not get the main action of the filter: {1}"
+  },
+  "quickfilters.merge.warning.selectMismatch": {
+    "message": "Cannot merge all selected filters: action mismatch with filter {1}!"
+  },
+  "quickfilters.merge.warning.selectMismatchContinue": {
+    "message": "Deselect filters that do not match and continue?"
+  },
+  "quickfilters.merge.warning.selectMultiple": {
+    "message": "To merge, select at least 2 filters"
+  },
+  "quickfilters.merge.warning.selectMultiple2": {
+    "message": "Cannot determine first selected filter - to merge, you must select at least 2 filters!"
+  },
+  "quickfilters.merge.warning.selectTarget": {
+    "message": "A target filter must be selected for merging!"
+  },
+  "quickfilters.move.selectOne": {
+    "message": "Exactly one filter entry must be selected!"
+  },
+  "quickfilters.moveMessage.label": {
+    "message": "Di chuyển Thư tới"
+  },
+  "quickfilters.notification.donate": {
+    "message": "Donate"
+  },
+  "quickfilters.notification.dontShowAgain": {
+    "message": "Do not show this message again."
+  },
+  "quickfilters.notification.premium.btn.extendLicense": {
+    "message": "Extend License"
+  },
+  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
+    "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
+  },
+  "quickfilters.notification.premium.btn.getLicense": {
+    "message": "Buy License"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "L"
+  },
+  "quickfilters.notification.premium.btn.renewLicense": {
+    "message": "Renew License"
+  },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
+  },
+  "quickfilters.notification.premium.title": {
+    "message": "Premium Feature"
+  },
+  "quickfilters.notification.proFeature.notificationText": {
+    "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
+  },
+  "quickfilters.notification.proFeature.title": {
+    "message": "Premium Feature"
+  },
+  "quickfilters.notification.register": {
+    "message": "Register {1}"
+  },
+  "quickfilters.option.searchProperty.addTag": {
+    "message": "Add Tag (label)"
+  },
+  "quickfilters.option.searchProperty.name": {
+    "message": "Name"
+  },
+  "quickfilters.option.searchProperty.replyWithTemplate": {
+    "message": "Trả lời bằng Thư mẫu"
+  },
+  "quickfilters.option.searchProperty.searchCondition": {
+    "message": "Search Condition (Text)"
+  },
+  "quickfilters.option.searchProperty.setCustomStringAction": {
+    "message": "Actions that modify Strings"
+  },
+  "quickfilters.option.searchProperty.targetFolder": {
+    "message": "Target folder"
+  },
+  "quickfilters.premium.renewLicense.tooltip": {
+    "message": "Your license expired {1} days ago"
+  },
+  "quickfilters.premium.title.customTemplate": {
+    "message": "Custom Templates"
+  },
+  "quickfilters.premium.title.duplicatesFinder": {
+    "message": "Duplicates Finder"
+  },
+  "quickfilters.premium.title.searchFolder": {
+    "message": "Search Filter for Folder"
+  },
+  "quickfilters.premium.title.sortFilters": {
+    "message": "Sort Filters"
+  },
+  "quickfilters.prompt.contact.subject": {
+    "message": "Please enter a short subject line:"
+  },
+  "quickfilters.prompt.contact.title": {
+    "message": "Contact quickFilters Support"
+  },
+  "quickfilters.prompt.copiedCustomVar": {
+    "message": "Copied variable {1} to clipboard, please paste in a search term."
+  },
+  "quickfilters.prompt.createCustomHeader": {
+    "message": "Please add the term '{1}' as a custom header to use this in a filter."
+  },
+  "quickfilters.prompt.customTemplateName": {
+    "message": "Name of Custom Template:"
+  },
+  "quickfilters.promptDontRepeat": {
+    "message": "Do not show this warning again."
+  },
+  "quickfilters.register.licenseValid.expired": {
+    "message": "Your license expired on:"
+  },
+  "quickfilters.replyWithTemplate.label": {
+    "message": "Trả lời bằng Thư mẫu"
+  },
+  "quickfilters.runFiltersOnMails.notify": {
+    "message": "Apply filters to selected messages…"
+  },
+  "quickfilters.runMultiFilterInFolder.status": {
+    "message": "Running {0} Filters in folder {1}."
+  },
+  "quickfilters.runSingleFilterInFolder.status": {
+    "message": "Running Filter '{0}' in folder {1}."
+  },
+  "quickfilters.runningFiltersOnFolder.notify": {
+    "message": "Run filters on folder '{1}'…"
+  },
+  "quickfilters.search.warning.noresults": {
+    "message": "No filters targeting this folder found."
+  },
+  "quickfilters.setJunkScore.label": {
+    "message": "Thiết lập Trạng thái Thư rác thành"
+  },
+  "quickfilters.setPriority.label": {
+    "message": "Thiết lập Mức ưu tiên thành"
+  },
+  "quickfilters.sort": {
+    "message": "Sắp xếp"
+  },
+  "quickfilters.sort.tooltip": {
+    "message": "Sắp xếp các cụm từ tìm kiếm"
+  },
+  "quickfilters.sort.warning.selectMultiple": {
+    "message": "To sort alphabetically, select at least 2 filters"
+  },
+  "quickfilters.stopExecution.label": {
+    "message": "Ngừng Thực thi Bộ lọc"
+  },
+  "quickfilters.warning.templateNameNotUnique": {
+    "message": "A template of this name already exists! The name must be unique."
+  },
+  "quickfilters.watchThread.label": {
+    "message": "Theo dõi Chủ đề"
+  },
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters Assistant"
+  },
+  "quickfiltersToolbarButton.tooltip": {
+    "message": "Kích hoạt trợ giúp bộ lọc"
+  },
+  "renew-your-license": {
+    "message": "Gia hạn giấy phép của bạn."
+  },
+  "special-offer-content": {
+    "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {boldStart} giảm 30% {boldEnd} giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} ngày 16 tháng 4 {boldEnd}."
+  },
+  "special-offer-head": {
+    "message": "Vui lòng giúp quickFilters để tiếp tục!"
+  },
+  "special-offer-intro": {
+    "message": "{boldStart} Kính gửi {name} {boldEnd}, bạn hiện có thể trợ giúp các bộ lọc quickFilters trong tương lai. Sắp có nhiều thay đổi lớn hơn trên Thunderbird và tôi cần {boldStart} sự trợ giúp của bạn {boldEnd} để theo kịp!"
+  },
+  "support-preference": {
+    "message": "Đây là cách ưa thích để hỗ trợ $addonName$.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "support-suggestion": {
+    "message": "Để $addonName$ vẫn hoạt động và tồn tại, hãy làm điều đó một cách quan trọng:",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "testDrive": {
+    "message": "You can test drive the premium features with the free version, but they might be slightly restricted."
+  },
+  "thanks-for-installing-intro": {
+    "message": "Cảm ơn bạn đã cài đặt $addonName$.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "thanks-for-updating-intro": {
+    "message": "Cảm ơn bạn đã cập nhật $addonName$.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "time-and-effort": {
+    "message": "$addonName$ yêu cầu các thay đổi liên tục để vẫn tương thích với nền tảng Mozilla. Tôi không ngừng làm việc để giữ lại nhiều chức năng nhất có thể cho các phiên bản Thunderbird trong tương lai.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "translated-by-google": {
+    "description": "disclaimer.",
+    "message": "bản dịch do google cung cấp"
+  },
+  "updates.title": {
+    "message": "Updates"
+  },
+  "updatesExpiry": {
+    "message": "quickFilters Pro will be automatically updated via addons.thunderbird.net as usual. After the year expires you can renew the license or keep using premium features under same terms as free users. 'Premium Exclusive' features will require a valid registration key."
+  },
+  "version": {
+    "message": "Phiên bản:"
+  },
+  "vouchers.title": {
+    "message": "Vouchers"
+  },
+  "whats-new-btn": {
+    "message": "Có gì mới?"
+  },
+  "whats-new-head": {
+    "message": "Điểm nổi bật"
+  },
+  "whats-new-intro": {
+    "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
+  },
+  "whats-new-list": {
+    "message": "{L1} Chức năng mới: Sắp xếp Cụm từ tìm kiếm trong bộ lọc (tính năng Pro). {L2} {L1} Ghi nhớ Bộ lọc đã sao chép Danh sách để chèn vào nhiều Tài khoản (tính năng Pro). {L2} {L1} Đã khắc phục sự cố cụm từ tìm kiếm trùng lặp khi hợp nhất bộ lọc. {L2} {L1} Các bản sửa lỗi khác nhau để tương thích với Thunderbird 88. {L2}{L1} 5.2.1 - đã xóa nút sắp xếp khỏi các mẫu bộ lọc tùy chỉnh {L2} {L1} 5.2.1 - Bản dịch tiếng Nga được cải thiện bởi Igor Zhigunov hay còn gọi là tro tàn {L2}"
+  },
+  "window-title": {
+    "description": "page title. first placeholder will be replaced with Add-on name",
+    "message": "Chào mừng bạn đến với $addonName$",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "yearlyLicense.premiumFeatures": {
+    "message": "quickFilters Pro gives you full unrestricted access to the premium features."
+  },
+  "yearlyLicense.premiumFeatures.moreInfoLink": {
+    "message": "More about premium features."
+  },
+  "yearlyLicense.title": {
+    "message": "Annual License"
+  },
+  "yearlyLicense.usageTerm": {
+    "message": "The license is for your personal use and is tied to your email address. You can install it on multiple email clients as long as they are configured to use that address."
+  },
+  "yearlyLicense.usageTerm1": {
+    "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
+  }
 }
