@@ -115,6 +115,14 @@ async function main() {
       case "updateToolbars":
         messenger.NotifyTools.notifyExperiment({event: "updateToolbars"});
         break;
+        
+      case "setAssistantButton":
+        messenger.NotifyTools.notifyExperiment({event: "setAssistantButton", detail: {active: data.active} });
+        break;
+        
+      case "toggleCurrentFolderButtons":
+        messenger.NotifyTools.notifyExperiment({event: "toggleCurrentFolderButtons"});
+        break;
 
       case "updateLicense":
         let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(legacy_root + "licenser.forceSecondaryIdentity"),

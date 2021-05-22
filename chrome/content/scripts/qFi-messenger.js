@@ -7,9 +7,13 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-rsa.
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-register.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 
-function onLoad(activatedWhileWindowOpen) {
-    console.log (Services.appinfo.version);
-    let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
+async function setAssistantButton(e) {
+  window.quickFilters.Util.setAssistantButton(e.detail.active);
+}
+
+async function onLoad(activatedWhileWindowOpen) {
+  console.log (Services.appinfo.version);
+  let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
     
   WL.injectElements(`  
   <popup id="folderPaneContext">
@@ -118,24 +122,34 @@ function onLoad(activatedWhileWindowOpen) {
   </hbox>
   </toolbar>
 `); 
+  
+
+  // Enable the global notify notifications from background.
+  window.quickFilters.Util.notifyTools.enable();
+  await window.quickFilters.Util.init();
+  // window.addEventListener("quickFilters.BackgroundUpdate", window.quickFilters.initLicensedUI);
+
+  window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+  window.addEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters));
 
   window.quickFilters.onLoad();
     
- }
+}
 
 function onUnload(isAddOnShutown) {
-    window.quickFilters.onUnload();
-    function deleteBtn(id) {
-      let btn = window.document.getElementById(id);
-      if (btn)
-        btn.parentNode.removeChild(btn);
-    }
-    
-    // clean up current folder bar (if QuickFolders is installed)
-    deleteBtn('quickfilters-current-listbutton');
-    deleteBtn('quickfilters-current-runbutton');
-    deleteBtn('quickfilters-current-msg-runbutton');
-    deleteBtn('quickfilters-current-searchfilterbutton');
+  window.quickFilters.onUnload();
+  function deleteBtn(id) {
+    let btn = window.document.getElementById(id);
+    if (btn)
+      btn.parentNode.removeChild(btn);
+  }
+  window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+  window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", window.quickFilters.toggleCurrentFolderButtons);
+  // clean up current folder bar (if QuickFolders is installed)
+  deleteBtn('quickfilters-current-listbutton');
+  deleteBtn('quickfilters-current-runbutton');
+  deleteBtn('quickfilters-current-msg-runbutton');
+  deleteBtn('quickfilters-current-searchfilterbutton');
 /*
   let treeView = window.gFolderTreeView;
   if (treeView) {

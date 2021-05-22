@@ -145,18 +145,10 @@ quickFilters.Worker = {
     }
 
     worker.FilterMode = active;
-    let doc = util.getMail3PaneWindow().document,
-        // container styling?
-        button = doc.getElementById('quickfilters-toolbar-button');
-    if (button) 
-      button.checked = active;
-    let menuItem = doc.getElementById('quickFilters-wizard');
-    if (menuItem) {
-      menuItem.checked = active;
-      menuItem.label = util.getBundleString(
-                          active ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",
-                          active ? "stop filter assistant" : "start filter assistant");
-    }
+    
+    // remove use of getMail3PaneWindow via background notifications!
+    quickFilters.Util.notifyTools.notifyBackground({ func: "setAssistantButton", active }); 
+
     
     if (!silent)
       removeOldNotification(notifyBox, active, 'quickfilters-filter');

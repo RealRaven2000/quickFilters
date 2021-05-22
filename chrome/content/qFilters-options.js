@@ -15,13 +15,15 @@ var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 quickFilters.Options = {
 	optionsMode : "",  // filter out certain pages (for support / help only)
-  load: function() {
+  load: async function() {
 		const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences,
           options = quickFilters.Options,
 					licenser = util.Licenser,
 					getElement = window.document.getElementById.bind(window.document),
 					nsMsgFilterType = Components.interfaces.nsMsgFilterType;
+          
+    await quickFilters.Util.init();
 					
 		if (window.arguments) {
 			try {
@@ -195,7 +197,7 @@ quickFilters.Options = {
   },
     
   toggleCurrentFolderButtons_check: function toggleCurrentFolderButtons_check() {
-    setTimeout(function() {quickFilters.toggleCurrentFolderButtons();},200);
+    quickFilters.Util.notifyTools.notifyBackground({ func: "toggleCurrentFolderButtons" }); 
   } ,
 	
   trimLicense: function trimLicense() {

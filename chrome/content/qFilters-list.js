@@ -2241,6 +2241,11 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
     quickFilters.Util.showAboutConfig(el, 'quickfilters.troubleshoot', true);
   } ,
   
+  setAssistantButton: function(active) {
+    let button = document.getElementById('quickFiltersBtnStart');
+    button.checked = active;
+  } ,
+  
   dummy: function() {
 		/* 
 		 *

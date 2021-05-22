@@ -607,7 +607,7 @@ var quickFilters = {
           quickFilters.addKeyListener();
         }, 1000);
         
-      quickFilters.toggleCurrentFolderButtons();
+      quickFilters.Util.notifyTools.notifyBackground({ func: "toggleCurrentFolderButtons" }); 
     }
     catch(ex) {
       quickFilters.Util.logException("quickFilters.onLoad failed", ex);
@@ -1119,7 +1119,7 @@ var quickFilters = {
     //   quickfolders.curFolderbar.messagesbutton
     let prefs = quickFilters.Preferences,
         util = quickFilters.Util,
-        win = util.getMail3PaneWindow();
+        win = window;
     util.logDebug('toggleCurrentFolderButtons()');
     try {
       // in tb 68 we need to move the buttons into the correct place first,
@@ -1141,6 +1141,7 @@ var quickFilters = {
             toolbar.insertBefore(btnSearch, refNode);
           }
         }
+        // QuickFolders settings - we need to notify quickfolders instead!
 				btnList.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
 				btnRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
 				btnMsgRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');

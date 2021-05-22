@@ -8,15 +8,12 @@ console.log("quickFilters - implementation utilities");
 var Utilities = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {    
     
-    const PrefTypes = {
-      [Services.prefs.PREF_STRING] : "string",
-      [Services.prefs.PREF_INT] : "number",
-      [Services.prefs.PREF_BOOL] : "boolean",
-      [Services.prefs.PREF_INVALID] : "invalid"
-    };
-
     return {
       Utilities: {
+        
+        latestMainWindow : function() {
+          return Services.wm.getMostRecentWindow("mail:3pane");
+        },
 
         logDebug (text) {
           win.quickFilters.Util.logDebug(text);
@@ -48,19 +45,23 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         },
         
         showVersionHistory: function(ask) {
+          // It makes sense to only show this in the latest main window
+          let win = this.latestMainWindow();
           const util = win.quickFilters.Util;
           util.showVersionHistory(ask);
         },
 
         showXhtmlPage: function(uri) {
-          let mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-            .getService(Components.interfaces.nsIWindowMediator)
-            .getMostRecentWindow("mail:3pane");  
-          mail3PaneWindow.openDialog(uri).focus();
+          let win = this.latestMainWindow();
+          // let mail3PaneWindow = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+            // .getService(Components.interfaces.nsIWindowMediator)
+            // .getMostRecentWindow("mail:3pane");  
+          win.openDialog(uri).focus();
         }
   
         // get may only return something, if a value is set
-     }
-  }
-};
+      }
+    }
+  };
 }
+

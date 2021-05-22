@@ -57,10 +57,20 @@ quickFilters.Util = {
       // Event forwarder - take event from background script and forward to windows with appropriate listeners
       if (data.event) {
         if (!data.hasOwnProperty("window") || data.window.includes(window.document.location.href.toString())) {
-          quickFilters.Util.logDebugOptional("notifications", 
-            `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
-            `into ${window.document.location.href.toString()}`);
-          const event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`);
+          try {
+            let loc = window.document.URL;
+            quickFilters.Util.logDebugOptional("notifications", 
+              `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
+              `into ${loc}`);
+          }
+          catch(ex){;}
+          let event;
+          if (data.detail) {
+            event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`, {detail: data.detail}) 
+          }
+          else {
+            event =  new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`) ;
+          }
           window.dispatchEvent(event); 
         }       
       }      
@@ -2207,6 +2217,20 @@ quickFilters.Util = {
                     window.screen.availHeight/2 -dy);
       
     }
+  } ,
+  
+  setAssistantButton: function(isActive) {
+    let doc = document,
+        button = doc.getElementById('quickfilters-toolbar-button');
+    if (button) 
+      button.checked = isActive;
+    let menuItem = doc.getElementById('quickFilters-wizard');
+    if (menuItem) {
+      menuItem.checked = isActive;
+      menuItem.label = quickFilters.Util.getBundleString(
+                          isActive ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",
+                          isActive ? "stop filter assistant" : "start filter assistant");
+    }    
   } ,
 
 	
