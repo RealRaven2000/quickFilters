@@ -9,7 +9,7 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-util
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-list.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
-//!-- execute quickFilters.List.onLoadFilterList() when loading window -->
+/*  execute quickFilters.List.onLoadFilterList() when loading window   */
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/overlayFilterList.js", window, "UTF-8");
 
 async function onLoad(activatedWhileWindowOpen) {
@@ -254,18 +254,18 @@ async function onLoad(activatedWhileWindowOpen) {
   const util = window.quickFilters.Util,
         list = window.quickFilters.List;
   util.logDebug('Adding FilterList...');
-  list.onLoadFilterList();
 /*    
-    window.QuickFolders.Util.logDebug('Adding FilterList...');
     // obsolete window.addEventListener("load", function(e) { QuickFolders.FilterList.onLoadFilterList(e);}, false); 
     window.QuickFolders.FilterList.onLoadFilterList();  //? event needed?
 */
   window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
+  
+  list.onLoadFilterList();
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
 
 }
 
 function onUnload(isAddOnShutDown) {
-  window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", window.quickFilters.toggleCurrentFolderButtons);
+  window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
 }

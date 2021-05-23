@@ -12,7 +12,7 @@ END LICENSE BLOCK
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.Worker = {
   bundle: null,
-  FilterMode: false,
+  FilterMode: false,  // replace with Util.AssistantActive
   lastAssistedMsgList: [],
   reRunCount: 0,  // avoid endless loop
   promiseCreateFilter: false, // quickmove semaphor
@@ -36,6 +36,8 @@ quickFilters.Worker = {
       }, 200);
   } ,
   
+  // this function is currently called by QuickFolders to overwrite that filter worker process with this one!
+  // Problem: it reads the old flag quickFilters.Worker.FilterMode! 
   toggleFilterMode: function toggleFilterMode(active, silent) {
     this.toggle_FilterMode(active, silent);
   } ,
@@ -97,7 +99,7 @@ quickFilters.Worker = {
 
       if (active
         &&
-        !this.FilterMode
+        !quickFilters.Util.AssistantActive  // was this.FilterMode
         &&
         quickFilters.Preferences.getBoolPref("filters.showMessage"))
       {
@@ -144,10 +146,16 @@ quickFilters.Worker = {
       }
     }
 
-    worker.FilterMode = active;
+    worker.FilterMode = active; // keep this for backwards compatibility with QuickFolders 
+                                // (it's read there at the moment when the "Create Filters..." menu item on the tool menu is clicked.)
+                                // it then calls window.quickFilters.Worker.toggleFilterMode directly 
+                                // (to be replaced with the correct event in future)
+                                // internally, we will now use Util.AssistantActive
     
     // remove use of getMail3PaneWindow via background notifications!
-    quickFilters.Util.notifyTools.notifyBackground({ func: "setAssistantButton", active }); 
+    // replace setting FilterMode = active
+    quickFilters.Util.notifyTools.notifyBackground({ func: "setAssistantMode", active });   // set Util.AssistantActive - stores assistant mode for all windows - only main windows need to listen to this one!
+    quickFilters.Util.notifyTools.notifyBackground({ func: "setAssistantButton", active }); // reflect in UI of all Assistant buttons
 
     
     if (!silent)
@@ -468,7 +476,10 @@ quickFilters.Worker = {
       }
       
       util.logDebugOptional('createFilter', "Validation passed: server of sourceFolder " + sourceFolder.prettyName + " can have filters");
-      if (!quickFilters.Worker.FilterMode) { this.promiseCreateFilter = false; return -2; }
+      if (!quickFilters.Util.AssistantActive ) {  
+        this.promiseCreateFilter = false; 
+        return -2; 
+      }
     }
     else {
       util.logDebugOptional('createFilter', "no sourceFolder: checking server...");

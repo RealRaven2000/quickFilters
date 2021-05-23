@@ -828,8 +828,7 @@ quickFilters.List = {
 		else if (hbox && toolbar) { // move toolbox up
 			hbox.parentNode.insertBefore(toolbox, hbox);
 			isToolbar = true;
-			let win = util.getMail3PaneWindow();
-			if (win.quickFilters.Worker.FilterMode) {
+			if (quickFilters.Util.AssistantActive) {
 				let button = getElement('quickFiltersBtnStart');
 				button.checked = true;			
 			}
@@ -1085,7 +1084,7 @@ quickFilters.List = {
 	
 	toggleAssistant: function toggleAssistant(btn) {
 	  let win = quickFilters.Util.getMail3PaneWindow();
-		btn.checked = !win.quickFilters.Worker.FilterMode; // toggle
+		btn.checked = !quickFilters.Util.AssistantActive; 
 		win.quickFilters.onToolbarButtonCommand();	
 	} ,
   

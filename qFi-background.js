@@ -4,6 +4,8 @@ import {Licenser} from "./scripts/Licenser.mjs.js";
 var currentLicense;
 var startupFinished = false;
 var callbacks = [];
+// Worker.FilterMode
+var AssistantActive = false;
 
 //TODO: textbox in CSS, search box??
 //TODO mailWindowOverlay: was never in use??
@@ -110,6 +112,14 @@ async function main() {
 
       case "getAddonInfo": 
         return messenger.management.getSelf();
+        
+      case "getAssistantMode":  // is assistant active or not?
+        return AssistantActive; // replaced worker.FilterMode, it's stored here and updated through Util
+        
+      case "setAssistantMode":  // toggle "FilterMode"
+        AssistantActive = data.active;
+        messenger.NotifyTools.notifyExperiment({event: "setAssistantMode", detail: {active: AssistantActive} });
+        break;        
         
       // future use - update all toolbar buttons for assistant state
       case "updateToolbars":

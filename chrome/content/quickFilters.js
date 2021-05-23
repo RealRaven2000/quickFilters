@@ -439,6 +439,7 @@ END LICENSE BLOCK
   5.3 - WIP
     # Using notifyTools for updating UI via background page (mail extension conversion)
     # [mx l10n] Use new localization method (json files, more robust and compatible with mx)
+    # Completed Argentinitan Locale using strings from the Spanish one
    
   ============================================================================================================
   FUTURE WORK:
@@ -487,7 +488,7 @@ var quickFilters = {
   // SeaMonkey observer
   folderObserver: {
      onDrop: function folderObserver_onDrop(row, orientation) {
-        if (quickFilters.Worker.FilterMode) {
+        if (quickFilters.Util.AssistantActive) {  
           try { 
 					  quickFilters.onFolderTreeViewDrop(aRow, aOrientation); 
 					}
@@ -499,7 +500,7 @@ var quickFilters = {
 		 onDropPostbox: function folderObserver_onDropPostbox(event) {
 				try { 
 					quickFilters.Util.logDebugOptional("events,msgMove", "onDropPostbox: " + event);
-					if (!quickFilters.Worker.FilterMode)
+					if (!quickFilters.Util.AssistantActive) 
 						return;
 					let row = { }, col = { }, child = { },
 					    treechildren = event.originalTarget,
@@ -542,7 +543,7 @@ var quickFilters = {
           // new drop function, wraps original one
           /**************************************/
           let newDrop = function (aRow, aOrientation) {
-            if (quickFilters.Worker.FilterMode) {
+            if (quickFilters.Util.AssistantActive) {  
               try { quickFilters.onFolderTreeViewDrop(aRow, aOrientation); }
               catch(e) {
                 util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
@@ -573,8 +574,7 @@ var quickFilters = {
 			}
       // for move to / copy to recent context menus we might have to wrap mailWindowOverlay.js:MsgMoveMessage in Tb!
       
-      // problem with setTimeout in SeaMonkey - it opens the window and then never calls the function?
-      if (quickFilters.Preferences.getBoolPref("autoStart") &&  !quickFilters.Worker.FilterMode) 
+      if (quickFilters.Preferences.getBoolPref("autoStart") &&  !quickFilters.Util.AssistantActive)
       {
         util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
         setTimeout(function() { quickFilters.Worker.toggle_FilterMode(true, true);  }, 100);
@@ -621,17 +621,18 @@ var quickFilters = {
 
   onUnload: function onUnload() {
     // disable assistant mode if it is active
-    const filterWorker = quickFilters.Worker
-    if (filterWorker.FilterMode) {
+    if (quickFilters.Util.AssistantActive) {
       // or we do 
       quickFilters.onToolbarButtonCommand();
-      // filterWorker.toggleFilterMode(false, false);
     }
+    // restore global wrapped functions
     if (quickFilters.executeMoveMessage) {
       MsgMoveMessage = quickFilters.executeMoveMessage;
+      quickFilters.executeMoveMessage = null;
     }
     if (quickFilters.MsgCopy_Wrapper) {
       MsgCopyMessage = quickFilters.executeCopyMessage;
+      quickFilters.executeCopyMessage = null;
     }
     // remove the event handlers!
   },
@@ -698,13 +699,9 @@ var quickFilters = {
   onMenuItemCommand: function onMenuItemCommand(e, cmd) {
 		const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
-//     let promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-//                                   .getService(Components.interfaces.nsIPromptService);
-//     promptService.alert(window, this.strings.getString("helloMessageTitle"),
-//                                 this.strings.getString("helloMessage"));
 		switch(cmd) {
 			case 'toggle_Filters':
-				quickFilters.Worker.toggle_FilterMode(!quickFilters.Worker.FilterMode);
+				quickFilters.Worker.toggle_FilterMode(!quickFilters.Util.AssistantActive); 
 				break;
 			case 'createFilterFromMsg':
 				let selectedMessages,
@@ -968,7 +965,7 @@ var quickFilters = {
 
     // let array = Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
     let types = dataTransfer.mozTypesAt(0);  // one flavor
-    if (!types.contains("text/x-moz-message") || (!worker.FilterMode))
+    if (!types.contains("text/x-moz-message") || (!quickFilters.Util.AssistantActive)) 
       return;
 
     let targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Ci.nsIMsgFolder);
@@ -1002,7 +999,7 @@ var quickFilters = {
 			let sourceFolder;
       util.logDebugOptional("dnd", "onDrop: " + messageUris.length + " messageUris to " + targetFolder.URI);
       if(messageUris.length > 0) {
-        if (worker.FilterMode) {
+        if (quickFilters.Util.AssistantActive) {  
           // note: getCurrentFolder fails when we are in a search results window!!
           sourceFolder = util.getCurrentFolder();
           if (!sourceFolder || util.isVirtual(sourceFolder))
@@ -1013,7 +1010,7 @@ var quickFilters = {
         }
         let msgList = util.createMessageIdArray(targetFolder, messageUris);
 
-        if (worker.FilterMode) {
+        if (quickFilters.Util.AssistantActive) {
           worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
 					  isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
 						null, false);
@@ -1040,15 +1037,10 @@ var quickFilters = {
         treeView = quickFilters.folderTreeView,
         dataTransfer = evt.dataTransfer ? evt.dataTransfer : treeView._currentTransfer,
         types = dataTransfer.mozTypesAt(0);  // one flavor
-    if (!types.contains("text/x-moz-message") || (!worker.FilterMode))
+    if (!types.contains("text/x-moz-message") || (!quickFilters.Util.AssistantActive)) 
       return false;
 
     util.logDebugOptional("dnd", "buttonDragObserver.onDrop flavor[0]=" + types[0].toString());
-
-
-//    if ((dropData.flavour.contentType !== "text/x-moz-message") || (!worker.FilterMode))
-//      return false;
-
 
     let prefBranch = Components.classes["@mozilla.org/preferences-service;1"]
                         .getService(Ci.nsIPrefService).getBranch("mail."),
@@ -1085,7 +1077,7 @@ var quickFilters = {
     try {
       util.logDebugOptional("dnd", "onDrop: " + messageUris.length + " messageUris to " + targetFolder.URI);
       if(messageUris.length > 0) {
-        if (worker.FilterMode)
+        if (quickFilters.Util.AssistantActive) 
         {
           // note: getCurrentFolder fails when we are in a search results window!!
           let sourceFolder = util.getCurrentFolder();
@@ -1098,7 +1090,7 @@ var quickFilters = {
         let msgList = util.createMessageIdArray(targetFolder, messageUris);
           // dragSession.dragAction === Components.interfaces.nsIDragService.DRAGDROP_ACTION_COPY
 
-        if (worker.FilterMode)
+        if (quickFilters.Util.AssistantActive) 
           worker.createFilterAsync_New(sourceFolder, targetFolder, msgList, 
 					   isMove ? Components.interfaces.nsMsgFilterAction.MoveToFolder : Components.interfaces.nsMsgFilterAction.CopyToFolder, 
 						 null, false);
@@ -1191,7 +1183,7 @@ var quickFilters = {
     try {
       util.logDebugOptional('msgMove', "Executing wrapped MsgMoveMessage");
       if (prefs.isDebug) debugger;
-			if (worker.FilterMode) {
+			if (quickFilters.Util.AssistantActive) { 
 				let sourceFolder = util.getCurrentFolder(),
 						destResource = uri,  // remove rdf.GetResource(uri) - this really is a wrapper for the folder!
 						destMsgFolder = destResource.QueryInterface(Ci.nsIMsgFolder),						
@@ -1433,7 +1425,7 @@ quickFilters.FolderListener = {
 					);
 				}
 			}
-			if (!worker || !worker.FilterMode) return;
+			if (!worker || !quickFilters.Util.AssistantActive) return;
 			if (!prefs.getBoolPref("nostalgySupport")) return;
 			
 			// this code is too dangerous - we need to wrap the nostalgy functions for more reliable results
@@ -1498,7 +1490,7 @@ quickFilters.FolderListener = {
           // find filters with this target and correct them?
           break;
         case "DeleteOrMoveMsgCompleted":
-          let isAssistant = worker.FilterMode,
+          let isAssistant = quickFilters.Util.AssistantActive, 
               srcName = (item ? (item.prettyName ? item.prettyName : item) : '<no folder>')
               
           util.logDebugOptional("events,msgMove","DeleteOrMoveMsgCompleted(" + 
@@ -1691,14 +1683,14 @@ quickFilters.addTagListener = function() {
 
 					// no Assistant active - if current folder is the inbox: apply the filters.
 					// Bug 26457 - disable this behavior by default
-					if (!quickFilters.Worker.FilterMode && prefs.isDebugOption('listener.tags.autofilter')) {
+					if (!quickFilters.Util.AssistantActive && prefs.isDebugOption('listener.tags.autofilter')) { 
 						quickFilters.onApplyFiltersToSelection(true); // suppress the message
 						return false;
 					}
 
 					if (checked) { // only if tag  gets toggle ON
 						// Assistant is active?
-						if (!quickFilters.Worker.FilterMode) return false;
+						if (!quickFilters.Util.AssistantActive) return false; 
 						// make it possible to ignore tag changes.
 						if (!prefs.getBoolPref('listener.tags')) return false; 
 						// ==> SetTagHeader(aConversation)

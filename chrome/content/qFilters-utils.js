@@ -25,6 +25,7 @@ quickFilters.Util = {
   ADDON_ID: "quickFilters@axelg.com",
   ADDON_SUPPORT_MAIL: "axel.grude@gmail.com",
   VersionProxyRunning: false,
+  AssistantActive: null, // replace worker.FilterMode
   mAppver: null,
   mAppName: null,
   mHost: null,
@@ -56,15 +57,22 @@ quickFilters.Util = {
       }
       // Event forwarder - take event from background script and forward to windows with appropriate listeners
       if (data.event) {
-        if (!data.hasOwnProperty("window") || data.window.includes(window.document.location.href.toString())) {
-          try {
-            let loc = window.document.URL;
-            quickFilters.Util.logDebugOptional("notifications", 
-              `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
-              `into ${loc}`);
-          }
-          catch(ex){;}
+        let loc;
+        try {
+          loc = window.document.URL || window.document.location ? window.document.location.href.toString() : "";
+        }
+        catch(ex){;}
+        if (!data.hasOwnProperty("window") || data.window.includes(loc)) {
+          quickFilters.Util.logDebugOptional("notifications", 
+            `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
+            `into ${loc}`);
           let event;
+          if (data.event == "setAssistantMode") {
+            if (data.detail)
+              quickFilters.Util.AssistantActive = data.detail.active;
+            return;
+          }
+          
           if (data.detail) {
             event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`, {detail: data.detail}) 
           }
@@ -76,6 +84,8 @@ quickFilters.Util = {
       }      
     }   
     quickFilters.Util.notifyTools.registerListener(onBackgroundUpdates);
+    
+    quickFilters.Util.AssistantActive = await quickFilters.Util.notifyTools.notifyBackground({ func: "getAssistantMode" }); // replace worker.FilterMode
     quickFilters.Util.licenseInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getLicenseInfo" });
     quickFilters.Util.platformInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getPlatformInfo" });
     quickFilters.Util.browserInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getBrowserInfo" });
