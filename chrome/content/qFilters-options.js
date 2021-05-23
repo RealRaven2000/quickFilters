@@ -525,6 +525,7 @@ quickFilters.Options = {
 		return "";
 	} ,
   
+  // scope = "folder" or "mails"
   configureShortcut: function configureShortcut(el, scope) {
 		const prefs = quickFilters.Preferences,
 		      util = quickFilters.Util;

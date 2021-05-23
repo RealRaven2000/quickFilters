@@ -24,15 +24,15 @@ async function onLoad(activatedWhileWindowOpen) {
   <popupset id="QuickFilterTreeContextSet">
     <menupopup id = "quickFiltersContext">
       <menuitem id = "quickFiltersCut" class="menuitem-iconic"
-        label = "&quickfilters.menu.cut;"
+        label = "__MSG_quickfilters.menu.cut__"
         oncommand = "quickFilters.List.cutFilters();"
         />
       <menuitem id = "quickFiltersCopy" class="menuitem-iconic"
-        label = "&quickfilters.menu.copy;"
+        label = "__MSG_quickfilters.menu.copy__"
         oncommand = "quickFilters.List.copyFilters();"
         />
       <menuitem id = "quickFiltersPaste" class="menuitem-iconic"
-        label = "&quickfilters.menu.paste;"
+        label = "__MSG_quickfilters.menu.paste__"
         oncommand = "quickFilters.List.pasteFilters(false);"
         />
       <menuitem id = "quickFiltersRemoveDuplicate" class="menuitem-iconic"
@@ -54,7 +54,7 @@ async function onLoad(activatedWhileWindowOpen) {
       <menuitem 
           id = "quickFiltersSearchName"
           class="menuitem-iconic"
-        label = "&quickfilters.option.searchProperty.name;"
+        label = "__MSG_quickfilters.option.searchProperty.name__"
         oncommand = "quickFilters.List.toggleSearchType('name');"
         type="radio"
         name="searchType"
@@ -63,7 +63,7 @@ async function onLoad(activatedWhileWindowOpen) {
       <menuitem 
           id = "quickFiltersSearchTargetFolder"
           class="menuitem-iconic"
-        label = "&quickfilters.option.searchProperty.targetFolder;"
+        label = "__MSG_quickfilters.option.searchProperty.targetFolder__"
         oncommand = "quickFilters.List.toggleSearchType('targetFolder');"
         type="radio"
         name="searchType"
@@ -71,7 +71,7 @@ async function onLoad(activatedWhileWindowOpen) {
       <menuitem 
           id = "quickFiltersSearchCondition"
           class="menuitem-iconic"
-        label = "&quickfilters.option.searchProperty.searchCondition;"
+        label = "__MSG_quickfilters.option.searchProperty.searchCondition__"
         oncommand = "quickFilters.List.toggleSearchType('condition');"
         type="radio"
         name="searchType"
@@ -79,7 +79,7 @@ async function onLoad(activatedWhileWindowOpen) {
       <menuitem 
           id = "quickFiltersSearchStringAction"
           class="menuitem-iconic"
-          label = "&quickfilters.option.searchProperty.setCustomStringAction;"
+          label = "__MSG_quickfilters.option.searchProperty.setCustomStringAction__"
           oncommand = "quickFilters.List.toggleSearchType('stringAction');"
           type="radio"
           name="searchType"
@@ -87,7 +87,7 @@ async function onLoad(activatedWhileWindowOpen) {
       <menuitem 
           id = "quickFiltersSearchTag"
           class="menuitem-iconic"
-        label = "&quickfilters.option.searchProperty.addTag;"
+        label = "__MSG_quickfilters.option.searchProperty.addTag__"
         oncommand = "quickFilters.List.toggleSearchType('tagLabel');"
         type="radio"
         name="searchType"
@@ -95,7 +95,7 @@ async function onLoad(activatedWhileWindowOpen) {
       <menuitem 
           id = "quickFiltersSearchReplyWithTemplate"
           class="menuitem-iconic"
-        label = "&quickfilters.option.searchProperty.replyWithTemplate;"
+        label = "__MSG_quickfilters.option.searchProperty.replyWithTemplate__"
         oncommand = "quickFilters.List.toggleSearchType('replyWithTemplate');"
         type="radio"
         name="searchType"
@@ -113,53 +113,53 @@ async function onLoad(activatedWhileWindowOpen) {
     >
     <toolbarbutton id="quickFiltersBtnCut"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.menu.cut;"
-      tooltiptext = "&quickfilters.menu.cut;"
+      label = "__MSG_quickfilters.menu.cut__"
+      tooltiptext = "__MSG_quickfilters.menu.cut__"
       oncommand = "quickFilters.List.cutFilters();"
       />
     <toolbarbutton id="quickFiltersBtnCopy"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.menu.copy;"
-      tooltiptext = "&quickfilters.menu.copy;"
+      label = "__MSG_quickfilters.menu.copy__"
+      tooltiptext = "__MSG_quickfilters.menu.copy__"
       oncommand = "quickFilters.List.copyFilters();"
       />
     <toolbarbutton id="quickFiltersBtnPaste"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.menu.paste;"
-      tooltiptext = "&quickfilters.menu.paste;"
+      label = "__MSG_quickfilters.menu.paste__"
+      tooltiptext = "__MSG_quickfilters.menu.paste__"
       oncommand = "quickFilters.List.pasteFilters(false);"
       />
     <toolbarseparator />
     <toolbarbutton id="quickFiltersBtnMerge"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.button.merge;"
-      tooltiptext = "&quickfilters.button.merge.tooltiptext;"
+      label = "__MSG_quickfilters.button.merge__"
+      tooltiptext = "__MSG_quickfilters.button.merge.tooltiptext__"
       oncommand = "quickFilters.List.merge(event, true);"
       />
     <toolbarbutton id="quickFiltersBtnClone"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.button.clone;"
-      tooltiptext = "&quickfilters.button.clone.tooltiptext;"
+      label = "__MSG_quickfilters.button.clone__"
+      tooltiptext = "__MSG_quickfilters.button.clone.tooltiptext__"
       oncommand = "quickFilters.List.clone(event);"
       />
     <toolbarbutton id="quickFiltersBtnSort"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.button.sort;"
-      tooltiptext = "&quickfilters.button.sort.tooltiptext;"
+      label = "__MSG_quickfilters.button.sort__"
+      tooltiptext = "__MSG_quickfilters.button.sort.tooltiptext__"
       oncommand = "quickFilters.List.sort(event);"
       />
     <toolbarseparator />
     <!-- Test new remove duplicate search conditions -->
     <toolbarbutton id="quickFiltersBtnDupe"
             class="toolbarbutton-1"
-            label="&quickfilters.button.findDuplicates.label;"
-            tooltiptext="&quickfilters.button.findDuplicates.tooltip;"
+            label="__MSG_quickfilters.button.findDuplicates.label__"
+            tooltiptext="__MSG_quickfilters.button.findDuplicates.tooltip__"
             oncommand="quickFilters.List.findDuplicates(this);"
       />
     <toolbarbutton id="quickFiltersBtnCancelDuplicates"
             class="toolbarbutton-1"
-            label="&quickfilters.button.cancelDuplicates.label;"
-      tooltiptext="&quickfilters.button.cancelDuplicates.tooltip;"
+            label="__MSG_quickfilters.button.cancelDuplicates.label__"
+      tooltiptext="__MSG_quickfilters.button.cancelDuplicates.tooltip__"
             oncommand="quickFilters.List.cancelDuplicates(this);"
       collapsed = "true"
       />
@@ -172,8 +172,8 @@ async function onLoad(activatedWhileWindowOpen) {
       </menulist>
     <toolbarbutton id="quickFiltersBtnCancelFound"
             class="toolbarbutton-1"
-            label="&quickfilters.button.cancelFindInFolder.label;"
-      tooltiptext="&quickfilters.button.cancelFindInFolder.tooltip;"
+            label="__MSG_quickfilters.button.cancelFindInFolder.label__"
+      tooltiptext="__MSG_quickfilters.button.cancelFindInFolder.tooltip__"
             oncommand="quickFilters.List.cancelFoundFilters(this);"
       collapsed = "true"
       />
@@ -187,8 +187,8 @@ async function onLoad(activatedWhileWindowOpen) {
 
     <toolbarbutton id="quickFiltersTroubleshoot"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.button.bug;"
-      tooltiptext = "&quickfilters.button.bug.tooltiptext1; &quickfilters.button.bug.tooltiptext2;"
+      label = "__MSG_quickfilters.button.bug__"
+      tooltiptext = "__MSG_quickfilters.button.bug.tooltiptext1; &quickfilters.button.bug.tooltiptext2__"
       oncommand = "quickFilters.List.troubleshoot();"
       oncontextmenu = "quickFilters.List.configureTroubleshooter(this);"
       context = "dummy"
@@ -196,31 +196,31 @@ async function onLoad(activatedWhileWindowOpen) {
       
     <toolbarbutton id="quickFiltersBtnStart"
             class="toolbarbutton-1"
-            label="&quickfilters.button.assistant;"
-            tooltiptext="&quickfilters.button.assistant.tooltiptext;"
+            label="__MSG_quickfilters.button.assistant__"
+            tooltiptext="__MSG_quickfilters.button.assistant.tooltiptext__"
             oncommand="quickFilters.List.toggleAssistant(this);"
       />
     <toolbarseparator />
     <toolbarbutton id="btnSaveFilters"
                    class="toolbarbutton-1"
-                   tooltiptext="&quickfilters.button.saveFilters.tooltip;"
+                   tooltiptext="__MSG_quickfilters.button.saveFilters.tooltip__"
                    onclick = "quickFilters.List.store();"/>
     <toolbarbutton id="btnLoadFilters"
                    class="toolbarbutton-1"
-                   tooltiptext="&quickfilters.button.loadFilters.tooltip;"
+                   tooltiptext="__MSG_quickfilters.button.loadFilters.tooltip__"
                    onclick="quickFilters.List.load();"/>
       
       <toolbarspring />
     <toolbarbutton id="quickFiltersBtnSettings"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.button.settings;"
-      tooltiptext = "&quickfilters.button.settings;"
+      label = "__MSG_quickfilters.button.settings__"
+      tooltiptext = "__MSG_quickfilters.button.settings__"
       oncommand = "quickFilters.showOptions();"
       />
     <toolbarbutton id="quickFiltersBtnHelp"
       class = "toolbarbutton-1" 
-      label = "&quickfilters.button.support;"
-      tooltiptext = "&quickfilters.button.support;"
+      label = "__MSG_quickfilters.button.support__"
+      tooltiptext = "__MSG_quickfilters.button.support__"
       oncommand = "quickFilters.Util.showHomePage('index.html#messageFilterList');"
       />
     </toolbar>
@@ -229,7 +229,7 @@ async function onLoad(activatedWhileWindowOpen) {
   <hbox id="filterHeader">
     <button id="quickFilters-SearchOptions"
       label=""
-      tooltiptext="&quickfilters.button.searchProperties;"
+      tooltiptext="__MSG_quickfilters.button.searchProperties__"
       context="quickFiltersSearchContext"
       onclick="quickFilters.List.showPopup(this,'quickFiltersSearchContext', event);"
       collapsed="false"
@@ -240,16 +240,16 @@ async function onLoad(activatedWhileWindowOpen) {
   <button
     id="quickFilters-mergeButton"
     insertafter="deleteButton"
-    label="&quickfilters.button.merge;"
-    accesskey="&quickfilters.button.merge.accesskey;"
-    tooltiptext="&quickfilters.button.merge.tooltiptext;"
+    label="__MSG_quickfilters.button.merge__"
+    accesskey="__MSG_quickfilters.button.merge.accesskey__"
+    tooltiptext="__MSG_quickfilters.button.merge.tooltiptext__"
     oncommand="quickFilters.List.merge(event);"
   />
 
   
 </window>
   
-  `, ["chrome://quickfilters/locale/filterList.dtd"]);
+  `);
     
   const util = window.quickFilters.Util,
         list = window.quickFilters.List;
