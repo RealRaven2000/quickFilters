@@ -1081,7 +1081,7 @@
     "message": "Contact quickFilters Support"
   },
   "quickfilters.prompt.copiedCustomVar": {
-    "message": "Copied variable {1} to clipboard, please paste in a search term."
+    "message": "Copied variable {1} to clipboard, please insert into a search term."
   },
   "quickfilters.prompt.createCustomHeader": {
     "message": "Please add the term '{1}' as a custom header to use this in a filter."

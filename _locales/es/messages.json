@@ -505,7 +505,7 @@
     "message": "Contactar conmigo (en inglés o alemán)…"
   },
   "qf.label.currentFolderButtons": {
-    "message": "Barra de herramientas de la carpeta actual de quickFolders"
+    "message": "Barra de herramientas de la carpeta actual de QuickFolders"
   },
   "qf.label.donate": {
     "message": "Donar"
@@ -556,10 +556,10 @@
     "message": "quickFilters"
   },
   "qf.label.shortcut.runFolder": {
-    "message": "Shortcut for Running Filters on Folder: Shift + "
+    "message": "Atajo para ejecutar filtros en la carpeta: Mayús + "
   },
   "qf.label.shortcut.runMails": {
-    "message": "Shortcut for Running Filters on Selected Mails: Shift + "
+    "message": "Atajo para ejecutar filtros en correos seleccionados: Mayús +"
   },
   "qf.label.supportWithLicense": {
     "message": "¡Apoye quickFilters comprando una licencia!"
@@ -661,7 +661,7 @@
     "message": "Para obtener información detallada sobre complementos de Thunderbird y videos sobre cómo usar quickFilters, visite mi canal de YouTube."
   },
   "qf.youtube.link": {
-    "message": "Mira videos de quickFilters en Thunderbird Daily ..."
+    "message": "Mira videos de quickFilters en Thunderbird Daily …"
   },
   "qf.youtube.tbdaily": {
     "message": "Visite Thunderbird Daily - Un canal de YouTube de consejos y tutoriales para usar quickFilters y correo en el escritorio"
@@ -757,7 +757,7 @@
     "message": "Obtener {1}"
   },
   "quickfilters.button.loadFilters.tooltip": {
-    "message": "Restaura los filtros..."
+    "message": "Restaura los filtros…"
   },
   "quickfilters.button.merge": {
     "message": "Combinar"
@@ -769,7 +769,7 @@
     "message": "Combina múltiples filtros que realicen la misma acción"
   },
   "quickfilters.button.saveFilters.tooltip": {
-    "message": "Hace copia de seguridad de los filtros..."
+    "message": "Hace copia de seguridad de los filtros…"
   },
   "quickfilters.button.searchProperties": {
     "message": "Cambiar propiedades de búsqueda…"
@@ -1108,7 +1108,7 @@
     "message": "Ejecutando el filtro '{0}' en la carpeta {1}."
   },
   "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Ejecute filtros en la carpeta '{1}' ..."
+    "message": "Ejecute filtros en la carpeta '{1}' …"
   },
   "quickfilters.search.warning.noresults": {
     "message": "No se encontraron filtros con esta carpeta como objetivo."
