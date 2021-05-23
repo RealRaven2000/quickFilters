@@ -43,12 +43,12 @@ var Register = {
       getElement('licenseDate').value = decryptedDate; // invalid ??
 			if (licenseInfo.status == "Expired" || licenseInfo.status == "Valid") {
 				if(licenseInfo.status == "Expired")
-					btnLicense.label = util.getBundleString("qf.notification.premium.btn.renewLicense", "Renew License!");
+					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
 				else {
-					btnLicense.label = util.getBundleString("qf.notification.premium.btn.extendLicense", "Extend License!");
+					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.extendLicense", "Extend License!");
 					// add tooltip
 					btnLicense.setAttribute('tooltiptext',
-					  util.getBundleString("qf.notification.premium.btn.extendLicense.tooltip", 
+					  util.getBundleString("quickfilters.notification.premium.btn.extendLicense.tooltip", 
 						  "This will extend the current license date by 1 year. It's typically cheaper than a new license."));
 				}
 
@@ -72,12 +72,12 @@ var Register = {
     getElement('qfLicenseTerm').classList.remove('expired');
 		switch(licenseInfo.status) {
 			case "Expired":
-			  getElement('licenseDateLabel').value = util.getBundleString("qf.register.licenseValid.expired","Your license expired on:")
+			  getElement('licenseDateLabel').value = util.getBundleString("quickfilters.register.licenseValid.expired","Your license expired on:")
 				getElement('qfLicenseTerm').classList.add('expired');
 			  break;
 			case "Valid":
 			  getElement('btnLicense').classList.remove('register'); // remove the "pulsing effect" if license is valid.
-        getElement('licenseDateLabel').value =  util.getBundleString("qf.label.licenseValid","Your license is valid until:");
+        getElement('licenseDateLabel').value =  util.getBundleString("quickfilters.label.licenseValid","Your license is valid until:");
 			  break;
 			case "Empty":
 			case "NotValidated":

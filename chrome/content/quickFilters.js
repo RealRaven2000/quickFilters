@@ -439,7 +439,8 @@ END LICENSE BLOCK
   5.3 - WIP
     # Using notifyTools for updating UI via background page (mail extension conversion)
     # [mx l10n] Use new localization method (json files, more robust and compatible with mx)
-    # Completed Argentinitan Locale using strings from the Spanish one
+    # Completed Argentinian Locale using strings from the Spanish one
+    # Added Finnish and Polish translations (using google translate)
    
   ============================================================================================================
   FUTURE WORK:
