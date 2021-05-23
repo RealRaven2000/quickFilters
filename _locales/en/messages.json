@@ -9,8 +9,8 @@
     "message": "Select account:"
   },
   "active-version-info": {
-    "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "You are now running {boldStart} version $addonVer$ {boldEnd} on Thunderbird $appVer$.",
+    "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -185,12 +185,12 @@
     "message": "Consider extending your license by a year."
   },
   "extensionDescription": {
-    "description": "Description of the extension.",
-    "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes."
+    "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
+    "description": "Description of the extension."
   },
   "extensionName": {
-    "description": "Name of the extension.",
-    "message": "quickFilters"
+    "message": "quickFilters",
+    "description": "Name of the extension."
   },
   "extensions.quickfilters.description": {
     "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes."
@@ -208,8 +208,8 @@
     "message": "Merge Rules"
   },
   "heading-installed": {
-    "description": "page heading. first placeholder will be replaced with Add-on name",
     "message": "Successfully installed $addonName$",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -218,8 +218,8 @@
     }
   },
   "heading-updated": {
-    "description": "page heading. first placeholder will be replaced with Add-on name",
     "message": "$addonName$ Updated Successfully",
+    "description": "page heading. first placeholder will be replaced with Add-on name",
     "placeholders": {
       "addonName": {
         "content": "$1",
