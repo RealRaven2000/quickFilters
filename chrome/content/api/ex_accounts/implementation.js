@@ -63,7 +63,7 @@ ChromeUtils.defineModuleGetter(
  * @return {String}
  */
  function folderURIToPath(accountId, uri) {
-  let server = MailServices.ex_accounts.getAccount(accountId).incomingServer;
+  let server = MailServices.accounts.getAccount(accountId).incomingServer;
   let rootURI = server.rootFolder.URI;
   if (rootURI == uri) {
     return "/";
@@ -108,7 +108,7 @@ const folderTypeMap = new Map([
   }
   if (!accountId) {
     let server = folder.server;
-    let account = MailServices.ex_accounts.FindAccountForServer(server);
+    let account = MailServices.accounts.FindAccountForServer(server);
     accountId = account.key;
   }
 

@@ -10,7 +10,7 @@
           {
             "name": "data",
             "type": "any",
-            "description": "Restrictions of the structured clone algorythm apply."
+            "description": "Restrictions of the structured clone algorithm apply."
           }
         ]
       }
@@ -19,12 +19,13 @@
       {
         "name": "notifyExperiment",
         "type": "function",
+        "async": true,
         "description": "Notifies notifyTools.js in an Experiment and sends data.",
         "parameters": [
           {
             "name": "data",
             "type": "any",
-            "description": "Restrictions of the structured clone algorythm apply."
+            "description": "Restrictions of the structured clone algorithm apply."
           }
         ]
       }
