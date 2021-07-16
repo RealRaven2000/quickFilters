@@ -1227,7 +1227,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Nowa funkcja: Sortuj wyszukiwane hasła w filtrze (funkcja Pro). {L2} {L1} Zapamiętaj listę skopiowanych filtrów, aby wstawić je do wielu kont (funkcja Pro). {L2} {L1} Naprawiono problem z powielaniem wyszukiwanych haseł podczas scalania filtry. {L2} {L1} Różne poprawki zgodności z Thunderbirdem 88. {L2}{L1} 5.2.1 - usunięto przycisk sortowania z niestandardowych szablonów filtrów {L2} {L1} 5.2.1 - Ulepszone rosyjskie tłumaczenia autorstwa Igora Zhigunova znanego jako ashed {L2}"
+    "message" : "{L1}Dodano tłumaczenia na fińskie, portugalskie i polskie (przy użyciu google translate){L2}{L1}Dodano kolorowe ikony i poprawiono obsługę motywów na pasku narzędzi listy filtrów wiadomości.{L2}{L1}Różne poprawki dla zgodności z Thunderbirdem 91.{L2 }{L1}Naprawiono: Przenoszenie e-maili z menu kontekstowym powoduje przeniesienie niewłaściwych e-maili (przełączyło się na pocztę poniżej zaznaczenia i przeniosło zamiast tego). {L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

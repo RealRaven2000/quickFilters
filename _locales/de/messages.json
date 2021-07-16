@@ -1229,7 +1229,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Neue Funktion: Suchbegriffe im Filter sortieren (Pro-Funktion). {L2} {L1} Liste der kopierten Filter zum Einfügen in mehrere Konten einfügen (Pro-Funktion). {L2} {L1} Fix: keine Verdopplung von Suchbegriffen beim Zusammenführen von Filtern. {L2} {L1} Diverse Korrekturen für die Kompatibilität mit Thunderbird 88. {L2}{L1} 5.2.1 - Sortierschaltfläche aus benutzerdefinierten Filtervorlagen entfernt.{L2} {L1} 5.2.1 - Verbesserte russische Übersetzungen von Igor Zhigunov aka ashed {L2}"
+    "message": "{L1}Finnische, Portugiesische und Polnische Übersetzungen hinzugefügt (mit Google Translate){L2}{L1}Farbige Symbole und Unterstützung von Themes in der Symbolleiste der Nachrichtenfilterliste verbessert.{L2}{L1}Verschiedene Korrekturen für die Kompatibilität mit Thunderbird 91.{L2 }{L1}Behoben: Beim Verschieben von E-Mails mit Kontextmenü werden falsche E-Mails verschoben (es wurde auf E-Mails unter der Auswahl umgeschaltet und stattdessen diese verschoben). {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

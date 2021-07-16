@@ -1229,7 +1229,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} Nueva función: ordenar términos de búsqueda en un filtro (función Pro). {L2} {L1} Recordar lista de filtros copiados para insertar en varias cuentas (función Pro). {L2} {L1} Se corrigió el problema de términos de búsqueda duplicados al fusionar filtros. {L2} {L1} Varias correcciones para compatibilidad con Thunderbird 88. {L2}{L1} 5.2.1 - Se eliminó el botón de clasificación de las plantillas de filtros personalizados {L2} {L1} 5.2.1 - Traducciones al ruso mejoradas por Igor Zhigunov, también conocido como Ashed {L2}"
+    "message": "{L1} Se agregaron traducciones al finlandés, portugués y polaco (usando el traductor de Google) {L2} {L1} Se agregaron íconos de colores y se mejoró la compatibilidad de temas en la barra de herramientas de la lista de filtros de mensajes. {L2} {L1} Varias correcciones para la compatibilidad con Thunderbird 91. {L2 } {L1} Corregido: Mover correos con menú contextual mueve correos incorrectos (cambió a correo debajo de la selección y lo movió en su lugar). {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

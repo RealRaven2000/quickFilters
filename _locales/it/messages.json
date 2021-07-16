@@ -1229,7 +1229,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Nuova funzione: ordina i termini di ricerca in un filtro (funzione Pro). {L2} {L1} Ricorda l'elenco dei filtri copiati da inserire in più account (funzione Pro). {L2} {L1} Risolto il problema dei termini di ricerca duplicati durante l'unione filtri. {L2} {L1} Varie correzioni per la compatibilità con Thunderbird 88. {L2}{L1} 5.2.1 - pulsante di ordinamento rimosso dai modelli di filtri personalizzati {L2} {L1} 5.2.1 - Traduzioni in russo migliorate di Igor Zhigunov aka incenerite {L2}"
+    "message": "{L1}Aggiunte traduzioni in finlandese, portoghese e polacco (usando google translate){L2}{L1}Aggiunte icone colorate e migliorato il supporto dei temi nella barra degli strumenti dell'elenco dei filtri dei messaggi.{L2}{L1}Varie correzioni per la compatibilità con Thunderbird 91.{L2 }{L1}Risolto: lo spostamento dei messaggi con il menu contestuale sposta i messaggi errati (è passato alla posta sotto la selezione e ha spostato quella). {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

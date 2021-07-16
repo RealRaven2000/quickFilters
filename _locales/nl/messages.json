@@ -1229,7 +1229,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Nieuwe functie: zoektermen sorteren in een filter (Pro-functie). {L2} {L1} Lijst met gekopieerde filters onthouden om in meerdere accounts in te voegen (Pro-functie). {L2} {L1} Probleem opgelost met dubbele zoektermen bij samenvoegen filters. {L2} {L1} Diverse oplossingen voor compatibiliteit met Thunderbird 88. {L2}{L1} 5.2.1 - sorteerknop verwijderd uit aangepaste filtersjablonen {L2} {L1} 5.2.1 - Verbeterde Russische vertalingen door Igor Zhigunov alias Ashed {L2}"
+    "message": "{L1}Finse, Portugese en Poolse vertalingen toegevoegd (met google translate){L2}{L1}Gekleurde pictogrammen en verbeterde thema-ondersteuning toegevoegd in de werkbalk voor berichtenfilterlijst.{L2}{L1}Verschillende oplossingen voor compatibiliteit met Thunderbird 91.{L2 }{L1}Opgelost: bij het verplaatsen van e-mails met contextmenu worden verkeerde e-mails verplaatst (er werd overgeschakeld naar e-mail onder de selectie en in plaats daarvan verplaatst).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

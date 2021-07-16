@@ -1229,7 +1229,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1}新功能：对过滤器中的搜索词进行排序（Pro功能）。{L2} {L1}记住复制的过滤器列表以插入到多个帐户中（Pro功能）。{L2} {L1}解决了合并时重复的搜索词问题 过滤器。{L2} {L1}与Thunderbird 88兼容的各种修复程序。{L2}{L1} 5.2.1-从自定义过滤器模板中删除了排序按钮{L2} {L1} 5.2.1-Igor Zhigunov又名改良后的俄语翻译{L2}"
+    "message": "{L1}添加了芬兰语、葡萄牙语和波兰语翻译（使用谷歌翻译）{L2}{L1}添加了彩色图标并改进了消息过滤器列表工具栏中的主题支持。{L2}{L1}各种修复与 Thunderbird 91 的兼容性。{L2 }{L1}已修复：使用上下文菜单移动邮件会移动错误的邮件（它切换到选择下方的邮件并移动了它）。 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

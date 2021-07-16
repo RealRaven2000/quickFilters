@@ -178,7 +178,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Nova funkcija: razvrstite iskalne izraze v filtru (funkcija Pro). {L2} {L1} Ne pozabite na seznam kopiranih filtrov, ki jih želite vstaviti v več računov (funkcija Pro). {L2} {L1} Odpravljena težava s podvojenimi iskalnimi izrazi pri združevanju filtri. {L2} {L1} Različni popravki za združljivost s Thunderbird 88. {L2}{L1} 5.2.1 - odstranjen gumb za razvrščanje iz predlog filtrov po meri {L2} {L1} 5.2.1 - Izboljšani ruski prevodi Igorja Žigunova, imenovanega pepel {L2}"
+    "message" : "{L1} Dodani finski, portugalski in poljski prevodi (z google translate) {L2} {L1} V orodni vrstici s seznamom filtrov za sporočila so dodane barvne ikone in izboljšana podpora tem. {L2} {L1} Različni popravki za združljivost s Thunderbird 91. {L2 } {L1} Popravljeno: premikanje pošte s kontekstnim menijem premakne napačno pošto (pod izbiro je preklopilo na pošto in jo namesto tega premaknilo). {L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

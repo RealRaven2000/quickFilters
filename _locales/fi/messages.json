@@ -1230,7 +1230,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} Uusi toiminto: Lajittele hakutermit suodattimessa (Pro-ominaisuus). {L2} {L1} Muista kopioitu suodatinluettelo lisätäksesi useille tileille (Pro-ominaisuus). {L2} {L1} Korjattu päällekkäiset hakutermit sulautettaessa suodattimet. {L2} {L1} Erilaisia korjauksia yhteensopivuuteen Thunderbird 88: n kanssa. {L2}{L1} 5.2.1 - lajittelupainike poistettu mukautetuista suodatinmalleista {L2} {L1} 5.2.1 - Igor Zhigunov alias tukahdutetut venäjänkieliset käännökset {L2}"
+    "message" : "{L1} Lisättiin suomen-, portugalin- ja puolankieliset käännökset (Google-käännöksen avulla) {L2} {L1} Lisättiin värilliset kuvakkeet ja parannettu teematuki viestisuodatinluettelotyökaluriville. {L2} {L1} Erilaisia korjauksia Thunderbird 91 -yhteensopivuuteen. {L2 } {L1} Korjattu: Viestien siirtäminen pikavalikosta siirtää väärät sähköpostit (se siirtyi valinnan alapuolella olevaan postiin ja siirsi sen sijaan). {L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

@@ -169,7 +169,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Nová funkce: Řazení hledaných výrazů ve filtru (funkce Pro). {L2} {L1} Pamatujte si seznam zkopírovaných filtrů, který chcete vložit do více účtů (funkce Pro). {L2} {L1} Opravený problém s duplikovanými hledanými výrazy při slučování filtry. {L2} {L1} Různé opravy kompatibility s Thunderbirdem 88. {L2}{L1} 5.2.1 - odstraněno tlačítko řazení z šablon vlastních filtrů {L2} {L1} 5.2.1 - Vylepšené ruské překlady od Igora Zhigunova aka ashed {L2}"
+    "message" : "{L1} Přidány finské, portugalské a polské překlady (pomocí google translate) {L2} {L1} Přidány barevné ikony a vylepšená podpora motivů na panelu nástrojů seznamu filtrů zpráv. {L2} {L1} Různé opravy kompatibility s Thunderbirdem 91. {L2 } {L1} Opraveno: Přesouvání e-mailů pomocí kontextové nabídky přesouvá nesprávné e-maily (přepnul na e-mail pod výběrem a místo toho je přesunul). {L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

@@ -1229,7 +1229,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Ny funktion: Sortera söktermer i ett filter (Pro-funktion). {L2} {L1} Kom ihåg kopierade filter Lista för att infoga till flera konton (Pro-funktion). {L2} {L1} Fixade duplicerade söktermerproblem vid sammanslagning filter. {L2} {L1} Olika korrigeringar för kompatibilitet med Thunderbird 88. {L2}{L1} 5.2.1 - borttagen sorteringsknapp från anpassade filtermallar {L2} {L1} 5.2.1 - Förbättrade ryska översättningar av Igor Zhigunov aka ashed {L2}"
+    "message": "{L1} Lade till finska, portugisiska och polska översättningar (med google translate) {L2} {L1} Lade till färgade ikoner och förbättrat temastöd i verktygsfältet för meddelandefilterlista. {L2} {L1} Olika korrigeringar för kompatibilitet med Thunderbird 91. {L2 } {L1} Fast: Att flytta e-postmeddelanden med snabbmenyn flyttar fel e-post (det bytte till e-post under markeringen och flyttade det istället). {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
