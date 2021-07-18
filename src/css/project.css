@@ -298,7 +298,7 @@ h4 {
 	border: 1px solid transparent;
   box-shadow: inset 2px 2px 3px -1px rgba(0,0,0,0.7);
 	box-sizing: border-box;
-  color: rgb(0,0,0,.75);
+  color: rgb(0,0,0);
   display: inline-block;
   font-size: 1.5em;
   margin: 1em 1em 1em 0;
@@ -318,7 +318,7 @@ h4:hover  {
 h4 a {
   margin-top: 0.7em;
   font-size: 12pt;
-  color: rgb(0,0,0,.75) !important;
+  color: rgba(0,0,0,.75) !important;
 }
 h4:hover a { 
   color: #ffe0ff !important; 

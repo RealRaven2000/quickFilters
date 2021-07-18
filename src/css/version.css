@@ -52,7 +52,7 @@ ul#version-history > li ul li {
 
 
 #version-history li > h4 {
-  color: rgb(0,0,0,0.8);
+  color: rgba(0,0,0,0.8);
   cursor: default;
   font-weight: normal;
   font-size: 1.2em;
