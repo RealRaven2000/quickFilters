@@ -318,14 +318,15 @@ h4:hover  {
 h4 a {
   margin-top: 0.7em;
   font-size: 12pt;
-  color: rgba(0,0,0,.75) !important;
+  color: rgba(0,0,0,.75);
 }
 h4:hover a { 
   color: #ffe0ff !important; 
-  /* emboss: */
-  text-shadow: 0pt 0pt 1px rgb(0, 0, 0), 0pt 0pt 2px rgb(187, 187, 187), 1px 1px 3px rgb(255, 255, 255);
 }
-h4 a:visited {color: rgb(245, 245, 245) !important; }
+
+h4 a:visited {
+  color: rgba(0,0,0,.75);; 
+}
 
 
 img.screenshot,

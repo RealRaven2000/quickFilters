@@ -59,15 +59,15 @@ ul#version-history > li ul li {
   margin-right: auto !important;
   padding-bottom: 0.3em;
   background: rgba(218,40,179,0.4);
-  /*! background: linear-gradient(to bottom,  rgba(218,40,179,1) 0%, rgba(169,29,141,1) 15%, rgba(90,4,68,1) 50%, rgba(150,26,125,1) 83%, rgba(179,31,149,1) 100%); */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#da28b3', endColorstr='#b31f95',GradientType=0 );  
+  /*
+  background: linear-gradient(to bottom,  rgba(218,40,179,1) 0%, rgba(169,29,141,1) 15%, rgba(90,4,68,1) 50%, rgba(150,26,125,1) 83%, rgba(179,31,149,1) 100%); */
 }
 
 #version-history li > h4 > a {
   cursor: pointer;
   display: inline-block;
   font-size: 1.1em;
-  color: #ffffff;
+  color: #730050;
   margin-right: 0.5em;
   margin-top: 0.3em;
   padding-bottom: 0;
