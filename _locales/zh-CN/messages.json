@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "购买许可证！"
   },
+  "qf.btn.splash": {
+    "message": "显示启动画面"
+  },
   "qf.button.createFilter": {
     "message": "创建新过滤器…"
   },
@@ -363,6 +366,9 @@
   "qf.description.selectToExtend": {
     "message": "选择一个要扩展新规则的过滤器。"
   },
+  "qf.description.splash": {
+    "message": "以您的语言显示新闻和重要变化："
+  },  
   "qf.donate.tooltip": {
     "message": "请支持 quickFilters 的开发人员 !"
   },

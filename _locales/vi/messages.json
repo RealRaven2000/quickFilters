@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Mua Giấy phép!"
   },
+  "qf.btn.splash": {
+    "message": "Hiển thị màn hình Splash"
+  },
   "qf.button.createFilter": {
     "message": "Create New Filter…"
   },
@@ -363,6 +366,9 @@
   "qf.description.selectToExtend": {
     "message": "Select a Filter to extend with new rules."
   },
+  "qf.description.splash": {
+    "message": "Hiển thị tin tức và những thay đổi quan trọng, được bản địa hóa bằng ngôn ngữ của bạn:"
+  },  
   "qf.donate.tooltip": {
     "message": "Trợ giúp sự phát triển của quickFilters!"
   },

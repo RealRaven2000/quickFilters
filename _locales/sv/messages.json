@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Att köpa en licens!"
   },
+  "qf.btn.splash": {
+    "message": "Visa stänkskärm"
+  },
   "qf.button.createFilter": {
     "message": "Skapa nytt filter …"
   },
@@ -363,6 +366,9 @@
   "qf.description.selectToExtend": {
     "message": "Välj ett filter att utöka med nya regler."
   },
+  "qf.description.splash": {
+    "message": "Visa nyheter och viktiga förändringar, lokaliserade på ditt språk:"
+  },  
   "qf.donate.tooltip": {
     "message": "Stöd utvecklingen av quickFilters!"
   },

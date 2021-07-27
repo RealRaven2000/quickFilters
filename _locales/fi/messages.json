@@ -281,6 +281,9 @@
   "purchase-heading" : {
     "message" : "Lisenssin ostaminen!"
   }, 
+  "qf.btn.splash": {
+    "message": "Näytä Splash-näyttö"
+  },
   "qf.button.createFilter": {
     "message": "Luo uusi suodatin…"
   },
@@ -364,6 +367,9 @@
   "qf.description.selectToExtend": {
     "message": "Valitse suodatin laajennettavaksi uusilla säännöillä."
   },
+  "qf.description.splash": {
+    "message": "Näytä uutisia ja tärkeitä muutoksia kielelläsi:"
+  },  
   "qf.donate.tooltip": {
     "message": "Tuki quickFilters-kehitykselle!"
   },

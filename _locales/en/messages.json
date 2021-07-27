@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Buying a License!"
   },
+  "qf.btn.splash": {
+    "message": "Display Splash screen"
+  },
   "qf.button.createFilter": {
     "message": "Create New Filter…"
   },
@@ -363,6 +366,9 @@
   "qf.description.selectToExtend": {
     "message": "Select a Filter to extend with new rules."
   },
+  "qf.description.splash": {
+    "message": "Display news and important changes, localized in your language:"
+  },  
   "qf.donate.tooltip": {
     "message": "Support Development of quickFilters!"
   },
