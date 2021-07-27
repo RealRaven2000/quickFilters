@@ -1141,7 +1141,7 @@
     "message": "Procedura guidata di quickFilters"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Attiva la Procedura guidata"
+    "message": "Attiva l'assistente filtri (fai clic con il pulsante destro del mouse per visualizzare le preferenze di quickFilters)"
   },
   "renew-your-license": {
     "message": "Renouvelez votre licence."
@@ -1223,7 +1223,7 @@
     "message": "Cosa c'è di nuovo?"
   },
   "whats-new-head": {
-    "message": "Punti salienti"
+    "message": "Cambiamenti importanti"
   },
   "whats-new-intro": {
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"

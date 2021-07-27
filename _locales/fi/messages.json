@@ -1142,7 +1142,7 @@
     "message": "quickFilters Assistant"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Aktivoi suodatinavustaja"
+    "message": "Aktivoi suodatinavustaja (napsauta hiiren kakkospainikkeella näyttääksesi quickFilters-asetukset)"
   },
   "renew-your-license" : {
     "message" : "Uusi lisenssi."
@@ -1224,7 +1224,7 @@
     "message": "Mikä on uutta?"
   },   
   "whats-new-head" : {
-    "message": "Kohokohdat"
+    "message": "Tärkeät muutokset"
   },  
   "whats-new-intro" : {
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 

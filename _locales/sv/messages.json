@@ -1141,7 +1141,7 @@
     "message": "Filterassistenten"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Öppna Filterassistenten"
+    "message": "Aktivera filterassistenten (högerklicka för att visa quickFilters inställningar)"
   },
   "renew-your-license": {
     "message": "Förnya din licens."
@@ -1223,7 +1223,7 @@
     "message": "Vad är nytt?"
   },
   "whats-new-head": {
-    "message": "Höjdpunkter"
+    "message": "Viktiga förändringar"
   },
   "whats-new-intro": {
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"

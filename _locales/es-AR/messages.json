@@ -1141,7 +1141,7 @@
     "message": "quickFilters Assistant"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Activa el asistente de filtros"
+    "message": "Activa el asistente de filtros (haga clic con el botón derecho para mostrar las preferencias de quickFilters)"
   },
   "renew-your-license": {
     "message": "Renueva tu licencia."
@@ -1223,7 +1223,7 @@
     "message": "¿Qué hay de nuevo?"
   },
   "whats-new-head": {
-    "message": "Reflejos"
+    "message": "Cambios importantes"
   },
   "whats-new-intro": {
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"

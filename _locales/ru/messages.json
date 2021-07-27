@@ -1141,7 +1141,7 @@
     "message": "ассистент quickFilters"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Активировать создание фильтров"
+    "message": "Активируйте помощник по фильтрам (щелкните правой кнопкой мыши, чтобы отобразить настройки quickFilters)"
   },
   "renew-your-license": {
     "message": "Обновите лицензию."
@@ -1223,7 +1223,7 @@
     "message": "Какие новости?"
   },
   "whats-new-head": {
-    "message": "Функциональность"
+    "message": "Важные изменения"
   },
   "whats-new-intro": {
     "message": "Прочтите подробный журнал изменений здесь (только на английском языке):"

@@ -1141,7 +1141,7 @@
     "message": "quickFilters Assistant"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Kích hoạt trợ giúp bộ lọc"
+    "message": "Kích hoạt trợ lý bộ lọc (Nhấp chuột phải để hiển thị tùy chọn quickFilters)"
   },
   "renew-your-license": {
     "message": "Gia hạn giấy phép của bạn."
@@ -1223,7 +1223,7 @@
     "message": "Có gì mới?"
   },
   "whats-new-head": {
-    "message": "Điểm nổi bật"
+    "message": "Những thay đổi quan trọng"
   },
   "whats-new-intro": {
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"

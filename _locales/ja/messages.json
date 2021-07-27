@@ -616,7 +616,7 @@
     "message": "詳細"
   },
   "qf.tab.gopro": {
-    "message": "QuickFolders Pro"
+    "message": "quickFilters Pro"
   },
   "qf.tab.newFilterProps": {
     "message": "新規フィルタのプロパティ"
@@ -1141,7 +1141,7 @@
     "message": "quickFilters アシスタント"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "フィルタ作成アシスタントを有効にします"
+    "message": "フィルタアシスタントをアクティブにします（右クリックしてquickFilters設定を表示します）"
   },
   "renew-your-license": {
     "message": "ライセンスを更新する。"
@@ -1223,13 +1223,13 @@
     "message": "新着情報？"
   },
   "whats-new-head": {
-    "message": "ハイライト"
+    "message": "重要な変更"
   },
   "whats-new-intro": {
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1}新機能：フィルター内の検索用語の並べ替え（Pro機能）。{L2} {L1}複数のアカウントに挿入するためにコピーされたフィルターリストを記憶する（Pro機能）。{L2} {L1}マージ時の重複検索用語の問題を修正しました。 フィルタ。{L2} {L1} Thunderbird88との互換性のためのさまざまな修正。{L2}{L1} 5.2.1-カスタムフィルターテンプレートから並べ替えボタンを削除{L2} {L1}5.2.1-Igor Zhigunov、別名ashed によるロシア語の翻訳の改善{L2}"
+    "message": "{L1}フィンランド語、ポルトガル語、ポーランド語の翻訳を追加（google translateを使用）{L2} {L1}メッセージフィルターリストツールバーに色付きのアイコンを追加し、テーマのサポートを改善しました。{L2} {L1} Thunderbird91との互換性に関するさまざまな修正。{L2 } {L1}修正済み：コンテキストメニューを使用してメールを移動すると、間違ったメールが移動します（選択範囲の下のメールに切り替わり、代わりに移動しました）。 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1141,7 +1141,7 @@
     "message": "quickFilters Assistant"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Activate the filter assistant"
+    "message": "Activate the filter assistant (Right-click to display quickFilters Preferences)"
   },
   "renew-your-license": {
     "message": "Renew your license."
@@ -1223,13 +1223,13 @@
     "message": "What's new?"
   },
   "whats-new-head": {
-    "message": "Highlights"
+    "message": "Important Changes"
   },
   "whats-new-intro": {
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1}Added Finnish, Portuguese and Polish translations (using google translate){L2}{L1}Added colored icons and improved theme support in message filter list toolbar.{L2}{L1}Various fixes for compatibility with Thunderbird 91.{L2}{L1}Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). {L2}"
+    "message": "{L1}Added Finnish, Portuguese and Polish translations (using google translate){L2}{L1}Added colored icons and improved theme support in message filter list toolbar.{L2}{L1}Numerous fixes for compatibility with Thunderbird 91.{L2}{L1}Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

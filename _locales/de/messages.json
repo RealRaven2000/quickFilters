@@ -1141,7 +1141,7 @@
     "message": "quickFilters Assistent"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Aktiviert den Filter Assistenten"
+    "message": "Filter Assistenten aktivieren (Rechtsklick, um die Einstellungen von quickFilters anzuzeigen)"
   },
   "renew-your-license": {
     "message": "Erneuern Sie Ihre Lizenz."
@@ -1223,13 +1223,13 @@
     "message": "Was gibt's Neues?"
   },
   "whats-new-head": {
-    "message": "Highlights"
+    "message": "Wichtige Änderungen"
   },
   "whats-new-intro": {
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1}Finnische, Portugiesische und Polnische Übersetzungen hinzugefügt (mit Google Translate){L2}{L1}Farbige Symbole und Unterstützung von Themes in der Symbolleiste der Nachrichtenfilterliste verbessert.{L2}{L1}Verschiedene Korrekturen für die Kompatibilität mit Thunderbird 91.{L2 }{L1}Behoben: Beim Verschieben von E-Mails mit Kontextmenü werden falsche E-Mails verschoben (es wurde auf E-Mails unter der Auswahl umgeschaltet und stattdessen diese verschoben). {L2}"
+    "message": "{L1}Finnische, Portugiesische und Polnische Übersetzungen hinzugefügt (mit Google Translate){L2}{L1}Farbige Symbole und Unterstützung von Themes in der Symbolleiste der Nachrichtenfilterliste verbessert.{L2}{L1}Zahlreiche Korrekturen für die Kompatibilität mit Thunderbird 91.{L2 }{L1}Behoben: Beim Verschieben von E-Mails mit Kontextmenü werden falsche E-Mails verschoben (es wurde auf E-Mails unter der Auswahl umgeschaltet und stattdessen diese verschoben). {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

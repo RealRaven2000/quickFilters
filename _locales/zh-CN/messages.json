@@ -1141,7 +1141,7 @@
     "message": "quickFilters 助手"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "激活过滤器助手"
+    "message": "激活过滤助手（右击显示quickFilters Preferences）"
   },
   "renew-your-license": {
     "message": "续订您的许可证。"
@@ -1223,7 +1223,7 @@
     "message": "什么是新的？"
   },
   "whats-new-head": {
-    "message": "强调"
+    "message": "重要变化"
   },
   "whats-new-intro": {
     "message": "在此处阅读详细的更改日志（仅英语）："

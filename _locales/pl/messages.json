@@ -1142,7 +1142,7 @@
     "message": "Asystent quickFilters"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Aktywuj asystenta filtrów"
+    "message": "Aktywuj asystenta filtrów (kliknij prawym przyciskiem myszy, aby wyświetlić preferencje quickFilters)"
   },
   "renew-your-license" : {
     "message" : "Odnów licencję."
@@ -1221,7 +1221,7 @@
     "message": "Co nowego?"
   }, 
   "whats-new-head" : {
-    "message": "Najważniejsze"
+    "message": "Ważne zmiany"
   },
   "whats-new-intro": {
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"

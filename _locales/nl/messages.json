@@ -1141,7 +1141,7 @@
     "message": "quickFilters-assistent"
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Filterassistent activeren"
+    "message": "Activeer de filterassistent (klik met de rechtermuisknop om de voorkeuren van quickFilters weer te geven)"
   },
   "renew-your-license": {
     "message": "Verleng uw licentie."
@@ -1223,7 +1223,7 @@
     "message": "Wat is er nieuw?"
   },
   "whats-new-head": {
-    "message": "Hoogtepunten"
+    "message": "Belangrijke wijzigingen"
   },
   "whats-new-intro": {
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
