@@ -66,7 +66,6 @@ table.quickFiltersProRenew,
 #bargainStar:hover {
 	animation-play-state: paused;
 	opacity: 1 !important;
-	top: -80px;
 }
 
 a[href].nohover {
