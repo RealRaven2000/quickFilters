@@ -224,10 +224,6 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <img src="img/filter-list-toolbar-lw.png" alt="toolbar dark mode" class="screenshot">
     </li>
     <li>
-      quickFilters Options are now available through Add-ons Manager / quickFilters "Wrench Icon".
-      You can also still get to them by right-clicking the quickFilters assistant button.
-    </li>
-    <li>
       Splash screen: instead of displaying this as soon as Thunderbird installs a new version
       of Thunderbird, this is now available by clicking the message on the assistant button
       which shows the fact that quickFilters was udpated:<br>
@@ -236,13 +232,14 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       by opening quickFilters settings / support tab: <br>
       <img src="img/support-splash.png" alt="support tab splash screen" class="screenshot">
     </li>
-    
     <li>
-      Using notifyTools for updating UI via background page (mail extension conversion).
+      quickFilters Options are now available through Add-ons Manager / quickFilters "Wrench Icon".
+      You can also still get to them by right-clicking the quickFilters assistant button.
     </li>
-    <li>
-      Completed Argentinian Locale using strings from the Spanish one.
-    </li>
+  </ul>
+  
+  <h5 class="inList"> Bug Fixes </h5>    
+  <ul>
     <li>
       <a href="https://github.com/RealRaven2000/quickFilters/issues/66">[issue 66]</a> 
       Fixed: On some machines, quickFilters is not loading at startup (due to accounts not loading)
@@ -252,13 +249,50 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). 
     </li>
     <li>
-      Added Finnish, Portuguese and Polish translations (using google translate). 
-    </li>
-    <li>
       quickFilters Options: Hiding / showing the toolbar now happens instantly in filter list.
     </li>
-    <li>[mail extension migration] Licenser code migrated into background script. </li>
   </ul>
+  
+  <h5 class="inList"> Localization </h5>    
+  <ul>
+    <li>
+      Completed Argentinian Locale using strings from the Spanish one.
+    </li>
+    <li>
+      Added Finnish, Portuguese and Polish translations (using google translate). 
+    </li>
+  </ul>
+  
+  <h5 class="inList"> Compatibility with Thunderbird 91</h5>    
+  <p>These were major changes in the code base which are necessary steps for the conversion to a API based
+    mail extension. There is ongoing documentation of this process at github
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/48">[issue 48]</a> 
+  </p>
+  <ul>
+    <li>
+      Removed deprecated fixIterator function from findInboxFromRoot() function
+    </li>
+    <li>
+      [mail extension migration] Licenser code migrated into background script. 
+    </li>
+    <li>
+      Using notifyTools for updating UI via background page (mail extension conversion).
+    </li>
+    <li>
+      Fixed missing icons on sliding notification bars
+    </li>
+    <li>
+      Fixed style / visibility of [Buy License] button at bottom of settings dialog.
+    </li>
+    <li>
+      Fixed missing "about:config" dialogs. These are used to set undocumented / advanced settings 
+      such as the log detail when right-clicking the <i>debug mode</i> checkbox.
+    </li>
+    <li>
+      Removed all references to the old mozdev.org site.
+    </li>
+  </ul>
+
 </li>
 
 <a name="5.2"> &nbsp; </a>
