@@ -5,12 +5,6 @@
 <?xml-stylesheet href="chrome://quickfilters/content/options.css" title="QuickFiltersOptions" type="text/css"?>
 <?xml-stylesheet href="chrome://quickfilters/content/filterWidgets.css" type="text/css"?>
 
-<!DOCTYPE dialog [
-  <!ENTITY % optionsDTD SYSTEM "chrome://quickfilters/locale/options.dtd">
-  %optionsDTD;
-  <!ENTITY % commonDTD SYSTEM "chrome://quickfilters/locale/filterList.dtd">
-  %commonDTD;
-]>
 
 <dialog id="quickfilters-preferences"
 				buttons="extra2,accept"
@@ -20,7 +14,7 @@
 				title="__MSG_prefwindow.title__"
 				autostretch="always"
 				minHeight="400"
-				ondialogextra2="setTimeout(function() {quickFilters.Licenser.showDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });"
+				ondialogextra2="setTimeout(function() {quickFilters.Util.showLicenseDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });"
 				tooltiptextextra2="__MSG_qf.label.supportWithLicense__"
 				>
 
@@ -28,8 +22,6 @@
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-options.js" />
-	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-rsa.js" />
-	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-register.js" />
 	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-worker.js" />
 
   <prefpane id="mainOptions" label="__MSG_pane1.title__" flex="2" selected="true" orient="vertical">
@@ -227,7 +219,7 @@
 
     </preferences>
 
-	<box id="quickFiltersHelpBar">
+	<box id="helpBox">
 		<toolbarbutton id="quickFiltersBtnHelp"
 		  class = "toolbarbutton-1 chromeclass-toolbar-additional"
 		  label = ""
@@ -240,14 +232,14 @@
     <vbox>
       <image id="qf-options-icon" src="chrome://quickfilters/content/skin/QuickFilters_32.svg" flex="0"/>
     </vbox>
-	<hbox id="qf-options-header" class="paneSelector">
-	  <image id="qf-title" src="chrome://quickfilters/content/skin/QuickFilters-title.png" flex="0"/>
-		<label id="qf-options-version"
-		       oncontextmenu="quickFilters.Util.showVersionHistory(true);setTimeout(function() {window.close();});return false;"
-		       tooltiptext="__MSG_qf.options.versionnumber.tooltip__"
-		       value="0.1"/>
-	</hbox>
-    <vbox>
+    <div id="qf-options-header">
+      <spacer />
+      <label id="qf-options-version"
+             oncontextmenu="quickFilters.Util.showVersionHistory();setTimeout(function() {window.close();});return false;"
+             tooltiptext="__MSG_qf.options.versionnumber.tooltip__"
+             value="0.1"/>
+    </div>
+    <vbox id="youtubeContainer">
     <box id="qf-youtubeBox">
 			<image id="qf-youtube"
 			       src="chrome://quickfilters/content/skin/youtube.png"
@@ -288,6 +280,7 @@
 								preference="toolbar"
 								label="__MSG_chkToolbar.label__"
 								accesskey="__MSG_chkToolbar.accesskey__"
+                oncommand="quickFilters.Options.notifyToolbars();"
 								/>
 					<checkbox id="chkShowList"
 								preference="showListAfterCreateFilter"
@@ -445,7 +438,7 @@
 											label="__MSG_qf.templates.replyTo.label__"
 											tooltiptext="__MSG_qf.templates.replyTo.tooltip__"/>
 						<label class="plain-link"
-									 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25863"
+									 tooltiptext="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25863"
 									 onclick="quickFilters.Util.showBug(25863);">[Bug 25863]</label>
 					</hbox>
 					<hbox>
@@ -463,7 +456,7 @@
 						<vbox>
 							<spacer flex="1" />
 							<label class="plain-link"
-										 tooltiptext="https://www.mozdev.org/bugs/show_bug.cgi?id=25989"
+										 tooltiptext="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25989"
 										 onclick="quickFilters.Util.showBug(25989);">[Bug 25989]</label>
 							<spacer flex="1" />
 						</vbox>
@@ -534,21 +527,28 @@
 			          orient="vertical"
 			          label="__MSG_qf.tab.options__"
 			          style="position:relative;">
+        <div class="quickhelp-desc">__MSG_qf.description.splash__</div>
+        <label id="L4"
+               class="text-link"
+               onclick="quickFilters.Util.viewSplash();window.close();">__MSG_qf.btn.splash__</label>
+        <separator />
 
-        <description class="quickhelp-desc">__MSG_qf.description.about__</description>
+
+        <div class="quickhelp-desc">__MSG_qf.description.about__</div>
         <label id="L1"
                class="text-link"
                tooltiptext="https://quickfilters.quickfolders.org/"
                onclick="quickFilters.Util.showHomePage();">__MSG_qf.label.aboutLink__</label>
         <separator />
 
-        <description class="quickhelp-desc">__MSG_qf.youtube.description__</description>
+        <div class="quickhelp-desc">__MSG_qf.youtube.description__</div>
         <label id="L2"
                class="text-link"
                tooltiptext="https://www.youtube.com/c/thunderbirddaily"
                onclick="quickFilters.Util.showYouTubePage();">__MSG_qf.youtube.link__</label>
         <separator />
-        <description id="contactLabel" class="quickhelp-desc">__MSG_qf.description.contactMe__</description>
+        
+        <div id="contactLabel" class="quickhelp-desc">__MSG_qf.description.contactMe__</div>
         <label id="L3"
                class="text-link"
                onclick="quickFilters.Options.sendMail();" >__MSG_qf.label.contactLink__</label>
@@ -572,7 +572,7 @@
 									oncommand="quickFilters.Options.pasteLicense();" />
 					<button id="btnValidateLicense"
 									label="__MSG_qf.button.validateLicense__"
-									oncommand="quickFilters.Options.validateLicenseInOptions(false);" />
+									oncommand="quickFilters.Options.validateNewKey();" />
 				</hbox>
 			</vbox>
 			<separator class = "licenseSeparator" />
@@ -593,6 +593,14 @@
 				<label id="licenseDate" value="-" />
 			</hbox>
 			<separator  style="height:1em;" />
+			
+			<hbox>
+			  <spacer flex="1" />
+				<button id="btnLicense"
+								label="Buy License"
+								oncommand="setTimeout(function() {quickFilters.Util.showLicenseDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });" />
+			  <spacer flex="1" />
+			</hbox>
 			<hbox>
 				<html:fieldset id="premiumConfig" >
 					<html:legend>__MSG_qf.premiumConfig__</html:legend>
@@ -628,14 +636,6 @@
 								/>
 					</vbox>
 				</html:fieldset>
-			</hbox>
-			<!-- will be populated / modified from bundle in code -->
-			<hbox>
-			  <spacer flex="1" />
-				<button id="btnLicense"
-								label="Buy License"
-								oncommand="setTimeout(function() {quickFilters.Licenser.showDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });" />
-			  <spacer flex="1" />
 			</hbox>
 		</tabpanel>
 

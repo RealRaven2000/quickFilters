@@ -33,22 +33,11 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           return "user"; // anonymous
         },
         
-        openLinkExternally: function(url) {
-          let uri = url;
-          if (!(uri instanceof Ci.nsIURI)) {
-            uri = Services.io.newURI(url);
-          }
-          
-          Cc["@mozilla.org/uriloader/external-protocol-service;1"]
-            .getService(Ci.nsIExternalProtocolService)
-            .loadURI(uri);
-        },
-        
-        showVersionHistory: function(ask) {
+        showVersionHistory: function() {
           // It makes sense to only show this in the latest main window
           let win = this.latestMainWindow();
           const util = win.quickFilters.Util;
-          util.showVersionHistory(ask);
+          util.showVersionHistory();
         },
 
         showXhtmlPage: function(uri) {

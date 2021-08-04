@@ -1,4 +1,29 @@
 quickFilters Change Log - Version 5.3
 <ul>
-<li>Using notifyTools for updating UI via background page (mail extension conversion)</li>
+<li>quickFilters is now compatible with Thunderbird 91, which commences the next ESR period (2021-2022).</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/67">[issue 67]</a> Added colored icons and theme support in message filter list toolbar. </li>
+<li>Splash screen: instead of displaying this as soon as Thunderbird installs a new version of Thunderbird, this is now available by clicking the message on the assistant button which shows the fact that quickFilters was updated.</li>
+<li>Options are now available through Add-ons Manager / quickFilters "Wrench Icon".</li>
+<li>Restricted special search methods in the filter list to licensed users only.</li>
+</ul>
+<b>Bug Fixes</b>
+<ul>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/66">[issue 66]</a> Fixed: On some machines, quickFilters is not loading at startup (due to accounts not loading)</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/68">[issue 68]</a> Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). </li>
+</ul>
+<b>Localization</b>
+<ul>
+<li>Completed Argentinian Locale using strings from the Spanish one.</li>
+<li>Added Finnish, Portuguese and Polish translations (using google translate). </li>
+</ul>
+<b>Compatibility with Thunderbird 91</b>
+<ul>
+<li>Fixed missing icons on sliding notification bars</li>
+<li>Fixed style / visibility of [Buy License] button at bottom of settings dialog.</li>
+<li>Removed deprecated fixIterator function from findInboxFromRoot() function</li>
+<li>Using notifyTools for updating UI via background page (mail extension conversion).</li>
+<li>Licenser code migrated into background script. </li>
+<li>Hiding / showing the toolbar in filter list is now instant.</li>
+<li>Removed obsolete legacy locale files.</li>
+<li>Removed all references to the old mozdev.org site.</li>
 </ul>

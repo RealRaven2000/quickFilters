@@ -3,6 +3,9 @@ var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 async function setAssistantButton(e) {
   window.quickFilters.List.setAssistantButton(e.detail.active);
 }
+async function configureToolbar() {
+  window.quickFilters.List.setupToolbar();
+}
 
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/quickFilters.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-utils.js", window, "UTF-8");
@@ -10,7 +13,7 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-work
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-list.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 /*  execute quickFilters.List.onLoadFilterList() when loading window   */
-Services.scriptloader.loadSubScript("chrome://quickfilters/content/overlayFilterList.js", window, "UTF-8");
+/* Services.scriptloader.loadSubScript("chrome://quickfilters/content/overlayFilterList.js", window, "UTF-8"); */
 
 async function onLoad(activatedWhileWindowOpen) {
   //TODO do we need "chrome://global/skin/"??
@@ -64,7 +67,7 @@ async function onLoad(activatedWhileWindowOpen) {
           id = "quickFiltersSearchTargetFolder"
           class="menuitem-iconic"
         label = "__MSG_quickfilters.option.searchProperty.targetFolder__"
-        oncommand = "quickFilters.List.toggleSearchType('targetFolder');"
+        oncommand = "quickFilters.List.toggleSearchType('targetFolder',true);"
         type="radio"
         name="searchType"
         />
@@ -72,7 +75,7 @@ async function onLoad(activatedWhileWindowOpen) {
           id = "quickFiltersSearchCondition"
           class="menuitem-iconic"
         label = "__MSG_quickfilters.option.searchProperty.searchCondition__"
-        oncommand = "quickFilters.List.toggleSearchType('condition');"
+        oncommand = "quickFilters.List.toggleSearchType('condition',true);"
         type="radio"
         name="searchType"
         />
@@ -80,7 +83,7 @@ async function onLoad(activatedWhileWindowOpen) {
           id = "quickFiltersSearchStringAction"
           class="menuitem-iconic"
           label = "__MSG_quickfilters.option.searchProperty.setCustomStringAction__"
-          oncommand = "quickFilters.List.toggleSearchType('stringAction');"
+          oncommand = "quickFilters.List.toggleSearchType('stringAction',true);"
           type="radio"
           name="searchType"
         />
@@ -88,7 +91,7 @@ async function onLoad(activatedWhileWindowOpen) {
           id = "quickFiltersSearchTag"
           class="menuitem-iconic"
         label = "__MSG_quickfilters.option.searchProperty.addTag__"
-        oncommand = "quickFilters.List.toggleSearchType('tagLabel');"
+        oncommand = "quickFilters.List.toggleSearchType('tagLabel',true);"
         type="radio"
         name="searchType"
         />
@@ -96,7 +99,7 @@ async function onLoad(activatedWhileWindowOpen) {
           id = "quickFiltersSearchReplyWithTemplate"
           class="menuitem-iconic"
         label = "__MSG_quickfilters.option.searchProperty.replyWithTemplate__"
-        oncommand = "quickFilters.List.toggleSearchType('replyWithTemplate');"
+        oncommand = "quickFilters.List.toggleSearchType('replyWithTemplate',true);"
         type="radio"
         name="searchType"
         />
@@ -188,7 +191,7 @@ async function onLoad(activatedWhileWindowOpen) {
     <toolbarbutton id="quickFiltersTroubleshoot"
       class = "toolbarbutton-1" 
       label = "__MSG_quickfilters.button.bug__"
-      tooltiptext = "__MSG_quickfilters.button.bug.tooltiptext1; &quickfilters.button.bug.tooltiptext2__"
+      tooltiptext = "__MSG_quickfilters.button.bug.tooltiptext1__ __MSG_quickfilters.button.bug.tooltiptext2__"
       oncommand = "quickFilters.List.troubleshoot();"
       oncontextmenu = "quickFilters.List.configureTroubleshooter(this);"
       context = "dummy"
@@ -254,18 +257,18 @@ async function onLoad(activatedWhileWindowOpen) {
   const util = window.quickFilters.Util,
         list = window.quickFilters.List;
   util.logDebug('Adding FilterList...');
-/*    
-    // obsolete window.addEventListener("load", function(e) { QuickFolders.FilterList.onLoadFilterList(e);}, false); 
-    window.QuickFolders.FilterList.onLoadFilterList();  //? event needed?
-*/
+
   window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
   
   list.onLoadFilterList();
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+  window.addEventListener("quickFilters.BackgroundUpdate.setupListToolbar", configureToolbar);
+  
 
 }
 
 function onUnload(isAddOnShutDown) {
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+  window.removeEventListener("quickFilters.BackgroundUpdate.setupListToolbar", configureToolbar);
 }

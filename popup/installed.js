@@ -9,14 +9,14 @@ END LICENSE BLOCK */
 
 addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("register")) {
-	  messenger.Utilities.openLinkExternally("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-install");
+	  messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-install");
 	}
 	if (event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
 	  messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
     window.close();
 	}
 	if (event.target.id.startsWith("donate")) {
-	  messenger.Utilities.openLinkExternally("https://quickfilters.quickfolders.org/donate.html");
+	  messenger.windows.openDefaultBrowser("https://quickfilters.quickfolders.org/donate.html");
 	}
 });  
 
@@ -27,8 +27,7 @@ addEventListener("click", async (event) => {
           browserInfo = await messenger.runtime.getBrowserInfo(),
           addonName = manifest.name, 
           addonVer = manifest.version,
-          appVer = browserInfo.version,
-          hoursWorked = 290;
+          appVer = browserInfo.version;
 
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
@@ -76,7 +75,7 @@ addEventListener("click", async (event) => {
     
     updateActions(addonName);
 
-    addAnimation('body');
+    // addAnimation('body');
   });  
   
 

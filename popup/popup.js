@@ -53,7 +53,7 @@ async function updateActions(addonName) {
     else { // License Extension
       hide('renewLicenseListItem');
       hide('renew');
-      if (licenseInfo.licensedDaysLeft<50) { // they may have seen this popup. Only show extend License section if it is < 50 days away
+      if (licenseInfo.licensedDaysLeft<25) { // they may have seen this popup. Only show extend License section if it is < 25 days away
         show('extendLicenseListItem');
         show('extend');
       }
@@ -61,13 +61,14 @@ async function updateActions(addonName) {
         show('licenseExtended');
         hide('extendLicenseListItem');
         hide('extend');
+        hide('purchaseSection');
         isActionList = false;
       }
     }
   }  
   else {
     let currentTime=new Date(),
-        endSale = new Date("2021-04-16");
+        endSale = new Date("2021-08-23");
     if (currentTime < endSale) {
       show('specialOffer');
       hideSelectorItems('.donations');

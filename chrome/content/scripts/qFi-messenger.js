@@ -3,13 +3,13 @@ var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/quickFilters.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-utils.js", window, "UTF-8");
-Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-rsa.js", window, "UTF-8");
-Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-register.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 
 async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
 }
+
+var listener_toggleFolder, listener_updatequickFiltersLabel;
 
 async function onLoad(activatedWhileWindowOpen) {
   console.log (Services.appinfo.version);
@@ -130,7 +130,11 @@ async function onLoad(activatedWhileWindowOpen) {
   // window.addEventListener("quickFilters.BackgroundUpdate", window.quickFilters.initLicensedUI);
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
-  window.addEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters));
+  listener_toggleFolder = window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters)
+  window.addEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
+  
+  listener_updatequickFiltersLabel = window.quickFilters.updatequickFiltersLabel.bind(window.quickFilters);
+  window.addEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
 
   window.quickFilters.onLoad();
     
@@ -144,24 +148,14 @@ function onUnload(isAddOnShutown) {
       btn.parentNode.removeChild(btn);
   }
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
-  window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", window.quickFilters.toggleCurrentFolderButtons);
+  window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
+  window.removeEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
+  
   // clean up current folder bar (if QuickFolders is installed)
   deleteBtn('quickfilters-current-listbutton');
   deleteBtn('quickfilters-current-runbutton');
   deleteBtn('quickfilters-current-msg-runbutton');
   deleteBtn('quickfilters-current-searchfilterbutton');
-/*
-  let treeView = window.gFolderTreeView;
-  if (treeView) {
-    // remove  custom flags!
-    delete treeView["supportsIcons"];  
-    delete treeView["qfIconsEnabled"];
-    // remove my opwn function and restore the original
-    if (window.QuickFolders.FolderTree.GetCellProperties) {
-      window.gFolderTreeView.getCellProperties = window.QuickFolders.FolderTree.GetCellProperties;
-      delete window.QuickFolders.FolderTree["GetCellProperties"];
-      }
-    */
 
 
   }

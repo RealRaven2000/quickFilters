@@ -26,6 +26,31 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   fill: #f30606;
 }
 
+#quickfilters-toolbar-button.newsflash {
+  background-color: #006EB7 !important; /* blue */
+  background-image: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) !important;
+  color: white !important;
+}
+#quickfilters-toolbar-button.newsflash label {
+  color: rgb(255,255,255) !important;
+}
+
+#quickfilters-toolbar-button.newsflash:hover {
+	background-color: #ffd65e !important; /* yellow */
+	background-image: linear-gradient(to bottom, #fff65e 0%,#febf04 100%) !important;
+}
+#quickfilters-toolbar-button.newsflash:hover label {
+  color: rgb(60,0,0) !important;
+}
+#quickfilters-toolbar-button.newsflash:hover image {
+  fill: rgb(60,0,0) !important;
+}
+
+
+#quickfilters-toolbar-button.newsflash .toolbarbutton-text {
+  display: inline-block !important;
+}
+
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive[mode="filter"] {
   fill: #4fc825;
 }
@@ -97,15 +122,23 @@ notificationbox *[value="quickfilters-proFeature"] .notification-button[accesske
 }
 
 notification[value="quickfilters-filter"] image.messageImage,
-notification[value="quickfilters-proFeature"] image.messageImage,
-notificationbox *[value="quickfilters-filter"] image.messageImage,
-notificationbox *[value="quickfilters-proFeature"] image.messageImage {
+notificationbox *[value="quickfilters-filter"] image.messageImage {
 	/* filterTemplate.png */
-	min-width: 73px !important;
-	width: 73px !important;
+	min-width: 72px !important;
+	width: 72px !important;
 	min-height: 32px !important;
 	height: 32px !important;
 }
+
+notification[value="quickfilters-proFeature"] image.messageImage,
+notificationbox *[value="quickfilters-proFeature"] image.messageImage {
+	/* proFeature.png */
+	min-width: 72px !important;
+	width: 72px !important;
+	min-height: 36px !important;
+	height: 36px !important;
+}
+
 
 notification[value="quickfilters-filter"] .messageCloseButton,
 notificationbox *[value="quickfilters-filter"] .messageCloseButton {

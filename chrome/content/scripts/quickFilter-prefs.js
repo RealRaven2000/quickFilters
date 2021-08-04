@@ -27,13 +27,10 @@ pref("extensions.quickfilters.debug.premium", false);
 pref("extensions.quickfilters.debug.premium.licenser", false);
 pref("extensions.quickfilters.debug.premium.rsa", false);
 
-// from smartTemplate4
 pref("extensions.quickfilters.debug.functions", false);
 pref("extensions.quickfilters.debug.mime", false);
 pref("extensions.quickfilters.debug.mime.split", false);
 
-//pref("extensions.quickfilters.intpref", 0);
-//pref("extensions.quickfilters.stringpref", "A string");
 pref("extensions.quickfilters.naming.parentFolder", true);
 pref("extensions.quickfilters.naming.folderDelimiter", "»"); // UTF8 - for some reason not read correctly.
 pref("extensions.quickfilters.naming.keyWord", false);
@@ -78,6 +75,7 @@ pref("extensions.quickfilters.actions.moveFolder", true);
 pref("extensions.quickfilters.filters.showMessage", true);
 pref("extensions.quickfilters.firstRun", true);
 pref("extensions.quickfilters.installedVersion", "0");
+pref("extensions.quickfilters.hasNews", false); /* splash screen status after update */
 
 pref("extensions.quickfilters.quickfolders.curFolderbar.listbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.folderbutton", true);

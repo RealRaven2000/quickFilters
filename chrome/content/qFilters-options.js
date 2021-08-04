@@ -19,11 +19,11 @@ quickFilters.Options = {
 		const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences,
           options = quickFilters.Options,
-					licenser = util.Licenser,
 					getElement = window.document.getElementById.bind(window.document),
 					nsMsgFilterType = Components.interfaces.nsMsgFilterType;
           
     await quickFilters.Util.init();
+    quickFilters.Options.updateLicenseOptionsUI();
 					
 		if (window.arguments) {
 			try {
@@ -80,21 +80,32 @@ quickFilters.Options = {
 
     /*****  License  *****/
     options.labelLicenseBtn(getElement("btnLicense"), "buy");
-    // validate License key
-    licenser.LicenseKey = prefs.getStringPref('LicenseKey');
-    getElement('txtLicenseKey').value = licenser.LicenseKey;
-    if (licenser.LicenseKey) {
-      this.validateLicenseInOptions(false);
+    
+    getElement('txtLicenseKey').value = quickFilters.Util.licenseInfo.licenseKey;
+    if (quickFilters.Util.licenseInfo.licenseKey) {
+      this.validateLicenseInOptions();
     }
+    // add an event listener for changes:
+    window.addEventListener("quickFilters.BackgroundUpdate", this.validateLicenseInOptions.bind(this));
+    
 		
     let getCopyBtn = getElement('getCopySentToCurrent'),
         getCopyText = quickFilters.Util.getBundleString('quickfilters.button.getOtherAddon','Get {1}');
     getCopyBtn.textContent = getCopyText.replace('{1}','\'Copy Sent to Current\'');
-		this.enablePremiumConfig(licenser.isValidated);
+    
     options.configExtra2Button();		
 		let panels = getElement('quickFilters-Panels');
 		panels.addEventListener('select', function(evt) { quickFilters.Options.onTabSelect(panels,event); } );
 		
+    // dialog buttons are in a shadow DOM which needs to load its own css.
+    // https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
+    let linkEl = document.createElement("link");
+    linkEl.setAttribute("href", "chrome://quickfilters/content/contribute.css");
+    linkEl.setAttribute("type", "text/css");
+    linkEl.setAttribute("rel", "stylesheet");
+    document.documentElement.shadowRoot.appendChild(linkEl);
+        
+    
   } ,
   
   l10n: function l10n() {
@@ -221,17 +232,18 @@ quickFilters.Options = {
         chkLocalFoldersAutorun = getElement('chkLocalFoldersAutorun'),
         chkFoldersShortcut = getElement('chkFoldersShortcut'),
         chkMailsShortcut = getElement('chkMailsShortcut'),
-        chkMultiPaste = getElement('chkMultiPaste');
+        chkMultiPaste = getElement('chkMultiPaste'),
+        newCustomFilter= getElement('newCustomFilter');
     chkLocalFoldersAutorun.disabled = !isEnabled;
     chkFoldersShortcut.disabled = !isEnabled;
     chkMailsShortcut.disabled = !isEnabled;
     chkMultiPaste.disabled = !isEnabled;
+    newCustomFilter.disabled = !isEnabled;
+    
   },
   
-  decryptLicense: function decryptLicense(testMode) {
-		const util = quickFilters.Util,
-		      licenser = util.Licenser,
-					State = licenser.ELicenseState;
+  updateLicenseOptionsUI: function updateLicenseOptionsUI() {
+		const util = quickFilters.Util;
     let getElement = document.getElementById.bind(document),
         validationPassed       = getElement('validationPassed'),
         validationFailed       = getElement('validationFailed'),
@@ -240,8 +252,9 @@ quickFilters.Options = {
         validationInvalidEmail = getElement('validationInvalidEmail'),
         validationEmailNoMatch = getElement('validationEmailNoMatch'),
 				validationDate         = getElement('validationDate'),
-        decryptedMail, decryptedDate,
-				result = State.NotValidated;
+        decryptedMail = quickFilters.Util.licenseInfo.email , 
+        decryptedDate = quickFilters.Util.licenseInfo.expiryDate,
+				result = quickFilters.Util.licenseInfo.status;
     validationPassed.collapsed = true;
     validationFailed.collapsed = true;
 		validationInvalidAddon.collapsed = true;
@@ -251,58 +264,25 @@ quickFilters.Options = {
 		validationDate.collapsed = false;
     this.enablePremiumConfig(false);
     try {
-      this.trimLicense();
-      let txtBox = getElement('txtLicenseKey'),
-          license = txtBox.value;
-      // store new license key
-      if (!testMode) // in test mode we do not store the license key!
-        quickFilters.Preferences.setStringPref('LicenseKey', license);
-      
-      let maxDigits = quickFilters.Crypto.maxDigits, // this will be hardcoded in production 
-          LicenseKey,
-          crypto = licenser.getCrypto(license),
-          mail = licenser.getMail(license),
-          date = licenser.getDate(license);
-      if (quickFilters.Preferences.isDebug) {
-        let test = 
-            "┌───────────────────────────────────────────────────────────────┐\n"
-          + "│ quickFilters.Licenser found the following License components:\n"
-          + "│ Email: " + mail + "\n"
-          + "│ Date: " + date + "\n"
-          + "│ Crypto: " + crypto + "\n"
-          + "└───────────────────────────────────────────────────────────────┘";
-        if (testMode)
-          util.alert(test);
-        util.logDebug(test);
-      }
-      if (crypto)
-        [result, LicenseKey] = licenser.validateLicense(license, maxDigits);
-      else { // reset internal state of object if no crypto can be found!
-        result = State.Invalid;
-				licenser.DecryptedDate = "";
-				licenser.DecryptedMail = "";
-			}
-      decryptedDate = licenser.DecryptedDate;
-      getElement('licenseDate').value = decryptedDate; // invalid ??
-      decryptedMail = licenser.DecryptedMail;
+      getElement('licenseDate').value = decryptedDate; 
       switch(result) {
-        case State.Valid:
+        case "Valid":
           this.enablePremiumConfig(true);
           validationPassed.collapsed=false;
-          // test code
-          // getElement('txtEncrypt').value = LicenseKey;
           break;
-        case State.Invalid:
+        case "Invalid":
 				  validationDate.collapsed=true;
 				  let addonName = '';
 				  switch (license.substr(0,2)) {
-						case 'QF':
-							addonName = 'QuickFolders';
+						case "QF":
+						case "QS":
+							addonName = "QuickFolders";
 						  break;
-						case 'ST':
-							addonName = 'SmartTemplate4';
+						case "ST":
+						case "S1":
+							addonName = "SmartTemplate4";
 						  break;
-						case 'QI':
+						case "QI":
 						default: 
 						  validationFailed.collapsed=false;
 					}
@@ -316,40 +296,40 @@ quickFilters.Options = {
 						validationInvalidAddon.textContent = txt;
 					}
           break;
-        case State.Expired:
+        case "Expired":
           validationExpired.collapsed=false;
           break;
-        case State.MailNotConfigured:
+        case "MailNotConfigured":
 					validationDate.collapsed=true;
           validationInvalidEmail.collapsed=false;
           // if mail was already replaced the string will contain [mail address] in square brackets
           validationInvalidEmail.textContent = validationInvalidEmail.textContent.replace(/\[.*\]/,"{1}").replace("{1}", '[' + decryptedMail + ']');
           break;
-        case State.MailDifferent:
+        case "MailDifferent":
           validationFailed.collapsed=false;
           validationEmailNoMatch.collapsed=false;
+          break;
+        case "Empty":
+          validationDate.collapsed=true;
           break;
         default:
 					validationDate.collapsed=true;
           Services.prompt.alert(null,"quickFilters",'Unknown license status: ' + result);
           break;
       }
-      if (testMode) {
-      //  getElement('txtEncrypt').value = 'Date = ' + decryptedDate + '    Mail = ' +  decryptedMail +  '  Result = ' + result;
-      }
-      else {
-        // reset License status of main instance
-				util.Licenser.ValidationStatus =
-              result != State.Valid ? State.NotValidated : result;
-        util.Licenser.wasValidityTested = true; // no need to re-validate there
-      }
-      
     }    
     catch(ex) {
       util.logException("Error in quickFilters.Options.decryptLicense():\n", ex);
     }
 		return result;
   } ,
+  
+  validateNewKey: async function validateNewKey() {
+    this.trimLicense();
+    let rv = await quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicense", key: document.getElementById("txtLicenseKey").value });
+    // The background script will validate the new key and send a broadcast to all consumers on sucess.
+    // In this script, the consumer is onBackgroundUpdate.
+  },
   
   pasteLicense: function pasteLicense() {
     let trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable),
@@ -367,9 +347,7 @@ quickFilters.Options = {
 			txtBox.value = strLicense;
 			finalLicense = this.trimLicense();
 		}    
-    if (finalLicense) {
-      this.validateLicenseInOptions(false);
-    }
+    this.validateNewKey();
   } ,
   
   validateLicenseInOptions: function validateLicenseInOptions(testMode) {
@@ -380,41 +358,51 @@ quickFilters.Options = {
 			if (addedClass!='free')	el.classList.remove('free');
 		}
 		const util = quickFilters.Util,
-					options = quickFilters.Options,
-					State = util.Licenser.ELicenseState; // main window (for reminders etec)
+					options = quickFilters.Options; 
     let wd = window.document,
         getElement = wd.getElementById.bind(wd),
         btnLicense = getElement("btnLicense"),
 				proTab = getElement("quickFilters-Pro"),
+        titleContainer = getElement("qf-options-header"),
 				beautyTitle = getElement("qf-title");
     try {
-			let result = this.decryptLicense(testMode);
+      // old call to decryptLicense was here
+      // 1 - sanitize License
+      // 2 - validate license
+      // 3 - update options ui with reaction messages; make expiry date visible or hide!; 
+      this.updateLicenseOptionsUI(); // async!
+      
+      // do any notifications for background
+      
+      
+			let result =  quickFilters.Util.licenseInfo.status;
 			switch(result) {
-				case State.Valid:
+				case "Valid":
 					let today = new Date(),
 					    later = new Date(today.setDate(today.getDate()+30)), // pretend it's a month later:
 							dateString = later.toISOString().substr(0, 10);
 					// if we were a month ahead would this be expired?
-					if (util.Licenser.DecryptedDate < dateString) {
+					if (quickFilters.Util.licenseInfo.expiryDate < dateString) {
 						options.labelLicenseBtn(btnLicense, "extend");
 					}
 					else
 				  	btnLicense.collapsed = true;
 					replaceCssClass(proTab, 'paid');
 					replaceCssClass(btnLicense, 'paid');
-					beautyTitle.setAttribute('src', "chrome://quickfilters/content/skin/QuickFilters-title-pro.png");
+          titleContainer.classList.add("pro");
 				  break;
-				case State.Expired:
+				case "Expired":
 					options.labelLicenseBtn(btnLicense, "renew");
 					replaceCssClass(proTab, 'expired');
 					replaceCssClass(btnLicense, 'expired');
 				  btnLicense.collapsed = false;
-					beautyTitle.setAttribute('src', "chrome://quickfilters/content/skin/QuickFilters-title-pro.png");
+          titleContainer.classList.add("pro");
 					break;
 				default:
 					options.labelLicenseBtn(btnLicense, "buy");
 				  btnLicense.collapsed = false;
 					replaceCssClass(proTab, 'free');
+          titleContainer.classList.remove("pro");
 			}
       options.configExtra2Button();
 			util.logDebug('validateLicense - result = ' + result);
@@ -453,8 +441,7 @@ quickFilters.Options = {
 		const prefs = quickFilters.Preferences,
 		      util = quickFilters.Util,
 					options = quickFilters.Options,
-		      licenser = util.Licenser,
-					State = licenser.ELicenseState;
+		      State = quickFilters.Util.licenseInfo.status;
 		if (!document.documentElement.getButton) {
 			util.logDebug("Cannot configure extra2 button, likely because this is a modern version of Thunderbird.");
 			return;
@@ -472,23 +459,23 @@ quickFilters.Options = {
 					donateButton.addEventListener(
 						"click", 
 					  function(event) { 
-							licenser.showDialog('licenseTab'); 
+              quickFilters.Util.showLicenseDialog('licenseTab'); 
 						}, 
 						false);
 					
 				}
 				else {
-					switch (licenser.ValidationStatus) {
-						case State.NotValidated:
+					switch (State) {
+						case "NotValidated":
 						  // options.labelLicenseBtn(donateButton, "buy"); // hide?
 						  break;
-						case State.Expired:
+						case "Expired":
 						  options.labelLicenseBtn(donateButton, "renew");
 						  break;
-						case State.Valid:
+						case "Valid":
 							donateButton.collapsed = true;
 							break;
-						case State.Invalid:
+						case "Invalid":
 							options.labelLicenseBtn(donateButton, "buy");
 							break;
 						default:
@@ -551,7 +538,12 @@ quickFilters.Options = {
       chkMerge.checked = true;
       quickFilters.Preferences.setBoolPref("merge.autoSelect", true);
     }
-  }   
+  }   ,
+  
+  notifyToolbars: function() {
+    // update toolbar of message list window
+    quickFilters.Util.notifyTools.notifyBackground({ func: "setupListToolbar" });
+  }
 
 } // Options
 

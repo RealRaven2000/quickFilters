@@ -34,12 +34,13 @@
   z-index: 1;
   opacity: 0.3;
   background-image: url("../chrome/content/skin/QuickFilters_32.svg");
-  background-position: 2em 3em; 
-  background-repeat: no-repeat; 
-  background-size: 70%;
-  margin-left: -5%;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 11em;
+  margin-left: -10%;
   height: 45%;
-  width: 40%;
+  width: 100%;
+  pointer-events: none;
 }
 
 ul.actions {
@@ -98,7 +99,8 @@ div[collapsed=true]{
   color: white;
 }
 
-.importantInfo p b {
+.importantInfo p b,
+.importantInfo li b {
   color: yellow !important;
   background-color: transparent;
 }
@@ -122,17 +124,37 @@ div[collapsed=true]{
 }
 
 #specialOffer #bargainIcon {
-  background: transparent !important;
   cursor: pointer;
   float: right;
   position: relative;
-  right: -2em;
-  top: -1em;
+  right: -3em;
+  top: -3em;
+  transition: transform 0.5s ease;
+  z-index: 10000;
+  animation: border-pulsate 3s ease infinite;  
+  border: 15px solid rgba(60, 60, 90, 0.6);
+  background-color: rgba(60, 60, 90, 0.6);
+  border-radius: 95px;
+}
+
+@keyframes border-pulsate {
+  0%   { background-color: rgba(60, 60, 90, 0.6); border-color: rgba(60, 60, 90, 0.2); }
+  50%  { background-color: rgba(60, 60, 90, 0);   border-color: rgba(60, 60, 90, 0); }
+  100% { background-color: rgba(60, 60, 90, 0.6); border-color: rgba(60, 60, 90, 0.2); }
+}
+
+
+#specialOffer #bargainIcon:hover {
+  transform: rotate(25deg);  
+  animation: none;
+  border-color: transparent;
+  background-color: transparent;
 }
 
 #specialBox #specialOffer {
   background: transparent !important;
 }
+
 
 #purchaseLicenseListItem { /* test */
 /*

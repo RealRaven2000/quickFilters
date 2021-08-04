@@ -85,30 +85,9 @@
       },
 
       {
-        "name": "openLinkExternally",
-        "type": "function",
-        "async": true,
-        "parameters": [
-          {
-            "name": "url",
-            "type": "string",
-            "description": "url to open in browser"
-          }
- 
-
-        ]
-      },
-      
-      {
         "name": "showVersionHistory",
         "type": "function",
-        "parameters": [
-          {
-            "name": "ask",
-            "type": "boolean",
-            "description": "ask before showing change log tab"
-          }
-        ]
+        "parameters": []
       },      
       
       {

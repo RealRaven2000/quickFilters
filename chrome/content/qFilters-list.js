@@ -817,23 +817,9 @@ quickFilters.List = {
       orgUpdateBtn();
       qList.updateButtons();
     }
-		// Toolbar
-		let toolbox = getElement("quickfilters-toolbox"),
-		    hbs = document.getElementsByTagName('hbox'),
-		  hbox = hbs ? hbs[0] : null ;
-		let isToolbar = false;
-		if (!prefs.getBoolPref("toolbar")) {
-		  toolbox.parentNode.removeChild(toolbox);
-		}
-		else if (hbox && toolbar) { // move toolbox up
-			hbox.parentNode.insertBefore(toolbox, hbox);
-			isToolbar = true;
-			if (quickFilters.Util.AssistantActive) {
-				let button = getElement('quickFiltersBtnStart');
-				button.checked = true;			
-			}
-		}
-		
+    
+    qList.setupToolbar();
+    
 		// add event listener for changing account
     let dropDown = getElement("serverMenu");
 		if (dropDown) {
@@ -849,15 +835,6 @@ quickFilters.List = {
 
     // check whether [Bug 450302] has landed - Thunderbird 24.0
     let nativeSearchBox = getElement("searchBox");
-    //move buttons to the correct place
-    let down = getElement("reorderDownButton"),
-        mergeButton = getElement("quickFilters-mergeButton");
-    if (mergeButton) {
-		  if (isToolbar)
-				mergeButton.parentNode.removeChild(mergeButton); // remove unneccessary button
-			else
-				down.parentNode.insertBefore(mergeButton, getElement("deleteButton").nextSibling);
-    }
     
     let sb = nativeSearchBox;
     if (sb) {
@@ -1090,14 +1067,20 @@ quickFilters.List = {
   
   searchType: 'name', // standard filter search. looks only at filter names
   
-  toggleSearchType: function toggleSearchType(type) {
+  toggleSearchType: function toggleSearchType(type, interActive=false) {
 		const util = quickFilters.Util;
-    if (this.searchType==type) 
+    if (this.searchType == type) 
       return;
-    this.searchType=type;
+    this.searchType = type;
 		
-		if(type != 'name') {
+		if(type != "name" && interActive) {
 			util.popupProFeature("Advanced search (type=" + type + ")", true);
+      if (!util.hasPremiumLicense()) {
+        this.searchType = "name";
+        let mp = document.getElementById("quickFiltersSearchContext");
+        mp.firstChild.setAttribute("checked",true);
+        util.logDebug("toggleSearchType - Switching back to search for name because no pro license.");
+      }
 		}
     this.rebuildFilterList(); // used the global rebuildFilterList!
   } ,
@@ -2230,7 +2213,6 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 				  util.getBundleString('quickfilters.debug.fixFilters.none',"No faulty filters found."),
 					"quickFilters", "debug-success.png", 0
 				);
-			util.logDebug();
 			document.getElementById('quickFiltersTroubleshoot').classList.remove("faulty");
 		}
 		
@@ -2243,6 +2225,41 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
   setAssistantButton: function(active) {
     let button = document.getElementById('quickFiltersBtnStart');
     button.checked = active;
+  } ,
+  
+  setupToolbar: function() {
+		const util = quickFilters.Util,
+				  prefs = quickFilters.Preferences,
+          getElement = document.getElementById.bind(document);
+		// Toolbar
+		let toolbox = getElement("quickfilters-toolbox"),
+		    hbs = document.getElementsByTagName('hbox'),
+		  hbox = hbs ? hbs[0] : null ;
+		let isToolbar = false;
+		if (!prefs.getBoolPref("toolbar")) {
+		  // toolbox.parentNode.removeChild(toolbox);
+      toolbox.collapsed = true;
+		}
+		else if (hbox && toolbar) { // move toolbox up
+			hbox.parentNode.insertBefore(toolbox, hbox);
+			isToolbar = true;
+			if (quickFilters.Util.AssistantActive) {  // needs to bve asked from background script!
+				let button = getElement('quickFiltersBtnStart');
+				button.checked = true;			
+			}
+      toolbox.collapsed = false;
+		}
+    //move buttons to the correct place
+    let down = getElement("reorderDownButton"),
+        mergeButton = getElement("quickFilters-mergeButton");
+    if (mergeButton) {
+		  if (isToolbar)
+				mergeButton.parentNode.removeChild(mergeButton); // remove unneccessary button
+			else
+				down.parentNode.insertBefore(mergeButton, getElement("deleteButton").nextSibling);
+    }
+		
+    
   } ,
   
   dummy: function() {

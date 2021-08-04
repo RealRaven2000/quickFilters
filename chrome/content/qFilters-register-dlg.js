@@ -248,18 +248,13 @@ var Register = {
     document.getElementById('firstName').value = names[0];
     document.getElementById('lastName').value = names.length > 1 ? names[names.length-1] : "";
     document.getElementById('email').value = email;
-  } ,
-  
-    
+  } 
   
 }
 
 
 
 // initialize the dialog and do l10n
-//	ondialogcancel="var cancel=quickFilters.Licenser.cancel.bind(quickFilters.Licenser); cancel();"
-//	onload="var load=quickFilters.Licenser.load.bind(quickFilters.Licenser); load();"
-
 window.document.addEventListener('DOMContentLoaded', 
   Register.l10n.bind(Register) , 
   { once: true });

@@ -1,4 +1,3 @@
-@import url('chrome://quickfilters/content/contribute.css');
 @import url('chrome://quickfilters/content/skin/license.css');
 
 /****** window & top panel ******/
@@ -10,36 +9,63 @@
   min-height:360px;
 }
 
+#qf-options-header {
+  background-image: url("chrome://quickfilters/content/skin/QuickFilters-title.png");
+  background-repeat: no-repeat;
+  background-position: left center;   
+	border: none;
+	color: #ffffff;
+  display: flex;
+  
+	margin: 0 3em 0 0;
+  padding-block: 20px;
+	background-color: transparent !important;
+  width: 359px; 
+}
+
+#qf-options-header.pro {
+  background-image: url("chrome://quickfilters/content/skin/QuickFilters-title-pro.png");
+}
+
 #qf-options-version {
-  margin-top: 13px;
-  margin-left: -4em; /* force into title the box */
-  padding-right: 4em;
+  border: 1px transparent;
+  border-radius: 4px;
+  color: #FFFFFF;
+  cursor: pointer;
   font: 12pt Calibri,arial,sans-serif;
   font-weight: bold;
-  color: #FFFFFF;
+  margin-left: auto;
+  margin-right: 1.3em;
+  padding: 0 3px;
   text-shadow: #000 0 0 1px, #606000 0 0 2px, #000 2px 2px 3px;
-  cursor: pointer;
 }
 
 #qf-options-version:hover {
-	border: 1px solid #883333;
-	box-shadow: 3px 3px 2px rgba(40,40,40,0.6);
+	border: 1px rgba(100,60,60,0.6);
+	box-shadow: 3px 3px 2px rgba(40,40,40,0.3);
 }
 
 #qf-header-container {
-	width: 100%;
 	-moz-box-sizing: border-box;
+	width: 100%;
+  margin-bottom: 8px;
 }
 
 #qf-options-icon {
 	height: 64px !important;
 	width: 64px !important;
 	padding: 0;
-	margin: 15px 5px 0;
+	margin: 0 5px 0;
+}
+
+/* vertically center YT button */
+#youtubeContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #qf-youtubeBox {
-  margin-top: 25px;
   padding: 10px;
 }
 
@@ -48,19 +74,22 @@
 	max-height: 24px;
 }
 
-#qf-options-header {
-	margin: 5px;
-    padding-block: 20px;
-	border: none;
-	color: #ffffff;
-	background-color: transparent !important;
+#helpBox {
+  display: block;
+  position: fixed;
+  top: 26px;
+  right: 16px;
 }
 
-#qf-options-header .dialogheader-title {
-	margin: 0px !important;
-	font-size: larger;
-	font-weight: bold;
+#quickFiltersBtnHelp {
+	list-style-image: url("chrome://quickfilters/content/skin/help.svg");
 }
+
+#quickFiltersBtnHelp image.toolbarbutton-icon {
+  width: 24px;
+  fill: rgb(0,40,160); /* not working ? */
+}
+
 
 #qf-StandardColors {
 	padding: 3px 10px;
@@ -178,7 +207,7 @@ label.text-link,
 label.text-link[visited="true"] {
 	border: 1px #AAA solid;
 	padding: 4px 2px 6px 5px !important;
-	text-decoration: underline !important;
+	text-decoration: underline;
 	vertical-align: middle !important;
 	text-align: center;
 	font-size: 12px;
@@ -204,12 +233,14 @@ label#L1:hover {
 	color: #FFFFFF !important;
 	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
 	border: 1px #24463C solid;
+	font-weight: bold;
 }
 
 label#L1:active {
 	color: #FFFFFF !important;
 	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
 	border: 1px #24463C solid;
+	font-weight: bold;
 }
 
 label#L1:active a {
@@ -246,6 +277,7 @@ label#L2:focus {
 	background-color: rgb(251,202,159);
 	background-image: linear-gradient(to bottom, #6b050e 0%,#cc0011 16%,#ed3b4a 85%,#ed8080 100%) !important;
 	border: 1px #006 solid;
+	font-weight: bold;
 	color: #FFFFFF !important;
 }
 
@@ -260,6 +292,8 @@ label#L2:active {
 label#L3  {
 	color: #fff !important;
   background: linear-gradient(to bottom, rgba(241,194,75,1) 0%, rgba(241,194,75,1) 6%, rgba(172,128,6,1) 34%, rgba(240,188,46,1) 100%);
+  text-decoration: none !important;
+
 }
 
 label#L3:hover, label#L3:focus {
@@ -268,13 +302,24 @@ label#L3:hover, label#L3:focus {
 	border: 1px #802D19 solid;
 	color: #82370A !important;
 	font-weight: bold;
-  list-style-image: url("chrome://messenger/skin/preferences/arrow_yellow.png");
 }
 
 label#L3:active {
 	color: #BA4E0B !important;
 	border: 1px #802D19 solid;
 }
+
+/* Splash screen - blue */
+label#L4  {
+	color: #fff !important;
+  background: linear-gradient(rgb(3, 128, 191) 0%, rgb(0, 110, 183) 100%);
+  text-decoration: none !important;
+}
+
+label#L4:hover, label#L4:active  {
+	font-weight: bold;
+}
+
 
 
 /* bugs - cherry-red */
@@ -297,19 +342,17 @@ label#L1,label#L2,label#L3,label#L4,label#L5 {
 	width: auto;
 	text-shadow: none !important;
 	font-style: normal;
+  font-size: 14px;
 }
 
 
-description.quickhelp-desc, description.quickhelp-dbg {
-	position:absolute;
+div.quickhelp-desc, description.quickhelp-dbg {
 	text-align:justify;
 	max-width: 620px;
 	padding: 2px 0px;
 	margin: 1px 0px;
 	line-height:1.2em;
 	bottom:5px;
-	overflow-y: scroll;
-	overflow-x: auto;
 }
 
 

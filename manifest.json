@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.3pre66",
+  "version": "5.3",
   "default_locale": "en",
   "author": "Axel Grude, Klaus Buecher/opto",
   "developer": {
@@ -12,17 +12,34 @@
   "applications": {
     "gecko": {
       "id": "quickFilters@axelg.com",
-      "strict_min_version" : "78.0"
+      "strict_min_version" : "78.0",
+      "strict_max_version" : "91.0a1"
     }
   },
   "background": {
     "page": "qFi-background.html"
   },
   "permissions": [
-    "notifications",
-    "accountsRead"
   ],
   "experiment_apis": {
+    "ex_accounts": {
+      "schema": "chrome/content/api/ex_accounts/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["ex_accounts"]],
+        "script": "chrome/content/api/ex_accounts/implementation.js"
+
+      }
+    },
+    "ex_notifications": {
+      "schema": "chrome/content/api/ex_notifications/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["ex_notifications"]],
+        "script": "chrome/content/api/ex_notifications/implementation.js"
+
+      }
+    },
     "WindowListener": {
       "schema": "chrome/content/api/WindowListener/schema.json",
       "parent": {
@@ -45,8 +62,8 @@
       "parent": {
         "scopes": ["addon_parent"],
         "paths": [["NotifyTools"]],
-        "script": "chrome/content/api/NotifyTools/implementation.js"
-
+        "script": "chrome/content/api/NotifyTools/implementation.js",
+        "events": ["startup"]
       }
     },
     "Utilities": {
@@ -55,7 +72,6 @@
         "scopes": ["addon_parent"],
         "paths": [["Utilities"]],
         "script": "chrome/content/api/Utilities/implementation.js"
-
        }
     }
   },

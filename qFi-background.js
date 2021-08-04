@@ -36,10 +36,20 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
       let url = browser.runtime.getURL("popup/installed.html");
       await browser.windows.create({ url, type: "popup", width: 900, height: 750, });
     }
-    break;
+      break;
     // see below
     case "update":
     {
+      // set a flag which will be cleared by clicking the [quickFilters assistant] button once
+      setTimeout(
+        function() {
+          messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
+          messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        },
+        200
+      ); 
+      
+      /*
       let currentLicenseInfo = currentLicense.info;
       if (currentLicenseInfo.status == "Valid") {
         // suppress update popup for users with licenses that have been recently renewed
@@ -52,19 +62,35 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
           if (isDebug) console.log("quickFilters onInstalled - Omitting update popup!");
           return;
         }
-      }      
+      }
       
       let url = browser.runtime.getURL("popup/update.html");
       let screenH = window.screen.height,
           windowHeight = (screenH > 870) ? 870 : screenH;
       await browser.windows.create({ url, type: "popup", width: 850, height: windowHeight, });
+      */
     }
-    break;
+      break;
+    default:
+      messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+      break;
   }
 });
     
+    
+function showSplash() {
+  // alternatively display this info in a tab with browser.tabs.create(...)  
+  let url = browser.runtime.getURL("popup/update.html");
+  let screenH = window.screen.height,
+      windowHeight = (screenH > 870) ? 870 : screenH;  
+  browser.windows.create({ url, type: "popup", width: 1000, height: windowHeight, allowScriptsToClose: true,});
+}
+    
 async function main() {
   const legacy_root = "extensions.quickfilters.";
+  // load defaults
+  messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
+  
   let key = await messenger.LegacyPrefs.getPref(legacy_root + "LicenseKey"),
       forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(legacy_root + "licenser.forceSecondaryIdentity"),
       isDebug = await messenger.LegacyPrefs.getPref(legacy_root + "debug"),
@@ -100,6 +126,10 @@ async function main() {
       case "slideAlert":
         util.slideAlert(...data.args);
         break;
+        
+      case "splashScreen":
+        showSplash();
+        break;
       
       case "getLicenseInfo": 
         return currentLicense.info;
@@ -130,10 +160,18 @@ async function main() {
         messenger.NotifyTools.notifyExperiment({event: "setAssistantButton", detail: {active: data.active} });
         break;
         
+      case "setupListToolbar":
+        messenger.NotifyTools.notifyExperiment({event: "setupListToolbar"});
+        break;
+        
       case "toggleCurrentFolderButtons":
         messenger.NotifyTools.notifyExperiment({event: "toggleCurrentFolderButtons"});
         break;
-
+        
+      case "updatequickFiltersLabel":
+        messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        break;
+        
       case "updateLicense":
         let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(legacy_root + "licenser.forceSecondaryIdentity"),
             isDebugLicenser = await messenger.LegacyPrefs.getPref(legacy_root + "debug.premium.licenser");
@@ -148,15 +186,12 @@ async function main() {
         // Update background license.
         await messenger.LegacyPrefs.setPref(legacy_root + "LicenseKey", newLicense.info.licenseKey);
         currentLicense = newLicense;
-        // Broadcast
+        // Broadcast -without event is used for the licenser.
         messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info})
         return true;
     }
   });
   
-
-  // load defaults
-  messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
     
   messenger.WindowListener.registerChromeUrl([ 
         ["content", "quickfilters", "chrome/content/"],
@@ -193,6 +228,7 @@ async function main() {
   * the parameter of startListening(). This object also contains an extension member.
   */
   messenger.WindowListener.startListening();
+
 }
 
 main();

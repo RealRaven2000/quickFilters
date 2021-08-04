@@ -20,7 +20,43 @@
 }
 
 /* All toolbar buttons */
-#quickfilters-toolbar > toolbabutton {
+
+[lwthemetextcolor] #quickfilters-toolbox {
+  background-image: var(--lwt-header-image) !important;
+}
+[lwthemetextcolor] toolbarbutton {
+  fill: var(--lwt-text-color, --lwt-toolbar-field-color);
+}
+
+#quickfilters-toolbar {
+  height: 38px;
+}
+
+
+#quickfilters-toolbar > toolbarbutton {
+  transition: padding 0.3s, margin 0.3s;
+}
+
+#quickfilters-toolbar > toolbarbutton:hover {
+  margin: 2px -2px -2px -2px;
+  padding-left: 3px !important;
+	padding-right: 3px !important;
+  transition: padding 0.3s, margin 0.3s;
+}
+    
+    
+#quickfilters-toolbar > toolbarbutton image {
+  transition: width 0.3s, height 0.3s;
+}
+
+/* zoom the images */
+#quickfilters-toolbar > toolbarbutton:hover image {
+  height: 32px;
+  width: 32px;
+  transition: width 0.3s, height 0.3s;
+}
+
+#quickfilters-toolbar > toolbarbutton {
   display: -moz-box;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -112,14 +148,26 @@
 
 #quickFiltersTroubleshoot {
 	list-style-image: url("chrome://quickfilters/content/skin/bug.svg");
+  fill: #26870b; /* dark green */
 }
+
+[lwthemetextcolor="bright"]  #quickFiltersTroubleshoot {
+  fill: #9df335;  /* bright green */
+}
+
 #quickFiltersTroubleshoot.faulty {
-	fill: red;
+	fill: red !important;
 }
 
 #quickFiltersBtnDupe {
   list-style-image: url("chrome://quickfilters/content/skin/duplicates.svg");
+  fill: rgb(150,0,0);
 }
+[lwthemetextcolor="bright"] #quickFiltersBtnDupe {
+  fill: rgb(240,90,90);
+}
+
+
 #quickFiltersBtnCancelDuplicates, #quickFiltersBtnCancelFound {
   list-style-image: url("chrome://quickfilters/content/skin/cancel.svg");
 }
@@ -154,7 +202,7 @@
 #reorderBottomButton .button-icon,
 #reorderDownButton .button-icon,
 #reorderUpButton .button-icon {
-    margin-inline-end: 2px;
+  margin-inline-end: 2px;
 	-moz-context-properties: fill;
 	fill: currentColor;
 }
@@ -171,8 +219,20 @@
 
 #btnSaveFilters {
 	list-style-image: url("chrome://quickfilters/content/skin/save.svg");
+  fill: #972897;
+}
+
+[lwthemetextcolor="bright"] #btnSaveFilters  {
+  fill: #d373d3;
 }
 
 #btnLoadFilters {
 	list-style-image: url("chrome://quickfilters/content/skin/open.svg");
+  fill: #af4a0da1;
 }
+
+[lwthemetextcolor="bright"] #btnLoadFilters  {
+  fill: #f3d90ed1;
+}
+
+

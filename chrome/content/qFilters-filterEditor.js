@@ -311,7 +311,7 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
       }
       
       
-      if (!util.hasPremiumLicense(true)) {
+      if (!util.hasPremiumLicense()) {
         util.popupProFeature("sortSearchTerms", true);
         return;
       }

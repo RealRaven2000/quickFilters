@@ -386,7 +386,7 @@ export class Licenser {
     // check mail accounts for setting
     // if not found return MailNotConfigured
     
-    let accounts = await messenger.accounts.list();
+    let accounts = await messenger.ex_accounts.list();
     let AllowFallbackToSecondaryIdentiy = false;
 
     if (this.key_type == 0) {
@@ -396,7 +396,7 @@ export class Licenser {
       } else {
         let hasDefaultIdentity = false;
         for (let account of accounts) {
-          let defaultIdentity = await messenger.accounts.getDefaultIdentity(account.id);
+          let defaultIdentity = await messenger.ex_accounts.getDefaultIdentity(account.id);
           if (defaultIdentity) {
             hasDefaultIdentity = true;
             break;
@@ -413,7 +413,7 @@ export class Licenser {
     }
     
     for (let account of accounts) {
-      let defaultIdentity = await messenger.accounts.getDefaultIdentity(account.id);
+      let defaultIdentity = await messenger.ex_accounts.getDefaultIdentity(account.id);
       if (defaultIdentity && !this.ForceSecondaryIdentity) {
 
         this.logDebug("quickFilters Licenser", {

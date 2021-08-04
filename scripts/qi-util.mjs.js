@@ -1,5 +1,5 @@
 export function slideAlert(title, text, icon) {
-	messenger.notifications.create({
+	messenger.ex_notifications.create({
 		type: "basic",
 		title,
 		message: text,

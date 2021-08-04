@@ -61,8 +61,7 @@ quickFilters.Worker = {
     }
     
     util.logDebugOptional ("filters", "toggle_FilterMode(" + active + ")");
-    let notificationId,
-        notifyBox;
+    let notifyBox;
 
     if (!silent) {
       
@@ -72,29 +71,22 @@ quickFilters.Worker = {
       else if( typeof gNotification == 'object' && gNotification.notificationbox) { // Tb 68
         notifyBox = gNotification.notificationbox;
       }
-      else {
-        notificationId = 'mail-notification-box';
-        notifyBox = document.getElementById (notificationId);
-      }
+      
       let notificationKey = "quickfilters-filter";
-      
-      
       // do a tidy up in case this is already open!
-      if (notificationId) { 
-        if (notifyBox) {
-          try {
-            if (window.QuickFolders) 
-              removeOldNotification(notifyBox, false, 'quickfolders-filter');
-          } catch(ex) {;}       
-          
-          let item = notifyBox.getNotificationWithValue(notificationKey);
-          if (item)
-            notifyBox.removeNotification(item, false); // second parameter in Postbox(not documented): skipAnimation
-        }
-        else {
-          util.logToConsole("Sorry - I cannot show notifyBox, cannot find element '" + notificationId + "'\n" +
-            "toggle_FilterMode(active=" + active + ", silent=false);");
-        }
+      if (notifyBox) {
+        try {
+          if (window.QuickFolders) 
+            removeOldNotification(notifyBox, false, 'quickfolders-filter');
+        } catch(ex) {;}       
+        
+        let item = notifyBox.getNotificationWithValue(notificationKey);
+        if (item)
+          notifyBox.removeNotification(item, false); // second parameter in Postbox(not documented): skipAnimation
+      }
+      else {
+        util.logToConsole("Sorry - I cannot show notifyBox, cannot find element \n" +
+          "toggle_FilterMode(active=" + active + ", silent=false);");
       }
 
       if (active
