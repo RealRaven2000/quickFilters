@@ -111,7 +111,20 @@
     "message" : "Obnovite licenco."
   },  
   "special-offer-content" : {
-    "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {boldStart} 30% znižanje {boldEnd} cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {boldStart} 16. aprila {boldEnd}."
+    "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {boldStart} $reduction$ znižanje {boldEnd} cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "16. aprila"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "22. avgusta"
   },
   "special-offer-head" : {
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
@@ -178,7 +191,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Dodani finski, portugalski in poljski prevodi (z google translate) {L2} {L1} V orodni vrstici s seznamom filtrov za sporočila so dodane barvne ikone in izboljšana podpora tem. {L2} {L1} Različni popravki za združljivost s Thunderbird 91. {L2 } {L1} Popravljeno: premikanje pošte s kontekstnim menijem premakne napačno pošto (pod izbiro je preklopilo na pošto in jo namesto tega premaknilo). {L2}"
+    "message" : "{L1}{boldStart}quickFilters je zdaj združljiv s programom Thunderbird 91{boldEnd}, ki začenja naslednje obdobje ESR (2021-2022).{L2} {L1}quickFilters si zapomni seznam kopiranih filtrov, ki jih večkrat vstavi v druge račune.{L2}{L1}Dodani finski, portugalski in poljski prevodi (z google translate){L2} {L1}V orodni vrstici s seznamom filtrov za sporočila so dodane barvne ikone in izboljšana podpora tem.{L2} {L1}Različni popravki za združljivost s Thunderbird 91.{L2}{L1}Popravljeno: premikanje pošte s kontekstnim menijem premakne napačno pošto (pod izbiro je preklopilo na pošto in jo namesto tega premaknilo).{L2} {L1}Začetni zaslon se ne prikaže več samodejno. Namesto tega ga lahko enkrat odprete tako, da kliknete gumb za pomoč pri hitrih filtrih ali kadar koli na zavihku za podporo.{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

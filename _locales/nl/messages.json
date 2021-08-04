@@ -801,9 +801,6 @@
   "quickfilters.clone.undetermined": {
     "message": "Kan geselecteerd filter niet vaststellen"
   },
-  "quickfilters.confirmVersionLink": {
-    "message": "Versiegeschiedenis van quickFilters weergeven?"
-  },
   "quickfilters.copy.warning.emptyClipboard": {
     "message": "Geen filters op het klembord!"
   },
@@ -1146,6 +1143,9 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters-assistent"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters is bijgewerkt!"
+  },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Activeer de filterassistent (klik met de rechtermuisknop om de voorkeuren van quickFilters weer te geven)"
   },
@@ -1153,7 +1153,20 @@
     "message": "Verleng uw licentie."
   },
   "special-offer-content": {
-    "message": "Dit is de beste kans om een licentie te krijgen, want er is een {boldStart} 30% korting {boldEnd} op de prijs van een quickFilters Pro-licentie om 9 jaar quickFilters te vieren! Deze speciale aanbieding is beschikbaar tot {boldStart} 16 april {boldEnd}."
+    "message": "Dit is de beste kans om een licentie te krijgen, want er is een {boldStart} $reduction$ korting {boldEnd} op de prijs van een quickFilters Pro-licentie om 9 jaar quickFilters te vieren! Deze speciale aanbieding is beschikbaar tot {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "22 augustus"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "22 augustus"
   },
   "special-offer-head": {
     "message": "Help quickFilters om door te gaan!"
@@ -1235,7 +1248,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1}Finse, Portugese en Poolse vertalingen toegevoegd (met google translate){L2}{L1}Gekleurde pictogrammen en verbeterde thema-ondersteuning toegevoegd in de werkbalk voor berichtenfilterlijst.{L2}{L1}Verschillende oplossingen voor compatibiliteit met Thunderbird 91.{L2 }{L1}Opgelost: bij het verplaatsen van e-mails met contextmenu worden verkeerde e-mails verplaatst (er werd overgeschakeld naar e-mail onder de selectie en in plaats daarvan verplaatst).{L2}"
+    "message": "{L1}{boldStart}quickFilters is nu compatibel met Thunderbird 91{boldEnd}, dat in de volgende ESR-periode (2021-2022) begint.{L2} {L1}quickFilters onthoudt een lijst met gekopieerde filters om meerdere keren in andere accounts in te voegen.{L2} {L1}Finse, Portugese en Poolse vertalingen toegevoegd (met google translate){L2} {L1}Gekleurde pictogrammen en verbeterde thema-ondersteuning toegevoegd in de werkbalk voor berichtenfilterlijst.{L2} {L1}Verschillende oplossingen voor compatibiliteit met Thunderbird 91.{L2} {L1}Opgelost: bij het verplaatsen van e-mails met contextmenu worden verkeerde e-mails verplaatst (er werd overgeschakeld naar e-mail onder de selectie en in plaats daarvan verplaatst).{L2} {L1}Het Splash-scherm wordt niet meer automatisch weergegeven. U kunt het in plaats daarvan één keer openen door op de quickFilters-assistentknop te klikken of op elk gewenst moment via het ondersteuningstabblad.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

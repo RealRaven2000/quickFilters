@@ -10,7 +10,7 @@
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
-    "message": "Stai ora eseguendo la {boldStart} versione $addonVer$ {boldEnd} su Thunderbird $appVer$.",
+    "message": "Vous exécutez maintenant {boldStart} version $addonVer$ {boldEnd} sur Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -801,9 +801,6 @@
   "quickfilters.clone.undetermined": {
     "message": "Impossible de déterminer quel filtre est utilisé"
   },
-  "quickfilters.confirmVersionLink": {
-    "message": "Afficher l'historique de version de quickFilters ?"
-  },
   "quickfilters.copy.warning.emptyClipboard": {
     "message": "Aucun filtre dans le presse-papiers !"
   },
@@ -1146,6 +1143,9 @@
   "quickfiltersToolbarButton.label": {
     "message": "Assistant quickFilters"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters a été mis à jour !"
+  },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Activer l'assistant de filtrage (clic droit pour afficher les préférences de quickFilters)"
   },
@@ -1153,7 +1153,20 @@
     "message": "Renouvelez votre licence."
   },
   "special-offer-content": {
-    "message": "C'est maintenant la meilleure opportunité d'obtenir une licence car il y a une {boldStart} réduction de 30% {boldEnd} sur le prix d'une licence quickFilters Pro pour célébrer les 9 ans de QuickFolders! Cette offre spéciale sera disponible jusqu'au {boldStart} 16 avril {boldEnd}."
+    "message": "C'est maintenant la meilleure opportunité d'obtenir une licence car il y a une {boldStart} réduction de $reduction$ {boldEnd} sur le prix d'une licence quickFilters Pro pour célébrer les 9 ans de QuickFolders! Cette offre spéciale sera disponible jusqu'au {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "August 22"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "22 août"
   },
   "special-offer-head": {
     "message": "Veuillez aider quickFilters à continuer!"
@@ -1235,7 +1248,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1}Ajout de traductions en finnois, portugais et polonais (à l'aide de google translate){L2}{L1}Ajout d'icônes colorées et prise en charge améliorée des thèmes dans la barre d'outils de la liste de filtres de messages.{L2}{L1}Divers correctifs pour la compatibilité avec Thunderbird 91.{L2 }{L1}Corrigé : le déplacement des e-mails avec le menu contextuel déplace les e-mails erronés (il passe aux e-mails sous la sélection et les déplace à la place). {L2}"
+    "message": "{L1}{boldStart}quickFilters est désormais compatible avec Thunderbird 91{boldEnd}, qui commence la prochaine période ESR (2021-2022).{L2} {L1}quickFilters mémorise la liste des filtres copiés à insérer plusieurs fois dans d'autres comptes.{L2}{L1}Ajout de traductions en finnois, portugais et polonais (à l'aide de google translate){L2} {L1}Ajout d'icônes colorées et prise en charge améliorée des thèmes dans la barre d'outils de la liste de filtres de messages.{L2} {L1}Divers correctifs pour la compatibilité avec Thunderbird 91.{L2} {L1}Corrigé : le déplacement des e-mails avec le menu contextuel déplace les e-mails erronés (il passe aux e-mails sous la sélection et les déplace à la place).{L2} {L1}L'écran de démarrage ne s'affiche plus automatiquement. Vous pouvez à la place l'ouvrir une fois en cliquant sur le bouton assistant QuickFilters ou à tout moment depuis l'onglet support.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

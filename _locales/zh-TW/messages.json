@@ -117,7 +117,20 @@
     "message": "{boldStart}尊敬的{name} {boldEnd}：您現在可以幫助將來的quickFilters。 雷鳥的更多重大變化即將到來，我需要{boldStart}您的幫助{boldEnd}來跟上！"
   } ,
   "special-offer-content" : {
-    "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {boldStart} 30％{boldEnd}！ 此特別優惠將持續到 {boldStart} 4月16日{boldEnd}."
+    "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {boldStart} $reduction$ {boldEnd}！ 此特別優惠將持續到 {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "4月16日"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "8月22日"
   },
   "support-preference" : {
     "message": "這是支持$addonName$的首選方式。",
@@ -178,7 +191,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
   },  
   "whats-new-list" : {
-    "message" : "{L1}添加了芬蘭語、葡萄牙語和波蘭語翻譯（使用谷歌翻譯）{L2}{L1}添加了彩色圖標並改進了消息過濾器列表工具欄中的主題支持。{L2}{L1}各種修復以與 Thunderbird 91 兼容。{L2 }{L1}已修復：使用上下文菜單移動郵件會移動錯誤的郵件（它切換到選擇下方的郵件並改為移動）。 {L2}"
+    "message" : "{L1}{boldStart}quickFilters 現在與 Thunderbird 91 兼容{boldEnd}，Thunderbird 91 開始下一個 ESR 週期（2021-2022）。{L2} {L1}quickFilters 記住要多次插入其他帳戶的複製過濾器列表。{L2} {L1}添加了芬蘭語、葡萄牙語和波蘭語翻譯（使用谷歌翻譯）{L2} {L1}添加了彩色圖標並改進了消息過濾器列表工具欄中的主題支持。{L2}{L1}各種修復以與 Thunderbird 91 兼容。{L2} {L1}已修復：使用上下文菜單移動郵件會移動錯誤的郵件（它切換到選擇下方的郵件並改為移動）。{L2} {L1}啟動畫面不再自動顯示。 您可以通過單擊 quickFilters 助手按鈕或隨時從支持選項卡打開它一次。{L2}"
   },  
   "window-title": {
     "message": "歡迎使用 $addonName$",

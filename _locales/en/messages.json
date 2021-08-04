@@ -801,9 +801,6 @@
   "quickfilters.clone.undetermined": {
     "message": "Could not determine which filter is selected"
   },
-  "quickfilters.confirmVersionLink": {
-    "message": "Display version history of quickFilters?"
-  },
   "quickfilters.copy.warning.emptyClipboard": {
     "message": "No filters in clipboard!"
   },
@@ -1146,6 +1143,9 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistant"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters was updated!"
+  },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Activate the filter assistant (Right-click to display quickFilters Preferences)"
   },
@@ -1153,7 +1153,20 @@
     "message": "Renew your license."
   },
   "special-offer-content": {
-    "message": "Now is the best opportunity to get a License as there is a {boldStart}30% reduction{boldEnd} on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {boldStart}April 16th{boldEnd}."
+    "message": "Now is the best opportunity to get a License as there is a {boldStart}$reduction$ reduction{boldEnd} on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "August 22"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "August 22nd"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
@@ -1235,7 +1248,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1}Added Finnish, Portuguese and Polish translations (using google translate){L2}{L1}Added colored icons and improved theme support in message filter list toolbar.{L2}{L1}Numerous fixes for compatibility with Thunderbird 91.{L2}{L1}Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). {L2}"
+    "message": "{L1}{boldStart}quickFilters is now compatible with Thunderbird 91{boldEnd}, which commences the next ESR period (2021-2022).{L2} {L1}Remember Copied filters List to insert to other Accounts multiple times.{L2}{L1}Added Finnish, Portuguese and Polish translations (using google translate){L2}{L1}Added colored icons and improved theme support in message filter list toolbar.{L2}{L1}Numerous fixes for compatibility with Thunderbird 91.{L2}{L1}Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead).{L2}{L1}The Splash screen is not displayed automatically anymore. You can instead open it once by clicking the quickFilters assistant button or at any time from the support tab.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

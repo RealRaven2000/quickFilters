@@ -801,9 +801,6 @@
   "quickfilters.clone.undetermined": {
     "message": "Der ausgewählte Filter konnte nicht ermittelt werden"
   },
-  "quickfilters.confirmVersionLink": {
-    "message": "Die Versionsgeschichte von quickFilters anzeigen?"
-  },
   "quickfilters.copy.warning.emptyClipboard": {
     "message": "Keine Filter in der Zwischenablage gefunden!"
   },
@@ -1146,6 +1143,9 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistent"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters wurde aktualisiert!"
+  },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Filter Assistenten aktivieren (Rechtsklick, um die Einstellungen von quickFilters anzuzeigen)"
   },
@@ -1153,7 +1153,20 @@
     "message": "Erneuern Sie Ihre Lizenz."
   },
   "special-offer-content": {
-    "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um 30% gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}16. April{boldEnd}."
+    "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um $reduction$ gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "16. April"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "22. August"
   },
   "special-offer-head": {
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
@@ -1235,7 +1248,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1}Finnische, Portugiesische und Polnische Übersetzungen hinzugefügt (mit Google Translate){L2}{L1}Farbige Symbole und Unterstützung von Themes in der Symbolleiste der Nachrichtenfilterliste verbessert.{L2}{L1}Zahlreiche Korrekturen für die Kompatibilität mit Thunderbird 91.{L2 }{L1}Behoben: Beim Verschieben von E-Mails mit Kontextmenü werden falsche E-Mails verschoben (es wurde auf E-Mails unter der Auswahl umgeschaltet und stattdessen diese verschoben). {L2}"
+    "message": "{L1}{boldStart}quickFilters ist jetzt mit Thunderbird 91 kompatibel{boldEnd}, das die nächste ESR-Periode (2021-2022) beginnt.{L2} {L1}quickFilters merkt sich die Liste der kopierten Filter, um sie mehrmals in andere Konten einzufügen.{L2} {L1}Finnische, Portugiesische und Polnische Übersetzungen hinzugefügt (mit Google Translate){L2} {L1}Farbige Symbole und Unterstützung von Themes in der Symbolleiste der Nachrichtenfilterliste verbessert.{L2}{L1}Zahlreiche Korrekturen für die Kompatibilität mit Thunderbird 91.{L2} {L1}Behoben: Beim Verschieben von E-Mails mit Kontextmenü werden falsche E-Mails verschoben (es wurde auf E-Mails unter der Auswahl umgeschaltet und stattdessen diese verschoben). {L2}{L1}Der Begrüßungsbildschirm wird nicht mehr automatisch angezeigt. Sie können es stattdessen einmal öffnen, indem Sie auf die Schaltfläche des quickFilters-Assistenten klicken oder jederzeit über den Support-Tab.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

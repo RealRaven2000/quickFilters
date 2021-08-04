@@ -108,7 +108,20 @@
     "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci s kontrolou budoucnosti quickFilters. Chystají se další velké změny v Thunderbirdu a potřebuji {boldStart} vaši pomoc {boldEnd}, abych udržel krok!"
   } ,
   "special-offer-content" : {
-    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {boldStart}30% snížení{boldEnd} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {boldStart}16. Dubna{boldEnd}."
+    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {boldStart}$reduction$ snížení{boldEnd} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "16. Dubna"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "22. srpna"
   },
   "support-preference" : {
     "message": "Toto je upřednostňovaný způsob podpory $addonName$.",
@@ -169,7 +182,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Přidány finské, portugalské a polské překlady (pomocí google translate) {L2} {L1} Přidány barevné ikony a vylepšená podpora motivů na panelu nástrojů seznamu filtrů zpráv. {L2} {L1} Různé opravy kompatibility s Thunderbirdem 91. {L2 } {L1} Opraveno: Přesouvání e-mailů pomocí kontextové nabídky přesouvá nesprávné e-maily (přepnul na e-mail pod výběrem a místo toho je přesunul). {L2}"
+    "message" : "{L1}{boldStart}quickFilters je nyní kompatibilní s Thunderbird 91{boldEnd}, který začíná další období ESR (2021-2022). {L2} {L1}quickFilters si pamatuje seznam zkopírovaných filtrů, které lze vložit do jiných účtů vícekrát.{L2} {L1}Přidány finské, portugalské a polské překlady (pomocí google translate){L2} {L1}Přidány barevné ikony a vylepšená podpora motivů na panelu nástrojů seznamu filtrů zpráv.{L2} {L1}Různé opravy kompatibility s Thunderbirdem 91.{L2} {L1}Opraveno: Přesouvání e-mailů pomocí kontextové nabídky přesouvá nesprávné e-maily (přepnul na e-mail pod výběrem a místo toho je přesunul).{L2} {L1}Úvodní obrazovka se již nezobrazuje automaticky. Místo toho jej můžete otevřít jednou kliknutím na tlačítko asistenta quickFilters nebo kdykoli na kartě podpory.{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

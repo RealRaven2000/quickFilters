@@ -801,9 +801,6 @@
   "quickfilters.clone.undetermined": {
     "message": "Could not determine which filter is selected"
   },
-  "quickfilters.confirmVersionLink": {
-    "message": "Hiển thị lịch sử phiên bản của quickFilters?"
-  },
   "quickfilters.copy.warning.emptyClipboard": {
     "message": "No filters in clipboard!"
   },
@@ -1146,6 +1143,9 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistant"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters đã được cập nhật!"
+  },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Kích hoạt trợ lý bộ lọc (Nhấp chuột phải để hiển thị tùy chọn quickFilters)"
   },
@@ -1153,7 +1153,20 @@
     "message": "Gia hạn giấy phép của bạn."
   },
   "special-offer-content": {
-    "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {boldStart} giảm 30% {boldEnd} giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} ngày 16 tháng 4 {boldEnd}."
+    "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {boldStart} giảm $reduction$ {boldEnd} giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": " ngày 16 tháng 4"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "Ngày 22 tháng 8"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
@@ -1235,7 +1248,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Đã thêm bản dịch tiếng Phần Lan, tiếng Bồ Đào Nha và tiếng Ba Lan (sử dụng google dịch) {L2} {L1} Đã thêm các biểu tượng màu và hỗ trợ chủ đề được cải thiện trong thanh công cụ danh sách bộ lọc thư. {L2} {L1} Các bản sửa lỗi khác nhau để tương thích với Thunderbird 91. {L2 } {L1} Đã sửa: Di chuyển các thư bằng menu ngữ cảnh sẽ di chuyển các thư sai (nó chuyển sang thư bên dưới lựa chọn và thay vào đó đã di chuyển thư đó). {L2}"
+    "message": "{L1}{boldStart}quickFilters hiện tương thích với Thunderbird 91{boldEnd}, bắt đầu giai đoạn ESR tiếp theo (2021-2022).{L2} {L1}quickFilters ghi nhớ danh sách các bộ lọc đã sao chép để chèn vào các Tài khoản khác nhiều lần.{L2} {L1}Đã thêm bản dịch tiếng Phần Lan, tiếng Bồ Đào Nha và tiếng Ba Lan (sử dụng google dịch){L2} {L1}Đã thêm các biểu tượng màu và hỗ trợ chủ đề được cải thiện trong thanh công cụ danh sách bộ lọc thư.{L2} {L1}Các bản sửa lỗi khác nhau để tương thích với Thunderbird 91.{L2} {L1}Đã sửa: Di chuyển các thư bằng menu ngữ cảnh sẽ di chuyển các thư sai (nó chuyển sang thư bên dưới lựa chọn và thay vào đó đã di chuyển thư đó).{L2} {L1}Màn hình Splash không tự động hiển thị nữa. Thay vào đó, bạn có thể mở nó một lần bằng cách nhấp vào nút trợ lý quickFilters hoặc bất kỳ lúc nào từ tab hỗ trợ.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

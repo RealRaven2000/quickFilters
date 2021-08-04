@@ -801,9 +801,6 @@
   "quickfilters.clone.undetermined": {
     "message": "選択されたフィルタを決定できませんでした"
   },
-  "quickfilters.confirmVersionLink": {
-    "message": "quickFilters のバージョン履歴を表示しますか？"
-  },
   "quickfilters.copy.warning.emptyClipboard": {
     "message": "クリップボードにフィルタがありません！"
   },
@@ -1146,6 +1143,9 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters アシスタント"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFiltersが更新されました！"
+  },
   "quickfiltersToolbarButton.tooltip": {
     "message": "フィルタアシスタントをアクティブにします（右クリックしてquickFilters設定を表示します）"
   },
@@ -1153,7 +1153,20 @@
     "message": "ライセンスを更新する。"
   },
   "special-offer-content": {
-    "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {boldStart} 30％割引{boldEnd} されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{boldStart}4月16日{boldEnd} までご利用いただけます。"
+    "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {boldStart} $reduction$割引{boldEnd} されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{boldStart}$expirydate${boldEnd} までご利用いただけます。",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "8月22日"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "8月22日"
   },
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
@@ -1235,7 +1248,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1}フィンランド語、ポルトガル語、ポーランド語の翻訳を追加（google translateを使用）{L2} {L1}メッセージフィルターリストツールバーに色付きのアイコンを追加し、テーマのサポートを改善しました。{L2} {L1} Thunderbird91との互換性に関するさまざまな修正。{L2 } {L1}修正済み：コンテキストメニューを使用してメールを移動すると、間違ったメールが移動します（選択範囲の下のメールに切り替わり、代わりに移動しました）。 {L2}"
+    "message": "{L1}{boldStart}quickFiltersは、次のESR期間（2021〜2022）を開始するThunderbird91と互換性があります。{boldEnd}{L2} {L1}quickFiltersは、コピーされたフィルターのリストを記憶して、他のアカウントに複数回挿入します。{L2}{L1}フィンランド語、ポルトガル語、ポーランド語の翻訳を追加（google translateを使用）{L2} {L1}メッセージフィルターリストツールバーに色付きのアイコンを追加し、テーマのサポートを改善しました。{L2} {L1} Thunderbird91との互換性に関するさまざまな修正。{L2} {L1}修正済み：コンテキストメニューを使用してメールを移動すると、間違ったメールが移動します（選択範囲の下のメールに切り替わり、代わりに移動しました）。 {L2} {L1}スプラッシュ画面が自動的に表示されなくなりました。 代わりに、quickFiltersアシスタントボタンをクリックするか、[サポート]タブからいつでも開くことができます。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

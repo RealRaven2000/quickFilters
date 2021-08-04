@@ -801,9 +801,6 @@
   "quickfilters.clone.undetermined": {
     "message": "Det gick inte att slå fast vilket filter som har valts"
   },
-  "quickfilters.confirmVersionLink": {
-    "message": "Visa versionshistoriken för quickFilters?"
-  },
   "quickfilters.copy.warning.emptyClipboard": {
     "message": "Det finns inga filter i Urklipp!"
   },
@@ -1146,6 +1143,9 @@
   "quickfiltersToolbarButton.label": {
     "message": "Filterassistenten"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters uppdaterades!"
+  },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Aktivera filterassistenten (högerklicka för att visa quickFilters inställningar)"
   },
@@ -1153,7 +1153,20 @@
     "message": "Förnya din licens."
   },
   "special-offer-content": {
-    "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {boldStart} 30% rabatt {boldEnd} på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {boldStart} 16 april {boldEnd}."
+    "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {boldStart} $reduction$ rabatt {boldEnd} på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "16 april"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "30%"
+      }
+    }
+  },
+  "special-offer-expiry": {
+    "message": "22 augusti"
   },
   "special-offer-head": {
     "message": "Snälla hjälp quickFilters att fortsätta!"
@@ -1235,7 +1248,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Lade till finska, portugisiska och polska översättningar (med google translate) {L2} {L1} Lade till färgade ikoner och förbättrat temastöd i verktygsfältet för meddelandefilterlista. {L2} {L1} Olika korrigeringar för kompatibilitet med Thunderbird 91. {L2 } {L1} Fast: Att flytta e-postmeddelanden med snabbmenyn flyttar fel e-post (det bytte till e-post under markeringen och flyttade det istället). {L2}"
+    "message": "{L1}{boldStart}quickFilters är nu kompatibelt med Thunderbird 91{boldEnd}, som börjar nästa ESR-period (2021-2022).{L2} {L1}quickFilters minns listan över kopierade filter för att infoga i andra konton flera gånger.{L2} {L1}Lade till finska, portugisiska och polska översättningar (med google translate){L2} {L1}Lade till färgade ikoner och förbättrat temastöd i verktygsfältet för meddelandefilterlista.{L2} {L1}Olika korrigeringar för kompatibilitet med Thunderbird 91.{L2} {L1}Fast: Att flytta e-postmeddelanden med snabbmenyn flyttar fel e-post (det bytte till e-post under markeringen och flyttade det istället).{L2} {L1}Splash -skärmen visas inte längre automatiskt. Du kan istället öppna den en gång genom att klicka på knappen QuickFilters -assistent eller när som helst på supportfliken.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
