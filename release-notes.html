@@ -1,4 +1,4 @@
-quickFilters Change Log - Version 5.3
+quickFilters Change Log - Version 5.3.1
 <ul>
 <li>quickFilters is now compatible with Thunderbird 91, which commences the next ESR period (2021-2022).</li>
 <li><a href="https://github.com/RealRaven2000/quickFilters/issues/67">[issue 67]</a> Added colored icons and theme support in message filter list toolbar. </li>
@@ -8,11 +8,15 @@ quickFilters Change Log - Version 5.3
 </ul>
 <b>Bug Fixes</b>
 <ul>
+<li>The link on the registration screen in 5.3 accidentally directed to buy a QuickFolders license. This is now fixed in version 5.3.1.</li>
+<li>The license validation didn't tell if license failing - fixed in 5.3.1</li>
 <li><a href="https://github.com/RealRaven2000/quickFilters/issues/66">[issue 66]</a> Fixed: On some machines, quickFilters is not loading at startup (due to accounts not loading)</li>
 <li><a href="https://github.com/RealRaven2000/quickFilters/issues/68">[issue 68]</a> Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). </li>
+<li>When an invalid license was entered in version 5.3 no feedback or reason for it not working was given.</li>
 </ul>
 <b>Localization</b>
 <ul>
+<li>Use modern json localization format. This can avoid problems of dialogs not loading in non-English locales if a text is missing.</li>
 <li>Completed Argentinian Locale using strings from the Spanish one.</li>
 <li>Added Finnish, Portuguese and Polish translations (using google translate). </li>
 </ul>
