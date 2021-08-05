@@ -273,7 +273,7 @@ quickFilters.Options = {
         case "Invalid":
 				  validationDate.collapsed=true;
 				  let addonName = '';
-				  switch (license.substr(0,2)) {
+				  switch (quickFilters.Util.licenseInfo.licenseKey.substr(0,2)) {
 						case "QF":
 						case "QS":
 							addonName = "QuickFolders";
@@ -375,7 +375,7 @@ quickFilters.Options = {
       // do any notifications for background
       
       
-			let result =  quickFilters.Util.licenseInfo.status;
+			let result = quickFilters.Util.licenseInfo.status;
 			switch(result) {
 				case "Valid":
 					let today = new Date(),

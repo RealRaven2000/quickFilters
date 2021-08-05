@@ -173,8 +173,7 @@ var Register = {
   } ,
   
   goPro: function goPro(license_type) {
-    const productDetail = "https://sites.fastspring.com/quickfolders/product/quickfolders",
-					prefs =  quickFilters.Preferences,
+    const prefs =  quickFilters.Preferences,
           util = quickFilters.Util;
     // redirect to registration site; pass in the feature that brought user here
     // short order process
@@ -183,17 +182,17 @@ var Register = {
 		    featureName = document.getElementById('referrer').value; // hidden field
     switch	(license_type) {
 			case 0:  // personal license
-				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfolders";
+				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfilters";
 			  break;
 			case 1: // domain license
-				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfoldersdomain";
+				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersdomain";
 			  break;
 			case 2: // license renewal
 				if (quickFilters.Util.licenseInfo.keyType==1) { // domain license!
-					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfoldersdomainrenewal";
+					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersdomainrenew"; // domainrenewal 
 				}
 				else
-					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfoldersrenew";
+					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
 				featureName = encodeURI(prefs.getStringPref('LicenseKey'));
 				// should we autoselect the correct email address?
 			  break;
@@ -213,20 +212,6 @@ var Register = {
     window.close();
   }  ,
 
-   /* obsolete form submission from code */
-  postForm  : function postForm_obsolete(util) {
-    let url ="https://sites.fastspring.com/quickfolders/product/quickfolders?action=order",
-        oReq;
-    
-    const XMLHttpRequest = Components.Constructor("@mozilla.org/xmlextras/xmlhttprequest;1", "nsIXMLHttpRequest");    
-    oReq = new XMLHttpRequest();
-    // oReq.onload = reqListener;
-    let formData = new FormData();
-    formData.append("submit", "purchase");
-    oReq.open("POST", url, true);
-    oReq.send(formData);  
-  } ,
-  
   premiumInfo: function premiumInfo(event) {
     quickFilters.Util.openURL(event,'https://quickfolders.org/premium.html');
   },
