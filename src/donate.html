@@ -39,11 +39,11 @@ permalink: donate.html
 </div>
 
 
-	<div class="h2container">
-		<h2 class="page-header quickFiltersFreeUser" style="vertical-align:top;">Get quickFilters Pro for 2021!</h2>
-		<h2 class="page-header quickFiltersProUser" style="vertical-align:top;">Donate to Support quickFilters</h2>
-	</div>
-	</a>
+<div class="h2container">
+  <h2 class="page-header quickFiltersFreeUser" style="vertical-align:top;">Get quickFilters Pro for 2021!</h2>
+  <h2 class="page-header quickFiltersProUser" style="vertical-align:top;">Donate to Support quickFilters</h2>
+</div>
+	
 
   <!-- 
 	<table class="quickFiltersFreeUser bargain"> 
@@ -155,40 +155,50 @@ only used for order fulfillment and license verification.</p>
         
 <div class="psa">
 
-  <p class="heading">Important news about the latest Thunderbird update (78):</p>
+  <p class="heading">Important news about the latest Thunderbird update (91):</p>
     
   <p>
-    The latest version of quickFilters supports Thunderbird 78; the conversion process was costly - 
-    I had to hire an external developer top help with this, so I am still recovering the cost.  
+    The latest version of quickFilters supports Thunderbird 91; I did most of the conversion
+    work myself, but got some help from John Bieling (Thunderbird Staff) converting the 
+    licensing / encryption module into an ES-6 module which is a more future proof 
+    method of encapsulating code.  
   </p>
   <p>
-    You will also see a popup when installing quickFilters that says it needs full access - this is because
-    what quickFilters does cannot be done with the new permission-based APIs yet (they are not complete) -
-    instead it is using the legacy method of full access to the app, which all Add-ons have since Thunderbird
-    first supported them many years ago. The full code of any Add-on submitted this way on the thunderbird.net 
-    site is manually reviewed for security breaches.
+    quickFilters now communicates with the different parts and windows via a so called "background page",
+    which is an invisible container necessary for mail extensions that don't just manipulate a content 
+    tab (a web page in a tab). This makes updates of different parts in the UI a lot cleaner and is able
+    to better deal with multiple Thunderbird windows.
   </p>
   <p>
-    If you find any specific problems in Thunderbird 78, please 
-    <a href="https://github.com/RealRaven2000/quickFilters/issues/14">https://github.com/RealRaven2000/quickFilters/issues/">report it here</a>.
+    As regards converting into a "native mail extension",  there is still a lot of work to be done. 
+    There is no API method for things like toolbar / special commands in the filter list, so these have 
+    to still be covered in "experimental" APIs provided by the Add-on.
   </p>
   <p>
-    
+    This also necessitates the Add-on asking for full permissions on install. We will try to find a 
+    permanent solution for this problem, but it may require a complete reimplementation of a lot 
+    of the code. Currently there is no support for user-defined toolbars by a natvie "mail extension",
+    so this will also be subject to negotiating with the Thunderbird Core development team.
+  </p>
+  <p>
+    If you find any specific problems in Thunderbird 91, please 
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/48">report it here</a>.
+  </p>
+  <p>
     In order to support quickFilters transition into a full "mail extension" many methods
     of accessing the Thunderbird programming interface have to be recreated. Therefore please
     support the future of quickFilters by buying a license at the 
     <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-donate-page">FastSpring Web Shop</a>
   </p>
   
-  <p>quickFilters is <i><b>fully compatible with Thunderbird 78.6.1</b></i> - which is
-    the latest version of the new ESR period.</p>
+  <p>quickFilters is <i><b>fully compatible with Thunderbird 91.0</b></i> - which is
+    the latest version of the new ESR period (starting August 2021).</p>
     
 </div>  
-        
-        <div class="quickFiltersProUser">
-				  <p>Thanks for supporting quickFilters through your Premium License. If you want to buy me a beer as well,
-					   you can donate below - many many thanks!</p>
-				</div>
+  <div class="quickFiltersProUser">
+    <p>Thanks for supporting quickFilters through your Premium License. If you want to buy me a beer as well,
+       you can donate below - many many thanks!</p>
+  </div>
   <a name='donate'> </a>
 	
   <h3 class="quickFiltersFreeUser">
