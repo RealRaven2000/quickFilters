@@ -78,7 +78,7 @@ permalink: premium.html
 		<tr>
 			<td>Sort Filters</td>
 			<td>
-				<img src="img/premium-sort.png" alt="sort" class="inlineImage"/>
+				<img src="img/premium-sort.png" alt="sort filters" class="inlineImage"/>
 				<span>
 					use this to sort all selected filters by alphabet. Be careful as the order
 					the filters are displayed in is also the execution order. This means that 
@@ -97,13 +97,32 @@ permalink: premium.html
 			</td>
 		</tr>
 		<tr>
+			<td>Sort Search Terms</td>
+			<td>
+				<img src="img//sort-search-terms.png" alt="sort search terms" class="inlineImage"/>
+				<span>
+					Use this to sort all search terms by type and text content. This is helpful with filters that 
+          have many search terms. It is only available from quickFilters version 5.2 onwards, so it requires 
+          at least Thunderbird 78.0 to be used.
+          Note that Thunderbird doesn't react well to filters with more than 100 terms 
+          (the editor may time out or hang and the filter may stop working), in this case
+          consider breaking up the filter into multiple filters with less items.
+          For a detailed desription on this function, see 
+          <a href="https://github.com/RealRaven2000/quickFilters/issues/11">[issue 11]</a>
+				</span>
+			</td>
+		</tr>    
+		<tr>
 			<td>Custom Templates</td>
 			<td>
-				These "Advanced Templates" can be created from the <i>Advanced</i> tab of the
-				quickFilters preferences dialog. These are new filter templates that will then
-				show up during the filte assistant process as choices for new filters. They will
+				Custom Templates can be created from the <i>Advanced</i> tab of the
+				quickFilters preferences dialog. These are new filter templates that can be used
+				during the filter assistant process as choices for creating new filters. They will
 				preselect &amp; prefill some filter conditions based on a big number of mail
-				attributes.
+				attributes.<br>
+        <img src="img/Custom-Template-Option.png"  class="screenshot"/><br>
+        <img src="img/Custom-Template-Edit.png"  class="screenshot"/><br>
+        
 				<p class="smaller">
 				  Custom Templates are stored like standard filters but are located in the "Local Folders" account
 					and have the string "quickFilterCustomTemplate" in the start of their name.
@@ -140,6 +159,14 @@ permalink: premium.html
 					<a href="http://quickfolders.org/" target="_blank">QuickFolders</a> users can also add this button to the
 					<a href="http://quickfolders.org/index#CurrentFolderToolbar" target="_blank"><i>Current Folder toolbar</i></a>.
 				</p>
+			</td>
+		</tr>
+		<tr>
+			<td>Insert Copied filters to multiple accounts</td>
+			<td>
+        This allows you to select a number of filters and
+        copy them to different other accounts, repeatedly.
+        This option can be enabled on the Advanced tab in quickFilters settings.
 			</td>
 		</tr>
 		<tr>
