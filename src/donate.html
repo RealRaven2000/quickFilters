@@ -170,6 +170,14 @@ only used for order fulfillment and license verification.</p>
     to better deal with multiple Thunderbird windows.
   </p>
   <p>
+    Localization: since version 5.3, quickFilters uses the new "json" format which has all translated texts 
+    in a single file for each language. These are all tested for validity when installing the Add-on 
+    so no more nasty surprises when you open a dialog in your language to be greeted by an xml:base
+    error. Missing texts will simply be replaced by their English counter parts. Note that I am 
+    using google translate to generate these for cost reasons, but you can always drop me an email
+    to suggest corrections and improvements.
+  </p>
+  <p>
     As regards converting into a "native mail extension",  there is still a lot of work to be done. 
     There is no API method for things like toolbar / special commands in the filter list, so these have 
     to still be covered in "experimental" APIs provided by the Add-on.
