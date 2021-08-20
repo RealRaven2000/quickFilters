@@ -185,11 +185,11 @@ var Register = {
 				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfilters";
 			  break;
 			case 1: // domain license
-				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersdomain";
+				shortOrder = "http://sites.fastspring.com/quickfolders/product/quickfiltersdomainlicense";
 			  break;
 			case 2: // license renewal
 				if (quickFilters.Util.licenseInfo.keyType==1) { // domain license!
-					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersdomainrenew"; // domainrenewal 
+					shortOrder = "https://sites.fastspring.com/quickfolders/product/quickfiltersdomainrenew"; // domainrenewal 
 				}
 				else
 					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
@@ -210,11 +210,11 @@ var Register = {
         
     util.openLinkInBrowser(null, url);
     window.close();
-  }  ,
+  } ,
 
   premiumInfo: function premiumInfo(event) {
-    quickFilters.Util.openURL(event,'https://quickfolders.org/premium.html');
-  },
+    quickFilters.Util.openURL(event,"https://quickfilters.quickfolders.org/premium.html#featureList"); // append #featureList  ?
+  } ,
   
   sanitizeName: function sanitizeName(name) {
     // remove bracketed stuff: "fred jones (freddy)" => "fred jones"
@@ -222,7 +222,7 @@ var Register = {
     if (x.trim)
       return x.trim();
     return x;
-  },
+  } ,
   
   selectIdentity: function selectIdentity(element) {
     // get selectedItem attributes

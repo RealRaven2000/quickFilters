@@ -85,7 +85,7 @@ function showSplash() {
       windowHeight = (screenH > 870) ? 870 : screenH;  
   browser.windows.create({ url, type: "popup", width: 1000, height: windowHeight, allowScriptsToClose: true,});
 }
-    
+
 async function main() {
   const legacy_root = "extensions.quickfilters.";
   // load defaults

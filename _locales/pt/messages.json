@@ -270,10 +270,10 @@
     }
   },
   "pane1.title": {
-    "message": "preferências QuickFilters"
+    "message": "preferências quickFilters"
   },
   "prefwindow.title": {
-    "message": "preferências QuickFilters"
+    "message": "preferências quickFilters"
   },
   "purchase-a-license" : {
     "message" : "Compre uma licença."
@@ -671,7 +671,7 @@
     "message": "Para obter informações detalhadas sobre complementos do Thunderbird e vídeos sobre como usar quickFilters, visite meu canal no YouTube."
   },
   "qf.youtube.link": {
-    "message": "Assista a vídeos QuickFilters no Thunderbird Daily…"
+    "message": "Assista a vídeos quickFilters no Thunderbird Daily…"
   },
   "qf.youtube.tbdaily": {
     "message": "Visite Thunderbird Daily - Canal do YouTube para dicas e tutoriais sobre como usar filtros rápidos e correio de desktop"
@@ -842,7 +842,7 @@
     "message": "Considere atualizar para uma versão mais recente para obter esse recurso."
   },
   "quickfilters.createFromMail.inboxWarning": {
-    "message": "'Criar filtro a partir da mensagem' é muito mais útil se você já moveu o e-mail para uma pasta diferente ou adicionou uma tag a ela, pois os QuickFilters então selecionarão a Ação apropriada para você.\nAinda criará um filtro a partir desta mensagem?"
+    "message": "'Criar filtro a partir da mensagem' é muito mais útil se você já moveu o e-mail para uma pasta diferente ou adicionou uma tag a ela, pois os quickFilters então selecionarão a Ação apropriada para você.\nAinda criará um filtro a partir desta mensagem?"
   },
   "quickfilters.createFromMail.selectWarning": {
     "message": "Para criar um filtro, selecione exatamente um e-mail!"
@@ -1034,7 +1034,7 @@
     "message": "Renovar Licença"
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} é um recurso Premium, obtenha uma licença QuickFilters Pro para usá-lo permanentemente."
+    "message": "{1} é um recurso Premium, obtenha uma licença quickFilters Pro para usá-lo permanentemente."
   },
   "quickfilters.notification.premium.title": {
     "message": "Recurso Premium"
@@ -1170,7 +1170,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "22 de agosto"
+    "message": "12 de setembro"
   },
   "special-offer-head" : {
     "message": "Por favor, ajude quickFilters a continuar!"
@@ -1252,7 +1252,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}O link na tela de registro em 5.3 direcionado acidentalmente para comprar uma licença de quickfolders. Corrigido em 5.3.1. {L2} {L1}{boldStart}quickFilters agora é compatível com Thunderbird 91{boldEnd}, que começa o próximo período ESR (2021-2022).{L2} {L1}quickFilters lembra a lista de filtros copiados para inserir em outras contas várias vezes.{L2}{L1}Adicionadas traduções em finlandês, português e polonês (usando o google tradutor){L2} {L1}Adicionados ícones coloridos e suporte a tema aprimorado na barra de ferramentas da lista de filtros de mensagens. {L2}{L1}Várias correções para compatibilidade com Thunderbird 91.{L2}{L1}Corrigido: Mover e-mails com o menu de contexto move os e-mails errados (trocava para e-mail abaixo da seleção e o movia). {L2} {L1}A tela inicial não é mais exibida automaticamente. Em vez disso, você pode abri-lo uma vez clicando no botão do assistente QuickFilters ou a qualquer momento na guia de suporte.{L2}"
+    "message" : "{L1}5.3.2: Link de licença de domínio corrigido - agora você pode comprar uma licença para sua empresa, ter uma única licença para vários usuários e economizar tempo e dinheiro de 5 usuários e mais. {L2} {L1}5.3.2: Corrigido o link para os recursos premium - agora direciona para quickFilters, não QuickFolders. {L2} {L1}{boldStart}quickFilters agora é compatível com Thunderbird 91{boldEnd}, que começa o próximo período ESR (2021-2022).{L2} {L1}quickFilters lembra a lista de filtros copiados para inserir em outras contas várias vezes.{L2}{L1}Adicionadas traduções em finlandês, português e polonês (usando o google tradutor){L2} {L1}Adicionados ícones coloridos e suporte a tema aprimorado na barra de ferramentas da lista de filtros de mensagens. {L2}{L1}Várias correções para compatibilidade com Thunderbird 91.{L2}{L1}Corrigido: Mover e-mails com o menu de contexto move os e-mails errados (trocava para e-mail abaixo da seleção e o movia). {L2} {L1}A tela inicial não é mais exibida automaticamente. Em vez disso, você pode abri-lo uma vez clicando no botão do assistente quickFilters ou a qualquer momento na guia de suporte.{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

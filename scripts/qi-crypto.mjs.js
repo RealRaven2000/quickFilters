@@ -14,7 +14,7 @@ export function getDecryption_key(key_type) {
     case 0:  // private
       return "1933eef03efab13188c903d69d293d4db35372620a0c26f23e1f805ba2d4e87";
     case 1:  // domain
-      return "";
+      return "1792da11a1424e3dcfee8559313779ee53325abb96269496d6af0402478da56ba968a3f0372cf743c4bfc1288d3c7ae75d67dcb8dde17bf6ee44b6ab3fb7bcf1";
     default:
       return -1; // unknown or free license
   }
@@ -25,7 +25,7 @@ export function getModulus(key_type) {
     case 0:  // private
       return "1ef94b8a38bcfecc0dc49517045dd7362b3e8181be290a4dc298c807b052297";
     case 1:  // domain
-      return "";
+      return "41b3580a63cf19888995ae408c0bba73a571249546f37c8c60703551f4957d0b76e6bb58454d3f7c74899c910ee5942dbdd252df2df930f5c7c53ebb4cfd5073";
     default:
       return -1; // unknown or free license
   }

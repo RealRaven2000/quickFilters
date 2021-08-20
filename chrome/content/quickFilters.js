@@ -436,7 +436,7 @@ END LICENSE BLOCK
       - open sites in tab was broken because of modified openTab parameters
       - search terms now in a different type of collection can lead to failures when defining new filters.
       
-  5.3 - WIP
+  5.3   - 04/08/2021
     # Using notifyTools for updating UI via background page (mail extension conversion)
     # [mx l10n] Use new localization method (json files, more robust and compatible with mx)
     # [issue 66] On some machines, quickFilters is not loading at startup (due to accounts not loading)
@@ -452,6 +452,15 @@ END LICENSE BLOCK
     # Tb 91: Fixed missing icons on sliding notification bars
     # Tb 91: Fixed style of [Buy License] button at bottom of settings dialog
     # Tb 91: Fixed missing "about:config" dialogs
+    
+  5.3.1 - 06/08/2021
+    # Link on the registration screen in 5.3 accidentally directed to buy a QuickFolders license. Fixed in version 5.3.1.
+    # License validation didn't tell if license failing - fixed in 5.3.1
+    
+  5.3.2 - WIP
+    # removed "workaround" experimental APIs (notifications, accounts)
+    # Link to premium features directed to QuickFolders site, not quickFilters!
+    # Fixed instant link to shopping page for quickFilters domain licenses
 
    
   ============================================================================================================

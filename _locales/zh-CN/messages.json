@@ -361,7 +361,7 @@
     "message": "您可以扩展其中一个或创建一个全新的过滤器。"
   },
   "qf.description.mergeSummary": {
-    "message": "QuickFilters 助手找到了一些相同动作的过滤器 。"
+    "message": "quickFilters 助手找到了一些相同动作的过滤器 。"
   },
   "qf.description.selectToExtend": {
     "message": "选择一个要扩展新规则的过滤器。"
@@ -682,7 +682,7 @@
     "message": "Q"
   },
   "quickfilters.FromMessage.label": {
-    "message": "QuickFilters:从消息创建过滤器…"
+    "message": "quickFilters:从消息创建过滤器…"
   },
   "quickfilters.ListButton.label": {
     "message": "邮件过滤器..."
@@ -1166,7 +1166,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "8月22日"
+    "message": "9 月 12 日"
   },
   "special-offer-head": {
     "message": "请帮助quickFilters继续！"
@@ -1248,7 +1248,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1}5.3 中注册屏幕上的链接意外指向购买 quickfolders 许可证。 已在 5.3.1 版中修复。{L2}{L1}{boldStart}quickFilters 现在与 Thunderbird 91 兼容{boldEnd}，Thunderbird 91 开始下一个 ESR 周期（2021-2022）。{L2} {L1}quickFilters 记住要多次插入其他帐户的复制过滤器列表。{L2} {L1}添加了芬兰语、葡萄牙语和波兰语翻译（使用谷歌翻译）{L2}{L1}添加了彩色图标并改进了消息过滤器列表工具栏中的主题支持。{L2} {L1}各种修复与 Thunderbird 91 的兼容性。{L2} {L1}已修复：使用上下文菜单移动邮件会移动错误的邮件（它切换到选择下方的邮件并移动了它）。 {L2} {L1}启动画面不再自动显示。 您可以通过单击 quickFilters 助手按钮或随时从支持选项卡打开它一次。{L2}"
+    "message": "{L1}5.3.2：更正的域许可链接 - 您现在可以为您的企业购买许可，为多个用户拥有一个许可，并从 5 个用户或更多用户那里节省金钱和时间。{L2} {L1}5.3.2： 更正了高级功能的链接 - 它现在指向 quickFilters，而不是 QuickFolders。{L2} {L1}{boldStart}quickFilters 现在与 Thunderbird 91 兼容{boldEnd}，Thunderbird 91 开始下一个 ESR 周期（2021-2022）。{L2} {L1}quickFilters 记住要多次插入其他帐户的复制过滤器列表。{L2} {L1}添加了芬兰语、葡萄牙语和波兰语翻译（使用谷歌翻译）{L2}{L1}添加了彩色图标并改进了消息过滤器列表工具栏中的主题支持。{L2} {L1}各种修复与 Thunderbird 91 的兼容性。{L2} {L1}已修复：使用上下文菜单移动邮件会移动错误的邮件（它切换到选择下方的邮件并移动了它）。 {L2} {L1}启动画面不再自动显示。 您可以通过单击 quickFilters 助手按钮或随时从支持选项卡打开它一次。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -200,7 +200,7 @@
     "message": "Etunimi:"
   },
   "freeLicense": {
-    "message": "Jos olet äskettäin lahjoittanut quickFilters-projektiin tai olet tehnyt avustavaa työtä, kuten kääntänyt tai kirjoittanut korjaustiedostoja, saatat saada ilmaisen lisenssiavaimen. Ota yhteyttä QuickFilters-asetusten tukivälilehdestä."
+    "message": "Jos olet äskettäin lahjoittanut quickFilters-projektiin tai olet tehnyt avustavaa työtä, kuten kääntänyt tai kirjoittanut korjaustiedostoja, saatat saada ilmaisen lisenssiavaimen. Ota yhteyttä quickFilters-asetusten tukivälilehdestä."
   },
   "getquickFilters": {
     "message": "Hanki quickFilters Pro"
@@ -362,7 +362,7 @@
     "message": "Voit joko laajentaa yhtä näistä tai luoda kokonaan uuden suodattimen."
   },
   "qf.description.mergeSummary": {
-    "message": "QuickFilters Assistant löysi joitain suodattimia, jotka jo suorittavat saman toiminnon."
+    "message": "quickFilters Assistant löysi joitain suodattimia, jotka jo suorittavat saman toiminnon."
   },
   "qf.description.selectToExtend": {
     "message": "Valitse suodatin laajennettavaksi uusilla säännöillä."
@@ -1167,7 +1167,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "22. elokuuta"
+    "message": "12. syyskuuta"
   },
   "special-offer-head" : {
     "message": "Auttakaa quickFilters jatkaaksesi!"
@@ -1249,7 +1249,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1}Kohdan 5.3 rekisteröintinäytössä oleva linkki ohjasi vahingossa pikakansiolisenssin. Korjattu versiossa 5.3.1. {L2} {boldStart}quickFilters on nyt yhteensopiva Thunderbird 91{boldEnd}: n kanssa, joka alkaa seuraavalla ESR-kaudella (2021–2022). {L2} {L1}quickFilters muistaa luettelon kopioiduista suodattimista, jotka lisätään muille tileille useita kertoja.{L2} {L1}Lisättiin suomen-, portugalin- ja puolankieliset käännökset (Google-käännöksen avulla){L2} {L1}Lisättiin värilliset kuvakkeet ja parannettu teematuki viestisuodatinluettelotyökaluriville.{L2} {L1}Erilaisia korjauksia Thunderbird 91 -yhteensopivuuteen.{L2} {L1}Korjattu: Viestien siirtäminen pikavalikosta siirtää väärät sähköpostit (se siirtyi valinnan alapuolella olevaan postiin ja siirsi sen sijaan).{L2} {L1} Aloitusnäyttö ei enää näy automaattisesti. Voit sen sijaan avata sen kerran napsauttamalla quickFilters Assistant -painiketta tai milloin tahansa tuki -välilehdeltä. {L2}"
+    "message" : "{L1} 5.3.2: Korjattu verkkotunnuksen lisenssilinkki - voit nyt ostaa lisenssin yrityksellesi, hankkia yhden lisenssin useille käyttäjille ja säästää rahaa ja aikaa viideltä ja useammalta käyttäjältä. {L2} {L1} 5.3.2: Korjattu linkki premium -ominaisuuksiin - se ohjaa nyt pikasuodattimiin, ei pikakansioihin. {L2} {boldStart}quickFilters on nyt yhteensopiva Thunderbird 91{boldEnd}: n kanssa, joka alkaa seuraavalla ESR-kaudella (2021–2022). {L2} {L1}quickFilters muistaa luettelon kopioiduista suodattimista, jotka lisätään muille tileille useita kertoja.{L2} {L1}Lisättiin suomen-, portugalin- ja puolankieliset käännökset (Google-käännöksen avulla){L2} {L1}Lisättiin värilliset kuvakkeet ja parannettu teematuki viestisuodatinluettelotyökaluriville.{L2} {L1}Erilaisia korjauksia Thunderbird 91 -yhteensopivuuteen.{L2} {L1}Korjattu: Viestien siirtäminen pikavalikosta siirtää väärät sähköpostit (se siirtyi valinnan alapuolella olevaan postiin ja siirsi sen sijaan).{L2} {L1} Aloitusnäyttö ei enää näy automaattisesti. Voit sen sijaan avata sen kerran napsauttamalla quickFilters Assistant -painiketta tai milloin tahansa tuki -välilehdeltä. {L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

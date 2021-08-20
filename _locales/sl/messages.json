@@ -124,7 +124,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "22. avgusta"
+    "message": "12. september"
   },
   "special-offer-head" : {
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
@@ -191,7 +191,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}Povezava na zaslonu za registracijo v 5.3 je bila pomotoma usmerjena v nakup licence za hitre mape. Odpravljeno v 5.3.1.{L2} {L1}{boldStart}quickFilters je zdaj združljiv s programom Thunderbird 91{boldEnd}, ki začenja naslednje obdobje ESR (2021-2022).{L2} {L1}quickFilters si zapomni seznam kopiranih filtrov, ki jih večkrat vstavi v druge račune.{L2}{L1}Dodani finski, portugalski in poljski prevodi (z google translate){L2} {L1}V orodni vrstici s seznamom filtrov za sporočila so dodane barvne ikone in izboljšana podpora tem.{L2} {L1}Različni popravki za združljivost s Thunderbird 91.{L2}{L1}Popravljeno: premikanje pošte s kontekstnim menijem premakne napačno pošto (pod izbiro je preklopilo na pošto in jo namesto tega premaknilo).{L2} {L1}Začetni zaslon se ne prikaže več samodejno. Namesto tega ga lahko enkrat odprete tako, da kliknete gumb za pomoč pri hitrih filtrih ali kadar koli na zavihku za podporo.{L2}"
+    "message" : "{L1}5.3.2: Popravljena povezava z licenco domene - zdaj lahko kupite licenco za svoje podjetje, imate eno samo licenco za več uporabnikov in prihranite denar in čas od 5 uporabnikov in več. {L2} {L1}5.3.2: Popravljena je povezava do premijskih funkcij - zdaj usmerja na quickFilters, ne na QuickFolders. {L2} {L1}{boldStart}quickFilters je zdaj združljiv s programom Thunderbird 91{boldEnd}, ki začenja naslednje obdobje ESR (2021-2022).{L2} {L1}quickFilters si zapomni seznam kopiranih filtrov, ki jih večkrat vstavi v druge račune.{L2}{L1}Dodani finski, portugalski in poljski prevodi (z google translate){L2} {L1}V orodni vrstici s seznamom filtrov za sporočila so dodane barvne ikone in izboljšana podpora tem.{L2} {L1}Različni popravki za združljivost s Thunderbird 91.{L2}{L1}Popravljeno: premikanje pošte s kontekstnim menijem premakne napačno pošto (pod izbiro je preklopilo na pošto in jo namesto tega premaknilo).{L2} {L1}Začetni zaslon se ne prikaže več samodejno. Namesto tega ga lahko enkrat odprete tako, da kliknete gumb za pomoč pri hitrih filtrih ali kadar koli na zavihku za podporo.{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

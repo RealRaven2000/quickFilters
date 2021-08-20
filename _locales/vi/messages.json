@@ -361,7 +361,7 @@
     "message": "You can either extend one of these or create a completely new filter."
   },
   "qf.description.mergeSummary": {
-    "message": "QuickFilters Assistant found some filters that already do the same action."
+    "message": "quickFilters Assistant found some filters that already do the same action."
   },
   "qf.description.selectToExtend": {
     "message": "Select a Filter to extend with new rules."
@@ -682,7 +682,7 @@
     "message": "Q"
   },
   "quickfilters.FromMessage.label": {
-    "message": "QuickFilters: Create Filter from Message…"
+    "message": "quickFilters: Create Filter from Message…"
   },
   "quickfilters.ListButton.label": {
     "message": "Các Bộ Lọc Tin Nhắn…"
@@ -1166,7 +1166,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "Ngày 22 tháng 8"
+    "message": "Ngày 12 tháng 9"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
@@ -1248,7 +1248,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1}Liên kết trên màn hình đăng ký trong 5.3 đã vô tình hướng đến việc mua giấy phép thư mục nhanh. Đã sửa trong 5.3.1. {L2} {L1}{boldStart}quickFilters hiện tương thích với Thunderbird 91{boldEnd}, bắt đầu giai đoạn ESR tiếp theo (2021-2022).{L2} {L1}quickFilters ghi nhớ danh sách các bộ lọc đã sao chép để chèn vào các Tài khoản khác nhiều lần.{L2} {L1}Đã thêm bản dịch tiếng Phần Lan, tiếng Bồ Đào Nha và tiếng Ba Lan (sử dụng google dịch){L2} {L1}Đã thêm các biểu tượng màu và hỗ trợ chủ đề được cải thiện trong thanh công cụ danh sách bộ lọc thư.{L2} {L1}Các bản sửa lỗi khác nhau để tương thích với Thunderbird 91.{L2} {L1}Đã sửa: Di chuyển các thư bằng menu ngữ cảnh sẽ di chuyển các thư sai (nó chuyển sang thư bên dưới lựa chọn và thay vào đó đã di chuyển thư đó).{L2} {L1}Màn hình Splash không tự động hiển thị nữa. Thay vào đó, bạn có thể mở nó một lần bằng cách nhấp vào nút trợ lý quickFilters hoặc bất kỳ lúc nào từ tab hỗ trợ.{L2}"
+    "message": "{L1}5.3.2: Liên kết giấy phép tên miền đã sửa - giờ đây bạn có thể mua giấy phép cho doanh nghiệp của mình, có một giấy phép duy nhất cho người dùng nhiều người và tiết kiệm tiền và thời gian từ 5 người dùng trở lên. {L2} {L1}5.3.2: Đã sửa liên kết đến các tính năng cao cấp - nó hiện chuyển hướng đến quickFilters, không phải QuickFolders. {L2} {L1}{boldStart}quickFilters hiện tương thích với Thunderbird 91{boldEnd}, bắt đầu giai đoạn ESR tiếp theo (2021-2022).{L2} {L1}quickFilters ghi nhớ danh sách các bộ lọc đã sao chép để chèn vào các Tài khoản khác nhiều lần.{L2} {L1}Đã thêm bản dịch tiếng Phần Lan, tiếng Bồ Đào Nha và tiếng Ba Lan (sử dụng google dịch){L2} {L1}Đã thêm các biểu tượng màu và hỗ trợ chủ đề được cải thiện trong thanh công cụ danh sách bộ lọc thư.{L2} {L1}Các bản sửa lỗi khác nhau để tương thích với Thunderbird 91.{L2} {L1}Đã sửa: Di chuyển các thư bằng menu ngữ cảnh sẽ di chuyển các thư sai (nó chuyển sang thư bên dưới lựa chọn và thay vào đó đã di chuyển thư đó).{L2} {L1}Màn hình Splash không tự động hiển thị nữa. Thay vào đó, bạn có thể mở nó một lần bằng cách nhấp vào nút trợ lý quickFilters hoặc bất kỳ lúc nào từ tab hỗ trợ.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

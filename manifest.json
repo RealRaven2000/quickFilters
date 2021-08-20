@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "default_locale": "en",
   "author": "Axel Grude, Klaus Buecher/opto",
   "developer": {
@@ -12,24 +12,18 @@
   "applications": {
     "gecko": {
       "id": "quickFilters@axelg.com",
-      "strict_min_version" : "78.0"
+      "strict_min_version" : "78.0",
+      "strict_max_version" : "91.*"
     }
   },
   "background": {
     "page": "qFi-background.html"
   },
   "permissions": [
-  ],
+    "accountsRead",
+    "notifications"
+  ],    
   "experiment_apis": {
-    "ex_accounts": {
-      "schema": "chrome/content/api/ex_accounts/schema.json",
-      "parent": {
-        "scopes": ["addon_parent"],
-        "paths": [["ex_accounts"]],
-        "script": "chrome/content/api/ex_accounts/implementation.js"
-
-      }
-    },
     "ex_notifications": {
       "schema": "chrome/content/api/ex_notifications/schema.json",
       "parent": {

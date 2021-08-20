@@ -130,7 +130,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "8月22日"
+    "message": "9 月 12 日"
   },
   "support-preference" : {
     "message": "這是支持$addonName$的首選方式。",
@@ -191,7 +191,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
   },  
   "whats-new-list" : {
-    "message" : "{L1}5.3 中註冊屏幕上的鏈接意外指向購買 quickfolders 許可證。 已在 5.3.1 版中修復。{L2} {L1}{boldStart}quickFilters 現在與 Thunderbird 91 兼容{boldEnd}，Thunderbird 91 開始下一個 ESR 週期（2021-2022）。{L2} {L1}quickFilters 記住要多次插入其他帳戶的複製過濾器列表。{L2} {L1}添加了芬蘭語、葡萄牙語和波蘭語翻譯（使用谷歌翻譯）{L2} {L1}添加了彩色圖標並改進了消息過濾器列表工具欄中的主題支持。{L2}{L1}各種修復以與 Thunderbird 91 兼容。{L2} {L1}已修復：使用上下文菜單移動郵件會移動錯誤的郵件（它切換到選擇下方的郵件並改為移動）。{L2} {L1}啟動畫面不再自動顯示。 您可以通過單擊 quickFilters 助手按鈕或隨時從支持選項卡打開它一次。{L2}"
+    "message" : "{L1}5.3.2：更正的域許可鏈接 - 您現在可以為您的企業購買許可，為多個用戶擁有一個許可，並從 5 個用戶或更多用戶那裡節省金錢和時間。{L2} {L1}5.3.2： 更正了高級功能的鏈接 - 它現在指向 quickFilters，而不是 QuickFolders。{L2} {L1}{boldStart}quickFilters 現在與 Thunderbird 91 兼容{boldEnd}，Thunderbird 91 開始下一個 ESR 週期（2021-2022）。{L2} {L1}quickFilters 記住要多次插入其他帳戶的複製過濾器列表。{L2} {L1}添加了芬蘭語、葡萄牙語和波蘭語翻譯（使用谷歌翻譯）{L2} {L1}添加了彩色圖標並改進了消息過濾器列表工具欄中的主題支持。{L2}{L1}各種修復以與 Thunderbird 91 兼容。{L2} {L1}已修復：使用上下文菜單移動郵件會移動錯誤的郵件（它切換到選擇下方的郵件並改為移動）。{L2} {L1}啟動畫面不再自動顯示。 您可以通過單擊 quickFilters 助手按鈕或隨時從支持選項卡打開它一次。{L2}"
   },  
   "window-title": {
     "message": "歡迎使用 $addonName$",
