@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.3.2",
+  "version": "5.3.3pre3",
   "default_locale": "en",
   "author": "Axel Grude, Klaus Buecher/opto",
   "developer": {
@@ -24,15 +24,6 @@
     "notifications"
   ],    
   "experiment_apis": {
-    "ex_notifications": {
-      "schema": "chrome/content/api/ex_notifications/schema.json",
-      "parent": {
-        "scopes": ["addon_parent"],
-        "paths": [["ex_notifications"]],
-        "script": "chrome/content/api/ex_notifications/implementation.js"
-
-      }
-    },
     "WindowListener": {
       "schema": "chrome/content/api/WindowListener/schema.json",
       "parent": {
