@@ -1,7 +1,7 @@
 @import "media.css"; /* responsive layout rules */
 
 h1#mozdev-logo { background-color: rgb(147, 0, 102) !important; }
-h1#mozdev-logo a { background-image: url(http://quickfilters.mozdev.org/img/mozdev-purple.png) !important; }
+h1#mozdev-logo a { background-image: url(https://quickfilters.quickfolders.org/img/mozdev-purple.png) !important; }
 
 li > h4 {
   font-size: small;
@@ -19,17 +19,6 @@ li > h4 {
   margin-right: 3px;
 }
 
-/* h1#content, */
-.project-name {
-  /* background: inherit;
-  color: #900; */
-  padding: 0;
-}
-.project-name:after {
-  content: url(http://www.mozdev.org/sharedimages/boxes.gif);
-  padding-left: 1.1em;
-}
-
 .project-navigations {
   border: none; /* work around weird ns4 bug */
   margin-bottom: 2em;
@@ -37,7 +26,6 @@ li > h4 {
 
 #project-navigation th {
   background-color: inherit;
-  background-image: url(http://www.mozdev.org/sharedimages/nav-icon.png);
   background-repeat: no-repeat;
   color: #900;
   padding-left: 18px;
@@ -209,7 +197,7 @@ h2 a {
 
 
 h2.page-header:before {
-  content: url(http://quickfilters.mozdev.org/img/QuickFilters_32.png);
+  content: url(https://quickfilters.quickfolders.org/img/QuickFilters_32.png);
   margin: 0.2em 0.5em 0em 0.2em;
   vertical-align: top;
   width:32px !important;
@@ -219,7 +207,7 @@ h2.page-header:before {
 }
 
 h3:before {
-  content: url(http://quickfilters.mozdev.org/img/QuickFilters_16.png);
+  content: url(https://quickfilters.quickfolders.org/img/QuickFilters_16.png);
   margin: 0.2em 0.5em 0em 0em;
   vertical-align: bottom;
   width:16px !important;
@@ -326,7 +314,7 @@ img.gallery {
 }
 
 .mail_link a:before {
-  content: url(http://quickfilters.mozdev.org/img/mail-open-document.png);
+  content: url(https://quickfilters.quickfolders.org/img/mail-open-document.png);
   margin: 0.2em 0.3em 0em 0.1em;
   vertical-align: top;
   width:16px !important;
