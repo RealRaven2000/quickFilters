@@ -72,7 +72,7 @@
 /* Clipboard in-list styles - affect filter entries that are marked to cut / copy */
 .quickFiltersCopy listcell:first-child,
 .quickFiltersCut listcell:first-child {
-	font-style:italic;
+	font-style: italic;
 }
 
 /* options for search box */
@@ -81,9 +81,9 @@
 	background: transparent !important;
 	background-size: 16px 16px !important;
 	border-style: none !important;
-	min-height:16px;
-	min-width:24px;
-	height:16px !important;
+	min-height: 16px;
+	min-width: 24px;
+	height: 16px !important;
 	padding-top: 0;
 	padding-bottom: 0;
 	-moz-image-region: rect(0px, 16px, 16px, 0px);
