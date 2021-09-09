@@ -306,7 +306,7 @@ issued to my Company "Song Craft Studios":</p>
   <p>As a trivial example, to prepend the text “[Hello world]” to the front of each messages’s subject, use the following javascript:</p>
   <pre class="code">for (let index = 0; index &lt; msgHdrs.length; index++)
   {
-    let hdr = msgHdrs.queryElementAt(index, Ci.nsIMsgDBHdr);
+    let hdr = msgHdrs.queryElementAt ? msgHdrs.queryElementAt(index, Ci.nsIMsgDBHdr) : msgHdrs[index];
     hdr.subject = "[Hello, world] " + hdr.subject;
   }
   </pre>
@@ -314,7 +314,16 @@ issued to my Company "Song Craft Studios":</p>
     filter until the body has been downloaded. In theory you could then 
     access the body, and do operations dependent on it. In practice this is 
     difficult to do, so this action might be best considered experimental.</p>
-		
+  <p>
+    For exact type of the variable msgHdrs and others you should look up the 
+    definition of <code>nsIMsgFilterCustomAction.apply()</code> in
+    Thunderbird source code, as this can always change:<br>
+    <ul>
+      <li>Thunderbird 68: <a href="https://searchfox.org/comm-esr68/source/mailnews/base/search/public/nsIMsgFilterCustomAction.idl#73">comm-esr68</a></li>
+      <li>Thunderbird 78: <a href="https://searchfox.org/comm-esr78/source/mailnews/base/search/public/nsIMsgFilterCustomAction.idl#73">comm-esr78</a></li>
+      <li>Thunderbird 91: <a href="https://searchfox.org/comm-central/source/mailnews/base/search/public/nsIMsgFilterCustomAction.idl#73">comm-central</a></li>
+    </ul>
+  </p>
   <a name="save_message"> </a>
   <p><strong>Save Message as File</strong></p>
   <p>The location of the file is selectable in the filter definition. The 
