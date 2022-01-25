@@ -136,7 +136,8 @@ async function onLoad(activatedWhileWindowOpen) {
   listener_updatequickFiltersLabel = window.quickFilters.updatequickFiltersLabel.bind(window.quickFilters);
   window.addEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
 
-  window.quickFilters.onLoad();
+  window.quickFilters.onLoadQuickFilters();
+  window.quickFilters.addTagListener();
     
 }
 
@@ -150,6 +151,7 @@ function onUnload(isAddOnShutown) {
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
   window.removeEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
+  window.quickFilters.restoreTagListener();
   
   // clean up current folder bar (if QuickFolders is installed)
   deleteBtn('quickfilters-current-listbutton');
@@ -158,5 +160,5 @@ function onUnload(isAddOnShutown) {
   deleteBtn('quickfilters-current-searchfilterbutton');
 
 
-  }
+}
 

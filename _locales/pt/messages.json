@@ -1178,6 +1178,9 @@
   "special-offer-intro" : {
     "message": "{boldStart} Caro {name} {boldEnd}, agora você pode ajudar na preparação de quickFilters. Mais grandes mudanças no Thunderbird estão chegando e eu preciso de {boldStart} sua ajuda {boldEnd} para acompanhar!"
   } ,
+  "subjectCompleteExtract": {
+    "message": "Sempre insira a linha de assunto completa."
+  },
   "support-preference" : {
     "message": "Esta é a forma preferida de oferecer suporte a $addonName$.",
     "placeholders": {
@@ -1252,7 +1255,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}5.3.2: Link de licença de domínio corrigido - agora você pode comprar uma licença para sua empresa, ter uma única licença para vários usuários e economizar tempo e dinheiro de 5 usuários e mais. {L2} {L1}5.3.2: Corrigido o link para os recursos premium - agora direciona para quickFilters, não QuickFolders. {L2} {L1}{boldStart}quickFilters agora é compatível com Thunderbird 91{boldEnd}, que começa o próximo período ESR (2021-2022).{L2} {L1}quickFilters lembra a lista de filtros copiados para inserir em outras contas várias vezes.{L2}{L1}Adicionadas traduções em finlandês, português e polonês (usando o google tradutor){L2} {L1}Adicionados ícones coloridos e suporte a tema aprimorado na barra de ferramentas da lista de filtros de mensagens. {L2}{L1}Várias correções para compatibilidade com Thunderbird 91.{L2}{L1}Corrigido: Mover e-mails com o menu de contexto move os e-mails errados (trocava para e-mail abaixo da seleção e o movia). {L2} {L1}A tela inicial não é mais exibida automaticamente. Em vez disso, você pode abri-lo uma vez clicando no botão do assistente quickFilters ou a qualquer momento na guia de suporte.{L2}"
+    "message" : "{L1}Para a criação de filtros com base no campo de assunto, agora você pode desativar o comportamento que insere apenas termos entre colchetes ou colchetes e usar a linha de assunto inteira.{L2} {L1}Novo: ao copiar um e-mail usando o assistente quickFilters, a ação 'Copiar para Pasta' deve ser definida. Até agora, isso usado para selecionar 'Mover para pasta' também sugeriu mesclar com outros filtros desta ação.{L2} {L1} Corrigido: Mover e-mails com o menu de contexto moveu e-mails errados (mudou para e-mail abaixo da seleção e moveu um que em vez disso ).{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

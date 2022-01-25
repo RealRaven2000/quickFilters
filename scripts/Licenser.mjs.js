@@ -22,19 +22,40 @@ const LicenseStates = {
     Empty: 6,
 }
 
+const ADDON_NAME = "quickFilters";
+
+async function getDefaultIdentity(accountId) {
+    const legacyIdentityMethod = (messenger.identities) ? false : true;
+    const _getDefaultIdentity = messenger.identities ? messenger.identities.getDefault : messenger.accounts.getDefaultIdentity;
+    try {
+      if (legacyIdentityMethod)
+        return await _getDefaultIdentity(accountId);
+      try {  // Tb 91
+        return await _getDefaultIdentity(accountId, false);  // avoid loading folders!
+      }
+      catch(ex) { // older versions don't have the second parameter
+        return await await _getDefaultIdentity(accountId);
+      }
+    }
+    catch (ex) {
+      console.log(ADDON_NAME + " Licenser - getDefaultIdentity() failed", ex);
+    }
+    return null; // should not happen
+}
+
 // format QF-EMAIL:DATE  // ;CRYPTO
 // example: QF-joe.bloggs@gotmail.com:2015-05-20;
 function getDate(license) {
   // get mail+date portion
   let arr = license.split(';');
   if (!arr.length) {
-    log("quickFilters Licenser", "getDate() failed - no ; found");
+    log(ADDON_NAME + " Licenser", "getDate() failed - no ; found");
     return ""; 
   }
   // get date portion
   let arr1=arr[0].split(':');
   if (arr1.length<2) {
-    log("quickFilters Licenser", "getDate() failed - no : found");
+    log(ADDON_NAME + "Licenser", "getDate() failed - no : found");
     return '';
   }
   return arr1[1];
@@ -43,7 +64,7 @@ function getDate(license) {
 function getMail(license) {
   let arr1 = license.split(':');
   if (!arr1.length) {
-    log("quickFilters Licenser", "getMail() failed - no : found");
+    log(ADDON_NAME + " Licenser", "getMail() failed - no : found");
     return '';
   }
   let pos = arr1[0].indexOf('-') + 1;
@@ -145,10 +166,10 @@ export class Licenser {
   }
   
   // for future use (standard license / trial periods)
-	get graceDate() {
+	async graceDate() {
 		let graceDate = "", isResetDate = false;
 		try {
-			graceDate = prefs.getStringPref("license.gracePeriodDate");
+			graceDate = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getStringPref("license.gracePeriodDate");
 		}
 		catch(ex) { 
 			isResetDate = true; 
@@ -169,15 +190,14 @@ export class Licenser {
 			}
 		}
 		if (isResetDate) {
-      Components.classes["@mozilla.org/preferences-service;1"]
-             .getService(Components.interfaces.nsIPrefBranch)
-			       .setStringPref("extensions.smartTemplate4.license.gracePeriodDate", graceDate);
+      /* TO DO!! */
+      await messenger.LegacyPrefs.setPref("extensions.quickfolders.license.gracePeriodDate", graceDate);
     }
 		// log("Returning Grace Period Date: " + graceDate);
 		return graceDate;
 	}  
   
-	get TrialDays() {
+	async TrialDays() {
 		let graceDate; // actually the install date
 		const period = 28,
 		      SINGLE_DAY = 1000*60*60*24; 
@@ -189,17 +209,15 @@ export class Licenser {
       else {
         try {
           graceDate = 
-           Components.classes["@mozilla.org/preferences-service;1"]
-             .getService(Components.interfaces.nsIPrefBranch)
-             .getStringPref("extensions.smartTemplate4.license.gracePeriodDate");
+            await messenger.LegacyPrefs.getPref("extensions.quickfilters.license.gracePeriodDate");
         }
         catch (e) {graceDate = ""}
       }
-			if (!graceDate) graceDate = this.graceDate(); // create the date
+			if (!graceDate) graceDate = await this.graceDate(); // create the date
 		}
 		catch(ex) { 
 		  // if it's not there, set it now!
-			graceDate = this.graceDate(); 
+			graceDate = await this.graceDate(); 
 		}
 		let today = (new Date()),
 		    installDate = new Date(graceDate),
@@ -224,7 +242,7 @@ export class Licenser {
       }
     }
     catch (ex) {
-      log("quickFilters Licenser\n" + "validateLicense.isIdMatchedLicense() failed", ex);
+      log(ADDON_NAME + " Licenser\nvalidateLicense.isIdMatchedLicense() failed", ex);
     }
     return false;
   }
@@ -232,7 +250,7 @@ export class Licenser {
   getCrypto() {
     let arr = this.LicenseKey.split(';');
     if (arr.length<2) {
-      this.logDebug("quickFilters Licenser - getCrypto()","failed - no ; found");
+      this.logDebug(ADDON_NAME + " Licenser","getCrypto()","failed - no ; found");
       return null;
     }
     return arr[1];
@@ -389,14 +407,14 @@ export class Licenser {
     let accounts = await messenger.accounts.list();
     let AllowFallbackToSecondaryIdentiy = false;
 
-    if (this.key_type == 0) {
-      // Private License - Check if secondary mode is necessarry (if not already enforced)
+    if (this.key_type == 0 || this.key_type == 2) {
+      // Private License - Check if secondary mode is necessary (if not already enforced)
       if (this.ForceSecondaryIdentity) {
         AllowFallbackToSecondaryIdentiy = true;
       } else {
         let hasDefaultIdentity = false;
         for (let account of accounts) {
-          let defaultIdentity = await messenger.accounts.getDefaultIdentity(account.id);
+          let defaultIdentity = await getDefaultIdentity(account.id);
           if (defaultIdentity) {
             hasDefaultIdentity = true;
             break;
@@ -404,8 +422,8 @@ export class Licenser {
         }
         if (!hasDefaultIdentity) {
           AllowFallbackToSecondaryIdentiy = true;
-          log("quickFilters Licenser",
-              "Premium License Check: There is no account with default identity!\n" +
+          log(ADDON_NAME + " Licenser",
+              "License Check: There is no account with default identity!\n" +
               "You may want to check your account configuration as this might impact some functionality.\n" + 
               "Allowing use of secondary email addresses...");
         }
@@ -413,10 +431,9 @@ export class Licenser {
     }
     
     for (let account of accounts) {
-      let defaultIdentity = await messenger.accounts.getDefaultIdentity(account.id);
-      if (defaultIdentity && !this.ForceSecondaryIdentity) {
-
-        this.logDebug("quickFilters Licenser", {
+      let defaultIdentity = await getDefaultIdentity(account.id); 
+      if (defaultIdentity) {
+        this.logDebug(ADDON_NAME + " Licenser", {
             "Iterate accounts" : account.name,
             "Default Identity" : defaultIdentity.id,
         });
@@ -434,9 +451,10 @@ export class Licenser {
           return this.info;
         }
 
-      } else if (AllowFallbackToSecondaryIdentiy) {
+      } 
+      if (AllowFallbackToSecondaryIdentiy) {
 
-        this.logDebug("quickFilters Licenser", {
+        this.logDebug(ADDON_NAME + " Licenser", {
             "Iterate all identities of account" : account.name,
             "Identities" : account.identities,
         });
@@ -471,7 +489,7 @@ export class Licenser {
     if (this.debug) {
       if(!detail) {
         detail = msg;
-        msg = "quickFilters Licenser";
+        msg = ADDON_NAME + " Licenser";
       }
       log(msg, detail);
     }

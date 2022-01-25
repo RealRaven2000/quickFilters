@@ -462,7 +462,7 @@ quickFilters.Util = {
 		
 		let notifyBox,
 		    mainWin = util.getMail3PaneWindow();
-		if (typeof mainWin.specialTabs == 'object' && mainWin.specialTabs.msgNotificationBar) { // Tb 68
+		if (typeof mainWin.specialTabs == 'object' && mainWin.specialTabs.msgNotificationBar) { // Tb 78
 			notifyBox = mainWin.specialTabs.msgNotificationBar;
 		}
 		else if( typeof gNotification == 'object' && gNotification.notificationbox) { // Tb 68

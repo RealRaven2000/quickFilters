@@ -1174,6 +1174,9 @@
   "special-offer-intro": {
     "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt quickFilters zukunftssicher machen. Weitere große Änderungen an Thunderbird kommen und ich brauche {boldStart}Ihre Hilfe{boldEnd}, um Schritt zu halten!"
   },
+  "subjectCompleteExtract": {
+    "message": "Immer die Betreffzeile vollständige einfügen."
+  },
   "support-preference": {
     "message": "Dies ist die bevorzugte Methode zur Unterstützung von $addonName$.",
     "placeholders": {
@@ -1248,7 +1251,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1}5.3.2: Korrigierter Domain-Lizenzlink - Sie können jetzt eine Lizenz für Ihr Unternehmen kaufen, eine Einzellizenz für mehrere Benutzer haben und ab 5 Benutzern Geld und Zeit sparen.{L2} {L1}5.3.2: Der Link zu den Premium-Funktionen wurde korrigiert – er führt jetzt zu quickFilters, nicht zu QuickFolders.{L2} {L1}{boldStart}quickFilters ist jetzt mit Thunderbird 91 kompatibel{boldEnd}, das die nächste ESR-Periode (2021-2022) beginnt.{L2} {L1}quickFilters merkt sich die Liste der kopierten Filter, um sie mehrmals in andere Konten einzufügen.{L2} {L1}Finnische, Portugiesische und Polnische Übersetzungen hinzugefügt (mit Google Translate){L2} {L1}Farbige Symbole und verbesserte Unterstützung von Themes in der Symbolleiste der Nachrichtenfilterliste.{L2}{L1}Zahlreiche Korrekturen für die Kompatibilität mit Thunderbird 91.{L2} {L1}Behoben: Beim Verschieben von E-Mails mit Kontextmenü werden falsche E-Mails verschoben (es wurde auf E-Mails unter der Auswahl umgeschaltet und stattdessen diese verschoben). {L2}{L1}Der Begrüßungsbildschirm wird nicht mehr automatisch angezeigt. Sie können es stattdessen einmal öffnen, indem Sie auf die Schaltfläche des quickFilters-Assistenten klicken oder jederzeit über den Support-Tab.{L2}"
+    "message": "{L1}Für die Filtererstellung basierend auf dem Betreff können Sie jetzt das Verhalten ausschalten, dass nur Begriffe in eckigen oder geschweiften Klammern eingefügt werden, und stattdessen die gesamte Betreffzeile verwenden.{L2} {L1}Neu: Beim Kopieren einer E-Mail Mit dem quickFilters-Assistenten sollte die Aktion 'In Ordner kopieren' eingestellt werden. Bisher wurde immer 'In Ordner verschieben' ausgewählt, was auch beim Zusammenführen mit anderen Filtern dieser Aktion vorschgeschlagen wurde. {L2} {L1} Behoben: Das Verschieben von Mails mit dem Kontextmenü verschob falsche Mails (es wechselte zu Mail unterhalb der Auswahl und verschob stattdessen eine davon).{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

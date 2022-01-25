@@ -1174,6 +1174,9 @@
   "special-offer-intro": {
     "message": "{boldStart} Beste {naam} {boldEnd}, u kunt nu helpen om quickFilters toekomstbestendig te maken. Er komen meer grote veranderingen aan in Thunderbird en ik heb {boldStart} uw hulp {boldEnd} nodig om bij te blijven!"
   },
+  "subjectCompleteExtract": {
+    "message": "Vul altijd de volledige onderwerpregel in."
+  },
   "support-preference": {
     "message": "Dit is de beste manier om $addonName$ te ondersteunen.",
     "placeholders": {
@@ -1248,7 +1251,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1}5.3.2: Gecorrigeerde domeinlicentiekoppeling - u kunt nu een licentie kopen voor uw onderneming, een enkele licentie hebben voor meerdere gebruikers en geld en tijd besparen van 5 gebruikers en meer.{L2} {L1}5.3.2: De link naar de premiumfuncties gecorrigeerd - deze verwijst nu naar quickFilters, niet naar QuickFolders.{L2} {L1}{boldStart}quickFilters is nu compatibel met Thunderbird 91{boldEnd}, dat in de volgende ESR-periode (2021-2022) begint.{L2} {L1}quickFilters onthoudt een lijst met gekopieerde filters om meerdere keren in andere accounts in te voegen.{L2} {L1}Finse, Portugese en Poolse vertalingen toegevoegd (met google translate){L2} {L1}Gekleurde pictogrammen en verbeterde thema-ondersteuning toegevoegd in de werkbalk voor berichtenfilterlijst.{L2} {L1}Verschillende oplossingen voor compatibiliteit met Thunderbird 91.{L2} {L1}Opgelost: bij het verplaatsen van e-mails met contextmenu worden verkeerde e-mails verplaatst (er werd overgeschakeld naar e-mail onder de selectie en in plaats daarvan verplaatst).{L2} {L1}Het Splash-scherm wordt niet meer automatisch weergegeven. U kunt het in plaats daarvan één keer openen door op de quickFilters-assistentknop te klikken of op elk gewenst moment via het ondersteuningstabblad.{L2}"
+    "message": "{L1}Voor het maken van filters op basis van het onderwerpveld, kunt u nu het gedrag uitschakelen waarbij alleen termen tussen vierkante of accolades worden ingevoegd, en in plaats daarvan de hele onderwerpregel gebruiken.{L2} {L1}Nieuw: bij het kopiëren van een e-mail met behulp van de quickFilters-assistent moet de actie 'Kopiëren naar map' worden ingesteld. Tot dusverre werd dit gebruikt om 'Verplaatsen naar map' te selecteren, stelde ook voor om samen te voegen met andere filters van deze actie. {L2} {L1} Opgelost: het verplaatsen van e-mails met contextmenu verplaatste verkeerde e-mails (het schakelde over naar e-mail onder de selectie en verplaatste er een die in plaats daarvan ).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

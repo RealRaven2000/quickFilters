@@ -1174,6 +1174,9 @@
   "special-offer-intro": {
     "message": "{boldStart} Kära {name} {boldEnd}, nu kan du hjälpa framtidssäkra quickFilters. Fler stora förändringar på Thunderbird kommer och jag behöver {boldStart} din hjälp {boldEnd} för att fortsätta!"
   },
+  "subjectCompleteExtract": {
+    "message": "Infoga alltid hela ämnesraden."
+  },
   "support-preference": {
     "message": "Detta är det föredragna sättet att stödja $addonName$.",
     "placeholders": {
@@ -1248,7 +1251,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1}5.3.2: Korrigerad domänlicenslänk - du kan nu köpa en licens för ditt företag, ha en enda licens för flera användare och spara pengar och tid från fem användare och mer. {L2} {L1}5.3.2: Korrigerade länken till premiumfunktionerna - den går nu till quickFilters, inte QuickFolders. {L2} {L1}{boldStart}quickFilters är nu kompatibelt med Thunderbird 91{boldEnd}, som börjar nästa ESR-period (2021-2022).{L2} {L1}quickFilters minns listan över kopierade filter för att infoga i andra konton flera gånger.{L2} {L1}Lade till finska, portugisiska och polska översättningar (med google translate){L2} {L1}Lade till färgade ikoner och förbättrat temastöd i verktygsfältet för meddelandefilterlista.{L2} {L1}Olika korrigeringar för kompatibilitet med Thunderbird 91.{L2} {L1}Fast: Att flytta e-postmeddelanden med snabbmenyn flyttar fel e-post (det bytte till e-post under markeringen och flyttade det istället).{L2} {L1}Splash -skärmen visas inte längre automatiskt. Du kan istället öppna den en gång genom att klicka på knappen quickFilters -assistent eller när som helst på supportfliken.{L2}"
+    "message": "{L1}För att skapa filter baserat på ämnesfältet kan du nu stänga av beteendet som bara infogar termer inom hakparenteser och använda hela ämnesraden istället.{L2} {L1}Ny: När du kopierar ett e-postmeddelande med hjälp av quickFilters-assistenten bör åtgärden 'Kopiera till mapp' ställas in. Hittills användes detta för att välja 'Flytta till mapp' föreslog också sammanslagning med andra filter för denna åtgärd.{L2} {L1} Fixat: Flyttade e-postmeddelanden med snabbmenyn flyttade fel e-postmeddelanden (det bytte till e-post under valet och flyttade ett som istället ).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

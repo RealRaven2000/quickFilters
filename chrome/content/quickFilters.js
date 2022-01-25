@@ -436,7 +436,7 @@ END LICENSE BLOCK
       - open sites in tab was broken because of modified openTab parameters
       - search terms now in a different type of collection can lead to failures when defining new filters.
       
-  5.3   - 04/08/2021
+  5.3 - 04/08/2021
     # Using notifyTools for updating UI via background page (mail extension conversion)
     # [mx l10n] Use new localization method (json files, more robust and compatible with mx)
     # [issue 66] On some machines, quickFilters is not loading at startup (due to accounts not loading)
@@ -457,10 +457,16 @@ END LICENSE BLOCK
     # Link on the registration screen in 5.3 accidentally directed to buy a QuickFolders license. Fixed in version 5.3.1.
     # License validation didn't tell if license failing - fixed in 5.3.1
     
-  5.3.2 - WIP
+  5.3.2 - 20/08/2021
     # removed "workaround" experimental APIs (notifications, accounts)
     # Link to premium features directed to QuickFolders site, not quickFilters!
     # Fixed instant link to shopping page for quickFilters domain licenses
+    
+  5.4 - WIP
+    # Fixed alias identity algorithm
+    # [issue 89] Create filter by subject - option to insert the full subject if [string] in line
+    # [issue 77] When copying an email during assistant, the action "Copy to Folder" should be set + populated
+    # [issue 90] Fixed: When uninstalling / updating quickFilters, toggling tags may fail
 
    
   ============================================================================================================
@@ -507,7 +513,7 @@ var quickFilters = {
     return (typeof gFolderTreeView=='undefined') ? this.folderTree.view : gFolderTreeView;
   },
 
-  onLoad: function onLoad() {
+  onLoadQuickFilters: async function() {
     // initialization code - guard against all other windows except 3pane
     let util = quickFilters.Util,
         el = document.getElementById('messengerWindow');
@@ -599,11 +605,11 @@ var quickFilters = {
       quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"}); // initialize the button in case there was an ignored update!
     }
     catch(ex) {
-      quickFilters.Util.logException("quickFilters.onLoad failed", ex);
+      quickFilters.Util.logException("quickFilters.onLoadQuickFilters failed", ex);
     }
     finally {
       this.isLoading = false;
-      util.logDebugOptional("events,listeners", "quickFilters.onload - ends");
+      util.logDebugOptional("events,listeners", "quickFilters.onLoadQuickFilters - ends");
     }
     
   },
@@ -1225,11 +1231,12 @@ var quickFilters = {
           }
           util.logDebugOptional('msgMove', "After original Move/CopyMessage.]]");
           // MOVED FILTER CREATION AFTER MESSAGES ARE MOVED.
+          let fA = isCopy ? Ci.nsMsgFilterAction.CopyToFolderMsgCopyMessage : Ci.nsMsgFilterAction.MoveToFolder; // [issue 77]
           if(isCreateFilter) {
             worker.createFilterAsync_New(sourceFolder, 
               destMsgFolder, 
               messageList, 
-              Ci.nsMsgFilterAction.MoveToFolder,   // filterAction
+              fA,   // filterAction
               false);  // filterActionExt
             util.logDebugOptional('msgMove', "After calling createFilterAsync_New()");
           }
@@ -1413,11 +1420,13 @@ quickFilters.FolderListener = {
             util = win.quickFilters.Util,
             prefs = win.quickFilters.Preferences,
             worker = win.quickFilters.Worker,
-            logDebug = util.logDebugOptional.bind(util);
+            logDebug = util.logDebugOptional.bind(util),
+            isLocalFolders = prefs.getBoolPref('localFoldersRun');
             
       logDebug("events,msgMove","OnItemAdded() " + item.toString());    
             
-      if (prefs.getBoolPref('localFoldersRun') && util.isLocalInbox(parent)) {
+      // referencing parent may re-invoke OnItemAdded! [issue 80]
+      if (isLocalFolders && util.isLocalInbox(parent)) {
         // make a stack of moved messages to work through
         let h = item.QueryInterface(Ci.nsIMsgDBHdr);
         // avoid duplicates
@@ -1687,7 +1696,7 @@ quickFilters.addTagListener = function() {
 
           // no Assistant active - if current folder is the inbox: apply the filters.
           // Bug 26457 - disable this behavior by default
-          if (!quickFilters.Util.AssistantActive && prefs.isDebugOption('listener.tags.autofilter')) { 
+          if (!quickFilters.Util.AssistantActive && prefs.getBoolPref('listener.tags.autofilter')) { 
             quickFilters.onApplyFiltersToSelection(true); // suppress the message
             return false;
           }
@@ -1738,5 +1747,10 @@ quickFilters.addTagListener = function() {
   return false;
 }
 
-quickFilters.addTagListener();
+quickFilters.restoreTagListener = function() {
+  if (quickFilters.ToggleMessageTag) {
+    ToggleMessageTag = quickFilters.ToggleMessageTag;
+  }
+}
+
 

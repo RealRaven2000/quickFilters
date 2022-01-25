@@ -44,7 +44,7 @@ quickFilters.Assistant = {
         
         
     if (this.currentPage == this.MERGEPAGE) { 
-      isMerge = document.getElementById('chkMerge').checked;
+      isMerge = document.getElementById('chkMerge').getAttribute("checked");
       this.selectedMergedFilterIndex = (isMerge) ? this.MatchedFilters.selectedIndex : -1;
     }
   
@@ -115,15 +115,26 @@ quickFilters.Assistant = {
   } ,
 
   selectMatchFromList: function selectMatchFromList(list) {
-    let isMerge = document.getElementById('chkMerge');
-    isMerge.checked = (list.selectedCount>0) ? true : false;
-    let chkCreateNew = document.getElementById('chkCreateNew');
-    chkCreateNew.checked = !isMerge.checked;
+    let isMerge = document.getElementById('chkMerge'),
+        chkCreateNew = document.getElementById('chkCreateNew');
+    if (list.selectedCount>0) {
+      isMerge.setAttribute("checked", true);
+      chkCreateNew.removeAttribute("checked");
+    }
+    else {
+      isMerge.removeAttribute("checked");
+      chkCreateNew.setAttribute("checked", true);
+    }
   } ,
   
   selectMatch: function selectMatch(list) {
     let isMerge = document.getElementById('chkMerge');
-    isMerge.checked = (list.selectedCount>0) ? true : false;
+    if (list.selectedCount>0) {
+      isMerge.setAttribute("checked", true);
+    }
+    else {
+      isMerge.removeAttribute("checked");
+    }
   } ,
   
   selectMerge: function selectMerge(isMerge) {
@@ -132,10 +143,16 @@ quickFilters.Assistant = {
     chkNew.checked = !isMerge.checked;
   } ,
   
-  selectCreateNew: function selectCreateNew(isNew) {
-    this.MatchedFilters.selectedIndex = (isNew.checked ? -1 : 0);
+  selectCreateNew: function selectCreateNew(el) {
+    let isNew = el.getAttribute("checked");
     let chkMerge = document.getElementById('chkMerge');
-    chkMerge.checked = !isNew.checked;
+    this.MatchedFilters.selectedIndex = (isNew ? -1 : 0);
+    if (!isNew) {
+      isMerge.setAttribute("checked", true);
+    }
+    else {
+      isMerge.removeAttribute("checked");
+    }
   } ,
   
   l10n: function l10n() {
@@ -293,7 +310,7 @@ quickFilters.Assistant = {
          ||
          prefs.getBoolPref('merge.silent')) {
         let mergeBox = document.getElementById('chkMerge');
-        mergeBox.checked = true;
+        mergeBox.setAttribute("checked", true);
         // this will select the first item in the list
         util.logDebug("Merge filter: Selecting merge as default");
         quickFilters.Assistant.selectMerge(mergeBox);

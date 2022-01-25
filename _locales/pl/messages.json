@@ -1175,6 +1175,9 @@
   "special-offer-intro" : {
     "message": "{boldStart} Witaj {name} {boldEnd}, możesz teraz pomóc quickFilters w przygotowaniu na przyszłość. Nadchodzą kolejne duże zmiany w Thunderbirdzie i potrzebuję {boldStart} Twojej pomocy {boldEnd}, aby nadążyć!"
   } ,
+  "subjectCompleteExtract": {
+    "message": "Zawsze wstawiaj cały temat."
+  },
   "support-preference" : {
     "message": "Jest to preferowany sposób obsługi $addonName$.",
     "placeholders": {
@@ -1246,7 +1249,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1}5.3.2: Poprawiony link do licencji domeny - możesz teraz kupić licencję dla swojego przedsiębiorstwa, mieć jedną licencję dla wielu użytkowników i zaoszczędzić czas i pieniądze od 5 użytkowników i więcej.{L2} {L1}5.3.2: Poprawiono link do funkcji premium — teraz kieruje do quickFilters, a nie QuickFolders.{L2} {L1}{boldStart}quickFilters jest teraz kompatybilny z Thunderbirdem 91{boldEnd}, który rozpoczyna kolejny okres ESR (2021-2022).{L2} {L1}quickFilters zapamiętuje listę skopiowanych filtrów, aby wielokrotnie wstawiać je do innych kont.{L2} {L1}Dodano tłumaczenia na fińskie, portugalskie i polskie (przy użyciu google translate){L2}{L1}Dodano kolorowe ikony i poprawiono obsługę motywów na pasku narzędzi listy filtrów wiadomości.{L2} {L1}Różne poprawki dla zgodności z Thunderbirdem 91.{L2} {L1}Naprawiono: Przenoszenie e-maili z menu kontekstowym powoduje przeniesienie niewłaściwych e-maili (przełączyło się na pocztę poniżej zaznaczenia i przeniosło zamiast tego).{L2} {L1}Ekran powitalny nie jest już wyświetlany automatycznie. Zamiast tego możesz otworzyć go raz, klikając przycisk asystenta quickFilters lub w dowolnym momencie na karcie pomocy.{L2}"
+    "message" : "{L1}W przypadku tworzenia filtrów na podstawie pola tematu można teraz wyłączyć zachowanie, które wstawia tylko terminy w nawiasach kwadratowych lub zakręconych i zamiast tego użyć całego wiersza tematu.{L2} {L1}Nowość: podczas kopiowania wiadomości e-mail za pomocą asystenta quickFilters należy ustawić akcję „Kopiuj do folderu”. Do tej pory opcja „Przenieś do folderu” sugerowała również łączenie z innymi filtrami tej akcji.{L2} {L1} Naprawiono: Przenoszenie wiadomości z menu kontekstowego powodowało przenoszenie niewłaściwych wiadomości (przełączało się na pocztę poniżej zaznaczenia i przenosiło tę, która zamiast tego ).{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

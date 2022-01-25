@@ -1174,6 +1174,9 @@
   "special-offer-intro": {
     "message": "{boldStart} Gentile {name} {boldEnd}, ora puoi aiutare quickFilters a prova di futuro. Sono in arrivo altri grandi cambiamenti su Thunderbird e ho bisogno del tuo {boldStart} del tuo aiuto {boldEnd} per stare al passo!"
   },
+  "subjectCompleteExtract": {
+    "message": "Inserisci sempre la riga dell'oggetto completa."
+  },
   "support-preference": {
     "message": "Questo è il modo migliore per supportare $addonName$.",
     "placeholders": {
@@ -1248,7 +1251,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1}5.3.2: Link alla licenza di dominio corretto: ora puoi acquistare una licenza per la tua azienda, avere una licenza singola per più utenti e risparmiare tempo e denaro da 5 utenti e più.{L2} {L1}5.3.2: Corretto il collegamento alle funzionalità premium: ora indirizza a quickFilters, non a QuickFolders.{L2} {L1}{boldStart}quickFilters è ora compatibile con Thunderbird 91{boldEnd}, che inizia il prossimo periodo ESR (2021-2022).{L2} {L1}quickFilters ricorda l'elenco dei filtri copiati da inserire in altri account più volte.{L2} {L1}Aggiunte traduzioni in finlandese, portoghese e polacco (usando google translate){L2} {L1}Aggiunte icone colorate e migliorato il supporto dei temi nella barra degli strumenti dell'elenco dei filtri dei messaggi.{L2} {L1}Varie correzioni per la compatibilità con Thunderbird 91.{L2} {L1}Risolto: lo spostamento dei messaggi con il menu contestuale sposta i messaggi errati (è passato alla posta sotto la selezione e ha spostato quella).{L2} {L1}La schermata iniziale non viene più visualizzata automaticamente. Puoi invece aprirlo una volta facendo clic sul pulsante dell'assistente quickFilters o in qualsiasi momento dalla scheda di supporto.{L2}"
+    "message": "{L1}Per la creazione di filtri in base al campo dell'oggetto, ora puoi disattivare il comportamento che inserisce solo i termini tra parentesi quadre o ricci e utilizzare invece l'intera riga dell'oggetto.{L2} {L1}Novità: quando si copia un'e-mail utilizzando l'assistente QuickFilters, dovrebbe essere impostata l'azione 'Copia nella cartella'. Finora questo utilizzato per selezionare 'Sposta nella cartella' suggeriva anche di unirlo ad altri filtri di questa azione.{L2} {L1} Risolto: lo spostamento di messaggi con il menu contestuale spostava i messaggi sbagliati (è passato a un messaggio di posta sotto la selezione e ne ha spostato uno che invece ).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

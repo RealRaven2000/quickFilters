@@ -1174,6 +1174,9 @@
   "special-offer-intro": {
     "message": "{boldStart} Kính gửi {name} {boldEnd}, bạn hiện có thể trợ giúp các bộ lọc quickFilters trong tương lai. Sắp có nhiều thay đổi lớn hơn trên Thunderbird và tôi cần {boldStart} sự trợ giúp của bạn {boldEnd} để theo kịp!"
   },
+  "subjectCompleteExtract": {
+    "message": "Luôn truy xuất dòng tiêu đề hoàn chỉnh."
+  },
   "support-preference": {
     "message": "Đây là cách ưa thích để hỗ trợ $addonName$.",
     "placeholders": {
@@ -1248,7 +1251,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1}5.3.2: Liên kết giấy phép tên miền đã sửa - giờ đây bạn có thể mua giấy phép cho doanh nghiệp của mình, có một giấy phép duy nhất cho người dùng nhiều người và tiết kiệm tiền và thời gian từ 5 người dùng trở lên. {L2} {L1}5.3.2: Đã sửa liên kết đến các tính năng cao cấp - nó hiện chuyển hướng đến quickFilters, không phải QuickFolders. {L2} {L1}{boldStart}quickFilters hiện tương thích với Thunderbird 91{boldEnd}, bắt đầu giai đoạn ESR tiếp theo (2021-2022).{L2} {L1}quickFilters ghi nhớ danh sách các bộ lọc đã sao chép để chèn vào các Tài khoản khác nhiều lần.{L2} {L1}Đã thêm bản dịch tiếng Phần Lan, tiếng Bồ Đào Nha và tiếng Ba Lan (sử dụng google dịch){L2} {L1}Đã thêm các biểu tượng màu và hỗ trợ chủ đề được cải thiện trong thanh công cụ danh sách bộ lọc thư.{L2} {L1}Các bản sửa lỗi khác nhau để tương thích với Thunderbird 91.{L2} {L1}Đã sửa: Di chuyển các thư bằng menu ngữ cảnh sẽ di chuyển các thư sai (nó chuyển sang thư bên dưới lựa chọn và thay vào đó đã di chuyển thư đó).{L2} {L1}Màn hình Splash không tự động hiển thị nữa. Thay vào đó, bạn có thể mở nó một lần bằng cách nhấp vào nút trợ lý quickFilters hoặc bất kỳ lúc nào từ tab hỗ trợ.{L2}"
+    "message": "{L1} Để tạo bộ lọc dựa trên trường chủ đề, bây giờ bạn có thể tắt hành vi chỉ chèn các thuật ngữ trong dấu ngoặc vuông hoặc ngoặc nhọn và sử dụng toàn bộ dòng chủ đề để thay thế. {L2} {L1} Mới: Khi sao chép email bằng cách sử dụng trợ lý quickFilters, hành động 'Sao chép vào Thư mục' sẽ được đặt. Cho đến nay, tùy chọn này được sử dụng để chọn 'Di chuyển đến thư mục' cũng được đề xuất hợp nhất với các bộ lọc khác của hành động này. {L2} {L1} Đã khắc phục: Di chuyển thư với menu ngữ cảnh đã chuyển sai thư (nó đã chuyển sang thư bên dưới lựa chọn và thay vào đó di chuyển một thư ). {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

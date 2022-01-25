@@ -58,7 +58,6 @@
 								type="bool"
 								instantApply="true"
 								/>
-
 			<preference id="onewayaddresses"
 									name="extensions.quickfilters.searchterm.addressesOneWay"
 									type="bool"
@@ -79,7 +78,11 @@
 									type="bool"
 									instantApply="true"
 						/>
-
+      <preference id="subjectDisableKeywordsExtract"
+                  name="extensions.quickfilters.subjectDisableKeywordsExtract"
+									type="bool"
+									instantApply="true"
+						/>
 
 <!--New Filter Properties -->
       <preference id="newfilter.autorun"
@@ -295,7 +298,10 @@
 								preference="runImapOnRead"
 								label="__MSG_chkImapOnRead.label__"
 								/>
-
+          <checkbox
+                preference="subjectDisableKeywordsExtract"
+                label="__MSG_subjectCompleteExtract__"
+                />
 				</vbox>
 				<vbox>
 					<checkbox id="chkListTags"

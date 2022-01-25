@@ -56,6 +56,8 @@ pref("extensions.quickfilters.showListAfterCreateFilter", true);
 pref("extensions.quickfilters.runFilterAfterCreate", false);
 pref("extensions.quickfilters.showEditorAfterCreateFilter", true);
 pref("extensions.quickfilters.refreshHeaders.wait", 150);
+pref("extensions.quickfilters.subjectDisableKeywordsExtract", false);
+
 
 pref("extensions.quickfilters.filters.currentTemplate", "from");
 pref("extensions.quickfilters.nostalgySupport", false);

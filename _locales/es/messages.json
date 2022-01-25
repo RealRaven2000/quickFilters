@@ -1174,6 +1174,9 @@
   "special-offer-intro": {
     "message": "{boldStart} Estimado {name} {boldEnd}, ahora puede ayudar a preparar quickFilters para el futuro. Se avecinan más cambios importantes en Thunderbird y necesito {boldStart} tu ayuda {boldEnd} para mantenerme al día."
   },
+  "subjectCompleteExtract": {
+    "message": "Siempre inserte la línea de asunto completa."
+  },
   "support-preference": {
     "message": "Esta es la forma preferida de admitir $addonName$.",
     "placeholders": {
@@ -1248,7 +1251,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.3.2: Enlace de licencia de dominio corregido: ahora puede comprar una licencia para su empresa, tener una licencia única para varios usuarios y ahorrar dinero y tiempo de 5 usuarios y más. {L2} {L1} 5.3.2: Se corrigió el enlace a las funciones premium; ahora dirige a quickFilters, no a QuickFolders. {L2} {L1}{boldStart}quickFilters ahora es compatible con Thunderbird 91{boldEnd}, que comienza el próximo período de ESR (2021-2022). {L2} {L1}quickFilters recuerda la lista de filtros copiados para insertar en otras cuentas varias veces.{L2}{L1}Se agregaron traducciones al finlandés, portugués y polaco (usando el traductor de Google) {L2} {L1}Se agregaron íconos de colores y se mejoró la compatibilidad de temas en la barra de herramientas de la lista de filtros de mensajes.{L2} {L1}Varias correcciones para la compatibilidad con Thunderbird 91.{L2} {L1}Corregido: Mover correos con menú contextual mueve correos incorrectos (cambió a correo debajo de la selección y lo movió en su lugar).{L2} {L1}La pantalla de bienvenida ya no se muestra automáticamente. En su lugar, puede abrirlo una vez haciendo clic en el botón del asistente de quickFilters o en cualquier momento desde la pestaña de asistencia.{L2}"
+    "message": "{L1}Para la creación de filtros basados en el campo de asunto, ahora puede desactivar el comportamiento que inserta solo términos entre corchetes o corchetes y usar toda la línea de asunto en su lugar.{L2} {L1}Nuevo: al copiar un correo electrónico usando el asistente de filtros rápidos, se debe configurar la acción 'Copiar a la carpeta'. Hasta ahora, esto solía seleccionar 'Mover a carpeta' y también sugería fusionarse con otros filtros de esta acción.{L2} {L1} Corregido: Mover correos con el menú contextual movía correos incorrectos (cambiaba al correo debajo de la selección y movía uno que en su lugar ).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

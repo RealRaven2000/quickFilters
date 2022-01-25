@@ -1,46 +1,15 @@
-quickFilters Change Log - Version 5.3.2  - changes since 5.2.1
+quickFilters Change Log - Version 5.4
 
-<b>Maintenance Release 5.3.2</b>
+<b>Changes in 5.4</b>
 <ul>
-<li>Extended special offer for getting a quickFilters Pro license to 12th of September.</li>
-<li>5.3.2 - Fixed <a href="https://sites.fastspring.com/quickfolders/product/quickfiltersdomainlicense?referrer=atn-version">domain license link</a>. You can now buy a license for your enterprise, have a single license for muliple users and save money and time from 5 users and more.</li>
-<li>Fixed in 5.3.2 - The link to premium features directed to QuickFolders site, not quickFilters!</li>
-<li> Removed experimental APIs for notifications and reading accounts that worked around <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1710359">Bug 1710359</a>.</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/89">[issue 89]</a> Create filter by subject - option to insert the full subject if [string] in line. 
+
+In the default behavior, when generating a filter by subject, quyickFilters will look for terms in square or curly braces, such as [honey] or {Fans} and extracts only these. This format is often used by mailing lists or to group mails in a topic. If you switch on this new option, the full subject line will always be inserted into the search condition.</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/77">[issue 77]</a> When copying an email during assistant, the action "Copy to Folder" should be set + populated. At the moment this defaults back to "move to folder" and might also suggest merging with other filters of the wrong action.</li>
 </ul>
 
-
-<b>Changes in 5.3.1</b>
-<ul>
-<li>quickFilters is now compatible with Thunderbird 91, which commences the next ESR period (2021-2022).</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/67">[issue 67]</a> Added colored icons and theme support in message filter list toolbar. </li>
-<li>Splash screen: instead of displaying this as soon as Thunderbird installs a new version of Thunderbird, this is now available by clicking the message on the assistant button which shows the fact that quickFilters was updated.</li>
-<li>Options are now available through Add-ons Manager / quickFilters "Wrench Icon".</li>
-<li>Restricted special search methods in the filter list to licensed users only.</li>
-<li>Added support for quickFilters Domain licenses - you can buy a domain license that can cover multiple users with a single license <a href="http://sites.fastspring.com/quickfolders/product/quickfiltersdomainlicense">here.</a></li>
-</ul>
 <b>Bug Fixes</b>
 <ul>
-<li>The link on the registration screen in 5.3 accidentally directed to buy a QuickFolders license. This is now fixed in version 5.3.1.</li>
-<li>The license validation didn't tell if license failing - fixed in 5.3.1</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/66">[issue 66]</a> Fixed: On some machines, quickFilters is not loading at startup (due to accounts not loading)</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/68">[issue 68]</a> Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). </li>
-<li>When an invalid license was entered in version 5.3 no feedback or reason for it not working was given.</li>
-<li>Removed experimental APIs for notifications and reading accounts that worked around <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1710359">Bug 1710359</a> .</li>
-</ul>
-<b>Localization</b>
-<ul>
-<li>Use modern json localization format. This can avoid problems of dialogs not loading in non-English locales if a text is missing.</li>
-<li>Completed Argentinian Locale using strings from the Spanish one.</li>
-<li>Added Finnish, Portuguese and Polish translations (using google translate). </li>
-</ul>
-<b>Compatibility with Thunderbird 91</b>
-<ul>
-<li>Fixed missing icons on sliding notification bars</li>
-<li>Fixed style / visibility of [Buy License] button at bottom of settings dialog.</li>
-<li>Removed deprecated fixIterator function from findInboxFromRoot() function</li>
-<li>Using notifyTools for updating UI via background page (mail extension conversion).</li>
-<li>Licenser code migrated into background script. </li>
-<li>Hiding / showing the toolbar in filter list is now instant.</li>
-<li>Removed obsolete legacy locale files.</li>
-<li>Removed all references to the old mozdev.org site.</li>
+<li><a href="https://github.com/RealRaven2000/quickFilters/issues/90">[issue 90]</a>, <a href="https://github.com/RealRaven2000/quickFilters/issues/72">[issue 72]</a> Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). </li>
+<li>Fixed a problem with alias email addresses in license.</li>
 </ul>

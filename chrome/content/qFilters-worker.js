@@ -547,8 +547,8 @@ quickFilters.Worker = {
       prefs.isMoveFolderAction = false;
     }
     else {
-      prefs.isMoveFolderAction = true
-      filterAction = Ci.nsMsgFilterAction.MoveToFolder; // we need to assume this in order to merge!
+      prefs.isMoveFolderAction = true;
+      // filterAction = Ci.nsMsgFilterAction.MoveToFolder; // we need to assume this in order to merge!
     }
     let msg;
 
@@ -702,7 +702,7 @@ quickFilters.Worker = {
                     util.logDebugOptional("merge.detail", "Checking Filter " + aFilter.filterName + " - target folder = " + primaryAction.targetFolderUri)
                     if (primaryAction.targetFolderUri == targetFolder.URI)  {
                       matchingFilters.push(aFilter);
-                      util.logDebugOptional("merge, merge.detail", 
+                      util.logDebugOptional("merge,merge.detail", 
                         "======================= MERGE MATCH  ===================\n" +
                         "  Found filter [" + aFilter.filterName + "] merging match target folder. ADDING TO matchingFilters.");
                     }
@@ -716,7 +716,7 @@ quickFilters.Worker = {
                     let kw = msg.getStringProperty ? msg.getStringProperty("keywords") : msg.Keywords;
                     if (kw.indexOf(primaryAction.strValue)>=0)  {
                       matchingFilters.push(aFilter);
-                      util.logDebugOptional("merge, merge.detail", 
+                      util.logDebugOptional("merge,merge.detail", 
                         "======================= MERGE MATCH  ===================\n" +
                         "Found filter [" + aFilter.filterName + "] merging match tag: " + primaryAction.strValue);
                     }
@@ -885,15 +885,19 @@ quickFilters.Worker = {
     function getMailKeyword(subject) {
       let topicFilter = subject,
           left,right;
+      if (quickFilters.Preferences.getBoolPref("subjectDisableKeywordsExtract")) {
+        return subject;
+      }
       if ( (left=subject.indexOf('[')) < (right=subject.indexOf(']')) ) {
         topicFilter = subject.substr(left, right-left+1);
       }
       else if ( (left=subject.indexOf('{')) < (right=subject.indexOf('}')) ) {
         topicFilter = subject.substr(left, right-left+1);
       }
-      if (!topicFilter)
+      if (!topicFilter) {
         topicFilter = subject;
-      util.logDebugOptional('createFilter','subject parsed:' + topicFilter);
+      }
+      util.logDebugOptional('createFilter','subject parsed: ' + topicFilter);
       return topicFilter;
     }
 

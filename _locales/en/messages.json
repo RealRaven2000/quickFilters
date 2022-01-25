@@ -1174,6 +1174,9 @@
   "special-offer-intro": {
     "message": "{boldStart}Dear {name}{boldEnd}, you can now help future-proofing quickFilters. More big changes on Thunderbird are coming and I need {boldStart}your help{boldEnd} to keep up!"
   },
+  "subjectCompleteExtract": {
+    "message": "Always insert the complete subject line."
+  },
   "support-preference": {
     "message": "This is the preferred way of supporting $addonName$.",
     "placeholders": {
@@ -1248,7 +1251,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1}5.3.2: Corrected domain license link - you can now buy a license for your enterprise, have a single license for muliple users and save money and time from 5 users and more.{L2} {L1}5.3.2: Corrected the link to the premium features - it now directs to quickFilters, not QuickFolders.{L2} {L1}{boldStart}quickFilters is now compatible with Thunderbird 91{boldEnd}, which commences the next ESR period (2021-2022).{L2} {L1}Remember Copied filters List to insert to other Accounts multiple times.{L2}{L1}Added Finnish, Portuguese and Polish translations (using google translate){L2}{L1}Added colored icons and improved theme support in message filter list toolbar.{L2}{L1}Numerous fixes for compatibility with Thunderbird 91.{L2}{L1}Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead).{L2}{L1}The Splash screen is not displayed automatically anymore. You can instead open it once by clicking the quickFilters assistant button or at any time from the support tab.{L2}"
+    "message": "{L1}For filter creation based on the subject field, you can now switch off the behavior that inserts only terms in square or curly brackets only, and use the whole subject line instead.{L2} {L1}New: When copying an email using the quickFilters assistant, the action 'Copy to Folder' should be set. So far this used to select 'Move to folder' also suggested merging with other filters of this action.{L2} {L1} Fixed: Moving mails with context menu moved wrong mails (it switched to mail below the selection and moved one that instead).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
