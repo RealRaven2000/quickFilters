@@ -1255,7 +1255,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}Para a criação de filtros com base no campo de assunto, agora você pode desativar o comportamento que insere apenas termos entre colchetes ou colchetes e usar a linha de assunto inteira.{L2} {L1}Novo: ao copiar um e-mail usando o assistente quickFilters, a ação 'Copiar para Pasta' deve ser definida. Até agora, isso usado para selecionar 'Mover para pasta' também sugeriu mesclar com outros filtros desta ação.{L2} {L1} Corrigido: Mover e-mails com o menu de contexto moveu e-mails errados (mudou para e-mail abaixo da seleção e moveu um que em vez disso ).{L2}"
+    "message" : "{L1}Para a criação de filtros com base no campo de assunto, agora você pode desativar o comportamento que insere apenas termos entre colchetes ou colchetes e usar a linha de assunto inteira.{L2} {L1}Novo: ao copiar um e-mail usando o assistente quickFilters, a ação 'Copiar para Pasta' deve ser definida. Até agora, isso usado para selecionar 'Mover para pasta' também sugeriu mesclar com outros filtros desta ação.{L2} {L1} Corrigido: Mover e-mails com o menu de contexto moveu e-mails errados (mudou para e-mail abaixo da seleção e moveu um que em vez disso ).{L2}{L1}Adicionado um método para estender sua licença do quickFilters Pro antes de 1 mês antes do vencimento (clique na data de vencimento para exibir o botão de extensão de licença).{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

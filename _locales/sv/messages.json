@@ -1251,7 +1251,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1}För att skapa filter baserat på ämnesfältet kan du nu stänga av beteendet som bara infogar termer inom hakparenteser och använda hela ämnesraden istället.{L2} {L1}Ny: När du kopierar ett e-postmeddelande med hjälp av quickFilters-assistenten bör åtgärden 'Kopiera till mapp' ställas in. Hittills användes detta för att välja 'Flytta till mapp' föreslog också sammanslagning med andra filter för denna åtgärd.{L2} {L1} Fixat: Flyttade e-postmeddelanden med snabbmenyn flyttade fel e-postmeddelanden (det bytte till e-post under valet och flyttade ett som istället ).{L2}"
+    "message": "{L1}För att skapa filter baserat på ämnesfältet kan du nu stänga av beteendet som bara infogar termer inom hakparenteser och använda hela ämnesraden istället.{L2} {L1}Ny: När du kopierar ett e-postmeddelande med hjälp av quickFilters-assistenten bör åtgärden 'Kopiera till mapp' ställas in. Hittills användes detta för att välja 'Flytta till mapp' föreslog också sammanslagning med andra filter för denna åtgärd.{L2} {L1} Fixat: Flyttade e-postmeddelanden med snabbmenyn flyttade fel e-postmeddelanden (det bytte till e-post under valet och flyttade ett som istället ).{L2}{L1}Har lagt till en metod för att förlänga din quickFilters Pro-licens tidigare än 1 månad före utgången (klicka på utgångsdatum för att visa knappen för förläng licens).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1251,7 +1251,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1}For filter creation based on the subject field, you can now switch off the behavior that inserts only terms in square or curly brackets only, and use the whole subject line instead.{L2} {L1}New: When copying an email using the quickFilters assistant, the action 'Copy to Folder' should be set. So far this used to select 'Move to folder' also suggested merging with other filters of this action.{L2} {L1} Fixed: Moving mails with context menu moved wrong mails (it switched to mail below the selection and moved one that instead).{L2}"
+    "message": "{L1}For filter creation based on the subject field, you can now switch off the behavior that inserts only terms in square or curly brackets only, and use the whole subject line instead.{L2} {L1}New: When copying an email using the quickFilters assistant, the action 'Copy to Folder' should be set. So far this used to select 'Move to folder' also suggested merging with other filters of this action.{L2} {L1} Fixed: Moving mails with context menu moved wrong mails (it switched to mail below the selection and moved one that instead).{L2}{L1}Added a method to extend your quickFilters Pro license sooner than 1 month before expiry (click on expiry date to display the extend license button).{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

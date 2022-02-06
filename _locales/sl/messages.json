@@ -191,7 +191,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}Za ustvarjanje filtra na podlagi polja z zadevo lahko zdaj izklopite vedenje, ki vstavi samo izraze v oglate ali zavite oklepaje, in namesto tega uporabite celotno vrstico z zadevo.{L2} {L1}Novo: pri kopiranju e-pošte s pomočjo QuickFilters pomočnika je treba nastaviti dejanje 'Kopiraj v mapo'. Doslej je to za izbiro »Premakni v mapo« predlagalo tudi združitev z drugimi filtri tega dejanja.{L2} {L1} Popravljeno: premikanje pošte s kontekstnim menijem je premaknilo napačna sporočila (preklopilo se je na pošto pod izborom in premaknilo tisto, ki je namesto tega ).{L2}"
+    "message" : "{L1}Za ustvarjanje filtra na podlagi polja z zadevo lahko zdaj izklopite vedenje, ki vstavi samo izraze v oglate ali zavite oklepaje, in namesto tega uporabite celotno vrstico z zadevo.{L2} {L1}Novo: pri kopiranju e-pošte s pomočjo QuickFilters pomočnika je treba nastaviti dejanje 'Kopiraj v mapo'. Doslej je to za izbiro »Premakni v mapo« predlagalo tudi združitev z drugimi filtri tega dejanja.{L2} {L1} Popravljeno: premikanje pošte s kontekstnim menijem je premaknilo napačna sporočila (preklopilo se je na pošto pod izborom in premaknilo tisto, ki je namesto tega ).{L2}{L1}Dodan način za podaljšanje licence QuickFilters Pro prej kot 1 mesec pred iztekom (kliknite datum poteka veljavnosti, da se prikaže gumb za podaljšanje licence).{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

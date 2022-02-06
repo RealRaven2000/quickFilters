@@ -1251,7 +1251,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Để tạo bộ lọc dựa trên trường chủ đề, bây giờ bạn có thể tắt hành vi chỉ chèn các thuật ngữ trong dấu ngoặc vuông hoặc ngoặc nhọn và sử dụng toàn bộ dòng chủ đề để thay thế. {L2} {L1} Mới: Khi sao chép email bằng cách sử dụng trợ lý quickFilters, hành động 'Sao chép vào Thư mục' sẽ được đặt. Cho đến nay, tùy chọn này được sử dụng để chọn 'Di chuyển đến thư mục' cũng được đề xuất hợp nhất với các bộ lọc khác của hành động này. {L2} {L1} Đã khắc phục: Di chuyển thư với menu ngữ cảnh đã chuyển sai thư (nó đã chuyển sang thư bên dưới lựa chọn và thay vào đó di chuyển một thư ). {L2}"
+    "message": "{L1} Để tạo bộ lọc dựa trên trường chủ đề, bây giờ bạn có thể tắt hành vi chỉ chèn các thuật ngữ trong dấu ngoặc vuông hoặc ngoặc nhọn và sử dụng toàn bộ dòng chủ đề để thay thế. {L2} {L1} Mới: Khi sao chép email bằng cách sử dụng trợ lý quickFilters, hành động 'Sao chép vào Thư mục' sẽ được đặt. Cho đến nay, tùy chọn này được sử dụng để chọn 'Di chuyển đến thư mục' cũng được đề xuất hợp nhất với các bộ lọc khác của hành động này. {L2} {L1} Đã khắc phục: Di chuyển thư với menu ngữ cảnh đã chuyển sai thư (nó đã chuyển sang thư bên dưới lựa chọn và thay vào đó di chuyển một thư ). {L2}{L1} Đã thêm một phương pháp để gia hạn giấy phép quickFilters Pro của bạn sớm hơn 1 tháng trước khi hết hạn (nhấp vào ngày hết hạn để hiển thị nút gia hạn giấy phép). {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1249,7 +1249,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1}W przypadku tworzenia filtrów na podstawie pola tematu można teraz wyłączyć zachowanie, które wstawia tylko terminy w nawiasach kwadratowych lub zakręconych i zamiast tego użyć całego wiersza tematu.{L2} {L1}Nowość: podczas kopiowania wiadomości e-mail za pomocą asystenta quickFilters należy ustawić akcję „Kopiuj do folderu”. Do tej pory opcja „Przenieś do folderu” sugerowała również łączenie z innymi filtrami tej akcji.{L2} {L1} Naprawiono: Przenoszenie wiadomości z menu kontekstowego powodowało przenoszenie niewłaściwych wiadomości (przełączało się na pocztę poniżej zaznaczenia i przenosiło tę, która zamiast tego ).{L2}"
+    "message" : "{L1}W przypadku tworzenia filtrów na podstawie pola tematu można teraz wyłączyć zachowanie, które wstawia tylko terminy w nawiasach kwadratowych lub zakręconych i zamiast tego użyć całego wiersza tematu.{L2} {L1}Nowość: podczas kopiowania wiadomości e-mail za pomocą asystenta quickFilters należy ustawić akcję „Kopiuj do folderu”. Do tej pory opcja „Przenieś do folderu” sugerowała również łączenie z innymi filtrami tej akcji.{L2} {L1} Naprawiono: Przenoszenie wiadomości z menu kontekstowego powodowało przenoszenie niewłaściwych wiadomości (przełączało się na pocztę poniżej zaznaczenia i przenosiło tę, która zamiast tego ).{L2}{L1}Dodano metodę przedłużenia licencji quickFilters Pro wcześniej niż 1 miesiąc przed wygaśnięciem (kliknij datę wygaśnięcia, aby wyświetlić przycisk przedłużenia licencji).{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

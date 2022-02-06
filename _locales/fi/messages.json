@@ -1252,7 +1252,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1}Jos haluat luoda suodattimen aihekentän perusteella, voit nyt poistaa käytöstä toiminnan, joka lisää vain termejä vain hakasulkeisiin tai kaareviin hakasulkeisiin, ja käyttää sen sijaan koko aiheriviä.{L2} {L1}Uutta: sähköpostiviestiä kopioitaessa QuickFilters Assistantin avulla toiminto 'Kopioi kansioon' tulee asettaa. Toistaiseksi tämä valitsi 'Siirrä kansioon' ehdotti myös yhdistämistä tämän toiminnon muihin suodattimiin.{L2} {L1} Korjattu: Viestien siirtäminen kontekstivalikon avulla siirsi väärät viestit (se vaihtui postiksi valinnan alapuolella ja siirsi sellaisen, joka sen sijaan ).{L2}"
+    "message" : "{L1}Jos haluat luoda suodattimen aihekentän perusteella, voit nyt poistaa käytöstä toiminnan, joka lisää vain termejä vain hakasulkeisiin tai kaareviin hakasulkeisiin, ja käyttää sen sijaan koko aiheriviä.{L2} {L1}Uutta: sähköpostiviestiä kopioitaessa QuickFilters Assistantin avulla toiminto 'Kopioi kansioon' tulee asettaa. Toistaiseksi tämä valitsi 'Siirrä kansioon' ehdotti myös yhdistämistä tämän toiminnon muihin suodattimiin.{L2} {L1} Korjattu: Viestien siirtäminen kontekstivalikon avulla siirsi väärät viestit (se vaihtui postiksi valinnan alapuolella ja siirsi sellaisen, joka sen sijaan ).{L2}{L1}Lisättiin tapa, jolla voit jatkaa quickFilters Pro-lisenssiäsi aikaisemmin kuin 1 kuukausi ennen voimassaolon päättymistä (klikkaa viimeistä voimassaolopäivää nähdäksesi lisenssin jatkamispainikkeen).{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

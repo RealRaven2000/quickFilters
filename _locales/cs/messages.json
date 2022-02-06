@@ -182,7 +182,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}Pro vytváření filtrů na základě pole předmětu můžete nyní vypnout chování, kdy se vkládají pouze výrazy do hranatých nebo složených závorek a místo toho použít celý předmět.{L2} {L1}Novinka: Při kopírování e-mailu pomocí asistenta quickFilters by měla být nastavena akce 'Kopírovat do složky'. Toto bývalo vždy k výběru 'Přesunout do složky', také navrhlo sloučení s ostatními filtry této akce.{L2} {L1} Opraveno: Přesouvání e-mailů pomocí kontextové nabídky přesunulo nesprávné e-maily (přepnulo se na poštu pod výběrem a místo toho přesunulo jednu).{L2}"
+    "message" : "{L1}Pro vytváření filtrů na základě pole předmětu můžete nyní vypnout chování, kdy se vkládají pouze výrazy do hranatých nebo složených závorek a místo toho použít celý předmět.{L2} {L1}Novinka: Při kopírování e-mailu pomocí asistenta quickFilters by měla být nastavena akce 'Kopírovat do složky'. Toto bývalo vždy k výběru 'Přesunout do složky', také navrhlo sloučení s ostatními filtry této akce.{L2} {L1} Opraveno: Přesouvání e-mailů pomocí kontextové nabídky přesunulo nesprávné e-maily (přepnulo se na poštu pod výběrem a místo toho přesunulo jednu).{L2}{L1}Byl přidán způsob prodloužení vaší licence quickFilters Pro dříve než 1 měsíc před vypršením platnosti (kliknutím na datum vypršení platnosti zobrazíte tlačítko pro prodloužení licence).{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",
