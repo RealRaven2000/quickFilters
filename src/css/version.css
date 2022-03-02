@@ -48,6 +48,7 @@ ul#version-history > li {
 }
 ul#version-history > li ul li {
   list-style: square outside url('/img/square-orange-small.png');
+  margin-bottom: 1.2em;
 } 
 
 ul#version-history *.inList,
