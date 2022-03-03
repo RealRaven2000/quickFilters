@@ -107,6 +107,18 @@
   "purchase-heading" : {
     "message" : "Nakup licence!"
   }, 
+  "quickfiltersToolbarButton.expired": {
+    "message": "Licenca je potekla!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Kliknite, da odprete licenčno ploščo quickFilters. Z desno tipko miške kliknite za druge možnosti."
+  },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters je bil posodobljen!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Enkrat kliknite tukaj, če si želite ogledati začetni zaslon in kaj je novega v quickFilters."
+  },
   "renew-your-license" : {
     "message" : "Obnovite licenco."
   },  
@@ -124,7 +136,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12. september"
+    "message": "20. marca"
   },
   "special-offer-head" : {
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
@@ -132,6 +144,19 @@
   "special-offer-intro" : {
     "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate pri preverjanju prihodnosti quickFilters. Prihaja še več sprememb na Thunderbirdu in za nadaljevanje potrebujem {boldStart} vašo pomoč {boldEnd}!"
   } ,
+  "special-offer-renew": {
+    "message": "Podaljšajte licenco zdaj in prihranite {boldStart}$reduction${boldEnd}! Ta posebna ponudba bo na voljo do {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "support-preference" : {
     "message": "To je najprimernejši način podpore $addonName$.",
     "placeholders": {

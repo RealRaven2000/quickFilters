@@ -98,6 +98,18 @@
   "purchase-heading" : {
     "message" : "Nákup licence!"
   }, 
+  "quickfiltersToolbarButton.expired": {
+    "message": "Licence vypršela!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Kliknutím otevřete panel licencí quickFilters. Klepnutím pravým tlačítkem myši zobrazíte další možnosti."
+  },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters byl aktualizován!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Jedním kliknutím sem zobrazíte úvodní obrazovku a co je nového v quickFilters."
+  },  
   "renew-your-license" : {
     "message" : "Obnovte si licenci."
   },  
@@ -121,8 +133,21 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12. září"
+    "message": "20. března"
   },
+  "special-offer-renew": {
+    "message": "Renoveu la llicència ara i estalvieu reducció de {boldStart}$reduction${boldEnd}. Aquesta oferta especial estarà disponible fins al dia {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "support-preference" : {
     "message": "Toto je upřednostňovaný způsob podpory $addonName$.",
     "placeholders": {

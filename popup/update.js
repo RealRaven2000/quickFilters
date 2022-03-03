@@ -7,19 +7,33 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 // Script for splash screen displayed when updating this Extension
 
+const SALE_REDUCTION="30%"; // reduction for buying + renewals
 
   addEventListener("click", async (event) => {
-    if (event.target.id.startsWith("register") || event.target.id == 'bargainIcon') {
-      messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
+    let targetId = event.target.id || "";
+    
+    // action buttons
+    if (targetId.startsWith("register")) {
+      messenger.Utilities.showLicenseDialog("splashScreen");
     }
-    if (event.target.id=='whatsNew') {
-      messenger.Utilities.showVersionHistory();    
-    }
-    if (event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
+    switch(targetId) {
+      case "bargainIcon":
+        messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
+        break;
+      case "bargainRenewIcon":
+        messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
+        window.close();
+        break;
+      case "whatsNew":
+        messenger.Utilities.showVersionHistory();    
+        break;
+    } 
+
+    if (targetId.startsWith("extend") || targetId.startsWith("renew")) {
       messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
       window.close(); // not allowed by content script!
     }
-    if (event.target.id.startsWith("donate")) {
+    if (targetId.startsWith("donate")) {
       messenger.windows.openDefaultBrowser("https://quickfilters.quickfolders.org/donate.html");
     }
   });  
@@ -29,25 +43,58 @@ END LICENSE BLOCK */
     const manifest = await messenger.runtime.getManifest(),
           browserInfo = await messenger.runtime.getBrowserInfo(),
           addonName = manifest.name,
+          userName = await messenger.Utilities.getUserName(),
           addonVer = manifest.version,
           appVer = browserInfo.version,
           remindInDays = 10;
 
+    // internal functions
+    function hideSelectorItems(cId) {
+      let elements = document.querySelectorAll(cId);
+      for (let el of elements) {
+        el.setAttribute('collapsed',true);
+      }	    
+    }
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
     i18n.updateDocument();
     
-        
+    let loc = window.location,
+        hasMsg = loc.search && loc.search.length>1,
+        msg;
+    
+    if (hasMsg) {
+      // retrieve text  from queryString
+      let qs = new URLSearchParams(window.location.search);
+      msg = qs.get("msg");
+      if (!msg) {
+        hasMsg = false;
+      }
+      else console.log ("Splash screen - got a message\n" + msg);
+    }
       
-    let h1 = document.getElementById('heading-updated');
+    let h1 = document.getElementById("heading-updated");
     if (h1) {
       // this api function can do replacements for us
-      h1.innerText = messenger.i18n.getMessage('heading-updated', addonName);
+      if (!hasMsg)
+        h1.innerText = messenger.i18n.getMessage("heading-updated", addonName);
+      else
+        h1.innerText = "License Supported Feature";
     }
     
-    let thanksInfo = document.getElementById('thanks-for-updating-intro');
-    if (thanksInfo) {
-      thanksInfo.innerText = messenger.i18n.getMessage("thanks-for-updating-intro", addonName);
+    if (hasMsg) {
+      document.getElementById("licenseExtended").setAttribute("collapsed",true);
+      document.getElementById("changesList").setAttribute("collapsed",true);
+      document.getElementById("purchaseHeader").setAttribute("collapsed",true);
+      hideSelectorItems('.donations');
+    }
+    
+    let introMsg = document.getElementById('intro-msg');
+    if (introMsg) {
+      if (!hasMsg)
+        introMsg.innerText = messenger.i18n.getMessage("thanks-for-updating-intro", addonName);
+      else
+        introMsg.innerText = msg;
     }
     
     let verInfo = document.getElementById('active-version-info');
@@ -56,14 +103,20 @@ END LICENSE BLOCK */
       // use the i18n API      
       // You are now running <b class="versionnumber">version {version}</b> on Thunderbird {appver}.
       // for multiple replacements, pass an array
-      verInfo.innerHTML = messenger.i18n.getMessage("active-version-info", [addonVer, appVer])
-        .replace("{boldStart}","<b class='versionnumber'>")
-        .replace("{boldEnd}","</b>");
+      if (hasMsg) {
+        verInfo.setAttribute("collapsed",true);
+      }
+      else {
+        verInfo.innerHTML = messenger.i18n.getMessage("active-version-info", [addonVer, appVer])
+          .replace("{boldStart}","<b class='versionnumber'>")
+          .replace("{boldEnd}","</b>");
+      }
     }
     
     let timeAndEffort =  document.getElementById('time-and-effort');
     if (timeAndEffort) {
-      timeAndEffort.innerText = messenger.i18n.getMessage("time-and-effort", addonName);
+      if (hasMsg) timeAndEffort.setAttribute('collapsed',true);
+      else timeAndEffort.innerText = messenger.i18n.getMessage("time-and-effort", addonName);
     }
     
     let suggestion = document.getElementById('support-suggestion');
@@ -85,20 +138,31 @@ END LICENSE BLOCK */
     let specialOffer = document.getElementById('specialOfferTxt');
     if (specialOffer) {
       let expiry = messenger.i18n.getMessage("special-offer-expiry"),
-          reduction = "30%"
+          reduction = SALE_REDUCTION;
       // note: expiry day is set in popup.js "endSale" variable
       specialOffer.innerHTML = messenger.i18n.getMessage("special-offer-content", [expiry, reduction])
           .replace(/\{boldStart\}/g,"<b>")
           .replace(/\{boldEnd\}/g,"</b>");
     }
+    
+    let specialRenew = document.getElementById("specialOfferRenewTxt");
+    if (specialRenew) {
+      let expiry = messenger.i18n.getMessage("special-offer-expiry"),
+          reduction = SALE_REDUCTION;
+      // note: expiry day is set in popup.js "endSale" variable
+      specialRenew.innerHTML = 
+        messenger.i18n.getMessage("special-offer-renew", [expiry, reduction])
+          .replace(/\{boldStart\}/g,"<b>")
+          .replace(/\{boldEnd\}/g,"</b>");
+    }    
           
-    let specialIntro = document.getElementById('specialOfferIntro');
-    if (specialIntro) {
-      let userName = await messenger.Utilities.getUserName();
-      specialIntro.innerHTML =  messenger.i18n.getMessage('special-offer-intro')
-        .replace(/\{boldStart\}/g,"<b>")
-        .replace(/\{boldEnd\}/g,"</b>")
-        .replace("{name}", userName);
+    let elementsSI = document.querySelectorAll(".specialOfferIntro"),
+        txtSI = messenger.i18n.getMessage('special-offer-intro', addonName)
+                .replace(/\{boldStart\}/g,"<b>")
+                .replace(/\{boldEnd\}/g,"</b>")
+                .replace("{name}", userName);
+    for (let el of elementsSI) {
+      el.innerHTML = txtSI;
     }
     
     let whatsNewLst = document.getElementById('whatsNewList');

@@ -429,6 +429,15 @@ hbox.quickhelp-dbg {
   margin-left: 1.5em;
 }
 
+#licenseDate.valid {
+  cursor: pointer;
+}
+
+#licenseDate.valid:hover {
+  text-decoration: underline;
+}
+
+
 #currentFolderDescription {
 	height: 32px; /* fix a problem with fieldset cutting into the last checkbox - force height of 2 lines! */
 }

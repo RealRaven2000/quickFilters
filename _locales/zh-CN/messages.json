@@ -1143,8 +1143,17 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters 助手"
   },
+  "quickfiltersToolbarButton.expired": {
+    "message": "证件过期！"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "单击以打开 quickFilters 许可证面板。 右键单击其他选项。"
+  },
   "quickfiltersToolbarButton.updated": {
     "message": "quickFilters 已更新！"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "单击此处一次以查看启动画面和 quickFilters 中的新功能。"
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "激活过滤助手（右击显示quickFilters Preferences）"
@@ -1166,7 +1175,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "9 月 12 日"
+    "message": "3月20日"
   },
   "special-offer-head": {
     "message": "请帮助quickFilters继续！"
@@ -1174,6 +1183,19 @@
   "special-offer-intro": {
     "message": "{boldStart}尊敬的{name} {boldEnd}：您现在可以帮助将来的quickFilters。 雷鸟的更多重大变化即将到来，我需要{boldStart}您的帮助{boldEnd}来跟上！"
   },
+  "special-offer-renew": {
+    "message": "立即续订您的许可证并节省 {boldStart}$reduction${boldEnd}！ 此特别优惠将持续到 {boldStart}$expirydate${boldEnd}。",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "subjectCompleteExtract": {
     "message": "始终插入完整的主题行。"
   },

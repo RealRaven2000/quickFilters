@@ -1143,8 +1143,17 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistant"
   },
+  "quickfiltersToolbarButton.expired": {
+    "message": "License expired!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Click to open quickFilters license panel. Right-click for other options."
+  },
   "quickfiltersToolbarButton.updated": {
     "message": "quickFilters was updated!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Click here once to see the Splash screen and what's new in quickFilters."
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Activate the filter assistant (Right-click to display quickFilters Preferences)"
@@ -1166,7 +1175,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "September 12th"
+    "message": "March 20th"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
@@ -1177,6 +1186,19 @@
   "subjectCompleteExtract": {
     "message": "Always insert the complete subject line."
   },
+  "special-offer-renew": {
+    "message": "Renew your License now and save {boldStart}$reduction${boldEnd}! This special offer will be available until {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "support-preference": {
     "message": "This is the preferred way of supporting $addonName$.",
     "placeholders": {

@@ -1144,8 +1144,17 @@
   "quickfiltersToolbarButton.label": {
     "message": "Asystent quickFilters"
   },
+  "quickfiltersToolbarButton.expired": {
+    "message": "Licencja wygasła!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Kliknij, aby otworzyć panel licencji quickFilters. Kliknij prawym przyciskiem myszy, aby wyświetlić inne opcje."
+  },
   "quickfiltersToolbarButton.updated": {
     "message": "quickFilters zostało zaktualizowane!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Kliknij tutaj raz, aby zobaczyć ekran powitalny i nowości w quickFilters."
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Aktywuj asystenta filtrów (kliknij prawym przyciskiem myszy, aby wyświetlić preferencje quickFilters)"
@@ -1167,7 +1176,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12 września"
+    "message": "20 marca"
   },
   "special-offer-head" : {
     "message": "Pomóż quickFilters, aby kontynuować!"
@@ -1175,6 +1184,19 @@
   "special-offer-intro" : {
     "message": "{boldStart} Witaj {name} {boldEnd}, możesz teraz pomóc quickFilters w przygotowaniu na przyszłość. Nadchodzą kolejne duże zmiany w Thunderbirdzie i potrzebuję {boldStart} Twojej pomocy {boldEnd}, aby nadążyć!"
   } ,
+  "special-offer-renew": {
+    "message": "Odnów swoją licencję teraz i zaoszczędź {boldStart}$reduction${boldEnd}! Ta oferta specjalna będzie dostępna do {boldStart}$expirydate${boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "subjectCompleteExtract": {
     "message": "Zawsze wstawiaj cały temat."
   },

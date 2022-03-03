@@ -31,22 +31,31 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   background-image: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) !important;
   color: white !important;
 }
+#quickfilters-toolbar-button.expired {
+  background-color: #b80015 !important; /* blue */
+  background: linear-gradient(to bottom, #890219 0%,#b80015 100%); 
+  color: white !important;
+}
+
+#quickfilters-toolbar-button.expired label,
 #quickfilters-toolbar-button.newsflash label {
   color: rgb(255,255,255) !important;
 }
-
+#quickfilters-toolbar-button.expired:hover ,
 #quickfilters-toolbar-button.newsflash:hover {
 	background-color: #ffd65e !important; /* yellow */
 	background-image: linear-gradient(to bottom, #fff65e 0%,#febf04 100%) !important;
 }
+#quickfilters-toolbar-button.expired:hover label,
 #quickfilters-toolbar-button.newsflash:hover label {
   color: rgb(60,0,0) !important;
 }
+#quickfilters-toolbar-button.expired:hover image,
 #quickfilters-toolbar-button.newsflash:hover image {
   fill: rgb(60,0,0) !important;
 }
 
-
+#quickfilters-toolbar-button.expired .toolbarbutton-text,
 #quickfilters-toolbar-button.newsflash .toolbarbutton-text {
   display: inline-block !important;
 }

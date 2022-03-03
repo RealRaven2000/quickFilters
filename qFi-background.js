@@ -187,7 +187,8 @@ async function main() {
         await messenger.LegacyPrefs.setPref(legacy_root + "LicenseKey", newLicense.info.licenseKey);
         currentLicense = newLicense;
         // Broadcast -without event is used for the licenser.
-        messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info})
+        messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
+        messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
         return true;
     }
   });

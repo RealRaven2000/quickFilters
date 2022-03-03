@@ -104,7 +104,9 @@ quickFilters.Options = {
     linkEl.setAttribute("type", "text/css");
     linkEl.setAttribute("rel", "stylesheet");
     document.documentElement.shadowRoot.appendChild(linkEl);
-        
+
+    // [issue 92] allow premature extension
+    getElement("licenseDate").addEventListener("click", options.showExtensionButton);
     
   } ,
   
@@ -242,6 +244,20 @@ quickFilters.Options = {
     
   },
   
+  // [issue 92] allow license extension
+  // show the extension button if user is elligible
+  showExtensionButton: function() {
+    if (quickFilters.Util.licenseInfo.status == "Valid") {
+      if (quickFilters.Util.licenseInfo.keyType!=2) { // PRO + Domain
+        let btnLicense = document.getElementById("btnLicense");
+        quickFilters.Options.labelLicenseBtn(btnLicense, "extend");
+      }
+      else { // standard function - go to License screen to upgrade!
+        quickFilters.Util.showLicenseDialog("licenseTab");  
+      }
+    }
+  },  
+  
   updateLicenseOptionsUI: function updateLicenseOptionsUI() {
 		const util = quickFilters.Util;
     let getElement = document.getElementById.bind(document),
@@ -264,11 +280,13 @@ quickFilters.Options = {
 		validationDate.collapsed = false;
     this.enablePremiumConfig(false);
     try {
-      getElement('licenseDate').value = decryptedDate; 
+      let licenseDate = getElement("licenseDate");
+      licenseDate.value = decryptedDate; 
       switch(result) {
         case "Valid":
           this.enablePremiumConfig(true);
           validationPassed.collapsed=false;
+          licenseDate.classList.add('valid'); // [issue 92]
           break;
         case "Invalid":
 				  validationDate.collapsed=true;

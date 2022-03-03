@@ -1144,8 +1144,17 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistant"
   },
+  "quickfiltersToolbarButton.expired": {
+    "message": "Lisenssi vanhentunut!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Napsauta avataksesi quickFilters-lisenssipaneelin. Napsauta hiiren kakkospainikkeella nähdäksesi muut vaihtoehdot."
+  },
   "quickfiltersToolbarButton.updated": {
     "message": "quickFilters päivitettiin!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Napsauta tätä kerran nähdäksesi Splash-näytön ja quickFiltersin uudet ominaisuudet."
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Aktivoi suodatinavustaja (napsauta hiiren kakkospainikkeella näyttääksesi quickFilters-asetukset)"
@@ -1167,7 +1176,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12. syyskuuta"
+    "message": "20. maaliskuuta"
   },
   "special-offer-head" : {
     "message": "Auttakaa quickFilters jatkaaksesi!"
@@ -1175,6 +1184,19 @@
   "special-offer-intro" : {
     "message": "{boldStart} Hyvä {name} {boldEnd}, jvoit nyt auttaa tulevaisuuden suojaamisessa quickFilters. Lisää suuria muutoksia Thunderbirdiin on tulossa, ja tarvitsen {boldStart} apuasi {boldEnd} pysyäksesi mukana!"
   } ,
+  "special-offer-renew": {
+    "message": "Uusi lisenssi nyt ja säästä {boldStart}$reduction${boldEnd}! Tämä erikoistarjous on voimassa {boldStart} $expirydate$ {boldEnd} asti.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "subjectCompleteExtract": {
     "message": "Lisää aina koko aiherivi."
   },

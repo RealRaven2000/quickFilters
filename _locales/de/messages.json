@@ -1143,8 +1143,17 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistent"
   },
+  "quickfiltersToolbarButton.expired": {
+    "message": "Lizenz abgelaufen!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Klicken Sie hier, um das quickFilters-Lizenzfenster zu öffnen. Klicken Sie mit der rechten Maustaste für weitere Optionen."
+  },
   "quickfiltersToolbarButton.updated": {
     "message": "quickFilters wurde aktualisiert!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Klicken Sie einmal hier, um den Begrüßungsbildschirm und die Neuerungen in quickFilters anzuzeigen."
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Filter Assistenten aktivieren (Rechtsklick, um die Einstellungen von quickFilters anzuzeigen)"
@@ -1166,7 +1175,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12. September"
+    "message": "20. März"
   },
   "special-offer-head": {
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
@@ -1177,6 +1186,19 @@
   "subjectCompleteExtract": {
     "message": "Immer die Betreffzeile vollständige einfügen."
   },
+  "special-offer-renew": {
+    "message": "Erneuern Sie jetzt Ihre Lizenz und sparen Sie {boldStart}$reduction${boldEnd}! Dieses Sonderangebot ist bis zum {boldStart}$expirydate${boldEnd} verfügbar.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "support-preference": {
     "message": "Dies ist die bevorzugte Methode zur Unterstützung von $addonName$.",
     "placeholders": {

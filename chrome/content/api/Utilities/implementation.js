@@ -36,8 +36,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         showVersionHistory: function() {
           // It makes sense to only show this in the latest main window
           let win = this.latestMainWindow();
-          const util = win.quickFilters.Util;
-          util.showVersionHistory();
+          win.quickFilters.Util.showVersionHistory();
         },
 
         showXhtmlPage: function(uri) {
@@ -46,7 +45,11 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
             // .getService(Components.interfaces.nsIWindowMediator)
             // .getMostRecentWindow("mail:3pane");  
           win.openDialog(uri).focus();
-        }
+        },
+        
+        showLicenseDialog: function(referrer) {
+          win.quickFilters.Util.showLicenseDialog(referrer);
+        }       
   
         // get may only return something, if a value is set
       }

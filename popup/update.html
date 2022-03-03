@@ -13,27 +13,36 @@
   </head>
   <body>
     <div id="innerwrapper">
-      <h1 id="heading-updated"> __MSG_heading-updated__</h1>
+      <h1 id="heading-updated">__MSG_heading-updated__</h1>
       <p>
-        <span id="thanks-for-updating-intro">__MSG_thanks-for-updating-intro__</span>
+        <span id="intro-msg">__MSG_thanks-for-updating-intro__</span>
         <span id="active-version-info">__MSG_active-version-info__</span>
       </p>
       
       <div id="specialBox" class="importantInfo">
-        <div id="specialOffer" collapsed="true">
-          <img id="bargainIcon" src="bargain30.png" />
-          <h2>__MSG_special-offer-head__</h2>
-          <p id="specialOfferIntro">__MSG_special-offer-intro__</p>
+        <div id="specialOffer" class="specialOffer" collapsed="true">
+          <img id="bargainIcon" class="bargainIcon"  src="bargain30.png" />
+          <h2 class="specialOfferHead">__MSG_special-offer-head__</h2>
+          <p class="specialOfferIntro">__MSG_special-offer-intro__</p>
           <p id="specialOfferTxt">__MSG_special-offer-content__</p>
         </div>
-        <h2>__MSG_whats-new-head__</h2>
-        <ul id="whatsNewList">
-          __MSG_whats-new-list__
-        </ul>
-        <p>
-          __MSG_whats-new-intro__
-          <span class="actionlinks"><a id="whatsNew">__MSG_whats-new-btn__</a></span>
-        </p>
+        <div id="specialOfferRenew" class="specialOffer" collapsed="true">
+	        <img id="bargainRenewIcon" class="bargainIcon" src="bargain30.png" />
+	        <h2 class="specialOfferHead">__MSG_special-offer-head__</h2>
+	        <p class="specialOfferIntro">__MSG_special-offer-intro__</p>
+	        <p id="specialOfferRenewTxt">__MSG_special-offer-renew__</p>
+        </div>
+        
+        <div id="changesList">
+          <h2>__MSG_whats-new-head__</h2>
+          <ul id="whatsNewList">
+            __MSG_whats-new-list__
+          </ul>
+          <p>
+            __MSG_whats-new-intro__
+            <span class="actionlinks"><a id="whatsNew">__MSG_whats-new-btn__</a></span>
+          </p>
+        </div>
       </div>
       
       <p id="licenseExtended">
@@ -57,9 +66,9 @@
       </div>
         
       <div id="purchaseSection">
-        <h2>__MSG_purchase-heading__</h2>
+        <h2 id="purchaseHeader">__MSG_purchase-heading__</h2>
         
-        <p>
+        <p id="whyPurchase">
           <span id="support-preference">__MSG_support-preference__</span>
           <span id="ongoing-work">__MSG_ongoing-work__</span>
         </p>

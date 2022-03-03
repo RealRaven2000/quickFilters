@@ -467,6 +467,7 @@ END LICENSE BLOCK
     # [issue 89] Create filter by subject - option to insert the full subject if [string] in line
     # [issue 77] When copying an email during assistant, the action "Copy to Folder" should be set + populated
     # [issue 90] Fixed: When uninstalling / updating quickFilters, toggling tags may fail
+    # [issue 92] UI to view license extension longer than 1 month before expiry of Pro license
 
    
   ============================================================================================================
@@ -754,11 +755,14 @@ var quickFilters = {
       quickFilters.Util.viewSplash();
       quickFilters.Preferences.setBoolPref("hasNews", false);
       quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" }); 
-      return;
     }
-    
-    // just reuse the function above.  you can change this, obviously!
-    quickFilters.onMenuItemCommand(e, 'toggle_Filters');
+    else if (quickFilters.Util.licenseInfo.isExpired) {
+      quickFilters.Util.viewLicense();
+    }
+    else {
+      // just reuse the function above.  you can change this, obviously!
+      quickFilters.onMenuItemCommand(e, 'toggle_Filters');
+    }
   },
 
   onToolbarListCommand: function onToolbarListCommand(e) {
@@ -1335,13 +1339,23 @@ var quickFilters = {
     if (btn) {
       if (hasNews) {
         btn.classList.add("newsflash");
+        btn.classList.remove("expired");
         btn.label = util.getBundleString("quickfiltersToolbarButton.updated");
-        btn.setAttribute("tooltiptext", "Click this once to see the Splash screen and what's new in quickFilters.");
+        btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.updated.tip"));
       }
       else {
         btn.classList.remove("newsflash");
-        btn.label = util.getBundleString("quickfiltersToolbarButton.label");
-        btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.tooltip"));
+        // 
+        if (util.licenseInfo.isExpired) {
+          btn.classList.add("expired");
+          btn.label = util.getBundleString("quickfiltersToolbarButton.expired");
+          btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.expired.tip"));
+        }
+        else {
+          btn.classList.remove("expired");
+          btn.label = util.getBundleString("quickfiltersToolbarButton.label");
+          btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.tooltip"));
+        }
       }
     }
   }, 

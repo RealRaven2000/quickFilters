@@ -107,6 +107,18 @@
   "purchase-heading" : {
     "message" : "Куповина лиценце!"
   }, 
+  "quickfiltersToolbarButton.expired": {
+    "message": "Дозвола истекла!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Кликните да бисте отворили quickFilters панел лиценце. Кликните десним тастером миша за друге опције."
+  },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters је ажуриран!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Кликните овде једном да бисте видели почетни екран и шта је ново у quickFilters."
+  },
   "renew-your-license" : {
     "message" : "Обновите лиценцу."
   },  
@@ -124,7 +136,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12. септембра"
+    "message": "20. марта"
   },
   "special-offer-head" : {
     "message": "Помозите quickFilters да настави!"
@@ -132,6 +144,19 @@
   "special-offer-intro" : {
     "message": "{boldStart} Поштовани {name} {boldEnd}, , сада можете да помогнете у провери будућности quickFilters. Долазе још велике промене на Тхундербирду и треба ми {boldStart} ваша помоћ {boldEnd} да наставим!"
   } ,  
+  "special-offer-renew": {
+    "message": "Обновите лиценцу сада и уштедите {boldStart}$reduction${boldEnd}! Ова посебна понуда биће доступна до {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "support-preference" : {
     "message": "Ово је преферирани начин подршке $addonName$.",
     "placeholders": {

@@ -1143,8 +1143,17 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistant"
   },
+  "quickfiltersToolbarButton.expired": {
+    "message": "Giấy phép đã hết hạn!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Nhấp để mở bảng cấp phép quickFilters. Nhấp chuột phải để có các tùy chọn khác."
+  },
   "quickfiltersToolbarButton.updated": {
     "message": "quickFilters đã được cập nhật!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Nhấp vào đây một lần để xem màn hình Splash và có gì mới trong quickFilters."
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Kích hoạt trợ lý bộ lọc (Nhấp chuột phải để hiển thị tùy chọn quickFilters)"
@@ -1166,7 +1175,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "Ngày 12 tháng 9"
+    "message": "20 tháng 3"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
@@ -1174,6 +1183,19 @@
   "special-offer-intro": {
     "message": "{boldStart} Kính gửi {name} {boldEnd}, bạn hiện có thể trợ giúp các bộ lọc quickFilters trong tương lai. Sắp có nhiều thay đổi lớn hơn trên Thunderbird và tôi cần {boldStart} sự trợ giúp của bạn {boldEnd} để theo kịp!"
   },
+  "special-offer-renew": {
+    "message": "Gia hạn Giấy phép của bạn ngay bây giờ và tiết kiệm {boldStart}$reduction${boldEnd}! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "subjectCompleteExtract": {
     "message": "Luôn truy xuất dòng tiêu đề hoàn chỉnh."
   },

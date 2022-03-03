@@ -1147,8 +1147,17 @@
   "quickfiltersToolbarButton.label": {
     "message": "quickFilters Assistente"
   },
+  "quickfiltersToolbarButton.expired": {
+    "message": "Licença expirada!"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "Clique para abrir o painel de licença quickFilters. Clique com o botão direito do mouse para outras opções."
+  },
   "quickfiltersToolbarButton.updated": {
     "message": "quickFilters foi atualizado!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Clique aqui uma vez para ver a tela inicial e o que há de novo em quickFilters."
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Ative o assistente de filtro (clique com o botão direito para exibir as preferências de quickFilters)"
@@ -1170,7 +1179,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12 de setembro"
+    "message": "20 de março"
   },
   "special-offer-head" : {
     "message": "Por favor, ajude quickFilters a continuar!"
@@ -1178,6 +1187,19 @@
   "special-offer-intro" : {
     "message": "{boldStart} Caro {name} {boldEnd}, agora você pode ajudar na preparação de quickFilters. Mais grandes mudanças no Thunderbird estão chegando e eu preciso de {boldStart} sua ajuda {boldEnd} para acompanhar!"
   } ,
+  "special-offer-renew": {
+    "message": "Renove sua licença agora e economize {boldStart}$reduction${boldEnd}! Esta oferta especial estará disponível até {boldStart} $expirydate$ {boldEnd}.",
+    "placeholders": {
+      "expirydate": {
+        "content": "$1",
+        "example": "September 11"
+      },
+      "reduction": {
+        "content": "$2",
+        "example": "50%"
+      }
+    }
+  },   
   "subjectCompleteExtract": {
     "message": "Sempre insira a linha de assunto completa."
   },

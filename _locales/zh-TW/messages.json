@@ -107,6 +107,18 @@
   "purchase-heading" : {
     "message" : "購買許可證！"
   }, 
+  "quickfiltersToolbarButton.expired": {
+    "message": "證件過期！"
+  },
+  "quickfiltersToolbarButton.expired.tip": {
+    "message": "單擊以打開 quickFilters 許可證面板。 右鍵單擊其他選項。"
+  },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters 已更新！"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "單擊此處一次以查看啟動畫面和 quickFilters 中的新功能。"
+  },
   "renew-your-license" : {
     "message" : "續訂您的許可證。"
   },  
@@ -130,7 +142,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "9 月 12 日"
+    "message": "3月20日"
   },
   "subjectCompleteExtract": {
     "message": "始終插入完整的主題行。"

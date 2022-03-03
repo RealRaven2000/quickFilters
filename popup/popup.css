@@ -82,7 +82,10 @@ ul.actions {
 ul.actions *[collapsed=true],
 .actionlinks a[collapsed=true],
 p[collapsed=true],
-div[collapsed=true]{
+span[collapsed=true],
+div[collapsed=true],
+h2[collapsed=true],
+canvas[collapsed=true] {
   visibility: collapse;
   display :none;
 }
@@ -91,6 +94,16 @@ div[collapsed=true]{
 .importantInfo {
   background-color: rgba(0,0,0,0.9);
   color: white;
+}
+#changesList {
+  background-color: transparent;
+}
+
+.importantInfo a {
+  background-color: transparent;
+  color: lightyellow;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .importantInfo p, 
@@ -105,14 +118,21 @@ div[collapsed=true]{
   background-color: transparent;
 }
 
-#specialBox {
+#new-licensing.announcement {
+  background-color: rgba(0,0,50,0.9); 
+  margin-bottom: 1.2em;
+}
+
+#specialBox,
+.announcement {
   border-radius: 6px;
   margin-left: -1em;
   margin-right: -1em;
   padding: 0.1em 1em;
 }
 
-#specialBox h2 {
+#specialBox h2,
+#new-licensing h2  {
   background: none !important;
   margin-top: 16px;
   text-shadow:
@@ -123,18 +143,19 @@ div[collapsed=true]{
   
 }
 
-#specialOffer #bargainIcon {
+.specialOffer .bargainIcon {
+  animation: border-pulsate 3s ease infinite;  
   cursor: pointer;
   float: right;
   position: relative;
   right: -3em;
   top: -3em;
   transition: transform 0.5s ease;
-  z-index: 10000;
-  animation: border-pulsate 3s ease infinite;  
   border: 15px solid rgba(60, 60, 90, 0.6);
   background-color: rgba(60, 60, 90, 0.6);
   border-radius: 95px;
+  margin-left: -95px; /* avoid pushing the text to the left! */
+  z-index: 10000;
 }
 
 @keyframes border-pulsate {
@@ -144,14 +165,14 @@ div[collapsed=true]{
 }
 
 
-#specialOffer #bargainIcon:hover {
+.specialOffer .bargainIcon:hover {
   transform: rotate(25deg);  
   animation: none;
   border-color: transparent;
   background-color: transparent;
 }
 
-#specialBox #specialOffer {
+#specialBox .specialOffer {
   background: transparent !important;
 }
 
@@ -163,6 +184,9 @@ div[collapsed=true]{
   */
 }
 
+#whatsNewList li {
+  margin-bottom: 0.8em;
+}
 
 body, body * {
   background-color: white;
@@ -198,7 +222,8 @@ body p, body li {
 
 h1, h2, h3, h4 {
   /* color: #1a566d; */
-  font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif;
+  font-family: Impact, Ubuntu,Haettenschweiler,Coda,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif;
+  font-weight: normal;
   text-align: center;
   color: rgba(20,30,50,0.6);
   margin-top: 0.5em;
@@ -210,15 +235,15 @@ h1, h2, h3, h4 {
       1px -1px 0 #EEE,
       -1px 1px 0 #EEE,
        1px 1px 0 #EEE;
-/*       
-  
-  text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
-  -webkit-background-clip: text;
-     -moz-background-clip: text;
-          background-clip: text;
-          */
           
   text-stroke: 1px lightblue;
+}
+
+#innerwrapper[os=linux] h1, 
+#innerwrapper[os=linux] h2, 
+#innerwrapper[os=linux] h3 {
+  font-family: Ubuntu, Charcoal, Charcoal, sans serif;
+  font-weight: bold;
 }
 
 h1 {
