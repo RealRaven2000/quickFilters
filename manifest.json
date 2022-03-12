@@ -2,18 +2,18 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.3.3pre3",
+  "version": "5.5pre2",
   "default_locale": "en",
-  "author": "Axel Grude, Klaus Buecher/opto",
+  "author": "Axel Grude",
   "developer": {
-	  "name": "Axel Grude, Klaus Buecher/opto",
+	  "name": "Axel Grude",
     "url": "https://quickfilters.quickfolders.org/index.html"
 	},
   "applications": {
     "gecko": {
       "id": "quickFilters@axelg.com",
-      "strict_min_version" : "78.0",
-      "strict_max_version" : "91.*"
+      "strict_min_version" : "91.0",
+      "strict_max_version" : "102.*"
     }
   },
   "background": {
