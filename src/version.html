@@ -196,7 +196,24 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Increasing maximum TB version for next ESR - Thunderbird 102.0 is planned to be supported from now on.
     </li>
     <li> 
-      Added domain modifiers to custom template editor
+      <p>
+        Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension.<br>
+        <img src="img/customTemplateAdvancedDomain.png" alt="advanced domain template" class="screenshot"><br>
+        These will usually work reliably depending on how exotic your domain extensions are. 
+        However it doesn't check against the database of extensions that look like domains, such as
+        "pharma.pro", here the algorithm will falsely assume that the URL "tools.pharma.pro" consists of:
+      </p>
+      subdomain = tools, root domain = pharma, extension = pro 
+      <p>
+      - even though in reality it is:
+      </p>
+      root domain = tools, extensions = pharma.pro
+      <p>I am not doing an online sanity check here, so double check when you use these functions.
+      
+      
+      
+      
+      
     </li>
     <li> 
       Added a help panel in custom template editor that explains the placeholder action "set priority to normal"    
@@ -219,7 +236,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 <a name="5.4"> &nbsp; </a>
 <li>
   <h4>
-	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/">quickFilters 5.4 - 04/03/2021</a>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.4">quickFilters 5.4 - 04/03/2021</a>
 	</h4>
   
 		<table class="quickFiltersFreeUser bargain"> 
