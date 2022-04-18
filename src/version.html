@@ -208,15 +208,20 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       - even though in reality it is:
       </p>
       root domain = tools, extensions = pharma.pro
-      <p>I am not doing an online sanity check here, so double check when you use these functions.
-      
-      
-      
-      
-      
+      <p>
+        I am not doing an online sanity check here, so double check when you use these functions
+        to create new filter templates.
+      </p>     
     </li>
     <li> 
-      Added a help panel in custom template editor that explains the placeholder action "set priority to normal"    
+      Added a help panel in custom template editor that explains the placeholder action "set priority to normal".
+      When the assistant creates a new filter it will always add the appropriate action (such as move to current folder
+      or tag with the current tag) based on what the user did. Since the filter editor needs at least one action
+      the custom template editor just uses a "neutral" action (set priority to normal) as a placeholder.
+      This should be left alone - do not try to set a "move to folder action" unless you want to do it and
+      expect this action to be hardcoded in all filters you want to generate with this template.
+      <br>
+      <img src="img/Custom-Template-Actions-Tip.png" alt="tooltip for actions" class="screenshot"><br>
     </li>
   </ul>
   <h5 class="inList"> Bugs Fixed </h5>
