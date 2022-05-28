@@ -61,7 +61,9 @@ quickFilters.Worker = {
     }
     
     util.logDebugOptional ("filters", "toggle_FilterMode(" + active + ")");
-    let notifyBox;
+    let notifyBox, 
+        notification,
+        imgSrc = "chrome://quickfilters/content/skin/filterTemplate.png";
 
     if (!silent) {
       
@@ -116,14 +118,44 @@ quickFilters.Worker = {
               }
             ];
           
+          if (notifyBox.shown) { // new notification format (Post Tb 99)
+            notification = notifyBox.appendNotification( 
+              notificationKey, // "String identifier that can uniquely identify the type of the notification."
+              {
+                priority: notifyBox.PRIORITY_WARNING_MEDIUM,
+                label: theText,
+                eventCallback: eventType => { worker.onCloseNotification(eventType, notifyBox, notificationKey) } 
+              },
+              nbox_buttons // no buttons
+            );
+          }          
+          else {
+            notification = notifyBox.appendNotification( theText,
+                notificationKey ,
+                imgSrc ,
+                notifyBox.PRIORITY_WARNING_MEDIUM,
+                nbox_buttons,
+                function(eventType) { worker.onCloseNotification(eventType, notifyBox, notificationKey); } // eventCallback
+                ); 
+          }
           
-          notifyBox.appendNotification( theText,
-              notificationKey ,
-              "chrome://quickfilters/content/skin/filterTemplate.png" ,
-              notifyBox.PRIORITY_WARNING_MEDIUM,
-              nbox_buttons,
-              function(eventType) { worker.onCloseNotification(eventType, notifyBox, notificationKey); } // eventCallback
-              ); 
+          // setting img was removed in Tb91  
+          if (notification.messageImage.tagName == "span") {
+            let linkEl = document.createElement("link");
+            linkEl.setAttribute("rel", "stylesheet");
+            linkEl.setAttribute("href", "chrome://quickfilters/content/skin/qFilters-notifications.css");
+            notification.shadowRoot.insertBefore(linkEl, notification.shadowRoot.firstChild.nextSibling);         
+            
+            let container = notification.shadowRoot.querySelector(".container");
+            if (container) {
+              let im = document.createElement("img");
+              im.setAttribute("src", imgSrc);
+              container.insertBefore(im, notification.shadowRoot.querySelector(".icon"));
+              // remove warning icon:
+              container.removeChild(notification.shadowRoot.querySelector(".icon"));
+            }
+            
+          }           
               
         }
         else {
@@ -199,14 +231,17 @@ quickFilters.Worker = {
         // we must make sure server and sourceFolder are selected (?) should already be correct
         // avoid quickFilters.List being closured!
         win.focus();
-        win.quickFilters.List.rebuildFilterList();
         if (targetFilter) {
+          win.quickFilters.List.rebuildFilterList();
           setTimeout(function() { 
             let quickFiltersList = win.quickFilters.List;
             quickFiltersList.selectFilter(targetFilter); 
             if (isAlphabetic)
               quickFiltersList.moveAlphabetic(targetFilter); 
           });
+        }
+        else {
+          MsgFilterList( { refresh: isRefresh, folder: sourceFolder}) ;
         }
       }
     }

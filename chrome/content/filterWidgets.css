@@ -157,3 +157,36 @@ tab#quickFilters-Support {
   display: inline-block;
 }
 
+.helpLink {
+  -moz-appearance: none !important;
+  display: inline-block;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin-top: 3px;
+  width: 16px !important;
+  min-width: 22px;
+}
+
+.helpLink {
+  background-image: url('chrome://quickfilters/content/skin/info16.png');
+}
+
+.helpLink .tooltip {
+  position: fixed;
+  font-size: 13px;
+  line-height: 20px;
+  padding: 5px;
+  background: white;
+  border: 1px solid #ccc;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s, visibility 0s;
+  right: 25px !important;
+  z-index: 1000;
+}
+
+.helpLink:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}

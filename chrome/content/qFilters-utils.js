@@ -388,7 +388,7 @@ quickFilters.Util = {
 					util = quickFilters.Util;
     try {
       if (!icon)
-        icon = "chrome://quickfilters/content/skin/QuickFilters_32.png";
+        icon = "chrome://quickfilters/content/skin/QuickFilters_32.svg";
       else
         icon = "chrome://quickfilters/content/skin/" + icon;
       if (!title)
@@ -422,14 +422,35 @@ quickFilters.Util = {
         let notificationBox = document.getElementById('quickFilterNotificationBox'),
             priority = notificationBox.PRIORITY_WARNING_MEDIUM,
             // appendNotification( label , value , image , priority , buttons, eventCallback )
-            note = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
+            notification;
+        if (notificationBox.shown) { // new notification format (Post Tb 99)
+          notification = notificationBox.appendNotification( 
+            notificationKey, // "String identifier that can uniquely identify the type of the notification."
+            {
+              priority: priority,
+              label: text,
+              eventCallback: null
+            },
+            null // no buttons
+          );
+        }
+        else {
+          notification = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
+        }
         notificationBox.addEventListener('alertclose', function() { alert('test'); });
+        
+        // setting img was removed in Tb91  
+        if (notification.messageImage.tagName == "span") {
+          let container = notification.shadowRoot.querySelector(".container");
+          if (container) {
+            let im = document.createElement("img");
+            im.setAttribute("src", icon);
+            container.insertBefore(im, notification.shadowRoot.querySelector(".icon"));
+          }
+        }             
+        
         if (isTimeout)
-					window.setTimeout(function() {try{notificationBox.removeNotification(note)}catch(e){};panel.hidePopup();}, timeOut);
-        //let note = document.createElement('notification');
-        //note.setAttribute(label, text);
-        //note.setAttribute(image, icon);
-        //panel.appendChild(note);
+					window.setTimeout(function() {try{notificationBox.removeNotification(notification)}catch(e){};panel.hidePopup();}, timeOut);
       }
       else {
         let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
@@ -439,7 +460,7 @@ quickFilters.Util = {
     }
     catch(e) {
       // prevents runtime error on platforms that don't implement nsIAlertsService
-      this.logException ("quickFilters.util.popupAlert() ", e);
+      this.logException (`quickFilters.util.popupAlert(${text}) `, e);
       alert(text);
     }
   } ,
@@ -456,9 +477,11 @@ quickFilters.Util = {
 	// isRegister: show registration button
 	popupProFeature: function popupProFeature(featureName, isRegister, additionalText) {
 		let util = quickFilters.Util,
-				prefs = quickFilters.Preferences;
+				prefs = quickFilters.Preferences,
+        countDown = null;
+        
     if (util.hasPremiumLicense())
-      return;
+      return true;
 		
 		let notifyBox,
 		    mainWin = util.getMail3PaneWindow();
@@ -471,7 +494,7 @@ quickFilters.Util = {
 
 		let title = util.getBundleString("quickfilters.notification.proFeature.title", "Premium Feature"),
 		    theText = util.getBundleString("quickfilters.notification.premium.text",
-				"{1} is a Premium feature, please get a quickFilters Pro License for using it permanently. "),
+				"{1} is a Premium feature, please get a quickFilters Pro License for using it. "),
         featureTitle = 
           (featureName.includes(' ')) ?
           featureName : util.getBundleString('quickfilters.premium.title.' + featureName, featureName);
@@ -485,20 +508,23 @@ quickFilters.Util = {
         dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
 				
 		if (notifyBox) {
-			let notificationKey = "quickfilters-proFeature",
-          countDown = null;
+			let notificationKey = "quickfilters-proFeature";
 			try {
 				if (featureName.indexOf('Advanced search') == 0)
 					featureName="advancedSearchType";
-				prefs.getIntPref("proNotify." + featureName + ".countDown") ;
-				if (notifyBox.getNotificationWithValue(notificationKey)) {
-					// notification is already shown on screen.
-					util.logDebug('notifyBox for [' + notificationKey + '] is already displayed, no action necessary.\n'
-																		 + 'Countdown is ' + countDown);
-					return;
-				}
+        try {
+          countDown = prefs.getIntPref("restrictions." + featureName + ".countDown") ;
+        }
+        catch (ex) {
+          countDown = 5;
+        }
 				countDown--;
-				prefs.setIntPref("proNotify." + featureName + ".countDown", countDown);
+        if (countDown>0) {
+          let countText = util.getBundleString("quickfilters.notification.premium.freeUses", "You can use this feature for free {1} more times.");
+          countText = countText.replace("{1}", countDown);
+          theText = theText + " " + countText;
+        }
+				prefs.setIntPref("restrictions." + featureName + ".countDown", countDown);
 				util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
 																	 + 'Countdown is ' + countDown);
 			}
@@ -526,35 +552,42 @@ quickFilters.Util = {
           }
         );
       }
-        
- /*		  }
-  *			else {
-	*				nbox_buttons.push(
-	*					{
-	*						label: dontShow,
-	*						accessKey: null, 
-	*						callback: function() { util.mainInstance.Util.disableFeatureNotification(featureName); },
-	*						popup: null
-	*					}
-	*				);
-	*			}
-	*/
+
 			
-			if (notifyBox) {
-				let item = notifyBox.getNotificationWithValue(notificationKey);
-				if (item)
-					notifyBox.removeNotification(item, false);
-			}
+      let item = notifyBox.getNotificationWithValue(notificationKey);
+      if (item)
+        notifyBox.removeNotification(item, false);
 		  const imgSrc = "chrome://quickfilters/content/skin/proFeature.png";
     
-			let newNotification = 
-        notifyBox.appendNotification( theText, 
-					notificationKey , 
-					imgSrc, 
-					notifyBox.PRIORITY_WARNING_HIGH, 
-					nbox_buttons ); // , eventCallback
+			let newNotification;
+
+      if (notifyBox.shown) { // new notification format (Post Tb 99)
+        newNotification = notifyBox.appendNotification( 
+          notificationKey, // "String identifier that can uniquely identify the type of the notification."
+          {
+            priority: notifyBox.PRIORITY_WARNING_HIGH,
+            label: theText,
+            eventCallback: null
+          },
+          nbox_buttons // no buttons
+        );
+      }
+      else {
+        newNotification = notifyBox.appendNotification( theText, 
+          notificationKey , 
+          imgSrc, 
+          notifyBox.PRIORITY_WARNING_HIGH, 
+          nbox_buttons ); // , eventCallback
+      }
+       
       // setting img was removed in Tb91
       if (newNotification.messageImage.tagName == "span") {
+        // style needs to go into shadowroot
+        let linkEl = document.createElement("link");
+        linkEl.setAttribute("rel", "stylesheet");
+        linkEl.setAttribute("href", "chrome://quickfilters/content/skin/qFilters-notifications.css");
+        newNotification.shadowRoot.insertBefore(linkEl, newNotification.shadowRoot.firstChild.nextSibling);         
+        
         let container = newNotification.shadowRoot.querySelector(".container");
         if (container) {
           let im = document.createElement("img");
@@ -562,16 +595,14 @@ quickFilters.Util = {
           container.insertBefore(im, newNotification.shadowRoot.querySelector(".icon"));
         }
       }
+      return (countDown>=0);
 		}
 		else {
 			// fallback for systems that do not support notification (currently: SeaMonkey)
 			let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]  
 															.getService(Components.interfaces.nsIPromptService),  
-			    // check = {value: false},   // default the checkbox to true  
-			    // result = prompts.alertCheck(null, title, theText, dontShow, check);
 			    result = prompts.alert(null, title, theText); 
-			// if (check.value==true)
-				// util.disableFeatureNotification(featureName);
+      return true;
 		}
 	} ,  
 
@@ -993,31 +1024,47 @@ quickFilters.Util = {
    */
   installButton: function installButton(toolbarId, id, afterId) {
     if (!document.getElementById(id)) {
-      this.logDebug("installButton(" + toolbarId + "," + id + "," + afterId + ")");
+      try {
+        this.logDebug("installButton(" + toolbarId + "," + id + "," + afterId + ")");
 
-      let toolbar = document.getElementById(toolbarId),
-          before = null;
-      // If no afterId is given, then append the item to the toolbar
-      if (afterId) {
-        let elem = document.getElementById(afterId);
-        if (elem && elem.parentNode == toolbar)
-            before = elem.nextElementSibling;
+        let toolbar = document.getElementById(toolbarId),
+            before = null;
+        
+        if (afterId) {
+          let elem = document.getElementById(afterId);
+          if (elem && elem.parentNode == toolbar)
+              before = elem.nextElementSibling;
+        }
+        else { // If no afterId is given, then insert the item to the toolbar before the search box.
+          // [issue 100] - Improve location of toolbar buttons when installing quickFilters
+          before = document.getElementById("gloda-search"); // by default this is usually to the left of the button-appmenu
+          if (!before) {
+            before = document.getElementById("button-appmenu");
+          }
+          if (before) {
+            if (before.previousSibling && before.previousSibling.tagName == "toolbarspring") {
+              before = before.previousSibling;
+            }
+          }
+        }
+
+        this.logDebug("toolbar.insertItem(" + id  + "," + before + ")");
+        toolbar.insertItem(id, before);
+        toolbar.setAttribute("currentset", toolbar.currentSet);
+        this.logDebug("document.persist(" + toolbar.id + ")");
+        if (document.persist)
+          document.persist(toolbar.id, "currentset");
+        else { // code from customizeToolbar.js
+          var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm"),
+              currentSet = toolbar.currentSet;
+          toolbar.setAttribute("currentset", currentSet);
+          Services.xulStore.persist(toolbar, "currentset");
+        }
       }
-
-      this.logDebug("toolbar.insertItem(" + id  + "," + before + ")");
-      toolbar.insertItem(id, before);
-      toolbar.setAttribute("currentset", toolbar.currentSet);
-      this.logDebug("document.persist(" + toolbar.id + ")");
-      if (document.persist)
-        document.persist(toolbar.id, "currentset");
-      else { // code from customizeToolbar.js
-        var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm"),
-            currentSet = toolbar.currentSet;
-        toolbar.setAttribute("currentset", currentSet);
-        Services.xulStore.persist(toolbar, "currentset");
+      catch(ex) {
+        this.logException("quickFilters.Util.installButton", ex);
       }
-
-    }
+     }
   }  ,
 
   showVersionHistory: function showVersionHistory() {
@@ -1478,7 +1525,11 @@ quickFilters.Util = {
 				val.attrib = searchTerm.value.attrib;  
 				if (util.isStringAttrib(val.attrib)) {
 					let replaceVal = searchTerm.value.str || '', // guard against invalid str value. 
-					    newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
+					    newVal = replaceVal;
+          // [issue 105] Backup of Custom Templates (Local Folders) does not store placeholders correctly
+          // if (!filter.filterName.startsWith("quickFilterCustomTemplate")) {
+          //   newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
+          // }
 					this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
 					replaceVal = newVal;
 					val.str = replaceVal;  // .toLocaleString() ?
@@ -1721,7 +1772,7 @@ quickFilters.Util = {
       util.logDebugOptional('template.custom','getLastFilterListWindow() not able to process yet...');
       if (attempt<10) {
         window.setTimeout(function() { 
-          debugger;
+          // debugger;
           const util = quickFilters.Util;
           util.logDebugOptional('template.custom','timeout - filterCustomTemplates(' + attempt + ')..');
           util.filterCustomTemplates(attempt); 
@@ -2165,7 +2216,11 @@ quickFilters.Util = {
       }, 
       out:null
     };
-    window.openDialog("chrome://quickfilters/content/register.xhtml",
+    let win = window;
+    if (win.closed) { // notifications caused by a close parent window will fail!
+      win = quickFilters.Util.getMail3PaneWindow();
+    }
+    win.openDialog("chrome://quickfilters/content/register.xhtml",
       "quickfilters-register","chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply",
       quickFilters,
       params).focus();
@@ -2174,6 +2229,30 @@ quickFilters.Util = {
   viewSplash: function() {
     quickFilters.Util.notifyTools.notifyBackground({ func: "splashScreen" });
   } ,
+  
+  // new type of tooltips: click first displays the hovering text in the clickyTooltip attribute!
+  openTooltipPopup: function(el) {
+    if (el.getAttribute("hasToolTip")) {
+      return;
+    }
+    let txt = el.getAttribute("clickyTooltip");
+    if (txt) {
+      let tip = document.createElement("div");
+      tip.classList.add('tooltip');
+      tip.innerText = txt;
+      tip.style.transform =
+        'translate(' +
+          (el.hasAttribute('tip-left') ? 'calc(-100% - 5px)' : '15px') + ', ' +
+          (el.hasAttribute('tip-top') ? '-100%' : '0') +
+        ')';
+      el.appendChild(tip);
+      el.onmousemove = e => {
+        tip.style.left = e.clientX + 'px'
+        tip.style.top = e.clientY + 'px';
+      };    
+      el.setAttribute("hasToolTip", true);
+    }
+  },  
 	
   dummy: function() {
 		/* 
@@ -2605,43 +2684,89 @@ quickFilters.mimeDecoder = {
       if (!lastName) lastName = (names.length>1) ? names[names.length-1] : '';
       
       // build the part!
-      addressField = ''; // reset to finalize
+      addressField = ""; // reset to finalize
+      let fullDomain = emailAddress.substring(emailAddress.indexOf("@")+1);
       for (let j=0; j<formatArray.length; j++)  {
         let element = formatArray[j],
-            part = ''; 
+            part = ""; 
         switch(element.field.toLowerCase()) {
-          case 'mail':
+          case "mail":
             part = emailAddress;
             break;
-          case 'name':
+          case "name":
             if (fullName)
               part = fullName;
             else
               part = address.replace(/.*<(\S+)@\S+>.*/g, "$1"); // email first part fallback
             break;
-          case 'firstname':
+          case "firstname":
             part = firstName;
             break;
-          case 'domain': // cut off 'name@' to retrieve only domain portion of mail
-            part = emailAddress.substring(emailAddress.indexOf('@')+1);
+          case "domain": // cut off "name@" to retrieve only domain portion of mail
+            part = fullDomain;
             break;
-          case 'lastname':
-            if (isOnlyOneName && format.indexOf('firstname')<0) {
+          case "domain.root": // cut off extension(s) of domain
+            {
+              let parts = fullDomain.split(".");
+              let extensionCount = 0;
+              for (i=parts.length-1; i>0; i--) {
+                extensionCount++;
+                if (extensionCount==1) {
+                  parts.pop(i);
+                } 
+                else if (i>1) {
+                  if (parts[i].length<=3) { // just a guess
+                    parts.pop(i);
+                  }
+                  else { i=0 ; } // end loop (avoiding break)
+                }
+              }
+              part = parts[parts.length-1]; // last part of list!              
+            }
+            break;
+          case "domain.subdomain": // cut off "name@" to retrieve only domain portion of mail
+            {
+              let match = /^([^.]+)/.exec(fullDomain);
+              part = match.length>1 ? match[1] : "";  // no subdomain found
+            }
+            break;
+          case "domain.extension": // only use extension(s). actually hard to do without a database
+            {
+              let parts = fullDomain.split(".");
+              let extensionCount = 0;
+              let extensions = [];
+              for (i=parts.length-1; i>0; i--) {
+                extensionCount++;
+                if (extensionCount==1) {
+                  extensions.push(parts.pop(i));
+                } 
+                else if (i>1) {
+                  if (parts[i].length<=3) { // just a guess
+                    extensions.push(parts.pop(i));
+                  }
+                  else { i=0 ; } // end loop (avoiding break)
+                }
+              }
+              part = extensions.reverse().join(".");      
+            }
+            break;
+          case "lastname":
+            if (isOnlyOneName && format.indexOf("firstname")<0) {
               part = firstName; // fall back to first name if lastName was 
-                                // 'emptied' because of duplication
+                                // "emptied" because of duplication
             }
             else
               part = lastName;
             break;
           default:
-            if (element.field.indexOf('bracketMail[')==0) {
+            if (element.field.indexOf("bracketMail[")==0) {
               let open, close;
               [open, close] = _getBracketDelimiters(element);
-              part = emailAddress ? open + emailAddress + close : '';
+              part = emailAddress ? open + emailAddress + close : "";
             }
             break;
         }
-        if (element.modifier =='linkTo') {
+        if (element.modifier =="linkTo") {
           part = "<a href=mailto:" + emailAddress + ">" + part + "</a>"; // mailto
         }
 
@@ -2653,7 +2778,7 @@ quickFilters.mimeDecoder = {
         }
       }
       
-      util.logDebugOptional('mime.split', 'adding formatted address: ' + addressField);
+      util.logDebugOptional("mime.split", "adding formatted address: " + addressField);
       addresses += addressField;
 		}
 		return addresses;

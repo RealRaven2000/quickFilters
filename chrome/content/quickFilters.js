@@ -462,13 +462,25 @@ END LICENSE BLOCK
     # Link to premium features directed to QuickFolders site, not quickFilters!
     # Fixed instant link to shopping page for quickFilters domain licenses
     
-  5.4 - WIP
+  5.4 - 04/02/2022
     # Fixed alias identity algorithm
     # [issue 89] Create filter by subject - option to insert the full subject if [string] in line
     # [issue 77] When copying an email during assistant, the action "Copy to Folder" should be set + populated
     # [issue 90] Fixed: When uninstalling / updating quickFilters, toggling tags may fail
     # [issue 92] UI to view license extension longer than 1 month before expiry of Pro license
-
+    
+  5.5 - WIP
+    # fixed notification dialogs for Thunderbird 99 and higher.
+    # fixed notification image for Thunderbird 91 
+    # fixed icon on OS notification (Run filters on folder / selected mails...)
+    # fixed "copy" icon in filter list removed in TB102
+    # added help panel for custom template switch in settings / advanced
+    # added help panel in custom template editor that explains the placeholder action "set priority to normal"
+    # added domain modifiers to custom template editor
+    # [issue 100] Improve location of added toolbar buttons when installing quickFilters
+    # [issue 101] Betterbird: With 2-way addresses make sure "any" operator is selected.
+    # [issue 104] Filter Rules sorting - fails if no quickFilters Pro license
+    # [issue 105] Backup of Custom Templates (Local Folders) does not store placeholders correctly
    
   ============================================================================================================
   FUTURE WORK:
@@ -653,7 +665,7 @@ var quickFilters = {
       if (firstRun) {
         toolbarId = "mail-bar3";
         util.installButton(toolbarId, "quickfilters-toolbar-button");
-        util.installButton(toolbarId, "quickfilters-toolbar-listbutton");
+        util.installButton(toolbarId, "quickfilters-toolbar-listbutton", "quickfilters-toolbar-button");
         prefs.setBoolPref("firstRun", false);
         util.showHomePage();
       }

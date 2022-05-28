@@ -32,7 +32,7 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   color: white !important;
 }
 #quickfilters-toolbar-button.expired {
-  background-color: #b80015 !important; /* blue */
+  background-color: #b80015 !important; /* red */
   background: linear-gradient(to bottom, #890219 0%,#b80015 100%); 
   color: white !important;
 }
@@ -101,80 +101,7 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
 }
 
-/* buy now button */
-@keyframes quickfiltersNotificationPulse {
-  to {box-shadow: 0 0 0 10px rgba(150, 80, 60, 0.12);}
-}
 
-notification[value="quickfilters-proFeature"] .notification-button[accesskey] {
-	-moz-appearance: none;
-  animation: quickfiltersNotificationPulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
-	background-color: rgb(7, 97, 48) !important;
-	background: linear-gradient(to bottom, rgba(184,211,27,1) 0%,rgba(122,166,18,1) 50%,rgba(92,138,0,1) 51%,rgba(135,181,19,1) 100%) !important;
-	border: 1px solid white;
-	border-radius: 1px;
-	box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.5);
-	color: #fff !important;
-	cursor: pointer !important;
-	font-weight: bold;
-	transition-property: box-shadow, margin;
-	transition-duration: 0.75s, 0.2s;
-	height: 135% !important;
-	width: 135% !important;
-	margin-right: 20px;
-}
-
-/* replace notification tag for Tb 64 and later to also match xbl-notification */
-notification[value="quickfilters-proFeature"] .notification-button[accesskey]:hover
-notificationbox *[value="quickfilters-proFeature"] .notification-button[accesskey]:hover {
-	background: -moz-linear-gradient(top, #dbe42e 0%,#a8cc16 50%,#8fba00 51%,#b6d917 100%)  !important;
-}
-
-notification[value="quickfilters-filter"] image.messageImage,
-notificationbox *[value="quickfilters-filter"] image.messageImage {
-	/* filterTemplate.png */
-	min-width: 72px !important;
-	width: 72px !important;
-	min-height: 32px !important;
-	height: 32px !important;
-}
-
-notification[value="quickfilters-proFeature"] image.messageImage,
-notificationbox *[value="quickfilters-proFeature"] image.messageImage {
-	/* proFeature.png */
-	min-width: 72px !important;
-	width: 72px !important;
-	min-height: 36px !important;
-	height: 36px !important;
-}
-
-
-notification[value="quickfilters-filter"] .messageCloseButton,
-notificationbox *[value="quickfilters-filter"] .messageCloseButton {
-	margin-inline-start: 1em;
-}
-
-notificationbox *[value="quickfilters-proFeature"] .messageCloseButton {
-	/* display: none; */
-}
-
-/* postbox - this description simply won't wrap! */
-notificationbox *[value="quickfilters-filter"] description.messageText,
-notificationbox *[value="quickfilters-proFeature"] description.messageText
-{
-	white-space: normal !important;
-	height: auto;
-}
-
-notification[value="quickfilters-filter"] hbox.notification-inner,
-notificationbox *[value="quickfilters-filter"] hbox.notification-inner,
-notificationbox xbl-notification[value="quickfilters-filter"] {
-	color: #fff;
-	background-color: rgb(251,28,3);
-	background-image: linear-gradient(to bottom, rgba(251,28,3,1) 0%, rgba(161,26,11,1) 42%, rgba(138,18,4,1) 51%, rgba(199,24,5,1) 100%);
-	padding-top: 0.75em;
-	padding-bottom: 0.75em;
-}
 
 #mail-notification-box,
 #pbSearchThresholdNotifcationBar {
@@ -192,7 +119,3 @@ notificationbox xbl-notification[value="quickfilters-filter"] {
 	min-height: 44px;
 }
 
-notification[value="quickfilters-proFeature"] hbox.notification-inner {
-	padding-top: 0.5em;
-	padding-bottom: 0.5em;
-}

@@ -7,7 +7,7 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 
 /* shared module for installation popups */
-const SALE_DATE = "2022-03-20";
+const SALE_DATE = "2022-06-13";
 
 async function updateActions(addonName) {
   let licenseInfo = await messenger.runtime.sendMessage({command:"getLicenseInfo"});

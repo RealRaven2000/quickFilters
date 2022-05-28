@@ -216,17 +216,17 @@ quickFilters.List = {
         list = this.FilterListElement,
         count = this.getSelectedCount(list);
     if (count < 2) {
-			let wrn = util.getBundleString('quickfilters.sort.warning.selectMultiple', 
-                                              'To sort, select at least 2 filters');
+			let wrn = util.getBundleString("quickfilters.sort.warning.selectMultiple", 
+                                              "To sort, select at least 2 filters");
       util.popupAlert(wrn);
       return;
     } 
-    if (this.pushSelectedToClipboard('sort')) {
-      util.popupProFeature("sortFilters", true);
-			this.clipboardPending='sort';
-      this.pasteFilters(true);
-		}
-
+    if (util.popupProFeature("sortFilters", true)) {
+      if (this.pushSelectedToClipboard('sort')) {
+        this.clipboardPending='sort';
+        this.pasteFilters(true);
+      }
+    }
   } ,
     
   merge: function merge(evt, isEvokedFromButton) {

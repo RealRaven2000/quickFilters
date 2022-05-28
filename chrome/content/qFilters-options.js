@@ -108,6 +108,15 @@ quickFilters.Options = {
     // [issue 92] allow premature extension
     getElement("licenseDate").addEventListener("click", options.showExtensionButton);
     
+    // add tooltips:
+    for (let node of document.querySelectorAll(".helpLink[clickyTooltip]")) {
+      node.addEventListener("click",
+        (event) => {
+          window.quickFilters.Util.openTooltipPopup(node);
+        }
+      );    
+    }    
+    
   } ,
   
   l10n: function l10n() {

@@ -1,16 +1,31 @@
-quickFilters Change Log - Version 5.4
+quickFilters Change Log - Version 5.5
 
-<b>Changes in 5.4</b>
+<b>Improvements</b>
 <ul>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/89">[issue 89]</a> Create filter by subject - option to insert the full subject if [string] in line. 
+<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/100">[issue 100]</a> Improve location of toolbar buttons when installing quickFilters
 
-In the default behavior, when generating a filter by subject, quyickFilters will look for terms in square or curly braces, such as [honey] or {Fans} and extracts only these. This format is often used by mailing lists or to group mails in a topic. If you switch on this new option, the full subject line will always be inserted into the search condition.</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/77">[issue 77]</a> When copying an email during assistant, the action "Copy to Folder" should be set + populated. At the moment this defaults back to "move to folder" and might also suggest merging with other filters of the wrong action.</li>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/92">[issue 92]</a> Added a method to view license extension sooner than 1 month before expiry of Pro license. If you need to extend your license by another year before it expires, you can click the valid date in Settings / quickFilters Pro tab to open the licensing screen to extend it.</li>
+When installing quickFilters for the first time, the new buttons appear to the right of the application menu. A better location would be to the left of the search box, aligned to the last visible button (in this example "Quick Filter")
+</li>
+<li> Increasing maximum TB version for next ESR - Thunderbird 102.0 is planned to be supported from now on.</li>
+<li> Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. These will usually work reliably depending on how exotic your domain extensions are. However it doesn't check against the database of extensions that look like domains, such as "pharma.pro", here the algorithm will falsely assume that the URL "tools.pharma.pro" consists of:
+
+subdomain = tools, root domain = pharma, extension = pro 
+
+- even though in reality it is:
+  
+root domain = tools, extension = pharma.pro
+  
+I am not doing an online sanity check here, so double check when you use these functions to create new filter templates.</li>
+<li> Added a help panel in custom template editor that explains the placeholder action "set priority to normal". When the assistant creates a new filter it will always add the appropriate action (such as move to current folder or tag with the current tag) based on what the user did. Since the filter editor needs at least one action the custom template editor just uses a "neutral" action (set priority to normal) as a placeholder. This should be left alone - do not try to set a "move to folder action" unless you want to do it and expect this action to be hardcoded in all filters you want to generate with this template.</li>
+<li> Added more transparency for features that require a Pro license. You can use these features a limited number of times the remaining of which will now be displayed in the license notification at the bottom of the screen. All usage counts will be reset when this new version is installed.</li>
 </ul>
-
-<b>Bug Fixes</b>
+<b>Bugs Fixed</b>
 <ul>
-<li><a href="https://github.com/RealRaven2000/quickFilters/issues/90">[issue 90]</a>, <a href="https://github.com/RealRaven2000/quickFilters/issues/72">[issue 72]</a> Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). </li>
-<li>Fixed a problem with alias email addresses in license.</li>
+<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/105">[issue 105]</a>  Fixed: Backup of Custom Templates (Local Folders) does not store placeholders correctly. </li>
+<li> Fixed "copy" icon in filter list removed in TB102. </li>
+<li> Fixed sliding notification panels for Thunderbird 99 and higher. </li>
+<li> Fixed sliding notification icon for Thunderbird 91. </li>
+<li> Fixed icon on OS notification (Run filters on folder / selected mails...) </li>
+<li> Fixed a problem with alias email addresses in license.</li>
+<li> Tested with <a href="https://www.betterbird.eu/">Betterbird</a> so that new can be generated. Future Work: intelligent merging into subgroups depending on template. E.g.  subject AND (from OR from OR from).</li>
 </ul>

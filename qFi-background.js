@@ -124,7 +124,7 @@ async function main() {
     }
     switch (data.func) {
       case "slideAlert":
-        util.slideAlert(...data.args);
+        util.slideAlert(...data.args); // title, text, [icon]
         break;
         
       case "splashScreen":
