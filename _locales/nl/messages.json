@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Kopie (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "De quickFilters-assistent voegt automatisch een actie toe. Laat de standaardactie 'Prioriteit instellen op normaal' als tijdelijke aanduiding."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Adresdomein"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Domeinextensie"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Root Domein"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Subdomein"
   },
   "quickfilters.customHeader.Email": {
     "message": "E-mailadres"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 maart"
+    "message": "12 juni"
   },
   "special-offer-head": {
     "message": "Help quickFilters om door te gaan!"
@@ -1273,7 +1285,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1}Voor het maken van filters op basis van het onderwerpveld, kunt u nu het gedrag uitschakelen waarbij alleen termen tussen vierkante of accolades worden ingevoegd, en in plaats daarvan de hele onderwerpregel gebruiken.{L2} {L1}Nieuw: bij het kopiëren van een e-mail met behulp van de quickFilters-assistent moet de actie 'Kopiëren naar map' worden ingesteld. Tot dusverre werd dit gebruikt om 'Verplaatsen naar map' te selecteren, stelde ook voor om samen te voegen met andere filters van deze actie. {L2} {L1} Opgelost: het verplaatsen van e-mails met contextmenu verplaatste verkeerde e-mails (het schakelde over naar e-mail onder de selectie en verplaatste er een die in plaats daarvan ).{L2}{L1}Een methode toegevoegd om uw quickFilters Pro-licentie eerder dan 1 maand voor de vervaldatum te verlengen (klik op de vervaldatum om de knop licentie verlengen weer te geven).{L2}"
+    "message": "{L1} quickFilters is vanaf nu compatibel met Thunderbird 102 en wordt ondersteund voor de ESR-periode 2022/2023.{L2} {L1} Nieuwe extractors voor domeindelen toegevoegd voor aangepaste sjablonen: hoofddomein, subdomein, domeinnaamextensie. {L2} {L1} Opgelost: filterregels voor sorteren mislukt zonder quickFilters Pro-licentie. {L2} {L1} Opgelost: back-up van aangepaste filtersjablonen {L2} {L1} Help-knop toegevoegd in aangepaste sjablooneditor {L2} {L1} Voor gebruikers zonder licentie telt quickFilters nu het gebruik van bepaalde Pro-functies af. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

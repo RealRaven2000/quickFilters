@@ -4,23 +4,41 @@ Use this API to access Thunderbird's system preferences or to migrate your own p
 
 ## Usage
 
-This API provides the following methods:
+### API Functions
 
-### async getPref(aName, [aFallback])
+This API provides the following functions:
+
+#### async getPref(aName, [aFallback])
 
 Returns the value for the ``aName`` preference. If it is not defined or has no default value assigned, ``aFallback`` will be returned (which defaults to ``null``).
 
-### async getUserPref(aName)
+#### async getUserPref(aName)
 
 Returns the user defined value for the ``aName`` preference. This will ignore any defined default value and will only return an explicitly set value, which differs from the default. Otherwise it will return ``null``.
 
-### clearUserPref(aName)
+#### clearUserPref(aName)
 
 Clears the user defined value for preference ``aName``. Subsequent calls to ``getUserPref(aName)`` will return ``null``.
 
-### async setPref(aName, aValue)
+#### async setPref(aName, aValue)
 
 Set the ``aName`` preference to the given value. Will return false and log an error to the console, if the type of ``aValue`` does not match the type of the preference.
+
+### API Events
+
+This API provides the following events:
+
+#### onChanged.addListener(listener, branch)
+
+Register a listener which is notified each time a value in the specified branch is changed. The listener returns the name and the new value of the changed preference.
+
+Example:
+
+```
+browser.LegacyPrefs.onChanged.addListener(async (name, value) => {
+  console.log(`Changed value in "mailnews.": ${name} = ${value}`);
+}, "mailnews.");
+```
 
 ---
 

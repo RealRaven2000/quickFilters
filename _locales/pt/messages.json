@@ -853,8 +853,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Cópia Carbono (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "O assistente quickFilters adicionará uma ação automaticamente. Por favor, deixe a ação padrão 'definir prioridade para normal' como um espaço reservado."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Domínio de Email"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Extensão de domínio"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Domínio Raiz"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Subdomínio"
   },
   "quickfilters.customHeader.Email": {
     "message": "Endereço de e-mail"
@@ -1179,7 +1191,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 de março"
+    "message": "12 de junho"
   },
   "special-offer-head" : {
     "message": "Por favor, ajude quickFilters a continuar!"
@@ -1277,7 +1289,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}Para a criação de filtros com base no campo de assunto, agora você pode desativar o comportamento que insere apenas termos entre colchetes ou colchetes e usar a linha de assunto inteira.{L2} {L1}Novo: ao copiar um e-mail usando o assistente quickFilters, a ação 'Copiar para Pasta' deve ser definida. Até agora, isso usado para selecionar 'Mover para pasta' também sugeriu mesclar com outros filtros desta ação.{L2} {L1} Corrigido: Mover e-mails com o menu de contexto moveu e-mails errados (mudou para e-mail abaixo da seleção e moveu um que em vez disso ).{L2}{L1}Adicionado um método para estender sua licença do quickFilters Pro antes de 1 mês antes do vencimento (clique na data de vencimento para exibir o botão de extensão de licença).{L2}"
+    "message" : "{L1} quickFilters a partir de agora é compatível com Thunderbird 102 e terá suporte para o período ESR 2022/2023.{L2} {L1} Adicionados novos extratores de partes de domínio para modelos personalizados: Domínio raiz, Subdomínio, Extensão de nome de domínio. {L2} {L1} Corrigido: Falha na classificação das regras de filtro sem a licença do quickFilters Pro. {L2} {L1} Corrigido: Backup de modelos de filtro personalizados {L2} {L1} Adicionado botão de ajuda no editor de modelo personalizado {L2} {L1} Para usuários sem licença, os QuickFilters agora farão uma contagem regressiva do uso de determinados recursos do Pro. {L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

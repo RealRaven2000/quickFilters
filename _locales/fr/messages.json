@@ -619,7 +619,7 @@
     "message": "Actions"
   },
   "qf.tab.advanced": {
-    "message": "Avéncées"
+    "message": "Avancées"
   },
   "qf.tab.gopro": {
     "message": "quickFilters Pro"
@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Copie à (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "L'assistant quickFilters ajoutera automatiquement une action. Veuillez laisser l'action par défaut 'définir la priorité sur la normale' comme espace réservé."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Domaine du courriel"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Extension de domaine"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Domaine Racine"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Sous-domaine"
   },
   "quickfilters.customHeader.Email": {
     "message": "Adresse électronique"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 mars"
+    "message": "12 juin"
   },
   "special-offer-head": {
     "message": "Veuillez aider quickFilters à continuer!"
@@ -1273,7 +1285,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1}Pour la création de filtres basés sur le champ d'objet, vous pouvez désormais désactiver le comportement qui insère uniquement les termes entre accolades ou accolades, et utiliser toute la ligne d'objet à la place.{L2} {L1}Nouveau : lors de la copie d'un e-mail à l'aide de l'assistant quickFilters, l'action 'Copier dans le dossier' doit être définie. Jusqu'à présent, cela permettait de sélectionner 'Déplacer vers le dossier' suggérait également de fusionner avec d'autres filtres de cette action. {L2} {L1} Correction : le déplacement des e-mails avec le menu contextuel déplaçait les mauvais e-mails (il est passé à l'e-mail sous la sélection et en a déplacé un à la place ).{L2}{L1}Ajout d'une méthode pour prolonger votre licence quickFilters Pro moins d'un mois avant l'expiration (cliquez sur la date d'expiration pour afficher le bouton d'extension de licence).{L2}"
+    "message": "{L1} quickFilters est désormais compatible avec Thunderbird 102 et sera pris en charge pour la période ESR 2022/2023.{L2} {L1} Ajout de nouveaux extracteurs de parties de domaine pour les modèles personnalisés : domaine racine, sous-domaine, extension de nom de domaine. {L2} {L1} Corrigé : le tri des règles de filtrage échouait sans la licence quickFilters Pro. {L2} {L1} Correction : Sauvegarde des modèles de filtres personnalisés {L2} {L1} Ajout d'un bouton d'aide dans l'éditeur de modèles personnalisés {L2} {L1} Pour les utilisateurs sans licence, quickFilters décomptera désormais l'utilisation de certaines fonctionnalités Pro. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

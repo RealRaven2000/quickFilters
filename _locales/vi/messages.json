@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Carbon Copy (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "Trợ lý quickFilters sẽ tự động thêm một hành động. Vui lòng để hành động mặc định 'đặt Mức độ ưu tiên thành bình thường' làm trình giữ chỗ."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Domain of Email"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "phần mở rộng tên miền"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "miền gốc"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "tên miền phụ"
   },
   "quickfilters.customHeader.Email": {
     "message": "Email Address"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 tháng 3"
+    "message": "Ngày 12 tháng 6"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
@@ -1273,7 +1285,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Để tạo bộ lọc dựa trên trường chủ đề, bây giờ bạn có thể tắt hành vi chỉ chèn các thuật ngữ trong dấu ngoặc vuông hoặc ngoặc nhọn và sử dụng toàn bộ dòng chủ đề để thay thế. {L2} {L1} Mới: Khi sao chép email bằng cách sử dụng trợ lý quickFilters, hành động 'Sao chép vào Thư mục' sẽ được đặt. Cho đến nay, tùy chọn này được sử dụng để chọn 'Di chuyển đến thư mục' cũng được đề xuất hợp nhất với các bộ lọc khác của hành động này. {L2} {L1} Đã khắc phục: Di chuyển thư với menu ngữ cảnh đã chuyển sai thư (nó đã chuyển sang thư bên dưới lựa chọn và thay vào đó di chuyển một thư ). {L2}{L1} Đã thêm một phương pháp để gia hạn giấy phép quickFilters Pro của bạn sớm hơn 1 tháng trước khi hết hạn (nhấp vào ngày hết hạn để hiển thị nút gia hạn giấy phép). {L2}"
+    "message": "{L1} quickFilters hiện tại tương thích với Thunderbird 102 và sẽ được hỗ trợ trong giai đoạn ESR 2022/2023. {L2} {L1} Đã thêm trình trích xuất phần miền mới cho các mẫu tùy chỉnh: Tên miền gốc, Tên miền phụ, Phần mở rộng tên miền. {L2} {L1} Đã khắc phục: Không thể sắp xếp các quy tắc bộ lọc mà không có giấy phép quickFilters Pro. {L2} {L1} Đã sửa: Sao lưu các mẫu bộ lọc tùy chỉnh {L2} {L1} Đã thêm nút trợ giúp trong trình chỉnh sửa mẫu tùy chỉnh {L2} {L1} Đối với người dùng không có giấy phép, quickFilters giờ sẽ đếm ngược việc sử dụng các tính năng Pro nhất định. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

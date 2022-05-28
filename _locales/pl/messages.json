@@ -850,8 +850,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Carbon Copy (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "Asystent quickFilters automatycznie doda akcję. Pozostaw domyślną akcję „ustaw priorytet na normalny” jako symbol zastępczy."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Domain of Email"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Rozszerzenie domeny"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Domena Główna"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Subdomena"
   },
   "quickfilters.customHeader.Email": {
     "message": "Email Address"
@@ -1176,7 +1188,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 marca"
+    "message": "12 czerwca"
   },
   "special-offer-head" : {
     "message": "Pomóż quickFilters, aby kontynuować!"
@@ -1271,7 +1283,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1}W przypadku tworzenia filtrów na podstawie pola tematu można teraz wyłączyć zachowanie, które wstawia tylko terminy w nawiasach kwadratowych lub zakręconych i zamiast tego użyć całego wiersza tematu.{L2} {L1}Nowość: podczas kopiowania wiadomości e-mail za pomocą asystenta quickFilters należy ustawić akcję „Kopiuj do folderu”. Do tej pory opcja „Przenieś do folderu” sugerowała również łączenie z innymi filtrami tej akcji.{L2} {L1} Naprawiono: Przenoszenie wiadomości z menu kontekstowego powodowało przenoszenie niewłaściwych wiadomości (przełączało się na pocztę poniżej zaznaczenia i przenosiło tę, która zamiast tego ).{L2}{L1}Dodano metodę przedłużenia licencji quickFilters Pro wcześniej niż 1 miesiąc przed wygaśnięciem (kliknij datę wygaśnięcia, aby wyświetlić przycisk przedłużenia licencji).{L2}"
+    "message" : "{L1} quickFilters jest obecnie kompatybilny z Thunderbird 102 i będzie obsługiwany w okresie ESR 2022/2023.{L2} {L1} Dodano nowe ekstraktory części domeny dla niestandardowych szablonów: domena główna, poddomena, rozszerzenie nazwy domeny. {L2} {L1} Naprawiono: Sortowanie reguł filtrowania nie powiodło się bez licencji QuickFilters Pro. {L2} {L1} Naprawiono: Kopia zapasowa szablonów filtrów niestandardowych {L2} {L1} Dodano przycisk pomocy w edytorze szablonów niestandardowych {L2} {L1} Dla użytkowników bez licencji, quickFilters odlicza teraz użycie niektórych funkcji Pro. {L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

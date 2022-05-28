@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Create New…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "You need a valid quickFilters Pro license to create new custom templates for the assistant."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Allows generation of Custom Templates, see bug description for detail."
   },
@@ -849,8 +852,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Carbon Copy (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "The quickFilters assistant will add an action automatically. Please leave the default action 'set Priority to normal' as a placeholder."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Domain of Email"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "domain extension"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Root Domain"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Subdomain"
   },
   "quickfilters.customHeader.Email": {
     "message": "Email Address"
@@ -1030,7 +1045,10 @@
     "message": "Renew License"
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
+    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it."
+  },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "You can use this feature for free {1} more times."
   },
   "quickfilters.notification.premium.title": {
     "message": "Premium Feature"
@@ -1076,6 +1094,9 @@
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Sort Filters"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Sort Search Terms"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Please enter a short subject line:"
@@ -1175,7 +1196,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "March 20th"
+    "message": "June 12th"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
@@ -1273,7 +1294,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1}For filter creation based on the subject field, you can now switch off the behavior that inserts only terms in square or curly brackets only, and use the whole subject line instead.{L2} {L1}New: When copying an email using the quickFilters assistant, the action 'Copy to Folder' should be set. So far this used to select 'Move to folder' also suggested merging with other filters of this action.{L2} {L1} Fixed: Moving mails with context menu moved wrong mails (it switched to mail below the selection and moved one that instead).{L2}{L1}Added a method to extend your quickFilters Pro license sooner than 1 month before expiry (click on expiry date to display the extend license button).{L2}"
+    "message": "{L1} quickFilters is now compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

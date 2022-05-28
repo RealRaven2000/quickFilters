@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Cc"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "quickFiltersアシスタントは、アクションを自動的に追加します。 プレースホルダーとして、デフォルトのアクション「優先度を通常に設定」のままにしてください。"
+  },
   "quickfilters.customHeader.Domain": {
     "message": "メールアドレスのドメイン"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "ドメイン拡張"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "ルートドメイン"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "サブドメイン"
   },
   "quickfilters.customHeader.Email": {
     "message": "メールアドレス"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "3月20日"
+    "message": "6月12日"
   },
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
@@ -1273,7 +1285,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1}件名フィールドに基づいてフィルタを作成するために、角かっこまたは中かっこのみで用語のみを挿入する動作をオフにし、代わりに件名全体を使用できるようになりました。{L2} {L1}新機能：メールをコピーする場合 quickFiltersアシスタントを使用して、アクション「フォルダにコピー」を設定する必要があります。 これまでのところ、これは「フォルダに移動」を選択するために使用され、このアクションの他のフィルタとのマージも提案していました。{L2} {L1}修正：コンテキストメニューを使用してメールを移動すると、間違ったメールが移動しました（選択範囲の下のメールに切り替わり、代わりにメールを移動しました） ）。{L2} {L1}有効期限の1か月前より前にquickFiltersProライセンスを延長する方法を追加しました（有効期限をクリックしてライセンスの延長ボタンを表示します）。{L2}"
+    "message": "{L1}quickFiltersは現在Thunderbird102と互換性があり、ESR期間2022/2023でサポートされます。{L2} {L1}カスタムテンプレート用の新しいドメインパーツエクストラクタを追加しました：ルートドメイン、サブドメイン、ドメイン名拡張。 {L2} {L1}修正済み：quickFiltersProライセンスがないとフィルタールールの並べ替えに失敗しました。 {L2} {L1}修正：カスタムフィルターテンプレートのバックアップ{L2}{L1}カスタムテンプレートエディターにヘルプボタンを追加{L2}{L1}ライセンスのないユーザーの場合、quickFiltersは特定のPro機能の使用をカウントダウンするようになりました。 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Copia Conforme (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "L'assistente quickFilters aggiungerà automaticamente un'azione. Si prega di lasciare l'azione predefinita 'imposta priorità su normale' come segnaposto."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Dominio dell'indirizzo di posta elettronica"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Estensione di dominio"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Dominio Principale"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Sottodominio"
   },
   "quickfilters.customHeader.Email": {
     "message": "Indirizzo di posta elettronica"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 marzo"
+    "message": "12 giugno"
   },
   "special-offer-head": {
     "message": "Aiuta quickFilters a continuare!"
@@ -1273,7 +1285,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1}Per la creazione di filtri in base al campo dell'oggetto, ora puoi disattivare il comportamento che inserisce solo i termini tra parentesi quadre o ricci e utilizzare invece l'intera riga dell'oggetto.{L2} {L1}Novità: quando si copia un'e-mail utilizzando l'assistente QuickFilters, dovrebbe essere impostata l'azione 'Copia nella cartella'. Finora questo utilizzato per selezionare 'Sposta nella cartella' suggeriva anche di unirlo ad altri filtri di questa azione.{L2} {L1} Risolto: lo spostamento di messaggi con il menu contestuale spostava i messaggi sbagliati (è passato a un messaggio di posta sotto la selezione e ne ha spostato uno che invece ).{L2}{L1}Aggiunto un metodo per estendere la tua licenza quickFilters Pro prima di 1 mese prima della scadenza (fai clic sulla data di scadenza per visualizzare il pulsante di estensione della licenza).{L2}"
+    "message": "{L1} quickFilters al momento è compatibile con Thunderbird 102 e sarà supportato per il periodo ESR 2022/2023.{L2} {L1} Aggiunti nuovi estrattori di parti di dominio per modelli personalizzati: dominio principale, sottodominio, estensione del nome di dominio. {L2} {L1} Risolto: l'ordinamento delle regole del filtro non è riuscito senza la licenza QuickFilters Pro. {L2} {L1} Risolto: backup di modelli di filtri personalizzati {L2} {L1} Aggiunto pulsante della guida nell'editor di modelli personalizzati {L2} {L1} Per gli utenti senza licenza, QuickFilters ora conterà alla rovescia l'utilizzo di alcune funzionalità Pro. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

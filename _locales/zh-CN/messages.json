@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Carbon Copy (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "quickFilters 助手会自动添加一个动作。 请保留默认操作“将优先级设置为正常”作为占位符。"
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Domain of Email"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "域扩展"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "根域"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "子域"
   },
   "quickfilters.customHeader.Email": {
     "message": "Email Address"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "3月20日"
+    "message": "6月12日"
   },
   "special-offer-head": {
     "message": "请帮助quickFilters继续！"
@@ -1273,7 +1285,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1}对于基于主题字段的过滤器创建，您现在可以关闭仅在方括号或大括号中插入术语的行为，而是使用整个主题行。{L2} {L1}新：复制电子邮件时 使用 quickFilters 助手，应该设置“复制到文件夹”操作。 到目前为止，这用于选择“移动到文件夹”还建议与此操作的其他过滤器合并。{L2} {L1} 修复：使用上下文菜单移动邮件移动了错误的邮件（它切换到选择下方的邮件并移动了一个代替 ).{L2} {L1}添加了一种方法，可在到期前 1 个月内延长您的 quickFilters Pro 许可证（单击到期日期以显示延长许可证按钮）。{L2}"
+    "message": "{L1} quickFilters 目前与 Thunderbird 102 兼容，并将在 2022/2023 年的 ESR 期间得到支持。{L2} {L1} 为自定义模板添加了新的域部分提取器：根域、子域、域名扩展。 {L2} {L1} 已修复：没有 quickFilters Pro 许可证对过滤器规则进行排序失败。 {L2} {L1} 修正：自定义过滤器模板的备份 {L2} {L1} 在自定义模板编辑器中添加了帮助按钮 {L2} {L1} 对于没有许可证的用户，quickFilters 现在将倒计时某些 Pro 功能的使用。 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

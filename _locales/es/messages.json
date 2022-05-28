@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Copia (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "El asistente quickFilters agregará una acción automáticamente. Deje la acción predeterminada 'establecer Prioridad en normal' como marcador de posición."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Dominio del correo electrónico"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Extensión de dominio"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Dominio Raíz"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Subdominio"
   },
   "quickfilters.customHeader.Email": {
     "message": "Dirección del correo electrónico"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 de marzo"
+    "message": "12 de junio"
   },
   "special-offer-head": {
     "message": "¡Ayude a quickFilters a continuar!"
@@ -1273,7 +1285,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1}Para la creación de filtros basados en el campo de asunto, ahora puede desactivar el comportamiento que inserta solo términos entre corchetes o corchetes y usar toda la línea de asunto en su lugar.{L2} {L1}Nuevo: al copiar un correo electrónico usando el asistente de filtros rápidos, se debe configurar la acción 'Copiar a la carpeta'. Hasta ahora, esto solía seleccionar 'Mover a carpeta' y también sugería fusionarse con otros filtros de esta acción.{L2} {L1} Corregido: Mover correos con el menú contextual movía correos incorrectos (cambiaba al correo debajo de la selección y movía uno que en su lugar ).{L2}{L1}Se agregó un método para extender su licencia de QuickFilters Pro antes de 1 mes antes del vencimiento (haga clic en la fecha de vencimiento para mostrar el botón de extensión de licencia).{L2}"
+    "message": "{L1} quickFilters a partir de ahora es compatible con Thunderbird 102 y será compatible con el período ESR 2022/2023.{L2} {L1} Se agregaron nuevos extractores de partes de dominio para plantillas personalizadas: dominio raíz, subdominio, extensión de nombre de dominio. {L2} {L1} Corregido: la clasificación de las reglas de filtrado fallaba sin la licencia de QuickFilters Pro. {L2} {L1} Solucionado: copia de seguridad de plantillas de filtro personalizadas {L2} {L1} Botón de ayuda agregado en el editor de plantillas personalizadas {L2} {L1} Para usuarios sin licencia, QuickFilters ahora contará el uso de ciertas funciones Pro. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

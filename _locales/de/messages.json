@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Kopie (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "Der QuickFilters-Assistent fügt automatisch eine Aktion hinzu. Bitte belassen Sie die Standardaktion „Priorität auf normal setzen“ als Platzhalter."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "Domäne der Email"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Domain-Endung"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Root-Domäne"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Unterdomäne"
   },
   "quickfilters.customHeader.Email": {
     "message": "Emailadresse"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20. März"
+    "message": "12. Juni"
   },
   "special-offer-head": {
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
@@ -1273,7 +1285,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1}Für die Filtererstellung basierend auf dem Betreff können Sie jetzt das Verhalten ausschalten, dass nur Begriffe in eckigen oder geschweiften Klammern eingefügt werden, und stattdessen die gesamte Betreffzeile verwenden.{L2} {L1}Neu: Beim Kopieren einer E-Mail Mit dem quickFilters-Assistenten sollte die Aktion 'In Ordner kopieren' eingestellt werden. Bisher wurde immer 'In Ordner verschieben' ausgewählt, was auch beim Zusammenführen mit anderen Filtern dieser Aktion vorschgeschlagen wurde. {L2} {L1} Behoben: Das Verschieben von Mails mit dem Kontextmenü verschob falsche Mails (es wechselte zu Mail unterhalb der Auswahl und verschob stattdessen eine davon).{L2}{L1}Neue Methode, um Ihre quickFilters Pro-Lizenz früher als 1 Monat vor Ablauf zu verlängern (klicken Sie auf das Ablaufdatum, um die Schaltfläche „Lizenz verlängern“ anzuzeigen).{L2}"
+    "message": "{L1} quickFilters as of now is compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

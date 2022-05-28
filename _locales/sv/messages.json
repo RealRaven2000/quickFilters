@@ -849,8 +849,20 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "Kopia (CC)"
   },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "quickFilters-assistenten lägger till en åtgärd automatiskt. Lämna standardåtgärden 'ställ prioritet till normal' som platshållare."
+  },
   "quickfilters.customHeader.Domain": {
     "message": "E-postdomän"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "Domänförlängning"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "Korenska Domena"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "Underdomän"
   },
   "quickfilters.customHeader.Email": {
     "message": "E-postadress"
@@ -1175,7 +1187,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "20 mars"
+    "message": "12 juni"
   },
   "special-offer-head": {
     "message": "Snälla hjälp quickFilters att fortsätta!"
@@ -1273,7 +1285,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1}För att skapa filter baserat på ämnesfältet kan du nu stänga av beteendet som bara infogar termer inom hakparenteser och använda hela ämnesraden istället.{L2} {L1}Ny: När du kopierar ett e-postmeddelande med hjälp av quickFilters-assistenten bör åtgärden 'Kopiera till mapp' ställas in. Hittills användes detta för att välja 'Flytta till mapp' föreslog också sammanslagning med andra filter för denna åtgärd.{L2} {L1} Fixat: Flyttade e-postmeddelanden med snabbmenyn flyttade fel e-postmeddelanden (det bytte till e-post under valet och flyttade ett som istället ).{L2}{L1}Har lagt till en metod för att förlänga din quickFilters Pro-licens tidigare än 1 månad före utgången (klicka på utgångsdatum för att visa knappen för förläng licens).{L2}"
+    "message": "{L1} quickFilters är från och med nu kompatibel med Thunderbird 102 och kommer att stödjas under ESR-perioden 2022/2023.{L2} {L1} Lade till nya domändelextraktorer för anpassade mallar: rotdomän, underdomän, domännamnstillägg. {L2} {L1} Fixat: Sortering av filterregler misslyckades utan quickFilters Pro-licens. {L2} {L1} Fixat: Säkerhetskopiering av anpassade filtermallar {L2} {L1} Tillagd hjälpknapp i anpassad mallredigerare {L2} {L1} För användare utan licens kommer nu quickFilters att räkna ned användningen av vissa Pro-funktioner. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
