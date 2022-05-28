@@ -80,17 +80,17 @@
 			<image id="qf-title" src="chrome://quickfilters/content/skin/QuickFilters-title.png" flex="0"/>
 			<toolbar id="quickFiltersHelpBar">
 				<toolbarbutton id="quickFiltersBtnHelp"
-					class = "toolbarbutton-1 chromeclass-toolbar-additional" 
-					label = ""
-					tooltiptext = "__MSG_quickfilters.button.support__"
-					oncommand = "quickFilters.Assistant.help();"
+					class="toolbarbutton-1 chromeclass-toolbar-additional" 
+					label=""
+					tooltiptext="__MSG_quickfilters.button.support__"
+					oncommand="quickFilters.Assistant.help();"
 					/>
 			</toolbar>
 		</hbox>
 		
 		<deck selectedIndex="1" 
 					id="assistantDeck" 
-				orient = "vertical">
+				orient="vertical">
 			<vbox class="deckChild">
 				<description id="mergeSummary">
 					QuickFilters Assistant found some filters that already do the same action.
@@ -126,7 +126,7 @@
 						ondblclick="quickFilters.Assistant.selectTemplate(this);"
 						onselect="quickFilters.Assistant.selectTemplateFromListTmr(this);"
 						preference="QuickFilters-Preferences-SelectedFilterTemplate"
-						flex = "2"
+						flex="2"
 						tooltiptext="__MSG_qf.filters.instructions__"
 						>
 						<richlistitem value='from'><description>__MSG_qf.filters.template.from__</description></richlistitem>

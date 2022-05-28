@@ -312,8 +312,7 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
       
       
       if (!util.hasPremiumLicense()) {
-        util.popupProFeature("sortSearchTerms", true);
-        return;
+        if (!util.popupProFeature("sortSearchTerms", true)) return;
       }
       // 1st save in case there were edits on screen!
       saveSearchTerms(theFilter.searchTerms, theFilter);

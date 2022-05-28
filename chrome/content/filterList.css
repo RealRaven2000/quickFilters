@@ -100,11 +100,11 @@
 /* Cut */
 #quickFiltersCut,
 #quickFiltersBtnCut {
-	list-style-image: url("chrome://messenger/skin/icons/cut.svg");
+	list-style-image: url("chrome://quickfilters/content/skin/cut.svg");
 }
 
 .quickFiltersCut label {
-  background-image: url("chrome://messenger/skin/icons/cut.svg") !important;
+  background-image: url("chrome://quickfilters/content/skin/cut.svg") !important;
   background-repeat: no-repeat;
   padding-left: 18px;
 }
@@ -113,11 +113,11 @@
 /* Copy */
 #quickFiltersCopy,
 #quickFiltersBtnCopy {
-	list-style-image: url("chrome://messenger/skin/icons/copy.svg");
+	list-style-image: url("chrome://quickfilters/content/skin/copy.svg");
 }
 
 .quickFiltersCopy label {
-  background-image: url("chrome://messenger/skin/icons/copy.svg") !important;
+  background-image: url("chrome://quickfilters/content/skin/copy.svg") !important;
   background-repeat: no-repeat;
   padding-left: 18px;
 }
@@ -125,7 +125,7 @@
 /* Paste */
 #quickFiltersPaste,
 #quickFiltersBtnPaste {
-	list-style-image: url("chrome://messenger/skin/icons/paste.svg");
+	list-style-image: url("chrome://quickfilters/content/skin/paste.svg");
 }
 
 /* Merge */

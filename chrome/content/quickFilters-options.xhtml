@@ -224,10 +224,10 @@
 
 	<box id="helpBox">
 		<toolbarbutton id="quickFiltersBtnHelp"
-		  class = "toolbarbutton-1 chromeclass-toolbar-additional"
-		  label = ""
-		  tooltiptext = "__MSG_quickfilters.button.support__"
-		  oncommand = "quickFilters.Util.showHomePage('index.html#options');"
+		  class="toolbarbutton-1 chromeclass-toolbar-additional"
+		  label=""
+		  tooltiptext="__MSG_quickfilters.button.support__"
+		  oncommand="quickFilters.Util.showHomePage('index.html#options');"
 		  />
 	</box>
 
@@ -239,6 +239,7 @@
       <spacer />
       <label id="qf-options-version"
              oncontextmenu="quickFilters.Util.showVersionHistory();setTimeout(function() {window.close();});return false;"
+             onclick="quickFilters.Util.showVersionHistory();setTimeout(function() {window.close();});return false;"
              tooltiptext="__MSG_qf.options.versionnumber.tooltip__"
              value="0.1"/>
     </div>
@@ -406,12 +407,12 @@
 									accesskey="__MSG_qf.label.naming.parentFolder.accesskey__"
 									/>
 							<spacer flex="1" />
-							<label class = "textBoxLabel"
+							<label class="textBoxLabel"
 									value="__MSG_qf.label.naming.folderDelimiter__" />
 							<html:input
-									style = "width: 3em;"
-									preference = "naming.folderDelimiter"
-									tooltiptext = "__MSG_qf.tooltip.naming.folderDelimiter__"
+									style="width: 3em;"
+									preference="naming.folderDelimiter"
+									tooltiptext="__MSG_qf.tooltip.naming.folderDelimiter__"
 									/>
 						</hbox>
 						<checkbox id="chkNamingKeyWord"
@@ -420,10 +421,10 @@
 								accesskey="__MSG_qf.label.naming.keyWord.accesskey__"
 								/>
 						<hbox>
-							<label class = "textBoxLabel"
+							<label class="textBoxLabel"
 									 value="__MSG_qf.cloned.label__" />
-							<html:input id = "txtClonedName"
-									 preference = "cloned.append"
+							<html:input id="txtClonedName"
+									 preference="cloned.append"
 									 />
 						</hbox>
 					</vbox>
@@ -458,6 +459,9 @@
 							<button id="newCustomFilter"
 											label="__MSG_qf.templates.customTemplate.new__"
 											oncommand="if (quickFilters.Util.createCustomTemplate()) {window.close();}" />
+              <hbox class="labelWithHelpLink">
+                <div class="helpLink" clickyTooltip="__MSG_qf.templates.customTemplate.restricted__"> </div>
+              </hbox>
 						</hbox>
 						<vbox>
 							<spacer flex="1" />
@@ -581,7 +585,7 @@
 									oncommand="quickFilters.Options.validateNewKey();" />
 				</hbox>
 			</vbox>
-			<separator class = "licenseSeparator" />
+			<separator class="licenseSeparator" />
 			<hbox id="validationResults">
 				<vbox>
 					<description id="validationPassed" class="niceFont" collapsed="true">__MSG_qf.licenseValidation.passed__</description>
@@ -622,8 +626,8 @@
                   label="__MSG_qf.label.shortcut.runFolder__"
                   />
 							<html:input
-									style = "width: 3em;"
-									preference = "Key_ShortcutFolders"
+									style="width: 3em;"
+									preference="Key_ShortcutFolders"
 									/>
 						</hbox>
 						<hbox>
@@ -632,8 +636,8 @@
                   label="__MSG_qf.label.shortcut.runMails__"
                   />
 							<html:input
-									style = "width: 3em;"
-									preference = "Key_ShortcutSelectedMails"
+									style="width: 3em;"
+									preference="Key_ShortcutSelectedMails"
 									/>
 						</hbox>
 						<checkbox id="chkLocalFoldersAutorun"
