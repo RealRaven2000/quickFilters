@@ -189,7 +189,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 <li>
   <h4>
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/" 
-		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 5.x - WIP</a>
+		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 5.5 - WIP</a>
 	</h4>
   <h5 class="inList"> Improvements </h5>
   <ul>
@@ -225,21 +225,34 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <img src="img/Custom-Template-Actions-Tip.png" alt="tooltip for actions" class="screenshot"><br>
     </li>
 		<li> 
-     <a href="https://github.com/RealRaven2000/quickFilters/issues/100">[issue 100]</a> Improve location of toolbar buttons when installing quickFilters
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/100">[issue 100]</a> 
+      Improve location of toolbar buttons when installing quickFilters
       <p>
         When installing quickFilters for the first time, the new buttons appear to the right of the application menu.
         A better location would be to the left of the search box, aligned to the last visible button (in this 
         example "Quick Filter"): 
       </p>
     </li>    
+    <li>
+      Added more transparency for features that require a Pro license. You can use these features a limited 
+      number of times the remaining of which will now be displayed in the license notification at the 
+      bottom of the screen. All usage counts will be reset when this new version is installed.
+    </li>
   </ul>
   <h5 class="inList"> Bugs Fixed </h5>
   <ul>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/105">[issue 105]</a> 
+      Fixed: Backup of Custom Templates (Local Folders) does not store placeholders correctly
+    </li>
     <li> 
       Fixed sliding notification panels for Thunderbird 99 and higher.
     </li>
     <li> 
       Fixed sliding notification icon for Thunderbird 91 
+    </li>
+    <li>
+      Fixed "copy" icon in filter list removed in TB102.
     </li>
     <li> 
       Fixed icon on OS notification (Run filters on folder / selected mails...)
@@ -248,7 +261,11 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Tested with <a href="https://www.betterbird.eu/">Betterbird</a> so that new filter 
       templates be generated. 
       To do: intelligent merging into subgroups depending on template. E.g.  subject AND (from OR from OR from). Test backup / restore to be compatible.
-    </li>    
+    </li>   
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/104">[issue 104]</a>
+      Filter Rules sorting - fails if no quickFilters Pro license is present.
+    </li>   
   </ul>
 </li>
 
