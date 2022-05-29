@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Crea nuovo…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "È necessaria una licenza quickFilters Pro valida per creare nuovi modelli personalizzati per l'assistente."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Consente di generare modelli personalizzati (vedi descrizione bug per i dettagli)"
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Rinnova la licenza"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "Puoi utilizzare questa funzione {1} più volte gratuitamente."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} è una caratteristica della versione Premium. Registrare quickFilters per poterla usare permanentemente."
   },
@@ -1083,11 +1089,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Trova duplicati"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Ripristina i filtri"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Eseguire il backup dei filtri"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "Cerca filtri della cartella"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Ordinamento filtri"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Ordina termini di ricerca"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Inserisci una breve motivazione:"

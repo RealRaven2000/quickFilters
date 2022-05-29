@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "新建…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "您需要有效的 quickFilters Pro 许可证才能为助手创建新的自定义模板。"
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "允许生成自定义模板，详情请查看BUG描述."
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Renew License"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "您可以免费使用此功能 {1} 次。"
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
   },
@@ -1083,11 +1089,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "重复查找器"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "恢复过滤器"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "备份过滤器"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "文件夹搜索过滤器"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "过滤器排序"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "对搜索词进行排序"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "请输入短主题:"

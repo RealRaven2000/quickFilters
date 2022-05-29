@@ -109,8 +109,8 @@ pref("extensions.quickfilters.restrictions.searchFolder.countDown", 15);
 pref("extensions.quickfilters.restrictions.sortSearchTerms.countDown", 25); // [issue 104]
 pref("extensions.quickfilters.restrictions.sortFilters.countDown", 20);
 pref("extensions.quickfilters.restrictions.customTemplate.countDown", 20);
-pref("extensions.quickfilters.restrictions.save_template.countDown", 6);
-pref("extensions.quickfilters.restrictions.load_template.countDown", 3);
+pref("extensions.quickfilters.restrictions.saveFilters.countDown", 10);
+pref("extensions.quickfilters.restrictions.loadFilters.countDown", 3);
 
 // quickFilters Pro specific:
 pref("extensions.quickfilters.licenser.forceSecondaryIdentity",false);

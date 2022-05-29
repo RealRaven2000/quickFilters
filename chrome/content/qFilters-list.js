@@ -1074,8 +1074,7 @@ quickFilters.List = {
     this.searchType = type;
 		
 		if(type != "name" && interActive) {
-			util.popupProFeature("Advanced search (type=" + type + ")", true);
-      if (!util.hasPremiumLicense()) {
+			if (!util.popupProFeature("Advanced search (type=" + type + ")", true)) {
         this.searchType = "name";
         let mp = document.getElementById("quickFiltersSearchContext");
         mp.firstChild.setAttribute("checked",true);
@@ -1356,7 +1355,7 @@ quickFilters.List = {
     let Terms = [],
         Actions = [];
     
-    util.popupProFeature("duplicatesFinder", true);
+    if (!util.popupProFeature("duplicatesFinder", true)) return;
     let filtersList = this.FilterList,
         FA = Components.interfaces.nsMsgFilterAction;
     // build a dictionary of terms; this might take some time!
@@ -1717,7 +1716,8 @@ quickFilters.List = {
           util = quickFilters.Util,
 					prefs = quickFilters.Preferences,
 					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
-		util.popupProFeature(mode + "_template", true); // save_template, load_template
+		if (!util.popupProFeature(mode + "Filters", true))
+      return; // saveFilters, loadFilters
 					
     let filterText,    
 		    fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker),

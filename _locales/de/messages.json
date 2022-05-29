@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Neues Template…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "Sie benötigen eine gültige quickFilters Pro-Lizenz, um neue benutzerdefinierte Vorlagen für den Assistenten zu erstellen."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Erzeugung benutzerspezifischer Vorlagen, für Details siehe folgende Bug-Beschreibung:"
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Lizenz erneuern!"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "Sie können diese Funktion noch {1} mal kostenlos nutzen."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} ist eine Premium Funktion, bitte registrieren Sie quickFilters um diese permanent zu benutzen."
   },
@@ -1081,13 +1087,22 @@
     "message": "Benutzerdefinierte Vorlagen"
   },
   "quickfilters.premium.title.duplicatesFinder": {
-    "message": "Duplikate Suchwerkzeug"
+    "message": "Duplikate Suchen"
+  },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Filter wiederherstellen"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Filter sichern"
   },
   "quickfilters.premium.title.searchFolder": {
     "message": "Filtersuche mit Zielverzeichnis"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Filter sortieren"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Suchbegriffe sortieren"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Bitte eine Betreffzeile eingeben:"
@@ -1285,7 +1300,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters as of now is compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
+    "message": "{L1} quickFilters ist ab sofort mit Thunderbird 102 kompatibel und wird für den ESR-Zeitraum 2022/2023 unterstützt. {L2} {L1} Neue Domänenteil-Extraktoren für benutzerdefinierte Vorlagen hinzugefügt: Stammdomäne, Subdomäne, Domänennamenerweiterung. {L2} {L1} Behoben: Das Sortieren von Filterregeln schlug ohne quickFilters Pro-Lizenz fehl. {L2} {L1} Behoben: Backup von benutzerdefinierten Filtervorlagen {L2} {L1} Hilfe-Schaltfläche im Editor für benutzerdefinierte Vorlagen hinzugefügt {L2} {L1} Für Benutzer ohne Lizenz zählt quickFilters jetzt die Nutzung bestimmter Pro-Funktionen herunter. {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

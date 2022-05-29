@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Nieuw maken…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "U hebt een geldige quickFilters Pro-licentie nodig om nieuwe aangepaste sjablonen voor de assistent te maken."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Maakt aanmaken van aangepaste sjablonen mogelijk, zie bugbeschrijving voor details."
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Licentie vernieuwen"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "U kunt deze functie nog {1} keer gratis gebruiken."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} is een Premium-functie; registreer quickFilters om deze permanent te gebruiken."
   },
@@ -1083,11 +1089,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Dubbelingen vinden"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Filters herstellen"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Back-up filters"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "Zoekfilter per map"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Filters sorteren"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Zoektermen sorteren"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Voer een korte onderwerpregel in:"

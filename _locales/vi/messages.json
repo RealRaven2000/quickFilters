@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Tạo mới…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "Bạn cần có giấy phép quickFilters Pro hợp lệ để tạo các mẫu tùy chỉnh mới cho trợ lý."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Cho phép tạo Mẫu tùy chỉnh, xem mô tả lỗi để biết chi tiết."
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Renew License"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "Bạn có thể sử dụng tính năng này {1} lần nữa miễn phí."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
   },
@@ -1083,11 +1089,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Duplicates Finder"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Khôi phục bộ lọc"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Sao lưu bộ lọc"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "Search Filter for Folder"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Sort Filters"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Sắp xếp các cụm từ tìm kiếm"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Please enter a short subject line:"

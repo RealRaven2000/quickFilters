@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Skapa ny..."
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "Du behöver en giltig quickFilters Pro-licens för att skapa nya anpassade mallar för assistenten."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Låter anpassade mall att skapas, se buggbeskrivningen för detaljer."
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Förnya licens"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "Du kan använda den här funktionen {1} gånger till gratis."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} är en funktion kopplad till quickFilters Pro. Registrera quickFilters för att använda den permanent."
   },
@@ -1083,11 +1089,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Dubbletthanteraren"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Återställ filter"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Säkerhetskopiera filter"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "Sök efter filter för mapp"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Sortera filter"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Sortera söktermer"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Ange en kort, beskrivande ämnesrubrik:"

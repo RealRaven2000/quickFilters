@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Создать новый…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "Вам нужна действующая лицензия quickFilters Pro, чтобы создавать новые пользовательские шаблоны для помощника."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Позволяет создавать настраиваемые шаблоны, подробнее в описании бага."
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Обновить лицензию"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "Вы можете использовать эту функцию еще {1} раз бесплатно."
+  },
   "quickfilters.notification.premium.text": {
     "message": "Зарегистрируйте quickFilters для постоянного пользования премиум-функцией {1}."
   },
@@ -1083,11 +1089,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Поиск повторений"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Восстановить фильтры"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Резервные фильтры"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "Найти фильтры для папки"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Сортировка по алфавиту"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Сортировка условий поиска"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Введите тему сообщения:"

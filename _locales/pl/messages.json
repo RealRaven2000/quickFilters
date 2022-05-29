@@ -646,6 +646,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Tworzyć nowe…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "Aby utworzyć nowe niestandardowe szablony dla asystenta, potrzebujesz ważnej licencji quickFilters Pro."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Umożliwia generowanie niestandardowych szablonów, szczegółowe informacje można znaleźć w opisie błędu."
   },
@@ -1042,6 +1045,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Odnów licencję"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "Możesz bezpłatnie skorzystać z tej funkcji {1} więcej razy."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} to funkcja Premium. Uzyskaj licencję quickFilters Pro, aby móc z niej korzystać na stałe."
   },
@@ -1084,11 +1090,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Wyszukiwarka duplikatów"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Przywróć filtry"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Utwórz kopię zapasową filtrów"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "Filtr wyszukiwania dla folderu"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Sortuj filtry"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Sortuj wyszukiwane hasła"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Wpisz krótki temat:"

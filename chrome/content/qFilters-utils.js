@@ -510,8 +510,9 @@ quickFilters.Util = {
 		if (notifyBox) {
 			let notificationKey = "quickfilters-proFeature";
 			try {
-				if (featureName.indexOf('Advanced search') == 0)
+				if (featureName.indexOf('Advanced search') == 0) {
 					featureName="advancedSearchType";
+        }
         try {
           countDown = prefs.getIntPref("restrictions." + featureName + ".countDown") ;
         }

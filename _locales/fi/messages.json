@@ -646,6 +646,9 @@
   "qf.templates.customTemplate.new": {
     "message": "Luo uusi…"
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "Tarvitset voimassa olevan quickFilters Pro -lisenssin luodaksesi uusia mukautettuja malleja avustajalle."
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "Sallii mukautettujen mallien luomisen, katso lisätietoja virheen kuvauksesta."
   },
@@ -1042,6 +1045,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Uusi käyttöoikeus"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "Voit käyttää tätä ominaisuutta vielä {1} kertaa ilmaiseksi."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} on premium-ominaisuus. Hanki quickFilters Pro -lisenssi, jos haluat käyttää sitä pysyvästi."
   },
@@ -1084,11 +1090,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Kopioiden etsintä"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Palauta suodattimet"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Varmuuskopioi suodattimet"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "Hakusuodatin kansiolle"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "Lajittele suodattimet"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Lajittele hakutermit"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "Anna lyhyt aiherivi:"

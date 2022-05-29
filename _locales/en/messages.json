@@ -1044,11 +1044,11 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Renew License"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "You can use this feature {1} more times for free."
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it."
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "You can use this feature for free {1} more times."
   },
   "quickfilters.notification.premium.title": {
     "message": "Premium Feature"
@@ -1088,6 +1088,12 @@
   },
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "Duplicates Finder"
+  },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Restore filters"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Backup filters"
   },
   "quickfilters.premium.title.searchFolder": {
     "message": "Search Filter for Folder"

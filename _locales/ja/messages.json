@@ -645,6 +645,9 @@
   "qf.templates.customTemplate.new": {
     "message": "新規作成..."
   },
+  "qf.templates.customTemplate.restricted" : {
+    "message": "アシスタント用の新しいカスタムテンプレートを作成するには、有効なquickFiltersProライセンスが必要です。"
+  },
   "qf.templates.customTemplate.tooltip": {
     "message": "カスタムテンプレートの生成を許可します (詳細はバグの説明を参照)。"
   },
@@ -1041,6 +1044,9 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "ライセンスを更新"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "この機能を{1}回無料で使用できます。"
+  },
   "quickfilters.notification.premium.text": {
     "message": "{1} は有料の機能です。この機能を永続的に使用するには quickFilters Pro ライセンスを購入してください。"
   },
@@ -1083,11 +1089,20 @@
   "quickfilters.premium.title.duplicatesFinder": {
     "message": "重複ファインダ"
   },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "フィルタを復元する"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "フィルタをバックアップする"
+  },
   "quickfilters.premium.title.searchFolder": {
     "message": "フォルダに対するフィルタの検索"
   },
   "quickfilters.premium.title.sortFilters": {
     "message": "フィルタの並べ替え"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "検索用語を並べ替える"
   },
   "quickfilters.prompt.contact.subject": {
     "message": "件名を短く入力してください:"
