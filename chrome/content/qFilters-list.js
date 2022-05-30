@@ -808,7 +808,6 @@ quickFilters.List = {
     }
 		
     let getElement = document.getElementById.bind(document);
-		if (prefs.isDebugOption('filterList')) debugger;
     util.logDebugOptional('filterList', 'onLoadFilterList() starts...');
     // overwrite list updateButtons
     let orgUpdateBtn = updateButtons;
@@ -934,7 +933,7 @@ quickFilters.List = {
       resetSearchBox();  // http://mxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#920
     }
     catch(ex) {
-      debugger;
+      // debugger;
     }
     finally {
       rebuildFilterList();
@@ -1564,8 +1563,7 @@ quickFilters.List = {
     qList.toggleSearchType('targetFolder');
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
 		
-		if (prefs.isDebugOption('filterSearch')) debugger;
-		
+		// if (prefs.isDebugOption('filterSearch')) debugger;
     var { MailUtils } = ChromeUtils.import("resource:///modules/MailUtils.jsm");
 
     
@@ -1657,7 +1655,7 @@ quickFilters.List = {
 				}
 			}
 			
-      if (prefs.isDebug) debugger;
+      // if (prefs.isDebug) debugger;
 			let iAdded = 0, 
 					iReplaced = 0,
 			    iFailure = 0,

@@ -37,7 +37,7 @@ var Register = {
     if (decryptedDate) {
 			if (util.isDebug) {
 				util.logDebug('Register.updateLicenseUI()\n' + 'ValidationStatus = ' + licenseInfo.description)
-				debugger;
+				// debugger;
 			}
 				
       getElement('licenseDate').value = decryptedDate; // invalid ??
@@ -177,7 +177,7 @@ var Register = {
           util = quickFilters.Util;
     // redirect to registration site; pass in the feature that brought user here
     // short order process
-    if (util.isDebug) debugger;
+    // if (util.isDebug) debugger;
     let shortOrder,
 		    featureName = document.getElementById('referrer').value; // hidden field
     switch	(license_type) {

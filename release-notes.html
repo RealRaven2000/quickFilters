@@ -1,4 +1,10 @@
-quickFilters Change Log - Version 5.5
+quickFilters Change Log - Version 5.5.1
+
+
+<b>Maintenance version 5.5.1</b>
+<ul>
+<li> [5.5.1 - Maintenance Release] On request from <a href="https://extensionworkshop.com/documentation/publish/add-on-policies/">ATN Reviewers</a> removed debugger statements. </li>
+</ul>
 
 <b>Improvements</b>
 <ul>
@@ -6,7 +12,7 @@ quickFilters Change Log - Version 5.5
 
 When installing quickFilters for the first time, the new buttons appear to the right of the application menu. A better location would be to the left of the search box, aligned to the last visible button (in this example "Quick Filter")
 </li>
-<li> Increasing maximum TB version for next ESR - Thunderbird 102.0 is planned to be supported from now on.</li>
+<li> Increasing maximum TB version for next ESR - Thunderbird 102.* is supported from now on.</li>
 <li> Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. These will usually work reliably depending on how exotic your domain extensions are. However it doesn't check against the database of extensions that look like domains, such as "pharma.pro", here the algorithm will falsely assume that the URL "tools.pharma.pro" consists of:
 
 subdomain = tools, root domain = pharma, extension = pro 
@@ -22,6 +28,7 @@ I am not doing an online sanity check here, so double check when you use these f
 <b>Bugs Fixed</b>
 <ul>
 <li> <a href="https://github.com/RealRaven2000/quickFilters/issues/105">[issue 105]</a>  Fixed: Backup of Custom Templates (Local Folders) does not store placeholders correctly. </li>
+<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/104">[issue 104]</a> Fixed: Filter Rules sorting - fails if no quickFilters Pro license is present.</li>
 <li> Fixed "copy" icon in filter list removed in TB102. </li>
 <li> Fixed sliding notification panels for Thunderbird 99 and higher. </li>
 <li> Fixed sliding notification icon for Thunderbird 91. </li>

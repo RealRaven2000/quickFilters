@@ -1209,7 +1209,7 @@ quickFilters.Util = {
 					token = quickFilters.mimeDecoder.split(fullId, charset, arg, true); // disable charsets decoding!
 					break;
 				default:
-				  if (!hdr.get && prefs.isDebug) debugger;
+				  // if (!hdr.get && prefs.isDebug) debugger;
 					let isStripQuote = RegExp(" " + token + " ", "i").test(
 					                   " Bcc Cc Disposition-Notification-To Errors-To From Mail-Followup-To Mail-Reply-To Reply-To" +
 					                   " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "),
@@ -1243,7 +1243,7 @@ quickFilters.Util = {
 					SearchOP = Ci.nsMsgSearchOp,
           util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
-		if (prefs.isDebugOption('createFilter')) debugger;
+		// if (prefs.isDebugOption('createFilter')) debugger;
     
     // convert into an Array
 		let stCollection = isArray ? fromFilter.searchTerms : util.querySearchTermsArray(fromFilter.searchTerms),
@@ -1291,7 +1291,7 @@ quickFilters.Util = {
 					if (quickFilters.Util.isStringAttrib(val.attrib)) {
             let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
             if (oReplaceTerms) {
-							if (prefs.isDebugOption('replaceReservedWords')) debugger;
+							// if (prefs.isDebugOption('replaceReservedWords')) debugger;
               let newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
               this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
               replaceVal = newVal;
@@ -1357,7 +1357,7 @@ quickFilters.Util = {
 						}
 						if (isFound) continue; // skip this term, as it already exists
 						
-						if (mailsToOmit) debugger;
+						// if (mailsToOmit) debugger;
 						// avoid own addresses when multiple mail is selected
 						if (mailsToOmit && 
 						    (searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.Is || 
@@ -2274,7 +2274,7 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI, messageFallbac
         Cc = Components.classes,
         util = quickFilters.Util,
 				prefs = quickFilters.Preferences;
-	if (prefs.isDebugOption('createFilter')) debugger;
+	// if (prefs.isDebugOption('createFilter')) debugger;
 	
   let messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
       messageService = messenger.messageServiceFromURI(messageURI),

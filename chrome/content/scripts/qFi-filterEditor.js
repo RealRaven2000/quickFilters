@@ -126,7 +126,7 @@ async function onLoad(activatedWhileWindowOpen) {
       actionBox = document.getElementById("filterActionList");
   if (actionBox && helpWidget) {
     hbox = helpWidget.parentNode;
-    debugger;
+    // debugger;
     actionBox.parentNode.insertBefore(hbox, actionBox);
     let lbl = hbox.previousSibling;
     // move label into a hbox before the help widget

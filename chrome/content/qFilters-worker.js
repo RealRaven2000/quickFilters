@@ -974,7 +974,7 @@ quickFilters.Worker = {
       }
     }
     
-    if (prefs.isDebugOption('buildFilter')) debugger;
+    // if (prefs.isDebugOption('buildFilter')) debugger;
     // create new filter or load existing filter?
     if (mergeFilterIndex>=0) {
       targetFilter = matchingFilters[mergeFilterIndex];
@@ -1152,7 +1152,6 @@ quickFilters.Worker = {
           return; 
         }
         else {
-          debugger;
           let msgHdr = messageDb.getMsgHdrForMessageID(msg.messageId);
           listIdValue = msgHdr.getStringProperty(hdrListId);
           if (currentHeaderData && currentHeaderData.hasOwnProperty(hdrListId)) {

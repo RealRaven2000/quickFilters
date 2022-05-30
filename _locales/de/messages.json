@@ -1156,7 +1156,7 @@
     "message": "Suchbegriffe sortieren"
   },
   "quickfilters.sort.warning.selectMultiple": {
-    "message": "Zum alphabetischjen sortieren, mindestens zwei Filter markieren"
+    "message": "Zum alphabetischen sortieren mindestens zwei Filter markieren"
   },
   "quickfilters.stopExecution.label": {
     "message": "Filter stoppen"

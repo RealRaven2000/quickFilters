@@ -179,8 +179,6 @@ quickFilters.Assistant = {
     dlgButtons['cancel'].addEventListener("click", function(event) {return quickFilters.Assistant.cancelTemplate();});
     dlgButtons['extra2'].addEventListener("click", function(event) {quickFilters.Util.showLicensePage();});
     
-          
-    if (prefs.isDebugOption('buildFilter')) debugger;
     this.ContinueLabel = this.NextButton.label;
           
     // [Bug 25989] Custom Templates Support

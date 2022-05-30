@@ -802,7 +802,7 @@ var quickFilters = {
 
     var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
           
-    if (util.isDebug) debugger;
+    // if (util.isDebug) debugger;
     let folder = util.getCurrentFolder(),
         firstItem = getFilterFolderForSelection(folder),
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow)
@@ -813,7 +813,6 @@ var quickFilters = {
       util.slideAlert(text.replace("{1}",folder.prettyName), 'quickFilters');
     }   
 
-    if (util.isDebug) debugger;
     if (folder.flags & util.FolderFlags.Inbox) {
       // goDoCommand('cmd_applyFilters'); // same in Postbox
       MsgApplyFilters();
@@ -859,7 +858,7 @@ var quickFilters = {
       catch (ex) {
         util.logException(ex);
       }
-      if (util.isDebug) debugger;
+      // if (util.isDebug) debugger;
       MailServices.filters.applyFiltersToFolders(tempFilterList, selectedFolders, msgWindow);
     }
   },
@@ -1195,7 +1194,6 @@ var quickFilters = {
     
     try {
       util.logDebugOptional('msgMove', "Executing wrapped MsgMoveMessage");
-      if (prefs.isDebug) debugger;
       if (quickFilters.Util.AssistantActive) { 
         sourceFolder = util.getCurrentFolder();
         
@@ -1668,7 +1666,6 @@ quickFilters.CustomTermReplyTo = {
 quickFilters.addKeyListener = function() {
   const util = quickFilters.Util,
         prefs = quickFilters.Preferences;
-  if (util.isDebug) debugger;
   let isRunFolderKey = prefs.isShortcut("folder"),
       isSelectedMailsKey = prefs.isShortcut("mails");
       
@@ -1709,8 +1706,7 @@ quickFilters.addTagListener = function() {
         contextWin.quickFilters.ToggleMessageTag = originalTagToggler; // should be the global function from Tb main Window
         
         ToggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
-          if(prefs.isDebugOption('listeners'))
-            debugger;
+          // if(prefs.isDebugOption('listeners')) debugger;
           // call the original function (tag setter) first
           let tmt = contextWin.quickFilters.ToggleMessageTag;
           util.logDebugOptional('listeners', "ToggleMessageTagWrapped()"

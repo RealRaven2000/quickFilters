@@ -228,7 +228,7 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
             prefs = quickFilters.Preferences,
             typeAttrib = Ci.nsMsgSearchAttrib,
             typeOperator = Ci.nsMsgSearchOp;
-      if (prefs.isDebug) debugger;
+
       // from http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#232
       //      onMore() called when the [+] button is clicked on a row (simulate last row)
       let rowIndex = gSearchTermList.getRowCount(),
@@ -348,7 +348,6 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
         stCopy.clear();
       }
       else {
-        debugger;
         while (stCopy.length) stCopy.pop();
       }
       theFilter.searchTerms = stCopy; 
