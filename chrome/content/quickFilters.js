@@ -469,7 +469,7 @@ END LICENSE BLOCK
     # [issue 90] Fixed: When uninstalling / updating quickFilters, toggling tags may fail
     # [issue 92] UI to view license extension longer than 1 month before expiry of Pro license
     
-  5.5 - WIP
+  5.5 - 30/05/2022
     # fixed notification dialogs for Thunderbird 99 and higher.
     # fixed notification image for Thunderbird 91 
     # fixed icon on OS notification (Run filters on folder / selected mails...)
@@ -481,6 +481,16 @@ END LICENSE BLOCK
     # [issue 101] Betterbird: With 2-way addresses make sure "any" operator is selected.
     # [issue 104] Filter Rules sorting - fails if no quickFilters Pro license
     # [issue 105] Backup of Custom Templates (Local Folders) does not store placeholders correctly
+    
+  5.5.1 - 30/05/2022
+    # removed debugger statements
+  
+  5.5.2 - WIP
+    # [issue 107] Existing "Reply-To" conditions cannot be edited (no text field displayed in Tb 91)
+    # [issue 108] Fixed: Edit fields of custom search term "Reply-To" is not displayed in Thunderbird 102
+    # [issue 109] Adding "Reply To" parts in Custom Template Editor fails with an error
+    # [issue 110] Added an option to disable removing own email addresses (mainly for testing)
+
    
   ============================================================================================================
   FUTURE WORK:

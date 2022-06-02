@@ -561,6 +561,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "删除我自己的电子邮件地址（推荐）"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "使用助手提取您自己的电子邮件地址可能会导致不想要的结果，因此地址搜索词会自动删除这些。"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -574,10 +580,10 @@
     "message": "The license key you entered is expired. Please press the button below to renew your license."
   },
   "qf.licenseValidation.failed": {
-    "message": "The license key you entered is not valid. Check your email from FastSpring for instructions. If you still have problems, please contact me from the Support tab."
+    "message": "您輸入的許可證密鑰無效。 檢查您來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
   },
   "qf.licenseValidation.invalidAddon": {
-    "message": "The license key you entered may be for a different Add-on. License keys for {0} start with {1}."
+    "message": "您輸入的許可證密鑰可能用於不同的附加組件。 {0} 的許可證密鑰以 {1} 開頭。"
   },
   "qf.licenseValidation.invalidMail": {
     "message": "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance."
@@ -592,7 +598,7 @@
     "message": "监视标签变动"
   },
   "qf.listener.tags.autofilter": {
-    "message": "Run filters automatically when tags are changed"
+    "message": "修改標籤時自動運行過濾器"
   },
   "qf.listener.tags.tooltip": {
     "message": "激活时，过滤助手将在您给消息添加标签时触发。"
@@ -1187,6 +1193,15 @@
   },
   "renew-your-license": {
     "message": "续订您的许可证。"
+  },
+  "restart-app" : {
+    "message": "重新启动 $application$ 以激活此选项。",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
   },
   "special-offer-content": {
     "message": "现在是获得许可证的最佳机会，因为庆祝quickFilters成立9周年的quickFilters Pro许可证价格降低了{boldStart} $reduction${boldEnd}！ 此特别优惠将持续到{boldStart} $expirydate${boldEnd}.",

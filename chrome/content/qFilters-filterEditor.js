@@ -133,6 +133,37 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
       setTimeout( function() { 
         quickFilters.FilterEditor.showTitle();
         }, 100);
+        
+      // [issue 108]  Edit fields of custom search term "Reply-To" is not displayed in Thunderbird 101.b4
+      function refreshItems() {
+        let terms = document.getElementById("searchTermList");
+        for (let i=0; i<terms.itemChildren.length; i++) {
+          let el = terms.itemChildren[i];
+          if (gFilter.searchTerms[i].attrib == -2) {
+            if (gFilter.searchTerms[i].customId && gFilter.searchTerms[i].customId.startsWith("quickFilters")) {
+              // this is one of my own search terms...
+              let val = el.querySelector("search-value");
+              let filterVal;
+              try {
+                // evalute the nsIMsgSearchValue
+                filterVal = gFilter.searchTerms[i].value.str;
+              }
+              catch(ex) {
+                
+              }
+              if (filterVal && val.getAttribute("value") != filterVal) {
+                quickFilters.Util.logToConsole(`Fixing search term ${gFilter.searchTerms[i].customId} - re-adding value "${filterVal}" ...` );
+                val.setAttribute("value", filterVal);
+                el.replaceWith(el);
+              }
+            }
+          }
+        }
+      }
+      
+      refreshItems();  
+        
+        
     },
 
 
@@ -193,7 +224,7 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
       if (argPos>0)
         hdr = hdr.substring(0, argPos);
       // make sure this is a known header!
-      if (!(["from", "to", "cc", "bcc", "subject", "subjectRegex"].includes(hdr))) {
+      if (!(["from", "to", "cc", "bcc", "subject", "subjectRegex", "reply-to"].includes(hdr))) {
         isCustom = true;
         if (!util.checkCustomHeaderExists(hdr)) {
           txt = util.getBundleString("quickfilters.prompt.createCustomHeader", 
@@ -253,6 +284,11 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
           break;
         case "subjectRegex":
           searchTerm.attrib = typeAttrib.Subject;
+          break;
+        case "reply-to": case "Reply-To": // [issue 109]
+          searchTerm.attrib = typeAttrib.Custom;
+          searchTerm.customId="quickFilters@axelg.com#replyTo";
+          searchTerm.arbitraryHeader="Reply-To";
           break;
         default:  // custom header
           searchTerm.attrib = typeAttrib.Custom;
@@ -386,7 +422,7 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
     try {
       let textbox = window.MozXULElement.parseXULToFragment(
         ` <html:input class="search-value-textbox flexinput qi-textbox" inherits="disabled" 
-          onchange="this.parentNode.setAttribute("value", this.value); this.parentNode.value=this.value;"> 
+          onchange="this.parentNode.setAttribute('value', this.value); this.parentNode.value=this.value;"> 
           </html:input>`
       );
       es.appendChild(textbox);

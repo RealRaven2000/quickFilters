@@ -113,7 +113,7 @@
     "message": "Si un filtre existe déjà, cela va automatiquement sélectionner le mode fusion et le premier filtre correspondant."
   },
   "chkMergeSkip.label": {
-    "message": "Passer et aller à l'étape modèle"
+    "message": "Passer directement à la sélection de modèles"
   },
   "chkMergeSkip.tooltip": {
     "message": "Ignore l'étape de sélection de la cible pour fusion et va directement à l'étape de sélection du modèle."
@@ -561,6 +561,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Supprimer mes propres adresses e-mail (recommandé)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "L'extraction de vos propres adresses e-mail à l'aide de l'assistant peut entraîner des résultats indésirables. Les termes de recherche d'adresses les suppriment donc automatiquement."
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -592,16 +598,16 @@
     "message": "Prendre en compte les modifications de marquage"
   },
   "qf.listener.tags.autofilter": {
-    "message": "Run filters automatically when tags are changed"
+    "message": "Exécuter des filtres automatiquement lorsque les balises sont modifiées"
   },
   "qf.listener.tags.tooltip": {
     "message": "Lorsqu'activé, l'assistant de filtre sera également lancé quand vous marquerez un message."
   },
   "qf.notify.filterCreated": {
-    "message": "Successfully created new filter '{0}'."
+    "message": "Le nouveau filtre '{0}' a été créé avec succès."
   },
   "qf.notify.filterMergeUpdated": {
-    "message": "Successfully updated filter '{0}'."
+    "message": "Le filtre '{0}' a été mis à jour avec succès."
   },
   "qf.onewayaddress.label": {
     "message": "Désactiver les doubles-conditions de recherche d'adresse"
@@ -1187,6 +1193,15 @@
   },
   "renew-your-license": {
     "message": "Renouvelez votre licence."
+  },
+  "restart-app" : {
+    "message": "Redémarrez $application$ pour activer cette option.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
   },
   "special-offer-content": {
     "message": "C'est maintenant la meilleure opportunité d'obtenir une licence car il y a une {boldStart} réduction de $reduction$ {boldEnd} sur le prix d'une licence quickFilters Pro pour célébrer les 9 ans de QuickFolders! Cette offre spéciale sera disponible jusqu'au {boldStart}$expirydate${boldEnd}.",

@@ -32,15 +32,15 @@ input.flexinput {
 
 /* bindings removed for Thunderbird 78 */
 .search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] {
-  -moz-box-flex: 1;
+  flex-grow: 2
 }
 
 .search-value-custom[searchAttribute="quickFilters@axelg.com#replyTo"] .qi-textbox {
 	background-image:  url("chrome://quickfilters/content/skin/QuickFilters_32.svg");
-  background-size: auto 16px;
-  padding-left: 18px;
+  padding-right: 20px;
+  background-size: auto 20px;
 	background-repeat: no-repeat;
-	background-position: left center;
+	background-position: right center;
 }
 
 #quickFilters-CustomTemplate {
@@ -52,7 +52,7 @@ input.flexinput {
 	font-size: 16px;
 	margin-bottom: 6px;
   padding: 4px;
-	text-align: center;
+	text-align: left;
 	text-shadow: 2px 2px 2px rgba(60,60,60,0.4);
 }
 #customLogo {
@@ -179,12 +179,19 @@ tab#quickFilters-Support {
   background: white;
   border: 1px solid #ccc;
   visibility: hidden;
-  opacity: 0;
+  opacity: 0; 
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
-  transition: opacity 0.3s, visibility 0s;
-  right: 25px !important;
+  transition: opacity 0.5s, visibility 0s;
   z-index: 1000;
 }
+.helpLink:not([tip-left]) .tooltip {
+  right: 25px !important;
+}
+
+.helpLink[tip-left] .tooltip {
+ /* left: 25px !important; */
+}
+
 
 .helpLink:hover .tooltip {
   visibility: visible;

@@ -113,7 +113,7 @@
     "message": "If a filter exists already, this will automatically select merge mode and the first matching filter."
   },
   "chkMergeSkip.label": {
-    "message": "Skip to Template Step"
+    "message": "Skip directly to template selection"
   },
   "chkMergeSkip.tooltip": {
     "message": "This will skip the step 'select merge target' and go straight to 'select template'."
@@ -560,6 +560,12 @@
   },
   "qf.label.quickfilters": {
     "message": "quickFilters"
+  },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Remove my own email addresses (recommended)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "Extracting your own email addresses using the assistant may lead to undesired results, so address search terms remove these automatically."
   },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
@@ -1188,6 +1194,15 @@
   "renew-your-license": {
     "message": "Renew your license."
   },
+  "restart-app" : {
+    "message": "Restart $application$ to activate this option.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
+  },
   "special-offer-content": {
     "message": "Now is the best opportunity to get a License as there is a {boldStart}$reduction$ reduction{boldEnd} on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {boldStart}$expirydate${boldEnd}.",
     "placeholders": {
@@ -1300,7 +1315,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters is now compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
+    "message": "{L1} [5.5.2] Fixed Reply-To field in Custom Filter Templates. {L2}{L1} quickFilters is now compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -63,6 +63,21 @@
 									type="bool"
 									instantApply="true"
 						/>
+      <preference id="subjectDisableKeywordsExtract"
+                  name="extensions.quickfilters.subjectDisableKeywordsExtract"
+									type="bool"
+									instantApply="true"
+						/>
+			<preference id="listen.tags"
+									name="extensions.quickfilters.listener.tags"
+									type="bool"
+									instantApply="true"
+						/>
+			<preference id="listen.tags.autofilter"
+									name="extensions.quickfilters.listener.tags.autofilter"
+									type="bool"
+									instantApply="true"
+						/>
 			<preference id="merge.autoSelect"
 									name="extensions.quickfilters.merge.autoSelect"
 									type="bool"
@@ -75,11 +90,6 @@
 						/>
 			<preference id="insertNewTermTop"
 									name="extensions.quickfilters.searchterm.insertOnTop"
-									type="bool"
-									instantApply="true"
-						/>
-      <preference id="subjectDisableKeywordsExtract"
-                  name="extensions.quickfilters.subjectDisableKeywordsExtract"
 									type="bool"
 									instantApply="true"
 						/>
@@ -143,16 +153,13 @@
 									type="string"
 									instantApply="true"
 						/>
-			<preference id="listen.tags"
-									name="extensions.quickfilters.listener.tags"
+			<preference id="newfilter.removeOwnAddresses"
+									name="extensions.quickfilters.newfilter.removeOwnAddresses"
 									type="bool"
 									instantApply="true"
 						/>
-			<preference id="listen.tags.autofilter"
-									name="extensions.quickfilters.listener.tags.autofilter"
-									type="bool"
-									instantApply="true"
-						/>
+            
+            
 <!--Advanced Tab-->
 			<preference id="templates.replyTo"
 									name="extensions.quickfilters.templates.replyTo"
@@ -310,7 +317,7 @@
 								label="__MSG_qf.listener.tags__"
 								tooltiptext="__MSG_qf.listener.tags.tooltip__"
 								/>
-					<checkbox id="chkListTags"
+					<checkbox 
 								preference="listen.tags.autofilter"
 								label="__MSG_qf.listener.tags.autofilter__"
 								/>
@@ -406,8 +413,8 @@
 									label="__MSG_qf.label.naming.parentFolder__"
 									accesskey="__MSG_qf.label.naming.parentFolder.accesskey__"
 									/>
-							<spacer flex="1" />
-							<label class="textBoxLabel"
+							<label style="margin-left: 1em; margin-top: 1px;"
+                  class="textBoxLabel"
 									value="__MSG_qf.label.naming.folderDelimiter__" />
 							<html:input
 									style="width: 3em;"
@@ -429,7 +436,17 @@
 						</hbox>
 					</vbox>
 				</html:fieldset>
+        
+        <hbox>
+          <checkbox id="chkRemoveOwnAddress"
+              preference="newfilter.removeOwnAddresses"
+              label="__MSG_qf.label.removeOwnAddresses__"
+              />      
+              <div class="helpLink" tip-left="true" clickyTooltip="__MSG_qf.label.removeOwnAddresses.tip__"> </div>
+        </hbox>
+        
 			</vbox>
+      
 	  </tabpanel>
 
 	  <tabpanel id="quickFilters-Options-Advanced"
@@ -441,8 +458,9 @@
 				<html:legend>__MSG_qf.templates.advanced__</html:legend>
 				<vbox>
 					<hbox>
-						<checkbox preference="templates.replyTo"
-											label="__MSG_qf.templates.replyTo.label__"
+						<checkbox id="chkReplyTo"
+                      preference="templates.replyTo"
+                      label="__MSG_qf.templates.replyTo.label__"
 											tooltiptext="__MSG_qf.templates.replyTo.tooltip__"/>
 						<label class="plain-link"
 									 tooltiptext="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25863"

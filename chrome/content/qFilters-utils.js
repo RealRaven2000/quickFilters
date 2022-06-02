@@ -1359,7 +1359,9 @@ quickFilters.Util = {
 						
 						// if (mailsToOmit) debugger;
 						// avoid own addresses when multiple mail is selected
-						if (mailsToOmit && 
+            let isRemoveOwn = quickFilters.Preferences.getBoolPref("newfilter.removeOwnAddresses");
+						if (isRemoveOwn && 
+                mailsToOmit && 
 						    (searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.Is || 
 								 searchTerm.op == SearchOP.BeginsWith || searchTerm.op == SearchOP.EndsWith)) {
 							switch (searchTerm.attrib) {
@@ -2236,24 +2238,31 @@ quickFilters.Util = {
     if (el.getAttribute("hasToolTip")) {
       return;
     }
-    let txt = el.getAttribute("clickyTooltip");
+    const txt = el.getAttribute("clickyTooltip");
+    const isLeft = el.hasAttribute("tip-left");
     if (txt) {
       let tip = document.createElement("div");
       tip.classList.add('tooltip');
       tip.innerText = txt;
       tip.style.transform =
-        'translate(' +
-          (el.hasAttribute('tip-left') ? 'calc(-100% - 5px)' : '15px') + ', ' +
-          (el.hasAttribute('tip-top') ? '-100%' : '0') +
-        ')';
+        "translate(" +
+            (isLeft ? "calc(-100% - 5px)" : "15px") 
+          +  ", " + (el.hasAttribute("tip-top") ? "-100%" : "0") +
+        ")";
       el.appendChild(tip);
       el.onmousemove = e => {
-        tip.style.left = e.clientX + 'px'
-        tip.style.top = e.clientY + 'px';
+        tip.style.left = e.clientX + 'px'; // isLeft?
+        tip.style.top = (e.clientY + 15) + 'px';
       };    
       el.setAttribute("hasToolTip", true);
     }
   },  
+  
+  promptToRestart: function() {
+    let txt = quickFilters.Util.getBundleString("restart-app", "Restart $application$ to activate this option.", [quickFilters.Util.Application]);
+    Services.prompt.alert(null, "quickFilters", txt);    
+  },
+  
 	
   dummy: function() {
 		/* 

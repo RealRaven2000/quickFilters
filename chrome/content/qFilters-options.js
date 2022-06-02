@@ -115,7 +115,15 @@ quickFilters.Options = {
           window.quickFilters.Util.openTooltipPopup(node);
         }
       );    
-    }    
+    } 
+
+    getElement("chkReplyTo").addEventListener("click", 
+      function(evt) { 
+        if (evt.target.checked) {
+          quickFilters.Util.promptToRestart(); 
+        }
+      } 
+    );
     
   } ,
   

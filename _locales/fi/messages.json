@@ -114,7 +114,7 @@
     "message": "Jos suodatin on jo olemassa, se valitsee automaattisesti yhdistämistilan ja ensimmäisen vastaavan suodattimen."
   },
   "chkMergeSkip.label": {
-    "message": "Siirry mallivaiheeseen"
+    "message": "Siirry suoraan mallin valintaan"
   },
   "chkMergeSkip.tooltip": {
     "message": "Tämä ohittaa vaiheen 'valitse yhdistämiskohde' ja siirtyy suoraan 'valitse malli'."
@@ -562,6 +562,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Poista omat sähköpostiosoitteeni (suositus)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "Omien sähköpostiosoitteiden purkaminen avustajan avulla voi johtaa ei-toivottuihin tuloksiin, joten osoitehakutermit poistavat ne automaattisesti."
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Pikakuvake suodattimien ajamiselle kansiossa: Vaihto + "
   },
@@ -593,7 +599,7 @@
     "message": "Kuuntele tagimuutoksia"
   },
   "qf.listener.tags.autofilter": {
-    "message": "Suodata suodattimet automaattisesti, kun tunnisteita vaihdetaan"
+    "message": "Suorita suodattimet automaattisesti, kun tunnisteita muutetaan"
   },
   "qf.listener.tags.tooltip": {
     "message": "Kun se on aktivoitu, suodatinavustaja käynnistyy myös, kun merkitset viestin."
@@ -1189,6 +1195,15 @@
   "renew-your-license" : {
     "message" : "Uusi lisenssi."
   },  
+  "restart-app" : {
+    "message": "Aktivoi tämä vaihtoehto käynnistämällä $application$ uudelleen.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
+  },
   "special-offer-content" : {
     "message": "Nyt on paras mahdollisuus hankkia lisenssi, koska quickFilters Pro -lisenssin hinta on {boldStart} $reduction$ alempi {boldEnd} juhlimaan 9 vuotta quickFilters! Tämä erikoistarjous on saatavilla {boldStart}$expirydate${boldEnd} asti.",
     "placeholders": {

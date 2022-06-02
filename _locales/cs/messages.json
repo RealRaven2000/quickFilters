@@ -32,6 +32,9 @@
   "btn-want-to-donate" : {
     "message" : "Chci pomoci s jednorázovým darem."
   } ,
+  "chkMergeSkip.label": {
+    "message": "Přejít na krok výběru šablony"
+  },
   "cost-of-independence" : {
     "message" : "Vývoj softwaru stojí čas a peníze - na rozdíl od mnoha aplikací na platformě nejsou doplňky napsány velkými korporacemi, ani nejsou žádným způsobem sponzorovány společností Mozilla."
   } ,
@@ -98,6 +101,15 @@
   "purchase-heading" : {
     "message" : "Nákup licence!"
   }, 
+  "qf.label.removeOwnAddresses" : {
+    "message": "Odebrat mé vlastní e-mailové adresy (doporučeno)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "Extrahování vlastních e-mailových adres pomocí asistenta může vést k nežádoucím výsledkům, takže vyhledávací výrazy adresy je automaticky odstraní."
+  },
+  "qf.listener.tags.autofilter": {
+    "message": "Spouštět filtry automaticky při změně značek"
+  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licence vypršela!"
   },
@@ -113,12 +125,15 @@
   "renew-your-license" : {
     "message" : "Obnovte si licenci."
   },  
-  "special-offer-head" : {
-    "message": "Prosím, pomozte quickFilters pokračovat!"
-  } ,   
-  "special-offer-intro" : { 
-    "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci s kontrolou budoucnosti quickFilters. Chystají se další velké změny v Thunderbirdu a potřebuji {boldStart} vaši pomoc {boldEnd}, abych udržel krok!"
-  } ,
+  "restart-app" : {
+    "message": "Chcete-li tuto možnost aktivovat, restartujte $application$.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
+  },
   "special-offer-content" : {
     "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {boldStart}$reduction$ snížení{boldEnd} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {boldStart}$expirydate${boldEnd}.",
     "placeholders": {
@@ -134,6 +149,12 @@
   },
   "special-offer-expiry": {
     "message": "12. června"
+  },
+  "special-offer-head" : {
+    "message": "Prosím, pomozte quickFilters pokračovat!"
+  } ,   
+  "special-offer-intro" : { 
+    "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci s kontrolou budoucnosti quickFilters. Chystají se další velké změny v Thunderbirdu a potřebuji {boldStart} vaši pomoc {boldEnd}, abych udržel krok!"
   },
   "special-offer-renew": {
     "message": "Renoveu la llicència ara i estalvieu reducció de {boldStart}$reduction${boldEnd}. Aquesta oferta especial estarà disponible fins al dia {boldStart} $expirydate$ {boldEnd}.",

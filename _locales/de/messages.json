@@ -113,7 +113,7 @@
     "message": "Falls schon ein Filter vorhanden ist, wird Kombinieren voreingestellt und der erste Filter als Ziel markiert."
   },
   "chkMergeSkip.label": {
-    "message": "Zu Vorlagen springen"
+    "message": "Direkt zur Vorlagenauswahl springen"
   },
   "chkMergeSkip.tooltip": {
     "message": "Überspringt den Schritt 'Mit existierendem Filter kombinieren' und geht direkt zu 'Vorlage wählen'."
@@ -561,6 +561,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Meine eigenen E-Mail-Adressen entfernen (empfohlen)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "Das Extrahieren eigener E-Mail-Adressen mit dem Assistenten kann zu unerwünschten Ergebnissen führen, daher entfernen Adresssuchbegriffe diese automatisch."
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Tastenkürzel um Filter auf Ordner anzuwenden: Shift + "
   },
@@ -592,7 +598,7 @@
     "message": "Schlagwörter beobachten"
   },
   "qf.listener.tags.autofilter": {
-    "message": "Mails automatisch filtern, wenn Schlagwörter gesetzt werden"
+    "message": "Mails automatisch filtern, wenn Schlagwörter geändert werden"
   },
   "qf.listener.tags.tooltip": {
     "message": "Wenn der Filter Assistent aktiv ist, wird er auch aufgerufen falls Sie einer EMail ein Schlagwort hinzufügen."
@@ -1187,6 +1193,15 @@
   },
   "renew-your-license": {
     "message": "Erneuern Sie Ihre Lizenz."
+  },
+  "restart-app" : {
+    "message": "Starten Sie $application$ neu, um diese Option zu aktivieren.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
   },
   "special-offer-content": {
     "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um $reduction$ gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}$expirydate${boldEnd}.",

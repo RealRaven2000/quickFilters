@@ -562,6 +562,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Remover meus próprios endereços de e-mail (recomendado)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "Extrair seus próprios endereços de e-mail usando o assistente pode levar a resultados indesejados, portanto, os termos de pesquisa de endereços os removem automaticamente."
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Atalho para executar filtros na pasta: Shift + "
   },
@@ -596,7 +602,7 @@
     "message": "Ouça as mudanças de tag"
   },
   "qf.listener.tags.autofilter": {
-    "message": "Execute filtros automaticamente quando as tags forem alteradas"
+    "message": "Executar filtros automaticamente quando as tags são modificadas"
   },
   "qf.listener.tags.tooltip": {
     "message": "Quando ativado, o assistente de filtro também será acionado quando você marcar uma mensagem."
@@ -1192,6 +1198,15 @@
   "renew-your-license" : {
     "message" : "Renove sua licença."
   },  
+  "restart-app" : {
+    "message": "Reinicie $application$ para ativar esta opção.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
+  },
   "special-offer-content" : {
     "message": "Agora é a melhor oportunidade de obter uma licença, pois há uma {boldStart} redução de $reduction$ {boldEnd} no preço de uma licença quickFilters Pro para comemorar 9 anos de quickFilters! Esta oferta especial estará disponível até {boldStart} $expirydate$ {boldEnd}.",
     "placeholders": {

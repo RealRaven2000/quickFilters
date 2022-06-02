@@ -851,6 +851,7 @@ quickFilters.Worker = {
     }
 
     function createTermList(array, targetFilter, attrib, operator, excludeAddressList, excludedAddresses, domainSwitch, customId) {
+      const isRemoval = quickFilters.Preferences.getBoolPref("newfilter.removeOwnAddresses");
       let TA = Ci.nsMsgSearchAttrib;
       for (let counter=0; counter<array.length; counter++) {
         try {
@@ -864,8 +865,8 @@ quickFilters.Worker = {
           if (isAddress) {
             trmValue = util.extractEmail(trmValue, domainSwitch);
           }          
-        
-          if (isAddress && excludeAddressList.indexOf(trmValue)>=0) {
+          
+          if (isRemoval && isAddress && excludeAddressList.indexOf(trmValue)>=0) {
             if (excludedAddresses.indexOf(trmValue)<0) { // avoid duplicates in exclusion list!
               excludedAddresses.push(trmValue);
               util.logDebugOptional ('template.multifrom', 'Excluded from multiple(from) filter: ' + trmValue);

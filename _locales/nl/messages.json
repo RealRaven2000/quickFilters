@@ -561,6 +561,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Mijn eigen e-mailadressen verwijderen (aanbevolen)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "Het extraheren van uw eigen e-mailadressen met behulp van de assistent kan leiden tot ongewenste resultaten, dus adreszoektermen verwijderen deze automatisch."
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -592,7 +598,7 @@
     "message": "Markeringswijzigingen volgen"
   },
   "qf.listener.tags.autofilter": {
-    "message": "Filters automatisch toepassen als markeringen worden gewijzigd"
+    "message": "Filters automatisch uitvoeren wanneer tags worden gewijzigd"
   },
   "qf.listener.tags.tooltip": {
     "message": "Indien geactiveerd zal de filterassistent ook starten als u een bericht markeert."
@@ -1187,6 +1193,15 @@
   },
   "renew-your-license": {
     "message": "Verleng uw licentie."
+  },
+  "restart-app" : {
+    "message": "Start $application$ opnieuw om deze optie te activeren.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
   },
   "special-offer-content": {
     "message": "Dit is de beste kans om een licentie te krijgen, want er is een {boldStart} $reduction$ korting {boldEnd} op de prijs van een quickFilters Pro-licentie om 9 jaar quickFilters te vieren! Deze speciale aanbieding is beschikbaar tot {boldStart}$expirydate${boldEnd}.",

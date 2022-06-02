@@ -171,7 +171,8 @@ async function onLoad(activatedWhileWindowOpen) {
   if (!activatedWhileWindowOpen) {
     window.quickFilters.FilterEditor.onLoad();
   }
-
+  
+ 
 }
 
 function onUnload(isAddOnShutDown) {

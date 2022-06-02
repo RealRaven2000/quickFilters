@@ -561,6 +561,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "自分のメールアドレスを削除する（推奨）"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "アシスタントを使用して自分のメールアドレスを抽出すると、望ましくない結果が生じる可能性があるため、アドレス検索用語はこれらを自動的に削除します。"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -592,7 +598,7 @@
     "message": "タグ変更を監視する"
   },
   "qf.listener.tags.autofilter": {
-    "message": "タグの変更時にフィルタを自動的に実行する"
+    "message": "タグが変更されたときにフィルターを自動的に実行する"
   },
   "qf.listener.tags.tooltip": {
     "message": "有効にすると、メッセージにタグを付けた時にフィルタアシスタントが起動します。"
@@ -1187,6 +1193,15 @@
   },
   "renew-your-license": {
     "message": "ライセンスを更新する。"
+  },
+  "restart-app" : {
+    "message": "$application$ を再起動して、このオプションをアクティブにします。",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
   },
   "special-offer-content": {
     "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {boldStart} $reduction$割引{boldEnd} されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{boldStart}$expirydate${boldEnd} までご利用いただけます。",

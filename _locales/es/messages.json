@@ -113,7 +113,7 @@
     "message": "Si ya existe un filtro, esto seleccionará automáticamente el modo de combinado y el primer filtro coincidente."
   },
   "chkMergeSkip.label": {
-    "message": "Saltar hasta el paso de la plantilla"
+    "message": "Saltar directamente a la selección de plantilla"
   },
   "chkMergeSkip.tooltip": {
     "message": "Esto omitirá el paso 'seleccionar objetivo de combinado' e irá directo a 'seleccionar plantilla'."
@@ -561,6 +561,12 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Eliminar mis propias direcciones de correo electrónico (recomendado)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "La extracción de sus propias direcciones de correo electrónico con el asistente puede generar resultados no deseados, por lo que los términos de búsqueda de direcciones los eliminan automáticamente."
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Atajo para ejecutar filtros en la carpeta: Mayús + "
   },
@@ -592,7 +598,7 @@
     "message": "Atender cambios de etiquetas"
   },
   "qf.listener.tags.autofilter": {
-    "message": "Ejecutar filtros automáticamente al cambiar las etiquetas"
+    "message": "Ejecutar filtros automáticamente cuando se modifican las etiquetas"
   },
   "qf.listener.tags.tooltip": {
     "message": "Cuando está activada, el asistente de filtros se abrirá también cuando etiquete un mensaje."
@@ -1187,6 +1193,15 @@
   },
   "renew-your-license": {
     "message": "Renueva tu licencia."
+  },
+  "restart-app" : {
+    "message": "Reinicie $application$ para activar esta opción.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
   },
   "special-offer-content": {
     "message": "¡Ahora es la mejor oportunidad para obtener una licencia, ya que hay una {boldStart} reducción del $reduction$ {boldEnd} en el precio de una licencia quickFilters Pro para celebrar los 9 años de quickFilters! Esta oferta especial estará disponible hasta el {boldStart} $expirydate$ {boldEnd}.",

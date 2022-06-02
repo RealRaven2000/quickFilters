@@ -561,11 +561,17 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
+  "qf.label.removeOwnAddresses" : {
+    "message": "Ta bort mina egna e-postadresser (rekommenderas)"
+  },
+  "qf.label.removeOwnAddresses.tip" : {
+    "message": "Att extrahera dina egna e-postadresser med hjälp av assistenten kan leda till oönskade resultat, så adresssöktermer tar bort dessa automatiskt."
+  },
   "qf.label.shortcut.runFolder": {
-    "message": "Shortcut for Running Filters on Folder: Shift + "
+    "message": "Genväg för att köra filter på mapp: Skift +"
   },
   "qf.label.shortcut.runMails": {
-    "message": "Shortcut for Running Filters on Selected Mails: Shift + "
+    "message": "Genväg för att köra filter på valda e-postmeddelanden: Skift + "
   },
   "qf.label.supportWithLicense": {
     "message": "Stöd quickFilters genom att skaffa en licens!"
@@ -1187,6 +1193,15 @@
   },
   "renew-your-license": {
     "message": "Förnya din licens."
+  },
+  "restart-app" : {
+    "message": "Starta om $application$ för att aktivera det här alternativet.",
+    "placeholders": {
+      "application": {
+        "content": "$1",
+        "example": "Thunderbird"
+      }
+    }
   },
   "special-offer-content": {
     "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {boldStart} $reduction$ rabatt {boldEnd} på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {boldStart} $expirydate$ {boldEnd}.",
