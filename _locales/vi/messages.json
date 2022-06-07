@@ -1315,7 +1315,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters hiện tại tương thích với Thunderbird 102 và sẽ được hỗ trợ trong giai đoạn ESR 2022/2023. {L2} {L1} Đã thêm trình trích xuất phần miền mới cho các mẫu tùy chỉnh: Tên miền gốc, Tên miền phụ, Phần mở rộng tên miền. {L2} {L1} Đã khắc phục: Không thể sắp xếp các quy tắc bộ lọc mà không có giấy phép quickFilters Pro. {L2} {L1} Đã sửa: Sao lưu các mẫu bộ lọc tùy chỉnh {L2} {L1} Đã thêm nút trợ giúp trong trình chỉnh sửa mẫu tùy chỉnh {L2} {L1} Đối với người dùng không có giấy phép, quickFilters giờ sẽ đếm ngược việc sử dụng các tính năng Pro nhất định. {L2}"
+    "message": "{L1} [5.5.2] Nhiều bản sửa lỗi xung quanh trường 'Trả lời' trong trình chỉnh sửa bộ lọc. {L2} {L1} quickFilters hiện tại tương thích với Thunderbird 102 và sẽ được hỗ trợ trong giai đoạn ESR 2022/2023. {L2} {L1} Đã thêm trình trích xuất phần miền mới cho các mẫu tùy chỉnh: Tên miền gốc, Tên miền phụ, Phần mở rộng tên miền. {L2} {L1} Đã khắc phục: Không thể sắp xếp các quy tắc bộ lọc mà không có giấy phép quickFilters Pro. {L2} {L1} Đã sửa: Sao lưu các mẫu bộ lọc tùy chỉnh {L2} {L1} Đã thêm nút trợ giúp trong trình chỉnh sửa mẫu tùy chỉnh {L2} {L1} Đối với người dùng không có giấy phép, quickFilters giờ sẽ đếm ngược việc sử dụng các tính năng Pro nhất định. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

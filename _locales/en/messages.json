@@ -1315,7 +1315,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} [5.5.2] Fixed Reply-To field in Custom Filter Templates. {L2}{L1} quickFilters is now compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
+    "message": "{L1} [5.5.2] Numerous fixes around 'Reply-To' fields in filter editors. {L2}{L1} quickFilters is now compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

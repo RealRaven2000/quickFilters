@@ -1315,7 +1315,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters a partir de ahora es compatible con Thunderbird 102 y será compatible con el período ESR 2022/2023.{L2} {L1} Se agregaron nuevos extractores de partes de dominio para plantillas personalizadas: dominio raíz, subdominio, extensión de nombre de dominio. {L2} {L1} Corregido: la clasificación de las reglas de filtrado fallaba sin la licencia de QuickFilters Pro. {L2} {L1} Solucionado: copia de seguridad de plantillas de filtro personalizadas {L2} {L1} Botón de ayuda agregado en el editor de plantillas personalizadas {L2} {L1} Para usuarios sin licencia, QuickFilters ahora contará el uso de ciertas funciones Pro. {L2}"
+    "message": "{L1} [5.5.2] Numerosas correcciones en los campos 'Responder a' en los editores de filtros. {L2} {L1} quickFilters a partir de ahora es compatible con Thunderbird 102 y será compatible con el período ESR 2022/2023.{L2} {L1} Se agregaron nuevos extractores de partes de dominio para plantillas personalizadas: dominio raíz, subdominio, extensión de nombre de dominio. {L2} {L1} Corregido: la clasificación de las reglas de filtrado fallaba sin la licencia de QuickFilters Pro. {L2} {L1} Solucionado: copia de seguridad de plantillas de filtro personalizadas {L2} {L1} Botón de ayuda agregado en el editor de plantillas personalizadas {L2} {L1} Para usuarios sin licencia, QuickFilters ahora contará el uso de ciertas funciones Pro. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
