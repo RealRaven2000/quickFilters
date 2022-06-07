@@ -1357,21 +1357,20 @@ var quickFilters = {
     let hasNews = quickFilters.Preferences.getBoolPref("hasNews"),
         btn = document.getElementById("quickfilters-toolbar-button");
     if (btn) {
-      if (hasNews) {
-        btn.classList.add("newsflash");
-        btn.classList.remove("expired");
-        btn.label = util.getBundleString("quickfiltersToolbarButton.updated");
-        btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.updated.tip"));
+      if (util.licenseInfo.isExpired) {
+        btn.classList.add("expired");
+        btn.label = util.getBundleString("quickfiltersToolbarButton.expired");
+        btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.expired.tip"));
       }
       else {
-        btn.classList.remove("newsflash");
-        // 
-        if (util.licenseInfo.isExpired) {
-          btn.classList.add("expired");
-          btn.label = util.getBundleString("quickfiltersToolbarButton.expired");
-          btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.expired.tip"));
+        if (hasNews) {
+          btn.classList.add("newsflash");
+          btn.classList.remove("expired");
+          btn.label = util.getBundleString("quickfiltersToolbarButton.updated");
+          btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.updated.tip"));
         }
         else {
+          btn.classList.remove("newsflash");
           btn.classList.remove("expired");
           btn.label = util.getBundleString("quickfiltersToolbarButton.label");
           btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.tooltip"));
