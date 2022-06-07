@@ -228,7 +228,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} [5.5.2] Četné opravy kolem polí „Odpovědět“ v editorech filtrů. {L2} {L1} quickFilters je nyní kompatibilní s Thunderbirdem 102 a bude podporován pro období ESR 2022/2023.{L2} {L1} Přidány nové extraktory částí domény pro vlastní šablony: kořenová doména, subdoména, přípona názvu domény. {L2} {L1} Opraveno: Pravidla filtrování řazení selhala bez licence quickFilters Pro. {L2} {L1} Opraveno: Zálohování šablon vlastních filtrů {L2} {L1} Přidáno tlačítko nápovědy do editoru vlastních šablon {L2} {L1} Pro uživatele bez licence bude nyní aplikace quickFilters odpočítávat využití určitých funkcí Pro. {L2}}"
+    "message" : "{L1} [5.5.4] Přidán vylepšený italský překlad od Pol Hallena. {L2}{L1} [5.5.2] Četné opravy kolem polí „Odpovědět“ v editorech filtrů. {L2} {L1} quickFilters je nyní kompatibilní s Thunderbirdem 102 a bude podporován pro období ESR 2022/2023.{L2} {L1} Přidány nové extraktory částí domény pro vlastní šablony: kořenová doména, subdoména, přípona názvu domény. {L2} {L1} Opraveno: Pravidla filtrování řazení selhala bez licence quickFilters Pro. {L2} {L1} Opraveno: Zálohování šablon vlastních filtrů {L2} {L1} Přidáno tlačítko nápovědy do editoru vlastních šablon {L2} {L1} Pro uživatele bez licence bude nyní aplikace quickFilters odpočítávat využití určitých funkcí Pro. {L2}}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

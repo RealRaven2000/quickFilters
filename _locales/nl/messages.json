@@ -1315,7 +1315,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} [5.5.2] Talrijke correcties rond 'Antwoord-aan'-velden in filtereditors. {L2} {L1} quickFilters is vanaf nu compatibel met Thunderbird 102 en wordt ondersteund voor de ESR-periode 2022/2023.{L2} {L1} Nieuwe extractors voor domeindelen toegevoegd voor aangepaste sjablonen: hoofddomein, subdomein, domeinnaamextensie. {L2} {L1} Opgelost: filterregels voor sorteren mislukt zonder quickFilters Pro-licentie. {L2} {L1} Opgelost: back-up van aangepaste filtersjablonen {L2} {L1} Help-knop toegevoegd in aangepaste sjablooneditor {L2} {L1} Voor gebruikers zonder licentie telt quickFilters nu het gebruik van bepaalde Pro-functies af. {L2}"
+    "message": "{L1} [5.5.4] Verbeterde Italiaanse vertaling toegevoegd door Pol Hallen. {L2}{L1} [5.5.2] Talrijke correcties rond 'Antwoord-aan'-velden in filtereditors. {L2} {L1} quickFilters is vanaf nu compatibel met Thunderbird 102 en wordt ondersteund voor de ESR-periode 2022/2023.{L2} {L1} Nieuwe extractors voor domeindelen toegevoegd voor aangepaste sjablonen: hoofddomein, subdomein, domeinnaamextensie. {L2} {L1} Opgelost: filterregels voor sorteren mislukt zonder quickFilters Pro-licentie. {L2} {L1} Opgelost: back-up van aangepaste filtersjablonen {L2} {L1} Help-knop toegevoegd in aangepaste sjablooneditor {L2} {L1} Voor gebruikers zonder licentie telt quickFilters nu het gebruik van bepaalde Pro-functies af. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

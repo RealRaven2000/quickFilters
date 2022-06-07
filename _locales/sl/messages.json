@@ -225,7 +225,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} [5.5.2] Бројне исправке око поља „Одговори на“ у уређивачима филтера. {L2}{L1} [5.5.2] Številni popravki okoli polj »Odgovori« v urejevalnikih filtrov. {L2} {L1} quickFilters je trenutno združljiv s Thunderbird 102 in bo podprt za obdobje ESR 2022/2023.{L2} {L1} Dodani novi izvlečki delov domene za predloge po meri: korenska domena, poddomena, razširitev imena domene. {L2} {L1} Popravljeno: razvrščanje pravil filtra ni uspelo brez licence QuickFilters Pro. {L2} {L1} Popravljeno: varnostno kopiranje predlog filtrov po meri {L2} {L1} Dodan gumb za pomoč v urejevalniku predlog po meri {L2} {L1} Za uporabnike brez licence bo quickFilters zdaj odšteval uporabo nekaterih funkcij Pro. {L2}"
+    "message" : "{L1} [5.5.4] Dodan je bil izboljšan italijanski prevod Pol Hallena. {L2}{L1} [5.5.2] Бројне исправке око поља „Одговори на“ у уређивачима филтера. {L2}{L1} [5.5.2] Številni popravki okoli polj »Odgovori« v urejevalnikih filtrov. {L2} {L1} quickFilters je trenutno združljiv s Thunderbird 102 in bo podprt za obdobje ESR 2022/2023.{L2} {L1} Dodani novi izvlečki delov domene za predloge po meri: korenska domena, poddomena, razširitev imena domene. {L2} {L1} Popravljeno: razvrščanje pravil filtra ni uspelo brez licence QuickFilters Pro. {L2} {L1} Popravljeno: varnostno kopiranje predlog filtrov po meri {L2} {L1} Dodan gumb za pomoč v urejevalniku predlog po meri {L2} {L1} Za uporabnike brez licence bo quickFilters zdaj odšteval uporabo nekaterih funkcij Pro. {L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

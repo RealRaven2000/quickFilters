@@ -1313,7 +1313,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} [5.5.2] Liczne poprawki dotyczące pól „Odpowiedz do” w edytorach filtrów. {L2} {L1} quickFilters jest obecnie kompatybilny z Thunderbird 102 i będzie obsługiwany w okresie ESR 2022/2023.{L2} {L1} Dodano nowe ekstraktory części domeny dla niestandardowych szablonów: domena główna, poddomena, rozszerzenie nazwy domeny. {L2} {L1} Naprawiono: Sortowanie reguł filtrowania nie powiodło się bez licencji QuickFilters Pro. {L2} {L1} Naprawiono: Kopia zapasowa szablonów filtrów niestandardowych {L2} {L1} Dodano przycisk pomocy w edytorze szablonów niestandardowych {L2} {L1} Dla użytkowników bez licencji, quickFilters odlicza teraz użycie niektórych funkcji Pro. {L2}"
+    "message" : "{L1} [5.5.4] Dodano ulepszone tłumaczenie na język włoski autorstwa Pol Hallen. {L2}{L1} [5.5.2] Liczne poprawki dotyczące pól „Odpowiedz do” w edytorach filtrów. {L2} {L1} quickFilters jest obecnie kompatybilny z Thunderbird 102 i będzie obsługiwany w okresie ESR 2022/2023.{L2} {L1} Dodano nowe ekstraktory części domeny dla niestandardowych szablonów: domena główna, poddomena, rozszerzenie nazwy domeny. {L2} {L1} Naprawiono: Sortowanie reguł filtrowania nie powiodło się bez licencji QuickFilters Pro. {L2} {L1} Naprawiono: Kopia zapasowa szablonów filtrów niestandardowych {L2} {L1} Dodano przycisk pomocy w edytorze szablonów niestandardowych {L2} {L1} Dla użytkowników bez licencji, quickFilters odlicza teraz użycie niektórych funkcji Pro. {L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",
