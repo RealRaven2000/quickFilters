@@ -14,6 +14,9 @@ title: Home
   <div class="infoTab" id="whats-new">
   <h5 class="infoHeader">What's New / Highlights</h5>
   <ul>
+  <li>Version <a href="version.html#5.5.4">5.5.4</a> quickFilters is now compatible with Thunderbird 102</li>
+  <li>Version <a href="version.html#5.5.1">5.5.1</a> added Domain extractors to custom filter templates</li>
+  <li>Version <a href="version.html#5.4">5.4</a> Support copy to folder instead of move in assistant</li>
   <li>Version <a href="version.html#5.3">5.3</a> quickFilters is now compatible with Thunderbird 91</li>
   <li>Version <a href="version.html#5.2">5.2</a> New: Sort Search Terms in Filter.</li>
   <li>Version <a href="version.html#5.1">5.1</a> WIP: Fixed Merge filters and clipboard icons in filter list. Fix for Thunderbird 85beta for "Run Filters on Folder"</li>
@@ -73,20 +76,22 @@ With this, it is very easy to create new filters very quickly.
 </p>
 <ol>
   <li> Click on the quickFilters button on the main toolbar<br/>
-  <img class="screenshot" src="img/quickFilters-ToolbarButton.png" alt="main menu: filter assistant">
+  <img class="screenshot" src="img/qi-button-assistant.png" alt="main menu: filter assistant">
 
   <li>The button will change depicting a glowing wheel instead of the mail icon and there will be sliding notification:<br/>
-  <img class="screenshot" src="img/quickFilters-Notification.png" alt="filter notification" title="filter notification assistant">
+  <img class="screenshot" src="img/qi-notification-assistant.png" alt="filter notification" title="filter notification assistant">
 
-  <li>Drag an email into a folder on the left hand folder tree. This will open the Filter Assistant screen.<br/>
-  <img class="screenshot" src="img/quickFilters-Assistant-1.6.png" alt="filter wizard" title="filter wizard">
+  <li>
+    Drag an email into a folder on the left hand folder tree - or move it by other means (such as QuickFolders quickMove method). 
+    This will open the Filter Assistant screen.<br/>
+  <img class="screenshot" src="img/quickFilters-Assistant-5.5.png" alt="filter assistant" title="filter assistant">
   
   <li>select a template (e.g. "based on Sender") and click [Create Filter...] - in the example I have pulled an email into the QuickFolders folder.
   See below for a detailed description.  
 
   <li>Next, the Edit Filter dialog is displayed - as you can see it already tries to "guess" what  you want the filter to do when it should be applied, 
   <u>based on the email that you dragged to the folder</u>:<br/>
-  <img class="screenshot" src="img/filter-Rules.png" alt="filter rules">
+  <img class="screenshot" src="img/filter-rules-new.png" alt="filter rules">
   <br/>Since in this case I chose "Based on Sender", it will pull all conversations from and to <i>joe@quickFolders.com</i> into the QuickFolders folder. 
   No need to select the folder (as it has been done automatically) or to enter any condition (this is based on the template that you have chosen).
 
@@ -94,7 +99,7 @@ With this, it is very easy to create new filters very quickly.
   <li>You can also click Cancel to not create the filter
   
   <li> in the last step Thundebird's list of filters is shown. <br/>
-  <img class="screenshot" src="img/filters-List.png" alt="list of filters">
+  <img class="screenshot" src="img/filters-list-5.png" alt="list of filters">
 
   <li>You can repeat the process from step 2 to create more filters
 
