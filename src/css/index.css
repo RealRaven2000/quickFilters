@@ -17,8 +17,12 @@ td.navigation-list a[href*='index.html'] {
 
 #main-content-no-nav > * > li {
   list-style: square outside url('/img/square-orange-small.png');
-	/* margin-left: 4em; */
 } 
+
+#main-content-no-nav > ul > li {
+	margin-left: 2em;
+}
+
 p, li {
 	max-width:55em;
 }

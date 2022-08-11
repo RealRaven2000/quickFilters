@@ -4,7 +4,7 @@ title: Home
 ---
 
 <link rel="stylesheet" href="/css/myProjects.css?v17" type="text/css">
-<link rel="stylesheet" href="/css/index.css?v7" type="text/css">
+<link rel="stylesheet" href="/css/index.css?v8" type="text/css">
 
 
 
@@ -86,11 +86,11 @@ With this, it is very easy to create new filters very quickly.
     This will open the Filter Assistant screen.<br/>
   <img class="screenshot" src="img/quickFilters-Assistant-5.5.png" alt="filter assistant" title="filter assistant">
   
-  <li>select a template (e.g. "based on Sender") and click [Create Filter...] - in the example I have pulled an email into the QuickFolders folder.
+  <li>Select a template (e.g. "based on Sender") and click [Create New Filter...] - in the example I have pulled an email into the QuickFolders folder.
   See below for a detailed description.  
 
-  <li>Next, the Edit Filter dialog is displayed - as you can see it already tries to "guess" what  you want the filter to do when it should be applied, 
-  <u>based on the email that you dragged to the folder</u>:<br/>
+  <li>Next, the Edit Filter Rules dialog is displayed - as you can see it already tries to "guess" what  you want the filter to do when it should be applied, 
+  <u>based on the email that you dragged to the folder or tagged</u>:<br/>
   <img class="screenshot" src="img/filter-rules-new.png" alt="filter rules">
   <br/>Since in this case I chose "Based on Sender", it will pull all conversations from and to <i>joe@quickFolders.com</i> into the QuickFolders folder. 
   No need to select the folder (as it has been done automatically) or to enter any condition (this is based on the template that you have chosen).
@@ -98,7 +98,7 @@ With this, it is very easy to create new filters very quickly.
   <li>Now tweak the filter as usual and click Ok to save it (and try it out in the Filter List)
   <li>You can also click Cancel to not create the filter
   
-  <li> in the last step Thundebird's list of filters is shown. <br/>
+  <li>In the last step Thunderbird's list of filters is shown. <br/>
   <img class="screenshot" src="img/filters-list-5.png" alt="list of filters">
 
   <li>You can repeat the process from step 2 to create more filters
@@ -111,15 +111,31 @@ With this, it is very easy to create new filters very quickly.
 
 <a name='assistant'> </a>
 <h3>The Filter Assistant</h3>
-  <p>On this screen, you select what type of information (conditions) will trigger the filter action, 
-	   and what kind of actions the filter will carry out. A condition is a 'fact' that applies to the 
-		 incoming email, such as 'the sender is fred', 'the mail is tagged as important', 
-		 'this message is more than a month old' etc. The action can be 'move message to freds folder',
-		 'tag message as personal', 'set message low priority', 'mark message with a star'.</p>
-		 <img src="img/quickFilters-Assistant-2.3.png" alt="quickFilters Assistant"/><br/>
-		 <p>
-		 The templates offered here make this a much easier and quicker process and fill prefill the 
-		 new filter accordingly.</p>
+  <p>
+    On this screen, you select what type of information (search term) will trigger the filter action, 
+	  and what kind of actions the filter will carry out. 
+    A search term is a 'fact' that applies to the incoming email, such as 'the sender is fred', 
+    'the mail is tagged as important', 'this message is more than a month old' etc. 
+  </p>
+		<img src="img/quickFilters-Assistant-2.3.png" alt="quickFilters Assistant"/>
+  <p>
+    The action can be 'move message to freds folder', 'tag message as personal', 
+    'set message low priority', 'mark message with a star'. These are based on the 
+    email that was used to trigger the assistant.
+  </p>
+    <img src="img/quickfilters-actions+steps.png" alt="actions and steps" />
+  <p>
+    The "Next Steps" options control what other screens are shown. 
+    "Filter Rules" is highly recommended so that the resulting filter will be displayed on screen.
+    "Filters List" can be helpful for testing the filte immediately by clicking the [Run Now] button.
+  </p>
+  <p>
+    On the bottom of the assistant screen you can see some heading detail (such as sender and subject line)
+    to help decide on what the correct template may be.
+		The templates offered here make this a much easier and quicker process and fill prefill the 
+		new filter accordingly.
+    <img src="img/assistant-preview.png" alt="Preview" />
+  </p>
 
 <a name='templates'> </a>
 <h3>Filter Templates</h3>
