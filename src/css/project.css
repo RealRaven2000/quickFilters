@@ -263,12 +263,14 @@ h3 {
 }
 
 h4 {
+  background: linear-gradient(to bottom, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%);
 	border: 1px solid transparent;
   box-shadow: inset 2px 2px 3px -1px rgba(0,0,0,0.7);
 	box-sizing: border-box;
   color: rgb(0,0,0);
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.0m;
+  font-weight: bold;
   margin: 1em 1em 1em 0;
   padding: 0.35em 0.5em;
   transition-property: border-radius, background-image, box-shadow, margin;
@@ -276,11 +278,13 @@ h4 {
 }
 
 h4:hover  {
-  background: rgb(253,168,159);
+  /* background: rgb(253,168,159);
   background: linear-gradient(to bottom, rgba(253,168,159,1) 0%,rgba(251,85,67,1) 15%,rgba(151,15,5,1) 47%,rgba(212,44,26,1) 100%);
+  */
   border: 2px solid #802602 !important;
   box-shadow: 2px 2px 2px -1px rgba(0,0,0,0.9);
   border-radius: 0.3em;
+  /* color: white; */
 }
 
 h4 a {
