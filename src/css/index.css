@@ -17,7 +17,7 @@ td.navigation-list a[href*='index.html'] {
 
 #main-content-no-nav > * > li {
   list-style: square outside url('/img/square-orange-small.png');
-	margin-left: 4em;
+	/* margin-left: 4em; */
 } 
 p, li {
 	max-width:55em;
