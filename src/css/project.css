@@ -277,6 +277,11 @@ h4 {
   transition-duration: 0.2s, 0.5s, 0.2s, 0.2s;
 }
 
+#myProjects h4 {
+  min-width: 170px;
+}
+
+
 h4:hover  {
   /* background: rgb(253,168,159);
   background: linear-gradient(to bottom, rgba(253,168,159,1) 0%,rgba(251,85,67,1) 15%,rgba(151,15,5,1) 47%,rgba(212,44,26,1) 100%);
