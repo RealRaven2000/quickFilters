@@ -255,10 +255,6 @@
   "mozillas-basic-platform": {
     "message": "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
-  },
   "ongoing-work": {
     "message": "The alterations to convert $addonName$ to the new programming model took weeks and were costly. There are many more changes for the next 2022 version. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this.",
     "placeholders": {
@@ -1315,7 +1311,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} [5.5.4] Added improved Italian translation by Pol Hallen. {L2}{L1} [5.5.2] Numerous fixes around 'Reply-To' fields in filter editors. {L2}{L1} quickFilters is now compatible with Thunderbird 102 and will be supported for the ESR period 2022/2023.{L2} {L1} Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension. {L2} {L1} Fixed: Sorting filter rules failed without quickFilters Pro license. {L2} {L1} Fixed: Backup of custom filter templates {L2} {L1} Added help button in custom template editor {L2} {L1} For users without license, quickFilters will now count down usage of certain Pro features. {L2}"
+    "message": "{L1} Fixed: Clicking Sort can lead to empty search terms.{L2}{L1} Fixed toolbar Icon colors for Thunderbird 102.{L2} {L1} Support license validation with Exchange accounts. {L2} {L1} Improved integration of buttons on QuickFolders' current folder bar. To avoid missing buttons, also upgrade QuickFolders to version 5.14.{L2} {L1} Improved default filter name for starred messages.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

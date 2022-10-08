@@ -1315,7 +1315,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} [5.5.4] 添加了 Pol Hallen 改进的意大利语翻译。 {L2}{L1} [5.5.2] 围绕过滤器编辑器中的“回复”字段进行了许多修复。 {L2} {L1} quickFilters 目前与 Thunderbird 102 兼容，并将在 2022/2023 年的 ESR 期间得到支持。{L2} {L1} 为自定义模板添加了新的域部分提取器：根域、子域、域名扩展。 {L2} {L1} 已修复：没有 quickFilters Pro 许可证对过滤器规则进行排序失败。 {L2} {L1} 修正：自定义过滤器模板的备份 {L2} {L1} 在自定义模板编辑器中添加了帮助按钮 {L2} {L1} 对于没有许可证的用户，quickFilters 现在将倒计时某些 Pro 功能的使用。 {L2}"
+    "message": "{L1} 已修复：单击排序会导致搜索词为空。{L2}{L1} 修复了 Thunderbird 102 的工具栏图标颜色。{L2} {L1} 支持使用 Exchange 帐户进行许可证验证。 {L2} {L1} 改进了 QuickFolders 当前文件夹栏上的按钮集成。 为避免丢失按钮，请将 QuickFolders 升级到 5.14 版。{L2} {L1} 改进了已加星标邮件的默认过滤器名称。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

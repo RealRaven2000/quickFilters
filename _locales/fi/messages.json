@@ -1316,7 +1316,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} [5.5.4] Lisätty Pol Hallenin parannettu italialainen käännös. {L2}{L1} [5.5.2] Lukuisia korjauksia suodatineditorien Reply-To-kenttien ympärille. {L2} {L1} quickFilters on toistaiseksi yhteensopiva Thunderbird 102:n kanssa ja sitä tuetaan ESR-kaudella 2022/2023.{L2} {L1} Lisätty uusia verkkotunnuksen osien purkajia mukautetuille malleille: juuriverkkotunnus, aliverkkotunnus, verkkotunnuksen nimen laajennus. {L2} {L1} Korjattu: Suodatinsääntöjen lajittelu epäonnistui ilman QuickFilters Pro -lisenssiä. {L2} {L1} Korjattu: Muokattujen suodatinmallien varmuuskopiointi {L2} {L1} Lisätty ohjepainike mukautettujen mallien muokkausohjelmaan {L2} {L1} Käyttäjille, joilla ei ole lisenssiä, quickFilters laskee nyt tiettyjen Pro-ominaisuuksien käytön. {L2}"
+    "message" : "{L1} Korjattu: Lajittelun napsauttaminen voi johtaa tyhjiin hakutermeihin.{L2}{L1} Korjattu työkalupalkin kuvakkeiden värit Thunderbird 102:lle.{L2} {L1} Tukee lisenssin vahvistusta Exchange-tileillä. {L2} {L1} Parannettu painikkeiden integrointi QuickFoldersin nykyiseen kansiopalkkiin. Vältä painikkeiden puuttuminen päivittämällä QuickFolders versioon 5.14.{L2} {L1} Parannettu oletussuodattimen nimi tähdellä merkityille viesteille.{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

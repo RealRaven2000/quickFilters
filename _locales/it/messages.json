@@ -1315,7 +1315,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} [5.5.4] Aggiunta la traduzione italiana migliorata di Pol Hallen. {L2}{L1} [5.5.2] Numerose correzioni relative ai campi 'Rispondi a' negli editor di filtri.{L2} {L1} quickFilters al momento è compatibile con Thunderbird 102 e sarà supportato per il periodo ESR 2022/2023.{L2} {L1} Aggiunti nuovi estrattori di parti di dominio per modelli personalizzati: dominio principale, sottodominio, estensione del nome di dominio. {L2} {L1} Risolto: l'ordinamento delle regole del filtro non è riuscito senza la licenza QuickFilters Pro. {L2} {L1} Risolto: backup di modelli di filtri personalizzati {L2} {L1} Aggiunto pulsante della guida nell'editor di modelli personalizzati {L2} {L1} Per gli utenti senza licenza, QuickFilters ora conterà alla rovescia l'utilizzo di alcune funzionalità Pro. {L2}"
+    "message": "{L1} Risolto: il clic su Ordina può portare a termini di ricerca vuoti.{L2}{L1} Barra degli strumenti fissa i colori delle icone per Thunderbird 102.{L2} {L1} Supporta la convalida della licenza con gli account Exchange. {L2} {L1} Migliorata l'integrazione dei pulsanti sulla barra delle cartelle correnti di QuickFolders. Per evitare la perdita di pulsanti, aggiorna anche QuickFolders alla versione 5.14.{L2} {L1} Nome del filtro predefinito migliorato per i messaggi speciali.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

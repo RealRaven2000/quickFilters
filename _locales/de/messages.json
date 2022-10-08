@@ -1315,7 +1315,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} [5.5.4] Verbesserte italienische Übersetzung von Pol Hallen. {L2}{L1} [5.5.2] Zahlreiche Korrekturen rund um „Antwort An“-Felder in Filter-Editoren. {L2} {L1} quickFilters ist ab sofort mit Thunderbird 102 kompatibel und wird für den ESR-Zeitraum 2022/2023 unterstützt. {L2} {L1} Neue Domänenteil-Extraktoren für benutzerdefinierte Vorlagen hinzugefügt: Stammdomäne, Subdomäne, Domänennamenerweiterung. {L2} {L1} Behoben: Das Sortieren von Filterregeln schlug ohne quickFilters Pro-Lizenz fehl. {L2} {L1} Behoben: Backup von benutzerdefinierten Filtervorlagen {L2} {L1} Hilfe-Schaltfläche im Editor für benutzerdefinierte Vorlagen hinzugefügt {L2} {L1} Für Benutzer ohne Lizenz zählt quickFilters jetzt die Nutzung bestimmter Pro-Funktionen herunter. {L2}"
+    "message": "{L1} Behoben: Klicken auf „Sortieren“ kann zu leeren Suchbegriffen führen.{L2}{L1} Symbolfarben der Symbolleiste für Thunderbird 102 korrigiert.{L2} {L1} Unterstützung der Lizenzvalidierung mit Exchange-Konten. {L2} {L1} Verbesserte Integration von Schaltflächen in der aktuellen Ordnerleiste von QuickFolders. Um fehlende Schaltflächen zu vermeiden, aktualisieren Sie auch QuickFolders auf Version 5.14.{L2} {L1} Verbesserter Standardfiltername für markierte Nachrichten.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
