@@ -6,6 +6,14 @@
 
 #quickFiltersBtnHelp {
 	list-style-image: url("chrome://quickfilters/content/skin/help.svg");
+  /* Tb 102 */
+  -moz-context-properties: fill;
+  fill: currentColor;
+}
+
+@media (prefers-color-scheme: dark) {
+  #quickFiltersBtnHelp {
+  }
 }
 
 #quickFiltersHelpBar {

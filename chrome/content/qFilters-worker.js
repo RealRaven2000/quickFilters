@@ -1012,6 +1012,9 @@ quickFilters.Worker = {
       case nsMsgFilterAction.CopyToFolder:
         filterName = filterName.replace("{1}", folderName);
         break;
+      case nsMsgFilterAction.MarkFlagged:
+        filterName = filterName.replace("{1}", folderName + " ⭐");
+        break;
       case nsMsgFilterAction.AddTag:
         msgKeyArray = getTagsFromMsg(tagArray, msg);
         // -- Now try to match the search term
@@ -1529,14 +1532,29 @@ quickFilters.Worker = {
     // to be backwards compatible with [old versions of] QuickFolders
     // we need to re-package the messageList elements in the format  { messageId, msgHeader}
     // to do: merge these changes into QuickFolders filter implementation
+    let test=false;
     for (let i = 0; i < messageIdList.length; i++) {  
       let messageId = messageIdList[i],
-          messageDb = targetFolder.msgDatabase ? targetFolder.msgDatabase : targetFolder.getMsgDatabase(null); // msgDatabase
+          messageDb;
+      try {
+        if (test) {
+          let msgHeader = MailUtils.getMsgHdrForMsgId(messageId); // test TbSync
+        }
+        messageDb = targetFolder.msgDatabase; // msgDatabase
+      }
+      catch(ex) {
+        
+      }
       if ((!messageDb || !messageDb.getMsgHdrForMessageID(messageId))
           && 
           sourceFolder)
       {
-        messageDb = sourceFolder.msgDatabase ? sourceFolder.msgDatabase : sourceFolder.getMsgDatabase(null); // msgDatabase
+        try {
+          messageDb = sourceFolder.msgDatabase; // msgDatabase
+        }
+        catch(ex) {
+          
+        }
       }
       if (messageDb) {
         let msgHeader = messageDb.getMsgHdrForMessageID(messageId);
@@ -1558,13 +1576,16 @@ quickFilters.Worker = {
         }
         entry = util.makeMessageListEntry(msgHeader);
       }
-      else
+      else {
         entry =  {"messageId":msgHeader.messageId, "msgHeader":null};  // probably won't work
+      }
         
       messageList.push(entry);  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
     }
     
-    return this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow);
+    if (messageList.length) {
+      return this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow);
+    }
   } ,
 
   createFilterAsync_New: function createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow) {

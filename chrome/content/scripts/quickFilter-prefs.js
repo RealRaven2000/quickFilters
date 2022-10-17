@@ -48,9 +48,6 @@ pref("extensions.quickfilters.newfilter.removeOwnAddresses", true); // Bug 26664
 pref("extensions.quickfilters.files.path", "");
 pref("extensions.quickfilters.warnInboxAssistant", true); // warn when creating email from message in inbox (and no tag set)
 
-// https://developer.mozilla.org/en/Localizing_extension_descriptions
-pref("extensions.quickfilters.description", "chrome://quickfilters/locale/overlay.properties");
-
 pref("extensions.quickfilters.abortAfterCreate", false);
 pref("extensions.quickfilters.autoStart", false);
 pref("extensions.quickfilters.toolbar", true);

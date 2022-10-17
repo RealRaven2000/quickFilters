@@ -1400,14 +1400,31 @@ quickFilters.Util = {
         if (isBooleanTarget) {
           newTerm.booleanAnd = targetBoolean; // make sure filter is consistent with target (no mixed any / all)!
         }
-        else
+        else {
           newTerm.booleanAnd = searchTerm.booleanAnd;
+        }
         
 				if ('arbitraryHeader' in searchTerm) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
 				if ('hdrProperty' in searchTerm) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
 				if ('customId' in searchTerm) newTerm.customId = searchTerm.customId;
-				newTerm.beginsGrouping = searchTerm.beginsGrouping;
-				newTerm.endsGrouping = searchTerm.endsGrouping;
+        
+        // [issue 102]
+        if (typeof newTerm.beginsGrouping == "number") { // new BB format - parentheses are counters, not just booleans
+          if (typeof searchTerm.beginsGrouping == "boolean") {
+            newTerm.beginsGrouping = searchTerm.beginsGrouping ? 1 : 0;
+            newTerm.endsGrouping = searchTerm.endsGrouping ? 1 : 0;
+            
+          }
+          else {
+            newTerm.beginsGrouping = searchTerm.beginsGrouping;
+            newTerm.endsGrouping = searchTerm.endsGrouping;
+          }
+        }
+        else {
+          // transpose back to boolean
+          newTerm.beginsGrouping = searchTerm.beginsGrouping ? true : false;
+          newTerm.endsGrouping = searchTerm.endsGrouping ? true : false;
+        }
 				
 			}
 			else
@@ -1670,7 +1687,6 @@ quickFilters.Util = {
 						case FA.ChangePriority:
 							action.priority = act.priority;
 							break;
-						case FA.MarkFlagged:
 						case FA.Delete:
 						case FA.None:
 						case FA.KillThread:

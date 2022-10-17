@@ -7,7 +7,7 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 
 /* shared module for installation popups */
-const SALE_DATE = "2022-06-13";
+const SALE_DATE = "2022-10-30";
 
 async function updateActions(addonName) {
   let licenseInfo = await messenger.runtime.sendMessage({command:"getLicenseInfo"});
@@ -115,8 +115,10 @@ async function updateActions(addonName) {
       newHeight = Math.round(r.height) + 80,
       maxHeight = window.screen.height;
 
+  /* retrieve specific OS for LInuz styling */
   let { os } = await messenger.runtime.getPlatformInfo(); // mac / win / linux
   wrapper.setAttribute("os", os);
+
      
   if (newHeight>maxHeight) newHeight = maxHeight-15;
   browser.windows.update(win.id, 

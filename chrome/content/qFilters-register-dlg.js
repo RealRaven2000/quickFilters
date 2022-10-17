@@ -191,8 +191,9 @@ var Register = {
 				if (quickFilters.Util.licenseInfo.keyType==1) { // domain license!
 					shortOrder = "https://sites.fastspring.com/quickfolders/product/quickfiltersdomainrenew"; // domainrenewal 
 				}
-				else
+				else {
 					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
+        }
 				featureName = encodeURI(prefs.getStringPref('LicenseKey'));
 				// should we autoselect the correct email address?
 			  break;

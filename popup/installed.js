@@ -12,7 +12,7 @@ addEventListener("click", async (event) => {
 	  messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-install");
 	}
 	if (event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
-	  messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
+	  messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register" + ".xhtml");
     window.close();
 	}
 	if (event.target.id.startsWith("donate")) {

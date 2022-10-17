@@ -37,7 +37,7 @@ async function onLoad(activatedWhileWindowOpen) {
 			          label="__MSG_quickfilters.customVariable.label__"
 								tooltiptext="__MSG_quickfilters.customVariable.tooltip__"
 								sizetopopup="none" 
-								oncommand="quickFilters.FilterEditor.selectCustomHeader(this,event);">
+								>
 				<menupopup>
 				  <menu label="__MSG_quickfilters.customHeader.From__">
 						<menupopup>
@@ -122,6 +122,9 @@ async function onLoad(activatedWhileWindowOpen) {
     
     `);
     
+  let btnPicker = document.getElementById("quickFilters-variablePicker")
+  btnPicker.addEventListener("command", function(evt) { window.quickFilters.FilterEditor.selectCustomHeader(this,evt); })
+    
   let helpWidget = document.getElementById("qfi_help_actions_customtemplate"),
       actionBox = document.getElementById("filterActionList");
   if (actionBox && helpWidget) {
@@ -156,13 +159,16 @@ async function onLoad(activatedWhileWindowOpen) {
     WL.injectElements(`    
       <toolbar id="quickFiltersEditorTools">
         <toolbarbutton id="quickFiltersBtnSort"
-          class = "toolbarbutton-1" 
-          label = "__MSG_quickfilters.sort__"
-          tooltiptext = "__MSG_quickfilters.sort.tooltip__"
-          oncommand = "quickFilters.FilterEditor.sortConditions(gFilter);"
+          class="toolbarbutton-1" 
+          label="__MSG_quickfilters.sort__"
+          tooltiptext="__MSG_quickfilters.sort.tooltip__"
           />
       </toolbar>
     `);    
+    let btn = document.getElementById("quickFiltersBtnSort");
+    btn.addEventListener("command", function() {
+      window.quickFilters.FilterEditor.sortConditions(window.gFilter);
+    });
   }
   
   window.quickFilters.Util.notifyTools.enable();

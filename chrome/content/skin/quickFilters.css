@@ -15,6 +15,8 @@
 menuitem.cmd[tagName="qfFilter"],
 menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
+  -moz-context-properties: fill;
+  fill: currentColor;
 }
 
 #QuickFolders-Toolbar #QuickFolders-filterActive {
@@ -71,26 +73,30 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
 
 #quickfilters-toolbar-listbutton,
 #quickfilters-current-listbutton {
+  -moz-context-properties: fill, fill-opacity, stroke;
+  fill: currentColor;
   list-style-image: url("chrome://quickfilters/content/skin/filterList.svg");
 }
 
 
 #quickfilters-toolbar-runbutton {
+  -moz-context-properties: fill, fill-opacity, stroke;
+  fill: currentColor;
   list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
 }
 
 #quickfilters-toolbar-msg-runbutton {
+  -moz-context-properties: fill, fill-opacity, stroke;
+  fill: currentColor;
   list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
 }
 
 #quickfilters-current-runbutton,
 #mail-toolbox > toolbar[brighttext] #quickfilters-current-runbutton.toolbarbutton-1 {
-  -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
 }
 
 #quickfilters-current-searchfilterbutton {
-  -moz-image-region: rect( 0px 16px 16px 0px);
   list-style-image: url("chrome://quickfilters/content/skin/findFilters.svg");
 }
 

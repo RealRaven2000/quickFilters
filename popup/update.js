@@ -21,7 +21,7 @@ const SALE_REDUCTION="30%"; // reduction for buying + renewals
         messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
         break;
       case "bargainRenewIcon":
-        messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
+        messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register" + ".xhtml");
         window.close();
         break;
       case "whatsNew":

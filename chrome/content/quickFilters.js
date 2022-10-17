@@ -485,11 +485,24 @@ END LICENSE BLOCK
   5.5.1 - 30/05/2022
     # removed debugger statements
   
-  5.5.2 - WIP
+  5.5.4 - 07/06/2022
+    # Added improved Italian translation by Pol Hallen 
     # [issue 107] Existing "Reply-To" conditions cannot be edited (no text field displayed in Tb 91)
     # [issue 108] Fixed: Edit fields of custom search term "Reply-To" is not displayed in Thunderbird 102
     # [issue 109] Adding "Reply To" parts in Custom Template Editor fails with an error
     # [issue 110] Added an option to disable removing own email addresses (mainly for testing)
+    # Added a help panel in custom template editor that explains the placeholder action "set priority to normal"
+    # Added more transparency for features that require a Pro license.    
+    
+  5.6 - WIP
+    # Fixed toolbar Icon colors for Thunderbird 102
+    # [issue 102] WIP: Support mixed "any" / "all" filters with mail clients that do (Betterbird 91.8)
+    # [issue 123] Clicking Sort leads to empty search terms (Thunderbird 102 regression)
+    # Updated support website
+    # [issue 125] Support license validation with Exchange accounts (from Tb 102)
+    # Improved default filter name for starred messages.
+    # [issue 316] improved integration of buttons on QuickFolders' current folder bar (requires QF 5.14 or higher)
+
 
    
   ============================================================================================================
@@ -719,7 +732,8 @@ var quickFilters = {
       case 'createFilterFromMsg':
         let selectedMessages,
             selectedMessageUris,
-            messageList = [];
+            messageList = [],
+            isInbox = false;
         selectedMessages = gFolderDisplay.selectedMessages; 
         selectedMessageUris = gFolderDisplay.selectedMessageUris;
         // && selectedMessages[0].folder.server.canHaveFilters
@@ -727,7 +741,8 @@ var quickFilters = {
           // check the tags
           let firstSelectedMsg = selectedMessages[0],
               tags = firstSelectedMsg.getStringProperty ? firstSelectedMsg.getStringProperty("keywords") : firstSelectedMsg.Keywords;
-          if (firstSelectedMsg.folder.flags & util.FolderFlags.Inbox
+          isInbox = firstSelectedMsg.folder.flags & util.FolderFlags.Inbox;
+          if (isInbox
               && prefs.getBoolPref('warnInboxAssistant')
               && (!tags || tags.length == 0 || tags.toLowerCase()=='nonjunk' || tags.toLowerCase()=='junk')
               ) {
@@ -760,8 +775,17 @@ var quickFilters = {
           if (util.isVirtual(currentMessageFolder)) {
             if (firstSelectedMsg.folder)  // find the real folder!
               currentMessageFolder = firstSelectedMsg.folder;
-          }         
-          quickFilters.Worker.createFilterAsync_New(null, currentMessageFolder, messageList, null, false);
+          }
+          let fA = null;
+          if (!isInbox) {
+            fA = Ci.nsMsgFilterAction.MoveToFolder;
+          }
+          if (firstSelectedMsg.isFlagged ) {
+            // fA = Ci.nsMsgFilterAction.AddTag;
+            fA = Ci.nsMsgFilterAction.MarkFlagged; // ??
+          }
+          
+          quickFilters.Worker.createFilterAsync_New(null, currentMessageFolder, messageList, fA, false);
         }
         else {
           let wrn = util.getBundleString("quickfilters.createFromMail.selectWarning",
@@ -1144,7 +1168,8 @@ var quickFilters = {
             btnMsgRun = win.document.getElementById('quickfilters-current-msg-runbutton'),
             btnSearch = win.document.getElementById('quickfilters-current-searchfilterbutton');
             
-        if (injected)  { // Thunderbird 68 specific part.
+        if (injected)  { 
+          util.logDebug("found injected container with current toolbar buttons");
           // insert after QuickFolders-currentFolderFilterActive
           let toolbar = win.document.getElementById('QuickFolders-CurrentFolderTools');
           if (toolbar) {

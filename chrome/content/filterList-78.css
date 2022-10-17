@@ -1,0 +1,14 @@
+/* "legacy" rules */
+
+  [lwthemetextcolor="bright"] #quickFiltersTroubleshoot {
+    fill: #9df335 !important;  /* bright green */
+  }
+  [lwthemetextcolor="bright"] #quickFiltersBtnDupe {
+    fill: rgb(240,90,90) !important;
+  }
+  [lwthemetextcolor="bright"] #btnSaveFilters  {
+    fill: #d373d3 !important;
+  }
+  [lwthemetextcolor="bright"] #btnLoadFilters {
+    fill: #f3d90ed1 !important;
+  }

@@ -229,7 +229,7 @@ export class Licenser {
   isIdMatchedLicense(idMail, licenseMail) {
     try {
       switch(this.key_type) {
-        case 0: // private license
+        case 0: // pro license
           return (idMail.toLowerCase() == licenseMail);
         case 1: // domain matching 
           // only allow one *

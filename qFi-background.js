@@ -49,26 +49,6 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
         200
       ); 
       
-      /*
-      let currentLicenseInfo = currentLicense.info;
-      if (currentLicenseInfo.status == "Valid") {
-        // suppress update popup for users with licenses that have been recently renewed
-        let gpdays = currentLicenseInfo.licensedDaysLeft,
-            isLicensed = (currentLicenseInfo.status == "Valid");
-        if (isLicensed) {
-          if (isDebug) console.log("quickFilters License - " + gpdays  + " Days left.");
-        }
-        if (gpdays>40) {
-          if (isDebug) console.log("quickFilters onInstalled - Omitting update popup!");
-          return;
-        }
-      }
-      
-      let url = browser.runtime.getURL("popup/update.html");
-      let screenH = window.screen.height,
-          windowHeight = (screenH > 870) ? 870 : screenH;
-      await browser.windows.create({ url, type: "popup", width: 850, height: windowHeight, });
-      */
     }
       break;
     default:
@@ -194,6 +174,21 @@ async function main() {
   });
   
     
+  messenger.runtime.onMessageExternal.addListener( async  (message, sender) =>  
+  {
+    switch(message.command) {
+      case "injectButtonsQFNavigationBar":
+        // call the code for injecting the toolbar buttons that integrate with QF current folder bar
+        // this is called from onLoad in qFi-messenger.js
+        if (isDebug) {
+          console.log("received external message 'injectButtonsQFNavigationBar'", message);
+        }
+        messenger.NotifyTools.notifyExperiment({event: "toggleCurrentFolderButtons"});
+        break;
+    }
+  });
+      
+    
   messenger.WindowListener.registerChromeUrl([ 
         ["content", "quickfilters", "chrome/content/"],
         ["locale",  "quickfilters", "en",    "chrome/locale/en/"],
@@ -229,6 +224,38 @@ async function main() {
   * the parameter of startListening(). This object also contains an extension member.
   */
   messenger.WindowListener.startListening();
+  
+  let browserInfo = await messenger.runtime.getBrowserInfo();
+  function getThunderbirdVersion() {
+    let parts = browserInfo.version.split(".");
+    return {
+      major: parseInt(parts[0]),
+      minor: parseInt(parts[1]),
+      revision: parts.length > 2 ? parseInt(parts[2]) : 0,
+    }
+  }  
+  let tbVer = getThunderbirdVersion();
+  
+  // [issue 125] Exchange account validation
+  if (tbVer.major>=98) {
+    messenger.accounts.onCreated.addListener( async(id, account) => {
+      if (currentLicense.info.status == "MailNotConfigured") {
+        // redo license validation!
+        if (isDebugLicenser) console.log("Account added, redoing license validation", id, account); // test
+        currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
+        await currentLicense.validate();
+        if(currentLicense.info.status != "MailNotConfigured") {
+          if (isDebugLicenser) console.log("notify experiment code of new license status: " + currentLicense.info.status);
+          messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
+        }
+        if (isDebugLicenser) console.log("quickFilters license info:", currentLicense.info); // test
+      }
+      else {
+        if (isDebugLicenser) console.log("quickFilters license state after adding account:", currentLicense.info)
+      }
+    });
+  }  
+  
 
 }
 

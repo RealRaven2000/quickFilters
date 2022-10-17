@@ -19,6 +19,13 @@ async function onLoad(activatedWhileWindowOpen) {
   //TODO do we need "chrome://global/skin/"??
   let layout1 = WL.injectCSS("chrome://quickfilters/content/filterList.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
+  // legacy css rules
+  
+  // let info = await browser.runtime.getBrowserInfo(); parseInt(info.version,10)<102
+  if (window.quickFilters.Util.versionSmaller(window.quickFilters.Util.AppverFull, "102")) {
+    WL.injectCSS("chrome://quickfilters/content/filterList-78.css");
+  }
+  
 
   WL.injectElements(`
   

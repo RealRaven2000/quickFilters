@@ -68,7 +68,7 @@ quickFilters.Assistant = {
 
     switch(this.currentPage) {
       case this.MERGEPAGE:  // existing filters were found, lets store selected filter index or -1!
-        this.toggleMatchPane(false);
+        this.toggleMergePane(false);
         this.NextButton.label = AcceptLabel;
         break;
       case this.TEMPLATEPAGE:  // we are in template selection, either go on to create new filter or edit the selected one from first step
@@ -110,8 +110,8 @@ quickFilters.Assistant = {
     return document.getElementById('qf-filter-templates');
   } ,
   
-  toggleMatchPane: function toggleMatchPane(toggle) {
-    this.CurrentDeck.selectedIndex = toggle ? this.MERGEPAGE : this.TEMPLATEPAGE;
+  toggleMergePane: function toggleMergePane(isMerge) {
+    this.CurrentDeck.selectedIndex = isMerge ? this.MERGEPAGE : this.TEMPLATEPAGE;
   } ,
 
   selectMatchFromList: function selectMatchFromList(list) {
@@ -243,7 +243,7 @@ quickFilters.Assistant = {
     // list matching filters - they are passed when a merge is possible
     let params = window.arguments[0];
     if (matchingFilters.length > 0) {
-      this.toggleMatchPane(true);
+      this.toggleMergePane(true);
       isMergePossible = true;
       let matchList = this.MatchedFilters;
       for (let i=0; i<matchingFilters.length; i++) {

@@ -20,15 +20,18 @@ async function onLoad(activatedWhileWindowOpen) {
     <menuitem id="quickfilters-menu-runMenu" 
 	          label="__MSG_quickfilters.RunButton.label__" 
 						class="menuitem-iconic"
-            oncommand="quickFilters.onApplyFilters(event);"
 			  />
     <menuitem id="quickfilters-menu-findFilter" 
 				label="__MSG_quickfilters.findFiltersForFolder.menu__" 
 			  class="menuitem-iconic"
-				oncommand="quickFilters.searchFiltersFromFolder(event);"
 			  />
   </popup>
 `); 
+  // [issue 122] false positives from antivirus scanners
+  let btnRun = document.getElementById("quickfilters-menu-runMenu");
+  if (btnRun) btnRun.addEventListener("command", function(event) {window.quickFilters.onApplyFilters(event);} );
+  let btnFind = document.getElementById("quickfilters-menu-findFilter");
+  if (btnFind) btnFind.addEventListener("command", function(event) {window.quickFilters.searchFiltersFromFolder(event);} );
   
   WL.injectElements(`
 
@@ -37,27 +40,36 @@ async function onLoad(activatedWhileWindowOpen) {
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfiltersToolbarButton.label__"
                    tooltiptext="__MSG_quickfiltersToolbarButton.tooltip__"
-                   oncommand="quickFilters.onToolbarButtonCommand();"
-				   context="dummy"
-				   oncontextmenu="quickFilters.showOptions();"
+                   context="dummy"
+                   oncontextmenu="quickFilters.showOptions();"
 				   />
     <toolbarbutton id="quickfilters-toolbar-listbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.ListButton.label__"
                    tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
-                   oncommand="quickFilters.onToolbarListCommand();"/>
+                   />
     <toolbarbutton id="quickfilters-toolbar-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.RunButton.label__"
                    tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
-                   oncommand="quickFilters.onApplyFilters();"/>
+                   />
     <toolbarbutton id="quickfilters-toolbar-msg-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.RunButton.label__"
                    tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
-                   oncommand="quickFilters.onApplyFiltersToSelection();"/>
+                   />
   </toolbarpalette>
 `); 
+  
+  // [issue 122] false positives from antivirus scanners
+  let btnTool = document.getElementById("quickfilters-toolbar-button");
+  if (btnTool) btnTool.addEventListener("command", function(event) {window.quickFilters.onToolbarButtonCommand();} );  
+  let btnList = document.getElementById("quickfilters-toolbar-listbutton");
+  if (btnList) btnList.addEventListener("command", function(event) {window.quickFilters.onToolbarListCommand();} );  
+  btnRun = document.getElementById("quickfilters-toolbar-runbutton");
+  if (btnRun) btnRun.addEventListener("command", function(event) {window.quickFilters.onApplyFilters();} );  
+  let btnApply = document.getElementById("quickfilters-toolbar-msg-runbutton");
+  if (btnApply) btnApply.addEventListener("command", function(event) {window.quickFilters.onApplyFiltersToSelection();} );  
   
   WL.injectElements(`
   <menupopup id="taskPopup">
@@ -65,8 +77,7 @@ async function onLoad(activatedWhileWindowOpen) {
               class="menuitem-iconic"
               insertBefore="applyFilters"
               label="__MSG_quickfilters.Start.label__"
-              oncommand="quickFilters.onMenuItemCommand(event, 'toggle_Filters');"
-			  />
+              />
   </menupopup>
   
   <menupopup id="messageMenuPopup">
@@ -75,8 +86,7 @@ async function onLoad(activatedWhileWindowOpen) {
               insertBefore="createFilter"
               label="__MSG_quickfilters.FromMessage.label__"
 			        accesskey="__MSG_quickfilters.FromMessage.accesskey__"
-              oncommand="quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');"
-			  />
+              />
   </menupopup>
   
   <!-- Thunderbird -->
@@ -86,12 +96,21 @@ async function onLoad(activatedWhileWindowOpen) {
               label="__MSG_quickfilters.FromMessage.label__"
               accesskey="__MSG_quickfilters.FromMessage.accesskey__"
               insertbefore="mailContext-saveAs"
-              oncommand="quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');"
-			  />
+              />
   </popup>
 `);
 
+  // [issue 122] false positives from antivirus scanners
+  let mnuWizard = document.getElementById("quickFilters-wizard");
+  if (mnuWizard) mnuWizard.addEventListener("command", function(event) {window.quickFilters.onMenuItemCommand(event, 'toggle_Filters');} );  
+  let mnuCreateFromMsg = document.getElementById("quickFilters-fromMessageInMenu");
+  if (mnuCreateFromMsg) mnuCreateFromMsg.addEventListener("command", function(event) {window.quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');} );  
+  let mnuCreateFromMsg2 = document.getElementById("quickFilters-fromMessage");
+  if (mnuCreateFromMsg2) mnuCreateFromMsg2.addEventListener("command", function(event) {window.quickFilters.onMenuItemCommand(event, 'createFilterFromMsg');} );  
+
+
   // from qFilters-QF-tb68.xul
+
   WL.injectElements(`
   <toolbar id="mail-bar3">
   <hbox id="quickFilters-injected" collapsed="true">
@@ -100,29 +119,41 @@ async function onLoad(activatedWhileWindowOpen) {
              insertafter="QuickFolders-currentFolderFilterActive"
              label=""
              tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
-             oncommand="quickFilters.onToolbarListCommand();"/>
+             />
     <toolbarbutton id="quickfilters-current-searchfilterbutton"
              class="icon"
              insertafter="quickfilters-current-listbutton"
              label=""
              tooltiptext="__MSG_quickfilters.findFiltersForFolder.menu__"
-             oncommand="quickFilters.searchFiltersFromFolder();"/>
+             />
     <toolbarbutton id="quickfilters-current-runbutton"
              class="icon"
              insertafter="quickfilters-current-listbutton"
              label=""
              tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
-             oncommand="quickFilters.onApplyFilters();"/>
+             />
     <toolbarbutton id="quickfilters-current-msg-runbutton"
              class="icon"
              insertafter="quickfilters-current-runbutton"
              label=""
              tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
-             oncommand="quickFilters.onApplyFiltersToSelection();"/>
+             />
   </hbox>
   </toolbar>
 `); 
+
   
+  
+  // [issue 122] false positives from antivirus scanners
+  btnList = document.getElementById("quickfilters-current-listbutton");
+  if (btnList) btnList.addEventListener("command", function(event) {window.quickFilters.onToolbarListCommand();} );  
+  btnFind = document.getElementById("quickfilters-current-searchfilterbutton");
+  if (btnFind) btnFind.addEventListener("command", function(event) {window.quickFilters.searchFiltersFromFolder();} );
+  btnRun = document.getElementById("quickfilters-current-runbutton");
+  if (btnRun) btnRun.addEventListener("command", function(event) {window.quickFilters.onApplyFilters();} );
+  btnApply = document.getElementById("quickfilters-current-msg-runbutton");
+  if (btnApply) btnApply.addEventListener("command", function(event) {window.quickFilters.onApplyFiltersToSelection();} );  
+
 
   // Enable the global notify notifications from background.
   window.quickFilters.Util.notifyTools.enable();
@@ -145,8 +176,9 @@ function onUnload(isAddOnShutown) {
   window.quickFilters.onUnload();
   function deleteBtn(id) {
     let btn = window.document.getElementById(id);
-    if (btn)
+    if (btn) {
       btn.parentNode.removeChild(btn);
+    }
   }
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
