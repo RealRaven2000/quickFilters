@@ -14,3 +14,8 @@ This fix improves communication between both Add-ons to ensure the buttons are n
 </li>
 <li> Support triggering the assistant when adding a Star to a message in the Inbox through the context menu,, without triggering the warning about being more useful after moving mail to another folder.</li>
 </ul>
+
+<ul>
+<li> Removed all inline command handlers - added them via script instead. [issue 122]</li>  
+<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> WIP: Support mixed "any" / "all" filters with mail clients that do (<a href="https://www.betterbird.eu/">Betterbird</a> 91.8). If the Mail Program supports nested conditions, parentheses (beginsGrouping and endsGrouping) are now processed as numeric and not as boolean (as of Betterbird). </li>
+</ul>
