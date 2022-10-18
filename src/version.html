@@ -264,32 +264,40 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <ul>
     <li> 
       Fixed <a href="https://github.com/RealRaven2000/quickFilters/issues/123">[issue 123]</a>
-      Clicking Sort leads to empty search terms (Thunderbird 102 regression)
+      Clicking <i>Sort</i> could lead to empty search terms (Thunderbird 102 regression) 
     </li>
-    <li> Fixed toolbar Icon colors for Thunderbird 102</li>
+    <li>
+      Improved toolbar Icon colors for Thunderbird 102 integration.
+    </li>
     <li> 
+      Support of license validation with Exchange accounts (from Tb 102)
       <a href="https://github.com/RealRaven2000/quickFilters/issues/125">[issue 125]</a>
-      Support license validation with Exchange accounts (from Tb 102)
     </li>
-    <li> Improved default filter name for starred messages.</li>
+    <li> 
+      Improved default filter name for starred messages - now includes the folder name as well.
+    </li>
     <li> 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/129">[issue 129]</a> 
       Improved integration of buttons on QuickFolders' current folder bar.
+      
       <p>
-      The optional quickFilters toolbar button which can be added to the QuickFolders
-      Navigation bar (Current folder toolbar) via Advanced settings can be missing if 
-      Add-ons are loaded in the wrong order or whenever QF is disabled / updated.
+        The optional quickFilters toolbar button which can be added to the QuickFolders Navigation bar
+        (Current folder toolbar) via Advanced settings can be missing if Add-ons are loaded in the 
+        wrong order or whenever QF is disabled / updated.
       </p>
+      
       <img class="screenshot" src="img/current-folder-tools.png" alt="current folder buttons" /> 
       <br>
+      
       This fix improves communication between both Add-ons to ensure the buttons
       are never missing (requires QuickFolders 5.14 or higher).
       To get a preview version of this fix in QuickFolders, <a href="https://github.com/RealRaven2000/QuickFolders/issues/316" target="_blank">go here.</a>
     </li>
     <li>
-      Support triggering the assistant when adding a Star to a message while in the Inbox through the context menu,
-      without triggering the warning about being more useful after moving mail to another folder.
-     </li>
+      When creating filters from Starred messages in the Inbox using the context menu, 
+      does not trigger the unneccessary warning about being more useful after moving mail 
+      to another folder.
+    </li>
   </ul>
   
   <h5 class="inList"> Miscellaneus </h5>
@@ -298,10 +306,9 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Removed all inline command handlers - adding them via script instead. [issue 122]
     </li>  
     <li> 
-      <a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a>
-      WIP: Support mixed "any" / "all" filters with mail clients that do (Betterbird 91.8).
-      If the Mail Program supports nested conditions, parentheses (beginsGrouping and endsGrouping)
-      are now processed as as numeric and not as boolean (as of Betterbird).
+      WIP: Support mixed "any" / "all" filters with mail clients that support it (<a href="https://www.betterbird.eu/">Betterbird</a> 91.8). 
+      When using nested conditions, parentheses (beginsGrouping and endsGrouping) 
+      are now processed as numeric and not as boolean (as of Betterbird). <a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> 
     </li>
   </ul>
   
