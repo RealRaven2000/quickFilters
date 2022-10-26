@@ -129,10 +129,20 @@ permalink: fq-versions.html
     <h5>Maintenance 3.6.1</h5>
     <ul> 
       <li>
+        <p>
         <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/183">[issue 183]</a> 
-        "Save Attachments To" alters attachment filename. Added more characters to whitelist. 
-        Also added an optional replacement character for spaces:
-        <img src="img/fq-replace-spaces.png" alt="replacement setting for spaces" class="screenshot"/><br>
+        "Save Attachments To" alters attachment filename - this is in sync with naming conventions of the save attachment, in order to avoid invalid characters.
+        </p>
+        The following characters were added to whitelist:<br>
+        
+        <p>
+        ( ) _ - + ' ! % and also spaces
+        </p>
+        
+        <p>
+          Also added an optional replacement character for spaces:<br>
+          <img src="img/fq-replace-spaces.png" alt="replacement setting for spaces" class="screenshot"/>
+        </p>
       <li>
     </ul>    
     
