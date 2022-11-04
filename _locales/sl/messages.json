@@ -131,6 +131,17 @@
       }
     }
   },
+  "runFilters.folder.confirm": {
+    "message": "Zagnati filtre v mapi $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Želite zagnati filtre za izbrana sporočila?"
+  },
   "special-offer-content" : {
     "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {boldStart} $reduction$ znižanje {boldEnd} cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {boldStart} $expirydate$ {boldEnd}.",
     "placeholders": {

@@ -494,7 +494,7 @@ END LICENSE BLOCK
     # Added a help panel in custom template editor that explains the placeholder action "set priority to normal"
     # Added more transparency for features that require a Pro license.    
     
-  5.6 - WIP
+  5.6 - 16/10/2022
     # Fixed toolbar Icon colors for Thunderbird 102
     # [issue 102] WIP: Support mixed "any" / "all" filters with mail clients that do (Betterbird 91.8)
     # [issue 123] Clicking Sort leads to empty search terms (Thunderbird 102 regression)
@@ -502,6 +502,9 @@ END LICENSE BLOCK
     # [issue 125] Support license validation with Exchange accounts (from Tb 102)
     # Improved default filter name for starred messages.
     # [issue 316] improved integration of buttons on QuickFolders' current folder bar (requires QF 5.14 or higher)
+    
+  5.6.1 - WIP
+    # [issue 132] Avoid accidentally running filters through Shortcut, add confirmation dialog
 
 
    
@@ -1323,7 +1326,11 @@ var quickFilters = {
             ||
             tag == 'input'      // Thunderbird 68 textboxes.
             ||
-            tag == 'findbar')   // [Bug 26654] in-mail search
+            tag == 'findbar'
+            ||
+            tag == 'search-textbox' // in-mail search
+            ||
+            tag == 'html:input')   // Tb 102 search box
           )
           ||
           (eventTarget.baseURI 
@@ -1361,6 +1368,15 @@ var quickFilters = {
         if (isRunFolderKey) {
           if (isShiftOnly && theKeyPressed == prefs.getShortcut("folder").toLowerCase()) {
             util.logDebug("detected: Shortcut for Run filters on Folder");
+            
+            if (quickFilters.Preferences.getBoolPref("shortcuts.challenge")) {
+              let folder = util.getCurrentFolder();
+              if (!(folder.getFlag(util.FolderFlags.Inbox))) {
+                let txt = util.getBundleString("runFilters.folder.confirm", "", [folder.prettyName]);
+                let result = Services.prompt.confirm(util.getMail3PaneWindow(), "quickFilters", txt);
+                if (!result) return;
+              }
+            }
             quickFilters.onApplyFilters();
             return; 
           }
@@ -1368,6 +1384,12 @@ var quickFilters = {
         if (isSelectedMailsKey) {
           if (isShiftOnly && theKeyPressed == prefs.getShortcut("mails").toLowerCase()) {
             util.logDebug("detected: Shortcut for Run filters on Selected Mails");
+            let folder = util.getCurrentFolder();
+            if (!(folder.getFlag(util.FolderFlags.Inbox))) {
+              let txt = util.getBundleString("runFilters.selection.confirm");
+              let result = Services.prompt.confirm(util.getMail3PaneWindow(), "quickFilters", txt);
+              if (!result) return;
+            }
             quickFilters.onApplyFiltersToSelection();
             return; 
           }

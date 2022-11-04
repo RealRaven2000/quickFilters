@@ -568,6 +568,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Wyodrębnianie własnych adresów e-mail za pomocą asystenta może prowadzić do niepożądanych wyników, więc hasła wyszukiwania adresów usuwają je automatycznie."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Potwierdź przed uruchomieniem filtrów, gdy nie znajdujesz się w skrzynce odbiorczej"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Skrót do uruchamiania filtrów w folderze: Shift + "
   },
@@ -1203,6 +1206,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Uruchomić filtry w folderze $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Czy uruchomić filtry w wybranych wiadomościach e-mail?"
   },
   "special-offer-content" : {
     "message": "Teraz jest najlepsza okazja do zdobycia licencji, ponieważ istnieje {boldStart} $reduction$ zniżki {boldEnd} na cenę licencji quickFilters Pro z okazji 9-lecia quickFilters! Ta oferta specjalna będzie dostępna do {boldStart} $expirydate$ {boldEnd}.",

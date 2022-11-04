@@ -567,6 +567,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Het extraheren van uw eigen e-mailadressen met behulp van de assistent kan leiden tot ongewenste resultaten, dus adreszoektermen verwijderen deze automatisch."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Bevestig voordat u filters uitvoert wanneer u zich niet in een Postvak IN bevindt"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -1202,6 +1205,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Filters uitvoeren in map $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Filters uitvoeren op geselecteerde e-mails?"
   },
   "special-offer-content": {
     "message": "Dit is de beste kans om een licentie te krijgen, want er is een {boldStart} $reduction$ korting {boldEnd} op de prijs van een quickFilters Pro-licentie om 9 jaar quickFilters te vieren! Deze speciale aanbieding is beschikbaar tot {boldStart}$expirydate${boldEnd}.",

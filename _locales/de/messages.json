@@ -567,6 +567,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Das Extrahieren eigener E-Mail-Adressen mit dem Assistenten kann zu unerwünschten Ergebnissen führen, daher entfernen Adresssuchbegriffe diese automatisch."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Nachfragen, bevor Filter ausserhalb eines Posteingangs ausgeführt werden"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Tastenkürzel um Filter auf Ordner anzuwenden: Shift + "
   },
@@ -1202,6 +1205,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Filter auf Ordner $folderName$ ausführen?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Filter für ausgewählte E-Mails ausführen?"
   },
   "special-offer-content": {
     "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um $reduction$ gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}$expirydate${boldEnd}.",

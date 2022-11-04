@@ -134,6 +134,17 @@
       }
     }
   },
+  "runFilters.folder.confirm": {
+    "message": "Spustit filtry ve složce $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Spustit filtry na vybrané e-maily?"
+  },
   "special-offer-content" : {
     "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {boldStart}$reduction$ snížení{boldEnd} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {boldStart}$expirydate${boldEnd}.",
     "placeholders": {

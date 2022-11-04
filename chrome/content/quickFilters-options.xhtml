@@ -226,6 +226,10 @@
 	              name="extensions.quickfilters.shortcuts.mails.key"
 								type="string"
                 />
+      <preference id="ShortcutsChallenge"
+	              name="extensions.quickfilters.shortcuts.challenge"
+								type="bool"
+								instantApply="true" />
 
     </preferences>
 
@@ -638,6 +642,7 @@
 									 tooltiptext="https://quickfilters.quickfolders.org/"
 									 onclick="quickFilters.Util.showPremiumFeatures();">__MSG_qf.label.premiumFeaturesSite__</label>
 						</hbox>
+            
 						<hbox>
               <checkbox id="chkFoldersShortcut"
                   preference="ShortcutFolders"
@@ -658,6 +663,12 @@
 									preference="Key_ShortcutSelectedMails"
 									/>
 						</hbox>
+            
+            <checkbox style="margin-left: 2em;"
+                preference="ShortcutsChallenge"
+                label="__MSG_qf.label.shortcut.challenge__"
+                />
+            
 						<checkbox id="chkLocalFoldersAutorun"
 								preference="localFoldersRun"
 								label="__MSG_chkLocalFoldersAutorun.label__"

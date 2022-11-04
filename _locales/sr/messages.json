@@ -131,6 +131,17 @@
       }
     }
   },
+  "runFilters.folder.confirm": {
+    "message": "Покренути филтере у фасцикли $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Покренути филтере на изабраним имејловима?"
+  },
   "special-offer-content" : {
     "message": "Сада је најбоља прилика за добијање лиценце јер постоји {boldStart} $reduction$ снижење {boldEnd} цене лиценце КуицкФолдерс Про за прославу 9 година КуицкФолдерс-а! Ова посебна понуда биће доступна до {boldStart} $expirydate$ {boldEnd}.",
     "placeholders": {

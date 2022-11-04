@@ -568,6 +568,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Extrair seus próprios endereços de e-mail usando o assistente pode levar a resultados indesejados, portanto, os termos de pesquisa de endereços os removem automaticamente."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Confirme antes de executar filtros quando não estiver em uma caixa de entrada"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Atalho para executar filtros na pasta: Shift + "
   },
@@ -1206,6 +1209,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Executar filtros na pasta $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Executar filtros em e-mails selecionados?"
   },
   "special-offer-content" : {
     "message": "Agora é a melhor oportunidade de obter uma licença, pois há uma {boldStart} redução de $reduction$ {boldEnd} no preço de uma licença quickFilters Pro para comemorar 9 anos de quickFilters! Esta oferta especial estará disponível até {boldStart} $expirydate$ {boldEnd}.",

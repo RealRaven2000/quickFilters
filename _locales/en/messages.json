@@ -563,6 +563,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Extracting your own email addresses using the assistant may lead to undesired results, so address search terms remove these automatically."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Ask before executing filters when not in an Inbox"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -1198,6 +1201,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Run filters on folder $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Run filters on selected mails?"
   },
   "special-offer-content": {
     "message": "Now is the best opportunity to get a License as there is a {boldStart}$reduction$ reduction{boldEnd} on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {boldStart}$expirydate${boldEnd}.",

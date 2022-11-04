@@ -567,6 +567,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "アシスタントを使用して自分のメールアドレスを抽出すると、望ましくない結果が生じる可能性があるため、アドレス検索用語はこれらを自動的に削除します。"
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "受信トレイにないときにフィルターを実行する前に確認する"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -1202,6 +1205,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "フォルダ $folderName$ でフィルタを実行しますか?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "選択したメールにフィルターを実行しますか?"
   },
   "special-offer-content": {
     "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {boldStart} $reduction$割引{boldEnd} されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{boldStart}$expirydate${boldEnd} までご利用いただけます。",

@@ -131,6 +131,17 @@
       }
     }
   },
+  "runFilters.folder.confirm": {
+    "message": "在文件夾 $folderName$ 中運行過濾器？",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "對選定的郵件運行過濾器？"
+  },
   "special-offer-content" : {
     "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {boldStart} $reduction$ {boldEnd}！ 此特別優惠將持續到 {boldStart}$expirydate${boldEnd}.",
     "placeholders": {

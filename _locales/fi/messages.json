@@ -568,6 +568,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Omien sähköpostiosoitteiden purkaminen avustajan avulla voi johtaa ei-toivottuihin tuloksiin, joten osoitehakutermit poistavat ne automaattisesti."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Vahvista ennen suodattimien suorittamista, kun et ole Saapuneet-kansiossa"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Pikakuvake suodattimien ajamiselle kansiossa: Vaihto + "
   },
@@ -1203,6 +1206,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Suoritetaanko suodattimet kansiossa $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Suoritetaanko suodattimet valituille viesteille?"
   },
   "special-offer-content" : {
     "message": "Nyt on paras mahdollisuus hankkia lisenssi, koska quickFilters Pro -lisenssin hinta on {boldStart} $reduction$ alempi {boldEnd} juhlimaan 9 vuotta quickFilters! Tämä erikoistarjous on saatavilla {boldStart}$expirydate${boldEnd} asti.",

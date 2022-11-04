@@ -567,6 +567,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Att extrahera dina egna e-postadresser med hjälp av assistenten kan leda till oönskade resultat, så adresssöktermer tar bort dessa automatiskt."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Bekräfta innan du kör filter när du inte är i en inkorg"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Genväg för att köra filter på mapp: Skift +"
   },
@@ -1202,6 +1205,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Köra filter i mappen $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Köra filter på utvalda mail?"
   },
   "special-offer-content": {
     "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {boldStart} $reduction$ rabatt {boldEnd} på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {boldStart} $expirydate$ {boldEnd}.",

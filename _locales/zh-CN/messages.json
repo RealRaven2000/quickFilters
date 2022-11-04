@@ -567,6 +567,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "使用助手提取您自己的电子邮件地址可能会导致不想要的结果，因此地址搜索词会自动删除这些。"
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "不在收件箱中时在执行过滤器之前确认"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Shortcut for Running Filters on Folder: Shift + "
   },
@@ -1202,6 +1205,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "在文件夹 $folderName$ 中运行过滤器？",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "对选定的邮件运行过滤器？"
   },
   "special-offer-content": {
     "message": "现在是获得许可证的最佳机会，因为庆祝quickFilters成立9周年的quickFilters Pro许可证价格降低了{boldStart} $reduction${boldEnd}！ 此特别优惠将持续到{boldStart} $expirydate${boldEnd}.",

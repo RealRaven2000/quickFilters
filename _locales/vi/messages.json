@@ -567,6 +567,9 @@
   "qf.label.removeOwnAddresses.tip" : {
     "message": "Việc trích xuất địa chỉ email của riêng bạn bằng trợ lý có thể dẫn đến kết quả không mong muốn, vì vậy, các cụm từ tìm kiếm địa chỉ sẽ tự động xóa chúng."
   },
+  "qf.label.shortcut.challenge" : {
+    "message": "Xác nhận trước khi thực thi bộ lọc khi không ở trong Hộp thư đến"
+  },
   "qf.label.shortcut.runFolder": {
     "message": "Phím tắt để chạy bộ lọc trên thư mục: Shift + "
   },
@@ -1202,6 +1205,17 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "runFilters.folder.confirm": {
+    "message": "Chạy bộ lọc trong thư mục $folderName$?",
+    "placeholders": {
+      "folderName": {
+        "content": "$1"
+      }
+    }    
+  },
+  "runFilters.selection.confirm": {
+    "message": "Chạy bộ lọc trên các thư đã chọn?"
   },
   "special-offer-content": {
     "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {boldStart} giảm $reduction$ {boldEnd} giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} $expirydate$ {boldEnd}.",
