@@ -10,12 +10,13 @@ quickFilters Change Log - Version 5.6
 
 The optional quickFilters toolbar button which can be added to the QuickFolders Navigation bar (Current folder toolbar) via Advanced settings can be missing if Add-ons are loaded in the wrong order or whenever QF is disabled / updated.
 
-This fix improves communication between both Add-ons to ensure the buttons are never missing (requires QuickFolders 5.14 or higher - to get a preview version of that, <a href="https://github.com/RealRaven2000/QuickFolders/issues/316">check here</a>).
+This fix improves communication between both Add-ons to ensure the buttons are never missing (requires QuickFolders 5.14 or higher - to get a preview version of that, <a href="https://github.com/RealRaven2000/QuickFolders/issues/316">click here</a>).
 </li>
-<li> Support triggering the assistant when adding a Star to a message in the Inbox through the context menu,, without triggering the warning about being more useful after moving mail to another folder.</li>
+<li> When creating filters from Starred messages in the Inbox using the context menu, does not trigger the unneccessary warning about being more useful after moving mail to another folder.</li>
 </ul>
 
 <ul>
 <li> Removed all inline command handlers - added them via script instead. [issue 122]</li>  
-<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> WIP: Support mixed "any" / "all" filters with mail clients that do (<a href="https://www.betterbird.eu/">Betterbird</a> 91.8). If the Mail Program supports nested conditions, parentheses (beginsGrouping and endsGrouping) are now processed as numeric and not as boolean (as of Betterbird). </li>
+<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> WIP: Support mixed "any" / "all" filters with mail clients that support it (<a href="https://www.betterbird.eu/">Betterbird</a> 91.8). When using nested conditions, parentheses (beginsGrouping and endsGrouping) are now processed as numeric and not as boolean (as of Betterbird). 
+<a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> </li>
 </ul>

@@ -637,7 +637,6 @@ var quickFilters = {
       util.logDebugOptional("events","setTimeout() - checkFirstRun");
       setTimeout(function() { 
           quickFilters.checkFirstRun(); 
-          quickFilters.addKeyListener();
         }, 1000);
         
       quickFilters.Util.notifyTools.notifyBackground({ func: "toggleCurrentFolderButtons" }); 
@@ -1305,12 +1304,15 @@ var quickFilters = {
           prefs = quickFilters.Preferences,
           isRunFolderKey = prefs.isShortcut("folder"),
           isSelectedMailsKey = prefs.isShortcut("mails");
+    if (!isRunFolderKey && !isSelectedMailsKey) return;
+    
     let isAlt = e.altKey,
         isCtrl = e.ctrlKey,
         isShift = e.shiftKey,
         eventTarget = e.target,
         isHandled = false, 
         isShortcutMatched = false; 
+        
           
     // shortcuts should only work in thread tree, folder tree and email preview (exclude conversations as it might be in edit mode)
     let tag = eventTarget.tagName ? eventTarget.tagName.toLowerCase() : '';
@@ -1385,7 +1387,7 @@ var quickFilters = {
           if (isShiftOnly && theKeyPressed == prefs.getShortcut("mails").toLowerCase()) {
             util.logDebug("detected: Shortcut for Run filters on Selected Mails");
             let folder = util.getCurrentFolder();
-            if (!(folder.getFlag(util.FolderFlags.Inbox))) {
+            if (!(folder.getFlag(util.FolderFlags.Inbox)) && quickFilters.Preferences.getBoolPref("shortcuts.challenge")) {
               let txt = util.getBundleString("runFilters.selection.confirm");
               let result = Services.prompt.confirm(util.getMail3PaneWindow(), "quickFilters", txt);
               if (!result) return;
@@ -1719,24 +1721,27 @@ quickFilters.CustomTermReplyTo = {
 })();
 
 // [issue 12] shortcuts for run filter buttons.
-quickFilters.addKeyListener = function() {
-  const util = quickFilters.Util,
-        prefs = quickFilters.Preferences;
+quickFilters.addKeyListener = function(win) {
+  const prefs = quickFilters.Preferences;
   let isRunFolderKey = prefs.isShortcut("folder"),
       isSelectedMailsKey = prefs.isShortcut("mails");
       
   if (isRunFolderKey || isSelectedMailsKey) {
-    const win = util.getMail3PaneWindow();
-      // check main instance 
-      let main = win.quickFilters;
-      if (!main.isKeyListener) {
-        win.addEventListener("keypress", this.keyListen = function(e) {
-          main.windowKeyPress(e,'down');
-        }, true)    
-        win.quickFilters.isKeyListener = true;
-      }
+    // check main instance 
+    let main = win.quickFilters;
+    if (!main.isKeyListener) {
+      win.quickFilters_keyListener = (event) => { main.windowKeyPress(event,'down'); }
+      win.addEventListener("keypress", win.quickFilters_keyListener, true)    
+      win.quickFilters.isKeyListener = true;
+    }
   }
 };
+
+quickFilters.removeKeyListener = function(win) {
+  if (win.quickFilters && win.quickFilters.isKeyListener && win.quickFilters_keyListener) {
+    win.removeEventListener("keypress", win.quickFilters_keyListener, true);
+  }
+}
 
 // jcranmer suggest using  this
 // quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Ci.nsIFolderListener.all);
