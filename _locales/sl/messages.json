@@ -236,7 +236,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Popravljeno: Klik na Razvrsti lahko povzroči prazne iskalne izraze.{L2}{L1} Popravljene barve ikon orodne vrstice za Thunderbird 102.{L2} {L1} Podpora za preverjanje licence z računi Exchange. {L2} {L1} Izboljšana integracija gumbov v trenutni vrstici map QuickFolders. Da se izognete manjkajočim gumbom, nadgradite tudi QuickFolders na različico 5.14.{L2} {L1} Izboljšano privzeto ime filtra za sporočila z zvezdico.{L2}"
+    "message" : "{L1} Da bi se izognili nenamernemu zagonu filtrov prek bližnjice na tipkovnici, dodano potrditveno pogovorno okno.{L2} {L1} Popravljena berljivost namigov orodij v temni temi. {L2} {L1} Popravljeno: filter za odgovor je občutljiv na velike in male črke – ne bi smel razlikovati med velikimi in malimi črkami {L2} {L1} Priprava kode za leto 2023 z odstranitvijo zastarelega poslušalca sync-stream-listener.{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

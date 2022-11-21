@@ -226,7 +226,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} 已修復：單擊排序會導致搜索詞為空。{L2}{L1} 修復了 Thunderbird 102 的工具欄圖標顏色。{L2} {L1} 支持使用 Exchange 帳戶進行許可證驗證。 {L2} {L1} 改進了 QuickFolders 當前文件夾欄上的按鈕集成。 為避免丟失按鈕，請將 QuickFolders 升級到 5.14 版。{L2} {L1} 改進了已加星標郵件的默認過濾器名稱。{L2}"
+    "message" : "{L1} 為避免通過鍵盤快捷鍵意外運行過濾器，添加了確認對話框。{L2} {L1} 修復了深色主題中工具提示的可讀性。 {L2} {L1} 已修復：回復過濾器區分大小寫 - 應該不區分大小寫 {L2} {L1} 通過刪除已棄用的 sync-stream-listener 為 2023 年準備代碼。{L2}"
   },  
   "window-title": {
     "message": "歡迎使用 $addonName$",

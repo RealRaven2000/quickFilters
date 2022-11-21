@@ -1325,7 +1325,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Fixed: Clicking Sort can lead to empty search terms.{L2}{L1} Fixed toolbar Icon colors for Thunderbird 102.{L2} {L1} Support license validation with Exchange accounts. {L2} {L1} Improved integration of buttons on QuickFolders' current folder bar. To avoid missing buttons, also upgrade QuickFolders to version 5.14.{L2} {L1} Improved default filter name for starred messages.{L2}"
+    "message": "{L1} To avoid accidentally running filters through keyboard shortcut, added confirmation dialog.{L2} {L1} Fixed readability of tooltips in dark theme. {L2} {L1} Fixed: Reply-To filter is case sensitive - should be case insensitive {L2} {L1} Preparing code for 2023 by removing deprecated sync-stream-listener.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

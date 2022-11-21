@@ -1329,7 +1329,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 已修复：单击排序会导致搜索词为空。{L2}{L1} 修复了 Thunderbird 102 的工具栏图标颜色。{L2} {L1} 支持使用 Exchange 帐户进行许可证验证。 {L2} {L1} 改进了 QuickFolders 当前文件夹栏上的按钮集成。 为避免丢失按钮，请将 QuickFolders 升级到 5.14 版。{L2} {L1} 改进了已加星标邮件的默认过滤器名称。{L2}"
+    "message": "{L1} 为避免通过键盘快捷键意外运行过滤器，添加了确认对话框。{L2} {L1} 修复了深色主题中工具提示的可读性。 {L2} {L1} 已修复：回复过滤器区分大小写 - 应该不区分大小写 {L2} {L1} 通过删除已弃用的 sync-stream-listener 为 2023 年准备代码。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

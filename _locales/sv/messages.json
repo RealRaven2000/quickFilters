@@ -1329,7 +1329,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Fast: Att klicka på Sortera kan leda till tomma söktermer.{L2}{L1} Fixade färger på verktygsfältsikoner för Thunderbird 102.{L2} {L1} Stöd licensvalidering med Exchange-konton. {L2} {L1} Förbättrad integration av knappar på QuickFolders nuvarande mappfält. För att undvika att knappar saknas, uppgradera även QuickFolders till version 5.14.{L2} {L1} Förbättrat standardfilternamn för stjärnmärkta meddelanden.{L2}"
+    "message": "{L1} För att undvika att oavsiktligt köra filter via kortkommandon, lades till en bekräftelsedialogruta.{L2} {L1} Fixade läsbarheten för verktygstips i mörkt tema. {L2} {L1} Fixat: Reply-To-filtret är skiftlägeskänsligt - bör vara skiftlägesokänsligt {L2} {L1} Förbereder kod för 2023 genom att ta bort föråldrad sync-stream-listener.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

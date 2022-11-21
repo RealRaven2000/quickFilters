@@ -1333,7 +1333,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Corrigido: Clicar em Classificar pode levar a termos de pesquisa vazios.{L2}{L1} Corrigidas as cores dos ícones da barra de ferramentas para o Thunderbird 102.{L2} {L1} Suporte à validação de licença com contas do Exchange. {L2} {L1} Integração aprimorada de botões na barra de pastas atual do QuickFolders. Para evitar botões ausentes, atualize também o QuickFolders para a versão 5.14.{L2} {L1} Nome de filtro padrão aprimorado para mensagens com estrela.{L2}"
+    "message" : "{L1} Para evitar a execução acidental de filtros por meio de um atalho de teclado, foi adicionada uma caixa de diálogo de confirmação.{L2} {L1} Correção da legibilidade das dicas de ferramentas no tema escuro. {L2} {L1} Corrigido: o filtro Responder a diferencia maiúsculas de minúsculas - não deve diferenciar maiúsculas de minúsculas {L2} {L1} Preparando o código para 2023 removendo o ouvinte de fluxo de sincronização obsoleto.{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1329,7 +1329,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Correction : cliquer sur Trier peut conduire à des termes de recherche vides.{L2}{L1} Correction des couleurs des icônes de la barre d'outils pour Thunderbird 102.{L2} {L1} Prise en charge de la validation des licences avec les comptes Exchange. {L2} {L1} Amélioration de l'intégration des boutons dans la barre de dossiers actuelle de QuickFolders. Pour éviter de manquer des boutons, mettez également à niveau QuickFolders vers la version 5.14.{L2} {L1} Nom de filtre par défaut amélioré pour les messages suivis.{L2}"
+    "message": "{L1} Pour éviter d'exécuter accidentellement des filtres via un raccourci clavier, ajout d'une boîte de dialogue de confirmation.{L2} {L1} Correction de la lisibilité des info-bulles dans le thème sombre. {L2} {L1} Correction : le filtre Reply-To est sensible à la casse - devrait être insensible à la casse {L2} {L1} Préparation du code pour 2023 en supprimant l'écouteur de flux de synchronisation obsolète.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

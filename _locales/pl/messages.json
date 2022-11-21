@@ -1327,7 +1327,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Naprawiono: Kliknięcie Sortuj może prowadzić do pustych terminów wyszukiwania.{L2}{L1} Naprawiono kolory ikon paska narzędzi dla Thunderbird 102.{L2} {L1} Obsługa weryfikacji licencji z kontami Exchange. {L2} {L1} Ulepszona integracja przycisków na bieżącym pasku folderów QuickFolders. Aby uniknąć brakujących przycisków, uaktualnij także QuickFolders do wersji 5.14.{L2} {L1} Ulepszona domyślna nazwa filtra dla wiadomości oznaczonych gwiazdką.{L2}"
+    "message" : "{L1} Aby uniknąć przypadkowego uruchomienia filtrów za pomocą skrótu klawiaturowego, dodano okno dialogowe potwierdzenia.{L2} {L1} Naprawiono czytelność podpowiedzi w ciemnym motywie. {L2} {L1} Naprawiono: w filtrze odpowiedzi do jest rozróżniana wielkość liter — nie powinna być rozróżniana wielkość liter. {L2} {L1} Przygotowywanie kodu na rok 2023 przez usunięcie przestarzałego odbiornika strumienia synchronizacji.{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

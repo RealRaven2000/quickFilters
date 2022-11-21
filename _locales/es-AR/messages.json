@@ -1329,7 +1329,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} Solucionado: Hacer clic en Ordenar puede generar términos de búsqueda vacíos.{L2}{L1} Se corrigieron los colores de los íconos de la barra de herramientas para Thunderbird 102.{L2} {L1} Compatibilidad con la validación de licencias con cuentas de Exchange. {L2} {L1} Integración mejorada de botones en la barra de carpetas actual de QuickFolders. Para evitar que falten botones, actualice también QuickFolders a la versión 5.14.{L2} {L1} Nombre de filtro predeterminado mejorado para mensajes destacados.{L2}"
+    "message": "{L1} Para evitar la ejecución accidental de filtros a través del atajo de teclado, se agregó un cuadro de diálogo de confirmación.{L2} {L1} Se corrigió la legibilidad de la información sobre herramientas en el tema oscuro. {L2} {L1} Corregido: el filtro Responder distingue entre mayúsculas y minúsculas; no debe distinguir entre mayúsculas y minúsculas {L2} {L1} Preparando el código para 2023 eliminando el sync-stream-listener obsoleto.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

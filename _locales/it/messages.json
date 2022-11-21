@@ -1329,7 +1329,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Risolto: il clic su Ordina può portare a termini di ricerca vuoti.{L2}{L1} Barra degli strumenti fissa i colori delle icone per Thunderbird 102.{L2} {L1} Supporta la convalida della licenza con gli account Exchange. {L2} {L1} Migliorata l'integrazione dei pulsanti sulla barra delle cartelle correnti di QuickFolders. Per evitare la perdita di pulsanti, aggiorna anche QuickFolders alla versione 5.14.{L2} {L1} Nome del filtro predefinito migliorato per i messaggi speciali.{L2}"
+    "message": "{{L1} Per evitare l'esecuzione accidentale di filtri tramite la scorciatoia da tastiera, è stata aggiunta una finestra di dialogo di conferma.{L2} {L1} Corretta la leggibilità dei suggerimenti nel tema scuro. {L2} {L1} Risolto: il filtro Rispondi a fa distinzione tra maiuscole e minuscole - non dovrebbe fare distinzione tra maiuscole e minuscole {L2} {L1} Preparazione del codice per il 2023 rimuovendo il deprecato sync-stream-listener.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

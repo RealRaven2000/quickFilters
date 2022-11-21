@@ -1329,7 +1329,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Opgelost: klikken op Sorteren kan leiden tot lege zoektermen.{L2}{L1} Vaste werkbalkpictogramkleuren voor Thunderbird 102.{L2} {L1} Ondersteuning van licentievalidatie met Exchange-accounts. {L2} {L1} Verbeterde integratie van knoppen op de huidige mappenbalk van QuickFolders. Om te voorkomen dat er knoppen ontbreken, moet u ook QuickFolders upgraden naar versie 5.14.{L2} {L1} Verbeterde standaardfilternaam voor berichten met ster.{L2}"
+    "message": "{L1} Om te voorkomen dat filters per ongeluk worden uitgevoerd via sneltoetsen, is een bevestigingsdialoogvenster toegevoegd.{L2} {L1} Vaste leesbaarheid van knopinfo in donker thema. {L2} {L1} Opgelost: Reply-To-filter is hoofdlettergevoelig - zou niet hoofdlettergevoelig moeten zijn {L2} {L1} Code voorbereiden voor 2023 door verouderde sync-stream-listener te verwijderen.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

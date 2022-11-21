@@ -239,7 +239,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Opraveno: Kliknutí na Seřadit může vést k prázdným hledaným výrazům.{L2}{L1} Opravené barvy ikon panelu nástrojů pro Thunderbird 102.{L2} {L1} Podpora ověřování licencí s účty Exchange. {L2} {L1} Vylepšená integrace tlačítek na aktuální liště složek QuickFolders. Abyste předešli chybějícím tlačítkům, upgradujte také QuickFolders na verzi 5.14.{L2} {L1} Vylepšen výchozí název filtru pro zprávy označené hvězdičkou.{L2}"
+    "message" : "{L1} Aby se zabránilo náhodnému spuštění filtrů pomocí klávesové zkratky, přidali jsme potvrzovací dialog.{L2} {L1} Opravena čitelnost popisků v tmavém motivu. {L2} {L1} Opraveno: Filtr Reply-To rozlišuje malá a velká písmena – nemělo by se rozlišovat malá a velká písmena {L2} {L1} Připravuje se kód pro rok 2023 odstraněním zastaralého synchronizačního streamu posluchače.{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

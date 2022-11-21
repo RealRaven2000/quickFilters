@@ -1329,7 +1329,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Behoben: Klicken auf „Sortieren“ kann zu leeren Suchbegriffen führen.{L2}{L1} Symbolfarben der Symbolleiste für Thunderbird 102 korrigiert.{L2} {L1} Unterstützung der Lizenzvalidierung mit Exchange-Konten. {L2} {L1} Verbesserte Integration von Schaltflächen in der aktuellen Ordnerleiste von QuickFolders. Um fehlende Schaltflächen zu vermeiden, aktualisieren Sie auch QuickFolders auf Version 5.14.{L2} {L1} Verbesserter Standardfiltername für markierte Nachrichten.{L2}"
+    "message": "{L1} Um zu vermeiden, dass Filter versehentlich über Tastenkombination ausgeführt werden, wurde ein Bestätigungsdialogfeld hinzugefügt.{L2} {L1} Die Lesbarkeit von Tooltips im dunklen Design wurde korrigiert. {L2} {L1} Behoben: Reply-To-Filter – sollte nicht zwischen Groß- und Kleinschreibung unterscheiden. {L2} {L1} Vorbereiten des Programmcodes für 2023 durch Entfernen des veralteten sync-stream-listeners.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

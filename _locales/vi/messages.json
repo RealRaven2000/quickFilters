@@ -1329,7 +1329,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Đã khắc phục: Việc nhấp vào Sắp xếp có thể dẫn đến các cụm từ tìm kiếm trống. {L2} {L1} Đã sửa lỗi màu biểu tượng của thanh công cụ cho Thunderbird 102. {L2} {L1} Hỗ trợ xác thực giấy phép với tài khoản Exchange. {L2} {L1} Tích hợp các nút trên thanh thư mục hiện tại của QuickFolders được cải thiện. Để tránh bị thiếu các nút, hãy nâng cấp QuickFolders lên phiên bản 5.14. {L2} {L1} Tên bộ lọc mặc định được cải thiện cho các thư được gắn dấu sao. {L2}"
+    "message": "{L1} Để tránh vô tình chạy các bộ lọc thông qua phím tắt, đã thêm hộp thoại xác nhận.{L2} {L1} Đã sửa lỗi khả năng đọc chú giải công cụ trong chủ đề tối. {L2} {L1} Đã sửa lỗi: Bộ lọc Trả lời có phân biệt chữ hoa chữ thường - phải phân biệt chữ hoa chữ thường {L2} {L1} Chuẩn bị mã cho năm 2023 bằng cách xóa trình nghe luồng đồng bộ hóa không dùng nữa.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
