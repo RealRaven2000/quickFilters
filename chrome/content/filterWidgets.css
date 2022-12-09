@@ -180,15 +180,16 @@ tab#quickFilters-Support {
 }
 
 .helpLink .tooltip {
-  position: fixed;
-  font-size: 13px;
-  line-height: 20px;
-  padding: 5px;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
   background: white;
   border: 1px solid #ccc;
+  color: rgba(20,20,20,0.8);
+  font-size: 13px;
   visibility: hidden;
+  line-height: 20px;
   opacity: 0; 
-  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  position: fixed;
   transition: opacity 0.5s, visibility 0s;
   z-index: 1000;
 }
