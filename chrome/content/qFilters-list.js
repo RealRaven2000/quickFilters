@@ -909,7 +909,6 @@ quickFilters.List = {
 	moveAlphabetic: function moveAlphabetic(targetFilter) {
 		let filtersList = this.FilterList,
 				numFilters = filtersList.filterCount;;
-		// if (prefs.isDebugOption('createFilter')) debugger;
 		this.cutFilters();
 		for (let idx=1; idx<numFilters; idx++) { // skip first one, this is the newly created filter
 			if (targetFilter.filterName.toLocaleLowerCase() < filtersList.getFilterAt(idx).filterName.toLocaleLowerCase()) {
