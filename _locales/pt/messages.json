@@ -1235,7 +1235,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "30 de outubro"
+    "message": "8 de janeiro"
   },
   "special-offer-head" : {
     "message": "Por favor, ajude quickFilters a continuar!"
@@ -1333,7 +1333,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Para evitar a execução acidental de filtros por meio de um atalho de teclado, foi adicionada uma caixa de diálogo de confirmação.{L2} {L1} Correção da legibilidade das dicas de ferramentas no tema escuro. {L2} {L1} Corrigido: o filtro Responder a diferencia maiúsculas de minúsculas - não deve diferenciar maiúsculas de minúsculas {L2} {L1} Preparando o código para 2023 removendo o ouvinte de fluxo de sincronização obsoleto.{L2}"
+    "message" : "{L1} Para evitar a execução acidental de filtros por meio de um atalho de teclado, foi adicionada uma caixa de diálogo de confirmação.{L2} {L1} Correção da legibilidade das dicas de ferramentas no tema escuro. {L2} {L1} Corrigido: o filtro Responder a diferencia maiúsculas de minúsculas - não deve diferenciar maiúsculas de minúsculas {L2} {L1} Preparando o código para 2023 removendo o ouvinte de fluxo de sincronização obsoleto.{L2} {L1} Agora você pode criar filtros que movem e-mails para outra caixa de entrada. {L2} {L1} Removido o código de correção do Thunderbird, se você usar QuickFolders, deverá atualizá-lo para a versão 5.15.1 para evitar prompts duplicados do assistente.{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

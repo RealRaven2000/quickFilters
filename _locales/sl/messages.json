@@ -156,7 +156,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "30. oktober"
+    "message": "8. januar"
   },
   "special-offer-head" : {
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
@@ -236,7 +236,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Da bi se izognili nenamernemu zagonu filtrov prek bližnjice na tipkovnici, dodano potrditveno pogovorno okno.{L2} {L1} Popravljena berljivost namigov orodij v temni temi. {L2} {L1} Popravljeno: filter za odgovor je občutljiv na velike in male črke – ne bi smel razlikovati med velikimi in malimi črkami {L2} {L1} Priprava kode za leto 2023 z odstranitvijo zastarelega poslušalca sync-stream-listener.{L2}"
+    "message" : "{L1} Da bi se izognili nenamernemu zagonu filtrov prek bližnjice na tipkovnici, dodano potrditveno pogovorno okno.{L2} {L1} Popravljena berljivost namigov orodij v temni temi. {L2} {L1} Popravljeno: filter za odgovor je občutljiv na velike in male črke – ne bi smel razlikovati med velikimi in malimi črkami {L2} {L1} Priprava kode za leto 2023 z odstranitvijo zastarelega poslušalca sync-stream-listener.{L2} {L1} Zdaj lahko ustvarite filtre, ki premaknejo pošto v drug nabiralnik. {L2} {L1} Odstranjena koda popravka Thunderbird. Če uporabljate QuickFolders, jo morate posodobiti na različico 5.15.1, da se izognete podvojenim pozivom pomočnika.{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

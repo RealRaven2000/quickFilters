@@ -1231,7 +1231,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "30. Oktober"
+    "message": "8. Januar"
   },
   "special-offer-head": {
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
@@ -1329,7 +1329,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Um zu vermeiden, dass Filter versehentlich über Tastenkombination ausgeführt werden, wurde ein Bestätigungsdialogfeld hinzugefügt.{L2} {L1} Die Lesbarkeit von Tooltips im dunklen Design wurde korrigiert. {L2} {L1} Behoben: Reply-To-Filter – sollte nicht zwischen Groß- und Kleinschreibung unterscheiden. {L2} {L1} Vorbereiten des Programmcodes für 2023 durch Entfernen des veralteten sync-stream-listeners.{L2}"
+    "message": "{L1} Um zu vermeiden, dass Filter versehentlich über Tastenkombination ausgeführt werden, wurde ein Bestätigungsdialogfeld hinzugefügt.{L2} {L1} Die Lesbarkeit von Tooltips im dunklen Design wurde korrigiert. {L2} {L1} Behoben: Reply-To-Filter – sollte nicht zwischen Groß- und Kleinschreibung unterscheiden. {L2} {L1} Vorbereiten des Programmcodes für 2023 durch Entfernen des veralteten sync-stream-listeners.{L2} {L1} Sie können jetzt Filter erstellen, die E-Mails in einen anderen Posteingang verschieben. {L2} {L1} Thunderbird-Patchcode entfernt; falls Sie QuickFolders verwenden, müssen Sie es auf Version 5.15.1 aktualisieren, um doppelte Eingabeaufforderungen des Assistenten zu vermeiden.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
