@@ -171,6 +171,7 @@ async function onLoad(activatedWhileWindowOpen) {
 
   window.quickFilters.onLoadQuickFilters();
   window.quickFilters.addTagListener();
+  window.quickFilters.addFolderListeners();
     
 }
 
@@ -189,6 +190,7 @@ function onUnload(isAddOnShutown) {
     window.quickFilters.removeKeyListener(window);
   }
   window.quickFilters.restoreTagListener();
+  window.quickFilters.removeFolderListeners();
   
   // clean up current folder bar (if QuickFolders is installed)
   deleteBtn('quickfilters-current-listbutton');

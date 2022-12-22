@@ -13,7 +13,6 @@ END LICENSE BLOCK
 quickFilters.Worker = {
   bundle: null,
   FilterMode: false,  // replace with Util.AssistantActive
-  lastAssistedMsgList: [],
   reRunCount: 0,  // avoid endless loop
   promiseCreateFilter: false, // quickmove semaphor
   TemplateSelected: null,
@@ -390,7 +389,7 @@ quickFilters.Worker = {
   } ,
   
   // folder is the target folder - we might also need the source folder
-  createFilter: function createFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt) {
+  createQuickFilter: async function (sourceFolder, targetFolder, messageList, filterAction, filterActionExt) {
     const util = quickFilters.Util,
           Cc = Components.classes,
           Ci = Components.interfaces,
@@ -431,9 +430,9 @@ quickFilters.Worker = {
         return 0;
       }
       //targetFolder.updateFolder(msgWindow);
-      window.setTimeout(function() {
-            let filtered = quickFilters.Worker.createFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
-            quickFilters.Util.logDebug('createFilter returned: ' + filtered);
+      window.setTimeout(async function() {
+            let filtered = await quickFilters.Worker.createQuickFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
+            quickFilters.Util.logDebug("createQuickFilter returned: " + filtered);
           }, 400);
       return 0;
     }
@@ -566,13 +565,14 @@ quickFilters.Worker = {
       this.promiseCreateFilter = false;
       return -5;
     }
+    // allow moving mails from one Inbox to another/
     // mail has not been moved here - likely this filter will be about tagging or other actions, not moving mail!
+    // [issue 140] allow moving mails to another Inbox
     if ( filterAction && 
          (filterAction != Ci.nsMsgFilterAction.CopyToFolder 
           &&
           filterAction != Ci.nsMsgFilterAction.MoveToFolder )
         || sourceFolder.URI == targetFolder.URI
-        || targetFolder.getFlag(fflags.Inbox)
         || targetFolder.getFlag(fflags.Drafts)
         || targetFolder.getFlag(fflags.SentMail)
         || targetFolder.getFlag(fflags.Newsgroup)
@@ -804,7 +804,7 @@ quickFilters.Worker = {
 
   } ,
   
-  buildFilter: function buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
+  buildFilter: async function buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
                         matchingFilters, filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress, filterActionExt) { 
     const Cc = Components.classes,
           Ci = Components.interfaces,
@@ -1022,14 +1022,16 @@ quickFilters.Worker = {
 
         let sTags = '';
         if (filterActionExt) {
-          sTags = filterActionExt;
+          let newTag = tagArray.find(t => (t.key==filterActionExt));
+          sTags = newTag ? newTag.tag : filterActionExt;
         }        
         else
           for (let i = msgKeyArray.length - 1; i >= 0; --i) {
             for (let ti=0; ti<tagArray.length; ti++) {
               let tagInfo = tagArray[ti];
-              if (tagInfo.key === msgKeyArray[i])
+              if (tagInfo.key === msgKeyArray[i]) {
                 sTags += tagInfo.tag + ' ';
+              }
             }
           }
         filterName = filterName.replace("{1}", sTags);
@@ -1165,6 +1167,7 @@ quickFilters.Worker = {
             let uri = targetFolder.getUriForMsg(msg);
             util.CurrentMessage = msgHdr;
             util.CurrentHeader = new quickFilters.clsGetHeaders(uri, msgHdr); 
+            await util.CurrentHeader.read();
             listIdValue = util.replaceReservedWords("", hdrListId);
           }
         }
@@ -1260,8 +1263,9 @@ quickFilters.Worker = {
           addTerm(targetFilter, searchTerm);
           for (let ta=0; ta<tagArray.length; ta++) {
             let tagInfo = tagArray[ta];
-            if (tagInfo.key === msgKeyArray[i])
+            if (tagInfo.key === msgKeyArray[i]) {
               filterName += tagInfo.tag + ' ';
+            }
           }
         }               
         break;
@@ -1292,7 +1296,7 @@ quickFilters.Worker = {
           }
           
           try { 
-            util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri}, false, myMailAddresses);
+            await util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri}, false, myMailAddresses);
           }
           catch(ex) {
             alert("Could not run copyTerms: " + ex.message);
@@ -1329,46 +1333,47 @@ quickFilters.Worker = {
       // https://dxr.mozilla.org/comm-central/source/comm/mailnews/base/search/content/FilterEditor.js#298
       targetFilter.filterType = nsMsgFilterType.None;
       
-      if (sourceFolder && sourceFolder.getFlag(util.FolderFlags.Newsgroup))
+      if (sourceFolder && sourceFolder.getFlag(util.FolderFlags.Newsgroup)) {
         targetFilter.filterType |= nsMsgFilterType.NewsRule;
-      else
+      } else {
         targetFilter.filterType |= nsMsgFilterType.InboxRule;
+      }
           
       if  (prefs.getBoolPref('newfilter.autorun')) {
         targetFilter.filterType |= nsMsgFilterType.Incoming;
       }
-          
       if  (prefs.getBoolPref('newfilter.autorun')) {
         targetFilter.filterType |= nsMsgFilterType.Manual;
       }
       if (prefs.getBoolPref('newfilter.runAfterPlugins')) {
-        targetFilter.filterType |=  nsMsgFilterType.PostPlugin;
+        targetFilter.filterType |= nsMsgFilterType.PostPlugin;
       }
-      if (prefs.getBoolPref('newfilter.runArchiving'))
+      if (prefs.getBoolPref('newfilter.runArchiving')) {
         targetFilter.filterType |= nsMsgFilterType.Archive;
-
-      if (prefs.getBoolPref('newfilter.runPostOutgoing'))
+      }
+      if (prefs.getBoolPref('newfilter.runPostOutgoing')) {
         targetFilter.filterType |= nsMsgFilterType.PostOutgoing;      
-      
-      // New in Thunderbird 68.
-      if (nsMsgFilterType.Periodic && prefs.getBoolPref('newfilter.runPeriodically'))
-        targetFilter.filterType |= nsMsgFilterType.Periodic;      
+      }
+      if (nsMsgFilterType.Periodic && prefs.getBoolPref('newfilter.runPeriodically')) {
+        targetFilter.filterType |= nsMsgFilterType.Periodic;
+      }
       
     }
     
     // this is set by the 'Tags' checkbox
     if (prefs.getBoolPref('actions.tags'))  {
       // the following step might already be done (see 'tag' template case):
-      if (!msgKeyArray)
+      if (!msgKeyArray) {
         msgKeyArray = getTagsFromMsg(tagArray, msg);
+      }
       
       if (msgKeyArray.length) {
         for (let i = msgKeyArray.length - 1; i >= 0; --i) {
           let tagActionValue;
-          if (filterActionExt)
+          if (filterActionExt) {
             tagActionValue = filterActionExt;
-          else
-            for (let ta=0; ta<tagArray.length; ta++) {
+          }
+          else for (let ta=0; ta<tagArray.length; ta++) {
               let tagInfo = tagArray[ta];
               if (tagInfo.key === msgKeyArray[i]) {
                 tagActionValue = tagInfo.key;
@@ -1521,14 +1526,18 @@ quickFilters.Worker = {
     }
   } ,  // buildFilter
   
-  /** legacy function (used from QuickFolders) **/
-  createFilterAsync: function createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry) {
+  /** legacy function (used from legacy QuickFolders) **/
+  createFilterAsync: async function createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry) {
+    // not used anymore
+    if (quickFilters.isNewAssistantMode) {
+      return []; // return empty array (return value is not used anyway)
+    }
     let messageList = [],
         util = quickFilters.Util,
         entry;
     if (!retry)
       retry = 1;
-    util.logDebugOptional ("createFilter", "legacy createFilterAsync() Attempt = " + retry || '0');
+    util.logDebug("Calling legacy createFilterAsync() Attempt = " + retry);
     // to be backwards compatible with [old versions of] QuickFolders
     // we need to re-package the messageList elements in the format  { messageId, msgHeader}
     // to do: merge these changes into QuickFolders filter implementation
@@ -1562,9 +1571,9 @@ quickFilters.Worker = {
         if (!msgHeader) {
           retry++;
           if (retry<=20) { // let's try for 20*250 = 5 seconds
-            window.setTimeout(function() { 
-              quickFilters.Worker.createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry); 
-            }, 250);
+            await new Promise(resolve => { window.setTimeout(resolve, 250) } );
+            // returns a promise, can be awaited from outside to resolve inner promise
+            return quickFilters.Worker.createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry); 
           }
           else {
             // no joy! we need an error in console (and possibly an alert!)
@@ -1572,7 +1581,7 @@ quickFilters.Worker = {
               + "I am giving up, can't get msgHeader from " + targetFolder.prettyName + ",\n"
               + "messageId = " + messageId, "createFilter");
           }
-          return;
+          return null;
         }
         entry = util.makeMessageListEntry(msgHeader);
       }
@@ -1584,13 +1593,12 @@ quickFilters.Worker = {
     }
     
     if (messageList.length) {
-      return this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow);
+      return await this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow);
     }
   } ,
 
-  createFilterAsync_New: function createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow) {
-    const Ci = Components.interfaces,
-          worker = quickFilters.Worker;
+  createFilterAsync_New: async function createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow) {
+    const Ci = Components.interfaces;
     let delay = isSlow ? 800 : 0; // wait for the filter dialog to be updated with the new folder if drag to new
     if (filterAction ===false) {  // old isCopy value
       filterAction = Ci.nsMsgFilterAction.MoveToFolder;
@@ -1598,15 +1606,13 @@ quickFilters.Worker = {
     if (filterAction ===true) {  // old isCopy value
       filterAction = Ci.nsMsgFilterAction.CopyToFolder;
     }
-    window.setTimeout(function() {
+    window.setTimeout(async function() {
       // avoid repeating the same thing
       const util = quickFilters.Util;
       try {
-        let filtered = worker.createFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
+        let filtered = await quickFilters.Worker.createQuickFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
         // remember message ids!
-        if (quickFilters.Preferences.getBoolPref("nostalgySupport"))
-          worker.lastAssistedMsgList = messageList;
-        util.logDebugOptional('createFilter', 'createFilterAsync - createFilter returned: ' + filtered);
+        util.logDebugOptional('createFilter', 'createFilterAsync_New() - createQuickFilter returned: ' + filtered);
       }
       catch(ex) {
         util.logException("createFilterAsync_New() failed: ", ex);

@@ -49,7 +49,7 @@ quickFilters.Util = {
         }
         catch(ex){;}
         if (!data.hasOwnProperty("window") || data.window.includes(loc)) {
-          quickFilters.Util.logDebugOptional("notifications", 
+          window.quickFilters.Util.logDebugOptional("notifications", 
             `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
             `into ${loc}`);
           let event;
@@ -1237,13 +1237,12 @@ quickFilters.Util = {
     
 	// replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
   // fromFilter is a JSON object, not a filter!
-	copyTerms: function copyTerms(fromFilter, toFilter, isCopy, oReplaceTerms, isArray, mailsToOmit) {
+	copyTerms: async function copyTerms(fromFilter, toFilter, isCopy, oReplaceTerms, isArray, mailsToOmit) {
 		const Ci = Components.interfaces,
 		      AC = Ci.nsMsgSearchAttrib,
 					SearchOP = Ci.nsMsgSearchOp,
           util = quickFilters.Util,
 		      prefs = quickFilters.Preferences;
-		// if (prefs.isDebugOption('createFilter')) debugger;
     
     // convert into an Array
 		let stCollection = isArray ? fromFilter.searchTerms : util.querySearchTermsArray(fromFilter.searchTerms),
@@ -1254,14 +1253,16 @@ quickFilters.Util = {
       let firstFromTerm = 
         isArray ? stCollection[0] : util.querySearchTermsAt(stCollection, 0);
       
-      if (firstFromTerm)
+      if (firstFromTerm) {
         targetBoolean = firstFromTerm.booleanAnd;
+      }
     }
 		
     if (oReplaceTerms) {
       if (oReplaceTerms.messageURI) {
         util.CurrentMessage = oReplaceTerms.msgHdr;
         util.CurrentHeader = new quickFilters.clsGetHeaders(oReplaceTerms.messageURI, util.CurrentMessage); 
+        await util.CurrentHeader.read();
       }
       else {
         util.popupAlert('Sorry, without messageURI I cannot parse mime headers - therefore cannot replace any variables. Tag listener with custom templates are currently not supported.'); 
@@ -2294,87 +2295,79 @@ quickFilters.Util = {
   // -------------------------------------------------------------------
   // Get header string
   // -------------------------------------------------------------------
-quickFilters.clsGetHeaders = function classGetHeaders(messageURI, messageFallbackContent) {
-  const Ci = Components.interfaces,
-        Cc = Components.classes,
-        util = quickFilters.Util,
-				prefs = quickFilters.Preferences;
-	// if (prefs.isDebugOption('createFilter')) debugger;
-	
-  let messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
-      messageService = messenger.messageServiceFromURI(messageURI),
-      messageStream = Cc["@mozilla.org/network/sync-stream-listener;1"].createInstance().QueryInterface(Ci.nsIInputStream),
-      inputStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance().QueryInterface(Ci.nsIScriptableInputStream);
-
-  util.logDebugOptional('functions','clsGetHeaders(' + messageURI + ')');
-  let headers = Cc["@mozilla.org/messenger/mimeheaders;1"].createInstance().QueryInterface(Ci.nsIMimeHeaders);
-/*   
-  // ASYNC MIME HEADERS
-
-  let testStreamHeaders = true; // new code!
-  var asyncUrlListener = new AsyncUrlListener();
+quickFilters.clsGetHeaders = class classGetHeaders {
+  constructor(messageURI, messageFallbackContent) { 
+    this.messageURI = messageURI;
+    this.messageFallbackContent = messageFallbackContent;
+  }
   
-  if (testStreamHeaders) {
-    // http://mxr.mozilla.org/comm-central/source/mailnews/base/public/nsIMsgMessageService.idl#190
+  async read() {
+    let messageURI = this.messageURI;
+    let messageFallbackContent = this.messageFallbackContent;
     
-    // http://mxr.mozilla.org/comm-central/source/mailnews/imap/test/unit/test_imapHdrStreaming.js#101
-    let messenger = Components.classes["@mozilla.org/messenger;1"].createInstance(Components.interfaces.nsIMessenger);
-    let msgService = messenger.messageServiceFromURI(messageURI); // get nsIMsgMessageService
-    msgService.streamHeaders(msgURI, streamListenerST4, asyncUrlListener,true);    
-    yield false;
-  }
-  // ==
-  let msgContent = new String(streamListenerST4._data);
-  headers.initialize(msgContent, msgContent.length);
-*/  
-  
-  inputStream.init(messageStream);
-  try {
-    messageService.streamMessage(messageURI, messageStream, msgWindow, null, false, null);
-  }
-  catch (ex) {
-    util.logException('clsGetHeaders - constructor - messageService.streamMessage failed', ex);
-    throw ex;
-  }
+    // streaming the message works up to Tb91, in Tb102 we need to load the headers during when starting ComposeStartup() [async]
+    const Ci = Components.interfaces,
+          Cc = Components.classes,
+          util = quickFilters.Util,
+          prefs = quickFilters.Preferences;
+    
+    let messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
+        messageService = messenger.messageServiceFromURI(messageURI),
+        messageStream = Cc["@mozilla.org/network/sync-stream-listener;1"].createInstance().QueryInterface(Ci.nsIInputStream),
+        inputStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance().QueryInterface(Ci.nsIScriptableInputStream);
 
-  let msgContent = "",
-      contentCache = "";
-  try {
-    while (inputStream.available()) { 
-      msgContent = msgContent + inputStream.read(2048); 
-      let p = msgContent.search(/\r\n\r\n|\r\r|\n\n/); //todo: it would be faster to just search in the new block (but also needs to check the last 3 bytes)
-      if (p > 0) {
-        contentCache = msgContent.substr(p + (msgContent[p] == msgContent[p+1] ? 2 : 4));
-        msgContent = msgContent.substr(0, p) + "\r\n";
-        break;
-      }
-      if (msgContent.length > 2048 * 8) {
-        util.logDebug('clsGetHeaders - early exit - msgContent length>16kB: ' + msgContent.length);
-        return null;
+    util.logDebugOptional('functions','clsGetHeaders(' + messageURI + ')');
+    let headers = Cc["@mozilla.org/messenger/mimeheaders;1"].createInstance().QueryInterface(Ci.nsIMimeHeaders);    
+    inputStream.init(messageStream);
+    
+    try {
+      messageService.streamMessage(messageURI, messageStream, msgWindow, null, false, null);
+    }
+    catch (ex) {
+      util.logException('clsGetHeaders - constructor - messageService.streamMessage failed', ex);
+      throw ex;
+    }
+
+    let msgContent = "",
+        contentCache = "";
+    try {
+      while (inputStream.available()) { 
+        msgContent = msgContent + inputStream.read(2048); 
+        let p = msgContent.search(/\r\n\r\n|\r\r|\n\n/); //todo: it would be faster to just search in the new block (but also needs to check the last 3 bytes)
+        if (p > 0) {
+          contentCache = msgContent.substr(p + (msgContent[p] == msgContent[p+1] ? 2 : 4));
+          msgContent = msgContent.substr(0, p) + "\r\n";
+          break;
+        }
+        if (msgContent.length > 2048 * 8) {
+          util.logDebug('clsGetHeaders - early exit - msgContent length>16kB: ' + msgContent.length);
+          return null;
+        }
       }
     }
+    catch(ex) {
+      util.logException('Reading inputStream failed:', ex);
+      if (!msgContent && !messageFallbackContent) throw(ex);
+    }
+    
+    if (msgContent.length==0) {
+      headers = null;
+      util.logDebugOptional('mime','Could not stream message, using fallback contents instead.');
+    }
+    else {
+      headers.initialize(msgContent, msgContent.length);
+      util.logDebugOptional('mime','allHeaders: \n' +  headers.allHeaders);
+    }
+    this.headers = headers;
+        
   }
-  catch(ex) {
-    util.logException('Reading inputStream failed:', ex);
-    if (!msgContent && !messageFallbackContent) throw(ex);
-  }
-	
-	if (msgContent.length==0) {
-		headers = null;
-		util.logDebugOptional('mime','Could not stream message, using fallback contents instead.');
-	}
-  else {
-		headers.initialize(msgContent, msgContent.length);
-		util.logDebugOptional('mime','allHeaders: \n' +  headers.allHeaders);
-  }
-	
-
+  
   // -----------------------------------
   // Get header
-  function get(header) {
+  get(header) {
     // /nsIMimeHeaders.extractHeader
 		// See ST4.clsGetAltHeader
-		if (!headers) {
+		if (!this.headers) {
 			switch(header) {
 				case "from": 
 				  header="author";
@@ -2386,7 +2379,7 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI, messageFallbac
 		}
 		
     let retValue = '',
-        str = headers ? headers.extractHeader(header, false) : messageFallbackContent[header],
+        str = this.headers ? this.headers.extractHeader(header, false) : messageFallbackContent[header],
         isUnescapeQuotes = false;
 				
 				
@@ -2401,21 +2394,6 @@ quickFilters.clsGetHeaders = function classGetHeaders(messageURI, messageFallbac
     return retValue;
   };
   
-  // -----------------------------------
-  // Get content
-  /*
-  function content(size) {
-    while (inputStream.available() && contentCache.length < size) 
-      contentCache += inputStream.read(2048);
-    if (contentCache.length > size) return contentCache.substr(0, size);
-    else return contentCache;
-  };*/
-
-  // -----------------------------------
-  // Public methods
-  this.get = get;
-  // this.content = content;
-  return null;    
 } ; // quickFilters.clsGetHeaders
 
 
