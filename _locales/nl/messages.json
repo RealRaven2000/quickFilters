@@ -1329,7 +1329,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Om te voorkomen dat filters per ongeluk worden uitgevoerd via sneltoetsen, is een bevestigingsdialoogvenster toegevoegd.{L2} {L1} Vaste leesbaarheid van knopinfo in donker thema. {L2} {L1} Opgelost: Reply-To-filter is hoofdlettergevoelig - zou niet hoofdlettergevoelig moeten zijn {L2} {L1} Code voorbereiden voor 2023 door verouderde sync-stream-listener te verwijderen.{L2} {L1} U kunt nu filters maken die e-mail naar een andere inbox verplaatsen. {L2} {L1} Thunderbird-patchcode verwijderd. Als u QuickFolders gebruikt, moet u deze bijwerken naar versie 5.15.1 om dubbele assistent-prompts te voorkomen.{L2}"
+    "message": "{L1} 5.7.1 - Opgelost: quickFilters-assistent werd onbedoeld aangeroepen bij het verwijderen van e-mails of andere filters werden uitgevoerd. [issue 143] {L2}{L1} Om te voorkomen dat filters per ongeluk worden uitgevoerd via sneltoetsen, is een bevestigingsdialoogvenster toegevoegd.{L2} {L1} Vaste leesbaarheid van knopinfo in donker thema. {L2} {L1} Opgelost: Reply-To-filter is hoofdlettergevoelig - zou niet hoofdlettergevoelig moeten zijn {L2} {L1} Code voorbereiden voor 2023 door verouderde sync-stream-listener te verwijderen.{L2} {L1} U kunt nu filters maken die e-mail naar een andere inbox verplaatsen. {L2} {L1} Thunderbird-patchcode verwijderd. Als u QuickFolders gebruikt, moet u deze bijwerken naar versie 5.15.1 om dubbele assistent-prompts te voorkomen.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -36,6 +36,13 @@ const SALE_REDUCTION="30%"; // reduction for buying + renewals
     if (targetId.startsWith("donate")) {
       messenger.windows.openDefaultBrowser("https://quickfilters.quickfolders.org/donate.html");
     }
+    if (event.target.classList.contains("issue")) {
+      let issueId = event.target.getAttribute("no");
+      if (issueId) {
+        messenger.windows.openDefaultBrowser(`https://github.com/RealRaven2000/quickFilters/issues/${issueId}`);
+      }
+    }    
+        
   });  
 
 
@@ -171,7 +178,8 @@ const SALE_REDUCTION="30%"; // reduction for buying + renewals
         .replace(/\{L1\}/g,"<li>")
         .replace(/\{L2\}/g,"</li>")
         .replace(/\{boldStart\}/g,"<b>")
-        .replace(/\{boldEnd\}/g,"</b>");
+        .replace(/\{boldEnd\}/g,"</b>")
+        .replace(/\[issue (\d*)\]/g,"<a class=issue no=$1>[issue $1]</a>");
     }
     
     

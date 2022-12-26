@@ -1329,7 +1329,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 为避免通过键盘快捷键意外运行过滤器，添加了确认对话框。{L2} {L1} 修复了深色主题中工具提示的可读性。 {L2} {L1} 已修复：回复过滤器区分大小写 - 应该不区分大小写 {L2} {L1} 通过删除已弃用的 sync-stream-listener 为 2023 年准备代码。{L2} {L1} 您现在可以创建将邮件移动到另一个收件箱的过滤器。 {L2} {L1} 删除了 Thunderbird 补丁代码，如果您使用 QuickFolders，则必须将其更新到版本 5.15.1 以避免重复的助手提示。{L2}"
+    "message": "{L1} 5.7.1 - 已修复：在删除电子邮件或执行其他过滤器时意外调用了 quickFilters 助手。 [issue 143] {L2}{L1} 为避免通过键盘快捷键意外运行过滤器，添加了确认对话框。{L2} {L1} 修复了深色主题中工具提示的可读性。 {L2} {L1} 已修复：回复过滤器区分大小写 - 应该不区分大小写 {L2} {L1} 通过删除已弃用的 sync-stream-listener 为 2023 年准备代码。{L2} {L1} 您现在可以创建将邮件移动到另一个收件箱的过滤器。 {L2} {L1} 删除了 Thunderbird 补丁代码，如果您使用 QuickFolders，则必须将其更新到版本 5.15.1 以避免重复的助手提示。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

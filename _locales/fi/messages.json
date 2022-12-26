@@ -1330,7 +1330,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} Lisätty vahvistusikkuna, jotta vältytään suodattimien käyttämiseltä vahingossa pikanäppäimen kautta.{L2} {L1} Korjattu tumman teeman työkaluvihjeiden luettavuus. {L2} {L1} Korjattu: Vastaanottaja-suodatin on kirjainkoon erottelukykyinen – kirjainkoolla ei ole merkitystä {L2} {L1} Valmistellaan koodia vuodelle 2023 poistamalla vanhentunut synkronointivirran kuuntelija.{L2} {L1} Voit nyt luoda suodattimia, jotka siirtävät postit toiseen postilaatikkoon. {L2} {L1} Thunderbird-korjauskoodi on poistettu. Jos käytät QuickFolderia, sinun on päivitettävä se versioon 5.15.1, jotta vältytään päällekkäisiltä avustajakehotteilta.{L2}"
+    "message" : "{L1} 5.7.1 - Korjattu: quickFilters-avustajaa käynnistettiin tahattomasti, kun sähköpostit poistettiin tai muita suodattimia suoritettiin. [issue 143] {L2}{L1} Lisätty vahvistusikkuna, jotta vältytään suodattimien käyttämiseltä vahingossa pikanäppäimen kautta.{L2} {L1} Korjattu tumman teeman työkaluvihjeiden luettavuus. {L2} {L1} Korjattu: Vastaanottaja-suodatin on kirjainkoon erottelukykyinen – kirjainkoolla ei ole merkitystä {L2} {L1} Valmistellaan koodia vuodelle 2023 poistamalla vanhentunut synkronointivirran kuuntelija.{L2} {L1} Voit nyt luoda suodattimia, jotka siirtävät postit toiseen postilaatikkoon. {L2} {L1} Thunderbird-korjauskoodi on poistettu. Jos käytät QuickFolderia, sinun on päivitettävä se versioon 5.15.1, jotta vältytään päällekkäisiltä avustajakehotteilta.{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

@@ -1327,7 +1327,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Aby uniknąć przypadkowego uruchomienia filtrów za pomocą skrótu klawiaturowego, dodano okno dialogowe potwierdzenia.{L2} {L1} Naprawiono czytelność podpowiedzi w ciemnym motywie. {L2} {L1} Naprawiono: w filtrze odpowiedzi do jest rozróżniana wielkość liter — nie powinna być rozróżniana wielkość liter. {L2} {L1} Przygotowywanie kodu na rok 2023 przez usunięcie przestarzałego odbiornika strumienia synchronizacji.{L2} {L1} Możesz teraz tworzyć filtry, które przenoszą pocztę do innej skrzynki odbiorczej. {L2} {L1} Usunięto kod poprawki Thunderbirda. Jeśli używasz QuickFolders, musisz zaktualizować go do wersji 5.15.1, aby uniknąć zduplikowanych monitów asystenta.{L2}"
+    "message" : "{L1} 5.7.1 — Naprawiono: asystent quickFilters był nieumyślnie wywoływany podczas usuwania wiadomości e-mail lub wykonywania innych filtrów. [issue 143] {L2}{L1} Aby uniknąć przypadkowego uruchomienia filtrów za pomocą skrótu klawiaturowego, dodano okno dialogowe potwierdzenia.{L2} {L1} Naprawiono czytelność podpowiedzi w ciemnym motywie. {L2} {L1} Naprawiono: w filtrze odpowiedzi do jest rozróżniana wielkość liter — nie powinna być rozróżniana wielkość liter. {L2} {L1} Przygotowywanie kodu na rok 2023 przez usunięcie przestarzałego odbiornika strumienia synchronizacji.{L2} {L1} Możesz teraz tworzyć filtry, które przenoszą pocztę do innej skrzynki odbiorczej. {L2} {L1} Usunięto kod poprawki Thunderbirda. Jeśli używasz QuickFolders, musisz zaktualizować go do wersji 5.15.1, aby uniknąć zduplikowanych monitów asystenta.{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

@@ -1325,7 +1325,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} To avoid accidentally running filters through keyboard shortcut, added confirmation dialog.{L2} {L1} Fixed readability of tooltips in dark theme. {L2} {L1} Fixed: Reply-To filter is case sensitive - should be case insensitive {L2} {L1} Preparing code for 2023 by removing deprecated sync-stream-listener.{L2} {L1} You can now create filters that move mail to another inbox. {L2} {L1} Removed Thunderbird patch code, if you use QuickFolders you must update it to version 5.15.1 to avoid duplicate assistant prompts.{L2}"
+    "message": "{L1} 5.7.1 - Fixed: quickFilters assistant was unintendedly invoked when deleting emails or other filters were executed. [issue 143] {L2}{L1} To avoid accidentally running filters through keyboard shortcut, added confirmation dialog.{L2} {L1} Fixed readability of tooltips in dark theme. {L2} {L1} Fixed: Reply-To filter is case sensitive - should be case insensitive {L2} {L1} Preparing code for 2023 by removing deprecated sync-stream-listener.{L2} {L1} You can now create filters that move mail to another inbox. {L2} {L1} Removed Thunderbird patch code, if you use QuickFolders you must update it to version 5.15.1 to avoid duplicate assistant prompts.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

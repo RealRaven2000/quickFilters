@@ -1329,7 +1329,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} För att undvika att oavsiktligt köra filter via kortkommandon, lades till en bekräftelsedialogruta.{L2} {L1} Fixade läsbarheten för verktygstips i mörkt tema. {L2} {L1} Fixat: Reply-To-filtret är skiftlägeskänsligt - bör vara skiftlägesokänsligt {L2} {L1} Förbereder kod för 2023 genom att ta bort föråldrad sync-stream-listener.{L2} {L1} Du kan nu skapa filter som flyttar e-post till en annan inkorg. {L2} {L1} Tog bort korrigeringskoden för Thunderbird. Om du använder QuickFolders måste du uppdatera den till version 5.15.1 för att undvika dubbletter av assistentuppmaningar.{L2}" 
+    "message": "{L1} 5.7.1 - Fixat: quickFilters-assistenten anropades oavsiktligt när e-postmeddelanden raderades eller andra filter kördes. [issue 143] {L2}{L1} För att undvika att oavsiktligt köra filter via kortkommandon, lades till en bekräftelsedialogruta.{L2} {L1} Fixade läsbarheten för verktygstips i mörkt tema. {L2} {L1} Fixat: Reply-To-filtret är skiftlägeskänsligt - bör vara skiftlägesokänsligt {L2} {L1} Förbereder kod för 2023 genom att ta bort föråldrad sync-stream-listener.{L2} {L1} Du kan nu skapa filter som flyttar e-post till en annan inkorg. {L2} {L1} Tog bort korrigeringskoden för Thunderbird. Om du använder QuickFolders måste du uppdatera den till version 5.15.1 för att undvika dubbletter av assistentuppmaningar.{L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

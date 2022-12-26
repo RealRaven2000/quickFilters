@@ -1,22 +1,28 @@
-quickFilters Change Log - Version 5.6
+quickFilters Change Log - Version 5.7
+
+<b>Maintenance Fixes - 5.7.1</b>
+<ul>
+<li> From v5.7 - once the assistant is active, <i>deleting emails</i> triggered it and prompted to create new filters. This behavior was unintended. <a href="https://github.com/RealRaven2000/quickFilters/issues/142#">[issue 142]</a>
+</li>
+<li> The quickFilters filter assistant could be triggered by filters that execute moving / copying mail! I am currently working on a permanent fix for this issue. There are already 
+prereleases available here:
+
+<a href="https://github.com/RealRaven2000/quickFilters/issues/143">[issue 143]</a>
+
+From 5.7.1 on it will be checking if there are already filters active that may have successfully moved the mail, in which case the assistant is not invoked.</li>
+</ul>
+
 
 <b>Improvements</b>
 <ul>
-<li> Fixed <a href="https://github.com/RealRaven2000/quickFilters/issues/123">[issue 123]</a> Clicking Sort leads to empty search terms (Thunderbird 102 regression) </li>
-<li> Fixed toolbar Icon colors for Thunderbird 102</li>
-<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/125">[issue 125]</a> Support license validation with Exchange accounts (from Tb 102) </li>
-<li> Improved default filter name for starred messages - now includes the folder name as well.</li>
-<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/129">[issue 129]</a> Improved integration of buttons on QuickFolders' current folder bar.
-
-The optional quickFilters toolbar button which can be added to the QuickFolders Navigation bar (Current folder toolbar) via Advanced settings can be missing if Add-ons are loaded in the wrong order or whenever QF is disabled / updated.
-
-This fix improves communication between both Add-ons to ensure the buttons are never missing (requires QuickFolders 5.14 or higher - to get a preview version of that, <a href="https://github.com/RealRaven2000/QuickFolders/issues/316">click here</a>).
-</li>
-<li> When creating filters from Starred messages in the Inbox using the context menu, does not trigger the unneccessary warning about being more useful after moving mail to another folder.</li>
+<li> Fixed <a href="https://github.com/RealRaven2000/quickFilters/issues/133">[issue 133]</a> Reply-To filter is case sensitive - should be case insensitive </li>
+<li> Avoid accidentally running filters through Shortcut, add confirmation dialog. <a href="https://github.com/RealRaven2000/quickFilters/issues/132">[issue 132]</a></li>
+<li> Fixed: help text of tooltip (e.g. actions in filter editor) not readable in dark themes.</li>
+<li> You can now create filters that move mail across to another inbox. Previously such mail movements did not trigger the assistant.</li> 
+<li> Removed Thunderbird patch code, if you use QuickFolders you must update it to version 5.15.1 to avoid duplicate assistant prompts. </li>
+<li> Removed sync-stream-listener which will go away in future versions of Thunderbird. </li>
+<li> Improved naming of new filters if standard tags (such as Important, Work) are added. </li>
 </ul>
 
-<ul>
-<li> Removed all inline command handlers - added them via script instead. [issue 122]</li>  
-<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> WIP: Support mixed "any" / "all" filters with mail clients that support it (<a href="https://www.betterbird.eu/">Betterbird</a> 91.8). When using nested conditions, parentheses (beginsGrouping and endsGrouping) are now processed as numeric and not as boolean (as of Betterbird). 
-<a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> </li>
-</ul>
+
+

@@ -102,7 +102,8 @@ quickFilters.Util = {
 				SentMail: 0x00000200,
 				Newsgroup: 0x00000001,
 				Templates: 0x00400000,
-        Virtual: 0x00000020				
+        Virtual: 0x00000020,
+        Archive: 0x00004000
 			}
 		}
 	},

@@ -503,7 +503,7 @@ END LICENSE BLOCK
     # Improved default filter name for starred messages.
     # [issue 316] improved integration of buttons on QuickFolders' current folder bar (requires QF 5.14 or higher)
     
-  5.7 - WIP
+  5.7 - 22/12/2022
     # [issue 132] Avoid accidentally running filters through Shortcut, add confirmation dialog
     # [issue 133] Reply-To filter is case sensitive - should be case insensitive
     # [issue 140] Support creating filters that move mail to another inbox
@@ -514,6 +514,10 @@ END LICENSE BLOCK
     #   https://searchfox.org/comm-central/rev/9385c66c25d39efe2d7ccfcdb3a9b079da8d4b71/mail/components/extensions/parent/ext-messages.js#255-320
     # Remove monkey patch code for Tb move mail commands
     # Improved filter naming for standard Tag actions
+
+  5.7.1 - WIP
+    # [issue 204] Assistant triggered when emails are deleted
+    # [issue ] Multiple assistant windows triggered when multiple mails are moved
 
   5.* - TO DO
     # Remove monkey patch code for tag changes
@@ -1373,18 +1377,77 @@ quickFilters.MsgFolderListener = {
    * @param {nsIMsgFolder} targetFolder   
    * @param {nsIArray} aDestMsgs    Array of Messages
    */
-  msgsMoveCopyCompleted: function(isMoved, aSrcMsgs,  targetFolder, aDestMsgs) {
+  msgsMoveCopyCompleted: function(isMoved, aSrcMsgs, targetFolder, aDestMsgs) {
     let qF = quickFilters ? quickFilters : this.qfInstance;
+    let isMoveDebug = qF.Preferences.isDebugOption("msgMove");
     qF.Util.logDebugOptional("listeners", `MsgFolderListener.msgsMoveCopyCompleted()\n ${aSrcMsgs[0].folder.prettyName} ${targetFolder.prettyName}  ${aDestMsgs && aDestMsgs.length ? aDestMsgs[0].folder.prettyName : "no destmsg!"}`);
-    if (qF.Preferences.isDebugOption("listeners")) {
+    if (isMoveDebug) {
       console.log ("msgsMoveCopyCompleted()\n", {isMoved, aSrcMsgs, targetFolder, aDestMsgs});
     }    
     if (!aDestMsgs || !aDestMsgs.length) {
       return; // early exit - could be a filter execution (empty array) or IMAP synchronisation (null == aDestMsgs).
     }
+
     if (qF.Util.AssistantActive) {
+      // Avoid triggering assistant
+      const FLG = qF.Util.FolderFlags;
+      if (FLG.Trash & targetFolder.flags || 
+          FLG.Junk & targetFolder.flags || 
+          FLG.Queue & targetFolder.flags || 
+          FLG.Templates & targetFolder.flags ||
+          FLG.SentMail & targetFolder.flags ||
+          FLG.Drafts & targetFolder.flags ||
+          FLG.Newsgroup & targetFolder.flags ||
+          FLG.Archive & targetFolder.flags
+          ) {
+        if (isMoveDebug) {
+          console.log(`No Assistant triggered for excluded folder:  ${targetFolder.prettyName}  `);
+        }
+        return;
+      }      
       let sourceFolder = aSrcMsgs[0].folder;
       let msgList = [];
+
+      // guard against being triggered during filtering:
+      // check if there is a filter for the folder
+      let filtersList = sourceFolder.getEditableFilterList(msgWindow); // msgWindow = global variable
+      let isFoundActiveFilterMatch = false;
+      for (let f = 0; f < filtersList.filterCount; f++) {
+        let aFilter = filtersList.getFilterAt(f),  // nsIMsgFilter 
+            acLength = qF.Util.getActionCount(aFilter);
+        if (!aFilter.enabled) continue;
+
+        for (let index = 0; index < acLength; index++) {
+          let ac = aFilter.getActionAt(index);
+          try {
+            if (ac.type == Ci.nsMsgFilterAction.MoveToFolder ||
+              ac.type ==Ci.nsMsgFilterAction.CopyToFolder) {
+                  if (ac.targetFolderUri == targetFolder.URI) {
+                    // now make sure that all filter conditions match!
+                    // just use the first message
+                    let ms = aSrcMsgs[0];
+                    // match all search terms
+                    let match = aFilter.MatchHdr(ms, ms.folder,  ms.folder.msgDatabase, "");
+                    // aFilter.MatchHdr(aDestMsgs[0], targetFolder,  targetFolder.msgDatabase, "")
+                    if (match) {
+                      isFoundActiveFilterMatch = true;
+                      break;
+                    }
+                  }
+                }
+          } 
+          catch(ex) {
+            // NOP
+          }
+        }
+        if (isFoundActiveFilterMatch) {
+          if (isMoveDebug) {
+            console.log(`No Assistant triggered by moving ${aSrcMsgs.length} messages, because a matching filter ${aFilter.filterName} exists and may have caused this event:\n`, aFilter);
+          }
+          return;
+        }
+      }
+
 
       for (let i=0; i<aSrcMsgs.length; i++) {
         msgList.push(qF.Util.makeMessageListEntry(aSrcMsgs[i])); 
@@ -1393,6 +1456,10 @@ quickFilters.MsgFolderListener = {
       }
 
       if (msgList.length) {
+        if (isMoveDebug) {
+          let done = isMoved ? "moved" : "copied";
+          console.log(`${done} ${msgList.length} messages, now invoking filter assistant...`)
+        }
         qF.Worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
           isMoved ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
           null, false);

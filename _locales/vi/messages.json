@@ -1329,7 +1329,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Để tránh vô tình chạy các bộ lọc thông qua phím tắt, đã thêm hộp thoại xác nhận.{L2} {L1} Đã sửa lỗi khả năng đọc chú giải công cụ trong chủ đề tối. {L2} {L1} Đã sửa lỗi: Bộ lọc Trả lời có phân biệt chữ hoa chữ thường - phải phân biệt chữ hoa chữ thường {L2} {L1} Chuẩn bị mã cho năm 2023 bằng cách xóa trình nghe luồng đồng bộ hóa không dùng nữa.{L2} {L1} Giờ đây, bạn có thể tạo các bộ lọc chuyển thư sang hộp thư đến khác. {L2} {L1} Đã xóa mã vá lỗi Thunderbird, nếu sử dụng QuickFolders, bạn phải cập nhật lên phiên bản 5.15.1 để tránh lời nhắc trợ lý trùng lặp.{L2}"
+    "message": "{L1} 5.7.1 - Đã sửa lỗi: trợ lý quickFilters được gọi ngoài ý muốn khi xóa email hoặc các bộ lọc khác được thực thi. [issue 143] {L2}{L1} Để tránh vô tình chạy các bộ lọc thông qua phím tắt, đã thêm hộp thoại xác nhận.{L2} {L1} Đã sửa lỗi khả năng đọc chú giải công cụ trong chủ đề tối. {L2} {L1} Đã sửa lỗi: Bộ lọc Trả lời có phân biệt chữ hoa chữ thường - phải phân biệt chữ hoa chữ thường {L2} {L1} Chuẩn bị mã cho năm 2023 bằng cách xóa trình nghe luồng đồng bộ hóa không dùng nữa.{L2} {L1} Giờ đây, bạn có thể tạo các bộ lọc chuyển thư sang hộp thư đến khác. {L2} {L1} Đã xóa mã vá lỗi Thunderbird, nếu sử dụng QuickFolders, bạn phải cập nhật lên phiên bản 5.15.1 để tránh lời nhắc trợ lý trùng lặp.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
