@@ -260,22 +260,20 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   </table>  
 
 
-  <h5 class="inList"> Known issues in 5.7 </h5>
+  <h5 class="inList">Maintenance Fixes - 5.7.1 </h5>
   <ul>
     <li>
-      When the assistant is active, deleting emails triggers it and prompts to create new filters. 
-      This behavior is unintended.
-      there is a version that fixes this problem <a href="https://github.com/RealRaven2000/quickFilters/issues/142#issuecomment-1364036523">here</a>
+      From v5.7 - once the assistant is active, <i>deleting emails</i> triggered it and prompted to create 
+      new filters. This behavior was unintended. <a href="https://github.com/RealRaven2000/quickFilters/issues/142#">[issue 142]</a>
     </li>
     <li>
-      The quickFilters filter assistant may be triggered by filters that execute moving / copying mail!
+      From v5.7 the quickFilters filter assistant could be  triggered by filters that execute moving / copying mail!
       I am currently working on a permanent fix for this issue. There are already 
       prereleases available here:
       <a href="https://github.com/RealRaven2000/quickFilters/issues/143">[issue 143]</a>
       You can leave a comment there if you want to be notified directly on all news working
-      on this problem. As a workaround you can also disable the automatic starting of the filter 
-      assistant on the actions page of quickFilters settings - it only happens while the assistant
-      mode is active.
+      on this problem. From 5.7.1 on it will be checking if there are already filters active that 
+      may have successfully moved the mail, in which case the assistant is not invoked.</li>
     </li>
   </ul>
 
