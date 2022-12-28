@@ -263,11 +263,12 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h5 class="inList">Maintenance Fixes - 5.7.1 </h5>
   <ul>
     <li>
-      From v5.7 - once the assistant is active, <i>deleting emails</i> triggered it and prompted to create 
+      Since v5.7 , <i>deleting emails</i> triggered the active filter assistant and prompted to create 
       new filters. This behavior was unintended. <a href="https://github.com/RealRaven2000/quickFilters/issues/142#">[issue 142]</a>
     </li>
     <li>
-      From v5.7 the quickFilters filter assistant could be  triggered by filters that execute moving / copying mail!
+      From v5.7 the quickFilters filter assistant were triggered by executing filters that 
+      move / copy mail.
       With the latest version it will be checking if there are already filters active that 
       may have successfully moved the mail, in which case the assistant is not invoked.
       <a href="https://github.com/RealRaven2000/quickFilters/issues/143">[issue 143]</a>
@@ -280,15 +281,19 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h5 class="inList"> Improvements in 5.7 </h5>
   <ul>
     <li>
-      Avoid accidentally running filters through Shortcut, add confirmation dialog. 
+      Added confirmation prompt to avoid accidentally running filters through hotkey.
       <a href="https://github.com/RealRaven2000/quickFilters/issues/132">[issue 132]</a>
+      <p>
+        This can be configured on the quickFilters Pro license tab <br>
+        <img class="screenshot" src="img/qi-confirm-shortcut.png") />
+      </p>        
     </li>
     <li>
-      Reply-To filter is case sensitive - should be case insensitive
+      Reply-To search term is now insensitive to mixed small / capital letters.
       <a href="https://github.com/RealRaven2000/quickFilters/issues/133">[issue 133]</a>
     </li>
     <li>
-      fixed: help text of tooltip (e.g. actions in filter editor) not readable in dark themes.
+      Help text of tooltip (e.g. actions in filter editor) is now readable in dark themes.
     </li>
     <li>
       You can now create filters that move mail across to another inbox. 
