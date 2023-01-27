@@ -351,7 +351,7 @@ var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
         if (!util.popupProFeature("sortSearchTerms", true)) return;
       }
       // 1st save in case there were edits on screen!
-      saveSearchTerms(theFilter.searchTerms, theFilter);
+      saveFilter(); // [issue 149] Sorting filter items resurrects deleted search terms
       
       let stCollection = util.querySearchTermsArray(theFilter.searchTerms),
           newSearchArray = [],
