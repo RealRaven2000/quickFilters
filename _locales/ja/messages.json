@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "ライセンスを購入する！"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "アシスタントはこれらのフォルダを無視する必要があります…"
+  },
   "qf.btn.splash": {
     "message": "スプラッシュ画面を表示する"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "フィルタ作成"
+  },
+  "qf.github.description": {
+    "message": "バグの報告や新機能の提案はこちら:"
   },
   "qf.grp.whenToRun": {
     "message": "フィルタの適用:"

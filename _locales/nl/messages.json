@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Een licentie kopen!"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "Assistent zou deze mappen moeten negeren..."
+  },
   "qf.btn.splash": {
     "message": "Splash-scherm weergeven"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "Filters aanmaken"
+  },
+  "qf.github.description": {
+    "message": "Rapporteer hier bugs of stel nieuwe functies voor:"
   },
   "qf.grp.whenToRun": {
     "message": "Filter toepassen bij het"

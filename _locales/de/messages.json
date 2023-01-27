@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Lizenz erwerben!"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "Der Assistent sollte die folgenden Ordner ignorieren…"
+  },
   "qf.btn.splash": {
     "message": "Begrüßungsbildschirm anzeigen"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "Filter Erstellen"
+  },
+  "qf.github.description": {
+    "message": "Fehler melden oder neue Funktionswünsche eingeben:"
   },
   "qf.grp.whenToRun": {
     "message": "Filter Anwenden Bei"
@@ -1240,7 +1246,7 @@
     "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt quickFilters zukunftssicher machen. Weitere große Änderungen an Thunderbird kommen und ich brauche {boldStart}Ihre Hilfe{boldEnd}, um Schritt zu halten!"
   },
   "subjectCompleteExtract": {
-    "message": "Immer die Betreffzeile vollständige einfügen."
+    "message": "Immer die vollständige Betreffzeile einfügen."
   },
   "special-offer-renew": {
     "message": "Erneuern Sie jetzt Ihre Lizenz und sparen Sie {boldStart}$reduction${boldEnd}! Dieses Sonderangebot ist bis zum {boldStart}$expirydate${boldEnd} verfügbar.",

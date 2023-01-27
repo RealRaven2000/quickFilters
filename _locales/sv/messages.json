@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Att köpa en licens!"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "Assistenten bör ignorera dessa mappar…"
+  },
   "qf.btn.splash": {
     "message": "Visa stänkskärm"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "Skapa filter"
+  },
+  "qf.github.description": {
+    "message": "Rapportera buggar eller föreslå nya funktioner här:"
   },
   "qf.grp.whenToRun": {
     "message": "Tillämpa filter när"

@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Mua Giấy phép!"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "Trợ lý nên bỏ qua các thư mục này…"
+  },
   "qf.btn.splash": {
     "message": "Hiển thị màn hình Splash"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "Tạo Bộ Lọc"
+  },
+  "qf.github.description": {
+    "message": "Báo cáo lỗi hoặc đề xuất các tính năng mới tại đây:"
   },
   "qf.grp.whenToRun": {
     "message": "Apply filter when"

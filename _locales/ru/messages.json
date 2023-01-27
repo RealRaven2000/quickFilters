@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Купить лицензию!"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "Ассистент должен игнорировать эти папки…"
+  },
   "qf.btn.splash": {
     "message": "Отображение экрана-заставки"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "Создать фильтр"
+  },
+  "qf.github.description": {
+    "message": "Сообщайте об ошибках или предлагайте новые функции здесь:"
   },
   "qf.grp.whenToRun": {
     "message": "Условие запуска фильтра"

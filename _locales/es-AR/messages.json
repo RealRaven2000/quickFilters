@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "Comprar una licencia"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "El asistente debe ignorar estas carpetas..."
+  },
   "qf.btn.splash": {
     "message": "Mostrar pantalla de bienvenida"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "Crear filtros"
+  },
+  "qf.github.description": {
+    "message": "Reporte errores o sugiera nuevas características aquí:"
   },
   "qf.grp.whenToRun": {
     "message": "Aplicar filtro cuando"

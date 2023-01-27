@@ -281,6 +281,9 @@
   "purchase-heading" : {
     "message" : "Lisenssin ostaminen!"
   }, 
+  "qf.assistant.ignoreFolders": {
+    "message": "Assistantin pitäisi ohittaa nämä kansiot…"
+  },
   "qf.btn.splash": {
     "message": "Näytä Splash-näyttö"
   },
@@ -498,6 +501,9 @@
   },
   "qf.filters.title": {
     "message": "Luo suodattimia"
+  },
+  "qf.github.description": {
+    "message": "Ilmoita virheistä tai ehdota uusia ominaisuuksia täällä:"
   },
   "qf.grp.whenToRun": {
     "message": "milloin suodatinta käytetään"

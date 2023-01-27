@@ -40,13 +40,21 @@
   text-shadow: #000 0 0 1px, #606000 0 0 2px, #000 2px 2px 3px;
 }
 
+#assistantIgnore {
+	-moz-appearance: none !important;
+	border: 1px solid rgba(90,90,90,0.7);
+	border-radius: 3px;
+  margin-top: 20px;
+	padding: 0.6em;
+}
+
 #qf-options-version:hover {
 	border: 1px rgba(100,60,60,0.6);
 	box-shadow: 3px 3px 2px rgba(40,40,40,0.3);
 }
 
 #qf-header-container {
-	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 	width: 100%;
   margin-bottom: 8px;
 }
@@ -131,7 +139,7 @@ hbox > button {
 /****** support tab	********/
 label.text-link[href],
 button.text-link[href] {
-	padding: 4px 2px 4px 5px !important;
+	padding: 3px 2px 3px 5px !important;
 	vertical-align: middle !important;
 }
 
@@ -214,15 +222,15 @@ label.text-link[visited="true"] {
 
 /* quickFilters homepage - green */
 #L1 {
-  background: linear-gradient(to bottom, rgba(169,182,98,1) 0%, rgba(125,151,65,1) 50%, rgba(98,132,30,1) 51%, rgba(138,165,71,1) 100%);
-	background-color: rgb(169,182,98) !important;
+  background: linear-gradient(to bottom, rgb(96, 109, 21) , rgb(59, 70, 2) );
+	background-color: rgb(64, 75, 1) !important;
 	color: #E0F0E0 !important;
 }
 
 #L1.text-link:focus  {
 	color: #FFF !important;
 	background: rgb(191,210,85);
-	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+	background: linear-gradient(to bottom, rgb(135, 158, 6) 0%, rgb(112, 146, 32) 50%, rgb(69, 95, 3) 100%) !important;
 	border: 1px #006 solid;
   list-style-image: url("chrome://messenger/skin/preferences/arrow_green.png");
 	text-decoration: underline !important;
@@ -260,11 +268,10 @@ label#getCopySentToCurrent:hover {
   text-decoration: underline !important;
 }
 
-
 /* youtube - red */
 label#L2 {
 	-moz-appearance: none;
-  background: linear-gradient(to bottom, #6b0505 0%,#cc0000 31%,#ed3b3b 100%);
+  background: linear-gradient(to bottom, #860404 0%,#6b0505 100%);
 	color: #F0F0F0 !important;
 	text-align: center;
   list-style-image: url("chrome://messenger/skin/preferences/youtube_small.png");
@@ -321,12 +328,18 @@ label#L4:hover, label#L4:active  {
 
 
 
-/* bugs - cherry-red */
+/* bugs - dark gray */
+#L5 {
+	background-image: linear-gradient(to bottom, rgb(53, 53, 53) 0%, rgb(12, 12, 12) 100%) !important;
+	background-color: rgb(27, 27, 27) !important;
+	color: #E0F0E0 !important;
+}
+
 label#L5:hover, label#L5:focus {
-	background-color: rgb(174,45,28) !important;
-	background-image: linear-gradient(to bottom, rgba(174,45,28,1) 0%, rgba(214,90,79,1) 12%, rgba(193,53,38,1) 43%, rgba(126,24,8,1) 100%) !important;
+	background-color: rgb(41, 9, 5) !important;
+	background-image: linear-gradient(to bottom, rgb(53, 53, 53) 0%, rgb(34, 34, 34) 100%) !important;
 	color: #fff !important;
-	border: 1px #4B1400 solid;
+	border: 1px #912801 solid;
 }
 
 label#L5:active {

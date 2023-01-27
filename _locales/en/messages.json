@@ -276,6 +276,9 @@
   "purchase-heading": {
     "message": "Buying a License!"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "Assistant should ignore these folders…"
+  },
   "qf.btn.splash": {
     "message": "Display Splash screen"
   },
@@ -493,6 +496,12 @@
   },
   "qf.filters.title": {
     "message": "Create Filters"
+  },
+  "qf.github.description": {
+    "message": "Report bugs or suggest new features here:"
+  },
+  "qf.github.link": {
+    "message": "quickFilters Github…"
   },
   "qf.grp.whenToRun": {
     "message": "Apply filter when"

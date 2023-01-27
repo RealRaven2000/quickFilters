@@ -20,6 +20,7 @@ pref("extensions.quickfilters.debug.merge.detail", false);
 pref("extensions.quickfilters.debug.nostalgy", false);
 pref("extensions.quickfilters.debug.notifications", false);
 pref("extensions.quickfilters.debug.msgMove",false);
+pref("extensions.quickfilters.debug.msgMove.detail",false);
 pref("extensions.quickfilters.debug.replaceReservedWords",false);
 pref("extensions.quickfilters.debug.template.multifrom", false);
 pref("extensions.quickfilters.debug.template.custom", false);
@@ -65,7 +66,9 @@ pref("extensions.quickfilters.searchterm.addressesOneWay", false); // Bug 25714
 pref("extensions.quickfilters.searchterm.insertOnTop", false); // Bug 26664
 
 
-
+pref("extensions.quickfilters.assistant.exclude.trash", false);
+pref("extensions.quickfilters.assistant.exclude.junk", false);
+pref("extensions.quickfilters.assistant.exclude.archive", true);
 pref("extensions.quickfilters.merge.autoSelect", false);
 pref("extensions.quickfilters.merge.silent", false);
 

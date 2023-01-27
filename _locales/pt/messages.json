@@ -281,6 +281,9 @@
   "purchase-heading" : {
     "message" : "Comprando uma licença!"
   }, 
+  "qf.assistant.ignoreFolders": {
+    "message": "O assistente deve ignorar essas pastas…"
+  },
   "qf.btn.splash": {
     "message": "Exibir tela inicial"
   },
@@ -498,6 +501,9 @@
   },
   "qf.filters.title": {
     "message": "Criar Filtros"
+  },
+  "qf.github.description": {
+    "message": "Relate bugs ou sugira novos recursos aqui:"
   },
   "qf.grp.whenToRun": {
     "message": "Aplicar filtro quando"

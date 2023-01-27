@@ -280,6 +280,9 @@
   "purchase-heading": {
     "message": "购买许可证！"
   },
+  "qf.assistant.ignoreFolders": {
+    "message": "助手应该忽略这些文件夹……"
+  },
   "qf.btn.splash": {
     "message": "显示启动画面"
   },
@@ -497,6 +500,9 @@
   },
   "qf.filters.title": {
     "message": "创建过滤器"
+  },
+  "qf.github.description": {
+    "message": "在此处报告错误或建议新功能："
   },
   "qf.grp.whenToRun": {
     "message": "Apply filter when"

@@ -333,6 +333,10 @@
 					<label id="getCopySentToCurrent"
 								 tooltiptext="https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/"
 								 onclick="quickFilters.Util.openURLInTab('https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
+
+					<button id="assistantIgnore"
+					        label="__MSG_qf.assistant.ignoreFolders__" 
+									onclick="quickFilters.Util.showAboutConfig(this, 'quickfilters.assistant.exclude', true)" />
 				</vbox>
 			</hbox>
 
@@ -572,6 +576,14 @@
                tooltiptext="https://quickfilters.quickfolders.org/"
                onclick="quickFilters.Util.showHomePage();">__MSG_qf.label.aboutLink__</label>
         <separator />
+
+        <div class="quickhelp-desc">__MSG_qf.github.description__</div>
+        <label id="L5"
+               class="text-link"
+               tooltiptext="https://github.com/RealRaven2000/quickFilters/issues"
+               onclick="quickFilters.Util.showGithub();">__MSG_qf.github.link__</label>
+        <separator />
+
 
         <div class="quickhelp-desc">__MSG_qf.youtube.description__</div>
         <label id="L2"
