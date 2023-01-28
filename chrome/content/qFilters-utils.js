@@ -94,8 +94,9 @@ quickFilters.Util = {
 	  if (Components.interfaces.nsMsgFolderFlags)
 	    return Components.interfaces.nsMsgFolderFlags;
 		else { // sigh. Postbox doesn't have this?
-		  // from https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsMsgFolderFlagType
+		  // from https://searchfox.org/comm-esr102/rev/3095765b3471ee29b8e3ca95ccdb1c429ac68d81/mailnews/base/public/nsMsgFolderFlags.idl#24
 		  return {
+        Trash: 0x00000100,
 			  Inbox: 0x00001000,
 				Drafts: 0x00000400,
 				Queue: 0x00000800,
@@ -1082,6 +1083,10 @@ quickFilters.Util = {
 	showYouTubePage: function showYouTubePage() {
 		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V');
 	} ,
+
+  showGithub: function() {
+    quickFilters.Util.openLinkInBrowserForced("https://github.com/RealRaven2000/quickFilters/issues");
+  },
 
   showHomePage: function showHomePage(queryString) {
 	  if (!queryString) queryString='index.html';
@@ -2279,6 +2284,41 @@ quickFilters.Util = {
   promptToRestart: function() {
     let txt = quickFilters.Util.getBundleString("restart-app", "Restart $application$ to activate this option.", [quickFilters.Util.Application]);
     Services.prompt.alert(null, "quickFilters", txt);    
+  },
+
+  checkAssistantExclusion: function(targetFolder) {
+    // Avoid triggering assistant
+    const FLG = quickFilters.Util.FolderFlags,
+          isArchiveExcluded = quickFilters.Preferences.getBoolPref("assistant.exclude.archive");
+    let excluded = FLG.Queue | FLG.Templates  | FLG.SentMail  | FLG.Drafts  | FLG.Newsgroup;
+    if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
+      excluded = excluded | FLG.Trash;
+    }
+    if (quickFilters.Preferences.getBoolPref("assistant.exclude.junk")) {
+      excluded = excluded | FLG.Junk;
+    }
+    if (isArchiveExcluded) {
+      excluded = excluded | FLG.Archive;
+    }
+
+    if (excluded & targetFolder.flags) {
+      if (isMoveDebug) {
+        console.log(`No Assistant triggered for excluded target folder:  ${targetFolder.prettyName} \nFlags: 0x${targetFolder.flags.toString(16)}\nURI: ${targetFolder.URI}`);
+      }
+      return true;
+    }      
+    if (isArchiveExcluded) { // exclude all Archive child folders
+      let p = targetFolder;
+      while (p) {
+        p = p.parent;
+        if (!p || p.isServer) break;
+        if (p.flags & FLG.Archive) {
+          console.log(`Disabled Assistant for folder:  ${targetFolder.prettyName} \nIt is in an Archived parent folder.\nFlags: 0x${p.flags.toString(16)}\nURI: ${p.URI}`);
+          return true;
+        }
+      }
+    }
+    return false;
   },
   
 	
