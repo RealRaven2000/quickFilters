@@ -757,6 +757,16 @@ quickFilters.Worker = {
                     }
                   }
                   break;
+                case Ci.nsMsgFilterAction.Custom:
+                  if (filterActionExt == "Archive"
+                      &&
+                      primaryAction.customId == "filtaquilla@mesquilla.com#archiveMessage") {
+                      matchingFilters.push(aFilter);
+                      util.logDebugOptional("merge,merge.detail", 
+                        "======================= MERGE MATCH  ===================\n" +
+                        "  Found filter [" + aFilter.filterName + "] merging match custom action Archiving (FiltaQuilla) ADDING TO matchingFilters.");
+                    
+                  }
               }
             }
           }
@@ -1035,6 +1045,13 @@ quickFilters.Worker = {
             }
           }
         filterName = filterName.replace("{1}", sTags);
+        break;
+      case nsMsgFilterAction.Custom:
+        if (filterActionExt == "Archive") {
+          if (FiltaQuilla && FiltaQuilla.Util.prefs.getBoolPref("archiveMessage.enabled")) {
+            filterName = filterName.replace("{1}","Archive");
+          }
+        }
         break;
       default:
         filterName = filterName.replace("{1}", folderName);
@@ -1323,12 +1340,28 @@ quickFilters.Worker = {
     /* New Filter Options */
     if (!isMerge) {
       targetFilter.filterName = filterName;
+      let theAction = null;
       if (prefs.isMoveFolderAction) {
-        let moveAction = targetFilter.createAction(); // nsIMsgRuleAction 
-        moveAction.type = nsMsgFilterAction.MoveToFolder;
-        moveAction.targetFolderUri = targetFolder.URI;
-        targetFilter.appendAction(moveAction);
+        if (filterAction == nsMsgFilterAction.MoveToFolder || filterAction == nsMsgFilterAction.CopyToFolder) {
+          theAction = targetFilter.createAction(); // nsIMsgRuleAction 
+          theAction.type = filterAction; // nsMsgFilterAction.MoveToFolder; - also support CopyToFolder!!
+          theAction.targetFolderUri = targetFolder.URI;
+        }
       }
+      else if (filterAction == nsMsgFilterAction.Custom){
+        // check if it's archiving (FiltaQuilla)
+        if (filterActionExt == "Archive") {
+          if (FiltaQuilla && FiltaQuilla.Util.prefs.getBoolPref("archiveMessage.enabled")) {
+            theAction = targetFilter.createAction(); // nsIMsgRuleAction 
+            theAction.type = filterAction; // nsMsgFilterAction.MoveToFolder; - also support CopyToFolder!!
+            theAction.customId = "filtaquilla@mesquilla.com#archiveMessage";
+          }
+        }
+      }
+      if (theAction) {
+        targetFilter.appendAction(theAction);
+      }
+
       // filter type
       // https://dxr.mozilla.org/comm-central/source/comm/mailnews/base/search/content/FilterEditor.js#298
       targetFilter.filterType = nsMsgFilterType.None;
@@ -1606,19 +1639,17 @@ quickFilters.Worker = {
     if (filterAction ===true) {  // old isCopy value
       filterAction = Ci.nsMsgFilterAction.CopyToFolder;
     }
-    window.setTimeout(async function() {
-      // avoid repeating the same thing
-      const util = quickFilters.Util;
+    //window.setTimeout(async function() {
       try {
         let filtered = await quickFilters.Worker.createQuickFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
         // remember message ids!
-        util.logDebugOptional('createFilter', 'createFilterAsync_New() - createQuickFilter returned: ' + filtered);
+        quickFilters.Util.logDebugOptional('createFilter', 'createFilterAsync_New() - createQuickFilter returned: ' + filtered);
       }
       catch(ex) {
-        util.logException("createFilterAsync_New() failed: ", ex);
+        quickFilters.Util.logException("createFilterAsync_New() failed: ", ex);
       }
       finally { ; }
-    }, delay);
+    //}, delay);
 
   }
 
