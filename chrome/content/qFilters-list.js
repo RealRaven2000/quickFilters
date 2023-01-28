@@ -476,15 +476,12 @@ quickFilters.List = {
 	
 	// retrieves the folder of the currently selected server
 	get CurrentFolder() {
-		if (typeof gServerMenu !== 'undefined')
-			return gServerMenu._folder; // Tb52++ this is the menulist #serverMenu
-	  if (typeof gCurrentFolder !== "undefined") {
-			return gCurrentFolder ; // Tb
+		if (typeof gServerMenu !== 'undefined') {  // filters window
+			return gServerMenu._folder; 
+    }
+	  if (typeof gCurrentFolder !== "undefined") {  // main window only 
+			return gCurrentFolder ; 
 		}
-		// Postbox / Suite:
-		if (typeof gCurrentServerURI !== 'undefined')
-		  return quickFilters.Util.getMsgFolderFromUri(gCurrentServerURI);
-		
 		return null; 
 	} ,
 	
@@ -571,7 +568,6 @@ quickFilters.List = {
 		}
 		this.clipboardList.splice(0); // discard old list
 		this.clipboardServer = this.CurrentFolder; // original account when copying to clipboard!
-		let cutFiltersList = sourceFolder.getEditableFilterList(gFilterListMsgWindow);
 				
 		// get all selected filters and sort them by their list position
 		// then copy to clipboardList array
@@ -1849,7 +1845,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 }
  */		
 	
-  store: function store() {
+  store: function store(event) {
 		// see nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		// https://dxr.mozilla.org/comm-central/source/mailnews/base/search/src/nsMsgFilterList.cpp#867
 		
@@ -1858,7 +1854,11 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
     const util = quickFilters.Util,
           settings = quickFilters.Settings,
 					qfList = quickFilters.List; // this object
-					
+			
+    if (event.ctrlKey) {
+      this.storeSelected();
+      return;
+    }
     let uri = this.ServerMenu.value,
 		    folder = typeof gSelectedFolder == "string" 
 				  ? gSelectedFolder   // global in Thunderbird FitlerListDialog.js
@@ -1921,6 +1921,53 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			util.alert(msg);
   } ,
   
+  storeSelected: function() {
+		let count = this.getSelectedCount(this.FilterListElement);
+		if (count < 1) {
+			let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
+			quickFilters.Util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
+			return false;
+		}
+    let filtersJSON = {
+      accountName: this.ServerMenu.value,
+      rootFolderURL: quickFilters.List.CurrentFolder.server.rootMsgFolder.folderURL,
+      date: (new Date()).toJSON(),  
+      filters: []
+    };    
+				
+		// get all selected filters and sort them by their list position
+		// then copy to clipboardList array
+		let filtersSelected = [];
+    const list = this.FilterListElement;
+    for (let f=0; f<count ; f++) {
+      let aFilter = this.getSelectedFilterAt(list, f);
+			filtersSelected.push (aFilter);
+    }
+
+
+    let customErrors = [];
+    let iSuccess=0, iFail=0;
+		for (let i = 0; i < filtersSelected.length; i++) {
+			let errs = [],
+			    jsonAtom = quickFilters.Util.serializeFilter(filtersSelected[i], errs),
+			    fn = jsonAtom ? (jsonAtom.filterName || "[unnamed]") : "[serializeFilter failed]";
+			while (errs.length) { customErrors.push(errs.pop()); }
+		  if (jsonAtom) {
+				iSuccess++;
+				quickFilters.Util.logDebug("# " + (i+1) + ". Added filter to JSON: " + fn)
+				filtersJSON.filters.push(jsonAtom);
+			}
+			else {
+				iFail++;
+				quickFilters.Util.logToConsole("# " + (i+1) + ". COULD NOT ADD filter: " + fn);
+			}
+		}
+
+    let json = JSON.stringify(filtersJSON, null, '  ');
+    this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
+
+  } ,
+
   load: function load() {
     this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
   } ,
@@ -2039,6 +2086,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			document.getElementById('quickFiltersTroubleshoot').classList.remove("faulty");
 		return errorList;
 	} ,
+
 	
 	troubleshoot: function troubleshootFilterList() {
 		// go through list and check for flags InboxRule / InboxRuleJavaScript / NewsRule / NewsRuleJavascript
