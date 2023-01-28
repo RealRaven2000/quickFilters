@@ -512,12 +512,20 @@ END LICENSE BLOCK
     # fixed: help text of tooltip (e.g. actions in filter editor) not readable in dark themes
     # WIP: remove sync-stream-listener which will go away in future versions of Thunderbird
     #   https://searchfox.org/comm-central/rev/9385c66c25d39efe2d7ccfcdb3a9b079da8d4b71/mail/components/extensions/parent/ext-messages.js#255-320
-    # Remove monkey patch code for Tb move mail commands
+    # Remove monkey patch code for Tb move mail commands (MsgCopyMessage)
     # Improved filter naming for standard Tag actions
 
-  5.7.1 - WIP
-    # [issue 204] Assistant triggered when emails are deleted
-    # [issue ] Multiple assistant windows triggered when multiple mails are moved
+  5.7.1 - 26/12/2022
+    # [issue 142] Assistant triggered when emails are deleted
+    # [issue 143] Assistant triggered by filters that execute moving / copying mail 
+
+
+  5.7.2 - WIP
+    # [issue 149] Sorting filter items resurrects deleted search terms
+    # [issue 146] Add link to github for bug reports on support tab
+    # [issue 145] Allow assistant trigger when deleting or moving mail to Junk
+    #             also add switch to support Archives
+    # Store only highlighted filters using Backup Button + CTRL key
 
   5.* - TO DO
     # Remove monkey patch code for tag changes
@@ -540,7 +548,7 @@ var quickFilters = {
   firstRunChecked: false,
   firstRunCount: 0,
   quickFilters_originalDrop: null,
-  isNewAssistantMode: true,
+  isNewAssistantMode: false,  /* restore monkey patch */
   isLoading: false,
   get notificationService() {
     return Components.classes["@mozilla.org/messenger/msgnotificationservice;1"].getService(Components.interfaces.nsIMsgFolderNotificationService);
@@ -605,11 +613,31 @@ var quickFilters = {
       }
 
       this.initialized = true;
-      
+
+      // Monkey Patch is back:
+      if (!quickFilters.executeMoveMessage
+        &&
+        quickFilters.MsgMove_Wrapper != MsgMoveMessage) {
+        util.logDebugOptional('msgMove', ' Wrapping MsgMoveMessage...');
+        quickFilters.executeMoveMessage = MsgMoveMessage;
+        MsgMoveMessage = quickFilters.MsgMove_Wrapper; // let's test this for a while...
+        util.logDebugOptional('msgMove', 
+                              ' quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper :' 
+                              + (quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper));
+        quickFilters.executeCopyMessage = MsgCopyMessage;
+        MsgCopyMessage = quickFilters.MsgCopy_Wrapper; // let's test this for a while...
+      }
+      // for move to / copy to recent context menus we might have to wrap mailWindowOverlay.js:MsgMoveMessage in Tb!
       if (quickFilters.Preferences.getBoolPref("autoStart") &&  !quickFilters.Util.AssistantActive)
       {
         util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
         setTimeout(function() { quickFilters.Worker.toggle_FilterMode(true, true);  }, 100);
+      }
+
+      // monkey patch for archiving
+      if (!quickFilters.executeArchiveSelectedMessages) {
+        quickFilters.executeArchiveSelectedMessages = MsgArchiveSelectedMessages;
+        MsgArchiveSelectedMessages = quickFilters.MsgArchive_Wrapper;
       }
 
       // Add Custom Terms... - only from next version after 2.7.1 !
@@ -657,7 +685,20 @@ var quickFilters = {
       // or we do 
       quickFilters.onToolbarButtonCommand();
     }
-    // TODO - monkeypatch - restore global wrapped functions
+    // restore global wrapped functions
+    if (quickFilters.executeMoveMessage) {
+      MsgMoveMessage = quickFilters.executeMoveMessage;
+      quickFilters.executeMoveMessage = null;
+    }
+    if (quickFilters.MsgCopy_Wrapper) {
+      MsgCopyMessage = quickFilters.executeCopyMessage;
+      quickFilters.executeCopyMessage = null;
+    }
+    if (quickFilters.executeArchiveSelectedMessages) {
+      MsgArchiveSelectedMessages = quickFilters.executeArchiveSelectedMessages;
+      quickFilters.executeArchiveSelectedMessages = null;
+    }
+
     // remove the event handlers!
   },
 
@@ -1055,6 +1096,9 @@ var quickFilters = {
         let msgList = util.createMessageIdArray(targetFolder, messageUris);
 
         if (quickFilters.Util.AssistantActive) {
+          if (quickFilters.Util.checkAssistantExclusion(targetFolder)) {
+            return;
+          }
           // TODO - asyncify ?
           worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
             isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
@@ -1143,6 +1187,9 @@ var quickFilters = {
 
         if (quickFilters.Util.AssistantActive) {
           // is now async too. TO DO asyncify - await needed?
+          if (quickFilters.Util.checkAssistantExclusion(targetFolder)) {
+            return false;
+          }
           worker.createFilterAsync_New(sourceFolder, targetFolder, msgList, 
              isMove ? Components.interfaces.nsMsgFilterAction.MoveToFolder : Components.interfaces.nsMsgFilterAction.CopyToFolder, 
              null, false);
@@ -1198,6 +1245,150 @@ var quickFilters = {
       util.logException('toggleCurrentFolderButtons()', ex);
     }
   } ,
+
+  MsgMove_Wrapper: function MsgMove_Wrapper(uri) {
+    const util = quickFilters.Util;
+    try {
+      util.logDebugOptional('msgMove', 
+                            ' quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper :' 
+                            + (quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper));
+      quickFilters.MsgMoveCopy_Wrapper(uri, false);
+    }
+    catch(ex) {
+      util.logException('MsgMove_Wrapper()', ex);
+    }
+  } ,
+  
+  MsgCopy_Wrapper: function MsgCopy_Wrapper(uri) {
+    const util = quickFilters.Util;
+    try {
+      util.logDebugOptional('msgMove', 
+                            ' quickFilters.executeCopyMessage == quickFilters.MsgMove_Wrapper :' 
+                            + (quickFilters.executeCopyMessage == quickFilters.MsgCopy_Wrapper));
+      quickFilters.MsgMoveCopy_Wrapper(uri, true);
+    }
+    catch(ex) {
+      util.logException('MsgMove_Wrapper()', ex);
+    }
+  } ,
+  
+  MsgMoveCopy_Wrapper: function MsgMoveCopy_Wrapper(uri, isCopy) {
+    const util = quickFilters.Util,
+          worker = quickFilters.Worker,
+          prefs = quickFilters.Preferences,
+          Ci = Components.interfaces;
+          
+    // MsgMoveMessage wrapper function
+    let sourceFolder, destMsgFolder, messageList = [], isCreateFilter = false;
+    
+    try {
+      util.logDebugOptional('msgMove', "Executing wrapped MsgMoveMessage");
+      if (quickFilters.Util.AssistantActive) { 
+        sourceFolder = util.getCurrentFolder();
+        
+        let destResource = uri;  
+        
+        destMsgFolder = destResource.QueryInterface(Ci.nsIMsgFolder);
+        
+        // get selected message uris - see case 'createFilterFromMsg'
+        let selectedMessages = gFolderDisplay.selectedMessages,
+            selectedMessageUris = gFolderDisplay.selectedMessageUris;
+            
+        util.logDebugOptional('msgMove', 'MsgMoveCopy_Wrapper(): ' + selectedMessages.length + ' selected Messages counted.');
+
+        if (util.checkAssistantExclusion(targetFolder)) {
+          isCreateFilter = false;
+        }
+        else {        
+          let i;
+          for (i=0; i<selectedMessages.length; i++) {
+            messageList.push(util.makeMessageListEntry(selectedMessages[i], selectedMessageUris[i])); 
+            // the original command in the message menu calls the helper function MsgCreateFilter()
+            // we do not know the primary action on this message (yet)
+          }
+          if (i)  {       
+            // can we clone here - let's try as counter measure for IMAP users..
+            worker.refreshHeaders(messageList, sourceFolder, null); // attempt an early message clone process
+            worker.promiseCreateFilter = true;
+            isCreateFilter = true;
+            // move filter  creation until after copy / move!
+          }
+        }
+
+      } // only do if Filter Assistant is active
+    }
+    catch(ex) {
+      util.logException("MsgMoveCopy_Wrapper", ex);
+    }         
+    finally { 
+      // this is very important as we need to restore the original MsgMoveMessage
+      let promiseDone = function() { 
+        // we cannot quickmove until we are done evaluating the message headers for filter creation
+        {
+          if (isCopy) {
+            util.logDebugOptional('msgMove', "Executing original CopyMessage [[");
+            // calls original copy message function of Thunderbird
+            quickFilters.executeCopyMessage(uri); 
+          }
+          else {
+            util.logDebugOptional('msgMove', "Executing original MoveMessage [[");
+            // call original move message function of Thunderbird
+            quickFilters.executeMoveMessage(uri); 
+          }
+          util.logDebugOptional('msgMove', "After original Move/CopyMessage.]]");
+          // MOVED FILTER CREATION AFTER MESSAGES ARE MOVED.
+          let fA = isCopy ? Ci.nsMsgFilterAction.CopyToFolderMsgCopyMessage : Ci.nsMsgFilterAction.MoveToFolder; // [issue 77]
+          if(isCreateFilter) {
+            worker.createFilterAsync_New(sourceFolder, 
+              destMsgFolder, 
+              messageList, 
+              fA,   // filterAction
+              false);  // filterActionExt
+            util.logDebugOptional('msgMove', "After calling createFilterAsync_New()");
+          }
+        }
+      }
+      
+      util.logDebugOptional('msgMove', "calling promiseDone()...");
+      promiseDone();  //was setTimeout(promiseDone, 20);
+    }         
+  },
+
+  MsgArchive_Wrapper: async function(event) {
+    const util = quickFilters.Util,
+          Ci = Components.interfaces;
+
+    let sourceFolder, destMsgFolder, messageList = [], isCreateFilter = false;
+    try{
+      if (quickFilters.Util.AssistantActive &&
+          !quickFilters.Preferences.getBoolPref("assistant.exclude.archive")
+          ) { 
+        sourceFolder = util.getCurrentFolder();
+        let i;
+        for (i=0; i<gFolderDisplay.selectedMessages.length; i++) {
+          messageList.push(util.makeMessageListEntry(gFolderDisplay.selectedMessages[i], gFolderDisplay.selectedMessageUris[i])); 
+          // the original command in the message menu calls the helper function MsgCreateFilter()
+          // we do not know the primary action on this message (yet)
+        }      
+        // archive mail: FiltaQuilla custom action!
+        let fA = Ci.nsMsgFilterAction.Custom;  
+        // we do not know the final archive folder, (messages have not been archived yet)
+        // so we use the source folder. The action will be archice and so doesn't need a new targetFolder
+        destMsgFolder = sourceFolder;
+        await quickFilters.Worker.createFilterAsync_New(sourceFolder, 
+          destMsgFolder, 
+          messageList, 
+          fA,   // filterAction
+          "Archive");  // filterActionExt
+        util.logDebugOptional('msgMove', "After calling createFilterAsync_New()");
+
+      }
+    }
+    catch(ex) {
+      util.logException("MsgArchive_Wrapper()", ex);
+    }
+    quickFilters.executeArchiveSelectedMessages(event);
+  },
 
   windowKeyPress: function windowKeyPress(e,dir) {
     const util = quickFilters.Util,
@@ -1379,35 +1570,38 @@ quickFilters.MsgFolderListener = {
    */
   msgsMoveCopyCompleted: function(isMoved, aSrcMsgs, targetFolder, aDestMsgs) {
     let qF = quickFilters ? quickFilters : this.qfInstance;
-    let isMoveDebug = qF.Preferences.isDebugOption("msgMove");
+    let isMoveDebug = qF.Preferences.isDebugOption("msgMove"), 
+        isDebugDetail = false;
     qF.Util.logDebugOptional("listeners", `MsgFolderListener.msgsMoveCopyCompleted()\n ${aSrcMsgs[0].folder.prettyName} ${targetFolder.prettyName}  ${aDestMsgs && aDestMsgs.length ? aDestMsgs[0].folder.prettyName : "no destmsg!"}`);
     if (isMoveDebug) {
       console.log ("msgsMoveCopyCompleted()\n", {isMoved, aSrcMsgs, targetFolder, aDestMsgs});
+      isDebugDetail = qF.Preferences.isDebugOption("msgMove.detail");
     }    
     if (!aDestMsgs || !aDestMsgs.length) {
       return; // early exit - could be a filter execution (empty array) or IMAP synchronisation (null == aDestMsgs).
     }
 
     if (qF.Util.AssistantActive) {
-      // Avoid triggering assistant
-      const FLG = qF.Util.FolderFlags;
-      if (FLG.Trash & targetFolder.flags || 
-          FLG.Junk & targetFolder.flags || 
-          FLG.Queue & targetFolder.flags || 
-          FLG.Templates & targetFolder.flags ||
-          FLG.SentMail & targetFolder.flags ||
-          FLG.Drafts & targetFolder.flags ||
-          FLG.Newsgroup & targetFolder.flags ||
-          FLG.Archive & targetFolder.flags
-          ) {
+      if (!qF.isNewAssistantMode) {
         if (isMoveDebug) {
-          console.log(`No Assistant triggered for excluded folder:  ${targetFolder.prettyName}  `);
+          qF.Util.logDebug("New assistant mode disabled, folder listener is not executed.");
         }
+        return; // early exit
+      }
+
+      if (qF.Util.checkAssistantExclusion(targetFolder)) {
+        // Avoid triggering assistant for certain folders
         return;
-      }      
+      }
+
       let sourceFolder = aSrcMsgs[0].folder;
       let msgList = [];
 
+      if (isMoveDebug) {
+        console.log(`Assistant triggered for folder ${targetFolder.prettyName}`, 
+        targetFolder, 
+          `\nflags: 0x${targetFolder.flags.toString(16)}\nURI: ${targetFolder.URI}`)
+      }
       // guard against being triggered during filtering:
       // check if there is a filter for the folder
       let filtersList = sourceFolder.getEditableFilterList(msgWindow); // msgWindow = global variable
@@ -1415,8 +1609,16 @@ quickFilters.MsgFolderListener = {
       for (let f = 0; f < filtersList.filterCount; f++) {
         let aFilter = filtersList.getFilterAt(f),  // nsIMsgFilter 
             acLength = qF.Util.getActionCount(aFilter);
-        if (!aFilter.enabled) continue;
+        if (!aFilter.enabled) {
+          if (isDebugDetail) {
+            console.log(`skipping disabled filter ${aFilter.filterName}`);
+          } 
+          continue;
+        }
 
+        if (isDebugDetail) {
+          console.log(`Testing for filter match: ${aFilter.filterName} ...`);
+        }
         for (let index = 0; index < acLength; index++) {
           let ac = aFilter.getActionAt(index);
           try {
@@ -1426,6 +1628,7 @@ quickFilters.MsgFolderListener = {
                     // now make sure that all filter conditions match!
                     // just use the first message
                     let ms = aSrcMsgs[0];
+                    // API way: messenger.filters.filterMatches(filter.filterId, message.id)
                     // match all search terms
                     let match = aFilter.MatchHdr(ms, ms.folder,  ms.folder.msgDatabase, "");
                     // aFilter.MatchHdr(aDestMsgs[0], targetFolder,  targetFolder.msgDatabase, "")
@@ -1438,6 +1641,7 @@ quickFilters.MsgFolderListener = {
           } 
           catch(ex) {
             // NOP
+            quickFilters.Util.logException(`Error while testing filter  ${aFilter.filterName}`, ex);
           }
         }
         if (isFoundActiveFilterMatch) {
@@ -1447,7 +1651,6 @@ quickFilters.MsgFolderListener = {
           return;
         }
       }
-
 
       for (let i=0; i<aSrcMsgs.length; i++) {
         msgList.push(qF.Util.makeMessageListEntry(aSrcMsgs[i])); 
@@ -1472,7 +1675,13 @@ quickFilters.MsgFolderListener = {
     quickFilters.Util.logDebugOptional("listeners", "MsgFolderListener.msgAdded()"); 
   },
   msgsClassified: function msgsClassified(aMsgs, aJunkProcessed, aTraitProcessed){;},
-  msgsDeleted: function msgsDeleted(aMsgs){ ; },
+  msgsDeleted: function msgsDeleted(aMsgs) { 
+    let qF = quickFilters ? quickFilters : this.qfInstance;
+    let isMoveDebug = qF.Preferences.isDebugOption("msgMove");
+    if (isMoveDebug) {
+      console.log (`msgsDeleted()\nImmediately deleted messages from ${aMsgs[0].folder.prettyName}`, aMsgs);
+    }
+  },
   folderAdded: function folderAdded(aFolder){ ; },
   folderDeleted: function folderDeleted(aFolder){ ; },
   folderMoveCopyCompleted: function folderMoveCopyCompleted(aMove,aSrcFolder,aDestFolder){ ; },
@@ -1724,6 +1933,7 @@ quickFilters.addFolderListeners = function() {
    // nsIMsgFolderListener
   MailServices.mfn.addListener(quickFilters.MsgFolderListener,
       MailServices.mfn.msgsMoveCopyCompleted |
+      MailServices.mfn.msgsDeleted |
       MailServices.mfn.msgKeyChanged
   );
 }
