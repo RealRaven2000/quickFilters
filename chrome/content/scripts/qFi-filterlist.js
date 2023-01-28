@@ -214,7 +214,7 @@ async function onLoad(activatedWhileWindowOpen) {
     <toolbarbutton id="btnSaveFilters"
                    class="toolbarbutton-1"
                    tooltiptext="__MSG_quickfilters.button.saveFilters.tooltip__"
-                   onclick = "quickFilters.List.store();"/>
+                   onclick = "quickFilters.List.store(event);"/>
     <toolbarbutton id="btnLoadFilters"
                    class="toolbarbutton-1"
                    tooltiptext="__MSG_quickfilters.button.loadFilters.tooltip__"
