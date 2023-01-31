@@ -1335,7 +1335,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.7.1 - Đã sửa lỗi: trợ lý quickFilters được gọi ngoài ý muốn khi xóa email hoặc các bộ lọc khác được thực thi. [issue 143] {L2}{L1} Để tránh vô tình chạy các bộ lọc thông qua phím tắt, đã thêm hộp thoại xác nhận.{L2} {L1} Đã sửa lỗi khả năng đọc chú giải công cụ trong chủ đề tối. {L2} {L1} Đã sửa lỗi: Bộ lọc Trả lời có phân biệt chữ hoa chữ thường - phải phân biệt chữ hoa chữ thường {L2} {L1} Chuẩn bị mã cho năm 2023 bằng cách xóa trình nghe luồng đồng bộ hóa không dùng nữa.{L2} {L1} Giờ đây, bạn có thể tạo các bộ lọc chuyển thư sang hộp thư đến khác. {L2} {L1} Đã xóa mã vá lỗi Thunderbird, nếu sử dụng QuickFolders, bạn phải cập nhật lên phiên bản 5.15.1 để tránh lời nhắc trợ lý trùng lặp.{L2}"
+    "message": "{L1} Giờ đây, bạn có thể lưu trữ các bộ lọc đã chọn bằng cách nhấp vào Nút 'Bộ lọc dự phòng' trong khi giữ phím CTRL.{L2} {L1} Đã thêm liên kết tới github cho các báo cáo lỗi và yêu cầu tính năng trên tab hỗ trợ. {L2} {L1} Cho phép kích hoạt trợ lý khi xóa hoặc chuyển thư sang Thư rác. Cũng đã thêm một công tắc để hỗ trợ xây dựng các bộ lọc lưu trữ thư. Bạn có thể định cấu hình các loại thư mục mà Trợ lý có thể bỏ qua trên trang Hành động của cài đặt Bộ lọc nhanh.{L2}{L1} Giờ đây, việc sắp xếp các cụm từ bộ lọc theo cách sai sẽ không khôi phục các cụm từ tìm kiếm đã xóa nữa.{L2} {L1} Đã hoàn nguyên mã từ 5.7.1 đã loại bỏ các chức năng 'Monkey Patched' đã tạo ra nhiều vấn đề khác nhau, chẳng hạn như Thunderbird bị treo trong quá trình lọc trên một số lượng nhỏ hệ thống.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

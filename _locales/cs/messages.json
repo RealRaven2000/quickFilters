@@ -239,7 +239,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.7.1 – Opraveno: Při mazání e-mailů nebo při provádění jiných filtrů byl neúmyslně spuštěn asistent quickFilters. [vydání 143] {L2}{L1} Aby se zabránilo náhodnému spuštění filtrů pomocí klávesové zkratky, přidali jsme potvrzovací dialog.{L2} {L1} Opravena čitelnost popisků v tmavém motivu. {L2} {L1} Opraveno: Filtr Reply-To rozlišuje malá a velká písmena – nemělo by se rozlišovat malá a velká písmena {L2} {L1} Připravuje se kód pro rok 2023 odstraněním zastaralého synchronizačního streamu posluchače.{L2} {L1} Nyní můžete vytvářet filtry, které přesouvají poštu do jiné doručené pošty. {L2} {L1} Byl odstraněn opravný kód Thunderbirdu, pokud používáte QuickFolders, musíte jej aktualizovat na verzi 5.15.1, abyste předešli duplicitním výzvám asistenta.{L2}"
+    "message" : "{L1} Nyní můžete ukládat vybrané filtry kliknutím na tlačítko 'Záložní filtry' a podržením klávesy CTRL.{L2} {L1} Přidán odkaz na github pro hlášení chyb a požadavky na funkce na kartě podpory. {L2} {L1} Povolit spuštění asistenta při mazání nebo přesouvání pošty do složky Nevyžádaná pošta. Také přidán přepínač pro podporu vytváření filtrů, které archivují poštu. Typy složek, které by měl Asistent ignorovat, lze nakonfigurovat na stránce Akce v nastavení quickFilters.{L2}{L1} Řazení výrazů filtru nyní falešně neobnoví smazané vyhledávací dotazy.{L2} {L1} Vrátil kód z 5.7.1, který odstranil funkce „Monkey Patched“, které na malém počtu systémů způsobovaly různé problémy, jako je například zablokování Thunderbirdu během filtrování.{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",
