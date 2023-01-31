@@ -1334,7 +1334,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} You can now store selected filters, by clicking the 'Backup Filters' Button while holding down the CTRL key.{L2} {L1} Added link to github for bug reports and feature requests on the support tab. {L2} {L1} Allow assistant trigger when deleting or moving mail to Junk. Also added a switch to support building filters that archive mail. Folder types that should be ignored by Assistant can be configured on the Actions page of quickFilters settings. [issue 145]{L2}{L1} Sorting filter terms now falsely doesn't restore deleted search terms anymore.{L2} {L1} Rolled back the code from 5.7.1 that removed 'Monkey Patched' functions which created various problems such as Thunderbird hanging during filtering on a small number of systems.{L2}"
+    "message": "{L1} You can now store selected filters, by clicking the 'Backup Filters' Button while holding down the CTRL key.{L2} {L1} Added link to github for bug reports and feature requests on the support tab. {L2} {L1} Allow assistant trigger when deleting or moving mail to Junk. Also added a switch to support building filters that archive mail (through the FiltaQuilla Add-on). Folder types that should be ignored by Assistant can be configured on the Actions page of quickFilters settings. [issue 145]{L2}{L1} Sorting filter terms now falsely doesn't restore deleted search terms anymore.{L2} {L1} Rolled back the code from 5.7.1 that removed 'Monkey Patched' functions which created various problems such as Thunderbird hanging during filtering on a small number of systems. [issue 152]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
