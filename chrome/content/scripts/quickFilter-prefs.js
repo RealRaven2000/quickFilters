@@ -1,6 +1,7 @@
 // Default preference values. These are accessible via the preferences system
 // or via the optional chrome/content/options.xul preferences dialog.
 pref("extensions.quickfilters.debug", false);
+pref("extensions.quickfilters.debug.assistant", false);
 pref("extensions.quickfilters.debug.buildFilter", false);
 pref("extensions.quickfilters.debug.clipboard", false);
 pref("extensions.quickfilters.debug.createFilter", false);

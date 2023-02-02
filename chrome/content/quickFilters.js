@@ -520,12 +520,16 @@ END LICENSE BLOCK
     # [issue 143] Assistant triggered by filters that execute moving / copying mail 
 
 
-  5.7.2 - WIP
-    # [issue 149] Sorting filter items resurrects deleted search terms
-    # [issue 146] Add link to github for bug reports on support tab
+  5.8 - WIP
+    # [issue 146] Added link to github for bug reports on support tab
+    # [issue 149] Fixed: Sorting filter items resurrects deleted search terms
     # [issue 145] Allow assistant trigger when deleting or moving mail to Junk
-    #             also add switch to support Archives
-    # Store only highlighted filters using Backup Button + CTRL key
+    #             also add switch to support Archives (with FiltaQuilla only)
+    # New: Store only highlighted filters using Backup Button + CTRL key
+    # [issue 152] Restored Monkey patch changes, to avoid crashes on some systems
+    # Removed Service wrappers for nsIWindowMediator, nsIPrefBranch, nsIPrefService, nsIPromptService, nsIConsoleService,
+    #                              nsIStringBundleService, nsIXULAppInfo, nsIWindowWatcher, nsIVersionComparator, nsIXULRuntime
+    # Fixed message filters button for Thunderbird 110 beta and later
 
   5.* - TO DO
     # Remove monkey patch code for tag changes
@@ -848,7 +852,12 @@ var quickFilters = {
   },
 
   onToolbarListCommand: function onToolbarListCommand(e) {
-    goDoCommand('cmd_displayMsgFilters');
+    if (quickFilters.Util.versionSmaller(quickFilters.Util.AppverFull, "110")) {
+      goDoCommand('cmd_displayMsgFilters');
+    }
+    else {
+      MsgFilters();
+    }
   },
 
   onApplyFilters: function onApplyFilters(silent) {
@@ -1031,10 +1040,7 @@ var quickFilters = {
   },
 
   LocalErrorLogger: function LocalErrorLogger(msg) {
-    let Cc = Components.classes,
-        Ci = Components.interfaces,
-        cserv = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
-    cserv.logStringMessage("quickFilters:" + msg);
+    Services.console.logStringMessage("quickFilters:" + msg);
   },
 
   onFolderTreeViewDrop: function onFolderTreeViewDrop(aRow, aOrientation) {
@@ -1100,9 +1106,11 @@ var quickFilters = {
             return;
           }
           // TODO - asyncify ?
-          worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
-            isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
-            null, false);
+          window.setTimeout(async function() {
+            worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
+              isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
+              null, false);
+          });
           
         }
       }
@@ -1137,8 +1145,7 @@ var quickFilters = {
     // OLD CODE ...
     util.logDebugOptional("dnd", "buttonDragObserver.onDrop flavor[0]=" + types[0].toString());
 
-    let prefBranch = Components.classes["@mozilla.org/preferences-service;1"]
-                        .getService(Ci.nsIPrefService).getBranch("mail."),
+    let prefBranch = Services.prefs.getBranch("mail."),
         theURI = prefBranch.getCharPref("last_msg_movecopy_target_uri"),
         targetFolder = util.getMsgFolderFromUri(theURI),
         trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable);
@@ -1190,9 +1197,11 @@ var quickFilters = {
           if (quickFilters.Util.checkAssistantExclusion(targetFolder)) {
             return false;
           }
-          worker.createFilterAsync_New(sourceFolder, targetFolder, msgList, 
+          window.setTimeout(async function() {
+            worker.createFilterAsync_New(sourceFolder, targetFolder, msgList, 
              isMove ? Components.interfaces.nsMsgFilterAction.MoveToFolder : Components.interfaces.nsMsgFilterAction.CopyToFolder, 
-             null, false);
+             null, false)
+          });
         }
       }
 
@@ -1277,7 +1286,10 @@ var quickFilters = {
           worker = quickFilters.Worker,
           prefs = quickFilters.Preferences,
           Ci = Components.interfaces;
-          
+
+    if (quickFilters.Preferences.isDebugOption("assistant")) {
+      debugger;
+    }          
     // MsgMoveMessage wrapper function
     let sourceFolder, destMsgFolder, messageList = [], isCreateFilter = false;
     
@@ -1296,7 +1308,7 @@ var quickFilters = {
             
         util.logDebugOptional('msgMove', 'MsgMoveCopy_Wrapper(): ' + selectedMessages.length + ' selected Messages counted.');
 
-        if (util.checkAssistantExclusion(targetFolder)) {
+        if (util.checkAssistantExclusion(destMsgFolder)) {
           isCreateFilter = false;
         }
         else {        
@@ -1577,14 +1589,15 @@ quickFilters.MsgFolderListener = {
       console.log ("msgsMoveCopyCompleted()\n", {isMoved, aSrcMsgs, targetFolder, aDestMsgs});
       isDebugDetail = qF.Preferences.isDebugOption("msgMove.detail");
     }    
+
     if (!aDestMsgs || !aDestMsgs.length) {
       return; // early exit - could be a filter execution (empty array) or IMAP synchronisation (null == aDestMsgs).
     }
 
     if (qF.Util.AssistantActive) {
-      if (!qF.isNewAssistantMode) {
+      if (!quickFilters.isNewAssistantMode) {
         if (isMoveDebug) {
-          qF.Util.logDebug("New assistant mode disabled, folder listener is not executed.");
+          qF.Util.logDebug("New assistant mode disabled, msgsMoveCopyCompleted does not invoke filter assistant.");
         }
         return; // early exit
       }
@@ -1701,10 +1714,7 @@ quickFilters.FolderListener = {
         Components.utils.reportError(msg);
       }
       catch(e) {
-        const Cc = Components.classes,
-              Ci = Components.interfaces,
-              cserv = Cc["@mozilla.org/consoleservice;1"].getService(Ci.nsIConsoleService);
-        cserv.logStringMessage("quickFilters:" + msg);
+        Services.console.logStringMessage("quickFilters:" + msg);
       }
     }
     catch(e) {
@@ -1994,10 +2004,12 @@ quickFilters.addTagListener = function() {
 
             let selectedMails = [];  
             selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-            contextWin.quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMails, 
-                                                  Components.interfaces.nsMsgFilterAction.AddTag, 
-                                                  tag,
-                                                  false);
+            window.setTimeout(async function() {
+              contextWin.quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMails, 
+                                                    Components.interfaces.nsMsgFilterAction.AddTag, 
+                                                    tag,
+                                                    false);
+            });
           }
           return true;
         } //  wrapper function for ToggleMessageTag
