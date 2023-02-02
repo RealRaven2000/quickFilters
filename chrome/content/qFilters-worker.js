@@ -159,10 +159,8 @@ quickFilters.Worker = {
         }
         else {
           // fallback for systems that do not support notification (currently: SeaMonkey)
-          let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                                  .getService(Components.interfaces.nsIPromptService),
-              check = {value: false},   // default the checkbox to true
-              result = prompts.alertCheck(null, title, theText, dontShow, check);
+          let check = {value: false},   // default the checkbox to true
+              result = Services.prompt.alertCheck(null, title, theText, dontShow, check);
           if (check.value === true)
             worker.showMessage(false);
         }
@@ -820,6 +818,11 @@ quickFilters.Worker = {
           Ci = Components.interfaces,
           util = quickFilters.Util,
           prefs = quickFilters.Preferences;
+
+    if (quickFilters.Preferences.isDebugOption("assistant")) {
+      debugger;
+    }
+
     function addTerm(target, term) {
       // avoid duplicate:
       if (util.checkExistsTerm(target.searchTerms, term)) {
@@ -1472,9 +1475,8 @@ quickFilters.Worker = {
       
       // [issue 23] avoid empty filters:
       if (targetFilter.searchTerms.length==0) {
-        let txtAbort = "Filter could not be created: no valid Search Terms were be added, so filter would not be editable.\n",
-            prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
-        prompts.alert(window, "quickFilters", txtAbort + warningOmitted); 
+        let txtAbort = "Filter could not be created: no valid Search Terms were be added, so filter would not be editable.\n";
+        Services.prompt.alert(window, "quickFilters", txtAbort + warningOmitted); 
         return;
       }
       
@@ -1626,12 +1628,18 @@ quickFilters.Worker = {
     }
     
     if (messageList.length) {
+      if (quickFilters.Preferences.isDebugOption("assistant")) {
+        debugger;
+      }
       return await this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow);
     }
   } ,
 
   createFilterAsync_New: async function createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow) {
     const Ci = Components.interfaces;
+    if (quickFilters.Preferences.isDebugOption("assistant")) {
+      debugger;
+    }
     let delay = isSlow ? 800 : 0; // wait for the filter dialog to be updated with the new folder if drag to new
     if (filterAction ===false) {  // old isCopy value
       filterAction = Ci.nsMsgFilterAction.MoveToFolder;
