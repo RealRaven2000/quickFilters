@@ -207,22 +207,21 @@ quickFilters.Options = {
     const Ci = Components.interfaces, 
           Cc = Components.classes,
           mailto = quickFilters.Util.ADDON_SUPPORT_MAIL;
+    var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm");
     let optionsWin = window,
-        prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService),
         title = quickFilters.Util.getBundleString('quickfilters.prompt.contact.title', "Contact quickFilters Support"),
         text = quickFilters.Util.getBundleString('quickfilters.prompt.contact.subject', "Please enter a short subject line:"),
         input = {value: ""},
         check = {value: false},
-        result = prompts.prompt(window, title, text, input, null, check); 
+        result = Services.prompt.prompt(window, title, text, input, null, check); 
     if (!result) return;
   
     let sURL="mailto:" + mailto + "?subject=[quickFilters]" + encodeURI(" " + input.value), // urlencode
-        messageComposeService=Cc["@mozilla.org/messengercompose;1"].getService(Ci.nsIMsgComposeService),
-    // make the URI
+        // make the URI
         ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService),
         aURI = ioService.newURI(sURL, null, null);
     // open new message
-    messageComposeService.OpenComposeWindowWithURI (null, aURI);
+    MailServices.compose.OpenComposeWindowWithURI (null, aURI);
     setTimeout( function() {optionsWin.close();}, 200 );
   },
     

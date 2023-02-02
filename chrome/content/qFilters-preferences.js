@@ -14,12 +14,12 @@ END LICENSE BLOCK
 if (typeof ChromeUtils.import == "undefined")
 	Components.utils.import('resource://gre/modules/Services.jsm'); // Thunderbird 52
 else
-	var {Services} =ChromeUtils.import('resource://gre/modules/Services.jsm');
+	var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
 
 
 quickFilters.Preferences = {
   Prefix: "extensions.quickfilters.",
-	service: Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch),
+	service: Services.prefs,
 
 	get isDebug() {
 		return this.getBoolPref("debug");

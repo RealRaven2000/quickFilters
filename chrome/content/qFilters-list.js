@@ -892,12 +892,12 @@ quickFilters.List = {
     }
     // set zlevel to raisedZ
     // https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIXULWindow
-    let windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-                     .getService(Components.interfaces.nsIWindowMediator);
-    if (windowMediator.setZLevel)
+    let windowMediator = Services.wm;
+    if (windowMediator.setZLevel) {
       windowMediator.setZLevel(window, 6);
-    else 
+    } else {
       window.focus();
+    }
     
     util.logDebugOptional('filterList', 'onLoadFilterList() complete.');
   } ,
@@ -1190,16 +1190,14 @@ quickFilters.List = {
   bundleSearchAttributes: null,
   get bundleSA() {
     if (!this.bundleSearchAttributes)
-      this.bundleSearchAttributes = Components.classes["@mozilla.org/intl/stringbundle;1"]
-        .getService(Components.interfaces.nsIStringBundleService)
+      this.bundleSearchAttributes = Services.strings
         .createBundle("chrome://messenger/locale/search-attributes.properties");
     return this.bundleSearchAttributes;
   } ,
   bundleSearchOperators: null,
   get bundleSO() {
     if (!this.bundleSearchOperators)
-      this.bundleSearchOperators = Components.classes["@mozilla.org/intl/stringbundle;1"]
-        .getService(Components.interfaces.nsIStringBundleService)
+      this.bundleSearchOperators = Services.strings
         .createBundle("chrome://messenger/locale/search-operators.properties");
     return this.bundleSearchOperators;
   } ,

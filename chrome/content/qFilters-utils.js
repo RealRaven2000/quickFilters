@@ -163,20 +163,16 @@ quickFilters.Util = {
   
 
   getMail3PaneWindow: function getMail3PaneWindow() {
-    let windowManager = Components.classes['@mozilla.org/appshell/window-mediator;1']
-        .getService(Components.interfaces.nsIWindowMediator),
-        win3pane = windowManager.getMostRecentWindow("mail:3pane");
+    let win3pane = Services.wm.getMostRecentWindow("mail:3pane");
     return win3pane;
   } ,
   
   getLastFilterListWindow: function getLastFilterListWindow() {
-    let mediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
-    return mediator.getMostRecentWindow('mailnews:filterlist');
+    return Services.wm.getMostRecentWindow('mailnews:filterlist');
   } ,
 
   get AppverFull() {
-    let appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
-            .getService(Components.interfaces.nsIXULAppInfo);
+    let appInfo = Services.appinfo;
     return appInfo.version;
   },
 
@@ -190,8 +186,7 @@ quickFilters.Util = {
 
   get Application() {
     if (null===this.mAppName) {
-    let appInfo = Components.classes["@mozilla.org/xre/app-info;1"]
-            .getService(Components.interfaces.nsIXULAppInfo);
+      let appInfo = Services.appinfo;
       const FIREFOX_ID = "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}";
       const THUNDERBIRD_ID = "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
       const SEAMONKEY_ID = "{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}";
@@ -216,8 +211,7 @@ quickFilters.Util = {
   
   get HostSystem() {
     if (null===this.mHost) {
-      let osString = Components.classes["@mozilla.org/xre/app-info;1"]
-            .getService(Components.interfaces.nsIXULRuntime).OS;
+      let osString = Services.appinfo.OS;
       this.mHost = osString.toLowerCase();
     }
     return this.mHost; // linux - winnt - darwin
@@ -246,8 +240,7 @@ quickFilters.Util = {
 	get PlatformVersion() {
 		if (null==this.mPlatformVer)
 			try {
-				let appInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
-				this.mPlatformVer = parseFloat(appInfo.platformVersion);
+				this.mPlatformVer = parseFloat(Services.appinfo.platformVersion);
 			}
 			catch(ex) {
 				this.mPlatformVer = 78.0; // just a guess
@@ -455,9 +448,7 @@ quickFilters.Util = {
 					window.setTimeout(function() {try{notificationBox.removeNotification(notification)}catch(e){};panel.hidePopup();}, timeOut);
       }
       else {
-        let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
-                                      .getService(Components.interfaces.nsIPromptService);
-        prompts.alert(window, title, text); 
+        Services.prompt.alert(window, title, text); 
       }
     }
     catch(e) {
@@ -602,9 +593,7 @@ quickFilters.Util = {
 		}
 		else {
 			// fallback for systems that do not support notification (currently: SeaMonkey)
-			let prompts = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]  
-															.getService(Components.interfaces.nsIPromptService),  
-			    result = prompts.alert(null, title, theText); 
+			let result = Services.prompt.alert(null, title, theText); 
       return true;
 		}
 	} ,  
@@ -709,9 +698,9 @@ quickFilters.Util = {
   logToConsole: function logToConsole(msg, optionTag) {
     let qF = quickFilters ? quickFilters : this.mainInstance,
         util = qF.Util;
-    if (util.ConsoleService === null)
-      util.ConsoleService = Components.classes["@mozilla.org/consoleservice;1"]
-                  .getService(Components.interfaces.nsIConsoleService);
+    if (util.ConsoleService === null) {
+      util.ConsoleService = Services.console;
+    }
     util.ConsoleService.logStringMessage("quickFilters " 
 			+ (optionTag ? '{' + optionTag.toUpperCase() + '} ' : '')
 			+ this.logTime() + "\n"+ msg);
@@ -725,8 +714,7 @@ quickFilters.Util = {
   logError: function logError(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags) {
     const Ci = Components.interfaces,
 					Cc = Components.classes;
-    let consoleService = Cc["@mozilla.org/consoleservice;1"]
-                                   .getService(Ci.nsIConsoleService),
+    let consoleService = Services.console,
         aCategory = '',
         scriptError = Cc["@mozilla.org/scripterror;1"].createInstance(Ci.nsIScriptError);
     scriptError.init(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags, aCategory);
@@ -935,8 +923,7 @@ quickFilters.Util = {
 			-  equals 0 then Version, then A==B
 			- is bigger than 0, then A > B
 		*/
-		let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-														.getService(Components.interfaces.nsIVersionComparator);
+		let versionComparator = Services.vc;
 		return (versionComparator.compare(a, b) >= 0);
 	} ,
 
@@ -948,9 +935,8 @@ quickFilters.Util = {
 			-  equals 0 then Version, then A==B
 			- is bigger than 0, then A > B
 		*/
-		let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-														.getService(Components.interfaces.nsIVersionComparator);
-		 return (versionComparator.compare(a, b) < 0);
+		let versionComparator = Services.vc;
+		return (versionComparator.compare(a, b) < 0);
 	} ,	
 	
 	debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
@@ -1132,14 +1118,12 @@ quickFilters.Util = {
   } ,
   
   versionLower: function versionLower(a, b) {
-    let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-                            .getService(Components.interfaces.nsIVersionComparator);
+    let versionComparator = Services.vc;
     return (versionComparator.compare(a, b) < 0);
   } ,
   
   versionHigher: function versionHigher(a, b) {
-    let versionComparator = Components.classes["@mozilla.org/xpcom/version-comparator;1"]
-                            .getService(Components.interfaces.nsIVersionComparator);
+    let versionComparator = Services.vc;
     return (versionComparator.compare(a, b) > 0);
   } ,
 	
@@ -1843,14 +1827,13 @@ quickFilters.Util = {
           typeAttrib = Ci.nsMsgSearchAttrib,
           typeOperator = Ci.nsMsgSearchOp,
 					prefs = quickFilters.Preferences,
-					util = quickFilters.Util,
-					prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
+					util = quickFilters.Util;
     
     let input = {value: ""},
         check = {value: false},
         promptLabel = util.getBundleString('quickfilters.prompt.customTemplateName', 
                              'Name of Custom Template:'),
-        result = prompts.prompt(window, 'quickFilters', promptLabel, input, null, check); 
+        result = Services.prompt.prompt(window, 'quickFilters', promptLabel, input, null, check); 
     if (!result)
       return false;
     else {
@@ -2054,16 +2037,15 @@ quickFilters.Util = {
 		      util = quickFilters.Util,
           Ci = Components.interfaces, 
           Cc = Components.classes;
-    let mediator = Services.wm,
-        isTbModern = util.versionGreaterOrEqual(util.AppverFull, "85"),
+    let isTbModern = util.versionGreaterOrEqual(util.AppverFull, "85"),
         uri = (isTbModern) ? "about:config": "chrome://global/content/config.xhtml?debug";
     
-    let w = mediator.getMostRecentWindow(name),
+    let w = Services.wm.getMostRecentWindow(name),
         win = clickedElement ?
               (clickedElement.ownerDocument.defaultView ? clickedElement.ownerDocument.defaultView : window)
               : window;
     if (!w) {
-      let watcher = Cc["@mozilla.org/embedcomp/window-watcher;1"].getService(Ci.nsIWindowWatcher);
+      let watcher = Services.ww;
       w = watcher.openWindow(win, uri, name, "dependent,chrome,resizable,centerscreen,alwaysRaised,width=750px,height=450px", null);
     }
     w.focus();

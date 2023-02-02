@@ -169,7 +169,7 @@ export class Licenser {
 	async graceDate() {
 		let graceDate = "", isResetDate = false;
 		try {
-			graceDate = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch).getStringPref("license.gracePeriodDate");
+			graceDate = Services.prefs.getStringPref("license.gracePeriodDate");
 		}
 		catch(ex) { 
 			isResetDate = true; 
