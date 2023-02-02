@@ -529,7 +529,8 @@ END LICENSE BLOCK
     # [issue 152] Restored Monkey patch changes, to avoid crashes on some systems
     # Removed Service wrappers for nsIWindowMediator, nsIPrefBranch, nsIPrefService, nsIPromptService, nsIConsoleService,
     #                              nsIStringBundleService, nsIXULAppInfo, nsIWindowWatcher, nsIVersionComparator, nsIXULRuntime
-    # Fixed message filters button for Thunderbird 110 beta and later
+    # [issue 138] Fixed message filters button for Thunderbird 110 beta and later
+    # Allow matching folders for Merge when captialization of folder name(s) hase changed
 
   5.* - TO DO
     # Remove monkey patch code for tag changes
@@ -555,7 +556,8 @@ var quickFilters = {
   isNewAssistantMode: false,  /* restore monkey patch */
   isLoading: false,
   get notificationService() {
-    return Components.classes["@mozilla.org/messenger/msgnotificationservice;1"].getService(Components.interfaces.nsIMsgFolderNotificationService);
+    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
+    return MailServices.mfn; //nsIMsgFolderNotificationService
   },
   
   /*******
@@ -581,6 +583,7 @@ var quickFilters = {
     // initialization code - guard against all other windows except 3pane
     let util = quickFilters.Util,
         el = document.getElementById('messengerWindow');
+    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     if (this.isLoading) return; // avoid multiple onLoad triggering (Postbox?)
     if (!el || el.getAttribute('windowtype') !== "mail:3pane")
       return;
@@ -648,8 +651,7 @@ var quickFilters = {
       if (quickFilters.Preferences.getBoolPref('templates.replyTo')) {
         try {
           let customId = quickFilters.CustomTermReplyTo.id,
-              filterService = Components.classes["@mozilla.org/messenger/services/filters;1"]
-                              .getService(Components.interfaces.nsIMsgFilterService);
+              filterService = MailServices.filters; // nsIMsgFilterService
           if (!filterService.getCustomTerm(customId)) {
             //l10n
             quickFilters.CustomTermReplyTo.name = util.getBundleString("quickfilters.customfilter.replyto", "Reply-To");
@@ -862,20 +864,18 @@ var quickFilters = {
 
   onApplyFilters: function onApplyFilters(silent) {
 
+    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     // does this work in non-inbox current folder?
     // Get the folder where filters should be defined, if that server
     // can accept filters.
     const util = quickFilters.Util,
           Ci = Components.interfaces,
           Cc = Components.classes,
-          filterService = Cc["@mozilla.org/messenger/services/filters;1"].getService(Ci.nsIMsgFilterService);
+          filterService = MailServices.filters; // nsIMsgFilterService
 
-    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
           
     let folder = util.getCurrentFolder(),
         msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
-        
-
         
     // from  MsgApplyFiltersToSelection()
     if (!silent && quickFilters.Preferences.getBoolPref('notifications.runFilter')) {
@@ -992,7 +992,7 @@ var quickFilters = {
                 let action = actionList[index].QueryInterface(Components.interfaces.nsIMsgRuleAction);
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) { 
-                    let isTargetMatch = action.targetFolderUri === targetFolder.URI,
+                    let isTargetMatch = (action.targetFolderUri.toLowerCase() === targetFolder.URI.toLowerCase()),
                         title = isTargetMatch ? "MATCHED TARGET: " : 
                                                 "Target URI:     " ;
                     
@@ -1637,7 +1637,7 @@ quickFilters.MsgFolderListener = {
           try {
             if (ac.type == Ci.nsMsgFilterAction.MoveToFolder ||
               ac.type ==Ci.nsMsgFilterAction.CopyToFolder) {
-                  if (ac.targetFolderUri == targetFolder.URI) {
+                  if (ac.targetFolderUri.toLowerCase() == targetFolder.URI.toLowerCase()) {
                     // now make sure that all filter conditions match!
                     // just use the first message
                     let ms = aSrcMsgs[0];

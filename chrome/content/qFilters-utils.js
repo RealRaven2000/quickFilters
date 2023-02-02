@@ -271,8 +271,7 @@ quickFilters.Util = {
 		const Ci = Components.interfaces,
 		      Cc = Components.classes,
 					util = quickFilters.Util,
-		      filterService = Cc["@mozilla.org/messenger/services/filters;1"]
-													.getService(Ci.nsIMsgFilterService);
+		      filterService = MailServices.filters;
 
 		try {
 			if (folder.isServer) { // if this is root, replace it with appropriate inbox
@@ -1147,9 +1146,6 @@ quickFilters.Util = {
     function getNewsgroup() {
       util.logDebugOptional('regularize', 'getNewsgroup()');
       let acctKey = msgDbHdr.accountKey;
-      //const account = Components.classes["@mozilla.org/messenger/account-manager;1"].getService(Ci.nsIMsgAccountManager).getAccount(acctKey);
-      //dump ("acctKey:"+ acctKey);
-      //return account.incomingServer.prettyName;
       return acctKey;
     }
         
@@ -2128,7 +2124,7 @@ quickFilters.Util = {
                     let isMatch = (action.targetFolderUri === targetFolder.URI),
                         label = isMatch ? "MATCHED URI: " : "Target URI:  ";
                     msg += "[" + idx + "] " + label +  action.targetFolderUri + "\n";
-                    if (action.targetFolderUri === targetFolder.URI) { 
+                    if (action.targetFolderUri.toLowerCase() === targetFolder.URI.toLowerCase()) { 
                       util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
                       searchFilterResults.push (
                         {
@@ -2502,6 +2498,7 @@ quickFilters.mimeDecoder = {
   // format - list of parts for target string: name, firstName, lastName, mail, link, bracketMail()
 	split: function mime_split(addrstr, charset, format, bypassCharsetDecoder)	{
     let util = quickFilters.Util
+    var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm"); // replace account-manager
 	  // jcranmer: you want to use parseHeadersWithArray
 		//           that gives you three arrays
 	  //           the first is an array of strings "a@b.com", "b@b.com", etc.
@@ -2531,8 +2528,7 @@ quickFilters.mimeDecoder = {
       // https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Address_Book_Examples
       // http://mxr.mozilla.org/comm-central/source/mailnews/addrbook/public/nsIAbCard.idl
       
-      let abManager = Components.classes["@mozilla.org/abmanager;1"].getService(Components.interfaces.nsIAbManager),
-        allAddressBooks = abManager.directories; 
+      let allAddressBooks = MailServices.ab.directories; // nsIAbManager
       while (allAddressBooks.hasMoreElements()) {
         let addressBook = allAddressBooks.getNext()
                                          .QueryInterface(Components.interfaces.nsIAbDirectory);
@@ -2815,8 +2811,6 @@ quickFilters.mimeDecoder = {
 
 
 /*** Code moved from chimEcma/qFilters-shim-ecma.js  ===> **/
-var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
-	
 if (!quickFilters.Util.Accounts) {
 	Object.defineProperty(quickFilters.Util, "Accounts",
     { get: function() {

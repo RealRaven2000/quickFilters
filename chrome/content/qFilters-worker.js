@@ -392,6 +392,8 @@ quickFilters.Worker = {
           Cc = Components.classes,
           Ci = Components.interfaces,
           prefs = quickFilters.Preferences;
+
+    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     function warningUpdate() {
       let wrn = util.getBundleString('quickfilters.createFilter.warning.noHeaderParser',
                   'Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header.'
@@ -649,7 +651,7 @@ quickFilters.Worker = {
         // let msgHdr = targetFolder.msgDatabase.GetMsgHdrForKey(key); // .QueryInterface(Ci.nsIMsgDBHdr);
         // default filter name = name of target folder
         util.debugMsgAndFolders('messageKey', key, targetFolder, msg, filterAction);
-        let hdrParser = Cc["@mozilla.org/messenger/headerparser;1"].getService(Ci.nsIMsgHeaderParser);
+        let hdrParser = MailServices.headerParser; // nsIMsgHeaderParser
         if (hdrParser) {
           if (hdrParser.extractHeaderAddressMailboxes) { 
             util.logDebugOptional ("createFilter","parsing msg header...");
@@ -733,7 +735,7 @@ quickFilters.Worker = {
                 case Ci.nsMsgFilterAction.CopyToFolder:
                   if (primaryAction.targetFolderUri) {
                     util.logDebugOptional("merge.detail", "Checking Filter " + aFilter.filterName + " - target folder = " + primaryAction.targetFolderUri)
-                    if (primaryAction.targetFolderUri == targetFolder.URI)  {
+                    if (primaryAction.targetFolderUri.toLowerCase() == targetFolder.URI.toLowerCase())  {
                       matchingFilters.push(aFilter);
                       util.logDebugOptional("merge,merge.detail", 
                         "======================= MERGE MATCH  ===================\n" +
@@ -819,6 +821,7 @@ quickFilters.Worker = {
           util = quickFilters.Util,
           prefs = quickFilters.Preferences;
 
+    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     if (quickFilters.Preferences.isDebugOption("assistant")) {
       debugger;
     }
@@ -897,8 +900,7 @@ quickFilters.Worker = {
     }
   
     function getAllTags() {
-      let tagService = Cc["@mozilla.org/messenger/tagservice;1"]
-              .getService(Ci.nsIMsgTagService);
+      let tagService = MailServices.tags; // nsIMsgTagService
       return tagService.getAllTags({});
     }
     
@@ -1100,10 +1102,11 @@ quickFilters.Worker = {
           if (template=='replyto') {
             theTypeAttrib = typeAttrib.Custom; // nsIMsgSearchCustomTerm 
             customId = quickFilters.CustomTermReplyTo.id;
-            let filterService = Cc["@mozilla.org/messenger/services/filters;1"]
-                                .getService(Ci.nsIMsgFilterService);
-            if (!filterService.getCustomTerm(customId))
-               filterService.addCustomTerm(quickFilters.CustomTermReplyTo);
+            
+            let filterService = MailServices.filters; // nsIMsgFilterService
+            if (!filterService.getCustomTerm(customId)) {
+              filterService.addCustomTerm(quickFilters.CustomTermReplyTo);
+            }
           }
           createTermList(addressArray, targetFilter, theTypeAttrib, typeOperator.Contains, myMailAddresses, excludedAddresses, false, customId);
         }
@@ -1121,7 +1124,7 @@ quickFilters.Worker = {
           return false;               
         }
         
-        let hdrParser = Cc["@mozilla.org/messenger/headerparser;1"].getService(Ci.nsIMsgHeaderParser),
+        let hdrParser = MailServices.headerParser,  // nsIMsgHeaderParser
             mailAddresses = []; // gather all to avoid duplicates!
         for (let i=0; i<messageList.length; i++) {
           // sender ...
