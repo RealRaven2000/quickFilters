@@ -271,12 +271,15 @@ quickFilters.Worker = {
     let util = quickFilters.Util,
         fails = 0;
     try {
-      if (!folder) return false;
+      if (!folder) {
+        return false;
+      }
       util.logDebugOptional('createFilter.refreshHeaders', 'folders: ' + folder.name + ', ' + 
                             (folder2 ? folder2.name : '<none>'));
       if (!messageList || !messageList.length) return false;
-      if (messageList[0].msgClone && messageList[0].msgClone.initialized)
+      if (messageList[0].msgClone && messageList[0].msgClone.initialized) {
         return true;
+      }
       let messageDb1 = folder.msgDatabase ? folder.msgDatabase : folder.getMsgDatabase(null),
           messageDb2 = folder2 ? (folder2.msgDatabase ? folder2.msgDatabase : folder2.getMsgDatabase(null)) : null;
           
@@ -437,7 +440,7 @@ quickFilters.Worker = {
       return 0;
     }
 
-    if (!messageList || !targetFolder) {
+    if (!messageList || (!targetFolder && filterAction!= Ci.nsMsgFilterAction.Delete ) ) {
       this.promiseCreateFilter = false;
       return null;
     }
@@ -757,6 +760,9 @@ quickFilters.Worker = {
                     }
                   }
                   break;
+                case Ci.nsMsgFilterAction.Delete:
+                  matchingFilters.push(aFilter);
+                  break;
                 case Ci.nsMsgFilterAction.Custom:
                   if (filterActionExt == "Archive"
                       &&
@@ -1057,6 +1063,9 @@ quickFilters.Worker = {
             filterName = filterName.replace("{1}","Archive");
           }
         }
+        break;
+      case nsMsgFilterAction.Delete:
+        filterName = filterName.replace("{1}", "Delete");
         break;
       default:
         filterName = filterName.replace("{1}", folderName);
@@ -1363,6 +1372,9 @@ quickFilters.Worker = {
             theAction.customId = "filtaquilla@mesquilla.com#archiveMessage";
           }
         }
+      } else if (filterAction == nsMsgFilterAction.Delete) {
+        theAction = targetFilter.createAction(); // nsIMsgRuleAction 
+        theAction.type = filterAction; 
       }
       if (theAction) {
         targetFilter.appendAction(theAction);

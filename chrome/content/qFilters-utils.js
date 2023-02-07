@@ -946,7 +946,7 @@ quickFilters.Util = {
 				quickFilters.Util.logDebugOptional ("createFilter",
 						"Message(\n"
 							+ label1 + "=" + val1 + "\n"
-							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'missing') + "\n"
+							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
 							+ " message Id=" + msg.messageId + "\n"
 							+ " author=" + (msg.mime2DecodedAuthor || '') + "\n"
 							+ " subject=" + (msg.mime2DecodedSubject || '') + "\n"
@@ -960,7 +960,7 @@ quickFilters.Util = {
 				quickFilters.Util.logDebugOptional ("createFilter",
 						"Message(\n"
 							+ label1 + "=" + val1 + "\n"
-							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'missing') + "\n"
+							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
 							+ "msg is null.");
 			}
 		}
@@ -2269,6 +2269,7 @@ quickFilters.Util = {
     const FLG = quickFilters.Util.FolderFlags,
           isArchiveExcluded = quickFilters.Preferences.getBoolPref("assistant.exclude.archive");
     let excluded = FLG.Queue | FLG.Templates  | FLG.SentMail  | FLG.Drafts  | FLG.Newsgroup;
+    const isMoveDebug = quickFilters.Preferences.isDebugOption("msgMove");
     if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
       excluded = excluded | FLG.Trash;
     }

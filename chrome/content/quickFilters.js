@@ -647,6 +647,13 @@ var quickFilters = {
         MsgArchiveSelectedMessages = quickFilters.MsgArchive_Wrapper;
       }
 
+      if (!quickFilters.doCommandOriginal) {
+        quickFilters.doCommandOriginal = DefaultController.doCommand;
+        DefaultController.doCommand = quickFilters.doCommandWrapper;
+      }
+
+
+
       // Add Custom Terms... - only from next version after 2.7.1 !
       if (quickFilters.Preferences.getBoolPref('templates.replyTo')) {
         try {
@@ -703,6 +710,10 @@ var quickFilters = {
     if (quickFilters.executeArchiveSelectedMessages) {
       MsgArchiveSelectedMessages = quickFilters.executeArchiveSelectedMessages;
       quickFilters.executeArchiveSelectedMessages = null;
+    }
+    if (quickFilters.doCommandOriginal) {
+      DefaultController.doCommand = quickFilters.doCommandOriginal;
+      quickFilters.doCommandOriginal = null;
     }
 
     // remove the event handlers!
@@ -1400,6 +1411,44 @@ var quickFilters = {
       util.logException("MsgArchive_Wrapper()", ex);
     }
     quickFilters.executeArchiveSelectedMessages(event);
+  },
+
+  doCommandWrapper: function(cmd) {
+    if ((cmd=="cmd_delete" || cmd=="button_delete") &&  DefaultController.isCommandEnabled(cmd)) try {
+      // determine which messages are currently selected
+      // then call assistant first. Or alternatively call after original function returns true.
+      // original call was gFolderDisplay.doCommand(Ci.nsMsgViewCommandType.deleteMsg);
+      const Ci = Components.interfaces;
+      quickFilters.Util.logDebugOptional("assistant,msgMove", `doCommandWrapper(${cmd}):`);
+
+      if (quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode) { 
+        if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
+          quickFilters.Util.logDebugOptional("assistant,msgMove", "Not invoking assistant on delete as it is excluded.");
+        }
+        else if (gFolderDisplay.selectedMessages.length) {
+          let selectedMails = [];  
+          for (let i=0; i< gFolderDisplay.selectedMessages.length; i++) {
+            let msgHdr = gFolderDisplay.selectedMessages[i];
+            selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr)); 
+          }
+          let src = gFolderDisplay.selectedMessages[0].folder;
+          // determine the target (Trash for this account)
+          if (src.canDeleteMessages) {
+            let targetFolder = src.server.rootFolder.getFolderWithFlags(Ci.nsMsgFolderFlags.Trash);
+            quickFilters.Worker.createFilterAsync_New(src, targetFolder, selectedMails, 
+              Components.interfaces.nsMsgFilterAction.Delete, 
+              null,
+              false);          
+          }
+        }
+        
+      }
+    }
+    catch(ex) {
+      quickFilters.Util.logException("quickFilters.doCommandWrapper()", ex)
+    }
+    let result = quickFilters.doCommandOriginal.call(DefaultController, cmd); // make sure to bind "this" to DefaultController!
+    return result;
   },
 
   windowKeyPress: function windowKeyPress(e,dir) {
