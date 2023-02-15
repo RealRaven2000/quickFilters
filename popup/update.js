@@ -7,7 +7,8 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 // Script for splash screen displayed when updating this Extension
 
-const SALE_REDUCTION="30%"; // reduction for buying + renewals
+const SALE_REDUCTION = "30%";   // reduction for buying quickFilters Pro
+const RENEW_REDUCTION = "20%";  // reduction for renewals
 
   addEventListener("click", async (event) => {
     let targetId = event.target.id || "";
@@ -155,7 +156,7 @@ const SALE_REDUCTION="30%"; // reduction for buying + renewals
     let specialRenew = document.getElementById("specialOfferRenewTxt");
     if (specialRenew) {
       let expiry = messenger.i18n.getMessage("special-offer-expiry"),
-          reduction = SALE_REDUCTION;
+          reduction = RENEW_REDUCTION;
       // note: expiry day is set in popup.js "endSale" variable
       specialRenew.innerHTML = 
         messenger.i18n.getMessage("special-offer-renew", [expiry, reduction])

@@ -10,6 +10,8 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.List = {
   eventsAreHooked: false ,
@@ -1604,9 +1606,6 @@ quickFilters.List = {
   } ,
 	
   get currentAccountName() {
-    const  Ci = Components.interfaces,
-           accounts = Components.classes["@mozilla.org/messenger/account-manager;1"].
-									  getService(Ci.nsIMsgAccountManager).accounts;
     let theMenu = this.ServerMenu, // document.getElementById("serverMenu"),
         menuEntry = theMenu.label,
         end = menuEntry.indexOf(' <');

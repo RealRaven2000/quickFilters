@@ -9,6 +9,8 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.Worker = {
   bundle: null,
@@ -161,8 +163,9 @@ quickFilters.Worker = {
           // fallback for systems that do not support notification (currently: SeaMonkey)
           let check = {value: false},   // default the checkbox to true
               result = Services.prompt.alertCheck(null, title, theText, dontShow, check);
-          if (check.value === true)
+          if (check.value === true) {
             worker.showMessage(false);
+          }
         }
       }
     }
@@ -738,7 +741,7 @@ quickFilters.Worker = {
                 case Ci.nsMsgFilterAction.CopyToFolder:
                   if (primaryAction.targetFolderUri) {
                     util.logDebugOptional("merge.detail", "Checking Filter " + aFilter.filterName + " - target folder = " + primaryAction.targetFolderUri)
-                    if (primaryAction.targetFolderUri.toLowerCase() == targetFolder.URI.toLowerCase())  {
+                    if (primaryAction.targetFolderUri == targetFolder.URI)  {
                       matchingFilters.push(aFilter);
                       util.logDebugOptional("merge,merge.detail", 
                         "======================= MERGE MATCH  ===================\n" +

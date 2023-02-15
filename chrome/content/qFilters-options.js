@@ -10,8 +10,8 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-// ChromeUtils.defineModuleGetter(this, "Services", 'resource://gre/modules/Services.jsm');
-var {Services} = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm");
 
 quickFilters.Options = {
 	optionsMode : "",  // filter out certain pages (for support / help only)
@@ -207,7 +207,6 @@ quickFilters.Options = {
     const Ci = Components.interfaces, 
           Cc = Components.classes,
           mailto = quickFilters.Util.ADDON_SUPPORT_MAIL;
-    var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm");
     let optionsWin = window,
         title = quickFilters.Util.getBundleString('quickfilters.prompt.contact.title', "Contact quickFilters Support"),
         text = quickFilters.Util.getBundleString('quickfilters.prompt.contact.subject', "Please enter a short subject line:"),

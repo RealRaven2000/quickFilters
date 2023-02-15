@@ -544,7 +544,9 @@ END LICENSE BLOCK
     # [Bug 25801] Assistant in Merge mode, cancel does not undo changes 
     
    */
-  
+
+var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+    
 var quickFilters = {
   Properties: {},
   _folderTree: null,
@@ -1003,7 +1005,7 @@ var quickFilters = {
                 let action = actionList[index].QueryInterface(Components.interfaces.nsIMsgRuleAction);
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) { 
-                    let isTargetMatch = (action.targetFolderUri.toLowerCase() === targetFolder.URI.toLowerCase()),
+                    let isTargetMatch = (action.targetFolderUri === targetFolder.URI),
                         title = isTargetMatch ? "MATCHED TARGET: " : 
                                                 "Target URI:     " ;
                     
@@ -1382,7 +1384,7 @@ var quickFilters = {
           Ci = Components.interfaces;
 
     let sourceFolder, destMsgFolder, messageList = [], isCreateFilter = false;
-    try{
+    try {
       if (quickFilters.Util.AssistantActive &&
           !quickFilters.Preferences.getBoolPref("assistant.exclude.archive")
           ) { 
@@ -1686,7 +1688,7 @@ quickFilters.MsgFolderListener = {
           try {
             if (ac.type == Ci.nsMsgFilterAction.MoveToFolder ||
               ac.type ==Ci.nsMsgFilterAction.CopyToFolder) {
-                  if (ac.targetFolderUri.toLowerCase() == targetFolder.URI.toLowerCase()) {
+                  if (ac.targetFolderUri == targetFolder.URI) {
                     // now make sure that all filter conditions match!
                     // just use the first message
                     let ms = aSrcMsgs[0];

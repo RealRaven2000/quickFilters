@@ -1,27 +1,17 @@
-quickFilters Change Log - Version 5.7
-
-<b>Maintenance Fixes - 5.7.1</b>
-<ul>
-<li> From v5.7 - once the assistant is active, <i>deleting emails</i> triggered it and prompted to create new filters. This behavior was unintended. <a href="https://github.com/RealRaven2000/quickFilters/issues/142#">[issue 142]</a>
-</li>
-<li> The quickFilters filter assistant could be triggered by filters that execute moving / copying mail! I am currently working on a permanent fix for this issue. There are already 
-prereleases available here:
-
-<a href="https://github.com/RealRaven2000/quickFilters/issues/143">[issue 143]</a>
-
-From 5.7.1 on it will be checking if there are already filters active that may have successfully moved the mail, in which case the assistant is not invoked.</li>
-</ul>
-
+quickFilters Change Log - Version 5.8
 
 <b>Improvements</b>
 <ul>
-<li> Fixed <a href="https://github.com/RealRaven2000/quickFilters/issues/133">[issue 133]</a> Reply-To filter is case sensitive - should be case insensitive </li>
-<li> Avoid accidentally running filters through Shortcut, add confirmation dialog. <a href="https://github.com/RealRaven2000/quickFilters/issues/132">[issue 132]</a></li>
-<li> Fixed: help text of tooltip (e.g. actions in filter editor) not readable in dark themes.</li>
-<li> You can now create filters that move mail across to another inbox. Previously such mail movements did not trigger the assistant.</li> 
-<li> Removed Thunderbird patch code, if you use QuickFolders you must update it to version 5.15.1 to avoid duplicate assistant prompts. </li>
-<li> Removed sync-stream-listener which will go away in future versions of Thunderbird. </li>
-<li> Improved naming of new filters if standard tags (such as Important, Work) are added. </li>
+<li> You can now store a selection of filters by clicking the Backup Button while holding down the CTRL key.</li>
+<li> Added link to github for bug reports and feature requests on the support tab. <a href="https://github.com/RealRaven2000/quickFilters/issues/146">[issue 146]</a></li>
+<li> Allow assistant trigger when deleting or moving mail to Junk. Also added a switch to support Archives (through the FiltaQuilla Add-on). Exceptions / folders to be ignored by Assistant can be configured on the 'Actions' tab of quickFilters settings. <a href="https://github.com/RealRaven2000/quickFilters/issues/145">[issue 145]</a></li>
+</ul>
+
+
+<b>Bug Fixes</b>
+<ul>
+<li> Fixed: Sorting filter terms now falsely doesn't restore deleted search terms anymore <a href="https://github.com/RealRaven2000/quickFilters/issues/149">[issue 149]</a></li>
+<li> Rolled back the code from 5.7.1 that removed "Monkey Patched" functions - this would lead to problems such as Thunderbird hanging during filtering on a small number of systems.<a href="https://github.com/RealRaven2000/quickFilters/issues/152">[issue 152]</a>  </li>
 </ul>
 
 

@@ -10,7 +10,7 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
+var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 
 // highlight removable filter conditions (duplicates)
 // window.onload = function()

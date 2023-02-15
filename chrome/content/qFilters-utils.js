@@ -11,6 +11,9 @@ END LICENSE BLOCK
 
 // moved import code to bottom for app version detection...
 
+var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
+var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm");
+
 var QuickFilters_TabURIregexp = {
   get _thunderbirdRegExp() {
     delete this._thunderbirdRegExp;
@@ -807,7 +810,6 @@ quickFilters.Util = {
 	
 	findMailTab: function findMailTab(tabmail, URL) {
 		const util = quickFilters.Util;
-    var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 		// mail: tabmail.tabInfo[n].browser		
 		let baseURL = util.getBaseURI(URL),
 				numTabs = util.getTabInfoLength(tabmail);
@@ -1043,8 +1045,7 @@ quickFilters.Util = {
         if (document.persist)
           document.persist(toolbar.id, "currentset");
         else { // code from customizeToolbar.js
-          var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm"),
-              currentSet = toolbar.currentSet;
+          var currentSet = toolbar.currentSet;
           toolbar.setAttribute("currentset", currentSet);
           Services.xulStore.persist(toolbar, "currentset");
         }
@@ -2124,7 +2125,7 @@ quickFilters.Util = {
                     let isMatch = (action.targetFolderUri === targetFolder.URI),
                         label = isMatch ? "MATCHED URI: " : "Target URI:  ";
                     msg += "[" + idx + "] " + label +  action.targetFolderUri + "\n";
-                    if (action.targetFolderUri.toLowerCase() === targetFolder.URI.toLowerCase()) { 
+                    if (action.targetFolderUri === targetFolder.URI) { 
                       util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
                       searchFilterResults.push (
                         {
@@ -2499,7 +2500,6 @@ quickFilters.mimeDecoder = {
   // format - list of parts for target string: name, firstName, lastName, mail, link, bracketMail()
 	split: function mime_split(addrstr, charset, format, bypassCharsetDecoder)	{
     let util = quickFilters.Util
-    var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm"); // replace account-manager
 	  // jcranmer: you want to use parseHeadersWithArray
 		//           that gives you three arrays
 	  //           the first is an array of strings "a@b.com", "b@b.com", etc.
@@ -2909,7 +2909,6 @@ if (!quickFilters.Shim) {
 
 // the following adds the notifyTools API as a util method to communicate with the background page
 // this mechanism will be used to replace legacy code with API calls.
-var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
 quickFilters.Util.extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
 Services.scriptloader.loadSubScript(
