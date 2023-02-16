@@ -272,11 +272,39 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <a href="https://github.com/RealRaven2000/quickFilters/issues/146">[issue 146]</a>
     </li>
 		<li>
-      Allow assistant trigger when deleting or moving mail to Junk.
-      Also added a switch to support Archives (through the <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/">FiltaQuilla Add-on</a>).
-      Folder types that should be ignored by Assistant can be configured on the Actions page 
-      of quickFilters settings.
-      <a href="https://github.com/RealRaven2000/quickFilters/issues/145">[issue 145]</a>
+      <p>
+        Allow assistant trigger when deleting or moving mail to Junk.
+        Also added a switch to support Archives (through the <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/">FiltaQuilla Add-on</a>).
+        Folder types that should be ignored by Assistant can be configured on the Actions page 
+        of quickFilters settings.
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/145">[issue 145]</a>
+      </p>
+      <p>
+        If you enable the filter assistant mode it will can invoke the build / merge filter when you 
+        delete or archive mail (also via keyboard shortcuts / menu item); by default this is now enabled
+        for the Trash, Junk and disabled for Archiving. It can be changed from the actions page 
+        of quickFilters Settings:
+      </p>
+      <p>
+        To disable the assistant for a specific  folder type set the "exclude" setting to true here:<br>
+        <ul>
+          <li>
+            In quickFilters settings, open the actions page and click the button "Assistant should ignore 
+            these folders..."<br><br>
+            <img class="screenshot" src="img/assistant-disable-folders.png" />
+          </li>
+          <li>
+            To disable the assistant when deleting toggle the setting 
+            <tt>extensions.quickfilters.assistant.exclude.trash = true</tt><br><br>
+            <img class="screenshot" src="img/assistant-exclude-trash.png") />
+            <br><br>
+            To enable the assistant when archiving (in order to create filters that archive mail),
+            set 
+            <tt>extensions.quickfilters.assistant.exclude.archive = false</tt><br><br>
+
+          </li>
+        </ul>
+      </p>
     </li>
   </ul>
   <h5 class="inList"> Bugfixes </h5>
