@@ -520,7 +520,7 @@ END LICENSE BLOCK
     # [issue 143] Assistant triggered by filters that execute moving / copying mail 
 
 
-  5.8 - WIP
+  5.8 - 16/02/2023
     # [issue 146] Added link to github for bug reports on support tab
     # [issue 149] Fixed: Sorting filter items resurrects deleted search terms
     # [issue 145] Allow assistant trigger when deleting or moving mail to Junk
@@ -531,6 +531,11 @@ END LICENSE BLOCK
     #                              nsIStringBundleService, nsIXULAppInfo, nsIWindowWatcher, nsIVersionComparator, nsIXULRuntime
     # [issue 138] Fixed message filters button for Thunderbird 110 beta and later
     # Allow matching folders for Merge when captialization of folder name(s) hase changed
+
+  5.8.1 - WIP
+    # [issue 160] Ctrl-A (Select All) shortcut key no longer working in version 5.8
+    # [issue 161] Merging to a filter with "Subject" template breaks filter 
+
 
   5.* - TO DO
     # Remove monkey patch code for tag changes
@@ -546,6 +551,7 @@ END LICENSE BLOCK
    */
 
 var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
+var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     
 var quickFilters = {
   Properties: {},
@@ -558,7 +564,6 @@ var quickFilters = {
   isNewAssistantMode: false,  /* restore monkey patch */
   isLoading: false,
   get notificationService() {
-    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     return MailServices.mfn; //nsIMsgFolderNotificationService
   },
   
@@ -585,7 +590,6 @@ var quickFilters = {
     // initialization code - guard against all other windows except 3pane
     let util = quickFilters.Util,
         el = document.getElementById('messengerWindow');
-    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     if (this.isLoading) return; // avoid multiple onLoad triggering (Postbox?)
     if (!el || el.getAttribute('windowtype') !== "mail:3pane")
       return;
@@ -877,7 +881,6 @@ var quickFilters = {
 
   onApplyFilters: function onApplyFilters(silent) {
 
-    var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
     // does this work in non-inbox current folder?
     // Get the folder where filters should be defined, if that server
     // can accept filters.
@@ -1415,13 +1418,13 @@ var quickFilters = {
     quickFilters.executeArchiveSelectedMessages(event);
   },
 
-  doCommandWrapper: function(cmd) {
+  doCommandWrapper: function(cmd, aTab) {
     if ((cmd=="cmd_delete" || cmd=="button_delete") &&  DefaultController.isCommandEnabled(cmd)) try {
       // determine which messages are currently selected
       // then call assistant first. Or alternatively call after original function returns true.
       // original call was gFolderDisplay.doCommand(Ci.nsMsgViewCommandType.deleteMsg);
       const Ci = Components.interfaces;
-      quickFilters.Util.logDebugOptional("assistant,msgMove", `doCommandWrapper(${cmd}):`);
+      quickFilters.Util.logDebugOptional("assistant,msgMove", `doCommandWrapper(${cmd}, ${aTab}):`);
 
       if (quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode) { 
         if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
@@ -1449,11 +1452,14 @@ var quickFilters = {
     catch(ex) {
       quickFilters.Util.logException("quickFilters.doCommandWrapper()", ex)
     }
-    let result = quickFilters.doCommandOriginal.call(DefaultController, cmd); // make sure to bind "this" to DefaultController!
+    let result = quickFilters.doCommandOriginal.call(DefaultController, cmd, aTab); // make sure to bind "this" to DefaultController!
     return result;
   },
 
   windowKeyPress: function windowKeyPress(e,dir) {
+    // var isDisableKeyListeners = true; // test
+    // if (isDisableKeyListeners) return;
+
     const util = quickFilters.Util,
           prefs = quickFilters.Preferences,
           isRunFolderKey = prefs.isShortcut("folder"),
@@ -1967,13 +1973,14 @@ quickFilters.addKeyListener = function(win) {
   const prefs = quickFilters.Preferences;
   let isRunFolderKey = prefs.isShortcut("folder"),
       isSelectedMailsKey = prefs.isShortcut("mails");
-      
+
   if (isRunFolderKey || isSelectedMailsKey) {
     // check main instance 
-    let main = win.quickFilters;
-    if (!main.isKeyListener) {
-      win.quickFilters_keyListener = (event) => { main.windowKeyPress(event,'down'); }
-      win.addEventListener("keypress", win.quickFilters_keyListener, true)    
+    if (!win.quickFilters.isKeyListener) {
+      win.quickFilters_keyListener = (event) => { 
+        win.quickFilters.windowKeyPress(event,'down'); 
+      }
+      win.addEventListener("keypress", win.quickFilters_keyListener, {capture:true, passive: true})    
       win.quickFilters.isKeyListener = true;
     }
   }
@@ -1981,7 +1988,8 @@ quickFilters.addKeyListener = function(win) {
 
 quickFilters.removeKeyListener = function(win) {
   if (win.quickFilters && win.quickFilters.isKeyListener && win.quickFilters_keyListener) {
-    win.removeEventListener("keypress", win.quickFilters_keyListener, true);
+    win.removeEventListener("keypress", win.quickFilters_keyListener, {capture:true, passive: true});
+    delete win.quickFilters_keyListener;
   }
 }
 
