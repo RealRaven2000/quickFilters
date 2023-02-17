@@ -845,7 +845,7 @@ quickFilters.Worker = {
       if (isMerge && prefs.getBoolPref('searchterm.insertOnTop')) {
         try {
           // [Bug 26664] add condition on top instead of appending at bottom
-          let ts = target.searchTerms; // returns  nsIMutableArray
+          let ts = target.searchTerms; 
           ts.insertElementAt(term, 0);
         }
         catch (ex) {
@@ -1162,8 +1162,9 @@ quickFilters.Worker = {
           }
         }
         // should this specifically add first names?
-        if (!isMerge && prefs.getBoolPref("naming.keyWord"))
+        if (!isMerge && prefs.getBoolPref("naming.keyWord")) {
           filterName += " - group ";
+        }
         break;
         
       // 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org [Bug 26192])
@@ -1179,7 +1180,7 @@ quickFilters.Worker = {
           if (confirm(txt.replace('{1}', hdrListId))) {
             let searchTermList = document.getElementById('searchTermList');
             // let's only fix this if we can:
-            if (searchTermList) { // we can only fix this if the eedit filter window is opened:
+            if (searchTermList) { // we can only fix this if the edit filter window is opened:
               let lastId = 'searchAttr' + searchTermList.itemCount-1, // searchAttr0 is the first search Attribute
                   lastAttr = document.getElementById(lastId);
               if (lastAttr) {
@@ -1218,11 +1219,18 @@ quickFilters.Worker = {
           else {
             searchTerm.attrib = iCustomHdr.toString() ; // Postbox specific
           }
-          if ('arbitraryHeader' in searchTerm)
+          if ('arbitraryHeader' in searchTerm) {
             searchTerm.arbitraryHeader = hdrListId;
-          
+          }
+
           let val = searchTerm.value; 
           val.attrib = searchTerm.attrib; // we assume this is always a string attribute
+
+          if (targetFilter.searchTerms.length) { // [issue 161]
+            if (targetFilter.searchTerms[0].booleanAnd == false) {
+              searchTerm.booleanAnd = false;
+            }
+          }
           
           // retrieve valueId from value!  - if the term was added as a custom term it will have an id in the attributes dropdown
           val.str = listIdValue; // copy string into val object
@@ -1271,8 +1279,14 @@ quickFilters.Worker = {
             searchTerm = targetFilter.createTerm();
             searchTerm.attrib = typeAttrib.Subject;
             searchTerm.op = typeOperator.Contains;
-            if (messageList.length>1) 
+            if (messageList.length>1) {
               searchTerm.booleanAnd = false;
+            }
+            if (targetFilter.searchTerms.length) { // [issue 161] merging breaks filter (mixed any/all!)
+              if (targetFilter.searchTerms[0].booleanAnd == false) {
+                searchTerm.booleanAnd = false;
+              }
+            }  
             
             searchTerm.value = {
               attrib: searchTerm.attrib,
@@ -1282,15 +1296,17 @@ quickFilters.Worker = {
             if (i==0) topics = topicFilter;
           }
         }
-        if (prefs.getBoolPref("naming.keyWord"))
+        if (prefs.getBoolPref("naming.keyWord")) {
           filterName += " - " + topics;
+        }
         break;
 
       // 4th Filter Template: Based on a Tag
       case 'tag':
         // extract the tag keys from the msgHdr
-        if (!msgKeyArray)
+        if (!msgKeyArray) {
           msgKeyArray = getTagsFromMsg(tagArray, msg);
+        }
         // -- Now try to match the search term
         //createTerm(filter, attrib, op, val)
         for (let i = msgKeyArray.length - 1; i >= 0; --i) {
