@@ -551,7 +551,7 @@ quickFilters.Options = {
 		      util = quickFilters.Util;
     util.logDebug("Changing shortcut setting for run filters on " + scope);
     const win = util.getMail3PaneWindow();
-    setTimeout( function() { win.quickFilters.addKeyListener(); }, 1000); // will enable key listener if previously disabled.
+    setTimeout( function() { win.quickFilters.addKeyListener(win); }, 1000); // will enable key listener if previously disabled.
   } ,
   
   selectMergeAutoselectMergeAuto: function(checkBox) {
