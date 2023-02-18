@@ -538,6 +538,7 @@ END LICENSE BLOCK
     # [issue 163] Troubleshooter: in step one, only flag enabled filters that have no valid way of running
     # (asyncified all calling functions) to call asynchronous function Util.copyTerms correctly
     # Removed shim code for searchTerm array (Tb91 and later) util.querySearchTermsArray, util.querySearchTermsAt, util.querySearchTermsLength
+    # Avoid breaking filters with the wrong operator (any / all)
 
 
   5.* - TO DO

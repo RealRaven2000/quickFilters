@@ -825,8 +825,7 @@ quickFilters.Worker = {
   
   buildFilter: async function buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, 
                         matchingFilters, filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress, filterActionExt) { 
-    const Cc = Components.classes,
-          Ci = Components.interfaces,
+    const Ci = Components.interfaces,
           util = quickFilters.Util,
           prefs = quickFilters.Preferences;
 
@@ -841,16 +840,50 @@ quickFilters.Worker = {
         util.logToConsole("Not adding already existing term to avoid duplicate: " + term.termAsString);
         return false;
       }
+      var insertOnTop = prefs.getBoolPref('searchterm.insertOnTop'); // for later
+      insertOnTop = false; // hard to support right now... searchTerms.insertElementAt(term, 0)
+
+      let origLength = target.searchTerms.length;
       
-      if (isMerge && prefs.getBoolPref('searchterm.insertOnTop')) {
+      if (isMerge && origLength) {
+
+        let bGrouping = target.searchTerms[0].beginsGrouping,
+            doAppend = !insertOnTop;
+
         try {
-          // [Bug 26664] add condition on top instead of appending at bottom
-          let ts = target.searchTerms; 
-          ts.insertElementAt(term, 0);
+          if (insertOnTop) { // not supported right now, we user to do: searchTerms.insertElementAt(term, 0)
+            // [Bug 26664] add condition on top instead of appending at bottom
+            if (bGrouping) {
+              term.beginsGrouping = bGrouping;
+              target.searchTerms[0].beginsGrouping = 
+                (typeof term.beginsGrouping == "number") ? 0 : false; // Betterbird stores number of parentheses
+            }
+            term.booleanAnd = target.searchTerms[0].booleanAnd;
+            target.searchTerms.splice(0,0,term); 
+          }
         }
         catch (ex) {
-          util.logException("Could not insert term at top - appending to end instead.", ex);
-          target.appendTerm(term);
+          doAppend = true; // need to append (and maybe restore first item)
+          if (insertOnTop) util.logException("Could not insert term at top - appending to end instead.", ex);
+        }
+        finally {
+          if (origLength == target.searchTerms.length) { // inserting on top failed but didn't throw
+            doAppend = true;
+          }
+          if (doAppend) {
+            if (bGrouping != target.searchTerms[0].beginsGrouping) { 
+              // may have to restore overwritten grouping of first element
+              target.searchTerms[0].beginsGrouping = bGrouping;
+            }
+            let eGrouping = target.searchTerms[target.searchTerms.length-1].endsGrouping;
+            if (eGrouping) {
+              term.endsGrouping = target.searchTerms[target.searchTerms.length-1].endsGrouping;
+              target.searchTerms[target.searchTerms.length-1].endsGrouping =
+                (typeof term.beginsGrouping == "number") ? 0 : false;
+            }
+            term.booleanAnd = target.searchTerms[target.searchTerms.length-1].booleanAnd;
+            target.appendTerm(term); // needs to be tested in Betterbird!
+          }
         }
       }
       else {
