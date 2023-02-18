@@ -353,11 +353,11 @@ var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
       // 1st save in case there were edits on screen!
       saveFilter(); // [issue 149] Sorting filter items resurrects deleted search terms
       
-      let stCollection = util.querySearchTermsArray(theFilter.searchTerms),
+      let stCollection = theFilter.searchTerms,
           newSearchArray = [],
-          len = util.querySearchTermsLength(stCollection)
+          len = stCollection.length;
       for (let t = 0; t<len; t++) {
-        let searchTerm = util.querySearchTermsAt(stCollection, t);
+        let searchTerm = stCollection[t];
         // 
         if (searchTerm.value) {
           let val = searchTerm.value, // nsIMsgSearchValue
@@ -377,15 +377,9 @@ var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
         iCount++;
       }
       util.logDebug(log);
-      // Tb 78 attribute nsIMutableArray searchTerms;
       // Tb 88 attribute Array<nsIMsgSearchTerm> searchTerms;
       let stCopy = theFilter.searchTerms;
-      if (stCopy.clear)  {
-        stCopy.clear();
-      }
-      else {
-        while (stCopy.length) stCopy.pop();
-      }
+      while (stCopy.length) stCopy.pop();
       theFilter.searchTerms = stCopy; 
       
       while (gTotalSearchTerms > 0) {

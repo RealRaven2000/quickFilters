@@ -284,12 +284,8 @@ quickFilters.Util = {
 				if (f) folder = f;
 			}
       
-			let isListArray = util.versionGreaterOrEqual(util.AppverFull, "85"),
-          selectedFolders = isListArray ? [] : Cc["@mozilla.org/array;1"].createInstance(Ci.nsIMutableArray);
-      if (isListArray)
-        selectedFolders.push(folder);
-			else
-        selectedFolders.appendElement(folder);
+			let selectedFolders = [];
+      selectedFolders.push(folder);
 			
 			// create a new filter list and copy over the enabled filters to it.
 			
@@ -1232,13 +1228,12 @@ quickFilters.Util = {
 		      prefs = quickFilters.Preferences;
     
     // convert into an Array
-		let stCollection = isArray ? fromFilter.searchTerms : util.querySearchTermsArray(fromFilter.searchTerms),
-        TargetTerms = util.querySearchTermsArray(toFilter.searchTerms),
-        isBooleanTarget = TargetTerms ? (util.querySearchTermsLength(TargetTerms)>0) : false,
+		let stCollection = fromFilter.searchTerms,
+        TargetTerms = toFilter.searchTerms,
+        isBooleanTarget = TargetTerms ? (TargetTerms.length>0) : false,
         targetBoolean; // has boolean search terms which may need to be overwritten.
     if (isBooleanTarget) {
-      let firstFromTerm = 
-        isArray ? stCollection[0] : util.querySearchTermsAt(stCollection, 0);
+      let firstFromTerm = stCollection[0];
       
       if (firstFromTerm) {
         targetBoolean = firstFromTerm.booleanAnd;
@@ -1258,10 +1253,9 @@ quickFilters.Util = {
     }
 		// Iterate Search Terms of Custom Template
 		// support passing in a deserialized array from JSON object for reading filters
-		let theCount = isArray ? stCollection.length : util.querySearchTermsLength(stCollection);
+		let theCount = stCollection.length;
 		for (let t = 0; t < theCount; t++) {
-			// let searchTerm = stCollection.GetElementAt(t);
-			let searchTerm = isArray ? stCollection[t] : util.querySearchTermsAt(stCollection, t),
+			let searchTerm = stCollection[t],
 			    newTerm;
 			if (isCopy) {
 			  newTerm = toFilter.createTerm();
@@ -1323,10 +1317,10 @@ quickFilters.Util = {
 					// append newTerm ONLY if it does not already exist (avoid duplicates!)
 					// [Bug 26543] Support gathering address fields from multiple mails:
 					if (util.isStringAttrib(val.attrib)) {
-						let existingTerms = util.querySearchTermsArray(toFilter.searchTerms),
+						let existingTerms = toFilter.searchTerms,
 								isFound = false; 
-						for (let e = 0; e < util.querySearchTermsLength(existingTerms); e++) {
-							let existingTerm = util.querySearchTermsAt(existingTerms, e),
+						for (let e = 0; e < existingTerms.length; e++) {
+							let existingTerm = existingTerms[e],
 									existingVal = existingTerm.value; // nsIMsgSearchValue
 
               if (existingTerm.termAsString == newTerm.termAsString) {
@@ -1510,18 +1504,11 @@ quickFilters.Util = {
 		
 		// 3. iterate all conditions & clone them
 		// util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri});
-		// [https://bugzilla.mozilla.org/show_bug.cgi?id=857230] convert nsIMsgFilter.idl::searchTerms from nsISupportsArray to something else
-		//  searchTerms may have been changed in Thunderbird 58 from nsICollection to nsIMutableArray
-		//   this may necessitate a bunch of Shim code.
-		// filter.searchTerms.QueryInterface(Components.interfaces.nsIMutableArray); 
-		//  	.QueryInterface(Components.interfaces.nsICollection);
-		let stCollection = util.querySearchTermsArray(filter.searchTerms); 
+		let stCollection = filter.searchTerms; 
 		
 		atom.searchTerms = [];
-		for (let t = 0; t < util.querySearchTermsLength(stCollection); t++) {
-			// let searchTerm = stCollection.GetElementAt(t);
-			//   stCollection.queryElementAt(t, Components.interfaces.nsIMsgSearchTerm),
-			let searchTerm = util.querySearchTermsAt(stCollection, t),
+		for (let t = 0; t < stCollection.length; t++) {
+			let searchTerm = stCollection[t],
 					atomTerm = {};
 			if (searchTerm.attrib || searchTerm.attrib==0) {
 				atomTerm.attrib = searchTerm.attrib;
@@ -1592,7 +1579,7 @@ quickFilters.Util = {
 	
 	// initialize a filter object from a JSON
 	// pass in the newFilter object, return success boolean
-	deserializeFilter: function deserializeFilter(jsonFilter, newFilter) {
+	deserializeFilter: async function deserializeFilter(jsonFilter, newFilter) {
 		const Ci = Components.interfaces,
 					FA = Ci.nsMsgFilterAction,
 					AC = Ci.nsMsgSearchAttrib,
@@ -1613,8 +1600,7 @@ quickFilters.Util = {
 			}
       util.copyActions(jsonFilter, newFilter, false, true);
 			
-			util.copyTerms(jsonFilter, newFilter, true, null, true);
-			
+			await util.copyTerms(jsonFilter, newFilter, true, null, true);
 		}
 		catch (ex) {
 			util.logException(ex, "deserializFilter(" + jsonFilter.filterName +  ")");
@@ -1976,38 +1962,13 @@ quickFilters.Util = {
   
   // helper function to see whether a search condition already exists
   checkExistsTerm: function checkExistsTerm(searchTerms, searchTerm) {
-    const util = quickFilters.Util;
-    let len = util.querySearchTermsLength(searchTerms);
+    let len = searchTerms.length;
     for (let i=0; i<len; i++) {
-      let t = util.querySearchTermsAt(searchTerms, i);
+      let t = searchTerms[i];
       if (t.termAsString == searchTerm.termAsString) return true;
     }
     return false;
   } ,
-	
-	querySearchTermsArray: function querySearchTermsArray(searchTerms) {
-		if (searchTerms.QueryElementAt)
-			return searchTerms.QueryInterface(Components.interfaces.nsICollection); // old version
-		if (searchTerms.queryElementAt)
-			return searchTerms.QueryInterface(Components.interfaces.nsIMutableArray);
-		return searchTerms; // Tb 87+
-	} ,
-	
-	querySearchTermsAt: function querySearchTermsAt(searchTerms, i) {
-		if (searchTerms.QueryElementAt)
-			return searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
-		if (searchTerms.queryElementAt)
-			return searchTerms.queryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
-		return searchTerms[i]; // Tb 87+
-	} ,
-  
-  querySearchTermsLength: function querySearchTermsLength(searchTerms) {
-    if (!searchTerms) return null;
-    // old code: Count
-    if (searchTerms.Count)
-      return searchTerms.Count();
-    return searchTerms.length; // Tb 87+
-  },
 	
   checkCustomHeaderExists: function checkCustomHeaderExists(hdr) {
     // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19

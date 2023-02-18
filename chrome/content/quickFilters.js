@@ -535,6 +535,9 @@ END LICENSE BLOCK
   5.8.1 - WIP
     # [issue 160] Ctrl-A (Select All) shortcut key no longer working in version 5.8
     # [issue 161] Merging to a filter with "Subject" template breaks filter 
+    # [issue 163] Troubleshooter: in step one, only flag enabled filters that have no valid way of running
+    # (asyncified all calling functions) to call asynchronous function Util.copyTerms correctly
+    # Removed shim code for searchTerm array (Tb91 and later) util.querySearchTermsArray, util.querySearchTermsAt, util.querySearchTermsLength
 
 
   5.* - TO DO
