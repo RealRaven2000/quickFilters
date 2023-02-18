@@ -159,7 +159,7 @@ quickFilters.List = {
 			util.copyActions(selectedFilter, newFilter);
 			
 			// 3. iterate all conditions & clone them
-			await util.copyTerms(selectedFilter, newFilter, true);
+			await util.copyTerms(selectedFilter, newFilter);
 			// determine the index of insertion point (at the filter selected in the assistant)
 			let idx;
 			for (idx = 0; idx < filtersList.filterCount; idx++) {
@@ -422,7 +422,7 @@ quickFilters.List = {
     // 2. now copy the filter search terms of the filters in the array to the new filter
     // then delete the other filters
     // 2a - copy TargetFilter first
-    await util.copyTerms(targetFilter, newFilter, true); // we probably need to determine the booleanAnd property of the (first) target term
+    await util.copyTerms(targetFilter, newFilter); // we probably need to determine the booleanAnd property of the (first) target term
 		                                               // and use this for all (or the first) terms of the merged filters
 																									 // if the operators are mixed we might also need to add beginsGrouping and endsGrouping
 																									 // attributes
@@ -430,7 +430,7 @@ quickFilters.List = {
       let current = matchingFilters[i];
       // copy filter
       if (targetFilter == current) continue;
-      await util.copyTerms(current, newFilter, true);
+      await util.copyTerms(current, newFilter);
     }
     // determine the index of insertion point (at the filter selected in the assistant)
     let idx;

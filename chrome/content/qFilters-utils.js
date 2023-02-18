@@ -1220,12 +1220,11 @@ quickFilters.Util = {
     
 	// replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
   // fromFilter is a JSON object, not a filter!
-	copyTerms: async function copyTerms(fromFilter, toFilter, isCopy, oReplaceTerms, isArray, mailsToOmit) {
+	copyTerms: async function copyTerms(fromFilter, toFilter, oReplaceTerms, mailsToOmit) {
 		const Ci = Components.interfaces,
 		      AC = Ci.nsMsgSearchAttrib,
 					SearchOP = Ci.nsMsgSearchOp,
-          util = quickFilters.Util,
-		      prefs = quickFilters.Preferences;
+          util = quickFilters.Util;
     
     // convert into an Array
 		let stCollection = fromFilter.searchTerms,
@@ -1257,7 +1256,7 @@ quickFilters.Util = {
 		for (let t = 0; t < theCount; t++) {
 			let searchTerm = stCollection[t],
 			    newTerm;
-			if (isCopy) {
+			if (true) {
 			  newTerm = toFilter.createTerm();
 				if (searchTerm.attrib || searchTerm.attrib==0) { // [issue 3]
 					newTerm.attrib = searchTerm.attrib;
@@ -1273,7 +1272,6 @@ quickFilters.Util = {
 					if (quickFilters.Util.isStringAttrib(val.attrib)) {
             let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
             if (oReplaceTerms) {
-							// if (prefs.isDebugOption('replaceReservedWords')) debugger;
               let newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
               this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
               replaceVal = newVal;
@@ -1409,8 +1407,6 @@ quickFilters.Util = {
         }
 				
 			}
-			else
-			  newTerm = searchTerm;
 			// however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
 			
 			toFilter.appendTerm(newTerm);
@@ -1503,7 +1499,7 @@ quickFilters.Util = {
 		}
 		
 		// 3. iterate all conditions & clone them
-		// util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri});
+		// util.copyTerms(customFilter, targetFilter, {"msgHdr": msg, "messageURI": msgUri});
 		let stCollection = filter.searchTerms; 
 		
 		atom.searchTerms = [];
@@ -1600,7 +1596,7 @@ quickFilters.Util = {
 			}
       util.copyActions(jsonFilter, newFilter, false, true);
 			
-			await util.copyTerms(jsonFilter, newFilter, true, null, true);
+			await util.copyTerms(jsonFilter, newFilter, null);
 		}
 		catch (ex) {
 			util.logException(ex, "deserializFilter(" + jsonFilter.filterName +  ")");

@@ -1347,7 +1347,7 @@ quickFilters.Worker = {
           }
           
           try { 
-            await util.copyTerms(customFilter, targetFilter, true, {"msgHdr": msg, "messageURI": msgUri}, false, myMailAddresses);
+            await util.copyTerms(customFilter, targetFilter, {"msgHdr": msg, "messageURI": msgUri}, myMailAddresses);
           }
           catch(ex) {
             alert("Could not run copyTerms: " + ex.message);
