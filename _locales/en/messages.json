@@ -277,7 +277,7 @@
     "message": "Buying a License!"
   },
   "qf.assistant.ignoreFolders": {
-    "message": "Assistant should ignore these folders…"
+    "message": "Assistant should ignore these folder types…"
   },
   "qf.btn.splash": {
     "message": "Display Splash screen"
@@ -933,7 +933,7 @@
     "message": "Reply-To"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Found {0} filters don't have the 'Incoming' flag set. These will potentially not run during get mail. Fix them?"
+    "message": "Found {0} enabled filters that have no method of running (either Manual, Incoming or Automatic). Should they be changed to execute automatically when receiving new mail?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"

@@ -934,7 +934,7 @@
     "message": "Rispondi a"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Trovati {0} filtri che non hanno attiva l'opzione 'Scarico nuovi messaggi'. Questi filtri potenzialmente non funzionano alla ricezione dei messaggi. Correggerli?"
+    "message": "Trovati {0} filtri abilitati che non hanno alcun metodo di esecuzione (manuale, in entrata o automatico). Dovrebbero essere modificati per essere eseguiti automaticamente quando si riceve nuova posta?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Trovate situazioni che mixano 'Tutte'/'Anche una sola condizione'. Potrebbero non funzionare nel modo previsto. Devo provvedere alla loro correzione?"

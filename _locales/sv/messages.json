@@ -934,7 +934,7 @@
     "message": "Svar-till"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Hittade {0} filter som inte har flaggan \"Ingående\" inställd. Dessa kommer möjligen inte köras under e-posthämtning. Fixa dem?"
+    "message": "Hittade {0} aktiverade filter som inte kan köras (antingen manuellt, inkommande eller automatiskt). Ska de ändras så att de körs automatiskt när man tar emot ny e-post?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"

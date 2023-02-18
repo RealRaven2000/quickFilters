@@ -119,7 +119,7 @@ quickFilters.List = {
     return list.selectedIndex;
   } ,
 	
-	clone: function clone(evt) {
+	clone: async function clone(evt) {
     let filtersList = this.FilterList,
         sourceFolder = filtersList.folder,
         list = this.FilterListElement;
@@ -159,7 +159,7 @@ quickFilters.List = {
 			util.copyActions(selectedFilter, newFilter);
 			
 			// 3. iterate all conditions & clone them
-			util.copyTerms(selectedFilter, newFilter, true);
+			await util.copyTerms(selectedFilter, newFilter, true);
 			// determine the index of insertion point (at the filter selected in the assistant)
 			let idx;
 			for (idx = 0; idx < filtersList.filterCount; idx++) {
@@ -231,7 +231,7 @@ quickFilters.List = {
     }
   } ,
     
-  merge: function merge(evt, isEvokedFromButton) {
+  merge: async function merge(evt, isEvokedFromButton) {
 		const prefs = quickFilters.Preferences,
 		      util = quickFilters.Util,
 					Ci = Components.interfaces;
@@ -422,16 +422,15 @@ quickFilters.List = {
     // 2. now copy the filter search terms of the filters in the array to the new filter
     // then delete the other filters
     // 2a - copy TargetFilter first
-    util.copyTerms(targetFilter, newFilter, true); // we probably need to determine the booleanAnd property of the (first) target term
+    await util.copyTerms(targetFilter, newFilter, true); // we probably need to determine the booleanAnd property of the (first) target term
 		                                               // and use this for all (or the first) terms of the merged filters
 																									 // if the operators are mixed we might also need to add beginsGrouping and endsGrouping
 																									 // attributes
     for (let i = 0 ; i < matchingFilters.length ; i++) {
       let current = matchingFilters[i];
       // copy filter
-      if (targetFilter == current)
-        continue;
-      util.copyTerms(current, newFilter, true);
+      if (targetFilter == current) continue;
+      await util.copyTerms(current, newFilter, true);
     }
     // determine the index of insertion point (at the filter selected in the assistant)
     let idx;
@@ -1126,11 +1125,11 @@ quickFilters.List = {
         }        
         return false;
       case 'condition':
-        let stCollection = util.querySearchTermsArray(aFilter.searchTerms);
-        for (let t = 0; t < util.querySearchTermsLength(stCollection); t++) {
+        let stCollection = aFilter.searchTerms;
+        for (let t = 0; t < stCollection.length; t++) {
           // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
           // searchTerms.QueryElementAt(i, Ci.nsIMsgSearchTerm);
-          let searchTerm = util.querySearchTermsAt(stCollection, t);
+          let searchTerm = stCollection[t];
           if (searchTerm.value) {
             let val = searchTerm.value, // nsIMsgSearchValue
                 AC = Ci.nsMsgSearchAttrib;
@@ -1356,11 +1355,11 @@ quickFilters.List = {
     for (let idx = 0; idx < filtersList.filterCount; idx++) {
       let filter = filtersList.getFilterAt(idx),
       // 1. Search Conditions
-          stCollection = util.querySearchTermsArray(filter.searchTerms);
-      for (let t = 0; t < util.querySearchTermsLength(stCollection); t++) {
+          stCollection = filter.searchTerms;
+      for (let t = 0; t < stCollection.length; t++) {
         // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
         // searchTerms.QueryElementAt(i, Components.interfaces.nsIMsgSearchTerm);
-        let searchTerm = util.querySearchTermsAt(stCollection, t);
+        let searchTerm = stCollection[t];
         if (searchTerm.value) {
           let val = searchTerm.value; // nsIMsgSearchValue
           if (val && util.isStringAttrib(val.attrib)) {
@@ -1616,10 +1615,10 @@ quickFilters.List = {
       return menuEntry;
   },
 	
-  fileFilters: function fileFilters(mode, jsonData, fname, isDateStamp) {
+  fileFilters: async function fileFilters(mode, jsonData, fname, isDateStamp) {
     // readData: this function does the actual work of interpreting the read data
     // and setting the UI values of currently selected deck accordingly:
-    function readData(data) {
+    async function readData(data) {
       function updateElement(el, stem, targetId) {
         // id target is common, append .id#, otherwise replace the .id#
         let oldId = targetId ? el.id.replace(targetId, stem) : el.id + stem,
@@ -1659,7 +1658,7 @@ quickFilters.List = {
 				// create new filter list / filter
 				// for the nitty-gritty, see also quickFilters.Worker.buildFilter
 				let targetFilter = filtersList.createFilter(el.filterName);
-				if (util.deserializeFilter(el, targetFilter)) {
+				if (await util.deserializeFilter(el, targetFilter)) {
 					let bExists = false;
 					// search existing filters for a matching filter with the same name:
 					for (let j = 0; j< filtersList.filterCount; j++) {
@@ -1751,9 +1750,7 @@ quickFilters.List = {
 					util.logDebug("Storing Path: " + lastPath);
 					prefs.setStringPref('files.path', lastPath);
           
-					const {OS} = (typeof ChromeUtils.import == "undefined") ?
-						Components.utils.import("resource://gre/modules/osfile.jsm", {}) :
-						ChromeUtils.import("resource://gre/modules/osfile.jsm", {});
+					const {OS} = ChromeUtils.import("resource://gre/modules/osfile.jsm", {});
           
           //localFile = Components.classes["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
           switch (mode) {
@@ -1842,7 +1839,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 }
  */		
 	
-  store: function store(event) {
+  store: async function store(event) {
 		// see nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		// https://dxr.mozilla.org/comm-central/source/mailnews/base/search/src/nsMsgFilterList.cpp#867
 		
@@ -1913,12 +1910,13 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			msg += "\n" + msgFailed.replace('{1}', iFail);
 		}
 		util.slideAlert(msg, 'quickFilters');
-    this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
-		if (iFail)
+    await this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
+		if (iFail) {
 			util.alert(msg);
+    }
   } ,
   
-  storeSelected: function() {
+  storeSelected: async function() {
 		let count = this.getSelectedCount(this.FilterListElement);
 		if (count < 1) {
 			let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
@@ -1961,12 +1959,12 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		}
 
     let json = JSON.stringify(filtersJSON, null, '  ');
-    this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
+    await this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
 
   } ,
 
-  load: function load() {
-    this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
+  load: async function load() {
+    await this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
   } ,
 	
   // troubleshooter - generates error list(s)
@@ -1997,18 +1995,18 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		}
 				
 		for (let i = 0; i < filtersList.filterCount; i++) {
-			let filter = filtersList.getFilterAt(i),
-			    incomingFaulty = false;
+			let filter = filtersList.getFilterAt(i);
 			// Incoming = InboxRule | InboxJavaScript | NewsRule | NewsJavaScript
 			
-			// Test 1: can filter autorun?
+			// Test 1: can filter run in any way?
       if (isEnabled('incomingFlag')) {
         if (isInbox || isNewsgroup) {
-          // We probably should omit disabled filters!!
-          incomingFaulty = ((filter.filterType & nsMsgFilterType.Incoming)==0);
-        }
-        if (incomingFaulty) {
-          errorList.push ( { index:i, flt:filter, type: 'incoming'} );
+          // [issue 163]
+          // only flag filters that are enabled and have neither of the incoming, periodic or manual flags.
+          var validTypes = nsMsgFilterType.Incoming | nsMsgFilterType.Periodic | nsMsgFilterType.Manual;
+          if (filter.enabled &&  !(filter.filterType & validTypes)) {
+            errorList.push ( { index:i, flt:filter, type: 'incoming'} );
+          };
         }
       }
 			
@@ -2045,12 +2043,12 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
       
       // Test 4. check for mixed booleanAnd properties:
       if (isEnabled('mixedAnyAndAll')) {
-        let TargetTerms = util.querySearchTermsArray(filter.searchTerms),
-            theCount = TargetTerms ? util.querySearchTermsLength(TargetTerms) : 0,
-            targetBoolean = theCount ? util.querySearchTermsAt(TargetTerms, 0).booleanAnd : null,
+        let TargetTerms = filter.searchTerms,
+            theCount = TargetTerms ? TargetTerms.length : 0,
+            targetBoolean = theCount ? TargetTerms[0].booleanAnd : null,
             fixedConditions = 0;
         for (let t = 0; t < theCount; t++) {
-          let searchTerm = util.querySearchTermsAt(TargetTerms, t);
+          let searchTerm = TargetTerms[t];
           if (searchTerm.booleanAnd != targetBoolean) {
             fixedConditions++;
           }
@@ -2113,10 +2111,6 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			return names;
 		}
 					
-		if (typeof ChromeUtils.import == "undefined")
-			Components.utils.import("resource://gre/modules/Services.jsm");
-		else
-			var {Services} = ChromeUtils.import("resource://gre/modules/Services.jsm");
     const PromptService = Services.prompt,
           flags = (PromptService.BUTTON_POS_0 * PromptService.BUTTON_TITLE_YES) +
                   (PromptService.BUTTON_POS_1 * PromptService.BUTTON_TITLE_NO);
@@ -2194,11 +2188,11 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					    filter = filtersList.getFilterAt(err.index);
           util.logDebug("Fixing Filter[" + err.index + "] MIXED ANY/ALL CONDITIONS: " + filter.filterName);
           
-          let TargetTerms = util.querySearchTermsArray(filter.searchTerms),
-              theCount = util.querySearchTermsLength(TargetTerms),
-              targetBoolean = theCount ? util.querySearchTermsAt(TargetTerms, 0).booleanAnd : false;
+          let TargetTerms = filter.searchTerms,
+              theCount = filter.searchTerms.length,
+              targetBoolean = theCount ? TargetTerms[0].booleanAnd : false;
           for (let t = 0; t < theCount; t++) {
-            let searchTerm = util.querySearchTermsAt(TargetTerms, t);
+            let searchTerm = TargetTerms[t];
             if (searchTerm.booleanAnd != targetBoolean) {
               searchTerm.booleanAnd = targetBoolean;
               util.logDebug("Changing condition[" + t  + "] - booleanAnd = " + targetBoolean);

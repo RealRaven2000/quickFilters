@@ -919,7 +919,7 @@
     "message": "To"
   },
   "quickfilters.customTemplate.name": {
-    "message": "Template Name:"
+    "message": "Tên mẫu:"
   },
   "quickfilters.customTemplate.title": {
     "message": "quickFilters Custom Template"
@@ -928,13 +928,13 @@
     "message": "Custom Variables"
   },
   "quickfilters.customVariable.tooltip": {
-    "message": "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail."
+    "message": "Khi tạo bộ lọc, các biến này được thay thế bằng các tiêu đề thư tương ứng của thư hiện tại."
   },
   "quickfilters.customfilter.replyto": {
     "message": "Reply-To"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Found {0} filters don't have the 'Incoming' flag set. These will potentially not run during get mail. Fix them?"
+    "message": "Đã tìm thấy {0} bộ lọc đã bật không có phương thức chạy (Thủ công, Đến hoặc Tự động). Chúng có nên được thay đổi để thực thi tự động khi nhận được thư mới không?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
@@ -994,7 +994,7 @@
     "message": "Thêm Sao"
   },
   "quickfilters.markMessageUnread.label": {
-    "message": "Mark As Unread"
+    "message": "Đánh dấu là chưa đọc"
   },
   "quickfilters.menu.copy": {
     "message": "Copy"
@@ -1006,58 +1006,58 @@
     "message": "Paste"
   },
   "quickfilters.menu.removeDupeAction": {
-    "message": "Remove duplicate action"
+    "message": "Xóa hành động trùng lặp"
   },
   "quickfilters.menu.removeDupeCondition": {
-    "message": "Remove duplicate condition"
+    "message": "Xóa điều kiện trùng lặp"
   },
   "quickfilters.merge.addressesOmitted": {
     "message": "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"
   },
   "quickfilters.merge.warning.missingAction": {
-    "message": "Could not get the main action of the filter: {1}"
+    "message": "Không thể tải tác vụ chính của bộ lọc: {1}"
   },
   "quickfilters.merge.warning.selectMismatch": {
-    "message": "Cannot merge all selected filters: action mismatch with filter {1}!"
+    "message": "Không thể hợp nhất tất cả các bộ lọc đã chọn: hành động không khớp với bộ lọc {1}!"
   },
   "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "Deselect filters that do not match and continue?"
+    "message": "Bỏ chọn các bộ lọc không khớp và tiếp tục?"
   },
   "quickfilters.merge.warning.selectMultiple": {
-    "message": "To merge, select at least 2 filters"
+    "message": "Để hợp nhất, hãy chọn ít nhất 2 bộ lọc"
   },
   "quickfilters.merge.warning.selectMultiple2": {
-    "message": "Cannot determine first selected filter - to merge, you must select at least 2 filters!"
+    "message": "Không thể xác định bộ lọc được chọn đầu tiên - để hợp nhất, bạn phải chọn ít nhất 2 bộ lọc!"
   },
   "quickfilters.merge.warning.selectTarget": {
-    "message": "A target filter must be selected for merging!"
+    "message": "Phải chọn bộ lọc mục tiêu để hợp nhất!"
   },
   "quickfilters.move.selectOne": {
-    "message": "Exactly one filter entry must be selected!"
+    "message": "Phải chọn chính xác một mục nhập bộ lọc!"
   },
   "quickfilters.moveMessage.label": {
     "message": "Di chuyển Thư tới"
   },
   "quickfilters.notification.donate": {
-    "message": "Donate"
+    "message": "Quyên tặng"
   },
   "quickfilters.notification.dontShowAgain": {
-    "message": "Do not show this message again."
+    "message": "Không hiển thị thông báo này nữa."
   },
   "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Extend License"
+    "message": "gia hạn giấy phép"
   },
   "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
+    "message": "Điều này sẽ kéo dài ngày cấp phép hiện tại thêm 1 năm. Nó thường rẻ hơn giấy phép mới."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Buy License"
+    "message": "Mua giấy phép"
   },
   "quickfilters.notification.premium.btn.hotKey": {
     "message": "L"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Renew License"
+    "message": "Gia hạn giấy phép"
   },
   "quickfilters.notification.premium.freeUses": {
     "message": "Bạn có thể sử dụng tính năng này {1} lần nữa miễn phí."
@@ -1120,10 +1120,10 @@
     "message": "Sắp xếp các cụm từ tìm kiếm"
   },
   "quickfilters.prompt.contact.subject": {
-    "message": "Please enter a short subject line:"
+    "message": "Vui lòng nhập một dòng chủ đề ngắn:"
   },
   "quickfilters.prompt.contact.title": {
-    "message": "Contact quickFilters Support"
+    "message": "Liên hệ bộ phận hỗ trợ quickFilters"
   },
   "quickfilters.prompt.copiedCustomVar": {
     "message": "Copied variable {1} to clipboard, please paste in a search term."

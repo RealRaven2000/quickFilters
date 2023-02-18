@@ -934,7 +934,7 @@
     "message": "Reply-To"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "'受信' フラグがセットされていない {0} 個のフィルタが見つかりました。これらのメールは受信時にフィルタが適用されない可能性があります。フィルタを修正しますか？"
+    "message": "実行方法 (手動、受信、または自動) のない有効なフィルターが {0} 個見つかりました。 新しいメールを受信したときに自動的に実行するように変更する必要がありますか?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"

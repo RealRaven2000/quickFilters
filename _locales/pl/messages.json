@@ -935,7 +935,7 @@
     "message": "Reply-To"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Znalezione filtry {0} nie mają ustawionej flagi „Przychodzące”. Te potencjalnie nie będą działać podczas pobierania poczty. Napraw je?"
+    "message": "Znaleziono {0} włączonych filtrów, które nie mają metody uruchamiania (ręcznej, przychodzącej lub automatycznej). Czy należy je zmienić, aby uruchamiały się automatycznie po otrzymaniu nowej poczty?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Znalezione warunki mieszające „Dowolny” / „Wszystko” - mogą one nie działać zgodnie z przeznaczeniem. Czy powinienem to naprawić?"

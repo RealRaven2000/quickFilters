@@ -938,7 +938,7 @@
     "message": "Reply-To"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Filtros {0} encontrados não têm o sinalizador 'Entrada' definido. Eles potencialmente não serão executados durante a obtenção de e-mail. Consertá-los?"
+    "message": "Foram encontrados {0} filtros ativados que não possuem método de execução (Manual, Entrada ou Automático). Eles devem ser alterados para serem executados automaticamente ao receber novos e-mails?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Condições encontradas combinando 'Qualquer' / 'Todos' - podem não funcionar conforme o esperado. Devo consertar isso?"

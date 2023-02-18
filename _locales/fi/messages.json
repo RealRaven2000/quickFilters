@@ -935,7 +935,7 @@
     "message": "Reply-To"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Löytyi {0} suodatinta, joissa ei ole Saapuvat-lippua. Nämä eivät mahdollisesti toimi postin saamisen aikana. Korjata ne?"
+    "message": "Löytyi {0} käytössä olevaa suodatinta, joilla ei ole suoritustapaa (joko manuaalinen, saapuva tai automaattinen). Pitäisikö ne muuttaa suoriutumaan automaattisesti uutta postia vastaanotettaessa?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Löydetyt olosuhteet sekoittavat 'Any' / 'All' - nämä eivät välttämättä toimi tarkoitetulla tavalla. Pitäisikö minun korjata nämä?"

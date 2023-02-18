@@ -934,13 +934,13 @@
     "message": "回复至"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Found {0} filters don't have the 'Incoming' flag set. These will potentially not run during get mail. Fix them?"
+    "message": "发现 {0} 个启用的过滤器没有运行方法（手动、传入或自动）。 是否应该将它们更改为在收到新邮件时自动执行？"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
   },
   "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
+    "message": "发现 {0} 个具有未解决的自定义操作的过滤器。 您可能缺少第三方插件或可能需要配置它以支持自定义操作？"
   },
   "quickfilters.debug.fixFilters.invalidUris": {
     "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."

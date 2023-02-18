@@ -934,7 +934,7 @@
     "message": "Responder a"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Los filtros encontrados {0} no tienen establecido el indicador 'Entrante'. Potencialmente, estos no se ejecutarán durante la recepción del correo. ¿Arreglalos?"
+    "message": "Se encontraron {0} filtros habilitados que no tienen ningún método de ejecución (ya sea manual, entrante o automático). ¿Deberían cambiarse para que se ejecuten automáticamente al recibir correo nuevo?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"

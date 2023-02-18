@@ -934,7 +934,7 @@
     "message": "Reply-To"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Found {0} filters don't have the 'Incoming' flag set. These will potentially not run during get mail. Fix them?"
+    "message": "Se encontraron {0} filtros habilitados que no tienen ningún método de ejecución (ya sea manual, entrante o automático). ¿Deberían cambiarse para que se ejecuten automáticamente al recibir correo nuevo?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"

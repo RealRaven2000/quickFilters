@@ -934,7 +934,7 @@
     "message": "Antwort An"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Es gibt {0} Filter ohne das 'Incoming' flag. Diese werden beim Nachricht-Abruf wahrscheinlich nicht ausgeführt. Berichtigen?"
+    "message": "{0} aktivierte Filter gefunden, die keine Ausführungsmethode haben (entweder manuell, eingehend oder automatisch). Sollen sie so geändert werden, dass sie beim Empfang neuer E-Mails automatisch ausgeführt werden?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Ich habe Bedingungen gefunden, die 'Alle' / 'Mindestens Eine' mischen - diese funktionieren möglicherweise nicht wie beabsichtigt. Soll ich das beheben?"

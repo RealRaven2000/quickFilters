@@ -934,7 +934,7 @@
     "message": "Antwoorden-Aan"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "Er zijn {0} filters gevonden waarin het label ‘Binnenkomend’ niet is ingesteld. Deze worden mogelijk niet uitgevoerd wanneer e-mail wordt opgehaald. Repareren?"
+    "message": "{0} ingeschakelde filters gevonden die niet kunnen worden uitgevoerd (handmatig, binnenkomend of automatisch). Moeten ze worden gewijzigd om automatisch te worden uitgevoerd bij het ontvangen van nieuwe e-mail?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
