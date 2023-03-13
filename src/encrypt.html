@@ -152,11 +152,14 @@ permalink: encrypt.html
 		}
 
 		function encryptForm() {
-			var email = document.getElementById('email').value,
+			var email = document.getElementById('email').value.replace("[at]","@"),
 					txtDate = document.getElementById('expiry').value,
 					productPrefix = document.getElementById('prefix').value,
 					plainText = productPrefix + email + ':' + txtDate,
 					encKey = document.getElementById('encryptionKey').value;
+          
+      document.getElementById('email').value = email;
+            
 			if (!encKey) {
 				alert('Please enter Encryption Key!');
 				return;
