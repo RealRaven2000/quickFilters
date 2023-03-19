@@ -691,7 +691,7 @@
     "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
   },
   "quickfilters.FilterAssistant.start": {
-    "message": "开启过滤器助手…"
+    "message": "开启过滤器助手"
   },
   "quickfilters.FilterAssistant.stop": {
     "message": "停止过滤器助手"
@@ -701,6 +701,12 @@
   },
   "quickfilters.FromMessage.label": {
     "message": "quickFilters:从消息创建过滤器…"
+  },
+  "quickfilters.menu.license": {
+    "message": "检查许可证状态..."
+  },
+  "quickfilters.menu.news": {
+    "message": "关于 quickFilters 的最新消息…"
   },
   "quickfilters.ListButton.label": {
     "message": "邮件过滤器..."

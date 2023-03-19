@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.8.1",
+  "version": "5.8.2pre30",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -13,7 +13,7 @@
     "gecko": {
       "id": "quickFilters@axelg.com",
       "strict_min_version" : "91.0",
-      "strict_max_version" : "110.0"
+      "strict_max_version" : "111.0"
     }
   },
   "background": {

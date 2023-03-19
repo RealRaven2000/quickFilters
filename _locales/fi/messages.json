@@ -692,7 +692,7 @@
     "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
   },
   "quickfilters.FilterAssistant.start": {
-    "message": "Käynnistä Filter Assistant…"
+    "message": "Käynnistä Filter Assistant"
   },
   "quickfilters.FilterAssistant.stop": {
     "message": "Lopeta suodatinavustaja"
@@ -702,6 +702,12 @@
   },
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Luo suodatin viestistä…"
+  },
+  "quickfilters.menu.license": {
+    "message": "Tarkista lisenssin tila…"
+  },
+  "quickfilters.menu.news": {
+    "message": "Viimeisimmät uutiset quickFiltersistä…"
   },
   "quickfilters.ListButton.label": {
     "message": "Viestisuodattimet…"

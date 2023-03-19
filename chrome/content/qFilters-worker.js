@@ -50,7 +50,7 @@ quickFilters.Worker = {
   *
   * @param {bool} start or stop filter mode
   */
-  toggle_FilterMode: function toggle_FilterMode(active, silent) {
+  toggle_FilterMode: function (active, silent) {
     const util = quickFilters.Util,
           worker = quickFilters.Worker;
     function removeOldNotification(box, active, id) {

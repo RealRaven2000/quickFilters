@@ -691,7 +691,7 @@
     "message": "Visita Thunderbird Daily - Canal de YouTube para obtener consejos y tutoriales para el uso de quickFilters y correo de escritorio"
   },
   "quickfilters.FilterAssistant.start": {
-    "message": "Iniciar el asistente de filtros…"
+    "message": "Iniciar el asistente de filtros"
   },
   "quickfilters.FilterAssistant.stop": {
     "message": "Finalizar el asistente de filtros"
@@ -701,6 +701,12 @@
   },
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Crear filtro de mensaje para 'De' …"
+  },
+  "quickfilters.menu.license": {
+    "message": "Verifique el estado de la licencia …"
+  },
+  "quickfilters.menu.news": {
+    "message": "Últimas noticias sobre quickFilters…"
   },
   "quickfilters.ListButton.label": {
     "message": "Filtros de mensaje…"

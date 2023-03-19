@@ -702,6 +702,12 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: メッセージからフィルタを作成..."
   },
+  "quickfilters.menu.license": {
+    "message": "ライセンスのステータスを確認…"
+  },
+  "quickfilters.menu.news": {
+    "message": "quickFilters の最新ニュース…"
+  },
   "quickfilters.ListButton.label": {
     "message": "メッセージフィルタ..."
   },

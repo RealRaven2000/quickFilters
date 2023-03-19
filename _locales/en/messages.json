@@ -690,7 +690,7 @@
     "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
   },
   "quickfilters.FilterAssistant.start": {
-    "message": "Start Filter Assistant…"
+    "message": "Start Filter Assistant"
   },
   "quickfilters.FilterAssistant.stop": {
     "message": "End Filter Assistant"
@@ -700,6 +700,12 @@
   },
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Create Filter from Message…"
+  },
+  "quickfilters.menu.license": {
+    "message": "Check license status…"
+  },
+  "quickfilters.menu.news": {
+    "message": "Latest news on quickFilters…"
   },
   "quickfilters.ListButton.label": {
     "message": "Message Filters…"

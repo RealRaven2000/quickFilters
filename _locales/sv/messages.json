@@ -691,7 +691,7 @@
     "message": "Besök Thunderbord Daily - YouTube-kanalen för tips och guider om quickFilters och e-post på datorer"
   },
   "quickfilters.FilterAssistant.start": {
-    "message": "Starta Filterassistenten …"
+    "message": "Starta Filterassistenten"
   },
   "quickfilters.FilterAssistant.stop": {
     "message": "Stäng av Filterassistenten"
@@ -701,6 +701,12 @@
   },
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Skapa filter utifrån meddelande…"
+  },
+  "quickfilters.menu.license": {
+    "message": "Kontrollera licensstatus..."
+  },
+  "quickfilters.menu.news": {
+    "message": "Senaste nytt om quickFilters..."
   },
   "quickfilters.ListButton.label": {
     "message": "Meddelandefilter …"

@@ -2159,15 +2159,21 @@ quickFilters.Util = {
   setAssistantButton: function(isActive) {
     let doc = document,
         button = doc.getElementById('quickfilters-toolbar-button');
-    if (button) 
+    if (button) {
       button.checked = isActive;
+    }
+    let theLabel = quickFilters.Util.getBundleString(
+      isActive ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",
+      isActive ? "stop filter assistant" : "start filter assistant");
     let menuItem = doc.getElementById('quickFilters-wizard');
     if (menuItem) {
       menuItem.checked = isActive;
-      menuItem.label = quickFilters.Util.getBundleString(
-                          isActive ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",
-                          isActive ? "stop filter assistant" : "start filter assistant");
+      menuItem.label = theLabel;
     }    
+    let mnuToggle = doc.getElementById("quickfilters-toggleAssistant");
+    if (mnuToggle) {
+      mnuToggle.label = theLabel;
+    }
   } ,
 
   showLicenseDialog: function showLicenseDialog(featureName) {
@@ -2190,6 +2196,11 @@ quickFilters.Util = {
   
   viewSplash: function() {
     quickFilters.Util.notifyTools.notifyBackground({ func: "splashScreen" });
+    if (quickFilters.Preferences.getBoolPref("hasNews")) {
+      // reset news flag!
+      quickFilters.Preferences.setBoolPref("hasNews", false);
+      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" }); 
+    }
   } ,
   
   // new type of tooltips: click first displays the hovering text in the clickyTooltip attribute!
@@ -2222,7 +2233,7 @@ quickFilters.Util = {
     Services.prompt.alert(null, "quickFilters", txt);    
   },
 
-  checkAssistantExclusion: function(targetFolder) {
+  checkAssistantTargetExclusion: function(targetFolder) {
     // Avoid triggering assistant
     const FLG = quickFilters.Util.FolderFlags,
           isArchiveExcluded = quickFilters.Preferences.getBoolPref("assistant.exclude.archive");
@@ -2258,6 +2269,16 @@ quickFilters.Util = {
     return false;
   },
   
+  checkAssistantSourceExclusion: function(sourceFolder) {
+    const FLG = quickFilters.Util.FolderFlags;
+    if (!sourceFolder) return false;
+    
+    let excluded = FLG.Queue | FLG.Templates | FLG.Drafts | FLG.Trash;
+    if (excluded & sourceFolder.flags) {
+      return true;
+    }
+    return false;
+  },
 	
   dummy: function() {
 		/* 

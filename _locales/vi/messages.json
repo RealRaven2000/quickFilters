@@ -691,7 +691,7 @@
     "message": "Truy cập Thunderbird Daily - Kênh YouTube để biết các mẹo và hướng dẫn sử dụng QuickFilters và thư trên máy tính để bàn"
   },
   "quickfilters.FilterAssistant.start": {
-    "message": "Khởi động Filter Assistant…"
+    "message": "Khởi động Filter Assistant"
   },
   "quickfilters.FilterAssistant.stop": {
     "message": "Tắt Filter Assistant"
@@ -701,6 +701,12 @@
   },
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Tạo bộ lọc từ tin nhắn…"
+  },
+  "quickfilters.menu.license": {
+    "message": "Kiểm tra trạng thái giấy phép…"
+  },
+  "quickfilters.menu.news": {
+    "message": "Tin tức mới nhất về quickFilters…"
   },
   "quickfilters.ListButton.label": {
     "message": "Các Bộ Lọc Tin Nhắn…"

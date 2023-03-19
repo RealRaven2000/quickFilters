@@ -532,7 +532,7 @@ END LICENSE BLOCK
     # [issue 138] Fixed message filters button for Thunderbird 110 beta and later
     # Allow matching folders for Merge when captialization of folder name(s) hase changed
 
-  5.8.1 - WIP
+  5.8.1 - 18/02/2023
     # [issue 160] Ctrl-A (Select All) shortcut key no longer working in version 5.8
     # [issue 161] Merging to a filter with "Subject" template breaks filter 
     # [issue 163] Troubleshooter: in step one, only flag enabled filters that have no valid way of running
@@ -541,8 +541,11 @@ END LICENSE BLOCK
     # Avoid breaking filters with the wrong operator (any / all)
 
 
-  5.* - TO DO
+  5.9 - WIP
     # Remove monkey patch code for tag changes
+    # [issue 166] remove donate button from assistant dialog for licensed users
+    # [issue 167] Simplify opting out of expired license - unblock assistant button
+    # [issue 164] Disable assistant when dragging mail from special folders: Queue | Templates | Drafts | Trash
 
    
   ============================================================================================================
@@ -783,7 +786,7 @@ var quickFilters = {
 
   },
 
-  onMenuItemCommand: function onMenuItemCommand(e, cmd) {
+  onMenuItemCommand: function onMenuItemCommand(cmd) {
     const util = quickFilters.Util,
           prefs = quickFilters.Preferences;
     switch(cmd) {
@@ -862,15 +865,11 @@ var quickFilters = {
   onToolbarButtonCommand: function onToolbarButtonCommand(e) {
     if (quickFilters.Preferences.getBoolPref("hasNews")) {
       quickFilters.Util.viewSplash();
-      quickFilters.Preferences.setBoolPref("hasNews", false);
-      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" }); 
-    }
-    else if (quickFilters.Util.licenseInfo.isExpired) {
-      quickFilters.Util.viewLicense();
-    }
-    else {
+    // } else if (quickFilters.Util.licenseInfo.isExpired) { // [issue 167] don;t force license screen!
+    //   quickFilters.Util.viewLicense();
+    } else {
       // just reuse the function above.  you can change this, obviously!
-      quickFilters.onMenuItemCommand(e, 'toggle_Filters');
+      quickFilters.onMenuItemCommand("toggle_Filters");
     }
   },
 
@@ -1122,7 +1121,10 @@ var quickFilters = {
         let msgList = util.createMessageIdArray(targetFolder, messageUris);
 
         if (quickFilters.Util.AssistantActive) {
-          if (quickFilters.Util.checkAssistantExclusion(targetFolder)) {
+          if (quickFilters.Util.checkAssistantTargetExclusion(targetFolder)) {
+            return;
+          }
+          if (quickFilters.Util.checkAssistantSourceExclusion(sourceFolder)) {
             return;
           }
           // TODO - asyncify ?
@@ -1214,9 +1216,13 @@ var quickFilters = {
 
         if (quickFilters.Util.AssistantActive) {
           // is now async too. TO DO asyncify - await needed?
-          if (quickFilters.Util.checkAssistantExclusion(targetFolder)) {
+          if (quickFilters.Util.checkAssistantTargetExclusion(targetFolder)) {
             return false;
           }
+          if (quickFilters.Util.checkAssistantSourceExclusion(sourceFolder)) {
+            return false;
+          }
+          
           window.setTimeout(async function() {
             worker.createFilterAsync_New(sourceFolder, targetFolder, msgList, 
              isMove ? Components.interfaces.nsMsgFilterAction.MoveToFolder : Components.interfaces.nsMsgFilterAction.CopyToFolder, 
@@ -1328,7 +1334,10 @@ var quickFilters = {
             
         util.logDebugOptional('msgMove', 'MsgMoveCopy_Wrapper(): ' + selectedMessages.length + ' selected Messages counted.');
 
-        if (util.checkAssistantExclusion(destMsgFolder)) {
+        if (util.checkAssistantTargetExclusion(destMsgFolder)
+            ||
+            util.checkAssistantSourceExclusion(sourceFolder))
+        {
           isCreateFilter = false;
         }
         else {        
@@ -1569,24 +1578,33 @@ var quickFilters = {
     const util = quickFilters.Util;
     let hasNews = quickFilters.Preferences.getBoolPref("hasNews"),
         btn = document.getElementById("quickfilters-toolbar-button");
+    let mnuItemLicense = document.getElementById("quickfilters-checkLicense");
     if (btn) {
+      if (hasNews) {
+        btn.classList.add("newsflash");
+      } else {
+        btn.classList.remove("newsflash");
+      }
       if (util.licenseInfo.isExpired) {
         btn.classList.add("expired");
         btn.label = util.getBundleString("quickfiltersToolbarButton.expired");
         btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.expired.tip"));
       }
       else {
+        btn.classList.remove("expired");
         if (hasNews) {
-          btn.classList.add("newsflash");
-          btn.classList.remove("expired");
           btn.label = util.getBundleString("quickfiltersToolbarButton.updated");
           btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.updated.tip"));
         }
         else {
-          btn.classList.remove("newsflash");
-          btn.classList.remove("expired");
           btn.label = util.getBundleString("quickfiltersToolbarButton.label");
           btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.tooltip"));
+        }
+        let mnuGoPro = document.getElementById("quickfilters-gopro");
+        if (util.licenseInfo.isValid) { // no license
+          mnuGoPro.classList.add ("hasLicense");
+        } else {
+          mnuGoPro.classList.remove ("hasLicense");
         }
       }
     }
@@ -1663,7 +1681,7 @@ quickFilters.MsgFolderListener = {
         return; // early exit
       }
 
-      if (qF.Util.checkAssistantExclusion(targetFolder)) {
+      if (qF.Util.checkAssistantTargetExclusion(targetFolder)) {
         // Avoid triggering assistant for certain folders
         return;
       }
