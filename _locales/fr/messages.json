@@ -706,7 +706,10 @@
     "message": "Vérifier l'état de la licence…"
   },
   "quickfilters.menu.news": {
-    "message": "Dernières nouvelles sur quickFilters…"
+    "message": "News / Change Log (veuillez lire - réinitialise le bouton principal ci-dessus) …"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Outils"
   },
   "quickfilters.ListButton.label": {
     "message": "Filtres de message…"
@@ -1341,7 +1344,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Correction d'une régression dans la version 5.8 qui désactivait la fonctionnalité 'Sélectionner tous les messages'{L2}{L1} Vous pouvez désormais stocker les filtres sélectionnés en cliquant sur le bouton 'Filtres de sauvegarde' tout en maintenant la touche CTRL enfoncée.{L2} {L1} Ajout d'un lien vers github pour les rapports de bogues et les demandes de fonctionnalités dans l'onglet support. {L2} {L1} Autoriser le déclenchement de l'assistant lors de la suppression ou du déplacement de courrier vers le courrier indésirable. Ajout également d'un commutateur pour prendre en charge la création de filtres qui archivent le courrier. Les types de dossiers qui {boldStart}doivent être ignorés par l'Assistant peuvent être configurés sur la page Actions des paramètres de quickFilters{boldEnd}. [issue 145]{L2}{L1} Le tri des termes de filtre ne restaure désormais plus les termes de recherche supprimés.{L2} {L1} A annulé le code de 5.7.1 qui supprimait les fonctions 'Monkey Patched' qui créaient divers problèmes tels que Thunderbird suspendu pendant le filtrage sur un petit nombre de systèmes. [issue 152]{L2}"
+    "message": "{L1} Nouvelle disposition du bouton de la barre d'outils : il s'agit désormais d'un menu déroulant qui donne toujours {boldStart}accès à toutes les fonctions{boldEnd}, même lorsque la licence a expiré ou que les notes de version n'ont pas encore été lues.{L2}{L1} Désactivation de l'assistant lors du déplacement du courrier à partir de dossiers spéciaux (file d'attente, modèles, brouillons, corbeille) [numéro 164]{L2}{L1} Suppression du bouton Faire un don pour les utilisateurs sous licence.{L2}{L1} Réparé : option permettant d'ajouter de nouvelles règles aux filtres existants en haut de la liste des termes de recherche.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

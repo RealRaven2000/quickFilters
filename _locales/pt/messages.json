@@ -710,7 +710,10 @@
     "message": "Verifique o status da licença…"
   },
   "quickfilters.menu.news": {
-    "message": "Últimas notícias sobre quickFilters…"
+    "message": "Notícias / Change Log (leia - redefine o botão principal acima)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": ""
   },
   "quickfilters.ListButton.label": {
     "message": "Filtros de Mensagem…"
@@ -1345,7 +1348,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Corrigida uma regressão na versão 5.8 que desativava o recurso 'Selecionar todos os e-mails'{L2}{L1} Agora você pode armazenar filtros selecionados, clicando no botão 'Backup Filters' enquanto mantém pressionada a tecla CTRL.{L2} {L1} Adicionado link ao github para relatórios de bugs e solicitações de recursos na guia de suporte. {L2} {L1} Permitir acionamento do assistente ao excluir ou mover e-mails para lixo eletrônico. Também foi adicionado um switch para oferecer suporte à criação de filtros que arquivam emails. {boldStart}Os tipos de pasta que devem ser ignorados pelo Assistente podem ser configurados na página Ações das configurações do quickFilters{boldEnd}. [issue 145]{L2}{L1} Classificar os termos do filtro falsamente não restaura mais os termos de pesquisa excluídos.{L2} {L1} Reverteu o código de 5.7.1 que removeu as funções 'Monkey Patched' que criaram vários problemas, como o travamento do Thunderbird durante a filtragem em um pequeno número de sistemas. [issue 152]{L2}"
+    "message" : "{L1} Novo layout do botão da barra de ferramentas - agora é um menu suspenso que sempre dá acesso a {boldStart}todas as funções{boldEnd}, mesmo quando a licença expirou ou as notas da versão ainda não foram lidas.{L2}{L1} Desativou o assistente ao arrastar e-mail de pastas especiais (Fila, Modelos, Rascunhos, Lixeira) [issue 164]{L2}{L1} Removido o botão Doar para usuários licenciados.{L2}{L1} Reparado: opção para adicionar novas regras aos filtros existentes na parte superior do lista de termos de pesquisa.{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

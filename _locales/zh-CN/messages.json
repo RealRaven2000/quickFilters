@@ -706,7 +706,10 @@
     "message": "检查许可证状态..."
   },
   "quickfilters.menu.news": {
-    "message": "关于 quickFilters 的最新消息…"
+    "message": "新闻/更改日志（请阅读 - 重置上面的主按钮）..."
+  },
+  "quickfilters.menu.tools": {
+    "message": "工具"
   },
   "quickfilters.ListButton.label": {
     "message": "邮件过滤器..."
@@ -1341,7 +1344,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1}修复了 quickFilters 5.8 中禁用“选择所有邮件”功能的回归{L2}{L1} 您现在可以通过在按住 CTRL 键的同时单击“备份过滤器”按钮来存储选定的过滤器。{L2} {L1} 在支持选项卡上添加了指向错误报告和功能请求的 github 链接。 {L2} {L1} 允许助手在删除邮件或将邮件移至垃圾邮件时触发。 还添加了一个开关以支持构建归档邮件的过滤器。 {boldStart}可以在 quickFilters 设置的“操作”页面上配置应被助手忽略的文件夹类型。{boldEnd}[issue 145]{L2}{L1}现在错误地对过滤条件进行排序不会再恢复已删除的搜索条件。{L2} {L1}回滚代码 5.7.1 删除了“Monkey Patched”功能，该功能会产生各种问题，例如 Thunderbird 在少数系统上的过滤过程中挂起。 [issue 152]{L2}"
+    "message": "{L1} 工具栏按钮的新布局 - 现在这是一个下拉菜单，即使在许可证过期或尚未阅读版本说明时也始终可以访问所有功能。{L2}{L1} 拖动邮件时禁用助手 来自特殊文件夹（队列、模板、草稿、垃圾箱）[issue 164]{L2}{L1} 为许可用户删除了捐赠按钮。{L2}{L1} 已修复：向现有过滤器添加新规则的选项 搜索词列表。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

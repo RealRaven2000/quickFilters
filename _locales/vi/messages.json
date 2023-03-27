@@ -706,7 +706,10 @@
     "message": "Kiểm tra trạng thái giấy phép…"
   },
   "quickfilters.menu.news": {
-    "message": "Tin tức mới nhất về quickFilters…"
+    "message": "Nhật ký Tin tức / Thay đổi (vui lòng đọc - đặt lại nút chính ở trên)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Công cụ"
   },
   "quickfilters.ListButton.label": {
     "message": "Các Bộ Lọc Tin Nhắn…"
@@ -1341,7 +1344,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Đã sửa hồi quy trong quickFilters 5.8 đã tắt tính năng 'Chọn tất cả thư'{L2}{L1} Giờ đây, bạn có thể lưu trữ các bộ lọc đã chọn bằng cách nhấp vào Nút 'Bộ lọc dự phòng' trong khi giữ phím CTRL.{L2} {L1} Đã thêm liên kết tới github cho các báo cáo lỗi và yêu cầu tính năng trên tab hỗ trợ. {L2} {L1} Cho phép kích hoạt trợ lý khi xóa hoặc chuyển thư sang Thư rác. Cũng đã thêm một công tắc để hỗ trợ xây dựng các bộ lọc lưu trữ thư. {boldStart}Bạn có thể định cấu hình các loại thư mục mà Trợ lý có thể bỏ qua trên trang Hành động của cài đặt Bộ lọc nhanh{boldEnd}. [issue 145]{L2}{L1} Giờ đây, việc sắp xếp các cụm từ bộ lọc theo cách sai sẽ không khôi phục các cụm từ tìm kiếm đã xóa nữa.{L2} {L1} Đã hoàn nguyên mã từ 5.7.1 đã loại bỏ các chức năng 'Monkey Patched' đã tạo ra nhiều vấn đề khác nhau, chẳng hạn như Thunderbird bị treo trong quá trình lọc trên một số lượng nhỏ hệ thống. [issue 152]{L2}"
+    "message": "{L1} Bố cục mới cho nút thanh công cụ - đây hiện là trình đơn thả xuống luôn cấp quyền truy cập vào tất cả các chức năng ngay cả khi giấy phép hết hạn hoặc ghi chú phiên bản chưa được đọc.{L2}{L1} Đã tắt trợ lý khi kéo thư từ các thư mục đặc biệt (Hàng đợi, Mẫu, Bản nháp, Thùng rác) [issue 164]{L2}{L1} Đã xóa nút Đóng góp cho người dùng được cấp phép.{L2}{L1} Đã sửa chữa: tùy chọn thêm quy tắc mới vào các bộ lọc hiện có ở đầu trang danh sách cụm từ tìm kiếm.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

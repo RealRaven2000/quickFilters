@@ -701,11 +701,17 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Create Filter from Message…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Change Log…"
+  },
   "quickfilters.menu.license": {
     "message": "Check license status…"
   },
   "quickfilters.menu.news": {
-    "message": "Latest news on quickFilters…"
+    "message": "News / Change Log (please read - resets the main button above)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Tools"
   },
   "quickfilters.ListButton.label": {
     "message": "Message Filters…"
@@ -1340,7 +1346,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Fixed a regression in quickFilters 5.8 that disabled the 'Select All mail' feature{L2}{L1} You can now store selected filters, by clicking the 'Backup Filters' Button while holding down the CTRL key.{L2} {L1} Added link to github for bug reports and feature requests on the support tab. {L2} {L1} Allow assistant trigger when deleting or moving mail to Junk. Also added a switch to support building filters that archive mail (through the FiltaQuilla Add-on). {boldStart}Folder types that should be ignored by Assistant can be configured on the Actions page{boldEnd} of quickFilters settings. [issue 145]{L2}{L1} Sorting filter terms now falsely doesn't restore deleted search terms anymore.{L2} {L1} Rolled back the code from 5.7.1 that removed 'Monkey Patched' functions which created various problems such as Thunderbird hanging during filtering on a small number of systems. [issue 152]{L2}"
+    "message": "{L1} New layout for toolbar button - this is now a drop-down menu which always gives {boldStart}access to all functions{boldEnd} even when license is expired or version notes have not been read yet.{L2}{L1} Disabled the assistant when dragging mail from special folders (Queue, Templates, Drafts, Trash) [issue 164]{L2}{L1} Removed Donate button for licensed users.{L2}{L1} Repaired: option to add new rules to existing filters on the top of the list of search terms.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -706,7 +706,10 @@
     "message": "Licentiestatus controleren…"
   },
   "quickfilters.menu.news": {
-    "message": "Laatste nieuws over quickFilters…"
+    "message": "Nieuws / Wijzigingslogboek (lees a.u.b. - reset de hoofdknop hierboven)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Hulpmiddelen"
   },
   "quickfilters.ListButton.label": {
     "message": "Berichtenfilters…"
@@ -1341,7 +1344,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Regressie verholpen in 5.8 die de functie 'Alle e-mail selecteren' uitschakelde{L2}{L1} U kunt nu geselecteerde filters opslaan door op de knop 'Back-upfilters' te klikken terwijl u de CTRL-toets ingedrukt houdt.{L2} {L1} Link naar github toegevoegd voor bugrapporten en functieverzoeken op het ondersteuningstabblad. {L2} {L1} Assistent-trigger toestaan bij het verwijderen of verplaatsen van e-mail naar Ongewenst. Ook een schakelaar toegevoegd om het bouwen van filters te ondersteunen die e-mail archiveren. Maptypen die door {boldStart}de Assistent moeten worden genegeerd, kunnen worden geconfigureerd op de pagina Acties van de quickFilters-instellingen{boldEnd}. [issue 145]{L2}{L1} Door filtertermen nu onterecht te sorteren, worden verwijderde zoektermen niet meer hersteld.{L2} {L1} Code teruggedraaid van 5.7.1 die 'Monkey Patched'-functies verwijderde die verschillende problemen veroorzaakten, zoals Thunderbird die vastliep tijdens het filteren op een klein aantal systemen. [issue 152]{L2}"
+    "message": "{L1} Nieuwe lay-out voor werkbalkknop - dit is nu een vervolgkeuzemenu dat altijd toegang geeft {boldStart}tot alle functies{boldEnd}, zelfs wanneer de licentie is verlopen of de versienotities nog niet zijn gelezen.{L2}{L1} De assistent uitgeschakeld bij het slepen van e-mail uit speciale mappen (wachtrij, sjablonen, concepten, prullenbak) [issue 164]{L2}{L1} Knop Doneren verwijderd voor gelicentieerde gebruikers.{L2}{L1} Gerepareerd: optie om nieuwe regels toe te voegen aan bestaande filters bovenaan de lijst met zoektermen.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

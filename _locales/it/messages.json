@@ -706,7 +706,10 @@
     "message": "Controlla lo stato della licenza…"
   },
   "quickfilters.menu.news": {
-    "message": "Ultime notizie su quickFilters…"
+    "message": "Notizie / Registro modifiche (si prega di leggere - ripristina il pulsante principale sopra)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Utensili"
   },
   "quickfilters.ListButton.label": {
     "message": "Filtri per i messaggi…"
@@ -1341,7 +1344,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Risolta una regressione in 5.8 che disabilitava la funzione 'Seleziona tutta la posta'{L2}{L1} Ora puoi memorizzare i filtri selezionati, facendo clic sul pulsante 'Filtri di backup' mentre tieni premuto il tasto CTRL.{L2} {L1} Aggiunto collegamento a github per segnalazioni di bug e richieste di funzionalità nella scheda di supporto. {L2} {L1} Consenti l'attivazione dell'assistente durante l'eliminazione o lo spostamento della posta nella posta indesiderata. Aggiunta anche un'opzione per supportare la creazione di filtri che archiviano la posta. I tipi di cartella che dovrebbero {boldStart}essere ignorati dall'Assistente possono essere configurati nella pagina Azioni delle impostazioni di quickFilters{boldEnd}. [issue 145]{L2}{L1} L'ordinamento errato dei termini del filtro ora non ripristina più i termini di ricerca eliminati.{L2} {L1} È stato eseguito il rollback del codice da 5.7.1 che rimuoveva le funzioni 'Monkey Patched' che creavano vari problemi come il blocco di Thunderbird durante il filtraggio su un numero limitato di sistemi. [issue 152]{L2}"
+    "message": "{L1} Nuovo layout per il pulsante della barra degli strumenti: ora è un menu a discesa che dà sempre accesso {boldStart}a tutte le funzioni{boldEnd} anche quando la licenza è scaduta o le note sulla versione non sono state ancora lette.{L2}{L1} Disabilitato l'assistente durante il trascinamento della posta da cartelle speciali (Coda, Modelli, Bozze, Cestino) [problema 164]{L2}{L1} Pulsante Dona rimosso per gli utenti con licenza.{L2}{L1} Riparato: opzione per aggiungere nuove regole ai filtri esistenti nella parte superiore elenco dei termini di ricerca.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

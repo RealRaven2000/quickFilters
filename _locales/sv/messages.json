@@ -703,13 +703,16 @@
     "message": "quickFilters: Skapa filter utifrån meddelande…"
   },
   "quickfilters.menu.license": {
-    "message": "Kontrollera licensstatus..."
+    "message": "Kontrollera licensstatus…"
   },
   "quickfilters.menu.news": {
-    "message": "Senaste nytt om quickFilters..."
+    "message": "Novice / Dnevnik sprememb (preberite - ponastavi zgornji glavni gumb)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Verktyg"
   },
   "quickfilters.ListButton.label": {
-    "message": "Meddelandefilter …"
+    "message": "Meddelandefilter…"
   },
   "quickfilters.ListButton.tooltip": {
     "message": "Visa en lista över meddelandefilter"
@@ -1341,7 +1344,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Laggade en regression i quickFilters 5.8 som inaktiverade funktionen 'Välj all e-post'{L2}{L1} Du kan nu lagra valda filter genom att klicka på knappen 'Säkerhetskopiera filter' samtidigt som du håller ned CTRL-tangenten.{L2} {L1} Lade till länk till github för felrapporter och funktionsförfrågningar på supportfliken. {L2} {L1} Tillåt assistentutlösare när du tar bort eller flyttar e-post till skräppost. Lade också till en switch för att stödja att bygga filter som arkiverar e-post. Mapptyper som {boldStart}ska ignoreras av assistenten kan konfigureras på sidan Åtgärder i quickFilters-inställningarna.{boldEnd} [issue 145]{L2}{L1} Att sortera filtertermer nu felaktigt återställer inte längre borttagna söktermer.{L2} {L1} Återställt koden från 5.7.1 som tog bort 'Monkey Patched'-funktioner som skapade olika problem som att Thunderbird hängde sig under filtrering på ett litet antal system. [issue 152]{L2}" 
+    "message": "{L1} Ny layout för verktygsfältsknapp - detta är nu en rullgardinsmeny som alltid ger åtkomst {boldStart}till alla funktioner{boldEnd} även när licensen har löpt ut eller versionsanteckningar inte har lästs ännu.{L2}{L1} Inaktiverade assistenten när du drar e-post från speciella mappar (kö, mallar, utkast, papperskorgen) [issue 164]{L2}{L1} Borttagen Donera-knapp för licensierade användare.{L2}{L1} Reparerad: alternativ för att lägga till nya regler till befintliga filter överst på lista över söktermer.{L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

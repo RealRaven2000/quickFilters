@@ -707,7 +707,10 @@
     "message": "Sprawdź stan licencji…"
   },
   "quickfilters.menu.news": {
-    "message": "Najnowsze wiadomości na temat quickFilters…"
+    "message": "Dziennik wiadomości / zmiany (przeczytaj - resetuje główny przycisk powyżej)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Narzędzia"
   },
   "quickfilters.ListButton.label": {
     "message": "Filtry wiadomości…"
@@ -1339,7 +1342,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Naprawiono regresję w wersji 5.8, która wyłączała funkcję „Zaznacz całą pocztę”{L2}{L1} Możesz teraz zapisać wybrane filtry, klikając przycisk „Utwórz kopię zapasową filtrów”, przytrzymując klawisz CTRL.{L2} {L1} Dodano link do github, aby uzyskać raporty o błędach i prośby o nowe funkcje na karcie pomocy technicznej. {L2} {L1} Zezwalaj na uruchamianie asystenta podczas usuwania lub przenoszenia poczty do folderu Spam. Dodano także przełącznik do obsługi filtrów budowania, które archiwizują pocztę. {boldStart}Typy folderów, które powinny być ignorowane przez Asystenta, można skonfigurować na stronie Czynności w ustawieniach quickFilters.{boldEnd} [issue 145]{L2}{L1} Teraz błędne sortowanie haseł filtrowanych nie przywraca już usuniętych wyszukiwanych haseł.{L2} {L1} Wycofano kod z 5.7.1, która usuwała funkcje „Monkey Patched”, które powodowały różne problemy, takie jak zawieszanie się Thunderbirda podczas filtrowania w niewielkiej liczbie systemów. [issue 152]{L2}"
+    "message" : "{L1} Nowy układ przycisku paska narzędzi - to teraz rozwijane menu, które zawsze daje dostęp {boldStart}do wszystkich funkcji{boldEnd}, nawet jeśli licencja wygasła lub uwagi do wersji nie zostały jeszcze przeczytane.{L2}{L1} Wyłączono asystenta podczas przeciągania poczty ze specjalnych folderów (Kolejka, Szablony, Wersje robocze, Kosz) [issue 164]{L2}{L1} Usunięto przycisk Przekaż darowiznę dla licencjonowanych użytkowników.{L2}{L1} Naprawiono: opcja dodawania nowych reguł do istniejących filtrów na górze lista wyszukiwanych terminów.{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",
