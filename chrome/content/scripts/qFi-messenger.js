@@ -14,6 +14,7 @@ var listener_toggleFolder, listener_updatequickFiltersLabel;
 async function onLoad(activatedWhileWindowOpen) {
   console.log (Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
+  let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
     
   WL.injectElements(`  
   <popup id="folderPaneContext">
@@ -45,15 +46,22 @@ async function onLoad(activatedWhileWindowOpen) {
                    wantdropmarker="true"
                    >
       <menupopup>
+        <menuitem id="quickfilters-news"    label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" />
         <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic"/>
         <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" />
         <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic"/>
         <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic"/>
         <menuseparator />
+        <menu label="__MSG_quickfilters.menu.tools__">
+          <menupopup>
+            <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" />
+            <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" />                    
+            <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" />                    
+          </menupopup>
+        </menu>
         <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" />
-        <menuitem id="quickfilters-news"    label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" />
+        <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" />
         <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" />
-        
       </menupopup>
     </toolbarbutton>
     <toolbarbutton id="quickfilters-toolbar-listbutton"
@@ -91,15 +99,30 @@ async function onLoad(activatedWhileWindowOpen) {
   let mnuRunMsg =  document.getElementById("quickfilters-runFiltersMsg");
   if (mnuRunMsg) mnuRunMsg.addEventListener("command", (e) => {window.quickFilters.onApplyFiltersToSelection();} );  
   let mnuOptions = document.getElementById("quickfilters-options");
-  if (mnuOptions) mnuOptions.addEventListener("command", (e) => {window.quickFilters.showOptions();} );  
+  if (mnuOptions) mnuOptions.addEventListener("command", (e) => {window.quickFilters.showOptions();} );
+
   let mnuNews = document.getElementById("quickfilters-news");
   if (mnuNews) mnuNews.addEventListener("command", (e) => {window.quickFilters.Util.viewSplash();} );  
+  let mnuChangeLog = document.getElementById("quickfilters-changelog");
+  if (mnuChangeLog) mnuChangeLog.addEventListener("command", (e) => {window.quickFilters.Util.viewSplash();} );  
+
   let mnuLicense = document.getElementById("quickfilters-checkLicense");
   if (mnuLicense) mnuLicense.addEventListener("command", (e) => {window.quickFilters.Util.viewLicense();} );  
   let mnuGoPro = document.getElementById("quickfilters-gopro");
   if (mnuGoPro) mnuGoPro.addEventListener("command", 
     (e) => {window.quickFilters.Util.showLicenseDialog('mainBtnPopupMenu');} 
-  );  
+  ); 
+  // TOOLS MENU
+  let mnuList = document.getElementById("quickfilters-menu-filterlist");
+  if (mnuList) mnuList.addEventListener("command", (e) => {window.quickFilters.onToolbarListCommand();} );
+  let mnuToolsCreateFromMsg  = document.getElementById("quickFilters-menu-filterFromMsg");
+  if (mnuToolsCreateFromMsg) mnuToolsCreateFromMsg.addEventListener("command", function(event) { window.quickFilters.onMenuItemCommand('createFilterFromMsg');} );  
+  mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
+  let mnuToolsFindFilters = document.getElementById("quickfilters-menu-searchfilters");
+  if ( mnuToolsFindFilters)  mnuToolsFindFilters.addEventListener("command", function(event) { window.quickFilters.searchFiltersFromFolder();} );  
+  
+
+
 
   // note: the taskPopup (Tools menu)
   //       apparently doesn't show this command in TB102, may be dues to  gMenuBuilder.build()

@@ -6,10 +6,7 @@
 	min-height: 20px;
 }
 
-#quickfilters-toolbar-button,
-#quickFilters-wizard,
-#quickFilters-fromMessage,
-#quickFilters-fromMessageInMenu,
+
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive,
 #QuickFolders-Toolbar #QuickFolders-filterActive,
 menuitem.cmd[tagName="qfFilter"],
@@ -19,161 +16,15 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   fill: currentColor;
 }
 
-/* new popup menu items */
-#quickfilters-toggleAssistant, #quickfilters-runFilters, #quickfilters-runFiltersMsg, 
-#quickfilters-options, #quickfilters-checkLicense, #quickfilters-gopro, #quickfilters-news {
-  -moz-context-properties: fill;
-  fill: currentColor;
-}
-
-#quickfilters-toggleAssistant {
-  list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
-}
-
-#quickfilters-runFilters {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg") !important;
-}
-
-#quickfilters-runFiltersMsg {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg") !important;
-}
-
-#quickfilters-options {
-  list-style-image: url("chrome://quickfilters/content/skin/settings.svg") !important;
-}
-
-#quickfilters-checkLicense {
-  list-style-image: url("chrome://quickfilters/content/skin/info.svg") !important;
-}
-
-#quickfilters-gopro {
-  list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_32.svg") !important;
-}
-
-#quickfilters-news {
-  list-style-image: url("chrome://quickfilters/content/skin/info.svg") !important;
-}
-
-#quickfilters-toolbar-button:not(.expired) #quickfilters-checkLicense {
-  display: none;
-}
-
-#quickfilters-gopro.hasLicense {
-  display: none;
-}
-
-#quickfilters-toolbar-button.newsflash #quickfilters-news {
-  background: #002a6d !important;
-}
-#quickfilters-toolbar-button.newsflash #quickfilters-news:hover {
-  background: #870303 !important;
-}
-#quickfilters-toolbar-button.newsflash #quickfilters-news label {
-  color: white !important;
-}
-#quickfilters-toolbar-button.newsflash #quickfilters-news image {
-  fill: rgba(250, 189, 223, 0.9) !important;
-}
-#quickfilters-toolbar-button.newsflash #quickfilters-news:hover image {
-  fill: white !important;
-}
-
 #QuickFolders-Toolbar #QuickFolders-filterActive {
   -moz-context-properties: fill;
   fill: currentColor;
 }
 
-#quickfilters-toolbar-button[checked="true"],
-#quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant image {
-  fill: #f30606 !important;
-}
-
-#quickfilters-toolbar-button.newsflash {
-  background-color: rgba(240, 86, 175, 0.9); /* purple */
-  background-image: linear-gradient(rgba(240, 86, 175, 0.9) 0%, rgba(180, 15, 106, 0.9) 48%, rgba(109, 5, 76, 0.8) 100%) !important;
-}
-#quickfilters-toolbar-button.newsflash > label {
-  color: white !important;
-}
-
-#quickfilters-toolbar-button.expired, #quickfilters-toolbar-button.newsflash.expired  {
-  background-color: #b80015 !important; /* red */
-  background: linear-gradient(to bottom, #890219 0%,#b80015 100%) !important; 
-}
-#quickfilters-toolbar-button.expired > label {
-  color: white !important;
-}
-
-#quickfilters-toolbar-button.expired:hover > label,
-#quickfilters-toolbar-button.newsflash:hover > label {
-  color: #202020 !important;
-}
-#quickfilters-toolbar-button.expired > label,
-#quickfilters-toolbar-button.newsflash > label {
-  color: rgb(255,255,255) !important;
-}
-#quickfilters-toolbar-button.expired:hover ,
-#quickfilters-toolbar-button.newsflash:hover {
-	background-color: #ffd65e !important; /* yellow */
-	background-image: linear-gradient(to bottom, #fff65e 0%,#febf04 100%) !important;
-}
-
-
-#quickfilters-toolbar-button.expired:hover image,
-#quickfilters-toolbar-button.newsflash:hover image {
-  fill: rgb(60,0,0) !important;
-}
-
-#quickfilters-toolbar-button.expired .toolbarbutton-text,
-#quickfilters-toolbar-button.newsflash .toolbarbutton-text {
-  display: inline-block !important;
-}
 
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive[mode="filter"] {
   fill: #4fc825;
 }
-
-#quickfilters-toolbar-listbutton,
-#quickfilters-current-listbutton {
-  -moz-context-properties: fill, fill-opacity, stroke;
-  fill: currentColor;
-  list-style-image: url("chrome://quickfilters/content/skin/filterList.svg");
-}
-
-
-#quickfilters-toolbar-runbutton {
-  -moz-context-properties: fill, fill-opacity, stroke;
-  fill: currentColor;
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
-}
-
-#quickfilters-toolbar-msg-runbutton {
-  -moz-context-properties: fill, fill-opacity, stroke;
-  fill: currentColor;
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
-}
-
-#quickfilters-current-runbutton,
-#mail-toolbox > toolbar[brighttext] #quickfilters-current-runbutton.toolbarbutton-1 {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
-}
-
-#quickfilters-current-searchfilterbutton {
-  list-style-image: url("chrome://quickfilters/content/skin/findFilters.svg");
-}
-
-#quickfilters-current-msg-runbutton {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
-}
-
-#quickfilters-menu-findFilter {
-  list-style-image: url("chrome://quickfilters/content/skin/findFilters.svg");
-}
-
-#quickfilters-menu-runMenu {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
-}
-
 
 
 #mail-notification-box,

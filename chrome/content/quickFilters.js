@@ -543,9 +543,10 @@ END LICENSE BLOCK
 
   5.9 - WIP
     # Remove monkey patch code for tag changes
-    # [issue 166] remove donate button from assistant dialog for licensed users
     # [issue 167] Simplify opting out of expired license - unblock assistant button
     # [issue 164] Disable assistant when dragging mail from special folders: Queue | Templates | Drafts | Trash
+    # [issue 166] Remove donate button from assistant dialog for licensed users
+    # [issue 170] Repaired option to add new rules (merge) to existing filters on the top 
 
    
   ============================================================================================================
@@ -1577,7 +1578,9 @@ var quickFilters = {
   updatequickFiltersLabel: function() {
     const util = quickFilters.Util;
     let hasNews = quickFilters.Preferences.getBoolPref("hasNews"),
-        btn = document.getElementById("quickfilters-toolbar-button");
+        btn = document.getElementById("quickfilters-toolbar-button"),
+        isDropDownMarkerStyled = false;
+
     let mnuItemLicense = document.getElementById("quickfilters-checkLicense");
     if (btn) {
       if (hasNews) {
@@ -1589,12 +1592,14 @@ var quickFilters = {
         btn.classList.add("expired");
         btn.label = util.getBundleString("quickfiltersToolbarButton.expired");
         btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.expired.tip"));
+        isDropDownMarkerStyled = true;
       }
       else {
         btn.classList.remove("expired");
         if (hasNews) {
           btn.label = util.getBundleString("quickfiltersToolbarButton.updated");
           btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.updated.tip"));
+          isDropDownMarkerStyled = true;
         }
         else {
           btn.label = util.getBundleString("quickfiltersToolbarButton.label");
@@ -1606,6 +1611,19 @@ var quickFilters = {
         } else {
           mnuGoPro.classList.remove ("hasLicense");
         }
+      }
+      // style dropdownmarker directly (it's hidden in dropmarker.shadowRoot)
+      // we cannot set a selector for the parent element (#quickfilters-toolbar-button.expired)
+      // because this is not visible to the shadowRoot.
+      let dm = btn.querySelector("dropmarker");
+      if (dm && dm.shadowRoot) {
+        let dmImage = dm.shadowRoot.querySelector("image");
+        if (isDropDownMarkerStyled) {
+          dmImage.classList.add("qi-highlighted");
+        } else {
+          dmImage.classList.remove("qi-highlighted");
+        }
+        dmImage.style.color = isDropDownMarkerStyled ? "#FFFFFF" : "";
       }
     }
   } ,

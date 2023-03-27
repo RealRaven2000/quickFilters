@@ -161,7 +161,7 @@ quickFilters.Assistant = {
   },
 
   
-  loadAssistant : function loadAssistant() {
+  loadAssistant : async function() {
     // [Bug 25199] - Add Rules to existing filters 
     /* 1. find out the correct account (server) */
     /* 2. enumerate all filters of server and find the ones that have same target folder */
@@ -173,11 +173,24 @@ quickFilters.Assistant = {
           util = quickFilters.Util,
           prefs = quickFilters.Preferences;
 
+    await quickFilters.Util.init();
+
     // wire up dialog buttons manually in Thunderbird 68 (something going wrong there with the click events)    
     let dlgButtons = document.getElementsByTagName('dialog')[0]._buttons;
-    dlgButtons['extra1'].addEventListener("click", function(event) {return quickFilters.Assistant.next();});
-    dlgButtons['cancel'].addEventListener("click", function(event) {return quickFilters.Assistant.cancelTemplate();});
-    dlgButtons['extra2'].addEventListener("click", function(event) {quickFilters.Util.showLicensePage();});
+    dlgButtons['extra1'].addEventListener("click", (e) => {return quickFilters.Assistant.next();});
+    dlgButtons['cancel'].addEventListener("click", (e) => {return quickFilters.Assistant.cancelTemplate();});
+
+    if (quickFilters.Util.licenseInfo) {
+      if (quickFilters.Util.licenseInfo.isValid) {
+        dlgButtons['extra2'].style.visibility="hidden";
+      } else if (quickFilters.Util.licenseInfo.isExpired) {
+        dlgButtons['extra2'].label = quickFilters.Util.getBundleString("quickfilters.notification.premium.btn.renewLicense");
+        dlgButtons['extra2'].addEventListener("click", (e) => {quickFilters.Util.showLicenseDialog("assistant_renew");});
+      } else {
+        // old case (donate)
+        dlgButtons['extra2'].addEventListener("click", (e) => {quickFilters.Util.showLicensePage();});
+      }
+    }
     
     this.ContinueLabel = this.NextButton.label;
           
