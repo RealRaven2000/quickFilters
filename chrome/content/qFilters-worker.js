@@ -841,7 +841,6 @@ quickFilters.Worker = {
         return false;
       }
       var insertOnTop = prefs.getBoolPref('searchterm.insertOnTop'); // for later
-      insertOnTop = false; // hard to support right now... searchTerms.insertElementAt(term, 0)
 
       let origLength = target.searchTerms.length;
       
@@ -852,14 +851,20 @@ quickFilters.Worker = {
 
         try {
           if (insertOnTop) { // not supported right now, we user to do: searchTerms.insertElementAt(term, 0)
-            // [Bug 26664] add condition on top instead of appending at bottom
-            if (bGrouping) {
+            // [issue 170] Merge Rules: Adding rules on top doesn't work anymore. 
+            //             we need to force cloning the array and then write it back across the XPCOM boundaries
+            let terms = target.searchTerms; // the getter clones the array.
+
+            if (bGrouping) { // does the term need to be included in the first ( group )? Then transfer parentheses.
               term.beginsGrouping = bGrouping;
-              target.searchTerms[0].beginsGrouping = 
+              terms[0].beginsGrouping = 
                 (typeof term.beginsGrouping == "number") ? 0 : false; // Betterbird stores number of parentheses
             }
-            term.booleanAnd = target.searchTerms[0].booleanAnd;
-            target.searchTerms.splice(0,0,term); 
+            term.booleanAnd = terms[0].booleanAnd;
+            terms.splice(0,0,term); 
+
+            target.searchTerms = terms; // write back!
+
           }
         }
         catch (ex) {
