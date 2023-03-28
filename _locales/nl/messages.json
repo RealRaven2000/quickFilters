@@ -260,7 +260,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "De aanpassingen om $addonName$ om te zetten naar het nieuwe programmeermodel duurden weken en waren kostbaar. Er zijn veel meer wijzigingen voor de volgende 2022-versie. Met een complexe add-on als deze wordt duur werk onvermijdelijk. Help ons hier alstublieft mee.",
+    "message": "De aanpassingen om $addonName$ om te zetten naar het nieuwe programmeermodel duurden weken en waren kostbaar. Er zijn veel meer wijzigingen voor de volgende 2023-versie. Met een complexe add-on als deze wordt duur werk onvermijdelijk. Help ons hier alstublieft mee.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1205,6 +1205,14 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Klik hier eenmaal om het Splash-scherm te zien en wat er nieuw is in quickFilters."
+  },
+  "quickfiltersToolbarButton.renew": {
+    "message": "Licentie verloopt over $daysLeft$ dagen",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1"
+      }
+    }
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Activeer de filterassistent (klik met de rechtermuisknop om de voorkeuren van quickFilters weer te geven)"

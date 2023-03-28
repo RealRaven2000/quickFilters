@@ -547,6 +547,7 @@ END LICENSE BLOCK
     # [issue 164] Disable assistant when dragging mail from special folders: Queue | Templates | Drafts | Trash
     # [issue 166] Remove donate button from assistant dialog for licensed users
     # [issue 170] Repaired option to add new rules (merge) to existing filters on the top 
+    # [issue 171] Added a warning if the quickFilters license is about to expire (displayed 10 days before).
 
    
   ============================================================================================================
@@ -588,10 +589,13 @@ var quickFilters = {
   },
 
   get folderTreeView() {
-    if (!this.folderTree )
+    if (!this.folderTree) {
       this.folderTree = document.getElementById('folderTree');
+    }
 
-    return (typeof gFolderTreeView=='undefined') ? this.folderTree.view : gFolderTreeView;
+    let tv = (typeof gFolderTreeView=='undefined') ? this.folderTree.view : gFolderTreeView;
+    if (typeof tv == "undefined") return null; // Tb 112+
+    return tv;
   },
 
   onLoadQuickFilters: async function() {
@@ -612,7 +616,7 @@ var quickFilters = {
           treeView = quickFilters.folderTreeView;
 
       // let's wrap the drop function in our own (unless it already is quickFilters_originalDrop would be defined])
-      if (!tree.quickFilters_originalDrop) {  
+      if (tree && !tree.quickFilters_originalDrop) {  
         tree.quickFilters_originalDrop = treeView.drop;
         if (tree.quickFilters_originalDrop) {
           // new drop function, wraps original one
@@ -1606,7 +1610,14 @@ var quickFilters = {
           btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.tooltip"));
         }
         let mnuGoPro = document.getElementById("quickfilters-gopro");
-        if (util.licenseInfo.isValid) { // no license
+        if (util.licenseInfo.isValid) { 
+          if (util.licenseInfo.licensedDaysLeft<11) {
+            btn.classList.add("renew");
+            btn.label = util.getBundleString("quickfiltersToolbarButton.renew", "License expires in $daysLeft$ days", [util.licenseInfo.licensedDaysLeft]);
+            isDropDownMarkerStyled = true;
+          } else {
+            btn.classList.remove("renew");
+          }
           mnuGoPro.classList.add ("hasLicense");
         } else {
           mnuGoPro.classList.remove ("hasLicense");

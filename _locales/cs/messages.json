@@ -87,7 +87,7 @@
     "description": "Title of the click notification."
   },
   "ongoing-work": {
-    "message": "Změny převodu $addonName$ na nový programovací model trvaly týdny a byly nákladné. Pro příští verzi 2022 existuje mnoho dalších změn. S komplexním doplňkem, jako je tento, se drahá práce stává nevyhnutelnou. Pomozte nám s tím.",
+    "message": "Změny převodu $addonName$ na nový programovací model trvaly týdny a byly nákladné. Pro příští verzi 2023 existuje mnoho dalších změn. S komplexním doplňkem, jako je tento, se drahá práce stává nevyhnutelnou. Pomozte nám s tím.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 

@@ -260,7 +260,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "Les modifications pour convertir $addonName$ au nouveau modèle de programmation ont pris des semaines et étaient coûteuses. Il y a beaucoup plus de changements pour la prochaine version 2022. Avec un module complémentaire complexe comme celui-ci, un travail coûteux devient inévitable. Merci de nous aider.",
+    "message": "Les modifications pour convertir $addonName$ au nouveau modèle de programmation ont pris des semaines et étaient coûteuses. Il y a beaucoup plus de changements pour la prochaine version 2023. Avec un module complémentaire complexe comme celui-ci, un travail coûteux devient inévitable. Merci de nous aider.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1205,6 +1205,14 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Cliquez ici une fois pour voir l'écran de démarrage et les nouveautés de quickFilters."
+  },
+  "quickfiltersToolbarButton.renew": {
+    "message": "La licence expire dans $daysLeft$ jours",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1"
+      }
+    }
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Activer l'assistant de filtrage (clic droit pour afficher les préférences de quickFilters)"

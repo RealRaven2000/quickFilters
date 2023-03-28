@@ -93,7 +93,7 @@
     "description": "Title of the click notification."
   },  
   "ongoing-work": {
-    "message": "將 $addonName$ 轉換為新編程模型的更改花費了數週時間，而且成本很高。 下一個2022版本將有更多更改。 有了這樣複雜的附加組件，昂貴的工作就變得不可避免。 請幫助我們。",
+    "message": "將 $addonName$ 轉換為新編程模型的更改花費了數週時間，而且成本很高。 下一個2023版本將有更多更改。 有了這樣複雜的附加組件，昂貴的工作就變得不可避免。 請幫助我們。",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 

@@ -260,7 +260,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "将 $addonName$ 转换为新编程模型的更改花费了数周时间，而且成本很高。 下一个2022版本将有更多更改。 有了这样复杂的附加组件，昂贵的工作就变得不可避免。 请帮助我们。",
+    "message": "将 $addonName$ 转换为新编程模型的更改花费了数周时间，而且成本很高。 下一个2023版本将有更多更改。 有了这样复杂的附加组件，昂贵的工作就变得不可避免。 请帮助我们。",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1205,6 +1205,14 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "单击此处一次以查看启动画面和 quickFilters 中的新功能。"
+  },
+  "quickfiltersToolbarButton.renew": {
+    "message": "许可证在 $daysLeft$ 天后到期",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1"
+      }
+    }
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "激活过滤助手（右击显示quickFilters Preferences）"

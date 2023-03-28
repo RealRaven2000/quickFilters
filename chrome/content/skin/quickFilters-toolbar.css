@@ -68,7 +68,7 @@
   list-style-image: url("chrome://quickfilters/content/skin/info.svg") !important;
 }
 
-#quickfilters-toolbar-button:not(.expired) #quickfilters-checkLicense {
+#quickfilters-toolbar-button:not(.expired):not(.renew) #quickfilters-checkLicense {
   display: none;
 }
 
@@ -117,11 +117,17 @@
   background-color: #b80015 !important; /* red */
   background: linear-gradient(to bottom, #890219 0%,#b80015 100%) !important; 
 }
-#quickfilters-toolbar-button.expired > label {
+#quickfilters-toolbar-button.renew {
+  background-color: #ee570b !important; /* red */
+  background: linear-gradient(to bottom, #893a02 0%,#ec6301 100%) !important; 
+}
+
+#quickfilters-toolbar-button.expired > label,
+#quickfilters-toolbar-button.renew > label {
   color: white !important;
 }
 #quickfilters-toolbar-button.expired > image,
-#quickfilters-toolbar-button.expired dropmarker {
+#quickfilters-toolbar-button.renew > image {
   fill: white !important;
 }
 
@@ -131,6 +137,7 @@
 }
 
 #quickfilters-toolbar-button.expired > label,
+#quickfilters-toolbar-button.renew > label,
 #quickfilters-toolbar-button.newsflash > label {
   color: rgb(255,255,255) !important;
 }
@@ -141,6 +148,7 @@
 }
 
 #quickfilters-toolbar-button.expired > image,
+#quickfilters-toolbar-button.renew > image,
 #quickfilters-toolbar-button.newsflash > image {
   fill: #ffffff !important;
 }
@@ -151,6 +159,7 @@
 }
 
 #quickfilters-toolbar-button.expired .toolbarbutton-text,
+#quickfilters-toolbar-button.renew .toolbarbutton-text,
 #quickfilters-toolbar-button.newsflash .toolbarbutton-text {
   display: inline-block !important;
 }

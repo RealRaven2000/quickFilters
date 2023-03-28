@@ -260,7 +260,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "$addonName$を新しいプログラミングモデルに変換するための変更には数週間かかり、費用がかかりました。 次の2022バージョンにはさらに多くの変更があります。 このような複雑なアドオンを使用すると、コストのかかる作業が避けられなくなります。 これで私たちを助けてください。",
+    "message": "$addonName$を新しいプログラミングモデルに変換するための変更には数週間かかり、費用がかかりました。 次の2023バージョンにはさらに多くの変更があります。 このような複雑なアドオンを使用すると、コストのかかる作業が避けられなくなります。 これで私たちを助けてください。",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1205,6 +1205,14 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "スプラッシュ画面とquickFiltersの新機能を確認するには、ここをクリックしてください。"
+  },
+  "quickfiltersToolbarButton.renew": {
+    "message": "ライセンスは $daysLeft$ 日後に期限切れになります",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1"
+      }
+    }
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "フィルタアシスタントをアクティブにします（右クリックしてquickFilters設定を表示します）"

@@ -261,7 +261,7 @@
     "description": "Title of the click notification."
   },
   "ongoing-work": {
-    "message": "Muutokset $addonName$ muuntamiseksi uudeksi ohjelmointimalliksi kesti viikkoja ja olivat kalliita. Seuraavaa versiota 2022 on paljon enemmän. Tällaisen monimutkaisen lisäosan avulla kalliista työstä tulee väistämätöntä. Auta meitä tässä.",
+    "message": "Muutokset $addonName$ muuntamiseksi uudeksi ohjelmointimalliksi kesti viikkoja ja olivat kalliita. Seuraavaa versiota 2023 on paljon enemmän. Tällaisen monimutkaisen lisäosan avulla kalliista työstä tulee väistämätöntä. Auta meitä tässä.",
     "placeholders": {
       "addonName" : {
         "content" : "$1", 
@@ -1206,6 +1206,14 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Napsauta tätä kerran nähdäksesi Splash-näytön ja quickFiltersin uudet ominaisuudet."
+  },
+  "quickfiltersToolbarButton.renew": {
+    "message": "Lisenssi vanhenee $daysLeft$ päivän kuluttua",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1"
+      }
+    }
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Aktivoi suodatinavustaja (napsauta hiiren kakkospainikkeella näyttääksesi quickFilters-asetukset)"

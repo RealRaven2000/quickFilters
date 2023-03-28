@@ -256,7 +256,7 @@
     "message": "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
   },
   "ongoing-work": {
-    "message": "The alterations to convert $addonName$ to the new programming model took weeks and were costly. There are many more changes for the next 2022 version. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this.",
+    "message": "The alterations to convert $addonName$ to the new programming model took weeks and were costly. There are many more changes for the next 2023 version. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1207,6 +1207,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Click here once to see the Splash screen and what's new in quickFilters."
+  },
+  "quickfiltersToolbarButton.renew": {
+    "message": "License expires in $daysLeft$ days",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1",
+        "example": "9"
+      }
+    }
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Activate the filter assistant (Right-click to display quickFilters Preferences)"

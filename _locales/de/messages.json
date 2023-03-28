@@ -86,7 +86,7 @@
     "message": "Findet Filter, die Emails in das aktive Verzeichnis verschieben."
   },
   "chkCurrentToolbar.btn.RunOnFolder.label": {
-    "message": "Filter auf Ordner anwenden"
+    "message": "Filter auf Verzeichnis anwenden"
   },
   "chkCurrentToolbar.btn.RunOnMessages.label": {
     "message": "Filter auf Nachricht anwenden"
@@ -104,7 +104,7 @@
     "message": "Neue Regeln oben einfügen."
   },
   "chkLocalFoldersAutorun.label": {
-    "message": "Filters in Lokalem Inbox-Verzeichnis automatisch ausführen"
+    "message": "Filter in Lokalem Inbox-Verzeichnis automatisch ausführen"
   },
   "chkMergeAuto.label": {
     "message": "Automatisch Kombinieren"
@@ -260,7 +260,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "Die Änderungen zur Konvertierung von $addonName$ auf das neue Programmiermodell dauerten Wochen und waren kostspielig. Es gibt viele weitere Änderungen für die nächste Version 2022. Bitte helfen Sie uns dabei.",
+    "message": "Die Änderungen zur Konvertierung von $addonName$ auf das neue Programmiermodell dauerten Wochen und waren kostspielig. Es gibt viele weitere Änderungen für die nächste Version 2023. Bitte helfen Sie uns dabei.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -281,7 +281,7 @@
     "message": "Lizenz erwerben!"
   },
   "qf.assistant.ignoreFolders": {
-    "message": "Der Assistent sollte die folgenden Ordner ignorieren…"
+    "message": "Der Assistent soll folgende Verzeichnisse ignorieren…"
   },
   "qf.btn.splash": {
     "message": "Begrüßungsbildschirm anzeigen"
@@ -1205,6 +1205,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Klicken Sie einmal hier, um den Begrüßungsbildschirm und die Neuerungen in quickFilters anzuzeigen."
+  },
+  "quickfiltersToolbarButton.renew": {
+    "message": "Lizenz läuft ab in $daysLeft$ Tagen",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1",
+        "example": "9"
+      }
+    }
   },
   "quickfiltersToolbarButton.tooltip": {
     "message": "Filter Assistenten aktivieren (Rechtsklick, um die Einstellungen von quickFilters anzuzeigen)"
