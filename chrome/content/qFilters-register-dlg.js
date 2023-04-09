@@ -77,7 +77,7 @@ var Register = {
 			  break;
 			case "Valid":
 			  getElement('btnLicense').classList.remove('register'); // remove the "pulsing effect" if license is valid.
-        getElement('licenseDateLabel').value =  util.getBundleString("quickfilters.label.licenseValid","Your license is valid until:");
+        getElement('licenseDateLabel').value =  util.getBundleString("qf.label.licenseValid","Your license is valid until:");
 			  break;
 			case "Empty":
 			case "NotValidated":
@@ -165,7 +165,7 @@ var Register = {
     idSelector.selectedIndex = 0;
     this.selectIdentity(idSelector);
 		if (prefs.isDebugOption('premium.licenser')) getElement('referrer').collapsed=false;
-    
+
   } ,
   
   cancel: function cancel() {
