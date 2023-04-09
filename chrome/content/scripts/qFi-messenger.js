@@ -39,87 +39,112 @@ async function onLoad(activatedWhileWindowOpen) {
   <toolbarpalette id="MailToolbarPalette">
     <toolbarbutton id="quickfilters-toolbar-button"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="__MSG_quickfiltersToolbarButton.label__"
+                   label="quickFilters"
                    tooltiptext="__MSG_quickfiltersToolbarButton.tooltip__"
                    context="dummy"
                    type="menu"
                    wantdropmarker="true"
                    >
       <menupopup>
-        <menuitem id="quickfilters-news"    label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" />
-        <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic"/>
-        <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" />
-        <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic"/>
-        <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic"/>
+        <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
+        <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+        <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  />
+        <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+        <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
         <menuseparator />
         <menu label="__MSG_quickfilters.menu.tools__">
           <menupopup>
-            <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" />
-            <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" />                    
-            <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" />                    
+            <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+            <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommmand(this);" />                    
+            <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
           </menupopup>
         </menu>
-        <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" />
-        <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" />
-        <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" />
+        <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+        <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
+        <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
       </menupopup>
     </toolbarbutton>
+
     <toolbarbutton id="quickfilters-toolbar-listbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.ListButton.label__"
                    tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
+                   oncommand="window.quickFilters.doCommmand(this);"
                    />
+
     <toolbarbutton id="quickfilters-toolbar-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.RunButton.label__"
                    tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
+                   oncommand="window.quickFilters.doCommmand(this);"
                    />
     <toolbarbutton id="quickfilters-toolbar-msg-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.RunButtonMsg.label__"
                    tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
+                   oncommand="window.quickFilters.doCommmand(this);"
                    />
   </toolbarpalette>
 `); 
-  
-  // [issue 167] unblock assistant button.
-  // let btnTool = document.getElementById("quickfilters-toolbar-button");
-  // if (btnTool) btnTool.addEventListener("command", function(event) {window.quickFilters.onToolbarButtonCommand();} );  
-  let btnList = document.getElementById("quickfilters-toolbar-listbutton");
-  if (btnList) btnList.addEventListener("command", (e) => {window.quickFilters.onToolbarListCommand();} );  
-  btnRun = document.getElementById("quickfilters-toolbar-runbutton");
-  if (btnRun) btnRun.addEventListener("command", (e) => {window.quickFilters.onApplyFilters();} );  
-  let btnApply = document.getElementById("quickfilters-toolbar-msg-runbutton");
-  if (btnApply) btnApply.addEventListener("command", (e) => {window.quickFilters.onApplyFiltersToSelection();} );  
-  
-  let mnuToggle = document.getElementById("quickfilters-toggleAssistant");
-  if (mnuToggle) mnuToggle.addEventListener("command", (e) => {window.quickFilters.onMenuItemCommand("toggle_Filters");} );  
-  let mnuRunFilters = document.getElementById("quickfilters-runFilters");
-  if (mnuRunFilters) mnuRunFilters.addEventListener("command", (e) => {window.quickFilters.onApplyFilters();} );  
-  let mnuRunMsg =  document.getElementById("quickfilters-runFiltersMsg");
-  if (mnuRunMsg) mnuRunMsg.addEventListener("command", (e) => {window.quickFilters.onApplyFiltersToSelection();} );  
-  let mnuOptions = document.getElementById("quickfilters-options");
-  if (mnuOptions) mnuOptions.addEventListener("command", (e) => {window.quickFilters.showOptions();} );
 
-  let mnuNews = document.getElementById("quickfilters-news");
-  if (mnuNews) mnuNews.addEventListener("command", (e) => {window.quickFilters.Util.viewSplash();} );  
-  let mnuChangeLog = document.getElementById("quickfilters-changelog");
-  if (mnuChangeLog) mnuChangeLog.addEventListener("command", (e) => {window.quickFilters.Util.viewSplash();} );  
+  window.quickFilters.doCommmand = function (el) {
+    if (!el) {
+      return;
+    }
+    switch (el.id) {
+      case "quickfilters-checkLicense":
+        window.quickFilters.Util.viewLicense();
+        break;
+      case "quickfilters-news": // fal;-through
+      case "quickfilters-changelog":
+        window.quickFilters.Util.viewSplash(); 
+        break;
+      case "quickfilters-toolbar-listbutton": // fall-throughs
+      case "quickfilters-menu-filterlist":
+      case "quickfilters-current-listbutton":
+          window.quickFilters.onToolbarListCommand();
+        break;
+      case "quickfilters-toolbar-runbutton": // fall-throughs
+      case "quickfilters-runFilters":
+      case "quickfilters-current-runbutton":
+        window.quickFilters.onApplyFilters();
+        break;
+      case "quickfilters-toolbar-msg-runbutton":  // fall-throughs
+      case "quickfilters-runFiltersMsg":
+      case "quickfilters-current-msg-runbutton":
+        window.quickFilters.onApplyFiltersToSelection();
+        break;
+      case "quickfilters-toggleAssistant":
+      case "quickFilters-wizard":
+        window.quickFilters.onMenuItemCommand("toggle_Filters");
+        break;
+      case "quickfilters-options":
+        window.quickFilters.showOptions();
+        break;
+      case "quickfilters-gopro":
+        window.quickFilters.Util.showLicenseDialog('mainBtnPopupMenu');
+        break;
+      case "quickFilters-menu-filterFromMsg": // fall-throughs
+      case "quickFilters-fromMessageInMenu":
+      case "quickFilters-fromMessage":
+        window.quickFilters.onMenuItemCommand('createFilterFromMsg');
+        break;
+      case "quickfilters-menu-searchfilters": // fall-through
+      case "quickfilters-current-searchfilterbutton":
+        window.quickFilters.searchFiltersFromFolder();
+        break;
+      default:
+        console.log("unknown quickFilters command", el.id || "id: N/A", el);
+    }
 
-  let mnuLicense = document.getElementById("quickfilters-checkLicense");
-  if (mnuLicense) mnuLicense.addEventListener("command", (e) => {window.quickFilters.Util.viewLicense();} );  
-  let mnuGoPro = document.getElementById("quickfilters-gopro");
-  if (mnuGoPro) mnuGoPro.addEventListener("command", 
-    (e) => {window.quickFilters.Util.showLicenseDialog('mainBtnPopupMenu');} 
-  ); 
-  // TOOLS MENU
-  let mnuList = document.getElementById("quickfilters-menu-filterlist");
-  if (mnuList) mnuList.addEventListener("command", (e) => {window.quickFilters.onToolbarListCommand();} );
+  }
+
   let mnuToolsCreateFromMsg  = document.getElementById("quickFilters-menu-filterFromMsg");
-  if (mnuToolsCreateFromMsg) mnuToolsCreateFromMsg.addEventListener("command", function(event) { window.quickFilters.onMenuItemCommand('createFilterFromMsg');} );  
-  mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
-  let mnuToolsFindFilters = document.getElementById("quickfilters-menu-searchfilters");
-  if ( mnuToolsFindFilters)  mnuToolsFindFilters.addEventListener("command", function(event) { window.quickFilters.searchFiltersFromFolder();} );  
+  if (mnuToolsCreateFromMsg) {
+    mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
+  }
+  // let mnuToolsFindFilters = document.getElementById("quickfilters-menu-searchfilters");
+  // if ( mnuToolsFindFilters)  mnuToolsFindFilters.addEventListener("command", function(event) { window.quickFilters.searchFiltersFromFolder();} );  
   
 
 
@@ -133,6 +158,7 @@ async function onLoad(activatedWhileWindowOpen) {
               class="menuitem-iconic"
               insertBefore="applyFilters"
               label="__MSG_quickfilters.Start.label__"
+              oncommand="window.quickFilters.doCommmand(this);"
               />
   </menupopup>
   
@@ -142,6 +168,7 @@ async function onLoad(activatedWhileWindowOpen) {
               insertBefore="createFilter"
               label="__MSG_quickfilters.FromMessage.label__"
 			        accesskey="__MSG_quickfilters.FromMessage.accesskey__"
+              oncommand="window.quickFilters.doCommmand(this);"
               />
   </menupopup>
   
@@ -152,18 +179,10 @@ async function onLoad(activatedWhileWindowOpen) {
               label="__MSG_quickfilters.FromMessage.label__"
               accesskey="__MSG_quickfilters.FromMessage.accesskey__"
               insertbefore="mailContext-saveAs"
+              oncommand="window.quickFilters.doCommmand(this);"
               />
   </popup>
 `);
-
-  // [issue 122] false positives from antivirus scanners
-  let mnuWizard = document.getElementById("quickFilters-wizard");
-  if (mnuWizard) mnuWizard.addEventListener("command", function(event) {window.quickFilters.onMenuItemCommand("toggle_Filters");} );  
-  let mnuCreateFromMsg = document.getElementById("quickFilters-fromMessageInMenu");
-  if (mnuCreateFromMsg) mnuCreateFromMsg.addEventListener("command", function(event) {window.quickFilters.onMenuItemCommand('createFilterFromMsg');} );  
-  let mnuCreateFromMsg2 = document.getElementById("quickFilters-fromMessage");
-  if (mnuCreateFromMsg2) mnuCreateFromMsg2.addEventListener("command", function(event) {window.quickFilters.onMenuItemCommand('createFilterFromMsg');} );  
-
 
   // from qFilters-QF-tb68.xul
 
@@ -175,42 +194,34 @@ async function onLoad(activatedWhileWindowOpen) {
              insertafter="QuickFolders-currentFolderFilterActive"
              label=""
              tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
+             oncommand="window.quickFilters.doCommmand(this);"
              />
     <toolbarbutton id="quickfilters-current-searchfilterbutton"
              class="icon"
              insertafter="quickfilters-current-listbutton"
              label=""
              tooltiptext="__MSG_quickfilters.findFiltersForFolder.menu__"
+             oncommand="window.quickFilters.doCommmand(this);"
              />
     <toolbarbutton id="quickfilters-current-runbutton"
              class="icon"
              insertafter="quickfilters-current-listbutton"
              label=""
              tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
+             oncommand="window.quickFilters.doCommmand(this);"
              />
     <toolbarbutton id="quickfilters-current-msg-runbutton"
              class="icon"
              insertafter="quickfilters-current-runbutton"
              label=""
              tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
+             oncommand="window.quickFilters.doCommmand(this);"
              />
   </hbox>
   </toolbar>
 `); 
 
   
-  
-  // [issue 122] false positives from antivirus scanners
-  btnList = document.getElementById("quickfilters-current-listbutton");
-  if (btnList) btnList.addEventListener("command", function(event) {window.quickFilters.onToolbarListCommand();} );  
-  btnFind = document.getElementById("quickfilters-current-searchfilterbutton");
-  if (btnFind) btnFind.addEventListener("command", function(event) {window.quickFilters.searchFiltersFromFolder();} );
-  btnRun = document.getElementById("quickfilters-current-runbutton");
-  if (btnRun) btnRun.addEventListener("command", function(event) {window.quickFilters.onApplyFilters();} );
-  btnApply = document.getElementById("quickfilters-current-msg-runbutton");
-  if (btnApply) btnApply.addEventListener("command", function(event) {window.quickFilters.onApplyFiltersToSelection();} );  
-
-
   // Enable the global notify notifications from background.
   window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
