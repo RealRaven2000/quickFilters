@@ -102,8 +102,8 @@ td {
 }
 .heading {
   background: none;
-  border: 1px solid rgba(140,140,140,0.5) !important;
-	border-radius: 12px;
+  border: 1px solid rgba(140,140,140,0.3) !important;
+	border-radius: 2px;
 	color: rgb(0, 0, 0);
   display: inline-block;
   font-family: calibri, arial, sans-serif;

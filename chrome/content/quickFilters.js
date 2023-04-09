@@ -541,7 +541,7 @@ END LICENSE BLOCK
     # Avoid breaking filters with the wrong operator (any / all)
 
 
-  5.9 - WIP
+  5.9 - 28/03/2023
     # Remove monkey patch code for tag changes
     # [issue 167] Simplify opting out of expired license - unblock assistant button
     # [issue 164] Disable assistant when dragging mail from special folders: Queue | Templates | Drafts | Trash
@@ -549,6 +549,13 @@ END LICENSE BLOCK
     # [issue 170] Repaired option to add new rules (merge) to existing filters on the top 
     # [issue 171] Added a warning if the quickFilters license is about to expire (displayed 10 days before).
 
+  5.9.1 - WIP
+    # [issue 172] Missing quickFilters buttons on QuickFolders Current Folder Bar (Linux)
+    # [issue 175] quickFilters buttons don't work when dragging from customize toolbar 
+    # [issue 177] Added pricing section to license dialog. 
+    # Added Czech translation to license dialog.
+    # to encourage license renewals: Show bargain section in splash screen if <=10 days to expiry
+    
    
   ============================================================================================================
   FUTURE WORK:
@@ -870,8 +877,6 @@ var quickFilters = {
   onToolbarButtonCommand: function onToolbarButtonCommand(e) {
     if (quickFilters.Preferences.getBoolPref("hasNews")) {
       quickFilters.Util.viewSplash();
-    // } else if (quickFilters.Util.licenseInfo.isExpired) { // [issue 167] don;t force license screen!
-    //   quickFilters.Util.viewLicense();
     } else {
       // just reuse the function above.  you can change this, obviously!
       quickFilters.onMenuItemCommand("toggle_Filters");
