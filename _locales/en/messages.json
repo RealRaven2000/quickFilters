@@ -270,6 +270,15 @@
   "prefwindow.title": {
     "message": "quickFilters preferences"
   },
+  "pricing.section": {
+    "message": "To find out your price, please select one of the following options first. This opens a separate browser window where you may complete the purchase in the web shop."
+  },
+  "pricing.section.hint": {
+    "message": "Note: The price varies depending on the license model, country, VAT rate, current discounts or licenses already purchased."
+  },  
+  "pricing.title": {
+    "message": "Pricing"
+  },
   "purchase-a-license": {
     "message": "Purchase a license."
   },
@@ -1218,7 +1227,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Activate the filter assistant (Right-click to display quickFilters Preferences)"
+    "message": "Filter creation assistant; tools for filters"
   },
   "renew-your-license": {
     "message": "Renew your license."
@@ -1257,7 +1266,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "March 2nd"
+    "message": "April 24th"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
@@ -1342,9 +1351,6 @@
   "version": {
     "message": "Version:"
   },
-  "vouchers.title": {
-    "message": "Vouchers"
-  },
   "whats-new-btn": {
     "message": "What's new?"
   },
@@ -1355,7 +1361,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} New layout for toolbar button - this is now a drop-down menu which always gives {boldStart}access to all functions{boldEnd} even when license is expired or version notes have not been read yet.{L2}{L1} Disabled the assistant when dragging mail from special folders (Queue, Templates, Drafts, Trash) [issue 164]{L2}{L1} Removed Donate button for licensed users.{L2}{L1} Repaired: option to add new rules to existing filters on the top of the list of search terms.{L2}"
+    "message": "{L1} 5.9.1 Fixed missing buttons on Current folder toolbar for Linux users of QuickFolders{L2}{L1} 5.9.1 Buttons in previous versions were not working immediately when added by user via customize toolbar - this required a restart of quickFilters. [issue 175]{L2}{L1} New layout for toolbar button - this is now a drop-down menu which always gives {boldStart}access to all functions{boldEnd} even when license is expired or version notes have not been read yet.{L2}{L1} Disabled the assistant when dragging mail from special folders (Queue, Templates, Drafts, Trash) [issue 164]{L2}{L1} Repaired: option to add new rules to existing filters on the top of the list of search terms.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

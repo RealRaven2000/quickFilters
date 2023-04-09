@@ -275,6 +275,15 @@
   "prefwindow.title": {
     "message": "quickFilters-asetukset"
   },
+  "pricing.section": {
+    "message": "Saadaksesi selville hintasi, valitse ensin jokin seuraavista vaihtoehdoista. Tämä avaa erillisen selainikkunan, jossa voit suorittaa ostoksen verkkokaupassa."
+  },
+  "pricing.section.hint": {
+    "message": "Huomautus: Hinta vaihtelee lisenssimallin, maan, ALV-prosentin, nykyisten alennusten tai jo ostettujen lisenssien mukaan."
+  },  
+  "pricing.title": {
+    "message": "Hinnoittelu"
+  },
   "purchase-a-license" : {
     "message" : "Osta lisenssi."
   }, 
@@ -1216,7 +1225,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Aktivoi suodatinavustaja (napsauta hiiren kakkospainikkeella näyttääksesi quickFilters-asetukset)"
+    "message": "Suodattimen luominen avustaja; työkalut suodattimiin"
   },
   "renew-your-license" : {
     "message" : "Uusi lisenssi."
@@ -1255,7 +1264,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "2. maaliskuuta"
+    "message": "24. huhtikuuta"
   },
   "special-offer-head" : {
     "message": "Auttakaa quickFilters jatkaaksesi!"
@@ -1340,9 +1349,6 @@
   "version": {
     "message": "Versio:"
   },
-  "vouchers.title": {
-    "message": "Lahjakortit"
-  },
   "whats-new-btn" : {
     "message": "Mikä on uutta?"
   },   
@@ -1353,7 +1359,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} Työkalupalkin painikkeen uusi asettelu – tämä on nyt avattava valikko, josta pääset aina käyttämään kaikkia toimintoja, vaikka lisenssi olisi vanhentunut tai versiotietoja ei olisi vielä luettu.{L2}{L1} Assistant poistettiin käytöstä postia vedettäessä erikoiskansioista (jono, mallit, luonnokset, roskakori) [numero 164]{L2}{L1} Poistettu Lahjoita-painike lisensoiduille käyttäjille.{L2}{L1} Korjattu: mahdollisuus lisätä uusia sääntöjä olemassa oleviin suodattimiin hakutermien luettelo.{L2}"
+    "message" : "{L1} 5.9.1 Korjattu puuttuvat painikkeet Nykyisen kansion työkalupalkista QuickFoldersin Linux-käyttäjille.{L2}{L1} 5.9.1 Aiempien versioiden painikkeet eivät toimineet heti, kun käyttäjä lisäsi ne mukautetun työkalupalkin kautta - tämä vaati quickFiltersin uudelleenkäynnistyksen. [issue 175]{L2}{L1} Työkalupalkin painikkeen uusi asettelu – tämä on nyt avattava valikko, josta pääset aina käyttämään kaikkia toimintoja, vaikka lisenssi olisi vanhentunut tai versiotietoja ei olisi vielä luettu.{L2}{L1} Assistant poistettiin käytöstä postia vedettäessä erikoiskansioista (jono, mallit, luonnokset, roskakori) [issue 164]{L2} {L1} Korjattu: mahdollisuus lisätä uusia sääntöjä olemassa oleviin suodattimiin hakutermien luettelo.{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

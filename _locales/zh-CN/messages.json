@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "quickFilters 首选项"
   },
+  "pricing.section": {
+    "message": "要了解您的价格，请先选择以下选项之一。 这将打开一个单独的浏览器窗口，您可以在其中完成网上商店的购买。"
+  },
+  "pricing.section.hint": {
+    "message": "注意：价格因许可证型号、国家/地区、增值税税率、当前折扣或已购买的许可证而异。"
+  },  
+  "pricing.title": {
+    "message": "价钱"
+  },
   "purchase-a-license": {
     "message": "购买许可证。"
   },
@@ -1215,7 +1224,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "激活过滤助手（右击显示quickFilters Preferences）"
+    "message": "过滤器创建助手； 过滤器工具"
   },
   "renew-your-license": {
     "message": "续订您的许可证。"
@@ -1254,7 +1263,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "3月2日"
+    "message": "4月24日"
   },
   "special-offer-head": {
     "message": "请帮助quickFilters继续！"
@@ -1338,9 +1347,6 @@
   },
   "version": {
     "message": "版本:"
-  },
-  "vouchers.title": {
-    "message": "凭证"
   },
   "whats-new-btn": {
     "message": "什么是新的？"

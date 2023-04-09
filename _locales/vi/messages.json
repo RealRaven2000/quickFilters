@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "Cấu hình quickFilters"
   },
+  "pricing.section": {
+    "message": "Để biết giá của bạn, trước tiên vui lòng chọn một trong các tùy chọn sau. Thao tác này sẽ mở ra một cửa sổ trình duyệt riêng, nơi bạn có thể hoàn tất giao dịch mua trong cửa hàng trực tuyến."
+  },
+  "pricing.section.hint": {
+    "message": "Lưu ý: Giá khác nhau tùy thuộc vào kiểu giấy phép, quốc gia, thuế suất VAT, chiết khấu hiện tại hoặc giấy phép đã mua."
+  },  
+  "pricing.title": {
+    "message": "Prissättning"
+  },
   "purchase-a-license": {
     "message": "Mua giấy phép."
   },
@@ -1215,7 +1224,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Kích hoạt trợ lý bộ lọc (Nhấp chuột phải để hiển thị tùy chọn quickFilters)"
+    "message": "Trợ lý tạo bộ lọc; công cụ cho các bộ lọc"
   },
   "renew-your-license": {
     "message": "Gia hạn giấy phép của bạn."
@@ -1254,7 +1263,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "ngày 2 tháng 3"
+    "message": "ngày 24 tháng 4"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
@@ -1339,9 +1348,6 @@
   "version": {
     "message": "Phiên bản:"
   },
-  "vouchers.title": {
-    "message": "Vouchers"
-  },
   "whats-new-btn": {
     "message": "Có gì mới?"
   },
@@ -1352,7 +1358,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Bố cục mới cho nút thanh công cụ - đây hiện là trình đơn thả xuống luôn cấp quyền truy cập vào tất cả các chức năng ngay cả khi giấy phép hết hạn hoặc ghi chú phiên bản chưa được đọc.{L2}{L1} Đã tắt trợ lý khi kéo thư từ các thư mục đặc biệt (Hàng đợi, Mẫu, Bản nháp, Thùng rác) [issue 164]{L2}{L1} Đã xóa nút Đóng góp cho người dùng được cấp phép.{L2}{L1} Đã sửa chữa: tùy chọn thêm quy tắc mới vào các bộ lọc hiện có ở đầu trang danh sách cụm từ tìm kiếm.{L2}"
+    "message": "{L1} 5.9.1 Đã sửa các nút bị thiếu trên thanh công cụ Thư mục hiện tại dành cho người dùng Linux của QuickFolders{L2}{L1} 5.9.1 Các nút trong các phiên bản trước không hoạt động ngay lập tức khi được người dùng thêm qua thanh công cụ tùy chỉnh - điều này yêu cầu khởi động lại quickFilters. [issue 175]{L2}{L1} Bố cục mới cho nút thanh công cụ - đây hiện là trình đơn thả xuống luôn cấp quyền truy cập vào tất cả các chức năng ngay cả khi giấy phép hết hạn hoặc ghi chú phiên bản chưa được đọc.{L2}{L1} Đã tắt trợ lý khi kéo thư từ các thư mục đặc biệt (Hàng đợi, Mẫu, Bản nháp, Thùng rác) [issue 164]{L2} {L1} Đã sửa chữa: tùy chọn thêm quy tắc mới vào các bộ lọc hiện có ở đầu trang danh sách cụm từ tìm kiếm.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

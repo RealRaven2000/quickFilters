@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "Preferencias de quickFilters"
   },
+  "pricing.section": {
+    "message": "Para conocer su precio, seleccione primero una de las siguientes opciones. Esto abre una ventana separada del navegador donde puede completar la compra en la tienda web."
+  },
+  "pricing.section.hint": {
+    "message": "Nota: El precio varía según el modelo de licencia, país, tipo de IVA, descuentos vigentes o licencias ya adquiridas."
+  },  
+  "pricing.title": {
+    "message": "Precios"
+  },
   "purchase-a-license": {
     "message": "Compra una licencia."
   },
@@ -1215,7 +1224,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Active el asistente de filtro (haga clic con el botón derecho para mostrar las preferencias de quickFilters)"
+    "message": "asistente de creación de filtros; herramientas para filtros"
   },
   "renew-your-license": {
     "message": "Renueva tu licencia."
@@ -1254,7 +1263,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "2 de marzo"
+    "message": "24 de abril"
   },
   "special-offer-head": {
     "message": "¡Ayude a quickFilters a continuar!"
@@ -1339,9 +1348,6 @@
   "version": {
     "message": "Versión:"
   },
-  "vouchers.title": {
-    "message": "Abonos"
-  },
   "whats-new-btn": {
     "message": "¿Qué hay de nuevo?"
   },
@@ -1352,7 +1358,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} Nuevo diseño para el botón de la barra de herramientas: ahora es un menú desplegable que siempre brinda acceso a {boldStart}todas las funciones{boldEnd}, incluso cuando la licencia ha caducado o las notas de la versión aún no se han leído.{L2}{L1} Deshabilitado el asistente al arrastrar el correo de carpetas especiales (Cola, Plantillas, Borradores, Papelera) [problema 164]{L2}{L1} Botón Donar eliminado para usuarios con licencia.{L2}{L1} Reparado: opción para agregar nuevas reglas a los filtros existentes en la parte superior de la lista de términos de búsqueda.{L2}"
+    "message": "{L1} 5.9.1 Se corrigieron los botones que faltaban en la barra de herramientas de la carpeta actual para los usuarios de Linux de QuickFolders{L2}{L1} 5.9.1 Los botones en versiones anteriores no funcionaban inmediatamente cuando los agregaba el usuario a través de la barra de herramientas personalizada; esto requería reiniciar quickFilters. [issue 175]{L2}{L1} Nuevo diseño para el botón de la barra de herramientas: ahora es un menú desplegable que siempre brinda acceso a {boldStart}todas las funciones{boldEnd}, incluso cuando la licencia ha caducado o las notas de la versión aún no se han leído.{L2}{L1} Deshabilitado el asistente al arrastrar el correo de carpetas especiales (Cola, Plantillas, Borradores, Papelera) [problema 164]{L2}{L1} Reparado: opción para agregar nuevas reglas a los filtros existentes en la parte superior de la lista de términos de búsqueda.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

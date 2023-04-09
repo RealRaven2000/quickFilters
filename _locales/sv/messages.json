@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "Inställningar för quickFilters"
   },
+  "pricing.section": {
+    "message": "För att ta reda på ditt pris, välj ett av följande alternativ först. Detta öppnar ett separat webbläsarfönster där du kan genomföra köpet i webbshoppen."
+  },
+  "pricing.section.hint": {
+    "message": "Obs: Priset varierar beroende på licensmodell, land, momssats, aktuella rabatter eller redan köpta licenser."
+  },  
+  "pricing.title": {
+    "message": "Prissättning"
+  },
   "purchase-a-license": {
     "message": "Köp en licens."
   },
@@ -1215,7 +1224,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Aktivera filterassistenten (högerklicka för att visa quickFilters inställningar)"
+    "message": "Assistent för att skapa filter; verktyg för filter"
   },
   "renew-your-license": {
     "message": "Förnya din licens."
@@ -1254,7 +1263,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "2 mars"
+    "message": "24 april"
   },
   "special-offer-head": {
     "message": "Snälla hjälp quickFilters att fortsätta!"
@@ -1339,9 +1348,6 @@
   "version": {
     "message": "Version:"
   },
-  "vouchers.title": {
-    "message": "Tillgodokvitton"
-  },
   "whats-new-btn": {
     "message": "Vad är nytt?"
   },
@@ -1352,7 +1358,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Ny layout för verktygsfältsknapp - detta är nu en rullgardinsmeny som alltid ger åtkomst {boldStart}till alla funktioner{boldEnd} även när licensen har löpt ut eller versionsanteckningar inte har lästs ännu.{L2}{L1} Inaktiverade assistenten när du drar e-post från speciella mappar (kö, mallar, utkast, papperskorgen) [issue 164]{L2}{L1} Borttagen Donera-knapp för licensierade användare.{L2}{L1} Reparerad: alternativ för att lägga till nya regler till befintliga filter överst på lista över söktermer.{L2}" 
+    "message": "{L1} 5.9.1 Åtgärdade knappar som saknas i verktygsfältet aktuell mapp för Linux-användare av QuickFolders{L2}{L1} 5.9.1 Knappar i tidigare versioner fungerade inte omedelbart när de lades till av användaren via anpassat verktygsfält - detta krävde en omstart av quickFilters. [issue 175]{L2}{L1} Ny layout för verktygsfältsknapp - detta är nu en rullgardinsmeny som alltid ger åtkomst {boldStart}till alla funktioner{boldEnd} även när licensen har löpt ut eller versionsanteckningar inte har lästs ännu.{L2}{L1} Inaktiverade assistenten när du drar e-post från speciella mappar (kö, mallar, utkast, papperskorgen) [issue 164]{L2} {L1} Reparerad: alternativ för att lägga till nya regler till befintliga filter överst på lista över söktermer.{L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

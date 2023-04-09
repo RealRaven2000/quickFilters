@@ -275,6 +275,15 @@
   "prefwindow.title": {
     "message": "Preferencje quickFilters"
   },
+  "pricing.section": {
+    "message": "Aby poznać swoją cenę, najpierw wybierz jedną z poniższych opcji. Spowoduje to otwarcie osobnego okna przeglądarki, w którym można dokonać zakupu w sklepie internetowym."
+  },
+  "pricing.section.hint": {
+    "message": "Uwaga: Cena różni się w zależności od modelu licencji, kraju, stawki VAT, aktualnych rabatów lub już zakupionych licencji."
+  },  
+  "pricing.title": {
+    "message": "cennik"
+  },
   "purchase-a-license" : {
     "message" : "Kup licencję."
   }, 
@@ -1216,7 +1225,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Aktywuj asystenta filtrów (kliknij prawym przyciskiem myszy, aby wyświetlić preferencje quickFilters)"
+    "message": "Asystent tworzenia filtrów; narzędzia do filtrów"
   },
   "renew-your-license" : {
     "message" : "Odnów licencję."
@@ -1255,7 +1264,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "2 marca"
+    "message": "24 kwietnia"
   },
   "special-offer-head" : {
     "message": "Pomóż quickFilters, aby kontynuować!"
@@ -1337,9 +1346,6 @@
   "version": {
     "message": "Wersja:"
   },
-  "vouchers.title": {
-    "message": "Kupony"
-  },
   "whats-new-btn" : {
     "message": "Co nowego?"
   }, 
@@ -1350,7 +1356,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Nowy układ przycisku paska narzędzi - to teraz rozwijane menu, które zawsze daje dostęp {boldStart}do wszystkich funkcji{boldEnd}, nawet jeśli licencja wygasła lub uwagi do wersji nie zostały jeszcze przeczytane.{L2}{L1} Wyłączono asystenta podczas przeciągania poczty ze specjalnych folderów (Kolejka, Szablony, Wersje robocze, Kosz) [issue 164]{L2}{L1} Usunięto przycisk Przekaż darowiznę dla licencjonowanych użytkowników.{L2}{L1} Naprawiono: opcja dodawania nowych reguł do istniejących filtrów na górze lista wyszukiwanych terminów.{L2}"
+    "message" : "{L1} 5.9.1 Naprawiono brakujące przyciski na pasku narzędzi Bieżący folder dla użytkowników QuickFolders systemu Linux{L2}{L1} 5.9.1 Przyciski w poprzednich wersjach nie działały natychmiast po dodaniu przez użytkownika za pomocą paska narzędzi dostosowywania — wymagało to ponownego uruchomienia quickFilters. [issue 175] {L2}{L1} Nowy układ przycisku paska narzędzi - to teraz rozwijane menu, które zawsze daje dostęp {boldStart}do wszystkich funkcji{boldEnd}, nawet jeśli licencja wygasła lub uwagi do wersji nie zostały jeszcze przeczytane.{L2}{L1} Wyłączono asystenta podczas przeciągania poczty ze specjalnych folderów (Kolejka, Szablony, Wersje robocze, Kosz) [issue 164]{L2} {L1} Naprawiono: opcja dodawania nowych reguł do istniejących filtrów na górze lista wyszukiwanych terminów.{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

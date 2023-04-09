@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "Préférences de quickFilters"
   },
+  "pricing.section": {
+    "message": "Pour connaître votre prix, veuillez d'abord sélectionner l'une des options suivantes. Cela ouvre une fenêtre de navigateur séparée dans laquelle vous pouvez finaliser l'achat dans la boutique en ligne."
+  },
+  "pricing.section.hint": {
+    "message": "Remarque : Le prix varie en fonction du modèle de licence, du pays, du taux de TVA, des remises en cours ou des licences déjà achetées."
+  },  
+  "pricing.title": {
+    "message": "Tarification"
+  },
   "purchase-a-license": {
     "message": "Achetez une licence."
   },
@@ -1215,7 +1224,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Activer l'assistant de filtrage (clic droit pour afficher les préférences de quickFilters)"
+    "message": "Assistant de création de filtre ; outils pour filtres"
   },
   "renew-your-license": {
     "message": "Renouvelez votre licence."
@@ -1254,7 +1263,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "2 mars"
+    "message": "24 avril"
   },
   "special-offer-head": {
     "message": "Veuillez aider quickFilters à continuer!"
@@ -1339,9 +1348,6 @@
   "version": {
     "message": "Version :"
   },
-  "vouchers.title": {
-    "message": "Bons"
-  },
   "whats-new-btn": {
     "message": "Quoi de neuf?"
   },
@@ -1352,7 +1358,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Nouvelle disposition du bouton de la barre d'outils : il s'agit désormais d'un menu déroulant qui donne toujours {boldStart}accès à toutes les fonctions{boldEnd}, même lorsque la licence a expiré ou que les notes de version n'ont pas encore été lues.{L2}{L1} Désactivation de l'assistant lors du déplacement du courrier à partir de dossiers spéciaux (file d'attente, modèles, brouillons, corbeille) [numéro 164]{L2}{L1} Suppression du bouton Faire un don pour les utilisateurs sous licence.{L2}{L1} Réparé : option permettant d'ajouter de nouvelles règles aux filtres existants en haut de la liste des termes de recherche.{L2}"
+    "message": "{L1} 5.9.1 Correction des boutons manquants sur la barre d'outils du dossier actuel pour les utilisateurs Linux de QuickFolders{L2}{L1} 5.9.1 Les boutons des versions précédentes ne fonctionnaient pas immédiatement lorsqu'ils étaient ajoutés par l'utilisateur via la barre d'outils personnalisée - cela nécessitait un redémarrage de quickFilters. [issue 175]{L2}{L1} Nouvelle disposition du bouton de la barre d'outils : il s'agit désormais d'un menu déroulant qui donne toujours {boldStart}accès à toutes les fonctions{boldEnd}, même lorsque la licence a expiré ou que les notes de version n'ont pas encore été lues.{L2}{L1} Désactivation de l'assistant lors du déplacement du courrier à partir de dossiers spéciaux (file d'attente, modèles, brouillons, corbeille) [issue 164]{L2}{L1} Réparé : option permettant d'ajouter de nouvelles règles aux filtres existants en haut de la liste des termes de recherche.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

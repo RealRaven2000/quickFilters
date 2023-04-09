@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "quickFilters Einstellungen"
   },
+  "pricing.section": {
+    "message": "Um Ihren Preis zu erfahren, wählen Sie bitte zuerst eine der folgenden Optionen. Dies öffnet ein separates Browserfenster, wo Sie dann im Webshop den Kauf abschließen können."
+  },
+  "pricing.section.hint": {
+    "message": "Hinweis: Der Preis variiert je nach Lizenzmodell, Land, Mehrwertsteuersatz, aktuellen Rabatten oder bereits gekauften Lizenzen."
+  },  
+  "pricing.title": {
+    "message": "Preise"
+  },
   "purchase-a-license": {
     "message": "Kaufen Sie eine Lizenz."
   },
@@ -1216,7 +1225,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Filter Assistenten aktivieren (Rechtsklick, um die Einstellungen von quickFilters anzuzeigen)"
+    "message": "Assistent zur Filtererstellung; Werkzeuge für Filter"
   },
   "renew-your-license": {
     "message": "Erneuern Sie Ihre Lizenz."
@@ -1255,7 +1264,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "2. März"
+    "message": "24. April"
   },
   "special-offer-head": {
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
@@ -1340,9 +1349,6 @@
   "version": {
     "message": "Version:"
   },
-  "vouchers.title": {
-    "message": "Gutscheine"
-  },
   "whats-new-btn": {
     "message": "Was gibt's Neues?"
   },
@@ -1353,7 +1359,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Neues Layout für Symbolleisten-Schaltfläche - dies ist jetzt ein Dropdown-Menü, das immer {boldStart}Zugriff auf alle Funktionen{boldEnd} bietet, auch wenn die Lizenz abgelaufen ist oder Versionshinweise noch nicht gelesen wurden. {L2}{L1} Assistent beim Ziehen von E-Mails deaktiviert aus speziellen Ordnern (Warteschlange, Vorlagen, Entwürfe, Papierkorb) [Problem 164]{L2}{L1} Schaltfläche „Spenden“ für lizenzierte Benutzer entfernt.{L2}{L1} Repariert: Option zum Hinzufügen neuer Regeln zu vorhandenen Filtern oben in der Liste der Suchbegriffe.{L2}"
+    "message": "{L1} 5.9.1 Fehlende Schaltflächen in der Symbolleiste des aktuellen Ordners für Linux-Benutzer von QuickFolders behoben{L2}{L1} 5.9.1 Schaltflächen in früheren Versionen funktionierten nicht sofort, wenn sie vom Benutzer über die angepasste Symbolleiste hinzugefügt wurden – dies erforderte einen Neustart von quickFilters. [issue 175] {L2}{L1} Neues Layout für Symbolleisten-Schaltfläche - dies ist jetzt ein Dropdown-Menü, das immer {boldStart}Zugriff auf alle Funktionen{boldEnd} bietet, auch wenn die Lizenz abgelaufen ist oder Versionshinweise noch nicht gelesen wurden. {L2}{L1} Assistent beim Ziehen von E-Mails deaktiviert aus speziellen Ordnern (Warteschlange, Vorlagen, Entwürfe, Papierkorb) [issue 164]{L2}{L1} Repariert: Option zum Hinzufügen neuer Regeln zu vorhandenen Filtern oben in der Liste der Suchbegriffe.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

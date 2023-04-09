@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "quickFilters 設定"
   },
+  "pricing.section": {
+    "message": "価格を確認するには、まず次のオプションのいずれかを選択してください。 これにより、別のブラウザ ウィンドウが開き、ウェブ ショップでの購入を完了することができます。"
+  },
+  "pricing.section.hint": {
+    "message": "注: 価格は、ライセンス モデル、国、VAT 率、現在の割引、または購入済みのライセンスによって異なります。"
+  },  
+  "pricing.title": {
+    "message": "価格"
+  },
   "purchase-a-license": {
     "message": "ライセンスを購入する。"
   },
@@ -1215,7 +1224,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "フィルタアシスタントをアクティブにします（右クリックしてquickFilters設定を表示します）"
+    "message": "フィルター作成アシスタント; フィルター用ツール"
   },
   "renew-your-license": {
     "message": "ライセンスを更新する。"
@@ -1254,7 +1263,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "3月2日"
+    "message": "4月24日"
   },
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
@@ -1339,9 +1348,6 @@
   "version": {
     "message": "バージョン:"
   },
-  "vouchers.title": {
-    "message": "支払い免除"
-  },
   "whats-new-btn": {
     "message": "新着情報？"
   },
@@ -1352,7 +1358,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} ツールバー ボタンの新しいレイアウト - これはドロップダウン メニューになり、ライセンスの有効期限が切れているか、バージョン ノートがまだ読まれていない場合でも、常にすべての機能にアクセスできます。{L2}{L1} メールをドラッグするときにアシスタントを無効にしました 特別なフォルダ (Queue、Templates、Drafts、Trash) から [issue 164]{L2}{L1} ライセンス ユーザーの [寄付] ボタンを削除しました。{L2}{L1} 修復: 上部の既存のフィルタに新しいルールを追加するオプション 検索語のリスト。{L2}"
+    "message": "{L1} 5.9.1 Linux ユーザーの QuickFolders の現在のフォルダー ツールバーにボタンが表示されない問題を修正しました{L2}{L1} 5.9.1 以前のバージョンのボタンは、カスタマイズ ツールバーを使用してユーザーが追加したときにすぐに機能しませんでした - これには、quickFilters の再起動が必要でした。 [issue 175]{L2}{L1} ツールバー ボタンの新しいレイアウト - これはドロップダウン メニューになり、ライセンスの有効期限が切れているか、バージョン ノートがまだ読まれていない場合でも、常にすべての機能にアクセスできます。{L2}{L1} メールをドラッグするときにアシスタントを無効にしました 特別なフォルダ (Queue、Templates、Drafts、Trash) から [issue 164]{L2}{L1} 修復: 上部の既存のフィルタに新しいルールを追加するオプション 検索語のリスト。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

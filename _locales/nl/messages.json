@@ -274,6 +274,15 @@
   "prefwindow.title": {
     "message": "quickFilters-voorkeuren"
   },
+  "pricing.section": {
+    "message": "Selecteer eerst een van de volgende opties om uw prijs te weten te komen. Hierdoor wordt een apart browservenster geopend waar u de aankoop in de webshop kunt afronden."
+  },
+  "pricing.section.hint": {
+    "message": "Opmerking: de prijs varieert afhankelijk van het licentiemodel, het land, het btw-tarief, huidige kortingen of reeds gekochte licenties."
+  },  
+  "pricing.title": {
+    "message": "Prijzen"
+  },
   "purchase-a-license": {
     "message": "Koop een licentie."
   },
@@ -1215,7 +1224,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Activeer de filterassistent (klik met de rechtermuisknop om de voorkeuren van quickFilters weer te geven)"
+    "message": "Assistent voor het maken van filters; gereedschap voor filters"
   },
   "renew-your-license": {
     "message": "Verleng uw licentie."
@@ -1254,7 +1263,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "2 maart"
+    "message": "24 april"
   },
   "special-offer-head": {
     "message": "Help quickFilters om door te gaan!"
@@ -1339,9 +1348,6 @@
   "version": {
     "message": "Versie:"
   },
-  "vouchers.title": {
-    "message": "Tegoedbonnen"
-  },
   "whats-new-btn": {
     "message": "Wat is er nieuw?"
   },
@@ -1352,7 +1358,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Nieuwe lay-out voor werkbalkknop - dit is nu een vervolgkeuzemenu dat altijd toegang geeft {boldStart}tot alle functies{boldEnd}, zelfs wanneer de licentie is verlopen of de versienotities nog niet zijn gelezen.{L2}{L1} De assistent uitgeschakeld bij het slepen van e-mail uit speciale mappen (wachtrij, sjablonen, concepten, prullenbak) [issue 164]{L2}{L1} Knop Doneren verwijderd voor gelicentieerde gebruikers.{L2}{L1} Gerepareerd: optie om nieuwe regels toe te voegen aan bestaande filters bovenaan de lijst met zoektermen.{L2}"
+    "message": "{L1} 5.9.1 Ontbrekende knoppen op werkbalk Huidige map verholpen voor Linux-gebruikers van QuickFolders{L2}{L1} 5.9.1 Knoppen in eerdere versies werkten niet onmiddellijk wanneer ze door de gebruiker werden toegevoegd via de werkbalk Aanpassen - hiervoor moest quickFilters opnieuw worden opgestart. [issue 175]{L2}{L1} Nieuwe lay-out voor werkbalkknop - dit is nu een vervolgkeuzemenu dat altijd toegang geeft {boldStart}tot alle functies{boldEnd}, zelfs wanneer de licentie is verlopen of de versienotities nog niet zijn gelezen.{L2}{L1} De assistent uitgeschakeld bij het slepen van e-mail uit speciale mappen (wachtrij, sjablonen, concepten, prullenbak) [issue 164]{L2} {L1} Gerepareerd: optie om nieuwe regels toe te voegen aan bestaande filters bovenaan de lijst met zoektermen.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
