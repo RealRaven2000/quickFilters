@@ -381,10 +381,10 @@ export class Licenser {
 
     // ******* CHECK LICENSE EXPIRY  ********
     // get current date
-    let today = new Date();
+    let today = new Date(),
+        licDate = new Date(this.decryptedDate);
     let dateString = today.toISOString().substr(0, 10);
     if (this.decryptedDate < dateString) {
-      let licDate = new Date(this.decryptedDate);
       this.ExpiredDays = parseInt((today - licDate) / (1000 * 60 * 60 * 24)); 
       this.logDebug('validateLicense()\n returns ', [
         this.ValidationStatusDescription,
@@ -394,9 +394,7 @@ export class Licenser {
       // Valid state is reached, set to Expired.
       this.LicensedDaysLeft = 0;
     } else {
-      let today = new Date(),
-          licDate = new Date(this.decryptedDate);
-      this.LicensedDaysLeft = parseInt((licDate - today) / (1000 * 60 * 60 * 24)); 
+      this.LicensedDaysLeft = Math.ceil((licDate - today) / (1000 * 60 * 60 * 24)); 
       this.ExpiredDays = 0;
     }
 

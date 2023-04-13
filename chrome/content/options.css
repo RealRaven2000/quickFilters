@@ -424,8 +424,9 @@ hbox.quickhelp-dbg {
 
 
 #validationResults {
-	max-height: 3em;
+	max-height: none; /* was squished */
 }
+
 #validationResults description {
   max-width: 45em !important;
 }

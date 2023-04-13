@@ -549,13 +549,16 @@ END LICENSE BLOCK
     # [issue 170] Repaired option to add new rules (merge) to existing filters on the top 
     # [issue 171] Added a warning if the quickFilters license is about to expire (displayed 10 days before).
 
-  5.9.1 - WIP
+  5.9.1 - 09/04/2023
     # [issue 172] Missing quickFilters buttons on QuickFolders Current Folder Bar (Linux)
     # [issue 175] quickFilters buttons don't work when dragging from customize toolbar 
     # [issue 177] Added pricing section to license dialog. 
     # Added Czech translation to license dialog.
     # to encourage license renewals: Show bargain section in splash screen if <=10 days to expiry
     
+  5.10 - WIP
+    # [issue 178] Correct the Number of days left in license by rounding up
+    #
    
   ============================================================================================================
   FUTURE WORK:
