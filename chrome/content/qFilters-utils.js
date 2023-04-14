@@ -87,6 +87,19 @@ quickFilters.Util = {
     });
   },  
 
+  // special function for displaying the popup on the quickFilters toolbar button
+  showToolbarPopup: function() {
+    // quickFilters.List.showPopup(this,'quickFiltersSearchContext', event);
+    let button = document.querySelector("button[extension='quickFilters@axelg.com']");
+    if (!button) return;
+    const popupId = "quickFiltersMainPopup";
+    let p = document.getElementById(popupId);
+    if (p) {
+      p.targetNode = button; 
+      p.openPopup(button,'after_start', 0, -1,true,false); // no event
+    }    
+  },  
+
   // return main quickFilters instance (if we are in a child window / dialog or come from an event)
   get mainInstance() {
     let win = this.getMail3PaneWindow();
@@ -460,8 +473,7 @@ quickFilters.Util = {
     caption = caption || "quickFilters";
     Services.prompt.alert(null, caption, msg);
   },
-  	
-	
+
   /* quickFilters Pro / licensing features */
 	// default to isRegister from now = show button for buying a license.
 	// featureName: namne of the feature used (will be transmitted to shop when purchasing)
@@ -637,31 +649,41 @@ quickFilters.Util = {
     }
   } ,
 
+  // GetLoadedMsgFolder - SeaMonkey only
+  // GetSelectedFolderURI - deprecated
+  // gFolderDisplay - doesn't exist in Tb115
   getCurrentFolder: function getCurrentFolder() {
-		const util = quickFilters.Util;
     let aFolder;
-    if (typeof(GetLoadedMsgFolder) != 'undefined') {
-      aFolder = GetLoadedMsgFolder();
+    if (gTabmail && gTabmail.currentTabInfo) {
+      aFolder = gTabmail.currentTabInfo.folder || null;
+      return aFolder;
     }
-    else
-    {
-      let currentURI;
-      if (typeof GetSelectedFolderURI === 'function') {
-				// old Postbox
-        currentURI = GetSelectedFolderURI();
-      }
-      else {
-        if (gFolderDisplay.displayedFolder)
-          currentURI = gFolderDisplay.displayedFolder.URI;
-        // aFolder = FolderParam.QueryInterface(Components.interfaces.nsIMsgFolder);
-      }
-      // in search result folders, there is no current URI!
-      if (!currentURI)
+    // legacy code
+    if (typeof gFolderDisplay != "undefined" && gFolderDisplay.displayedFolder) {
+      let currentURI = gFolderDisplay.displayedFolder.URI;
+      if (!currentURI) {
         return null;
-      aFolder = util.getMsgFolderFromUri(currentURI, true).QueryInterface(Components.interfaces.nsIMsgFolder); // inPB case this is just the URI, not the folder itself??
+      }
+      aFolder = quickFilters.Util.getMsgFolderFromUri(currentURI, true).QueryInterface(Components.interfaces.nsIMsgFolder); 
     }
+    // in search result folders, there is no current URI!
     return aFolder;
   } ,
+
+  getSelectedMessages: function(selectedMessageUris) {
+    if (!selectedMessageUris) selectedMessageUris = [];
+    let selectedMessages = [];
+    let treeView = gTabmail.currentTabInfo.chromeBrowser.contentWindow.threadTree.view;
+    if (treeView) {
+      selectedMessages = treeView.getSelectedMsgHdrs();
+      // we can also read message.properties (list of property ids)
+      // read with message.getStringProperty("subject")
+      selectedMessages.forEach(hdr => {
+        selectedMessageUris.push(hdr.folder.getUriForMsg(hdr));
+      });
+    }
+    return selectedMessages;
+  },
 	
   pbGetSelectedMessageUris: function pbGetSelectedMessageUris() {
     let messageArray = {},
@@ -781,14 +803,30 @@ quickFilters.Util = {
 		return null;
 	} ,
 	
-	getTabMode: function getTabMode(tab) {
-	  if (tab.mode) {   // Tb / Sm
-			return tab.mode.name;
+	getTabMode: function getTabMode(tabInfo) {
+    // Tb 115: mailMessageTab or mail3PaneTab for mail related tabs
+	  if (tabInfo && tabInfo.mode) {   // Tb / Sm
+			return tabInfo.mode.name;
 		}
-		if (tab.type)  // Pb
-		  return tab.type;
 		return "";
 	},
+
+  // @tabInfo - tabInfo object
+  // @type - one of "folder", "message", "search", "mail" (for folders+single messages), "other"
+  isTabMode: function(tabInfo, type) {
+    if (!tabInfo) return false;
+    switch (tabInfo.mode.name) {
+      case "mail3PaneTab":
+        return (["folder","mail"].includes(type));
+      case "mailMessageTab":
+        return (["folder","message"].includes(type));
+      case "glodaSearch": case "glodaSearch-result":
+        return (["search"].includes(type));
+      default:
+        return (["other"].includes(type));
+    }
+    return false;
+  },
 	
 	getBaseURI: function baseURI(URL) {
 		let hashPos = URL.indexOf('#'),
@@ -2160,7 +2198,7 @@ quickFilters.Util = {
     let doc = document,
         button = doc.getElementById('quickfilters-toolbar-button');
     if (button) {
-      button.checked = isActive;
+      button.setAttribute("checked", isActive);
     }
     let theLabel = quickFilters.Util.getBundleString(
       isActive ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",

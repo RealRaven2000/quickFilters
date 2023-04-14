@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.0pre1",
+  "version": "6.0pre27",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -23,6 +23,14 @@
     "accountsRead",
     "notifications"
   ],
+  "browser_action": {
+    "default_icon": {
+      "19": "chrome/content/skin/QuickFilters.svg"
+    },
+    "default_title": "quickFilters",
+    "default_popup": "chrome/content/quickfilters_main_popup.html"
+  },
+  
   "experiment_apis": {
     "WindowListener": {
       "schema": "chrome/content/api/WindowListener/schema.json",

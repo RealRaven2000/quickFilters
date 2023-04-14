@@ -15,6 +15,11 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           return Services.wm.getMostRecentWindow("mail:3pane");
         },
 
+        showToolbarPopup: function() {
+          let win = this.latestMainWindow();
+          win.quickFilters.Util.showToolbarPopup();
+        },
+        
         logDebug (text) {
           win.quickFilters.Util.logDebug(text);
         },
@@ -32,7 +37,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           }    
           return "user"; // anonymous
         },
-        
+
         showVersionHistory: function() {
           // It makes sense to only show this in the latest main window
           let win = this.latestMainWindow();

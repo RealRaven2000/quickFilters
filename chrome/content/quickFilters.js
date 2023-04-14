@@ -599,13 +599,21 @@ var quickFilters = {
   },
 
   get folderTreeView() {
-    if (!this.folderTree) {
-      this.folderTree = document.getElementById('folderTree');
+    try {
+      if (!this.folderTree) {
+        this.folderTree = document.getElementById('folderTree');
+      }
+  
+      if (this.folderTree.tagName=="ul")  {  // Thunderbird 112+
+        if (gFolderDisplay && gFolderDisplay.tree) { 
+          return gFolderDisplay.tree.view;
+        }
+      }
     }
-
-    let tv = (typeof gFolderTreeView=='undefined') ? this.folderTree.view : gFolderTreeView;
-    if (typeof tv == "undefined") return null; // Tb 112+
-    return tv;
+    catch (ex) {
+      console.log ("quickFilters - get folderTreeView() failed", ex)
+    }
+    return null;
   },
 
   onLoadQuickFilters: async function() {
@@ -648,31 +656,11 @@ var quickFilters = {
       }
 
       this.initialized = true;
-
-      // Monkey Patch is back:
-      if (!quickFilters.executeMoveMessage
-        &&
-        quickFilters.MsgMove_Wrapper != MsgMoveMessage) {
-        util.logDebugOptional('msgMove', ' Wrapping MsgMoveMessage...');
-        quickFilters.executeMoveMessage = MsgMoveMessage;
-        MsgMoveMessage = quickFilters.MsgMove_Wrapper; // let's test this for a while...
-        util.logDebugOptional('msgMove', 
-                              ' quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper :' 
-                              + (quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper));
-        quickFilters.executeCopyMessage = MsgCopyMessage;
-        MsgCopyMessage = quickFilters.MsgCopy_Wrapper; // let's test this for a while...
-      }
+ 
       // for move to / copy to recent context menus we might have to wrap mailWindowOverlay.js:MsgMoveMessage in Tb!
-      if (quickFilters.Preferences.getBoolPref("autoStart") &&  !quickFilters.Util.AssistantActive)
-      {
+      if (quickFilters.Preferences.getBoolPref("autoStart") &&  !quickFilters.Util.AssistantActive) {
         util.logDebugOptional("events","setTimeout() - toggle_FilterMode");
         setTimeout(function() { quickFilters.Worker.toggle_FilterMode(true, true);  }, 100);
-      }
-
-      // monkey patch for archiving
-      if (!quickFilters.executeArchiveSelectedMessages) {
-        quickFilters.executeArchiveSelectedMessages = MsgArchiveSelectedMessages;
-        MsgArchiveSelectedMessages = quickFilters.MsgArchive_Wrapper;
       }
 
       if (!quickFilters.doCommandOriginal) {
@@ -723,22 +711,9 @@ var quickFilters = {
   onUnload: function onUnload() {
     // disable assistant mode if it is active
     if (quickFilters.Util.AssistantActive) {
-      // or we do 
-      quickFilters.onToolbarButtonCommand();
+      quickFilters.Worker.toggle_FilterMode(false); 
     }
-    // restore global wrapped functions
-    if (quickFilters.executeMoveMessage) {
-      MsgMoveMessage = quickFilters.executeMoveMessage;
-      quickFilters.executeMoveMessage = null;
-    }
-    if (quickFilters.MsgCopy_Wrapper) {
-      MsgCopyMessage = quickFilters.executeCopyMessage;
-      quickFilters.executeCopyMessage = null;
-    }
-    if (quickFilters.executeArchiveSelectedMessages) {
-      MsgArchiveSelectedMessages = quickFilters.executeArchiveSelectedMessages;
-      quickFilters.executeArchiveSelectedMessages = null;
-    }
+
     if (quickFilters.doCommandOriginal) {
       DefaultController.doCommand = quickFilters.doCommandOriginal;
       quickFilters.doCommandOriginal = null;
@@ -878,12 +853,8 @@ var quickFilters = {
   },
 
   onToolbarButtonCommand: function onToolbarButtonCommand(e) {
-    if (quickFilters.Preferences.getBoolPref("hasNews")) {
-      quickFilters.Util.viewSplash();
-    } else {
-      // just reuse the function above.  you can change this, obviously!
-      quickFilters.onMenuItemCommand("toggle_Filters");
-    }
+    // just reuse the function above.  you can change this, obviously!
+    quickFilters.onMenuItemCommand("toggle_Filters");
   },
 
   onToolbarListCommand: function onToolbarListCommand(e) {
@@ -1320,10 +1291,13 @@ var quickFilters = {
     }
   } ,
   
-  MsgMoveCopy_Wrapper: function MsgMoveCopy_Wrapper(uri, isCopy) {
+  MsgMoveCopy_Wrapper: function MsgMoveCopy_Wrapper(uri, isCopy, originalControllerCopyMove) {
+    // TB115 deprecated:
+    // gFolderDisplay
+    // gFolderDisplay.selectedMessages
+    // gFolderDisplay.selectedMessageUris
     const util = quickFilters.Util,
           worker = quickFilters.Worker,
-          prefs = quickFilters.Preferences,
           Ci = Components.interfaces;
 
     if (quickFilters.Preferences.isDebugOption("assistant")) {
@@ -1342,8 +1316,9 @@ var quickFilters = {
         destMsgFolder = destResource.QueryInterface(Ci.nsIMsgFolder);
         
         // get selected message uris - see case 'createFilterFromMsg'
-        let selectedMessages = gFolderDisplay.selectedMessages,
-            selectedMessageUris = gFolderDisplay.selectedMessageUris;
+        // gFolderDisplay.selectedMessageUris;
+        let selectedMessageUris = [] ; 
+        let selectedMessages = quickFilters.Util.getSelectedMessages(selectedMessageUris);
             
         util.logDebugOptional('msgMove', 'MsgMoveCopy_Wrapper(): ' + selectedMessages.length + ' selected Messages counted.');
 
@@ -1382,12 +1357,12 @@ var quickFilters = {
           if (isCopy) {
             util.logDebugOptional('msgMove', "Executing original CopyMessage [[");
             // calls original copy message function of Thunderbird
-            quickFilters.executeCopyMessage(uri); 
+            originalControllerCopyMove(uri); 
           }
           else {
             util.logDebugOptional('msgMove', "Executing original MoveMessage [[");
             // call original move message function of Thunderbird
-            quickFilters.executeMoveMessage(uri); 
+            originalControllerCopyMove(uri); 
           }
           util.logDebugOptional('msgMove', "After original Move/CopyMessage.]]");
           // MOVED FILTER CREATION AFTER MESSAGES ARE MOVED.
@@ -1408,7 +1383,7 @@ var quickFilters = {
     }         
   },
 
-  MsgArchive_Wrapper: async function(event) {
+  MsgArchive_Wrapper: async function(callbackFunction) {
     const util = quickFilters.Util,
           Ci = Components.interfaces;
 
@@ -1418,9 +1393,13 @@ var quickFilters = {
           !quickFilters.Preferences.getBoolPref("assistant.exclude.archive")
           ) { 
         sourceFolder = util.getCurrentFolder();
+
+        let selectedMessageUris = [] ; 
+        let selectedMessages = quickFilters.Util.getSelectedMessages(selectedMessageUris);
+
         let i;
-        for (i=0; i<gFolderDisplay.selectedMessages.length; i++) {
-          messageList.push(util.makeMessageListEntry(gFolderDisplay.selectedMessages[i], gFolderDisplay.selectedMessageUris[i])); 
+        for (i=0; i<selectedMessages.length; i++) {
+          messageList.push(util.makeMessageListEntry(selectedMessages[i], selectedMessageUris[i])); 
           // the original command in the message menu calls the helper function MsgCreateFilter()
           // we do not know the primary action on this message (yet)
         }      
@@ -1429,19 +1408,20 @@ var quickFilters = {
         // we do not know the final archive folder, (messages have not been archived yet)
         // so we use the source folder. The action will be archice and so doesn't need a new targetFolder
         destMsgFolder = sourceFolder;
-        await quickFilters.Worker.createFilterAsync_New(sourceFolder, 
-          destMsgFolder, 
-          messageList, 
-          fA,   // filterAction
-          "Archive");  // filterActionExt
-        util.logDebugOptional('msgMove', "After calling createFilterAsync_New()");
-
+        if (messageList.length) {
+          await quickFilters.Worker.createFilterAsync_New(sourceFolder, 
+            destMsgFolder, 
+            messageList, 
+            fA,   // filterAction
+            "Archive");  // filterActionExt
+          util.logDebugOptional('msgMove', "After calling createFilterAsync_New()");
+        }
       }
     }
     catch(ex) {
       util.logException("MsgArchive_Wrapper()", ex);
     }
-    quickFilters.executeArchiveSelectedMessages(event);
+    callbackFunction(); // call original archive function
   },
 
   doCommandWrapper: function(cmd, aTab) {
@@ -1531,55 +1511,44 @@ var quickFilters = {
     }
     
     if (window) {
-      let tabmail = window.document.getElementById("tabmail"),
-          selectedTab = util.tabContainer.selectedIndex,
+      let selectedTab = quickFilters.Util.tabContainer.selectedTab,
           tabMode = null;
-      if (selectedTab>=0) {
-        let tab = util.getTabInfoByIndex(tabmail, selectedTab);
-        if (tab) {
-          tabMode = util.getTabMode(tab);  // test in Postbox
-          if (tabMode == "glodaSearch" && tab.collection) { //distinguish gloda search result
-            tabMode = "glodaSearch-result";
-          }
+      if (selectedTab) {
+        tabMode = quickFilters.Util.getTabMode(selectedTab);
+        if (tabMode == "glodaSearch" && tab.collection) { //distinguish gloda search result
+          tabMode = "glodaSearch-result";
         }
-        else {
-          if (!tabmail.tabInfo.length)
-            tabMode = "3pane";
-          else
-            tabMode = ""; 
-        }      
-      }
-      if ((tabMode == 'message' || tabMode == 'folder' || tabMode == '3pane')) {
-        let isShiftOnly = !isAlt && !isCtrl && isShift && dir!='up',
-            isNoAccelerator = !isAlt && !isCtrl && !isShift && dir!='up',
-            theKeyPressed = (String.fromCharCode(e.charCode)).toLowerCase();
-        if (isRunFolderKey) {
-          if (isShiftOnly && theKeyPressed == prefs.getShortcut("folder").toLowerCase()) {
-            util.logDebug("detected: Shortcut for Run filters on Folder");
-            
-            if (quickFilters.Preferences.getBoolPref("shortcuts.challenge")) {
+        if (quickFilters.Util.isTabMode(selectedTab,"mail")) {
+          let isShiftOnly = !isAlt && !isCtrl && isShift && dir!='up',
+              theKeyPressed = (String.fromCharCode(e.charCode)).toLowerCase();
+          if (isRunFolderKey) {
+            if (isShiftOnly && theKeyPressed == prefs.getShortcut("folder").toLowerCase()) {
+              util.logDebug("detected: Shortcut for Run filters on Folder");
+              
+              if (quickFilters.Preferences.getBoolPref("shortcuts.challenge")) {
+                let folder = util.getCurrentFolder();
+                if (!(folder.getFlag(util.FolderFlags.Inbox))) {
+                  let txt = util.getBundleString("runFilters.folder.confirm", "", [folder.prettyName]);
+                  let result = Services.prompt.confirm(util.getMail3PaneWindow(), "quickFilters", txt);
+                  if (!result) return;
+                }
+              }
+              quickFilters.onApplyFilters();
+              return; 
+            }
+          }
+          if (isSelectedMailsKey) {
+            if (isShiftOnly && theKeyPressed == prefs.getShortcut("mails").toLowerCase()) {
+              util.logDebug("detected: Shortcut for Run filters on Selected Mails");
               let folder = util.getCurrentFolder();
-              if (!(folder.getFlag(util.FolderFlags.Inbox))) {
-                let txt = util.getBundleString("runFilters.folder.confirm", "", [folder.prettyName]);
+              if (!(folder.getFlag(util.FolderFlags.Inbox)) && quickFilters.Preferences.getBoolPref("shortcuts.challenge")) {
+                let txt = util.getBundleString("runFilters.selection.confirm");
                 let result = Services.prompt.confirm(util.getMail3PaneWindow(), "quickFilters", txt);
                 if (!result) return;
               }
+              quickFilters.onApplyFiltersToSelection();
+              return; 
             }
-            quickFilters.onApplyFilters();
-            return; 
-          }
-        }
-        if (isSelectedMailsKey) {
-          if (isShiftOnly && theKeyPressed == prefs.getShortcut("mails").toLowerCase()) {
-            util.logDebug("detected: Shortcut for Run filters on Selected Mails");
-            let folder = util.getCurrentFolder();
-            if (!(folder.getFlag(util.FolderFlags.Inbox)) && quickFilters.Preferences.getBoolPref("shortcuts.challenge")) {
-              let txt = util.getBundleString("runFilters.selection.confirm");
-              let result = Services.prompt.confirm(util.getMail3PaneWindow(), "quickFilters", txt);
-              if (!result) return;
-            }
-            quickFilters.onApplyFiltersToSelection();
-            return; 
           }
         }
       }
@@ -1614,7 +1583,7 @@ var quickFilters = {
           isDropDownMarkerStyled = true;
         }
         else {
-          btn.label = util.getBundleString("quickfiltersToolbarButton.label");
+          btn.setAttribute("label", "quickFilters"); // let's use the standard label
           btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.tooltip"));
         }
         let mnuGoPro = document.getElementById("quickfilters-gopro");
@@ -1680,7 +1649,33 @@ var quickFilters = {
                                             */
     }
     return true;
-  }
+  },
+
+  TabEventListeners: {}, // make a map of tab event listeners
+  addTabEventListener : function() {
+    try {
+      let tabContainer = quickFilters.Util.tabContainer;
+      // this.TabEventListeners["select"] = function(event) { quickFilters.TabListener.select(event); }
+      // this.TabEventListeners["TabClose"] = function(event) { quickFilters.TabListener.closeTab(event); }
+      this.TabEventListeners["TabOpen"] = function(event) { quickFilters.TabListener.newTab(event); }
+      // this.TabEventListeners["TabMove"] = function(event) { quickFilters.TabListener.moveTab(event); }
+      for (let key in this.TabEventListeners) {
+        tabContainer.addEventListener(key, this.TabEventListeners[key], false);
+      }
+    }
+    catch (e) {
+      quickFilters.LocalErrorLogger("No tabContainer available! " + e);
+      quickFilters._tabContainer = null;
+    }
+  } ,
+	removeTabEventListener: function() {
+    // this might not be necessary, as we iterate ALL event listeners when add-on shuts down 
+    // (see "undo monkey patch" in qFi-messenger.js)
+    let tabContainer = quickFilters.tabContainer;
+    for (let key in this.TabEventListeners) {
+      tabContainer.removeEventListener(key, this.TabEventListeners[key]);
+    }
+  }  
 
 }; // quickFilters MAIN OBJECT
 
@@ -2149,6 +2144,40 @@ quickFilters.restoreTagListener = function() {
   if (quickFilters.ToggleMessageTag) {
     ToggleMessageTag = quickFilters.ToggleMessageTag;
   }
+}
+
+quickFilters.TabListener = {
+  newTab: function(evt) {
+    let tabmail = document.getElementById("tabmail");
+    // evt.detail.tabInfo.tabId 
+    const newTabInfo = tabmail.tabInfo.find(e => e == evt.detail.tabInfo);
+    let tabId = evt.detail.tabInfo.tabId;
+    if (newTabInfo) {
+      quickFilters.Util.logDebugOptional("listeners", 
+        `quickFilters.TabListener.newTab() \ntabId = ${tabId},  mode = ${newTabInfo.mode.name}`);
+      if (quickFilters.Util.isTabMode (newTabInfo, "mail")) {  // let's include single message tabs, let's see what happens
+        const callBackCommands = newTabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
+        // backup wrapped functions:
+        callBackCommands.quickFilters_cmd_moveMessage = callBackCommands.cmd_moveMessage; 
+        callBackCommands.quickFilters_cmd_copyMessage = callBackCommands.cmd_copyMessage; 
+        callBackCommands.quickFilters_cmd_archive = callBackCommands.cmd_archive;
+    
+        callBackCommands.cmd_moveMessage = function (destFolder) {
+          window.quickFilters.MsgMoveCopy_Wrapper(destFolder, false, callBackCommands.quickFilters_cmd_moveMessage);  
+        }
+   
+        callBackCommands.cmd_copyMessage = function (destFolder) {
+          window.quickFilters.MsgMoveCopy_Wrapper(destFolder, true, callBackCommands.quickFilters_cmd_copyMessage);  
+        }        
+
+        // monkey patch for archiving
+        callBackCommands.cmd_archive = function () {
+          window.quickFilters.MsgArchive_Wrapper(callBackCommands.quickFilters_cmd_archive);
+        }
+        
+      }
+    }
+  } 
 }
 
 
