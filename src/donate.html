@@ -42,7 +42,7 @@ permalink: donate.html
 <div class="h2container">
   <h2 class="page-header quickFiltersFreeUser" style="vertical-align:top;">
     <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-donate-page"
-       style="white-space: nowrap;">Get quickFilters Pro for 2022!</a>
+       style="white-space: nowrap;">Get quickFilters Pro for 2023!</a>
   </h2>
   <h2 class="page-header quickFiltersProUser" style="vertical-align:top;">Donate to Support quickFilters</h2>
 </div>
@@ -158,13 +158,14 @@ only used for order fulfillment and license verification.</p>
         
 <div class="psa">
 
-  <p class="heading">Important news about the latest Thunderbird update (91):</p>
+  <p class="heading">Important news about the coming Thunderbird update (115):</p>
     
   <p>
-    The latest version of quickFilters supports Thunderbird 91; I did most of the conversion
-    work myself, but got some help from John Bieling (Thunderbird Staff) converting the 
-    licensing / encryption module into an ES-6 module which is a more future proof 
-    method of encapsulating code.  
+    The latest version of quickFilters supports Thunderbird 102; we had some problems Last
+		year when we tried to switch the Add-on from using "monkey patched" functions (these are internal
+		functions that quickFilters wraps within it's own versions in order to start the assistant
+		before an email is moved / deleted / archived) to a folder-listener based model.  
+		Unfortunately these changes lead to performance issues and had to be rolled back.
   </p>
   <p>
     quickFilters now communicates with the different parts and windows via a so called "background page",
@@ -173,12 +174,10 @@ only used for order fulfillment and license verification.</p>
     to better deal with multiple Thunderbird windows.
   </p>
   <p>
-    Localization: since version 5.3, quickFilters uses the new "json" format which has all translated texts 
-    in a single file for each language. These are all tested for validity when installing the Add-on 
-    so no more nasty surprises when you open a dialog in your language to be greeted by an xml:base
-    error. Missing texts will simply be replaced by their English counter parts. Note that I am 
-    using google translate to generate these for cost reasons, but you can always drop me an email
-    to suggest corrections and improvements.
+    For Thunderbird 115, quickFilters needs to be adapted to a completely rewritten mail 3 pane
+		frontpage. Important elements like the toolbar and the folder tree have been completely 
+		replaced. This requires considerable work of <b>rewriting all elements interacting with the main page</b> 
+    (3pane) of Thunderbird (toolbar buttons, menus, folder tree, drag and drop handlers).
   </p>
   <p>
     As regards converting into a "native mail extension",  there is still a lot of work to be done. 
@@ -192,8 +191,9 @@ only used for order fulfillment and license verification.</p>
     so this will also be subject to negotiating with the Thunderbird Core development team.
   </p>
   <p>
-    If you find any specific problems in Thunderbird 91, please 
-    <a href="https://github.com/RealRaven2000/quickFilters/issues/48">report it here</a>.
+    If you would like to discuss the changes or find specific problems in Thunderbird beta versions
+		112 and later, please 
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/181">report it here</a>.
   </p>
   <p>
     In order to support quickFilters transition into a full "mail extension" many methods
@@ -202,8 +202,8 @@ only used for order fulfillment and license verification.</p>
     <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-donate-page">FastSpring Web Shop</a>
   </p>
   
-  <p>quickFilters is <i><b>fully compatible with Thunderbird 91.0</b></i> - which is
-    the latest version of the new ESR period (starting August 2021).</p>
+  <p>quickFilters is <i><b>fully compatible with Thunderbird 102.10</b></i> - which is
+    the latest version of the current ESR period (starting August 2022 - Summer 2023).</p>
     
 </div>  
   <div class="quickFiltersProUser">
