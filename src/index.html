@@ -225,7 +225,9 @@ search has many new features which can be selected with the search settings butt
 </ul>
 </p>
 <h3>Message Filters Toolbar</h3>
-<img class="screenshot" src="img/toolbar-5.png" alt="toolbar">
+<p>
+  <img class="screenshot" src="img/toolbar-5.png" alt="toolbar">
+</p>
 <p>The toolbar has some useful functions that Thunderbird was missing:</p>
 <ul>
   <li> Cut / copy / paste: these are designed to transfer filters from one account to another. 
@@ -264,31 +266,116 @@ that it remains easy to re-order the relative positions of the filters. This als
 <br>
 <h4 class="header">Actions Tab</h4>
 <p>Actions Tab - sets global preference of quickFilters. </p>
-<img src="img/quickFilters-prefs-actions.png" alt="quickFilters actions"/><br/>
+<img src="img/quickFilters-prefs-actions-591.png" alt="quickFilters actions"/><br/>
+
+<style>
+  span.default {
+    font-size: 0.9em;
+    color: rgba(50,50,50,0.8);
+  }
+</style>
 
 <ul>
-  <li>Exit Filter Assistant after a filter has been created. Default:on.</li>
-  <li>Automatically start Filter Assistant mode with application. If you want to full automate all mail movement
-	    then you would activate this option and keep quickFilters paying attention to anything you do manually.
-	    Default: off.</li>
-  <li>Display Toolbar in Filter Manager. I highly recommend leaving it on as it gives you extra options (Merge, Clone). 
-	    Default: on.</li>
-	<li>Listen for Tag changes. The Assistant will detect if a message is tagged manually.</li>
-	<li>Support quick move feature - the Assistant will be triggered when Postbox' "quick move" is used.</li>
+  <li>
+    Exit Filter Assistant after a filter has been created. <span class="default">Default: on</span>
+  </li>
+  <li>
+    Automatically start Filter Assistant mode with application. If you want to full automate all mail movement
+	  then you would activate this option and keep quickFilters paying attention to anything you do manually.
+	  <span class="default">Default: off</span>.
+  </li>
+  <li>
+    Display Toolbar in Filter Manager. I highly recommend leaving it on as it gives you extra options (Merge, Clone). 
+    <span class="default">Default: on</span>.
+  </li>
+  <li>
+    Open editor after filter creation. Shoes the filter editor after selection of the template, so you can make
+    sure it was created as intended.
+    <span class="default">Default: on</span>.
+  </li>
+  <li>
+    <p>
+      Display Filter List after filter creation. <span class="default">Default: on</span>.
+      Since the order of filters is based on the position in this list, I recommend checking where is inserted.
+      As the filter is selected in this step, you can also click <i>Run Now</i> to test it and immediately
+      tidy up your inbox (or current folder) with the new filter rule:
+    </p>
+    <img src="img/filters-run-now.png" alt="Run filter now" />
+  </li>
+  <li>
+    Always insert complete subject line. <span class="default">Default: off</span>.
+    By default, quickFilters will look for patterns like words in brackets (such as "[Quora Digest]")
+    and will copy only this into the subject line search condition. This can mean much faster
+    and easier filter creation for mailing lists - but this behavior can be disabled here by
+    activating this option.
+  </li>
+	<li>
+    Listen for Tag changes. The Assistant will detect if a message is tagged manually. <span class="default">Default: on</span>
+  </li>
+	<li>
+    Run filters automatically whenm tags are change. Filters will be triggered when the user manually changes a 
+    tag on an email. <span class="default">Default: off</span>
+  </li>
+  <li>
+    Disable two-way address conditions - by default the templates "Based on Sender" and "Based on Recipient" 
+    will fill in two conditions, from XXX and to XXX. This is so whole conversations can be filtered 
+    (including your personal replies) and moved to a folder. This is especially helpful when using 
+    the "Copy Sent to Current" addon, and avoids messages being "orphaned" in the Sent Mail folder.
+  </li>
 <ul>
+<h4 class="header">Merge Rules</h4>
+<p>
+  quickFilters makes it possible to merge new rules into existing filters, during use of the assistant.
+  If a filter is found that does the same main action (normally, moving a mail to a certain folder or
+  applying a certain flag to a message) it will display this step so you can integrate the process
+  based on the template you will select into an existing filter. This may not always make sense
+  so make sure you edit the final result to make sure it is created as intended. 
+  If in doubt, simply do not merge but create a completely new filter.
+</p>
+<ul>
+  <li>
+    Automatically select Merge. <span class="default">Default: off</span> 
+    If matching filters are found, quickFilters will select the first match
+    for merging.
+  </li>
+  <li>
+    Skip directly to template selection <span class="default">Default: off</span> 
+    This will omit the previous step, even if mergable filters are found 
+    (and will auto-select Merge only if the previous option is active.)
+  </li>
+  <li>
+    Add new rules on top of list. <span class="default">Default: off</span> 
+    When merging, the existing filter is modified by adding the new 
+    search terms on top of the filter editor (rather than the end).
+    This can make editing faster.
+  </li>
+</ul>
+
 
 <h4 class="header">New Filter Properties</h4>
 <p>quickFilters automatically generates filter names, so it is important to be consistent:</p>
 <img src="img/quickfilters-prefs-newfilter.png" alt="new filter properties"/><br/>
 
+
+
 </ul>
-	<li>Disable two-way address conditions - by default the templates "Based on Sender" and "Based on Recipient" 
-	    will fill in two conditions, from XXX and to XXX. This is so whole conversations can be filtered 
-			(including your personal replies) and moved to a folder. This is especially helpful when using 
-			the "Copy Sent to Current" addon, and avoids messages being "orphaned" in the Sent Mail folder.</li>
-  <li>Add parent folder name. Default:on.</li>
-  <li>Add rule specific key word. Default:off.</li>
-	<li>Append to name of cloned filter - to avoid confusion when creating multiple versions of the same filter. Default: "(copy)"</li>
+  <li>
+    <p><b>Apply filter when</b></p>
+    <p>
+      These options set the default options on any newly created filter. (It does not
+      change already existing filters even when merging).
+    </p>
+  </li>
+  <li>Add parent folder name. <span class="default">Default: on</span></li>
+  <li>Add rule specific key word. <span class="default">Default: off</span></li>
+	<li>Append to name of cloned filter - to avoid confusion when creating multiple versions of the same filter. <span class="default">Default: "(copy)"</span></li>
+
+  <li>
+    Remove own email addresses. <span class="default">Default: on</span> 
+    As a safety feature, quickFilters removes ones own emails from added search terms -
+    this is to avoid accidentally building filters that move all emails when we usually
+    only want to move mail from certain participants on a mailing list.
+  </li>
 </ul>
 
 <h4 class="header">Advanced Tab</h4>
