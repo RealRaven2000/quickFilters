@@ -7,45 +7,53 @@ title: Home
 <link rel="stylesheet" href="/css/index.css?v8" type="text/css">
 
 
+<style>
+  #infoScroll {
+    max-height: min(50em,60vh);
+    overflow-y: scroll;
+  }
+</style>
 
 <!-- ***************** INFO/NEWS *************** -->
 <a name='news'> </a>
 <div id="infoTabs">
   <div class="infoTab" id="whats-new">
   <h5 class="infoHeader">What's New / Highlights</h5>
-  <ul>
-  <li>Version <a href="version.html#5.5.4">5.5.4</a> quickFilters is now compatible with Thunderbird 102</li>
-  <li>Version <a href="version.html#5.5.1">5.5.1</a> added Domain extractors to custom filter templates</li>
-  <li>Version <a href="version.html#5.4">5.4</a> Support copy to folder instead of move in assistant</li>
-  <li>Version <a href="version.html#5.3">5.3</a> quickFilters is now compatible with Thunderbird 91</li>
-  <li>Version <a href="version.html#5.2">5.2</a> New: Sort Search Terms in Filter.</li>
-  <li>Version <a href="version.html#5.1">5.1</a> WIP: Fixed Merge filters and clipboard icons in filter list. Fix for Thunderbird 85beta for "Run Filters on Folder"</li>
-  <li>Version <a href="version.html#5.0.2">5.0.2</a> Migrated for Thunderbird 78</li>
-  <li>Version <a href="version.html#4.4.1">4.4.1</a> Keyboard shortcuts for Run Filter actions.</li>
-  <li>Version <a href="version.html#4.2">4.2</a> Fixed integration in QuickFolders (Current Folder Bar)</li>
-  <li>Version <a href="version.html#4.1.1">4.1.1</a> Platform fixes and improvements for troubleshooter </li>
-  <li>Version <a href="version.html#4.0.2">4.0.2</a> Support for Thunderbird 78</li>
-  <li>Version <a href="version.html#3.12">3.12</a> Made quickFilters compatible with Thunderbird 67 - future proofing for 2020 is ongoing!</li>
-  <li>Version <a href="version.html#3.11">3.11</a> Streamlined filter creation: optionally auto-run filters after creation.</li>
-  <li>Version <a href="version.html#3.10">3.10</a> Options to skip Edit / List displays</li>
-  <li>Version <a href="version.html#3.9">3.9</a> Link to <a href="https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V">YouTube demonstration videos</a></li>
-  <li>Version <a href="version.html#3.8">3.8</a> Added troubleshoot tool for filters that do not run automatically.</li>
-  <li>Version <a href="version.html#3.7">3.7</a> Added UI for default "when to run" settings.</li>
-  <li>Version <a href="version.html#3.6">3.6</a> Custom Templates: Support collecting multiple email addresses.</li>
-  <li>Version <a href="version.html#3.5">3.5</a> Backup and Restore feature.</li>
-  <li>Version <a href="version.html#3.4">3.4</a> Created quickFilters Pro version.</li>
-  <li>Version <a href="version.html#3.3">3.3</a> Insert new Filter in alphabetical order.</li>
-  <li>Version <a href="version.html#3.2">3.2</a> Add option to run filters on read IMAP mails</li>
-  <li>Version <a href="version.html#3.1">3.1</a> Fix for Tag Listener</li>
-  <li>Version <a href="version.html#3.0.2">3.0.2</a> Support for Move to Folder context menu</li>
-  <li>Version <a href="version.html#3.0">3.0</a> Support for Move to Folder context menu</li>
-  <li>Version <a href="version.html#2.9">2.9</a> Custom Templates</li>
-  <li>Version <a href="version.html#2.7">2.8</a> Optional Merge Auto-Select.</li>
-  <li>Version <a href="version.html#2.7">2.7</a> Sort Filters feature.</li>
-  <li>Version <a href="version.html#2.2">2.2</a> Support creating filters based on Tag changes.</li>
-  <li>Version <a href="version.html#2.2">2.1</a> Cloning filters. Group Filter template from multiple mails</li>
-  <li>Version <a href="version.html#2.0">2.0</a> Added Toolbar and Postbox compatibility</li>
-  </ul>
+  <div id="infoScroll">
+    <ul>
+    <li>Version <a href="version.html#5.5.4">5.5.4</a> quickFilters is now compatible with Thunderbird 102</li>
+    <li>Version <a href="version.html#5.5.1">5.5.1</a> added Domain extractors to custom filter templates</li>
+    <li>Version <a href="version.html#5.4">5.4</a> Support copy to folder instead of move in assistant</li>
+    <li>Version <a href="version.html#5.3">5.3</a> quickFilters is now compatible with Thunderbird 91</li>
+    <li>Version <a href="version.html#5.2">5.2</a> New: Sort Search Terms in Filter.</li>
+    <li>Version <a href="version.html#5.1">5.1</a> WIP: Fixed Merge filters and clipboard icons in filter list. Fix for Thunderbird 85beta for "Run Filters on Folder"</li>
+    <li>Version <a href="version.html#5.0.2">5.0.2</a> Migrated for Thunderbird 78</li>
+    <li>Version <a href="version.html#4.4.1">4.4.1</a> Keyboard shortcuts for Run Filter actions.</li>
+    <li>Version <a href="version.html#4.2">4.2</a> Fixed integration in QuickFolders (Current Folder Bar)</li>
+    <li>Version <a href="version.html#4.1.1">4.1.1</a> Platform fixes and improvements for troubleshooter </li>
+    <li>Version <a href="version.html#4.0.2">4.0.2</a> Support for Thunderbird 78</li>
+    <li>Version <a href="version.html#3.12">3.12</a> Made quickFilters compatible with Thunderbird 67 - future proofing for 2020 is ongoing!</li>
+    <li>Version <a href="version.html#3.11">3.11</a> Streamlined filter creation: optionally auto-run filters after creation.</li>
+    <li>Version <a href="version.html#3.10">3.10</a> Options to skip Edit / List displays</li>
+    <li>Version <a href="version.html#3.9">3.9</a> Link to <a href="https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V">YouTube demonstration videos</a></li>
+    <li>Version <a href="version.html#3.8">3.8</a> Added troubleshoot tool for filters that do not run automatically.</li>
+    <li>Version <a href="version.html#3.7">3.7</a> Added UI for default "when to run" settings.</li>
+    <li>Version <a href="version.html#3.6">3.6</a> Custom Templates: Support collecting multiple email addresses.</li>
+    <li>Version <a href="version.html#3.5">3.5</a> Backup and Restore feature.</li>
+    <li>Version <a href="version.html#3.4">3.4</a> Created quickFilters Pro version.</li>
+    <li>Version <a href="version.html#3.3">3.3</a> Insert new Filter in alphabetical order.</li>
+    <li>Version <a href="version.html#3.2">3.2</a> Add option to run filters on read IMAP mails</li>
+    <li>Version <a href="version.html#3.1">3.1</a> Fix for Tag Listener</li>
+    <li>Version <a href="version.html#3.0.2">3.0.2</a> Support for Move to Folder context menu</li>
+    <li>Version <a href="version.html#3.0">3.0</a> Support for Move to Folder context menu</li>
+    <li>Version <a href="version.html#2.9">2.9</a> Custom Templates</li>
+    <li>Version <a href="version.html#2.7">2.8</a> Optional Merge Auto-Select.</li>
+    <li>Version <a href="version.html#2.7">2.7</a> Sort Filters feature.</li>
+    <li>Version <a href="version.html#2.2">2.2</a> Support creating filters based on Tag changes.</li>
+    <li>Version <a href="version.html#2.2">2.1</a> Cloning filters. Group Filter template from multiple mails</li>
+    <li>Version <a href="version.html#2.0">2.0</a> Added Toolbar and Postbox compatibility</li>
+    </ul>
+  </div>
   </div>
 </div>
 <!-- ***************** INFO/NEWS *************** -->
@@ -62,21 +70,24 @@ title: Home
    to tidy up your inbox automatically:<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ISheZHpACxM" frameborder="0" allowfullscreen></iframe>
 
-<p>This extension makes it much easier to create new mail filters, by simply dragging emails into folders and let quickFilters do the "heavy lifting" 
-of filling in the sometimes complicated settings in the filter settings. Filters are usually used to move emails to other folders, automatically, so it makes
-sense to show Thunderbird "what to do" by dragging one typical email manually, rather than filling in all the complicated details.
+<p>
+  This extension makes it much easier to create new mail filters, by simply dragging emails into folders and let 
+  quickFilters do the "heavy lifting" of filling in the sometimes complicated settings in the filter settings. 
+  Filters are usually used to move emails to other folders, automatically, so it makes sense to show Thunderbird 
+  "what to do" by dragging one typical email manually, rather than filling in all the complicated details.
 </p>
 
-<a name='howToUse'> </a>
+<a name="howToUse"> </a>
 <h3>How to use quickFilters</h3>
 <p>
-With this, it is very easy to create new filters very quickly. 
+  With this, it is very easy to create new filters very quickly. 
 </p>
-<p>It will prefill the destination folder and other relevant fields after you have dragged the email into a different folder in the tree.
+<p>
+  It will prefill the destination folder and other relevant fields after you have dragged the email into a different folder in the tree.
 </p>
 <ol>
-  <li> Click on the quickFilters assistant button on the main toolbar<br/>
-  <img class="screenshot" src="img/qi-button-assistant.png" alt="main menu: filter assistant">
+  <li> Click on the quickFilters button on the main toolbar and select Start Filter Assistant<br/>
+  <img class="screenshot" src="img/qi-toolbar-start-assistant.png" alt="main menu: filter assistant">
 
   <li>The button will change it's envelope color to red and Thunderbird will show be a sliding notification at the bottom of the Thunderbird window:<br/>
   <img class="screenshot" src="img/qi-notification-assistant.png" alt="filter notification" title="filter notification assistant">
