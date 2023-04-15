@@ -216,7 +216,7 @@ Alternatively, simply select the message and use the "Message" menu.
 <p>The biggest new feature here is the addition of a Search box, which allows filtering the number of results. 
 I was able to submit this as a patch to Thunderbird itself and it is now part of the main product. With quickFilters,
 search has many new features which can be selected with the search settings button:<br>
-<img class="screenshot" src="img/extended-search.png" alt="extended search">
+<img class="screenshot" src="img/filters-search-folder-target.png" alt="search by target folder">
 <ul>
   <li> Name - search the text within all filter names</li>
 	<li> Target Folder - filters that move or copy to a specific folder</li>
@@ -311,7 +311,8 @@ that it remains easy to re-order the relative positions of the filters. This als
     activating this option.
   </li>
 	<li>
-    Listen for Tag changes. The Assistant will detect if a message is tagged manually. <span class="default">Default: on</span>
+    Listen for Tag changes. The Assistant will detect if a message is tagged manually. 
+    <span class="default">Default: on</span>
   </li>
 	<li>
     Run filters automatically whenm tags are change. Filters will be triggered when the user manually changes a 
@@ -335,20 +336,20 @@ that it remains easy to re-order the relative positions of the filters. This als
 </p>
 <ul>
   <li>
-    Automatically select Merge. <span class="default">Default: off</span> 
+    Automatically select Merge. 
     If matching filters are found, quickFilters will select the first match
-    for merging.
+    for merging. <span class="default">Default: off</span>
   </li>
   <li>
-    Skip directly to template selection <span class="default">Default: off</span> 
+    Skip directly to template selection.
     This will omit the previous step, even if mergable filters are found 
-    (and will auto-select Merge only if the previous option is active.)
+    (and will auto-select Merge only if the previous option is active.) <span class="default">Default: off</span> 
   </li>
   <li>
-    Add new rules on top of list. <span class="default">Default: off</span> 
+    Add new rules on top of list. 
     When merging, the existing filter is modified by adding the new 
     search terms on top of the filter editor (rather than the end).
-    This can make editing faster.
+    This can make editing faster. <span class="default">Default: off</span> 
   </li>
 </ul>
 
@@ -359,10 +360,10 @@ that it remains easy to re-order the relative positions of the filters. This als
 
 
 
-</ul>
+<ul>
+  
   <li>
-    <p><b>Apply filter when</b></p>
-    <p>
+    <p><b>Apply filter when</b>: 
       These options set the default options on any newly created filter. (It does not
       change already existing filters even when merging).
     </p>
@@ -372,10 +373,10 @@ that it remains easy to re-order the relative positions of the filters. This als
 	<li>Append to name of cloned filter - to avoid confusion when creating multiple versions of the same filter. <span class="default">Default: "(copy)"</span></li>
 
   <li>
-    Remove own email addresses. <span class="default">Default: on</span> 
+    Remove own email addresses.  
     As a safety feature, quickFilters removes ones own emails from added search terms -
     this is to avoid accidentally building filters that move all emails when we usually
-    only want to move mail from certain participants on a mailing list.
+    only want to move mail from certain participants on a mailing list. <span class="default">Default: on</span>
   </li>
 
   <li>
@@ -416,17 +417,18 @@ The console can be shown via tools &gt; error console. Additional log detail can
 <img src="img/quickfilters-prefs-license.png" alt="license tab"/><br/>
 
 
-<h3><a name="other">My other Extensions - highly recommended</a></h3>
+<a name="other"> </a>
+<h3>My other Extensions - highly recommended</h3>
 <br/>
 
 <div id='myProjects'>
-	<h4 class="QuickFolders"><a href="https://addons.mozilla.org/en-US/thunderbird/addon/quickfolders-tabbed-folders/">QuickFolders</a></h4>
+	<h4 class="QuickFolders">QuickFolders</h4>
 	<p>
     <a href="https://addons.mozilla.org/en-US/thunderbird/addon/quickfolders-tabbed-folders/">QuickFolders</a>
     (Thunderbird / Postbox) takes the pain out of working with many mail folders; has currently 22,000 daily users and the top rated message reading extensions.<br>
 	</p>
   
-  <h4 class="SmartTemplate">SmartTemplate4</h4>
+  <h4 class="SmartTemplate">SmartTemplates</h4>
   <p>
     <a href="https://addons.thunderbird.net/thunderbird/addon/smarttemplate4/">SmartTemplates</a>
     offers an easy way to customize Thunderbirds default quote header by using templates. 
@@ -445,14 +447,5 @@ The console can be shown via tools &gt; error console. Additional log detail can
     into Mozilla applications using a non-native keyboards doesn't have to be a pain any more! 
 	</p>
 
-	<h4 class="QuickPasswords"><a href="https://addons.mozilla.org/en-US/firefox/addon/quickpasswords">QuickPasswords</a></h4>
-	<p>
-    <a href="https://addons.mozilla.org/en-US/firefox/addon/quickpasswords">QuickPasswords for Firefox / SeaMonkey</a>;
-    <a href="https://addons.mozilla.org/en-US/thunderbird/addon/quickpasswords">QuickPasswords for Thunderbird / Postbox</a>
-    <br>
-    this is a very neat and quick way to retrieve and use a growing number
-    of passwords, without displaying them on screen or having to re-type them. 
-    Also supports renaming of multiple passwords!
-	</p>
 </div>
 
