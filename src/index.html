@@ -8,8 +8,12 @@ title: Home
 
 
 <style>
+  :root {
+    --info-max-height: min(40em,60vh);
+  }
+
   #infoScroll {
-    max-height: min(50em,60vh);
+    max-height: var(--info-max-height);    
     overflow-y: scroll;
   }
 </style>
