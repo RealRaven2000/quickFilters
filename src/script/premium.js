@@ -1,4 +1,15 @@
 
+var sales_end = new Date("2023-04-24");
+
+/* functions that remove elements depending on the user type (from user=pro querystring ) */
+
+var removableItems = [
+	"quickFiltersFreeUser",
+	"quickFiltersProRenew"
+];
+var removedItems = [];
+
+
 /* functions that remove elements depending on the user type (from user=pro querystring ) */
 
 	function getQueryVariable(variable)	{
@@ -60,8 +71,20 @@
 				  removeClassItems('quickFiltersProRenew');
 				  removeClassItems('quickFiltersProUser');
 			}
-			
+		};
+
+		// remove sales stuff
+		if (sales_end && new Date() > sales_end) {
+			removableItems.forEach(
+				(e) => {
+					if (!removedItems.includes(e)) {
+						removeClassItems(e);
+						removedItems.push(e);
+					}
+				}
+			);
 		}
+
 	});
 	
 	
