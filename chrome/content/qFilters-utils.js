@@ -335,8 +335,6 @@ quickFilters.Util = {
 		catch(ex) {
 			util.logException("applyFiltersToFolder()", ex);
 		}
-
-	
 	} ,
 
 	get tabContainer() {
@@ -684,19 +682,6 @@ quickFilters.Util = {
     }
     return selectedMessages;
   },
-	
-  pbGetSelectedMessageUris: function pbGetSelectedMessageUris() {
-    let messageArray = {},
-        length = {},
-        view = GetDBView();
-    view.getURIsForSelection(messageArray, length);
-    if (length.value) {
-      return messageArray.value;
-    }
-    else
-      return null;
-  },
-  
 
   logTime: function logTime() {
     let timePassed = '',
@@ -1024,7 +1009,7 @@ quickFilters.Util = {
       let messageIdList = [];
       for (let i = 0; i < messageUris.length; i++) {
         let Uri = messageUris[i],
-            msgHeader = messenger.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
+            msgHeader = MailServices.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
         messageIdList.push(this.makeMessageListEntry(msgHeader, Uri));  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
 				quickFilters.Util.debugMsgAndFolders('Uri', Uri.toString(), targetFolder, msgHeader, "--");
       }
@@ -1128,28 +1113,6 @@ quickFilters.Util = {
 	showPremiumFeatures: function showPremiumFeatures() {
     quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/premium.html');
 	} ,
-	
-  // Postbox special functions to avoid line being truncated
-  // removes description.value and adds it into inner text
-  fixLineWrap: function fixLineWrap(notifyBox, notificationKey) {
-    try {
-      if (!notifyBox || !notificationKey)
-        return;
-      let note = notifyBox.getNotificationWithValue(notificationKey);
-      // if we  could get at the description element within the notificaiton 
-      // we could empty the value and stick thje text into textContent instead!
-      let hbox = note.boxObject.firstChild.firstChild;
-      if (hbox) {
-        this.logDebug('hbox = ' + hbox.tagName + ' hbox.childNodes: ' + hbox.childNodes.length);
-        let desc = hbox.childNodes[1];
-        desc.textContent = desc.value.toString();
-        desc.removeAttribute('value');
-      }
-    }
-    catch(ex) {
-      this.logException('Postbox notification: ', ex);
-    }
-  } ,
   
   versionLower: function versionLower(a, b) {
     let versionComparator = Services.vc;
@@ -2348,8 +2311,7 @@ quickFilters.clsGetHeaders = class classGetHeaders {
           util = quickFilters.Util,
           prefs = quickFilters.Preferences;
     
-    let messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
-        messageService = messenger.messageServiceFromURI(messageURI),
+    let messageService = MailServices.messageServiceFromURI(messageURI),
         messageStream = Cc["@mozilla.org/network/sync-stream-listener;1"].createInstance().QueryInterface(Ci.nsIInputStream),
         inputStream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance().QueryInterface(Ci.nsIScriptableInputStream);
 
