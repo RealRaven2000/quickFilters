@@ -1,5 +1,4 @@
-console.log ("Hello world! trigger popup");
-// notify background page to show the popyup
+// notify background page to show the popup
 
 messenger.Utilities.showToolbarPopup();
 
