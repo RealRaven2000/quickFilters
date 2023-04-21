@@ -1056,7 +1056,7 @@ quickFilters.List = {
 	
 	toggleAssistant: function toggleAssistant(btn) {
 	  let win = quickFilters.Util.getMail3PaneWindow();
-		btn.checked = !quickFilters.Util.AssistantActive; 
+		btn.setAttribute("checked", !quickFilters.Util.AssistantActive); 
 		win.quickFilters.onToolbarButtonCommand();	
 	} ,
   

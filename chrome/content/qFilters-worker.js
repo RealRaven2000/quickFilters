@@ -320,7 +320,7 @@ quickFilters.Worker = {
         if (dbg.countInit>1) {
           messageClone.initialized = true;
           dbg.test += 'STRING PROPERTIES  **********\n';
-          messageClone.PreviewText = msgHdr.getStringProperty('preview'); 
+          messageClone.PreviewText = msgHdr.getStringProperty('preview');  // this string property doesn't exist :( => check in Tb102!
           dbg.test = appendProperty(dbg.test, messageClone, 'PreviewText');
           messageClone.Keywords = msgHdr.getStringProperty("keywords")
           dbg.test = appendProperty(dbg.test, messageClone, 'Keywords');
@@ -1423,10 +1423,16 @@ quickFilters.Worker = {
       else if (filterAction == nsMsgFilterAction.Custom){
         // check if it's archiving (FiltaQuilla)
         if (filterActionExt == "Archive") {
-          if (FiltaQuilla && FiltaQuilla.Util.prefs.getBoolPref("archiveMessage.enabled")) {
+          if (typeof FiltaQuilla == "undefined") {
+            quickFilters.Util.logDebug("Archiving filter cannot be built, as FiltaQuilla is not installed or active.");
+
+          } else if (FiltaQuilla.Util.prefs.getBoolPref("archiveMessage.enabled")) {
+            quickFilters.Util.logDebug("Creating archiving filter...");
             theAction = targetFilter.createAction(); // nsIMsgRuleAction 
             theAction.type = filterAction; // nsMsgFilterAction.MoveToFolder; - also support CopyToFolder!!
             theAction.customId = "filtaquilla@mesquilla.com#archiveMessage";
+          } else {
+            quickFilters.Util.logDebug("Archiving filter will not be built, because FiltaQuilla has archiving disabled.");
           }
         }
       } else if (filterAction == nsMsgFilterAction.Delete) {
