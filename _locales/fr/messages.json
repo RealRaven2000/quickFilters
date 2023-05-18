@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Lorsqu'activé, l'assistant de filtre sera également lancé quand vous marquerez un message."
   },
+  "qf.newFilterProps.intro": {
+    "message": "Les paramètres suivants seront appliqués à tous les nouveaux filtres créés avec l'assistant de filtrage."
+  },
   "qf.notify.filterCreated": {
     "message": "Le nouveau filtre '{0}' a été créé avec succès."
   },

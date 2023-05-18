@@ -622,6 +622,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Kun se on aktivoitu, suodatinavustaja käynnistyy myös, kun merkitset viestin."
   },
+  "qf.newFilterProps.intro": {
+    "message": "Seuraavia asetuksia sovelletaan kaikkiin uusiin suodattimiin, jotka on luotu suodatinapurilla."
+  },
   "qf.notify.filterCreated": {
     "message": "Uuden suodattimen '{0}' luominen onnistui."
   },

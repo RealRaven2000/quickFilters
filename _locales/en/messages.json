@@ -620,6 +620,9 @@
   "qf.listener.tags.tooltip": {
     "message": "When activated, the filter assistant will also be triggered when you tag a message."
   },
+  "qf.newFilterProps.intro": {
+    "message": "The following settings will be applied to any new filters that are created with the filter assistant."
+  },
   "qf.notify.filterCreated": {
     "message": "Successfully created new filter '{0}'."
   },

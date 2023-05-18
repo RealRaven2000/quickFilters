@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Trợ lý bộ lọc cũng sẽ được kích hoạt khi bạn gắn thẻ một tin nhắn."
   },
+  "qf.newFilterProps.intro": {
+    "message": "Các cài đặt sau sẽ được áp dụng cho bất kỳ bộ lọc mới nào được tạo bằng trợ lý bộ lọc."
+  },
   "qf.notify.filterCreated": {
     "message": "Đã tạo thành công bộ lọc mới '{0}'."
   },

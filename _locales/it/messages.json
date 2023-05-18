@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Se questa opzione è attiva, la procedura guidata di creazione del filtro sarà innescata anche etichettando un messaggio."
   },
+  "qf.newFilterProps.intro": {
+    "message": "Le seguenti impostazioni verranno applicate a tutti i nuovi filtri creati con l'assistente filtro."
+  },
   "qf.notify.filterCreated": {
     "message": "Creato con successo il nuovo filtro '{0}'"
   },

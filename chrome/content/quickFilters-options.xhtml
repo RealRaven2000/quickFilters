@@ -370,90 +370,94 @@
 		<!-- contextAfterCls.label AFTER JUNK -->
 
 	  <tabpanel id="quickFilters-Options-newFilterProps"
-			  orient="horizontal"
+			  orient="vertical"
 			  label="__MSG_qf.tab.newFilterProps__"
 			  style="position:relative;">
-			<vbox>
-				<html:fieldset orient="vertical">
-					<html:legend>__MSG_qf.grp.whenToRun__</html:legend>
-					<vbox>
-						<checkbox id="chkAutoRun"
-								preference="newfilter.autorun"
-								label="__MSG_chkAutoRun.label__"
-								/>
-						<checkbox id="chkRunManual"
-								preference="newfilter.manual"
-								label="__MSG_chkRunManual.label__"
-								/>
-						<checkbox id="chkAfterJunk"
-								preference="newfilter.runAfterPlugins"
-								label="__MSG_chkAfterJunk.label__"
-								/>
-						<checkbox id="chkWhenArchiving"
-								preference="newfilter.runArchiving"
-								label="__MSG_chkWhenArchiving.label__"
-								/>
-						<checkbox id="chkAfterSending"
-								preference="newfilter.runPostOutgoing"
-								label="__MSG_chkAfterSending.label__"
-								/>
-						<checkbox id="chkPeriodically"
-								preference="newfilter.runPeriodically"
-								label="__MSG_chkPeriodically.label__"
-								tooltiptext="__MSG_chkPeriodically.tooltip__"
-								/>
-					</vbox>
-				</html:fieldset>
-				<checkbox id="chkAlphabetic"
-				preference="newfilter.insertAlphabetical"
-				label="__MSG_chkAlphabetic.label__"
-				tooltiptext="__MSG_chkAlphabetic.tooltip__"
-				/>
-			</vbox>
+			<label>__MSG_qf.newFilterProps.intro__</label>
+			<hbox>
+				<vbox>
+					<html:fieldset orient="vertical">
+						<html:legend>__MSG_qf.grp.whenToRun__</html:legend>
+						<vbox>
+							<checkbox id="chkAutoRun"
+									preference="newfilter.autorun"
+									label="__MSG_chkAutoRun.label__"
+									/>
+							<checkbox id="chkRunManual"
+									preference="newfilter.manual"
+									label="__MSG_chkRunManual.label__"
+									/>
+							<checkbox id="chkAfterJunk"
+									preference="newfilter.runAfterPlugins"
+									label="__MSG_chkAfterJunk.label__"
+									/>
+							<checkbox id="chkWhenArchiving"
+									preference="newfilter.runArchiving"
+									label="__MSG_chkWhenArchiving.label__"
+									/>
+							<checkbox id="chkAfterSending"
+									preference="newfilter.runPostOutgoing"
+									label="__MSG_chkAfterSending.label__"
+									/>
+							<checkbox id="chkPeriodically"
+									preference="newfilter.runPeriodically"
+									label="__MSG_chkPeriodically.label__"
+									tooltiptext="__MSG_chkPeriodically.tooltip__"
+									/>
+						</vbox>
+					</html:fieldset>
+					<checkbox id="chkAlphabetic"
+					preference="newfilter.insertAlphabetical"
+					label="__MSG_chkAlphabetic.label__"
+					tooltiptext="__MSG_chkAlphabetic.tooltip__"
+					/>
+				</vbox>
 
-			<vbox>
-				<html:fieldset orient="vertical" flex="0">
-					<html:legend>__MSG_qf.label.naming__</html:legend>
-					<vbox>
-						<hbox>
-							<checkbox id="chkNamingParentFolder"
-									preference="naming.parentFolder"
-									label="__MSG_qf.label.naming.parentFolder__"
-									accesskey="__MSG_qf.label.naming.parentFolder.accesskey__"
+				<vbox>
+					<html:fieldset orient="vertical" flex="0">
+						<html:legend>__MSG_qf.label.naming__</html:legend>
+						<vbox>
+							<hbox>
+								<checkbox id="chkNamingParentFolder"
+										preference="naming.parentFolder"
+										label="__MSG_qf.label.naming.parentFolder__"
+										accesskey="__MSG_qf.label.naming.parentFolder.accesskey__"
+										/>
+								<label style="margin-left: 1em; margin-top: 1px;"
+										class="textBoxLabel"
+										value="__MSG_qf.label.naming.folderDelimiter__" />
+								<html:input
+										style="width: 3em;"
+										preference="naming.folderDelimiter"
+										tooltiptext="__MSG_qf.tooltip.naming.folderDelimiter__"
+										/>
+							</hbox>
+							<checkbox id="chkNamingKeyWord"
+									preference="naming.keyWord"
+									label="__MSG_qf.label.naming.keyWord__"
+									accesskey="__MSG_qf.label.naming.keyWord.accesskey__"
 									/>
-							<label style="margin-left: 1em; margin-top: 1px;"
-                  class="textBoxLabel"
-									value="__MSG_qf.label.naming.folderDelimiter__" />
-							<html:input
-									style="width: 3em;"
-									preference="naming.folderDelimiter"
-									tooltiptext="__MSG_qf.tooltip.naming.folderDelimiter__"
-									/>
-						</hbox>
-						<checkbox id="chkNamingKeyWord"
-								preference="naming.keyWord"
-								label="__MSG_qf.label.naming.keyWord__"
-								accesskey="__MSG_qf.label.naming.keyWord.accesskey__"
-								/>
-						<hbox>
-							<label class="textBoxLabel"
-									 value="__MSG_qf.cloned.label__" />
-							<html:input id="txtClonedName"
-									 preference="cloned.append"
-									 />
-						</hbox>
-					</vbox>
-				</html:fieldset>
-        
-        <hbox>
-          <checkbox id="chkRemoveOwnAddress"
-              preference="newfilter.removeOwnAddresses"
-              label="__MSG_qf.label.removeOwnAddresses__"
-              />      
-              <div class="helpLink" tip-left="true" clickyTooltip="__MSG_qf.label.removeOwnAddresses.tip__"> </div>
-        </hbox>
-        
-			</vbox>
+							<hbox>
+								<label class="textBoxLabel"
+										value="__MSG_qf.cloned.label__" />
+								<html:input id="txtClonedName"
+										preference="cloned.append"
+										/>
+							</hbox>
+						</vbox>
+					</html:fieldset>
+					
+					<hbox>
+						<checkbox id="chkRemoveOwnAddress"
+								preference="newfilter.removeOwnAddresses"
+								label="__MSG_qf.label.removeOwnAddresses__"
+								/>      
+								<div class="helpLink" tip-left="true" clickyTooltip="__MSG_qf.label.removeOwnAddresses.tip__"> </div>
+					</hbox>
+					
+				</vbox>
+			</hbox>
+
       
 	  </tabpanel>
 
