@@ -42,8 +42,15 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
     {
       // set a flag which will be cleared by clicking the [quickFilters assistant] button once
       setTimeout(
-        function() {
-          messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
+        async function() {
+          let origVer = await messenger.LegacyPrefs.getPref("extensions.quickfilters.installedVersion","0");
+          const manifest = await messenger.runtime.getManifest();
+          let installedVersion = manifest.version.replace(/pre.*/,""); 
+          if (installedVersion > origVer) {
+            // only show news if major or minor version have changed:
+            messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
+            // we need to move this to local Storage so that it will be removed if the Add-on is removed.
+          }
           messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
         },
         200
@@ -56,8 +63,9 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
       break;
   }
 });
-    
-    
+
+
+
 function showSplash() {
   // alternatively display this info in a tab with browser.tabs.create(...)  
   let url = browser.runtime.getURL("popup/update.html");
@@ -217,6 +225,9 @@ async function main() {
   messenger.WindowListener.registerWindow("chrome://messenger/content/FilterEditor.xhtml", "chrome/content/scripts/qFi-filterEditor.js");
   messenger.WindowListener.registerWindow("chrome://messenger/content/FilterListDialog.xhtml", "chrome/content/scripts/qFi-filterlist.js");
     
+  // how to add a click event
+  // browser.actionButton.onClicked.addListener(() => { …. });
+  
  /*
   * Start listening for opened windows. Whenever a window is opened, the registered
   * JS file is loaded. To prevent namespace collisions, the files are loaded into

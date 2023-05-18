@@ -76,7 +76,7 @@
   display: none;
 }
 
-
+/* optional menu items */
 #quickfilters-toolbar-button:not(.newsflash) #quickfilters-news {
   display: none;
 }
@@ -97,70 +97,72 @@
   fill: white !important;
 }
 
-#quickfilters-toolbar-button[checked="true"],
+/* red icon if assistant is active */
+#quickfilters-toolbar-button[checked="true"] .button-icon,
 #quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant image {
-  fill: #f30606 !important;
+  fill: #f30606 !important; 
 }
 
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
+  background-color: rgba(240, 86, 175, 0.9);
+  background-image: linear-gradient(rgba(240, 86, 175, 0.9) 0%, rgba(180, 15, 106, 0.9) 48%, rgba(109, 5, 76, 0.8) 100%) !important;
+  border-radius: 4px;
+}
 
-#quickfilters-toolbar-button.newsflash,
 #quickfilters-toolbar-button.newsflash #quickfilters-news  {
   background-color: rgba(240, 86, 175, 0.9); /* purple */
   background-image: linear-gradient(rgba(240, 86, 175, 0.9) 0%, rgba(180, 15, 106, 0.9) 48%, rgba(109, 5, 76, 0.8) 100%) !important;
 }
 
-#quickfilters-toolbar-button.newsflash > label {
-  color: white !important;
+
+#quickfilters-toolbar-button:where(.newsflash, .expired, .renew) > :where(label, .button-label) {
+    color: white !important;
 }
 
-#quickfilters-toolbar-button.expired, #quickfilters-toolbar-button.newsflash.expired  {
+li[item-id="ext-quickFilters@axelg.com"] .live-content.expired {
   background-color: #b80015 !important; /* red */
   background: linear-gradient(to bottom, #890219 0%,#b80015 100%) !important; 
 }
-#quickfilters-toolbar-button.renew {
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.renew {
   background-color: #ee570b !important; /* red */
   background: linear-gradient(to bottom, #893a02 0%,#ec6301 100%) !important; 
 }
 
-#quickfilters-toolbar-button.expired > label,
-#quickfilters-toolbar-button.renew > label {
-  color: white !important;
-}
-#quickfilters-toolbar-button.expired > image,
-#quickfilters-toolbar-button.renew > image {
-  fill: white !important;
+/* chevron styling */
+#quickfilters-toolbar-button:where(.expired,.renew,.newsflash)  {
+  fill: white;  /* drop !important ?  we need to overwrite for assistant mode! */
 }
 
-#quickfilters-toolbar-button.expired:hover > label,
-#quickfilters-toolbar-button.newsflash:hover > label {
+#quickfilters-toolbar-button:where(.expired, .newsflash):hover > :where(label,.button-label) {
   color: rgb(249, 235, 214) !important;
 }
 
-#quickfilters-toolbar-button.expired > label,
-#quickfilters-toolbar-button.renew > label,
-#quickfilters-toolbar-button.newsflash > label {
+#quickfilters-toolbar-button:where(.expired, .renew, .newsflash) > :where(label, .button-label) {
   color: rgb(255,255,255) !important;
 }
+
+/*
 #quickfilters-toolbar-button.expired:hover ,
-#quickfilters-toolbar-button.newsflash:hover {
+#quickfilters-toolbar-button.newsflash:hover  */
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash:hover,
+li[item-id="ext-quickFilters@axelg.com"] .live-content.expired:hover
+{
 	background-color: #6d0202 !important; /* yellow */
 	background-image: linear-gradient(to bottom, #6d0202 0%,#aa4e5c 100%) !important;
 }
 
-#quickfilters-toolbar-button.expired > image,
-#quickfilters-toolbar-button.renew > image,
-#quickfilters-toolbar-button.newsflash > image {
+/* main icon */
+#quickfilters-toolbar-button:not([checked=="true"]):where(.expired,.renew,.newsflash) > .button-icon {
   fill: #ffffff !important;
 }
 
-#quickfilters-toolbar-button.expired:hover > image,
-#quickfilters-toolbar-button.newsflash:hover > image {
+#quickfilters-toolbar-button:where(.expired, .newsflash):hover > .button-icon {
   fill: rgb(249, 235, 214) !important;
 }
 
-#quickfilters-toolbar-button.expired .toolbarbutton-text,
-#quickfilters-toolbar-button.renew .toolbarbutton-text,
-#quickfilters-toolbar-button.newsflash .toolbarbutton-text {
+/* force visible label */
+#quickfilters-toolbar-button:where(.expired, .renew, .newsflash) :where(.toolbarbutton-text, .button-label) {
   display: inline-block !important;
 }
 

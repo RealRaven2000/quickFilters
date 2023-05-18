@@ -12,7 +12,7 @@ async function setAssistantButton(e) {
 var listener_toggleFolder, listener_updatequickFiltersLabel;
 
 async function onLoad(activatedWhileWindowOpen) {
-  console.log (Services.appinfo.version);
+  console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
     
@@ -27,7 +27,8 @@ async function onLoad(activatedWhileWindowOpen) {
 			  class="menuitem-iconic"
 			  />
   </popup>
-`); 
+  `); 
+
   // [issue 122] false positives from antivirus scanners
   let btnRun = document.getElementById("quickfilters-menu-runMenu");
   if (btnRun) btnRun.addEventListener("command", function(event) {window.quickFilters.onApplyFilters(event);} );
@@ -45,24 +46,6 @@ async function onLoad(activatedWhileWindowOpen) {
                    type="menu"
                    wantdropmarker="true"
                    >
-      <menupopup>
-        <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
-        <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
-        <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  />
-        <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
-        <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
-        <menuseparator />
-        <menu label="__MSG_quickfilters.menu.tools__">
-          <menupopup>
-            <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
-            <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommmand(this);" />                    
-            <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
-          </menupopup>
-        </menu>
-        <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
-        <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
-        <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
-      </menupopup>
     </toolbarbutton>
 
     <toolbarbutton id="quickfilters-toolbar-listbutton"
@@ -139,15 +122,8 @@ async function onLoad(activatedWhileWindowOpen) {
 
   }
 
-  let mnuToolsCreateFromMsg  = document.getElementById("quickFilters-menu-filterFromMsg");
-  if (mnuToolsCreateFromMsg) {
-    mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
-  }
   // let mnuToolsFindFilters = document.getElementById("quickfilters-menu-searchfilters");
   // if ( mnuToolsFindFilters)  mnuToolsFindFilters.addEventListener("command", function(event) { window.quickFilters.searchFiltersFromFolder();} );  
-  
-
-
 
   // note: the taskPopup (Tools menu)
   //       apparently doesn't show this command in TB102, may be dues to  gMenuBuilder.build()
@@ -233,8 +209,78 @@ async function onLoad(activatedWhileWindowOpen) {
   
   listener_updatequickFiltersLabel = window.quickFilters.updatequickFiltersLabel.bind(window.quickFilters);
   window.addEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
+
+
+
+
+  // THUNDERBIRD 115
+  // fix selectors
+  let mainButton = document.querySelector("button[extension='quickFilters@axelg.com']");
+  if (mainButton) {
+    mainButton.id = "quickfilters-toolbar-button";
+    mainButton.setAttribute("popup", "quickFiltersMainPopup");
+    // we still may have to remove the default command handler and add the popup one,
+    // just like 
+
+    // build the menu - quick and dirty:
+    WL.injectElements(`
+      <button id="quickfilters-toolbar-button">
+        <menupopup id="quickFiltersMainPopup">
+          <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
+          <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+          <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  />
+          <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+          <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+          <menuseparator />
+          <menu label="__MSG_quickfilters.menu.tools__">
+            <menupopup>
+              <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommmand(this);" />                    
+              <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+            </menupopup>
+          </menu>
+          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"/>
+          <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
+          <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" />
+        </menupopup>
+      </button>
+    `); 
+
+    let mnuToolsCreateFromMsg  = document.getElementById("quickFilters-menu-filterFromMsg");
+    if (mnuToolsCreateFromMsg) {
+      mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
+    }
+
+  }
+
+  // iterate all mail tabs!
+  window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => {
+    const callBackCommands = tabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
+    // backup wrapped functions:
+    callBackCommands.quickFilters_cmd_moveMessage = callBackCommands.cmd_moveMessage; 
+    callBackCommands.quickFilters_cmd_copyMessage = callBackCommands.cmd_copyMessage; 
+    callBackCommands.quickFilters_cmd_archive = callBackCommands.cmd_archive;
+
+    callBackCommands.cmd_moveMessage = function (destFolder) {
+      // isCopy = false
+      window.quickFilters.MsgMoveCopy_Wrapper(destFolder, false, callBackCommands.quickFilters_cmd_moveMessage);  
+    }
+
+    callBackCommands.cmd_copyMessage = function (destFolder) {
+      // isCopy = true
+      window.quickFilters.MsgMoveCopy_Wrapper(destFolder, true, callBackCommands.quickFilters_cmd_copyMessage);  
+    }
+
+    // monkey patch for archiving
+    callBackCommands.cmd_archive = function () {
+      window.quickFilters.MsgArchive_Wrapper(callBackCommands.quickFilters_cmd_archive);
+    }    
+
+  });
+  window.quickFilters.addTabEventListener(); // add monkey patch code to new tabs..
   
   window.quickFilters.addKeyListener(window);
+  
 
   window.quickFilters.onLoadQuickFilters();
   window.quickFilters.addTagListener();
@@ -258,6 +304,26 @@ function onUnload(isAddOnShutown) {
   }
   window.quickFilters.restoreTagListener();
   window.quickFilters.removeFolderListeners();
+
+  // undo monkey patch
+  window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => {
+    const callBackCommands = tabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
+    if (callBackCommands.quickFilters_cmd_moveMessage) {
+      callBackCommands.cmd_moveMessage = callBackCommands.quickFilters_cmd_moveMessage; // backup wrapped function
+      delete callBackCommands.quickFilters_cmd_moveMessage;
+    }
+    if (callBackCommands.quickFilters_cmd_copyMessage) {
+      callBackCommands.cmd_moveMessage = callBackCommands.quickFilters_cmd_copyMessage; // backup wrapped function
+      delete callBackCommands.quickFilters_cmd_copyMessage;
+    }
+    if (callBackCommands.quickFilters_cmd_archive) {
+      callBackCommands.cmd_archive = callBackCommands.quickFilters_cmd_archive;
+      delete callBackCommands.quickFilters_cmd_archive;
+    }
+    
+  });  
+
+
   
   // clean up current folder bar (if QuickFolders is installed)
   deleteBtn('quickfilters-current-listbutton');

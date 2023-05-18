@@ -100,8 +100,14 @@
         "name": "showVersionHistory",
         "type": "function",
         "parameters": []
+      }, 
+
+      {
+        "name": "showToolbarPopup",
+        "type": "function",
+        "parameters": []
       },      
-      
+        
       {
         "name": "getUserName",
         "type": "function",

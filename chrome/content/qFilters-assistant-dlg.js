@@ -224,19 +224,15 @@ quickFilters.Assistant = {
           if (token[0] && token[0].indexOf('quickFilterCustomTemplate')==0) {
             // add user assigned title
             if (token[1]) {
-              if (templateList.insertItemAt)
-                templateList.insertItemAt(0, token[1].trim(), filter.filterName.toString()); // check filter.enabled ?
-              else {
-                let listItem = document.createXULElement ? document.createXULElement("richlistitem") : document.createElement("richlistitem"),
-                    description = document.createXULElement ? document.createXULElement("description") : document.createElement("description");
-                listItem.setAttribute("value", filter.filterName.toString());
-                description.textContent = token[1].trim();
-                listItem.appendChild(description);
-                if (!templateList.itemCount)
-                  templateList.appendChild(listItem);
-                else
-                  templateList.insertBefore(listItem, templateList.children.item(0));
-              }
+              let listItem = document.createXULElement ? document.createXULElement("richlistitem") : document.createElement("richlistitem"),
+                  description = document.createXULElement ? document.createXULElement("description") : document.createElement("description");
+              listItem.setAttribute("value", filter.filterName.toString());
+              description.textContent = token[1].trim();
+              listItem.appendChild(description);
+              if (!templateList.itemCount)
+                templateList.appendChild(listItem);
+              else
+                templateList.insertBefore(listItem, templateList.children.item(0));
             }
             else {
               util.popupAlert('Invalid custom Filter name {' + filter.filterName + '}\n' +
@@ -270,16 +266,16 @@ quickFilters.Assistant = {
       switch (params.cmd) {
         case 'mergeList':
           this.NextButton.label = util.getBundleString('qf.button.merge');
-          document.getElementById('mergeSummary').value = util.getBundleString('qf.description.mergeAddSummary');
-          document.getElementById('mergeInstructions').value = util.getBundleString('qf.description.mergeAddInstructions');
-          document.getElementById('chkMerge').label = util.getBundleString('qf.button.targetSelected');
-          document.getElementById('filterDescription').value = '';
+          document.getElementById('mergeSummary').innerText = util.getBundleString('qf.description.mergeAddSummary');
+          document.getElementById('mergeInstructions').innerText = util.getBundleString('qf.description.mergeAddInstructions');
+          document.getElementById('chkMerge').innerText = util.getBundleString('qf.button.targetSelected');
+          document.getElementById('filterDescription').innerText = '';
           document.getElementById('chkCreateNew').hidden = true;
           break;
         default:
-          document.getElementById('mergeSummary').value = util.getBundleString('qf.description.mergeSummary');
-          document.getElementById('mergeInstructions').value = util.getBundleString('qf.description.mergeInstructions');
-          document.getElementById('filterDescription').value = util.getBundleString('qf.description.selectToExtend');
+          document.getElementById('mergeSummary').innerText = util.getBundleString('qf.description.mergeSummary');
+          document.getElementById('mergeInstructions').innerText = util.getBundleString('qf.description.mergeInstructions');
+          document.getElementById('filterDescription').innerText = util.getBundleString('qf.description.selectToExtend');
           this.NextButton.label = util.getBundleString('qf.button.next');
           break;
       }
