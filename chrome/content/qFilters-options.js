@@ -369,10 +369,12 @@ quickFilters.Options = {
         str       = {},
         strLength = {},
         finalLicense = '';        
+    trans.init(null);
     trans.addDataFlavor("text/unicode");
+    trans.addDataFlavor("text/plain");
     Services.clipboard.getData(trans, Services.clipboard.kGlobalClipboard);
 
-    trans.getTransferData("text/unicode", str, strLength);
+    trans.getTransferData("text/plain", str, strLength);
 		if (str && (strLength.value || str.value)) {
 			let pastetext = str.value.QueryInterface(Components.interfaces.nsISupportsString).data,
 					txtBox = document.getElementById('txtLicenseKey'),
