@@ -555,7 +555,13 @@ END LICENSE BLOCK
     # [issue 177] Added pricing section to license dialog. 
     # Added Czech translation to license dialog.
     # to encourage license renewals: Show bargain section in splash screen if <=10 days to expiry
+
+  5.9.2 - WIP
+    # [issue 185] Custom Template fail reading header fields from email (inserts ??)
+    # [issue 182] Add explanation to the "New filter Properties" page in settings 
+    # Ensure to disable assistant on onload
     
+
   5.10 - WIP
     # [issue 178] Correct the Number of days left in license by rounding up
     #
@@ -1066,9 +1072,7 @@ var quickFilters = {
       return;
     }
 
-    // OLD CODE ...
     let targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Ci.nsIMsgFolder);
-
     let sourceFolder,
         messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
         messageUris = [];
@@ -1090,35 +1094,30 @@ var quickFilters = {
 
     // handler for dropping messages
     try {
-      let sourceFolder;
       util.logDebugOptional("dnd", "onDrop: " + messageUris.length + " messageUris to " + targetFolder.URI);
       if(messageUris.length > 0) {
-        if (quickFilters.Util.AssistantActive) {  
-          // note: getCurrentFolder fails when we are in a search results window!!
+        // note: getCurrentFolder fails when we are in a search results window!!
+        if (!sourceFolder) {
           sourceFolder = util.getCurrentFolder();
-          if (!sourceFolder || util.isVirtual(sourceFolder))
-          {
-            let msgHdr = messenger.msgHdrFromURI(messageUris[0].toString());
-            sourceFolder = msgHdr.folder;
+          if (util.isVirtual(sourceFolder)) {
+            quickFilters.logDebug("onFolderTreeViewDrop - Retrieved message from a virtual folder:", sourceFolder);
           }
         }
         let msgList = util.createMessageIdArray(targetFolder, messageUris);
 
-        if (quickFilters.Util.AssistantActive) {
-          if (quickFilters.Util.checkAssistantTargetExclusion(targetFolder)) {
-            return;
-          }
-          if (quickFilters.Util.checkAssistantSourceExclusion(sourceFolder)) {
-            return;
-          }
-          // TODO - asyncify ?
-          window.setTimeout(async function() {
-            worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
-              isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
-              null, false);
-          });
-          
+        if (quickFilters.Util.checkAssistantTargetExclusion(targetFolder)
+            ||
+            quickFilters.Util.checkAssistantSourceExclusion(sourceFolder)
+           ) {
+          return;
         }
+        // TODO - asyncify ?
+        window.setTimeout(async function() {
+          worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
+            isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
+            null, false);
+        });
+          
       }
 
     }
