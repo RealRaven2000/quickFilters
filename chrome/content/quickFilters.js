@@ -555,16 +555,21 @@ END LICENSE BLOCK
     # [issue 177] Added pricing section to license dialog. 
     # Added Czech translation to license dialog.
     # to encourage license renewals: Show bargain section in splash screen if <=10 days to expiry
-
+    
   5.9.2 - WIP
     # [issue 185] Custom Template fail reading header fields from email (inserts ??)
     # [issue 182] Add explanation to the "New filter Properties" page in settings 
     # Ensure to disable assistant on onload
     
-
   5.10 - WIP
     # [issue 178] Correct the Number of days left in license by rounding up
+    # do not trigger "news" unless min ver changes at least.
     #
+    # [issue 181] Version compatibily with Thunderbird 115 (SuperNova UI)
+    # - new browser action button
+    # - messageServiceFromURI moved to MailServices
+    # - richtlistbox.insertItemAt deprecated
+    # 
    
   ============================================================================================================
   FUTURE WORK:
@@ -599,9 +604,8 @@ var quickFilters = {
 
 
   get folderTree() {
-    if (!this._folderTree)
-      this._folderTree = document.getElementById('folderTree');
-    return this._folderTree;
+      
+    return  document.getElementById('folderTree');
   },
 
   get folderTreeView() {
@@ -636,18 +640,32 @@ var quickFilters = {
       util.logDebugOptional("events,listeners", "quickFilters.onload - starts");
       this.strings = document.getElementById("quickFilters-strings");
 
+// TEST CODE...      
+      let folderTrees = [];
+      window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => { 
+        folderTrees.push(tabInfo.chromeBrowser.contentWindow.document.getElementById("folderTree")) 
+      });       
+      // new drop handler, see
+      // https://searchfox.org/comm-central/source/mail/base/content/about3Pane.js#1806
+      // folderPane._onDrop
+
+      // window.gTabmail.tabInfo[0].chromeBrowser.contentWindow.folderPane._onDrop(event)
+
+/*    
+      // Original Code (Tb <= 111)
       let tree = quickFilters.folderTree,
           treeView = quickFilters.folderTreeView;
 
-      // let's wrap the drop function in our own (unless it already is quickFilters_originalDrop would be defined])
       if (tree && !tree.quickFilters_originalDrop) {  
         tree.quickFilters_originalDrop = treeView.drop;
         if (tree.quickFilters_originalDrop) {
           // new drop function, wraps original one
-          /**************************************/
           let newDrop = function (aRow, aOrientation) {
             if (quickFilters.Util.AssistantActive) {  
-              try { quickFilters.onFolderTreeViewDrop(aRow, aOrientation); }
+              try { 
+                debugger;
+                quickFilters.onFolderTreeViewDrop(aRow, aOrientation); 
+              }
               catch(e) {
                 util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
               }
@@ -655,12 +673,10 @@ var quickFilters = {
             // fix "too much recursion" error!
             tree.quickFilters_originalDrop.apply(treeView, arguments);
           }
-          /**************************************/
-
           treeView.drop = newDrop;
         }
       }
-
+*/
       this.initialized = true;
  
       // for move to / copy to recent context menus we might have to wrap mailWindowOverlay.js:MsgMoveMessage in Tb!
@@ -673,7 +689,6 @@ var quickFilters = {
         quickFilters.doCommandOriginal = DefaultController.doCommand;
         DefaultController.doCommand = quickFilters.doCommandWrapper;
       }
-
 
 
       // Add Custom Terms... - only from next version after 2.7.1 !
@@ -726,6 +741,26 @@ var quickFilters = {
     }
 
     // remove the event handlers!
+  },
+
+  patchFolderTree: function(tabInfo) { 
+    let fPane = tabInfo.chromeBrowser.contentWindow.folderPane;
+    if (fPane && !fPane.quickFilters_originalDrop) {
+      fPane.quickFilters_originalDrop = fPane._onDrop;
+      let newDrop = function (event) {
+        if (quickFilters.Util.AssistantActive) {  
+          try { 
+            quickFilters.onFolderTreeViewDrop(event); 
+            quickFilters.Util.logDebug("Drop event detected!");
+          }
+          catch(e) {
+            quickFilters.Util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
+          }
+        }
+        fPane.quickFilters_originalDrop.apply(fPane, arguments); // call original drop function.
+      }
+      fPane._onDrop = newDrop;
+    }
   },
 
   showOptions: function showOptions() {
@@ -790,12 +825,10 @@ var quickFilters = {
         quickFilters.Worker.toggle_FilterMode(!quickFilters.Util.AssistantActive); 
         break;
       case 'createFilterFromMsg':
-        let selectedMessages,
-            selectedMessageUris,
+        let selectedMessageUris = [],
             messageList = [],
             isInbox = false;
-        selectedMessages = gFolderDisplay.selectedMessages; 
-        selectedMessageUris = gFolderDisplay.selectedMessageUris;
+        let selectedMessages = quickFilters.Util.getSelectedMessages(selectedMessageUris); 
         // && selectedMessages[0].folder.server.canHaveFilters
         if (selectedMessages.length > 0 && selectedMessages[0].folder ) {
           // check the tags
@@ -893,8 +926,8 @@ var quickFilters = {
     }   
 
     if (folder.flags & util.FolderFlags.Inbox) {
-      // goDoCommand('cmd_applyFilters'); // same in Postbox
-      MsgApplyFilters();
+      // MsgApplyFilters();
+      goDoCommand("cmd_applyFilters");
     }
     else {
       // is the account itself selected?
@@ -909,7 +942,6 @@ var quickFilters = {
       }
       
       // see mailWindowOverlay.js - MsgApplyFilters()
-      //  MsgApplyFilters();
       // If the selected server cannot have filters, get the default server
       // If the default server cannot have filters, check all accounts
       // and get a server that can have filters.
@@ -1052,27 +1084,33 @@ var quickFilters = {
     Services.console.logStringMessage("quickFilters:" + msg);
   },
 
-  onFolderTreeViewDrop: function onFolderTreeViewDrop(aRow, aOrientation) {
+  // Tb115 - new drop interface: passes the event now, and not (row, orientation) !
+  onFolderTreeViewDrop: function onFolderTreeViewDrop(event) {  // , aRow, aOrientation
     const Cc = Components.classes,
         Ci = Components.interfaces,
-        util = quickFilters.Util,
-        treeView = quickFilters.folderTreeView;
+        util = quickFilters.Util;
     let worker = quickFilters.Worker,
-        dataTransfer = treeView._currentTransfer;
+        dataTransfer = event.dataTransfer,
+        origTarget = event.explicitOriginalTarget;
 
-    util.logDebugOptional("events,msgMove", "onFolderTreeViewDrop");
 
     let types = dataTransfer.mozTypesAt(0);  // one flavor
     if (!types.contains("text/x-moz-message") || (!quickFilters.Util.AssistantActive)) {
       return;
     }
+    util.logDebugOptional("events,msgMove", `onFolderTreeViewDrop\ntarget = ${event.target.innerText}`);
 
     if (quickFilters.isNewAssistantMode) {
       // will be handled by folder listener!
       return;
     }
 
-    let targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Ci.nsIMsgFolder);
+
+    let row = event.target.closest("li");
+    let targetFolder = MailServices.folderLookup.getFolderForURL(row.uri);
+
+    // OLD CODE ...
+    // let targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Ci.nsIMsgFolder);
     let sourceFolder,
         messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
         messageUris = [];
@@ -1095,31 +1133,25 @@ var quickFilters = {
     // handler for dropping messages
     try {
       util.logDebugOptional("dnd", "onDrop: " + messageUris.length + " messageUris to " + targetFolder.URI);
-      if(messageUris.length > 0) {
+      if(messageUris.length > 0 && !sourceFolder) {
         // note: getCurrentFolder fails when we are in a search results window!!
         if (!sourceFolder) {
           sourceFolder = util.getCurrentFolder();
-          if (util.isVirtual(sourceFolder)) {
-            quickFilters.logDebug("onFolderTreeViewDrop - Retrieved message from a virtual folder:", sourceFolder);
-          }
         }
-        let msgList = util.createMessageIdArray(targetFolder, messageUris);
-
-        if (quickFilters.Util.checkAssistantTargetExclusion(targetFolder)
-            ||
-            quickFilters.Util.checkAssistantSourceExclusion(sourceFolder)
-           ) {
-          return;
-        }
-        // TODO - asyncify ?
-        window.setTimeout(async function() {
-          worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
-            isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
-            null, false);
-        });
-          
       }
-
+      let msgList = util.createMessageIdArray(targetFolder, messageUris);
+      if (quickFilters.Util.checkAssistantTargetExclusion(targetFolder)) {
+        return;
+      }
+      if (quickFilters.Util.checkAssistantSourceExclusion(sourceFolder)) {
+        return;
+      }      
+      // TODO - asyncify ?
+      window.setTimeout(async function() {
+        worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
+          isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
+          null, false);
+      });
     }
     catch(e) {
       quickFilters.LocalErrorLogger("Exception in onFolderTreeViewDrop:" + e);
@@ -1147,9 +1179,7 @@ var quickFilters = {
       return false;
     }
   
-    // OLD CODE ...
     util.logDebugOptional("dnd", "buttonDragObserver.onDrop flavor[0]=" + types[0].toString());
-
     let prefBranch = Services.prefs.getBranch("mail."),
         theURI = prefBranch.getCharPref("last_msg_movecopy_target_uri"),
         targetFolder = util.getMsgFolderFromUri(theURI),
@@ -1184,14 +1214,13 @@ var quickFilters = {
     try {
       util.logDebugOptional("dnd", "onDrop: " + messageUris.length + " messageUris to " + targetFolder.URI);
       if(messageUris.length > 0) {
-        if (quickFilters.Util.AssistantActive) 
-        {
+        if (quickFilters.Util.AssistantActive) {
           // note: getCurrentFolder fails when we are in a search results window!!
-          let sourceFolder = util.getCurrentFolder();
-          if (!sourceFolder || util.isVirtual(sourceFolder))
-          {
-            let msgHdr = messenger.msgHdrFromURI(messageUris[0].toString());
-            sourceFolder = msgHdr.folder;
+          if (!sourceFolder) {
+            sourceFolder = util.getCurrentFolder();
+          }
+          if (util.isVirtual(sourceFolder)) {
+            quickFilters.logDebug("onFolderTreeDrop - Retrieved message from a virtal folder:", sourceFolder);
           }
         }
         let msgList = util.createMessageIdArray(targetFolder, messageUris);
@@ -1435,20 +1464,23 @@ var quickFilters = {
         if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
           quickFilters.Util.logDebugOptional("assistant,msgMove", "Not invoking assistant on delete as it is excluded.");
         }
-        else if (gFolderDisplay.selectedMessages.length) {
-          let selectedMails = [];  
-          for (let i=0; i< gFolderDisplay.selectedMessages.length; i++) {
-            let msgHdr = gFolderDisplay.selectedMessages[i];
-            selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr)); 
-          }
-          let src = gFolderDisplay.selectedMessages[0].folder;
-          // determine the target (Trash for this account)
-          if (src.canDeleteMessages) {
-            let targetFolder = src.server.rootFolder.getFolderWithFlags(Ci.nsMsgFolderFlags.Trash);
-            quickFilters.Worker.createFilterAsync_New(src, targetFolder, selectedMails, 
-              Components.interfaces.nsMsgFilterAction.Delete, 
-              null,
-              false);          
+        else {
+          let selectedMessages = quickFilters.Util.getSelectedMessages();
+          if (selectedMessages.length) {
+            let selectedMails = [];  
+            for (let i=0; i< selectedMessages.length; i++) {
+              let msgHdr = selectedMessages[i];
+              selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr)); 
+            }
+            let src = selectedMessages[0].folder;
+            // determine the target (Trash for this account)
+            if (src.canDeleteMessages) {
+              let targetFolder = src.server.rootFolder.getFolderWithFlags(Ci.nsMsgFolderFlags.Trash);
+              quickFilters.Worker.createFilterAsync_New(src, targetFolder, selectedMails, 
+                Components.interfaces.nsMsgFilterAction.Delete, 
+                null,
+                false);          
+            }
           }
         }
         
@@ -1560,24 +1592,42 @@ var quickFilters = {
     let hasNews = quickFilters.Preferences.getBoolPref("hasNews"),
         btn = document.getElementById("quickfilters-toolbar-button"),
         isDropDownMarkerStyled = false;
+    // for styling button parent background image
+    //   in  Tb115 we need to add the class to the parent <div class="live-content">!
+    function addClass(element, c) {
+      element.classList.add(c);
+      element.parentElement.classList.add(c)
+    }
+    function removeClass(element, c) {
+      element.classList.remove(c);
+      element.parentElement.classList.remove(c);
+    }
+    function setLabel(btn, text) {
+      // was btn.label = text
+      let theLabel = btn.querySelector(".button-label");
+      if (theLabel) {
+        theLabel.textContent = text;
+      } else {
+        util.logDebug("Can't set label for btn " + btn.id);
+      }
+    }
 
-    let mnuItemLicense = document.getElementById("quickfilters-checkLicense");
     if (btn) {
       if (hasNews) {
-        btn.classList.add("newsflash");
+        addClass(btn,"newsflash");
       } else {
-        btn.classList.remove("newsflash");
+        removeClass(btn,"newsflash");
       }
       if (util.licenseInfo.isExpired) {
-        btn.classList.add("expired");
-        btn.label = util.getBundleString("quickfiltersToolbarButton.expired");
+        addClass(btn,"expired");
+        setLabel(btn, util.getBundleString("quickfiltersToolbarButton.expired"));
         btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.expired.tip"));
         isDropDownMarkerStyled = true;
       }
       else {
-        btn.classList.remove("expired");
+        removeClass(btn,"expired");
         if (hasNews) {
-          btn.label = util.getBundleString("quickfiltersToolbarButton.updated");
+          setLabel(btn, util.getBundleString("quickfiltersToolbarButton.updated"));
           btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.updated.tip"));
           isDropDownMarkerStyled = true;
         }
@@ -1588,11 +1638,11 @@ var quickFilters = {
         let mnuGoPro = document.getElementById("quickfilters-gopro");
         if (util.licenseInfo.isValid) { 
           if (util.licenseInfo.licensedDaysLeft<11) {
-            btn.classList.add("renew");
-            btn.label = util.getBundleString("quickfiltersToolbarButton.renew", "License expires in $daysLeft$ days", [util.licenseInfo.licensedDaysLeft]);
+            addClass(btn,"renew");
+            setLabel(btn, util.getBundleString("quickfiltersToolbarButton.renew", "License expires in $daysLeft$ days", [util.licenseInfo.licensedDaysLeft]));
             isDropDownMarkerStyled = true;
           } else {
-            btn.classList.remove("renew");
+            removeClass(btn,"renew");
           }
           mnuGoPro.classList.add ("hasLicense");
         } else {
@@ -1633,8 +1683,9 @@ var quickFilters = {
     if (newTags.length) { // tags have been added.
       if (!quickFilters.Util.AssistantActive) return false; 
       if (!quickFilters.Preferences.getBoolPref('listener.tags')) return false; 
-      if (!gFolderDisplay.selectedMessages.length) return false;
-      let msgHdr = gFolderDisplay.selectedMessages[0];
+      let messages = quickFilters.Util.getSelectedMessages(); 
+      if (!messages.length) return false;
+      let msgHdr = messages[0];
       let selectedMails = [];  
       selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
       
@@ -2111,8 +2162,10 @@ quickFilters.addTagListener = function() {
             if (!quickFilters.Util.AssistantActive) return false; 
             // make it possible to ignore tag changes.
             if (!prefs.getBoolPref('listener.tags')) return false; 
-            if (!gFolderDisplay.selectedMessages.length) return false;
-            let msgHdr = gFolderDisplay.selectedMessages[0];
+
+            let selectedMessages = quickFilters.Util.getSelectedMessages(); 
+            if (!selectedMessages.length) return false;
+            let msgHdr = selectedMessages[0];
 
             let selectedMails = [];  
             selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
@@ -2147,14 +2200,38 @@ quickFilters.restoreTagListener = function() {
 
 quickFilters.TabListener = {
   newTab: function(evt) {
+    function getTabDebugInfo(tab) {
+      return `[ mode = ${tab.mode.name}, title = ${tab.title}, tabId = ${tab.tabId} ]`;
+    }
     let tabmail = document.getElementById("tabmail");
     // evt.detail.tabInfo.tabId 
     const newTabInfo = tabmail.tabInfo.find(e => e == evt.detail.tabInfo);
     let tabId = evt.detail.tabInfo.tabId;
+    const RETRY_DELAY = 2500;
     if (newTabInfo) {
+      if (newTabInfo.quickFilters_patched) {
+        quickFilters.Util.logDebug("Tab is already patched: " + getTabDebugInfo(newTabInfo));
+        return;
+      }
       quickFilters.Util.logDebugOptional("listeners", 
-        `quickFilters.TabListener.newTab() \ntabId = ${tabId},  mode = ${newTabInfo.mode.name}`);
+        "quickFilters.TabListener.newTab() \n" + getTabDebugInfo(newTabInfo));
       if (quickFilters.Util.isTabMode (newTabInfo, "mail")) {  // let's include single message tabs, let's see what happens
+        try {
+          if (typeof newTabInfo.chromeBrowser.contentWindow.commandController == "undefined") {
+            quickFilters.Util.logDebug("commandController not defined, retrying later..." + getTabDebugInfo(newTabInfo));
+            setTimeout(() => { 
+                quickFilters.TabListener.newTab(evt); 
+              }, 
+              RETRY_DELAY);
+            return;
+          }
+        }
+        catch(ex) {
+          quickFilters.Util.logException("Patching failed", ex);
+          return;
+        }
+
+        quickFilters.Util.logDebug("Starting to monkey patch new Tab:" + getTabDebugInfo(newTabInfo));
         const callBackCommands = newTabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
         // backup wrapped functions:
         callBackCommands.quickFilters_cmd_moveMessage = callBackCommands.cmd_moveMessage; 
@@ -2162,18 +2239,22 @@ quickFilters.TabListener = {
         callBackCommands.quickFilters_cmd_archive = callBackCommands.cmd_archive;
     
         callBackCommands.cmd_moveMessage = function (destFolder) {
-          window.quickFilters.MsgMoveCopy_Wrapper(destFolder, false, callBackCommands.quickFilters_cmd_moveMessage);  
+          quickFilters.MsgMoveCopy_Wrapper(destFolder, false, callBackCommands.quickFilters_cmd_moveMessage);  
         }
    
         callBackCommands.cmd_copyMessage = function (destFolder) {
-          window.quickFilters.MsgMoveCopy_Wrapper(destFolder, true, callBackCommands.quickFilters_cmd_copyMessage);  
+          quickFilters.MsgMoveCopy_Wrapper(destFolder, true, callBackCommands.quickFilters_cmd_copyMessage);  
         }        
 
         // monkey patch for archiving
         callBackCommands.cmd_archive = function () {
-          window.quickFilters.MsgArchive_Wrapper(callBackCommands.quickFilters_cmd_archive);
+          quickFilters.MsgArchive_Wrapper(callBackCommands.quickFilters_cmd_archive);
         }
-        
+
+        // monkey patch foldertree drop method
+        quickFilters.patchFolderTree(newTabInfo);
+        newTabInfo.quickFilters_patched = true;
+        quickFilters.Util.logDebug("new Tab patched successfully.");
       }
     }
   } 
