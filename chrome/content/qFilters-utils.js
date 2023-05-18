@@ -663,19 +663,6 @@ quickFilters.Util = {
     return aFolder;
   } ,
 	
-  pbGetSelectedMessageUris: function pbGetSelectedMessageUris() {
-    let messageArray = {},
-        length = {},
-        view = GetDBView();
-    view.getURIsForSelection(messageArray, length);
-    if (length.value) {
-      return messageArray.value;
-    }
-    else
-      return null;
-  },
-  
-
   logTime: function logTime() {
     let timePassed = '',
         end = new Date(),
@@ -2378,7 +2365,7 @@ quickFilters.clsGetHeaders = class classGetHeaders {
 		}
 		
     let retValue = '',
-        str = this.headers ? this.headers.extractHeader(header, false) : messageFallbackContent[header],
+        str = this.headers ? this.headers.extractHeader(header, false) : this.messageFallbackContent[header],
         isUnescapeQuotes = false;
 				
 				
