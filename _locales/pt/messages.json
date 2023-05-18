@@ -625,6 +625,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Quando ativado, o assistente de filtro também será acionado quando você marcar uma mensagem."
   },
+  "qf.newFilterProps.intro": {
+    "message": "As configurações a seguir serão aplicadas a todos os novos filtros criados com o assistente de filtro."
+  },
   "qf.notify.filterCreated": {
     "message": "Novo filtro '{0}' criado com sucesso."
   },

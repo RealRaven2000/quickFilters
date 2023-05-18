@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Indien geactiveerd zal de filterassistent ook starten als u een bericht markeert."
   },
+  "qf.newFilterProps.intro": {
+    "message": "De volgende instellingen worden toegepast op alle nieuwe filters die worden gemaakt met de filterassistent."
+  },
   "qf.notify.filterCreated": {
     "message": "Nieuw filter ‘{0}’ succesvol gemaakt."
   },

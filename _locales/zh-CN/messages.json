@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "激活时，过滤助手将在您给消息添加标签时触发。"
   },
+  "qf.newFilterProps.intro": {
+    "message": "以下设置将应用于使用过滤器助手创建的任何新过滤器。"
+  },
   "qf.notify.filterCreated": {
     "message": "Successfully created new filter '{0}'."
   },

@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Wenn der Filter Assistent aktiv ist, wird er auch aufgerufen falls Sie einer EMail ein Schlagwort hinzufügen."
   },
+  "qf.newFilterProps.intro": {
+    "message": "Die folgenden Einstellungen gelten für alle neuen Filter, die mit dem Filterassistenten erstellt werden."
+  },
   "qf.notify.filterCreated": {
     "message": "Der neue Filter '{0}' wurde erstellt."
   },

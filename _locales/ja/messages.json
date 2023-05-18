@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "有効にすると、メッセージにタグを付けた時にフィルタアシスタントが起動します。"
   },
+  "qf.newFilterProps.intro": {
+    "message": "次の設定は、フィルター アシスタントで作成される新しいフィルターに適用されます。"
+  },
   "qf.notify.filterCreated": {
     "message": "新しいフィルタ '{0}' を作成しました。"
   },

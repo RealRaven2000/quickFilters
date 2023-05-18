@@ -621,6 +621,9 @@
   "qf.listener.tags.tooltip": {
     "message": "När detta alternativ är aktiverat kommer Filterassistenten även att startas när du etiketterar ett meddelande."
   },
+  "qf.newFilterProps.intro": {
+    "message": "Följande inställningar kommer att tillämpas på alla nya filter som skapas med filterassistenten."
+  },
   "qf.notify.filterCreated": {
     "message": "Skapade det nya filtret \"{0}\"."
   },

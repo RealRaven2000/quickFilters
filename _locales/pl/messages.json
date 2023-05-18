@@ -622,6 +622,9 @@
   "qf.listener.tags.tooltip": {
     "message": "Po aktywacji asystent filtru będzie również uruchamiany po oznaczeniu wiadomości tagiem."
   },
+  "qf.newFilterProps.intro": {
+    "message": "Следећа подешавања ће се применити на све нове филтере који су направљени помоћу помоћника за филтере."
+  },
   "qf.notify.filterCreated": {
     "message": "Pomyślnie utworzono nowy filtr „{0}”."
   },
