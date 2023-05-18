@@ -197,15 +197,15 @@ button.text-link,
 label.text-link {
 	border-radius: 3px;
 	margin: 0.7em 6em 0.8em 10em!important;
-	box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.6);
+	/*! box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.6); */
 	transition-property: box-shadow, margin;
 	transition-duration: 0.2s, 0.2s;
 }
 
 button.text-link:hover,
 label.text-link:hover {
-	margin: 1.0em 6.2em 0.5em 10.2em !important;
-	box-shadow: 1px 1px 2px -1px rgba(0,0,0,0.8);
+	/*! margin: 1.0em 6.2em 0.5em 10.2em !important; */
+	/*! box-shadow: 1px 1px 2px -1px rgba(0,0,0,0.8); */
 }
 
 button.text-link,
@@ -214,15 +214,39 @@ label.text-link,
 label.text-link[visited="true"] {
 	border: 1px #AAA solid;
 	padding: 4px 2px 6px 5px !important;
-	text-decoration: underline;
-	vertical-align: middle !important;
-	text-align: center;
+	/*! text-decoration: underline; */
+	/* vertical-align: middle !important;
+	/* text-align: center; */
 	font-size: 12px;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #FF87ca;
+}
+
+.hover-underline-animation::before {
+  content: '';
+  position: absolute !important;
+  width: 100%;
+  transform: scaleX(0);
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  background-color: #FF87ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 /* quickFilters homepage - green */
 #L1 {
-  background: linear-gradient(to bottom, rgb(96, 109, 21) , rgb(59, 70, 2) );
+  background: linear-gradient(to bottom, rgb(133, 153, 18) , rgb(95, 110, 15) );
 	background-color: rgb(64, 75, 1) !important;
 	color: #E0F0E0 !important;
 }
@@ -233,21 +257,21 @@ label.text-link[visited="true"] {
 	background: linear-gradient(to bottom, rgb(135, 158, 6) 0%, rgb(112, 146, 32) 50%, rgb(69, 95, 3) 100%) !important;
 	border: 1px #006 solid;
   list-style-image: url("chrome://messenger/skin/preferences/arrow_green.png");
-	text-decoration: underline !important;
+/* text-decoration: underline !important; */
 }
 
 label#L1:hover {
-	color: #FFFFFF !important;
-	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
-	border: 1px #24463C solid;
-	font-weight: bold;
+	/*! color: #FFFFFF !important; */
+	/*! background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important; */
+	/*! border: 1px #24463C solid; */
+	/*! text-decoration: underline !important; */
 }
 
 label#L1:active {
 	color: #FFFFFF !important;
 	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
 	border: 1px #24463C solid;
-	font-weight: bold;
+	text-decoration: underline !important;
 }
 
 label#L1:active a {
@@ -281,9 +305,9 @@ label#L2 {
 label#L2:hover,
 label#L2:focus {
 	background-color: rgb(251,202,159);
-	background-image: linear-gradient(to bottom, #6b050e 0%,#cc0011 16%,#ed3b4a 85%,#ed8080 100%) !important;
+	/*! background-image: linear-gradient(to bottom, #6b050e 0%,#cc0011 16%,#ed3b4a 85%,#ed8080 100%) !important; */
 	border: 1px #006 solid;
-	font-weight: bold;
+	text-decoration: underline !important;
 	color: #FFFFFF !important;
 }
 
@@ -307,7 +331,7 @@ label#L3:hover, label#L3:focus {
 	background-image: linear-gradient(to bottom, rgba(252,234,187,1) 0%, rgba(252,234,187,1) 6%, rgba(248,181,0,1) 34%, rgba(251,223,147,1) 100%) !important;
 	border: 1px #802D19 solid;
 	color: #82370A !important;
-	font-weight: bold;
+	text-decoration: underline !important;
 }
 
 label#L3:active {
@@ -323,7 +347,7 @@ label#L4  {
 }
 
 label#L4:hover, label#L4:active  {
-	font-weight: bold;
+	text-decoration: underline !important;
 }
 
 
@@ -424,9 +448,8 @@ hbox.quickhelp-dbg {
 
 
 #validationResults {
-	max-height: none; /* was squished */
+	max-height: 3em;
 }
-
 #validationResults description {
   max-width: 45em !important;
 }
