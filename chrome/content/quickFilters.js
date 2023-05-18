@@ -1705,9 +1705,9 @@ var quickFilters = {
   addTabEventListener : function() {
     try {
       let tabContainer = quickFilters.Util.tabContainer;
-      // this.TabEventListeners["select"] = function(event) { quickFilters.TabListener.select(event); }
-      // this.TabEventListeners["TabClose"] = function(event) { quickFilters.TabListener.closeTab(event); }
+      this.TabEventListeners["TabSelect"] = function(event) { quickFilters.TabListener.select(event); }
       this.TabEventListeners["TabOpen"] = function(event) { quickFilters.TabListener.newTab(event); }
+      // this.TabEventListeners["TabClose"] = function(event) { quickFilters.TabListener.closeTab(event); }
       // this.TabEventListeners["TabMove"] = function(event) { quickFilters.TabListener.moveTab(event); }
       for (let key in this.TabEventListeners) {
         tabContainer.addEventListener(key, this.TabEventListeners[key], false);
@@ -2198,7 +2198,62 @@ quickFilters.restoreTagListener = function() {
   }
 }
 
+quickFilters.patchMailPane = () => {
+  // THUNDERBIRD 115
+  // fix selectors
+  let mainButton = document.querySelector("button[extension='quickFilters@axelg.com']");
+  if (mainButton) {
+    // was the button already patched?
+    if (mainButton.id == "quickfilters-toolbar-button") {
+      return;
+    }
+    mainButton.id = "quickfilters-toolbar-button";
+    mainButton.setAttribute("popup", "quickFiltersMainPopup");
+    // we still may have to remove the default command handler and add the popup one,
+    // just like 
+
+    // build the menu - quick and dirty:
+    quickFilters.WL.injectElements(`
+      <button id="quickfilters-toolbar-button">
+        <menupopup id="quickFiltersMainPopup">
+          <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();" />
+          <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+          <menuseparator />
+          <menu label="__MSG_quickfilters.menu.tools__">
+            <menupopup>
+              <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>                    
+              <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+            </menupopup>
+          </menu>
+          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();" />
+          <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+        </menupopup>
+      </button>
+    `); 
+
+    let mnuToolsCreateFromMsg  = document.getElementById("quickFilters-menu-filterFromMsg");
+    if (mnuToolsCreateFromMsg) {
+      mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
+    }
+
+  }
+  else {
+    console.log("quickFilters - mainButton not found!!")
+  }
+}
+
 quickFilters.TabListener = {
+  select: function(evt) {
+    const isMailPane = quickFilters.Util.isTabMode (evt.detail.tabInfo, "mail");
+    if (isMailPane) {
+      quickFilters.patchMailPane();
+    }
+  },
   newTab: function(evt) {
     function getTabDebugInfo(tab) {
       return `[ mode = ${tab.mode.name}, title = ${tab.title}, tabId = ${tab.tabId} ]`;
@@ -2206,16 +2261,20 @@ quickFilters.TabListener = {
     let tabmail = document.getElementById("tabmail");
     // evt.detail.tabInfo.tabId 
     const newTabInfo = tabmail.tabInfo.find(e => e == evt.detail.tabInfo);
-    let tabId = evt.detail.tabInfo.tabId;
     const RETRY_DELAY = 2500;
     if (newTabInfo) {
+      const isMailPane = quickFilters.Util.isTabMode (newTabInfo, "mail");
+      if (isMailPane) {
+        quickFilters.patchMailPane();
+      }
+
       if (newTabInfo.quickFilters_patched) {
         quickFilters.Util.logDebug("Tab is already patched: " + getTabDebugInfo(newTabInfo));
         return;
       }
       quickFilters.Util.logDebugOptional("listeners", 
         "quickFilters.TabListener.newTab() \n" + getTabDebugInfo(newTabInfo));
-      if (quickFilters.Util.isTabMode (newTabInfo, "mail")) {  // let's include single message tabs, let's see what happens
+      if (isMailPane) {  // let's include single message tabs, let's see what happens
         try {
           if (typeof newTabInfo.chromeBrowser.contentWindow.commandController == "undefined") {
             quickFilters.Util.logDebug("commandController not defined, retrying later..." + getTabDebugInfo(newTabInfo));
