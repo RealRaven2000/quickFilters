@@ -560,9 +560,7 @@ END LICENSE BLOCK
     # [issue 185] Custom Template fail reading header fields from email (inserts ??)
     # [issue 182] Add explanation to the "New filter Properties" page in settings 
     # Ensure to disable assistant on onload
-    
-
-  5.10 - WIP
+    # [issue 187] Update "# licensed days left" at midnight. 
     # [issue 178] Correct the Number of days left in license by rounding up
     #
    

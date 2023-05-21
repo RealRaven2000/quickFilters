@@ -2189,6 +2189,18 @@ quickFilters.Util = {
       quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" }); 
     }
   } ,
+
+	setMidnightTimer: function() {
+		let today = new Date(),
+		    tomorrow = new Date(today.getFullYear(),today.getMonth(),today.getDate()+1),
+		    timeToMidnight = (tomorrow-today);
+		setTimeout(
+			() => {
+				quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" }); 
+				quickFilters.Util.setMidnightTimer();
+			},
+			timeToMidnight);
+	},
   
   // new type of tooltips: click first displays the hovering text in the clickyTooltip attribute!
   openTooltipPopup: function(el) {

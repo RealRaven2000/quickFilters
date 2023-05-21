@@ -310,6 +310,34 @@ export class Licenser {
     return getDate(this.RealLicense + ":xxx");
   }
 
+  async updateLicenseDates() {
+    if (this.ValidationStatus == LicenseStates.Valid 
+        || this.ValidationStatus == LicenseStates.Expired) {
+      this.calcDate();
+      this.ValidationStatus = (this.ExpiredDays == 0) ? LicenseStates.Valid : LicenseStates.Expired;
+    }
+  }
+
+  calcDate() {
+    // get current date
+    let today = new Date(),
+        licDate = new Date(this.decryptedDate);
+    let dateString = today.toISOString().substring(0, 10);
+    if (this.decryptedDate < dateString) {
+      this.ExpiredDays = parseInt((today - licDate) / (1000 * 60 * 60 * 24)); 
+      this.logDebug('validateLicense()\n returns ', [
+        this.ValidationStatusDescription,
+        this.ValidationStatus,
+      ]);
+      // Do not stop here, but continue the validation process and only if the
+      // Valid state is reached, set to Expired.
+      this.LicensedDaysLeft = 0;
+    } else {
+      this.LicensedDaysLeft = Math.ceil((licDate - today) / (1000 * 60 * 60 * 24)); 
+      this.ExpiredDays = 0;
+    }
+  }
+
   async validate() {
     this.reset();
     this.logDebug("validateLicense", { LicenseKey: this.LicenseKey });
@@ -380,23 +408,7 @@ export class Licenser {
     }
 
     // ******* CHECK LICENSE EXPIRY  ********
-    // get current date
-    let today = new Date(),
-        licDate = new Date(this.decryptedDate);
-    let dateString = today.toISOString().substr(0, 10);
-    if (this.decryptedDate < dateString) {
-      this.ExpiredDays = parseInt((today - licDate) / (1000 * 60 * 60 * 24)); 
-      this.logDebug('validateLicense()\n returns ', [
-        this.ValidationStatusDescription,
-        this.ValidationStatus,
-      ]);
-      // Do not stop here, but continue the validation process and only if the
-      // Valid state is reached, set to Expired.
-      this.LicensedDaysLeft = 0;
-    } else {
-      this.LicensedDaysLeft = Math.ceil((licDate - today) / (1000 * 60 * 60 * 24)); 
-      this.ExpiredDays = 0;
-    }
+    this.calcDate();
 
     
     // ******* MATCH MAIL ACCOUNT  ********

@@ -42,8 +42,14 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
     {
       // set a flag which will be cleared by clicking the [quickFilters assistant] button once
       setTimeout(
-        function() {
-          messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
+        async function() {
+          let origVer = await messenger.LegacyPrefs.getPref("extensions.quickfilters.installedVersion","0");
+          const manifest = await messenger.runtime.getManifest();
+          // get pure version number / remove pre123 indicator
+          let installedVersion = manifest.version.replace(/pre.*/,""); 
+          if (installedVersion > origVer) {
+            messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
+          }
           messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
         },
         200
@@ -150,6 +156,14 @@ async function main() {
         
       case "updatequickFiltersLabel":
         messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        break;
+        
+      // refresh license info (at midnight) and update label afterwards.
+      case "updateLicenseTimer":
+          await currentLicense.updateLicenseDates();
+
+          messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
+          messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
         break;
         
       case "updateLicense":

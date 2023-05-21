@@ -225,6 +225,9 @@ async function onLoad(activatedWhileWindowOpen) {
   // Enable the global notify notifications from background.
   window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
+  // set up updating the label at midnight
+  window.quickFilters.Util.setMidnightTimer();
+
   // window.addEventListener("quickFilters.BackgroundUpdate", window.quickFilters.initLicensedUI);
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
