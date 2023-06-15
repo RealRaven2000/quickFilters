@@ -7,6 +7,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/img");
   eleventyConfig.addPassthroughCopy("src/script");
+  eleventyConfig.addPassthroughCopy("src/sound");
   eleventyConfig.addPassthroughCopy("src/preloader");
   eleventyConfig.addPassthroughCopy("src/screenshots");
   eleventyConfig.addPassthroughCopy("src/CNAME");
