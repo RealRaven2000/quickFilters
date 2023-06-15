@@ -1,3 +1,20 @@
+Version: 1.62
+-------------
+- fix bug in fullyLoaded()
+
+Version: 1.61
+-------------
+- adjusted to Thunderbird Supernova (Services is now in globalThis)
+
+Version: 1.60
+-------------
+- explicitly set hasAddonManagerEventListeners flag to false on uninstall
+  
+Version: 1.59
+-------------
+- store hasAddonManagerEventListeners flag in add-on scope instead on the global
+  window again, and clear it upon add-on removal
+  
 Version: 1.58
 -------------
 - hard fork WindowListener v1.57 implementation and continue to serve it for
