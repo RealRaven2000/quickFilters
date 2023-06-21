@@ -88,6 +88,16 @@ permalink: version.html
   .reinstallInstructions {
     display: none;
   }
+
+  #newsSection {
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.05rem 1rem;
+    background-color: rgba(6, 6, 112, 0.9);
+    background-image: linear-gradient(55deg, rgba(6, 6, 112, 0.9) 0%, rgba(115, 3, 85, 0.9) 100%);
+    margin: 1rem auto 1.2rem 30px;
+    max-width: 60rem;
+  }  
 </style>
 
 <img id="blueBauble" src="img/blueBauble.png" alt="" />
@@ -206,10 +216,50 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
  
 -->
 
+<a name="5.9.2"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/" 
+		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 5.x - WIP</a>
+	</h4>
+  <div class="newsSection">
+    <p>
+      Thunderbird 115: I am currently working on 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/181">fundamental changes for Thunderbird 115</a> 
+      which will be released in summer 2023 and has a completely 
+      <a target="_blank" href="https://blog.thunderbird.net/2023/02/thunderbird-115-supernova-preview-the-new-folder-pane/">new 
+      user interface </a> called "Supernova".
+    </p>
+  </div>
+  
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li> 
+      Added explanation to the "New filter Properties" page in settings.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/182">[issue 182]</a>
+    </li>
+    <li> Ensure to disable assistant on onload
+    <li> 
+      Update "# licensed days left" at midnight. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/187">[issue 187]</a>
+    </li> 
+    <li> 
+      Correct the Number of days left in license by rounding up.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/178">[issue 178]</a>
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li>
+      Fixed: Custom Template fail reading header fields from email (inserts '??''). 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/185">[issue 185]</a>
+    </li>
+  </ul>
+</li>
+ 
 
 <a name="5.9"> &nbsp; </a>
 <a name="5.9.1"> &nbsp; </a>
-<a name="5.9.2"> &nbsp; </a>
 <li>
   <h4>
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.9.1" 
@@ -292,19 +342,6 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     </tr>
   </table> 
 
-  <h5 class="inList"> Known Issues -  WIP  </h5>
-  <ul>
-    <li>
-      Custom Template fail reading header fields from email (inserts '??') 
-      <a href="https://github.com/RealRaven2000/quickFilters/issues/185">[issue 185]</a>
-    </li>
-    <li>
-      Add explanation to the "New filter Properties" page in settings
-      <a href="https://github.com/RealRaven2000/quickFilters/issues/182">[issue 182]</a>
-    </li>
-  </ul>
-  
-  
   <h5 class="inList"> Maintenance Issues - fixed in 5.9.1 (released 28/03/2023) </h5>
   <ul>
     <li>
