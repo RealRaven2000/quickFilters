@@ -1361,7 +1361,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Risolti i pulsanti mancanti sulla barra degli strumenti della cartella corrente per gli utenti Linux di QuickFolders{L2}{L1} 5.9.1 I pulsanti nelle versioni precedenti non funzionavano immediatamente quando venivano aggiunti dall'utente tramite la barra degli strumenti di personalizzazione: ciò richiedeva il riavvio di quickFilters. [issue 175]{L2}{L1} Nuovo layout per il pulsante della barra degli strumenti: ora è un menu a discesa che dà sempre accesso {boldStart}a tutte le funzioni{boldEnd} anche quando la licenza è scaduta o le note sulla versione non sono state ancora lette.{L2}{L1} Disabilitato l'assistente durante il trascinamento della posta da cartelle speciali (Coda, Modelli, Bozze, Cestino) [issue 164]{L2} {L1} Riparato: opzione per aggiungere nuove regole ai filtri esistenti nella parte superiore elenco dei termini di ricerca.{L2}"
+    "message": "{L1} Aggiunta spiegazione sulle nuove proprietà del filtro. {L2} {L1} quickFilters ora disabilita l'assistente filtro quando viene caricata una nuova versione. {L2} {L1} Il numero di giorni di licenza rimanenti viene ora aggiornato automaticamente ogni mezzanotte.{L2} {L1} Risolto: i modelli personalizzati non riuscivano a leggere le intestazioni di posta originali e inserivano '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

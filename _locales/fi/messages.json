@@ -1362,7 +1362,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} 5.9.1 Korjattu puuttuvat painikkeet Nykyisen kansion työkalupalkista QuickFoldersin Linux-käyttäjille.{L2}{L1} 5.9.1 Aiempien versioiden painikkeet eivät toimineet heti, kun käyttäjä lisäsi ne mukautetun työkalupalkin kautta - tämä vaati quickFiltersin uudelleenkäynnistyksen. [issue 175]{L2}{L1} Työkalupalkin painikkeen uusi asettelu – tämä on nyt avattava valikko, josta pääset aina käyttämään kaikkia toimintoja, vaikka lisenssi olisi vanhentunut tai versiotietoja ei olisi vielä luettu.{L2}{L1} Assistant poistettiin käytöstä postia vedettäessä erikoiskansioista (jono, mallit, luonnokset, roskakori) [issue 164]{L2} {L1} Korjattu: mahdollisuus lisätä uusia sääntöjä olemassa oleviin suodattimiin hakutermien luettelo.{L2}"
+    "message" : "{L1} Lisätty selitys uusista suodattimen ominaisuuksista. {L2} {L1} quickFilters poistaa nyt suodatinavustajan käytöstä, kun uusi versio ladataan. {L2} {L1} Jäljellä olevien lisenssipäivien määrä päivittyy nyt automaattisesti joka keskiyö.{L2} {L1} Korjattu: mukautetut mallit epäonnistuivat lukemaan alkuperäisiä sähköpostien otsikoita ja lisätty '??'{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

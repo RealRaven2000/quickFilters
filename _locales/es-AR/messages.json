@@ -1361,7 +1361,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Se corrigieron los botones que faltaban en la barra de herramientas de la carpeta actual para los usuarios de Linux de QuickFolders{L2}{L1} 5.9.1 Los botones en versiones anteriores no funcionaban inmediatamente cuando los agregaba el usuario a través de la barra de herramientas personalizada; esto requería reiniciar quickFilters. [issue 175]{L2} {L1} Nuevo diseño para el botón de la barra de herramientas: ahora es un menú desplegable que siempre brinda acceso a {boldStart}todas las funciones{boldEnd}, incluso cuando la licencia ha caducado o las notas de la versión aún no se han leído.{L2}{L1} Deshabilitado el asistente al arrastrar el correo de carpetas especiales (Cola, Plantillas, Borradores, Papelera) [problema 164]{L2}{L1} Reparado: opción para agregar nuevas reglas a los filtros existentes en la parte superior de la lista de términos de búsqueda.{L2}"
+    "message": "{L1} Se agregó una explicación sobre las nuevas propiedades del filtro. {L2} {L1} QuickFilters ahora desactiva el asistente de filtro cuando se carga una nueva versión. {L2} {L1} El número de días de licencia restantes ahora se actualiza automáticamente cada medianoche.{L2} {L1} Reparado: las plantillas personalizadas fallaron al leer los encabezados de correo originales e insertaron '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1365,7 +1365,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.1 Botões ausentes corrigidos na barra de ferramentas da pasta atual para usuários Linux de QuickFolders{L2}{L1} 5.9.1 Botões em versões anteriores não funcionavam imediatamente quando adicionados pelo usuário por meio da barra de ferramentas personalizada - isso exigia uma reinicialização dos quickFilters. [issue 175]{L2}{L1} Novo layout do botão da barra de ferramentas - agora é um menu suspenso que sempre dá acesso a {boldStart}todas as funções{boldEnd}, mesmo quando a licença expirou ou as notas da versão ainda não foram lidas.{L2}{L1} Desativou o assistente ao arrastar e-mail de pastas especiais (Fila, Modelos, Rascunhos, Lixeira) [issue 164]{L2} {L1} Reparado: opção para adicionar novas regras aos filtros existentes na parte superior do lista de termos de pesquisa.{L2}"
+    "message" : "{L1} Adicionada explicação sobre novas propriedades de filtro. {L2} {L1} quickFilters agora desativa o assistente de filtro quando uma nova versão é carregada. {L2} {L1} O número de dias de licença restantes agora é atualizado automaticamente a cada meia-noite.{L2} {L1} Reparado: modelos personalizados falharam ao ler cabeçalhos de e-mail originais e inseriram '??'{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

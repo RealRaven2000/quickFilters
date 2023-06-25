@@ -1359,7 +1359,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.1 Naprawiono brakujące przyciski na pasku narzędzi Bieżący folder dla użytkowników QuickFolders systemu Linux{L2}{L1} 5.9.1 Przyciski w poprzednich wersjach nie działały natychmiast po dodaniu przez użytkownika za pomocą paska narzędzi dostosowywania — wymagało to ponownego uruchomienia quickFilters. [issue 175] {L2}{L1} Nowy układ przycisku paska narzędzi - to teraz rozwijane menu, które zawsze daje dostęp {boldStart}do wszystkich funkcji{boldEnd}, nawet jeśli licencja wygasła lub uwagi do wersji nie zostały jeszcze przeczytane.{L2}{L1} Wyłączono asystenta podczas przeciągania poczty ze specjalnych folderów (Kolejka, Szablony, Wersje robocze, Kosz) [issue 164]{L2} {L1} Naprawiono: opcja dodawania nowych reguł do istniejących filtrów na górze lista wyszukiwanych terminów.{L2}"
+    "message" : "{L1} Dodano wyjaśnienie nowych właściwości filtra. {L2} {L1} quickFilters wyłącza teraz asystenta filtrów po załadowaniu nowej wersji. {L2} {L1} Liczba pozostałych dni licencji jest teraz automatycznie aktualizowana co północ.{L2} {L1} Naprawiono: niestandardowe szablony nie odczytały oryginalnych nagłówków poczty i wstawiły „??”{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

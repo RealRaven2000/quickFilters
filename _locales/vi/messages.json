@@ -1361,7 +1361,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Đã sửa các nút bị thiếu trên thanh công cụ Thư mục hiện tại dành cho người dùng Linux của QuickFolders{L2}{L1} 5.9.1 Các nút trong các phiên bản trước không hoạt động ngay lập tức khi được người dùng thêm qua thanh công cụ tùy chỉnh - điều này yêu cầu khởi động lại quickFilters. [issue 175]{L2}{L1} Bố cục mới cho nút thanh công cụ - đây hiện là trình đơn thả xuống luôn cấp quyền truy cập vào tất cả các chức năng ngay cả khi giấy phép hết hạn hoặc ghi chú phiên bản chưa được đọc.{L2}{L1} Đã tắt trợ lý khi kéo thư từ các thư mục đặc biệt (Hàng đợi, Mẫu, Bản nháp, Thùng rác) [issue 164]{L2} {L1} Đã sửa chữa: tùy chọn thêm quy tắc mới vào các bộ lọc hiện có ở đầu trang danh sách cụm từ tìm kiếm.{L2}"
+    "message": "{L1} Đã thêm giải thích về thuộc tính bộ lọc mới. {L2} {L1} quickFilters hiện tắt trợ lý bộ lọc khi tải phiên bản mới. {L2} {L1} Số ngày giấy phép còn lại hiện được cập nhật tự động vào mỗi nửa đêm.{L2} {L1} Đã sửa chữa: mẫu tùy chỉnh không thể đọc tiêu đề thư gốc và chèn '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

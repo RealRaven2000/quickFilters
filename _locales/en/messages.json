@@ -1364,7 +1364,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Fixed missing buttons on Current folder toolbar for Linux users of QuickFolders{L2}{L1} 5.9.1 Buttons in previous versions were not working immediately when added by user via customize toolbar - this required a restart of quickFilters. [issue 175]{L2}{L1} New layout for toolbar button - this is now a drop-down menu which always gives {boldStart}access to all functions{boldEnd} even when license is expired or version notes have not been read yet.{L2}{L1} Disabled the assistant when dragging mail from special folders (Queue, Templates, Drafts, Trash) [issue 164]{L2}{L1} Repaired: option to add new rules to existing filters on the top of the list of search terms.{L2}"
+    "message": "{L1} Added explanation about new filter properties. {L2} {L1} quickFilters now disables the filter assistant when a new version loaded. {L2} {L1} The number of remaining license days is now automatically updated every midnight.{L2} {L1} Repaired: custom templates failed reading original mail headers and inserted '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

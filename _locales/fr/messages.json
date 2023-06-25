@@ -1361,7 +1361,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Correction des boutons manquants sur la barre d'outils du dossier actuel pour les utilisateurs Linux de QuickFolders{L2}{L1} 5.9.1 Les boutons des versions précédentes ne fonctionnaient pas immédiatement lorsqu'ils étaient ajoutés par l'utilisateur via la barre d'outils personnalisée - cela nécessitait un redémarrage de quickFilters. [issue 175]{L2}{L1} Nouvelle disposition du bouton de la barre d'outils : il s'agit désormais d'un menu déroulant qui donne toujours {boldStart}accès à toutes les fonctions{boldEnd}, même lorsque la licence a expiré ou que les notes de version n'ont pas encore été lues.{L2}{L1} Désactivation de l'assistant lors du déplacement du courrier à partir de dossiers spéciaux (file d'attente, modèles, brouillons, corbeille) [issue 164]{L2}{L1} Réparé : option permettant d'ajouter de nouvelles règles aux filtres existants en haut de la liste des termes de recherche.{L2}"
+    "message": "{L1} Ajout d'une explication sur les nouvelles propriétés de filtre. {L2} {L1} quickFilters désactive désormais l'assistant de filtrage lorsqu'une nouvelle version est chargée. {L2} {L1} Le nombre de jours de licence restants est désormais automatiquement mis à jour tous les minuits.{L2} {L1} Réparé : les modèles personnalisés n'ont pas pu lire les en-têtes de courrier d'origine et ont inséré '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

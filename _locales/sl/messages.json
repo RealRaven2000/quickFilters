@@ -236,7 +236,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.1 Popravljeni manjkajoči gumbi v orodni vrstici trenutne mape za uporabnike QuickFolders v sistemu Linux{L2}{L1} 5.9.1 Gumbi v prejšnjih različicah niso delovali takoj, ko jih je uporabnik dodal prek orodne vrstice za prilagajanje - to je zahtevalo ponovni zagon hitrih filtrov. [issue 175]{L2}{L1} Nova postavitev gumba orodne vrstice - to je zdaj spustni meni, ki vedno omogoča {boldStart}dostop do vseh funkcij{boldEnd}, tudi ko je licenca potekla ali opombe o različici še niso bile prebrane.{L2}{L1} Onemogočen pomočnik pri vlečenju pošte iz posebnih map (Čakalna vrsta, Predloge, Osnutki, Smetnjak) [issue 164]{L2} {L1} Popravljeno: možnost dodajanja novih pravil obstoječim filtrom na vrhu seznam iskalnih izrazov.{L2}"
+    "message" : "{L1} Dodana razlaga o novih lastnostih filtra. {L2} {L1} QuickFilters zdaj onemogoči pomočnika za filtriranje, ko se naloži nova različica. {L2} {L1} Število preostalih licenčnih dni se zdaj samodejno posodablja vsako polnoč.{L2} {L1} Popravljeno: predloge po meri niso prebrale izvirnih glav pošte in so vstavili '??'{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",
