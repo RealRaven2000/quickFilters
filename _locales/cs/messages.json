@@ -194,6 +194,15 @@
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Jedním kliknutím sem zobrazíte úvodní obrazovku a co je nového v quickFilters."
   },  
+  "quickfiltersToolbarButton.renew": {
+    "message": "Platnost licence vyprší za $daysLeft$ dní",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1",
+        "example": "9"
+      }
+    }
+  },
   "renew-your-license" : {
     "message" : "Obnovte si licenci."
   },  
@@ -231,13 +240,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24. dubna"
+    "message": "10. července"
   },
   "special-offer-head" : {
     "message": "Prosím, pomozte quickFilters pokračovat!"
   } ,   
   "special-offer-intro" : { 
-    "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci s kontrolou budoucnosti quickFilters. Chystají se další velké změny v Thunderbirdu a potřebuji {boldStart} vaši pomoc {boldEnd}, abych udržel krok!"
+    "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci $addonName$, který je připraven na budoucnost. Abych držel krok se změnami v Thunderbirdu, spoléhám na {boldStart}vaši pomoc{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Renoveu la llicència ara i estalvieu reducció de {boldStart}$reduction${boldEnd}. Aquesta oferta especial estarà disponible fins al dia {boldStart} $expirydate$ {boldEnd}.",
@@ -320,7 +335,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Přidáno vysvětlení nových vlastností filtru. {L2} {L1} quickFilters nyní deaktivuje asistenta filtrování při načtení nové verze. {L2} {L1} Počet zbývajících licenčních dnů se nyní automaticky aktualizuje každou půlnoc.{L2} {L1} Opraveno: Vlastní šablony selhaly při čtení záhlaví původní pošty a vložily „??“ {L2}"
+    "message" : "{L1}5.9.2: Dokončené překlady do čínštiny pro uživatelské rozhraní.{L2} {L1}Opravené datum ukončení prodeje licence.{L2}{L1} Přidáno vysvětlení nových vlastností filtru. {L2} {L1} quickFilters nyní deaktivuje asistenta filtrování při načtení nové verze. {L2} {L1} Počet zbývajících licenčních dnů se nyní automaticky aktualizuje každou půlnoc.{L2} {L1} Opraveno: Vlastní šablony selhaly při čtení záhlaví původní pošty a vložily „??“ {L2} "
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

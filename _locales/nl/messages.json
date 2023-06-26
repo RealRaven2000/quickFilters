@@ -1266,13 +1266,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24 april"
+    "message": "10 juli"
   },
   "special-offer-head": {
     "message": "Help quickFilters om door te gaan!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Beste {naam} {boldEnd}, u kunt nu helpen om quickFilters toekomstbestendig te maken. Er komen meer grote veranderingen aan in Thunderbird en ik heb {boldStart} uw hulp {boldEnd} nodig om bij te blijven!"
+    "message": "{boldStart} Beste {naam} {boldEnd}, U kunt nu helpen om $addonName$ toekomstbestendig te maken. Om de veranderingen in Thunderbird bij te houden, ben ik afhankelijk van {boldStart}jullie hulp{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Verleng nu uw licentie en bespaar {boldStart}$reduction${boldEnd}! Deze speciale aanbieding is geldig tot {boldStart}$expirydate${boldEnd}.",
@@ -1361,7 +1367,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Uitleg toegevoegd over nieuwe filtereigenschappen. {L2} {L1} quickFilters schakelt nu de filterassistent uit wanneer een nieuwe versie wordt geladen. {L2} {L1} Het aantal resterende licentiedagen wordt nu elke middernacht automatisch bijgewerkt.{L2} {L1} Gerepareerd: aangepaste sjablonen konden de originele e-mailkoppen niet lezen en '??' invoegen{L2}"
+    "message": "{L1} 5.9.3: Voltooide Chinese vertalingen voor gebruikersinterface.{L2} {L1}Einddatum voor licentieverkoop gecorrigeerd.{L2} {L1} Uitleg toegevoegd over nieuwe filtereigenschappen. {L2} {L1} quickFilters schakelt nu de filterassistent uit wanneer een nieuwe versie wordt geladen. {L2} {L1} Het aantal resterende licentiedagen wordt nu elke middernacht automatisch bijgewerkt.{L2} {L1} Gerepareerd: aangepaste sjablonen konden de originele e-mailkoppen niet lezen en '??' invoegen{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

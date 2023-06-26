@@ -119,6 +119,15 @@
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Enkrat kliknite tukaj, če si želite ogledati začetni zaslon in kaj je novega v quickFilters."
   },
+  "quickfiltersToolbarButton.renew": {
+    "message": "Licenca poteče čez $daysLeft$ dni",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1",
+        "example": "9"
+      }
+    }
+  },
   "renew-your-license" : {
     "message" : "Obnovite licenco."
   },  
@@ -156,13 +165,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24. april"
+    "message": "10. julij"
   },
   "special-offer-head" : {
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
   } ,  
   "special-offer-intro" : {
-    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate pri preverjanju prihodnosti quickFilters. Prihaja še več sprememb na Thunderbirdu in za nadaljevanje potrebujem {boldStart} vašo pomoč {boldEnd}!"
+    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate $addonName$, ki je pripravljen na prihodnost. Da bom na tekočem s spremembami v Thunderbirdu, se zanašam na {boldStart}vašo pomoč{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   } ,
   "special-offer-renew": {
     "message": "Podaljšajte licenco zdaj in prihranite {boldStart}$reduction${boldEnd}! Ta posebna ponudba bo na voljo do {boldStart} $expirydate$ {boldEnd}.",
@@ -236,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Dodana razlaga o novih lastnostih filtra. {L2} {L1} QuickFilters zdaj onemogoči pomočnika za filtriranje, ko se naloži nova različica. {L2} {L1} Število preostalih licenčnih dni se zdaj samodejno posodablja vsako polnoč.{L2} {L1} Popravljeno: predloge po meri niso prebrale izvirnih glav pošte in so vstavili '??'{L2}"
+    "message" : "{L1} 5.9.3: Dokončani kitajski prevodi za uporabniški vmesnik.{L2} {L1}Popravljen končni datum za prodajo licence.{L2} {L1} Dodana razlaga o novih lastnostih filtra. {L2} {L1} quickFilters zdaj onemogoči pomočnika za filtriranje, ko se naloži nova različica. {L2} {L1} Število preostalih licenčnih dni se zdaj samodejno posodablja vsako polnoč.{L2} {L1} Popravljeno: predloge po meri niso prebrale izvirnih glav pošte in so vstavili '??'{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

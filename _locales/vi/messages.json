@@ -1266,13 +1266,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "ngày 24 tháng 4"
+    "message": "ngày 10 tháng 7"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Kính gửi {name} {boldEnd}, bạn hiện có thể trợ giúp các bộ lọc quickFilters trong tương lai. Sắp có nhiều thay đổi lớn hơn trên Thunderbird và tôi cần {boldStart} sự trợ giúp của bạn {boldEnd} để theo kịp!"
+    "message": "{boldStart} Kính gửi {name} {boldEnd}, Giờ đây, bạn có thể trợ giúp $addonName$ đảm bảo cho tương lai. Để bắt kịp những thay đổi trong Thunderbird, tôi trông cậy vào {boldStart}sự trợ giúp của bạn{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Gia hạn Giấy phép của bạn ngay bây giờ và tiết kiệm {boldStart}$reduction${boldEnd}! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} $expirydate$ {boldEnd}.",
@@ -1361,7 +1367,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Đã thêm giải thích về thuộc tính bộ lọc mới. {L2} {L1} quickFilters hiện tắt trợ lý bộ lọc khi tải phiên bản mới. {L2} {L1} Số ngày giấy phép còn lại hiện được cập nhật tự động vào mỗi nửa đêm.{L2} {L1} Đã sửa chữa: mẫu tùy chỉnh không thể đọc tiêu đề thư gốc và chèn '??'{L2}"
+    "message": "{L1} 5.9.2: Đã hoàn thành bản dịch tiếng Trung cho Giao diện người dùng.{L2} {L1} Đã sửa ngày kết thúc bán giấy phép.{L2} {L1} Đã thêm giải thích về thuộc tính bộ lọc mới. {L2} {L1} quickFilters hiện tắt trợ lý bộ lọc khi tải phiên bản mới. {L2} {L1} Số ngày giấy phép còn lại hiện được cập nhật tự động vào mỗi nửa đêm.{L2} {L1} Đã sửa chữa: mẫu tùy chỉnh không thể đọc tiêu đề thư gốc và chèn '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

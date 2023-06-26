@@ -2,11 +2,11 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "5.9.2",
+  "version": "5.9.3",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
-	  "name": "Axel Grude, Klaus Buecher/opto",
+	  "name": "Axel Grude",
     "url": "https://quickfilters.quickfolders.org/index.html"
 	},
   "applications": {

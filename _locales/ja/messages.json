@@ -101,7 +101,7 @@
     "message": "また、IMAP アカウント内の既読メールに対してフィルタを実行します。"
   },
   "chkInsertRulesAtTop.label": {
-    "message": "Add new rules on top of list."
+    "message": "「新しいルールをリストの一番上に追加します。"
   },
   "chkLocalFoldersAutorun.label": {
     "message": "フィルタをローカルフォルダの受信トレイに自動的に適用する"
@@ -119,10 +119,10 @@
     "message": "'統合対象を選択'  する手順をスキップし、'テンプレートを選択' する手順へ進みます。"
   },
   "chkPeriodically.label": {
-    "message": "Run Periodically"
+    "message": "定期的に実行"
   },
   "chkPeriodically.tooltip": {
-    "message": "Runs the filter in regular intervals"
+    "message": "フィルターを定期的に実行します"
   },
   "chkRunManual.label": {
     "message": "手動で実行"
@@ -1266,13 +1266,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "4月24日"
+    "message": "7月10日"
   },
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
   },
   "special-offer-intro": {
-    "message": "{boldStart}親愛なる{name} {boldEnd}、将来を見据えたquickFiltersを支援できるようになりました。 Thunderbirdのさらに大きな変更が予定されており、それに追いつくために{boldStart}あなたの助け{boldEnd}が必要です！"
+    "message": "{boldStart}親愛なる{name} {boldEnd}、$addonName$ を将来にわたってサポートできるようになりました。 Thunderbird の変更に遅れないようにするには、{boldStart}あなたの助け{boldEnd}が必要です。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "今すぐライセンスを更新して、{boldStart}$reduction${boldEnd}を節約してください！ この特別オファーは、{boldStart} $expirydate$ {boldEnd}までご利用いただけます。",
@@ -1361,7 +1367,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} 新しいフィルター プロパティに関する説明を追加しました。 {L2} {L1} QuickFilters は、新しいバージョンがロードされたときにフィルター アシスタントを無効にするようになりました。 {L2} {L1} 残りのライセンス日数は午前 0 時ごとに自動的に更新されるようになりました。{L2} {L1} 修復されました: カスタム テンプレートが元のメール ヘッダーの読み取りに失敗し、「??」が挿入されました。{L2}"
+    "message": "{L1} 5.9.2 ユーザー インターフェースの中国語翻訳を完了しました。{L2} {L1}ライセンス販売の終了日を修正しました。{L2} {L1} 新しいフィルター プロパティに関する説明を追加しました。 {L2} {L1} QuickFilters は、新しいバージョンがロードされたときにフィルター アシスタントを無効にするようになりました。 {L2} {L1} 残りのライセンス日数は午前 0 時ごとに自動的に更新されるようになりました。{L2} {L1} 修復されました: カスタム テンプレートが元のメール ヘッダーの読み取りに失敗し、「??」が挿入されました。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

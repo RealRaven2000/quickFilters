@@ -1267,13 +1267,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24 kwietnia"
+    "message": "10 lipca"
   },
   "special-offer-head" : {
     "message": "Pomóż quickFilters, aby kontynuować!"
   } ,  
   "special-offer-intro" : {
-    "message": "{boldStart} Witaj {name} {boldEnd}, możesz teraz pomóc quickFilters w przygotowaniu na przyszłość. Nadchodzą kolejne duże zmiany w Thunderbirdzie i potrzebuję {boldStart} Twojej pomocy {boldEnd}, aby nadążyć!"
+    "message": "{boldStart} Witaj {name} {boldEnd}, Możesz teraz pomóc zabezpieczyć $addonName$ na przyszłość. Aby być na bieżąco ze zmianami w Thunderbirdzie, polegam na {boldStart}Twojej pomocy{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   } ,
   "special-offer-renew": {
     "message": "Odnów swoją licencję teraz i zaoszczędź {boldStart}$reduction${boldEnd}! Ta oferta specjalna będzie dostępna do {boldStart}$expirydate${boldEnd}.",
@@ -1359,7 +1365,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Dodano wyjaśnienie nowych właściwości filtra. {L2} {L1} quickFilters wyłącza teraz asystenta filtrów po załadowaniu nowej wersji. {L2} {L1} Liczba pozostałych dni licencji jest teraz automatycznie aktualizowana co północ.{L2} {L1} Naprawiono: niestandardowe szablony nie odczytały oryginalnych nagłówków poczty i wstawiły „??”{L2}"
+    "message" : "{L1} 5.9.2: Ukończono chińskie tłumaczenia interfejsu użytkownika.{L2} {L1}Poprawiona data końcowa sprzedaży licencji.{L2} {L1} Dodano wyjaśnienie nowych właściwości filtra. {L2} {L1} quickFilters wyłącza teraz asystenta filtrów po załadowaniu nowej wersji. {L2} {L1} Liczba pozostałych dni licencji jest teraz automatycznie aktualizowana co północ.{L2} {L1} Naprawiono: niestandardowe szablony nie odczytały oryginalnych nagłówków poczty i wstawiły „??”{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

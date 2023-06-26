@@ -256,7 +256,7 @@
     "message": "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
   },
   "ongoing-work": {
-    "message": "The alterations to convert $addonName$ to the new programming model took weeks and were costly. There are many more changes for the next 2023 version. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this.",
+    "message": "The alterations to convert $addonName$ to the new programming model took weeks and were costly. There are many more changes for the next version. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -879,7 +879,7 @@
     "message": "Consider updating to a newer version to get this feature."
   },
   "quickfilters.createFromMail.inboxWarning": {
-    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
+    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nDo you want to create a filter from this message anyway?"
   },
   "quickfilters.createFromMail.selectWarning": {
     "message": "To create a filter, please select exactly one email!"
@@ -1269,13 +1269,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "April 24th"
+    "message": "July 10th"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
   },
   "special-offer-intro": {
-    "message": "{boldStart}Dear {name}{boldEnd}, you can now help future-proofing quickFilters. More big changes on Thunderbird are coming and I need {boldStart}your help{boldEnd} to keep up!"
+    "message": "{boldStart}Dear {name}{boldEnd}, you can now help future-proof $addonName$. To keep up with the changes in Thunderbird, I depend on {boldStart}your help{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "subjectCompleteExtract": {
     "message": "Always insert the complete subject line."
@@ -1364,7 +1370,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Added explanation about new filter properties. {L2} {L1} quickFilters now disables the filter assistant when a new version loaded. {L2} {L1} The number of remaining license days is now automatically updated every midnight.{L2} {L1} Repaired: custom templates failed reading original mail headers and inserted '??'{L2}"
+    "message": "{L1}5.9.2: Completed Chinese translations for User Interface.{L2} {L1}Corrected end date for license sale.{L2} {L1} Added explanation about new filter properties. {L2} {L1} quickFilters now disables the filter assistant when a new version loaded. {L2} {L1} The number of remaining license days is now automatically updated every midnight.{L2} {L1} Repaired: custom templates failed reading original mail headers and inserted '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

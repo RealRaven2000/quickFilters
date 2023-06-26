@@ -3,14 +3,14 @@
     "message": "SPLASH+UI"
   },
   "about": {
-    "message": "关于"
+    "message": "对于"
   },
   "account.label": {
     "message": "选择账户："
   },
   "active-version-info": {
-    "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "您现在在Thunderbird $appVer$上运行{boldStart}版本 $addonVer$ {boldEnd}。",
+    "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -50,16 +50,16 @@
     "message": "购买个人授权！"
   },
   "chkAfterJunk.label": {
-    "message": "After junk classification"
+    "message": "垃圾分类后"
   },
   "chkAfterSending.label": {
-    "message": "After Sending"
+    "message": "发送后"
   },
   "chkAlphabetic.label": {
-    "message": "Insert new filters in alphabetical order"
+    "message": "按字母顺序插入新过滤器"
   },
   "chkAlphabetic.tooltip": {
-    "message": "Uses filter's name for its position. Recommended with parent folder naming rule. Note that this affects the order of filter execution!"
+    "message": "使用过滤器的名称作为其位置。 建议使用父文件夹命名规则。 请注意，这会影响过滤器的执行顺序！"
   },
   "chkAutoClose.accesskey": {
     "message": "E"
@@ -80,10 +80,10 @@
     "message": "显示过滤器列表"
   },
   "chkCurrentToolbar.btn.FindFilter.label": {
-    "message": "Find Filters for Folder"
+    "message": "查找文件夹过滤器"
   },
   "chkCurrentToolbar.btn.FindFilter.tooltip": {
-    "message": "Find any Filters that move mail to this folder."
+    "message": "查找将邮件移至此文件夹的任何过滤器。"
   },
   "chkCurrentToolbar.btn.RunOnFolder.label": {
     "message": "对文件夹应用过滤器"
@@ -98,13 +98,13 @@
     "message": "调试模式"
   },
   "chkImapOnRead.label": {
-    "message": "Also run filter on read emails in IMAP accounts."
+    "message": "还对 IMAP 帐户中的已读电子邮件运行过滤器。"
   },
   "chkInsertRulesAtTop.label": {
-    "message": "Add new rules on top of list."
+    "message": "在列表顶部添加新规则。"
   },
   "chkLocalFoldersAutorun.label": {
-    "message": "Run filters on Local Folders Inbox automatically"
+    "message": "自动对本地文件夹收件箱运行过滤器"
   },
   "chkMergeAuto.label": {
     "message": "自动选择合并"
@@ -119,16 +119,16 @@
     "message": "将跳过'选择合并目标'并直接进入'选择模板'步骤。"
   },
   "chkPeriodically.label": {
-    "message": "Run Periodically"
+    "message": "定期运行"
   },
   "chkPeriodically.tooltip": {
-    "message": "Runs the filter in regular intervals"
+    "message": "定期运行过滤器"
   },
   "chkRunManual.label": {
-    "message": "Run manually"
+    "message": "手动运行"
   },
   "chkShowEditor.label": {
-    "message": "Open Editor after filter creation"
+    "message": "创建过滤器后打开编辑器"
   },
   "chkShowList.label": {
     "message": "创建过滤器后显示过滤器列表"
@@ -427,28 +427,28 @@
     "message": "请选择一个模板，您可以在下一步中开启过滤器规则。"
   },
   "qf.filters.steps.autoRunFilter": {
-    "message": "Run Automatically"
+    "message": "自动运行"
   },
   "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "Automatically runs the filter on the originating Inbox after creation."
+    "message": "A创建后自动在原始收件箱上运行过滤器。"
   },
   "qf.filters.steps.caption": {
-    "message": "Next Steps"
+    "message": "下一步"
   },
   "qf.filters.steps.showEditor": {
-    "message": "Filter Rules"
+    "message": "过滤规则"
   },
   "qf.filters.steps.showEditor.tooltip": {
-    "message": "Edit the filter details after the Assistant has created it."
+    "message": "在助手创建过滤器详细信息后编辑它。"
   },
   "qf.filters.steps.showList": {
-    "message": "Filters List"
+    "message": "过滤器列表"
   },
   "qf.filters.steps.showList.tooltip": {
-    "message": "Displays the filter in context so you can try it out"
+    "message": "在上下文中显示过滤器，以便您可以尝试一下"
   },
   "qf.filters.steps.tooltip": {
-    "message": "Which screens to show after filter creation"
+    "message": "创建过滤器后显示哪些屏幕"
   },
   "qf.filters.template.custom.description": {
     "message": "自定义过滤器 - 其行为由用户定义 - 变量如 %from% %to% %subject% 等等."
@@ -586,16 +586,16 @@
     "message": "不在收件箱中时在执行过滤器之前确认"
   },
   "qf.label.shortcut.runFolder": {
-    "message": "Shortcut for Running Filters on Folder: Shift + "
+    "message": "在文件夹上运行过滤器的快捷方式：Shift + "
   },
   "qf.label.shortcut.runMails": {
-    "message": "Shortcut for Running Filters on Selected Mails: Shift + "
+    "message": "对选定邮件运行过滤器的快捷方式：Shift + "
   },
   "qf.label.supportWithLicense": {
-    "message": "Support quickFilters by getting a license!"
+    "message": "通过获取许可证来支持 QuickFilters！"
   },
   "qf.licenseValidation.expired": {
-    "message": "The license key you entered is expired. Please press the button below to renew your license."
+    "message": "您输入的许可证密钥已过期。请按下面的按钮更新您的许可证。"
   },
   "qf.licenseValidation.failed": {
     "message": "您輸入的許可證密鑰無效。 檢查您來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
@@ -607,10 +607,10 @@
     "message": "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance."
   },
   "qf.licenseValidation.notMatchedMail": {
-    "message": "Encrypted Email address does not match readable one."
+    "message": "E加密的电子邮件地址与可读的电子邮件地址不匹配。"
   },
   "qf.licenseValidation.passed": {
-    "message": "Thanks for registering quickFilters Pro! All premium features are now unlocked."
+    "message": "感谢您注册 quickFilters Pro！ 所有高级功能现已解锁。"
   },
   "qf.listener.tags": {
     "message": "监视标签变动"
@@ -625,10 +625,10 @@
     "message": "以下设置将应用于使用过滤器助手创建的任何新过滤器。"
   },
   "qf.notify.filterCreated": {
-    "message": "Successfully created new filter '{0}'."
+    "message": "成功创建新过滤器 '{0}'."
   },
   "qf.notify.filterMergeUpdated": {
-    "message": "Successfully updated filter '{0}'."
+    "message": "过滤器更新成功 '{0}'."
   },
   "qf.onewayaddress.label": {
     "message": "禁用双向地址搜索条件"
@@ -640,7 +640,7 @@
     "message": "右击查看版本历史。"
   },
   "qf.premiumConfig": {
-    "message": "Premium Features"
+    "message": "高级功能"
   },
   "qf.tab.actions": {
     "message": "动作"
@@ -949,7 +949,7 @@
     "message": "Custom Variables"
   },
   "quickfilters.customVariable.tooltip": {
-    "message": "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail."
+    "message": "在创建过滤器时，这些变量将替换为当前邮件的相应邮件标头。"
   },
   "quickfilters.customfilter.replyto": {
     "message": "回复至"
@@ -1066,28 +1066,25 @@
     "message": "不再显示此消息。"
   },
   "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Extend License"
+    "message": "延长许可证"
   },
   "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
+    "message": "这会将当前的许可日期延长一年。 它通常比新许可证便宜。"
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Buy License"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "购买许可证"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Renew License"
+    "message": "更新许可证"
   },
   "quickfilters.notification.premium.freeUses": {
     "message": "您可以免费使用此功能 {1} 次。"
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
+    "message": "{1} 是一项高级功能，请获取 quickFilters Pro 许可证才能永久使用它。"
   },
   "quickfilters.notification.premium.title": {
-    "message": "Premium Feature"
+    "message": "高级功能"
   },
   "quickfilters.notification.proFeature.notificationText": {
     "message": "功能 {1} 为高级功能，如果您需要经常使用此功能，请考虑在年内向quickFilters的开发人员提供资助。"
@@ -1111,13 +1108,13 @@
     "message": "搜索条件(文本)"
   },
   "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "Actions that modify Strings"
+    "message": "修改字符串的操作"
   },
   "quickfilters.option.searchProperty.targetFolder": {
     "message": "目标文件夹"
   },
   "quickfilters.premium.renewLicense.tooltip": {
-    "message": "Your license expired {1} days ago"
+    "message": "您的许可证已于 {1} 天前过期"
   },
   "quickfilters.premium.title.customTemplate": {
     "message": "自定义模板"
@@ -1156,10 +1153,10 @@
     "message": "自定义模板的名称:"
   },
   "quickfilters.promptDontRepeat": {
-    "message": "Do not show this warning again."
+    "message": "不要再次显示此警告。"
   },
   "quickfilters.register.licenseValid.expired": {
-    "message": "Your license expired on:"
+    "message": "您的许可证已过期："
   },
   "quickfilters.replyWithTemplate.label": {
     "message": "使用模板回复"
@@ -1266,13 +1263,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "4月24日"
+    "message": "7月10日"
   },
   "special-offer-head": {
     "message": "请帮助quickFilters继续！"
   },
   "special-offer-intro": {
-    "message": "{boldStart}尊敬的{name} {boldEnd}：您现在可以帮助将来的quickFilters。 雷鸟的更多重大变化即将到来，我需要{boldStart}您的帮助{boldEnd}来跟上！"
+    "message": "{boldStart}尊敬的{name} {boldEnd}：您现在可以为面向未来的$addonName$提供帮助。 为了跟上 Thunderbird 的变化，我依赖于{boldStart}您的帮助{boldEnd}！",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "立即续订您的许可证并节省 {boldStart}$reduction${boldEnd}！ 此特别优惠将持续到 {boldStart}$expirydate${boldEnd}。",
@@ -1361,7 +1364,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 添加了有关新过滤器属性的说明。 {L2} {L1} QuickFilters 现在会在加载新版本时禁用过滤器助手。 {L2} {L1} 剩余许可证天数现在会在每天午夜自动更新。{L2} {L1} 已修复：自定义模板无法读取原始邮件标头并插入“??”{L2}"
+    "message": "{L1} 5.9.3: 完成用户界面的中文翻译。{L2} {L1} 更正了许可证销售的结束日期。{L2} {L1} 添加了有关新过滤器属性的说明。 {L2} {L1} quickFilters 现在会在加载新版本时禁用过滤器助手。 {L2} {L1} 剩余许可证天数现在会在每天午夜自动更新。{L2} {L1} 已修复：自定义模板无法读取原始邮件标头并插入“??”{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1267,13 +1267,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24. huhtikuuta"
+    "message": "10. heinäkuuta"
   },
   "special-offer-head" : {
     "message": "Auttakaa quickFilters jatkaaksesi!"
   } ,  
   "special-offer-intro" : {
-    "message": "{boldStart} Hyvä {name} {boldEnd}, jvoit nyt auttaa tulevaisuuden suojaamisessa quickFilters. Lisää suuria muutoksia Thunderbirdiin on tulossa, ja tarvitsen {boldStart} apuasi {boldEnd} pysyäksesi mukana!"
+    "message": "{boldStart} Hyvä {name} {boldEnd}, Voit nyt auttaa tulevaisuudenkestäviä $addonName$. Pysyn ajan tasalla Thunderbirdin muutoksista luotan {boldStart}apuun{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   } ,
   "special-offer-renew": {
     "message": "Uusi lisenssi nyt ja säästä {boldStart}$reduction${boldEnd}! Tämä erikoistarjous on voimassa {boldStart} $expirydate$ {boldEnd} asti.",
@@ -1362,7 +1368,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} Lisätty selitys uusista suodattimen ominaisuuksista. {L2} {L1} quickFilters poistaa nyt suodatinavustajan käytöstä, kun uusi versio ladataan. {L2} {L1} Jäljellä olevien lisenssipäivien määrä päivittyy nyt automaattisesti joka keskiyö.{L2} {L1} Korjattu: mukautetut mallit epäonnistuivat lukemaan alkuperäisiä sähköpostien otsikoita ja lisätty '??'{L2}"
+    "message" : "{L1} 5.9.3 Valmiit kiinan käännökset käyttöliittymään.{L2} {L1}Korjattu lisenssimyynnin päättymispäivä.{L2} {L1} Lisätty selitys uusista suodattimen ominaisuuksista. {L2} {L1} quickFilters poistaa nyt suodatinavustajan käytöstä, kun uusi versio ladataan. {L2} {L1} Jäljellä olevien lisenssipäivien määrä päivittyy nyt automaattisesti joka keskiyö.{L2} {L1} Korjattu: mukautetut mallit epäonnistuivat lukemaan alkuperäisiä sähköpostien otsikoita ja lisätty '??'{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

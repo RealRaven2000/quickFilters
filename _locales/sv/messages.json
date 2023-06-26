@@ -1266,13 +1266,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24 april"
+    "message": "10 juli"
   },
   "special-offer-head": {
     "message": "Snälla hjälp quickFilters att fortsätta!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Kära {name} {boldEnd}, nu kan du hjälpa framtidssäkra quickFilters. Fler stora förändringar på Thunderbird kommer och jag behöver {boldStart} din hjälp {boldEnd} för att fortsätta!"
+    "message": "{boldStart} Kära {name} {boldEnd}, Du kan nu hjälpa framtidssäkra $addonName$. För att hänga med i förändringarna i Thunderbird är jag beroende av {boldStart}din hjälp{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Förnya din licens nu och spara {boldStart}$reduction${boldEnd}! Detta specialerbjudande är tillgängligt fram till {boldStart} $expirydate$ {boldEnd}.",
@@ -1361,7 +1367,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Lade till förklaring om nya filteregenskaper. {L2} {L1} quickFilters inaktiverar nu filterassistenten när en ny version laddas. {L2} {L1} Antalet återstående licensdagar uppdateras nu automatiskt varje midnatt.{L2} {L1} Reparerade: anpassade mallar kunde inte läsa originalpostrubriker och infogade '??'{L2}" 
+    "message": "{L1} 5.9.3: Slutförda kinesiska översättningar för användargränssnitt.{L2} {L1}Rättat slutdatum för licensförsäljning.{L2} {L1} Lade till förklaring om nya filteregenskaper. {L2} {L1} quickFilters inaktiverar nu filterassistenten när en ny version laddas. {L2} {L1} Antalet återstående licensdagar uppdateras nu automatiskt varje midnatt.{L2} {L1} Reparerade: anpassade mallar kunde inte läsa originalpostrubriker och infogade '??'{L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

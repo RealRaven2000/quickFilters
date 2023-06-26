@@ -1266,13 +1266,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24 aprile"
+    "message": "10 luglio"
   },
   "special-offer-head": {
     "message": "Aiuta lo sviluppo di quickFilters!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Gentile {name} {boldEnd}, puoi sostenere quickFilters nel futuro. Sono in arrivo altri grandi cambiamenti su Thunderbird e ho bisogno del tuo {boldStart} del tuo aiuto {boldEnd} per stare al passo!"
+    "message": "{boldStart} Gentile {name} {boldEnd}, ora puoi aiutare $addonName$ a prova di futuro. Per stare al passo con i cambiamenti in Thunderbird, conto sul {boldStart}tuo aiuto{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Rinnova ora la tua licenza e risparmia {boldStart}$reduction${boldEnd}! Questa offerta speciale sarà disponibile fino al {boldStart}$expirydate${boldEnd}.",
@@ -1361,7 +1367,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Aggiunta spiegazione sulle nuove proprietà del filtro. {L2} {L1} quickFilters ora disabilita l'assistente filtro quando viene caricata una nuova versione. {L2} {L1} Il numero di giorni di licenza rimanenti viene ora aggiornato automaticamente ogni mezzanotte.{L2} {L1} Risolto: i modelli personalizzati non riuscivano a leggere le intestazioni di posta originali e inserivano '??'{L2}"
+    "message": "{L1} 5.9.3: Traduzioni cinesi completate per l'interfaccia utente.{L2} {L1}Corretta la data di fine della vendita della licenza.{L2} {L1} Aggiunta spiegazione sulle nuove proprietà del filtro. {L2} {L1} quickFilters ora disabilita l'assistente filtro quando viene caricata una nuova versione. {L2} {L1} Il numero di giorni di licenza rimanenti viene ora aggiornato automaticamente ogni mezzanotte.{L2} {L1} Risolto: i modelli personalizzati non riuscivano a leggere le intestazioni di posta originali e inserivano '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

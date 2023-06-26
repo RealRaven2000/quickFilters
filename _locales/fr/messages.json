@@ -1266,13 +1266,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24 avril"
+    "message": "10 juillet"
   },
   "special-offer-head": {
     "message": "Veuillez aider quickFilters à continuer!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Cher {name} {boldEnd}, vous pouvez désormais contribuer à la pérennité de quickFilters. D'autres grands changements sur Thunderbird sont à venir et j'ai besoin de {boldStart} votre aide {boldEnd} pour suivre!"
+    "message": "{boldStart} Cher {name} {boldEnd}, Vous pouvez maintenant aider $addonName$ à l'épreuve du temps. Pour suivre les changements dans Thunderbird, je compte sur {boldStart}votre aide{boldEnd} !",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Renouvelez votre licence maintenant et économisez {boldStart}$reduction${boldEnd} ! Cette offre spéciale sera disponible jusqu'au {boldStart}$expirydate${boldEnd}.",
@@ -1361,7 +1367,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Ajout d'une explication sur les nouvelles propriétés de filtre. {L2} {L1} quickFilters désactive désormais l'assistant de filtrage lorsqu'une nouvelle version est chargée. {L2} {L1} Le nombre de jours de licence restants est désormais automatiquement mis à jour tous les minuits.{L2} {L1} Réparé : les modèles personnalisés n'ont pas pu lire les en-têtes de courrier d'origine et ont inséré '??'{L2}"
+    "message": "{L1} 5.9.2: Traductions chinoises terminées pour l'interface utilisateur.{L2} {L1}Date de fin corrigée pour la vente de licence.{L2} {L1} Ajout d'une explication sur les nouvelles propriétés de filtre. {L2} {L1} quickFilters désactive désormais l'assistant de filtrage lorsqu'une nouvelle version est chargée. {L2} {L1} Le nombre de jours de licence restants est désormais automatiquement mis à jour tous les minuits.{L2} {L1} Réparé : les modèles personnalisés n'ont pas pu lire les en-têtes de courrier d'origine et ont inséré '??'{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -556,13 +556,17 @@ END LICENSE BLOCK
     # Added Czech translation to license dialog.
     # to encourage license renewals: Show bargain section in splash screen if <=10 days to expiry
 
-  5.9.2 - WIP
+  5.9.2 - 25/06/2023
     # [issue 185] Custom Template fail reading header fields from email (inserts ??)
     # [issue 182] Add explanation to the "New filter Properties" page in settings 
     # Ensure to disable assistant on onload
     # [issue 187] Update "# licensed days left" at midnight. 
     # [issue 178] Correct the Number of days left in license by rounding up
-    #
+    
+  5.9.3 - 26/06/2023
+    # completed Chinese translations
+    # fixed sales date!
+
    
   ============================================================================================================
   FUTURE WORK:
