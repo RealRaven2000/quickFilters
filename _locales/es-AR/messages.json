@@ -1269,13 +1269,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24 de abril"
+    "message": "10 de julio"
   },
   "special-offer-head": {
     "message": "¡Ayude a quickFilters a continuar!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Estimado {name} {boldEnd}, ahora puede ayudar a preparar quickFilters para el futuro. Se avecinan más cambios importantes en Thunderbird y necesito {boldStart} tu ayuda {boldEnd} para mantenerme al día."
+    "message": "{boldStart} Estimado {name} {boldEnd}, ahora puede ayudar a preparar $addonName$ para el futuro. Para estar al tanto de los cambios en Thunderbird, ¡cuento con {boldStart}su ayuda{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "¡Renueve su licencia ahora y ahorre {boldStart}$reduction${boldEnd}! Esta oferta especial estará disponible hasta el {boldStart} $expirydate$ {boldEnd}.",

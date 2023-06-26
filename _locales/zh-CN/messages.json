@@ -1261,13 +1261,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "4月24日"
+    "message": "7月10日"
   },
   "special-offer-head": {
     "message": "请帮助quickFilters继续！"
   },
   "special-offer-intro": {
-    "message": "{boldStart}尊敬的{name} {boldEnd}：您现在可以帮助将来的quickFilters。 雷鸟的更多重大变化即将到来，我需要{boldStart}您的帮助{boldEnd}来跟上！"
+    "message": "{boldStart}尊敬的{name} {boldEnd}：您现在可以为面向未来的$addonName$提供帮助。 为了跟上 Thunderbird 的变化，我依赖于{boldStart}您的帮助{boldEnd}！",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "立即续订您的许可证并节省 {boldStart}$reduction${boldEnd}！ 此特别优惠将持续到 {boldStart}$expirydate${boldEnd}。",

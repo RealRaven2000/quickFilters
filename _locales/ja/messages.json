@@ -1269,13 +1269,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "4月24日"
+    "message": "7月10日"
   },
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
   },
   "special-offer-intro": {
-    "message": "{boldStart}親愛なる{name} {boldEnd}、将来を見据えたquickFiltersを支援できるようになりました。 Thunderbirdのさらに大きな変更が予定されており、それに追いつくために{boldStart}あなたの助け{boldEnd}が必要です！"
+    "message": "{boldStart}親愛なる{name} {boldEnd}、$addonName$ を将来にわたってサポートできるようになりました。 Thunderbird の変更に遅れないようにするには、{boldStart}あなたの助け{boldEnd}が必要です。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "今すぐライセンスを更新して、{boldStart}$reduction${boldEnd}を節約してください！ この特別オファーは、{boldStart} $expirydate$ {boldEnd}までご利用いただけます。",

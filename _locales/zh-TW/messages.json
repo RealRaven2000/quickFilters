@@ -1089,13 +1089,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "4月24日"
+    "message": "7月10日"
   },
   "special-offer-head" : {
     "message": "請幫助quickFilters繼續！"
   } ,  
   "special-offer-intro" : {
-    "message": "{boldStart}尊敬的{name} {boldEnd}：您現在可以幫助將來的quickFilters。 雷鳥的更多重大變化即將到來，我需要{boldStart}您的幫助{boldEnd}來跟上！"
+    "message": "{boldStart}尊敬的{name} {boldEnd}：您現在可以為面向未來的$addonName$提供幫助。 為了跟上 Thunderbird 的變化，我依賴於{boldStart}您的幫助{boldEnd}！",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   } ,
   "special-offer-renew": {
     "message": "立即續訂您的許可證並節省{boldStart}$reduction${boldEnd}！ 此特別優惠有效期至 {boldStart}$expirydate${boldEnd}。",

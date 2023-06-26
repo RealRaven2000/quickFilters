@@ -1272,13 +1272,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "April 24th"
+    "message": "July 10th"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
   },
   "special-offer-intro": {
-    "message": "{boldStart}Dear {name}{boldEnd}, you can now help future-proofing quickFilters. More big changes on Thunderbird are coming and I need {boldStart}your help{boldEnd} to keep up!"
+    "message": "{boldStart}Dear {name}{boldEnd}, you can now help future-proof $addonName$. To keep up with the changes in Thunderbird, I depend on {boldStart}your help{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "subjectCompleteExtract": {
     "message": "Always insert the complete subject line."

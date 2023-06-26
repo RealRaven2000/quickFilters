@@ -1270,13 +1270,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24. huhtikuuta"
+    "message": "10. heinäkuuta"
   },
   "special-offer-head" : {
     "message": "Auttakaa quickFilters jatkaaksesi!"
   } ,  
   "special-offer-intro" : {
-    "message": "{boldStart} Hyvä {name} {boldEnd}, jvoit nyt auttaa tulevaisuuden suojaamisessa quickFilters. Lisää suuria muutoksia Thunderbirdiin on tulossa, ja tarvitsen {boldStart} apuasi {boldEnd} pysyäksesi mukana!"
+    "message": "{boldStart} Hyvä {name} {boldEnd}, Voit nyt auttaa tulevaisuudenkestäviä $addonName$. Pysyn ajan tasalla Thunderbirdin muutoksista luotan {boldStart}apuun{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   } ,
   "special-offer-renew": {
     "message": "Uusi lisenssi nyt ja säästä {boldStart}$reduction${boldEnd}! Tämä erikoistarjous on voimassa {boldStart} $expirydate$ {boldEnd} asti.",

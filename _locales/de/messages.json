@@ -1270,13 +1270,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24. April"
+    "message": "10. Juli"
   },
   "special-offer-head": {
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt quickFilters zukunftssicher machen. Weitere große Änderungen an Thunderbird kommen und ich brauche {boldStart}Ihre Hilfe{boldEnd}, um Schritt zu halten!"
+    "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt dazu beitragen, $addonName$ zukunftssicher zu machen. Um mit den Änderungen in Thunderbird Schritt zu halten, bin ich auf {boldStart}Ihre Hilfe{boldEnd} angewiesen!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "subjectCompleteExtract": {
     "message": "Immer die vollständige Betreffzeile einfügen."

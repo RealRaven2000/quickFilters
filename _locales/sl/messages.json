@@ -165,13 +165,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24. april"
+    "message": "10. julij"
   },
   "special-offer-head" : {
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
   } ,  
   "special-offer-intro" : {
-    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate pri preverjanju prihodnosti quickFilters. Prihaja še več sprememb na Thunderbirdu in za nadaljevanje potrebujem {boldStart} vašo pomoč {boldEnd}!"
+    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate $addonName$, ki je pripravljen na prihodnost. Da bom na tekočem s spremembami v Thunderbirdu, se zanašam na {boldStart}vašo pomoč{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   } ,
   "special-offer-renew": {
     "message": "Podaljšajte licenco zdaj in prihranite {boldStart}$reduction${boldEnd}! Ta posebna ponudba bo na voljo do {boldStart} $expirydate$ {boldEnd}.",

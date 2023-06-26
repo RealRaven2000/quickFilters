@@ -1269,13 +1269,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "24 апреля"
+    "message": "10 июля"
   },
   "special-offer-head": {
     "message": "Пожалуйста, помогите quickFilters продолжить развитие!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Дорогой {name} {boldEnd}, теперь вы можете помочь адаптировать quickFilters к будущему. Грядут ещё большие изменения в Thunderbird, и мне нужна {boldStart} ваша помощь {boldEnd}, чтобы не отставать!"
+    "message": "{boldStart} Дорогой {name} {boldEnd}, теперь вы можете помочь будущему $addonName$. Чтобы не отставать от изменений в Thunderbird, мне нужна {boldStart}ваша помощь{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Продлите лицензию сейчас и сэкономьте {boldStart}$reduction${boldEnd}! Это специальное предложение будет действовать до {boldStart} $expirydate$ {boldEnd}.",

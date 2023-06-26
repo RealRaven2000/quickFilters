@@ -1269,13 +1269,19 @@
     }
   },
   "special-offer-expiry": {
-    "message": "ngày 24 tháng 4"
+    "message": "ngày 10 tháng 7"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Kính gửi {name} {boldEnd}, bạn hiện có thể trợ giúp các bộ lọc quickFilters trong tương lai. Sắp có nhiều thay đổi lớn hơn trên Thunderbird và tôi cần {boldStart} sự trợ giúp của bạn {boldEnd} để theo kịp!"
+    "message": "{boldStart} Kính gửi {name} {boldEnd}, Giờ đây, bạn có thể trợ giúp $addonName$ đảm bảo cho tương lai. Để bắt kịp những thay đổi trong Thunderbird, tôi trông cậy vào {boldStart}sự trợ giúp của bạn{boldEnd}!",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
   },
   "special-offer-renew": {
     "message": "Gia hạn Giấy phép của bạn ngay bây giờ và tiết kiệm {boldStart}$reduction${boldEnd}! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} $expirydate$ {boldEnd}.",
