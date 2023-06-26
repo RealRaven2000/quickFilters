@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Ignore l'étape de sélection de la cible pour fusion et va directement à l'étape de sélection du modèle."
   },
+  "chkNotify.RunFilter": {
+    "message": "Afficher une notification lors de l'exécution manuelle du filtre."
+  },
   "chkPeriodically.label": {
     "message": "Run Periodically"
   },

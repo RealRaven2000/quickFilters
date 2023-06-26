@@ -119,6 +119,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Isso irá pular a etapa 'selecionar destino de mesclagem' e ir direto para 'selecionar modelo'."
   },
+  "chkNotify.RunFilter": {
+    "message": "Mostrar uma notificação ao executar o filtro manualmente."
+  },
   "chkPeriodically.label": {
     "message": "Executar periodicamente"
   },

@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Überspringt den Schritt 'Mit existierendem Filter kombinieren' und geht direkt zu 'Vorlage wählen'."
   },
+  "chkNotify.RunFilter": {
+    "message": "Benachrichtigung anzeigen, wenn Filter manuell ausgeführt werden."
+  },
   "chkPeriodically.label": {
     "message": "Periodisch ausführen"
   },

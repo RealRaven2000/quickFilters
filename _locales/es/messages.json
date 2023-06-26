@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Esto omitirá el paso 'seleccionar objetivo de combinado' e irá directo a 'seleccionar plantilla'."
   },
+  "chkNotify.RunFilter": {
+    "message": "Muestra una notificación al ejecutar el filtro manualmente."
+  },
   "chkPeriodically.label": {
     "message": "Correr periódicamente"
   },

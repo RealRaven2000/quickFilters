@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Пропустить &quot;выбор целевого фильтра&quot; и сразу перейти к  &quot;выбор шаблона&quot;."
   },
+  "chkNotify.RunFilter": {
+    "message": "Показывать уведомление при запуске фильтра вручную."
+  },
   "chkPeriodically.label": {
     "message": "Запускать периодически"
   },

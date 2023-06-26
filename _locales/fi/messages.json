@@ -119,6 +119,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Tämä ohittaa vaiheen 'valitse yhdistämiskohde' ja siirtyy suoraan 'valitse malli'."
   },
+  "chkNotify.RunFilter": {
+    "message": "Näytä ilmoitus, kun suodatin suoritetaan manuaalisesti."
+  },
   "chkPeriodically.label": {
     "message": "Suorita säännöllisesti"
   },

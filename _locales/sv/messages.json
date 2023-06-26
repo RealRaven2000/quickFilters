@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Hoppar över steget Välj sammanslagningsmål och går direkt till Välj mall."
   },
+  "chkNotify.RunFilter": {
+    "message": "Visa ett meddelande när du kör filtret manuellt."
+  },
   "chkPeriodically.label": {
     "message": "Kör periodiskt"
   },

@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "This will skip the step 'select merge target' and go straight to 'select template'."
   },
+  "chkNotify.RunFilter": {
+    "message": "Hiển thị thông báo khi chạy bộ lọc thủ công."
+  },
   "chkPeriodically.label": {
     "message": "Run Periodically"
   },

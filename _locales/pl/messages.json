@@ -119,6 +119,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Spowoduje to pominięcie kroku „wybierz cel scalenia” i przejście od razu do „Wybierz szablon”."
   },
+  "chkNotify.RunFilter": {
+    "message": "Pokaż powiadomienie podczas ręcznego uruchamiania filtra."
+  },
   "chkPeriodically.label": {
     "message": "Uruchom okresowo"
   },

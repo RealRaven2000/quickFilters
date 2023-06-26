@@ -101,7 +101,7 @@
     "message": "また、IMAP アカウント内の既読メールに対してフィルタを実行します。"
   },
   "chkInsertRulesAtTop.label": {
-    "message": "Add new rules on top of list."
+    "message": "「新しいルールをリストの一番上に追加します。"
   },
   "chkLocalFoldersAutorun.label": {
     "message": "フィルタをローカルフォルダの受信トレイに自動的に適用する"
@@ -118,11 +118,14 @@
   "chkMergeSkip.tooltip": {
     "message": "'統合対象を選択'  する手順をスキップし、'テンプレートを選択' する手順へ進みます。"
   },
+  "chkNotify.RunFilter": {
+    "message": "フィルターを手動で実行するときに通知を表示します。"
+  },
   "chkPeriodically.label": {
-    "message": "Run Periodically"
+    "message": "定期的に実行"
   },
   "chkPeriodically.tooltip": {
-    "message": "Runs the filter in regular intervals"
+    "message": "フィルターを定期的に実行します"
   },
   "chkRunManual.label": {
     "message": "手動で実行"

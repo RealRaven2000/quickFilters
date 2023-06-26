@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Questa opzione salta il passaggio 'Seleziona destinazione unione' e va direttamente a 'Seleziona tipologia'"
   },
+  "chkNotify.RunFilter": {
+    "message": "Mostra una notifica durante l'esecuzione manuale del filtro."
+  },
   "chkPeriodically.label": {
     "message": "Esegui periodicamente"
   },

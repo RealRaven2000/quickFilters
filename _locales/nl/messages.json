@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "Dit slaat de stap ‘samenvoegdoel selecteren’ over en gaat rechtstreeks naar ‘sjabloon selecteren’."
   },
+  "chkNotify.RunFilter": {
+    "message": "Toon een melding wanneer u het filter handmatig uitvoert."
+  },
   "chkPeriodically.label": {
     "message": "Periodiek uitvoeren"
   },
