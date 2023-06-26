@@ -1633,7 +1633,7 @@ quickFilters.List = {
         el.dispatchEvent(evt);
       }
 			let filterArray = [],
-          filtersJSON = JSON.parse(data);
+          filtersJSON = data;
       // jsonData = the key
       // every identifier ends with id#; we need to replace the number with the current key!
       // or match the string up to .id!
@@ -1750,12 +1750,9 @@ quickFilters.List = {
 					util.logDebug("Storing Path: " + lastPath);
 					prefs.setStringPref('files.path', lastPath);
           
-					const {OS} = ChromeUtils.import("resource://gre/modules/osfile.jsm", {});
-          
-          //localFile = Components.classes["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
           switch (mode) {
             case 'load':
-              let promiseRead = OS.File.read(path, { encoding: "utf-8" }); //  returns Uint8Array
+              let promiseRead = IOUtils.readJSON(path, { encoding: "utf-8" }); //  returns Uint8Array
               promiseRead.then(
                 function readSuccess(data) {
                   readData(data);
@@ -1767,7 +1764,7 @@ quickFilters.List = {
               break;
             case 'save':
               // if (aResult == Ci.nsIFilePicker.returnReplace)
-              let promiseDelete = OS.File.remove(path);
+              let promiseDelete = IOUtils.remove(path);
               // defined 2 functions
               util.logDebug ('Setting up promise Delete');
               promiseDelete.then (
@@ -1776,18 +1773,18 @@ quickFilters.List = {
                   // force appending correct file extension!
                   if (!path.toLowerCase().endsWith('.json'))
                     path += '.json';
-                  let promiseWrite = OS.File.writeAtomic(path, jsonData, { encoding: "utf-8"});
+                  let promiseWrite = IOUtils.writeJSON(path, jsonData, { encoding: "utf-8"});
                   promiseWrite.then(
                     function saveSuccess(byteCount) {
                       util.logDebug ('successfully saved ' + byteCount + ' bytes to file');
                     },
-                    function saveReject(fileError) {  // OS.File.Error
+                    function saveReject(fileError) { 
                       util.logDebug ('bookmarks.save error:' + fileError);
                     }
                   );
                 },
                 function failDelete(fileError) {
-                  util.logDebug ('OS.File.remove failed for reason:' + fileError); 
+                  util.logDebug ('IOUtils.remove failed for reason:' + fileError); 
                 }
               );
               break;
