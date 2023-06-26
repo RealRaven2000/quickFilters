@@ -159,25 +159,46 @@ async function main() {
       case "updatequickFiltersLabel":
         messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
         break;
+
+      // refresh license info (at midnight) and update label afterwards.
+      case "updateLicenseTimer":
+        {
+          await currentLicense.updateLicenseDates();
+
+          messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
+          messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        }
+        break;
         
       case "updateLicense":
-        let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(legacy_root + "licenser.forceSecondaryIdentity"),
-            isDebugLicenser = await messenger.LegacyPrefs.getPref(legacy_root + "debug.premium.licenser");
-            
-        // we create a new Licenser object for overwriting, this will also ensure that key_type can be changed.
-        let newLicense = new Licenser(data.key, { forceSecondaryIdentity, debug: isDebugLicenser });
-        await newLicense.validate();
-        // Check new license and accept if ok.
-        // You may return values here, which will be send back to the caller.
-        // return false;
-        
-        // Update background license.
-        await messenger.LegacyPrefs.setPref(legacy_root + "LicenseKey", newLicense.info.licenseKey);
-        currentLicense = newLicense;
-        // Broadcast -without event is used for the licenser.
-        messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
-        messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        {
+          let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(legacy_root + "licenser.forceSecondaryIdentity"),
+              isDebugLicenser = await messenger.LegacyPrefs.getPref(legacy_root + "debug.premium.licenser");
+              
+          // we create a new Licenser object for overwriting, this will also ensure that key_type can be changed.
+          let newLicense = new Licenser(data.key, { forceSecondaryIdentity, debug: isDebugLicenser });
+          await newLicense.validate();
+          // Check new license and accept if ok.
+          // You may return values here, which will be send back to the caller.
+          // return false;
+          
+          // Update background license.
+          await messenger.LegacyPrefs.setPref(legacy_root + "LicenseKey", newLicense.info.licenseKey);
+          currentLicense = newLicense;
+          // Broadcast -without event is used for the licenser.
+          messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
+          messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        }
         return true;
+      case "setActionTip":
+        // https://webextension-api.thunderbird.net/en/stable/browserAction.html#settitle-details
+        messenger.browserAction.setTitle({title:data.text});
+        break;
+
+      case "setActionLabel":
+        // https://webextension-api.thunderbird.net/en/stable/browserAction.html#setlabel-details
+        messenger.browserAction.setLabel({label:data.text});
+        break;
     }
   });
   

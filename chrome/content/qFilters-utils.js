@@ -391,12 +391,15 @@ quickFilters.Util = {
 					Cc = Components.classes,
 					util = quickFilters.Util;
     try {
-      if (!icon)
+      if (!icon) {
         icon = "chrome://quickfilters/content/skin/QuickFilters_32.svg";
-      else
+      }
+      else {
         icon = "chrome://quickfilters/content/skin/" + icon;
-      if (!title)
+      }
+      if (!title) {
         title = "quickFilters";
+      }
       util.logToConsole('popupAlert(' + text + ', ' + title + ')');
 			// let's put this into a timeout
 			window.setTimeout(function() {
@@ -638,8 +641,7 @@ quickFilters.Util = {
 						}
 					}
       }
-      else
-        MsgStatusFeedback.showStatusString(s);
+      else { MsgStatusFeedback.showStatusString(s); }        
     }
     catch(ex) {
       this.logToConsole("showStatusMessage - " +  ex);
@@ -2203,6 +2205,18 @@ quickFilters.Util = {
       quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" }); 
     }
   } ,
+
+	setMidnightTimer: function() {
+		let today = new Date(),
+		    tomorrow = new Date(today.getFullYear(),today.getMonth(),today.getDate()+1),
+		    timeToMidnight = (tomorrow-today);
+		setTimeout(
+			() => {
+				quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" }); 
+				quickFilters.Util.setMidnightTimer();
+			},
+			timeToMidnight);
+	},
   
   // new type of tooltips: click first displays the hovering text in the clickyTooltip attribute!
   openTooltipPopup: function(el) {

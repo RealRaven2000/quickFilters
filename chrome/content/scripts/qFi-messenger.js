@@ -15,6 +15,7 @@ async function onLoad(activatedWhileWindowOpen) {
   // console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
+  let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css");
     
   WL.injectElements(`  
   <popup id="folderPaneContext">
@@ -116,6 +117,9 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickfilters-current-searchfilterbutton":
         window.quickFilters.searchFiltersFromFolder();
         break;
+      case "quickfilters-menu-test-midnight":
+        window.quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" });
+        break;
       default:
         console.log("unknown quickFilters command", el.id || "id: N/A", el);
     }
@@ -208,6 +212,9 @@ async function onLoad(activatedWhileWindowOpen) {
   // Enable the global notify notifications from background.
   window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
+  // set up updating the label at midnight
+  window.quickFilters.Util.setMidnightTimer();
+  
   // window.addEventListener("quickFilters.BackgroundUpdate", window.quickFilters.initLicensedUI);
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
@@ -272,9 +279,11 @@ function onUnload(isAddOnShutown) {
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
   window.removeEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
+  
   if (window.quickFilters.isKeyListener) {
     window.quickFilters.removeKeyListener(window);
   }
+  window.quickFilters.removeTabEventListener();
   window.quickFilters.restoreTagListener();
   window.quickFilters.removeFolderListeners();
 
