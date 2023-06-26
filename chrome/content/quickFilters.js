@@ -556,20 +556,25 @@ END LICENSE BLOCK
     # Added Czech translation to license dialog.
     # to encourage license renewals: Show bargain section in splash screen if <=10 days to expiry
     
-  5.9.2 - WIP
+  5.9.2 - 25/06/2023
     # [issue 185] Custom Template fail reading header fields from email (inserts ??)
     # [issue 182] Add explanation to the "New filter Properties" page in settings 
     # Ensure to disable assistant on onload
-    
-  5.10 - WIP
     # [issue 178] Correct the Number of days left in license by rounding up
     # do not trigger "news" unless min ver changes at least.
-    #
+    
+  6.0 - WIP
     # [issue 181] Version compatibily with Thunderbird 115 (SuperNova UI)
     # - new browser action button
     # - messageServiceFromURI moved to MailServices
     # - richtlistbox.insertItemAt deprecated
-    # 
+    # - all commands are now in unified toolbar dropdown menu
+    # - adjusted styles for news / license warning menu items for better visibility
+    # option to disable notification after running filters manually (quickFilters Pro)
+
+  6.x - TO DO
+    # convert settings to html / Thunderbird tab
+    # "Create Filter from message" context menu item
    
   ============================================================================================================
   FUTURE WORK:
@@ -1592,6 +1597,7 @@ var quickFilters = {
     let hasNews = quickFilters.Preferences.getBoolPref("hasNews"),
         btn = document.getElementById("quickfilters-toolbar-button"),
         isDropDownMarkerStyled = false;
+    let newLabel = "", newTooltip = "";
     // for styling button parent background image
     //   in  Tb115 we need to add the class to the parent <div class="live-content">!
     function addClass(element, c) {
@@ -1602,15 +1608,6 @@ var quickFilters = {
       element.classList.remove(c);
       element.parentElement.classList.remove(c);
     }
-    function setLabel(btn, text) {
-      // was btn.label = text
-      let theLabel = btn.querySelector(".button-label");
-      if (theLabel) {
-        theLabel.textContent = text;
-      } else {
-        util.logDebug("Can't set label for btn " + btn.id);
-      }
-    }
 
     if (btn) {
       if (hasNews) {
@@ -1620,26 +1617,27 @@ var quickFilters = {
       }
       if (util.licenseInfo.isExpired) {
         addClass(btn,"expired");
-        setLabel(btn, util.getBundleString("quickfiltersToolbarButton.expired"));
-        btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.expired.tip"));
+        removeClass(btn,"renew");
+        newLabel = util.getBundleString("quickfiltersToolbarButton.expired");
+        newTooltip = util.getBundleString("quickfiltersToolbarButton.expired.tip");
         isDropDownMarkerStyled = true;
       }
       else {
         removeClass(btn,"expired");
         if (hasNews) {
-          setLabel(btn, util.getBundleString("quickfiltersToolbarButton.updated"));
-          btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.updated.tip"));
+          newLabel = util.getBundleString("quickfiltersToolbarButton.updated");
+          newTooltip = util.getBundleString("quickfiltersToolbarButton.updated.tip");
           isDropDownMarkerStyled = true;
         }
         else {
-          btn.setAttribute("label", "quickFilters"); // let's use the standard label
-          btn.setAttribute("tooltiptext", util.getBundleString("quickfiltersToolbarButton.tooltip"));
+          newLabel = "quickFilters"; // let's use the standard label
+          newTooltip = util.getBundleString("quickfiltersToolbarButton.tooltip");
         }
         let mnuGoPro = document.getElementById("quickfilters-gopro");
         if (util.licenseInfo.isValid) { 
           if (util.licenseInfo.licensedDaysLeft<11) {
             addClass(btn,"renew");
-            setLabel(btn, util.getBundleString("quickfiltersToolbarButton.renew", "License expires in $daysLeft$ days", [util.licenseInfo.licensedDaysLeft]));
+            newLabel = util.getBundleString("quickfiltersToolbarButton.renew", "License expires in $daysLeft$ days", [util.licenseInfo.licensedDaysLeft]);
             isDropDownMarkerStyled = true;
           } else {
             removeClass(btn,"renew");
@@ -1662,6 +1660,13 @@ var quickFilters = {
         }
         dmImage.style.color = isDropDownMarkerStyled ? "#FFFFFF" : "";
       }
+      // uses browser.browserAction.setTitle() 
+      if (newTooltip) {
+        util.notifyTools.notifyBackground({ func: "setActionTip", text: newTooltip });
+      }
+      
+      // used browser.browserAction.setLabel() 
+      util.notifyTools.notifyBackground({ func: "setActionLabel", text: newLabel });
     }
   } ,
 
@@ -1705,8 +1710,8 @@ var quickFilters = {
   addTabEventListener : function() {
     try {
       let tabContainer = quickFilters.Util.tabContainer;
-      this.TabEventListeners["TabSelect"] = function(event) { quickFilters.TabListener.select(event); }
-      this.TabEventListeners["TabOpen"] = function(event) { quickFilters.TabListener.newTab(event); }
+      this.TabEventListeners["TabSelect"] = function(event) { quickFilters.TabListener.selectTab(event); }
+      this.TabEventListeners["TabOpen"] = function(event) { quickFilters.TabListener.openTab(event); }
       // this.TabEventListeners["TabClose"] = function(event) { quickFilters.TabListener.closeTab(event); }
       // this.TabEventListeners["TabMove"] = function(event) { quickFilters.TabListener.moveTab(event); }
       for (let key in this.TabEventListeners) {
@@ -1721,7 +1726,7 @@ var quickFilters = {
 	removeTabEventListener: function() {
     // this might not be necessary, as we iterate ALL event listeners when add-on shuts down 
     // (see "undo monkey patch" in qFi-messenger.js)
-    let tabContainer = quickFilters.tabContainer;
+    let tabContainer = quickFilters.Util.tabContainer;
     for (let key in this.TabEventListeners) {
       tabContainer.removeEventListener(key, this.TabEventListeners[key]);
     }
@@ -2216,8 +2221,8 @@ quickFilters.patchMailPane = () => {
     quickFilters.WL.injectElements(`
       <button id="quickfilters-toolbar-button">
         <menupopup id="quickFiltersMainPopup">
-          <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
           <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();" />
           <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
           <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
@@ -2227,6 +2232,7 @@ quickFilters.patchMailPane = () => {
               <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>                    
               <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
             </menupopup>
           </menu>
           <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
@@ -2248,13 +2254,14 @@ quickFilters.patchMailPane = () => {
 }
 
 quickFilters.TabListener = {
-  select: function(evt) {
+  selectTab: function(evt) {
     const isMailPane = quickFilters.Util.isTabMode (evt.detail.tabInfo, "mail");
     if (isMailPane) {
       quickFilters.patchMailPane();
+      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"});
     }
   },
-  newTab: function(evt) {
+  openTab: function(evt) {
     function getTabDebugInfo(tab) {
       return `[ mode = ${tab.mode.name}, title = ${tab.title}, tabId = ${tab.tabId} ]`;
     }
@@ -2273,13 +2280,13 @@ quickFilters.TabListener = {
         return;
       }
       quickFilters.Util.logDebugOptional("listeners", 
-        "quickFilters.TabListener.newTab() \n" + getTabDebugInfo(newTabInfo));
+        "quickFilters.TabListener.openTab() \n" + getTabDebugInfo(newTabInfo));
       if (isMailPane) {  // let's include single message tabs, let's see what happens
         try {
           if (typeof newTabInfo.chromeBrowser.contentWindow.commandController == "undefined") {
             quickFilters.Util.logDebug("commandController not defined, retrying later..." + getTabDebugInfo(newTabInfo));
             setTimeout(() => { 
-                quickFilters.TabListener.newTab(evt); 
+                quickFilters.TabListener.openTab(evt); 
               }, 
               RETRY_DELAY);
             return;
