@@ -250,12 +250,14 @@ quickFilters.Options = {
         chkFoldersShortcut = getElement('chkFoldersShortcut'),
         chkMailsShortcut = getElement('chkMailsShortcut'),
         chkMultiPaste = getElement('chkMultiPaste'),
-        newCustomFilter= getElement('newCustomFilter');
+        newCustomFilter = getElement('newCustomFilter'),
+        chkNotifyRunFilter = getElement('chkNotifyRunFilter');
     chkLocalFoldersAutorun.disabled = !isEnabled;
     chkFoldersShortcut.disabled = !isEnabled;
     chkMailsShortcut.disabled = !isEnabled;
     chkMultiPaste.disabled = !isEnabled;
     newCustomFilter.disabled = !isEnabled;
+    chkNotifyRunFilter.disabled = !isEnabled;
     
   },
   
