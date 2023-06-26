@@ -2,11 +2,11 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.0pre27",
+  "version": "6.0",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
-	  "name": "Axel Grude, Klaus Buecher/opto",
+	  "name": "Axel Grude",
     "url": "https://quickfilters.quickfolders.org/index.html"
 	},
   "applications": {
@@ -28,9 +28,11 @@
       "19": "chrome/content/skin/QuickFilters.svg"
     },
     "default_title": "quickFilters",
-    "default_popup": "chrome/content/quickfilters_main_popup.html"
+    "default_popup": "chrome/content/quickfilters_main_popup.html",
+    "allowed_spaces": [
+      "mail"
+    ]
   },
-  
   "experiment_apis": {
     "WindowListener": {
       "schema": "chrome/content/api/WindowListener/schema.json",
