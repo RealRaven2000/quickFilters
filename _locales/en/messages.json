@@ -118,6 +118,9 @@
   "chkMergeSkip.tooltip": {
     "message": "This will skip the step 'select merge target' and go straight to 'select template'."
   },
+  "chkNotify.RunFilter": {
+    "message": "Show a notification when running filter manually."
+  },
   "chkPeriodically.label": {
     "message": "Run Periodically"
   },
@@ -1364,7 +1367,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Fixed missing buttons on Current folder toolbar for Linux users of QuickFolders{L2}{L1} 5.9.1 Buttons in previous versions were not working immediately when added by user via customize toolbar - this required a restart of quickFilters. [issue 175]{L2}{L1} New layout for toolbar button - this is now a drop-down menu which always gives {boldStart}access to all functions{boldEnd} even when license is expired or version notes have not been read yet.{L2}{L1} Disabled the assistant when dragging mail from special folders (Queue, Templates, Drafts, Trash) [issue 164]{L2}{L1} Repaired: option to add new rules to existing filters on the top of the list of search terms.{L2}"
+    "message": "{L1} Thunderbird 115 switched to the Unified toolbar which takes up less space than the separate mail toolbar of previous versions. {addonName} uses a new action button which includes {boldStart}all its functions{boldEnd} in a single dropdown menu.{L2} {L1} News and license warnings are also integrated into the new Action button.{L2}{L1} Work planned: The context menu in the thread list is missing the function 'Create Filter from message' - this will be added in a future version. For now, you can use the command from the action button tools menu.{L2} {L1} Should you encounter any unusual behavior of {addonName} after updating to Thunderbird 115 please tell us on Github at [issue 181]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

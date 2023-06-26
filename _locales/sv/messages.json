@@ -1361,7 +1361,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Åtgärdade knappar som saknas i verktygsfältet aktuell mapp för Linux-användare av QuickFolders{L2}{L1} 5.9.1 Knappar i tidigare versioner fungerade inte omedelbart när de lades till av användaren via anpassat verktygsfält - detta krävde en omstart av quickFilters. [issue 175]{L2}{L1} Ny layout för verktygsfältsknapp - detta är nu en rullgardinsmeny som alltid ger åtkomst {boldStart}till alla funktioner{boldEnd} även när licensen har löpt ut eller versionsanteckningar inte har lästs ännu.{L2}{L1} Inaktiverade assistenten när du drar e-post från speciella mappar (kö, mallar, utkast, papperskorgen) [issue 164]{L2} {L1} Reparerad: alternativ för att lägga till nya regler till befintliga filter överst på lista över söktermer.{L2}" 
+    "message": "{L1} Thunderbird 115 bytte till Unified-verktygsfältet som tar mindre plats än det separata e-postverktygsfältet i tidigare versioner. {addonName} använder en ny åtgärdsknapp som inkluderar {boldStart}alla dess funktioner{boldEnd} i en enda rullgardinsmeny.{L2} {L1} Nyheter och licensvarningar är också integrerade i den nya åtgärdsknappen.{L2}{L1} Arbete planerat: Kontextmenyn i trådlistan saknar funktionen „Skapa filter från meddelande“ - detta kommer att läggas till i en framtida version. För tillfället kan du använda kommandot från åtgärdsknappens verktygsmeny.{L2} {L1} Om du skulle stöta på något ovanligt beteende hos {addonName} efter att ha uppdaterat till Thunderbird 115, berätta för oss på Github på [issue 181]{L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

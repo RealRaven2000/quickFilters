@@ -164,6 +164,9 @@
   "qf.listener.tags.autofilter": {
     "message": "Spouštět filtry automaticky při změně značek"
   },
+  "quickfilters.menu.license": {
+    "message": "Zkontrolujte stav licence…"
+  },
   "quickfilters.notification.donate": {
     "message": "Darovat"
   },
@@ -194,6 +197,15 @@
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Jedním kliknutím sem zobrazíte úvodní obrazovku a co je nového v quickFilters."
   },  
+  "quickfiltersToolbarButton.renew": {
+    "message": "Platnost licence vyprší za $daysLeft$ dní",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1",
+        "example": "9"
+      }
+    }
+  },
   "renew-your-license" : {
     "message" : "Obnovte si licenci."
   },  
@@ -320,7 +332,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.1 Opravena chybějící tlačítka na panelu nástrojů aktuální složky pro uživatele QuickFolders v Linuxu{L2}{L1} 5.9.1 Tlačítka v předchozích verzích nefungovala okamžitě, když je uživatel přidal pomocí přizpůsobeného panelu nástrojů – to vyžadovalo restartování QuickFilters. [issue 175]{L2}{L1} Nové rozvržení tlačítka panelu nástrojů – toto je nyní rozbalovací nabídka, která vždy umožňuje přístup {boldStart}ke všem funkcím{boldEnd}, i když vypršela platnost licence nebo ještě nebyly přečteny poznámky k verzi.{L2}{L1} Deaktivoval asistenta při přetahování pošty ze speciálních složek (Queue, Templates, Drafts, Trash) [vydání 164]{L2}{L1} Opraveno: možnost přidat nová pravidla do stávajících filtrů v horní části seznam hledaných výrazů.{L2}"
+    "message" : "{L1} Thunderbird 115 přešel na sjednocený panel nástrojů, který zabírá méně místa než samostatný panel nástrojů pošty v předchozích verzích. {addonName} používá nové tlačítko akce, které obsahuje {boldStart}všechny jeho funkce{boldEnd} v jediné rozbalovací nabídce.{L2} {L1} Do nového tlačítka Akce jsou také integrována upozornění na novinky a licence.{L2}{L1} Plánovaná práce: V kontextovém menu v seznamu vláken chybí funkce „Vytvořit filtr ze zprávy“ – tato bude přidána v budoucí verzi. Prozatím můžete použít příkaz z nabídky nástrojů akčního tlačítka.{L2} {L1} Pokud po aktualizaci na Thunderbird 115 narazíte na nějaké neobvyklé chování {addonName}, řekněte nám to na Github na [issue 181]{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

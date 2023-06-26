@@ -1,27 +1,67 @@
-quickFilters Change Log - Version 5.9.1
+quickFilters Change Log - Version 6.0
 
-<b>Improvements - Maintenance v5.9.1</b>
+<b>Changes</b>
 <ul>
-<li> Missing quickFilters buttons on QuickFolders Current Folder Bar (Linux). <a href="https://github.com/RealRaven2000/quickFilters/issues/172">[issue 172]</a></li>
-<li> quickFilters buttons don't work initially when dragging from customize toolbar -
-Add-on needs to be restartet to make buttons work. <a href="https://github.com/RealRaven2000/quickFilters/issues/175">[issue 175]</a> </li>
-<li> Improve license screen with section on pricing. As Thunderbird cannot pull the prices from the shop website at fastspring.com, the user must click the Renew / Buy License buttons to look up price on the shop website before deciding to pay <a href="https://github.com/RealRaven2000/quickFilters/issues/177">[issue 177]</a>.</li>
-<li> Added Czech translation to license dialog.</li>
+  <li>
+    Thunderbird 115 switched to the Unified toolbar which generally takes up less space
+    than the separate mail toolbar of previous versions. quickFilters uses a new
+    action button which includes all its commands in a single dropdown menu:
+    <p>
+      <img src="https://quickfilters.quickfolders.org/img/quickfilters-actionbutton.png" alt="quickFilters actions button" class="screenshot">
+    </p>
+  </li>
+  <li>
+    News / license warnings are integrated into the new Action button. Highlight colors 
+    and placement of important commands on the top spot will guide the user to click 
+    the currently most important action:
+    <p>
+      When a new version is installed, read the "whats new" splash screen and reset the button:<br>
+      <img src="https://quickfilters.quickfolders.org/img/qi-check-news.png" alt="quickFilters news menu" class="screenshot">
+    </p>
+    <p>
+      When the license is close to expiry, to check the license status:<br>
+      <img src="https://quickfilters.quickfolders.org/img/qi-check-license-renew.png" alt="quickFilters check license menu" class="screenshot">
+    </p>
+  </li>
+  <li>
+    For more detail on what functions had to be fixed / rewritten, please read on
+    the <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github Issue</a> 
+    covering conversion to Thunderbird 115.
+  </li>
 </ul>
-  
-<b>Improvements - v5.9</b>
+
+<b>Open Issues / Regressions for Thunderbird 115</b>
 <ul>
-<li> Redesigned the quickFilters Assistant toolbarbutton and made it a dropdown. This unblocks usage of the assistant when showing the "expired license" notice. It also gives the option of reading the change log <i>after</i> enabling filter assistant mode.</li>
-<li> Disable assistant when dragging mail <i>from</i> special folders: Queue | Templates | Drafts | Trash. <a href="https://github.com/RealRaven2000/quickFilters/issues/164">[issue 164]</a></li>
-<li> Added a warning if the quickFilters license is about to expire (displayed 10 days before). <a href="https://github.com/RealRaven2000/quickFilters/issues/171">[issue 171]</a></li>
+  <li>
+    The context menu in the thread list is missing the "Create Filter from message"
+    menu item - this will be delivered in a future version. 
+    For now, you can use the command from the action button tools menu:
+    <p>
+      <img src="https://quickfilters.quickfolders.org/img/qi-button-newfilterfrommsg.png" alt="create filter from message" class="screenshot">
+    </p>
+  </li>
+  <li>
+    Eventually, all settings will be displayed in a Thunderbird tab, like
+    the settings of most mail extensions. For this, it is still required to 
+    rewrite the dialog in HTML format.
+  </li>
+  <li>
+    Should you encounter any regressions / unusual behavior after updating to Thunderbird 115
+    please tell us on Github at 
+    [<a href="https://github.com/RealRaven2000/quickFilters/issues/181">issue 181</a>]
+  </li>
 </ul>
 
 
 <b>Bug Fixes</b>
 <ul>
-<li> Removed donate button from assistant dialog for licensed users. <a href="https://github.com/RealRaven2000/quickFilters/issues/166">[issue 166]</a></li>
-<li> Repaired the option to add new rules on top of existing filters. <a href="https://github.com/RealRaven2000/quickFilters/issues/166">[issue 170]</a></li> 
+  <li>
+    This version includes all bugfixes up to version 5.9.2. Going forward, the code 
+    for Thunderbird 115 and for previous versions is in separate branches in order
+    to simplify maintenance and the code base getting polluted by too manually
+    incompatible choices.
+  </li>
 </ul>
-
+  
 
 

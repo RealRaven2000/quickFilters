@@ -1359,7 +1359,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.1 Naprawiono brakujące przyciski na pasku narzędzi Bieżący folder dla użytkowników QuickFolders systemu Linux{L2}{L1} 5.9.1 Przyciski w poprzednich wersjach nie działały natychmiast po dodaniu przez użytkownika za pomocą paska narzędzi dostosowywania — wymagało to ponownego uruchomienia quickFilters. [issue 175] {L2}{L1} Nowy układ przycisku paska narzędzi - to teraz rozwijane menu, które zawsze daje dostęp {boldStart}do wszystkich funkcji{boldEnd}, nawet jeśli licencja wygasła lub uwagi do wersji nie zostały jeszcze przeczytane.{L2}{L1} Wyłączono asystenta podczas przeciągania poczty ze specjalnych folderów (Kolejka, Szablony, Wersje robocze, Kosz) [issue 164]{L2} {L1} Naprawiono: opcja dodawania nowych reguł do istniejących filtrów na górze lista wyszukiwanych terminów.{L2}"
+    "message" : "{L1} Thunderbird 115 przeszedł na ujednolicony pasek narzędzi, który zajmuje mniej miejsca niż osobny pasek narzędzi poczty w poprzednich wersjach. {addonName} używa nowego przycisku akcji, który obejmuje {boldStart}wszystkie jego funkcje{boldEnd} w jednym rozwijanym menu.{L2} {L1} Ostrzeżenia o nowościach i licencjach są również zintegrowane z nowym przyciskiem akcji.{L2}{L1} Planowane prace: W menu kontekstowym na liście wątków brakuje funkcji „Utwórz filtr z wiadomości” – zostanie ona dodana w przyszłej wersji. Na razie możesz użyć polecenia z menu narzędzi przycisków akcji.{L2} {L1} Jeśli napotkasz jakieś nietypowe zachowanie {addonName} po aktualizacji do Thunderbirda 115, poinformuj nas o tym na Githubie pod adresem [issue 181]{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

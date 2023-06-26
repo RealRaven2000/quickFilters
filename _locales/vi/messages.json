@@ -1361,7 +1361,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.1 Đã sửa các nút bị thiếu trên thanh công cụ Thư mục hiện tại dành cho người dùng Linux của QuickFolders{L2}{L1} 5.9.1 Các nút trong các phiên bản trước không hoạt động ngay lập tức khi được người dùng thêm qua thanh công cụ tùy chỉnh - điều này yêu cầu khởi động lại quickFilters. [issue 175]{L2}{L1} Bố cục mới cho nút thanh công cụ - đây hiện là trình đơn thả xuống luôn cấp quyền truy cập vào tất cả các chức năng ngay cả khi giấy phép hết hạn hoặc ghi chú phiên bản chưa được đọc.{L2}{L1} Đã tắt trợ lý khi kéo thư từ các thư mục đặc biệt (Hàng đợi, Mẫu, Bản nháp, Thùng rác) [issue 164]{L2} {L1} Đã sửa chữa: tùy chọn thêm quy tắc mới vào các bộ lọc hiện có ở đầu trang danh sách cụm từ tìm kiếm.{L2}"
+    "message": "{L1} Thunderbird 115 đã chuyển sang thanh công cụ Hợp nhất chiếm ít dung lượng hơn so với thanh công cụ thư riêng biệt của các phiên bản trước. {addonName} sử dụng một nút hành động mới bao gồm {boldStart}tất cả các chức năng của nó{boldEnd} trong một trình đơn thả xuống duy nhất.{L2} {L1} Các cảnh báo về giấy phép và tin tức cũng được tích hợp vào nút Hành động mới.{L2}{L1} Lập kế hoạch công việc: Menu ngữ cảnh trong danh sách chuỗi thiếu chức năng „Tạo bộ lọc từ tin nhắn“ - chức năng này sẽ được bổ sung trong phiên bản sau. Hiện tại, bạn có thể sử dụng lệnh từ menu công cụ nút hành động.{L2} {L1} Nếu bạn gặp phải bất kỳ hành vi bất thường nào của {addonName} sau khi cập nhật lên Thunderbird 115, vui lòng cho chúng tôi biết trên Github tại [issue 181]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

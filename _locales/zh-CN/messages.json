@@ -1361,7 +1361,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 工具栏按钮的新布局 - 现在这是一个下拉菜单，即使在许可证过期或尚未阅读版本说明时也始终可以访问所有功能。{L2}{L1} 拖动邮件时禁用助手 来自特殊文件夹（队列、模板、草稿、垃圾箱）[issue 164]{L2}{L1} 为许可用户删除了捐赠按钮。{L2}{L1} 已修复：向现有过滤器添加新规则的选项 搜索词列表。{L2}"
+    "message": "{L1} Thunderbird 115 切换到统一工具栏，比以前版本的单独邮件工具栏占用的空间更少。 {addonName} 使用新的操作按钮，其中在单个下拉菜单中包含{boldStart}所有功能{boldEnd}。{L2} {L1}新闻和许可警告也集成到新的操作按钮中。{L2}{L1} 计划工作：线程列表中的上下文菜单缺少“从消息创建过滤器”功能 - 这将在未来版本中添加。 目前，您可以使用操作按钮工具菜单中的命令。{L2} {L1} 如果您在更新到 Thunderbird 115 后遇到 {addonName} 的任何异常行为，请在 Github 上通过 [issue 181]{L2} 告诉我们"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

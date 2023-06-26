@@ -119,6 +119,15 @@
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Enkrat kliknite tukaj, če si želite ogledati začetni zaslon in kaj je novega v quickFilters."
   },
+  "quickfiltersToolbarButton.renew": {
+    "message": "Licenca poteče čez $daysLeft$ dni",
+    "placeholders": {
+      "daysLeft": {
+        "content": "$1",
+        "example": "9"
+      }
+    }
+  },
   "renew-your-license" : {
     "message" : "Obnovite licenco."
   },  
@@ -236,7 +245,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.1 Popravljeni manjkajoči gumbi v orodni vrstici trenutne mape za uporabnike QuickFolders v sistemu Linux{L2}{L1} 5.9.1 Gumbi v prejšnjih različicah niso delovali takoj, ko jih je uporabnik dodal prek orodne vrstice za prilagajanje - to je zahtevalo ponovni zagon hitrih filtrov. [issue 175]{L2}{L1} Nova postavitev gumba orodne vrstice - to je zdaj spustni meni, ki vedno omogoča {boldStart}dostop do vseh funkcij{boldEnd}, tudi ko je licenca potekla ali opombe o različici še niso bile prebrane.{L2}{L1} Onemogočen pomočnik pri vlečenju pošte iz posebnih map (Čakalna vrsta, Predloge, Osnutki, Smetnjak) [issue 164]{L2} {L1} Popravljeno: možnost dodajanja novih pravil obstoječim filtrom na vrhu seznam iskalnih izrazov.{L2}"
+    "message" : "{L1} Thunderbird 115 je preklopil na poenoteno orodno vrstico, ki zavzame manj prostora kot ločena poštna orodna vrstica prejšnjih različic. {addonName} uporablja nov akcijski gumb, ki vključuje {boldStart}vse njegove funkcije{boldEnd} v enem samem spustnem meniju.{L2} {L1} Opozorila o novicah in licencah so prav tako vključena v nov akcijski gumb.{L2}{L1} Načrtovano delo: V kontekstnem meniju na seznamu niti manjka funkcija »Ustvari filter iz sporočila« – ta bo dodana v prihodnji različici. Zaenkrat lahko uporabite ukaz iz menija orodij gumba za dejanja.{L2} {L1} Če po posodobitvi na Thunderbird 115 naletite na nenavadno vedenje {addonName}, nam to sporočite na Githubu na [issue 181]{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

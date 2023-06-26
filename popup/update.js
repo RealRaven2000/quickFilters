@@ -180,6 +180,7 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
         .replace(/\{L2\}/g,"</li>")
         .replace(/\{boldStart\}/g,"<b>")
         .replace(/\{boldEnd\}/g,"</b>")
+        .replace(/\{addonName\}/g,"quickFilters")
         .replace(/\[issue (\d*)\]/g,"<a class=issue no=$1>[issue $1]</a>");
     }
     
