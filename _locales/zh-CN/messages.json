@@ -1064,28 +1064,25 @@
     "message": "不再显示此消息。"
   },
   "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Extend License"
+    "message": "延长许可证"
   },
   "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
+    "message": "这会将当前的许可日期延长一年。 它通常比新许可证便宜。"
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Buy License"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "购买许可证"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Renew License"
+    "message": "更新许可证"
   },
   "quickfilters.notification.premium.freeUses": {
     "message": "您可以免费使用此功能 {1} 次。"
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
+    "message": "{1} 是一项高级功能，请获取 quickFilters Pro 许可证才能永久使用它。"
   },
   "quickfilters.notification.premium.title": {
-    "message": "Premium Feature"
+    "message": "高级功能"
   },
   "quickfilters.notification.proFeature.notificationText": {
     "message": "功能 {1} 为高级功能，如果您需要经常使用此功能，请考虑在年内向quickFilters的开发人员提供资助。"
@@ -1109,13 +1106,13 @@
     "message": "搜索条件(文本)"
   },
   "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "Actions that modify Strings"
+    "message": "修改字符串的操作"
   },
   "quickfilters.option.searchProperty.targetFolder": {
     "message": "目标文件夹"
   },
   "quickfilters.premium.renewLicense.tooltip": {
-    "message": "Your license expired {1} days ago"
+    "message": "您的许可证已于 {1} 天前过期"
   },
   "quickfilters.premium.title.customTemplate": {
     "message": "自定义模板"
@@ -1154,10 +1151,10 @@
     "message": "自定义模板的名称:"
   },
   "quickfilters.promptDontRepeat": {
-    "message": "Do not show this warning again."
+    "message": "不要再次显示此警告。"
   },
   "quickfilters.register.licenseValid.expired": {
-    "message": "Your license expired on:"
+    "message": "您的许可证已过期："
   },
   "quickfilters.replyWithTemplate.label": {
     "message": "使用模板回复"
