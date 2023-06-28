@@ -11,7 +11,6 @@ END LICENSE BLOCK
 
 // moved import code to bottom for app version detection...
 
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
 var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm");
 
 var QuickFilters_TabURIregexp = {

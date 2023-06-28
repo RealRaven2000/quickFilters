@@ -9,8 +9,6 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
-var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
-
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.Worker = {
   bundle: null,

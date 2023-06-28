@@ -1,5 +1,3 @@
-var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
-
 async function setAssistantButton(e) {
   window.quickFilters.List.setAssistantButton(e.detail.active);
 }

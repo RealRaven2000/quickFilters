@@ -11,9 +11,6 @@ END LICENSE BLOCK
 */
 
 
-var { Services } = ChromeUtils.import('resource://gre/modules/Services.jsm');
-
-
 quickFilters.Preferences = {
   Prefix: "extensions.quickfilters.",
 	service: Services.prefs,
