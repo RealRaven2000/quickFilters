@@ -246,6 +246,9 @@ async function main() {
   messenger.WindowListener.registerWindow("chrome://messenger/content/FilterEditor.xhtml", "chrome/content/scripts/qFi-filterEditor.js");
   messenger.WindowListener.registerWindow("chrome://messenger/content/FilterListDialog.xhtml", "chrome/content/scripts/qFi-filterlist.js");
     
+  // styling for QuickFolders navigation bar - lives in 3pane!
+  messenger.WindowListener.registerWindow("about:3pane", "chrome/content/scripts/qFi-3pane.js");
+
   // how to add a click event
   // browser.actionButton.onClicked.addListener(() => { …. });
   

@@ -563,14 +563,17 @@ END LICENSE BLOCK
     # [issue 178] Correct the Number of days left in license by rounding up
     # do not trigger "news" unless min ver changes at least.
     
-  6.0 - WIP
-    # [issue 181] Version compatibily with Thunderbird 115 (SuperNova UI)
+  6.0 - 30/06/2023
+    # [issue 181] Version compatibility with Thunderbird 115 (SuperNova UI)
     # - new browser action button
     # - messageServiceFromURI moved to MailServices
     # - richtlistbox.insertItemAt deprecated
     # - all commands are now in unified toolbar dropdown menu
     # - adjusted styles for news / license warning menu items for better visibility
     # option to disable notification after running filters manually (quickFilters Pro)
+
+  6.1 - WIP
+    # - Fix integration of buttons on QuickFolders Navigation bar (Current Folder Toolbar)
 
   6.x - TO DO
     # convert settings to html / Thunderbird tab
@@ -1263,23 +1266,23 @@ var quickFilters = {
     //   quickfolders.curFolderbar.messagesbutton
     let prefs = quickFilters.Preferences,
         util = quickFilters.Util,
-        win = window;
+        doc = quickFilters.Util.document3pane; // 3pane document
     util.logDebug('toggleCurrentFolderButtons()');
     try {
       // in tb 68 we need to move the buttons into the correct place first,
-      let btnList = win.document.getElementById('quickfilters-current-listbutton');
+      let btnList = doc.getElementById('quickfilters-current-listbutton');
       if (btnList) { 
-        let injected = win.document.getElementById('quickFilters-injected'),
-            btnRun = win.document.getElementById('quickfilters-current-runbutton'),
-            btnMsgRun = win.document.getElementById('quickfilters-current-msg-runbutton'),
-            btnSearch = win.document.getElementById('quickfilters-current-searchfilterbutton');
+        let injected = doc.getElementById('quickFilters-injected'),
+            btnRun = doc.getElementById('quickfilters-current-runbutton'),
+            btnMsgRun = doc.getElementById('quickfilters-current-msg-runbutton'),
+            btnSearch = doc.getElementById('quickfilters-current-searchfilterbutton');
             
         if (injected)  { 
           util.logDebug("found injected container with current toolbar buttons");
           // insert after QuickFolders-currentFolderFilterActive
-          let toolbar = win.document.getElementById('QuickFolders-CurrentFolderTools');
+          let toolbar = doc.getElementById('QuickFolders-CurrentFolderTools');
           if (toolbar) {
-            let refNode = win.document.getElementById('QuickFolders-Options');
+            let refNode = doc.getElementById('QuickFolders-Options');
             toolbar.insertBefore(btnList, refNode);
             toolbar.insertBefore(btnRun, refNode);
             toolbar.insertBefore(btnMsgRun, refNode);

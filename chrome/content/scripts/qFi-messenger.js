@@ -170,41 +170,6 @@ async function onLoad(activatedWhileWindowOpen) {
 
   // from qFilters-QF-tb68.xul
   
-  // QUICKFOLDERS INJECTION
-  WL.injectElements(`
-  <toolbar id="mail-bar3">
-  <hbox id="quickFilters-injected" collapsed="true">
-    <toolbarbutton id="quickfilters-current-listbutton"
-             class="icon"
-             insertafter="QuickFolders-currentFolderFilterActive"
-             label=""
-             tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
-             oncommand="window.quickFilters.doCommmand(this);"
-             />
-    <toolbarbutton id="quickfilters-current-searchfilterbutton"
-             class="icon"
-             insertafter="quickfilters-current-listbutton"
-             label=""
-             tooltiptext="__MSG_quickfilters.findFiltersForFolder.menu__"
-             oncommand="window.quickFilters.doCommmand(this);"
-             />
-    <toolbarbutton id="quickfilters-current-runbutton"
-             class="icon"
-             insertafter="quickfilters-current-listbutton"
-             label=""
-             tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
-             oncommand="window.quickFilters.doCommmand(this);"
-             />
-    <toolbarbutton id="quickfilters-current-msg-runbutton"
-             class="icon"
-             insertafter="quickfilters-current-runbutton"
-             label=""
-             tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
-             oncommand="window.quickFilters.doCommmand(this);"
-             />
-  </hbox>
-  </toolbar>
-`); 
 
   // we need the WindowListener to inject UI later (tab listener)
   window.quickFilters.WL = WL;
@@ -314,11 +279,7 @@ function onUnload(isAddOnShutown) {
 
 
   
-  // clean up current folder bar (if QuickFolders is installed)
-  deleteBtn('quickfilters-current-listbutton');
-  deleteBtn('quickfilters-current-runbutton');
-  deleteBtn('quickfilters-current-msg-runbutton');
-  deleteBtn('quickfilters-current-searchfilterbutton');
+
 
 
 }

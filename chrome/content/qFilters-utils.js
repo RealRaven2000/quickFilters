@@ -177,6 +177,9 @@ quickFilters.Util = {
     }
   } ,
   
+  get document3pane() {
+    return window[3].document;
+  } ,
 
   getMail3PaneWindow: function getMail3PaneWindow() {
     let win3pane = Services.wm.getMostRecentWindow("mail:3pane");

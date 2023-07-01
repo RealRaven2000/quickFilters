@@ -1,0 +1,123 @@
+/* New styling system, specific to Thunderbird 115 */
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.expired,
+.expired #quickfilters-checkLicense {
+  background-color: #b80015 !important; /* orange */
+  background: linear-gradient(to bottom, #890219 0%,#b80015 100%) !important; 
+  color: white;
+}
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.renew,
+.renew #quickfilters-checkLicense{
+  background-color: #893a02 !important; /* orange */
+  background: linear-gradient(to bottom, #ee570b 0%, #893a02 100%)  !important;  
+  color: white;
+}
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
+  background-color: #0064a7 !important; /* blue */
+  background-image: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) !important;
+  color: white;
+}
+/* highlight news item but only if the button is highlighted as news (hasNews pref set) */
+.newsflash #quickfilters-news.marching-ants {
+	border: 1px solid transparent !important;
+	background: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) padding-box,
+	            repeating-linear-gradient(-45deg, var(--lwt-text-color,black) 0, var(--lwt-text-color,black) 25%, transparent 0, transparent 50%) 0 / .6em .6em !important;
+	animation: quickfilters-ants 8s linear infinite !important;
+}
+
+/** common layout fixes for all special states **/
+li[item-id="ext-quickFilters@axelg.com"] > .live-content:where(.renew,.newsflash,.expired) {
+  border-radius: var(--button-border-radius) ;
+  background-clip: border-box;
+  margin: 0 5px;
+  border: 0px solid gray;
+}
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.renew button {
+  padding-left: 3px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/**
+ * Marching ants border
+ */
+#quickfilters-checkLicense.marching-ants {
+	border: 1px solid transparent !important;
+	background: linear-gradient(to bottom, #ee570b 0%, #893a02 100%) padding-box,
+	            repeating-linear-gradient(-45deg, var(--lwt-text-color,black) 0, var(--lwt-text-color,black) 25%, transparent 0, transparent 50%) 0 / .6em .6em !important;
+	animation: quickfilters-ants 8s linear infinite !important;
+} 
+
+#quickfilters-checkLicense.marching-ants:hover {
+  animation: quickfilters-ants 4s linear infinite !important;
+}
+
+@keyframes quickfilters-ants { 
+  from { background-position: 0% 0% } 
+  to { background-position: 100% 100% } 
+}
+
+
+/* chevron styling */
+#quickfilters-toolbar-button:where(.expired,.renew,.newsflash)  {
+  /*! fill: white !important; */
+}
+
+#quickfilters-toolbar-button:where(.expired, .newsflash):hover > :where(label,.button-label) {
+  color: rgb(249, 235, 214) !important;
+}
+
+#quickfilters-toolbar-button:where(.expired, .renew, .newsflash) > :where(label, .button-label) {
+  color: rgb(255,255,255) !important;
+}
+
+#quickFiltersMainPopup :where(menuitem,menu,menupopup),
+#quickFiltersMainPopup :where(menuitem,menu,menupopup) label {
+ /* color: var(--lwt-text-color, black); */
+}
+
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.expired:hover {
+	background-color: #6d0202 !important; 
+	background-image: linear-gradient(to bottom, #6d0202 0%,#aa4e5c 100%) !important;
+}
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash:hover {
+	background-color: #6d0202 !important; 
+  background-image: linear-gradient(to bottom, #02409f 0%,#004e97 100%) !important;
+}
+
+/* main icon */
+#quickfilters-toolbar-button:not([checked="true"]):where(.expired,.renew,.newsflash) > .button-icon {
+  fill: #ffffff !important;
+}
+
+#quickfilters-toolbar-button:where(.expired, .newsflash):hover > .button-icon {
+  fill: rgb(249, 235, 214) !important;
+}
+
+/* force visible label */
+#quickfilters-toolbar-button:where(.expired, .renew, .newsflash) :where(.toolbarbutton-text, .button-label) {
+  display: inline-block !important;
+}
+
+/* optional menu items */
+#quickfilters-toolbar-button:not(.expired):not(.renew) #quickfilters-checkLicense {
+  display: none;
+}
+
+#quickfilters-checkLicense {
+  list-style-image: url("chrome://smarttemplate4/content/skin/icons/info.svg") !important;
+  fill: white;
+  color: white;
+}
+
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.renew:hover,
+.expired #quickfilters-checkLicense:hover {
+  background: linear-gradient(to bottom, #6e0315 0%,#d7831d 100%) !important; 
+  color: yellow;
+}
