@@ -717,11 +717,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Filter van bericht maken…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Logboek wijzigen…"
+  },
   "quickfilters.menu.license": {
     "message": "Licentiestatus controleren…"
   },
   "quickfilters.menu.news": {
-    "message": "Nieuws / Wijzigingslogboek (lees a.u.b. - reset de hoofdknop hierboven)…"
+    "message": "News / Change Log (lees dit om bovenstaande knop te resetten)…"
   },
   "quickfilters.menu.tools": {
     "message": "Hulpmiddelen"

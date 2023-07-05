@@ -718,11 +718,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Utwórz filtr z wiadomości…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Dziennik zmian…"
+  },
   "quickfilters.menu.license": {
     "message": "Sprawdź stan licencji…"
   },
   "quickfilters.menu.news": {
-    "message": "Dziennik wiadomości / zmiany (przeczytaj - resetuje główny przycisk powyżej)…"
+    "message": "Wiadomości / dziennik zmian (przeczytaj to, aby zresetować przycisk powyżej)…"
   },
   "quickfilters.menu.tools": {
     "message": "Narzędzia"

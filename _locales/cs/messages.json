@@ -164,8 +164,17 @@
   "qf.listener.tags.autofilter": {
     "message": "Spouštět filtry automaticky při změně značek"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Protokol změn…"
+  },
   "quickfilters.menu.license": {
     "message": "Zkontrolujte stav licence…"
+  },
+  "quickfilters.menu.news": {
+    "message": "Novinky / Protokol změn (kliknutím na tlačítko resetovat výše)…"
+  },
+  "quickfilters.menu.tools": {
+    "message": "Tools"
   },
   "quickfilters.notification.donate": {
     "message": "Darovat"

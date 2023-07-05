@@ -717,11 +717,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Skapa filter utifrån meddelande…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Ändra logg…"
+  },
   "quickfilters.menu.license": {
     "message": "Kontrollera licensstatus…"
   },
   "quickfilters.menu.news": {
-    "message": "Novice / Dnevnik sprememb (preberite - ponastavi zgornji glavni gumb)…"
+    "message": "Nyheter / Ändringslogg (läs detta för att återställa knappen ovan)…"
   },
   "quickfilters.menu.tools": {
     "message": "Verktyg"

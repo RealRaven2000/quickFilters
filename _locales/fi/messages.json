@@ -718,11 +718,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Luo suodatin viestistä…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Muuta lokia…"
+  },
   "quickfilters.menu.license": {
     "message": "Tarkista lisenssin tila…"
   },
   "quickfilters.menu.news": {
-    "message": "Uutiset / Muutosloki (lue - nollaa yllä olevan pääpainikkeen)…"
+    "message": "Uutiset / Muutosloki (lue tämä nollataksesi painikkeen yllä)…"
   },
   "quickfilters.menu.tools": {
     "message": "Työkalut"

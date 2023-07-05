@@ -717,11 +717,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Tạo bộ lọc từ tin nhắn…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Nhật ký thay đổi…"
+  },
   "quickfilters.menu.license": {
     "message": "Kiểm tra trạng thái giấy phép…"
   },
   "quickfilters.menu.news": {
-    "message": "Nhật ký Tin tức / Thay đổi (vui lòng đọc - đặt lại nút chính ở trên)…"
+    "message": "Tin tức / Nhật ký thay đổi (đọc phần này để đặt lại nút ở trên)…"
   },
   "quickfilters.menu.tools": {
     "message": "Công cụ"

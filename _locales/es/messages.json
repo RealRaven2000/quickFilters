@@ -717,11 +717,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Crear filtro de mensaje para 'De' …"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Cambiar registro…"
+  },
   "quickfilters.menu.license": {
     "message": "Verifique el estado de la licencia …"
   },
   "quickfilters.menu.news": {
-    "message": "Noticias / Registro de cambios (por favor, lea - restablece el botón principal de arriba) …"
+    "message": "Noticias / Registro de cambios (lea esto para restablecer el botón de arriba) …"
   },
   "quickfilters.menu.tools": {
     "message": "Herramientas"

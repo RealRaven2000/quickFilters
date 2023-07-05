@@ -717,11 +717,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: Создать фильтр по сообщению…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "Журнал изменений…"
+  },
   "quickfilters.menu.license": {
     "message": "Проверить статус лицензии…"
   },
   "quickfilters.menu.news": {
-    "message": "Новости / Журнал изменений (пожалуйста, прочитайте - сбрасывает основную кнопку выше)…"
+    "message": "Новости / Журнал изменений (прочитайте это, чтобы сбросить кнопку выше)…"
   },
   "quickfilters.menu.tools": {
     "message": "Инструменты"

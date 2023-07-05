@@ -712,11 +712,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters:从消息创建过滤器…"
   },
+  "quickfilters.menu.changelog": {
+    "message": "更改日志..."
+  },
   "quickfilters.menu.license": {
     "message": "检查许可证状态..."
   },
   "quickfilters.menu.news": {
-    "message": "新闻/更改日志（请阅读 - 重置上面的主按钮）..."
+    "message": "新闻/更改日志（阅读此内容以重置上面的按钮）..."
   },
   "quickfilters.menu.tools": {
     "message": "工具"

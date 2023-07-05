@@ -657,13 +657,13 @@
     "message": "quickFilters: 從消息創建過濾器..."
   },
   "quickfilters.menu.changelog": {
-    "message": "變更日誌…"
+    "message": "變更日誌..."
   },
   "quickfilters.menu.license": {
     "message": "檢查許可證狀態..."
   },
   "quickfilters.menu.news": {
-    "message": "新聞/更改日誌（請閱讀 - 重置上面的主按鈕）..."
+    "message": "新聞/更改日誌（閱讀此內容以重置上面的按鈕）..."
   },
   "quickfilters.menu.tools": {
     "message": "工具"

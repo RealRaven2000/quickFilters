@@ -717,11 +717,14 @@
   "quickfilters.FromMessage.label": {
     "message": "quickFilters: メッセージからフィルタを作成..."
   },
+  "quickfilters.menu.changelog": {
+    "message": "変更ログ…"
+  },
   "quickfilters.menu.license": {
     "message": "ライセンスのステータスを確認…"
   },
   "quickfilters.menu.news": {
-    "message": "ニュース / 変更履歴 (お読みください - 上のメイン ボタンをリセットします)…"
+    "message": "ニュース / 変更ログ (これを読んで上のリセットボタンを押してください)…"
   },
   "quickfilters.menu.tools": {
     "message": "ツール"
