@@ -1265,35 +1265,41 @@ var quickFilters = {
     //   quickfolders.curFolderbar.folderbutton
     //   quickfolders.curFolderbar.messagesbutton
     let prefs = quickFilters.Preferences,
-        util = quickFilters.Util,
-        doc = quickFilters.Util.document3pane; // 3pane document
+        util = quickFilters.Util;
+        
+    // iterate all tabs a to get 3pane documents.
     util.logDebug('toggleCurrentFolderButtons()');
     try {
-      // in tb 68 we need to move the buttons into the correct place first,
-      let btnList = doc.getElementById('quickfilters-current-listbutton');
-      if (btnList) { 
-        let injected = doc.getElementById('quickFilters-injected'),
-            btnRun = doc.getElementById('quickfilters-current-runbutton'),
-            btnMsgRun = doc.getElementById('quickfilters-current-msg-runbutton'),
-            btnSearch = doc.getElementById('quickfilters-current-searchfilterbutton');
-            
-        if (injected)  { 
-          util.logDebug("found injected container with current toolbar buttons");
-          // insert after QuickFolders-currentFolderFilterActive
-          let toolbar = doc.getElementById('QuickFolders-CurrentFolderTools');
-          if (toolbar) {
-            let refNode = doc.getElementById('QuickFolders-Options');
-            toolbar.insertBefore(btnList, refNode);
-            toolbar.insertBefore(btnRun, refNode);
-            toolbar.insertBefore(btnMsgRun, refNode);
-            toolbar.insertBefore(btnSearch, refNode);
+      // iterate all 3pane documents of mail tabs.
+      for (let tabInfo of window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab")) {
+        let doc = tabInfo.chromeBrowser.contentDocument;
+
+        // in tb 68 we need to move the buttons into the correct place first,
+        let btnList = doc.getElementById('quickfilters-current-listbutton');
+        if (btnList) { 
+          let injected = doc.getElementById('quickFilters-injected'),
+              btnRun = doc.getElementById('quickfilters-current-runbutton'),
+              btnMsgRun = doc.getElementById('quickfilters-current-msg-runbutton'),
+              btnSearch = doc.getElementById('quickfilters-current-searchfilterbutton');
+              
+          if (injected)  { 
+            util.logDebug("found injected container with current toolbar buttons");
+            // insert after QuickFolders-currentFolderFilterActive
+            let toolbar = doc.getElementById('QuickFolders-CurrentFolderTools');
+            if (toolbar) {
+              let refNode = doc.getElementById('QuickFolders-Options');
+              toolbar.insertBefore(btnList, refNode);
+              toolbar.insertBefore(btnRun, refNode);
+              toolbar.insertBefore(btnMsgRun, refNode);
+              toolbar.insertBefore(btnSearch, refNode);
+            }
           }
+          // QuickFolders settings - we need to notify quickfolders instead!
+          btnList.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
+          btnRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
+          btnMsgRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
+          btnSearch.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.findfilterbutton');
         }
-        // QuickFolders settings - we need to notify quickfolders instead!
-        btnList.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
-        btnRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
-        btnMsgRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
-        btnSearch.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.findfilterbutton');
       }
     }
     catch (ex) {
