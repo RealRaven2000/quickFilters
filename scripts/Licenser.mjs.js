@@ -169,7 +169,6 @@ export class Licenser {
 	async graceDate() {
 		let graceDate = "", isResetDate = false;
 		try {
-      var { Services } = ChromeUtils.import("resource://gre/modules/Services.jsm");
 			graceDate = Services.prefs.getStringPref("license.gracePeriodDate");
 		}
 		catch(ex) { 
