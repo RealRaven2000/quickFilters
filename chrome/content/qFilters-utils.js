@@ -71,7 +71,7 @@ quickFilters.Util = {
         }       
       }      
     }   
-    quickFilters.Util.notifyTools.registerListener(onBackgroundUpdates);
+    quickFilters.Util.notifyTools.addListener(onBackgroundUpdates);
     
     quickFilters.Util.AssistantActive = await quickFilters.Util.notifyTools.notifyBackground({ func: "getAssistantMode" }); // replace worker.FilterMode
     quickFilters.Util.licenseInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getLicenseInfo" });
