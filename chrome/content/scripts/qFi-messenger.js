@@ -202,6 +202,13 @@ async function onLoad(activatedWhileWindowOpen) {
     callBackCommands.quickFilters_cmd_copyMessage = callBackCommands.cmd_copyMessage; 
     callBackCommands.quickFilters_cmd_archive = callBackCommands.cmd_archive;
 
+    if (callBackCommands.cmd_moveMessage == callBackCommands.cmd_copyMessage) {
+      Services.prompt.alert(window, "quickFilters Update", 
+        `Important - Thunderbird just updated from quickFilters 6.0 - you may have run a previous version of quickFilters which could not restore the action 'move message'. 
+  Instead it will likely copy the messages right now.
+  Please restart Thunderbird to avoid duplicate messages!`);
+    }
+
     callBackCommands.cmd_moveMessage = function (destFolder) {
       // isCopy = false
       quickFilters.MsgMoveCopy_Wrapper(destFolder, false, callBackCommands.quickFilters_cmd_moveMessage);  
@@ -256,14 +263,20 @@ function onUnload(isAddOnShutown) {
     if (callBackCommands.quickFilters_cmd_moveMessage) {
       callBackCommands.cmd_moveMessage = callBackCommands.quickFilters_cmd_moveMessage; // backup wrapped function
       delete callBackCommands.quickFilters_cmd_moveMessage;
+    } else { 
+      console.log("quickFilters: no cmd_moveMessage to restore", tabInfo) 
     }
     if (callBackCommands.quickFilters_cmd_copyMessage) {
-      callBackCommands.cmd_moveMessage = callBackCommands.quickFilters_cmd_copyMessage; // backup wrapped function
+      callBackCommands.cmd_copyMessage = callBackCommands.quickFilters_cmd_copyMessage; // backup wrapped function
       delete callBackCommands.quickFilters_cmd_copyMessage;
+    } else { 
+      console.log("quickFilters: no cmd_copyMessage to restore", tabInfo) 
     }
     if (callBackCommands.quickFilters_cmd_archive) {
       callBackCommands.cmd_archive = callBackCommands.quickFilters_cmd_archive;
       delete callBackCommands.quickFilters_cmd_archive;
+    }else { 
+      console.log("quickFilters: no cmd_archive to restore", tabInfo) 
     }
 
     // restore all folder tree listeners
