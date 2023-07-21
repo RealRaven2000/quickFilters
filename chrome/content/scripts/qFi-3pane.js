@@ -10,7 +10,7 @@ async function onLoad(activatedWhileWindowOpen) {
       console.log("qFi-3pane.js - onLoad()");
       win.quickFilters = win.parent.quickFilters;
 
-      // QUICKFOLDERS INJECTION
+      // QUICKFOLDERS NAVIGATION BAR INJECTION
       WL.injectElements(`
       <div id="threadPane">
       <hbox id="quickFilters-injected" collapsed="true">
@@ -19,32 +19,32 @@ async function onLoad(activatedWhileWindowOpen) {
                 insertafter="QuickFolders-currentFolderFilterActive"
                 label=""
                 tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
-                oncommand="window.quickFilters.doCommmand(this);"
+                oncommand="window.quickFilters.doCommand(this);"
                 />
         <toolbarbutton id="quickfilters-current-searchfilterbutton"
                 class="icon"
                 insertafter="quickfilters-current-listbutton"
                 label=""
                 tooltiptext="__MSG_quickfilters.findFiltersForFolder.menu__"
-                oncommand="window.quickFilters.doCommmand(this);"
+                oncommand="window.quickFilters.doCommand(this);"
                 />
         <toolbarbutton id="quickfilters-current-runbutton"
                 class="icon"
                 insertafter="quickfilters-current-listbutton"
                 label=""
                 tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
-                oncommand="window.quickFilters.doCommmand(this);"
+                oncommand="window.quickFilters.doCommand(this);"
                 />
         <toolbarbutton id="quickfilters-current-msg-runbutton"
                 class="icon"
                 insertafter="quickfilters-current-runbutton"
                 label=""
                 tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
-                oncommand="window.quickFilters.doCommmand(this);"
+                oncommand="window.quickFilters.doCommand(this);"
                 />
       </hbox>
-      </div>
-    `); 
+      </div>`); 
+
     }
   );
 

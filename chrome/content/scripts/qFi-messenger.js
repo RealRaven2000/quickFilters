@@ -7,7 +7,7 @@ async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
 }
 
-var listener_toggleFolder, listener_updatequickFiltersLabel;
+var listener_toggleFolder, listener_updatequickFiltersLabel, listener_doCommand;
 
 async function onLoad(activatedWhileWindowOpen) {
   // console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
@@ -51,25 +51,25 @@ async function onLoad(activatedWhileWindowOpen) {
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.ListButton.label__"
                    tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
-                   oncommand="window.quickFilters.doCommmand(this);"
+                   oncommand="window.quickFilters.doCommand(this);"
                    />
 
     <toolbarbutton id="quickfilters-toolbar-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.RunButton.label__"
                    tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
-                   oncommand="window.quickFilters.doCommmand(this);"
+                   oncommand="window.quickFilters.doCommand(this);"
                    />
     <toolbarbutton id="quickfilters-toolbar-msg-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
                    label="__MSG_quickfilters.RunButtonMsg.label__"
                    tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
-                   oncommand="window.quickFilters.doCommmand(this);"
+                   oncommand="window.quickFilters.doCommand(this);"
                    />
   </toolbarpalette>
 `); 
 
-  window.quickFilters.doCommmand = function (el) {
+  window.quickFilters.doCommand = function (el) {
     if (!el) {
       return;
     }
@@ -136,7 +136,7 @@ async function onLoad(activatedWhileWindowOpen) {
               class="menuitem-iconic"
               insertBefore="applyFilters"
               label="__MSG_quickfilters.Start.label__"
-              oncommand="window.quickFilters.doCommmand(this);"
+              oncommand="window.quickFilters.doCommand(this);"
               />
   </menupopup>
   
@@ -146,7 +146,7 @@ async function onLoad(activatedWhileWindowOpen) {
               insertBefore="createFilter"
               label="__MSG_quickfilters.FromMessage.label__"
 			        accesskey="__MSG_quickfilters.FromMessage.accesskey__"
-              oncommand="window.quickFilters.doCommmand(this);"
+              oncommand="window.quickFilters.doCommand(this);"
               />
   </menupopup>
   `);
@@ -161,7 +161,7 @@ async function onLoad(activatedWhileWindowOpen) {
               label="__MSG_quickfilters.FromMessage.label__"
               accesskey="__MSG_quickfilters.FromMessage.accesskey__"
               insertbefore="mailContext-saveAs"
-              oncommand="window.quickFilters.doCommmand(this);"
+              oncommand="window.quickFilters.doCommand(this);"
               />
   </menupopup>
   `);
@@ -183,6 +183,18 @@ async function onLoad(activatedWhileWindowOpen) {
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   listener_toggleFolder = window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters)
   window.addEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
+
+  listener_doCommand = (event) => {
+    let windowId = event.detail.windowId;
+    // find out if we are in the correct window:
+    // context.extension.windowManager
+    let windowObject = WL.extension.windowManager.get(windowId);
+		if (windowObject && window == windowObject.window) {
+      window.quickFilters.doCommand.call(window.quickFilters, event.detail.commandItem);
+    }
+  }; 
+  window.addEventListener("quickFilters.BackgroundUpdate.doCommand", listener_doCommand);
+
   
   listener_updatequickFiltersLabel = window.quickFilters.updatequickFiltersLabel.bind(window.quickFilters);
   window.addEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
@@ -247,6 +259,7 @@ function onUnload(isAddOnShutown) {
     }
   }
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+  window.removeEventListener("quickFilters.BackgroundUpdate.doCommand", listener_doCommand);
   window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
   window.removeEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
   

@@ -289,9 +289,57 @@ async function main() {
         if (isDebugLicenser) console.log("quickFilters license state after adding account:", currentLicense.info)
       }
     });
-  }  
-  
+  }
 
-}
+  /* original code
+  <menupopup id="messageMenuPopup">
+    <menuitem id="quickFilters-fromMessageInMenu"
+              class="menuitem-iconic"
+              insertBefore="createFilter"
+              label="__MSG_quickfilters.FromMessage.label__"
+              accesskey="__MSG_quickfilters.FromMessage.accesskey__"
+              oncommand="window.quickFilters.doCommand(this);"
+              />
+  </menupopup>
+      
+  */
+
+  /* Add message thread context menu item */
+  // get label text?
+  let menuLabel = messenger.i18n.getMessage("quickfilters.FromMessage.label");
+  // let menuAccel = messenger.i18n.getMessage("quickfilters.FromMessage.accesskey");
+  const CREATEFILTERFROMMSG_ID = "quickFilters-fromMessageInMenu";
+  let menuProps = {
+    contexts: ["message_list"],
+    onclick: async (event) => {
+      // fake menu item to pass to doCommand
+      if (isDebug) {
+        console.log("quickFilters context menu", event);
+      }
+      const menuItem = { id: CREATEFILTERFROMMSG_ID },
+            windows = await browser.windows.getAll({ populate: true });
+      let currentWin = windows.find(fw => fw.focused),
+          currentTab = currentWin.tabs.find(t => t.active);
+
+      // call win.quickFilters.doCommand(menuItem);
+      messenger.NotifyTools.notifyExperiment(
+        {
+          event: "doCommand", 
+          detail: {commandItem: menuItem, tabId: currentTab.id, windowId: currentWin.id}
+        }
+      );
+    },
+    icons: {
+      "16": "chrome/content/skin/createFilter.svg",
+      "24": "chrome/content/skin/createFilter.svg"
+    } ,
+    enabled: true,
+    id: CREATEFILTERFROMMSG_ID,
+    title: menuLabel
+  }
+  messenger.menus.create(menuProps);
+
+
+} // end main()
 
 main();

@@ -1,6 +1,5 @@
 // Set this to the ID of your add-on.
-// [issue 122] - avoid false positives:
-var ADDON_ID = "quickFilters@" + "axelg" + "." + "com";
+var ADDON_ID = "quickFilters@axelg.com";
 
 /*
  * This file is provided by the addon-developer-support repository at

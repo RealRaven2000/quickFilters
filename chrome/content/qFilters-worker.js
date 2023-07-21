@@ -782,7 +782,7 @@ quickFilters.Worker = {
           // **************************************************************
           let win = window.openDialog('chrome://quickfilters/content/filterTemplate.xhtml',
             'quickfilters-filterTemplate',
-            'chrome,titlebar,alwaysRaised,modal,resizable,cancel,extra1,extra2', // ,accept,cancel,moveable
+            'chrome,titlebar,alwaysRaised,modal,resizable,cancel,extra1,extra2,centerscreen', // ,accept,cancel,moveable
             params,
             matchingFilters).focus(); // pass array of matching filters as additional arg
 

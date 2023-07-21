@@ -1,46 +1,29 @@
-quickFilters Change Log - Version 6.0.1
+quickFilters Change Log - Version 6.1
 
-<b>Changes</b>
+<b>New functions</b>
 <ul>
   <li>
-    Thunderbird 115 switched to the Unified toolbar which generally takes up less space
-    than the separate mail toolbar of previous versions. quickFilters uses a new
-    action button which includes all its commands in a single dropdown menu:
-    <p>
-      <img src="https://quickfilters.quickfolders.org/img/quickfilters-actionbutton.png" alt="quickFilters actions button" class="screenshot">
-    </p>
-    <p>
-      By default, Add-on buttons always appear <i>on the right</i> of the toolbar,
-      but you can move them to a better position by <i>right-clicking</i> the toolbar 
-      and selecting "customize...":<br><br>
-      <img src="https://quickfilters.quickfolders.org/img/toolbar-customize.png" alt="customize toolbar" class="screenshot">
-    </p>
+    Implemented command "Create Filter from message" in the context menu in the messages list. 
+    Just right-click any message after it was moved to a folder (or tagged if you want to create 
+    tags through filters)
   </li>
   <li>
-    News / license warnings are integrated into the new Action button. Highlight colors 
-    and placement of important commands on the top spot will guide the user to click 
-    the currently most important action:
-    <p>
-      When a new version is installed, read the "whats new" splash screen and reset the button:<br>
-      <img src="https://quickfilters.quickfolders.org/img/qi-check-news.png" alt="quickFilters news menu" class="screenshot">
-    </p>
-    <p>
-      When the license is close to expiry, to check the license status:<br>
-      <img src="https://quickfilters.quickfolders.org/img/qi-check-license-renew.png" alt="quickFilters check license menu" class="screenshot">
-    </p>
-  </li>
-  <li>
-    New option to disable notification when a filter is run manually (quickFilters Pro users only).
-  </li>
-  <li>
-    Added traditional Chinese translations for User Interface.
-  </li>
-  <li>
-    For more detail on what functions had to be fixed / rewritten, please read on
+    For more detail on what functions had to be fixed / rewritten for Thunderbird 115, please read on
     the <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github Issue</a> 
     covering conversion to Thunderbird 115.
   </li>
 </ul>
+
+<b>Bug Fixes</b>
+<ul>
+  <li>
+    This version includes all bugfixes up to version 5.9.3. Going forward, the code 
+    for Thunderbird 115 and for previous versions is in separate branches in order
+    to simplify maintenance and the code base getting polluted by too manually
+    incompatible choices.
+  </li>
+</ul>  
+
 
 <b>Open Issues / Regressions for Thunderbird 115</b>
 <ul>
@@ -62,29 +45,9 @@ quickFilters Change Log - Version 6.0.1
     please tell us on Github at 
     [<a href="https://github.com/RealRaven2000/quickFilters/issues/181">issue 181</a>]
   </li>
-  <li>
-    
-  </li>>
 </ul>
 
 
-<b>Bug Fixes</b>
-<ul>
-  <li>
-    This version includes all bugfixes up to version 5.9.3. Going forward, the code 
-    for Thunderbird 115 and for previous versions is in separate branches in order
-    to simplify maintenance and the code base getting polluted by too manually
-    incompatible choices.
-  </li>
-</ul>
 
-<b>Maintenance changes 6.0.1</b>
-<ul>
-  <li>Added translations for menu item "change log"</li>
-  <li>Merged Services.jsm patch by arai-a.</li>
-  <li>Bumped strict_max_ver to 115.* - A bug on ATN prevents users to upgrade automatically.</li>
-  <li>Improved button integration with QuickFolders Current Folder toolbar</li>
-</ul>
-  
 
 

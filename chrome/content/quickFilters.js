@@ -571,13 +571,14 @@ END LICENSE BLOCK
     # - all commands are now in unified toolbar dropdown menu
     # - adjusted styles for news / license warning menu items for better visibility
     # option to disable notification after running filters manually (quickFilters Pro)
+    # - Fix integration of buttons on QuickFolders Navigation bar (Current Folder Toolbar)
 
   6.1 - WIP
-    # - Fix integration of buttons on QuickFolders Navigation bar (Current Folder Toolbar)
+    # - [issue 197] quickFilters 6.0.* Backups stored in broken format
+    # Added thread list menu item "Create Filter from message"
 
   6.x - TO DO
     # convert settings to html / Thunderbird tab
-    # "Create Filter from message" context menu item
    
   ============================================================================================================
   FUTURE WORK:
@@ -1258,7 +1259,7 @@ var quickFilters = {
   } ,
   
   // read QF options and hide buttons from current folder bar
-  toggleCurrentFolderButtons: function toggleCurrentFolderButtons() {
+  toggleCurrentFolderButtons: function() {
     // options:
     //   quickfolders.curFolderbar.listbutton
     //   quickfolders.curFolderbar.folderbutton
@@ -1748,7 +1749,6 @@ quickFilters.MsgFolderListener = {
   qfInstance: quickFilters,
   /**
    * Event fired after message was moved or copied
-   *
    * @param {boolean} isMoved  
    * @param {nsIArray} aSrcMsgs    Array of Messages
    * @param {nsIMsgFolder} targetFolder   
@@ -2229,23 +2229,23 @@ quickFilters.patchMailPane = () => {
     quickFilters.WL.injectElements(`
       <button id="quickfilters-toolbar-button">
         <menupopup id="quickFiltersMainPopup">
-          <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();" />
-          <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();" />
+          <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuseparator />
           <menu label="__MSG_quickfilters.menu.tools__">
             <menupopup>
-              <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
-              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommmand(this);"  onclick="event.stopPropagation();"/>                    
-              <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
-              <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
+              <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
             </menupopup>
           </menu>
-          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();" />
-          <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommmand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();" />
+          <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
         </menupopup>
       </button>
     `); 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   fill="context-fill"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="createFilter.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="64.1875"
+     inkscape:cx="8.0155794"
+     inkscape:cy="7.8753651"
+     inkscape:window-width="2560"
+     inkscape:window-height="1418"
+     inkscape:window-x="-4"
+     inkscape:window-y="1436"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <path
+     d="M11 3H3C1.3 3 0 4.3 0 6v4c0 1.7 1.3 3 3 3h8v-2H3c-.6 0-1-.4-1-1V5.8c0 .1.1.1.2.1l4.5 4c.1.1.2.1.3.1.1 0 .2 0 .3-.1l4.5-4c.1 0 .1-.1.1-.2zm0 2c.1 0 .2 0 .3.1h-.1L7 8.9 2.8 5.1h-.1c.1-.1.2-.1.3-.1z"
+     id="path2" />
+  <path
+     fill="#4fc825"
+     d="M15.03 0H11c-1.33 0-1.33 2 0 2h1.62L9.79 4.8c-.96.95.48 2.38 1.42 1.4l2.82-2.79V5c0 1.33 2 1.33 2 0V1a1 1 0 00-1-1z"
+     id="path4" />
+  <path
+     fill="#307cdb"
+     d="M15.03 16.03H11c-1.33 0-1.33-2.01 0-2.01h1.62L9.79 11.2c-.97-.93.48-2.38 1.42-1.4l2.82 2.81V11c0-1.33 2-1.33 2 0v4.03a1 1 0 01-1 1z"
+     id="path6" />
+  <path
+     sodipodi:type="star"
+     style="fill:#ffa516;stroke-width:28.3238"
+     id="path306"
+     inkscape:flatsided="false"
+     sodipodi:sides="5"
+     sodipodi:cx="2.1811099"
+     sodipodi:cy="3.2872443"
+     sodipodi:r1="3.2904546"
+     sodipodi:r2="1.6452273"
+     sodipodi:arg1="0.91971961"
+     sodipodi:arg2="1.5480381"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="M 4.1752676,5.9045763 2.2185491,4.9320456 0.30810787,5.9926011 0.6283803,3.8311227 -0.9706267,2.3419147 1.184031,1.9785784 2.1062316,-0.00235822 3.1176109,1.9345659 5.2865692,2.1994877 3.7569782,3.759909 Z"
+     inkscape:transform-center-x="0.032414102"
+     inkscape:transform-center-y="-0.40751411"
+     transform="matrix(1.4008627,0,0,1.3950089,1.4017463,0.06324893)" />
+</svg>
