@@ -1613,26 +1613,20 @@ quickFilters.List = {
       return menuEntry;
   },
 	
-  fileFilters: async function fileFilters(mode, jsonData, fname, isDateStamp) {
+  /**
+   * Async function to save or load filters for an account
+   * @param {string} mode "save" | "load"
+   * @param {string} [jsonData] the formated data in a json string (only use when mode="write")
+   * @param {string} [fname] file name
+   * @param {boolean} [isDateStamp] add datestamp?
+   * @returns {string} when loading: jsonData (async)
+   * 
+   */
+  fileFilters: async function (mode, jsonData, fname, isDateStamp) {
     // readData: this function does the actual work of interpreting the read data
-    // and setting the UI values of currently selected deck accordingly:
     async function readData(data) {
-      function updateElement(el, stem, targetId) {
-        // id target is common, append .id#, otherwise replace the .id#
-        let oldId = targetId ? el.id.replace(targetId, stem) : el.id + stem,
-            evt = document.createEvent("Events");
-        // set element value (text / checkbox) from json data
-        if (el.tagName == 'checkbox')
-          el.checked = settings[oldId];
-        else
-          el.value = settings[oldId]; // textbox
-        // force preference update
-        evt.initEvent("change", true, false);
-        el.dispatchEvent(evt);
-      }
 			let filterArray = [],
           filtersJSON = data;
-      // jsonData = the key
       // every identifier ends with id#; we need to replace the number with the current key!
       // or match the string up to .id!
 			
@@ -1771,7 +1765,7 @@ quickFilters.List = {
                   // force appending correct file extension!
                   if (!path.toLowerCase().endsWith('.json'))
                     path += '.json';
-                  let promiseWrite = IOUtils.writeJSON(path, jsonData, { encoding: "utf-8"});
+                  let promiseWrite = IOUtils.writeUTF8(path, jsonData);
                   promiseWrite.then(
                     function saveSuccess(byteCount) {
                       util.logDebug ('successfully saved ' + byteCount + ' bytes to file');
