@@ -175,10 +175,6 @@ quickFilters.Util = {
       }
     }
   } ,
-  
-  get document3pane() {
-    return window[3].document;
-  } ,
 
   getMail3PaneWindow: function getMail3PaneWindow() {
     let win3pane = Services.wm.getMostRecentWindow("mail:3pane");
@@ -748,8 +744,8 @@ quickFilters.Util = {
   /** 
 	* only logs if debug mode is set and specific debug option are active
 	* 
-	* @optionString {string}: comma delimited options
-  * @msg {string}: text to log 
+	* @param {string} optionString comma delimited options
+  * @param {string} msg text to log 
 	*/   
   logDebugOptional: function logDebugOptional(optionString, msg) {
 		try {
