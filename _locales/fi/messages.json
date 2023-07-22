@@ -1374,7 +1374,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} Thunderbird 115 siirtyi Unified-työkalupalkkiin, joka vie vähemmän tilaa kuin aiempien versioiden erillinen sähköpostityökalupalkki. {addonName} käyttää uutta toimintopainiketta, joka sisältää {boldStart}kaikki sen toiminnot{boldEnd} yhdessä avattavassa valikossa.{L2} {L1} Uutiset ja lisenssivaroitukset on myös integroitu uuteen toimintopainikkeeseen.{L2}{L1} Suunniteltu työ: Viestiluettelon pikavalikosta puuttuu toiminto „Luo suodatin viestistä“ - tämä lisätään tulevaan versioon. Toistaiseksi voit käyttää komentoa toimintopainikkeen työkaluvalikossa.{L2} {L1} Jos kohtaat mitä tahansa epätavallista {addonName}:n toimintaa päivityksen jälkeen Thunderbird 115:een, kerro meille Githubissa osoitteessa [issue 181]{L2} {L1}Lisätty perinteiset kiinalaiset käännökset suurimmalle osalle käyttöliittymästä.{L2}"
+    "message" : "{L1} Lisätty viestiluettelon kontekstivalikkoon komento suodattimen luomiseksi viestistä.{L2} {L1} Suodattimen varmuuskopioiden tiedostomuoto oli rikki versiossa 6.0, tämä toiminto on nyt palautettu. {L2} {L1} Jos kohtaat mitä tahansa epätavallista {addonName}:n toimintaa päivityksen jälkeen Thunderbird 115:een, kerro siitä meille Githubissa osoitteessa [issue 181]{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

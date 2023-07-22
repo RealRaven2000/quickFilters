@@ -1373,7 +1373,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Thunderbird 115 switched to the Unified toolbar which takes up less space than the separate mail toolbar of previous versions. {addonName} uses a new action button which includes {boldStart}all its functions{boldEnd} in a single dropdown menu.{L2} {L1} News and license warnings are also integrated into the new Action button.{L2}{L1} Work planned: The context menu in the thread list is missing the function 'Create Filter from message' - this will be added in a future version. For now, you can use the command from the action button tools menu.{L2} {L1} Should you encounter any unusual behavior of {addonName} after updating to Thunderbird 115 please tell us on Github at [issue 181]{L2} {L1}Added traditional Chinese translations for most of the user interface.{L2}"
+    "message": "{L1} Added the command to create filter from message to the context menu in list of messages.{L2} {L1} File format of Filter Backups was broken in 6.0, this function is now restored. {L2} {L1} Should you encounter any unusual behavior of {addonName} after updating to Thunderbird 115 please tell us on Github at [issue 181]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

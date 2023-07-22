@@ -9,7 +9,7 @@ quickFilters Change Log - Version 6.1
   </li>
   <li>
     For more detail on what functions had to be fixed / rewritten for Thunderbird 115, please read on
-    the <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github Issue</a> 
+    the Github Issue</a> 
     covering conversion to Thunderbird 115.
   </li>
 </ul>
@@ -17,24 +17,14 @@ quickFilters Change Log - Version 6.1
 <b>Bug Fixes</b>
 <ul>
   <li>
-    This version includes all bugfixes up to version 5.9.3. Going forward, the code 
-    for Thunderbird 115 and for previous versions is in separate branches in order
-    to simplify maintenance and the code base getting polluted by too manually
-    incompatible choices.
+    The file format of filter backups was broken in 6.0, this function is now restored.
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/197">[issue 197]</a> 
   </li>
 </ul>  
 
 
 <b>Open Issues / Regressions for Thunderbird 115</b>
 <ul>
-  <li>
-    The context menu in the thread list is missing the "Create Filter from message"
-    menu item - this will be delivered in a future version. 
-    For now, you can use the command from the action button tools menu:
-    <p>
-      <img src="https://quickfilters.quickfolders.org/img/qi-button-newfilterfrommsg.png" alt="create filter from message" class="screenshot">
-    </p>
-  </li>
   <li>
     Eventually, all settings will be displayed in a Thunderbird tab, like
     the settings of most mail extensions. For this, it is still required to 

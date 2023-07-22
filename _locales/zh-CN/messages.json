@@ -1365,7 +1365,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} Thunderbird 115 切换到统一工具栏，比以前版本的单独邮件工具栏占用的空间更少。 {addonName} 使用新的操作按钮，其中在单个下拉菜单中包含{boldStart}所有功能{boldEnd}。{L2} {L1}新闻和许可警告也集成到新的操作按钮中。{L2}{L1} 计划工作：线程列表中的上下文菜单缺少“从消息创建过滤器”功能 - 这将在未来版本中添加。 目前，您可以使用操作按钮工具菜单中的命令。{L2} {L1} 如果您在更新到 Thunderbird 115 后遇到 {addonName} 的任何异常行为，请在 Github 上通过 [issue 181] 告诉我们{L2} {L1}为大部分用户界面添加了繁体中文翻译{L2}"
+    "message": "{L1} 在消息列表的上下文菜单中添加了从消息创建过滤器的命令。{L2} {L1} 过滤器备份的文件格式在 6.0 中被破坏，现已恢复此功能。 {L2} {L1} 如果您在更新到 Thunderbird 115 后遇到 {addonName} 的任何异常行为，请通过 Github [issue 181]{L2} 告诉我们"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

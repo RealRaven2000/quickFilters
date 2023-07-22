@@ -1373,7 +1373,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Thunderbird 115 est passé à la barre d'outils unifiée qui prend moins de place que la barre d'outils de messagerie séparée des versions précédentes. {addonName} utilise un nouveau bouton d'action qui inclut {boldStart}toutes ses fonctions{boldEnd} dans un seul menu déroulant.{L2} {L1} Les actualités et les avertissements de licence sont également intégrés dans le nouveau bouton d'action.{L2}{L1} Travail prévu : il manque la fonction „Créer un filtre à partir du message“ dans le menu contextuel de la liste des fils de discussion - celle-ci sera ajoutée dans une future version. Pour l'instant, vous pouvez utiliser la commande du menu des outils du bouton d'action.{L2} {L1} Si vous rencontrez un comportement inhabituel de {addonName} après la mise à jour vers Thunderbird 115, veuillez nous en informer sur Github au [issue 181]{L2} {L1}Ajout de traductions en chinois traditionnel pour la plupart de l'interface utilisateur.{L2}"
+    "message": "{L1} Ajout de la commande pour créer un filtre à partir d'un message dans le menu contextuel de la liste des messages.{L2} {L1} Le format de fichier des sauvegardes de filtre était cassé dans la version 6.0, cette fonction est maintenant restaurée. {L2} {L1} Si vous rencontrez un comportement inhabituel de {addonName} après la mise à jour vers Thunderbird 115, veuillez nous en informer sur Github au [problème 181]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

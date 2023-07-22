@@ -1374,7 +1374,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Thunderbird 115 wurde auf die globale Symbolleiste umgestellt, die weniger Platz beansprucht als die separate Mail-Symbolleiste früherer Versionen. {addonName} verwendet eine neue Aktionsschaltfläche, die {boldStart}alle seine Funktionen{boldEnd} in einem einzigen Dropdown-Menü enthält.{L2} {L1} Neuigkeiten und Lizenzwarnungen sind ebenfalls in die neue Aktionsschaltfläche integriert.{L2}{L1} Geplante Arbeiten: Im Kontextmenü in der Threadliste fehlt die Funktion „Filter aus Nachricht erstellen“ – diese wird in einer zukünftigen Version hinzugefügt. Im Moment können Sie den Befehl aus dem Werkzeugmenü der Aktionsschaltfläche verwenden.{L2} {L1} Sollten Sie nach dem Update auf Thunderbird 115 auf ungewöhnliches Verhalten von {addonName} stoßen, teilen Sie uns dies bitte auf Github unter [issue 181] mit.{L2} {L1}Für den Großteil der Benutzeroberfläche wurden traditionelle chinesische Übersetzungen hinzugefügt. {L2}"
+    "message": "{L1} Der Befehl zum Erstellen eines Filters aus Nachrichten wurde zum Kontextmenü in der Nachrichtenliste hinzugefügt.{L2} {L1} Das Dateiformat von Filtersicherungen wurde in 6.0 beschädigt, diese Funktion ist jetzt wiederhergestellt. {L2} {L1} Sollten Sie nach dem Update auf Thunderbird 115 auf ein ungewöhnliches Verhalten von {addonName} stoßen, teilen Sie uns dies bitte auf Github unter [issue 181] mit.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

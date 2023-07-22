@@ -347,7 +347,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Thunderbird 115 přešel na sjednocený panel nástrojů, který zabírá méně místa než samostatný panel nástrojů pošty v předchozích verzích. {addonName} používá nové tlačítko akce, které obsahuje {boldStart}všechny jeho funkce{boldEnd} v jediné rozbalovací nabídce.{L2} {L1} Do nového tlačítka Akce jsou také integrována upozornění na novinky a licence.{L2}{L1} Plánovaná práce: V kontextovém menu v seznamu vláken chybí funkce „Vytvořit filtr ze zprávy“ – tato bude přidána v budoucí verzi. Prozatím můžete použít příkaz z nabídky nástrojů akčního tlačítka.{L2} {L1} Pokud po aktualizaci na Thunderbird 115 narazíte na nějaké neobvyklé chování {addonName}, řekněte nám to na Github na [issue 181]{L2} {L1} Přidány tradiční čínské překlady pro většinu uživatelského rozhraní{L2}"
+    "message" : "{L1} Do kontextové nabídky v seznamu zpráv přidán příkaz pro vytvoření filtru ze zprávy.{L2} {L1} Formát souboru záloh filtrů byl ve verzi 6.0 poškozen, tato funkce je nyní obnovena. {L2} {L1} Pokud po aktualizaci na Thunderbird 115 narazíte na nějaké neobvyklé chování {addonName}, řekněte nám to na Github na [issue 181]{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

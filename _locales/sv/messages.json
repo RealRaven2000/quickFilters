@@ -1373,7 +1373,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Thunderbird 115 bytte till Unified-verktygsfältet som tar mindre plats än det separata e-postverktygsfältet i tidigare versioner. {addonName} använder en ny åtgärdsknapp som inkluderar {boldStart}alla dess funktioner{boldEnd} i en enda rullgardinsmeny.{L2} {L1} Nyheter och licensvarningar är också integrerade i den nya åtgärdsknappen.{L2}{L1} Arbete planerat: Kontextmenyn i trådlistan saknar funktionen „Skapa filter från meddelande“ - detta kommer att läggas till i en framtida version. För tillfället kan du använda kommandot från åtgärdsknappens verktygsmeny.{L2} {L1} Om du skulle stöta på något ovanligt beteende hos {addonName} efter att ha uppdaterat till Thunderbird 115, berätta för oss på Github på [issue 181]{L2} {L1}Lade till traditionella kinesiska översättningar för det mesta av användargränssnittet.{L2}" 
+    "message": "{L1} Lade till kommandot för att skapa filter från meddelande till snabbmenyn i listan över meddelanden.{L2} {L1} Filformatet för Filter Backups bröts i 6.0, den här funktionen är nu återställd. {L2} {L1} Om du skulle stöta på något ovanligt beteende hos {addonName} efter uppdatering till Thunderbird 115, berätta för oss på Github på [issue 181]{L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

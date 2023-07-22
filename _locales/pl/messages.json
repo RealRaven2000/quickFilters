@@ -1371,7 +1371,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Thunderbird 115 przeszedł na ujednolicony pasek narzędzi, który zajmuje mniej miejsca niż osobny pasek narzędzi poczty w poprzednich wersjach. {addonName} używa nowego przycisku akcji, który obejmuje {boldStart}wszystkie jego funkcje{boldEnd} w jednym rozwijanym menu.{L2} {L1} Ostrzeżenia o nowościach i licencjach są również zintegrowane z nowym przyciskiem akcji.{L2}{L1} Planowane prace: W menu kontekstowym na liście wątków brakuje funkcji „Utwórz filtr z wiadomości” – zostanie ona dodana w przyszłej wersji. Na razie możesz użyć polecenia z menu narzędzi przycisków akcji.{L2} {L1} Jeśli napotkasz jakieś nietypowe zachowanie {addonName} po aktualizacji do Thunderbirda 115, poinformuj nas o tym na Githubie pod adresem [issue 181]{L2} {L1}Dodano tradycyjne chińskie tłumaczenia dla większości interfejsu użytkownika.{L2}"
+    "message" : "{L1} Dodano polecenie tworzenia filtru z wiadomości do menu kontekstowego na liście wiadomości.{L2} {L1} Format pliku kopii zapasowych filtrów został uszkodzony w wersji 6.0, ta funkcja jest teraz przywracana. {L2} {L1} Jeśli napotkasz jakieś nietypowe zachowanie {addonName} po aktualizacji do Thunderbirda 115, poinformuj nas o tym na Githubie pod adresem [emisja 181]{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",
