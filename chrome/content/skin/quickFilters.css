@@ -43,3 +43,18 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
 	min-height: 44px;
 }
 
+/* API icon not working?? */
+#quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext {
+	/* list-style-image: url("chrome://quickfilters/content/skin/createFilter.svg") !important; */
+}
+
+#quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext hbox {
+	background-image: url("chrome://quickfilters/content/skin/createFilter.svg") !important;
+	background-position-y: 1px;
+	background-repeat: no-repeat;
+}
+
+#quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext hbox image {
+	visibility: hidden;
+}
+

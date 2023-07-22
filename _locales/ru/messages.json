@@ -715,7 +715,7 @@
     "message": "з"
   },
   "quickfilters.FromMessage.label": {
-    "message": "quickFilters: Создать фильтр по сообщению…"
+    "message": "Создать фильтр по сообщению…"
   },
   "quickfilters.menu.changelog": {
     "message": "Журнал изменений…"

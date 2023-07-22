@@ -293,7 +293,7 @@ async function main() {
 
   /* original code
   <menupopup id="messageMenuPopup">
-    <menuitem id="quickFilters-fromMessageInMenu"
+    <menuitem id="quickFilters-createFromMailContext"
               class="menuitem-iconic"
               insertBefore="createFilter"
               label="__MSG_quickfilters.FromMessage.label__"
@@ -305,23 +305,21 @@ async function main() {
   */
 
   /* Add message thread context menu item */
-  // get label text?
   let menuLabel = messenger.i18n.getMessage("quickfilters.FromMessage.label");
   // let menuAccel = messenger.i18n.getMessage("quickfilters.FromMessage.accesskey");
-  const CREATEFILTERFROMMSG_ID = "quickFilters-fromMessageInMenu";
+  const CREATEFILTERFROMMSG_ID = "quickFilters-createFromMailContext";
   let menuProps = {
     contexts: ["message_list"],
-    onclick: async (event) => {
-      // fake menu item to pass to doCommand
+    onclick: async (event) => {    
       if (isDebug) {
         console.log("quickFilters context menu", event);
       }
-      const menuItem = { id: CREATEFILTERFROMMSG_ID },
+      const menuItem = { id: CREATEFILTERFROMMSG_ID },   // fake menu item to pass to doCommand
             windows = await browser.windows.getAll({ populate: true });
       let currentWin = windows.find(fw => fw.focused),
           currentTab = currentWin.tabs.find(t => t.active);
 
-      // call win.quickFilters.doCommand(menuItem);
+      // trigger win.quickFilters.doCommand(menuItem);
       messenger.NotifyTools.notifyExperiment(
         {
           event: "doCommand", 

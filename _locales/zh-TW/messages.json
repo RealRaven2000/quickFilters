@@ -654,7 +654,7 @@
     "message": "末端過濾助手"
   },
   "quickfilters.FromMessage.label": {
-    "message": "quickFilters: 從消息創建過濾器..."
+    "message": "從消息創建過濾器..."
   },
   "quickfilters.menu.changelog": {
     "message": "變更日誌..."

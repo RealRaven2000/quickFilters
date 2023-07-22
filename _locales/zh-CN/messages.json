@@ -710,7 +710,7 @@
     "message": "Q"
   },
   "quickfilters.FromMessage.label": {
-    "message": "quickFilters:从消息创建过滤器…"
+    "message": "从消息创建过滤器…"
   },
   "quickfilters.menu.changelog": {
     "message": "更改日志..."

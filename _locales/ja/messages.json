@@ -715,7 +715,7 @@
     "message": "Q"
   },
   "quickfilters.FromMessage.label": {
-    "message": "quickFilters: メッセージからフィルタを作成..."
+    "message": "メッセージからフィルタを作成..."
   },
   "quickfilters.menu.changelog": {
     "message": "変更ログ…"

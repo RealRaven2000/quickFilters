@@ -716,7 +716,7 @@
     "message": "Q"
   },
   "quickfilters.FromMessage.label": {
-    "message": "quickFilters: Utwórz filtr z wiadomości…"
+    "message": "Utwórz filtr z wiadomości…"
   },
   "quickfilters.menu.changelog": {
     "message": "Dziennik zmian…"

@@ -107,7 +107,7 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.Util.showLicenseDialog('mainBtnPopupMenu');
         break;
       case "quickFilters-menu-filterFromMsg": // fall-throughs
-      case "quickFilters-fromMessageInMenu":
+      case "quickFilters-createFromMailContext":
       case "quickFilters-fromMessage":
         window.quickFilters.onMenuItemCommand('createFilterFromMsg');
         break;
@@ -141,7 +141,7 @@ async function onLoad(activatedWhileWindowOpen) {
   </menupopup>
   
   <menupopup id="messageMenuPopup">
-    <menuitem id="quickFilters-fromMessageInMenu"
+    <menuitem id="quickFilters-createFromMailContext"
               class="menuitem-iconic"
               insertBefore="createFilter"
               label="__MSG_quickfilters.FromMessage.label__"

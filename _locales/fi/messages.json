@@ -716,7 +716,7 @@
     "message": "Q"
   },
   "quickfilters.FromMessage.label": {
-    "message": "quickFilters: Luo suodatin viestistä…"
+    "message": "Luo suodatin viestistä…"
   },
   "quickfilters.menu.changelog": {
     "message": "Muuta lokia…"
