@@ -2238,8 +2238,9 @@ quickFilters.patchMailPane = () => {
           <menu label="__MSG_quickfilters.menu.tools__">
             <menupopup>
               <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
+              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
               <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menuseparator />
               <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
             </menupopup>
           </menu>

@@ -43,11 +43,17 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
 	min-height: 44px;
 }
 
-/* API icon not working?? */
+/* overwrite menu icon (custom icon only working for submenus) */
+#quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext {
+	-moz-context-properties: fill;
+	fill: rgba(120,120,120,0.85);
+}
+
 #quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext hbox {
 	background-image: url("chrome://quickfilters/content/skin/createFilter.svg") !important;
 	background-position-y: 1px;
 	background-repeat: no-repeat;
+	fill: rgba(120,120,120,0.85);
 }
 
 #quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext hbox image {

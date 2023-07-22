@@ -110,6 +110,12 @@
   display: inline-block !important;
 }
 
+#quickFilters-menu-filterFromMsg {
+  -moz-context-properties: fill, fill-opacity, stroke;
+  fill: rgba(120,120,120,0.85);
+  list-style-image: url("chrome://quickfilters/content/skin/createFilter.svg") !important;
+}
+
 #quickfilters-toolbar-listbutton,
 #quickfilters-current-listbutton,
 #quickfilters-menu-filterlist {
