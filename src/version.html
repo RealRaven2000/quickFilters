@@ -226,15 +226,38 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 	</h4>
   <h5 class="inList"> Improvements </h5>
   <ul>
-		<li></li>
-		<li></li>
-		<li></li>
+    <li>
+      Implemented command "Create Filter from message" in the context menu in the messages list. 
+      Just right-click any message after it was moved to a folder (or tagged if you want to create 
+      tags through filters)
+      <img src="img/menuCreateFilter.png" alt="create filter from message" class="screenshot">
+    </li>
+    <li>
+      For more detail on what functions had to be fixed / rewritten for Thunderbird 115, please read on
+      the Github Issue</a> 
+      covering conversion to Thunderbird 115.
+    </li>
   </ul>
   <h5 class="inList"> Bugfixes </h5>  
   <ul>
-		<li></li>
-		<li></li>
-		<li></li>
+    <li>
+      The file format of filter backups was broken in 6.0, this function is now restored.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/197">[issue 197]</a> 
+    </li>
+  </ul>
+
+  <h5 class="inList"> Open Issues / Regressions for Thunderbird 115 </h5> 
+  <ul>
+    <li>
+      Eventually, all settings will be displayed in a Thunderbird tab, like
+      the settings of most mail extensions. For this, it is still required to 
+      rewrite the dialog in HTML format.
+    </li>
+    <li>
+      Should you encounter any regressions / unusual behavior after updating to Thunderbird 115
+      please tell us on Github at 
+      [<a href="https://github.com/RealRaven2000/quickFilters/issues/181">issue 181</a>]
+    </li>
   </ul>
 </li>
 
