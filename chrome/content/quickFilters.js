@@ -573,12 +573,20 @@ END LICENSE BLOCK
     # option to disable notification after running filters manually (quickFilters Pro)
     # - Fix integration of buttons on QuickFolders Navigation bar (Current Folder Toolbar)
 
-  6.1 - WIP
+  6.1 - 22/07/2023
     # - [issue 197] quickFilters 6.0.* Backups stored in broken format
     # Added thread list menu item "Create Filter from message"
 
-  6.x - TO DO
+  6.1.1 - WIP
+    # Improved main action menu (show filters is now in the main menu)
+    # modified QuickFolders Navigation bar integration for Tb115 to require either license
+    # Registration dialog: made sure it can be scrolled down on small screens
+    #                      Fixed "license is valid" label
+    # Settings Dialog: Fixed "renew license" dialog button 
+
+  6.2 - TO DO:
     # convert settings to html / Thunderbird tab
+
    
   ============================================================================================================
   FUTURE WORK:
@@ -2234,17 +2242,17 @@ quickFilters.patchMailPane = () => {
           <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();" />
           <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuseparator />
+          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menu label="__MSG_quickfilters.menu.tools__">
             <menupopup>
-              <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
               <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuseparator />
               <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
             </menupopup>
           </menu>
-          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();" />
           <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
         </menupopup>

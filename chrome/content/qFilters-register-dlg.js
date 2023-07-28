@@ -40,9 +40,9 @@ var Register = {
 				
       getElement('licenseDate').value = decryptedDate; // invalid ??
 			if (licenseInfo.status == "Expired" || licenseInfo.status == "Valid") {
-				if(licenseInfo.status == "Expired")
+				if(licenseInfo.status == "Expired") {
 					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
-				else {
+        } else {
 					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.extendLicense", "Extend License!");
 					// add tooltip
 					btnLicense.setAttribute('tooltiptext',
@@ -68,25 +68,29 @@ var Register = {
     }
     
     getElement('qfLicenseTerm').classList.remove('expired');
+    let isLicenseTermsHidden = false;
+    const licenseDate = getElement("licenseDateLabel");
 		switch(licenseInfo.status) {
 			case "Expired":
-			  getElement('licenseDateLabel').value = util.getBundleString("quickfilters.register.licenseValid.expired","Your license expired on:")
+			  licenseDate.textContent = util.getBundleString("quickfilters.register.licenseValid.expired","Your license expired on:")
 				getElement('qfLicenseTerm').classList.add('expired');
 			  break;
 			case "Valid":
 			  getElement('btnLicense').classList.remove('register'); // remove the "pulsing effect" if license is valid.
-        getElement('licenseDateLabel').value =  util.getBundleString("qf.label.licenseValid","Your license is valid until:");
+        licenseDate.textContent =  util.getBundleString("qf.label.licenseValid","Your license is valid until:");
 			  break;
 			case "Empty":
 			case "NotValidated":
-				getElement('licenseDateLabel').value = " ";
+				licenseDate.textContent = " ";
+        isLicenseTermsHidden = true;
 			  break;
 			default: // default class=register will animate the button
         let txt = "License Status: " + licenseInfo.description;
-			  getElement('licenseDateLabel').value = txt;
+			  licenseDate.textContent = txt;
         util.logToConsole("Registration Problem\n" + txt + "\nDecrypted part: " + licenseInfo.decryptedPart);
-        
 		}
+    getElement('qfLicenseTerm').collapsed = isLicenseTermsHidden;
+
 			
   } ,
   
