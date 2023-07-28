@@ -1101,6 +1101,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Premium Feature"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Để sử dụng các chức năng lọc từ thanh điều hướng QuickFolders trong Thunderbird 115:\n - bạn cần có giấy phép QuickFolders hợp lệ\n - hoặc bạn có thể nhận giấy phép $addonName$ Pro để hỗ trợ tính năng này.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "Register {1}"
   },
@@ -1373,7 +1382,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Đã thêm lệnh tạo bộ lọc từ thư vào menu ngữ cảnh trong danh sách thư.{L2} {L1} Định dạng tệp của Sao lưu bộ lọc đã bị hỏng trong 6.0, chức năng này hiện đã được khôi phục. {L2} {L1} Nếu bạn gặp bất kỳ hành vi bất thường nào của {addonName} sau khi cập nhật lên Thunderbird 115, vui lòng cho chúng tôi biết trên Github tại [issue 181]{L2}"
+    "message": "{L1}Trình đơn thả xuống chính được cải thiện bằng cách di chuyển tất cả các lệnh thường xuyên cần thiết lên cấp độ đầu tiên.{L2}{L1} Chuẩn bị tích hợp với thanh Điều hướng QuickFolders cho Thunderbird 115. Để tài trợ cho công việc trong tương lai trên các nút này, việc sử dụng các nút này sẽ yêu cầu một giấy phép hợp lệ. {L2} {L1} Các bản sửa lỗi khác nhau trong Cài đặt và hộp thoại đăng ký {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

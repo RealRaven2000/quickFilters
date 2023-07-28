@@ -1101,6 +1101,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Premium Funktion"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Um Filter-Funktionen über die QuickFolders-Navigationsleiste in Thunderbird 115 zu verwenden:\n – Sie benötigen entweder eine gültige QuickFolders-Lizenz\n – oder Sie können eine $addonName$ Pro-Lizenz erwerben, um diese Funktion zu unterstützen.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "{1} registrieren"
   },
@@ -1374,7 +1383,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Der Befehl zum Erstellen eines Filters aus Nachrichten wurde zum Kontextmenü in der Nachrichtenliste hinzugefügt.{L2} {L1} Das Dateiformat von Filtersicherungen wurde in 6.0 beschädigt, diese Funktion ist jetzt wiederhergestellt. {L2} {L1} Sollten Sie nach dem Update auf Thunderbird 115 auf ein ungewöhnliches Verhalten von {addonName} stoßen, teilen Sie uns dies bitte auf Github unter [issue 181] mit.{L2}"
+    "message": "{L1}Verbessertes Haupt-Dropdown-Menü durch Verschieben aller häufig benötigten Befehle auf die erste Ebene.{L2}{L1} Die Integration mit der QuickFolders-Navigationsleiste für Thunderbird 115 wurde vorbereitet. Um die zukünftige Arbeit an diesen Schaltflächen zu finanzieren, erfordert die Verwendung dieser Schaltflächen eine gültige Lizenz (quickFilters Pro oder QuickFolders Standard). {L2} {L1} Verschiedene Korrekturen in den Einstellungen und Registrierungsdialogen {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

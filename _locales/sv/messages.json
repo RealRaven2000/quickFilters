@@ -1101,6 +1101,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Premium-funktion"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Så här använder du filterfunktioner från QuickFolders-navigeringsfältet i Thunderbird 115:\n - behöver du antingen en giltig QuickFolders-licens\n - eller så kan du skaffa en $addonName$ Pro-licens för att stödja denna funktion.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "Registrera {1}"
   },
@@ -1373,7 +1382,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Lade till kommandot för att skapa filter från meddelande till snabbmenyn i listan över meddelanden.{L2} {L1} Filformatet för Filter Backups bröts i 6.0, den här funktionen är nu återställd. {L2} {L1} Om du skulle stöta på något ovanligt beteende hos {addonName} efter uppdatering till Thunderbird 115, berätta för oss på Github på [issue 181]{L2}" 
+    "message": "{L1}Förbättrad huvudrullgardinsmeny genom att flytta alla ofta nödvändiga kommandon till den första nivån.{L2}{L1} Förberedd integration med QuickFolders Navigation bar för Thunderbird 115. För att finansiera det framtida arbetet med dessa knappar kommer användningen av dessa knappar att kräva en giltig licens. {L2} {L1} Olika korrigeringar i dialogrutor för inställningar och registrering {L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

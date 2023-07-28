@@ -194,6 +194,15 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Obnovit licenci"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Použití funkcí filtru z navigačního panelu QuickFolders v Thunderbirdu 115:\n – potřebujete platnou licenci QuickFolders\n – nebo můžete získat licenci $addonName$ Pro podporující tuto funkci.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },  
   "quickfiltersToolbarButton.expired": {
     "message": "Licence vypršela!"
   },
@@ -347,7 +356,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Do kontextové nabídky v seznamu zpráv přidán příkaz pro vytvoření filtru ze zprávy.{L2} {L1} Formát souboru záloh filtrů byl ve verzi 6.0 poškozen, tato funkce je nyní obnovena. {L2} {L1} Pokud po aktualizaci na Thunderbird 115 narazíte na nějaké neobvyklé chování {addonName}, řekněte nám to na Github na [issue 181]{L2}"
+    "message" : "{L1}Vylepšená hlavní rozbalovací nabídka přesunutím všech často potřebných příkazů na první úroveň.{L2}{L1} Připravená integrace s navigační lištou QuickFolders pro Thunderbird 115. K financování budoucí práce na těchto tlačítkách bude použití těchto tlačítek vyžadovat platnou licenci. {L2} {L1} Různé opravy v dialogu Nastavení a registrace {L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

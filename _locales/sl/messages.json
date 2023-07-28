@@ -251,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Dodan ukaz za ustvarjanje filtra iz sporočila v kontekstni meni na seznamu sporočil.{L2} {L1} Format datoteke varnostnih kopij filtrov je bil pokvarjen v 6.0, ta funkcija je zdaj obnovljena. {L2} {L1} Če po posodobitvi na Thunderbird 115 naletite na nenavadno vedenje {addonName}, nam to sporočite na Githubu na [issue 181]{L2}"
+    "message" : "{L1}Izboljšan glavni spustni meni s premikanjem vseh pogosto potrebnih ukazov na prvo raven.{L2}{L1} Pripravljena integracija z navigacijsko vrstico QuickFolders za Thunderbird 115. Za financiranje prihodnjega dela na teh gumbih bo uporaba teh gumbov zahtevala veljavna licenca. {L2} {L1} Različni popravki v pogovornih oknih za nastavitve in registracijo {L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

@@ -1101,6 +1101,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Caratteristica della versione Premium"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Per utilizzare le funzioni di filtro dalla barra di navigazione di QuickFolders in Thunderbird 115:\n - è necessaria una licenza QuickFolders valida\n - oppure puoi ottenere una licenza $addonName$ Pro per supportare questa funzione.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "Registra {1}"
   },
@@ -1373,7 +1382,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Aggiunto il comando per creare un filtro dal messaggio al menu contestuale nell'elenco dei messaggi.{L2} {L1} Il formato del file dei backup del filtro è stato interrotto nella versione 6.0, questa funzione è ora ripristinata. {L2} {L1} Se riscontri comportamenti insoliti di {addonName} dopo l'aggiornamento a Thunderbird 115, comunicacelo su Github al [issue 181]{L2}"
+    "message": "{L1}Menu a discesa principale migliorato spostando tutti i comandi più frequenti al primo livello.{L2}{L1} Integrazione preparata con la barra di navigazione QuickFolders per Thunderbird 115. Per finanziare il lavoro futuro su questi pulsanti, l'utilizzo di questi pulsanti richiederà un licenza valida. {L2} {L1} Varie correzioni nelle finestre di dialogo Impostazioni e registrazione {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

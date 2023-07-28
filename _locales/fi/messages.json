@@ -1102,6 +1102,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Premium-ominaisuus"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Suodatintoimintojen käyttäminen QuickFolders-navigointipalkin kautta Thunderbird 115:ssä:\n - tarvitset joko voimassa olevan QuickFolders-lisenssin\n - tai voit hankkia $addonName$ Pro -lisenssin tukeaksesi tätä ominaisuutta.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "Rekisteröidy {1}"
   },
@@ -1374,7 +1383,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} Lisätty viestiluettelon kontekstivalikkoon komento suodattimen luomiseksi viestistä.{L2} {L1} Suodattimen varmuuskopioiden tiedostomuoto oli rikki versiossa 6.0, tämä toiminto on nyt palautettu. {L2} {L1} Jos kohtaat mitä tahansa epätavallista {addonName}:n toimintaa päivityksen jälkeen Thunderbird 115:een, kerro siitä meille Githubissa osoitteessa [issue 181]{L2}"
+    "message" : "{L1}Parannettu päävalikko siirtämällä kaikki usein tarvittavat komennot ensimmäiselle tasolle.{L2}{L1} Valmis integrointi QuickFolders-navigointipalkkiin Thunderbird 115:lle. Näiden painikkeiden tulevan työn rahoittaminen edellyttää näiden painikkeiden käyttöä voimassa oleva lisenssi. {L2} {L1} Erilaisia korjauksia asetuksissa ja rekisteröintivalintaikkunoissa {L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

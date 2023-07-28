@@ -1101,6 +1101,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Premium-functie"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Om filterfuncties van de QuickFolders-navigatiebalk in Thunderbird 115 te gebruiken:\n - u hebt een geldige QuickFolders-licentie nodig\n - of u kunt een $addonName$ Pro-licentie krijgen om deze functie te ondersteunen.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "Registreren {1}"
   },
@@ -1373,7 +1382,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} De opdracht om een filter te maken van een bericht toegevoegd aan het contextmenu in de lijst met berichten.{L2} {L1} De bestandsindeling van Filterback-ups was verbroken in 6.0, deze functie is nu hersteld. {L2} {L1} Mocht u ongewoon gedrag tegenkomen van {addonName} na het updaten naar Thunderbird 115, vertel het ons dan op Github op [issue 181]{L2}"
+    "message": "{L1}Verbeterd vervolgkeuzemenu door alle veelgebruikte opdrachten naar het eerste niveau te verplaatsen.{L2}{L1} Voorbereide integratie met QuickFolders-navigatiebalk voor Thunderbird 115. Om toekomstige werkzaamheden aan deze knoppen te financieren, is voor het gebruik van deze knoppen een geldige vergunning. {L2} {L1} Diverse reparaties in instellingen en registratiedialoogvensters {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

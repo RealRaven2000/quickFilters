@@ -1100,6 +1100,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Premium Feature"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "Register {1}"
   },
@@ -1373,7 +1382,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Added the command to create filter from message to the context menu in list of messages.{L2} {L1} File format of Filter Backups was broken in 6.0, this function is now restored. {L2} {L1} Should you encounter any unusual behavior of {addonName} after updating to Thunderbird 115 please tell us on Github at [issue 181]{L2}"
+    "message": "{L1}Improved main dropdown menu by moving all frequently needed commands to the first level.{L2}{L1} Prepared integration with QuickFolders Navigation bar for Thunderbird 115. To finance the future work on these buttons, use of these buttons will require a valid license. (quickFilters Pro or QuickFolders Standard){L2} {L1} Various fixes in Settings and registration dialogs {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

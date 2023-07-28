@@ -1101,6 +1101,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "プレミアム機能"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Thunderbird 115 の QuickFolders ナビゲーション バーからフィルター機能を使用するには:\n - 有効な QuickFolders ライセンスが必要です\n - または、この機能をサポートする $addonName$ Pro ライセンスを取得できます。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "{1} の登録"
   },
@@ -1373,7 +1382,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} メッセージのリストのコンテキスト メニューにメッセージからフィルターを作成するコマンドを追加しました。{L2} {L1} フィルター バックアップのファイル形式は 6.0 で壊れていましたが、この機能は復元されました。 {L2} {L1} Thunderbird 115 にアップデートした後に {addonName} の異常な動作が発生した場合は、Github の [issue 181]{L2} までお知らせください。"
+    "message": "{L1}頻繁に必要なコマンドをすべて最初のレベルに移動することでメイン ドロップダウン メニューを改善しました。{L2}{L1} Thunderbird 115 の QuickFolders ナビゲーション バーとの統合を準備しました。これらのボタンの将来の作業に資金を提供するために、これらのボタンを使用するには、 有効なライセンス。 {L2} {L1} 設定および登録ダイアログのさまざまな修正 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

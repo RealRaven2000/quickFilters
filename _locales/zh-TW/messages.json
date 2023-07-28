@@ -929,6 +929,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "高級功能"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "要使用 Thunderbird 115 中 QuickFolders 導航欄中的篩選功能：\n - 您需要有效的 QuickFolders 許可證\n - 或者您可以獲得 $addonName$ Pro 許可證來支持此功能。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "註冊{1}"
   },
@@ -1188,7 +1197,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} 在消息列表的上下文菜單中添加了從消息創建過濾器的命令。{L2} {L1} 過濾器備份的文件格式在 6.0 中被破壞，現已恢復此功能。 {L2} {L1} 如果您在更新到 Thunderbird 115 後遇到 {addonName} 的任何異常行為，請通過 Github [issue 181]{L2} 告訴我們"
+    "message" : "{L1}通過將所有常用命令移至第一級，改進了主下拉菜單。{L2}{L1}準備與 Thunderbird 115 的 QuickFolders 導航欄集成。為了資助這些按鈕的未來工作，使用這些按鈕將需要 有效的許可證。 {L2} {L1} 設置和註冊對話框中的各種修復 {L2}"
   },  
   "window-title": {
     "message": "歡迎使用 $addonName$",

@@ -1102,6 +1102,15 @@
   "quickfilters.notification.proFeature.title": {
     "message": "Funkcja premium"
   },
+  "quickfilters.notification.QF.navigationbar": {
+    "message": "Aby użyć funkcji filtrowania z paska nawigacji QuickFolders w Thunderbirdzie 115:\n — potrzebujesz ważnej licencji QuickFolders\n — lub możesz uzyskać licencję $addonName$ Pro na obsługę tej funkcji.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
   "quickfilters.notification.register": {
     "message": "Zarejestruj się {1}"
   },
@@ -1371,7 +1380,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} Dodano polecenie tworzenia filtru z wiadomości do menu kontekstowego na liście wiadomości.{L2} {L1} Format pliku kopii zapasowych filtrów został uszkodzony w wersji 6.0, ta funkcja jest teraz przywracana. {L2} {L1} Jeśli napotkasz jakieś nietypowe zachowanie {addonName} po aktualizacji do Thunderbirda 115, poinformuj nas o tym na Githubie pod adresem [emisja 181]{L2}"
+    "message" : "{L1}Ulepszone główne menu rozwijane poprzez przeniesienie wszystkich często używanych poleceń na pierwszy poziom.{L2}{L1} Przygotowano integrację z paskiem nawigacyjnym QuickFolders dla Thunderbirda 115. Aby sfinansować przyszłe prace nad tymi przyciskami, korzystanie z nich będzie wymagało ważna licencja. {L2} {L1} Różne poprawki w ustawieniach i oknach dialogowych rejestracji {L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",
