@@ -741,6 +741,13 @@ quickFilters.Util = {
       this.logToConsole(msg);
   },
 
+	// optional logging for important points in flow.
+	logHighlightDebug: function(txt, color="white", background="rgb(80,0,0)", ...args) {
+		if (quickFilters.Preferences.isDebug) {
+			console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
+		}
+	},  
+
   /** 
 	* only logs if debug mode is set and specific debug option are active
 	* 
@@ -1109,6 +1116,10 @@ quickFilters.Util = {
 	showYouTube: function showYouTube() {
 		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/c/thunderbirddaily');
 	} ,
+
+  showQuickFolders: function() {
+		quickFilters.Util.openLinkInBrowserForced('https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/');
+  },
 	
 	showPremiumFeatures: function showPremiumFeatures() {
     quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/premium.html');

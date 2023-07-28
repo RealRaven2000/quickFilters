@@ -1,7 +1,10 @@
 import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
 
+const QUICKFOLDERS_APPNAME = "quickfolders@curious.be";
+
 var currentLicense;
+var QF_license = {status:"unknown", type: 0}
 var startupFinished = false;
 var callbacks = [];
 // Worker.FilterMode
@@ -134,6 +137,19 @@ async function main() {
       case "getAssistantMode":  // is assistant active or not?
         return AssistantActive; // replaced worker.FilterMode, it's stored here and updated through Util
         
+      case "getQuickFolderslicense":
+        if (QF_license.status=="unknown") {
+          try {
+            let result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME,  { command: "queryQuickFoldersLicense" });
+            if (result && typeof result !== "undefined" ) {
+              QF_license = result;
+            }
+          } catch (ex) {
+            QF_license =  {status:"unknown", type: 0};
+          }
+        }
+        return QF_license;
+
       case "setAssistantMode":  // toggle "FilterMode"
         AssistantActive = data.active;
         messenger.NotifyTools.notifyExperiment({event: "setAssistantMode", detail: {active: AssistantActive} });
@@ -162,12 +178,10 @@ async function main() {
 
       // refresh license info (at midnight) and update label afterwards.
       case "updateLicenseTimer":
-        {
-          await currentLicense.updateLicenseDates();
+        await currentLicense.updateLicenseDates();
 
-          messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
-          messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
-        }
+        messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
+        messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
         break;
         
       case "updateLicense":
@@ -206,13 +220,17 @@ async function main() {
   messenger.runtime.onMessageExternal.addListener( async  (message, sender) =>  
   {
     switch(message.command) {
+      case "updateQuickFoldersLicense": // fall-through
       case "injectButtonsQFNavigationBar":
         // call the code for injecting the toolbar buttons that integrate with QF current folder bar
         // this is called from onLoad in qFi-messenger.js
+        QF_license = message.license; // restrict buttons - we need either (any) QF license or a quickFilters Pro.
         if (isDebug) {
-          console.log("received external message 'injectButtonsQFNavigationBar'", message);
+          await util.logDebugHighlight("received external message 'injectButtonsQFNavigationBar'", "yellow", "rgb(0, 128, 50)", message, QF_license);
         }
-        messenger.NotifyTools.notifyExperiment({event: "toggleCurrentFolderButtons"});
+        if (message.command == "injectButtonsQFNavigationBar") {
+          messenger.NotifyTools.notifyExperiment({event: "toggleCurrentFolderButtons"});
+        }
         break;
     }
   });

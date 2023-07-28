@@ -14,7 +14,6 @@
 				title="__MSG_prefwindow.title__"
 				autostretch="always"
 				minHeight="400"
-				ondialogextra2="setTimeout(function() {quickFilters.Util.showLicenseDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });"
 				tooltiptextextra2="__MSG_qf.label.supportWithLicense__"
 				>
 
@@ -540,6 +539,11 @@
                 oncommand="quickFilters.Options.toggleCurrentFolderButtons_check();"/>
             </vbox>
           </hbox>
+					<div id="quickFoldersNavLicensing" class="licenseRestriction">
+						<p></p>
+						<ul id="licenseOptions">
+						</ul>
+					</div>
 				</vbox>
 			</html:fieldset>
 			<html:fieldset orient="vertical" id="filterListGroup">

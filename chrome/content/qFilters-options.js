@@ -33,7 +33,7 @@ quickFilters.Options = {
 			}
 			catch(e) {;}
     }
-		
+
 		let tabbox = getElement("quickFilters-Options-Tabbox");
     switch(this.optionsMode) {
       case "actions":
@@ -123,8 +123,39 @@ quickFilters.Options = {
         }
       } 
     );
+
+    let txtDefault = "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.";
+    let terms = getElement("quickFoldersNavLicensing"),
+        termsTxt = quickFilters.Util.getBundleString("quickfilters.notification.QF.navigationbar", txtDefault, "quickFilters").split("\n");
+    terms.firstChild.textContent = termsTxt[0];
+    let termsList = getElement("licenseOptions");
+    // replace all leading whitespaces and "-"
+    termsList.appendChild(document.createElement("li")).textContent = termsTxt[1].replace(/\s*\-\s*/, ""); 
+    termsList.appendChild(document.createElement("li")).textContent = termsTxt[2].replace(/\s*\-\s*/, "");
+
+    // split and inject a href link to QuickFolders.
+    let cfd = getElement("currentFolderDescription");
+    let nodes = cfd.textContent.split("QuickFolders");
+    cfd.textContent = nodes[0];
+    let QFlink = cfd.appendChild(document.createElement("a"));
+    QFlink.id = "quickfoldersLink";
+    QFlink.textContent = "QuickFolders";
+    cfd.appendChild(document.createTextNode(nodes[1]));
+    QFlink.addEventListener("click", (evt) => {quickFilters.Util.showQuickFolders();});
+
+
+    // ondialogextra2 event is broken!
+    let extra2 = document.documentElement.getButton("extra2");
+    if (extra2) {
+      extra2.addEventListener("click", (evt) => { 
+        window.quickFilters.Util.showLicenseDialog('options_' + window.quickFilters.Options.currentOptionsTab); 
+        window.close();
+      });
+    }
     
   } ,
+
+
   
   l10n: function l10n() {
     // [mx-l10n]

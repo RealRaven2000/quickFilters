@@ -69,9 +69,30 @@ async function onLoad(activatedWhileWindowOpen) {
   </toolbarpalette>
 `); 
 
-  window.quickFilters.doCommand = function (el) {
+  window.quickFilters.doCommand = async function (el) {
     if (!el) {
       return;
+    }
+    if (el.id.startsWith("quickfilters-current-")) {
+      if (!window.quickFilters.Util.licenseInfo.isValid) {
+        // check the QuickFolders license status for this cross Add-on support feature
+        let lic = await window.quickFilters.Util.notifyTools.notifyBackground({ func: "getQuickFolderslicense" }); // replace worker.FilterMode
+        if (lic && lic.status) {
+          switch (lic.status.toLowerCase()) {
+            case "unknown":
+              window.quickFilters.Util.logHighlightDebug("getQuickFolderslicense() - not yet supported by current version.");
+              break;
+            case "valid":
+              break;
+            default:
+              let txtDefault = "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.";
+              let txt = window.quickFilters.Util.getBundleString(
+                "quickfilters.notification.QF.navigationbar", txtDefault, ["quickFilters"]);
+              window.quickFilters.Util.alert(txt);
+              return;
+          }
+        }
+      }
     }
     switch (el.id) {
       case "quickfilters-checkLicense":
@@ -271,38 +292,37 @@ function onUnload(isAddOnShutown) {
   window.quickFilters.removeFolderListeners();
 
   // restore monkey patched functions
-  window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => {
-    const callBackCommands = tabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
-    if (callBackCommands.quickFilters_cmd_moveMessage) {
-      callBackCommands.cmd_moveMessage = callBackCommands.quickFilters_cmd_moveMessage; // backup wrapped function
-      delete callBackCommands.quickFilters_cmd_moveMessage;
-    } else { 
-      console.log("quickFilters: no cmd_moveMessage to restore", tabInfo) 
-    }
-    if (callBackCommands.quickFilters_cmd_copyMessage) {
-      callBackCommands.cmd_copyMessage = callBackCommands.quickFilters_cmd_copyMessage; // backup wrapped function
-      delete callBackCommands.quickFilters_cmd_copyMessage;
-    } else { 
-      console.log("quickFilters: no cmd_copyMessage to restore", tabInfo) 
-    }
-    if (callBackCommands.quickFilters_cmd_archive) {
-      callBackCommands.cmd_archive = callBackCommands.quickFilters_cmd_archive;
-      delete callBackCommands.quickFilters_cmd_archive;
-    }else { 
-      console.log("quickFilters: no cmd_archive to restore", tabInfo) 
-    }
+  if (window.gTabmail) {
+    window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => {
+      const callBackCommands = tabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
+      if (callBackCommands.quickFilters_cmd_moveMessage) {
+        callBackCommands.cmd_moveMessage = callBackCommands.quickFilters_cmd_moveMessage; // backup wrapped function
+        delete callBackCommands.quickFilters_cmd_moveMessage;
+      } else { 
+        console.log("quickFilters: no cmd_moveMessage to restore", tabInfo) 
+      }
+      if (callBackCommands.quickFilters_cmd_copyMessage) {
+        callBackCommands.cmd_copyMessage = callBackCommands.quickFilters_cmd_copyMessage; // backup wrapped function
+        delete callBackCommands.quickFilters_cmd_copyMessage;
+      } else { 
+        console.log("quickFilters: no cmd_copyMessage to restore", tabInfo) 
+      }
+      if (callBackCommands.quickFilters_cmd_archive) {
+        callBackCommands.cmd_archive = callBackCommands.quickFilters_cmd_archive;
+        delete callBackCommands.quickFilters_cmd_archive;
+      }else { 
+        console.log("quickFilters: no cmd_archive to restore", tabInfo) 
+      }
 
-    // restore all folder tree listeners
-    let fPane = tabInfo.chromeBrowser.contentWindow.folderPane;
-    if (fPane && fPane.quickFilters_originalDrop) {
-      fPane._onDrop = fPane.quickFilters_originalDrop;
-      delete fPane.quickFilters_originalDrop
-    }
-    
-  });  
-
-
-  
+      // restore all folder tree listeners
+      let fPane = tabInfo.chromeBrowser.contentWindow.folderPane;
+      if (fPane && fPane.quickFilters_originalDrop) {
+        fPane._onDrop = fPane.quickFilters_originalDrop;
+        delete fPane.quickFilters_originalDrop
+      }
+      
+    });
+  }
 
 
 
