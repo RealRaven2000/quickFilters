@@ -4,7 +4,8 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-util
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 
 const RUNFILTERFROMTREE_ID = "runFiltersFolderPane";
-const FINDFILTERS_ID = "findFiltersFolder"
+const FINDFILTERS_ID = "findFiltersFolder";
+const TOGGLE_ASSIST_TOOL_ID = "toggleFilterTools";
 const CREATEFILTERFROMMSG_ID = "createFromMailContext";
 
 async function setAssistantButton(e) {
@@ -20,7 +21,9 @@ async function onLoad(activatedWhileWindowOpen) {
   let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css");
 
   // call on background page to implement folder pane listener
-  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addFolderPaneListener" }); // replace worker.FilterMode   
+  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addFolderPaneListener" }); 
+  // call on background page to implement tools menu listener
+  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addToolMenuListener"  }); 
 
 
   // [issue 122] false positives from antivirus scanners
@@ -115,6 +118,7 @@ async function onLoad(activatedWhileWindowOpen) {
         break;
       case "quickfilters-toggleAssistant":
       case "quickFilters-wizard":
+      case TOGGLE_ASSIST_TOOL_ID:
         window.quickFilters.onMenuItemCommand("toggle_Filters");
         break;
       case "quickfilters-options":
@@ -141,46 +145,6 @@ async function onLoad(activatedWhileWindowOpen) {
     }
 
   }
-
-  // let mnuToolsFindFilters = document.getElementById("quickfilters-menu-searchfilters");
-  // if ( mnuToolsFindFilters)  mnuToolsFindFilters.addEventListener("command", function(event) { window.quickFilters.searchFiltersFromFolder();} );  
-
-  // note: the taskPopup (Tools menu)
-  //       apparently doesn't show this command in TB102, may be dues to  gMenuBuilder.build()
-  //       recreating the popup! (Ask TbSync how to add a menu using ext-menus.js)
-  /*
-  WL.injectElements(`
-  <menupopup id="taskPopup">
-    <menuitem id="quickFilters-wizard"
-              class="menuitem-iconic"
-              insertBefore="applyFilters"
-              label="__MSG_quickfilters.Start.label__"
-              oncommand="window.quickFilters.doCommand(this);"
-              />
-  </menupopup>
-
-  `);
-  */
-
-  // Tb115: menupopup, not popup!
-
-  // this needs to be injected into the document "about:3pane" instead!
-  /*
-  WL.injectElements(`
-  <menupopup id="mailContext">
-    <menuitem id="quickFilters-fromMessage"
-              class="menuitem-iconic"
-              label="__MSG_quickfilters.FromMessage.label__"
-              accesskey="__MSG_quickfilters.FromMessage.accesskey__"
-              insertbefore="mailContext-saveAs"
-              oncommand="window.quickFilters.doCommand(this);"
-              />
-  </menupopup>
-  `);
-  */
-
-  // from qFilters-QF-tb68.xul
-  
 
   // we need the WindowListener to inject UI later (tab listener)
   window.quickFilters.WL = WL;
@@ -221,8 +185,6 @@ async function onLoad(activatedWhileWindowOpen) {
   // otherwise, we need to call this again in a tab listener
   window.quickFilters.patchMailPane(); 
 
-
-
   // iterate all mail tabs!
   window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => {
     const quickFilters = window.quickFilters;
@@ -253,10 +215,11 @@ async function onLoad(activatedWhileWindowOpen) {
     callBackCommands.cmd_archive = function () {
       quickFilters.MsgArchive_Wrapper(callBackCommands.quickFilters_cmd_archive);
     }    
-
     // monkey foldertree patch drop method
-    quickFilters.patchFolderTree(tabInfo);
+    window.quickFilters.patchFolderTree(tabInfo);
+
   });
+
   window.quickFilters.addTabEventListener(); // add monkey patch code to new tabs..
   
   window.quickFilters.addKeyListener(window);

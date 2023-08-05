@@ -585,7 +585,8 @@ END LICENSE BLOCK
     # Settings Dialog: Fixed "renew license" dialog button 
 
   6.2 - WIP:
-    # Added folder context menu entries: find filters, run filters.
+    # [issue 203] Added folder context menu entries: find filters, run filters.
+    # [issue 203] Added tools content menu: Start Filter Assistant
     # convert settings to html / Thunderbird tab
     # fixed some German translations..
     # Fix duplicated message context menu... ??

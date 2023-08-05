@@ -3,8 +3,9 @@ import {Licenser} from "./scripts/Licenser.mjs.js";
 
 const QUICKFOLDERS_APPNAME = "quickfolders@curious.be";
 const RUNFILTERFROMTREE_ID = "runFiltersFolderPane";
-const FINDFILTERS_ID = "findFiltersFolder"
+const FINDFILTERS_ID = "findFiltersFolder";
 const CREATEFILTERFROMMSG_ID = "createFromMailContext";
+const TOGGLE_ASSIST_TOOL_ID = "toggleFilterTools";
 
 var currentLicense;
 var QF_license = {status:"unknown", type: 0}
@@ -125,12 +126,41 @@ async function addFolderPaneListener() {
   if (isDebug) {
     console.log(`quickFilters adding the other folder tree context menu item ${menuLabel} ...`, menuProps);
   }
-  messenger.menus.create(menuProps);
-
-  
+  messenger.menus.create(menuProps);  
 }
 
+async function addToolMenuListener() {
+  let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
+  const menuStart = messenger.i18n.getMessage("quickfilters.FilterAssistant.start"),
+        menuStop = messenger.i18n.getMessage("quickfilters.FilterAssistant.stop"); // it's a toggle, not sure how to do this.
+  if (isDebug) {
+    console.log("quickFilters: addToolMenuListener()");
+  }
+  let menuProps = {
+    contexts: ["tools_menu"],
+    checked: false,
+    onclick: async (event) => {    
+      if (isDebug) {
+        console.log("quickFilters tools menu", event);
+      }
+      const menuItem = { id: TOGGLE_ASSIST_TOOL_ID };   // fake menu item to pass to doCommand
+      let currentTab = await messenger.mailTabs.getCurrent();
 
+      // trigger win.quickFilters.doCommand(menuItem);
+      messenger.NotifyTools.notifyExperiment( { event: "doCommand", detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id } } );
+    },
+    icons: {
+      "16": "chrome/content/skin/QuickFilters.svg"
+    } ,
+    enabled: true,
+    id: TOGGLE_ASSIST_TOOL_ID,
+    title: menuStart
+  }
+  if (isDebug) {
+    console.log(`quickFilters adding the tools menu item ${menuStart} ...`, menuProps);
+  }
+  messenger.menus.create(menuProps);
+}
 
 
 function showSplash() {
@@ -281,6 +311,10 @@ async function main() {
       case "addFolderPaneListener":
         addFolderPaneListener();
         break;
+
+      case "addToolMenuListener":
+        addToolMenuListener();
+        break;
     }
   });
   
@@ -376,19 +410,6 @@ async function main() {
       }
     });
   }
-
-  /* original code
-  <menupopup id="messageMenuPopup">
-    <menuitem id="createFromMailContext"
-              class="menuitem-iconic"
-              insertBefore="createFilter"
-              label="__MSG_quickfilters.FromMessage.label__"
-              accesskey="__MSG_quickfilters.FromMessage.accesskey__"
-              oncommand="window.quickFilters.doCommand(this);"
-              />
-  </menupopup>
-      
-  */
 
   /* Add message thread context menu item */
   let menuLabel = messenger.i18n.getMessage("quickfilters.FromMessage.label");
