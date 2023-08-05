@@ -2,6 +2,9 @@ import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
 
 const QUICKFOLDERS_APPNAME = "quickfolders@curious.be";
+const RUNFILTERFROMTREE_ID = "runFiltersFolderPane";
+const FINDFILTERS_ID = "findFiltersFolder"
+const CREATEFILTERFROMMSG_ID = "createFromMailContext";
 
 var currentLicense;
 var QF_license = {status:"unknown", type: 0}
@@ -66,6 +69,67 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
       break;
   }
 });
+
+async function addFolderPaneListener() {
+  let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
+  let menuLabel = messenger.i18n.getMessage("quickfilters.RunButton.label");
+  if (isDebug) {
+    console.log("quickFilters: addFolderPaneListener()");
+  }
+  let menuProps = {
+    contexts: ["folder_pane"],
+    onclick: async (event) => {    
+      if (isDebug) {
+        console.log("quickFilters folderpane context menu", event);
+      }
+      const menuItem = { id: RUNFILTERFROMTREE_ID };   // fake menu item to pass to doCommand
+      let currentTab = await messenger.mailTabs.getCurrent();
+
+      // trigger win.quickFilters.doCommand(menuItem);
+      messenger.NotifyTools.notifyExperiment( { event: "doCommand", detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id } } );
+    },
+    icons: {
+      "16": "chrome/content/skin/runFilters.svg"
+    } ,
+    enabled: true,
+    id: RUNFILTERFROMTREE_ID,
+    title: menuLabel
+  }
+  if (isDebug) {
+    console.log(`quickFilters adding the folder tree context menu item ${menuLabel} ...`, menuProps);
+  }
+  messenger.menus.create(menuProps);
+  // ************************* ///
+  // FInd filters
+
+  menuLabel = messenger.i18n.getMessage("quickfilters.findFiltersForFolder.menu");
+  menuProps = {
+    contexts: ["folder_pane"],
+    onclick: async (event) => {    
+      if (isDebug) {
+        console.log("quickFilters folderpane context menu", event);
+      }
+      const menuItem = { id: FINDFILTERS_ID };   // fake menu item to pass to doCommand
+      let currentTab = await messenger.mailTabs.getCurrent();
+
+      // trigger win.quickFilters.doCommand(menuItem);
+      messenger.NotifyTools.notifyExperiment( { event: "doCommand", detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id } } );
+    },
+    icons: {
+      "16": "chrome/content/skin/findFilters.svg"
+    } ,
+    enabled: true,
+    id: FINDFILTERS_ID,
+    title: menuLabel
+  }
+  if (isDebug) {
+    console.log(`quickFilters adding the other folder tree context menu item ${menuLabel} ...`, menuProps);
+  }
+  messenger.menus.create(menuProps);
+
+  
+}
+
 
 
 
@@ -213,6 +277,10 @@ async function main() {
         // https://webextension-api.thunderbird.net/en/stable/browserAction.html#setlabel-details
         messenger.browserAction.setLabel({label:data.text});
         break;
+
+      case "addFolderPaneListener":
+        addFolderPaneListener();
+        break;
     }
   });
   
@@ -311,7 +379,7 @@ async function main() {
 
   /* original code
   <menupopup id="messageMenuPopup">
-    <menuitem id="quickFilters-createFromMailContext"
+    <menuitem id="createFromMailContext"
               class="menuitem-iconic"
               insertBefore="createFilter"
               label="__MSG_quickfilters.FromMessage.label__"
@@ -325,23 +393,22 @@ async function main() {
   /* Add message thread context menu item */
   let menuLabel = messenger.i18n.getMessage("quickfilters.FromMessage.label");
   // let menuAccel = messenger.i18n.getMessage("quickfilters.FromMessage.accesskey");
-  const CREATEFILTERFROMMSG_ID = "quickFilters-createFromMailContext";
   let menuProps = {
     contexts: ["message_list"],
     onclick: async (event) => {    
       if (isDebug) {
-        console.log("quickFilters context menu", event);
+        console.log("quickFilters message context menu", event);
       }
-      const menuItem = { id: CREATEFILTERFROMMSG_ID },   // fake menu item to pass to doCommand
-            windows = await browser.windows.getAll({ populate: true });
-      let currentWin = windows.find(fw => fw.focused),
-          currentTab = currentWin.tabs.find(t => t.active);
+      const menuItem = { id: CREATEFILTERFROMMSG_ID };   // fake menu item to pass to doCommand
+      let currentTab = await messenger.mailTabs.getCurrent();
+
+      let selectedMessages = await messenger.mailTabs.getSelectedMessages(currentTab.id);
 
       // trigger win.quickFilters.doCommand(menuItem);
       messenger.NotifyTools.notifyExperiment(
         {
           event: "doCommand", 
-          detail: {commandItem: menuItem, tabId: currentTab.id, windowId: currentWin.id}
+          detail: {commandItem: menuItem, tabId: currentTab.id, windowId: currentTab.windowId, messages: selectedMessages}
         }
       );
     },
@@ -352,6 +419,9 @@ async function main() {
     enabled: true,
     id: CREATEFILTERFROMMSG_ID,
     title: menuLabel
+  }
+  if (isDebug) {
+    console.log(`quickFilters adding the message context menu item ${menuLabel} ...`, menuProps);
   }
   messenger.menus.create(menuProps);
 

@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.1.1",
+  "version": "6.1.2pre24",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -22,7 +22,8 @@
   "permissions": [
     "accountsRead",
     "notifications",
-    "menus"
+    "menus",
+    "messagesRead"
   ],
   "browser_action": {
     "default_icon": {

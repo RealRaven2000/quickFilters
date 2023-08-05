@@ -883,7 +883,7 @@
     "message": "Erwägen Sie einen Update für diese Funktion."
   },
   "quickfilters.createFromMail.inboxWarning": {
-    "message": "'Filter aus Nachricht Erstellen' iost sinvoller wenn die Nachricht schon in aus der Inbox in einen anderen Ordner verschobem oder mit einem Schlagwort versehen wurde, da quickFilters dann die entsprechende Aktion einfügt.\nTrotzdem Filter aus dieser Nachricht erzeugen?"
+    "message": "'Filter aus Nachricht Erstellen' ist sinvoller wenn die Nachricht schon aus der Inbox in einen anderen Ordner verschoben oder mit einem Schlagwort versehen wurde, da quickFilters dann die entsprechende Aktion einfügt.\nTrotzdem einen Filter aus dieser Nachricht erzeugen?"
   },
   "quickfilters.createFromMail.selectWarning": {
     "message": "Um einen neuen Filter zu erzeugen, bitte genau eine Nachricht selektieren!"

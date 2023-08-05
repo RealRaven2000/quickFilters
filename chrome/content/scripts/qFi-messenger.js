@@ -3,6 +3,10 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-pref
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-utils.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 
+const RUNFILTERFROMTREE_ID = "runFiltersFolderPane";
+const FINDFILTERS_ID = "findFiltersFolder"
+const CREATEFILTERFROMMSG_ID = "createFromMailContext";
+
 async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
 }
@@ -14,19 +18,10 @@ async function onLoad(activatedWhileWindowOpen) {
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
   let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css");
-    
-  WL.injectElements(`  
-  <popup id="folderPaneContext">
-    <menuitem id="quickfilters-menu-runMenu" 
-	          label="__MSG_quickfilters.RunButton.label__" 
-						class="menuitem-iconic"
-			  />
-    <menuitem id="quickfilters-menu-findFilter" 
-				label="__MSG_quickfilters.findFiltersForFolder.menu__" 
-			  class="menuitem-iconic"
-			  />
-  </popup>
-  `); 
+
+  // call on background page to implement folder pane listener
+  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addFolderPaneListener" }); // replace worker.FilterMode   
+
 
   // [issue 122] false positives from antivirus scanners
   let btnRun = document.getElementById("quickfilters-menu-runMenu");
@@ -110,7 +105,8 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickfilters-toolbar-runbutton": // fall-throughs
       case "quickfilters-runFilters":
       case "quickfilters-current-runbutton":
-        window.quickFilters.onApplyFilters();
+      case RUNFILTERFROMTREE_ID:
+          window.quickFilters.onApplyFilters();
         break;
       case "quickfilters-toolbar-msg-runbutton":  // fall-throughs
       case "quickfilters-runFiltersMsg":
@@ -128,12 +124,13 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.Util.showLicenseDialog('mainBtnPopupMenu');
         break;
       case "quickFilters-menu-filterFromMsg": // fall-throughs
-      case "quickFilters-createFromMailContext":
+      case CREATEFILTERFROMMSG_ID:
       case "quickFilters-fromMessage":
         window.quickFilters.onMenuItemCommand('createFilterFromMsg');
         break;
       case "quickfilters-menu-searchfilters": // fall-through
       case "quickfilters-current-searchfilterbutton":
+      case FINDFILTERS_ID:
         window.quickFilters.searchFiltersFromFolder();
         break;
       case "quickfilters-menu-test-midnight":
@@ -151,6 +148,7 @@ async function onLoad(activatedWhileWindowOpen) {
   // note: the taskPopup (Tools menu)
   //       apparently doesn't show this command in TB102, may be dues to  gMenuBuilder.build()
   //       recreating the popup! (Ask TbSync how to add a menu using ext-menus.js)
+  /*
   WL.injectElements(`
   <menupopup id="taskPopup">
     <menuitem id="quickFilters-wizard"
@@ -160,21 +158,14 @@ async function onLoad(activatedWhileWindowOpen) {
               oncommand="window.quickFilters.doCommand(this);"
               />
   </menupopup>
-  
-  <menupopup id="messageMenuPopup">
-    <menuitem id="quickFilters-createFromMailContext"
-              class="menuitem-iconic"
-              insertBefore="createFilter"
-              label="__MSG_quickfilters.FromMessage.label__"
-			        accesskey="__MSG_quickfilters.FromMessage.accesskey__"
-              oncommand="window.quickFilters.doCommand(this);"
-              />
-  </menupopup>
+
   `);
+  */
 
   // Tb115: menupopup, not popup!
 
   // this needs to be injected into the document "about:3pane" instead!
+  /*
   WL.injectElements(`
   <menupopup id="mailContext">
     <menuitem id="quickFilters-fromMessage"
@@ -186,6 +177,7 @@ async function onLoad(activatedWhileWindowOpen) {
               />
   </menupopup>
   `);
+  */
 
   // from qFilters-QF-tb68.xul
   
@@ -206,6 +198,11 @@ async function onLoad(activatedWhileWindowOpen) {
   window.addEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
 
   listener_doCommand = (event) => {
+    window.quickFilters.Util.logHighlightDebug("listener_doCommand()", "white", "magenta", event.detail);
+    if (!event.detail.windowId) {
+      console.warn("listener_doCommand failed - missing detail.windowId!");
+      return;
+    }    
     let windowId = event.detail.windowId;
     // find out if we are in the correct window:
     // context.extension.windowManager

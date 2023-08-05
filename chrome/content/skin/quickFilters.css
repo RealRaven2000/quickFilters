@@ -1,4 +1,18 @@
 
+@media (prefers-color-scheme: dark) {
+  :root {
+		--quickFilters-icon: rgba(255,255,255,0.9);
+    --quickFilters-focusColor: #25ee06;
+  }  
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+		--quickFilters-icon: rgba(0,0,0,0.9);
+    --quickFilters-focusColor: #0f6f00;
+  }
+}
+
 #QuickFolders-Toolbar toolbarbutton#QuickFolders-filterActive {
 	background-color: transparent;
 	padding: 0px 2px;
@@ -44,19 +58,40 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
 }
 
 /* overwrite menu icon (custom icon only working for submenus) */
-#quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext {
+#quickfilters_axelg_com-menuitem-_findFiltersFolder,
+#quickfilters_axelg_com-menuitem-_runFiltersFolderPane,
+#quickfilters_axelg_com-menuitem-_createFromMailContext {
 	-moz-context-properties: fill;
-	fill: rgba(120,120,120,0.85);
+	fill: var(--lwt-text-color,--quickFilters-icon);
 }
 
-#quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext hbox {
-	background-image: url("chrome://quickfilters/content/skin/createFilter.svg") !important;
+#quickfilters_axelg_com-menuitem-_findFiltersFolder hbox,
+#quickfilters_axelg_com-menuitem-_runFiltersFolderPane hbox,
+#quickfilters_axelg_com-menuitem-_createFromMailContext hbox {
 	background-position-y: 1px;
 	background-repeat: no-repeat;
-	fill: rgba(120,120,120,0.85);
+	fill: var(--lwt-text-color,--quickFilters-icon);
+	
 }
 
-#quickfilters_axelg_com-menuitem-_quickFilters-createFromMailContext hbox image {
+#quickfilters_axelg_com-menuitem-_findFiltersFolder hbox image,
+#quickfilters_axelg_com-menuitem-_runFiltersFolderPane hbox image,
+#quickfilters_axelg_com-menuitem-_createFromMailContext hbox image {
 	visibility: hidden;
 }
+
+/*icons */
+#quickfilters_axelg_com-menuitem-_createFromMailContext hbox {
+	background-image: url("chrome://quickfilters/content/skin/createFilter.svg") !important;
+}
+
+#quickfilters_axelg_com-menuitem-_runFiltersFolderPane hbox {
+	background-image: url("chrome://quickfilters/content/skin/runFilters.svg") !important;
+}
+
+#quickfilters_axelg_com-menuitem-_findFiltersFolder hbox {
+	background-image: url("chrome://quickfilters/content/skin/findFilters.svg") !important;
+}
+
+
 

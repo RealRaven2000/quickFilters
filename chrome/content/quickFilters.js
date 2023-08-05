@@ -577,15 +577,18 @@ END LICENSE BLOCK
     # - [issue 197] quickFilters 6.0.* Backups stored in broken format
     # Added thread list menu item "Create Filter from message"
 
-  6.1.1 - WIP
+  6.1.1 - 29/07/2023
     # Improved main action menu (show filters is now in the main menu)
     # modified QuickFolders Navigation bar integration for Tb115 to require either license
     # Registration dialog: made sure it can be scrolled down on small screens
     #                      Fixed "license is valid" label
     # Settings Dialog: Fixed "renew license" dialog button 
 
-  6.2 - TO DO:
+  6.2 - WIP:
+    # Added folder context menu entries: find filters, run filters.
     # convert settings to html / Thunderbird tab
+    # fixed some German translations..
+    # Fix duplicated message context menu... ??
 
    
   ============================================================================================================
