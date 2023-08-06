@@ -567,6 +567,8 @@ END LICENSE BLOCK
     # completed Chinese translations
     # fixed sales date!
 
+  5.9.4 - WIP
+    # [issue 204] Edit Custom filters shows all filters in Local folders     
    
   ============================================================================================================
   FUTURE WORK:

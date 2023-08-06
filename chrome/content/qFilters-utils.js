@@ -1730,7 +1730,7 @@ quickFilters.Util = {
     util.logDebugOptional('template.custom','filterCustomTemplates(' + attempt + ')');
     let fWin = util.getLastFilterListWindow(),
         isProcessed = false;
-    if (fWin) { 
+    if (fWin && fWin.quickFilters) { // [issue 204]
       let list = fWin.quickFilters.List;
       if (list) {
         list.toggleSearchType('name');
