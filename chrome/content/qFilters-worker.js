@@ -1638,7 +1638,7 @@ quickFilters.Worker = {
   } ,  // buildFilter
   
   /** legacy function (used from legacy QuickFolders) **/
-  createFilterAsync: async function createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry) {
+  createFilterAsync: async function (sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry) {
     // not used anymore
     if (quickFilters.isNewAssistantMode) {
       return []; // return empty array (return value is not used anyway)
@@ -1646,20 +1646,18 @@ quickFilters.Worker = {
     let messageList = [],
         util = quickFilters.Util,
         entry;
-    if (!retry)
-      retry = 1;
+    if (!retry) { retry = 1; }
+      
     util.logDebug("Calling legacy createFilterAsync() Attempt = " + retry);
     // to be backwards compatible with [old versions of] QuickFolders
     // we need to re-package the messageList elements in the format  { messageId, msgHeader}
     // to do: merge these changes into QuickFolders filter implementation
-    let test=false;
     for (let i = 0; i < messageIdList.length; i++) {  
       let messageId = messageIdList[i],
-          messageDb;
+          messageDb,
+          msgHeader;
       try {
-        if (test) {
-          let msgHeader = MailUtils.getMsgHdrForMsgId(messageId); // test TbSync
-        }
+        msgHeader = MailUtils.getMsgHdrForMsgId(messageId); // test TbSync
         messageDb = targetFolder.msgDatabase; // msgDatabase
       }
       catch(ex) {
@@ -1676,8 +1674,8 @@ quickFilters.Worker = {
           
         }
       }
-      if (messageDb) {
-        let msgHeader = messageDb.getMsgHdrForMessageID(messageId);
+      if (!msgHeader && messageDb) {
+        msgHeader = messageDb.getMsgHdrForMessageID(messageId);
         // this might take a while!
         if (!msgHeader) {
           retry++;
@@ -1697,7 +1695,7 @@ quickFilters.Worker = {
         entry = util.makeMessageListEntry(msgHeader);
       }
       else {
-        entry =  {"messageId":msgHeader.messageId, "msgHeader":null};  // probably won't work
+        entry =  {"messageId":msgHeader.messageId, "msgHeader":msgHeader};
       }
         
       messageList.push(entry);  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
