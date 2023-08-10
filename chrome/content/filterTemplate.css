@@ -18,8 +18,9 @@ image#logo {
 }
 
 #qf-filter-templates {
-  min-width: 15em;
+  min-width: 20em;
 	max-height: 19.2em;
+	flex-grow: 1; 
 }
 
 #preview .fieldset-body {
@@ -33,10 +34,23 @@ image#logo {
 
 /* don't restrict dialog #qf-template */
 #assistantDeck, #header, .deckChild, hbox.myWizard {
-  max-width: 900px;
+  max-width: 1200px;
 }
+
+hbox.myWizard {
+	display:flex;
+}
+
+hbox.myWizard {
+	gap: 1.5em;
+}
+
+#qf-template-prefpane > vbox {
+	width: 100%;
+}
+
 .paneDeckContainer {
-  max-width: 930px;
+  max-width: 1100px;
 }
 
 #mergeSummary, #mergeInstructions {
@@ -53,13 +67,13 @@ image#logo {
 #boxDescription {
   min-height: 5em;
 	min-width: 520px;
-	max-width: 620px;
+	max-width: 1000px;
 }
 #templateLabel { padding-top: 0.5em; }
 #templateDescription {
   padding: 0.5em;
   min-height:3.8em;
-  max-width: 520px !important;
+  /*! max-width: 520px !important; */
 }
 
 #qf-whatToDo {

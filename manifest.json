@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.1.2pre24",
+  "version": "6.2pre32",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {

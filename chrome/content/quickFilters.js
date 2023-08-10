@@ -588,9 +588,13 @@ END LICENSE BLOCK
     # [issue 203] Added folder context menu entries: find filters, run filters.
     # [issue 203] Added tools content menu: Start Filter Assistant
     # [issue 204] Edit Custom filters shows all filters in Local folders 
-    # convert settings to html / Thunderbird tab
-    # fixed some German translations..
+    # Fixed some German translations..
     # Fix duplicated message context menu... ??
+    # [issue 205] QuickFolders + quickMove fails to invoke the assistant
+
+
+  6.3 0 FUTURE
+    # convert settings to html / Thunderbird tab
 
    
   ============================================================================================================
