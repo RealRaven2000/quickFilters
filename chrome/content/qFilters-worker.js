@@ -252,12 +252,12 @@ quickFilters.Worker = {
   } ,
 
   parseHeader : function parseHeader(parser, msgHeader) {
-      return parser.extractHeaderAddressMailboxes(msgHeader);
+    return parser.extractHeaderAddressMailboxes(msgHeader);
   } ,
   
   // add a "cloned" version of messageHeader to the messageList array.
   // checks both folders for the message header, but folder2 is optional
-  refreshHeaders : function refreshHeaders(messageList, folder, folder2) {
+  refreshHeaders : function (messageList, folder, folder2) {
     function pad(str, len) {
         if (len + 1 >= str.length) {
             str = str + Array(len + 1 - str.length).join(' ');
@@ -391,23 +391,12 @@ quickFilters.Worker = {
   } ,
   
   // folder is the target folder - we might also need the source folder
-  createQuickFilter: async function (sourceFolder, targetFolder, messageList, filterAction, filterActionExt) {
+  createQuickFilter: async function (sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isFromAPI=false) {
     const util = quickFilters.Util,
-          Cc = Components.classes,
           Ci = Components.interfaces,
           prefs = quickFilters.Preferences;
 
     var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
-    function warningUpdate() {
-      let wrn = util.getBundleString('quickfilters.createFilter.warning.noHeaderParser',
-                  'Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header.'
-                ),
-          suggest = util.getBundleString('quickfilters.createFilter.warning.suggestUpdate',
-                      'Consider updating to a newer version to get this feature.'
-                    ),
-          theAlert = wrn.replace('{1}', util.Application) + '\n' + suggest;
-      util.popupAlert(theAlert);
-    }
 
     // do an async repeat if it fails for the first time
     function rerun(reason) {
@@ -435,7 +424,9 @@ quickFilters.Worker = {
       }
       //targetFolder.updateFolder(msgWindow);
       window.setTimeout(async function() {
-            let filtered = await quickFilters.Worker.createQuickFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
+            let filtered = await quickFilters.Worker.createQuickFilter(
+              sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isFromAPI
+            );
             quickFilters.Util.logDebug("createQuickFilter returned: " + filtered);
           }, 400);
       return 0;
@@ -460,19 +451,13 @@ quickFilters.Worker = {
     util.debugMsgAndFolders('sourceFolder', (sourceFolder ? sourceFolder.prettyName || '' : 'none'), targetFolder, firstMessage.msgHeader, filterAction);
     // Force always refresh Headers - we need to clone all messages for reliable filter building (parse group of emails)
     // refresh message headers
-    if (!this.refreshHeaders(messageList, targetFolder, sourceFolder)) {
-      return rerun('targetFolder Database not ready');
+
+    if (!isFromAPI) {
+      if (!this.refreshHeaders(messageList, targetFolder, sourceFolder)) {
+        return rerun('targetFolder Database not ready');
+      }
     }
-    if (!firstMessage.msgHeader 
-        || firstMessage.msgHeader.messageId != firstMessage.messageId 
-        || !firstMessage.msgHeader.accountKey
-        || !firstMessage.msgClone) {
-      // if (quickFilters.Worker.reRunCount==3) { 
-        // // open folder temporarily in a tab to force refreshing headers.
-        // let background = (util.Application=='Postbox') ? false : true;
-        // util.openTempFolderInNewTab(targetFolder, background);
-      // }
-    }
+
     // util.closeTempFolderTab(); // tidy up if it was necessary
     let messageDb = targetFolder.msgDatabase ? targetFolder.msgDatabase : targetFolder.getMsgDatabase(null);
     
@@ -598,8 +583,8 @@ quickFilters.Worker = {
       if (messageList.length) {
         let messageId;
         util.logDebugOptional ("createFilter", "messageList.length = " + messageList.length);
-        messageHeader = firstMessage.msgClone;
-        messageId = firstMessage.messageId;
+        messageHeader = isFromAPI ? firstMessage.msgHeader : firstMessage.msgClone;
+        messageId = isFromAPI ? null : firstMessage.messageId;
         if (!isFromMessageContext) {
           if (!messageId) {
             let wrn = util.getBundleString('quickfilters.createFilter.warning.noMessageId',
@@ -656,37 +641,27 @@ quickFilters.Worker = {
         // default filter name = name of target folder
         util.debugMsgAndFolders('messageKey', key, targetFolder, msg, filterAction);
         let hdrParser = MailServices.headerParser; // nsIMsgHeaderParser
-        if (hdrParser) {
-          if (hdrParser.extractHeaderAddressMailboxes) { 
-            util.logDebugOptional ("createFilter","parsing msg header...");
-            emailAddress = this.parseHeader(hdrParser, msg.author);
-            ccAddress = this.parseHeader(hdrParser, msg.ccList);
-            bccAddress = this.parseHeader(hdrParser, msg.bccList);
-            util.logDebugOptional ("createFilter","emailAddress = " + emailAddress + ", ccAddress = " + ccAddress + ", bccAddress=" + bccAddress);
-          }
-          else { // Tb 2 can't ?
-            warningUpdate();
-            util.logDebugOptional ("createFilter","no header parser :(\nAborting Filter Operation");
-            this.promiseCreateFilter = false;
-            return 0;
-          }
+        if (hdrParser && hdrParser.extractHeaderAddressMailboxes) { 
+          util.logDebugOptional ("createFilter","parsing msg header...");
+          emailAddress = this.parseHeader(hdrParser, msg.author);
+          ccAddress = this.parseHeader(hdrParser, msg.ccList);
+          bccAddress = this.parseHeader(hdrParser, msg.bccList);
+          util.logDebugOptional ("createFilter","emailAddress = " + emailAddress + ", ccAddress = " + ccAddress + ", bccAddress=" + bccAddress);
           util.logDebugOptional ("createFilter","message header parsed.");
         }
         else { // exception
-          warningUpdate();
           this.promiseCreateFilter = false;
           return 0;
         }
 
-        let previewText = msg.PreviewText; //  msg.getStringProperty('preview');
+        let previewText = msg.PreviewText || ""; //  msg.getStringProperty('preview');
         util.logDebugOptional ("createFilter", "previewText="+ previewText || '(empty)');
 
         /***************  USER INTERFACE  **************/
-        if (emailAddress)
-        {
+        if (emailAddress) {
           let theDate = "none";
           if (msg.date) {
-            let dt = new Date(msg.dateInSeconds * 1000);
+            let dt =  msg.dateInSeconds ? new Date(msg.dateInSeconds * 1000) : msg.date; // from APi has no dateInSeconds
             theDate = dt.getDate().toString() + '/' + (dt.getMonth()+1) + ' ' + dt.getFullYear() + ' ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
           }
 
@@ -797,7 +772,7 @@ quickFilters.Worker = {
           let mergeFilterIndex = params.selectedMergedFilterIndex; // -1 for none
           // let's make this asynchronous also (so we can rerun it) - make sure to reset promiseCreateFilter when it finishes!
           quickFilters.Worker.reRunCount = 0;
-          this.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, matchingFilters, 
+          await this.buildFilter(sourceFolder, targetFolder, messageList, messageDb, filterAction, matchingFilters, 
                            filtersList, mergeFilterIndex, emailAddress, ccAddress, bccAddress, filterActionExt);
         }
         else  // just launch filterList dialog
@@ -1705,25 +1680,29 @@ quickFilters.Worker = {
       if (quickFilters.Preferences.isDebugOption("assistant")) {
         debugger;
       }
-      return await this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow);
+      return await this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
     }
   } ,
 
-  createFilterAsync_New: async function createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isSlow) {
+  createFilterAsync_New: async function(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isFromAPI=false) {
     const Ci = Components.interfaces;
     if (quickFilters.Preferences.isDebugOption("assistant")) {
       debugger;
     }
-    let delay = isSlow ? 800 : 0; // wait for the filter dialog to be updated with the new folder if drag to new
     if (filterAction ===false) {  // old isCopy value
       filterAction = Ci.nsMsgFilterAction.MoveToFolder;
     }
     if (filterAction ===true) {  // old isCopy value
       filterAction = Ci.nsMsgFilterAction.CopyToFolder;
     }
-    //window.setTimeout(async function() {
       try {
-        let filtered = await quickFilters.Worker.createQuickFilter(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
+        let filtered = await quickFilters.Worker.createQuickFilter(
+          sourceFolder, 
+          targetFolder, 
+          messageList, 
+          filterAction, 
+          filterActionExt,
+          isFromAPI);
         // remember message ids!
         quickFilters.Util.logDebugOptional('createFilter', 'createFilterAsync_New() - createQuickFilter returned: ' + filtered);
       }
@@ -1731,7 +1710,6 @@ quickFilters.Worker = {
         quickFilters.Util.logException("createFilterAsync_New() failed: ", ex);
       }
       finally { ; }
-    //}, delay);
 
   }
 
