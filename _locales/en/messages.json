@@ -1370,7 +1370,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1}5.9.2: Completed Chinese translations for User Interface.{L2} {L1}Corrected end date for license sale.{L2} {L1} Added explanation about new filter properties. {L2} {L1} quickFilters now disables the filter assistant when a new version loaded. {L2} {L1} The number of remaining license days is now automatically updated every midnight.{L2} {L1} Repaired: custom templates failed reading original mail headers and inserted '??'{L2}"
+    "message": "{L1}Bug Fixed: Creating new filters may fail with custom templates or mailing list template if the email is larger than 16kBytes. [issue 206]{L2} {L1}Bug Fixed: Edit Custom filters shows all filters in Local folders and not just custom templates. [issue 204]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

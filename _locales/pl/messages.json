@@ -1365,7 +1365,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.2: Ukończono chińskie tłumaczenia interfejsu użytkownika.{L2} {L1}Poprawiona data końcowa sprzedaży licencji.{L2} {L1} Dodano wyjaśnienie nowych właściwości filtra. {L2} {L1} quickFilters wyłącza teraz asystenta filtrów po załadowaniu nowej wersji. {L2} {L1} Liczba pozostałych dni licencji jest teraz automatycznie aktualizowana co północ.{L2} {L1} Naprawiono: niestandardowe szablony nie odczytały oryginalnych nagłówków poczty i wstawiły „??”{L2}"
+    "message" : "{L1}Naprawiony błąd: tworzenie nowych filtrów może zakończyć się niepowodzeniem w przypadku szablonów niestandardowych lub szablonu listy adresowej, jeśli wiadomość e-mail jest większa niż 16 KB. [issue 206]{L2} {L1}Naprawiony błąd: Edytuj filtry niestandardowe pokazuje wszystkie filtry w folderach lokalnych, a nie tylko niestandardowe szablony. [issue 204] {L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

@@ -1367,7 +1367,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.2: Traductions chinoises terminées pour l'interface utilisateur.{L2} {L1}Date de fin corrigée pour la vente de licence.{L2} {L1} Ajout d'une explication sur les nouvelles propriétés de filtre. {L2} {L1} quickFilters désactive désormais l'assistant de filtrage lorsqu'une nouvelle version est chargée. {L2} {L1} Le nombre de jours de licence restants est désormais automatiquement mis à jour tous les minuits.{L2} {L1} Réparé : les modèles personnalisés n'ont pas pu lire les en-têtes de courrier d'origine et ont inséré '??'{L2}"
+    "message": "{L1}Bug corrigé : la création de nouveaux filtres peut échouer avec des modèles personnalisés ou un modèle de liste de diffusion si l'e-mail est supérieur à 16 Ko. [issue 206]{L2} {L1}Bug corrigé : Modifier les filtres personnalisés affiche tous les filtres dans les dossiers locaux et pas seulement les modèles personnalisés. [issue 204]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

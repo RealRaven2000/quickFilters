@@ -1371,7 +1371,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.3: Traduções chinesas concluídas para a interface do usuário.{L2} {L1}Data de término corrigida para a venda da licença.{L2} {L1} Adicionada explicação sobre novas propriedades de filtro. {L2} {L1} quickFilters agora desativa o assistente de filtro quando uma nova versão é carregada. {L2} {L1} O número de dias de licença restantes agora é atualizado automaticamente a cada meia-noite.{L2} {L1} Reparado: modelos personalizados falharam ao ler cabeçalhos de e-mail originais e inseriram '??'{L2}"
+    "message" : "{L1}Bug corrigido: a criação de novos filtros pode falhar com modelos personalizados ou modelo de lista de e-mail se o e-mail for maior que 16kBytes. [issue 206]{L2} {L1}Bug corrigido: Editar filtros personalizados mostra todos os filtros em pastas locais e não apenas modelos personalizados. [issue 204]{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

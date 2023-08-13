@@ -1368,7 +1368,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.3: Chinesische Übersetzungen für die Benutzeroberfläche abgeschlossen.{L2} {L1} Enddatum für Lizenzverkauf korrigiert.{L2} {L1} 5.9.1 Fehlende Schaltflächen in der Symbolleiste des aktuellen Ordners für Linux-Benutzer von QuickFolders behoben{L2}{L1} 5.9.1 Schaltflächen in früheren Versionen funktionierten nicht sofort, wenn sie vom Benutzer über die angepasste Symbolleiste hinzugefügt wurden – dies erforderte einen Neustart von quickFilters. [issue 175] {L2}{L1} Neues Layout für Symbolleisten-Schaltfläche - dies ist jetzt ein Dropdown-Menü, das immer {boldStart}Zugriff auf alle Funktionen{boldEnd} bietet, auch wenn die Lizenz abgelaufen ist oder Versionshinweise noch nicht gelesen wurden. {L2}{L1} Assistent beim Ziehen von E-Mails deaktiviert aus speziellen Ordnern (Warteschlange, Vorlagen, Entwürfe, Papierkorb) [issue 164]{L2}{L1} Repariert: Option zum Hinzufügen neuer Regeln zu vorhandenen Filtern oben in der Liste der Suchbegriffe.{L2} "
+    "message": "{L1}Fehler behoben: Das Erstellen neuer Filter kann bei benutzerdefinierten Vorlagen oder Mailinglisten-Vorlagen fehlschlagen, wenn die E-Mail größer als 16 KB ist. [issue 206]{L2} {L1}Fehler behoben: „Benutzerdefinierte Filter bearbeiten“ zeigt alle Filter in lokalen Ordnern und nicht nur benutzerdefinierte Vorlagen an. [issue 204]{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

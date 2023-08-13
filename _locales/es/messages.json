@@ -1367,7 +1367,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1}5.9.3 Traducciones al chino completadas para la interfaz de usuario.{L2} {L1}Fecha de finalización corregida para la venta de licencias.{L2} {L1} Se agregó una explicación sobre las nuevas propiedades del filtro. {L2} {L1} QuickFilters ahora desactiva el asistente de filtro cuando se carga una nueva versión. {L2} {L1} El número de días de licencia restantes ahora se actualiza automáticamente cada medianoche.{L2} {L1} Reparado: las plantillas personalizadas fallaron al leer los encabezados de correo originales e insertaron '??'{L2}"
+    "message": "{L1}Error solucionado: la creación de nuevos filtros puede fallar con plantillas personalizadas o plantillas de listas de correo si el correo electrónico tiene más de 16 kBytes. [issue 206]{L2} {L1}Error solucionado: Editar filtros personalizados muestra todos los filtros en las carpetas locales y no solo las plantillas personalizadas. [issue 204]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

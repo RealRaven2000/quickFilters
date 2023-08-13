@@ -1364,7 +1364,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.3: 完成用户界面的中文翻译。{L2} {L1} 更正了许可证销售的结束日期。{L2} {L1} 添加了有关新过滤器属性的说明。 {L2} {L1} quickFilters 现在会在加载新版本时禁用过滤器助手。 {L2} {L1} 剩余许可证天数现在会在每天午夜自动更新。{L2} {L1} 已修复：自定义模板无法读取原始邮件标头并插入“??”{L2}"
+    "message": "{L1}已修复错误：如果电子邮件大于 16kByte，则使用自定义模板或邮件列表模板创建新过滤器可能会失败。 [issue 206]{L2} {L1}修复了错误：编辑自定义过滤器显示本地文件夹中的所有过滤器，而不仅仅是自定义模板。 [issue 204]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

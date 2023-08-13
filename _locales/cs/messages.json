@@ -335,7 +335,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}5.9.2: Dokončené překlady do čínštiny pro uživatelské rozhraní.{L2} {L1}Opravené datum ukončení prodeje licence.{L2}{L1} Přidáno vysvětlení nových vlastností filtru. {L2} {L1} quickFilters nyní deaktivuje asistenta filtrování při načtení nové verze. {L2} {L1} Počet zbývajících licenčních dnů se nyní automaticky aktualizuje každou půlnoc.{L2} {L1} Opraveno: Vlastní šablony selhaly při čtení záhlaví původní pošty a vložily „??“ {L2} "
+    "message" : "{L1}Chyba opravena: Pokud je e-mail větší než 16 kB, vytváření nových filtrů může selhat s vlastními šablonami nebo šablonami seznamu adresátů. [issue 206]{L2} {L1}Opravená chyba: Upravit vlastní filtry zobrazí všechny filtry v Místních složkách, nejen vlastní šablony. [issue 204]{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

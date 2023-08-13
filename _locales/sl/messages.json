@@ -251,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} 5.9.3: Dokončani kitajski prevodi za uporabniški vmesnik.{L2} {L1}Popravljen končni datum za prodajo licence.{L2} {L1} Dodana razlaga o novih lastnostih filtra. {L2} {L1} quickFilters zdaj onemogoči pomočnika za filtriranje, ko se naloži nova različica. {L2} {L1} Število preostalih licenčnih dni se zdaj samodejno posodablja vsako polnoč.{L2} {L1} Popravljeno: predloge po meri niso prebrale izvirnih glav pošte in so vstavili '??'{L2}"
+    "message" : "{L1}Odpravljena napaka: Ustvarjanje novih filtrov morda ne bo uspelo s predlogami po meri ali predlogami poštnega seznama, če je e-poštno sporočilo večje od 16 kB. [issue 206]{L2} {L1}Odpravljena napaka: Uredi filtre po meri prikazuje vse filtre v lokalnih mapah in ne samo predloge po meri. [issue 204]{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

@@ -1367,7 +1367,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.3: Voltooide Chinese vertalingen voor gebruikersinterface.{L2} {L1}Einddatum voor licentieverkoop gecorrigeerd.{L2} {L1} Uitleg toegevoegd over nieuwe filtereigenschappen. {L2} {L1} quickFilters schakelt nu de filterassistent uit wanneer een nieuwe versie wordt geladen. {L2} {L1} Het aantal resterende licentiedagen wordt nu elke middernacht automatisch bijgewerkt.{L2} {L1} Gerepareerd: aangepaste sjablonen konden de originele e-mailkoppen niet lezen en '??' invoegen{L2}"
+    "message": "{L1}Bug opgelost: het maken van nieuwe filters kan mislukken met aangepaste sjablonen of mailinglijstsjablonen als de e-mail groter is dan 16 kBytes. [issue 206]{L2} {L1}Bug opgelost: aangepaste filters bewerken toont alle filters in lokale mappen en niet alleen aangepaste sjablonen. [issue 204]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

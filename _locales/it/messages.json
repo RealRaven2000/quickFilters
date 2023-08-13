@@ -1367,7 +1367,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.3: Traduzioni cinesi completate per l'interfaccia utente.{L2} {L1}Corretta la data di fine della vendita della licenza.{L2} {L1} Aggiunta spiegazione sulle nuove proprietà del filtro. {L2} {L1} quickFilters ora disabilita l'assistente filtro quando viene caricata una nuova versione. {L2} {L1} Il numero di giorni di licenza rimanenti viene ora aggiornato automaticamente ogni mezzanotte.{L2} {L1} Risolto: i modelli personalizzati non riuscivano a leggere le intestazioni di posta originali e inserivano '??'{L2}"
+    "message": "{L1}Bug risolto: la creazione di nuovi filtri potrebbe non riuscire con i modelli personalizzati o con il modello di mailing list se l'email è più grande di 16kByte. [issue 206]{L2} {L1}Bug risolto: Modifica filtri personalizzati mostra tutti i filtri nelle cartelle locali e non solo i modelli personalizzati. [issue 204]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

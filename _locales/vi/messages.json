@@ -1367,7 +1367,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} 5.9.2: Đã hoàn thành bản dịch tiếng Trung cho Giao diện người dùng.{L2} {L1} Đã sửa ngày kết thúc bán giấy phép.{L2} {L1} Đã thêm giải thích về thuộc tính bộ lọc mới. {L2} {L1} quickFilters hiện tắt trợ lý bộ lọc khi tải phiên bản mới. {L2} {L1} Số ngày giấy phép còn lại hiện được cập nhật tự động vào mỗi nửa đêm.{L2} {L1} Đã sửa chữa: mẫu tùy chỉnh không thể đọc tiêu đề thư gốc và chèn '??'{L2}"
+    "message": "{L1}Đã sửa lỗi: Tạo bộ lọc mới có thể không thành công với các mẫu tùy chỉnh hoặc mẫu danh sách gửi thư nếu email lớn hơn 16kByte. [issue 206]{L2} {L1}Đã sửa lỗi: Chỉnh sửa Bộ lọc tùy chỉnh hiển thị tất cả các bộ lọc trong Thư mục cục bộ chứ không chỉ các mẫu tùy chỉnh. [issue 204]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

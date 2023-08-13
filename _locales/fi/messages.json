@@ -1368,7 +1368,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} 5.9.3 Valmiit kiinan käännökset käyttöliittymään.{L2} {L1}Korjattu lisenssimyynnin päättymispäivä.{L2} {L1} Lisätty selitys uusista suodattimen ominaisuuksista. {L2} {L1} quickFilters poistaa nyt suodatinavustajan käytöstä, kun uusi versio ladataan. {L2} {L1} Jäljellä olevien lisenssipäivien määrä päivittyy nyt automaattisesti joka keskiyö.{L2} {L1} Korjattu: mukautetut mallit epäonnistuivat lukemaan alkuperäisiä sähköpostien otsikoita ja lisätty '??'{L2}"
+    "message" : "{L1}Virhe korjattu: Uusien suodattimien luominen voi epäonnistua mukautetuilla malleilla tai postituslistamallilla, jos sähköposti on suurempi kuin 16 kt. [issue 206]{L2} {L1}Virhe korjattu: Muokkaa mukautettuja suodattimia näyttää kaikki paikallisten kansioiden suodattimet, ei vain mukautettuja malleja. [issue 204]{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",
