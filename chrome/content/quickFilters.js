@@ -591,9 +591,10 @@ END LICENSE BLOCK
     # Fixed some German translations..
     # Fix duplicated message context menu... ??
     # [issue 205] QuickFolders + quickMove fails to invoke the assistant
+    # [issue 206] When creating new filters - Reading headers can fail if mail is larger than 16kByte
 
 
-  6.3 0 FUTURE
+  6.* - FUTURE WORK
     # convert settings to html / Thunderbird tab
 
    
@@ -842,7 +843,7 @@ var quickFilters = {
 
   },
 
-  onMenuItemCommand: function onMenuItemCommand(cmd) {
+  onMenuItemCommand: async function(cmd, eventDetail = null) {
     const util = quickFilters.Util,
           prefs = quickFilters.Preferences;
     switch(cmd) {
@@ -851,15 +852,36 @@ var quickFilters = {
         break;
       case 'createFilterFromMsg':
         let selectedMessageUris = [],
+            selectedMessages = [],
             messageList = [],
             isInbox = false;
-        let selectedMessages = quickFilters.Util.getSelectedMessages(selectedMessageUris); 
+        let sourceFolder;
+
+        if (eventDetail) { // this is passing info from API: the tab id + message ids.
+          // tabId: currentTab.id, windowId: currentTab.windowId, messages: selectedMessages
+          let tabId = eventDetail.tabId, 
+              msg = eventDetail.messages;
+          for (let i = 0; i<msg.messages.length; i++) {
+            let m = msg.messages[i];
+            let realMessage = await window.quickFilters.WL.extension.messageManager.get(m.id);
+            selectedMessages.push(realMessage || m);
+            selectedMessageUris.push(null); // there is no URI!
+          }
+          sourceFolder = util.getCurrentFolder();
+        }
+        else {
+          selectedMessages = quickFilters.Util.getSelectedMessages(selectedMessageUris, true); 
+          if (selectedMessages.length) {
+            sourceFolder = selectedMessages[0].folder;
+          }
+        }
         // && selectedMessages[0].folder.server.canHaveFilters
-        if (selectedMessages.length > 0 && selectedMessages[0].folder ) {
+        if (selectedMessages.length > 0 && sourceFolder ) {
           // check the tags
-          let firstSelectedMsg = selectedMessages[0],
-              tags = firstSelectedMsg.getStringProperty ? firstSelectedMsg.getStringProperty("keywords") : firstSelectedMsg.Keywords;
-          isInbox = firstSelectedMsg.folder.flags & util.FolderFlags.Inbox;
+          let firstSelectedMsg = selectedMessages[0];
+          let tags = firstSelectedMsg.tags ||
+                (firstSelectedMsg.getStringProperty ? firstSelectedMsg.getStringProperty("keywords") : firstSelectedMsg.Keywords);
+          isInbox = sourceFolder.flags & util.FolderFlags.Inbox;
           if (isInbox
               && prefs.getBoolPref('warnInboxAssistant')
               && (!tags || tags.length == 0 || tags.toLowerCase()=='nonjunk' || tags.toLowerCase()=='junk')
@@ -891,8 +913,18 @@ var quickFilters = {
           // we do not know the primary action on this message (yet)
           let currentMessageFolder = util.getCurrentFolder();
           if (util.isVirtual(currentMessageFolder)) {
-            if (firstSelectedMsg.folder)  // find the real folder!
-              currentMessageFolder = firstSelectedMsg.folder;
+            if (firstSelectedMsg.folder) { // find the real folder!
+              // this may be from the API
+              if (eventDetail) {
+                let realFolder = window.quickFilters.WL.extension.folderManager.get(
+                  firstSelectedMsg.folder.accountId, 
+                  firstSelectedMsg.folder.path
+                );
+                currentMessageFolder = realFolder;
+              } else {
+                currentMessageFolder = firstSelectedMsg.folder;
+              }
+            }
           }
           let fA = null;
           if (!isInbox) {
@@ -905,7 +937,13 @@ var quickFilters = {
           
           // now really an async function:
           // TO DO:  test / check this code branch asyncify - (create filter from message seems to fail)
-          quickFilters.Worker.createFilterAsync_New(null, currentMessageFolder, messageList, fA, false);
+          quickFilters.Worker.createFilterAsync_New(
+            null, 
+            currentMessageFolder, 
+            messageList, 
+            fA, 
+            false, 
+            !(!eventDetail)); // from API
         }
         else {
           let wrn = util.getBundleString("quickfilters.createFromMail.selectWarning",
@@ -1173,9 +1211,12 @@ var quickFilters = {
       }      
       // TODO - asyncify ?
       window.setTimeout(async function() {
-        worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
+        worker.createFilterAsync_New(
+          sourceFolder, 
+          targetFolder, 
+          msgList,
           isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
-          null, false);
+          null);
       });
     }
     catch(e) {
@@ -1261,9 +1302,12 @@ var quickFilters = {
           }
           
           window.setTimeout(async function() {
-            worker.createFilterAsync_New(sourceFolder, targetFolder, msgList, 
-             isMove ? Components.interfaces.nsMsgFilterAction.MoveToFolder : Components.interfaces.nsMsgFilterAction.CopyToFolder, 
-             null, false)
+            worker.createFilterAsync_New(
+              sourceFolder, 
+              targetFolder, 
+              msgList, 
+              isMove ? Components.interfaces.nsMsgFilterAction.MoveToFolder : Components.interfaces.nsMsgFilterAction.CopyToFolder, 
+              null)
           });
         }
       }
@@ -1427,11 +1471,12 @@ var quickFilters = {
           // MOVED FILTER CREATION AFTER MESSAGES ARE MOVED.
           let fA = isCopy ? Ci.nsMsgFilterAction.CopyToFolderMsgCopyMessage : Ci.nsMsgFilterAction.MoveToFolder; // [issue 77]
           if(isCreateFilter) {
-            worker.createFilterAsync_New(sourceFolder, 
+            worker.createFilterAsync_New(
+              sourceFolder, 
               destMsgFolder, 
               messageList, 
-              fA,   // filterAction
-              false);  // filterActionExt
+              fA);   // filterAction
+              
             util.logDebugOptional('msgMove', "After calling createFilterAsync_New()");
           }
         }
@@ -1468,7 +1513,8 @@ var quickFilters = {
         // so we use the source folder. The action will be archice and so doesn't need a new targetFolder
         destMsgFolder = sourceFolder;
         if (messageList.length) {
-          await quickFilters.Worker.createFilterAsync_New(sourceFolder, 
+          await quickFilters.Worker.createFilterAsync_New(
+            sourceFolder, 
             destMsgFolder, 
             messageList, 
             fA,   // filterAction
@@ -1507,10 +1553,12 @@ var quickFilters = {
             // determine the target (Trash for this account)
             if (src.canDeleteMessages) {
               let targetFolder = src.server.rootFolder.getFolderWithFlags(Ci.nsMsgFolderFlags.Trash);
-              quickFilters.Worker.createFilterAsync_New(src, targetFolder, selectedMails, 
+              quickFilters.Worker.createFilterAsync_New(
+                src, 
+                targetFolder, 
+                selectedMails, 
                 Components.interfaces.nsMsgFilterAction.Delete, 
-                null,
-                false);          
+                null);          
             }
           }
         }
@@ -1702,7 +1750,7 @@ var quickFilters = {
   // and get rid of the monkey patch
   listenerFlagChanged: function(item, oldFlag, newFlag) {
     // check old flags
-    let tags = item.getProperty("keywords");
+    let tags = item.getStringProperty("keywords");
     tags = tags ? tags.split(" ") : [];
     let newTags = tags.filter(MailServices.tags.isValidKey); // filter out nonsense tags
     if (quickFilters.Preferences.isDebugOption("listeners")) {
@@ -1725,8 +1773,7 @@ var quickFilters = {
       /*
       quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMails, 
                                             Components.interfaces.nsMsgFilterAction.AddTag, 
-                                            tag,
-                                            false);
+                                            tag);
                                             */
     }
     return true;
@@ -1867,9 +1914,12 @@ quickFilters.MsgFolderListener = {
           let done = isMoved ? "moved" : "copied";
           console.log(`${done} ${msgList.length} messages, now invoking filter assistant...`)
         }
-        qF.Worker.createFilterAsync_New(sourceFolder, targetFolder, msgList,
+        qF.Worker.createFilterAsync_New(
+          sourceFolder, 
+          targetFolder, 
+          msgList,
           isMoved ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
-          null, false);
+          null);
       }
 
     }
@@ -2200,10 +2250,12 @@ quickFilters.addTagListener = function() {
             let selectedMails = [];  
             selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
             window.setTimeout(async function() {
-              contextWin.quickFilters.Worker.createFilterAsync_New(null, msgHdr.folder, selectedMails, 
-                                                    Components.interfaces.nsMsgFilterAction.AddTag, 
-                                                    tag,
-                                                    false);
+              contextWin.quickFilters.Worker.createFilterAsync_New(
+                null, 
+                msgHdr.folder, 
+                selectedMails, 
+                Components.interfaces.nsMsgFilterAction.AddTag, 
+                tag);
             });
           }
           return true;

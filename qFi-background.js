@@ -416,20 +416,16 @@ async function main() {
   // let menuAccel = messenger.i18n.getMessage("quickfilters.FromMessage.accesskey");
   let menuProps = {
     contexts: ["message_list"],
-    onclick: async (event) => {    
+    onclick: async (info, tab) => {    
       if (isDebug) {
-        console.log("quickFilters message context menu", event);
+        console.log("quickFilters message context menu", info, tab);
       }
       const menuItem = { id: CREATEFILTERFROMMSG_ID };   // fake menu item to pass to doCommand
-      let currentTab = await messenger.mailTabs.getCurrent();
-
-      let selectedMessages = await messenger.mailTabs.getSelectedMessages(currentTab.id);
-
       // trigger win.quickFilters.doCommand(menuItem);
       messenger.NotifyTools.notifyExperiment(
         {
           event: "doCommand", 
-          detail: {commandItem: menuItem, tabId: currentTab.id, windowId: currentTab.windowId, messages: selectedMessages}
+          detail: {commandItem: menuItem, tabId: tab.id, windowId: tab.windowId, messages: info.selectedMessages }
         }
       );
     },

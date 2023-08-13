@@ -67,7 +67,7 @@ async function onLoad(activatedWhileWindowOpen) {
   </toolbarpalette>
 `); 
 
-  window.quickFilters.doCommand = async function (el) {
+  window.quickFilters.doCommand = async function (el, eventDetail = null) {
     if (!el) {
       return;
     }
@@ -130,7 +130,7 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickFilters-menu-filterFromMsg": // fall-throughs
       case CREATEFILTERFROMMSG_ID:
       case "quickFilters-fromMessage":
-        window.quickFilters.onMenuItemCommand('createFilterFromMsg');
+        window.quickFilters.onMenuItemCommand('createFilterFromMsg', eventDetail);
         break;
       case "quickfilters-menu-searchfilters": // fall-through
       case "quickfilters-current-searchfilterbutton":
@@ -172,7 +172,7 @@ async function onLoad(activatedWhileWindowOpen) {
     // context.extension.windowManager
     let windowObject = WL.extension.windowManager.get(windowId);
 		if (windowObject && window == windowObject.window) {
-      window.quickFilters.doCommand.call(window.quickFilters, event.detail.commandItem);
+      window.quickFilters.doCommand.call(window.quickFilters, event.detail.commandItem, event.detail);
     }
   }; 
   window.addEventListener("quickFilters.BackgroundUpdate.doCommand", listener_doCommand);
