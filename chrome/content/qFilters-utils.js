@@ -668,10 +668,14 @@ quickFilters.Util = {
     return aFolder;
   } ,
 
-  getSelectedMessages: function(selectedMessageUris) {
+  getSelectedMessages: function(selectedMessageUris, fromContextMenu=false) {
     if (!selectedMessageUris) selectedMessageUris = [];
     let selectedMessages = [];
-    let treeView = gTabmail.currentTabInfo.chromeBrowser.contentWindow.threadTree.view;
+    let treeView = 
+      fromContextMenu ? 
+        gTabmail.currentAbout3Pane.gDBView :
+        gTabmail.currentTabInfo.chromeBrowser.contentWindow.threadTree.view;
+     
     if (treeView) {
       selectedMessages = treeView.getSelectedMsgHdrs();
       // we can also read message.properties (list of property ids)
@@ -1264,6 +1268,8 @@ quickFilters.Util = {
     }
 		// Iterate Search Terms of Custom Template
 		// support passing in a deserialized array from JSON object for reading filters
+    // util.CurrentHeader.headers stores the collection of headers, can be extracted with getHeader()
+    // e.g. util.CurrentHeader.headers.getHeader("delivered-to")
 		let theCount = stCollection.length;
 		for (let t = 0; t < theCount; t++) {
 			let searchTerm = stCollection[t],
@@ -1420,7 +1426,7 @@ quickFilters.Util = {
 				
 			}
 			// however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
-			
+			util.logHighlightDebug("Appending search term: " + newTerm.termAsString );
 			toFilter.appendTerm(newTerm);
 		}
         // remove special variables
@@ -2363,7 +2369,7 @@ quickFilters.clsGetHeaders = class classGetHeaders {
         }
         if (msgContent.length > 2048 * 8) {
           util.logDebug('clsGetHeaders - early exit - msgContent length>16kB: ' + msgContent.length);
-          return null;
+          break;
         }
       }
     }
