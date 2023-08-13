@@ -2339,7 +2339,7 @@ quickFilters.clsGetHeaders = class classGetHeaders {
         }
         if (msgContent.length > 2048 * 8) {
           util.logDebug('clsGetHeaders - early exit - msgContent length>16kB: ' + msgContent.length);
-          return null;
+          break;
         }
       }
     }

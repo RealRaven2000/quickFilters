@@ -568,7 +568,9 @@ END LICENSE BLOCK
     # fixed sales date!
 
   5.9.4 - WIP
-    # [issue 204] Edit Custom filters shows all filters in Local folders     
+    # [issue 204] Edit Custom filters shows all filters in Local folders (not just custom templates)
+    # [issue 206] Creating new filters may fail  - Reading headers can fail if mail is larger than 16kByte
+    #             This can happen when either using the "mailing list" template and when using a custom template.
    
   ============================================================================================================
   FUTURE WORK:
