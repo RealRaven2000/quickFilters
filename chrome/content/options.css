@@ -409,9 +409,11 @@ hbox.quickhelp-dbg {
 }
 
 
-#licenseContainer {
-  /* min-height: 3em; */
+.columns {
+  display: flex;
+	gap: 1em;
 }
+
 .licenseSeparator {
   min-height: 10px;
 }
