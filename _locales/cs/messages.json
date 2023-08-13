@@ -356,7 +356,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}Vylepšená hlavní rozbalovací nabídka přesunutím všech často potřebných příkazů na první úroveň.{L2}{L1} Připravená integrace s navigační lištou QuickFolders pro Thunderbird 115. K financování budoucí práce na těchto tlačítkách bude použití těchto tlačítek vyžadovat platnou licenci. {L2} {L1} Různé opravy v dialogu Nastavení a registrace {L2}"
+    "message" : "{L1}Vylepšená hlavní rozbalovací nabídka přesunutím všech často potřebných příkazů na první úroveň.{L2}{L1} Připravená integrace s navigační lištou QuickFolders pro Thunderbird 115. K financování budoucí práce na těchto tlačítkách bude použití těchto tlačítek vyžadovat platnou licenci. {L2} {L1} Různé opravy v dialogu Nastavení a registrace {L2}{L1}Chyba opravena: Pokud je e-mail větší než 16 kB, vytváření nových filtrů může selhat s vlastními šablonami nebo šablonami seznamu adresátů. [issue 206]{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

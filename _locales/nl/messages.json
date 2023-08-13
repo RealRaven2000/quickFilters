@@ -1382,7 +1382,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1}Verbeterd vervolgkeuzemenu door alle veelgebruikte opdrachten naar het eerste niveau te verplaatsen.{L2}{L1} Voorbereide integratie met QuickFolders-navigatiebalk voor Thunderbird 115. Om toekomstige werkzaamheden aan deze knoppen te financieren, is voor het gebruik van deze knoppen een geldige vergunning. {L2} {L1} Diverse reparaties in instellingen en registratiedialoogvensters {L2}"
+    "message": "{L1}Verbeterd vervolgkeuzemenu door alle veelgebruikte opdrachten naar het eerste niveau te verplaatsen.{L2}{L1} Voorbereide integratie met QuickFolders-navigatiebalk voor Thunderbird 115. Om toekomstige werkzaamheden aan deze knoppen te financieren, is voor het gebruik van deze knoppen een geldige vergunning. {L2} {L1} Diverse reparaties in instellingen en registratiedialoogvensters {L2}{L1}Bug opgelost: het maken van nieuwe filters kan mislukken met aangepaste sjablonen of mailinglijstsjablonen als de e-mail groter is dan 16 kBytes. [issue 206]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

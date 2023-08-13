@@ -251,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1}Izboljšan glavni spustni meni s premikanjem vseh pogosto potrebnih ukazov na prvo raven.{L2}{L1} Pripravljena integracija z navigacijsko vrstico QuickFolders za Thunderbird 115. Za financiranje prihodnjega dela na teh gumbih bo uporaba teh gumbov zahtevala veljavna licenca. {L2} {L1} Različni popravki v pogovornih oknih za nastavitve in registracijo {L2}"
+    "message" : "{L1}Izboljšan glavni spustni meni s premikanjem vseh pogosto potrebnih ukazov na prvo raven.{L2}{L1} Pripravljena integracija z navigacijsko vrstico QuickFolders za Thunderbird 115. Za financiranje prihodnjega dela na teh gumbih bo uporaba teh gumbov zahtevala veljavna licenca. {L2} {L1} Različni popravki v pogovornih oknih za nastavitve in registracijo {L2} {L1}Odpravljena napaka: Ustvarjanje novih filtrov morda ne bo uspelo s predlogami po meri ali predlogami poštnega seznama, če je e-poštno sporočilo večje od 16 kB. [issue 206]{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

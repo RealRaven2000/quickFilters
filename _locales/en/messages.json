@@ -1382,7 +1382,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1}Improved main dropdown menu by moving all frequently needed commands to the first level.{L2}{L1} Prepared integration with QuickFolders Navigation bar for Thunderbird 115. To finance the future work on these buttons, use of these buttons will require a valid license. (quickFilters Pro or QuickFolders Standard){L2} {L1} Various fixes in Settings and registration dialogs {L2}"
+    "message": "{L1}Improved main dropdown menu by moving all frequently needed commands to the first level.{L2}{L1} Prepared integration with QuickFolders Navigation bar for Thunderbird 115. To finance the future work on these buttons, use of these buttons will require a valid license. (quickFilters Pro or QuickFolders Standard){L2} {L1} Various fixes in Settings and registration dialogs {L2}{L1}Bug Fixed: Creating new filters may fail with custom templates or mailing list template if the email is larger than 16kBytes. [issue 206]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

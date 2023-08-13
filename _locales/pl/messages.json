@@ -1380,7 +1380,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list" : {
-    "message" : "{L1}Ulepszone główne menu rozwijane poprzez przeniesienie wszystkich często używanych poleceń na pierwszy poziom.{L2}{L1} Przygotowano integrację z paskiem nawigacyjnym QuickFolders dla Thunderbirda 115. Aby sfinansować przyszłe prace nad tymi przyciskami, korzystanie z nich będzie wymagało ważna licencja. {L2} {L1} Różne poprawki w ustawieniach i oknach dialogowych rejestracji {L2}"
+    "message" : "{L1}Ulepszone główne menu rozwijane poprzez przeniesienie wszystkich często używanych poleceń na pierwszy poziom.{L2}{L1} Przygotowano integrację z paskiem nawigacyjnym QuickFolders dla Thunderbirda 115. Aby sfinansować przyszłe prace nad tymi przyciskami, korzystanie z nich będzie wymagało ważna licencja. {L2} {L1} Różne poprawki w ustawieniach i oknach dialogowych rejestracji {L2}{L1}Naprawiony błąd: tworzenie nowych filtrów może zakończyć się niepowodzeniem w przypadku szablonów niestandardowych lub szablonu listy adresowej, jeśli wiadomość e-mail jest większa niż 16 KB. [issue 206]{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

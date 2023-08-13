@@ -1382,7 +1382,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1}Förbättrad huvudrullgardinsmeny genom att flytta alla ofta nödvändiga kommandon till den första nivån.{L2}{L1} Förberedd integration med QuickFolders Navigation bar för Thunderbird 115. För att finansiera det framtida arbetet med dessa knappar kommer användningen av dessa knappar att kräva en giltig licens. {L2} {L1} Olika korrigeringar i dialogrutor för inställningar och registrering {L2}" 
+    "message": "{L1}Förbättrad huvudrullgardinsmeny genom att flytta alla ofta nödvändiga kommandon till den första nivån.{L2}{L1} Förberedd integration med QuickFolders Navigation bar för Thunderbird 115. För att finansiera det framtida arbetet med dessa knappar kommer användningen av dessa knappar att kräva en giltig licens. {L2} {L1} Olika korrigeringar i dialogrutor för inställningar och registrering {L2} {L1}Bugg fixed: Skapande av nya filter kan misslyckas med anpassade mallar eller e-postlistamall om e-postmeddelandet är större än 16kByte. [issue 206]{L2}" 
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
