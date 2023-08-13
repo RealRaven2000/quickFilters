@@ -281,7 +281,7 @@
     "message": "Pour connaître votre prix, veuillez d'abord sélectionner l'une des options suivantes. Cela ouvre une fenêtre de navigateur séparée dans laquelle vous pouvez finaliser l'achat dans la boutique en ligne."
   },
   "pricing.section.hint": {
-    "message": "Remarque : Le prix varie en fonction du modèle de licence, du pays, du taux de TVA, des remises en cours ou des licences déjà achetées."
+    "message": "Remarque : Le prix varie en fonction du modèle de licence, du pays, du taux de TVA, des remises en cours ou des licences déjà achetées."
   },  
   "pricing.title": {
     "message": "Tarification"
@@ -382,7 +382,7 @@
     "message": "Choisissez un filtre à étendre avec de nouvelles règles."
   },
   "qf.description.splash": {
-    "message": "Affichez les actualités et les changements importants, localisés dans votre langue :"
+    "message": "Affichez les actualités et les changements importants, localisés dans votre langue :"
   },  
   "qf.donate.tooltip": {
     "message": "Soutenir le développement de quickFilters !"
@@ -514,7 +514,7 @@
     "message": "Créer des filtres"
   },
   "qf.github.description": {
-    "message": "Signalez les bogues ou suggérez de nouvelles fonctionnalités ici :"
+    "message": "Signalez les bogues ou suggérez de nouvelles fonctionnalités ici :"
   },
   "qf.grp.whenToRun": {
     "message": "Appliquer le filtre"
@@ -961,7 +961,7 @@
     "message": "Réponse à"
   },
   "quickfilters.debug.fixFilters": {
-    "message": "{0} filtres activés trouvés qui n'ont aucune méthode d'exécution (manuelle, entrante ou automatique). Devraient-ils être modifiés pour s'exécuter automatiquement lors de la réception de nouveaux messages ?"
+    "message": "{0} filtres activés trouvés qui n'ont aucune méthode d'exécution (manuelle, entrante ou automatique). Devraient-ils être modifiés pour s'exécuter automatiquement lors de la réception de nouveaux messages ?"
   },
   "quickfilters.debug.fixFilters.AnyAll": {
     "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
@@ -1102,7 +1102,7 @@
     "message": "Fonctionnalité Premium"
   },
   "quickfilters.notification.QF.navigationbar": {
-    "message": "Pour utiliser les fonctions de filtrage de la barre de navigation QuickFolders dans Thunderbird 115 :\n - vous avez besoin d'une licence QuickFolders valide\n - ou vous pouvez obtenir une licence $addonName$ Pro pour prendre en charge cette fonctionnalité.",
+    "message": "Pour utiliser les fonctions de filtrage de la barre de navigation QuickFolders dans Thunderbird 115 :\n - vous avez besoin d'une licence QuickFolders valide\n - ou vous pouvez obtenir une licence $addonName$ Pro pour prendre en charge cette fonctionnalité.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1228,7 +1228,7 @@
     "message": "Cliquez pour ouvrir le panneau de licence quickFilters. Cliquez avec le bouton droit pour d'autres options."
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters a été mis à jour !"
+    "message": "quickFilters a été mis à jour !"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Cliquez ici une fois pour voir l'écran de démarrage et les nouveautés de quickFilters."
@@ -1242,7 +1242,7 @@
     }
   },
   "quickfiltersToolbarButton.tooltip": {
-    "message": "Assistant de création de filtre ; outils pour filtres"
+    "message": "Assistant de création de filtre ; outils pour filtres"
   },
   "renew-your-license": {
     "message": "Renouvelez votre licence."
@@ -1257,7 +1257,7 @@
     }
   },
   "runFilters.folder.confirm": {
-    "message": "Exécuter les filtres dans le dossier $folderName$ ?",
+    "message": "Exécuter les filtres dans le dossier $folderName$ ?",
     "placeholders": {
       "folderName": {
         "content": "$1"
@@ -1265,7 +1265,7 @@
     }    
   },
   "runFilters.selection.confirm": {
-    "message": "Exécuter des filtres sur les e-mails sélectionnés ?"
+    "message": "Exécuter des filtres sur les e-mails sélectionnés ?"
   },
   "special-offer-content": {
     "message": "C'est maintenant la meilleure opportunité d'obtenir une licence car il y a une {boldStart} réduction de $reduction$ {boldEnd} sur le prix d'une licence quickFilters Pro pour célébrer les 9 ans de QuickFolders! Cette offre spéciale sera disponible jusqu'au {boldStart}$expirydate${boldEnd}.",
@@ -1287,7 +1287,7 @@
     "message": "Veuillez aider quickFilters à continuer!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Cher {name} {boldEnd}, Vous pouvez maintenant aider $addonName$ à l'épreuve du temps. Pour suivre les changements dans Thunderbird, je compte sur {boldStart}votre aide{boldEnd} !",
+    "message": "{boldStart} Cher {name} {boldEnd}, Vous pouvez maintenant aider $addonName$ à l'épreuve du temps. Pour suivre les changements dans Thunderbird, je compte sur {boldStart}votre aide{boldEnd} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1296,7 +1296,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Renouvelez votre licence maintenant et économisez {boldStart}$reduction${boldEnd} ! Cette offre spéciale sera disponible jusqu'au {boldStart}$expirydate${boldEnd}.",
+    "message": "Renouvelez votre licence maintenant et économisez {boldStart}$reduction${boldEnd} ! Cette offre spéciale sera disponible jusqu'au {boldStart}$expirydate${boldEnd}.",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1382,7 +1382,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1}Amélioration du menu déroulant principal en déplaçant toutes les commandes fréquemment nécessaires au premier niveau.{L2}{L1} Intégration préparée avec la barre de navigation QuickFolders pour Thunderbird 115. Pour financer les travaux futurs sur ces boutons, l'utilisation de ces boutons nécessitera un licence valide. {L2} {L1} Divers correctifs dans les paramètres et les boîtes de dialogue d'enregistrement {L2}{L1}Bug corrigé : la création de nouveaux filtres peut échouer avec des modèles personnalisés ou un modèle de liste de diffusion si l'e-mail est supérieur à 16 Ko. [issue 206]{L2}"
+    "message": "{L1} Implémentation d'un élément de menu contextuel de messagerie pour créer un filtre à partir d'un message. [issue 199]{L2}{L1} Ajout d'éléments de menu contextuel de dossier : exécuter des filtres et rechercher des filtres [issue 203]{L2}{L1} Ajout d'un élément de menu Outils pour basculer l'assistant de filtrage.{L2}{L1}Amélioration du menu déroulant principal en déplaçant toutes les commandes fréquemment nécessaires au premier niveau.{L2} {L1} Divers correctifs dans les paramètres et les boîtes de dialogue d'enregistrement {L2}{L1}Bug corrigé : la création de nouveaux filtres peut échouer avec des modèles personnalisés ou un modèle de liste de diffusion si l'e-mail est supérieur à 16 Ko. [issue 206]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

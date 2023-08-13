@@ -1382,7 +1382,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1}Trình đơn thả xuống chính được cải thiện bằng cách di chuyển tất cả các lệnh thường xuyên cần thiết lên cấp độ đầu tiên.{L2}{L1} Chuẩn bị tích hợp với thanh Điều hướng QuickFolders cho Thunderbird 115. Để tài trợ cho công việc trong tương lai trên các nút này, việc sử dụng các nút này sẽ yêu cầu một giấy phép hợp lệ. {L2} {L1} Các bản sửa lỗi khác nhau trong Cài đặt và hộp thoại đăng ký {L2} {L1}Đã sửa lỗi: Tạo bộ lọc mới có thể không thành công với các mẫu tùy chỉnh hoặc mẫu danh sách gửi thư nếu email lớn hơn 16kByte. [issue 206]{L2}"
+    "message": "{L1} Đã triển khai mục menu ngữ cảnh thư để tạo Bộ lọc từ thư. [issue 199]{L2}{L1} Đã thêm mục menu ngữ cảnh thư mục: Chạy bộ lọc và tìm bộ lọc [issue 203]{L2}{L1} Đã thêm mục menu công cụ để chuyển đổi hỗ trợ bộ lọc.{L2}{L1}Trình đơn thả xuống chính được cải thiện bằng cách di chuyển tất cả các lệnh thường xuyên cần thiết lên cấp độ đầu tiên.{L2} {L1} Các bản sửa lỗi khác nhau trong Cài đặt và hộp thoại đăng ký {L2} {L1}Đã sửa lỗi: Tạo bộ lọc mới có thể không thành công với các mẫu tùy chỉnh hoặc mẫu danh sách gửi thư nếu email lớn hơn 16kByte. [issue 206]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

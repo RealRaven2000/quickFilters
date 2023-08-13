@@ -1382,7 +1382,7 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1}Menu a discesa principale migliorato spostando tutti i comandi più frequenti al primo livello.{L2}{L1} Integrazione preparata con la barra di navigazione QuickFolders per Thunderbird 115. Per finanziare il lavoro futuro su questi pulsanti, l'utilizzo di questi pulsanti richiederà un licenza valida. {L2} {L1} Varie correzioni nelle finestre di dialogo Impostazioni e registrazione {L2}{L1}Bug risolto: la creazione di nuovi filtri potrebbe non riuscire con i modelli personalizzati o con il modello di mailing list se l'email è più grande di 16kByte. [issue 206]{L2}"
+    "message": "{L1} Voce del menu contestuale della posta implementata per creare Filtra dal messaggio. [issue 199]{L2}{L1} Aggiunte voci del menu contestuale della cartella: Esegui filtri e trova filtri [issue 203]{L2}{L1} Aggiunta voce del menu Strumenti per attivare/disattivare l'assistente filtro.{L2}{L1}Menu a discesa principale migliorato spostando tutti i comandi più frequenti al primo livello.{L2} {L1} Varie correzioni nelle finestre di dialogo Impostazioni e registrazione {L2}{L1}Bug risolto: la creazione di nuovi filtri potrebbe non riuscire con i modelli personalizzati o con il modello di mailing list se l'email è più grande di 16kByte. [issue 206]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
