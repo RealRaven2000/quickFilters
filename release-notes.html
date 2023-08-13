@@ -1,42 +1,24 @@
-quickFilters Change Log - Version 6.1.1
+quickFilters Change Log - Version 6.2
 
-<b>New functions</b>
+<b>Improvements</b>
 <ul>
-  <li> 
-    Prepared integration with QuickFolders Navigation bar for Thunderbird 115. 
-    To finance the future work on these buttons, use of these buttons will require a valid license. 
-    (quickFilters Pro or QuickFolders Standard / Pro)
-    QuickFolders is currently in the process of a major rewrite to support all the necessary
-    changes to the Thunderbird main window.
-  </li> 
-  <li>
-    Improved main dropdown menu by moving all frequently needed commands to the first level.
-  </li>
-  <li>
-    For more detail on what functions had to be fixed / rewritten for Thunderbird 115, please read on
-    the <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github Issue</a> 
-    covering conversion to Thunderbird 115.
-  </li>
-</ul>
-
-<b>Bug Fixes</b>
-<ul>
-  <li> Various fixes in Settings and registration dialogs </li>
+  <li> Added thread context menu entries: create filter from message <a href="https://github.com/RealRaven2000/quickFilters/issues/199">[issue 199]</a> </li>
+  <li> Added folder context menu entries: find filters, run filters. <a href="https://github.com/RealRaven2000/quickFilters/issues/203">[issue 203]</a> </li>
+  <li> Added tools content menu: Start Filter Assistant <a href="https://github.com/RealRaven2000/quickFilters/issues/204">[issue 204]</a>  </li>
 </ul>  
 
 
-<b>Open Issues / Regressions for Thunderbird 115</b>
+<b>Bug Fixes</b>
 <ul>
-  <li>
-    Eventually, all settings will be displayed in a Thunderbird tab, like
-    the settings of most mail extensions. For this, it is still required to 
-    rewrite the dialog in HTML format.
-  </li>
-  <li>
-    Should you encounter any regressions / unusual behavior after updating to Thunderbird 115
-    please tell us on Github at 
-    [<a href="https://github.com/RealRaven2000/quickFilters/issues/181">issue 181</a>]
-  </li>
+<li> Bug Fixed: reading information from headers while creating new filters may fail with custom templates or mailing list template if the email is larger than 16kBytes. <a href="https://github.com/RealRaven2000/quickFilters/issues/206">[issue 206]</a></li>
+<li>  Bug Fixed: Edit Custom filters shows all filters in Local folders and not just custom templates.  <a href="https://github.com/RealRaven2000/quickFilters/issues/204">[issue 204]</a> </li>    
+<li> Fixed: QuickFolders + quickMove fails to invoke the assistant  <a href="https://github.com/RealRaven2000/quickFilters/issues/205">[issue 205]</a> </li>
+<li> Fixed some German translations.. </li>
+</ul>
+
+<b> Open Issues </b>  
+<ul>
+<li>Changing tags doesn't currently work as a trigger for the filter assistant. This has to be reimplemented for Thundebuird 115 in a future version. </li>
 </ul>
 
 
