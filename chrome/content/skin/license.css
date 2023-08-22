@@ -35,11 +35,7 @@
 #btnDomainLicense label,
 #btnEnterCode label
 {
-  padding-bottom: 0.6em;
-  padding-top: 0.6em;
-	padding-left: 1em;
-	padding-right: 1em;
-	max-height: 2em; /* slimmer donate button */
+  padding: 0.6em 1em;
 }
 
 #btnLicense, #btnEnterCode, #btnDomainLicense {
@@ -61,6 +57,7 @@
 	font-weight: bold;
 	transition-property: box-shadow, margin;
 	transition-duration: 0.75s, 0.2s;
+	list-style-image: url("chrome://quickfilters/content/skin/QuickFilters_32.svg");
 }
 
 #btnLicense:hover,

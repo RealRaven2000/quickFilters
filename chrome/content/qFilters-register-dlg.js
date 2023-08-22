@@ -39,6 +39,12 @@ var Register = {
 			}
 				
       getElement('licenseDate').value = decryptedDate; // invalid ??
+      if (decryptedDate) { // friendly date
+        let d = new Date(decryptedDate);
+        let ds = d.toLocaleDateString();
+        if (ds) { getElement('licenseDate').value = ds; }
+      }
+
 			if (licenseInfo.status == "Expired" || licenseInfo.status == "Valid") {
 				if(licenseInfo.status == "Expired") {
 					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");

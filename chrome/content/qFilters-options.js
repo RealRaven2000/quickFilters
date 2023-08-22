@@ -328,7 +328,16 @@ quickFilters.Options = {
     this.enablePremiumConfig(false);
     try {
       let licenseDate = getElement("licenseDate");
-      licenseDate.value = decryptedDate; 
+      let niceDate = decryptedDate;
+      if (decryptedDate) {
+        try { 
+          let d = new Date(decryptedDate);
+          niceDate =d.toLocaleDateString();
+        }
+        catch(ex) { niceDate = decryptedDate; }
+      }
+      licenseDate.value = niceDate; 
+      
       switch(result) {
         case "Valid":
           this.enablePremiumConfig(true);
