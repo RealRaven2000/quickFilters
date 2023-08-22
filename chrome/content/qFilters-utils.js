@@ -1938,12 +1938,17 @@ quickFilters.Util = {
 	viewLicense: function viewLicense() {
 		let win = quickFilters.Util.getMail3PaneWindow(),
         params = {inn:{mode:"licenseKey",tab:-1, message: "", instance: win.quickFilters}, out:null};
-        
+    
+    if (!quickFilters.Util.licenseInfo.isLicenseViewed) {
+      quickFilters.Util.licenseInfo.isLicenseViewed = true; // session variable to mark license stuff as "seen".
+      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"}); 
+    }
 		// open options and open the last tab!
     win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
 				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
 				quickFilters,
 				params).focus();
+    
 	  
 	}, 
 	
@@ -2227,6 +2232,7 @@ quickFilters.Util = {
 		    timeToMidnight = (tomorrow-today);
 		setTimeout(
 			() => {
+        quickFilters.Util.licenseInfo.isLicenseViewed = false;
 				quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" }); 
 				quickFilters.Util.setMidnightTimer();
 			},

@@ -596,6 +596,7 @@ END LICENSE BLOCK
   6.2.1 - WIP
     # [issue 208] Fixed: global keyboard shortcuts for running filters don't work anymore 
     # Show localized date in registration dialog
+    # After the license was viewed via the menu "check license status", now reset the "renew license" button for the day and return to normal toolbar icon (no color / message).
 
 
   6.* - FUTURE WORK
@@ -1685,6 +1686,12 @@ var quickFilters = {
       element.classList.remove(c);
       element.parentElement.classList.remove(c);
     }
+    function wasLicenseViewedInSession() {
+      if (typeof util.licenseInfo.isLicenseViewed == "undefined") {
+        return false;
+      }
+      return util.licenseInfo.isLicenseViewed;
+    }
 
     if (btn) {
       if (hasNews) {
@@ -1692,7 +1699,7 @@ var quickFilters = {
       } else {
         removeClass(btn,"newsflash");
       }
-      if (util.licenseInfo.isExpired) {
+      if (util.licenseInfo.isExpired && !wasLicenseViewedInSession()) {
         addClass(btn,"expired");
         removeClass(btn,"renew");
         newLabel = util.getBundleString("quickfiltersToolbarButton.expired");
@@ -1712,7 +1719,7 @@ var quickFilters = {
         }
         let mnuGoPro = document.getElementById("quickfilters-gopro");
         if (util.licenseInfo.isValid) { 
-          if (util.licenseInfo.licensedDaysLeft<11) {
+          if (util.licenseInfo.licensedDaysLeft<11 && !wasLicenseViewedInSession()) {
             addClass(btn,"renew");
             newLabel = util.getBundleString("quickfiltersToolbarButton.renew", "License expires in $daysLeft$ days", [util.licenseInfo.licensedDaysLeft]);
             isDropDownMarkerStyled = true;
