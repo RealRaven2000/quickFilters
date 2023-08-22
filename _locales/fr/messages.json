@@ -1382,7 +1382,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Implémentation d'un élément de menu contextuel de messagerie pour créer un filtre à partir d'un message. [issue 199]{L2}{L1} Ajout d'éléments de menu contextuel de dossier : exécuter des filtres et rechercher des filtres [issue 203]{L2}{L1} Ajout d'un élément de menu Outils pour basculer l'assistant de filtrage.{L2}{L1}Amélioration du menu déroulant principal en déplaçant toutes les commandes fréquemment nécessaires au premier niveau.{L2} {L1} Divers correctifs dans les paramètres et les boîtes de dialogue d'enregistrement {L2}{L1}Bug corrigé : la création de nouveaux filtres peut échouer avec des modèles personnalisés ou un modèle de liste de diffusion si l'e-mail est supérieur à 16 Ko. [issue 206]{L2}"
+    "message": "{L1} À partir de la version 6.2.1, les raccourcis clavier globaux pour exécuter les filtres fonctionnent à nouveau. [issue 208] {L2} {L1} Implémentation d'un élément de menu contextuel de messagerie pour créer un filtre à partir d'un message. [issue 199]{L2}{L1} Ajout d'éléments de menu contextuel de dossier : exécuter des filtres et rechercher des filtres [issue 203]{L2}{L1} Ajout d'un élément de menu Outils pour basculer l'assistant de filtrage.{L2}{L1}Amélioration du menu déroulant principal en déplaçant toutes les commandes fréquemment nécessaires au premier niveau.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

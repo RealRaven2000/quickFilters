@@ -9,6 +9,7 @@ pref("extensions.quickfilters.debug.createFilter.refreshHeaders", false);
 pref("extensions.quickfilters.debug.default", true);
 pref("extensions.quickfilters.debug.dnd", false);
 pref("extensions.quickfilters.debug.events", false);
+pref("extensions.quickfilters.debug.events.keyboard", false);
 pref("extensions.quickfilters.debug.filters", false);
 pref("extensions.quickfilters.debug.filterList",false);
 pref("extensions.quickfilters.debug.filterSearch",false);

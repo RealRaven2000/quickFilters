@@ -1383,7 +1383,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Mail-Kontextmenüelement implementiert, um Filter aus Nachrichten zu erstellen. [Problem 199]{L2}{L1} Kontextmenüelemente für Ordner hinzugefügt: Filter ausführen und Filter suchen [Problem 203]{L2}{L1} Menüelement zu „Extras“ hinzugefügt, um den Filterassistenten ein/auszuschalten.{L2}{L1}Verbessertes Haupt-Dropdown-Menü durch Verschieben aller häufig benötigten Befehle auf die erste Ebene.{L2} {L1} Verschiedene Korrekturen in den Einstellungen und Registrierungsdialogen {L2}{L1}Fehler behoben: Das Erstellen neuer Filter kann bei benutzerdefinierten Vorlagen oder Mailinglisten-Vorlagen fehlschlagen, wenn die E-Mail größer als 16 KB ist. [issue 206]{L2}"
+    "message": "{L1} Ab Version 6.2.1 funktionieren die globalen Tastenkombinationen zum Ausführen von Filtern wieder. [issue 208] {L2} {L1} Mail-Kontextmenüelement implementiert, um Filter aus Nachrichten zu erstellen. [Problem 199]{L2}{L1} Kontextmenüelemente für Ordner hinzugefügt: Filter ausführen und Filter suchen [Problem 203]{L2}{L1} Menüelement zu „Extras“ hinzugefügt, um den Filterassistenten ein/auszuschalten.{L2}{L1}Verbessertes Haupt-Dropdown-Menü durch Verschieben aller häufig benötigten Befehle auf die erste Ebene.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

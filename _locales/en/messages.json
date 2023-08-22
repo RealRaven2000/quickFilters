@@ -1382,7 +1382,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Implemented mail context menu item to create Filter from message. [issue 199]{L2}{L1} Added folder context menu items: Run filters and find filters [issue 203]{L2}{L1} Added tools menu item to toggle the filter assistant.{L2}{L1} Improved main dropdown menu by moving all frequently needed commands to the first level.{L2}{L1} Various fixes in Settings and registration dialogs {L2}{L1}Bug Fixed: Creating new filters may fail with custom templates or mailing list template if the email is larger than 16kBytes. [issue 206]{L2}"
+    "message": "{L1} From version 6.2.1 on, the global keyboard shortcuts for running filters work again. [issue 208] {L2}{L1} Implemented mail context menu item to create Filter from message. [issue 199]{L2}{L1} Added folder context menu items: Run filters and find filters [issue 203]{L2}{L1} Added tools menu item to toggle the filter assistant.{L2}{L1} Improved main dropdown menu by moving all frequently needed commands to the first level.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -251,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Implementiran element kontekstnega menija pošte za ustvarjanje filtra iz sporočila. [issue 199]{L2}{L1} Dodani elementi kontekstnega menija mape: Zaženi filtre in poišči filtre [issue 203]{L2}{L1} Dodan element menija orodij za preklop pomočnika za filtriranje.{L2}{L1}Izboljšan glavni spustni meni s premikanjem vseh pogosto potrebnih ukazov na prvo raven.{L2} {L1} Različni popravki v pogovornih oknih za nastavitve in registracijo {L2} {L1}Odpravljena napaka: Ustvarjanje novih filtrov morda ne bo uspelo s predlogami po meri ali predlogami poštnega seznama, če je e-poštno sporočilo večje od 16 kB. [issue 206]{L2}"
+    "message" : "{L1} Od različice 6.2.1 naprej spet delujejo globalne bližnjice na tipkovnici za izvajanje filtrov. [issue 208] {L2} {L1} Implementiran element kontekstnega menija pošte za ustvarjanje filtra iz sporočila. [issue 199]{L2}{L1} Dodani elementi kontekstnega menija mape: Zaženi filtre in poišči filtre [issue 203]{L2}{L1} Dodan element menija orodij za preklop pomočnika za filtriranje.{L2}{L1}Izboljšan glavni spustni meni s premikanjem vseh pogosto potrebnih ukazov na prvo raven.{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

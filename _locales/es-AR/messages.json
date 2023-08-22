@@ -1382,7 +1382,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} Se implementó el elemento del menú contextual del correo para crear un filtro a partir del mensaje. [issue 199]{L2}{L1} Se agregaron elementos del menú contextual de la carpeta: Ejecutar filtros y buscar filtros [issue 203]{L2}{L1} Se agregó un elemento del menú de herramientas para alternar el asistente de filtro.{L2}{L1}Menú desplegable principal mejorado al mover todos los comandos que se necesitan con frecuencia al primer nivel.{L2} {L1} Varias correcciones en los cuadros de diálogo de configuración y registro {L2}{L1}Error solucionado: la creación de nuevos filtros puede fallar con plantillas personalizadas o plantillas de listas de correo si el correo electrónico tiene más de 16 kBytes. [issue 206]{L2}"
+    "message": "{L1} A partir de la versión 6.2.1, los atajos de teclado globales para ejecutar filtros vuelven a funcionar. [issue 208] {L2} {L1} Se implementó el elemento del menú contextual del correo para crear un filtro a partir del mensaje. [issue 199]{L2}{L1} Se agregaron elementos del menú contextual de la carpeta: Ejecutar filtros y buscar filtros [issue 203]{L2}{L1} Se agregó un elemento del menú de herramientas para alternar el asistente de filtro.{L2}{L1}Menú desplegable principal mejorado al mover todos los comandos que se necesitan con frecuencia al primer nivel.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

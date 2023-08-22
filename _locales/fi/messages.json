@@ -1383,7 +1383,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list" : {
-    "message" : "{L1} Toteutettu sähköpostin kontekstivalikon kohta suodattimen luomiseksi viestistä. [issue 199]{L2}{L1} Lisätty kansion kontekstivalikon kohdat: Suorita suodattimia ja etsi suodattimia [issue 203]{L2}{L1} Lisätty työkalut-valikkokohta suodatinavustajan vaihtamiseksi.{L2}{L1}Parannettu päävalikko siirtämällä kaikki usein tarvittavat komennot ensimmäiselle tasolle.{L2}{L1} Erilaisia korjauksia asetuksissa ja rekisteröintivalintaikkunoissa {L2}{L1}Virhe korjattu: Uusien suodattimien luominen voi epäonnistua mukautetuilla malleilla tai postituslistamallilla, jos sähköposti on suurempi kuin 16 kt. [issue 206]{L2}"
+    "message" : "{L1} Versiosta 6.2.1 alkaen globaalit pikanäppäimet suodattimien suorittamiseen toimivat jälleen. [issue 208] {L2} {L1} Toteutettu sähköpostin kontekstivalikon kohta suodattimen luomiseksi viestistä. [issue 199]{L2}{L1} Lisätty kansion kontekstivalikon kohdat: Suorita suodattimia ja etsi suodattimia [issue 203]{L2}{L1} Lisätty työkalut-valikkokohta suodatinavustajan vaihtamiseksi.{L2}{L1}Parannettu päävalikko siirtämällä kaikki usein tarvittavat komennot ensimmäiselle tasolle.{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

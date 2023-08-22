@@ -584,7 +584,7 @@ END LICENSE BLOCK
     #                      Fixed "license is valid" label
     # Settings Dialog: Fixed "renew license" dialog button 
 
-  6.2 - WIP:
+  6.2 - 13/08/2023
     # [issue 203] Added folder context menu entries: find filters, run filters.
     # [issue 203] Added tools content menu: Start Filter Assistant
     # [issue 204] Edit Custom filters shows all filters in Local folders 
@@ -592,6 +592,10 @@ END LICENSE BLOCK
     # Fix duplicated message context menu... ??
     # [issue 205] QuickFolders + quickMove fails to invoke the assistant
     # [issue 206] When creating new filters - Reading headers can fail if mail is larger than 16kByte
+
+  6.2.1 - WIP
+    # [issue 208] Fixed: global keyboard shortcuts for running filters don't work anymore 
+    # Show localized date in registration dialog
 
 
   6.* - FUTURE WORK
@@ -1572,7 +1576,7 @@ var quickFilters = {
     return result;
   },
 
-  windowKeyPress: function windowKeyPress(e,dir) {
+  windowKeyPress: function(e,dir) {
     // var isDisableKeyListeners = true; // test
     // if (isDisableKeyListeners) return;
 
@@ -1580,15 +1584,14 @@ var quickFilters = {
           prefs = quickFilters.Preferences,
           isRunFolderKey = prefs.isShortcut("folder"),
           isSelectedMailsKey = prefs.isShortcut("mails");
+
+    util.logDebugOptional("events.keyboard","key event:", e);          
     if (!isRunFolderKey && !isSelectedMailsKey) return;
     
     let isAlt = e.altKey,
         isCtrl = e.ctrlKey,
         isShift = e.shiftKey,
-        eventTarget = e.target,
-        isHandled = false, 
-        isShortcutMatched = false; 
-        
+        eventTarget = e.target;
           
     // shortcuts should only work in thread tree, folder tree and email preview (exclude conversations as it might be in edit mode)
     let tag = eventTarget.tagName ? eventTarget.tagName.toLowerCase() : '';
@@ -1597,18 +1600,17 @@ var quickFilters = {
         && eventTarget.id != 'accountTree'
         && (
           (tag
-            &&       
-            (tag == 'textarea'  // Postbox quick reply
-            ||
-            tag == 'textbox'    // any textbox
-            ||
-            tag == 'input'      // Thunderbird 68 textboxes.
-            ||
-            tag == 'findbar'
-            ||
-            tag == 'search-textbox' // in-mail search
-            ||
-            tag == 'html:input')   // Tb 102 search box
+            &&
+						[
+							"textarea",        			// Postbox quick reply
+							"textbox",         			// any textbox
+							"input",           			// Thunderbird 68 textboxes.
+							"html:input",      			// Thunderbird 78 textboxes.
+							"search-textbox", 		 	// Thunderbird 78 search boxes 
+							"xul:search-textbox",  	// Thunderbird 115 search boxes  [issue ]
+							"global-search-bar",     // Thunderbird 115 global search [issue ]
+							"findbar"              	// [Bug 26654] in-mail search
+						].includes(tag)
           )
           ||
           (eventTarget.baseURI 
@@ -1621,7 +1623,8 @@ var quickFilters = {
     }
     
     if (window) {
-      let selectedTab = quickFilters.Util.tabContainer.selectedTab,
+      let tabmail = document.getElementById("tabmail");
+      let selectedTab = tabmail.currentTabInfo,       
           tabMode = null;
       if (selectedTab) {
         tabMode = quickFilters.Util.getTabMode(selectedTab);
@@ -2158,8 +2161,11 @@ quickFilters.addKeyListener = function(win) {
   let isRunFolderKey = prefs.isShortcut("folder"),
       isSelectedMailsKey = prefs.isShortcut("mails");
 
+  quickFilters.Util.logDebugOptional("functions","addKeyListener()...");
+
   if (isRunFolderKey || isSelectedMailsKey) {
     // check main instance 
+    quickFilters.Util.logDebugOptional("events,events.keyboard","Adding keyboard event listener for shortcuts. ");
     if (!win.quickFilters.isKeyListener) {
       win.quickFilters_keyListener = (event) => { 
         win.quickFilters.windowKeyPress(event,'down'); 

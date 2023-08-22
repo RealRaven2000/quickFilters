@@ -12,13 +12,17 @@ async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
 }
 
-var listener_toggleFolder, listener_updatequickFiltersLabel, listener_doCommand;
+var listener_toggleFolder, 
+    listener_updatequickFiltersLabel, 
+    listener_doCommand, 
+    listener_initKeyListener;
 
 async function onLoad(activatedWhileWindowOpen) {
   // console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
   let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css");
+  window.quickFilters.Util.logDebug("injected style sheets:", layout, layout2, layout3);
 
   // call on background page to implement folder pane listener
   window.quickFilters.Util.notifyTools.notifyBackground({ func: "addFolderPaneListener" }); 
@@ -158,8 +162,12 @@ async function onLoad(activatedWhileWindowOpen) {
   // window.addEventListener("quickFilters.BackgroundUpdate", window.quickFilters.initLicensedUI);
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
-  listener_toggleFolder = window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters)
+  listener_toggleFolder = window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters);
   window.addEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
+
+  listener_initKeyListener = window.quickFilters.addKeyListener.bind(window.quickFilters, window);
+  window.addEventListener("quickFilters.BackgroundUpdate.addKeyListener", listener_initKeyListener);
+
 
   listener_doCommand = (event) => {
     window.quickFilters.Util.logHighlightDebug("listener_doCommand()", "white", "magenta", event.detail);
@@ -242,6 +250,7 @@ function onUnload(isAddOnShutown) {
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   window.removeEventListener("quickFilters.BackgroundUpdate.doCommand", listener_doCommand);
   window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
+  window.removeEventListener("quickFilters.BackgroundUpdate.addKeyListener", listener_initKeyListener);
   window.removeEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
   
   if (window.quickFilters.isKeyListener) {

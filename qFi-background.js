@@ -315,6 +315,10 @@ async function main() {
       case "addToolMenuListener":
         addToolMenuListener();
         break;
+
+      case "initKeyListeners":
+        messenger.NotifyTools.notifyExperiment({event: "initKeyListeners"});
+        break;        
     }
   });
   

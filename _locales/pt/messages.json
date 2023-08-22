@@ -1386,7 +1386,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Item de menu de contexto de correio implementado para criar Filtro de mensagem. [issue 199]{L2}{L1} Itens de menu de contexto de pasta adicionados: Executar filtros e encontrar filtros [issue 203]{L2}{L1} Item de menu de ferramentas adicionado para alternar o assistente de filtro.{L2}{L1}Menu suspenso principal aprimorado movendo todos os comandos frequentemente necessários para o primeiro nível.{L2} {L1} Várias correções nas configurações e caixas de diálogo de registro {L2}{L1}Bug corrigido: a criação de novos filtros pode falhar com modelos personalizados ou modelo de lista de e-mail se o e-mail for maior que 16kBytes. [issue 206]{L2}"
+    "message" : "{L1} A partir da versão 6.2.1, os atalhos de teclado globais para executar filtros voltam a funcionar. [issue 208] {L2} {L1} Item de menu de contexto de correio implementado para criar Filtro de mensagem. [issue 199]{L2}{L1} Itens de menu de contexto de pasta adicionados: Executar filtros e encontrar filtros [issue 203]{L2}{L1} Item de menu de ferramentas adicionado para alternar o assistente de filtro.{L2}{L1}Menu suspenso principal aprimorado movendo todos os comandos frequentemente necessários para o primeiro nível.{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

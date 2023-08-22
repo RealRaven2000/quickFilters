@@ -356,7 +356,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list" : {
-    "message" : "{L1} Implementována položka kontextové nabídky pošty pro vytvoření filtru ze zprávy. [issue 199]{L2}{L1} Přidány položky kontextové nabídky složky: Spouštění filtrů a hledání filtrů [issue 203]{L2}{L1} Přidána položka nabídky Nástroje pro přepínání asistenta filtrování.{L2}{L1}Vylepšená hlavní rozbalovací nabídka přesunutím všech často potřebných příkazů na první úroveň.{L2}{L1} Různé opravy v dialogu Nastavení a registrace {L2}{L1}Chyba opravena: Pokud je e-mail větší než 16 kB, vytváření nových filtrů může selhat s vlastními šablonami nebo šablonami seznamu adresátů. [issue 206]{L2}"
+    "message" : "{L1} Od verze 6.2.1 zase fungují globální klávesové zkratky pro spouštění filtrů. [issue 208] {L2}{L1} Implementována položka kontextové nabídky pošty pro vytvoření filtru ze zprávy. [issue 199]{L2}{L1} Přidány položky kontextové nabídky složky: Spouštění filtrů a hledání filtrů [issue 203]{L2}{L1} Přidána položka nabídky Nástroje pro přepínání asistenta filtrování.{L2}{L1}Vylepšená hlavní rozbalovací nabídka přesunutím všech často potřebných příkazů na první úroveň.{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",
