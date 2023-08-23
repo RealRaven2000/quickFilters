@@ -16,8 +16,6 @@ permalink: filtaquilla.html
     border-bottom-color: #93105A !important;
     color: #FFF !important;
   } 
-}
-  
 </style>
 
 <h2 class="page-header fq">FiltaQuilla</h2><br>
@@ -433,11 +431,11 @@ issued to my Company "Song Craft Studios":</p>
     nsIMsgDBHdr object associated with the message. OK, you probably don’t 
     know what those are, but some common values are:</p>
   
-  <p style="padding-left: 30px;" class="code"><tt>“subject”,&nbsp; “sender”,&nbsp; “message-id”,&nbsp; “references”, “recipients”, “date”,&nbsp; “size”, “flags”, “priority”,<br>
-    “label” (obsolete TB 1.5 term),&nbsp; “statusOfset” (yes it is really spelled that way),&nbsp; “ccList”, “bccList”,<br>
-    “msgThreadId”,&nbsp; “threadFlags”,&nbsp; “threadId”, “threadSubject”, “msgCharSet”,&nbsp; “threadParent”,<br>
-    “junkscore” (either null, 0, or 100), “junkpercent”, “junkscoreorigin”,&nbsp; “threadNewestMsgDate”,<br>
-    “msgOffset”,&nbsp; “offlineMsgSize”.</tt></p>
+  <p style="padding: 0.8rem 3rem;" class="code"><tt>“subject”, “sender”, “replyTo”, “message-id”, “references”, “recipients”, “date”, “size”, “flags”, “priority”,<br>
+    “label” (obsolete TB 1.5 term), “statusOfset” (yes it is really spelled that way), “ccList”, “bccList”,<br>
+    “msgThreadId”, “threadFlags”, “threadId”, “threadSubject”, “msgCharSet”, “threadParent”,<br>
+    “junkscore” (either null, 0, or 100), “junkpercent”, “junkscoreorigin”, “threadNewestMsgDate”,<br>
+    “msgOffset”, “offlineMsgSize”.</tt></p>
   <p>It’s really beyond the scope of this page to describe what each of these is.</p>
   <p>You can also request that any existing header in a message (for 
     example X-SPAM-STATUS) be added to the database automatically, by 
