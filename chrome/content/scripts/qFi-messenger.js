@@ -144,6 +144,10 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickfilters-menu-test-midnight":
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" });
         break;
+      case "quickfilters-menu-test-news":
+        window.quickFilters.Preferences.setBoolPref("hasNews", true);
+        window.quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"}); 
+        break;
       default:
         console.log("unknown quickFilters command", el.id || "id: N/A", el);
     }
