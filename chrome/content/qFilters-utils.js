@@ -56,8 +56,10 @@ quickFilters.Util = {
             `into ${loc}`);
           let event;
           if (data.event == "setAssistantMode") {
-            if (data.detail)
+            if (data.detail) {
               quickFilters.Util.AssistantActive = data.detail.active;
+              quickFilters.Util.logHighlightDebug(" setAssistantMode() ","#ffffe0", "rgb(0,120,30)", `AssistantActive: ${quickFilters.Util.AssistantActive}`);
+            }
             return;
           }
           
@@ -84,6 +86,15 @@ quickFilters.Util = {
       browserInfo: quickFilters.Util.browserInfo,
       addonInfo: quickFilters.Util.addonInfo,
     });
+    {
+      const util = quickFilters.Util;
+      let info = `
+        Assistant active: ${util.AssistantActive}
+        BrowserInfo: ${util.browserInfo}
+      `;
+      quickFilters.Util.logHighlightDebug(" quickFilters.Init() ","#ffffe0", "rgb(0,120,30)", info);
+    }
+    
   },  
 
   // special function for displaying the popup on the quickFilters toolbar button

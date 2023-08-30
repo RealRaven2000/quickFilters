@@ -37,7 +37,7 @@ quickFilters.Worker = {
   
   // this function is currently called by QuickFolders to overwrite that filter worker process with this one!
   // Problem: it reads the old flag quickFilters.Worker.FilterMode! 
-  toggleFilterMode: function toggleFilterMode(active, silent) {
+  toggleFilterMode: function (active, silent) {
     this.toggle_FilterMode(active, silent);
   } ,
   
@@ -180,8 +180,9 @@ quickFilters.Worker = {
     quickFilters.Util.notifyTools.notifyBackground({ func: "setAssistantButton", active }); // reflect in UI of all Assistant buttons
 
     
-    if (!silent)
+    if (!silent) {
       removeOldNotification(notifyBox, active, 'quickfilters-filter');
+    }
 
     // If QuickFolders is installed, we should also invoke its filter mode
     if (window.QuickFolders) {
@@ -190,13 +191,13 @@ quickFilters.Worker = {
       // we cannot supress the notification from QuickFolders
       // without adding code in it!
       if (QFwork.FilterMode != active) {// prevent recursion!
-        QFwork.toggle_FilterMode ?
-          QFwork.toggle_FilterMode(active) :
-          QFwork.toggleFilterMode(active);  // (active, silent) !!!
+        quickFilters.Util.logDebug("Toggle filter assistant mode in QuickFolders!")
+        QFwork.toggle_FilterMode(active); // (active, silent) !!!
       }
 
-      if (!silent)
+      if (!silent) {
         removeOldNotification(notifyBox, active, 'quickfolders-filter');
+      }
     }
   },
   

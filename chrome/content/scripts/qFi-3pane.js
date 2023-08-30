@@ -1,4 +1,9 @@
 
+async function setAssistantButton(e) {
+  window.quickFilters.Util.setAssistantButton(e.detail.active);
+}
+
+
 async function onLoad(activatedWhileWindowOpen) {
   let WAIT_FOR_3PANE = 2000;
 
@@ -48,6 +53,8 @@ async function onLoad(activatedWhileWindowOpen) {
     }
   );
 
+  window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+
 }
 
 
@@ -67,5 +74,7 @@ function onUnload(isAddOnShutown) {
   deleteBtn('quickfilters-current-runbutton');
   deleteBtn('quickfilters-current-msg-runbutton');
   deleteBtn('quickfilters-current-searchfilterbutton');
+  window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+
 }
 

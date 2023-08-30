@@ -593,10 +593,13 @@ END LICENSE BLOCK
     # [issue 205] QuickFolders + quickMove fails to invoke the assistant
     # [issue 206] When creating new filters - Reading headers can fail if mail is larger than 16kByte
 
-  6.2.1 - WIP
+  6.2.1 - 22/08/2023
     # [issue 208] Fixed: global keyboard shortcuts for running filters don't work anymore 
     # Show localized date in registration dialog
     # After the license was viewed via the menu "check license status", now reset the "renew license" button for the day and return to normal toolbar icon (no color / message).
+
+  6.2.2 - WIP
+    # [issue 210] Autostart assistant problems: button not highlighted when updating / starting Add-on from extension manager
 
 
   6.* - FUTURE WORK
@@ -1669,7 +1672,7 @@ var quickFilters = {
     }
   } ,
   
-  // show news on update
+  // show news on update - called from qFi-messenger script following a background listener
   updatequickFiltersLabel: function() {
     const util = quickFilters.Util;
     let hasNews = quickFilters.Preferences.getBoolPref("hasNews"),
@@ -1751,6 +1754,10 @@ var quickFilters = {
       
       // used browser.browserAction.setLabel() 
       util.notifyTools.notifyBackground({ func: "setActionLabel", text: newLabel });
+      if (util.AssistantActive) {
+        util.setAssistantButton(quickFilters.Util.AssistantActive);
+      }
+      
     }
   } ,
 
@@ -2325,6 +2332,7 @@ quickFilters.patchMailPane = () => {
               <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuseparator />
               <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickfilters-menu-test-news" label="Test - set has news flag!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
             </menupopup>
           </menu>
           <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();" />
@@ -2350,6 +2358,7 @@ quickFilters.TabListener = {
     if (isMailPane) {
       quickFilters.patchMailPane();
       quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"});
+      quickFilters.Util.setAssistantButton(quickFilters.Util.AssistantActive);
     }
   },
   openTab: function(evt) {
