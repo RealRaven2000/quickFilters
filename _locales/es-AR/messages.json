@@ -1382,7 +1382,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} A partir de la versión 6.2.1, los atajos de teclado globales para ejecutar filtros vuelven a funcionar. [issue 208] {L2} {L1} Se implementó el elemento del menú contextual del correo para crear un filtro a partir del mensaje. [issue 199]{L2}{L1} Se agregaron elementos del menú contextual de la carpeta: Ejecutar filtros y buscar filtros [issue 203]{L2}{L1} Se agregó un elemento del menú de herramientas para alternar el asistente de filtro.{L2}{L1}Menú desplegable principal mejorado al mover todos los comandos que se necesitan con frecuencia al primer nivel.{L2}"
+    "message": "{L1} En la versión 6.2.2, el estado del botón de la barra de herramientas se mostrará correctamente con un color de resaltado rojo cuando quickFilters active el asistente al iniciar. [issue 210] {L2} {L1} A partir de la versión 6.2.1, los atajos de teclado globales para ejecutar filtros vuelven a funcionar. [issue 208] {L2}{L1} Se ha implementado un elemento en el menú contextual del correo para crear un filtro a partir del mensaje. [issue 199]{L2}{L1} Se añadieron elementos al menú contextual de la carpeta: Ejecutar filtros y encontrar filtros [issue 203] {L2}{L1} Se añadió un elemento al menú de herramientas para alternar el asistente de filtro.{L2}{L1} Se mejoró el menú desplegable principal moviendo todos los comandos frecuentemente necesitados al primer nivel.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -355,8 +355,8 @@
   "whats-new-intro" : {
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
-  "whats-new-list" : {
-    "message" : "{L1} Od verze 6.2.1 zase fungují globální klávesové zkratky pro spouštění filtrů. [issue 208] {L2}{L1} Implementována položka kontextové nabídky pošty pro vytvoření filtru ze zprávy. [issue 199]{L2}{L1} Přidány položky kontextové nabídky složky: Spouštění filtrů a hledání filtrů [issue 203]{L2}{L1} Přidána položka nabídky Nástroje pro přepínání asistenta filtrování.{L2}{L1}Vylepšená hlavní rozbalovací nabídka přesunutím všech často potřebných příkazů na první úroveň.{L2}"
+  "whats-new-list": {
+    "message": "{L1} Ve verzi 6.2.2 bude stav tlačítka na panelu nástrojů správně zobrazen s červeným zvýrazněním, když quickFilters spustí asistenta při svém spuštění. [issue 210] {L2} {L1} Od verze 6.2.1 zase fungují globální klávesové zkratky pro spuštění filtrů. [issue 208] {L2}{L1} Byla implementována volba v kontextovém menu pošty pro vytvoření filtru zprávy. [issue 199]{L2}{L1} Přidány volby v kontextovém menu složky: Spustit filtry a najít filtry [issue 203] {L2}{L1} Přidána volba v nabídce Nástroje pro přepnutí asistenta filtru.{L2}{L1} Vylepšeno hlavní rozbalovací nabídky tím, že všechny často potřebné příkazy byly přesunuty na první úroveň.{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

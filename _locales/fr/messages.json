@@ -1382,7 +1382,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} À partir de la version 6.2.1, les raccourcis clavier globaux pour exécuter les filtres fonctionnent à nouveau. [issue 208] {L2} {L1} Implémentation d'un élément de menu contextuel de messagerie pour créer un filtre à partir d'un message. [issue 199]{L2}{L1} Ajout d'éléments de menu contextuel de dossier : exécuter des filtres et rechercher des filtres [issue 203]{L2}{L1} Ajout d'un élément de menu Outils pour basculer l'assistant de filtrage.{L2}{L1}Amélioration du menu déroulant principal en déplaçant toutes les commandes fréquemment nécessaires au premier niveau.{L2}"
+    "message": "{L1} Dans la version 6.2.2, l'état du bouton de la barre d'outils s'affichera correctement avec une couleur de surbrillance rouge lorsque quickFilters active l'assistant lors de son démarrage. [issue 210] {L2} {L1} À partir de la version 6.2.1, les raccourcis clavier globaux pour exécuter les filtres fonctionnent à nouveau. [issue 208] {L2}{L1} Mise en œuvre d'une option dans le menu contextuel du courrier pour créer un filtre à partir du message. [issue 199]{L2}{L1} Ajout d'options dans le menu contextuel du dossier : Exécuter les filtres et trouver des filtres [issue 203] {L2}{L1} Ajout d'une option dans le menu Outils pour basculer l'assistant de filtre.{L2}{L1} Amélioration du menu déroulant principal en déplaçant toutes les commandes fréquemment nécessaires au premier niveau.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

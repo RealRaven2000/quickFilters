@@ -1382,8 +1382,8 @@
   "whats-new-intro" : {
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
-  "whats-new-list" : {
-    "message" : "{L1} Versiosta 6.2.1 alkaen globaalit pikanäppäimet suodattimien suorittamiseen toimivat jälleen. [issue 208] {L2} {L1} Toteutettu sähköpostin kontekstivalikon kohta suodattimen luomiseksi viestistä. [issue 199]{L2}{L1} Lisätty kansion kontekstivalikon kohdat: Suorita suodattimia ja etsi suodattimia [issue 203]{L2}{L1} Lisätty työkalut-valikkokohta suodatinavustajan vaihtamiseksi.{L2}{L1}Parannettu päävalikko siirtämällä kaikki usein tarvittavat komennot ensimmäiselle tasolle.{L2}"
+  "whats-new-list": {
+    "message": "{L1} Versiossa 6.2.2 työkalurivin painikkeen tila näkyy nyt oikein punaisella korostusvärillä, kun quickFilters aktivoi avustajan käynnistyessään. [issue 210] {L2} {L1} Versiosta 6.2.1 alkaen globaalit pikanäppäimet suodattimien suorittamiseen toimivat jälleen. [issue 208] {L2}{L1} Lisätty sähköpostin kontekstivalikkoon vaihtoehto suodattimen luomiseksi viestistä. [issue 199]{L2}{L1} Lisätty kansiovalikon vaihtoehdot: Suorita suodattimet ja etsi suodattimia [issue 203] {L2}{L1} Lisätty työkaluvalikkoon vaihtoehto suodatinavustimen kääntämiseksi päälle/pois.{L2}{L1} Parannettu päävalikkoa siirtämällä kaikki usein tarvittavat komennot ensimmäiselle tasolle.{L2}"
   }, 
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

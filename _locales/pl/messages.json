@@ -1379,8 +1379,8 @@
   "whats-new-intro": {
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
-  "whats-new-list" : {
-    "message" : "{L1} Od wersji 6.2.1 globalne skróty klawiszowe do uruchamiania filtrów znów działają. [issue 208] {L2} {L1} Zaimplementowano element menu kontekstowego poczty, aby utworzyć filtr z wiadomości. [issue 199]{L2}{L1} Dodano elementy menu kontekstowego folderu: Uruchom filtry i znajdź filtry [issue 203]{L2}{L1} Dodano element menu narzędzi do przełączania asystenta filtrów.{L2}{L1} Ulepszone główne menu rozwijane poprzez przeniesienie wszystkich często używanych poleceń na pierwszy poziom.{L2}"
+  "whats-new-list": {
+    "message": "{L1} W wersji 6.2.2 stan przycisku paska narzędzi będzie poprawnie wyświetlany z czerwoną kolorowym podświetleniem, gdy quickFilters aktywuje asystenta podczas uruchamiania. [issue 210] {L2} {L1} Od wersji 6.2.1 globalne skróty klawiszowe do uruchamiania filtrów ponownie działają. [issue 208] {L2}{L1} Wprowadzono element menu kontekstowego poczty umożliwiający tworzenie filtru z wiadomości. [issue 199]{L2}{L1} Dodane elementy menu kontekstowego folderu: Uruchom filtry i znajdź filtry [issue 203] {L2}{L1} Dodano element menu narzędzi do przełączania asystenta filtrów.{L2}{L1} Ulepszono główne menu rozwijane poprzez przeniesienie wszystkich często potrzebnych poleceń na pierwszy poziom.{L2}"
   },  
   "window-title": {
     "message": "Witamy w $addonName$",

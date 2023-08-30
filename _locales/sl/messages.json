@@ -250,8 +250,8 @@
   "whats-new-intro" : {
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
-  "whats-new-list" : {
-    "message" : "{L1} Od različice 6.2.1 naprej spet delujejo globalne bližnjice na tipkovnici za izvajanje filtrov. [issue 208] {L2} {L1} Implementiran element kontekstnega menija pošte za ustvarjanje filtra iz sporočila. [issue 199]{L2}{L1} Dodani elementi kontekstnega menija mape: Zaženi filtre in poišči filtre [issue 203]{L2}{L1} Dodan element menija orodij za preklop pomočnika za filtriranje.{L2}{L1}Izboljšan glavni spustni meni s premikanjem vseh pogosto potrebnih ukazov na prvo raven.{L2}"
+  "whats-new-list": {
+    "message": "{L1} V različici 6.2.2 bo stanje orodne vrstice pravilno prikazano s rdečo poudarjeno barvo, ko quickFilters ob zagonu aktivira pomočnika. [issue 210] {L2} {L1} Od različice 6.2.1 dalje spet delujejo globalne bližnjice na tipkovnici za izvajanje filtrov. [issue 208] {L2}{L1} Uvedena je možnost v kontekstnem meniju e-pošte za ustvarjanje filtra iz sporočila. [issue 199]{L2}{L1} Dodani so elementi v kontekstni meni mape: Izvedi filtre in poišči filtre [issue 203] {L2}{L1} Dodan je element v meniju Orodja za preklop pomočnika filtra.{L2}{L1} Izboljšano glavno spustno meni z premikanjem vseh pogosto potrebnih ukazov na prvo raven.{L2}"
   },  
   "window-title": {
     "message": "Dobrodošli v $addonName$",

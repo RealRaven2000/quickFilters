@@ -6,4 +6,4 @@ powershell -Command "(gc -en UTF8 manifest.json) -replace 'pre%oldQIWebRev%', 'p
 echo %quickFiltersWebRev% > revision.txt
 move quickFilters*.xpi E:\Dev\Mozilla\Dev\quickFilters\_Test\6.2\
 powershell -Command "Start-Sleep -m 50"
-rename quickFiltersWeb.zip quickFilters-wx-6.2.1pre%quickFiltersWebRev%.xpi
+rename quickFiltersWeb.zip quickFilters-wx-6.2.2pre%quickFiltersWebRev%.xpi

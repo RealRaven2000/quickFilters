@@ -1382,7 +1382,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Vanaf versie 6.2.1 werken de wereldwijde sneltoetsen voor het uitvoeren van filters weer. [issue 208] {L2}{L1} Mail-contextmenu-item geïmplementeerd om Filter van bericht te maken. [issue 199]{L2}{L1} Mapcontextmenu-items toegevoegd: Filters uitvoeren en filters zoeken [issue 203]{L2}{L1} Tools-menu-item toegevoegd om de filterassistent in te schakelen.{L2}{L1}Verbeterd vervolgkeuzemenu door alle veelgebruikte opdrachten naar het eerste niveau te verplaatsen.{L2}"
+    "message": "{L1} In versie 6.2.2 wordt de status van de werkbalkknop correct weergegeven met een rode highlightkleur wanneer quickFilters de assistent activeert bij het starten. [issue 210] {L2} {L1} Vanaf versie 6.2.1 werken de wereldwijde sneltoetsen voor het uitvoeren van filters weer. [issue 208] {L2}{L1} Geïmplementeerd mail contextmenu-item om een filter te maken vanuit een bericht. [issue 199]{L2}{L1} Toegevoegde map contextmenu-items: Voer filters uit en vind filters [issue 203] {L2}{L1} Toegevoegd gereedschap menu-item om de filterassistent aan/uit te zetten.{L2}{L1} Verbeterde hoofdkeuzemenu door alle vaak benodigde commando's naar het eerste niveau te verplaatsen.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
