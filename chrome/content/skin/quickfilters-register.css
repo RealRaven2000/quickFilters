@@ -1,14 +1,15 @@
 @import url('chrome://quickfilters/content/skin/license.css');
 
-/* make sure user can scroll down to the registration buttons */
+/* make sure user can scroll down to the registration buttons
 #outerWrapper {
   overflow-y: scroll;
   height: 95vh;
 }
+ */
 
 #qf-register {
   max-width: 850px !important;
-  min-height: 660px;
+/*  min-height: 660px; */
 }
 label.ref {
   padding-top: 4px;
@@ -128,4 +129,37 @@ td {
 }
 #referrer[collapsed=true] {
   display: none;
+}
+
+#licenseTermSwitcher:hover {
+  outline: 2px  dashed rgba(60,60,60,0.2);
+  background: repeating-linear-gradient(
+    135deg,
+    #606dbc01,
+    #606dbc01 6px,
+    #46529812 6px,
+    #46529812 12px
+  );  
+}
+#toggleSwitchLicenseTerms {
+  appearance: none;
+  border-radius: 4px;
+  background-color: rgb(80,80,80) !important;
+  color: rgb(220,220,220);
+  padding-inline: 4px;
+  margin-inline: auto;
+  margin-bottom: 0.8em;
+}
+#licenseTerms[collapsed], #buyBox[collapsed], .form[collapsed] {
+  display: none;
+}
+#licenseTermSwitcher:hover #toggleSwitchLicenseTerms {
+  background-color: rgb(40,40,40) !important;
+  color: rgb(240,240,240);
+}
+#toggleSwitchLicenseTerms.continue {
+  background-color: rgb(120,20,20) !important;
+}
+#licenseTermSwitcher:hover #toggleSwitchLicenseTerms.continue {
+  background-color: rgb(175,20,20) !important;
 }

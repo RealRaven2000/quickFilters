@@ -253,6 +253,12 @@
     "message": "Dziękujemy za niedawne przedłużenie licencji lub przekazanie darowizny. Ponieważ pomogłeś w przygotowaniu tego dodatku w przyszłości, możesz po prostu zamknąć to okno.",
     "description": "Shown if license expires more than a year from now"
   },
+  "licenseTerms.hide": {
+    "message": "🡇 Kontynuuj wybór licencji 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "Pokaż warunki licencji"
+  },
   "licenseWindow.title": {
     "message": "Licencja quickFilters Pro"
   },

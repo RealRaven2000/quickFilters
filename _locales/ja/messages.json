@@ -252,6 +252,12 @@
     "description": "Shown if license expires more than a year from now",
     "message": "最近ライセンスを延長するか、寄付していただきありがとうございます。 このアドオンの将来の保証に役立ったので、このウィンドウを閉じるだけです。"
   },
+  "licenseTerms.hide": {
+    "message": "🡇 ライセンス選択を続ける 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "ライセンス条項を表示"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro ライセンス"
   },

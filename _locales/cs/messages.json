@@ -115,6 +115,12 @@
     "message": "Děkujeme, že jste nedávno prodloužili licenci nebo jste darovali. Jelikož jste pomohli doložit tento doplněk do budoucna, můžete toto okno jednoduše zavřít.",
     "description": "Shown if license expires more than a year from now"
   },
+  "licenseTerms.hide": {
+    "message": "🡇 Pokračovat výběrem licence 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "Zobrazit licenční podmínky"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro Licence"
   },

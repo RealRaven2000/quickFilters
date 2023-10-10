@@ -247,6 +247,12 @@
     "description": "Shown if license expires more than a year from now",
     "message": "感谢您最近延长许可证或捐赠。 当您帮助将来对该插件进行验证时，只需关闭此窗口即可。"
   },
+  "licenseTerms.hide": {
+    "message": "🡇 继续选择许可证 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "显示许可协议条款"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro 授权"
   },

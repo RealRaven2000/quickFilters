@@ -23,8 +23,41 @@ var Register = {
     this.updateLicenseUI();
     window.addEventListener("quickFilters.BackgroundUpdate", this.updateLicenseUI.bind(this));
   },
+
+  toggleTerms: function(btn) {
+    let termsBox = document.getElementById("licenseTerms");
+    let collapsed = termsBox.getAttribute("collapsed");
+    let label;
+    if (collapsed) {
+      termsBox.removeAttribute("collapsed");
+      label = "licenseTerms.hide";
+      btn.classList.add("continue");
+    } else {
+      termsBox.setAttribute("collapsed", "true")
+      label = "licenseTerms.show";
+      btn.classList.remove("continue");
+    }
+    btn.label = quickFilters.Util.getBundleString(label,"Toggle License terms");
+    let form = document.querySelector("hbox.form");
+    if (form) {
+      if (collapsed) {
+        form.setAttribute("collapsed", "true")
+      } else {
+        form.removeAttribute("collapsed");
+      }
+    }
+    let buy = document.getElementById("buyBox");
+    if (buy) {
+      if (collapsed) {
+        buy.setAttribute("collapsed", "true")
+      } else {
+        buy.removeAttribute("collapsed");
+      }
+    }   
+    window.sizeToContent();    
+  },
   
-  updateLicenseUI: async function updateLicenseUI() {
+  updateLicenseUI: async function() {
     const licenseInfo = quickFilters.Util.licenseInfo,
           getElement = document.getElementById.bind(document),
           util = quickFilters.Util;
@@ -96,8 +129,7 @@ var Register = {
         util.logToConsole("Registration Problem\n" + txt + "\nDecrypted part: " + licenseInfo.decryptedPart);
 		}
     getElement('qfLicenseTerm').collapsed = isLicenseTermsHidden;
-
-			
+    window.sizeToContent();
   } ,
   
   updateUI: async function updateUI() {

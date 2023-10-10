@@ -252,6 +252,12 @@
     "description": "Shown if license expires more than a year from now",
     "message": "Cảm ơn bạn đã gia hạn giấy phép gần đây hoặc nếu bạn đã đóng góp. Vì bạn đã giúp chứng minh Tiện ích bổ sung này trong tương lai, bạn có thể chỉ cần đóng cửa sổ này."
   },
+  "licenseTerms.hide": {
+    "message": "🡇 Tiếp tục lựa chọn Giấy phép 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "Hiển thị điều khoản giấy phép"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro License"
   },

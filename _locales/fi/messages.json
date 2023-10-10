@@ -253,6 +253,12 @@
     "message": "Kiitos, että lisenssit äskettäin tai olet lahjoittanut. Koska olet auttanut todistamaan tämän lisäosan tulevaisuudessa, voit yksinkertaisesti sulkea tämän ikkunan.",
     "description": "Shown if license expires more than a year from now"
   },
+  "licenseTerms.hide": {
+    "message": "🡇 Jatka lisenssin valitsemista 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "Näytä lisenssiehdot"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro-lisenssi"
   },

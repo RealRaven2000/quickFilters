@@ -252,6 +252,12 @@
     "description": "Shown if license expires more than a year from now",
     "message": "Bedankt voor het onlangs verlengen van uw licentie of als u heeft gedoneerd. Omdat u heeft geholpen om deze add-on toekomstbestendig te maken, kunt u dit venster eenvoudig sluiten."
   },
+  "licenseTerms.hide": {
+    "message": "🡇 Doorgaan naar licentiekeuze 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "Licentievoorwaarden weergeven"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro-licentie"
   },

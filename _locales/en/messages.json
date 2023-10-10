@@ -252,6 +252,12 @@
     "description": "Shown if license expires more than a year from now",
     "message": "Thank you for recently extending your license or if you have donated. As you have helped to future proof this Add-on, you can simply close this window."
   },
+  "licenseTerms.hide" : {
+    "message": "🡇 Continue to License Selection 🡇"
+  },
+  "licenseTerms.show" : {
+    "message": "Show license terms"
+  },  
   "licenseWindow.title": {
     "message": "quickFilters Pro License"
   },

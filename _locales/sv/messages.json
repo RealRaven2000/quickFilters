@@ -252,6 +252,12 @@
     "description": "Shown if license expires more than a year from now",
     "message": "Tack för att du nyligen förlängde din licens eller om du har donerat. Eftersom du har hjälpt till att framtida bevisa detta tillägg kan du helt enkelt stänga det här fönstret."
   },
+  "licenseTerms.hide": {
+    "message": "🡇 Fortsätt till licensval 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "Visa licensvillkor"
+  },
   "licenseWindow.title": {
     "message": "Licens för quickFilters Pro"
   },
