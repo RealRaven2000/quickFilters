@@ -1628,12 +1628,13 @@ quickFilters.Worker = {
     // to be backwards compatible with [old versions of] QuickFolders
     // we need to re-package the messageList elements in the format  { messageId, msgHeader}
     // to do: merge these changes into QuickFolders filter implementation
+    let targetServer = targetFolder ? targetFolder.server : null;
     for (let i = 0; i < messageIdList.length; i++) {  
       let messageId = messageIdList[i],
           messageDb,
           msgHeader;
       try {
-        msgHeader = MailUtils.getMsgHdrForMsgId(messageId); // test TbSync
+        msgHeader = MailUtils.getMsgHdrForMsgId(messageId, targetServer); // [issue 215] narrow down to increase speed
         messageDb = targetFolder.msgDatabase; // msgDatabase
       }
       catch(ex) {
