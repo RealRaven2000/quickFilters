@@ -182,6 +182,22 @@
     "message": "quickFilters",
     "description": "Name of the extension."
   },
+  "extensions.quickfilters.description": {
+    "message": "透過拖放郵件並分析其屬性，快速產生郵件過濾器。"
+  },
+  "firstName.label": {
+    "message": "名："
+  },
+  "freeLicense": {
+    "message": "如果您最近向 quickFilters 專案捐款或完成了貢獻工作，例如翻譯或編寫補丁，您可能有資格獲得免費許可證密鑰。 透過 quickFilters 選項中的支援標籤與我聯絡。"
+  },
+  "getquickFilters": {
+    "message": "取得 quickFilters Pro"
+  },
+  "grpMerge.label": {
+    "message": "合併規則"
+  },
+
   "heading-installed": {
     "message": "$addonName$ 已成功安裝",
     "description": "page heading. first placeholder will be replaced with Add-on name",
@@ -220,6 +236,15 @@
   "license-is-extended" : {
     "message": "感謝您最近延長許可證或捐贈。 當您幫助將來對該插件進行驗證時，只需關閉此窗口即可。",
     "description": "Shown if license expires more than a year from now"
+  },
+  "licenseTerms.hide": {
+    "message": "🡇 繼續選擇許可證 🡇"
+  },
+  "licenseTerms.show": {
+    "message": "顯示許可協議條款"
+  },
+  "licenseWindow.title": {
+    "message": "quickFilters Pro 許可證"
   },
   "mozillas-basic-platform" : {
     "message" : "Mozilla僅提供一個基本平台，用於向您（最終用戶）交付我們的軟件。 如果我們需要向我們的用戶付款或提供支持，則不能通過addons.thunderbird.net進行操作-這不是內置付費界面或許可證管理（如iTunes或Google Play）的“應用商店”。"
@@ -821,6 +846,54 @@
   "quickfilters.customHeader.CarbonCopy": {
     "message": "抄送 (CC)"
   },
+  "quickfilters.customHeader.Domain": {
+    "message": "電子郵件域名"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "域名擴展"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "根域"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "子域"
+  },
+  "quickfilters.customHeader.Email": {
+    "message": "電子郵件地址"
+  },
+  "quickfilters.customHeader.FirstName": {
+    "message": "名"
+  },
+  "quickfilters.customHeader.From": {
+    "message": "從"
+  },
+  "quickfilters.customHeader.LastName": {
+    "message": "姓"
+  },
+  "quickfilters.customHeader.ListId": {
+    "message": "清單編號"
+  },
+  "quickfilters.customHeader.ListPost": {
+    "message": "清單貼文"
+  },
+  "quickfilters.customHeader.NamePart": {
+    "message": "全名"
+  },
+  "quickfilters.customHeader.Newsgroups": {
+    "message": "新聞群組"
+  },
+  "quickfilters.customHeader.ReplyTo": {
+    "message": "回覆"
+  },
+  "quickfilters.customHeader.Subject": {
+    "message": "主題"
+  },
+  "quickfilters.customHeader.SubjectRegex": {
+    "message": "主題正規表示式"
+  },
+  "quickfilters.customHeader.To": {
+    "message": "到"
+  },  
   "quickfilters.customHeader.defaultActionTip": {
     "message": "quickFilters 助手會自動添加一個操作。 請將默認操作“將優先級設置為正常”作為佔位符。"
   },
@@ -833,6 +906,18 @@
   "quickfilters.customfilter.replyto": {
     "message": "回复"
   },
+  "quickfilters.deleteFromPOP.label": {
+    "message": "從 POP 伺服器刪除"
+  },
+  "quickfilters.deleteMessage.label": {
+    "message": "刪除留言"
+  },
+  "quickfilters.fetchFromPOP.label": {
+    "message": "從 POP 伺服器取得"
+  },
+  "quickfilters.filters.toggleMessage.dontShow": {
+    "message": "不要再顯示此訊息。"
+  },
   "quickfilters.filters.toggleMessage.notificationText": {
     "message": "輔助過濾模式啟動。 每當您將電子郵件移至另一個郵件文件夾時，“創建過濾規則”助手就會啟動。 #1 使用消息過濾器根據“發件人是誰？”、“主題行中是否有某個關鍵字？”等規則自動移動電子郵件。 要停止濾鏡輔助模式，請再次按[濾鏡輔助]按鈕。"
   },
@@ -844,6 +929,15 @@
   },
   "quickfilters.forwardTo.label": {
     "message": "將消息轉發至"
+  },
+  "quickfilters.fpJsonFile": {
+    "message": "JSON 文件"
+  },
+  "quickfilters.ignoreSubthread.label": {
+    "message": "忽略子執行緒"
+  },
+  "quickfilters.ignoreThread.label": {
+    "message": "忽略執行緒"
   },
   "quickfilters.licenseValidation.guessAddon": {
     "message": "(輸入的密鑰可能用於{2})."
@@ -1022,6 +1116,12 @@
   "quickfilters.search.warning.noresults": {
     "message": "未找到針對此文件夾的過濾器。"
   },
+  "quickfilters.setJunkScore.label": {
+    "message": "將垃圾狀態設定為"
+  },
+  "quickfilters.setPriority.label": {
+    "message": "將優先權設定為"
+  },
   "quickfilters.sort": {
     "message": "種類"
   },
@@ -1039,6 +1139,9 @@
   },
   "quickfilters.watchThread.label": {
     "message": "觀看主題"
+  },
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters 助理"
   },
   "quickfiltersToolbarButton.expired": {
     "message": "證件過期！"
