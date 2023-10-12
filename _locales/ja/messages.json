@@ -1182,6 +1182,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "ライセンスの有効期限:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ ライセンス…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "テンプレートを使用して返信する"
   },

@@ -148,6 +148,9 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.Preferences.setBoolPref("hasNews", true);
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"}); 
         break;
+      case "quickfilters-menu-registration":
+        window.quickFilters.Util.showLicenseDialog('toolsMenu');
+        break;
       default:
         console.log("unknown quickFilters command", el.id || "id: N/A", el);
     }

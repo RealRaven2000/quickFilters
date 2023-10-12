@@ -1182,6 +1182,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "Your license expired on:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ Giấy phép…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "Trả lời bằng Thư mẫu"
   },

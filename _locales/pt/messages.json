@@ -1186,6 +1186,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "Sua licença expirou em:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ Licença…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "Responder com modelo"
   },

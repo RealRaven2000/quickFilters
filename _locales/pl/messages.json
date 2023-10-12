@@ -1183,6 +1183,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "Twoja licencja wygasła:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ Licencja…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "Odpowiedz za pomocą szablonu"
   },

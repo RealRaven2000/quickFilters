@@ -141,15 +141,26 @@ td {
     #46529812 12px
   );  
 }
+
 #toggleSwitchLicenseTerms {
   appearance: none;
   border-radius: 4px;
   background-color: rgb(80,80,80) !important;
   color: rgb(220,220,220);
+  cursor: pointer;
   padding-inline: 4px;
   margin-inline: auto;
   margin-bottom: 0.8em;
 }
+
+#toggleSwitchLicenseTerms, #licenseTermSwitcher a, .link {
+  pointer-events: auto
+}
+#licenseTermSwitcher { 
+  /* remove striped background when not hovering on the toggle button */
+  pointer-events: none
+}
+
 #licenseTerms[collapsed], #buyBox[collapsed], .form[collapsed] {
   display: none;
 }

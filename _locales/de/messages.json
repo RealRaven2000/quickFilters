@@ -1182,6 +1182,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "Ihre Lizenz lief ab am:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ Lizenz…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "quickfilters.replyWithTemplate.label": {
     "message": "Antworten mit Vorlage"
   },

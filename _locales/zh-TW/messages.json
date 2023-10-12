@@ -1098,6 +1098,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "您的許可證過期日期："
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ 授權…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "用模板回复"
   },

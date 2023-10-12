@@ -1174,6 +1174,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "您的许可证已过期："
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ 许可证…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "使用模板回复"
   },

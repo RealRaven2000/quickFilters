@@ -1182,6 +1182,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "Din licens löpte ut:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ Licens…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },   
   "quickfilters.replyWithTemplate.label": {
     "message": "Svara med mall"
   },

@@ -2210,7 +2210,7 @@ quickFilters.Util = {
     }
   } ,
 
-  showLicenseDialog: function showLicenseDialog(featureName) {
+  showLicenseDialog: function (featureName) {
 		let params = {
       inn:{
         referrer: featureName, 

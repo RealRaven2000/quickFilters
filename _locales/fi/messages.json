@@ -1183,6 +1183,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "Lisenssisi on vanhentunut:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ Lisenssi…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "Vastaa mallilla"
   },

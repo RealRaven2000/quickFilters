@@ -1182,6 +1182,14 @@
   "quickfilters.register.licenseValid.expired": {
     "message": "Uw licentie is verlopen op:"
   },
+  "quickfilters.registration.menu": {
+    "message": "$licenseName$ Licentie…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },  
   "quickfilters.replyWithTemplate.label": {
     "message": "Met sjabloon antwoorden"
   },
