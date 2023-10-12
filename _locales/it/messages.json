@@ -1396,8 +1396,8 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Nella versione 6.2.2, lo stato del pulsante della barra degli strumenti verrà visualizzato correttamente con un colore di evidenziazione rosso quando quickFilters attiva l'assistente all'avvio. [issue 210] {L2} {L1} Dalla versione 6.2.1 in poi, le scorciatoie da tastiera globali per l'esecuzione dei filtri funzionano nuovamente. [issue 208] {L2}{L1} Implementata l'opzione nel menu contestuale delle email per creare un filtro dal messaggio. [issue 199]{L2}{L1} Aggiunte opzioni al menu contestuale della cartella: Esegui filtri e trova filtri [issue 203] {L2}{L1} Aggiunta un'opzione nel menu Strumenti per attivare/disattivare l'assistente per i filtri.{L2}{L1} Migliorato il menu a discesa principale spostando tutti i comandi frequentemente necessari al primo livello.{L2}"
-  },
+    "message": "{L1} Schermata di registrazione ottimizzata per schermi più piccoli e aggiunta di una voce di menu nel menu Strumenti. {L2} {L1} Migliorata la performance dell'assistente quando è necessario riparare le cartelle. [issue 215] {L2}{L1} Risolto un problema che poteva impedire all'assistente di filtro di funzionare con modelli personalizzati. [issue 220] {L2}"
+  },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Benvenuto in $addonName$",

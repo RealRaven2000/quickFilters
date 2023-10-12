@@ -1396,8 +1396,8 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Trong phiên bản 6.2.2, trạng thái của nút thanh công cụ sẽ được hiển thị đúng với màu nền đỏ khi quickFilters kích hoạt trợ lý khi khởi động. [issue 210] {L2} {L1} Từ phiên bản 6.2.1 trở đi, các phím tắt toàn cầu để chạy bộ lọc sẽ hoạt động trở lại. [issue 208] {L2}{L1} Thực hiện tùy chọn trong menu ngữ cảnh thư điện tử để tạo một bộ lọc từ thông điệp. [issue 199]{L2}{L1} Thêm tùy chọn vào menu ngữ cảnh của thư mục: Chạy bộ lọc và tìm bộ lọc [issue 203] {L2}{L1} Thêm tùy chọn vào menu Công cụ để chuyển đổi trợ lý bộ lọc.{L2}{L1} Cải thiện menu thả xuống chính bằng cách di chuyển tất cả các lệnh cần thiết thường xuyên lên cấp độ đầu tiên.{L2}"
-  },
+    "message": "{L1} Màn hình đăng ký tối ưu hóa cho màn hình nhỏ hơn và thêm một mục trong menu Công cụ. {L2} {L1} Cải thiện hiệu suất của trợ lý khi cần sửa chữa thư mục. [issue 215] {L2}{L1} Khắc phục một vấn đề có thể dẫn đến trợ lý lọc không hoạt động với các mẫu tùy chỉnh. [issue 220] {L2}"
+  },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Chào mừng bạn đến với $addonName$",

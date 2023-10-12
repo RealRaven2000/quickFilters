@@ -1396,7 +1396,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} In version 6.2.2 the status of the toolbar button will display correctly with a red highlight color when quickFilters activates the assistant when it starts. [issue 210] {L2} {L1} From version 6.2.1 on, the global keyboard shortcuts for running filters work again. [issue 208] {L2}{L1} Implemented mail context menu item to create Filter from message. [issue 199]{L2}{L1} Added folder context menu items: Run filters and find filters [issue 203] {L2}{L1} Added tools menu item to toggle the filter assistant.{L2}{L1} Improved main drop down menu by moving all frequently needed commands to the first level.{L2}"
+    "message": "{L1} Optimized registration screen for smaller displays, and added a menu item in the tools menu . {L2} {L1} Improved performance of assistant when folders need to be repaired. [issue 215] {L2}{L1} Fixed a problem that may lead to the filter assistant not working with custom templates. [issue 220] {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

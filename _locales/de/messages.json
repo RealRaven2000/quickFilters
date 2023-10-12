@@ -1397,8 +1397,8 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} In Version 6.2.2 wird der Status der Symbolleistenschaltfläche korrekt mit einer roten Hervorhebung angezeigt, wenn quickFilters den Assistenten beim Start aktiviert. [issue 210] {L2} {L1} Ab Version 6.2.1 funktionieren die globalen Tastenkombinationen zum Ausführen von Filtern wieder. [issue 208] {L2}{L1} Implementierter Eintrag im E-Mail-Kontextmenü zum Erstellen eines Filters aus einer Nachricht. [issue 199]{L2}{L1} Hinzugefügte Ordner-Kontextmenüeinträge: Filter ausführen und Filter suchen [issue 203] {L2}{L1} Hinzugefügter Eintrag im Tools-Menü zum Umschalten des Filterassistenten.{L2}{L1} Verbessertes Hauptmenü durch Verschieben aller häufig benötigten Befehle auf die erste Ebene.{L2}"
-  },
+    "message": "{L1} Der Lizenz Dialog wurde für kleinere Bildschirme optimiert und ein Menüpunkt im Tools-Menü hinzugefüg1. {L2} {L1} Der Assistent hat jetzt verbesserte Performanz, wenn Ordner repariert werden müssen. [issue 215] {L2}{L1} Ein Problem wurde behoben, das dazu führen konnte, dass der Filterassistent nicht mit benutzerdefinierten Vorlagen funktioniert. [issue 220] {L2}"
+  },  
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
     "message": "Willkommen zu $addonName$",

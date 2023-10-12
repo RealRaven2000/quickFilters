@@ -1400,7 +1400,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list": {
-    "message": "{L1} Na versão 6.2.2, o estado do botão da barra de ferramentas será exibido corretamente com um destaque vermelho quando o quickFilters ativar o assistente ao iniciar. [issue 210] {L2} {L1} A partir da versão 6.2.1, os atalhos de teclado globais para executar filtros voltam a funcionar. [issue 208] {L2}{L1} Implementada opção no menu de contexto de e-mails para criar um filtro a partir da mensagem. [issue 199]{L2}{L1} Adicionadas opções no menu de contexto da pasta: Executar filtros e encontrar filtros [issue 203] {L2}{L1} Adicionada opção no menu Ferramentas para alternar o assistente de filtro.{L2}{L1} Melhoria no menu suspenso principal movendo todos os comandos frequentemente necessários para o primeiro nível.{L2}"
+    "message": "{L1} Ecrã de registo otimizado para ecrãs mais pequenos e adicionado um item de menu no menu de Ferramentas. {L2} {L1} Melhorado o desempenho do assistente quando é necessário reparar pastas. [issue 215] {L2}{L1} Corrigido um problema que poderia fazer com que o assistente de filtros não funcionasse com modelos personalizados. [issue 220] {L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

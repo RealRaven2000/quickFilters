@@ -101,7 +101,7 @@ async function addFolderPaneListener() {
   }
   messenger.menus.create(menuProps);
   // ************************* ///
-  // FInd filters
+  // Find filters
 
   menuLabel = messenger.i18n.getMessage("quickfilters.findFiltersForFolder.menu");
   menuProps = {

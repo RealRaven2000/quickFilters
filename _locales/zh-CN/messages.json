@@ -1388,8 +1388,8 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 在版本6.2.2中，当quickFilters在启动时激活助手时，工具栏按钮的状态将以红色突出显示。[issue 210] {L2} {L1} 从版本6.2.1开始，用于运行过滤器的全局快捷键将再次生效。[issue 208] {L2}{L1} 实现了从邮件上下文菜单创建过滤器的选项。[issue 199]{L2}{L1} 添加了文件夹上下文菜单项：运行过滤器和查找过滤器 [issue 203] {L2}{L1} 添加了工具菜单项以切换过滤助手。{L2}{L1} 通过将所有经常需要的命令移至第一级，改进了主要下拉菜单。{L2}"
-  },
+    "message": "{L1} 优化了小屏幕的注册界面，并在工具菜单中添加了一个菜单项。 {L2} {L1} 在需要修复文件夹时，助手的性能得到了改善。 [issue 215] {L2}{L1} 修复了一个可能导致过滤助手无法使用自定义模板的问题。 [issue 220] {L2}"
+  },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "欢迎使用 $addonName$",

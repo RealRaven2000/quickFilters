@@ -1396,8 +1396,8 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} I version 6.2.2 kommer tillståndet för verktygsfältets knapp att visas korrekt med en röd markering när quickFilters aktiverar assistenten när den startar. [issue 210] {L2} {L1} Från och med version 6.2.1 fungerar globala genvägar för att köra filter igen. [issue 208] {L2}{L1} Implementerat e-postkontextmenyalternativ för att skapa ett filter från meddelandet. [issue 199]{L2}{L1} Lade till mappkontextmenyalternativ: Kör filter och hitta filter [issue 203] {L2}{L1} Lade till verktygsmenyalternativ för att växla filterassistenten.{L2}{L1} Förbättrade huvuddropdownmenyn genom att flytta alla frekvent använda kommandon till första nivån.{L2}"
-  },
+    "message": "{L1} Optimerad registreringsskärm för mindre skärmar och tillagt ett menyobjekt i verktygsmenyn. {L2} {L1} Förbättrad prestanda för assistenten när mappar behöver repareras. [issue 215] {L2}{L1} Åtgärdat ett problem som kan leda till att filterassistenten inte fungerar med anpassade mallar. [issue 220] {L2}"
+  },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Välkommen till $addonName$",

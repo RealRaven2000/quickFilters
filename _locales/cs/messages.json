@@ -362,7 +362,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list": {
-    "message": "{L1} Ve verzi 6.2.2 bude stav tlačítka na panelu nástrojů správně zobrazen s červeným zvýrazněním, když quickFilters spustí asistenta při svém spuštění. [issue 210] {L2} {L1} Od verze 6.2.1 zase fungují globální klávesové zkratky pro spuštění filtrů. [issue 208] {L2}{L1} Byla implementována volba v kontextovém menu pošty pro vytvoření filtru zprávy. [issue 199]{L2}{L1} Přidány volby v kontextovém menu složky: Spustit filtry a najít filtry [issue 203] {L2}{L1} Přidána volba v nabídce Nástroje pro přepnutí asistenta filtru.{L2}{L1} Vylepšeno hlavní rozbalovací nabídky tím, že všechny často potřebné příkazy byly přesunuty na první úroveň.{L2}"
+    "message": "{L1} Optimalizován registrační obrazovka pro menší displeje a přidána položka v nabídce Nástroje. {L2} {L1} Vylepšena výkonnost asistenta, když je třeba opravit složky. [issue 215] {L2}{L1} Opraven problém, který mohl způsobit, že asistent filtrů nefunguje s vlastními šablonami. [issue 220] {L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

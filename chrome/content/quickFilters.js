@@ -598,15 +598,23 @@ END LICENSE BLOCK
     # Show localized date in registration dialog
     # After the license was viewed via the menu "check license status", now reset the "renew license" button for the day and return to normal toolbar icon (no color / message).
 
-  6.2.2 - WIP
+  6.2.2 - 30/08/2023
     # [issue 210] Autostart assistant problems: button not highlighted when updating / starting Add-on from extension manager
 
+  6.3 - WIP
+    # [issue 217] Optimize the registration screen, it's too tall 
+    # [issue 215] Optimized code to show assistant if folder database need to be repaired
+    # Completed translations for traditional Chinese 
+    # [issue 220] Create filter from message with Custom templates may fail
 
+  ============================================================================================================
   6.* - FUTURE WORK
+    # [issue ]   
+    # [issue ]   
+    # [issue ]   
     # convert settings to html / Thunderbird tab
 
    
-  ============================================================================================================
   FUTURE WORK:
   PREMIUM FEATURES:
     # [Bug 26690] Add Extra Column In Filter Browser "Auto"
@@ -2331,6 +2339,7 @@ quickFilters.patchMailPane = () => {
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
               <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuseparator />
+              <menuitem id="quickfilters-menu-registration" label="__MSG_quickfilters.registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuitem id="quickfilters-menu-test-news" label="Test - set has news flag!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
             </menupopup>
