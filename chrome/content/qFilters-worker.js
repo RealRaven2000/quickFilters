@@ -282,8 +282,14 @@ quickFilters.Worker = {
       if (messageList[0].msgClone && messageList[0].msgClone.initialized) {
         return true;
       }
-      let messageDb1 = folder.msgDatabase ? folder.msgDatabase : folder.getMsgDatabase(null),
-          messageDb2 = folder2 ? (folder2.msgDatabase ? folder2.msgDatabase : folder2.getMsgDatabase(null)) : null;
+      let messageDb1 = folder.msgDatabase,
+          messageDb2 = null;
+      try {
+        messageDb2 = folder2.msgDatabase;
+      } catch(ex) {
+        // Component can throw 0x80550005 
+        quickFilters.Util.logException("refreshHeaders()", ex);
+      }
           
       for (let i=0; i<messageList.length; i++) {
         let theMsg = messageList[i];
@@ -457,10 +463,12 @@ quickFilters.Worker = {
       if (!this.refreshHeaders(messageList, targetFolder, sourceFolder)) {
         return rerun('targetFolder Database not ready');
       }
+    } else {
+
     }
 
     // util.closeTempFolderTab(); // tidy up if it was necessary
-    let messageDb = targetFolder.msgDatabase ? targetFolder.msgDatabase : targetFolder.getMsgDatabase(null);
+    let messageDb = targetFolder.msgDatabase;
     
     /************* SOURCE FOLDER VALIDATION  ********/
     if (sourceFolder) {
