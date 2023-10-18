@@ -1396,8 +1396,8 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} Pantalla de registro optimizada para pantallas más pequeñas y se ha añadido un elemento de menú en la sección de herramientas. {L2} {L1} Mejora en el rendimiento del asistente cuando es necesario reparar carpetas. [issue 215] {L2}{L1} Se ha solucionado un problema que podía hacer que el asistente de filtros no funcionara con plantillas personalizadas. [issue 220] {L2}"
-  },  
+    "message": "{L1} La pantalla de registro se optimizó para pantallas más pequeñas y se agregó un elemento de menú en el menú de herramientas. {L2} {L1} Se mejoró el rendimiento del asistente cuando es necesario reparar carpetas. [issue 215] {L2}{L1} Se solucionó un problema que podría evitar que el asistente de filtros funcione con plantillas personalizadas. [issue 220] {L2}{L1} Ahora se pueden utilizar cambios en las etiquetas para invocar nuevamente al asistente de filtros. [issue 221]{L2}"
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Bienvenido a $addonName$",

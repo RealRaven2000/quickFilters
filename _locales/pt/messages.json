@@ -1400,8 +1400,8 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list": {
-    "message": "{L1} Ecrã de registo otimizado para ecrãs mais pequenos e adicionado um item de menu no menu de Ferramentas. {L2} {L1} Melhorado o desempenho do assistente quando é necessário reparar pastas. [issue 215] {L2}{L1} Corrigido um problema que poderia fazer com que o assistente de filtros não funcionasse com modelos personalizados. [issue 220] {L2}"
-  },  
+    "message": "{L1} A tela de registro foi otimizada para telas menores e um item de menu foi adicionado ao menu Ferramentas. {L2} {L1} Melhorou o desempenho do assistente quando é necessário reparar pastas. [issue 215] {L2}{L1} Foi corrigido um problema que poderia impedir que o assistente de filtros funcionasse com modelos personalizados. [issue 220] {L2}{L1} Agora é possível usar mudanças nas etiquetas para invocar novamente o assistente de filtros. [issue 221]{L2}"
+  }, 
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Bem-vindo a $addonName$",

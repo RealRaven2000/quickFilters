@@ -1396,7 +1396,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Optimized registration screen for smaller displays, and added a menu item in the tools menu . {L2} {L1} Improved performance of assistant when folders need to be repaired. [issue 215] {L2}{L1} Fixed a problem that may lead to the filter assistant not working with custom templates. [issue 220] {L2}"
+    "message": "{L1} The registration screen was optimized for smaller displays, and added a menu item in the tools menu . {L2} {L1} Improved performance of assistant when folders need to be repaired. [issue 215] {L2}{L1} Fixed a problem that may lead to the filter assistant not working with custom templates. [issue 220] {L2}{L1} Changing tags can now be used for invoking the filter assistant again [issue 221]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

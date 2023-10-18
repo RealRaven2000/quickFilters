@@ -1396,8 +1396,8 @@
     "message": "Leggi il registro delle modifiche dettagliato qui (solo in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Schermata di registrazione ottimizzata per schermi più piccoli e aggiunta di una voce di menu nel menu Strumenti. {L2} {L1} Migliorata la performance dell'assistente quando è necessario riparare le cartelle. [issue 215] {L2}{L1} Risolto un problema che poteva impedire all'assistente di filtro di funzionare con modelli personalizzati. [issue 220] {L2}"
-  },  
+    "message": "{L1} Lo schermo di registrazione è stato ottimizzato per schermi più piccoli ed è stata aggiunta una voce di menu nel menu Strumenti. {L2} {L1} Migliorata la performance dell'assistente quando è necessario riparare le cartelle. [issue 215] {L2}{L1} Risolto un problema che potrebbe impedire il funzionamento dell'assistente dei filtri con modelli personalizzati. [issue 220] {L2}{L1} Ora è possibile utilizzare le modifiche alle etichette per invocare nuovamente l'assistente dei filtri. [issue 221]{L2}"
+  }, 
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Benvenuto in $addonName$",

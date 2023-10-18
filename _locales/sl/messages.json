@@ -251,8 +251,8 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list": {
-    "message": "{L1} Optimiziran registracijski zaslon za manjše zaslone in dodana možnost menija v orodjih. {L2} {L1} Izboljšana učinkovitost pomočnika, ko je treba popraviti mape. [issue 215] {L2}{L1} Odpravljena težava, ki bi lahko preprečila delovanje pomočnika filtrov s prilagojenimi predlogami. [issue 220] {L2}"
-  },  
+    "message": "{L1} Registracijski zaslon je bil optimiziran za manjše zaslone in dodan je bil element menija v meniju Orodja. {L2} {L1} Izboljšana zmogljivost pomočnika, kadar je treba popraviti mape. [issue 215] {L2}{L1} Odpravljena težava, ki bi lahko preprečila delovanje pomočnika filtrov s prilagojenimi predlogami. [issue 220] {L2}{L1} Spremembe oznak je zdaj mogoče uporabiti za ponovno klicanje pomočnika filtrov. [issue 221]{L2}"
+  },
   "window-title": {
     "message": "Dobrodošli v $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

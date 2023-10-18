@@ -1396,7 +1396,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Écran d'inscription optimisé pour les petits écrans et ajout d'un élément de menu dans le menu Outils. {L2} {L1} Amélioration des performances de l'assistant lors de la réparation des dossiers. [issue 215] {L2}{L1} Correction d'un problème qui pourrait empêcher l'assistant de filtres de fonctionner avec des modèles personnalisés. [issue 220] {L2}"
+    "message": "{L1} L'écran d'inscription a été optimisé pour les écrans plus petits, et un élément de menu a été ajouté dans le menu Outils. {L2} {L1} Amélioration des performances de l'assistant lors de la réparation des dossiers. [issue 215] {L2}{L1} Un problème a été corrigé qui pourrait empêcher le fonctionnement de l'assistant de filtres avec des modèles personnalisés. [issue 220] {L2}{L1} Il est désormais possible d'utiliser des changements d'étiquettes pour invoquer à nouveau l'assistant de filtres. [issue 221]{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

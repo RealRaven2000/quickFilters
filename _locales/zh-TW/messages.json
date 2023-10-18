@@ -1308,8 +1308,8 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
   },  
   "whats-new-list": {
-    "message": "{L1} 優化小屏幕的註冊畫面，並在工具選單中新增了一個選單項目。 {L2} {L1} 在需要修復文件夾時，助手的效能得到改善。 [issue 215] {L2}{L1} 修復了一個可能導致過濾助手無法使用自訂模板的問題。 [issue 220] {L2}"
-  },  
+    "message": "{L1} 註冊螢幕已經針對較小的顯示器進行了優化，並在工具選單中添加了選單項目。 {L2} {L1} 當需要修復資料夾時，助手的性能已經得到了改善。 [issue 215] {L2}{L1} 解決了可能導致自訂範本下的過濾助手無法正常運作的問題。 [issue 220] {L2}{L1} 現在可以使用更改標籤來再次調用過濾助手。 [issue 221]{L2}"
+  }, 
   "window-title": {
     "message": "歡迎使用 $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

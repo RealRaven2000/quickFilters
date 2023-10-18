@@ -1396,7 +1396,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Màn hình đăng ký tối ưu hóa cho màn hình nhỏ hơn và thêm một mục trong menu Công cụ. {L2} {L1} Cải thiện hiệu suất của trợ lý khi cần sửa chữa thư mục. [issue 215] {L2}{L1} Khắc phục một vấn đề có thể dẫn đến trợ lý lọc không hoạt động với các mẫu tùy chỉnh. [issue 220] {L2}"
+    "message": "{L1} Màn hình đăng ký đã được tối ưu hóa cho màn hình nhỏ hơn và đã thêm một mục trong menu Công cụ. {L2} {L1} Cải thiện hiệu suất của trợ lý khi cần phải sửa chữa thư mục. [issue 215] {L2}{L1} Sửa một vấn đề có thể làm trợ lý lọc không hoạt động với các mẫu tùy chỉnh. [issue 220] {L2}{L1} Bây giờ bạn có thể sử dụng thay đổi trong các nhãn để gọi trợ lý lọc lại. [issue 221]{L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

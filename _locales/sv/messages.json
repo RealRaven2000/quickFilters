@@ -1396,8 +1396,8 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Optimerad registreringsskärm för mindre skärmar och tillagt ett menyobjekt i verktygsmenyn. {L2} {L1} Förbättrad prestanda för assistenten när mappar behöver repareras. [issue 215] {L2}{L1} Åtgärdat ett problem som kan leda till att filterassistenten inte fungerar med anpassade mallar. [issue 220] {L2}"
-  },  
+    "message": "{L1} Registreringsskärmen har optimerats för mindre skärmar och en menyobjekt har lagts till i verktygsmenyn. {L2} {L1} Förbättrad prestanda för assistenten när det behövs reparera mappar. [issue 215] {L2}{L1} Ett problem har åtgärdats som kan förhindra att filterassistenten fungerar med anpassade mallar. [issue 220] {L2}{L1} Ändringar i taggar kan nu användas för att påkalla filterassistenten igen. [issue 221]{L2}"
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Välkommen till $addonName$",

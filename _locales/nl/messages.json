@@ -1396,8 +1396,8 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Geoptimaliseerd registratiescherm voor kleinere beeldschermen en een menu-item toegevoegd in het Tools-menu. {L2} {L1} Verbeterde prestaties van de assistent wanneer mappen gerepareerd moeten worden. [issue 215] {L2}{L1} Een probleem opgelost dat ervoor kon zorgen dat de filterassistent niet werkte met aangepaste sjablonen. [issue 220] {L2}"
-  },  
+    "message": "{L1} Het registratiescherm is geoptimaliseerd voor kleinere schermen en er is een menu-item toegevoegd in het menu Extra. {L2} {L1} Verbeterde prestaties van de assistent wanneer mappen moeten worden hersteld. [issue 215] {L2}{L1} Een probleem is opgelost dat ertoe kan leiden dat de filterassistent niet werkt met aangepaste sjablonen. [issue 220] {L2}{L1} Het wijzigen van tags kan nu worden gebruikt om de filterassistent opnieuw te activeren. [issue 221]{L2}"
+  }, 
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Welkom bij $addonName$",

@@ -251,8 +251,8 @@
     "message": "Детаљни дневник промена прочитајте овде (само на енглеском):" 
   },  
   "whats-new-list": {
-    "message": "{L1} Оптимизовани екран за регистрацију за мање екране и додата ставка у менију алата. {L2} {L1} Побољшана перформанса асистента када је потребно поправити фасцикле. [issue 215] {L2}{L1} Оправљен проблем који може спречити рад асистента филтера са прилагођеним шаблонима. [issue 220] {L2}"
-  },  
+    "message": "{L1} Ekran registracije je optimiziran za manje ekrane i dodata je stavka u meniju Alatke. {L2} {L1} Poboljšana je performansa asistenta kada su potrebne popravke fascikli. [issue 215] {L2}{L1} Otklonjen je problem koji može sprečiti rad asistenta filtera sa prilagođenim šablonima. [issue 220] {L2}{L1} Promene u oznakama sada mogu biti korišćene za ponovni poziv asistenta filtera. [issue 221]{L2}"
+  },
   "window-title": {
     "message": "Добродошли у $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

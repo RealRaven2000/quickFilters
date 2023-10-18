@@ -1394,8 +1394,8 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list": {
-    "message": "{L1} Zoptymalizowany ekran rejestracji dla mniejszych ekranów oraz dodano pozycję w menu narzędzi. {L2} {L1} Poprawiona wydajność asystenta, gdy konieczne jest naprawienie folderów. [issue 215] {L2}{L1} Naprawiony problem, który mógł sprawić, że asystent filtrów nie działał z niestandardowymi szablonami. [issue 220] {L2}"
-  },   
+    "message": "{L1} Ekran rejestracji został zoptymalizowany dla mniejszych wyświetlaczy, a także dodano pozycję w menu Narzędzia. {L2} {L1} Zwiększono wydajność asystenta, gdy konieczne jest naprawienie folderów. [issue 215] {L2}{L1} Rozwiązano problem, który mógł uniemożliwić działanie asystenta filtrów z niestandardowymi szablonami. [issue 220] {L2}{L1} Zmiany w tagach można teraz użyć do ponownego wywołania asystenta filtrów. [issue 221]{L2}"
+  }, 
   "window-title": {
     "message": "Witamy w $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1397,8 +1397,8 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list": {
-    "message": "{L1} Optimoidut rekisteröintinäyttö pienille näytöille ja lisätty valikkokohta Työkalut-valikkoon. {L2} {L1} Parannettu avustimen suorituskyky, kun kansiot on korjattava. [issue 215] {L2}{L1} Korjattu ongelma, joka saattoi estää suodatinavustimen toiminnan mukautetuilla malleilla. [issue 220] {L2}"
-  },  
+    "message": "{L1} Rekisteröitymist Bildschirm oli optimoitu pienemmille näytöille ja lisätty valikko kohta työkalut -valikkoon. {L2} {L1} Parannettu suorituskyky apulaiselle kun kansioita on korjattava. [issue 215] {L2}{L1} Korjattu ongelma, joka saattaa estää suodatusavustajan toiminnan mukautetuilla malleilla. [issue 220] {L2}{L1} Tunnusten muuttaminen voi nyt käynnistää suodatusavustajan uudelleen. [issue 221]{L2}"
+  },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

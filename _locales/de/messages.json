@@ -1397,8 +1397,8 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Der Lizenz Dialog wurde für kleinere Bildschirme optimiert und ein Menüpunkt im Tools-Menü hinzugefüg1. {L2} {L1} Der Assistent hat jetzt verbesserte Performanz, wenn Ordner repariert werden müssen. [issue 215] {L2}{L1} Ein Problem wurde behoben, das dazu führen konnte, dass der Filterassistent nicht mit benutzerdefinierten Vorlagen funktioniert. [issue 220] {L2}"
-  },  
+    "message": "{L1} Die Registrierungsbildschirm wurde für kleinere Bildschirme optimiert und ein Menüpunkt im Extras-Menü hinzugefügt. {L2} {L1} Die Leistung des Assistenten wurde verbessert, wenn Ordner repariert werden müssen. [issue 215] {L2}{L1} Ein Problem wurde behoben, das dazu führen kann, dass der Filter-Assistent nicht mit benutzerdefinierten Vorlagen funktioniert. [issue 220] {L2}{L1} Das Ändern von Tags kann jetzt verwendet werden, um den Filter-Assistenten erneut aufzurufen. [issue 221]{L2}"
+  },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
     "message": "Willkommen zu $addonName$",

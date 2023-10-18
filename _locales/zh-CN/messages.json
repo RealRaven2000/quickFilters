@@ -1388,8 +1388,8 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 优化了小屏幕的注册界面，并在工具菜单中添加了一个菜单项。 {L2} {L1} 在需要修复文件夹时，助手的性能得到了改善。 [issue 215] {L2}{L1} 修复了一个可能导致过滤助手无法使用自定义模板的问题。 [issue 220] {L2}"
-  },  
+    "message": "{L1} 注册屏幕已针对较小的显示器进行了优化，并在工具菜单中添加了菜单项。 {L2} {L1} 在需要修复文件夹时，助手的性能得到了改进。 [issue 215] {L2}{L1} 解决了可能导致自定义模板下滤器助手无法正常工作的问题。 [issue 220] {L2}{L1} 现在可以使用更改标签来再次调用过滤器助手。 [issue 221]{L2}"
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "欢迎使用 $addonName$",

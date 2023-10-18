@@ -362,7 +362,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list": {
-    "message": "{L1} Optimalizován registrační obrazovka pro menší displeje a přidána položka v nabídce Nástroje. {L2} {L1} Vylepšena výkonnost asistenta, když je třeba opravit složky. [issue 215] {L2}{L1} Opraven problém, který mohl způsobit, že asistent filtrů nefunguje s vlastními šablonami. [issue 220] {L2}"
+    "message": "{L1} Na obrazovce s registrací bylo provedeno optimalizace pro menší displeje a byla přidána položka nabídky v menu Nástroje. {L2} {L1} Byla zvýšena výkonost asistenta při opravách složek. [issue 215] {L2}{L1} Opraven problém, který může způsobit, že asistent filtrů nebude fungovat s vlastními šablonami. [issue 220] {L2}{L1} Změna značek nyní může být použita k znovu zavolání asistenta filtrů. [issue 221]{L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",
