@@ -2,7 +2,9 @@
 async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
 }
-
+async function addTagListener(win, e) {
+  window.quickFilters.Util.addTagListener(win);
+}
 
 async function onLoad(activatedWhileWindowOpen) {
   let WAIT_FOR_3PANE = 2000;
@@ -55,12 +57,13 @@ async function onLoad(activatedWhileWindowOpen) {
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
 
+
 }
 
 
 function onUnload(isAddOnShutown) {
   let document3pane = window.document;
-
+  window.quickFilters.restoreTagListener(window);
 
   function deleteBtn(id) {
     let btn = document3pane.getElementById(id);

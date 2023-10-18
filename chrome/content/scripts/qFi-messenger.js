@@ -241,7 +241,15 @@ async function onLoad(activatedWhileWindowOpen) {
   
 
   window.quickFilters.onLoadQuickFilters();
-  window.quickFilters.addTagListener();
+  
+
+  for (info of window.gTabmail.tabInfo) {
+    if (info.mode.name != "mail3PaneTab") {
+      continue;
+    }
+    window.quickFilters.addTagListener(info.chromeBrowser.contentWindow); // window contain .mailContextMenu
+  }
+
   window.quickFilters.addFolderListeners();
     
 }
@@ -264,7 +272,15 @@ function onUnload(isAddOnShutown) {
     window.quickFilters.removeKeyListener(window);
   }
   window.quickFilters.removeTabEventListener();
-  window.quickFilters.restoreTagListener();
+
+  for (info of window.gTabmail.tabInfo) {
+    if (info.mode.name != "mail3PaneTab") {
+      continue;
+    }
+    window.quickFilters.restoreTagListener(info.chromeBrowser.contentWindow); // window contain .mailContextMenu
+  }
+  
+
   window.quickFilters.removeFolderListeners();
 
   // restore monkey patched functions

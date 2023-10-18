@@ -602,10 +602,11 @@ END LICENSE BLOCK
     # [issue 210] Autostart assistant problems: button not highlighted when updating / starting Add-on from extension manager
 
   6.3 - WIP
-    # [issue 217] Optimize the registration screen, it's too tall 
+    # [issue 220] Fixed: Create filter from message with Custom templates may fail
+    # [issue 221] Fixed: quickFilters assistant not triggered anymore by adding Tags to Emails
     # [issue 215] Optimized code to show assistant if folder database need to be repaired
+    # [issue 217] Optimize the registration screen, it's too tall 
     # Completed translations for traditional Chinese 
-    # [issue 220] Create filter from message with Custom templates may fail
 
   ============================================================================================================
   6.* - FUTURE WORK
@@ -2227,17 +2228,16 @@ quickFilters.removeFolderListeners = function() {
 
 // jcranmer suggest using this
 // quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Ci.nsIFolderListener.all);
-quickFilters.addTagListener = function() {
+quickFilters.addTagListener = function(win) {
   const util = quickFilters.Util,
         prefs = quickFilters.Preferences;
   if (util) {
     util.logDebugOptional('listeners', "addTagListener()");
     // wrap the original method
-    if (typeof ToggleMessageTag !== 'undefined') {
+    if (win.mailContextMenu && win.mailContextMenu._toggleMessageTag) {
       if (!quickFilters.ToggleMessageTag) {
-        const contextWin = util.getMail3PaneWindow();
         util.logDebugOptional('listeners','Wrapping ToggleMessageTag...');
-        let originalTagToggler = contextWin.ToggleMessageTag;
+        let originalTagToggler = win.mailContextMenu._toggleMessageTag;
         if (!originalTagToggler) {
           util.logToConsole("getMail3PaneWindow - Could not retrieve the original ToggleMessageTage function from main window:\n" + util.getMail3PaneWindow());
           return false; // let's short ciruit here
@@ -2246,17 +2246,17 @@ quickFilters.addTagListener = function() {
           util.logDebug("quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n");
           return false;
         }
-        contextWin.quickFilters.ToggleMessageTag = originalTagToggler; // should be the global function from Tb main Window
+        win.quickFilters_ToggleMessageTag = originalTagToggler; // store namespaced original in window
         
-        ToggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
+        // closure the window
+        win.mailContextMenu._toggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
           // call the original function (tag setter) first
-          let tmt = contextWin.quickFilters.ToggleMessageTag;
+          let tmt = win.quickFilters_ToggleMessageTag;
           util.logDebugOptional('listeners', "ToggleMessageTagWrapped()"
-            + "\ncontextWin == win: " + (window == contextWin)
-            + "\ncontextWin.quickFilters == quickFilters: " + (contextWin.quickFilters == quickFilters)
-            + "\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: " + (originalTagToggler == tmt)
-            + "\nToggleMessageTag == contextWin.quickFilters.ToggleMessageTag: "  + (ToggleMessageTag == tmt));
-          contextWin.quickFilters.ToggleMessageTag(tag, checked);
+            + "\win.quickFilters == quickFilters: " + (win.quickFilters == quickFilters)
+            + "\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: " + (originalTagToggler == tmt));
+
+          win.quickFilters_ToggleMessageTag(tag, checked);
 
           // no Assistant active - if current folder is the inbox: apply the filters.
           // Bug 26457 - disable this behavior by default
@@ -2278,7 +2278,7 @@ quickFilters.addTagListener = function() {
             let selectedMails = [];  
             selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
             window.setTimeout(async function() {
-              contextWin.quickFilters.Worker.createFilterAsync_New(
+              quickFilters.Worker.createFilterAsync_New(
                 null, 
                 msgHdr.folder, 
                 selectedMails, 
@@ -2290,9 +2290,9 @@ quickFilters.addTagListener = function() {
         } //  wrapper function for ToggleMessageTag
 
 
-        util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof contextWin.ToggleMessageTag + "\n adding flag...");
-        contextWin.ToggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
-        util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof contextWin.ToggleMessageTag);
+        util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag + "\n adding flag...");
+        win.mailContextMenu._toggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
+        util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag);
       }
     }
 
@@ -2302,9 +2302,10 @@ quickFilters.addTagListener = function() {
   return false;
 }
 
-quickFilters.restoreTagListener = function() {
-  if (quickFilters.ToggleMessageTag) {
-    ToggleMessageTag = quickFilters.ToggleMessageTag;
+quickFilters.restoreTagListener = function(win) {
+  if (win.quickFilters_ToggleMessageTag) {
+    win.mailContextMenu._toggleMessageTag = win.quickFilters_ToggleMessageTag; // restore roginal function
+    delete win.quickFilters_ToggleMessageTag; // scrap backup
   }
 }
 
