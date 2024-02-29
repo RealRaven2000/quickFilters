@@ -40,14 +40,12 @@ permalink: bugs.html
 	and more efficient work on future versions of quickFilters will be.
 </p>
 
-
+<a name="createlog"> </a>
 <h3>How to create a debug log (quickFilters)</h3>
 
 <ul>
 	<li>
-		<p>
-			Ctrl+Shift+J opens the error console
-		</p>
+		Ctrl+Shift+J opens the error console
 		<p>
 			IMPORTANT: Configure error console as follows:
 		</p>
@@ -60,7 +58,7 @@ permalink: bugs.html
 			<img src="img/qi-settings-menu.png" class="screenshot" alt="quickFilters settings"/>
 	</li>
 	<li>
-		<p>On the <i>Advanced </i>tab <span class="number"
+		 On the <i>Advanced </i>tab <span class="number"
 			style="background-color: rgb(180,0,0) !important; color: white
 			!important; border-radius: 1.3em; font-weight: bold; padding: 4px
 			8px;">1</span>
@@ -72,16 +70,25 @@ permalink: bugs.html
 			!important; border-radius: 1.3em; font-weight: bold; padding: 4px
 			8px;">3</span>
 		to get additional log options...<br>
-		</p>
+		<p>
 		<img src="img/qi-advanced-settings+debug.png" class="screenshot" alt="advanced debug settings" />
+	  </p>
 
-		<p>For creating new filters you could enable the following options:</p>
+		<p>Depending on what you are testing, for instance when creating new filters you 
+			 could enable the following additional debug options - for more detail:</p>
 		<p>
 			<table class="configtable">
 				<tr>
-					<td>extensions.quickfilters.debug.*</td><td>true</td>
+					<td>extensions.quickfilters.debug.buildFilter</td><td>true</td>
+					<td>extensions.quickfilters.debug.createFilter</td><td>true</td>
+					<td>extensions.quickfilters.debug.getSourceFolder</td><td>true</td>
+					<td>extensions.quickfilters.debug.notifications</td><td>true</td>
 				</tr>
 			</table>
+		</p>
+		<p>
+			To find out which settings are useful for a particular issue,
+			please contact me directly from the support tab of quickFilters.
 		</p>
 	</li>
 	<li>
@@ -100,6 +107,9 @@ permalink: bugs.html
 	</li>
 	<li>
 		You can now paste your log results from the clipboard into your reply.
+		Please note that plkain text error logs are far superior to screenshots, as they are 
+		much easier to read and analyze. Screenshots of the error console will only create
+		extra work and slow down progress in fixing issues.
 	</li>
 </ul>
 
