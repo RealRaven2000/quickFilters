@@ -715,15 +715,9 @@ quickFilters.Util = {
     return end.getHours() + ':' + end.getMinutes() + ':' + end.getSeconds() + '.' + end.getMilliseconds() + '  ' + timePassed;
   },
 
-  logToConsole: function logToConsole(msg, optionTag) {
-    let qF = quickFilters ? quickFilters : this.mainInstance,
-        util = qF.Util;
-    if (util.ConsoleService === null) {
-      util.ConsoleService = Services.console;
-    }
-    util.ConsoleService.logStringMessage("quickFilters " 
-			+ (optionTag ? '{' + optionTag.toUpperCase() + '} ' : '')
-			+ this.logTime() + "\n"+ msg);
+  logToConsole: function (args) {
+    let msg = "quickFilters " + quickFilters.Util.logTime() + "\n";
+    console.log(msg, ...arguments);    
   },
 
   // flags
@@ -752,8 +746,9 @@ quickFilters.Util = {
   
   logDebug: function logDebug(msg) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
-    if (qF.Preferences.isDebug)
-      this.logToConsole(msg);
+    if (qF.Preferences.isDebug) {
+      this.logToConsole(...arguments);
+    }
   },
 
 	// optional logging for important points in flow.
@@ -776,31 +771,21 @@ quickFilters.Util = {
 			for (let i=0; i<options.length; i++) {
 				let option = options[i];
 				if (qF.Preferences.isDebugOption(option)) {
-					this.logToConsole(msg, option);
+					this.logWithOption(...arguments);
 					break; // only log once, in case multiple log switches are on
 				}
 			}        
 		}
 		catch(ex) {;}
   },
-	
-	
-	
-  // safe wrapper to get member from account.identities array
-  getIdentityByIndex: function getIdentityByIndex(ids, index) {
-    const Ci = Components.interfaces;
-    if (!ids) return null;
-    try {
-      // replace queryElementAt with array[index].QueryInterface!
-      if (ids[index])
-        return ids[index].QueryInterface(Ci.nsIMsgIdentity);
-      return null;
-    }
-    catch(ex) {
-      quickFilters.Util.logDebug('Exception in getIdentityByIndex(ids,' + index + ') \n' + ex.toString());
-    }
-    return null;
-  } ,
+
+  // first argument is the option tag
+  logWithOption: function(a) {
+    arguments[0] =  "quickFilters "
+      +  '{' + arguments[0].toUpperCase() + '} ' 
+      + quickFilters.Util.logTime() + "\n";
+    console.log(...arguments);
+  },  
 	
   getTabInfoLength: function getTabInfoLength(tabmail) {
 		if (tabmail.tabInfo)
@@ -2000,7 +1985,7 @@ quickFilters.Util = {
     return false;
   } ,
 	
-  checkCustomHeaderExists: function checkCustomHeaderExists(hdr) {
+  checkCustomHeaderExists: function (hdr) {
     // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19
     const Ci = Components.interfaces;
     let hdrs = Services.prefs.getCharPref("mailnews.customHeaders"),
@@ -2008,14 +1993,17 @@ quickFilters.Util = {
     if (!hdrs) return 0;
     hdrs = hdrs.replace(/\s+/g,'');  //remove white spaces before splitting
     ArrayHdrs = hdrs.split(":");
-    for (let i = 0; i < ArrayHdrs.length; i++)
-      if (!ArrayHdrs[i])
+    for (let i = 0; i < ArrayHdrs.length; i++) {
+      if (!ArrayHdrs[i]) {
         ArrayHdrs.splice(i,1);  //remove any null elements
+      }
+    }
     for (let i = 0;i < ArrayHdrs.length; i++) {
-      if (ArrayHdrs[i] == hdr)
+      if (ArrayHdrs[i] == hdr) {
         return i + Ci.nsMsgSearchAttrib.OtherHeader + 1; // custom Header exists, return id 
         // 52 (Tb) is for showing customize - in ui headers start from 53 onwards up until 99.
         // 59 (Pb)
+      }
     }
     return 0;
   } ,	
