@@ -297,10 +297,12 @@ END LICENSE BLOCK
           //    gSearchTerms[i].obj.searchattribute.refreshList();
           //
           let iCustomHdr = util.checkCustomHeaderExists(hdr);
-          if ("customId" in searchTerm)
-            searchTerm.customId = iCustomHdr ? iCustomHdr.toString() : hdr; //Tb
-          if ("arbitraryHeader" in searchTerm)
+          if ("customId" in searchTerm) {
+            searchTerm.customId = iCustomHdr ? iCustomHdr.toString() : hdr;
+          }
+          if ("arbitraryHeader" in searchTerm) {
             searchTerm.arbitraryHeader = hdr;
+          }
           break;
       }
       let val = searchTerm.value; 
