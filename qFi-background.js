@@ -316,9 +316,28 @@ async function main() {
         addToolMenuListener();
         break;
 
-      case "initKeyListeners":
-        messenger.NotifyTools.notifyExperiment({event: "initKeyListeners"});
-        break;        
+      case "addKeyListener":
+        messenger.NotifyTools.notifyExperiment({event: "addKeyListener"});
+        break;    
+      
+      case "openLinkInTab":
+        // https://webextension-api.thunderbird.net/en/stable/tabs.html#query-queryinfo
+        {
+          let baseURI = data.baseURI || data.URL;
+          let found = await browser.tabs.query( { url:baseURI } );
+          if (found.length) {
+            let tab = found[0]; // first result
+            await browser.tabs.update(
+              tab.id, 
+              {active:true, url: data.URL}
+            );
+            return;
+          }
+          browser.tabs.create(
+            { active:true, url: data.URL }
+          );        
+        }
+        break;           
     }
   });
   
