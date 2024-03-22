@@ -601,12 +601,21 @@ END LICENSE BLOCK
   6.2.2 - 30/08/2023
     # [issue 210] Autostart assistant problems: button not highlighted when updating / starting Add-on from extension manager
 
-  6.3 - WIP
+  6.3 - 18/10/2023
     # [issue 220] Fixed: Create filter from message with Custom templates may fail
     # [issue 221] Fixed: quickFilters assistant not triggered anymore by adding Tags to Emails
     # [issue 215] Optimized code to show assistant if folder database need to be repaired
     # [issue 217] Optimize the registration screen, it's too tall 
     # Completed translations for traditional Chinese 
+
+  6.4 - WIP
+    # [issue 225] Betterbird fixes
+    # Add Alias to register dialog if already set in a license
+    # Improved Italian Translations thanks to Leopoldo Saggin 
+    # Opening support sites in a tab is now using API method
+    # [issue 235] Assistant not opening when using context menu to create filter from message (in local folder)
+    # [issue 234] WIP - Special quickFilters buttons are not displayed on QuickFolders Navigation Bar (current folder bar)
+
 
   ============================================================================================================
   6.* - FUTURE WORK
@@ -693,33 +702,8 @@ var quickFilters = {
       // folderPane._onDrop
 
       // window.gTabmail.tabInfo[0].chromeBrowser.contentWindow.folderPane._onDrop(event)
+      quickFilters.Util.notifyTools.notifyBackground({ func: "addKeyListener" }); 
 
-/*    
-      // Original Code (Tb <= 111)
-      let tree = quickFilters.folderTree,
-          treeView = quickFilters.folderTreeView;
-
-      if (tree && !tree.quickFilters_originalDrop) {  
-        tree.quickFilters_originalDrop = treeView.drop;
-        if (tree.quickFilters_originalDrop) {
-          // new drop function, wraps original one
-          let newDrop = function (aRow, aOrientation) {
-            if (quickFilters.Util.AssistantActive) {  
-              try { 
-                debugger;
-                quickFilters.onFolderTreeViewDrop(aRow, aOrientation); 
-              }
-              catch(e) {
-                util.logException("quickFilters.onFolderTreeViewDrop FAILED\n", e);
-              }
-            }
-            // fix "too much recursion" error!
-            tree.quickFilters_originalDrop.apply(treeView, arguments);
-          }
-          treeView.drop = newDrop;
-        }
-      }
-*/
       this.initialized = true;
  
       // for move to / copy to recent context menus we might have to wrap mailWindowOverlay.js:MsgMoveMessage in Tb!
@@ -933,11 +917,22 @@ var quickFilters = {
             if (firstSelectedMsg.folder) { // find the real folder!
               // this may be from the API
               if (eventDetail) {
-                let realFolder = window.quickFilters.WL.extension.folderManager.get(
-                  firstSelectedMsg.folder.accountId, 
-                  firstSelectedMsg.folder.path
-                );
-                currentMessageFolder = realFolder;
+                try {
+                  util.logDebug(`calling WindowListener.extension.folderManager.get(${firstSelectedMsg.folder.accountId},${firstSelectedMsg.folder.path})`)
+                  let realFolder = window.quickFilters.WL.extension.folderManager.get(
+                    firstSelectedMsg.folder.accountId, 
+                    firstSelectedMsg.folder.path
+                  );
+                  currentMessageFolder = realFolder;
+                } catch(ex) {
+                  util.logException("Cannot determine folder of selected message using folderManager API!", ex);
+                  util.logHighlightDebug(
+                    "Fallback to using the  virtual folder\n- this may lead to problems determining where to create the filters", 
+                    "white", 
+                    "darkred", 
+                    {folder: firstSelectedMsg.folder});
+                  currentMessageFolder = firstSelectedMsg.folder;
+                }
               } else {
                 currentMessageFolder = firstSelectedMsg.folder;
               }
@@ -1353,31 +1348,37 @@ var quickFilters = {
         let doc = tabInfo.chromeBrowser.contentDocument;
 
         // in tb 68 we need to move the buttons into the correct place first,
+        // window.gTabmail.currentTabInfo.chromeBrowser.contentDocument.getElementById
+        // [issue ]
         let btnList = doc.getElementById('quickfilters-current-listbutton');
-        if (btnList) { 
-          let injected = doc.getElementById('quickFilters-injected'),
-              btnRun = doc.getElementById('quickfilters-current-runbutton'),
-              btnMsgRun = doc.getElementById('quickfilters-current-msg-runbutton'),
-              btnSearch = doc.getElementById('quickfilters-current-searchfilterbutton');
-              
-          if (injected)  { 
-            util.logDebug("found injected container with current toolbar buttons");
-            // insert after QuickFolders-currentFolderFilterActive
-            let toolbar = doc.getElementById('QuickFolders-CurrentFolderTools');
-            if (toolbar) {
-              let refNode = doc.getElementById('QuickFolders-Options');
-              toolbar.insertBefore(btnList, refNode);
-              toolbar.insertBefore(btnRun, refNode);
-              toolbar.insertBefore(btnMsgRun, refNode);
-              toolbar.insertBefore(btnSearch, refNode);
-            }
-          }
-          // QuickFolders settings - we need to notify quickfolders instead!
-          btnList.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
-          btnRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
-          btnMsgRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
-          btnSearch.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.findfilterbutton');
+        if (!btnList) { // [issue 234]
+          setTimeout((e) => quickFilters.toggleCurrentFolderButtons(), 5000);
+          return;
         }
+
+
+        let injected = doc.getElementById('quickFilters-injected'),
+            btnRun = doc.getElementById('quickfilters-current-runbutton'),
+            btnMsgRun = doc.getElementById('quickfilters-current-msg-runbutton'),
+            btnSearch = doc.getElementById('quickfilters-current-searchfilterbutton');
+            
+        if (injected)  { 
+          util.logDebug("found injected container with current toolbar buttons");
+          // insert after QuickFolders-currentFolderFilterActive
+          let toolbar = doc.getElementById('QuickFolders-CurrentFolderTools');
+          if (toolbar) {
+            let refNode = doc.getElementById('QuickFolders-Options');
+            toolbar.insertBefore(btnList, refNode);
+            toolbar.insertBefore(btnRun, refNode);
+            toolbar.insertBefore(btnMsgRun, refNode);
+            toolbar.insertBefore(btnSearch, refNode);
+          }
+        }
+        // QuickFolders settings - we need to notify quickfolders instead!
+        btnList.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.listbutton');
+        btnRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.folderbutton');
+        btnMsgRun.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.messagesbutton');
+        btnSearch.collapsed = !prefs.getBoolPref('quickfolders.curFolderbar.findfilterbutton');
       }
     }
     catch (ex) {
@@ -2201,6 +2202,7 @@ quickFilters.addKeyListener = function(win) {
 
 quickFilters.removeKeyListener = function(win) {
   if (win.quickFilters && win.quickFilters.isKeyListener && win.quickFilters_keyListener) {
+    quickFilters.Util.logDebugOptional("functions","removeKeyListener()...");
     win.removeEventListener("keypress", win.quickFilters_keyListener, {capture:true, passive: true});
     delete win.quickFilters_keyListener;
   }
