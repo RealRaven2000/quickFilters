@@ -263,7 +263,7 @@ var Register = {
   } ,
 
   premiumInfo: function premiumInfo(event) {
-    quickFilters.Util.openURL(event,"https://quickfilters.quickfolders.org/premium.html#featureList"); // append #featureList  ?
+    quickFilters.Util.openURLWithEvent("https://quickfilters.quickfolders.org/premium.html#featureList", event); // append #featureList  ?
   } ,
   
   sanitizeName: function sanitizeName(name) {
