@@ -834,7 +834,7 @@ quickFilters.Util = {
 		return baseURL;		
 	} ,
 	
-	findMailTab: function findMailTab(tabmail, URL) {
+	findMailTab: function (tabmail, URL) {
 		const util = quickFilters.Util;
 		// mail: tabmail.tabInfo[n].browser		
 		let baseURL = util.getBaseURI(URL),
@@ -897,49 +897,40 @@ quickFilters.Util = {
   },
 
   // moved from options.js (then called
-  openURL: function openURL(evt,URL) { // workaround for a bug in TB3 that causes href's not be followed anymore.
+  openURLWithEvent: async function (URL, evt) { // workaround for a bug in TB3 that causes href's not be followed anymore.
 	  const util = quickFilters.Util;
-    let ioservice,iuri,eps;
-
-    if (this.openURLInTab(URL) && null!=evt) {
+    if (await util.openURLInTab.call(util, URL) && null!=evt) {
       if (evt.preventDefault)  evt.preventDefault();
       if (evt.stopPropagation)  evt.stopPropagation();
     }
   },
 
-  openURLInTab: function openURLInTab(URL) {
-    let util = quickFilters.Util;
-		URL = util.makeUriPremium(URL);
+	openURL: async function(URL) { 
+		const util = quickFilters.Util;
+		return await util.openURLInTab.call(util, URL);
+	},  
+
+  openURLInTab: async function (aURL) {
+    const util = quickFilters.Util;
     try {
-			let sTabMode="",
-			    tabmail = this.tabmail;
-			if (!tabmail) {
-				// Try opening new tabs in an existing 3pane window
-				let mail3PaneWindow = this.getMail3PaneWindow();
-				if (mail3PaneWindow) {
-					tabmail = mail3PaneWindow.document.getElementById("tabmail");
-					mail3PaneWindow.focus();
+      let URL = util.makeUriPremium(aURL);
+
+			// use API. Look Ma, no tabmail!
+			// getBaseURI to check if we already opened the page and need to 
+			// jump to a different anchor.
+			await quickFilters.Util.notifyTools.notifyBackground(
+				{ 
+					func: "openLinkInTab", 
+					URL: URL, 
+					baseURI: quickFilters.Util.getBaseURI(URL)
 				}
-			}
-			// note: findMailTab will activate the tab if it is already open
-			if (tabmail) {
-				if (!util.findMailTab(tabmail, URL)) {
-          sTabMode = "contentTab";  // "3pane" for Apver <= 3
-					tabmail.openTab(sTabMode,
-					{contentPage: URL, url: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);"});
-				}
-			}
-			else {
-				window.openDialog("chrome://messenger/content/", "_blank",
-									"chrome,dialog=no,all", null,
-					{ tabType: "contentTab", 
-						tabParams: {contentPage: URL, url: URL, clickHandler: "specialTabs.siteClickHandler(event, QuickFilters_TabURIregexp._thunderbirdRegExp);", id:"QuickFilters_Weblink"} 
-					} 
-				);
-			}
+			);
+			return true;
 		}
-    catch(e) { return false; }
-    return true;
+    catch(e) { 
+			quickFilters.Util.logException('openURLInTab(' + URL + ')', e);
+      return false; 
+    }
   } ,
 	
 	versionGreaterOrEqual: function(a, b) {
@@ -1089,7 +1080,7 @@ quickFilters.Util = {
   } ,
 
   showLicensePage: function showLicensePage() {
-    quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/donate.html');
+    quickFilters.Util.openURL('https://quickfilters.quickfolders.org/donate.html');
   }  ,
 	
 	showYouTubePage: function showYouTubePage() {
@@ -1102,15 +1093,15 @@ quickFilters.Util = {
 
   showHomePage: function showHomePage(queryString) {
 	  if (!queryString) queryString='index.html';
-    quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/' + queryString);
+    quickFilters.Util.openURL('https://quickfilters.quickfolders.org/' + queryString);
   } ,
 	
   showBug: function showBug(bugNumber) {
-    quickFilters.Util.openURLInTab('https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=' + bugNumber);
+    quickFilters.Util.openURL('https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=' + bugNumber);
   } ,
   
   showIssue: function showIssue(issueNumber) {
-    quickFilters.Util.openURLInTab('https://github.com/RealRaven2000/quickFilters/issues/' + issueNumber);
+    quickFilters.Util.openURL('https://github.com/RealRaven2000/quickFilters/issues/' + issueNumber);
   } ,
   
 	showYouTube: function showYouTube() {
@@ -1122,7 +1113,7 @@ quickFilters.Util = {
   },
 	
 	showPremiumFeatures: function showPremiumFeatures() {
-    quickFilters.Util.openURLInTab('https://quickfilters.quickfolders.org/premium.html');
+    quickFilters.Util.openURL('https://quickfilters.quickfolders.org/premium.html');
 	} ,
   
   versionLower: function versionLower(a, b) {
