@@ -1,0 +1,76 @@
+td.navigation-list a[href*='donate.html'] {
+  background-color: rgb(203,96,179);
+  background: linear-gradient(to bottom,  rgba(203,96,179,1) 0%,rgba(173,18,131,1) 50%,rgba(222,71,172,1) 100%);
+  border-bottom-color:  #93105A !important;
+  color: #FFF !important;
+  height: 27px !important;
+  font-weight: normal;
+}
+p.quote {
+	margin-left: 50px;
+	font: 10pt #333;
+}
+#paymentForm {
+	border-radius: 0.75em;
+	padding:8px;
+	background-color: #240, 246, 200;
+	background-image:    -moz-linear-gradient(center top , rgb(240, 246, 200) 0%, rgb(227, 240, 134) 34%, rgb(210, 229, 64) 58%, rgb(233, 246, 140) 100%);
+	background-image: -webkit-linear-gradient(center top , rgb(240, 246, 200) 0%, rgb(227, 240, 134) 34%, rgb(210, 229, 64) 58%, rgb(233, 246, 140) 100%);
+	box-shadow: 2px 2px 6px -1px rgba(0,0,0,0.4);
+}
+#paymentForm th{
+	font: #000 10pt Arial,Non-Serif ;
+	text-align: right;
+}
+
+#paymentForm td {
+	text-align: left;
+}
+#usDonate {
+	padding: 1px 5px;
+}
+
+.mini,
+.miniquote {
+	font-style: italic;
+	font-size: 11pt;
+	color: #777;
+}
+
+.miniquote {
+	max-width: 400px;
+	text-align: justify;
+}
+
+
+h2.page-header a {
+	font-weight: normal;
+	color: #FFFFB0;
+	text-shadow: #777 2px 2px 3px;
+	margin: 0 2px 2px 0;
+}
+
+h2.page-header a:hover {
+	margin:2px 0 0 2px;
+	text-shadow: #777 1px 1px 2px;
+	text-decoration: none;
+}
+h2.page-header a:active {
+	margin:2px 0 0 2px;
+	text-shadow: #777 0px 0px 2px;
+	text-decoration: none;
+}
+
+.payLabel { white-space:nowrap; min-width:100px; }
+.payLink, .payLabel { vertical-align: middle; }
+
+
+a.tooltip[href] {outline:none !important; background: none !important; padding: 0 !important; border-style: none !important;}
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;}
+a.tooltip span { z-index:10;display:none; padding:14px 20px; margin-top:60px; margin-left:-160px; width:240px; line-height:16px; }
+a.tooltip:hover span{ display:inline; position:absolute; border:2px solid #FFF; color:#EEE; background:#000 url(src/css-tooltip-gradient-bg.png) repeat-x 0 0; } 
+.callout {z-index:20;position:absolute;border:0;top:-14px;left:120px;} 
+/*CSS3 extras*/ 
+a.tooltip span { border-radius:2px; -moz-border-radius: 2px; -webkit-border-radius: 2px; -moz-box-shadow: 0px 0px 8px 4px #666; -webkit-box-shadow: 0px 0px 8px 4px #666; box-shadow: 0px 0px 8px 4px #666; opacity: 0.8; }
+ 
