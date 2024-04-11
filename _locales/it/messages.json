@@ -1396,8 +1396,8 @@
     "message": "Leggi qui (in inglese) l'elenco dettagliato delle modifiche:"
   },
   "whats-new-list": {
-    "message": "{L1} La schermata di registrazione è stata ottimizzata per schermi più piccoli ed è stata aggiunta una voce nel menu Strumenti. {L2} {L1} Migliorate le prestazioni della Procedura guidata quando è necessario riparare le cartelle. [issue 215] {L2}{L1} Risolto un problema che potrebbe impedire il funzionamento della Procedura guidata per la creazione dei filtri con tipologie personalizzate. [issue 220] {L2}{L1} E' nuovamente possibile utilizzare le modifiche alle Etichette dei messaggi per attivare la \"Procedura guidata della creazione dei filtri\". [issue 221]{L2}"
-  }, 
+    "message": "{L1} Alcuni problemi relativi a Betterbird sono stati risolti [issue 221]. {L2} {L1} Migliorate le traduzioni in italiano, grazie a Leopoldi Saggin {L2}{L1} Migliorato il supporto per l'apertura delle schede: ciò non utilizza le funzioni API ufficiali. [issue 220] {L2}{L1} L'assistente non si apriva quando si utilizzava il menu contestuale per creare un filtro da un messaggio nelle cartelle locali [issue 235]{L2} {L1} Aumentate le descrizioni comandi dei pulsanti della barra degli strumenti nell'elenco dei messaggi {L2}"
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Benvenuto in $addonName$",

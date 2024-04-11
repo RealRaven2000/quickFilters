@@ -1396,7 +1396,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} La pantalla de registro se optimizó para pantallas más pequeñas y se agregó un elemento de menú en el menú de herramientas. {L2} {L1} Se mejoró el rendimiento del asistente cuando es necesario reparar carpetas. [issue 215] {L2}{L1} Se solucionó un problema que podría evitar que el asistente de filtros funcione con plantillas personalizadas. [issue 220] {L2}{L1} Ahora se pueden utilizar cambios en las etiquetas para invocar nuevamente al asistente de filtros. [issue 221]{L2}"
+    "message": "{L1} Se corrigieron algunos problemas relacionados con Betterbird [issue 221]. {L2} {L1} Mejoras en las traducciones al italiano, gracias a Leopoldi Saggin {L2}{L1} Mejora del soporte de apertura de pestañas, esto no utiliza funciones API oficiales. [issue 220] {L2}{L1} El asistente no se abría al usar el menú contextual para crear un filtro a partir de un mensaje en carpetas locales [issue 235]{L2} {L1} Aumento de las descripciones emergentes de los botones de la barra de herramientas en la lista de mensajes {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

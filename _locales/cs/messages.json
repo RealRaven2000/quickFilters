@@ -362,7 +362,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list": {
-    "message": "{L1} Na obrazovce s registrací bylo provedeno optimalizace pro menší displeje a byla přidána položka nabídky v menu Nástroje. {L2} {L1} Byla zvýšena výkonost asistenta při opravách složek. [issue 215] {L2}{L1} Opraven problém, který může způsobit, že asistent filtrů nebude fungovat s vlastními šablonami. [issue 220] {L2}{L1} Změna značek nyní může být použita k znovu zavolání asistenta filtrů. [issue 221]{L2}"
+    "message": "{L1} Některé problémy týkající se Betterbird byly opraveny [issue 221]. {L2} {L1} Vylepšeny italské překlady, díky Leopoldi Sagginovi {L2}{L1} Vylepšena podpora otevírání karet - toto nepoužívá oficiální API funkce. [issue 220] {L2}{L1} Asistent se neotevíral při použití kontextového menu pro vytvoření filtru zprávy ve lokálních složkách [issue 235]{L2} {L1} Zvýšeny popisky tlačítek panelu nástrojů v seznamu zpráv {L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

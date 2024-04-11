@@ -251,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list": {
-    "message": "{L1} Registracijski zaslon je bil optimiziran za manjše zaslone in dodan je bil element menija v meniju Orodja. {L2} {L1} Izboljšana zmogljivost pomočnika, kadar je treba popraviti mape. [issue 215] {L2}{L1} Odpravljena težava, ki bi lahko preprečila delovanje pomočnika filtrov s prilagojenimi predlogami. [issue 220] {L2}{L1} Spremembe oznak je zdaj mogoče uporabiti za ponovno klicanje pomočnika filtrov. [issue 221]{L2}"
+    "message": "{L1} Nekateri problemi, povezani z Betterbird, so bili odpravljeni [issue 221]. {L2} {L1} Izboljšane italijanske prevode, zahvaljujoč Leopoldi Saggin {L2}{L1} Izboljšana podpora za odpiranje zavihkov - to ne uporablja uradnih API funkcij. [issue 220] {L2}{L1} Pomočnik se ni odpiral pri uporabi kontekstnega menija za ustvarjanje filtra iz sporočila v lokalnih mapah [issue 235]{L2} {L1} Povečane orodne namige gumbov na orodni vrstici v seznamu sporočil {L2}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

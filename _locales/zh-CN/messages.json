@@ -1388,7 +1388,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 注册屏幕已针对较小的显示器进行了优化，并在工具菜单中添加了菜单项。 {L2} {L1} 在需要修复文件夹时，助手的性能得到了改进。 [issue 215] {L2}{L1} 解决了可能导致自定义模板下滤器助手无法正常工作的问题。 [issue 220] {L2}{L1} 现在可以使用更改标签来再次调用过滤器助手。 [issue 221]{L2}"
+    "message": "{L1} 修复了与 Betterbird 相关的一些问题 [issue 221]。{L2} {L1} 改进了意大利语翻译，感谢 Leopoldi Saggin {L2}{L1} 改进了标签页的打开支持 - 这不使用官方 API 函数。[issue 220] {L2}{L1} 在本地文件夹中使用上下文菜单从消息创建过滤器时，助手未打开 [issue 235]{L2} {L1} 增加了消息列表中工具栏按钮的工具提示 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

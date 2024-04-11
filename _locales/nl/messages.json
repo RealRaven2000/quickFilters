@@ -1396,8 +1396,8 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Het registratiescherm is geoptimaliseerd voor kleinere schermen en er is een menu-item toegevoegd in het menu Extra. {L2} {L1} Verbeterde prestaties van de assistent wanneer mappen moeten worden hersteld. [issue 215] {L2}{L1} Een probleem is opgelost dat ertoe kan leiden dat de filterassistent niet werkt met aangepaste sjablonen. [issue 220] {L2}{L1} Het wijzigen van tags kan nu worden gebruikt om de filterassistent opnieuw te activeren. [issue 221]{L2}"
-  }, 
+    "message": "{L1} Sommige problemen met Betterbird zijn opgelost [issue 221]. {L2} {L1} Verbeterde Italiaanse vertalingen, dankzij Leopoldi Saggin {L2}{L1} Verbeterde ondersteuning voor het openen van tabbladen - dit maakt geen gebruik van officiële API-functies. [issue 220] {L2}{L1} De assistent werd niet geopend bij gebruik van het contextmenu om een filter te maken vanuit een bericht in lokale mappen [issue 235]{L2} {L1} Toenamet tooltips van werkbalkknoppen in de berichtenlijst {L2}"
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Welkom bij $addonName$",

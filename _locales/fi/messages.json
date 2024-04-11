@@ -1397,7 +1397,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list": {
-    "message": "{L1} Rekisteröitymist Bildschirm oli optimoitu pienemmille näytöille ja lisätty valikko kohta työkalut -valikkoon. {L2} {L1} Parannettu suorituskyky apulaiselle kun kansioita on korjattava. [issue 215] {L2}{L1} Korjattu ongelma, joka saattaa estää suodatusavustajan toiminnan mukautetuilla malleilla. [issue 220] {L2}{L1} Tunnusten muuttaminen voi nyt käynnistää suodatusavustajan uudelleen. [issue 221]{L2}"
+    "message": "{L1} Joitakin Betterbirdiin liittyviä ongelmia korjattiin [issue 221]. {L2} {L1} Parannettu italialaisia käännöksiä, kiitos Leopoldi Sagginin {L2}{L1} Parannettu välilehtien avaustuen tuki - tämä ei käytä virallisia API-toimintoja. [issue 220] {L2}{L1} Avustaja ei avautunut käytettäessä kontekstivalikkoa luomaan suodatinta viestistä paikallisissa kansioissa [issue 235]{L2} {L1} Viestiluettelon työkalupainikkeiden työkaluvihjeitä lisättiin {L2}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

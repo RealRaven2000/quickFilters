@@ -1397,7 +1397,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Die Registrierungsbildschirm wurde für kleinere Bildschirme optimiert und ein Menüpunkt im Extras-Menü hinzugefügt. {L2} {L1} Die Leistung des Assistenten wurde verbessert, wenn Ordner repariert werden müssen. [issue 215] {L2}{L1} Ein Problem wurde behoben, das dazu führen kann, dass der Filter-Assistent nicht mit benutzerdefinierten Vorlagen funktioniert. [issue 220] {L2}{L1} Das Ändern von Tags kann jetzt verwendet werden, um den Filter-Assistenten erneut aufzurufen. [issue 221]{L2}"
+    "message": "{L1} Diverse Probleme im Zusammenhang mit Betterbird wurden behoben [issue 221]. {L2} {L1} Verbesserte italienische Übersetzungen, dank Leopoldi Saggin {L2}{L1} Verbesserte Unterstützung beim Öffnen von Registerkarten - dies erfolgt nicht unter Verwendung offizieller API-Funktionen. [issue 220] {L2}{L1} Der Assistent wurde nicht geöffnet, wenn das Kontextmenü zum Erstellen eines Filters aus einer Nachricht in lokalen Ordnern verwendet wurde [issue 235]{L2} {L1} Erhöhte Tooltips der Symbolleistenbuttons in der Nachrichtenliste {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
