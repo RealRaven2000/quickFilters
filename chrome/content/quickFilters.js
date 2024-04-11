@@ -615,6 +615,7 @@ END LICENSE BLOCK
     # Opening support sites in a tab is now using API method
     # [issue 235] Assistant not opening when using context menu to create filter from message (in local folder)
     # [issue 234] WIP - Special quickFilters buttons are not displayed on QuickFolders Navigation Bar (current folder bar)
+    # [issue 237] increase tooltips of toolbar buttons in messages list
 
 
   ============================================================================================================
@@ -1347,9 +1348,6 @@ var quickFilters = {
       for (let tabInfo of window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab")) {
         let doc = tabInfo.chromeBrowser.contentDocument;
 
-        // in tb 68 we need to move the buttons into the correct place first,
-        // window.gTabmail.currentTabInfo.chromeBrowser.contentDocument.getElementById
-        // [issue ]
         let btnList = doc.getElementById('quickfilters-current-listbutton');
         if (!btnList) { // [issue 234]
           setTimeout((e) => quickFilters.toggleCurrentFolderButtons(), 5000);

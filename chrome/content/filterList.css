@@ -33,6 +33,13 @@
   height: 38px;
 }
 
+/* increase font size [issue 237] */
+#quickFiltersToolTip {
+  font-size: 1.3em;
+  margin-left: 2em;
+  margin-top: 2em;
+}
+
 
 #quickfilters-toolbar > toolbarbutton {
   transition: padding 0.3s, margin 0.3s;
