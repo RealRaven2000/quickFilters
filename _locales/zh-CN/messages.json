@@ -1388,7 +1388,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 修复了与 Betterbird 相关的一些问题 [issue 225]。{L2} {L1} 改进了意大利语翻译，感谢 Leopoldo Saggin {L2}{L1} 改进了标签页的打开支持 - 这不使用官方 API 函数。[issue 220] {L2}{L1} 在本地文件夹中使用上下文菜单从消息创建过滤器时，助手未打开 [issue 235]{L2} {L1} 增加了消息列表中工具栏按钮的工具提示 {L2}"
+    "message": "{L1} 修复了与 Betterbird 相关的一些问题 [issue 225]。{L2} {L1} 改进了意大利语翻译，感谢 Leopoldo Saggin {L2}{L1} 改进了标签页的打开支持：现在使用官方 API 函数。[issue 220] {L2}{L1} 在本地文件夹中使用上下文菜单从消息创建过滤器时，助手未打开 [issue 235]{L2} {L1} 增加了消息列表中工具栏按钮的工具提示 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1397,7 +1397,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list": {
-    "message": "{L1} Joitakin Betterbirdiin liittyviä ongelmia korjattiin [issue 225]. {L2} {L1} Parannettu italialaisia käännöksiä, kiitos Leopoldo Sagginin {L2}{L1} Parannettu välilehtien avaustuen tuki - tämä ei käytä virallisia API-toimintoja. [issue 220] {L2}{L1} Avustaja ei avautunut käytettäessä kontekstivalikkoa luomaan suodatinta viestistä paikallisissa kansioissa [issue 235]{L2} {L1} Viestiluettelon työkalupainikkeiden työkaluvihjeitä lisättiin {L2}"
+    "message": "{L1} Joitakin Betterbirdiin liittyviä ongelmia korjattiin [issue 225]. {L2} {L1} Parannettu italialaisia käännöksiä, kiitos Leopoldo Sagginin {L2}{L1} Parannettu välilehtien avaustuen tuki: nyt käyttää virallisia API-toimintoja. [issue 220] {L2}{L1} Avustaja ei avautunut käytettäessä kontekstivalikkoa luomaan suodatinta viestistä paikallisissa kansioissa [issue 235]{L2} {L1} Viestiluettelon työkalupainikkeiden työkaluvihjeitä lisättiin {L2}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

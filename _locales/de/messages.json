@@ -1397,7 +1397,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Diverse Probleme im Zusammenhang mit Betterbird wurden behoben [issue 225]. {L2} {L1} Verbesserte italienische Übersetzungen, dank Leopoldo Saggin {L2}{L1} Verbesserte Unterstützung beim Öffnen von Registerkarten - dies erfolgt nicht unter Verwendung offizieller API-Funktionen. [issue 220] {L2}{L1} Der Assistent wurde nicht geöffnet, wenn das Kontextmenü zum Erstellen eines Filters aus einer Nachricht in lokalen Ordnern verwendet wurde [issue 235]{L2} {L1} Erhöhte Tooltips der Symbolleistenbuttons in der Nachrichtenliste {L2}"
+    "message": "{L1} Einige Probleme im Zusammenhang mit Betterbird wurden behoben [issue 225]. {L2} {L1} Verbesserte Italienisch-Übersetzungen, dank Leopoldo Saggin {L2}{L1} Verbesserte Unterstützung beim Öffnen von Registerkarten - dies verwendet jetzt offizielle API-Funktionen. [issue 220] {L2}{L1} Der Assistent wurde nicht geöffnet, wenn das Kontextmenü zum Erstellen eines Filters aus einer Nachricht in lokalen Ordnern verwendet wurde [issue 235]{L2} {L1} Erhöhte Tooltips der Symbolleistenbuttons in der Nachrichtenliste {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

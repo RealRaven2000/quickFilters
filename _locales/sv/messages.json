@@ -1396,7 +1396,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Vissa problem relaterade till Betterbird har åtgärdats [issue 225]. {L2} {L1} Förbättrade italienska översättningar, tack vare Leopoldo Saggin {L2}{L1} Förbättrad support för att öppna flikar - detta använder inte officiella API-funktioner. [issue 220] {L2}{L1} Assistenten öppnades inte när du använde snabbmenyn för att skapa ett filter från ett meddelande i lokala mappar [issue 235]{L2} {L1} Ökade verktygstips för verktygsfältets knappar i meddelandelistan {L2}"
+    "message": "{L1} Vissa problem relaterade till Betterbird har åtgärdats [issue 225]. {L2} {L1} Förbättrade italienska översättningar, tack vare Leopoldo Saggin {L2}{L1} Förbättrad support för att öppna flikar: detta använder nu officiella API-funktioner. [issue 220] {L2}{L1} Assistenten öppnades inte när du använde snabbmenyn för att skapa ett filter från ett meddelande i lokala mappar [issue 235]{L2} {L1} Ökade verktygstips för verktygsfältets knappar i meddelandelistan {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
