@@ -1308,7 +1308,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
   },  
   "whats-new-list": {
-    "message": "{L1} 修正了一些與 Betterbird 相關的問題 [issue 221]。{L2} {L1} 感謝 Leopoldi Saggin，意大利翻譯得到改善 {L2}{L1} 改善了開啟支援的標籤頁 - 這並非使用官方 API 功能。[issue 220] {L2}{L1} 在本地文件夾中使用上下文選單從消息創建過濾器時，助手未打開 [issue 235]{L2} {L1} 增加了訊息清單中工具列按鈕的工具提示 {L2}"
+    "message": "{L1} 修正了一些與 Betterbird 相關的問題 [issue 225]。{L2} {L1} 感謝 Leopoldo Saggin，意大利翻譯得到改善 {L2}{L1} 改善了開啟支援的標籤頁 - 這並非使用官方 API 功能。[issue 220] {L2}{L1} 在本地文件夾中使用上下文選單從消息創建過濾器時，助手未打開 [issue 235]{L2} {L1} 增加了訊息清單中工具列按鈕的工具提示 {L2}"
   }, 
   "window-title": {
     "message": "歡迎使用 $addonName$",

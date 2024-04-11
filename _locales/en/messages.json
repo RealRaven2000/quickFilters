@@ -1396,7 +1396,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Some problems related to Betterbird were fixed [issue 221]. {L2} {L1} Improved Italian translations, thanks to Leopoldi Saggin {L2}{L1} Improved opening support tabs - this is not using official API functions. [issue 220] {L2}{L1} Assistant was not opening when using context menu to create filter from message in local folders [issue 235]{L2} {L1} Increased tooltips of toolbar buttons in messages list {L2}"
+    "message": "{L1} Some problems related to Betterbird were fixed [issue 225]. {L2} {L1} Improved Italian translations, thanks to Leopoldo Saggin {L2}{L1} Improved opening support tabs - this is not using official API functions. [issue 220] {L2}{L1} Assistant was not opening when using context menu to create filter from message in local folders [issue 235]{L2} {L1} Increased tooltips of toolbar buttons in messages list {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

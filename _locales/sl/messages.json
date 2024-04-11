@@ -251,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list": {
-    "message": "{L1} Nekateri problemi, povezani z Betterbird, so bili odpravljeni [issue 221]. {L2} {L1} Izboljšane italijanske prevode, zahvaljujoč Leopoldi Saggin {L2}{L1} Izboljšana podpora za odpiranje zavihkov - to ne uporablja uradnih API funkcij. [issue 220] {L2}{L1} Pomočnik se ni odpiral pri uporabi kontekstnega menija za ustvarjanje filtra iz sporočila v lokalnih mapah [issue 235]{L2} {L1} Povečane orodne namige gumbov na orodni vrstici v seznamu sporočil {L2}"
+    "message": "{L1} Nekateri problemi, povezani z Betterbird, so bili odpravljeni [issue 225]. {L2} {L1} Izboljšane italijanske prevode, zahvaljujoč Leopoldo Saggin {L2}{L1} Izboljšana podpora za odpiranje zavihkov - to ne uporablja uradnih API funkcij. [issue 220] {L2}{L1} Pomočnik se ni odpiral pri uporabi kontekstnega menija za ustvarjanje filtra iz sporočila v lokalnih mapah [issue 235]{L2} {L1} Povečane orodne namige gumbov na orodni vrstici v seznamu sporočil {L2}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

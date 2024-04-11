@@ -1394,7 +1394,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list": {
-    "message": "{L1} Naprawiono kilka problemów związanych z Betterbird [issue 221]. {L2} {L1} Poprawiono włoskie tłumaczenia, dzięki Leopoldi Saggin {L2}{L1} Poprawiono obsługę otwierania kart - to nie korzysta z oficjalnych funkcji API. [issue 220] {L2}{L1} Asystent nie otwierał się podczas korzystania z menu kontekstowego do tworzenia filtru z wiadomości w folderach lokalnych [issue 235]{L2} {L1} Zwiększono etykiety narzędzi przycisków paska narzędzi w liście wiadomości {L2}"
+    "message": "{L1} Naprawiono kilka problemów związanych z Betterbird [issue 225]. {L2} {L1} Poprawiono włoskie tłumaczenia, dzięki Leopoldo Saggin {L2}{L1} Poprawiono obsługę otwierania kart - to nie korzysta z oficjalnych funkcji API. [issue 220] {L2}{L1} Asystent nie otwierał się podczas korzystania z menu kontekstowego do tworzenia filtru z wiadomości w folderach lokalnych [issue 235]{L2} {L1} Zwiększono etykiety narzędzi przycisków paska narzędzi w liście wiadomości {L2}"
   },
   "window-title": {
     "message": "Witamy w $addonName$",

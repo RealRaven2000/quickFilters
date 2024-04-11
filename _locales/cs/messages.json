@@ -362,7 +362,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list": {
-    "message": "{L1} Některé problémy týkající se Betterbird byly opraveny [issue 221]. {L2} {L1} Vylepšeny italské překlady, díky Leopoldi Sagginovi {L2}{L1} Vylepšena podpora otevírání karet - toto nepoužívá oficiální API funkce. [issue 220] {L2}{L1} Asistent se neotevíral při použití kontextového menu pro vytvoření filtru zprávy ve lokálních složkách [issue 235]{L2} {L1} Zvýšeny popisky tlačítek panelu nástrojů v seznamu zpráv {L2}"
+    "message": "{L1} Některé problémy týkající se Betterbird byly opraveny [issue 225]. {L2} {L1} Vylepšeny italské překlady, díky Leopoldo Sagginovi {L2}{L1} Vylepšena podpora otevírání karet - toto nepoužívá oficiální API funkce. [issue 220] {L2}{L1} Asistent se neotevíral při použití kontextového menu pro vytvoření filtru zprávy ve lokálních složkách [issue 235]{L2} {L1} Zvýšeny popisky tlačítek panelu nástrojů v seznamu zpráv {L2}"
   },  
   "window-title": {
     "message": "Vítejte v $addonName$",

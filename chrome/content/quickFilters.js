@@ -614,8 +614,8 @@ END LICENSE BLOCK
     # Improved Italian Translations thanks to Leopoldo Saggin 
     # Opening support sites in a tab is now using API method
     # [issue 235] Assistant not opening when using context menu to create filter from message (in local folder)
-    # [issue 234] WIP - Special quickFilters buttons are not displayed on QuickFolders Navigation Bar (current folder bar)
     # [issue 237] increase tooltips of toolbar buttons in messages list
+    # [issue 234] WIP - Special quickFilters buttons are not displayed on QuickFolders Navigation Bar (current folder bar)
 
 
   ============================================================================================================

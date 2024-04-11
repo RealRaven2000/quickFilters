@@ -1396,7 +1396,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Một số vấn đề liên quan đến Betterbird đã được sửa [issue 221]. {L2} {L1} Cải thiện bản dịch tiếng Ý, nhờ Leopoldi Saggin {L2}{L1} Cải thiện hỗ trợ mở tab - điều này không sử dụng các chức năng API chính thức. [issue 220] {L2}{L1} Trợ lý không mở khi sử dụng menu ngữ cảnh để tạo bộ lọc từ một tin nhắn trong các thư mục cục bộ [issue 235]{L2} {L1} Tăng các ghi chú công cụ của các nút thanh công cụ trong danh sách tin nhắn {L2}"
+    "message": "{L1} Một số vấn đề liên quan đến Betterbird đã được sửa [issue 225]. {L2} {L1} Cải thiện bản dịch tiếng Ý, nhờ Leopoldo Saggin {L2}{L1} Cải thiện hỗ trợ mở tab - điều này không sử dụng các chức năng API chính thức. [issue 220] {L2}{L1} Trợ lý không mở khi sử dụng menu ngữ cảnh để tạo bộ lọc từ một tin nhắn trong các thư mục cục bộ [issue 235]{L2} {L1} Tăng các ghi chú công cụ của các nút thanh công cụ trong danh sách tin nhắn {L2}"
   },  
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

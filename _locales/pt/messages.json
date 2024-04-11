@@ -1400,7 +1400,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):" 
   },
   "whats-new-list": {
-    "message": "{L1} Alguns problemas relacionados ao Betterbird foram corrigidos [issue 221]. {L2} {L1} Melhorias nas traduções para italiano, graças a Leopoldi Saggin {L2}{L1} Melhoria no suporte à abertura de guias - isso não utiliza funções API oficiais. [issue 220] {L2}{L1} O assistente não estava abrindo ao usar o menu de contexto para criar um filtro a partir de uma mensagem em pastas locais [issue 235]{L2} {L1} Aumentados os tooltips dos botões da barra de ferramentas na lista de mensagens {L2}"
+    "message": "{L1} Alguns problemas relacionados ao Betterbird foram corrigidos [issue 225]. {L2} {L1} Melhorias nas traduções para italiano, graças a Leopoldo Saggin {L2}{L1} Melhoria no suporte à abertura de guias - isso não utiliza funções API oficiais. [issue 220] {L2}{L1} O assistente não estava abrindo ao usar o menu de contexto para criar um filtro a partir de uma mensagem em pastas locais [issue 235]{L2} {L1} Aumentados os tooltips dos botões da barra de ferramentas na lista de mensagens {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
