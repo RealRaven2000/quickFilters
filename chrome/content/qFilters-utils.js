@@ -1076,7 +1076,7 @@ quickFilters.Util = {
   showVersionHistory: function showVersionHistory() {
 		const util = quickFilters.Util;
     let version = util.VersionSanitized;
-    util.openURL(null, util.makeUriPremium("https://quickfilters.quickfolders.org/version.html") + "#" + version);
+    util.openURL(util.makeUriPremium("https://quickfilters.quickfolders.org/version.html") + "#" + version);
   } ,
 
   showLicensePage: function showLicensePage() {
