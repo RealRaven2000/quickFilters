@@ -1,4 +1,5 @@
-quickFilters Change Log - Version 6.4
+The full log with screenshots is available at:
+<a href="https://quickfilters.quickfolders.org/version.html#6.4">quickFilters Change Log</a>
 
 
 <b>Improvements</b>
@@ -11,7 +12,7 @@ quickFilters Change Log - Version 6.4
     Improved Italian translations, thanks to Leopoldo Saggin.
   </li>
   <li> 
-    Improved opening support tabs - this is not using official API functions. 
+    Improved opening support tabs - this is now using official API functions. 
     <a href="https://github.com/RealRaven2000/quickFilters/issues/220">[issue 220] </a>
   </li>
   <li>
@@ -25,13 +26,21 @@ quickFilters Change Log - Version 6.4
 <b>Bug Fixes</b>
 <ul>
   <li> 
-    Assistant was not opening when using context menu to create filter from message in local folders 
+    Fixed: In Local Folders, the assistant was not opening when using the context menu to 
+    create filters from a message 
     <a href="https://github.com/RealRaven2000/quickFilters/issues/235">[issue 235]</a>
   </li>
   <li>
-    Addressed some problems with displaying quickFilters buttons in QuickFolders
-    Navigation bar.
+    Fixed some issues with displaying quickFilters buttons in the QuickFolders
+      Navigation bar (Current Folder bar). Because Thunderbird 115 reimplented 
+      the 3-pane window, this can create multiple instances of this toolbar across 
+      multiple tabs in a child document of the 3pane, which turned out to be harder 
+      to reimplement for this ESR.
     <a href="https://github.com/RealRaven2000/quickFilters/issues/234">[issue 234]</a> 
   </li>
 </ul>
 
+All development and free support work for quickFilters is financed via the 
+<a href="http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN">quickFilters 
+Pro license</a> which also adds 
+some <a href="https://quickfilters.quickfolders.org/premium.html#featureList">additional features.</a>
