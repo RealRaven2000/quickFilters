@@ -254,7 +254,10 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     </li>
 		<li>
       Fixed some issues with displaying quickFilters buttons in the QuickFolders
-      Navigation bar (Current Folder bar).
+      Navigation bar (Current Folder bar). Because Thunderbird 115 reimplented 
+      the 3-pane window, this can create multiple instances of this toolbar across 
+      multiple tabs in a child document of the 3pane, which turned out to be harder 
+      to reimplement for this ESR.
       <a href="https://github.com/RealRaven2000/quickFilters/issues/234">[issue 234]</a> 
       <img src="img/QF-navigation.png" alt="QuickFolders Navigation bar" class="screenshot">
     </li>
