@@ -351,8 +351,7 @@ quickFilters.Assistant = {
     // this.selectTemplateFromListTmr(templateList);
   } ,
 
-  // Tb 74 compatibility.
-  loadPreferences: function qi_loadPreferences() {
+  loadPreferences: function() {
     let myprefElements = document.querySelectorAll("[preference]"),
         foundElements = {};
     for (let myprefElement of myprefElements) {
@@ -417,7 +416,7 @@ quickFilters.Assistant = {
           desc = document.getElementById ("templateDescription");
       if (desc) {
         desc.textContent = quickFilters.Util.getBundleString(descriptionId);
-        window.sizeToContent();
+        // window.sizeToContent();
         let rect = desc.getBoundingClientRect ? desc.getBoundingClientRect() : desc.boxObject;
         if (rect && rect.height && window.height) {
           window.height += rect.height;
