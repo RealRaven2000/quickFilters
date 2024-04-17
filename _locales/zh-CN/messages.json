@@ -1218,6 +1218,9 @@
   "quickfilters.stopExecution.label": {
     "message": "停止执行过滤器"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "无法创建过滤器：没有有效的搜索条件，无法编辑过滤器。"
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "此名称的模板已存在！名称必须是唯一的."
   },

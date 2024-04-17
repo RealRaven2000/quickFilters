@@ -1227,6 +1227,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Lopeta suodattimen suorittaminen"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Suodatinta ei voitu luoda: ilman kelvollisia hakuehtoja suodatinta ei voi muokata."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Tämän niminen malli on jo olemassa! Nimen on oltava yksilöllinen."
   },

@@ -1226,6 +1226,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Filter stoppen"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Filter konnte nicht erstellt werden: Ohne gültige Suchbegriffe kann der Filter nicht bearbeitet werden."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Eine Vorlage dieses Namens exist bereits! Der Name muss einmalig sein."
   },

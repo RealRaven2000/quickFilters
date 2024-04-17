@@ -1044,7 +1044,7 @@
     "message": "Remove duplicate condition"
   },
   "quickfilters.merge.addressesOmitted": {
-    "message": "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"
+    "message": "Email addresses were omitted from the conditions - quickFilters avoids filtering for your own mail address:"
   },
   "quickfilters.merge.warning.missingAction": {
     "message": "Could not get the main action of the filter: {1}"
@@ -1224,6 +1224,9 @@
   },
   "quickfilters.stopExecution.label": {
     "message": "Stop Filter Execution"
+  },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Could not create filter: without valid search terms the filter can not be edited."
   },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "A template of this name already exists! The name must be unique."

@@ -1142,6 +1142,9 @@
   "quickfilters.stopExecution.label": {
     "message": "停止過濾器執行"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "無法建立過濾器：沒有有效的搜尋條件，無法編輯過濾器。"
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "該名稱的模板已存在！ 該名稱必須是唯一的。"
   },

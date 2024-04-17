@@ -1227,6 +1227,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Zatrzymaj wykonywanie filtru"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Nie można utworzyć filtra: bez ważnych warunków wyszukiwania filtr nie może być edytowany."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Szablon o tej nazwie już istnieje! Nazwa musi być niepowtarzalna."
   },

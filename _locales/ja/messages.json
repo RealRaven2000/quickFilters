@@ -1226,6 +1226,9 @@
   "quickfilters.stopExecution.label": {
     "message": "フィルタの実行を中止する"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "フィルターを作成できませんでした：有効な検索語句がないため、フィルターを編集できません。"
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "この名前のテンプレートはすでに存在します。別の名前を付けてください。"
   },

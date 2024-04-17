@@ -1226,6 +1226,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Avbryt filterkörning"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Det gick inte att skapa filtret: utan giltiga söktermer kan filtret inte redigeras."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "En mall med detta namn finns redan! Namnet måste vara unikt."
   },

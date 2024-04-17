@@ -1226,6 +1226,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Остановить выполнение фильтра"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Не удалось создать фильтр: без действительных условий поиска фильтр нельзя отредактировать."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Шаблон с таким именем уже существует! Имя должно быть уникальным."
   },

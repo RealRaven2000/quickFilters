@@ -1226,6 +1226,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Uitvoeren van filter stoppen"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Filter kon niet worden gemaakt: zonder geldige zoektermen kan het filter niet worden bewerkt."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Er bestaat al een sjabloon met deze naam! De naam dient uniek te zijn."
   },

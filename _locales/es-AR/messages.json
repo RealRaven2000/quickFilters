@@ -1226,6 +1226,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Detener ejecución del filtro"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "No se pudo crear el filtro: sin términos de búsqueda válidos, el filtro no se puede editar."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "¡Ya existe una plantilla con este nombre! El nombre tiene que ser único."
   },

@@ -1226,6 +1226,9 @@
   "quickfilters.stopExecution.label": {
     "message": "Ngừng Thực thi Bộ lọc"
   },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Không thể tạo bộ lọc: không có điều kiện tìm kiếm hợp lệ, bộ lọc không thể được chỉnh sửa."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "A template of this name already exists! The name must be unique."
   },
