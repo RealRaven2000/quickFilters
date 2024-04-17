@@ -1597,7 +1597,7 @@ quickFilters.Worker = {
     if (!isMerge) {
 			if (excludedAddresses && excludedAddresses.length>0) {
 				warningOmitted = util.getBundleString('quickfilters.merge.addressesOmitted', 
-							"Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:");
+							"Email addresses were omitted from the conditions - quickFilters avoids filtering for your own mail address:");
 				let	list = '',
 						newLine = '\n';
 				for (let i=0; i<excludedAddresses.length; i++) {
@@ -1608,8 +1608,8 @@ quickFilters.Worker = {
       
       // [issue 23] avoid empty filters:
       if (targetFilter.searchTerms.length==0) {
-        let txtAbort = "Filter could not be created: no valid Search Terms were be added, so filter would not be editable.\n";
-        Services.prompt.alert(window, "quickFilters", txtAbort + warningOmitted); 
+        let txtAbort =  util.getBundleString("quickfilters.warning.emptyFilter");
+        Services.prompt.alert(window, "quickFilters", txtAbort + "\n\n" + warningOmitted); 
         return;
       }
       
