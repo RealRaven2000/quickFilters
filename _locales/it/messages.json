@@ -1226,7 +1226,7 @@
     "message": "Interrompi l'esecuzione dei filtri"
   },
   "quickfilters.warning.emptyFilter": {
-    "message": "Impossibile creare il filtro: senza termini di ricerca validi, il filtro non può essere modificato."
+    "message": "Non è possibile creare il filtro: questo infatti non può essere modificato se è privo di termini di ricerca validi."
   },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Una tipologia con questo nome esiste già! Il nome deve essere univoco."
