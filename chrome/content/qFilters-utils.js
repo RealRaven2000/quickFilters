@@ -2390,9 +2390,16 @@ quickFilters.clsGetHeaders = class classGetHeaders {
   // Get header
   get(header) {
     // /nsIMimeHeaders.extractHeader
-		// See ST4.clsGetAltHeader
-		if (!this.headers) {
-			switch(header) {
+    let retValue = '',
+        str,
+        isUnescapeQuotes = false;
+
+    if (this.headers) {
+      str = this.headers.extractHeader(header, false);
+    } 
+    if (str===null) {
+      // See ST4.clsGetAltHeader
+      switch(header) {
 				case "from": 
 				  header="author";
 					break;
@@ -2400,11 +2407,8 @@ quickFilters.clsGetHeaders = class classGetHeaders {
 					header = "recipients";
 					break;
 			}
-		}
-		
-    let retValue = '',
-        str = this.headers ? this.headers.extractHeader(header, false) : this.messageFallbackContent[header],
-        isUnescapeQuotes = false;
+      str = this.messageFallbackContent[header];
+    }
 				
 				
     // for names maybe use nsIMsgHeaderParser.extractHeaderAddressName instead?

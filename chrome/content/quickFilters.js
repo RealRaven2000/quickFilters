@@ -608,7 +608,7 @@ END LICENSE BLOCK
     # [issue 217] Optimize the registration screen, it's too tall 
     # Completed translations for traditional Chinese 
 
-  6.4 - WIP
+  6.4 - 11/04/2024
     # [issue 225] Betterbird fixes
     # Add Alias to register dialog if already set in a license
     # Improved Italian Translations thanks to Leopoldo Saggin 
@@ -616,6 +616,10 @@ END LICENSE BLOCK
     # [issue 235] Assistant not opening when using context menu to create filter from message (in local folder)
     # [issue 237] increase tooltips of toolbar buttons in messages list
     # [issue 234] WIP - Special quickFilters buttons are not displayed on QuickFolders Navigation Bar (current folder bar)
+
+  6.5 - WIP
+    # Fixed reading & prefilling headers in custom filter templates
+
 
 
   ============================================================================================================
