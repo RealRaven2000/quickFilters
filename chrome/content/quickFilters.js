@@ -618,7 +618,11 @@ END LICENSE BLOCK
     # [issue 234] WIP - Special quickFilters buttons are not displayed on QuickFolders Navigation Bar (current folder bar)
 
   6.5 - WIP
+    # [issue 138] Made compatible with Thunderbird 128
+    # [issue 244] Fix file picker which is broken in Thunderbird 125 [bug 1882701]
     # Fixed reading & prefilling headers in custom filter templates
+    # [issue 243] Dialog buttons cut off on filter assistant window (Ubuntu 22.04)
+    # optimize licenser (omit folders while listing accounts)
 
 
 
@@ -2158,8 +2162,8 @@ quickFilters.CustomTermReplyTo = {
         if (index = replyTo.endsWith(searchVal)) { matches = true; }
         break;
 
-        default:
-          Components.utils.reportError("invalid search operator in replyTo custom search term");
+      default:
+        Components.utils.reportError("invalid search operator in replyTo custom search term");
     }
     if (aSearchOp == nsMsgSearchOp.DoesntContain || aSearchOp == nsMsgSearchOp.Isnt)
       return !matches;

@@ -1,27 +1,22 @@
 The full log with screenshots is available at:
-<a href="https://quickfilters.quickfolders.org/version.html#6.4">quickFilters Change Log</a>
+<a href="https://quickfilters.quickfolders.org/version.html#6.5">quickFilters Change Log</a>
+
+
+# optimize licenser (omit folders while listing accounts)
 
 
 <b>Improvements</b>
 <ul>
   <li> 
-    Some problems related to Betterbird were fixed 
-    <a href="https://github.com/RealRaven2000/quickFilters/issues/225">[issue 225]</a>. 
+    Made compatible with Thunderbird 128
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/138">[issue 138]</a>. 
   </li>
   <li>
-    Improved Italian translations, thanks to Leopoldo Saggin.
+    In order to minimize the change of dialog buttons bein cut off in filter assistant window,
+    I added some controls to collapse / expand the filter tempalte description
+    and mail preview fields
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/243">[issue 243] </a>
   </li>
-  <li> 
-    Improved opening support tabs - this is now using official API functions. 
-    Opening support sites in a tab is now using API methods, making it
-    more reliable for the future. It also jumps to the correct anchor if 
-    tab is already open.
-    <a href="https://github.com/RealRaven2000/quickFilters/issues/220">[issue 220] </a>
-  </li>
-  <li>
-    Increased tooltip fonts of toolbar buttons in messages list 
-  </li>
-  
 </ul>  
 
 
@@ -29,17 +24,11 @@ The full log with screenshots is available at:
 <b>Bug Fixes</b>
 <ul>
   <li> 
-    Fixed: In Local Folders, the assistant was not opening when using the context menu to 
-    create filters from a message 
-    <a href="https://github.com/RealRaven2000/quickFilters/issues/235">[issue 235]</a>
+    Fixed: file picker which is broken in Thunderbird 125 [bug 1882701] 
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/244">[issue 244]</a>
   </li>
   <li>
-    Fixed some issues with displaying quickFilters buttons in the QuickFolders
-      Navigation bar (Current Folder bar). Because Thunderbird 115 reimplented 
-      the 3-pane window, this can create multiple instances of this toolbar across 
-      multiple tabs in a child document of the 3pane, which turned out to be harder 
-      to reimplement for this ESR.
-    <a href="https://github.com/RealRaven2000/quickFilters/issues/234">[issue 234]</a> 
+    Fixed reading & prefilling headers in custom filter templates
   </li>
 </ul>
 
