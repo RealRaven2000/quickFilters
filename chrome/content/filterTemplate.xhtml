@@ -197,13 +197,16 @@
 						</vbox>
 					</html:fieldset>
 				</hbox>
+
 				<hbox id="boxDescription">
+					<span id="expandDescription" class="sectionExpander"></span>
 					<label id="templateLabel" value="__MSG_qf.filters.templates.description.label__" />
-					<description id="templateDescription"></description>
+					<p id="templateDescription"></p>
 				</hbox>
-				<html:fieldset id="preview" orient="vertical">
-					<html:legend id="previewCaption">Email(s)</html:legend>
-					<vbox class="fieldset-body">
+				<hbox id="preview">
+					<span id="expandPreview" class="sectionExpander"></span>
+					<label id="previewCaption">Email(s)</label>
+					<vbox id="previewContent" class="fieldset-body">
 						<description class="plain" id="previewFrom" value="Author: " />
 						<description class="plain" id="previewTo" value="Recipients: " />
 						<description class="plain" id="previewSubject" value="Subject: " />
@@ -213,7 +216,7 @@
 							<description class="plain" id="previewLines" value="Lines: " />
 						</hbox>
 					</vbox>
-				</html:fieldset>
+				</hbox>
 			</vbox>
 		</deck>
 		</vbox>

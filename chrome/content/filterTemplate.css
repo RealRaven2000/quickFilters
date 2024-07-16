@@ -23,6 +23,24 @@ image#logo {
 	flex-grow: 1; 
 }
 
+.sectionExpander {
+	margin-right: 0.5em;
+	height: 20px;
+	width: 20px;
+	flex-shrink: 0;
+}
+
+.sectionExpander {
+	background-image: url("chrome://quickfilters/content/skin/expand_opened.png");
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.sectionExpander[containercollapsed] {
+	background-image: url("chrome://quickfilters/content/skin/expand_closed.png");
+}
+
+
 #preview {
 	margin-block: 0.2em !important;
 }
@@ -77,15 +95,27 @@ hbox.myWizard {
 }
 
 #boxDescription {
-  min-height: 5em;
+  min-height: 1.8em;
 	min-width: 520px;
 	max-width: 1000px;
 }
+
 #templateLabel { padding-top: 0.5em; }
+#expandDescription {margin-top: 0.5em; }
 #templateDescription {
   padding: 0.5em;
-  min-height:3.8em;
-  /*! max-width: 520px !important; */
+  min-height: 3.8em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;	
+}
+
+#previewContent.minimized,
+#templateDescription.minimized {
+	-webkit-line-clamp: 1;
+	height: 1em !important;
+	min-height: 2.2em;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #qf-whatToDo {

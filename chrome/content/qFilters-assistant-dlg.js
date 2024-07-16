@@ -297,6 +297,34 @@ quickFilters.Assistant = {
       util.logException("Preview initialisation failed.", ex);
     }
     templateList.value = prefs.getCurrentFilterTemplate();
+
+    function expandCollapse(element, collapseElementId) {
+      let collapsed = element.getAttribute("containercollapsed");
+      let colElement = document.getElementById(collapseElementId);
+      if (collapsed) {
+        element.removeAttribute("containercollapsed");
+        colElement.classList.remove("minimized");
+      } else {
+        element.setAttribute ("containercollapsed","true");
+        colElement.classList.add("minimized");
+      }      
+    }
+
+    let expandDescription = document.getElementById("expandDescription");
+    expandDescription.addEventListener("click", (e) => {
+      expandCollapse(e.target, "templateDescription");
+      window.sizeToContent();
+    });
+    let expandPreview = document.getElementById("expandPreview");
+    expandPreview.addEventListener("click", (e) => {
+      expandCollapse(e.target, "previewContent");
+      window.sizeToContent();
+    });
+    
+
+
+
+
     // ensureIndexIsVisible ?
     window.sizeToContent();
     // Tb 78 for some reason moves the window to the top left?
