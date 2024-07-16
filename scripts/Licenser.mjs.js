@@ -413,7 +413,7 @@ export class Licenser {
     // check mail accounts for setting
     // if not found return MailNotConfigured
     
-    let accounts = await messenger.accounts.list();
+    let accounts = await messenger.accounts.list(false);
     let AllowFallbackToSecondaryIdentiy = false;
 
     if (this.key_type == 0 || this.key_type == 2) {
