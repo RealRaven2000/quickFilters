@@ -1716,7 +1716,8 @@ quickFilters.List = {
 				util.logDebug("fileFilters()\nPath does not exist: " + dPath);
 			}
 		}
-		fp.init(window, "", fileOpenMode); // second parameter: prompt
+
+		fp.init(util.getFileInitArg(window), "", fileOpenMode); // second parameter: prompt
     filterText = util.getBundleString("quickfilters.fpJsonFile","JSON File");
     fp.appendFilter(filterText, "*.json");
     fp.defaultExtension = 'json';
@@ -1999,7 +2000,6 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
         }
       }
 			
-      
       let actionCount = util.getActionCount(filter);
       for (let a = 0; a < actionCount; a++) {
         let ac = filter.getActionAt(a).QueryInterface(Components.interfaces.nsIMsgRuleAction);
@@ -2019,12 +2019,17 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
           try { 
             let customAction = ac.customAction;
             if (!customAction) isError=true;
-          }
-          catch(ex) {
+          } catch(ex) {
             isError=true;
           }
           if (isError) {
-            util.logDebug("Missing custom action in filter [" + filter.filterName + "]: " + ac.customId);
+            util.logWarn(`Missing custom action in filter [${filter.filterName}]: ${ac.customId}`);
+            if (ac.customId.startsWith("filtaquilla@mesquilla.com")) {
+              let method = ac.customId.split("#");
+              if (method.length>1) {
+                util.logToConsole(`To use this, enable FiltaQuilla Filter Action: ${method[1]}`);
+              }
+            }
             errorList.push ( { index:i, flt:filter, type: 'customAction'} );
           }
         }
