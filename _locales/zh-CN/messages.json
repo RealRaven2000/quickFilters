@@ -1290,7 +1290,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "7月10日"
+    "message": "7月31日"
   },
   "special-offer-head": {
     "message": "请帮助quickFilters继续！"
@@ -1391,7 +1391,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 修复了与 Betterbird 相关的一些问题 [issue 225]。{L2} {L1} 改进了意大利语翻译，感谢 Leopoldo Saggin {L2}{L1} 改进了标签页的打开支持：现在使用官方 API 函数。[issue 220] {L2}{L1} 在本地文件夹中使用上下文菜单从消息创建过滤器时，助手未打开 [issue 235]{L2} {L1} 增加了消息列表中工具栏按钮的工具提示 {L2}"
+    "message": "{L1} quickFilters 现在与 Thunderbird 128 兼容。 {L2} {L1} 为节省空间，在筛选助手对话框中添加了折叠描述和预览面板的控件。 [issue 243]{L2}{L1} 修复：Thunderbird 125 中损坏的文件选择器 [issue 244] {L2}{L1} 修复读取和预填充自定义筛选模板中的标头 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

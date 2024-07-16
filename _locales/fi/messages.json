@@ -1299,7 +1299,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "10. heinäkuuta"
+    "message": "31. heinäkuuta"
   },
   "special-offer-head" : {
     "message": "Auttakaa quickFilters jatkaaksesi!"
@@ -1400,7 +1400,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):" 
   },  
   "whats-new-list": {
-    "message": "{L1} Joitakin Betterbirdiin liittyviä ongelmia korjattiin [issue 225]. {L2} {L1} Parannettu italialaisia käännöksiä, kiitos Leopoldo Sagginin {L2}{L1} Parannettu välilehtien avaustuen tuki: nyt käyttää virallisia API-toimintoja. [issue 220] {L2}{L1} Avustaja ei avautunut käytettäessä kontekstivalikkoa luomaan suodatinta viestistä paikallisissa kansioissa [issue 235]{L2} {L1} Viestiluettelon työkalupainikkeiden työkaluvihjeitä lisättiin {L2}"
+    "message": "{L1} quickFilters on nyt yhteensopiva Thunderbird 128:n kanssa. {L2} {L1} Tilansäästämiseksi suodatinavustajan dialogiin lisättiin hallintalaitteet kuvausten ja esikatselupaneelin kutistamiseksi. [issue 243]{L2}{L1} Korjattu: tiedostonvalitsin, joka on rikki Thunderbird 125:ssä [issue 244] {L2}{L1} Korjattu: otsikoiden lukeminen ja täyttäminen mukautetuissa suodatinsapluunoissa {L2}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

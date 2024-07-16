@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "10 juillet"
+    "message": "31 juillet"
   },
   "special-offer-head": {
     "message": "Veuillez aider quickFilters à continuer!"
@@ -1399,7 +1399,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} Certains problèmes liés à Betterbird ont été résolus [issue 225]. {L2} {L1} Amélioration des traductions en italien, grâce à Leopoldo Saggin {L2}{L1} Amélioration du support d'ouverture des onglets : cela utilise désormais des fonctions API officielles. [issue 220] {L2}{L1} L'assistant ne s'ouvrait pas lorsque vous utilisiez le menu contextuel pour créer un filtre à partir d'un message dans des dossiers locaux [issue 235]{L2} {L1} Augmentation des infobulles des boutons de la barre d'outils dans la liste des messages {L2}"
+    "message": "{L1} quickFilters est maintenant compatible avec Thunderbird 128. {L2} {L1} Pour gagner de la place, des contrôles ont été ajoutés pour réduire la description et le panneau d'aperçu dans la boîte de dialogue de l'assistant de filtre. [issue 243]{L2}{L1} Correction : sélecteur de fichiers qui est cassé dans Thunderbird 125 [issue 244] {L2}{L1} Correction de la lecture et du pré-remplissage des en-têtes dans les modèles de filtres personnalisés {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

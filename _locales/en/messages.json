@@ -1228,6 +1228,7 @@
   "quickfilters.warning.emptyFilter": {
     "message": "Could not create filter: without valid search terms the filter can not be edited."
   },
+
   "quickfilters.warning.templateNameNotUnique": {
     "message": "A template of this name already exists! The name must be unique."
   },
@@ -1298,7 +1299,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "July 10th"
+    "message": "July 31st"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
@@ -1399,7 +1400,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Some problems related to Betterbird were fixed [issue 225]. {L2} {L1} Improved Italian translations, thanks to Leopoldo Saggin {L2}{L1} Improved opening support tabs - this is now using official API functions. [issue 220] {L2}{L1} Assistant was not opening when using context menu to create filter from message in local folders [issue 235]{L2} {L1} Increased tooltips of toolbar buttons in messages list {L2}"
+    "message": "{L1} quickFilters is now compatible with Thunderbird 128. {L2} {L1} To save space,  controls were added to collapse description and preview panel in filter assistant dialog. [issue 243]{L2}{L1} Fixed: file picker which is broken in Thunderbird 125 [issue 244] {L2}{L1} Fixed reading & prefilling headers in custom filter templates {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

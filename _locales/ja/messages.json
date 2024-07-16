@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "7月10日"
+    "message": "7月31日"
   },
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
@@ -1399,7 +1399,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} Betterbird に関連する問題がいくつか修正されました [issue 225]。{L2} {L1} イタリア語の翻訳が改善されました、Leopoldo Saggin さんに感謝します{L2}{L1} タブのオープンサポートが改善されました：これは現在公式の API 関数を使用しています。[issue 220] {L2}{L1} ローカルフォルダ内のメッセージからフィルタを作成するためのコンテキストメニューを使用した場合、アシスタントが開かれませんでした [issue 235]{L2} {L1} メッセージリスト内のツールバーボタンのツールチップが増加しました {L2}"
+    "message": "{L1} quickFilters は Thunderbird 128 と互換性があります。 {L2} {L1} スペースを節約するために、フィルターアシスタントダイアログに説明とプレビューパネルを折りたたむためのコントロールが追加されました。 [issue 243]{L2}{L1} 修正: Thunderbird 125 で壊れているファイルピッカー [issue 244] {L2}{L1} 修正: カスタムフィルターテンプレートでのヘッダーの読み取りと事前入力 {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

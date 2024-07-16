@@ -1299,7 +1299,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "10. Juli"
+    "message": "31. Juli"
   },
   "special-offer-head": {
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
@@ -1400,7 +1400,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} Einige Probleme im Zusammenhang mit Betterbird wurden behoben [issue 225]. {L2} {L1} Verbesserte Italienisch-Übersetzungen, dank Leopoldo Saggin {L2}{L1} Verbesserte Unterstützung beim Öffnen von Registerkarten - dies verwendet jetzt offizielle API-Funktionen. [issue 220] {L2}{L1} Der Assistent wurde nicht geöffnet, wenn das Kontextmenü zum Erstellen eines Filters aus einer Nachricht in lokalen Ordnern verwendet wurde [issue 235]{L2} {L1} Grössere Tooltips der Symbolleistenbuttons in der Nachrichtenliste {L2}"
+    "message": "{L1} quickFilters ist ab sofort mit Thunderbird 128 kompatibel. {L2} {L1} Um Platz zu sparen, wurden buttons hinzugefügt, um die Beschreibung und das Vorschaufenster im Filterassistent-Dialog zu reduzieren. [issue 243]{L2}{L1} Behoben: Dateiauswahl, die in Thunderbird 125 defekt ist [issue 244] {L2}{L1} Behoben: Lesen und Vorbefüllen von Kopfzeilen in benutzerdefinierten Filtervorlagen {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

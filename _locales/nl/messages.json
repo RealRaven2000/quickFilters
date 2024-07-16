@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "10 juli"
+    "message": "31 juli"
   },
   "special-offer-head": {
     "message": "Help quickFilters om door te gaan!"
@@ -1399,7 +1399,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} Sommige problemen met Betterbird zijn opgelost [issue 225]. {L2} {L1} Verbeterde Italiaanse vertalingen, dankzij Leopoldo Saggin {L2}{L1} Verbeterde ondersteuning voor het openen van tabbladen: dit maakt nu gebruik van officiële API-functies. [issue 220] {L2}{L1} De assistent werd niet geopend bij gebruik van het contextmenu om een filter te maken vanuit een bericht in lokale mappen [issue 235]{L2} {L1} Verhoogde tooltips van werkbalkknoppen in de berichtenlijst {L2}"
+    "message": "{L1} quickFilters is nu compatibel met Thunderbird 128. {L2} {L1} Om ruimte te besparen, zijn er besturingselementen toegevoegd om de beschrijving en het voorbeeldpaneel in het filterassistent-venster samen te vouwen. [issue 243]{L2}{L1} Opgelost: bestandskiezer die kapot is in Thunderbird 125 [issue 244] {L2}{L1} Opgelost: lezen en invullen van kopteksten in aangepaste filtertemplates {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

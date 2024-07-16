@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "ngày 10 tháng 7"
+    "message": "ngày 31 tháng 7"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
@@ -1399,8 +1399,8 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Một số vấn đề liên quan đến Betterbird đã được sửa [issue 225]. {L2} {L1} Cải thiện bản dịch tiếng Ý, nhờ Leopoldo Saggin {L2}{L1} Cải thiện hỗ trợ mở tab: điều này bây giờ đang sử dụng các hàm API chính thức. [issue 220] {L2}{L1} Trợ lý không mở khi sử dụng menu ngữ cảnh để tạo bộ lọc từ một tin nhắn trong các thư mục cục bộ [issue 235]{L2} {L1} Tăng các ghi chú công cụ của các nút thanh công cụ trong danh sách tin nhắn {L2}"
-  },  
+    "message": "{L1} quickFilters hiện tương thích với Thunderbird 128. {L2} {L1} Để tiết kiệm không gian, các điều khiển đã được thêm vào để thu gọn mô tả và bảng xem trước trong hộp thoại trợ lý bộ lọc. [issue 243]{L2}{L1} Đã sửa: trình chọn tệp bị hỏng trong Thunderbird 125 [issue 244] {L2}{L1} Đã sửa lỗi đọc và điền trước tiêu đề trong các mẫu bộ lọc tùy chỉnh {L2}"
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Chào mừng bạn đến với $addonName$",

@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "10 juli"
+    "message": "31 juli"
   },
   "special-offer-head": {
     "message": "Snälla hjälp quickFilters att fortsätta!"
@@ -1399,7 +1399,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} Vissa problem relaterade till Betterbird har åtgärdats [issue 225]. {L2} {L1} Förbättrade italienska översättningar, tack vare Leopoldo Saggin {L2}{L1} Förbättrad support för att öppna flikar: detta använder nu officiella API-funktioner. [issue 220] {L2}{L1} Assistenten öppnades inte när du använde snabbmenyn för att skapa ett filter från ett meddelande i lokala mappar [issue 235]{L2} {L1} Ökade verktygstips för verktygsfältets knappar i meddelandelistan {L2}"
+    "message": "{L1} quickFilters är nu kompatibel med Thunderbird 128. {L2} {L1} För att spara utrymme har kontroller lagts till för att kollapsa beskrivning och förhandsgranskningspanel i filterassistentens dialogruta. [issue 243]{L2}{L1} Fixat: filväljare som är trasig i Thunderbird 125 [issue 244] {L2}{L1} Fixat läsning och förfyllning av rubriker i anpassade filtermallar {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
