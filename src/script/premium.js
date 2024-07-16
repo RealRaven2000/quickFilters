@@ -1,5 +1,9 @@
+var sales_name = "MIDSUMMER SALE"; // .saleName
+var sales_start_lbl = "July 17th"; // .saleStart
+var sales_end_lbl = "July 31st";  // .saleEnd
+var sales_end = new Date("2024-07-31");
 
-var sales_end = new Date("2023-07-10");
+
 
 /* functions that remove elements depending on the user type (from user=pro querystring ) */
 
@@ -83,6 +87,20 @@ var removedItems = [];
 					}
 				}
 			);
+		} else {
+			// update all sales items:
+			let saleLabels = document.querySelectorAll(".saleName");
+			for (let s of saleLabels) {
+				s.textContent = sales_name; // e.g. "AUTUMN SALE"
+			}
+			let saleStarts =  document.querySelectorAll(".saleStart");
+			for (let s of saleStarts) {
+				s.textContent = sales_start_lbl; // e.g. "September 25th"
+			}			
+			let saleEnds =  document.querySelectorAll(".saleEnd");
+			for (let s of saleEnds) {
+				s.textContent = sales_end_lbl; // e.g. "October 9th"
+			}			
 		}
 
 	});
