@@ -1,10 +1,19 @@
 #quickfilters-toolbar-button,
-#quickFilters-wizard,
 #quickFilters-fromMessage,
 #quickFilters-fromMessageInMenu {
   list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
   -moz-context-properties: fill;
   fill: currentColor;
+}
+/* stupid workaround for not being able to set fill via css! */
+#quickfilters-toolbar-button[checked="true"],
+#quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant {
+  list-style-image: url("chrome://quickfilters/content/skin/quickFilters-active.svg") !important;
+}
+#quickfilters-toolbar-button[checked="true"] {
+  outline: red 2px solid; /* fix problem in thunderbird 128 - list0style image was ignored */
+  /* not sure whether this chrome URL is visible in this context */
+  --webextension-toolbar-image: url("chrome://quickfilters/content/skin/quickFilters-active.svg") !important;
 }
 
 #quickfilters-current-runbutton,
@@ -90,6 +99,7 @@
 #quickfilters-toolbar-button[checked="true"] .button-icon,
 #quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant image {
   fill: #f30606 !important; 
+  -moz-context-properties: fill, fill-opacity;
 }
 
 #quickfilters-toolbar-button:where(.newsflash, .expired, .renew) > :where(label, .button-label) {

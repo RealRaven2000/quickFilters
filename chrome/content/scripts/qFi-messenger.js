@@ -121,7 +121,6 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.onApplyFiltersToSelection();
         break;
       case "quickfilters-toggleAssistant":
-      case "quickFilters-wizard":
       case TOGGLE_ASSIST_TOOL_ID:
         window.quickFilters.onMenuItemCommand("toggle_Filters");
         break;
