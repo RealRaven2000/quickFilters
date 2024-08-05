@@ -117,7 +117,7 @@ quickFilters.List = {
     return list.selectedIndex;
   } ,
 	
-	clone: async function clone(evt) {
+	clone: async function(evt) {
     let filtersList = this.FilterList,
         sourceFolder = filtersList.folder,
         list = this.FilterListElement;
@@ -127,7 +127,7 @@ quickFilters.List = {
     if (this.getSelectedCount(list) != 1) {
 			let wrn = util.getBundleString('quickfilters.clone.selectOne', 
                                    'To clone, select exactly one filter.');
-      util.popupAlert(wrn);
+      await util.popupAlert(wrn);
       return;
     } 
 	
@@ -135,7 +135,7 @@ quickFilters.List = {
 		if (!selectedFilter) {
       let wrn = util.getBundleString('quickfilters.clone.undetermined', 
                                    'Could not determine which filter is selected');
-			util.popupAlert(wrn);
+			await util.popupAlert(wrn);
 			return;
 		}
 		// get user specific clone label
@@ -212,7 +212,6 @@ quickFilters.List = {
   sort: function sort(evt) {
 		const util = quickFilters.Util;
     let filtersList = this.FilterList, // Tb / SM
-        sourceFolder = filtersList.folder,
         list = this.FilterListElement,
         count = this.getSelectedCount(list);
     if (count < 2) {
@@ -229,7 +228,7 @@ quickFilters.List = {
     }
   } ,
     
-  merge: async function merge(evt, isEvokedFromButton) {
+  merge: async function(evt, isEvokedFromButton) {
 		const prefs = quickFilters.Preferences,
 		      util = quickFilters.Util,
 					Ci = Components.interfaces;
@@ -244,7 +243,7 @@ quickFilters.List = {
     if (count < 2) {
 			let wrn = util.getBundleString('quickfilters.merge.warning.selectMultiple', 
                                               'To merge, select at least 2 filters');
-      util.popupAlert(wrn);
+      await util.popupAlert(wrn);
       return;
     } 
     // see qFilters-worker line 471
@@ -257,7 +256,7 @@ quickFilters.List = {
 		if (!firstSelectedFilter) {
 			let wrn = util.getBundleString('quickfilters.merge.warning.selectMultiple2',
 				          'Cannot determine first selected filter - to merge, you must select at least 2 filters!');
-			util.popupAlert(wrn);
+			await util.popupAlert(wrn);
 			return;
 		}
     let primaryAction,
@@ -269,7 +268,7 @@ quickFilters.List = {
 			let wrn = util.getBundleString('quickfilters.merge.warning.missingAction',
 				          'Could not get the main action of the filter: {1}');
 		  wrn.replace ('{1}', primaryName);
-			util.popupAlert(wrn + '\n' + ex.toString());
+			await util.popupAlert(wrn + '\n' + ex.toString());
 		}
     action = primaryAction;
     let FA = Ci.nsMsgFilterAction,
@@ -369,7 +368,6 @@ quickFilters.List = {
     
     // is there an existing filter selected for merging?
     let mergeFilterIndex = params.selectedMergedFilterIndex,
-        isMerge = false,
         targetFilter;
 
     // user has selected a template
@@ -377,11 +375,10 @@ quickFilters.List = {
     if (mergeFilterIndex >= 0) {
       targetFilter = matchingFilters[mergeFilterIndex];
       isMerge = true;
-    }
-    else {
+    } else {
 			let wrn = util.getBundleString('quickfilters.merge.warning.selectTarget',
                                      'A target filter must be selected for merging!')
-      util.popupAlert(wrn);
+      await util.popupAlert(wrn);
 			return;
     }
 
@@ -548,7 +545,7 @@ quickFilters.List = {
     }
   } ,
   
-	pushSelectedToClipboard: function pushSelectedToClipboard(type) {
+	pushSelectedToClipboard: function(type) {
 		const util = quickFilters.Util,
 		      list = this.FilterListElement,
 					filtersList = this.FilterList,
@@ -596,7 +593,7 @@ quickFilters.List = {
 		return true;
 	},
 	
-	cutFilters: function cutFilters() {
+	cutFilters: function () {
 		if (this.pushSelectedToClipboard('cut')) {
 			this.clipboardPending='cut';
 		}
@@ -608,7 +605,7 @@ quickFilters.List = {
 		}
 	},
 	
-	pasteFilters: function pasteFilters(isSort) {
+	pasteFilters: function (isSort) {
 		const util = quickFilters.Util,
 		      prefs = quickFilters.Preferences,
 		      Ci = Components.interfaces;
@@ -627,7 +624,7 @@ quickFilters.List = {
 			}
 			if (this.clipboardServer == this.CurrentFolder) {
         isMove = true; // copy / paste from same server = move
-        if (this.clipboardPending == 'copy')  { // not allowed
+        if (this.clipboardPending == 'copy')  { // not supported; use clone instead!
           let wrn = util.getBundleString('quickfilters.copy.warning.selectOtherAccount',
             'Select a different account for pasting items!');
           util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
@@ -739,23 +736,31 @@ quickFilters.List = {
 		
 	},
 
-  getListElementCount: function getListElementCount(list) {
+  getListElementCount: function (list) {
     return list.getRowCount();
   } ,
 
   // remove any icons that were added as part of copy or cut functions
-  resetClipboardStylings: function resetClipboardStylings() {
+  resetClipboardStylings: function () {
 		quickFilters.Util.logDebugOptional("clipboard", "resetClipboardStylings()");
-		let list = this.FilterListElement,
-		    ct = list.children.length;
-	  for (let i = 0; i<ct; i++) {
-			let cl = list.children[i].getAttribute('class');
-			if (cl.indexOf('quickFilters')>=0) {
-				cl = cl.replace('quickFiltersCut', '').replace('quickFiltersCopy', '');
-				list.children[i].setAttribute('class', cl);
-			}
-			
-		}
+    try {
+      let list = this.FilterListElement,
+          ct = list.children.length;
+      for (let i = 0; i<ct; i++) {
+        const el = list.children[i];
+        if (el.tagName != "richlistitem") { continue; }
+        const cl = el.getAttribute('class');
+        if (!cl) { continue; }
+        if (cl.indexOf('quickFilters')>=0) {
+          const newcl = cl.replace('quickFiltersCut', '').replace('quickFiltersCopy', '');
+          list.children[i].setAttribute('class', newcl);
+        }			
+      }
+    } catch (ex) {
+      quickFilters.Util.logException('resetClipboardStylings() failed', ex);
+      return false;
+    }
+    return true;
 	} ,
 	
 	onSelectServer: function onSelectServer() {
@@ -1910,7 +1915,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		let count = this.getSelectedCount(this.FilterListElement);
 		if (count < 1) {
 			let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
-			quickFilters.Util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
+			await quickFilters.Util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
 			return false;
 		}
     let filtersJSON = {

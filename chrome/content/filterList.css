@@ -88,7 +88,7 @@
 
 /* options for search box */
 #quickFilters-SearchOptions {
-  -moz-appearance: none; /* toolbarbutton !important; none works better in Ubuntu */
+  appearance: none; /* toolbarbutton !important; none works better in Ubuntu */
 	background: transparent !important;
 	background-size: 16px 16px !important;
 	border-style: none !important;
@@ -118,6 +118,12 @@
   background-image: url("chrome://quickfilters/content/skin/cut.svg") !important;
   background-repeat: no-repeat;
   padding-left: 18px;
+}
+
+/* this doesn't work yet because of the use of context-fill in the svg */
+.quickFiltersCopy[selected] label,
+.quickFiltersCut[selected] label { 
+  fill: lightpink !important;
 }
 
 
