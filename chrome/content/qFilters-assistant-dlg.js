@@ -235,7 +235,7 @@ quickFilters.Assistant = {
                 templateList.insertBefore(listItem, templateList.children.item(0));
             }
             else {
-              util.popupAlert('Invalid custom Filter name {' + filter.filterName + '}\n' +
+              await util.popupAlert('Invalid custom Filter name {' + filter.filterName + '}\n' +
                               'Expected Format is \"quickFilterCustomTemplate:title\"');
             }
           }

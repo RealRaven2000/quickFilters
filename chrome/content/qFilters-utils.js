@@ -409,7 +409,7 @@ quickFilters.Util = {
       if (!title) {
         title = "quickFilters";
       }
-      util.logToConsole('popupAlert(' + text + ', ' + title + ')');
+      util.logToConsole('slideAlert(' + text + ', ' + title + ')');
 			// let's put this into a timeout
 			window.setTimeout(function() {
 				let service = Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService);
@@ -422,16 +422,19 @@ quickFilters.Util = {
     }
   } ,
   
-  popupAlert: function popupAlert(text, title, icon, timeOut) {
+  /* [issue 258] needs to be async from Thunderbird 128! */
+  popupAlert: async function (text, title, icon, timeOut) {
     try {
 			let isTimeout = !(timeOut == 0);
 			if (!timeOut) timeOut = 4000;
-      if (!icon)
+      if (!icon) {
         icon = "chrome://quickfilters/content/skin/QuickFilters_32.png";
-      else
+      } else {
         icon = "chrome://quickfilters/content/skin/" + icon;
-      if (!title)
+      }
+      if (!title) {
         title = "quickFilters";
+      }
       let panel = document.getElementById('quickFilterNotification');
       if (panel) {
         panel.openPopup(null, "after_start", 0, 0, false, false);
@@ -440,7 +443,7 @@ quickFilters.Util = {
             // appendNotification( label , value , image , priority , buttons, eventCallback )
             notification;
         if (notificationBox.shown) { // new notification format (Post Tb 99)
-          notification = notificationBox.appendNotification( 
+          notification = await notificationBox.appendNotification( 
             notificationKey, // "String identifier that can uniquely identify the type of the notification."
             {
               priority: priority,
@@ -449,15 +452,27 @@ quickFilters.Util = {
             },
             null // no buttons
           );
-        }
-        else {
-          notification = notificationBox.appendNotification( text , null , icon , priority, null, null ); 
+        } else {
+          notification = await notificationBox.appendNotification( text , null , icon , priority, null, null ); 
         }
         notificationBox.addEventListener('alertclose', function() { alert('test'); });
         
         // setting img was removed in Tb91  
-        if (notification.messageImage.tagName == "span") {
-          let container = notification.shadowRoot.querySelector(".container");
+
+        // notification box definition:
+        // https://searchfox.org/mozilla-esr128/source/toolkit/content/widgets/notificationbox.js#421
+        let containerSelector;
+        switch (notification?.messageImage?.tagName) {
+          case "span":
+            containerSelector = ".container";  // Tb 115
+            break;
+          case "img":
+            containerSelector = ".icon-container";  // Tb 128
+            break;
+        }
+
+        if (containerSelector) {
+          let container = notification.shadowRoot.querySelector(containerSelector);
           if (container) {
             let im = document.createElement("img");
             im.setAttribute("src", icon);
@@ -465,10 +480,10 @@ quickFilters.Util = {
           }
         }             
         
-        if (isTimeout)
+        if (isTimeout) {
 					window.setTimeout(function() {try{notificationBox.removeNotification(notification)}catch(e){};panel.hidePopup();}, timeOut);
-      }
-      else {
+        }
+      } else {
         Services.prompt.alert(window, title, text); 
       }
     }
@@ -488,7 +503,7 @@ quickFilters.Util = {
 	// default to isRegister from now = show button for buying a license.
 	// featureName: namne of the feature used (will be transmitted to shop when purchasing)
 	// isRegister: show registration button
-	popupProFeature: function popupProFeature(featureName, isRegister, additionalText) {
+	popupProFeature: async function(featureName, isRegister, additionalText) {
 		let util = quickFilters.Util,
 				prefs = quickFilters.Preferences,
         countDown = null;
@@ -576,7 +591,7 @@ quickFilters.Util = {
 			let newNotification;
 
       if (notifyBox.shown) { // new notification format (Post Tb 99)
-        newNotification = notifyBox.appendNotification( 
+        newNotification = await notifyBox.appendNotification( 
           notificationKey, // "String identifier that can uniquely identify the type of the notification."
           {
             priority: notifyBox.PRIORITY_WARNING_HIGH,
@@ -585,24 +600,33 @@ quickFilters.Util = {
           },
           nbox_buttons // no buttons
         );
-      }
-      else {
-        newNotification = notifyBox.appendNotification( theText, 
+      } else {
+        newNotification = await notifyBox.appendNotification( theText, 
           notificationKey , 
           imgSrc, 
           notifyBox.PRIORITY_WARNING_HIGH, 
           nbox_buttons ); // , eventCallback
       }
+
+      let containerSelector;
+      switch (newNotification?.messageImage?.tagName) {
+        case "span":
+          containerSelector = ".container";  // Tb 115
+          break;
+        case "img":
+          containerSelector = ".icon-container";  // Tb 128
+          break;
+      }      
        
       // setting img was removed in Tb91
-      if (newNotification.messageImage.tagName == "span") {
+      if (containerSelector) {
         // style needs to go into shadowroot
         let linkEl = document.createElement("link");
         linkEl.setAttribute("rel", "stylesheet");
         linkEl.setAttribute("href", "chrome://quickfilters/content/skin/qFilters-notifications.css");
         newNotification.shadowRoot.insertBefore(linkEl, newNotification.shadowRoot.firstChild.nextSibling);         
         
-        let container = newNotification.shadowRoot.querySelector(".container");
+        let container = newNotification.shadowRoot.querySelector(containerSelector);
         if (container) {
           let im = document.createElement("img");
           im.setAttribute("src", imgSrc);
@@ -1253,7 +1277,7 @@ quickFilters.Util = {
         util.CurrentHeader = new quickFilters.clsGetHeaders(oReplaceTerms.messageURI, util.CurrentMessage); 
         await util.CurrentHeader.read();
       } else {
-        util.popupAlert('Sorry, without messageURI I cannot parse mime headers - therefore cannot replace any variables. Tag listener with custom templates are currently not supported.'); 
+        await util.popupAlert('Sorry, without messageURI I cannot parse mime headers - therefore cannot replace any variables. Tag listener with custom templates are currently not supported.'); 
         oReplaceTerms = null; // do conventional copy!
       }
     }
@@ -2136,8 +2160,6 @@ quickFilters.Util = {
       for (let idx = 0; idx < searchFilterResults.length; idx++) {
         let target = searchFilterResults[idx],
             menuItem = document.createXULElement ? document.createXULElement("menuitem") : document.createElement("menuitem"),
-            dec = decodeURI(target.Action.targetFolderUri),
-            valueLabel = quickFilters.List.truncateLabel(dec, 30),
             filterIdLabel = target.Filter.filterName;
         if (target.Account.prettyName) {
           filterIdLabel = '[' + target.Account.prettyName + '] ' +  filterIdLabel;
@@ -2160,8 +2182,7 @@ quickFilters.Util = {
         filtersDropDown.selectedIndex = 0;
       }
       
-    }
-    catch(ex) {
+    } catch(ex) {
       util.logException("Exception in quickFilters.Util.findFromTargetFolder ", ex);
     }  
     
@@ -2180,19 +2201,17 @@ quickFilters.Util = {
   } ,
   
   setAssistantButton: function(isActive) {
-    let doc = document,
-        button = doc.getElementById('quickfilters-toolbar-button');
+    const doc = document,
+          button = doc.getElementById('quickfilters-toolbar-button');
+    if (quickFilters.Preferences.isDebug) {
+      debugger;
+    }
     if (button) {
       button.setAttribute("checked", isActive);
     }
-    let theLabel = quickFilters.Util.getBundleString(
+    const theLabel = quickFilters.Util.getBundleString(
       isActive ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",
       isActive ? "stop filter assistant" : "start filter assistant");
-    let menuItem = doc.getElementById('quickFilters-wizard');
-    if (menuItem) {
-      menuItem.checked = isActive;
-      menuItem.label = theLabel;
-    }    
     let mnuToggle = doc.getElementById("quickfilters-toggleAssistant");
     if (mnuToggle) {
       mnuToggle.label = theLabel;

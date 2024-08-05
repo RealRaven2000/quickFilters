@@ -37,8 +37,8 @@ quickFilters.Worker = {
   
   // this function is currently called by QuickFolders to overwrite that filter worker process with this one!
   // Problem: it reads the old flag quickFilters.Worker.FilterMode! 
-  toggleFilterMode: function (active, silent) {
-    this.toggle_FilterMode(active, silent);
+  toggleFilterMode: async function (active, silent) {
+    await this.toggle_FilterMode(active, silent);
   } ,
   
 
@@ -48,7 +48,7 @@ quickFilters.Worker = {
   *
   * @param {bool} start or stop filter mode
   */
-  toggle_FilterMode: function (active, silent) {
+  toggle_FilterMode: async function (active, silent) {
     const util = quickFilters.Util,
           worker = quickFilters.Worker;
     function removeOldNotification(box, active, id) {
@@ -118,7 +118,7 @@ quickFilters.Worker = {
             ];
           
           if (notifyBox.shown) { // new notification format (Post Tb 99)
-            notification = notifyBox.appendNotification( 
+            notification = await notifyBox.appendNotification( 
               notificationKey, // "String identifier that can uniquely identify the type of the notification."
               {
                 priority: notifyBox.PRIORITY_WARNING_MEDIUM,
@@ -129,7 +129,7 @@ quickFilters.Worker = {
             );
           }          
           else {
-            notification = notifyBox.appendNotification( theText,
+            notification = await notifyBox.appendNotification( theText,
                 notificationKey ,
                 imgSrc ,
                 notifyBox.PRIORITY_WARNING_MEDIUM,
@@ -138,14 +138,23 @@ quickFilters.Worker = {
                 ); 
           }
           
-          // setting img was removed in Tb91  
-          if (notification.messageImage.tagName == "span") {
+          let containerSelector;
+          switch (notification?.messageImage?.tagName) {
+            case "span":
+              containerSelector = ".container"; // Tb115
+              break;
+            case "img":
+              containerSelector = ".icon-container"; // Tb128
+              break;
+          }
+
+          if (containerSelector) {
             let linkEl = document.createElement("link");
             linkEl.setAttribute("rel", "stylesheet");
             linkEl.setAttribute("href", "chrome://quickfilters/content/skin/qFilters-notifications.css");
             notification.shadowRoot.insertBefore(linkEl, notification.shadowRoot.firstChild.nextSibling);         
             
-            let container = notification.shadowRoot.querySelector(".container");
+            let container = notification.shadowRoot.querySelector(containerSelector);
             if (container) {
               let im = document.createElement("img");
               im.setAttribute("src", imgSrc);
@@ -153,17 +162,7 @@ quickFilters.Worker = {
               // remove warning icon:
               container.removeChild(notification.shadowRoot.querySelector(".icon"));
             }
-            
           }           
-              
-        }
-        else {
-          // fallback for systems that do not support notification (currently: SeaMonkey)
-          let check = {value: false},   // default the checkbox to true
-              result = Services.prompt.alertCheck(null, title, theText, dontShow, check);
-          if (check.value === true) {
-            worker.showMessage(false);
-          }
         }
       }
     }
@@ -192,7 +191,7 @@ quickFilters.Worker = {
       // without adding code in it!
       if (QFwork.FilterMode != active) {// prevent recursion!
         quickFilters.Util.logDebug("Toggle filter assistant mode in QuickFolders!")
-        QFwork.toggle_FilterMode(active); // (active, silent) !!!
+        await QFwork.toggle_FilterMode(active); // (active, silent) !!!
       }
 
       if (!silent) {
@@ -510,7 +509,7 @@ quickFilters.Worker = {
           let serverName = sourceFolder.server.name ? sourceFolder.server.name : "unknown";
           util.logDebug ("sourceFolder.server.name=" + serverName);
           let wrn = util.getBundleString('quickfilters.createFilter.warning.canNotHaveFilters','The account ({1}) cannot have filters.');
-          util.popupAlert(wrn.replace('{1}', serverName));
+          await util.popupAlert(wrn.replace('{1}', serverName));
           this.promiseCreateFilter = false;
           return false;
         }
@@ -521,7 +520,7 @@ quickFilters.Worker = {
         util.logDebug ("sourceFolder.prettyName=" + sourceFolder.prettyName);
         if (sourceFolder.prettyName) {
           let wrn = util.getBundleString('quickfilters.createFilter.warning.noServer','Folder ({1}) does not have a server.');
-          util.popupAlert(wrn.replace('{1}', sourceFolder.prettyName));
+          await util.popupAlert(wrn.replace('{1}', sourceFolder.prettyName));
         }
         this.promiseCreateFilter = false;
         return false;
@@ -587,7 +586,7 @@ quickFilters.Worker = {
     if (!sourceFolder) {
       let txtMessage = 'Sorry but I cannot determine the original folder (SourceFolder) for this Message.\n'
         + 'Filter creation had to be abandoned.';
-      util.popupAlert(txtMessage);
+      await util.popupAlert(txtMessage);
       util.logDebug(txtMessage);
       this.promiseCreateFilter = false;
       return -5;
@@ -628,7 +627,7 @@ quickFilters.Worker = {
             let wrn = util.getBundleString('quickfilters.createFilter.warning.noMessageId',
                 "Failed to create Filter - could not retrieve message id for the first element of the messages list!\n"
                   + "Consider running the Repair Folder command.");
-            util.popupAlert(wrn);
+            await util.popupAlert(wrn);
             this.promiseCreateFilter = false;
             return -1;
           }
@@ -644,7 +643,7 @@ quickFilters.Worker = {
             }
             catch(e) {
               let wrn = util.getBundleString('quickfilters.createFilter.warning.noMessageDb', "Cannot access message database for folder {1}");
-              util.popupAlert(wrn.replace('{1}', targetFolder.prettyName) + "\n" + e);
+              await util.popupAlert(wrn.replace('{1}', targetFolder.prettyName) + "\n" + e);
               this.promiseCreateFilter = false;
               return null;
             }
@@ -1208,7 +1207,7 @@ quickFilters.Worker = {
       case 'multifrom':
         if (buildParams.messageList.length <= 1) {
           let txtAlert = util.getBundleString('quickfilters.createFilter.warning.minimum2Mails', 'This template requires at least 2 mails');
-          util.popupAlert(txtAlert);
+          await util.popupAlert(txtAlert);
           this.promiseCreateFilter = false;
           return false;               
         }
@@ -1434,7 +1433,7 @@ quickFilters.Worker = {
         break;
         
       default: // shouldn't happen => no l10n
-        util.popupAlert('invalid template: ' + template);
+        await util.popupAlert('invalid template: ' + template);
         this.promiseCreateFilter = false;
         return false;
     }
@@ -1656,7 +1655,7 @@ quickFilters.Worker = {
       
       // stop filter mode after creating first successful filter.
       if (prefs.isAbortAfterCreateFilter()) {
-        quickFilters.Worker.toggle_FilterMode(false);
+        await quickFilters.Worker.toggle_FilterMode(false);
       }
       
       // if _neither_ of the windows are displayed, show a sliding notification:

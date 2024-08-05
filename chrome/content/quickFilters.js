@@ -617,17 +617,21 @@ END LICENSE BLOCK
     # [issue 237] increase tooltips of toolbar buttons in messages list
     # [issue 234] WIP - Special quickFilters buttons are not displayed on QuickFolders Navigation Bar (current folder bar)
 
-  6.5 - WIP
+  6.5.1 - 16/07/2024 
     # [issue 138] Made compatible with Thunderbird 128
     # [issue 244] Fix file picker which is broken in Thunderbird 125 [bug 1882701]
     # Fixed reading & prefilling headers in custom filter templates
     # [issue 243] Dialog buttons cut off on filter assistant window (Ubuntu 22.04)
     # optimize licenser (omit folders while listing accounts)
 
+  6.5.2 - WIP
+    # [issue 249] Cut & Paste filters doesn't work in Thunderbird 128  
+    # [issue 258] notifications are now async!
+    # removed vendor prefix from -moz-appearance
 
 
   ============================================================================================================
-  6.* - FUTURE WORK
+  6.* - WIP
     # [issue ]   
     # [issue ]   
     # [issue ]   
@@ -858,6 +862,7 @@ var quickFilters = {
           prefs = quickFilters.Preferences;
     switch(cmd) {
       case 'toggle_Filters':
+        // this one is now async
         quickFilters.Worker.toggle_FilterMode(!quickFilters.Util.AssistantActive); 
         break;
       case 'createFilterFromMsg':
@@ -965,11 +970,10 @@ var quickFilters = {
             fA, 
             false, 
             !(!eventDetail)); // from API
-        }
-        else {
+        } else {
           let wrn = util.getBundleString("quickfilters.createFromMail.selectWarning",
             "To create a filter, please select exactly one email!");
-          util.popupAlert(wrn);
+          await util.popupAlert(wrn);
         }
         break;
     }
@@ -1077,7 +1081,7 @@ var quickFilters = {
     }
   },
   
-  searchFiltersFromFolder: function searchFiltersFromFolder(e) {
+  searchFiltersFromFolder: function(e) {
     const util = quickFilters.Util,
           Ci = Components.interfaces;
     let menuItem = e ? e.target : null,
@@ -1158,8 +1162,7 @@ var quickFilters = {
     if (!matchedAccount) {
       let wrn = util.getBundleString('quickfilters.search.warning.noresults', 'No matching filters found.');
       util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');    
-    }
-    else {
+    } else {
       util.popupProFeature("searchFolder", true);
     }
   },
@@ -1171,12 +1174,10 @@ var quickFilters = {
   // Tb115 - new drop interface: passes the event now, and not (row, orientation) !
   onFolderTreeViewDrop: function onFolderTreeViewDrop(event) {  // , aRow, aOrientation
     const Cc = Components.classes,
-        Ci = Components.interfaces,
-        util = quickFilters.Util;
-    let worker = quickFilters.Worker,
-        dataTransfer = event.dataTransfer,
-        origTarget = event.explicitOriginalTarget;
-
+          Ci = Components.interfaces,
+          util = quickFilters.Util,
+          worker = quickFilters.Worker,
+          dataTransfer = event.dataTransfer;
 
     let types = dataTransfer.mozTypesAt(0);  // one flavor
     if (!types.contains("text/x-moz-message") || (!quickFilters.Util.AssistantActive)) {
