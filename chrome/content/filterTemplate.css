@@ -151,7 +151,7 @@ button.dialog-button:first-child {
 .dialog-button:first-child
 {
 	margin: 2px 0px;
-	-moz-appearance: none;
+	appearance: none;
 	border-radius: 2em;
 	box-shadow: 2px 2px 3px -1px rgba(0, 0, 0, 0.7);
 	color: #fff;

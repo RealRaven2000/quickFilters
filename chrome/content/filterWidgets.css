@@ -166,7 +166,7 @@ tab#quickFilters-Support {
 }
 
 .helpLink {
-  -moz-appearance: none !important;
+  appearance: none !important;
   display: inline-block;
   background-repeat: no-repeat;
   cursor: pointer;

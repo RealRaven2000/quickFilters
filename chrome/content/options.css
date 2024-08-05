@@ -41,7 +41,7 @@
 }
 
 #assistantIgnore {
-	-moz-appearance: none !important;
+	appearance: none !important;
 	border: 1px solid rgba(90,90,90,0.7);
 	border-radius: 3px;
   margin-top: 20px;
@@ -165,7 +165,7 @@ label.plain-link {
 
 button.debug {
 	border-radius: 2px !important;
-	-moz-appearance: none !important;
+	appearance: none !important;
 	background-color: #B00;
 	color: #FFF;
 	border: 1px solid gray;
@@ -279,7 +279,7 @@ label#L1:active a {
 }
 
 label#getCopySentToCurrent, #getCopySentToCurrent:focus {
-	-moz-appearance: none !important;
+	appearance: none !important;
 	background: linear-gradient(to bottom, rgb(40, 132, 218) 0%, rgb(29, 104, 169) 15%, rgb(4, 45, 89) 50%, rgb(26, 92, 150) 83%, rgb(31, 110, 179) 100%);
 	border: 1px solid rgb(187, 204, 238) !important;
 	border-radius: 2px;
@@ -294,7 +294,7 @@ label#getCopySentToCurrent:hover {
 
 /* youtube - red */
 label#L2 {
-	-moz-appearance: none;
+	appearance: none;
   background: linear-gradient(to bottom, #860404 0%,#6b0505 100%);
 	color: #F0F0F0 !important;
 	text-align: center;
