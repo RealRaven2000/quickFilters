@@ -789,7 +789,6 @@ quickFilters.List = {
 
   onLoadFilterList: function onLoadFilterList(evt) {
     const util = quickFilters.Util,
-		      prefs = quickFilters.Preferences,
 					qList = quickFilters.List;
     function removeElement(el) {
       try {
@@ -1009,8 +1008,7 @@ quickFilters.List = {
  * @param focusSearchBox  if called from the button click event, return to searchbox
  */
   onFindFilter: function onFindFilter(focusSearchBox) {
-    const util = quickFilters.Util,
-		      prefs = quickFilters.Preferences;
+    const util = quickFilters.Util;
     let searchBox = document.getElementById("searchBox"), // quickFilters-Search
         filterList = this.FilterListElement,
         keyWord = searchBox.value.toLocaleLowerCase();
@@ -1554,9 +1552,7 @@ quickFilters.List = {
 	
   // similar to selectDuplicate but is also able to change the server selection as we search across all accounts
   selectFoundFilter: function selectFoundFilter(el) {
-		const qList = quickFilters.List,
-		      util = quickFilters.Util,
-					prefs = quickFilters.Preferences;
+		const qList = quickFilters.List;
     qList.toggleSearchType('targetFolder');
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
 		
@@ -2263,8 +2259,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
   } ,
   
   setupToolbar: function() {
-		const util = quickFilters.Util,
-				  prefs = quickFilters.Preferences,
+		const prefs = quickFilters.Preferences,
           getElement = document.getElementById.bind(document);
 		// Toolbar
 		let toolbox = getElement("quickfilters-toolbox"),
@@ -2274,8 +2269,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		if (!prefs.getBoolPref("toolbar")) {
 		  // toolbox.parentNode.removeChild(toolbox);
       toolbox.collapsed = true;
-		}
-		else if (hbox && toolbar) { // move toolbox up
+		} else if (hbox && toolbar) { // move toolbox up
 			hbox.parentNode.insertBefore(toolbox, hbox);
 			isToolbar = true;
 			if (quickFilters.Util.AssistantActive) {  // needs to bve asked from background script!
@@ -2288,10 +2282,11 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
     let down = getElement("reorderDownButton"),
         mergeButton = getElement("quickFilters-mergeButton");
     if (mergeButton) {
-		  if (isToolbar)
+		  if (isToolbar) {
 				mergeButton.parentNode.removeChild(mergeButton); // remove unneccessary button
-			else
+      } else {
 				down.parentNode.insertBefore(mergeButton, getElement("deleteButton").nextSibling);
+      }
     }
 		
     
