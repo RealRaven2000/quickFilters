@@ -2344,6 +2344,33 @@ quickFilters.Util = {
 		return win;
 	},
 
+  patchToolbarTheme: function(event, toolbarObj) {
+    const eventType = event?.type;
+    if (!eventType) return false;
+		quickFilters.Util.logDebugOptional("filterList",`patchToolbarTheme(${eventType})`, toolbarObj, event);
+
+    switch (eventType) {
+      case "activate":
+      case "deactivate":
+      case "windowlwthemeupdate":
+      case "toolbarvisibilitychange": // this.inferFromText(event.type, event.visible);
+        const toolbar = toolbarObj.doc.getElementById(toolbarObj.toolbarId);
+        if (!toolbar) {
+          quickFilters.Util.logDebugOptional("filterList",`patchToolbarTheme(${eventType})\nDid not find toolbar ${toolbarObj.toolbarId}`);
+          return false;
+        }
+        if (toolbarObj.win.matchMedia && toolbarObj.win.matchMedia('(prefers-color-scheme: dark)').matches) {
+          toolbar.setAttribute("brighttext",true);
+        } else {
+          toolbar.removeAttribute("brighttext");
+        }
+        break;
+      default:
+        return false;
+    }
+    return true;
+  },  
+
 	
   dummy: function() {
 		/* 
@@ -2354,6 +2381,7 @@ quickFilters.Util = {
 		 *  ================================================================
 		 */
 	}
+
 }; // Util
 
   // -------------------------------------------------------------------

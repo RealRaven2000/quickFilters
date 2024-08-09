@@ -10,19 +10,16 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-util
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-list.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
+
 /*  execute quickFilters.List.onLoadFilterList() when loading window   */
 /* Services.scriptloader.loadSubScript("chrome://quickfilters/content/overlayFilterList.js", window, "UTF-8"); */
+
+var quickFilters_themeHandler;
 
 async function onLoad(activatedWhileWindowOpen) {
   //TODO do we need "chrome://global/skin/"??
   let layout1 = WL.injectCSS("chrome://quickfilters/content/filterList.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
-  // legacy css rules
-  
-  // let info = await browser.runtime.getBrowserInfo(); parseInt(info.version,10)<102
-  if (window.quickFilters.Util.versionSmaller(window.quickFilters.Util.AppverFull, "102")) {
-    WL.injectCSS("chrome://quickfilters/content/filterList-78.css");
-  }
   
 
   WL.injectElements(`
@@ -117,8 +114,8 @@ async function onLoad(activatedWhileWindowOpen) {
     id="quickfilters-toolbar" 
     toolbarname="quickFilters Tools"
     customizable="false" 
+    class="themeable-brighttext"
     mode="icons" 
-    
     >
     <toolbarbutton id="quickFiltersBtnCut"
       class="toolbarbutton-1" 
@@ -276,10 +273,41 @@ async function onLoad(activatedWhileWindowOpen) {
 </window>
   
   `);
+
     
   const util=window.quickFilters.Util,
         list = window.quickFilters.List;
   util.logDebug('Adding FilterList...');
+
+  // a quick hack to support dark themes!
+  const myToolbar = document.getElementById("quickfilters-toolbar");
+  if (myToolbar) {
+    // inject brighttext if necessary
+    // for some reason this is not generated automatically
+    // which leads to badly matching icons in the toolbar...
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      myToolbar.setAttribute("brighttext",true);
+    }
+  }
+
+  quickFilters_themeHandler = {
+    handleEvent(event) {
+      window.setTimeout(
+        () => {
+          window.quickFilters.Util.patchToolbarTheme(event, {
+            win: window,
+            doc: document,
+            toolbarId: "quickfilters-toolbar"
+          });
+        },
+        500
+      );
+    }
+  }
+  window.addEventListener("windowlwthemeupdate", quickFilters_themeHandler);
+  window.addEventListener("activate", quickFilters_themeHandler);
+
+
 
   window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
@@ -301,6 +329,13 @@ async function onLoad(activatedWhileWindowOpen) {
 }
 
 function onUnload(isAddOnShutDown) {
+  if (typeof ToolbarIconColor !== "undefined") {
+    ToolbarIconColor.uninit();
+  }
+
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   window.removeEventListener("quickFilters.BackgroundUpdate.setupListToolbar", configureToolbar);
+  window.removeEventListener("windowlwthemeupdate", quickFilters_themeHandler);
+  window.removeEventListener("activate", quickFilters_themeHandler);
+
 }
