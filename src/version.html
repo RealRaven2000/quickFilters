@@ -217,12 +217,74 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
  
 -->
 
-<a name="6.5"> &nbsp; </a>
-<a name="6.5.1"> &nbsp; </a>
+
+<a name="6.5.2"> &nbsp; </a>
 <li>
   <h4>
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/" 
 		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+     quickFilters 6.5.2 - WIP</a>
+	</h4>
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li> 
+      Made compatible with Thunderbird 128
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/138">[issue 138]</a>. 
+    </li>
+    <li>
+      <p>
+        Improved dark theme support in folder menu and message filters window. 
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/259">[issue 259]</a><br>
+      </p>
+        <img class="screenshot" src="img/icon-colors.png" alt="folder action icons">
+      <p>
+        Full theme integration for all features that quickFilters adds to the message filters window
+      </p>
+      <p>
+        <img class="screenshot" src="img/filters-list-theming.png" alt="full theme integration for features all quickFilters ">
+      </p>
+      
+    </li>
+    <li>
+      Some theme fixes for icons: copy/cut icons for filters dialog
+    </li>
+  </ul>
+
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+    <li>
+      Fixed: Cut & Paste filters doesn't work in Thunderbird 128  
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/249">[issue 249]</a>
+    </li>
+    <li>
+      Thunderbird 128 - Notifications are now async! This may lead to the filter 
+      assistant not starting up successfully
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/258">[issue 258]</a>
+    </li>
+    <li> 
+      Fixed: After using any function, from its dowdown menu, quickFilters toolbar button 
+      looked like it is always active
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/223">[issue 223]</a>
+    </li>    
+  </ul>
+
+  <h5 class="inList"> Miscellaneus </h5>  
+  <ul>
+    <li>
+      Tidied error log: msgsMoveCopyCompleted: remove "no destmsg!"
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/254">[issue 254]</a>
+    </li>
+    <li>
+      Code Maintenance: Removed vendor prefix from <tt>-moz-appearance</tt>
+    </li>
+  </ul>
+</li>
+
+<a name="6.5"> &nbsp; </a>
+<a name="6.5.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/">
      quickFilters 6.5.1 - 17/07/2024</a>
 	</h4>
 
