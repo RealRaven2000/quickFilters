@@ -153,6 +153,15 @@ async function onLoad(activatedWhileWindowOpen) {
       default:
         console.log("unknown quickFilters command", el.id || "id: N/A", el);
     }
+    // [issue 223] - find the button and remove the "pushed" look:
+    let parent = el.parentElement;
+    while (parent && parent.tagName != "button") {
+      parent = parent.parentElement;
+    }
+    if (!parent) return;
+    if (parent.id=="quickfilters-toolbar-button") {
+      parent.removeAttribute("aria-pressed");
+    }
 
   }
 
