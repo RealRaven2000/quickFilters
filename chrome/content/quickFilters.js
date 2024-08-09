@@ -625,9 +625,13 @@ END LICENSE BLOCK
     # optimize licenser (omit folders while listing accounts)
 
   6.5.2 - WIP
-    # [issue 249] Cut & Paste filters doesn't work in Thunderbird 128  
-    # [issue 258] notifications are now async!
-    # removed vendor prefix from -moz-appearance
+    # [issue 249] Fixed: Cut & Paste filters doesn't work in Thunderbird 128  
+    # [issue 258] Thunderbird 128 - Notifications are now async! This may lead to the filter 
+                  assistant not starting up successfully
+    # Improved dark theme support to message filters window
+    # Some theme fixes for icons: copy/cut icons for filters dialog
+    # Removed vendor prefix from -moz-appearance
+    # [issue 254] msgsMoveCopyCompleted: remove "no destmsg!"
 
 
   ============================================================================================================
@@ -2364,9 +2368,7 @@ quickFilters.patchMailPane = () => {
     if (mnuToolsCreateFromMsg) {
       mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
     }
-
-  }
-  else {
+  } else {
     console.log("quickFilters - mainButton not found!!")
   }
 }
