@@ -1,8 +1,29 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="context-fill">
-  <path d="M8 7H5C3.67 7 3.67 9 5 9h3c1.33 0 1.33-2 0-2zm0 4H5c-1.33 0-1.33 2 0 2h3c1.33 0 1.33-2 0-2zm0-8H5C3.67 3 3.67 5 5 5h3c1.33 0 1.33-2 0-2zM2 3a1 1 0 100 2 1 1 0 000-2zm0 4a1 1 0 100 2 1 1 0 000-2zm0 4a1 1 0 100 2 1 1 0 000-2z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <style>
+  @media (prefers-color-scheme: light) {
+    :root {
+      --basiccolor: rgb(20,20,20);
+      --fill: var(--basiccolor);
+      --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
+      --highlight: var(--new-highlight,#0488d5);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --basiccolor: rgb(251,251,254);
+      --fill: var(--basiccolor);
+      --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
+      --highlight: var(--new-highlight,#0aa5ff);
+    }
+  }
+  </style> 
+  <path 
+    style="fill:var(--fill);"
+    d="M8 7H5C3.67 7 3.67 9 5 9h3c1.33 0 1.33-2 0-2zm0 4H5c-1.33 0-1.33 2 0 2h3c1.33 0 1.33-2 0-2zm0-8H5C3.67 3 3.67 5 5 5h3c1.33 0 1.33-2 0-2zM2 3a1 1 0 100 2 1 1 0 000-2zm0 4a1 1 0 100 2 1 1 0 000-2zm0 4a1 1 0 100 2 1 1 0 000-2z"/>
   <path fill="#4fc825" d="M15.03 0H11c-1.33 0-1.33 2 0 2h1.62L9.79 4.8c-.96.95.48 2.38 1.42 1.4l2.82-2.79V5c0 1.33 2 1.33 2 0V1a1 1 0 00-1-1z"/>
   <path fill="#307cdb" d="M15.03 16.03H11c-1.33 0-1.33-2.01 0-2.01h1.62L9.79 11.2c-.97-.93.48-2.38 1.42-1.4l2.82 2.81V11c0-1.33 2-1.33 2 0v4.03a1 1 0 01-1 1z"/>
 </svg>

@@ -1,8 +1,29 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="context-fill">
-  <path d="M5 3.13A2.7 2.7 0 002.12 6c0 1.17 1.75 1.17 1.75 0 0-1 .6-1.13 1.13-1.13.5-.03.97.27 1.13.75a.9.9 0 01-.53 1.01A2.74 2.74 0 004.13 9v.34c0 1.16 1.75 1.16 1.75 0v-.37c.04-.37.27-.68.6-.83a2.63 2.63 0 001.34-2.98A2.84 2.84 0 005 3.12zm0 7.62a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <style>
+  @media (prefers-color-scheme: light) {
+    :root {
+      --basiccolor: rgb(20,20,20);
+      --fill: var(--basiccolor);
+      --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
+      --highlight: var(--new-highlight,#0488d5);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --basiccolor: rgb(251,251,254);
+      --fill: var(--basiccolor);
+      --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
+      --highlight: var(--new-highlight,#0aa5ff);
+    }
+  }
+  </style> 
+  <path 
+    style="fill:var(--fill);"
+    d="M5 3.13A2.7 2.7 0 002.12 6c0 1.17 1.75 1.17 1.75 0 0-1 .6-1.13 1.13-1.13.5-.03.97.27 1.13.75a.9.9 0 01-.53 1.01A2.74 2.74 0 004.13 9v.34c0 1.16 1.75 1.16 1.75 0v-.37c.04-.37.27-.68.6-.83a2.63 2.63 0 001.34-2.98A2.84 2.84 0 005 3.12zm0 7.62a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/>
   <path fill="#4fc825" d="M15.03 0H11c-1.33 0-1.33 2 0 2h1.62L9.79 4.8c-.96.95.48 2.38 1.42 1.4l2.82-2.79V5c0 1.33 2 1.33 2 0V1a1 1 0 00-1-1z"/>
   <path fill="#307cdb" d="M15.03 16.03H11c-1.33 0-1.33-2.01 0-2.01h1.62L9.79 11.2c-.97-.93.48-2.38 1.42-1.4l2.82 2.81V11c0-1.33 2-1.33 2 0v4.03a1 1 0 01-1 1z"/>
 </svg>

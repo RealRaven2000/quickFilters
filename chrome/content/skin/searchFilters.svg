@@ -2,7 +2,28 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-  <path fill="context-fill" fill-opacity="context-fill-opacity" d="M11.75 12.73l-3.6-3.61a4.5 4.51 0 10-1.07 1.06l3.61 3.61a.75.75 0 001.06-1.06zM4.48 9.51a3 3 0 113-3 3 3 0 01-3 3z"/>
+  <style>
+  @media (prefers-color-scheme: light) {
+    :root {
+      --basiccolor: rgb(20,20,20);
+      --fill: var(--basiccolor);
+      --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
+      --highlight: var(--new-highlight,#0488d5);
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --basiccolor: rgb(251,251,254);
+      --fill: var(--basiccolor);
+      --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
+      --highlight: var(--new-highlight,#0aa5ff);
+    }
+  }
+  </style> 
+  <path 
+    style="fill:var(--fill);"
+    d="M11.75 12.73l-3.6-3.61a4.5 4.51 0 10-1.07 1.06l3.61 3.61a.75.75 0 001.06-1.06zM4.48 9.51a3 3 0 113-3 3 3 0 01-3 3z"/>
   <path fill="#4fc825" d="M15.03 0H11c-1.33 0-1.33 2 0 2h1.62L9.79 4.8c-.96.95.48 2.38 1.42 1.4l2.82-2.79V5c0 1.33 2 1.33 2 0V1a1 1 0 00-1-1z"/>
   <path fill="#307cdb" d="M15.03 16.03H11c-1.33 0-1.33-2.01 0-2.01h1.62L9.79 11.2c-.97-.93.48-2.38 1.42-1.4l2.82 2.81V11c0-1.33 2-1.33 2 0v4.03a1 1 0 01-1 1z"/>
 </svg>
