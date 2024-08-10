@@ -271,6 +271,19 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     </li>    
   </ul>
 
+  <h5 class="inList"> Known Issues </h5>  
+  <ul>
+    <li> 
+      Currently the verification of quickFilters licenses fails when the license is bound to an 
+      exchange account when it is accessed using Owl. This is due to a bug in 
+      the <a href="https://webextension-api.thunderbird.net/en/128-esr-mv2/accounts.html#accounts-api">extensions.accounts</a> 
+      Webextensions API - which doesn't include them when using <tt>accounts.list()</tt> - 
+      which the Thunderbird team is working on and is planned to land in one of the next 
+      versions of ESR128.  
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/260">[issue 260]</a>
+    </li>
+  </ul>  
+
   <h5 class="inList"> Miscellaneus </h5>  
   <ul>
     <li>
@@ -373,8 +386,8 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <a href="https://github.com/RealRaven2000/quickFilters/issues/138">[issue 138]</a>. 
     </li>
     <li>
-      In order to minimize the change of dialog buttons bein cut off in filter assistant window,
-      I added some controls to collapse / expand the filter tempalte description
+      In order to minimize the change of dialog buttons being cut off in filter assistant window,
+      I added some controls to collapse / expand the filter template description
       and mail preview fields
       <a href="https://github.com/RealRaven2000/quickFilters/issues/243">[issue 243] </a>
       <p>
