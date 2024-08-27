@@ -339,14 +339,12 @@ quickFilters.List = {
       if (filterMatch) {
         util.logDebugOptional("merge", "filter match: pushing to list {" + aFilter.filterName + "}");
         matchingFilters.push(aFilter);  
-      }
-      else {
+      } else {
         util.logDebugOptional("merge", "not matching - removed from selection: " + aFilter.filterName);
         // remove any filter that does not match from selection!
-        if (list.removeItemFromSelection)
+        if (list.removeItemFromSelection) {
           list.removeItemFromSelection(aFilter); // Thunderbird
-        else
-          list.view.selection.clearRange(f,f); // SeaMonkey
+        } 
         // OR list.removeItemAt(f);
       }
     }
@@ -374,7 +372,6 @@ quickFilters.List = {
     let template = prefs.getCurrentFilterTemplate();
     if (mergeFilterIndex >= 0) {
       targetFilter = matchingFilters[mergeFilterIndex];
-      isMerge = true;
     } else {
 			let wrn = util.getBundleString('quickfilters.merge.warning.selectTarget',
                                      'A target filter must be selected for merging!')

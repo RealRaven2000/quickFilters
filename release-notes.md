@@ -1,4 +1,4 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.5.2) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.5.3) 
 
 
 **Improvements**
@@ -9,9 +9,10 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 **Bug Fixes**
 
+*   Maintenance fix in v6.5.3: The merge filters option had stopped working in 6.5.2 [issue #262]
 *   Fixed: Cut & Paste filters doesn't work in Thunderbird 128 \[issue #249\]
 *   Thunderbird 128 - Notifications are now async! This may lead to the filter assistant not starting up successfully. \[issue #258\]
-#   Fixed: After using any function, from its dowdown menu, quickFilters toolbar button  looked like it is always active \[issue #223\]
+*   Fixed: After using any function, from its dowdown menu, quickFilters toolbar button  looked like it is always active \[issue #223\]
 
 **Miscellaneus**
 

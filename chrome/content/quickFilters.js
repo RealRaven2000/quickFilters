@@ -624,7 +624,7 @@ END LICENSE BLOCK
     # [issue 243] Dialog buttons cut off on filter assistant window (Ubuntu 22.04)
     # optimize licenser (omit folders while listing accounts)
 
-  6.5.2 - WIP
+  6.5.2 - 09/08/2024
     # [issue 249] Fixed: Cut & Paste filters doesn't work in Thunderbird 128  
     # [issue 258] Thunderbird 128 - Notifications are now async! This may lead to the filter 
                   assistant not starting up successfully
@@ -632,6 +632,14 @@ END LICENSE BLOCK
     # Some theme fixes for icons: copy/cut icons for filters dialog
     # Removed vendor prefix from -moz-appearance
     # [issue 254] msgsMoveCopyCompleted: remove "no destmsg!"
+
+
+
+
+  6.5.3 - 27/08/2024
+    # [issue 262] Maintenance fix in v6.5.3: The merge filters option had stopped working in 6.5.2 
+    # Added compatibility with Thunderbird 130
+    
 
 
   ============================================================================================================

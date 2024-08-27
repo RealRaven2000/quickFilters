@@ -1,5 +1,5 @@
 The full log with screenshots is available at:
-<a href="https://quickfilters.quickfolders.org/version.html#6.5.2">quickFilters Change Log</a>
+<a href="https://quickfilters.quickfolders.org/version.html#6.5.3">quickFilters Change Log</a>
 
 
 <b>Improvements</b>
@@ -20,9 +20,12 @@ The full log with screenshots is available at:
 </ul>  
 
 
-
 <b>Bug Fixes</b>
 <ul>
+  <li>
+    Maintenance fix in v6.5.3: The merge filters option had stopped working in 6.5.
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/262">[issue 262]</a>
+  </li>
   <li>
     Fixed: Cut & Paste filters didn't work in Thunderbird 128  
     <a href="https://github.com/RealRaven2000/quickFilters/issues/249">[issue 249]</a>
@@ -37,7 +40,6 @@ The full log with screenshots is available at:
     looked like it is always active
     <a href="https://github.com/RealRaven2000/quickFilters/issues/223">[issue 223]</a>
   </li>
-
 </ul>
 
 <b>Miscellaneus</b>
@@ -50,6 +52,14 @@ The full log with screenshots is available at:
   <a href="https://github.com/RealRaven2000/quickFilters/issues/254">[issue 254]</a>
 </li>
 </ul>
+
+<b>Known Issues</b>
+<ul>
+  <li> 
+    Currently the verification of quickFilters licenses fails when the license is bound to an exchange account when it is accessed using Owl. This is due to a bug in  the <a href="https://webextension-api.thunderbird.net/en/128-esr-mv2/accounts.html#accounts-api">extensions.accounts</a> Webextensions API - which doesn't include them when using <tt>accounts.list()</tt> - 
+    which the Thunderbird team is working on and is planned to land in one of the next versions of ESR128.  <a href="https://github.com/RealRaven2000/quickFilters/issues/260">[issue 260]</a>
+  </li>
+</ul>  
 
 
 All development and free support work for quickFilters is financed via the 
