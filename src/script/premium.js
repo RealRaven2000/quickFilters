@@ -1,7 +1,7 @@
-var sales_name = "MIDSUMMER SALE"; // .saleName
-var sales_start_lbl = "July 17th"; // .saleStart
-var sales_end_lbl = "July 31st";  // .saleEnd
-var sales_end = new Date("2024-07-31");
+var sales_name = "LATE SUMMER SALE"; // .saleName
+var sales_start_lbl = "August 27th"; // .saleStart
+var sales_end_lbl = "September 12th";  // .saleEnd
+var sales_end = new Date("2024-09-12");
 
 
 
