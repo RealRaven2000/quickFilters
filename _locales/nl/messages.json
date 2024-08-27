@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "31 juli"
+    "message": "12 september"
   },
   "special-offer-head": {
     "message": "Help quickFilters om door te gaan!"
@@ -1399,7 +1399,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters is nu compatibel met Thunderbird 128. {L2} {L1} Om ruimte te besparen, zijn er besturingselementen toegevoegd om de beschrijving en het voorbeeldpaneel in het filterassistent-venster samen te vouwen. [issue 243]{L2}{L1} Opgelost: bestandskiezer die kapot is in Thunderbird 125 [issue 244] {L2}{L1} Opgelost: lezen en invullen van kopteksten in aangepaste filtertemplates {L2}"
+    "message": "{L1} Onderhoudsfix: in de vorige versie mislukte het samenvoegen van filters [issue 262]{L2}{L1} quickFilters is nu compatibel met Thunderbird 130. {L2} {L1} In Thunderbird 128 zorgde de schuifmelding die tijdens de assistent werd weergegeven ervoor dat de functie in sommige gevallen niet correct werkte; dit werkt nu correct [issue 258]{L2} {L1} Verbeterde ondersteuning voor het donkere thema in het venster voor berichtfilters. {L2}{L1} Opgelost: Knippen en plakken van filters werkte niet in Thunderbird 128 {L2} {L1} Opgelost: 'Altijd ingedrukt' uiterlijk van de menuknop. [issue 223] {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

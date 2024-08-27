@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "ngày 31 tháng 7"
+    "message": "12 tháng 9"
   },
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
@@ -1399,7 +1399,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters hiện tương thích với Thunderbird 128. {L2} {L1} Để tiết kiệm không gian, các điều khiển đã được thêm vào để thu gọn mô tả và bảng xem trước trong hộp thoại trợ lý bộ lọc. [issue 243]{L2}{L1} Đã sửa: trình chọn tệp bị hỏng trong Thunderbird 125 [issue 244] {L2}{L1} Đã sửa lỗi đọc và điền trước tiêu đề trong các mẫu bộ lọc tùy chỉnh {L2}"
+    "message": "{L1} Sửa chữa bảo trì: trong phiên bản trước, việc hợp nhất bộ lọc đã không thành công [issue 262]{L2} {L1} quickFilters hiện đã tương thích với Thunderbird 130. {L2} {L1} Trong Thunderbird 128, thông báo trượt hiển thị trong quá trình trợ lý trong một số trường hợp dẫn đến chức năng không hoạt động đúng; bây giờ điều này đã hoạt động đúng [issue 258]{L2} {L1} Cải thiện hỗ trợ chủ đề tối cho cửa sổ bộ lọc tin nhắn. {L2}{L1} Đã sửa: Cắt và dán bộ lọc không hoạt động trong Thunderbird 128 {L2} {L1} Đã sửa giao diện 'luôn bị đẩy' trên nút menu. [issue 223] {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

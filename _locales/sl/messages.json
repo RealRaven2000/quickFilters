@@ -165,7 +165,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "31. julij"
+    "message": "12. september"
   },
   "special-offer-head" : {
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
@@ -251,7 +251,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):" 
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters je zdaj združljiv s Thunderbird 128. {L2} {L1} Za varčevanje s prostorom so bili dodani nadzorni elementi za strnitev opisa in podokna za predogled v pogovornem oknu pomočnika filtrov. [issue 243]{L2}{L1} Popravljeno: izbirnik datotek, ki ne deluje v Thunderbird 125 [issue 244] {L2}{L1} Popravljeno: branje in predizpolnjevanje glave v predlogah filtrov po meri {L2}"
+    "message": "{L1} Vzdrževalna popravka: v prejšnji različici združevanje filtrov ni uspelo [issue 262]{L2} {L1} quickFilters je zdaj združljiv s Thunderbirdom 130. {L2} {L1} V Thunderbirdu 128 je drsno obvestilo, prikazano med pomočnikom, v nekaterih primerih povzročilo, da funkcija ni delovala pravilno; zdaj deluje pravilno [issue 258]{L2} {L1} Izboljšana podpora temne teme v oknu s filtri sporočil. {L2}{L1} Popravljeno: Izrezovanje in lepljenje filtrov ni delovalo v Thunderbirdu 128 {L2} {L1} Popravljen videz 'vedno pritisnjen' na gumbu menija. [issue 223] {L2}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

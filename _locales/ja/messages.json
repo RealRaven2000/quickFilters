@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "7月31日"
+    "message": "9月12日"
   },
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
@@ -1399,7 +1399,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters は Thunderbird 128 と互換性があります。 {L2} {L1} スペースを節約するために、フィルターアシスタントダイアログに説明とプレビューパネルを折りたたむためのコントロールが追加されました。 [issue 243]{L2}{L1} 修正: Thunderbird 125 で壊れているファイルピッカー [issue 244] {L2}{L1} 修正: カスタムフィルターテンプレートでのヘッダーの読み取りと事前入力 {L2}"
+    "message": "{L1} メンテナンス修正: 前のバージョンでフィルターの結合に失敗しました [issue 262]{L2}{L1} quickFilters は Thunderbird 130 と互換性があります。 {L2} {L1} Thunderbird 128 では、アシスタント中に表示されるスライド通知が原因で、いくつかのケースで機能が正しく動作しませんでした。これが正しく動作するようになりました [issue 258]{L2} {L1} メッセージフィルターウィンドウでダークテーマのサポートを改善しました。 {L2}{L1} 修正: Thunderbird 128 でフィルターの切り取りと貼り付けが機能しませんでした {L2} {L1} メニューボタンの「常に押された」外観を修正しました。 [issue 223] {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

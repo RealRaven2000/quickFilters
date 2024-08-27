@@ -1212,7 +1212,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "7月31日"
+    "message": "9月12日"
   },
   "special-offer-head" : {
     "message": "請幫助quickFilters繼續！"
@@ -1311,7 +1311,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）：" 
   },  
   "whats-new-list": {
-    "message": "{L1} quickFilters 現在與 Thunderbird 128 兼容。 {L2} {L1} 為了節省空間，在篩選助手對話框中添加了折疊描述和預覽面板的控件。 [issue 243]{L2}{L1} 修復：Thunderbird 125 中損壞的文件選擇器 [issue 244] {L2}{L1} 修復自定義篩選模板中的標頭讀取和預填充 {L2}"
+    "message": "{L1} 維護修復：在以前的版本中合併過濾器失敗 [issue 262]{L2}{L1} quickFilters 現在與 Thunderbird 130 兼容。 {L2} {L1} 在 Thunderbird 128 中，助理期間顯示的滑動通知在某些情況下導致功能無法正常運行；現在已正確運行 [issue 258]{L2} {L1} 改進了郵件篩選器窗口的暗主題支持。 {L2}{L1} 修復：在 Thunderbird 128 中剪切和粘貼篩選器不起作用 {L2} {L1} 修復了菜單按鈕上的“始終按下”外觀。 [issue 223] {L2}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

@@ -1298,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "31 luglio"
+    "message": "12 settembre"
   },
   "special-offer-head": {
     "message": "Aiuta lo sviluppo di quickFilters"
@@ -1399,7 +1399,7 @@
     "message": "Leggi qui l'elenco dettagliato delle modifiche (in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters è ora compatibile con Thunderbird 128. {L2} {L1} Per risparmiare spazio, sono stati aggiunti controlli per ridurre la descrizione e il pannello di anteprima nella finestra di dialogo dell'assistente ai filtri. [issue 243]{L2}{L1} Corretto: selettore file non funzionante in Thunderbird 125 [issue 244] {L2}{L1} Corretto: lettura e pre-compilazione delle intestazioni nei modelli di filtro personalizzati {L2}"
+    "message": "{L1} Correzione di manutenzione: nella versione precedente l'unione dei filtri non è riuscita [issue 262]{L2} {L1} quickFilters è ora compatibile con Thunderbird 130. {L2} {L1} In Thunderbird 128, la notifica scorrevole mostrata durante l'assistente in alcuni casi portava al malfunzionamento della funzione; ora funziona correttamente [issue 258]{L2} {L1} Migliorato il supporto del tema scuro nella finestra dei filtri dei messaggi. {L2}{L1} Corretto: Taglia e incolla dei filtri non funzionava in Thunderbird 128 {L2} {L1} Corretto l'aspetto 'sempre premuto' sul pulsante del menu. [issue 223] {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

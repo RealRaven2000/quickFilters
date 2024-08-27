@@ -1299,7 +1299,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "July 31st"
+    "message": "September 12th"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
@@ -1400,7 +1400,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters is now compatible with Thunderbird 128. {L2} {L1} To save space,  controls were added to collapse description and preview panel in filter assistant dialog. [issue 243]{L2}{L1} Fixed: file picker which is broken in Thunderbird 125 [issue 244] {L2}{L1} Fixed reading & prefilling headers in custom filter templates {L2}"
+    "message": "{L1} Maintenance fix: in the previous version merging filters failed [issue 262]{L2}{L1} quickFilters is now compatible with Thunderbird 130. {L2} {L1} In Thunderbrid 128, the sliding notification shown during assistant in some cases did lead to the function not working correctly; this is working correctly now [issue 258]{L2} {L1} Improved dark theme support to message filters window. {L2}{L1} Fixed: Cut and Paste filters didn't work in Thunderbird 128 {L2} {L1} Fixed 'always pushed' look on menu button. [issue 223] {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

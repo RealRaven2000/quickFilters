@@ -267,7 +267,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "31. července"
+    "message": "12. září"
   },
   "special-offer-head" : {
     "message": "Prosím, pomozte quickFilters pokračovat!"
@@ -362,7 +362,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):" 
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters je nyní kompatibilní s Thunderbirdem 128. {L2} {L1} Pro úsporu místa byly přidány ovládací prvky pro sbalení popisu a náhledu v dialogu asistenta filtrů. [issue 243]{L2}{L1} Opraveno: výběr souboru, který je poškozen v Thunderbirdu 125 [issue 244] {L2}{L1} Opraveno čtení a předvyplňování hlaviček v uživatelských šablonách filtrů {L2}"
+    "message": "{L1} Údržbová oprava: v předchozí verzi sloučení filtrů selhalo [issue 262]{L2}{L1} quickFilters je nyní kompatibilní s Thunderbirdem 130. {L2} {L1} V Thunderbirdu 128 způsobovalo posuvné upozornění zobrazené během asistenta v některých případech, že funkce nefungovala správně; to nyní funguje správně [issue 258]{L2} {L1} Vylepšena podpora tmavého motivu v okně filtrů zpráv. {L2}{L1} Opraveno: Vyjmutí a vložení filtrů nefungovalo v Thunderbirdu 128 {L2} {L1} Opraven 'vždy zatlačený' vzhled na tlačítku nabídky. [issue 223] {L2}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",
