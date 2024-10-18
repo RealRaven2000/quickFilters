@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <title>quickFilters - Installation</title>
+    <link rel="stylesheet" href="/css/project.css?v33" type="text/css" />
+    <!-- <link rel="alternate" type="application/rss+xml" title="News" href="/drupal/rss.xml" /> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="google-site-verification" content="LTKICtodcLDl0nhBl2mUiXWMJbOtmEJmhYXVAqm_mJM" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="icon" href="img/QuickFilters_16.png" type="image/png"> 
+    <script src="script/ga.js"> </script>
+    <script src="script/premium.js?v=5"> </script>
+  </head>
+  <body>
+    <div id="main-content-no-nav">
+      <h1 class="project-name" id="content">quickfilters</h1>
+
+      <table id="project-navigation">
+
+        <!--
+        <tbody id="sub-projects" class="project-navigations">
+          <tr>
+            <th scope="row">subprojects:</th>
+            <td class="navigation-list">  
+              <a class="first-item" href="/subprojectdir/index.html">subproject name</a>
+              <a href="/subprojectpage.html">subproject name</a>
+            </td>
+          </tr>
+        </tbody>
+        -->
+
+        <tbody id="resources" class="project-navigations">
+          <tr>
+            <th scope="row"></th>
+            <td class="navigation-list">
+              <a href="/index.html" class="first-item">Home</a>
+              <a href="/installation.html">Installation + Source Code</a>
+              <a href="/version.html#latest">Version&nbsp;History</a>
+              <a href="/donate.html">Support&nbsp;quickFilters!</a>
+              <a href="/premium.html">Premium Features</a>
+              <a href="/bugs.html">Bugs</a>
+              <a href="/screenshots.html">Screenshots</a>
+              <a href="/filtaquilla.html">FiltaQuilla</a>
+              <a href="/fq-versions.html">FiltaQuilla History</a>
+              <a href="/gdpr.html">Privacy Statement + Impressum</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+
+<style type="text/css" >
+td.navigation-list a[href$='installation.html'] {
+  background-color: rgb(203,96,179);
+  background: linear-gradient(top,  rgba(203,96,179,1) 0%,rgba(173,18,131,1) 50%,rgba(222,71,172,1) 100%);
+  border-bottom-color:  #93105A !important;
+  color: #FFF !important;
+  height: 27px !important;
+  font-weight: normal;
+}
+</style>
+
+<!-- MAIN CONTENT -->
+
+<h2 class="page-header">quickFilters :: Source Code, Installation</h2>
+
+<p>Get the official version at <a href="https://addons.mozilla.org/en-US/thunderbird/addon/quickFilters">Addons.mozilla.org</a></p>
+
+
+<p id="src-intro">
+The quickfilters source code can be accessed through one of the following ways:
+</p>
+
+<ol id="get-the-src" class="get-src-cvs">
+	<li>View the source at <a href="https://github.com/RealRaven2000/quickfilters/">GitHub</a></li>
+	<li>Use Git or checkout with SVN using the web URL</li>
+	<li>Get a local copy of the source by performing the following:<br/>
+	<pre>svn co https://github.com/RealRaven2000/quickfilters/</pre>
+	</li>
+</ol>
+
+<p>If you build your own version, make sure to create a zip archive of all files and folders including install.rdf. 
+   Rename the file with the extension xpi (instead of zip). Pull the extension into your Application's addon Manager.
+	 To avoid confusion, it is a good idea to change the following entry in install.rdf every time you build a new version:
+	 </p>
+<p>em:version="3.8.3pre10"</p>
+<p>I typically increase the prerelease number (after pre) every time I build, in this way I know which other changes are 
+   already included.</p>
+
+
+
+
+    </div>
+  </body>
+</html>

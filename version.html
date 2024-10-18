@@ -1,0 +1,2952 @@
+<!doctype html>
+<html>
+  <head>
+    <title>quickFilters - Version History</title>
+    <link rel="stylesheet" href="/css/project.css?v33" type="text/css" />
+    <!-- <link rel="alternate" type="application/rss+xml" title="News" href="/drupal/rss.xml" /> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="google-site-verification" content="LTKICtodcLDl0nhBl2mUiXWMJbOtmEJmhYXVAqm_mJM" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="icon" href="img/QuickFilters_16.png" type="image/png"> 
+    <script src="script/ga.js"> </script>
+    <script src="script/premium.js?v=5"> </script>
+  </head>
+  <body>
+    <div id="main-content-no-nav">
+      <h1 class="project-name" id="content">quickfilters</h1>
+
+      <table id="project-navigation">
+
+        <!--
+        <tbody id="sub-projects" class="project-navigations">
+          <tr>
+            <th scope="row">subprojects:</th>
+            <td class="navigation-list">  
+              <a class="first-item" href="/subprojectdir/index.html">subproject name</a>
+              <a href="/subprojectpage.html">subproject name</a>
+            </td>
+          </tr>
+        </tbody>
+        -->
+
+        <tbody id="resources" class="project-navigations">
+          <tr>
+            <th scope="row"></th>
+            <td class="navigation-list">
+              <a href="/index.html" class="first-item">Home</a>
+              <a href="/installation.html">Installation + Source Code</a>
+              <a href="/version.html#latest">Version&nbsp;History</a>
+              <a href="/donate.html">Support&nbsp;quickFilters!</a>
+              <a href="/premium.html">Premium Features</a>
+              <a href="/bugs.html">Bugs</a>
+              <a href="/screenshots.html">Screenshots</a>
+              <a href="/filtaquilla.html">FiltaQuilla</a>
+              <a href="/fq-versions.html">FiltaQuilla History</a>
+              <a href="/gdpr.html">Privacy Statement + Impressum</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+<link rel="stylesheet" href="./css/version.css?v=7" type="text/css" />
+<link rel="stylesheet" href="./css/myProjects.css?v=16" type="text/css">
+<link rel="stylesheet" href="./css/survey.css" type="text/css">
+<link rel="stylesheet" href="./css/xmas.css?v=1" type="text/css">
+
+<style type="text/css" >
+	
+  #blueBauble, #greenBauble, #purpleBauble {
+	  display: none; /* block */
+	}
+
+
+  ul li *.inList,
+	.inList h5 {
+		color: #930060 !important;
+		font-size: 1em;
+		font-weight: bold;
+	}
+  
+  ul li .inList h5 {
+    font-size: 1.15em;
+  }
+
+	/* about:config settings */
+	#version-history li tt {
+		font-size: 11pt;
+		font-family: Consolas, "Lucida Console", Courier, monospace; 
+		background-color: rgba(200,50,230,0.2);
+		padding: 2px 4px;
+		border-radius: 0.4em;
+		border: 2px solid rgba(100,100,100,0.3) !important;
+	}
+
+	quote p {
+		margin-left: 32px;
+		font-size: 0.9em;
+		font-style: italic;
+		margin-block-start: 0.5em;
+		margin-block-end: 0.5em;
+	}
+
+/* expanding psa sections */
+  li.psa {
+    list-style: square outside url('images/square-orange-small.png') !important;
+    padding: 0.1em 1em !important;
+    margin-top: 0.5em;
+    border-radius: 0.3em;
+    background-color: #3A3D41 !important;
+    box-shadow: inset 0.5em 0.5em 10px rgba(0,0,0,0.7);
+  }
+  
+  .psa .emphasis {
+    color: yellow;
+    font-weight: bold;
+  }
+  
+  #version-history div.announcement {
+    background: rgba(40,30,30,.85) !important;
+    border-radius: 4px;
+    box-shadow: inset 0.5em 0.5em 10px rgba(0,0,0,0.7);
+    margin: 0.5em 2em 2em;
+    max-width: 835px;
+    padding: 0.5em 0.8em;
+  }
+
+  .reinstallInstructions img {
+    margin-top: 0.8em;
+    max-width: 720px;
+  }
+  
+  .expandInstructions {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #006EB7; /* blue */
+    background-image: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) !important;
+    border-radius: 0.6em;
+    color: white;
+    font: 10pt arial,verdana,sans-serif bold;
+    padding: 0.4em 0.3em;
+  }
+  
+  .reinstallInstructions {
+    display: none;
+  }
+
+  #newsSection {
+    color: white;
+    border-radius: 0.3rem;
+    padding: 0.05rem 1rem;
+    background-color: rgba(6, 6, 112, 0.9);
+    background-image: linear-gradient(55deg, rgba(6, 6, 112, 0.9) 0%, rgba(115, 3, 85, 0.9) 100%);
+    margin: 1rem auto 1.2rem 30px;
+    max-width: 60rem;
+  }  
+</style>
+
+<img id="blueBauble" src="img/blueBauble.png" alt="" />
+<img id="greenBauble" src="img/greenBauble.png" alt="" />
+<img id="purpleBauble" src="img/purpleBauble.png" alt="" />
+
+<h2 class="page-header">quickFilters :: Version History</h2><br>
+
+<h3>Latest News (26/06/2023) - Thunderbird 102 / 115 Compatibility</h3>
+<p>
+  The <a href="#latest">latest version</a> of quickFilters  is <b>fully compatible</b> with Thunderbird 102. 
+  If there are issues after installing or updating, please <a href="#tb102-compatibility">read the instructions here</a>.
+</p>
+<a name="tb115-compatibility"> </a>
+<p>
+  Thunderbird 115: I had to implement 
+  <a href="https://github.com/RealRaven2000/quickFilters/issues/181">fundamental changes for Thunderbird 115</a> 
+  in order to stay compatible. Tb 115 is scheduled for release in July 2023 and has a completely 
+  <a target="_blank" href="https://blog.thunderbird.net/2023/02/thunderbird-115-supernova-preview-the-new-folder-pane/">new 
+  user interface </a> called "Supernova".
+  This required considerable work of <b>rewriting all elements interacting with the main page</b> 
+  (3pane) of Thunderbird (toolbar buttons, menus, folder tree, drag and drop handlers).
+</p>
+<p>
+  This work is now largely completed, except for a few minor items <a href="#115known-issues">described below</a>.
+  You are highly encouraged  to participate in the funding by buying 
+  <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qf-version-page">a quickFilters Pro license</a>.
+</p>
+<p>
+  If you are interested in trying out the latest version for the next generation of Thunderbird,
+  please check this <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github issue</a>
+  for pre-releases, these are made available there for testing. 
+  Scroll down for latest version! To be notified of related news automatically, leave a comment or like there.
+</p>
+
+
+<div class="quickFiltersFreeUser">
+	<a name="gopro"></a>
+	<h3 class="newsFlash">Why did quickFilters go Pro?</h3>
+	<p>
+    In order to support the ongoing improvement of this mail addon, I have decided to offer a professional version 
+    of quickFilters in which some additional "power" features will be added. This is necessary as my country of residence
+    just got so expensive due to additional taxes (water, house tax) and my wife had to give up her job as nurse due to 
+    health reasons. I am still investing a large portion of my free time to the development of addon code in the mail sphere
+    and I would like to continue doing so in the future.
+  </p>
+
+	<p>
+    I have decided that the best way forward would be to use the freemium model which offers two versions, one for free which 
+    has standard features and shows the donation link whenever the software is updated and a registered professional version
+    which asks for small fee in order to fund development and support. 
+	</p>
+  
+  <p>
+    <b>Please support the future of quickFilters</b> and enjoy unlimited 
+    <a href="premium.html#featureList">Premium Features</a>. You can purchase a license 
+    from quickFilters options, using the quickFilters Pro tab. It's super easy and helps 
+    future proof this Add-on. You can use quickFilters Pro on as many Thunderbird
+    installations as you like as long as it has your registered email address on it. 
+  </p>  
+  
+  <p>
+    You can buy a license directly from the quickFilters Pro tab in the settings dialog:
+    <br><br>
+    <img style="max-width: 560px;" src="img/pro/quickFilters-preferences-pro.png"  alt="How to buy a license from options dialog"/>
+    <br><br>
+    Or go to the web shop directly: 
+    <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-version-page">FastSpring Web Shop</a>
+  </p>
+
+	<hr />
+</div>
+
+<h3>Version Details</h3>
+
+<p class=note>
+All dates are displayed in UK format: dd/mm/yyyy - you can request any version that is marked as not released or any old version listed; 
+simply send me a personal email from the quickFilters Options dialog, on the Support tab - 
+[(<a href="screenshots.html#Support">Jump to Screen Shot</a>)].
+</p>
+
+<h4>Thunderbird 68 support ended on thunderbird.net</h4>
+<p>
+  Unfortunately thunderbird.net does not accept updates for legacy versions anymore - they only support the new "Mail extension" format and our "mail extension with experimental APIs" which is a workaround for missing advanced features.  
+</p>
+<p>
+  From of version <a href="#4.6">4.6</a> forward you have to install such legacy versions from the 
+  <a href="https://github.com/RealRaven2000/quickFilters/releases">github releases page</a>. 
+</p>
+
+<!-- Start Version History -->
+
+<ul id="version-history">
+<a name="latest"></a>
+
+<!--
+<a name="6.x"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/" 
+		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+     quickFilters 6.x - WIP</a>
+	</h4>
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+		<li></li>
+		<li></li>
+		<li></li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li></li>
+		<li></li>
+		<li></li>
+  </ul>
+</li>
+ 
+-->
+
+
+<a name="6.5.2"> &nbsp; </a>
+<a name="6.5.3"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/">
+     quickFilters 6.5.3 - 27/08/2024</a>
+	</h4>
+
+  <h5 class="inList"> Important Maintenance Version 6.5.3  </h5>  
+  <ul>
+    <li>
+      Maintenance fix in v6.5.3: The merge filters option had stopped working in 6.5.2
+      which was released on August 9th.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/262">[issue 262]</a>
+    </li>  
+    <li> 
+      quickFilters is now compatible with Thunderbird 115 - 130.
+    </li>  
+  </ul>
+
+  <table class="quickFiltersFreeUser bargain"> 
+    <tr>
+      <td style="vertical-align:top;">
+        <h3 class="shillBox"> QUICKFILTERS PRO - <span class="saleName">SUMMER SALE</span> <u>30% OFF</u> </h3>
+        <p>Save 30% on the regular price and support the quickFilters project from 
+          <span class="emphasis saleStart">July 17th</span> to <span class="emphasis saleEnd">July 31st</span>!
+        </p>
+        <p>
+          quickFilters is now compatible with Thunderbird 115 the official new version for 2023 / 2024.<br>
+          
+          To help fund quickFilters for the next year and the unavoidable changes necessary to 
+          switch over to an API  based approach, please 
+          <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qf-version-page">buy a quickFilters Pro license</a>
+        </p>
+        <p>
+          The conversion work in quickFilters (and my other Add-ons) is still ongoing.
+          I have made great strides in converting the options dialog of the sibling Add-on QuickFolders
+          to standard html and will use the gained knowlegde to convert quickFilters as well, which 
+          is a big step towards converting quickFilters completely into a native "mail Add-on".
+          Also there will be more work done towards mixed any/all filters which are now supported by
+          <a href="https://www.betterbird.eu/" target="_blank">Betterbird</a>. This is an interesting
+          fork of Thunderbird with some additional functionality.
+        </p>
+        <p>
+          <b>Support the future of quickFilters</b> and enjoy unlimited 
+          <a href="premium.html#featureList">Premium Features</a>. You can purchase a license 
+          from quickFilters options, using the quickFilters Pro tab. It's super easy and helps 
+          future proof this Add-on. You can use quickFilters Pro on as many Thunderbird
+          installations as you like as long as it has your registered email address on it. 
+        </p>
+        <p> You can save 30% on the regular price, make sure you catch the deal while it's available!
+            Without regular maintenance, this Add-on would not work in the latest version of Thunderbird.
+        </p>
+        <p>
+          If you prefer, you can also go to the web shop from here: 
+          <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-version-page">FastSpring Web Shop</a>
+        </p>
+      </td>
+      <td style="vertical-align:top; max-width:0">
+        &nbsp;
+          <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-version-page-bargain" 
+             class="bargain">
+            <img id="bargainStar"  src="img/bargain-30-tb128.png"  />
+          </a>
+      </td>
+    </tr>
+  </table>
+  
+  <table class="quickFiltersProRenew bargain">
+    <tr>
+      <td style="vertical-align:top;">
+        <p class="emphasis">If you can see this box then your quickFilters Pro license has expired!</p>
+        
+        <h3 class="shillBox"> QUICKFILTERS PRO - <span class="saleName">SUMMER SALE</span> - RENEW FOR <u>20% OFF</u> </h3>
+        <p>Save 20% on the regular price and support the quickFilters project from Monday,
+          <span class="emphasis saleEnd">July 17th</span> to <span class="emphasis saleEnd">July 31st</span>!
+        </p>
+        <p>Thanks for updating! Your quickFilters pro license is expired but it is <b>very easy</b> to renew:
+          simply right-click the quickFilters assistant button to open quickFilters options,
+          then open the quickFilters Pro tab and click on the green "Renew" button:<br/>
+          <img src="img/assistant-options.png" alt="renew - step 1" class="screenshot">
+          <img src="img/renew-license.png" alt="renew - step 2" class="screenshot" style="width: 420px;height:211px;">
+        </p>
+        <p> <b>Support the future of quickFilters</b> and enjoy unlimited 
+          <a href="premium.html#featureList">Premium Features</a>.</p>
+      </td>
+      <td style="vertical-align:top; max-width:0">
+        &nbsp;
+          <a href="#" onclick="alert('you have to renew from the Add-on itself, see instructions below!');">
+            <img id="bargainStar"  src="img/bargain-renew-128.png"  />
+          </a>
+      </td>
+    </tr>
+  </table> 
+
+
+  <h5 class="inList"> Improvements (6.5.2) </h5>
+  <ul>
+    <li> 
+      Made compatible with Thunderbird 128
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/138">[issue 138]</a>. 
+    </li>
+    <li>
+      <p>
+        Improved dark theme support to message filters window; full theme integration for all 
+        features that quickFilters adds to the message filters window. For this I removed 
+        the <tt>context-fill</tt> and similar attribute from svg icons so they can also be used in themeable 
+        HTML pages which are the default for web extensions. 
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/259">[issue 259]</a>
+        <br>
+      </p>
+        <img class="screenshot" src="img/icon-colors.png" alt="folder action icons">
+      <p>
+        Full theme integration for all features that quickFilters adds to the message filters window
+      </p>
+      <p>
+        <img class="screenshot" src="img/filters-list-theming.png" alt="full theme integration for features all quickFilters ">
+      </p>
+    </li>
+    <li>
+      Some theme fixes for icons: copy/cut icons for filters dialog
+    </li>
+  </ul>
+
+  <h5 class="inList"> Bugfixes (6.5.2)</h5>  
+  <ul>
+    <li>
+      Fixed: Cut & Paste filters doesn't work in Thunderbird 128  
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/249">[issue 249]</a>
+    </li>
+    <li>
+      Thunderbird 128 - Notifications are now async! This may lead to the filter 
+      assistant not starting up successfully
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/258">[issue 258]</a>
+    </li>
+    <li> 
+      Fixed: After using any function, from its dowdown menu, quickFilters toolbar button 
+      looked like it is always active
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/223">[issue 223]</a>
+    </li>    
+  </ul>
+
+  <h5 class="inList"> Known Issues </h5>  
+  <ul>
+    <li> 
+      Currently the verification of quickFilters licenses fails when the license is bound to an 
+      exchange account when it is accessed using Owl. This is due to a bug in 
+      the <a href="https://webextension-api.thunderbird.net/en/128-esr-mv2/accounts.html#accounts-api">extensions.accounts</a> 
+      Webextensions API - which doesn't include them when using <tt>accounts.list()</tt> - 
+      which the Thunderbird team is working on and is planned to land in one of the next 
+      versions of ESR128.  
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/260">[issue 260]</a>
+    </li>
+  </ul>  
+
+  <h5 class="inList"> Miscellaneus </h5>  
+  <ul>
+    <li>
+      Tidied error log: msgsMoveCopyCompleted: remove "no destmsg!"
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/254">[issue 254]</a>
+    </li>
+    <li>
+      Code Maintenance: Removed vendor prefix from <tt>-moz-appearance</tt>
+    </li>
+  </ul>
+</li>
+
+<a name="6.5"> &nbsp; </a>
+<a name="6.5.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/">
+     quickFilters 6.5.1 - 17/07/2024</a>
+	</h4>
+
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li> 
+      Made compatible with Thunderbird 128
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/138">[issue 138]</a>. 
+    </li>
+    <li>
+      In order to minimize the change of dialog buttons being cut off in filter assistant window,
+      I added some controls to collapse / expand the filter template description
+      and mail preview fields
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/243">[issue 243] </a>
+      <p>
+        <img src="img/assistant-expanders.png" alt="expansion buttons" class="screenshot">
+      </p>
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+    <li> 
+      Fixed: file picker which is broken in Thunderbird 125 [bug 1882701] 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/244">[issue 244]</a>
+    </li>
+    <li>
+      Fixed reading &amp; prefilling headers in custom filter templates
+    </li>
+  </ul>
+</li>
+
+
+<a name="6.4"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.4">
+     quickFilters 6.4 - 11/04/2024</a>
+	</h4>
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+		<li>
+      Betterbird fixes <a href="https://github.com/RealRaven2000/quickFilters/issues/225">[issue 225]</a>. 
+    </li>
+		<li>
+      Improved Italian Translations thanks to Leopoldo Saggin.
+    </li>
+    <li>
+      Opening support sites in a tab is now using API methods, making it
+      more reliable for the future. It also jumps to the correct anchor if 
+      tab is already open.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/220">[issue 220] </a>
+    </li>
+		<li>
+      <p>
+        Increased font size of tooltips in filters list toolbar
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/237">[issue 237]</a>. 
+      </p>
+
+      <img src="img/tooltips-filterlist.png" alt="large tooltips" class="screenshot">
+    </li>  
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li>
+      Fixed: In Local Folders, the assistant was not opening when using the context menu to 
+      create filters from a message 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/235">[issue 235]</a>. 
+    </li>
+		<li>
+      Fixed some issues with displaying quickFilters buttons in the QuickFolders
+      Navigation bar (Current Folder bar). Because Thunderbird 115 reimplented 
+      the 3-pane window, this can create multiple instances of this toolbar across 
+      multiple tabs in a child document of the 3pane, which turned out to be harder 
+      to reimplement for this ESR.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/234">[issue 234]</a> 
+      <img src="img/QF-navigation.png" alt="QuickFolders Navigation bar" class="screenshot">
+  </ul>
+  <h5 class="inList"> Misc. Improvements </h5>
+  <ul>
+		<li>
+      Add Alias to register dialog if already set in a license.
+    </li>
+  </ul>
+  <h5 class="inList"> Known Issues </h5>
+  <ul>
+		<li>
+      No toolbar buttons are shown in Message Filters in italian version due to a problem 
+      with a string containing double quotes. A fixed version can be downloaded here:
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/242">[issue 242]</a> 
+    </li>
+  </ul>  
+</li>
+
+<a name="6.3"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.3">
+     quickFilters 6.3 - 18/10/2023</a>
+	</h4>
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+		<li> 
+      Optimized the registration screen, as it was too tall.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/217">[issue 217]</a> 
+    </li>
+		<li>
+      Completed translations for traditional Chinese 
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li>
+      Optimized code to show assistant faster if folder database need to be repaired.
+      It will also list the bad folders in JavaScript error console.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/215">[issue 215]</a> 
+    </li>
+		<li>
+      Fixed: Create filter from message with Custom templates may fail
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/220">[issue 220]</a> 
+    </li>
+		<li>
+      Fixed: quickFilters assistant not triggered anymore by adding Tags to Emails
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/221">[issue 221]</a> 
+    </li>
+  </ul>
+</li>
+
+<a name="6.2"> &nbsp; </a>
+<a name="6.2.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.2.1">
+     quickFilters 6.2.1 - 22/08/2023</a>
+	</h4>
+
+  <h5> Maintenance Items - Version 6.2.1 </h5>
+  <ul>
+    <li>
+      The global keyboard shortcuts for running filters work again. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/208">[issue 208]</a> 
+    </li>
+    <li>
+      Display localized license date in registration dialogs.
+    </li>
+    <li>
+      After the license was viewed via the menu "check license status", now reset 
+      the "renew license" button for the day and return to normal toolbar icon 
+      (no color / message).
+    </li>
+  </ul>
+  
+
+  <h5 class="inList"> Improvements 6.2 - 13/08/2023 </h5>
+  <ul>
+		<li>
+      Added thread context menu entries: create filter from message
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/199">[issue 199]</a>
+    </li>
+		<li>
+      Added folder context menu entries: find filters, run filters.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/203">[issue 203]</a>
+    </li>
+		<li>
+      Added tools content menu: Start Filter Assistant
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/203">[issue 203]</a> 
+    </li>
+  </ul>
+
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li> 
+      <p>
+        Bug Fixed: reading information from headers while creating new filters may 
+        fail with custom templates or mailing list template if the email is larger
+        than 16kBytes. <a href="https://github.com/RealRaven2000/quickFilters/issues/206">[issue 206]</a> 
+      </p>
+      <img src="img/extract-fails.png" alt="missing header info" class="screenshot">
+    </li>
+    <li> 
+      Bug Fixed: Edit Custom filters shows all filters in Local folders and not just custom templates. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/204">[issue 204]</a>
+    </li>    
+		<li>
+      QuickFolders + quickMove fails to invoke the assistant  
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/205">[issue 205]</a> 
+    </li>
+    <li>
+      Fixed some German translations.
+    </li>
+  </ul>
+
+  <h5 class="inList"> Open Issues </h5>  
+  <ul>
+    <li>
+      Changing tags doesn't currently work as a trigger for the filter assistant. 
+      This has to be reimplemented for Thunderbird 115 in a future version. 
+    </li>
+  </ul>
+
+
+</li>
+ 
+
+<a name="6.1.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.1.1">
+     quickFilters 6.1.1 - 28/07/2023</a>
+	</h4>
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li> 
+      <p>
+        Prepared integration with QuickFolders Navigation bar for Thunderbird 115. 
+        To finance the future work on these buttons, use of these buttons will require a valid license. 
+        (quickFilters Pro or QuickFolders Standard / Pro)
+        QuickFolders is currently in the process of a major rewrite to support all the necessary
+        changes to the Thunderbird main window.
+      </p>
+      <img src="img/advanced-quickfolders-navigation-settings.png" alt="QuickFolders integration settings" class="screenshot">
+      <p>
+        All commands can be accessed from the quickFilters action button on the new unified toolbar.
+      </p>
+    </li> 
+    <li>
+      <p> Improved main dropdown menu by moving all frequently needed commands to the first level. </p>
+      <img src="img/new-actions-menu.png" alt="New menu" class="screenshot">
+    </li>
+
+  
+    <li>
+      For more detail on what functions had to be fixed / rewritten for Thunderbird 115, please read on
+      the <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github Issue</a> 
+      covering conversion to Thunderbird 115.
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+    <li> Various fixes in Settings and registration dialogs </li>
+  </ul>
+
+  <h5 class="inList"> Open Issues / Regressions for Thunderbird 115</h5>
+  <ul>
+    <li>
+      Eventually, all settings will be displayed in a Thunderbird tab, like
+      the settings of most mail extensions. For this, it is still required to 
+      rewrite the dialog in HTML format.
+    </li>
+    <li>
+      Should you encounter any regressions / unusual behavior after updating to Thunderbird 115
+      please tell us on Github at 
+      [<a href="https://github.com/RealRaven2000/quickFilters/issues/181">issue 181</a>]
+    </li>
+  </ul>
+
+</li>
+
+
+
+
+
+
+<a name="6.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.1">
+     quickFilters 6.1 - 22/07/2023</a>
+	</h4>
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li>
+      <p>
+        Implemented command "Create Filter from message" in the context menu in the messages list. 
+        Just right-click any message after it was moved to a folder (or tagged if you want to create 
+        tags through filters)
+      </p>
+      <img src="img/menuCreateFilter.png" alt="create filter from message" class="screenshot">
+    </li>
+    <li>
+      For more detail on what functions had to be fixed / rewritten for Thunderbird 115, please read on
+      the <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github Issue</a>  
+      covering conversion to Thunderbird 115.
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+    <li>
+      The file format of filter backups was broken in 6.0, this function is now restored.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/197">[issue 197]</a> 
+    </li>
+  </ul>
+
+  <h5 class="inList"> Open Issues / Regressions for Thunderbird 115 </h5> 
+  <ul>
+    <li>
+      Eventually, all settings will be displayed in a Thunderbird tab, like
+      the settings of most mail extensions. For this, it is still required to 
+      rewrite the dialog in HTML format.
+    </li>
+    <li>
+      Should you encounter any regressions / unusual behavior after updating to Thunderbird 115
+      please tell us on Github at 
+      [<a href="https://github.com/RealRaven2000/quickFilters/issues/181">issue 181</a>]
+    </li>
+  </ul>
+
+  <h5 class="inList"> Open Issues </h5>  
+  <ul>
+    <li>
+      Changing tags doesn't currently work as a trigger for the filter assistant. This has to be
+      reimplemented for Thundebuird 115 in a future version.
+    </li>
+  </ul>
+</li>
+
+<a name="6.0"> &nbsp; </a>
+<a name="6.0.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/">
+     quickFilters 6.0.1 - 13/07/2023</a>
+	</h4>
+
+  <h5 class="inList"> Maintenance changes 6.0.1 </h5>
+  <ul>
+    <li>
+      Added translations for menu item "change log"
+    </li>
+    <li>
+      Bumped strict_max_ver to 115.* - A bug on ATN prevents users to upgrade automatically.
+    </li>
+    <li>
+      Improved button integration with QuickFolders Current Folder toolbar
+    </li>
+  </ul>
+
+
+  <h5 class="inList"> Changes / Improvements 6.0 - 30/06/2023</h5>
+  <ul>
+		<li>
+      Thunderbird 115 switched to the Unified toolbar which generally takes up less space
+      than the separate mail toolbar of previous versions. quickFilters uses a new
+      action button which includes all its commands in a single dropdown menu:
+      <p>
+        <img src="img/quickfilters-actionbutton.png" alt="quickFilters actions button" class="screenshot">
+      </p>
+      <p>
+        By default, Add-on buttons always appear <i>on the right</i> of the toolbar,
+        but you can move them to a better position by <i>right-clicking</i> the toolbar 
+        and selecting "customize...":<br><br>
+        <img src="img/toolbar-customize.png" alt="customize toolbar" class="screenshot">
+      </p>
+    </li>
+		<li>
+      News / license warnings are integrated into the new Action button. Highlight colors 
+      and placement of important commands on the top spot will guide the user to click 
+      the currently most important action:
+      <p>
+        When a new version of quickFilters is installed, read the "news / Change Log" splash screen 
+        and thus reset the button - this will also remove the label "quickFilters was updated":<br><br>
+        <img src="img/qi-check-news.png" alt="quickFilters news menu" class="screenshot">
+      </p>
+      <p>
+        When the license is close to expiry, click "check the license status&hellip;":<br><br>
+        <img src="img/qi-check-license-renew.png" alt="quickFilters check license menu" class="screenshot">
+      </p>
+    </li>
+    <li>
+      New option to disable notification when a filter is run manually (quickFilters Pro users only).
+    </li>
+    <li>
+      Added traditional Chinese translations for User Interface.
+    </li>
+    <li>
+      For more detail on what functions had to be fixed / rewritten, please read on
+      the <a href="https://github.com/RealRaven2000/quickFilters/issues/181">Github Issue</a> 
+      covering conversion to Thunderbird 115.
+    </li>
+  </ul>
+
+  <a name="115known-issues"> </a>
+  <h5 class="inList"> Open Issues / Regressions for Thunderbird 115 </h5>
+  <ul>
+		<li>
+      The context menu in the thread list is missing the "Create Filter from message"
+      menu item - this will be delivered in a future version. 
+      For now, you can use the command from the action button tools menu:
+      <p>
+        <img src="img/qi-button-newfilterfrommsg.png" alt="create filter from message" class="screenshot">
+      </p>
+    </li>
+    <li>
+      Eventually, all Settings will be displayed in a Thunderbird tab, like
+      the settings of most mail extensions. For this, it is required to rewrite the 
+      dialog in HTML format.
+    </li>
+    <li>
+      Should you encounter any regressions / unusual behavior after updating to Thunderbird 115
+      please tell us on Github at 
+      [<a href="https://github.com/RealRaven2000/quickFilters/issues/181">issue 181</a>]
+    </li>
+  </ul>
+
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li>
+      This version includes all bugfixes up to version 5.9.2. Going forward, the code 
+      for Thunderbird 115 and for previous versions is in separate branches in order
+      to simplify maintenance and the code base getting polluted by too manually
+      incompatible choices.
+    </li>
+  </ul>
+
+</li>
+
+
+
+<a name="5.9.4"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.9.4">
+     quickFilters 5.9.4 - 13/08/2023</a>
+	</h4>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li> 
+      <p>
+        Bug Fixed: reading informatino from headers while creating new filters may fail with custom templates or mailing list 
+        template if the email is larger than 16kBytes. <a href="https://github.com/RealRaven2000/quickFilters/issues/206">[issue 206]</a> 
+      </p>
+      <img src="img/extract-fails.png" alt="missing header info" class="screenshot">
+     
+    </li>
+    <li> 
+      Bug Fixed: Edit Custom filters shows all filters in Local folders and not just custom templates. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/204">[issue 204]</a>
+    </li>
+  </ul>
+</li>
+
+
+<a name="5.9.2"> &nbsp; </a>
+<a name="5.9.3"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.9.3">quickFilters 5.9.3 - 26/06/2023</a>
+	</h4>
+
+  <div class="newsSection">
+    <p>
+      Thunderbird 115: I am currently working on 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/181">fundamental changes for Thunderbird 115</a> 
+      which will be released in summer 2023 and has a completely 
+      <a target="_blank" href="https://blog.thunderbird.net/2023/02/thunderbird-115-supernova-preview-the-new-folder-pane/">new 
+      user interface </a> called "Supernova".
+    </p>
+  </div>
+  
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li> 
+      5.9.3: Completed Chinese translations of User Interface. Also fixed sales date in translations. 
+    </li>
+    <li> 
+      Added explanation to the "New filter Properties" page in settings.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/182">[issue 182]</a>
+    </li>
+    <li> Ensure to disable assistant on onload
+    <li> 
+      Update "# licensed days left" at midnight. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/187">[issue 187]</a>
+    </li> 
+    <li> 
+      Correct the Number of days left in license by rounding up.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/178">[issue 178]</a>
+    </li>
+    <li> 
+      From now on, the news splash screen is only triggered if the minor or major version numbers 
+      are increased (not by installing newer prereleases or older versions of the Add-on)
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li>
+      Fixed: Custom Template fail reading header fields from email (inserts '??'). 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/185">[issue 185]</a>
+    </li>
+  </ul>
+</li>
+ 
+
+<a name="5.9"> &nbsp; </a>
+<a name="5.9.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.9.1" 
+		 >quickFilters 5.9.1 - 09/04/2023</a>
+	</h4>
+
+
+  <h5 class="inList"> Maintenance Issues - fixed in 5.9.1 (released 28/03/2023) </h5>
+  <ul>
+    <li>
+      Missing quickFilters buttons on QuickFolders Current Folder Bar (Linux).
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/172">[issue 172]</a>
+    </li>
+    <li>
+      quickFilters buttons don't work initially when dragging from customize toolbar -
+      quickFilters needs to be restarted to make these buttons work.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/175">[issue 175]</a>
+    </li>
+    <li>
+      Improve license screen with section on pricing. As Thunderbird cannot pull 
+      the prices from the shop website at fastspring.com, the user must click the
+      Renew / Buy License buttons to look up price on the shop website before deciding
+      to pay <a href="https://github.com/RealRaven2000/quickFilters/issues/177">[issue 177]</a>.
+    </li>
+    <li>
+      Added Czech translation to license dialog.
+    </li>
+  </ul>
+
+  <h5 class="inList"> Improvements - v5.9 (released 28/03/2023) </h5>
+  <ul>
+    <li> 
+      <p>
+        Redesigned the quickFilters Assistant toolbarbutton and made it a dropdown. 
+        This unblocks usage of the assistant when showing the "expired license" notice. 
+        It also gives the option of reading the change log <i>after</i> enabling 
+        filter assistant mode:
+      </p>
+      <img class="screenshot" alt="dropdown menu with staged news" src="img/button-dropdown-newsflash.png"/>
+      <p>
+        If the license is expired, the label changes accordingly and
+        the additional menu item "Check license status..." is displayed on top.
+        This will not affect any other functionality, except for specific
+        features only available to quickFilters Pro licensees:
+      </p>
+      <img class="screenshot" alt="dropdown menu with renewal" src="img/button-dropdown-expired.png"/>
+    </li>
+    <li> 
+      Disable assistant when dragging mail <i>from</i> special folders: 
+      Queue | Templates | Drafts | Trash. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/164">[issue 164]</a>
+    </li>
+    <li>
+      <p>
+        Added a warning if the quickFilters license is about to expire (displayed 10 days before).
+        The first menu item opens the license page in quickFilters settings.
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/171">[issue 171]</a>
+      </p>
+      <img class="screenshot" alt="dropdown menu with expiry notice" src="img/button-license-renew.png"/>
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes - v5.9 </h5>  
+  <ul>
+    <li> 
+      Repaired the option to add new rules on top of existing filters.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/166">[issue 170]</a>
+    </li>    
+    <li> 
+      Remove donate button from assistant dialog for licensed users. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/166">[issue 166]</a>
+    </li>
+
+  </ul>  
+</li>
+
+
+
+<a name="5.8"> &nbsp; </a>
+<a name="5.8.1"> &nbsp; </a>
+<a name="5.7.2"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.8.1">quickFilters 5.8.1 - 18/02/2023</a>
+	</h4>
+
+
+  <h5 class="inList"> Maintenance Fixes 5.8.1 - published 18/02/2023</h5>
+  <ul>
+    <li>
+      Fixed: Ctrl-A (Select All) shortcut key was no longer working in version 5.8.
+      See <a href="https://github.com/RealRaven2000/quickFilters/issues/160">[issue 160]</a> 
+    </li>
+    <li>
+      <p>
+        Fixed: Merging to a filter with "Subject" template breaks filter 
+        See <a href="https://github.com/RealRaven2000/quickFilters/issues/161">[issue 161]</a> 
+      </p>  
+    </li>
+    <li>
+        Troubleshooter: in step one, only flag enabled filters that have no valid way of running 
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/161">[issue 163]</a>
+    </li>
+  </ul>
+
+
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+		<li>
+      You can now store only highlighted filters using Backup Button + CTRL key
+    </li>
+		<li>
+      Added link to github for writing bug reports / new feature requests on support tab
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/146">[issue 146]</a>
+    </li>
+		<li>
+      <p>
+        Allow assistant trigger when deleting or moving mail to Junk.
+        Also added a switch to support Archives (through the <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/">FiltaQuilla Add-on</a>).
+        Folder types that should be ignored by Assistant can be configured on the Actions page 
+        of quickFilters settings.
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/145">[issue 145]</a>
+      </p>
+      <p>
+        If you enable the filter assistant mode it will can invoke the build / merge filter when you 
+        delete or archive mail (also via keyboard shortcuts / menu item); by default this is now enabled
+        for the Trash, Junk and disabled for Archiving. It can be changed from the actions page 
+        of quickFilters Settings:
+      </p>
+      <p>
+        To disable the assistant for a specific  folder type set the "exclude" setting to true here:<br>
+        <ul>
+          <li>
+            In quickFilters settings, open the actions page and click the button "Assistant should ignore 
+            these folders..."<br><br>
+            <img class="screenshot" src="img/assistant-disable-folders.png" />
+          </li>
+          <li>
+            To disable the assistant when deleting toggle the setting 
+            <tt>extensions.quickfilters.assistant.exclude.trash = true</tt><br><br>
+            <img class="screenshot" src="img/assistant-exclude-trash.png") />
+            <br><br>
+            To enable the assistant when archiving (in order to create filters that archive mail),
+            set 
+            <tt>extensions.quickfilters.assistant.exclude.archive = false</tt><br><br>
+            Then make sure to install <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/">FiltaQuilla</a>
+            and enable the "archive" action.
+          </li>
+        </ul>
+      </p>
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>
+  <ul>
+		<li>
+      Fixed: Sorting filter items resurrects deleted search terms
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/149">[issue 149]</a>
+    </li>
+		<li>
+      Rolled back the code from 5.7.1 that removed "Monkey Patched" functions - this 
+      could lead to problems such as Thunderbird hanging during filtering on a
+      small number of systems.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/152">[issue 152]</a>
+    </li>
+  </ul>
+</li>
+
+<a name="5.7"> &nbsp; </a>
+<a name="5.7.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.7.1">quickFilters 5.7.1 - 26/12/2022 </a>
+	</h4>
+  
+
+  <h5 class="inList">Maintenance Fixes - 5.7.1 </h5>
+  <ul>
+    <li>
+      Since v5.7 , <i>deleting emails</i> triggered the active filter assistant and prompted to create 
+      new filters. This behavior was unintended. <a href="https://github.com/RealRaven2000/quickFilters/issues/142#">[issue 142]</a>
+    </li>
+    <li>
+      From v5.7 the quickFilters filter assistant were triggered by executing filters that 
+      move / copy mail.
+      With the latest version it will be checking if there are already filters active that 
+      may have successfully moved the mail, in which case the assistant is not invoked.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/143">[issue 143]</a>
+    </li>
+    <li>
+      Archiving Emails will also not trigger the filter assistant anymore.
+    </li>
+  </ul>
+
+  <h5 class="inList"> Improvements in 5.7 </h5>
+  <ul>
+    <li>
+      Added confirmation prompt to avoid accidentally running filters through hotkey.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/132">[issue 132]</a>
+      <p>
+        This can be configured on the quickFilters Pro license tab <br>
+        <img class="screenshot" src="img/qi-confirm-shortcut.png") />
+      </p>        
+    </li>
+    <li>
+      Reply-To search term is now insensitive to mixed small / capital letters.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/133">[issue 133]</a>
+    </li>
+    <li>
+      Help text of tooltip (e.g. actions in filter editor) is now readable in dark themes.
+    </li>
+    <li>
+      You can now create filters that move mail across to another inbox. 
+      Previously such mail movements did not trigger the assistant.
+    </li> 
+    <li> 
+      Removed Thunderbird patch code, if you use QuickFolders you must update it to version 5.15.1 
+      to avoid duplicate assistant prompts.
+    </li>
+    <li>
+      Removed sync-stream-listener which will go away in future versions of Thunderbird.
+    </li>
+    <li>
+      Improved naming of new filters if standard tags (such as Important, Work) are added.
+    </li>
+  </ul>
+</li>
+
+<a name="5.6"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.6" >quickFilters 5.6 - 17/10/2022</a>
+	</h4>
+  
+  <ul>
+    <li> 
+      Fixed <a href="https://github.com/RealRaven2000/quickFilters/issues/123">[issue 123]</a>
+      Clicking <i>Sort</i> could lead to empty search terms (Thunderbird 102 regression) 
+    </li>
+    <li>
+      Improved toolbar Icon colors for Thunderbird 102 integration.
+    </li>
+    <li> 
+      Support of license validation with Exchange accounts (from Tb 102)
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/125">[issue 125]</a>
+    </li>
+    <li> 
+      Improved default filter name for starred messages - now includes the folder name as well.
+    </li>
+    <li> 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/129">[issue 129]</a> 
+      Improved integration of buttons on QuickFolders' current folder bar.
+      
+      <p>
+        The optional quickFilters toolbar button which can be added to the QuickFolders Navigation bar
+        (Current folder toolbar) via Advanced settings can be missing if Add-ons are loaded in the 
+        wrong order or whenever QF is disabled / updated.
+      </p>
+      
+      <img class="screenshot" src="img/current-folder-tools.png" alt="current folder buttons" /> 
+      <br>
+      
+      This fix improves communication between both Add-ons to ensure the buttons
+      are never missing (requires QuickFolders 5.14 or higher).
+      To get a preview version of this fix in QuickFolders, <a href="https://github.com/RealRaven2000/QuickFolders/issues/316" target="_blank">go here.</a>
+    </li>
+    <li>
+      When creating filters from Starred messages in the Inbox using the context menu, 
+      does not trigger the unneccessary warning about being more useful after moving mail 
+      to another folder.
+    </li>
+  </ul>
+  
+  <h5 class="inList"> Miscellaneus </h5>
+  <ul>
+    <li> 
+      Removed all inline command handlers - adding them via script instead. [issue 122]
+    </li>  
+    <li> 
+      WIP: Support mixed "any" / "all" filters with mail clients that support it (<a href="https://www.betterbird.eu/">Betterbird</a> 91.8). 
+      When using nested conditions, parentheses (beginsGrouping and endsGrouping) 
+      are now processed as numeric and not as boolean (as of Betterbird). <a href="https://github.com/RealRaven2000/quickFilters/issues/102">[issue 102]</a> 
+    </li>
+  </ul>
+  
+</li>
+
+
+<a name="5.4.1"> &nbsp; </a>
+<a name="5.5"> &nbsp; </a>
+<a name="5.5.1"> &nbsp; </a>
+<a name="5.5.2"> &nbsp; </a>
+<a name="5.5.4"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.5.4">quickFilters 5.5.4 - 07/06/2022</a>
+	</h4>
+  
+    <a name="tb102-compatibility"> </a>
+    <div class="psa announcement">
+      <p>
+        Please note that <span class="emphasis">quickFilters is compatible with the latest version of Thunderbird (102.2)</span> - if you get a message 
+        that says otherwise after updating from earlier versions (Tb78 or Tb91) or <b>if quickFilters cannot be enabled</b> with 
+        the blue slider, simply remove it and reinstall it via "Find more Add-ons" on the Extensions tab of Add-ons Manager:
+      </p>
+      <div class="reinstallInstructions">
+        <p>First try if you can enable quickFilters using the slider: <br>
+          <img class="screenshot" src="img/enable-qf.png" alt="enable quickFilters" /> 
+        </p>
+        <p> 
+          If this doesn't work, then removing the Add-on via Thunderbird the Add-ons Manager will still retain your settings:<br>
+          <img class="screenshot" src="img/remove-qf.png" alt="remove to reinstall" /> 
+        </p>
+        <p>
+          In the Search box, enter the term <i>quickFilters</i>, and press the Enter key:<br>
+          <img class="screenshot" src="img/search-qf-addon.png" alt="force reinstallation via Addon Manager" /> 
+        </p>
+        <p>
+          Then click on the <i>Add to Thunderbird</i> button:<br>
+          <img class="screenshot" src="img/install-from-atn.png" alt="Add to Thunderbird" />
+        </p>
+      </div>
+      <div class="expandInstructions">Click to read instructions for reinstalling:</div> <br>
+    </div>  
+ 
+  <h5 class="inList"> Maintenance Items - 5.5.4 - 07/06/2022 </h5>
+  <ul>
+    <li>
+      Added improved Italian translation by Pol Hallen
+    </li>
+		<li> 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/107">[issue 107]</a> 
+      Existing "Reply-To" conditions cannot be edited (no text field displayed in Tb 91)
+    </li>
+		<li> 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/108">[issue 108]</a> 
+      Fixed: Edit fields of custom search term "Reply-To" is not displayed in Thunderbird 102
+    </li>
+		<li> 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/109">[issue 109]</a> 
+      Fixed: Adding "Reply To" parts in Custom Template Editor fails with an error
+    </li>
+		<li> 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/110">[issue 110]</a> 
+      Added an option to disable removing own email addresses (mainly for testing)
+    </li>
+  </ul>
+
+
+  
+  <h5 class="inList"> Improvements - 5.5.1 - released on 30/05/2022 </h5>
+  <ul>
+  
+
+    <li>
+      [5.5.1 - Maintenance Release] On request from <a href="https://extensionworkshop.com/documentation/publish/add-on-policies/">ATN Reviewers</a> removed debugger statements.
+    </li>
+    <li>
+      Increasing maximum TB version for next ESR - Thunderbird 102.* is planned to be supported from now on.
+    </li>
+    <li> 
+      <p>
+        Added new domain part extractors for custom templates: Root domain, Subdomain, Domain name extension.<br>
+        <img src="img/customTemplateAdvancedDomain.png" alt="advanced domain template" class="screenshot"><br>
+        These will usually work reliably depending on how exotic your domain extensions are. 
+        However it doesn't check against the database of extensions that look like domains, such as
+        "pharma.pro", here the algorithm will falsely assume that the URL "tools.pharma.pro" consists of:
+      </p>
+      subdomain = tools, root domain = pharma, extension = pro 
+      <p>
+      - even though in reality it is:
+      </p>
+      root domain = tools, extension = pharma.pro
+      <p>
+        I am not doing an online sanity check here, so double check when you use these functions
+        to create new filter templates.
+      </p>     
+    </li>
+    <li> 
+      Added a help panel in custom template editor that explains the placeholder action "set priority to normal".
+      When the assistant creates a new filter it will always add the appropriate action (such as move to current folder
+      or tag with the current tag) based on what the user did. Since the filter editor needs at least one action
+      the custom template editor just uses a "neutral" action (set priority to normal) as a placeholder.
+      This should be left alone - do not try to set a "move to folder action" unless you want to do it and
+      expect this action to be hardcoded in all filters you want to generate with this template.
+      <br>
+      <img src="img/Custom-Template-Actions-Tip.png" alt="tooltip for actions" class="screenshot"><br>
+    </li>
+		<li> 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/100">[issue 100]</a> 
+      Improved location of toolbar buttons when installing quickFilters
+      <p>
+        When installing quickFilters for the first time, the new buttons appear to the right of the application menu.
+        A better location would be to the left of the search box, aligned to the last visible button (in this 
+        example "Quick Filter"): <br>
+        <img src="img/toolbarbutton-positions.png" alt="default button locations" class="screenshot">
+      </p>
+    </li>    
+    <li>
+      Added more transparency for features that require a Pro license. You can use these features a limited 
+      number of times the remaining of which will now be displayed in the license notification at the 
+      bottom of the screen. All usage counts will be reset when this new version is installed.
+      <br>
+      <img src="img/restricted-countdown.png" alt="countdown for testing pro feature" class="screenshot">      
+    </li>
+  </ul>
+  <h5 class="inList"> Bugs Fixed </h5>
+  <ul>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/105">[issue 105]</a> 
+      Fixed: Backup of Custom Templates (Local Folders) does not store placeholders correctly
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/104">[issue 104]</a>
+      Fixed: Filter Rules sorting - fails if no quickFilters Pro license is present.
+    </li>
+    <li> 
+      Fixed sliding notification panels for Thunderbird 99 and higher.
+    </li>
+    <li> 
+      Fixed sliding notification icon for Thunderbird 91 
+    </li>
+    <li>
+      Fixed "copy" icon in filter list removed in TB102.
+    </li>
+    <li> 
+      Fixed icon on OS notification (Run filters on folder / selected mails...)
+    </li>
+		<li> 
+      Tested with <a href="https://www.betterbird.eu/">Betterbird</a> so that new filter 
+      templates be generated. 
+      To do: intelligent merging into subgroups depending on template. E.g.  subject AND (from OR from OR from). 
+      Test backup / restore to be compatible.
+    </li>   
+  
+  </ul>
+</li>
+
+<a name="5.4"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.4">quickFilters 5.4 - 04/03/2021</a>
+	</h4>
+  
+  
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/89">[issue 89]</a> 
+      Create filter by subject - option to insert the full subject if [string] in line.
+      In the default behavior, when generating a filter by subject, quyickFilters will look for terms
+      in square or curly braces, such as [honey] or {Fans} and extracts only these. This format is often
+      used by mailing lists or to group mails in a topic. If you switch on this new option,
+      the full subject line will always be inserted into the search condition.      
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/77">[issue 77]</a> 
+      When copying an email during assistant, the action "Copy to Folder" should be set 
+      + populated. At the moment this defaults back to "move to folder" and might also 
+      suggest merging with other filters of the wrong action.
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/92">[issue 92]</a> 
+      Added a method to view license extension sooner than 1 month before expiry of Pro license.
+      If you need to extend your license by another year before it expires,
+      you can click the valid date in Settings / quickFilters Pro tab to 
+      open the licensing screen to extend it:<br>
+      <img class="screenshot" src="img/extension-from-valid-date.png" alt="click valid date to show extension button" /> 
+    </li>
+  </ul>
+  <h5 class="inList"> Bug Fixes </h5>      
+  <ul>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/90">[issue 90]</a>, <a href="https://github.com/RealRaven2000/quickFilters/issues/72">[issue 72]</a> Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). </li>
+    <li>Fixed a problem with alias email addresses in license.</li>    
+    <li>
+      Fixed a problem with both the "Merge" and "Create New Filter" checkboxes being active at the same time.
+    </li>
+  </ul>
+</li>
+
+
+<a name="5.3"> &nbsp; </a>
+<a name="5.3.1"> &nbsp; </a>
+<a name="5.3.2"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.3.1">quickFilters 5.3.2 - 20/08/2021</a>
+	</h4>
+
+  <ul>
+   <h5 class="inList"> 5.3.2 Maintenance Release - 20/08/2021</h5>        
+    
+    <li>
+      Fixed <a href="https://sites.fastspring.com/quickfolders/product/quickfiltersdomainlicense?referrer=qi-version-page">domain license link</a>. 
+      You can now buy a license for your enterprise, have a single license for muliple users and save money and time from 5 users and more.
+    </li>
+    <li> Fixed: The link to premium features directed to QuickFolders site, not quickFilters!</li>
+    <li>
+      Removed experimental APIs for notifications and reading accounts that worked around <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1710359">Bug 1710359</a>.
+    </li>    
+    
+    <h5 class="inList"> 5.3.1 - 05/08/2021 </h5> 
+    <li>
+      <b>quickFilters is now compatible with Thunderbird 91</b>, which commences the next ESR period (2021-2022).
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/67">[issue 67]</a> 
+      Added colored icons and improved theme support in message filter list toolbar. 
+      The icons will also now zoom when pointed to for better visibility: <br/>
+      <img src="img/filter-list-toolbar.png" alt="new toolbar icons" class="screenshot"><br>
+      The color scheme also supports theming with adjusted colors for dark backgrounds:<br>
+      <img src="img/filter-list-toolbar-lw.png" alt="toolbar dark mode" class="screenshot">
+    </li>
+    <li>
+      Splash screen: instead of displaying this as soon as Thunderbird installs a new version
+      of Thunderbird, this is now available by clicking the message on the assistant button
+      which shows the fact that quickFilters was updated:<br>
+       <img src="img/btn-update-notice.png" alt="button with update" class="screenshot"><br>
+      Later on, you can also read the notice which includes a localized list of new features, 
+      by opening quickFilters settings / support tab: <br>
+      <img src="img/support-splash.png" alt="support tab splash screen" class="screenshot">
+    </li>
+    <li>
+      quickFilters Options are now available through Add-ons Manager / quickFilters "Wrench Icon".
+      You can also still get to them by right-clicking the quickFilters assistant button.
+    </li>
+    <li>
+      Restricted special search methods in the filter list to licensed users only. This includes being able to 
+      search for any values in search conditions or target folders:<br>
+      <img src="img/filter-search-types.png" alt="filter search methods" class="screenshot">
+      <br>
+      Licenses are vital to finance future work on new features and compatibility with Thunderbird 91 and beyond, so you are welcome to 
+      <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qi-version-page" >get one here.</a>
+    </li>
+  </ul>
+  
+  <h5 class="inList"> Bug Fixes </h5>    
+  <ul>
+    <li>The link on the registration screen in 5.3 accidentally directed to buy a QuickFolders license. This is now fixed in version 5.3.1.</li>
+    <li>The license validation didn't tell if license failing - fixed in 5.3.1</li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/66">[issue 66]</a> 
+      Fixed: On some machines, quickFilters is not loading at startup (due to accounts not loading)
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/68">[issue 68]</a> 
+      Fixed: Moving mails with context menu moves wrong mails (it switched to mail below the selection and moved that instead). 
+    </li>
+    <li>
+      quickFilters Options: Hiding / showing the toolbar now happens instantly in filter list.
+    </li>
+  </ul>
+  
+  <h5 class="inList"> Localization </h5>    
+  <ul>
+    <li>
+      Use modern localization format (json files). This can avoid problems of dialogs not loading in non-English locales if a text is missing.
+    </li>
+    <li>
+      Completed Argentinian Locale using strings from the Spanish one.
+    </li>
+    <li>
+      Added Finnish, Portuguese and Polish translations (using google translate). 
+    </li>
+  </ul>
+  
+  <h5 class="inList"> Compatibility with Thunderbird 91</h5>    
+  <p>These were major changes in the code base which are necessary steps for the conversion to a API based
+    mail extension. There is ongoing documentation of this process at github
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/48">[issue 48]</a> 
+  </p>
+  <ul>
+    <li>
+      Removed deprecated fixIterator function from findInboxFromRoot() function
+    </li>
+    <li>
+      [mail extension migration] Licenser code migrated into background script. 
+    </li>
+    <li>
+      Using notifyTools for updating UI via background page (mail extension conversion).
+    </li>
+    <li>
+      Fixed missing icons on sliding notification bars
+    </li>
+    <li>
+      Fixed style / visibility of [Buy License] button at bottom of settings dialog.
+    </li>
+    <li>
+      Fixed missing "about:config" dialogs. These are used to set undocumented / advanced settings 
+      such as the log detail when right-clicking the <i>debug mode</i> checkbox.
+    </li>
+    <li>
+      Removed all references to the old mozdev.org site.
+    </li>
+  </ul>
+
+</li>
+
+<a name="5.2"> &nbsp; </a>
+<a name="5.2.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.2">quickFilters 5.2 - 06/04/2021</a>
+	</h4>
+  <ul>
+  
+		<li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/11">[issue 11]</a>
+      New function: Sort Search Terms in a filter. To make it easy to view the list 
+      correctly, the new search terms are sorted by search attribute, operator and value. <br>
+      <img src="img/filter-searchterms-sort.png" alt="sort search terms" class="screenshot">
+    </li>
+		<li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/20">[issue 20]</a>
+      New function: Remember Copied filters List to insert to other Accounts multiple times.
+      You can now copy a selection of filters to different accounts without having to re-select 
+      the filters every time. You can enable this feature, in quickFilters settings on the advanced tab:<br>
+      <img src="img/filters-multipaste.png" alt="multiple paste option" class="screenshot">
+    </li>
+		<li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/51">[issue 51]</a>
+      Fixed: Merging new filter conditions may lead to duplicate conditions.
+    </li>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/52">[issue 52]</a> 
+      Fixed: Mails with own sender address are not automatically suggested for merging when using context menu</li>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/23">[issue 23]</a> 
+      Avoid Empty Conditions list due to removed recipients - filter cannot be edited.
+      In this case, (when removing invalid emails would lead to a filter without any search conditions) an error message is displayed instead of displaying a filter dialog that cannot be edited.</li>
+    <li>Added a step to the troubleshooter that finds filters without search terms.</li>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/47">[issue 47]</a> Fixed: Using the %subject% placeholder in custom templates doesn't work in Assistant. </li>
+    <li>
+      quickFilters settings can now be opened from the Add-ons Manager (via the ... menu).
+      You can also still use the shortcut of right-clicking the filter assistant button on the main toolbar.
+    </li>
+    
+    <li>
+      5.2.1 - removed sort button from custom filter templates
+    </li>
+    <li>
+      5.2.1 - Improved Russian translations by Igor Zhigunov aka ashed
+    </li>
+  </ul>    
+  <h5 class="inList"> Thunderbird 88 Regressions Fixed </h5>
+  <ul>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/48">[issue 48]</a> 
+      Make quickFilters compatible with Thunderbird 88 beta (ongoing): 
+      <ul>
+        <li>Removed strict maximum version - you can now run quickFilters in Thunderbird 88 beta versions. 
+          Please do not expect higher versions to work, my goal for the moment is strictly supporting
+          next years ESR version in time.</li>
+        <li>open sites in tab was broken because of modified openTab parameters</li>
+        <li>search terms now in a different type of collection can lead to failures when defining new filters.</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+
+<a name="5.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.1">
+    quickFilters 5.1 - 27/01/2021 </a>
+	</h4>
+  <ul>
+  
+		<li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/41">[issue 41]</a>
+      Fixed: Merge filters (at least manually) is broken #41.
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/42">[issue 42]</a> 
+      All cut / copied filters in list should be highlighted with icon.
+    </li>
+		<li> 
+      Fixed: In Filter Editor, the reply-to condition field can be broken or disabled if certain 
+      character combinations are used (usually involving parentheses or angle brackets)
+    </li>
+		<li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/44">[issue 44]</a>
+      Folder names default delimiter shows black diamond � instead »
+    </li>
+    <li>
+      Improved reopening any support sites already open in a tab by jumping to the correct place if necessary.
+    </li>
+    <li>
+      Thunderbird 85 beta - Fixed the buttons "Run filters on folder" and "Run filters on selected mails" which stopped working
+      due to a parameter change in the function MailServices.filters.applyFiltersToFolders().
+      Although I fixed this particular issue I make no guarantees for any functionality if you are using beta versions. I can only support 
+      the current ESR version Thunderbird 78.1 - 78.* fully.
+    </li>
+  </ul>
+</li>
+
+
+<a name="5.0"> &nbsp; </a>
+<a name="5.0.1"> &nbsp; </a>
+<a name="5.0.2"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/5.0.2">quickFilters 5.0.2 - 02/12/2020</a>
+	</h4>
+  <ul>
+		<li class="psa">
+      <p>
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/14">[issue 14]</a>
+        quickFilters  was migrated to Thunderbird 78, and is now finally available after a lengthy beta phase
+        on addons.thunderbird.net. This years conversion work was expensive and deep - I hired external developer
+        Klaus Buecher  for the main conversion phase and also got some lovely new icons contributed by
+        @Panglab who did a lot of design work for Thunderbird Core.
+      </p>
+      <p>
+        I had a lot of extra days of work and around 3,500$ of expenses for this years Add-on conversions and releases - 
+        also the web site had to be migrated from the now decommissioned free hosting on mozdev.org to github pages.
+        To help fund quickFilters for the next year and the unavoidable changes necessary to switch over to an 
+        API  based approach, you should <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qf-version-page">buy a quickFilters Pro license</a>.
+      </p>
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/33">[issue 33]</a>
+      Copy  / move mail context menu broken with quickfilters
+    </li>
+    
+    <h5 class="inlist"> Thunderbird 78 Regressions Fixed </h5>
+    <li> 5.0.2 - Add-on was broken (no toolbar buttons / options dialog) for Spanish and Hungarian users due to a problem 
+      with localisation</li>
+    <li> 5.0.1 - fixed the broken options screen that comes up on Add-ons Manager. You cannot currently open options from there. 
+      Please use the tools / addons menu or right-click the main icon (quickFilters assistant) on the toolbar</li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/39">[issue 39]</a>
+      Rewrite "Reply-To" custom condition to work without bindings. As bindings have been completely removed 
+      from Thunderbird 78 the custom condition for editing the Reply-to header have to be rewritten 
+      using JavaScript - I am using similar code to FiltaQuilla (mutation observers) which took me quite a 
+      few difficult days to develop.
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/27">[issue 27]</a>
+      Filter creation (merging) window not sized constrained when many test items.      
+    </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/26">[issue 26]</a>
+      "Next Steps" does not over-ride "Settings/Actions."
+    </li>
+  </ul>
+</li>
+
+<!-- thunderbird 68 and older MUST LINK TO github!! -->
+
+<!--
+<a name="4.x"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://github.com/RealRaven2000/quickFilters/releases/" 
+		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 4.x - WIP</a>
+	</h4>
+  <ul>
+		<li></li>
+		<li></li>
+		<li></li>
+  </ul>
+</li>
+-->
+
+
+
+<a name="4.5"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.5">quickFilters 4.5 - 05/04/2021</a>
+	</h4>
+  <ul>
+		<li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/51">[issue 51]</a>
+      Fixed: Merging new filter conditions may lead to duplicate conditions
+    </li>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/52">[issue 52]</a> 
+      Fixed: Mails with own sender address are not automatically suggested for merging when using context menu.
+    </li>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/23">[issue 23]</a> 
+      Avoid Empty Conditions list due to removed recipients - filter cannot be edited.
+      In this case, (when removing invalid emails would lead to a filter without any search conditions) an error message is displayed instead of displaying a filter dialog that cannot be edited.
+    </li>
+  </ul>
+</li>
+
+
+
+<a name="4.4"> &nbsp; </a>
+<a name="4.4.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.4.1">quickFilters 4.4.1 - 20/06/2020</a>
+	</h4>
+  <ul>
+    <li class="psa quickFiltersFreeUser">
+      <p>
+        I am currently paying somebody to migrate all my Add-on support sites away from the free host on
+        <span class="emphasis">mozdev.org, which is closing operation end of June</span>. 
+        To keep having support sites and ongoing development, please 
+        <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qf-version-page">buy a license</a>
+        (the complete migration cost me $650, so there are some expense I hope to recover from the 
+        community of users).
+      </p>
+      <p> 
+        I will also have to rewrite all mail Add-ons as web extensions, which is currently 
+        not yet possible as all necessary APIs to replace the deprecated tech has not been implemented.
+        As in between step I plan to release QuickFolders as a "web experiment" for Thunderbird 78+
+        but this will take a few weeks of work. If you are interested in using a version of 
+        quickFilters that works with Thunderbird 78, 
+        <a href="https://sites.fastspring.com/quickfolders/instant/quickfilters?referrer=qf-version-page">buy a license</a> to support the project.
+      </p>
+    </li>
+		<li><a href="https://github.com/RealRaven2000/quickFilters/issues/2">[issue 12]</a> 
+      Pro Feature: Add keyboard shortcuts for Run Filters buttons. These can be enabled and 
+      configured on  the quickFilters Pro tab. This feature is useful for archiving or anti-Junk
+      filters which should be configured to only run manually.
+      <p>
+        Default shortcuts are:<br>
+        Shift + F: Run Filters on folder<br>
+        Shift + R: Run Filters on selected mails
+      </p>
+    </li>
+    <li>(4.4.1) Fixed a layout problem in settings that caused some bad text characters showing at the top of the dialog.</li>
+    
+  </ul>
+</li>
+
+<a name="4.3"> &nbsp; </a>
+<a name="4.3.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.3.1">quickFilters 4.3.1 - 13/12/2019</a>
+	</h4>
+  
+  <ul>
+  
+    <a name="changes4_3"> </a>
+		<li>A missing notifyBox element can lead to problems when toggling assistant.</li>
+		<li>Premium feature: run filters local inbox didn't work depending on local folder hostname,
+      changed method of determining whether an inbox is in local folders (to force filter running)</li>
+		<li>Made modification of toolbar more reliable</li>
+		<li>Fixed licensing problem with accounts that have no default identity</li>
+		<li><a href="https://github.com/RealRaven2000/quickFilters/issues/2">[issue 2]</a> 
+      Merged filters: some conditions may end up not working.
+      <p>when merging multiple filters, sometimes conditions will not work. This is caused by mixing filters 
+      with different radio buttons "all conditions" vs "any conditions". Apparently the merged filter 
+      conditions internal "booleanAnd" attributes are not changed towards that of the target filter. 
+      So if the target (first) filter has "any" and the merged filter has "all" it may lead to some (or all) 
+      of it's conditions being to ignored.</p>
+    </li>
+    <li>
+       <img src="img/troubleshoot-filters.png" alt="troubleshooting" class="screenshot">
+       <p>Added configuration options to troubleshooter. Simply right-click the troubleshoot button to get 
+       a choice between the following tests:</p>
+       <ol>
+         <li><tt>incomingFlag</tt> - filters sometimes are missing this flag and will never be executed when 
+           downloading new mail. However you may want to have some filters that you only want to run manually
+           so you may want to generally disable this check.</li>
+         <li><tt>invalidTargetFolder</tt> - can occur when filters are imported from other / older mail profiles or 
+           folders are moved / deleted on Imap.
+         </li>
+         <li><tt>customActions</tt> - finds invalid custom actions which may have been added by 3rd party add-ons  
+           (e.g FiltaQuilla); this problem will occur such Add-ons are disabled or uninstalled.
+         </li>
+         <li><tt>mixedAnyAndAll</tt> - NEW TROUBLESHOOTING STEP: Fix filters that have both mixed Any and All conditions. 
+           This can occur when merging filters that have different Any/All definitions and may lead to 
+           some conditions being omitted.
+         </li>
+       </ol>
+    </li>
+    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/3">[issue 3]</a> 
+      Filter conditions which deal with subject are not exported correctly during backup. 
+      This will lead to the condition having a "disabled" subject attribute in the editor after importing them.
+    </li>  
+  </ul>
+</li>
+
+
+<a name="4.2"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.2">quickFilters 4.2 - 21/09/2019</a>
+	</h4>
+  <ul>
+    <li> The small buttons (Display Filter List, Run Filters on Folder, Run Filters on Selected Messages, File Filters on Folder) 
+         on the QuickFolders "Current Folder Toolbar" are not shown anymore in 
+         Thunderbird 68. This version brings them back.</li>
+    <li> Custom filters: removing / avoiding own email addresses from new filter conditions is not working 
+          in Custom Filters. This is now remedied. If you need to add your own email address to the filter conditions
+          its probably a safe bet you would want to do it manually.</li>
+  </ul>
+</li>
+
+
+
+
+<a name="4.1.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.1.1">quickFilters 4.1.1 - 06/09/2019</a>
+	</h4>
+  <ul>
+		<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/1">[issue 1]</a> Fixed: The button <i>Run Filters on Folder</i> stopped working in Tb 60 because Thunderbird 
+		     renamed mailServices to MailServices</li>
+		<li> Improved labelling for <i>Troubleshooting</i> (was 'Debug') button and "running filters on folder" notifications<br>
+				 <img src="img/troubleshoot-filters.png" alt="troubleshooting" class="screenshot">
+		</li>
+  </ul>
+</li>
+
+<a name="4.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.1">quickFilters 4.1 - 30/08/2019</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26695" target="_blank">[Bug 26695]</a> 
+		  fixed: Thunderbird 68 - filter assistant buttons doesn't work. When clicking the filter 
+			assistant button, assistant mode is not toggled on.
+		</li>
+		<li>Added path validation of target folders (move to / copy to) to "debug filters" button.</li>
+		<li>Added custom action validations to "debug filters" button.</li>
+		<li>Fixed notification bars for Thunderbird 68.</li>
+		<li>Added support for the "run periodially" option (can be set as default for new filters).</li>
+		<li>Fixed some spacing issues with the licensing field / validation buttons.</li>
+  </ul>
+</li>
+
+<a name="4.0.3"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/" 
+		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 4.0.3 - 17/06/2019</a>
+	</h4>
+  <ul>
+		<li>Fixed the option "Run Filters on Local Folders" which was not stored in configuration when changed in the prefereences screen.</li>
+		<li>Moved the paste and validation buttons underneath the license key field.</li>
+  </ul>
+</li>
+
+
+<a name="4.0"> &nbsp; </a>
+<a name="4.0.1"> &nbsp; </a>
+<a name="4.0.2"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.0">quickFilters 4.0.2 - 01/06/2019</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26657" target="_blank">[Bug 26657]</a> 
+		   ESR Readiness 2019 /2020:
+		  <p>New - quickFilters as web extension: Version 4.0 officially supports Thunderbird 68, minimum version 
+				from now on will be Thunderbird 60. For earlier versions of Thunderbird, check out 
+				the <a href="https://interlink-addons.binaryoutcast.com/addon/quickfilters/" target=_blank>version hosted at Interlink</a>.
+		  </p>
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26664" target="_blank">[Bug 26664]</a> 
+		  Merging filters - new option to add condition on top instead of appending at bottom</li>
+		<li>Fixed in 4.0.2: <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26668" target="_blank">[Bug 26668]</a> 
+		  "singleFilter is undefined" - this Error log is generated when using the run 
+			filters on folder command which may cause no filters to run at all.
+		</li>
+		<li>(4.0.2): added compatibiliy code for Tb68 (createXULElement replaces createElement)</li>
+  </ul>
+</li>
+
+
+
+<a name="3.12"> &nbsp; </a>
+<a name="3.12.1"> &nbsp; </a>
+<a name="3.12.2"> &nbsp; </a>
+<a name="3.12.3"> &nbsp; </a>
+
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.12.3">quickFilters 3.12.3 - 15/05/2019</a>
+	</h4>
+  <ul>
+		<li> 
+			<p>3.12.3 - This is the last maintenance version that supports Thunderbird 52. Future version will require 
+		     at least version Thunderbird 60 because they will be compatible with Mozilla's new "web-extensions" system.
+		  </p>
+		  <p> The ATN servers do not allow updating from a web extension version once it is hosted. 
+			    This is a technical limitation that is likely not going to be fixed.
+			</p>
+		</li>
+
+		<li> <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26657" target="_blank">[Bug 26657]</a> 
+		     ESR 2019 Readyness - compatibility with Thunderbird 68
+		     <p>Made quickFilters compatible with Thunderbird 68 - part of the ongoing effort to 
+				 future proof quickFilters for 2020.  For now, this also means making the minimum requirement 
+				 using Thunderbird version 60. </p>
+				 <p>
+				 For back-porting bug fixes to older versions, code will be handled on 
+				 a <a href="https://github.com/RealRaven2000/quickFilters/tree/Tb-52">separate Github branch</a>.
+				 Note that the Add-on will be necessarily released as 2 different version numbers for 60 and 68 
+				 because of the differences in architecture.,
+				 </p>
+		  <ul> 
+			  <li> Replaced prefwindows with dialogs.</li>
+				<li> Use newer preferences script.</li>
+		    <li> Replace groupbox elements with html fieldsets.</li>
+				<li> Use new promise-based AddonManager object.</li>
+		  </ul> 
+		</li>
+		<li> The premium feature notification was not displaying the "close" button, this is now fixed.</li>
+		<li> Fixed <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26662" target="_blank">[Bug 26662]</a>
+		     in 3.12.2:  Run Filters on folder button stopped workin on Thunderbird 60.</li>
+		<li> Fixed <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26663" target="_blank">[Bug 26663]</a>
+		     in 3.12.3:  Force secondary identity for licenses doesn't work.</li>
+  </ul>
+</li>
+
+<li><a name="3.11.1">&nbsp;</a>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.11.1">quickFilters 3.11.1 - 07/04/2019</a>
+	</h4>
+  <ul>
+		<li>Completed Japanese locale - thanks to Masahiko Imanaka.</li>
+		<li>Completed Dutch locale - thanks to markh van BabelZilla.org.</li>
+		<li>Also special thanks to Leopoldo Saggin [it], A. Regnander + Mikael Hiort af Ornäs [sv-SE] 
+		    for consistently staying on top of the translations as I develop new features.
+		</li>
+  </ul>
+	<br>
+	<br>
+</li>
+
+
+<li><a name="3.11">&nbsp;</a>
+  <h4>
+		<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.11" >quickFilters 3.11 - 04/04/2019</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26652" target="_blank">[Bug 26652]</a>
+		    Added an option to Automatically run the freshly created filter 
+				when the filter list is not displayed. In the default workflow,
+				the user can push the [Run Filter] button to try out the new filter.
+				If the filter list is not shown, this option will run the filter on the 
+				originating Inbox.
+				<br>
+				<img src="img/assistant-autorun.png" alt="auto run" class="screenshot"><br>
+		</li>
+		<li>Fixed: <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26653" target="_blank">[Bug 26653]</a>
+		    Skipping filter list step in assistant ignores alphabetical order option. 
+				To make sure your new filter is inserted in alphabetical order, activate 
+				<i>Insert new Filter in alphabetical order</i> in quickFilters Preferences 
+				under the <i>New Filter Properties</i> tab:
+				<br>
+				<img src="img/options-alphabetical.png" alt="auto run" class="screenshot"><br>
+		</li>
+  </ul>
+</li>
+
+<a name="3.10.1"> &nbsp; </a>
+<a name="3.10"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.10">quickFilters 3.10 - 31/03/2019</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26643" target="_blank">[Bug 26643]</a>
+		  (Premium Feature) Run filters on Local Folders Inbox automatically.
+			With this new option, any emails that are moved to the Local Folders Inbox will be automatically
+			processed again using the filters defined there. With Thunderbird out of the box this behavior
+			cannot be achieved as there is no "Get new Mail" event on Local Folders.
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26643" target="_blank">[Bug 26649]</a>
+		  Creating a new "mail list" filter throws undeclared variable exception. 
+		</li>
+		<li> When creating a filter from a message via right-click menu	quickFilters now warns
+         if the email is not tagged and also is still sitting in the inbox.
+				 Creating filters via the assistant is more useful when the action on the email
+				 (such as moving to a folder) has already been carried out as quickfilters
+				 can then add this action to the filter definition automatically.
+		</li>
+		<li> Added choices to skip filter editor / filter list in the 
+		     filter assistant itself. This may be helpful if you update
+				 the same filter with a whitee list / black list of senders
+				 and do not want to verify or test the filter. <br>
+			   <img src="img/assistant-next-steps.png" alt="next steps" class="screenshot"><br>
+				 Note that quickFilters will display a OS specific sliding notification 
+				 after a completely silent filter creation / update
+				 but this will close automatically, so no extra clicks 
+				 are necessary.
+		</li>
+		<li> To accelerate going through the assistant screen, the [Enter] key can 
+		     now be used to step through its screens.
+		</li>
+  </ul>
+</li>
+
+
+<a name="3.8.2"> &nbsp; </a>
+<a name="3.9"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.9" >quickFilters 3.9 - 14/02/2019</a>
+	</h4>
+  <ul>
+		<li>From now on - quickFilters shows no more donation tab on update - update news are handled via the change log (here).</li>
+		<li>Added a <a href="https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V">link to quickFilters videos</a> my YouTube channel on the support tab of preferences dialog:<br>
+		<img src="img/preferences-support-youtube.png" alt="youtube channel" class="screenshot">
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26630" target="_blank">[Bug 26630]</a> - optimized the quickFilters Assistant 
+		   by restricting the maximum height - otherwise the merge list can grow very tall. 
+			 Also the dialog used to grow too wide when certain templates were selected.</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26192" target="_blank">[Bug 26192]</a> - Improved "mailing list" template 
+		    to use the <i>"List-id"</i> header, where available. This header is often used by mailing lists. 
+				If the <i>List-id</i> header doesn't exist, the filter uses the sender's address, as in previous versions of quickFilters.</li>
+		<li>Backup / Restore Filters will now remember the last folder that was picked for loading / saving.</li>
+		<li>If filters with custom actions cannot be backed up successfully this will be now be displayed in detail.</li>
+		<li>Added easier Renewal logic that reads the old license date and adds a whole year even when extending license early.
+		    if your license expires within 30 days, the quickFilters Pro tab will display an "extend license" button.
+		</li>
+  </ul>
+</li>
+
+
+<a name="3.8.1"> &nbsp; </a>
+<li>
+  <h4>
+	<a name="3.8.1" 
+	   href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.8.1" 
+	   onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 3.8.1 - 09/01/2019</a>
+	</h4>
+  <ul>
+		<li>When backing up filters with custom actions, this could fail silently if necessary third party addons 
+		    were missing (e.g. FiltaQuilla). quickFilters will now display an error message with a list of filters
+				and custom actions that weren't fully saved.</li>
+		<li>Improved bug icon when faulty filters are found. If some filters don't run automatically,
+		    open filters list and then click the debug button <img src="img/bug-small.png">
+				<p>
+					<img src="img/debug-filters-button.png" alt="debug filters button" class="screenshot"><br>
+					If any problematic filters are found they will then be displayed:<br>
+				  <img src="img/debug-filters.png" alt="error message" class="screenshot"><br>
+					Click OK to repair the listed filters.	
+				</p>
+		</li>
+		<li>Fixed: Message popups for running filters manually stopped closing automatically.</li>
+		<li>Fixed the license renewal link at the fastspring shop - it was broken and redirected to the QuickFolders homepage.</li>
+  </ul>
+</li>
+
+<a name="3.7.1"> &nbsp; </a>
+<a name="3.8"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.8">quickFilters 3.8 - 01/01/2019</a>
+	</h4>
+  <ul>
+		<li>
+			<p>
+				<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26625" target="_blank">[Bug 26625]</a> 
+				New filters do not automatically run when getting mail. This problem was introduced in 
+				version 2.8 by not adding an important flag to the filter type, based on the new setting 
+				<i>"Run Manually"</i> (and later the additional settings in the <i>"Apply Filter when"</i> box)
+				<br>
+				<img src="img/new-filter-apply-when.png" alt="when to run filters" class="screenshot"><br>
+				The flags <tt>nsMsgFilterType.InboxRule</tt> or <tt>nsMsgFilterType.NewsRule</tt> have to be added 
+				to existing filters that had the "manual" box unchecked.
+			</p>
+			<p>
+			  You can use the new "Debug" button to track down and fix these filters.<br>
+				<img src="img/debug-filters-button.png" alt="debug filters button" class="screenshot">
+			</p>
+		</li>
+		<li>
+		  Filters are now merged on import. 
+		  When a filter is imported it will overwrite a filter of the same name,
+		  rather than creating a duplicate. 
+		</li>
+		<li>
+		  Fixed some layout problems (truncation) in filter assistant.
+		</li>
+  </ul>
+</li>
+
+<a name="3.7"> &nbsp; </a>
+
+
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.7">quickFilters 3.7 - 05/10/2018</a>
+	</h4>
+  <ul>
+		<li>
+			<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26547" target="_blank">[Bug 26547]</a> 
+		  Add default options for when filters should be run.<br>
+			<img src="img/new-filter-when-apply.png" alt="defaults: when are filters applied" class="screenshot">
+		</li>
+		<li>
+			<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26574" target="_blank">[Bug 26574]</a> 
+		  Filter Naming: Added configuration for customized delimiter character betweeen folder and filter name.
+			The new default delimiter is » (right pointing double angle quotation mark)
+		</li>
+		<li>Added Unicode support to Custom Template Names.</li>
+		<li>Description field is now automatically filled by the preselected template.
+		    Before, you had to click on one first to get the description.
+		</li>
+		<li>
+			<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26579" target="_blank">[Bug 26579]</a> 
+			Added message info panel in template dialog. This shows the more important headers such 
+			as subject line, from address and date in a little preview panel, making it easier
+			to choose an appropriate template.<br>
+			<img src="img/preview-box.png" alt="preview box" class="screenshot">
+		</li>
+		<li>
+			<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26582" target="_blank">[Bug 26582]</a> 
+			Backup filters not working in Thunderbird 60. (gCurrentFolder not defined)
+		</li>
+		<li>Moved all links from addons.mozilla.org to addons.thunderbird.net.</li>
+  </ul>
+</li>
+
+
+
+<a name="3.6"> &nbsp; </a>
+<a name="3.6.1"> &nbsp; </a>
+
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.6">quickFilters 3.6.1 - 16/06/2018</a>
+	</h4>
+  <ul>
+		<li>
+		  <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26542" target="_blank">[Bug 26542]</a> 
+		  quickFilters not defined in Postbox 5.0. Some newer Javascript in quickFilters 3.5 causes
+			it to not work with Postbox 5.0 and older versions.
+		</li>
+		<li>
+		  <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26543" target="_blank">[Bug 26543]</a> 
+		  Custom Templates: Support gathering address fields from multiple mails. This will omit collecting
+			EMails or domains of one's own Email addresses in order to avoid bad side effects such 
+			as unintentionally archiving one's own Emails.
+		</li>
+		<li>
+			<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26545" target="_blank">[Bug 26545]</a> 
+		  Filter Merge should be triggered when emails are tagged
+		</li>
+		<li>
+			<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26548" target="_blank">[Bug 26548]</a> 
+		  Run Filters in folder context menu not working		
+		</li>
+		<li>
+			<a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26549" target="_blank">[Bug 26549]</a> 
+		  Option to skip Filter Editor.
+		</li>
+		<li>
+		  Fixed version history jumping to correct version heading for Pro Users
+		</li>
+		<li>
+			Improved "Run Filters on Folder" function for non-Inbox folders.
+		</li>
+		<li>
+			Fixed toolbar coloring and image in brighttext mode (dark themes). Also toned down the 
+			QuickFolders toolbar panel color highlight (was deep red) and text color when filter 
+			assistant is active. <br>
+			<img src="img/quickfolders-panel-assistant-highlight.png" alt="filter active highlight" class="screenshot">
+		</li>
+		<li>
+			Preselected last template in filter assistant is automatically scrolled into view.
+		</li>
+		<li>
+		  (3.6.1) Custom Templates: reading headers is sometimes not working when moving mail 
+			to Local Folders. Also copying search terms in Thunderbird 60 failed due to removal of 
+			some programming interfaces since version 58.
+		</li>
+  </ul>
+</li>
+
+<a name="3.5">&nbsp;</a>
+<li>
+  <h4>
+		<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.5" 
+		   onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 3.5 - 03/05/2018</a>
+	</h4>
+  <ul>
+	  <li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25844" target="_blank">[Bug 25844]</a> 
+		    Add Backup + Restore Feature (Premium Feature)<br>
+				<img src="img/backup-restore.png" alt="save and restore buttons" class="screenshot">
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26488" target="_blank">[Bug 26488]</a> 
+				ESR 2018 readiness - Make quickFilters compatible with Thunderbird 60
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26477" target="_blank">[Bug 26477]</a>
+    		Make quickFilters compatible with Postbox 5.52 beta 6 (modern Gecko build) - as of beta 7 Postbox follows Mozilla Quantum in <a href="https://support.postbox-inc.com/hc/en-us/articles/115004234013" target="_blank">dropping 3rd party Addons support altogether</a>:
+								 <quote>
+									 <p> Postbox is based on Mozilla code, and as of Firefox Quantum, Mozilla has discontinued support for add-ons. As such, a decision has been made to remove add-ons functionality from Postbox at this time.</p>
+									 <p> Postbox's Signatures and Responses add-ons have been rolled into the core product. Cloud File Sharing and installable Dictionaries will be supported in future BETA releases. </p>
+									 <p>Add-ons from 3rd parties will no longer operate in Postbox, but we may opt to roll certain 3rd party add-on functionality into Postbox in the future.</p>
+								 </quote>
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26486" target="_blank">[Bug 26486]</a>
+		    quickFilters can't create Filter in Thunderbird versions &lt; 47. This bug also addresses
+				a situation where the storage configured to use a different Inbox is advanced shared server settings:<br>
+				<img src="img/advanced-account-settings.png" alt="find filters button in QuickFolders" class="screenshot">
+		</li>
+		<li>SearchTerms Array changed from nsICollection to nsIMutableArray, following changes from comm-central</li>
+  </ul>
+</li
+
+<a name="3.3"> </a>
+<li>
+	<a name="3.4"> </a>
+	<a name="3.4.1"> </a>
+	<a name="3.4.2"> </a>
+  <h4>
+		<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.4.1">quickFilters 3.4.2 - 25/12/2017</a>
+	</h4>
+	
+  <ul>
+	  <li>
+			Fixed in 3.4.1: <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26457">[Bug 26457]</a>
+			[Bug 26457] Auto processing of filters with tags when option is off
+		  Something causes the filters to run automatically	(may be related to tags)
+		</li>
+		<li>
+			3.4.1: Added a checkbox for the auto filtering manually tagged messages
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26441">[Bug 26441]</a>
+				Thunderbird 57 beta hangs on start with quickFilters enabled.
+				<br>
+				<p>A number of changes to the JavaScript engine necessitate various changes to 
+				the code. Most important, the changes are incompatible with the Postbox
+				script engine (and are very hard to code around as an important construct, 
+				the for loop, which is used in a lot of places will lead to the Add-on
+				breaking down in Postbox) - therefore this version will _not_ support
+				Postbox.</p>
+				<p>
+				See also the <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1417209">Related Thunderbird bug </a>
+				</p>
+		</li>
+		<li>Make sure mails that are tagged manually are filtered immediately.</li>
+		<li>
+				Fixed <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26457">[Bug 26457]</a>
+				"Auto processing of filters with tags when option is off"
+				this can lead to a lot of notifications that filters are ran when 
+				tag-settings addons such as xnote++ aree installed. I removed the 
+				notification for this case and made the option configurable, default is now 
+				having the setting off.
+		</li>
+		<li>Option to insert new filter in alphabetical order. Instead of adding created filters to the top of the list,
+		    quickFilters will insert them before the first filter with a alphabetically following name.</li>
+		<li>New search button to find current folder's filters added to QuickFolders' current folder toolbar<br>
+		   <img src="img/find-folder-filters-btn.png" alt="find filters button in QuickFolders" class="screenshot">
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26354">[Bug 26354]</a>
+		    When merging / creating a filter, select "run on folder" automatically. 
+				This should be set to the specified account's inbox.
+		</li>
+		<li>Added Spanish locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=17691"  target="_blank">strel</a> at babelzilla.org </li>
+		<li>Added Spanish Argentinian locale - thanks to <a href="https://www.babelzilla.org/forum/index.php?showuser=20554" target="_blank">Tonyman</a> at babelzilla.org </li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+	<a name="3.2.1" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.2.1">quickFilters 3.2.1 - 27/04/2017</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26360">[Bug 26360]</a>
+				Thunderbird 52 Filter List - search function stopped working
+		</li>
+		<li>Removed obsolete option "Run Filters on all Mail" on the account properties dialog</li>
+		<li>Fixed jumping across accounts when searching for filters (Postbox)</li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+	<a name="3.2" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.2" >quickFilters 3.2 - 07/06/2016</a>
+	</h4>
+  <ul>
+		<li>Release Video: please click the youtube link in the bottom right to visit my channel<br>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/_mIxeZeNXqA" frameborder="0" allowfullscreen></iframe></li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26200">[Bug 26200]</a>
+		    "Move To" context menu entry not working in Tb 45.0</li>
+		<li>Added button with link to <a href="https://www.youtube.com/c/thunderbirddaily" target="_blank">Thunderbird Daily</a> YouYube channel</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26231">[Bug 26231]</a>
+		    Add option to run filters on read IMAP mails<br>
+				<img src="img/filtersOnReadImap.png" class=screenshot>
+				</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26214">[Bug 26214]</a>
+		    Custom Templates: Regular expression to extract from subject</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26232">[Bug 26232]</a>
+		    Tagging fault: ToggleMessageTag is not a function</li>
+  </ul>
+</li>
+
+<a name="3.1"> </a>
+-<li>
+  <h4>
+		<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.1">quickFilters 3.1 - 28/02/2016</a>
+	</h4>
+	<p class="shilling box">Please <a href="donate.html">contribute to quickFilters</a> once a year to make sure the project thrives!</p>
+  <ul>
+		<li>Subscribe to my new <a href="https://www.youtube.com/channel/UCCiqw9IULdRxig5e-fcPo6A">Thunderbird Daily</a> YouTube channel with Tutorials on how to use quickFilters and other Addons:<br>
+		Auto-Tagging explained:<br>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/aSfPVi6g8RY" frameborder="0" allowfullscreen></iframe>
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26163">[Bug 26163]</a> 
+		    Tagging broken: "too much recursion"</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26110">[Bug 26110]</a> 
+		    Tag Listener repeats Assistant multiple times</li>
+		<li>Added config setting to suppress notification when running a filter: Go to 
+		   <i>Thunderbird Options &gt; Advanced &gt; General &gt; Config Editor</i> 
+			 and change <tt>extensions.quickfilters.notifications.runFilter</tt> to false.
+		    </li>
+		<li>Added a sliding notification if during use of customized templates a header cannot be retrieved from the email</li>
+  </ul>
+</li>
+
+<a name="3.0"> </a>
+<a name="3.0.1"> </a>
+<li>
+  <h4>
+		<a name="3.0.2" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/3.0.2">quickFilters 3.0.2 - 05/12/2015</a>
+	</h4>
+	<p class="shilling box">Please <a href="donate.html">contribute to quickFilters</a> once a year to make sure the project thrives!</p>
+  <ul>
+	  <li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25688">[Bug 25688] 3.0.2 Hotfix</a>
+		    Creating Filter on IMAP fails after 7 attempts. This can happen during when 
+				moving mails during the quickFilters assistant being active
+				but in some cases (3.0.1) even when it is off. It is caused by the Message 
+				Database being locked during or after the move; this fix tries to extract
+				the message header information (needed for filter creation) before the move 
+				operation is initiated.
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26110">[Bug 26110] 3.0.2 Hotfix</a>
+			Tag Listener repeats Assistant multiple times<br>
+			If the "Listen for Tag changes" option is switched on and the Filter Assistant is active, 
+			this can lead to the filter assistant window being opened repeatedly.
+    </li>
+		
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26107">[Bug 26107]</a> 
+		    When copying / cut &amp; pasting multiple filters, these are inserted in reverse order.</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26076">[Bug 26076]</a> 
+		    The filter assistant now supports the Context Menu  Command "Move To Folder". 
+				Also supporting the Postbox specific quickfile panel.</li>
+		<li>Support for "brighttext" themes (Themes with dark backgrounds)</li>
+		<li>removed for..each..in to avoid unnecessary warnings in log window</li>
+		<li>Made delay for refreshing headers configurable - if there are problems 
+		    creating filters on IMAP servers increase the configuration value
+				<tt>extensions.quickfilters.refreshHeaders.wait</tt></li>
+  </ul>
+</li>
+
+
+
+<li>
+  <h4>
+		<a name="2.9" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.9">quickFilters 2.9 - 03/09/2015</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25989">[Bug 25989]</a> 
+		    Premium Feature: Support Creation of Custom Templates<br>
+				A custom template is like a blueprint for generating new filters, and will be shown along 
+				with the other choices in the quickFilters assistant. 
+				To create a custom template:
+				<ol>
+					<li>Go to quickFilters options (right-click the filter assistant button)</li>
+					<li>Go to the Advanced Tab and after enabling [x] Custom Templates, click [Create New...]<br>
+					<img src="img/Custom-Template-Option.png" class=screenshot></li>
+					<li>Enter the name of the custom template<br>
+					<img src="img/Custom-Template-Name.png" class=screenshot></li>
+					<li>Edit the filter by selecting from the Custom Variables drop-down. 
+					    This will create a new condition with a placeholder variable which will be replaced 
+							with the "real thing" when you create a new filter:<br>
+							<img src="img/Custom-Template-Edit.png" class=screenshot style="width:650px;height:auto;"></li>
+					<li>Make sure you leave the label "quickFilterCustomTemplate: " at the start of the Template Name; 
+							this will ensure that it will be offered as choice the next time you create a filter: <br>
+							<img src="img/Assistant-Custom.png" class=screenshot></li>
+				</ol>
+				<p>Some Detail: <br>
+				In Postbox / SeaMonkey there is no way to filter the list of filters (no search box),
+				so when you click "Edit" beside Custom Templates, you may see _all_ filters in Local Folders. Just
+				select the ones starting with "quickFilterCustomTemplate:" for editing. <br>
+				There is a default action of "Set Priority to Normal" as it is not possible to save a filter 
+				<i>without any</i> actions. Since incoming mail usually has normal priority I chose this as
+				the lesser evil. This action will be removed and the standard action added instead: move to folder / or flag / tag 
+				as the mail that was moved / tagged when assistant was invoked.
+				</p>
+				<p>A typical example for a custom filter would be a filter template that 
+				   moves all emails from a given domain (e.g. emails ending with @youtube.com).
+					 This can easily be created with the custom filter template and then invoked
+					 whenever a new filter has to be created. </p>
+				<p>To create this the only 
+					thing you need to do is select Custom Variables &gt; From &gt; Domain of Email, and save the Custom Template.
+					On filter creation, you will select the Template of the name you created and it would automatically
+					create a condition "where From ends with @<i>domainname</i>", automatically filling
+					<i>domainname</i> from the current email. If you want to hardcode other actions into the Custom Template
+					you can do this as well, just remember to remove the "Set priority to Normal" action 
+					(unless you want to do this).</p>
+		</li>
+    <li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26023">[Bug 26023]</a> Template "Based on Recipient (To)" returns full lowercase address field</li>
+    <li>Postbox 4.0 compatibility added.</li>
+		<li>Postbox: improved event listener for dropping mails onto the folder tree.</li>
+		<li>Split run Filters Command into "folders" and "selected messages" - and created separate buttons.</li>
+		<li>Fixed: creating filters from multiple emails (e.g. "from group") by improving the way the moved messages list is processed.</li>
+		<li>Improved algorithm for determining the originating folder for moved mails. </li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+		<a name="2.8" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.8">quickFilters 2.8 - 14/12/2014</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25863">[Bug 25863]</a> Filter by 'Reply To' field - extensions.quickfilters.experimental.replyTo</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25893">[Bug 25893]</a> Added Toolbarbuttons for QuickFolders' current folder bar</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25876">[Bug 25895]</a> Option to uncheck "Apply filter when getting new mail"</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25912">[Bug 25912]</a> Support adding subjects from multiple Emails</li>
+		<li>Add sliding notification after run filters command</li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+		<a name="2.7.1" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.7.1">quickFilters 2.7.1 - 27/10/2014</a>
+	</h4>
+  <ul>
+		<p class="inList">quickFilters plans to go freemium soon! Please <a href="#gopro">take a minute to read</a> and <a href="https://www.surveymonkey.com/s/727LL8S" class="survey">take the survey.</a></p>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25876">[Bug 25876]</a> Disable two way-address search selected the wrong condition: <br>
+        When Selecting the "Sender" template it used "To" instead of "From"	from the left drop down.<br>
+				When Selecting the "Recipient" template it used "From" instead of "To"	from the left drop down.</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25875">[FR 25875]</a> Refresh+Focus Message Filters List after filter creation even if already open </li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25877">[FR 25877]</a> New option to automatically select merge instead of new filter. 
+		    The merged filter will be pre-selected if there is already a filter doing the same action. 
+				There is also an option to skip this screen entirely (always merge when possible):<br>
+				<img src="img/merge-options.png" alt="merge rules" class="screenshot">
+				</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25829">[Bug 25829]</a> Pasting filters positions wrong when search box active. If the search box
+		  was used in the filter list, cut / paste did not insert the filters at the expected position (before last selected filter).</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25873">[Bug 25873]</a> Postbox: Listen for Tag changes doesn't work. <br>
+		  Postbox has a different tag change listener, so it needed its own implementation for this. 
+			Once a tag is added and during assistant mode it will be picked up by quickFilters and the 
+			filter definition process is started.
+			</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25874">[Bug 25874]</a> Postbox: cannot merge 2 different filters, unless they are next to each other</li>
+		<li>Choice to omit filter list step after filter creation</li>
+		<li>Improved Folder context "Find Filter" Command behavior when multiple filters are found (Sm, Pb)</li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+	<a name="2.7" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.7">quickFilters 2.7 - 18/08/2014</a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25737">[Bug 25737]</a> Filters sort feature
+		    <p>Implements a filter sorting feature like suggested at 
+				   http://forums.mozillazine.org/viewtopic.php?f=28&t=2063579</p>
+				<img src="img/sort-filters.png" alt="sort filters alphabetically" class="screenshot">
+				</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25812">[Bug 25812]</a> Tool to find all filters that move mail to a specific folder
+		    <p>Adds a context menu item "Find filters..." in the folder tree. This will search all accounts for 
+				   filters that would move or copy mail to the specific folder.</p>
+					 <img src="img/find-folder-filters.png" alt="find filters for target folder" class="screenshot">
+					 </li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25748">[Bug 25748]</a> Automatic Refresh of Duplicate List
+		   <p>the duplicate search result list refreshes itself after you have removed the duplicate filters instead of 
+			    having to manually close the window and perform a new duplicate search.</p></li>
+		<li>Postbox / SeaMonkey: Fixed insert position for cut/paste functionality</li>
+		<li>(Thunderbird / Postbox) Improved notification message for premium features</li>	
+  </ul>
+</li>
+
+<li>
+  <h4>
+	<a name="2.6.1" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.6.1" onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">quickFilters 2.6.1 - 18/07/2014 </a>
+	</h4>
+  <ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25802">[Bug 25802]</a> After editing an existing Filter (Assistant with Merge), it should be selected in List </li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25805">[Bug 25805]</a>	"Find duplicate attributes" tool now also matches target folders</li>
+		<li>Postbox: added "create filter from message" in thread pane context menu</li>
+		<li>"Remove duplicate condition" context menu command: Improved highlighting of duplicate matches in Filter Rules 
+      - on some systems the background gradient was not visible, so it now falls back to a plain red background</li>
+		<li>Completed Chinese translations for 2.6</li>
+		<li>The merge symbol (m+) which is appended to the name of a merged filter can now be modified using the config setting:<br>
+      <tt>extensions.quickfilters.naming.mergeToken</tt></li>
+		<li>When displaying long folder names in duplicate search, these will be now cut off at the 
+		    front (30 characters limit) to avoid an excessively wide duplicate list</li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+	<a name="2.6" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.6">quickFilters 2.6 - 13/07/2014 (World Cup Edition)</a>
+		<img src="img/star-gray.png" alt="Worldcup!">
+	  <img src="img/star-gray.png" alt="Worldcup!">
+	  <img src="img/star-gray.png" alt="Worldcup!">
+	  <img src="img/star-yellow.png" alt="Worldcup Germany 2014!">
+	</h4>
+  <ul>
+		<p class=inList>QuickFilters plans to go freemium soon! Please <a href="#gopro">take a minute to read</a> and <a href="https://www.surveymonkey.com/s/727LL8S" class="survey">take the survey.</a></p>
+		<li>Added "from Domain" filter template</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25752">[Bug 25752]</a> 
+		    Added search options for specific filter attributes  (Premium Feature)<br>
+				<img src="img/filter-search-types.png" alt="search types" class="screenshot">
+				<ul>
+				  <li> Name: search for filter name (the conventional way)</li>
+				  <li> Target Folder: If the filter moves or copies mail to a folder, searches these folder name for the term entered</li>
+				  <li> Search Condition: Searches all filter conditions that have text, such as From, To, Subject, Body</li>
+				  <li> Add Tag: Searches all Filters that add a Tag and searches the Tag for the term entered</li>
+				  <li> Reply with Template: Searches all filters that reply mail. The subject of the template is searched for the entered term.</li>
+				</ul>
+		</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25789">[Bug 25789]</a> 
+		    Add tool to detect duplicate conditions / actions	(Premium Feature). This lists filters that might do the same or determine conditions the same way (according to all text attributes that are searchable with the new search features from Bug 25752 described above)<br>
+				It involves two simple steps. Firstly, click the new <i>Find duplicate attributes</i> button: <br>
+				<img src="img/find-duplicates-button.png" alt="find duplicate button" class="screenshot"><br>
+				. Secondly, select a result from the drop down:<br>
+				<img src="img/find-duplicates-results.png" alt="find duplicate results" class="screenshot"><br>
+				This copies the selected condition / action to the search box and narrow down the list to display the filters that are duplicate candidates:<br>
+				<img src="img/find-duplicates-resultlist.png" alt="duplicated filters" class="screenshot"><br>
+				Then right-click the filter that you want to change (remove the duplicate condition). 
+				This opens up the filter editor, highlighting the duplicate condition or action in the list:<br>
+				<img src="img/duplicates-editor.png" alt="edit duplicate condition" class="screenshot"><br>
+				In a long list of conditions, quickFilters will scroll to the condition and highlight it with a red background. 
+				The user can then delete or edit the condition.
+				</li>
+		<li>Fixed: <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25758">[Bug 25758]</a> 
+		    accounts without a from email address fail with error "idMail is null"</li>
+		<li>Preparation code for filtering changing to ANY / ALL conditions</li>
+		<li>Added notification system for premium features</li>
+    <li>Added hidden switch <tt>extensions.quickfilters.showListAfterCreateFilter</tt> to disable showing list after editing filter rules</li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+<a name="2.5" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.5">quickFilters 2.5 - 02/04/2014</a>
+<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+	</h4>
+  <ul>
+		<p class=inList>QuickFilters goes freemium soon! Please <a href="#gopro">take a minute to read</a> and <a href="https://www.surveymonkey.com/s/727LL8S" class="survey">take the survey.</a></p>
+    <li> (Thunderbird only) Added 2 new search methods: search target folder and search conditions 
+		     (only text conditions such as Addresses or body, subject line) are affected <br>
+				 <img src="img/extended-search.png" alt="search options">
+		</li>
+    <li> <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25727">[Bug 25727]</a> Allow to create Group Filter with "Create Filter from Message" menu </li>
+		<li> you can now cut / paste in the same account in order to move filters to a different position. 
+		     Click on the filter where you want to insert the items.</li>
+    <li> Prompt for adding a customized subject to support email  </li>
+    <li> Right-clicking on quickFilters button opens options </li>
+  </ul>		
+	<div class=inList>
+	<h5>New Options</h5>		
+	<img src="img/new-options2_5.png" alt="advanced options">
+	</div>
+  <ul>
+    <li> Added UI switches to support Postbox's quickmove feature </li>
+    <li> Switch for disabling Tag listener </li>
+    <li> <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25714">[Bug 25714]</a> Option to disable two-way addressing </li>
+    <li> Added a link for download / installing "Copy Sent to Current" </li>
+  </ul>
+</li>
+
+<a name="2.4.1"></a>
+<li>
+  <h4>
+	<a name="2.4" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.4">quickFilters 2.4 - 24/02/2014 </a>
+	<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+	</h4>
+  <ul>
+	  <li>Fixed <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25686">[Bug 25686]</a> Cloning Filters fails with Non-String condition attributes. If a filter condition compares with read status or another non-string attribute (e.g. date, number of age in days etc.) the cloning process will fail silently.<br>
+				 <img src="img/Filter-Rules-special.png" alt="examples for non-string conditions">
+		</li>
+		<li>Added support for creating filters from virtual (saved search) folders. This is now achieved by determining the real folder location of the selected message.</li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25691">[FR 25691]</a> Support for Postbox quickmove feature - quickFilters now supports the filter assistant when moving mail to a folder using the shortcut key [V] </li>
+		<li>Postbox: [Fixed] Most Support Site links did not work.</li>
+		<li>Postbox: [Fixed] gFolderDisplay doesn't exist so selectedMessages could not be determined (Message > quickFilter: define Filter from message)</li>
+		<li>Postbox: [Fixed] Broken styling in Options dialog (Support links + Donate button) due to legacy display menu. Added legacy styles for Postbox.</li>
+		<li>Mostly fixed: <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25688">[Bug 25688]</a> Creating Filter on IMAP fails after 7 attempts - caused by missing msgDatbase on target folder. This will now only happen in Postbox, if the target folder is on a different IMAP account than the folder we move the email from. It should not be generated when you move the email to a different folder in the same account or to a local folder.</li>		
+		<li>2.4.1 - fixing creating filter virtual folder in Thunderbird + SeaMonkey.</li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+	  <a name="2.3" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.3">quickFilters 2.3 - 29/01/2013</a>
+		<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+	</h4>
+  <ul>
+		<li> Default "Target Folder" action to active when using context menu (create filter from message)</li>
+		<li> Added help buttons to filter list and filter assistant</li>
+		<li> Improved merging of filters</li>
+		<li> Bugfix: Postbox does not implement nsMsgFolderFlags</li>
+  </ul>
+</li>
+
+<li>
+	<h4>
+		<a name="2.2" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.2">quickFilters 2.2 - 30/12/2013</a>
+		<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+	</h4>
+	<ul>
+    <li>Implemented <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25668">[Bug 25668]</a> - Allow "move to folder action" to be disabled. Automatically switches off "move to folder" in 
+		  Inbox, Drafts, SentMail, Newsgroup, Queue, Templates. Please use the link above for feedback/;<br>
+			<img src="img/filters-tagSupport.png" alt="creating filters from tag changes">
+			</li>
+		<li>Implemented <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25669">[FR 25669]</a> - Added a listener for adding Tags (keywords) to a Mail.
+		  I also added merge support for tag filters (quickFilters will recognize if you already have a rule that sets the same tag and 
+			suggest to add filter conditions to the existing filter rather than creating a new one)<br>
+		  Known issues: if the filter assistant is active running a filter can invoke it, which is obviously unintended.
+			The current workaround (if you have filters that tag mails) is not having the assistant active all the time.
+			I will release a maintenance version that addresses this shortly. 
+		
+		</li>
+		<li>Added an option to disable donation page after update. To disable, simply right-click the orange donation button on the bottom right of the preferences dialog.
+		    A confirmation message will ask whether the donation page shall be disabled:<br>
+			  <img src="img/promptDisableDonation.png" alt="disable donations prompt">
+				
+				</li>
+		<li>As always, for any new problems ro feature requests, please <a href="bugs.html">raise your bug reports here</a>.</li>
+		<li>The mozdev.org servers were down over Christmas so no <a href="donate.html">donations</a> were possible during the holiday period on any of my Addons.</li>
+	</ul>
+</li>
+
+<li>
+	<h4>
+		<a name="2.1" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.1">quickFilters 2.1 - 27/11/2013</a>
+		<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+	</h4>
+	<ul>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25627">[FR 25627]</a> - new Filter template: Group of People (add email-adresses from multiple mails) 
+				<br><img src="img/filter-Multiple.png" alt="Group filter" class="screenshot"></li>
+		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25582">[FR 25582]</a> - Allow cloning Filters within the same Mail Account
+				<br><img src="img/filter-Manager-Clone.png" alt="clone filter" class="screenshot"></li>
+		<li>improved function that copies filter conditions - copies used to be dependant on their originals</li>
+		<li>widened template list to avoid filter titles being cut off</li>
+		<li>Made debug options window (displayed when you right-click the debug checkbox) search box readonly to avoid accidentally changing unrelated settings. </li>
+		<li>fixed a problem in onCloseNotification - Postbox had trouble removing the sliding notification</li>
+	</ul>
+</li>
+
+<a name="1.9"> </a>
+<li><h4>
+    <a name="2.0"  href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/2.0">quickFilters 2.0 - 10/09/2013</a>
+		<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+		</h4>
+  <ul>
+		<li> Added a toolbar which shows the quickFilters commands: Copy, Cut, Paste, Merge, Start Assistant, and settings:<br>
+		<img src="img/toolbar.png" alt="message filters with toolbar">
+		</li>
+		<li> Added Postbox compatibility (still experimental)</li>
+		<li> Improved integration with QuickFolders</li>
+		<li> Compatibility change for Tb 24 / Sm2.17 (nsIMsgAccountManager.accounts changed from nsIMutableArray to nsIArray)</li>
+		<li> Added donate button to settings dialog</li>
+  </ul>
+</li>
+
+<li>
+  <h4>
+	<a name="1.8" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.8">quickFilters 1.8 - 19/05/2013</a>
+	<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+	<li> french locale completed [thanks to Jojaba - BabelZilla] </li>
+	<li>  <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25440">[FR 25440]</a> Added Cut, Copy and Paste to transfer filters between accounts. <br/>
+		 <img src="img/cutFilters-1.png" alt="cut or copy via right-click" class="screenshot"> <br/>
+		 <img src="img/cutFilters-2.png" alt="filters are marked" class="screenshot"> <br/>
+		 <img src="img/cutFilters-3.png" alt="paste filters to different account" class="screenshot">&nbsp;
+		 <img src="img/cutFilters-4.png" alt="filters moved successfully" class="screenshot"> <br/>
+		 note: the target folders of filters are currently not changed, improvements around this are planned in a future release.
+	</li>
+	<li>  <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25389">[Bug 25389]</a> merging filters throws NS_ERROR_FAILURE - this can happen if there is an invalid action in a filter, please check debug log for more information </li>
+	<li>  <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=15388">[FR 15388]</a> Added "run Filters" command to folder tree menu </li>
+	<li>  guards against not selecting enough filters before using the "Merge" command </li>
+	<li>  some debugging improvements during createFilter</li>
+  </ul>
+</li>
+
+
+<li>
+  <h4>
+	  <a name="1.6.2"></a>
+	  <a name="1.7" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.7">quickFilters 1.7 - 17/03/2013</a>
+	  <a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+<div id="infoTabs">
+	<div class="infoTab" id="on-a-word">
+		<h5 class="infoHeader">Happy Easter - thanks for using quickFilters!</h5>
+		<img src="img/Green-Egg-Small.jpg" alt="happy easter!" class="screenshot" style="max-width:99%; margin-top: 1em;" />
+		<p class="miniquote">
+		If you've found quickFilters to improve your Thunderbird life, please consider <a href="donate.html">supporting quickfilters development</a>.
+		</p>
+	</div>
+</div>
+  
+  
+  <ul>
+	 <li> <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=24888">[FR 25199]</a> "Add Rules to existing filters". 
+	     If a filter already exists in the account that does the same action (move to same folder, add a certain tag or set a certain priority) this will be detected and the conditions from the new mail can be added to the existing filter.<br/>
+		 <img src="img/NewFilter-Merge.png" alt="Extend existing filter" class="screenshot">
+		 </li>
+	 <li>Existing filters with same action can now be merged together<br/>
+	     <h6>Select filters and click the [Merge] button</h6>
+		 <img src="img/filter-Manager-Merge.png" alt="Merge button" class="screenshot"><br/>
+	     <h6>Select a Target</h6>
+		 <img src="img/assistant-Merge.png" alt="Select Target Filter" class="screenshot"><br/>
+	     <h6>Edit Merged Filters</h6>
+		 <img src="img/Merge-Edit.png" alt="Edit Merged Filter" class="screenshot"><br/>
+	     <h6>Resulting Filters</h6>
+		 <img src="img/Merge-Results.png" alt="merge results" class="screenshot">
+	     </li>
+	 <li>Styling QuickFolders filter wizard icons with that of quickFilters assistant</li>
+	 <li>Fixed <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25362">[Bug 25362]</a>
+	     If assistant button is removed from toolbar, starting filter assistant throws "TypeError: doc.getElementById(...) is null"</li>
+  </ul>
+</li>
+
+<a name="1.6.1"></a>
+
+<li>
+  <h4>
+  <a name="1.6" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.6.1">quickFilters 1.6.1 - Birthday Edition - 12/02/2013</a>
+  <a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+	 <li> <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=24888">[FR 24888]</a> "Create Filters for messages that have already been moved" in context and message menu</li>
+	 <li> additional filter actions: Copy tags, priority and star (flag in SeaMonkey)<br/>
+		  <img class="screenshot" src="img/Wizard-Actions.png" alt="quickFilters auto start"><br/>
+		  note: when selected, these will be copied independently of the used template.
+	 </li>
+	 <li> improved version comparison algorithm to avoid to many version history / donation tabs when working on prereleases</li>
+	 <li> Added sv-SE locale by Lakrits</li>
+	 <li> Changed defaults for naming rules: now the parent folder is prepended rather than appending the keyword by default</li>
+	 <li> <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25321">[FR 25321]</a> Option to start Filter Assistant automatically<br/>
+	 <img class="screenshot" src="img/autostart.png" alt="quickFilters auto start"></li>
+	 <li> Fixed size for large icon mode</li>
+	 <li> Improved contrast of filter activation icon</li>
+  </ul>
+</li>
+
+
+
+<a name="1.5"></a>
+<li>
+  <h4>
+    <a name="1.5.1" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.5.1">quickFilters 1.5.1 - 19/11/2012</a>
+    <a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+    <li>Fixed <a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25203">[Bug 25203]</a> "Error when adding a filter if Message Filters window is already open"   
+    <li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25204">[Bug 25204]</a> Added Enhancement: "Allow location-aware dragging from within virtual folder" 
+	    - it is now possible to create a new filter when dragging an email from a saved search folder 
+		or from the unified Inbox / unified Sent folders. 
+		<br>To get the same functionality in QuickFolders (when dropping mail onto a QuickFolder tab), please also install its latest version
+		QuickFolders 3.8.2.
+  </ul>
+</li>
+
+<li>
+  <h4>
+    <a name="1.4" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.4">quickFilters 1.4 - 02/08/2012</a>
+    <a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+    <li>show homepage on first installation
+    <li>auto-install of toolbar button
+    <li>added a toolbar button for running filters on message folder
+    <li>fixed height issues on the assistant notification box
+    <li>added french locale (thanks to jojoba from Babelzilla)
+    <li>added simplified chinese locale (thanks to Loviny - WIP)
+    <li>removed legacy CSS styles to separate style sheet
+    <li>removed DOM node events for better performance
+    <li>fixed support buttons: removed hrefs from text links on last options tab 
+  </ul>
+</li>
+
+
+<li>
+  <h4>
+    <a name="1.3" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.3">quickFilters 1.3 - 03/06/2012</a>
+	<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+    <li>first application for full review (112 users)
+    <li>added filter name rule settings: [x] parent folder's name, [x] 1st filter condition
+    <br/><img class="screenshot" src="img/quickFilters-Options.png" alt="quickFilters Preferences">
+    <li>added SeaMonkey support (postbox still outstanding as I am awaiting a reply from their development team)
+    <li>converted preferences dialog into a tabbed one
+    <br/><img class="screenshot" src="img/quickFilters-Support.png" alt="quickFilters Support">
+    <li>fixed broken version history link when right clicking the version number on the options dialog
+  </ul>
+</li>
+
+<a name="1.1"></a>
+<li>
+  <h4>
+    <a name="1.2" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.2">quickFilters 1.2 - 23/05/2012</a>
+	<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>	
+<ul>
+  <li> Fixed errors that were introduced by last version (which broke To Top, To Bottom and the automatic Search features in the filter list dialog)
+  <li> Added more specific names to the filters
+  <li> Support for multiple cc evaluation in list template
+  <li> Clarification on notification
+  <li> Fixed some integration errors with QuickFolders and prepared for changes in the upcoming version (3.5.1)
+  <li> Increased uniqueness of filter names by adding some of the filter values
+  <li> Layout fixes in filter assistant
+</ul>
+
+<li>
+  <h4>
+    <a name="1.0" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/1.0">quickFilters 1.0 - 18/05/2012</a>
+	<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+  	<li>added first-run code with version check
+    <li><img src="img/buttons.png" alt="buttons" />adds buttons automatically on first install
+  </ul>
+</li>
+
+<li>
+  <h4>
+    <a name="0.9" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/0.9">quickFilters 0.9 - Awaiting Preliminary Review by AMO Editors</a>
+    <a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+    <li> remove notification message when disabling filter
+    <li> affect filtering in QuickFolders if quickFilters is toggled
+    <li> added locales: it, ru, vi, nl
+    <li> added button for showing filter list
+    <li> redesigned logo and fixed version display
+    <li> replaced support links to use the new quickfilters.mozdev.org pages
+  </ul>
+</li>
+
+
+<li>
+  <h4>
+    <a name="0.8" href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/0.8">quickFilters 0.8 - First Release - 08/05/2012</a>
+	<a href="donate.html"><img src="img/btn_donate_LG.gif" alt="Support quickFilters" class="donateButton"></a>
+  </h4>
+  <ul>
+	  <li> Removed Postbox / SeaMonkey support temporarily for first release to make review easier
+	  <li> Added new option "Exist Filter Assistant after a filter has been created"
+	  <li> major layout work - link buttons and new title image
+  </ul>
+</li>
+
+</li>
+
+<!-- End Version History -->
+
+<h3><a name="contactMe">Contact Me Directly</a></h3>
+<p>Click below to send an email</p>
+<p class=mail_link>
+<SCRIPT LANGUAGE="JavaScript">
+u1 = '&#97;&#120;&#101;l.gru';
+u2 = 'de@'
+u3 = 'gma';
+u4 = 'il.com';
+document.write('<a href=\"mailto:' + u1 + u2 + u3 +  u4 +'?subject=[quickfilters] - &lt;your subject line here&gt;\">');
+document.write('Mail To Axel Grude</a>');
+</SCRIPT>
+
+<NOSCRIPT>You need to enable javascript for this thing to work!</NOSCRIPT>
+</p>
+
+
+
+<h3><a name="other">My other Extensions - highly recommended</a></h3>
+<br/>
+
+<div id='myProjects'>
+	<h4 class="QuickFolders">QuickFolders</h4>
+	<p>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/">QuickFolders</a>
+	(Thunderbird / Postbox / SeaMonkey) takes the pain out of working with many mail folders; has currently 20,000 users and is 3rd of all top rated message reading extensions.<br>
+	</p>
+
+
+	<h4 class="ZombieKeys">Zombie Keys</h4>
+	<p>
+	<a href="https://addons.mozilla.org/firefox/addon/zombie-keys/">Zombie Keys for Firefox / SeaMonkey</a> ; 
+	<a href="https://addons.mozilla.org/thunderbird/addon/zombie-keys/">Zombie Keys for Thunderbird / Postbox</a>
+	<br>
+	<p>Entering European languages (which include diacritics (accented characters, diaeresis, umlauts, etc.), ligatures, the Euro sign, etc.) 
+	into Mozilla applications using a non-native keyboards doesn't have to be a pain any more! 
+	</p>
+
+	<h4 class="QuickPasswords">QuickPasswords</h4>
+	<p>
+	<a href="https://addons.mozilla.org/firefox/addon/quickpasswords">QuickPasswords for Firefox / SeaMonkey</a>;
+	<a href="https://addons.mozilla.org/thunderbird/addon/quickpasswords">QuickPasswords for Thunderbird / Postbox</a>
+	<br>
+	this is a very neat and quick way to retrieve and use a growing number
+	of passwords, without displaying them on screen or having to re-type them. 
+	Also supports renaming of multiple passwords!
+	</p>
+</div>
+
+  <script>
+    let expandBtns = document.querySelectorAll(".expandInstructions");
+    for (let el of expandBtns) {
+      el.addEventListener("click", function() {
+        let container = el.parentNode;
+        console.log(container);
+        let instruct = container.querySelector(".reinstallInstructions");
+        console.log(instruct);
+        if (instruct.style.display != "block") {
+          instruct.style.display = "block";
+          el.textContent = "Hide instructions";
+        }
+        else {
+          instruct.style.display = "none";
+          el.textContent = "Click to read instructions for reinstalling";
+        }
+      });
+    }    
+    
+  </script>  
+
+
+
+
+    </div>
+  </body>
+</html>

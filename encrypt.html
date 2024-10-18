@@ -1,0 +1,302 @@
+<!doctype html>
+<html>
+  <head>
+    <title>quickFilters - Encrypt</title>
+    <link rel="stylesheet" href="/css/project.css?v33" type="text/css" />
+    <!-- <link rel="alternate" type="application/rss+xml" title="News" href="/drupal/rss.xml" /> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="google-site-verification" content="LTKICtodcLDl0nhBl2mUiXWMJbOtmEJmhYXVAqm_mJM" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="icon" href="img/QuickFilters_16.png" type="image/png"> 
+    <script src="script/ga.js"> </script>
+    <script src="script/premium.js?v=5"> </script>
+  </head>
+  <body>
+    <div id="main-content-no-nav">
+      <h1 class="project-name" id="content">quickfilters</h1>
+
+      <table id="project-navigation">
+
+        <!--
+        <tbody id="sub-projects" class="project-navigations">
+          <tr>
+            <th scope="row">subprojects:</th>
+            <td class="navigation-list">  
+              <a class="first-item" href="/subprojectdir/index.html">subproject name</a>
+              <a href="/subprojectpage.html">subproject name</a>
+            </td>
+          </tr>
+        </tbody>
+        -->
+
+        <tbody id="resources" class="project-navigations">
+          <tr>
+            <th scope="row"></th>
+            <td class="navigation-list">
+              <a href="/index.html" class="first-item">Home</a>
+              <a href="/installation.html">Installation + Source Code</a>
+              <a href="/version.html#latest">Version&nbsp;History</a>
+              <a href="/donate.html">Support&nbsp;quickFilters!</a>
+              <a href="/premium.html">Premium Features</a>
+              <a href="/bugs.html">Bugs</a>
+              <a href="/screenshots.html">Screenshots</a>
+              <a href="/filtaquilla.html">FiltaQuilla</a>
+              <a href="/fq-versions.html">FiltaQuilla History</a>
+              <a href="/gdpr.html">Privacy Statement + Impressum</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+	<!--
+<html lang="en">
+  <head>
+    <title>quickFilters</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+    <link rel="stylesheet" href="css/project_nav.css?v=4" type="text/css">
+    <link rel="stylesheet" href="css/myProjects.css?v=23" type="text/css">
+    <script src="script/premium.js"> </script>
+
+  </head>  
+<body>
+-->
+	<!-- ####################### BEGIN MAIN CONTENT ########################## 
+			-->
+    <script src="script/premium.js"> </script>
+	
+		<div class="h2container">
+			<h2 class="page-header" style="vertical-align:top;">License Encryption</h2>
+		</div>
+
+		<style type="text/css">
+			spacer {
+				width:4em;
+			}
+			.formContainer {
+				vertical-align: top;
+			}
+			.formBox {
+				border: 1px solid gray;
+				border-top-right-radius: 1em;
+				display: inline-block;
+				margin-right: 1em;
+				padding: 1em;
+				position: relative;
+			}
+			.boxLabel {
+				background: rgba(230,230,230,1);
+				border: 1px solid gray;
+				left: 1em;
+				padding: 0.3em 1em;
+				top: -14px; 
+				position: absolute;
+				cursor: pointer;
+			}
+			.buttonPanel {
+				text-align: right;
+			}
+			.encryptionBox input[type=text] {
+				width: 70em;
+			}
+			#personData input[type=text] {
+				width: 20em;
+			}
+			.label {
+				display: inline-block;
+				min-width: 100px;
+			}
+			#maxDigits, #prefix, #keySize {
+				width: 3em !important;
+			}
+			#licenseKey {
+				font-size: 10pt;
+				font-family: Consolas, Courier, monospace;
+				width:95em;
+				height:4em;
+			}
+		</style>
+
+		<script type="text/javascript" src="script/encrypt.js?ver=1" charset="UTF-8">
+
+		</script>
+
+		<script type="text/javascript">
+
+		// note: encryption keys have to be entered manually and are stored in a cookie
+		//       as they are not for public consumption!
+		const default_RSA_decryption= "1933eef03efab13188c903d69d293d4db35372620a0c26f23e1f805ba2d4e87",
+				  default_RSA_modulus   = "1ef94b8a38bcfecc0dc49517045dd7362b3e8181be290a4dc298c807b052297",
+				  default_RSA_keySize   = "256",
+				  default_RSA_maxDigits = "35";
+        
+		const domain_RSA_decryption= "1792da11a1424e3dcfee8559313779ee53325abb96269496d6af0402478da56ba968a3f0372cf743c4bfc1288d3c7ae75d67dcb8dde17bf6ee44b6ab3fb7bcf1",
+				  domain_RSA_modulus   = "41b3580a63cf19888995ae408c0bba73a571249546f37c8c60703551f4957d0b76e6bb58454d3f7c74899c910ee5942dbdd252df2df930f5c7c53ebb4cfd5073",
+				  domain_RSA_keySize   = "512",
+				  domain_RSA_maxDigits = "67";
+		var		dummy = 0, key_type=0;
+				
+		function onPageLoad() {
+			key_type = 1;
+			toggleEncryption();
+			var now = new Date(),
+					expiryDate = addDate(now, 1,'Y'),
+					txtDate = expiryDate.getFullYear() + '-' + twoDigit(expiryDate.getMonth()+1) + '-' + twoDigit(expiryDate.getDate());
+			document.getElementById('expiry').value = txtDate;	
+			checkCookies();
+		}		
+
+		function toggleEncryption() {
+			// change to domain encryption key
+			key_type = (key_type==1) ? 0 : 1;
+			switch (key_type) {
+				case 0:
+					document.getElementById('prefix').value = 'QI-';
+					document.getElementById('modulo').value = default_RSA_modulus;
+					document.getElementById('decryptionKey').value = default_RSA_decryption;
+					document.getElementById('keySize').value = default_RSA_keySize;
+					document.getElementById('maxDigits').value = default_RSA_maxDigits;
+					document.getElementById('emailLabel').textContent='Email:';
+					break;
+				case 1:
+					document.getElementById('prefix').value = 'QID-';
+					document.getElementById('modulo').value = domain_RSA_modulus;
+					document.getElementById('decryptionKey').value = domain_RSA_decryption;
+					document.getElementById('keySize').value = domain_RSA_keySize;
+					document.getElementById('maxDigits').value = domain_RSA_maxDigits;
+					document.getElementById('emailLabel').textContent='* Domain:';
+					break;
+			}
+			checkCookies(); // fill the correct decryption Key
+		}
+
+		/** removed from encryption script as these need to access form specific variables **/
+		function createKey() {
+			var keySize = parseInt(document.getElementById('keySize').value, 10);
+			if (keySize) {
+				// encryptionExponent, decryptionExponent, modulus
+				var enc = document.getElementById('encryptionKey').value,
+						dec = document.getElementById('decryptionKey').value,
+						mod = document.getElementById('modulo').value,
+						maxD = parseInt(document.getElementById('maxDigits').value);
+				setMaxDigits(maxD);
+				key = new RSAKeyPair(enc, dec, mod);
+				return key;
+			}
+			return null;
+		}
+
+		function encrypt(LicenseKey) {
+			var key = createKey(),
+					t1 = new Date().getTime(),
+					result = encryptedString(key, LicenseKey),
+					t2 = new Date().getTime();
+			// txtMessages.value = "Done. Encryption took " + (t2 - t1) + " milliseconds.";
+			return result;
+		}
+
+		function encryptForm() {
+			var email = document.getElementById('email').value.replace("[at]","@"),
+					txtDate = document.getElementById('expiry').value,
+					productPrefix = document.getElementById('prefix').value,
+					plainText = productPrefix + email + ':' + txtDate,
+					encKey = document.getElementById('encryptionKey').value;
+          
+      document.getElementById('email').value = email;
+            
+			if (!encKey) {
+				alert('Please enter Encryption Key!');
+				return;
+			}
+			alert( 'Encrypting License Key: ' + plainText);
+			var license = plainText.replace('@','[at]') + ';' +  encrypt(plainText);
+			document.getElementById('licenseKey').value = license;
+			// store decryption key in cookie
+			switch (key_type) {
+				case 0:
+					setCookie('simpleKey', encKey, 400); 
+					break;
+				case 1:
+					setCookie('domainKey', encKey, 400); 
+					break;
+			}
+		}
+
+		function setCookie(cname, cvalue, exdays) {
+			var d = new Date();
+			d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			var expires = "expires="+ d.toUTCString();
+			document.cookie = cname + "=" + cvalue + "; " + expires;
+		}
+
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+						c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+						return c.substring(name.length, c.length);
+				}
+			}
+			return "";
+		}
+
+		function checkCookies() {
+			var sKey = getCookie(key_type == 0 ? 'simpleKey' : 'domainKey');
+			if (sKey != "") {
+				document.getElementById('encryptionKey').value = sKey;
+			} 
+		}
+		</script>
+
+		<p style="font-style: italic; border: 2px solid gray; padding: 0.7em; margin: 0.5em 0;">Disclaimer: this form uses a cookie to store the encryption key on your hard drive. 
+			 If you use this page for encrypting a license key, you agree to the use of that cookie. 
+		</p>
+		<h3>Form Entry</h3>
+		<form>
+			<div class = "formContainer">
+				<div class="formBox" id="personData">
+					<span class="boxLabel">User Data</span><br>
+					<span class="label">Prefix:</span> <input type="text" id="prefix"/><br>
+					<span class="label" id="emailLabel">Email:</span> <input type="text" id="email"/><br>
+					<span class="label">Expiry Date:</span> <input type="text" id="expiry"/>
+					<div class="buttonPanel">
+						<button type="button" id="btnEncrypt" onclick="encryptForm(); return false;">Encrypt!</button>
+					</div>
+				</div>
+				<div class="encryptionBox formBox">
+					<span class="boxLabel" id="infoLabel" onclick="toggleEncryption();">Encryption Info</span><br>
+					<span class="label">Max Digits:</span><input type="text" id="maxDigits"/>
+					<span class="label"  style="margin-left: 8em !important;">Key Size:</span><input type="text" id="keySize" />
+					<br>
+					<span class="label">Encryption Key:</span><input type="text" id="encryptionKey" />
+					<br>
+					<span class="label">Decryption Key:</span><input type="text" id="decryptionKey" />
+					<br>
+					<span class="label">Modulo:</span><input type="text" id="modulo" />
+				</div>
+			</div>
+			<h4>License Key</h4>
+			<p>
+				<textarea id="licenseKey" rows="4" cols="65" wrap="hard"></textarea>
+			</p>	
+				
+
+		</form>
+		</div>
+
+	<script type="text/javascript">
+		onPageLoad();
+	</script>
+	
+
+</body>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+  <head>
+    <title>quickFilters - Bugs</title>
+    <link rel="stylesheet" href="/css/project.css?v33" type="text/css" />
+    <!-- <link rel="alternate" type="application/rss+xml" title="News" href="/drupal/rss.xml" /> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="google-site-verification" content="LTKICtodcLDl0nhBl2mUiXWMJbOtmEJmhYXVAqm_mJM" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="icon" href="img/QuickFilters_16.png" type="image/png"> 
+    <script src="script/ga.js"> </script>
+    <script src="script/premium.js?v=5"> </script>
+  </head>
+  <body>
+    <div id="main-content-no-nav">
+      <h1 class="project-name" id="content">quickfilters</h1>
+
+      <table id="project-navigation">
+
+        <!--
+        <tbody id="sub-projects" class="project-navigations">
+          <tr>
+            <th scope="row">subprojects:</th>
+            <td class="navigation-list">  
+              <a class="first-item" href="/subprojectdir/index.html">subproject name</a>
+              <a href="/subprojectpage.html">subproject name</a>
+            </td>
+          </tr>
+        </tbody>
+        -->
+
+        <tbody id="resources" class="project-navigations">
+          <tr>
+            <th scope="row"></th>
+            <td class="navigation-list">
+              <a href="/index.html" class="first-item">Home</a>
+              <a href="/installation.html">Installation + Source Code</a>
+              <a href="/version.html#latest">Version&nbsp;History</a>
+              <a href="/donate.html">Support&nbsp;quickFilters!</a>
+              <a href="/premium.html">Premium Features</a>
+              <a href="/bugs.html">Bugs</a>
+              <a href="/screenshots.html">Screenshots</a>
+              <a href="/filtaquilla.html">FiltaQuilla</a>
+              <a href="/fq-versions.html">FiltaQuilla History</a>
+              <a href="/gdpr.html">Privacy Statement + Impressum</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+<link rel="stylesheet" href="/bugs.css?v=2" type="text/css" />
+
+<style>
+	.screenshot {
+		border: 1px solid rgba(80, 80, 80, 0.3); 
+		box-shadow: rgba(80, 80, 80, 0.3) 5px 5px 5px; 
+	}
+	.configtable * {
+		font-family: 'Consolas', 'Courier New', Courier, monospace;
+		font-size: 11pt;
+	}
+	.configtable td {
+		padding: 0.5em 1em;
+	}
+</style>
+
+
+<h2 class="page-header">quickFilters :: Bugs + Feature Requests</h2>
+
+<br/>
+	<a name="github"> &nbsp;</a>
+	<h3>New Issue Tracker at Github</h3>
+	<p>
+		To bring issues into the 21st century (and a secure website) - you can now use our 
+		<a href="https://github.com/RealRaven2000/quickfilters/issues">github tracker</a>.
+	</p>
+
+<p>
+	Up until recently, quickFilters used Bugzilla to maintain information on all bugs.
+	With bug trackers it is relatively easy to submit a bug report or upload screen shots,
+	you will have to create a free account with bugzilla to do this. As
+	with a lot of the Software under the Mozilla development envelope this is also
+	a very community driven experience, the more people contribute the better
+	and more efficient work on future versions of quickFilters will be.
+</p>
+
+<a name="createlog"> </a>
+<h3>How to create a debug log (quickFilters)</h3>
+
+<ul>
+	<li>
+		Ctrl+Shift+J opens the error console
+		<p>
+			IMPORTANT: Configure error console as follows:
+		</p>
+		<img src="img/error-console-config.png" alt="error console configuration"  class="screenshot">      
+	</li>
+	<li>
+		If you need more information from quickFilters you can enable Debug Mode in advanced settings:
+		<br>
+		<br>
+			<img src="img/qi-settings-menu.png" class="screenshot" alt="quickFilters settings"/>
+	</li>
+	<li>
+		 On the <i>Advanced </i>tab <span class="number"
+			style="background-color: rgb(180,0,0) !important; color: white
+			!important; border-radius: 1.3em; font-weight: bold; padding: 4px
+			8px;">1</span>
+		, activate <span class="number" style="background-color: rgb(180,0,0)
+			!important; color: white !important; border-radius: 1.3em;
+			font-weight: bold; padding: 4px 8px;">2</span>
+		Debug Mode then right-click it <span class="number"
+			style="background-color: rgb(180,0,0) !important; color: white
+			!important; border-radius: 1.3em; font-weight: bold; padding: 4px
+			8px;">3</span>
+		to get additional log options...<br>
+		<p>
+		<img src="img/qi-advanced-settings+debug.png" class="screenshot" alt="advanced debug settings" />
+	  </p>
+
+		<p>Depending on what you are testing, for instance when creating new filters you 
+			 could enable the following additional debug options - for more detail:</p>
+		<p>
+			<table class="configtable">
+				<tr>
+					<td>extensions.quickfilters.debug.buildFilter</td><td>true</td>
+				</tr>
+				<tr>
+					<td>extensions.quickfilters.debug.createFilter</td><td>true</td>
+				</tr>
+				<tr>
+					<td>extensions.quickfilters.debug.getSourceFolder</td><td>true</td>
+				</tr>
+				<tr>
+					<td>extensions.quickfilters.debug.notifications</td><td>true</td>
+				</tr>
+			</table>
+		</p>
+		<p>
+			To find out which settings are useful for a particular issue,
+			please contact me directly from the support tab of quickFilters.
+		</p>
+	</li>
+	<li>
+		Now you're ready for a test - carry out whatever steps you need for reproducing your 
+		 issue - the log window will fill with messages.
+	</li>
+	<li>
+		First, clear error console window:<br>
+		<br>
+		<img src="img/error-console-clear.png" alt="" class="screenshot">
+	</li>
+	<li>
+		Right-click on any message, then select <i>Copy all Messages</i><br>
+		<br>
+		<img src="img/error-console-results.png" class="screenshot" alt="capturing the error log">
+	</li>
+	<li>
+		You can now paste your log results from the clipboard into your reply.
+		Please note that plkain text error logs are far superior to screenshots, as they are 
+		much easier to read and analyze. Screenshots of the error console will only create
+		extra work and slow down progress in fixing issues.
+	</li>
+</ul>
+
+
+    </div>
+  </body>
+</html>
