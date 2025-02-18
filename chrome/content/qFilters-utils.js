@@ -11,7 +11,11 @@ END LICENSE BLOCK
 
 // moved import code to bottom for app version detection...
 
-var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm");
+var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
+var quickFilters_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+var { MailServices } = quickFilters_ESM
+  ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
+  : ChromeUtils.import("resource:///modules/MailServices.jsm");
 
 var QuickFilters_TabURIregexp = {
   get _thunderbirdRegExp() {
@@ -33,6 +37,9 @@ quickFilters.Util = {
   lastTime: 0,
   _tabContainer: null,
   tempFolderTab: null,	 // likely obsolete ###
+  get quickFilters_ESM() {
+    return quickFilters_ESM;
+  },
   
   async init() {
 
@@ -136,18 +143,17 @@ quickFilters.Util = {
 	},
 		
   getMsgFolderFromUri:  function getMsgFolderFromUri(uri, checkFolderAttributes) {
-		const util = quickFilters.Util,
-					Cc = Components.classes,
-					Ci =  Components.interfaces;
+		const util = quickFilters.Util;
     let msgfolder = null;
-    var { MailUtils } = ChromeUtils.import("resource:///modules/MailUtils.jsm");
+    var { MailUtils } = quickFilters_ESM
+      ? ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs")
+      : ChromeUtils.import("resource:///modules/MailUtils.jsm");
+
     try {
-      if (typeof MailUtils != 'undefined') {
-        if (MailUtils.getExistingFolder)
-          return MailUtils.getExistingFolder(uri, checkFolderAttributes);
-        else	
-          return MailUtils.getFolderForURI(uri, checkFolderAttributes);
-      }
+      if (MailUtils.getExistingFolder)
+        return MailUtils.getExistingFolder(uri, checkFolderAttributes);
+      else	
+        return MailUtils.getFolderForURI(uri, checkFolderAttributes);
     }
     catch (ex) {
        //dump("failed to get the folder resource\n");
@@ -158,7 +164,7 @@ quickFilters.Util = {
 
   getBundleString: function getBundleString(id, defaultText, substitions = []) { // moved from local copies in various modules.
     // [mx-l10n]
-    var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+    var { ExtensionParent } = ChromeUtils.importESModule("resource://gre/modules/ExtensionParent.sys.mjs");
     let extension = ExtensionParent.GlobalManager.getExtension('quickFilters@axelg.com');
     let localized = extension.localeData.localizeMessage(id, substitions);
   
@@ -2867,8 +2873,6 @@ quickFilters.mimeDecoder = {
 if (!quickFilters.Util.Accounts) {
 	Object.defineProperty(quickFilters.Util, "Accounts",
     { get: function() {
-        var { MailServices } = ChromeUtils.import("resource:///modules/MailServices.jsm"); // replace account-manager
-        
         let acMgr = MailServices.accounts,
             aAccounts = [];
             
@@ -2937,16 +2941,9 @@ if (!quickFilters.Shim) {
 		} ,
 		
 		findInboxFromRoot: function findInboxFromRoot(root, fflags) {
-			const Ci = Components.interfaces,
-			      util = quickFilters.Util;
-/*			if (typeof ChromeUtils.import == "undefined")
-				Components.utils.import("resource:///modules/iteratorUtils.jsm");
-			else
-				var { fixIterator } = ChromeUtils.import("resource:///modules/iteratorUtils.jsm"); */
-						
 			for (let folder of root.subFolders) {  // fixIterator(, Ci.nsIMsgFolder)
 				if (folder.getFlag && folder.getFlag(fflags.Inbox) || folder.getFlag(fflags.Newsgroup)) {
-					util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
+					quickFilters.Util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
 					return folder;
 				}
 			}
@@ -2961,7 +2958,9 @@ if (!quickFilters.Shim) {
 
 // the following adds the notifyTools API as a util method to communicate with the background page
 // this mechanism will be used to replace legacy code with API calls.
-var { ExtensionParent } = ChromeUtils.import("resource://gre/modules/ExtensionParent.jsm");
+var { ExtensionParent } = ChromeUtils.importESModule(
+  "resource://gre/modules/ExtensionParent.sys.mjs"
+);
 quickFilters.Util.extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
 Services.scriptloader.loadSubScript(
   quickFilters.Util.extension.rootURI.resolve("chrome/content/scripts/notifyTools.js"),

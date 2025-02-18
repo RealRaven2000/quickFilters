@@ -1573,7 +1573,13 @@ quickFilters.List = {
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
 		
 		// if (prefs.isDebugOption('filterSearch')) debugger;
-    var { MailUtils } = ChromeUtils.import("resource:///modules/MailUtils.jsm");
+    var { AppConstants } = ChromeUtils.importESModule(
+      "resource://gre/modules/AppConstants.sys.mjs"
+    );
+    var ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+    var { MailUtils } = ESM
+      ? ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs")
+      : ChromeUtils.import("resource:///modules/MailUtils.jsm");
 
     
     // find out of we need to change server:

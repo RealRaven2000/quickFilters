@@ -1,7 +1,9 @@
 /* eslint-disable object-shorthand */
 
-var { ExtensionCommon } = ChromeUtils.import("resource://gre/modules/ExtensionCommon.jsm"),
-    win = Services.wm.getMostRecentWindow("mail:3pane");
+var { ExtensionCommon } = ChromeUtils.importESModule(
+  "resource://gre/modules/ExtensionCommon.sys.mjs"
+)
+var win = Services.wm.getMostRecentWindow("mail:3pane");
 
 console.log("quickFilters - implementation utilities");
 var Utilities = class extends ExtensionCommon.ExtensionAPI {

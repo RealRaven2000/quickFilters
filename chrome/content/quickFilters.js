@@ -644,6 +644,9 @@ END LICENSE BLOCK
     # [issue 277] Fix duplicate filter names - avoid possible data loss when importing
     # [issue 282] Fixed: Copying filters across to different server links the filters
     # [issue 284] Compatibility with Tb 134: fixed a problem with broken notification box (.shown() removed)
+    # made compatible with Tb 136.*
+    # [issue 293] Thunderbird 136 retires ChromeUtils.import - replace with importESModule
+    
 
 
   ============================================================================================================
@@ -662,7 +665,11 @@ END LICENSE BLOCK
     
    */
 
-var {MailServices} = ChromeUtils.import("resource:///modules/MailServices.jsm");
+var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
+var quickFilters_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+var { MailServices } = quickFilters_ESM
+  ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
+  : ChromeUtils.import("resource:///modules/MailServices.jsm");
     
 var quickFilters = {
   Properties: {},
