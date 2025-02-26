@@ -1,26 +1,22 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.5.3) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.6) 
 
 
-**Important Maintenance Version 6.5.3**
-*   Maintenance fix in v6.5.3: The merge filters option had stopped working in 6.5.2 which was released on August 9th. [issue #262]
-*   quickFilters is now compatible with Thunderbird 115 - 130.
+**Improvements**
 
-**Improvements 6.5.2**
+*   Made compatible with Thunderbird 136.* \[issue #138\].
+*    Fixed: Filter rules Sort button isn't working (Betterbird). The new solution supports the "mixed" conditions of filters with grouping of "any search term" and "all terms" \[issue #294\]
 
-*   Made compatible with Thunderbird 128 \[issue #138\].
-*   Improved dark theme support to message filters window; full theme integration for all features that quickFilters adds to the message filters window \[issue #259\]
-*   Some theme fixes for icons: copy/cut icons for filters dialog
+**Bug Fixes**
 
-**Bug Fixes 6.5.2**
+*   Fixed: Keyboard Shortcut conflict with 'AI Anywhere' extension. [issue #275]
+*   Fix duplicate filter names - avoid possible data loss when importing.  \[issue #277\]
+*   Fixed: Copying filters across to different server links the filters. \[issue #282\]
+*    Compatibility with Tb 134: fixed a problem with broken notification box (.shown() removed) \[issue #284\]
 
-*   Maintenance fix in v6.5.3: The merge filters option had stopped working in 6.5.2 [issue #262]
-*   Fixed: Cut & Paste filters doesn't work in Thunderbird 128 \[issue #249\]
-*   Thunderbird 128 - Notifications are now async! This may lead to the filter assistant not starting up successfully. \[issue #258\]
-*   Fixed: After using any function, from its dowdown menu, quickFilters toolbar button  looked like it is always active \[issue #223\]
+**Miscellaneus**
 
-**Miscellaneus 6.5.2**
-
-*   Removed vendor prefix from -moz-appearance
-*   msgsMoveCopyCompleted: remove "no destmsg!" \[issue #254\]
+*   Made compatible with Thunderbird 136.
+*   Change Request for userChromeJS script: Message Filters Toolbar Implementation - insert above filterHeader (not any 1st hbox) [issue #265]
+*   Thunderbird 136 retires ChromeUtils.import - replace with importESModule [issue #293]
 
 All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features.](https://quickfilters.quickfolders.org/premium.html#featureList)
