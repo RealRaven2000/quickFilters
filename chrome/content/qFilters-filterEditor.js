@@ -154,7 +154,7 @@ END LICENSE BLOCK
 
         const terms = document.getElementById("searchTermList");
         const termChildren = Array.from(terms.itemChildren).filter(
-          (a) => isSimpleFiltering || a.classList.contains("search-row")
+          (a) => isSimpleFiltering || a.id?.startsWith("searchRow")
         );
 
         for (let i = 0; i < termChildren.length; i++) {
@@ -426,9 +426,12 @@ END LICENSE BLOCK
         const getOperator = (t) => {
           return t.booleanAnd ? "&" : "|";
         };
+        const tString = (t) => {
+          return t.termAsString.padEnd(65, " ");
+        }
         const log = termsArray
           .map((term, index) => {
-            return `[${index + 1}] ${term.termAsString} begins=${term.beginsGrouping} ends=${
+            return `[${index + 1}] ${tString(term)} begins=${term.beginsGrouping} ends=${
               term.endsGrouping
             } op= ${getOperator(term)}`;
           })
@@ -484,8 +487,7 @@ END LICENSE BLOCK
 
       quickFilters.Util.logDebugOptional(
         "filterEdit",
-        "Sorted Search Terms:\n",
-        logSearchTerms(sortedArray)
+        "Sorted Search Terms:\n" + logSearchTerms(sortedArray)
       );
 
       const stCopy = theFilter.searchTerms; // Array<nsIMsgSearchTerm> searchTerms;
