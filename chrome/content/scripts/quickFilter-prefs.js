@@ -11,6 +11,7 @@ pref("extensions.quickfilters.debug.dnd", false);
 pref("extensions.quickfilters.debug.events", false);
 pref("extensions.quickfilters.debug.events.keyboard", false);
 pref("extensions.quickfilters.debug.filters", false);
+pref("extensions.quickfilters.debug.filterEdit", false);
 pref("extensions.quickfilters.debug.filterList",false);
 pref("extensions.quickfilters.debug.filterSearch",false);
 pref("extensions.quickfilters.debug.filterSearch.detail",false);

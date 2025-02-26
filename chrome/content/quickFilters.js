@@ -646,6 +646,7 @@ END LICENSE BLOCK
     # [issue 284] Compatibility with Tb 134: fixed a problem with broken notification box (.shown() removed)
     # made compatible with Tb 136.*
     # [issue 293] Thunderbird 136 retires ChromeUtils.import - replace with importESModule
+    # [issue 294] Filter rules Sort button isn't working (Betterbird)
     
 
 

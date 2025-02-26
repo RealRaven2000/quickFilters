@@ -778,7 +778,7 @@ quickFilters.Util = {
 	* @param {string} optionString comma delimited options
   * @param {string} msg text to log 
 	*/   
-  logDebugOptional: function logDebugOptional(optionString, msg) {
+  logDebugOptional: function (optionString, msg) {
 		try {
 			let qF = quickFilters ? quickFilters : this.mainInstance,
 					options = optionString.split(',');

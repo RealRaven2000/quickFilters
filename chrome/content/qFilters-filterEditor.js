@@ -15,7 +15,20 @@ END LICENSE BLOCK
 {
   
   quickFilters.FilterEditor = {
+    isBetterBird: false,
+    isDisabled: false,
     onLoad: function loadEditor(event) {
+      const txtAbort = "Abandoning quickFilters processing.";
+      if (!gFilter) {
+        quickFilters.FilterEditor.isDisabled = true;
+        throw "quickFilters Editor: no gFilter!\n" + txtAbort;
+      }
+      if (!gFilter.searchTerms || !gFilter.searchTerms.length) {
+        quickFilters.FilterEditor.isDisabled = true;
+        throw "quickFilters Editor: no searchTerms!\n" + txtAbort;
+      }
+      quickFilters.FilterEditor.isBetterBird =
+        typeof gFilter.searchTerms[0].beginsGrouping == "number";
       const util = quickFilters.Util,
             prefs = quickFilters.Preferences;
       util.logDebug("quickFilters.loadEditor()");
@@ -134,23 +147,34 @@ END LICENSE BLOCK
         
       // [issue 108]  Edit fields of custom search term "Reply-To" is not displayed in Thunderbird 101.b4
       function refreshItems() {
-        let terms = document.getElementById("searchTermList");
-        for (let i=0; i<terms.itemChildren.length; i++) {
-          let el = terms.itemChildren[i];
+        if (!gFilter.searchTerms) return false;
+        if (!gFilter.searchTerms.length) return false;
+        const isComplexFiltering = quickFilters.FilterEditor.isBetterBird;
+        const isSimpleFiltering = !isComplexFiltering;
+
+        const terms = document.getElementById("searchTermList");
+        const termChildren = Array.from(terms.itemChildren).filter(
+          (a) => isSimpleFiltering || a.classList.contains("search-row")
+        );
+
+        for (let i = 0; i < termChildren.length; i++) {
+          let el = termChildren[i];
           if (gFilter.searchTerms[i].attrib == -2) {
-            if (gFilter.searchTerms[i].customId && gFilter.searchTerms[i].customId.startsWith("quickFilters")) {
+            if (
+              gFilter.searchTerms[i].customId &&
+              gFilter.searchTerms[i].customId.startsWith("quickFilters")
+            ) {
               // this is one of my own search terms...
               let val = el.querySelector("search-value");
               let filterVal;
               try {
                 // evalute the nsIMsgSearchValue
                 filterVal = gFilter.searchTerms[i].value.str;
-              }
-              catch(ex) {
-                
-              }
+              } catch (ex) {}
               if (filterVal && val.getAttribute("value") != filterVal) {
-                quickFilters.Util.logToConsole(`Fixing search term ${gFilter.searchTerms[i].customId} - re-adding value "${filterVal}" ...` );
+                quickFilters.Util.logToConsole(
+                  `Fixing search term ${gFilter.searchTerms[i].customId} - re-adding value "${filterVal}" ...`
+                );
                 val.setAttribute("value", filterVal);
                 el.replaceWith(el);
               }
@@ -321,95 +345,213 @@ END LICENSE BLOCK
       gSearchTermList.ensureIndexIsVisible(rowIndex);
     }, 
     
-    sortConditions: function sortConditions(theFilter) {
-      
-      function compareTerms(a,b) {
+    sortConditions: function (theFilter) {
+      function compareTerms(a, b) {
         try {
           // Ci.nsMsgSearchAttrib - long
-          if (a.attrib > b.attrib)
-            return 1;
-          if (a.attrib < b.attrib)
-            return -1;
+          if (a.attrib > b.attrib) return 1;
+          if (a.attrib < b.attrib) return -1;
           // Ci.nsMsgSearchOp - long
-          if (a.op > a.op)
-            return 1;
-          if (a.op < a.op)
-            return -1;
+          if (a.op > a.op) return 1;
+          if (a.op < a.op) return -1;
           // atrtirbute and operand are the same, now let"s sort equal values
           if (util.isStringAttrib(a.value.attrib)) {
             if (a.value.str > b.value.str) return 1;
             if (a.value.str < b.value.str) return -1;
           }
-        }
-        catch(ex) { }
+        } catch (ex) {}
         // we don"t care about the rest
         return 0;
       }
-      
-      
+
+      // helper function to sort a complex filter with different nesting levels
+      // only contiguous elements are sorted.
+      const sortWithGrouping = (termsArray) => {
+        // Extract the beginsGrouping, endsGrouping, and booleanAnd values, and ensure index tracking
+        const groupingValues = termsArray.map((term, index) => ({
+          beginsGrouping: term.beginsGrouping,
+          endsGrouping: term.endsGrouping,
+          booleanAnd: term.booleanAnd,
+          index, // Ensure index tracking
+        }));
+
+        const partitions = [];
+        let currentPartition = [];
+        let lastBeginsGrouping = -1;
+
+        termsArray.forEach((term, index) => {
+          if (term.beginsGrouping > lastBeginsGrouping) {
+            if (currentPartition.length) partitions.push(currentPartition);
+            currentPartition = [];
+          }
+
+          if (lastBeginsGrouping === -1 || term.beginsGrouping > 0) {
+            lastBeginsGrouping = term.beginsGrouping;
+          }
+
+          currentPartition.push(term);
+
+          if (term.endsGrouping > 0) {
+            if (currentPartition.length) partitions.push(currentPartition);
+            currentPartition = [];
+            lastBeginsGrouping = term.endsGrouping > 0 ? 0 : lastBeginsGrouping; // was -1
+          }
+        });
+
+        if (currentPartition.length > 0) {
+          partitions.push(currentPartition);
+        }
+
+        // Sort each partition
+        partitions.forEach((partition) => {
+          partition.sort((a, b) => compareTerms(a, b));
+        });
+
+        // Flatten partitions and restore grouping values
+        const sortedTerms = partitions.flat().map((term, i) => {
+          const groupValues = groupingValues[i]; // Use `i` instead of `term.index`
+          term.beginsGrouping = groupValues?.beginsGrouping || 0;
+          term.endsGrouping = groupValues?.endsGrouping || 0;
+          term.booleanAnd = groupValues?.booleanAnd;
+          return term;
+        });
+
+        return sortedTerms;
+      };
+
+
+      // Function to log the search terms with their properties
+      const logSearchTerms = (termsArray) => {
+        // Helper function to format the operator as either "&" or "|"
+        const getOperator = (t) => {
+          return t.booleanAnd ? "&" : "|";
+        };
+        const log = termsArray
+          .map((term, index) => {
+            return `[${index + 1}] ${term.termAsString} begins=${term.beginsGrouping} ends=${
+              term.endsGrouping
+            } op= ${getOperator(term)}`;
+          })
+          .join("\n");
+
+        return log;
+      };
+
+      if (quickFilters.FilterEditor.isDisabled) {
+        console.warn("quickFilters was disabled on dialog startup!");
+        return;
+      }
+
       if (!util.hasPremiumLicense()) {
         if (!util.popupProFeature("sortSearchTerms", true)) return;
       }
       // 1st save in case there were edits on screen!
-      saveFilter(); // [issue 149] Sorting filter items resurrects deleted search terms
-      
+      if (!saveFilter()) {
+        // [issue 149] Sorting filter items resurrects deleted search terms
+        quickFilters.Util.logWarn("couldn't save filter, aborting sort!");
+        return;
+      }
+
       let stCollection = theFilter.searchTerms,
-          newSearchArray = [],
-          len = stCollection.length;
-      for (let t = 0; t<len; t++) {
+        newSearchArray = [],
+        len = stCollection.length;
+      for (let t = 0; t < len; t++) {
         let searchTerm = stCollection[t];
-        // 
+        //
         if (searchTerm.value) {
           let val = searchTerm.value, // nsIMsgSearchValue
-              AC = Ci.nsMsgSearchAttrib;
+            AC = Ci.nsMsgSearchAttrib;
           if (val && util.isStringAttrib(val.attrib)) {
-            let conditionStr = searchTerm.value.str || "";  
+            let conditionStr = searchTerm.value.str || "";
           }
         }
+        quickFilters.Util.logDebugOptional("filterEdit", "Adding searchTerm:", searchTerm);
         newSearchArray.push(searchTerm);
       }
-      let sortedArray = newSearchArray.sort(compareTerms),
-          iCount = 0,
-          log = "Re-sorted Search Terms:\n";
-      for (let x of sortedArray) {
-        let sTerm = "[" + iCount + "] " + x.termAsString;
-        log = log + sTerm + "\n";
-        iCount++;
+
+      quickFilters.Util.logDebugOptional(
+        "filterEdit",
+        "searchTermArray:\n" + logSearchTerms(newSearchArray)
+      );
+
+      const isComplexFiltering = quickFilters.FilterEditor.isBetterBird;
+      let sortedArray;
+      if (isComplexFiltering) {
+        sortedArray = sortWithGrouping(newSearchArray);
+      } else {
+        sortedArray = newSearchArray.sort(compareTerms);
       }
-      util.logDebug(log);
-      // Tb 88 attribute Array<nsIMsgSearchTerm> searchTerms;
-      let stCopy = theFilter.searchTerms;
+
+      quickFilters.Util.logDebugOptional(
+        "filterEdit",
+        "Sorted Search Terms:\n",
+        logSearchTerms(sortedArray)
+      );
+
+      const stCopy = theFilter.searchTerms; // Array<nsIMsgSearchTerm> searchTerms;
       while (stCopy.length) stCopy.pop();
-      theFilter.searchTerms = stCopy; 
-      
-      while (gTotalSearchTerms > 0) {
-        removeSearchRow(0);
-        --gTotalSearchTerms;
+      theFilter.searchTerms = stCopy;
+
+      // Bb hasn't got gTotalSearchTerms. it's more complicated!
+      if (quickFilters.FilterEditor.isBetterBird) {
+        // initializeSearchRows(gSearchScope, theFilter.searchTerms);
+        while (gSearchTermList.children.length > 1) {
+          let lastItem = gSearchTermList.getItemAtIndex(gSearchTermList.children.length - 1);
+          if (!lastItem) break;
+
+          // Find the remove button
+          const removeButton = lastItem.querySelector("button.small-button[label='−']");
+
+          // Check if the button exists and if it's enabled
+          if (removeButton && !removeButton.disabled) {
+            // call onLess() and let the Mail App handle it.
+            // Dispatch the click event to remove the row
+            removeButton.click();
+            // Recheck after the click if necessary (since the row is removed, the children length changes)
+          } else {
+            // If the remove button is disabled, break out of the loop
+            console.log("Remove button is disabled or not present, stopping loop.");
+            break;
+          }
+        }
+      } else {
+        // quick + dirty, Thunderbird way.
+        while (gTotalSearchTerms > 0) {
+          quickFilters.Util.logDebugOptional(
+            "filterEdit",
+            `${gTotalSearchTerms} left, removing 1st search row`
+          );
+          removeSearchRow(0);
+          --gTotalSearchTerms;
+        }
       }
-      
+
       for (let x of sortedArray) {
         theFilter.appendTerm(x);
       }
-      
+
+      quickFilters.Util.logDebugOptional("filterEdit", "initializeDialog()...", theFilter);
       initializeDialog(theFilter); // this will duplicate the actions.
-      
+
       let ruleActions = Array.from(document.querySelectorAll(".ruleaction")),
-          count = ruleActions.length;
-      for (let a = 0; a<count;  a++) {
-        if (a<count/2)
+        count = ruleActions.length;
+      for (let a = 0; a < count; a++) {
+        if (a < count / 2) {
+          quickFilters.Util.logDebugOptional("filterEdit", `remove duplicate action ${a}`);
           ruleActions[a].removeRow();
+        }
       }
       // call filterEditorOnLoad(); ??
+      quickFilters.Util.logDebugOptional("filterEdit", "Complete.");
     }
   }
 
   // we need to closure these objects for our observer callback:
-  const util = window.quickFilters.Util,
-        FE = quickFilters.FilterEditor;
+  const util = window.quickFilters.Util;
         
   // custom search conditions: replace bindings - needed for:
   // # replyTo
-  function  patchCustomTextbox(es) {
+  function patchCustomTextbox(es) {
     if (es.firstChild && es.firstChild.classList.contains("qi-textbox")) return true;
     if (es.firstChild) es.removeChild(es.firstChild);
     // patch!
