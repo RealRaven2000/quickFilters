@@ -808,6 +808,7 @@ var quickFilters = {
   },
 
   patchFolderTree: function(tabInfo) { 
+    quickFilters.Util.logDebug("patchFolderTree", tabInfo);
     let fPane = tabInfo.chromeBrowser.contentWindow.folderPane;
     if (fPane && !fPane.quickFilters_originalDrop) {
       fPane.quickFilters_originalDrop = fPane._onDrop;
@@ -1196,7 +1197,7 @@ var quickFilters = {
   },
 
   // Tb115 - new drop interface: passes the event now, and not (row, orientation) !
-  onFolderTreeViewDrop: function onFolderTreeViewDrop(event) {  // , aRow, aOrientation
+  onFolderTreeViewDrop: function (event) {  // , aRow, aOrientation
     const Cc = Components.classes,
           Ci = Components.interfaces,
           util = quickFilters.Util,
@@ -1213,7 +1214,6 @@ var quickFilters = {
       // will be handled by folder listener!
       return;
     }
-
 
     let row = event.target.closest("li");
     let targetFolder = MailServices.folderLookup.getFolderForURL(row.uri);
@@ -2358,6 +2358,7 @@ quickFilters.restoreTagListener = function(win) {
 quickFilters.patchMailPane = () => {
   // THUNDERBIRD 115
   // fix selectors
+  quickFilters.Util.logHighlightDebug("patchMailPane()...");
   let mainButton = document.querySelector("button[extension='quickFilters@axelg.com']");
   if (mainButton) {
     // was the button already patched?

@@ -19,7 +19,7 @@ quickFilters.List = {
   rebuildFilterList_Orig: null,
   duplicateTerms: null,
   duplicateActions: null,
-  updateButtons: function updateButtons() {
+  updateButtons: function () {
     let numFiltersSelected = this.getSelectedCount(this.FilterListElement),
         oneFilterSelected = (numFiltersSelected == 1);
     try {
@@ -76,45 +76,16 @@ quickFilters.List = {
     return document.getElementById("serverMenuPopup");
   } ,
 
-  getSelectedFilterAt: function getSelectedFilterAt(list, i) {
+  getSelectedFilterAt: function (list, i) {
     if (typeof list.selectedItems !== "undefined")
       return list.selectedItems[i]._filter;  // Thunderbird
-
-    // SeaMonkey uses a tree view - there can be multiple ranges selected
-    let start = new Object(),
-        end = new Object(),
-        numRanges = list.view.selection.getRangeCount(),
-        current = 0, // counting index to find nth item
-        targetIndex = -1;
-
-    // allow multiple range selection - find the nth item and return its real index
-    for (let t = 0; t < numRanges; t++) {
-      list.view.selection.getRangeAt(t,start,end);
-      for (let v = start.value; v <= end.value; v++){
-        if (i == current) {
-          targetIndex = v;
-          break;
-        }
-        current++;
-      }
-      if (targetIndex>=0)
-        break;
-    }
-
-    // return list.view.getFilterAt(start.value);
-    if (targetIndex==-1) return null;
-    return getFilter(targetIndex); // defined in FilterListDialog.js (SM only)
+    return null;
   } ,
 
-  getSelectedCount: function getSelectedCount(list) {
+  getSelectedCount: function (list) {
     if (typeof list.selectedItems !== "undefined")
       return list.selectedItems.length;
-    return list.view.selection.count;
-  } ,
-  
-  // Postbox: doesn't have selectedIndex; instead we use view.selection.currentIndex
-  getSelectedIndex: function getSelectedIndex(list) {
-    return list.selectedIndex;
+    return list?.view.selection.count || 0;
   } ,
 	
 	clone: async function(evt) {
@@ -186,7 +157,7 @@ quickFilters.List = {
 		}
 	} ,
   
-  refreshDuplicates: function refreshDuplicates(calledFromEditor) {
+  refreshDuplicates: function (calledFromEditor) {
 		const util = quickFilters.Util;
 		
     let doc;
@@ -209,7 +180,7 @@ quickFilters.List = {
     }
   } ,
   
-  sort: function sort(evt) {
+  sort: function (evt) {
 		const util = quickFilters.Util;
     let list = this.FilterListElement,
         count = this.getSelectedCount(list);
@@ -275,7 +246,7 @@ quickFilters.List = {
     for (let f = this.getSelectedCount(list)-1; f >=0 ; f--) {
       filterMatch = true;
       let aFilter = this.getSelectedFilterAt(list, f);  // nsIMsgFilter 
-      util.logDebugOptional("merge", "Adding filter: " + aFilter.filterName);
+      util.logDebugOptional("merge", "Adding filter: " + aFilter?.filterName);
       // match the first action only
       // nsMsgFilterAction.MarkFlagged
       // nsMsgFilterAction.MoveToFolder
@@ -494,10 +465,10 @@ quickFilters.List = {
 		return null;
 	} ,
 	
-  styleFilterListItems: function styleFilterListItems() {
-		let list = this.FilterListElement,
-        type = this.clipboardPending,
-        clpFilters = this.clipboardList;
+  styleFilterListItems: function () {
+		const list = this.FilterListElement,
+      type = this.clipboardPending,
+      clpFilters = this.clipboardList;
     this.resetClipboardStylings();
     if (type && clpFilters.length>0) {
       for (let i=0; i<clpFilters.length;i++) {
@@ -520,11 +491,11 @@ quickFilters.List = {
     }
   },
   
-  rebuildPost: function rebuildPost() {
+  rebuildPost: function () {
     quickFilters.List.styleFilterListItems();
   },
   
-  styleSelectedItems: function styleSelectedItems(type) {
+  styleSelectedItems: function (type) {
 		let list = this.FilterListElement;
     if (typeof list.selectedItems !== "undefined") {
       for(let i=0; i<this.getSelectedCount(list); i++) {
@@ -543,9 +514,8 @@ quickFilters.List = {
   
 	pushSelectedToClipboard: function(type) {
 		const util = quickFilters.Util,
-		      list = this.FilterListElement,
-					filtersList = this.FilterList,
-					sourceFolder = filtersList.folder;
+      list = this.FilterListElement,
+      filtersList = this.FilterList;
 		function getListIndex(filter) {
 			for (let i=0; i<filtersList.filterCount; i++) {
 				if (list.getItemAtIndex(i)._filter == filter) return i;
@@ -655,7 +625,7 @@ quickFilters.List = {
 			}
 			// find insert position
 			let list = this.FilterListElement,
-			    index = this.getSelectedIndex(list);
+        index = list.selectedIndex;
 			if (index<0) // if nothing is selected append to end
 				index = this.getListElementCount(list); // list.itemCount - itemCount doesn't work in Postbox
 
@@ -778,7 +748,7 @@ quickFilters.List = {
     return true;
 	} ,
 	
-	onSelectServer: function onSelectServer() {
+	onSelectServer: function () {
 		const util = quickFilters.Util;
 		util.logDebugOptional("clipboard", "onSelectServer()");
     this.styleFilterListItems();
@@ -790,7 +760,7 @@ quickFilters.List = {
     }
 	} ,
 	
-	onSelectFilter : function onSelectFilter(evt) {
+	onSelectFilter : function (evt) {
     let list = this.FilterListElement,
         numFiltersSelected = this.getSelectedCount(list),
         oneFilterSelected = (numFiltersSelected === 1),
@@ -808,8 +778,7 @@ quickFilters.List = {
     function removeElement(el) {
       try {
         el.collapsed = true;
-      }
-      catch(ex) {
+      } catch(ex) {
         util.logException('onLoadFilterList - removeElement() failed', ex);
       }
     }
@@ -823,8 +792,8 @@ quickFilters.List = {
 		
     let getElement = document.getElementById.bind(document);
     util.logDebugOptional('filterList', 'onLoadFilterList() starts...');
-    // overwrite list updateButtons
-    let orgUpdateBtn = updateButtons;
+    // monkeypatch list updateButtons
+    const orgUpdateBtn = updateButtons;
     updateButtons = function() {
 			util.logDebugOptional('filterList','called updateButtons() - calling original function...');
       orgUpdateBtn();
@@ -937,7 +906,7 @@ quickFilters.List = {
 		}
 	} ,
 
-  selectFilter: function selectFilter(targetFilter) {
+  selectFilter: function (targetFilter) {
 		const util = quickFilters.Util;
     // highlight last edited filter: (after merge!!)
     // [Bug 25802] After editing existing Filter, it should be selected in List 
@@ -977,44 +946,13 @@ quickFilters.List = {
       }
     }
   } ,
-  
-	// here is a hack for filtering, because the filtered view returns incorect rowCount
-  // Tb78 obsolete?
-  updateCountBox: function updateCountBox(forceCount) {
-		try {
-      return;
-/*      
-			let countBox = document.getElementById("quickFilters-Count"),
-					sum = this.FilterList.filterCount,
-					filterList = this.FilterListElement,
-					len = (forceCount!=null) ?
-					  forceCount : this.getListElementCount(filterList);
-
-			if (len === sum)
-				countBox.value =
-					(len === 1)
-					? document.getElementById ('quickFilters-Count-1-item').value
-					: len.toString() + " " + document.getElementById ('quickFilters-Count-items').value;
-			else /// copy from hidden box
-				countBox.value = document.getElementById ('quickFilters-Count-n-of-m').value
-					.replace('{0}', len.toString())
-					.replace('{1}', sum.toString());
-*/
-		}
-		catch(ex) {
-			quickFilters.Util.logException("Exception in quickFilters.List.updateCountBox()", ex);
-		}
-
-  } ,
 
   // note: use an alias to avoid recursion (we want to call the global / Tb function_
-  rebuildFilterList: function rebuildFilterList_qF() {
+  rebuildFilterList: function() {
 		const util = quickFilters.Util;
 		try {
-			rebuildFilterList(gCurrentFilterList);
-			// this.updateCountBox(); // is this obsolete? uses the now non-existent quickFilters-Count element
-		}
-		catch(ex) { util.logException('rebuildFilterList()', ex) }
+			rebuildFilterList(gCurrentFilterList);			
+		} catch(ex) { util.logException('rebuildFilterList()', ex) }
   } ,
 
 /**
@@ -1023,55 +961,48 @@ quickFilters.List = {
  *
  * @param focusSearchBox  if called from the button click event, return to searchbox
  */
-  onFindFilter: function onFindFilter(focusSearchBox) {
-    const util = quickFilters.Util;
-    let searchBox = document.getElementById("searchBox"), // quickFilters-Search
-        filterList = this.FilterListElement,
-        keyWord = searchBox.value.toLocaleLowerCase();
+  onFindFilter: function (focusSearchBox) {
+    const util = quickFilters.Util,
+      searchBox = document.getElementById("searchBox"), // quickFilters-Search
+      filterList = this.FilterListElement,
+      keyWord = searchBox.value.toLocaleLowerCase();
 
     // simplest case: if filter was added or removed and searchbox is empty
     if (!keyWord && !focusSearchBox) {
-      //this.updateCountBox();
       return;
     }
 
     this.rebuildFilterList(this.FilterList); // creates the unfiltered list; already updates countBox
     if (!keyWord) {
-      if (focusSearchBox)
-        searchBox.focus();
+      if (focusSearchBox) { searchBox.focus(); }
       return;
     }
 
     // rematch everything in the list, remove what doesn't match the search box
-    let rows = this.getListElementCount(filterList),
-        title, item, hiddenCount=0;
-        
+    const rows = this.getListElementCount(filterList);
     for (let i = rows - 1; i>=0; i--) {
       let matched = true;
-      // Thunderbird
-      item = filterList.getItemAtIndex(i);
-      // in Tb78, this is now a richlistitem. It's first child is a label element with a value
-      title = item.firstChild.value; // item.firstChild.getAttribute("label");
-      if (title.toLocaleLowerCase().indexOf(keyWord) === -1)
-      {
+      const item = filterList.getItemAtIndex(i);
+      // this is a richlistitem. It's first child is a label element with a value
+      const title = item.firstChild.value; // item.firstChild.getAttribute("label");
+      if (!title.toLocaleLowerCase().includes(keyWord)) {
         matched = false;
         filterList.removeChild(item);
       }
 
-      if (matched)
+      if (matched) {
         util.logDebugOptional("filters", "matched filter: " + title);
+      }        
     }
-    // this.updateCountBox(rows-hiddenCount);
-    if (focusSearchBox)
-      searchBox.focus();
+    if (focusSearchBox) searchBox.focus();
 
   } ,
 
-  validateFilterTargets: function validateFilterTargets(sourceURI, targetURI) {
+  validateFilterTargets: function (sourceURI, targetURI) {
 		quickFilters.Util.validateFilterTargets(sourceURI, targetURI);
   },
 	
-	toggleAssistant: function toggleAssistant(btn) {
+	toggleAssistant: function (btn) {
 	  let win = quickFilters.Util.getMail3PaneWindow();
 		btn.setAttribute("checked", !quickFilters.Util.AssistantActive); 
 		win.quickFilters.onToolbarButtonCommand();	
@@ -1079,7 +1010,7 @@ quickFilters.List = {
   
   searchType: 'name', // standard filter search. looks only at filter names
   
-  toggleSearchType: function toggleSearchType(type, interActive=false) {
+  toggleSearchType: function (type, interActive=false) {
 		const util = quickFilters.Util;
     if (this.searchType == type) 
       return;
@@ -1096,7 +1027,7 @@ quickFilters.List = {
     this.rebuildFilterList(); // used the global rebuildFilterList!
   } ,
   
-  showPopup: function showPopup(button, popupId, evt) {
+  showPopup: function (button, popupId, evt) {
 		let p = button.ownerDocument.getElementById(popupId);
 		if (p) {
 			// document.popupNode = button;
@@ -1116,7 +1047,7 @@ quickFilters.List = {
               Otherwise false. In the future this may be extended to match
               other filter attributes.
    */
-  filterSearchMatchExtended : function filterSearchMatchExtended(aFilter, aKeyword) {
+  filterSearchMatchExtended : function (aFilter, aKeyword) {
 		const util = quickFilters.Util,
 		      Ci = Components.interfaces;
     // more search options
@@ -1197,7 +1128,7 @@ quickFilters.List = {
     return true; // no search filter.
   },
   
-  retrieveSubjectFromReply: function retrieveSubjectFromReply(strValue) {
+  retrieveSubjectFromReply: function (strValue) {
     let k = strValue.indexOf('subject=');
     if (k>0) {
       return strValue.substr(k+8);
@@ -1220,7 +1151,7 @@ quickFilters.List = {
     return this.bundleSearchOperators;
   } ,
   // gets string from search-attributes.properties
-  getSearchAttributeString: function getSearchAttributeString(id, defaultText) {
+  getSearchAttributeString: function (id, defaultText) {
     let s;
     try {
       s = this.bundleSA.GetStringFromName(id); 
@@ -1232,7 +1163,7 @@ quickFilters.List = {
     return s;
   } ,  
   
-  getSearchOperatorString: function getSearchOperatorString(id, defaultText) {
+  getSearchOperatorString: function (id, defaultText) {
     let s;
     try {
       s = this.bundleSO.GetStringFromName(id); 
@@ -1246,7 +1177,7 @@ quickFilters.List = {
   
   // see mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#316
   // return meaning of nsMsgSearchAttribValue  (string types only)
-  getAttributeLabel: function getAttributeLabel(attrib) {
+  getAttributeLabel: function (attrib) {
     //  retrieve locale strings from http://mxr.mozilla.org/comm-central/source/suite/locales/en-US/chrome/mailnews/search-attributes.properties
     switch(attrib) {
       case -2: return 'Custom';  /* a custom term, see nsIMsgSearchCustomTerm */
@@ -1272,7 +1203,7 @@ quickFilters.List = {
   } ,
   
   // return meaning of nsMsgSearchOpValue
-  getOperatorLabel: function getOperatorLabel(operator) {
+  getOperatorLabel: function (operator) {
     switch (operator) {
       case 0: return this.getSearchOperatorString('0', 'contains');
       case 1: return this.getSearchOperatorString('1', 'doesn\'t contain');
@@ -1292,7 +1223,7 @@ quickFilters.List = {
     }
   } ,
   
-  truncateLabel : function truncateLabel(x, maxlen) {
+  truncateLabel : function (x, maxlen) {
     /* given a string and a maximum length for the string, this routine
     returns the same string truncated to the maximum length. In addition,
     if the string was truncated, "..." is added to the start, again not to
@@ -1313,7 +1244,7 @@ quickFilters.List = {
   } ,
   
   // return label for  nsMsgRuleActionType
-  getActionLabel: function getActionLabel(actionType) {
+  getActionLabel: function (actionType) {
     // retrieve locale strings from http://mxr.mozilla.org/comm-central/source/mail/locales/en-US/chrome/messenger/FilterEditor.dtd
     // l10n at http://hg.mozilla.org/l10n-central
 		let getString = quickFilters.Util.getBundleString.bind(quickFilters.Util);
@@ -1331,7 +1262,7 @@ quickFilters.List = {
     }
   } ,
   
-  clearResultsPopup: function clearResultsPopup(show, popupId) {
+  clearResultsPopup: function (show, popupId) {
     try {
       let termDropDown = document.getElementById(popupId),
           menuPopup = termDropDown.menupopup;
@@ -1349,11 +1280,11 @@ quickFilters.List = {
     }
   } ,
   
-  clearDuplicatePopup: function clearDuplicatePopup(show) {
+  clearDuplicatePopup: function (show) {
     return this.clearResultsPopup(show, 'quickFiltersDuplicateList');
   } ,
   
-  findDuplicates: function findDuplicates() {
+  findDuplicates: function () {
 		const util = quickFilters.Util;
     // make an Array of
     // {attribType, 
@@ -1477,7 +1408,7 @@ quickFilters.List = {
     document.getElementById('quickFiltersBtnDupe').collapsed = true;
   } ,
   
-  cancelDuplicates: function cancelDuplicates(el) {
+  cancelDuplicates: function (el) {
     this.clearDuplicatePopup(false);
     document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
     document.getElementById('quickFiltersBtnDupe').collapsed = false;
@@ -1485,13 +1416,13 @@ quickFilters.List = {
     contextMenu.collapsed = true;
   } ,
   
-  cancelFoundFilters: function cancelFoundFilters(el) {
+  cancelFoundFilters: function (el) {
     this.clearFoundFiltersPopup(false);
     document.getElementById('quickFiltersBtnCancelFound').collapsed = true;
     document.getElementById('quickFiltersBtnDupe').collapsed = false;
   } ,
   
-  selectDuplicate: function selectDuplicate(el) {
+  selectDuplicate: function (el) {
 		const util = quickFilters.Util;
     let searchBox = document.getElementById("searchBox");
     if (searchBox) {
@@ -1535,7 +1466,7 @@ quickFilters.List = {
     }
   } ,
   
-  removeSelectedCurrentDupe: function removeSelectedCurrentDupe(el) {
+  removeSelectedCurrentDupe: function (el) {
     // http://mxr.mozilla.org/comm-central/source/mail/base/content/FilterListDialog.js#288
     //   onEditFilter()
     let selectedFilter = currentFilter();
@@ -1562,12 +1493,12 @@ quickFilters.List = {
     }          
   } ,
 
-  clearFoundFiltersPopup: function clearFoundFiltersPopup(show) {
+  clearFoundFiltersPopup: function (show) {
     return this.clearResultsPopup(show, 'quickFiltersFoundResults');
   } ,
 	
   // similar to selectDuplicate but is also able to change the server selection as we search across all accounts
-  selectFoundFilter: function selectFoundFilter(el) {
+  selectFoundFilter: function (el) {
 		const qList = quickFilters.List;
     qList.toggleSearchType('targetFolder');
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
@@ -1614,7 +1545,7 @@ quickFilters.List = {
   // similar to findDuplicates but goes across all accounts and looks for a filters acting on a particular folder
   // search results are able to select a different server and thus may not be reset by changing the server manually
   // initial implementation: see quickFilters.searchFiltersFromFolder()
-  findFromTargetFolder: function findFromTargetFolder(targetFolder) {
+  findFromTargetFolder: function (targetFolder) {
     const util = quickFilters.Util;
     this.searchFilterResults = [];
     util.logDebug('findFromTargetFolder(' + targetFolder.prettyName + ')');
@@ -2012,12 +1943,12 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 
   } ,
 
-  load: async function load() {
-    await this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
+  load: async function () {
+    return this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
   } ,
 	
   // troubleshooter - generates error list(s)
-	checkErrors: function checkFilterErrors() {
+	checkErrors: function () {
     const util = quickFilters.Util,
           settings = quickFilters.Settings,
 					ff = util.FolderFlags,
@@ -2136,7 +2067,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 	} ,
 
 	
-	troubleshoot: function troubleshootFilterList() {
+	troubleshoot: function () {
 		// go through list and check for flags InboxRule / InboxRuleJavaScript / NewsRule / NewsRuleJavascript
     const util = quickFilters.Util,
           settings = quickFilters.Settings,
@@ -2307,7 +2238,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		
 	} ,
   
-  configureTroubleshooter: function configureTroubleshooter(el) {
+  configureTroubleshooter: function (el) {
     quickFilters.Util.showAboutConfig(el, 'quickfilters.troubleshoot', true);
   } ,
   
