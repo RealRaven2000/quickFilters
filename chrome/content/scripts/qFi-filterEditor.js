@@ -113,18 +113,18 @@ async function onLoad(activatedWhileWindowOpen) {
 		</hbox>
 		
     <hbox class="labelWithHelpLink">
-      <div id="qfi_help_actions_customtemplate" class="helpLink" clickyTooltip="__MSG_quickfilters.customHeader.defaultActionTip__"> </div>
+      <div id="qfi_help_actions_customtemplate" class="helpLink" clickyTooltip="__MSG_quickfilters.customHeader.defaultActionTip__" hidden="true"> </div>
     </hbox>
 
 	</dialog>
     
     `);
     
-  let btnPicker = document.getElementById("quickFilters-variablePicker")
+  const btnPicker = document.getElementById("quickFilters-variablePicker");
   btnPicker.addEventListener("command", function(evt) { window.quickFilters.FilterEditor.selectCustomHeader(this,evt); })
     
-  let helpWidget = document.getElementById("qfi_help_actions_customtemplate"),
-      actionBox = document.getElementById("filterActionList");
+  const helpWidget = document.getElementById("qfi_help_actions_customtemplate"),
+    actionBox = document.getElementById("filterActionList");
   if (actionBox && helpWidget) {
     hbox = helpWidget.parentNode;
     // debugger;

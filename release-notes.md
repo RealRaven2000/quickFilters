@@ -12,6 +12,7 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 *   Fix duplicate filter names - avoid possible data loss when importing.  \[issue #277\]
 *   Fixed: Copying filters across to different server links the filters. \[issue #282\]
 *    Compatibility with Tb 134: fixed a problem with broken notification box (.shown() removed) \[issue #284\]
+*   Removed the custom templates action tooltip from 'standard' filter editor. [issue #295] 
 
 **Miscellaneus**
 

@@ -647,6 +647,7 @@ END LICENSE BLOCK
     # made compatible with Tb 136.*
     # [issue 293] Thunderbird 136 retires ChromeUtils.import - replace with importESModule
     # [issue 294] Filter rules Sort button isn't working (Betterbird)
+    # [issue 295] Remove the custom templates actions tooltip from 'normal' filter editor.
     
 
 
