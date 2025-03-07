@@ -561,6 +561,20 @@ permalink: filtaquilla.html
     slashes, for example “findme”. But if you want to add a flag (for 
     example case insensitivity), then surround the term with slashes and 
     append the appropriate flags (for example “/findME/i”).</p>
+
+  <a name="multiline_anchors"> </a>
+  <p>
+    From version 4.3.2 on, there is a new option "Support anchor tokens 
+    <pre class="code">^</pre> and <pre class="code">$</pre> with address headers"
+    This will process the address fields <pre class="code">ccList</pre>, 
+    <pre class="code">bccList</pre> and <pre class="code">recipients</pre> slighly differently.
+    They are normally returned as a comma separated list. 
+    In order to use anchor tokens, with this option the addresses are delimited by line
+    breaks instead, so it is much easier to match beginning / end of them without introducing
+    false positives. For it to work, you should also add the regex flag <pre class="code">/m</pre> to enable multiline
+    matching.
+  </p>
+    
 		
   <a name="match_folder_name"> </a>
   <p><strong>Folder Name</strong></p>
