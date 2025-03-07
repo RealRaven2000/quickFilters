@@ -166,11 +166,8 @@
   "domainLicense.validate": {
     "message": "Bisogna fare molta attenzione ad inserire *esattamente* il nome di dominio dell'azienda (cioè la parte *dopo* il segno @ [chiocciola]) dell'indirizzo di posta elettronica. Infatti questa stringa sarà utilizzata da QuickFolders Pro per autorizzare gli indirizzi di posta elettronica degli utenti della vostra azienda."
   },
-  "donate": {
-    "message": "Aiutaci donando “una tantum”."
-  },
   "donate-heading": {
-    "message": "Aiuta donando"
+    "message": "Aiutaci donando “una tantum”."
   },
   "donate.label": {
     "message": "Dona"
@@ -265,7 +262,7 @@
     "message": "Le modifiche per convertire $addonName$ nel nuovo modello di programmazione hanno richiesto settimane e sono state costose. Ci sono molte altre modifiche previste per la prossima versione del 2022. Con una estensione così complessa, è inevitabile che il lavoro diventi economicamente assai oneroso. Per favore aiutateci!"
   },
   "ongoing-work": {
-    "message": "Le modifiche per convertire $addonName$ nel nuovo modello di programmazione hanno richiesto settimane e sono state costose. Ci sono molte altre modifiche previste per la prossima versione. Con una estensione così complessa,  è inevitabile che il lavoro diventi economicamente assai oneroso. Per favore aiutateci!",
+    "message": "L'acquisto di una licenza è completamente facoltativo. Per facilitare le cose agli utenti, la versione attuale rimane compatibile con Thunderbird 115 per quanto tecnicamente possibile. Tuttavia, Thunderbird ora segue un ciclo di rilascio mensile, aumentando il nostro carico di lavoro per test e sviluppo. Il tuo supporto ci aiuta a stare al passo con questi cambiamenti!",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -292,7 +289,7 @@
     "message": "Acquista una licenza."
   },
   "purchase-heading": {
-    "message": "Acquisto di una licenza"
+    "message": "Supporto tramite una licenza"
   },
   "qf.assistant.ignoreFolders": {
     "message": "La procedura guidata dovrebbe ignorare questi tipi di cartelle…"
@@ -1301,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12 settembre"
+    "message": "24 marzo"
   },
   "special-offer-head": {
     "message": "Aiuta lo sviluppo di quickFilters"
@@ -1341,7 +1338,7 @@
     }
   },
   "support-suggestion": {
-    "message": "Affinché $addonName$ rimanga funzionante e attivo, ti preghiamo di aiutare il progetto:",
+    "message": "Per mantenere $addonName$ funzionante e aggiornato, considera di supportarlo:",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1402,7 +1399,7 @@
     "message": "Leggi qui l'elenco dettagliato delle modifiche (in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} Correzione di manutenzione: nella versione precedente l'unione dei filtri non è riuscita [issue 262]{L2} {L1} quickFilters è ora compatibile con Thunderbird 130. {L2} {L1} In Thunderbird 128, la notifica scorrevole mostrata durante l'assistente in alcuni casi portava al malfunzionamento della funzione; ora funziona correttamente [issue 258]{L2} {L1} Migliorato il supporto del tema scuro nella finestra dei filtri dei messaggi. {L2}{L1} Corretto: Taglia e incolla dei filtri non funzionava in Thunderbird 128 {L2} {L1} Corretto l'aspetto 'sempre premuto' sul pulsante del menu. [issue 223] {L2}"
+    "message": "{L1} quickFilters è ora compatibile con Thunderbird 137.{L2} {L1} Corretto: nomi di filtri duplicati – evita una possibile perdita di dati durante l'importazione. [issue 277]{L2} {L1} Risolto un problema con la casella di notifica non funzionante. [issue 284]{L2}{L1} Il pulsante 'ordina criteri di ricerca dei filtri' nell'editor dei filtri ora funziona anche nelle applicazioni di posta che supportano filtri complessi. [issue 294] {L2} {L1} Rimosso il conflitto di scorciatoie da tastiera con l'estensione 'AI Anywhere'.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

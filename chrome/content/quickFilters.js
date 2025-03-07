@@ -639,15 +639,13 @@ END LICENSE BLOCK
     # Added compatibility with Thunderbird 130
     
   6.6 - WIP
-    # [issue 265] Change Request for userChromeJS script: Message Filters Toolbar Implementation - insert above filterHeader (not any 1st hbox)
-    # [issue 275] Keyboard Shortcut conflict with 'AI Anywhere' extension
-    # [issue 277] Fix duplicate filter names - avoid possible data loss when importing
+    # made compatible with Tb 137.*
+    # [issue 294] Support Filter search terms Sort button with complex filters (Betterbird)
     # [issue 282] Fixed: Copying filters across to different server links the filters
     # [issue 284] Compatibility with Tb 134: fixed a problem with broken notification box (.shown() removed)
-    # made compatible with Tb 136.*
     # [issue 293] Thunderbird 136 retires ChromeUtils.import - replace with importESModule
-    # [issue 294] Filter rules Sort button isn't working (Betterbird)
     # [issue 295] Remove the custom templates actions tooltip from 'normal' filter editor.
+    # [issue 275] Keyboard Shortcut conflict with 'AI Anywhere' extension
     
 
 

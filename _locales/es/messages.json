@@ -166,11 +166,8 @@
   "domainLicense.validate": {
     "message": "Asegúrese de que introduce el nombre del dominio &quot;exactamente como es&quot; en las direcciones de correo electrónico de su compañía (la parte *a continuación* del signo @), ya que se usará para autorizar las direcciones de correo electrónico de sus usuarios."
   },
-  "donate": {
-    "message": "Ayude con una donación única."
-  },
   "donate-heading": {
-    "message": "¡Ayuda donando!"
+    "message": "Ayude con una donación única."
   },
   "donate.label": {
     "message": "Donar"
@@ -269,7 +266,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "Las modificaciones para convertir $addonName$ al nuevo modelo de programación tomaron semanas y resultaron costosas. Hay muchos más cambios para la próxima versión 2023. Con un complemento complejo como este, el trabajo costoso se vuelve inevitable. Ayúdanos con esto.",
+    "message": "Comprar una licencia es completamente voluntario. Para facilitar las cosas a los usuarios, la versión actual sigue siendo compatible con Thunderbird 115 mientras sea técnicamente posible. Sin embargo, Thunderbird ahora sigue un ciclo de lanzamientos mensual, lo que incrementa nuestra carga de trabajo en pruebas y desarrollo. ¡Tu apoyo nos ayuda a mantenernos al día con estos cambios!",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -296,7 +293,7 @@
     "message": "Compra una licencia."
   },
   "purchase-heading": {
-    "message": "Comprar una licencia"
+    "message": "Apoyando a través de una licencia"
   },
   "qf.assistant.ignoreFolders": {
     "message": "El asistente debe ignorar estas carpetas..."
@@ -1301,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12 de septiembre"
+    "message": "24 de marzo"
   },
   "special-offer-head": {
     "message": "¡Ayude a quickFilters a continuar!"
@@ -1341,7 +1338,7 @@
     }
   },
   "support-suggestion": {
-    "message": "Para que $addonName$ permanezca funcional y vivo, hágalo un favor vital:",
+    "message": "Para mantener $addonName$ funcional y actualizado, considere apoyarlo:",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1402,7 +1399,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} Corrección de mantenimiento: en la versión anterior falló la fusión de filtros [issue 262]{L2}{L1} quickFilters ahora es compatible con Thunderbird 130. {L2} {L1} En Thunderbird 128, la notificación deslizante mostrada durante el asistente en algunos casos provocaba que la función no funcionara correctamente; ahora esto funciona correctamente [issue 258]{L2} {L1} Mejorado el soporte del tema oscuro en la ventana de filtros de mensajes. {L2}{L1} Corregido: Cortar y pegar filtros no funcionaba en Thunderbird 128 {L2} {L1} Corregido el aspecto 'siempre presionado' en el botón del menú. [issue 223] {L2}"
+    "message": "{L1} quickFilters ahora es compatible con Thunderbird 137.{L2} {L1} Corregido: nombres de filtros duplicados - evita la posible pérdida de datos al importar. [issue 277]{L2} {L1} Se solucionó un problema con la caja de notificación rota. [issue 284]{L2}{L1} El botón 'ordenar términos de búsqueda de filtros' en el editor de filtros ahora también funciona en aplicaciones de correo que admiten filtros complejos. [issue 294] {L2} {L1} Se eliminó el conflicto de atajos de teclado con la extensión 'AI Anywhere'.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

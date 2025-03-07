@@ -879,7 +879,7 @@ quickFilters.Util = {
 
   // dedicated function for email clients which don't support tabs
   // and for secured pages (donation page).
-  openLinkInBrowserForced: function openLinkInBrowserForced(linkURI) {
+  openLinkInBrowserForced: function (linkURI) {
     const Ci = Components.interfaces,
 					Cc = Components.classes;
     try {
@@ -896,18 +896,16 @@ quickFilters.Util = {
 
   // moved from options.js
   // use this to follow a href that did not trigger the browser to open (from a XUL file)
-  openLinkInBrowser: function openLinkInBrowser(evt,linkURI) {
-    let Cc = Components.classes,
-        Ci = Components.interfaces,
-				util = quickFilters.Util;
-		linkURI = util.makeUriPremium(linkURI);
-    let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
-                    .getService(Ci.nsIExternalProtocolService),
-        ioservice = Cc["@mozilla.org/network/io-service;1"]
-                      .getService(Ci.nsIIOService);
-    service.loadURI(ioservice.newURI(linkURI, null, null));
-    if(null !== evt)
+  openLinkInBrowser: function (evt, linkURI) {
+    quickFilters.Util.notifyTools.notifyBackground({ 
+      func: "openBrowserLink", 
+      url: linkURI 
+    });
+
+    if (evt) {
       evt.stopPropagation();
+    }
+    return;
   },
 
   // moved from options.js (then called

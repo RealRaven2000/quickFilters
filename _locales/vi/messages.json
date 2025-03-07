@@ -166,11 +166,8 @@
   "domainLicense.validate": {
     "message": "Make sure you enter the domain name *exactly as it is* on your Company's email addresses (the part *after* the @ sign), as it will be used to authorize the email addresses of your users."
   },
-  "donate": {
-    "message": "Giúp đỡ với khoản đóng góp một lần."
-  },
   "donate-heading": {
-    "message": "Giúp đỡ bằng cách quyên góp!"
+    "message": "Giúp đỡ với khoản đóng góp một lần."
   },
   "donate.label": {
     "message": "Quyên góp"
@@ -269,7 +266,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "Các thay đổi để chuyển $addonName$ sang mô hình lập trình mới mất hàng tuần và tốn kém. Có nhiều thay đổi nữa cho phiên bản 2023 tiếp theo. Với một Add-on phức tạp như thế này, việc tốn kém trở thành điều tất yếu. Xin hãy giúp chúng tôi với điều này.",
+    "message": "Việc mua giấy phép hoàn toàn là tự nguyện. Để làm việc này dễ dàng hơn cho người dùng, phiên bản hiện tại vẫn giữ khả năng tương thích ngược với Thunderbird 115 miễn là kỹ thuật cho phép. Tuy nhiên, Thunderbird hiện nay tuân theo chu kỳ phát hành hàng tháng, điều này làm tăng khối lượng công việc kiểm tra và phát triển của chúng tôi. Sự hỗ trợ của bạn giúp chúng tôi theo kịp những thay đổi này!",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -296,7 +293,7 @@
     "message": "Mua giấy phép."
   },
   "purchase-heading": {
-    "message": "Mua Giấy phép!"
+    "message": "Hỗ trợ thông qua giấy phép"
   },
   "qf.assistant.ignoreFolders": {
     "message": "Trợ lý nên bỏ qua các thư mục này…"
@@ -1301,8 +1298,9 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12 tháng 9"
+    "message": "3月24日"
   },
+
   "special-offer-head": {
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
   },
@@ -1341,7 +1339,7 @@
     }
   },
   "support-suggestion": {
-    "message": "Để $addonName$ vẫn hoạt động và tồn tại, hãy làm điều đó một cách quan trọng:",
+    "message": "Để giữ cho $addonName$ hoạt động và cập nhật, vui lòng xem xét việc hỗ trợ:",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1402,7 +1400,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} Sửa chữa bảo trì: trong phiên bản trước, việc hợp nhất bộ lọc đã không thành công [issue 262]{L2} {L1} quickFilters hiện đã tương thích với Thunderbird 130. {L2} {L1} Trong Thunderbird 128, thông báo trượt hiển thị trong quá trình trợ lý trong một số trường hợp dẫn đến chức năng không hoạt động đúng; bây giờ điều này đã hoạt động đúng [issue 258]{L2} {L1} Cải thiện hỗ trợ chủ đề tối cho cửa sổ bộ lọc tin nhắn. {L2}{L1} Đã sửa: Cắt và dán bộ lọc không hoạt động trong Thunderbird 128 {L2} {L1} Đã sửa giao diện 'luôn bị đẩy' trên nút menu. [issue 223] {L2}"
+    "message": "{L1} quickFilters hiện đã tương thích với Thunderbird 137.{L2} {L1} Đã sửa: trùng tên bộ lọc – ngăn chặn khả năng mất dữ liệu khi nhập. [issue 277]{L2} {L1} Đã khắc phục sự cố với hộp thông báo bị lỗi. [issue 284]{L2}{L1} Nút 'sắp xếp điều kiện tìm kiếm bộ lọc' trong trình chỉnh sửa bộ lọc hiện cũng hoạt động trên các ứng dụng email hỗ trợ bộ lọc phức tạp. [issue 294] {L2} {L1} Đã xóa xung đột phím tắt với tiện ích mở rộng 'AI Anywhere'.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

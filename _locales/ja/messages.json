@@ -166,11 +166,8 @@
   "domainLicense.validate": {
     "message": "あなたの団体のメールアドレスのドメイン名 (@ 記号の後ろ部分) は「正確に入力」してください。これは、ユーザのメールアドレスを認証するのに使用されます。"
   },
-  "donate": {
-    "message": "1 回限りの寄付を行う。"
-  },
   "donate-heading": {
-    "message": "寄付する！"
+    "message": "1 回限りの寄付を行う。"
   },
   "donate.label": {
     "message": "寄付"
@@ -269,7 +266,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "$addonName$を新しいプログラミングモデルに変換するための変更には数週間かかり、費用がかかりました。 次の2023バージョンにはさらに多くの変更があります。 このような複雑なアドオンを使用すると、コストのかかる作業が避けられなくなります。 これで私たちを助けてください。",
+    "message": "ライセンスの購入は完全に任意です。ユーザーのために、現在のバージョンは技術的に可能な限りThunderbird 115と後方互換性があります。しかし、Thunderbirdは現在月次リリースサイクルを採用しており、これによりテストと開発の作業負荷が増加します。ご支援いただければ、これらの変更に追いつくことができます！",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -296,7 +293,7 @@
     "message": "ライセンスを購入する。"
   },
   "purchase-heading": {
-    "message": "ライセンスを購入する！"
+    "message": "ライセンスによる支援"
   },
   "qf.assistant.ignoreFolders": {
     "message": "アシスタントはこれらのフォルダを無視する必要があります…"
@@ -1301,8 +1298,9 @@
     }
   },
   "special-offer-expiry": {
-    "message": "9月12日"
+    "message": "3月24日"
   },
+
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
   },
@@ -1341,7 +1339,7 @@
     }
   },
   "support-suggestion": {
-    "message": "$addonName$ が機能し、存続できるように、重要なお願いがあります。",
+    "message": "$addonName$を機能させ、最新の状態に保つために、サポートを検討してください：",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1402,7 +1400,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} メンテナンス修正: 前のバージョンでフィルターの結合に失敗しました [issue 262]{L2}{L1} quickFilters は Thunderbird 130 と互換性があります。 {L2} {L1} Thunderbird 128 では、アシスタント中に表示されるスライド通知が原因で、いくつかのケースで機能が正しく動作しませんでした。これが正しく動作するようになりました [issue 258]{L2} {L1} メッセージフィルターウィンドウでダークテーマのサポートを改善しました。 {L2}{L1} 修正: Thunderbird 128 でフィルターの切り取りと貼り付けが機能しませんでした {L2} {L1} メニューボタンの「常に押された」外観を修正しました。 [issue 223] {L2}"
+    "message": "{L1} quickFilters は Thunderbird 137 と互換性があります。{L2} {L1} 修正: フィルター名の重複 – インポート時のデータ損失を防止。[issue 277]{L2} {L1} 壊れた通知ボックスの問題を修正しました。[issue 284]{L2}{L1} フィルターエディターの「フィルター検索条件を並べ替える」ボタンが、複雑なフィルターをサポートするメールアプリでも動作するようになりました。[issue 294] {L2} {L1} 「AI Anywhere」拡張機能とのキーボードショートカットの競合を解消しました。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

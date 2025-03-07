@@ -192,11 +192,13 @@ async function main() {
   
   // listeners for splash pages
   messenger.runtime.onMessage.addListener(async (data, sender) => {
-    if (data.command) {
-      switch (data.command) {
-        case "getLicenseInfo": 
-          return currentLicense.info;
-      }
+    if (!data.command) {
+      return;
+    }
+
+    switch (data.command) {
+      case "getLicenseInfo":
+        return currentLicense.info;
     }
   });
     
@@ -211,101 +213,119 @@ async function main() {
       case "slideAlert":
         util.slideAlert(...data.args); // title, text, [icon]
         break;
-        
+
       case "splashScreen":
         showSplash();
         break;
-      
-      case "getLicenseInfo": 
+
+      case "getLicenseInfo":
         return currentLicense.info;
-      
-      case "getPlatformInfo": 
+
+      case "getPlatformInfo":
         return messenger.runtime.getPlatformInfo();
 
-      case "getBrowserInfo": 
+      case "getBrowserInfo":
         return messenger.runtime.getBrowserInfo();
 
-      case "getAddonInfo": 
+      case "getAddonInfo":
         return messenger.management.getSelf();
-        
-      case "getAssistantMode":  // is assistant active or not?
+
+      case "getAssistantMode": // is assistant active or not?
         return AssistantActive; // replaced worker.FilterMode, it's stored here and updated through Util
-        
+
       case "getQuickFolderslicense":
-        if (QF_license.status=="unknown") {
+        if (QF_license.status == "unknown") {
           try {
-            let result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME,  { command: "queryQuickFoldersLicense" });
-            if (result && typeof result !== "undefined" ) {
+            let result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME, {
+              command: "queryQuickFoldersLicense",
+            });
+            if (result && typeof result !== "undefined") {
               QF_license = result;
             }
           } catch (ex) {
-            QF_license =  {status:"unknown", type: 0};
+            QF_license = { status: "unknown", type: 0 };
           }
         }
         return QF_license;
 
-      case "setAssistantMode":  // toggle "FilterMode"
+      case "setAssistantMode": // toggle "FilterMode"
         AssistantActive = data.active;
-        messenger.NotifyTools.notifyExperiment({event: "setAssistantMode", detail: {active: AssistantActive} });
-        break;        
-        
+        messenger.NotifyTools.notifyExperiment({
+          event: "setAssistantMode",
+          detail: { active: AssistantActive },
+        });
+        break;
+
       // future use - update all toolbar buttons for assistant state
       case "updateToolbars":
-        messenger.NotifyTools.notifyExperiment({event: "updateToolbars"});
+        messenger.NotifyTools.notifyExperiment({ event: "updateToolbars" });
         break;
-        
+
       case "setAssistantButton":
-        messenger.NotifyTools.notifyExperiment({event: "setAssistantButton", detail: {active: data.active} });
+        messenger.NotifyTools.notifyExperiment({
+          event: "setAssistantButton",
+          detail: { active: data.active },
+        });
         break;
-        
+
       case "setupListToolbar":
-        messenger.NotifyTools.notifyExperiment({event: "setupListToolbar"});
+        messenger.NotifyTools.notifyExperiment({ event: "setupListToolbar" });
         break;
-        
+
       case "toggleCurrentFolderButtons":
-        messenger.NotifyTools.notifyExperiment({event: "toggleCurrentFolderButtons"});
+        messenger.NotifyTools.notifyExperiment({ event: "toggleCurrentFolderButtons" });
         break;
-        
+
       case "updatequickFiltersLabel":
-        messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
         break;
 
       // refresh license info (at midnight) and update label afterwards.
       case "updateLicenseTimer":
         await currentLicense.updateLicenseDates();
 
-        messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
-        messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+        messenger.NotifyTools.notifyExperiment({ licenseInfo: currentLicense.info });
+        messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
         break;
-        
+
       case "updateLicense":
         {
-          let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(legacy_root + "licenser.forceSecondaryIdentity"),
-              isDebugLicenser = await messenger.LegacyPrefs.getPref(legacy_root + "debug.premium.licenser");
-              
+          let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
+              legacy_root + "licenser.forceSecondaryIdentity"
+            ),
+            isDebugLicenser = await messenger.LegacyPrefs.getPref(
+              legacy_root + "debug.premium.licenser"
+            );
+
           // we create a new Licenser object for overwriting, this will also ensure that key_type can be changed.
-          let newLicense = new Licenser(data.key, { forceSecondaryIdentity, debug: isDebugLicenser });
+          let newLicense = new Licenser(data.key, {
+            forceSecondaryIdentity,
+            debug: isDebugLicenser,
+          });
           await newLicense.validate();
           // Check new license and accept if ok.
           // You may return values here, which will be send back to the caller.
           // return false;
-          
+
           // Update background license.
-          await messenger.LegacyPrefs.setPref(legacy_root + "LicenseKey", newLicense.info.licenseKey);
+          await messenger.LegacyPrefs.setPref(
+            legacy_root + "LicenseKey",
+            newLicense.info.licenseKey
+          );
           currentLicense = newLicense;
           // Broadcast -without event is used for the licenser.
-          messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
-          messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+          messenger.NotifyTools.notifyExperiment({ licenseInfo: currentLicense.info });
+          messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
         }
         return true;
       case "setActionTip":
         // https://webextension-api.thunderbird.net/en/stable/browserAction.html#settitle-details
-        messenger.browserAction.setTitle({title:data.text});
+        messenger.browserAction.setTitle({ title: data.text });
         break;
 
       case "setActionLabel":
         // https://webextension-api.thunderbird.net/en/stable/browserAction.html#setlabel-details
-        messenger.browserAction.setLabel({label:data.text});
+        messenger.browserAction.setLabel({ label: data.text });
         break;
 
       case "addFolderPaneListener":
@@ -317,27 +337,27 @@ async function main() {
         break;
 
       case "addKeyListener":
-        messenger.NotifyTools.notifyExperiment({event: "addKeyListener"});
-        break;    
-      
+        messenger.NotifyTools.notifyExperiment({ event: "addKeyListener" });
+        break;
+
       case "openLinkInTab":
         // https://webextension-api.thunderbird.net/en/stable/tabs.html#query-queryinfo
         {
           let baseURI = data.baseURI || data.URL;
-          let found = await browser.tabs.query( { url:baseURI } );
+          let found = await browser.tabs.query({ url: baseURI });
           if (found.length) {
             let tab = found[0]; // first result
-            await browser.tabs.update(
-              tab.id, 
-              {active:true, url: data.URL}
-            );
+            await browser.tabs.update(tab.id, { active: true, url: data.URL });
             return;
           }
-          browser.tabs.create(
-            { active:true, url: data.URL }
-          );        
+          browser.tabs.create({ active: true, url: data.URL });
         }
-        break;           
+        break;
+
+      case "openBrowserLink": {
+        messenger.windows.openDefaultBrowser(data.url);
+        return;
+      }
     }
   });
   

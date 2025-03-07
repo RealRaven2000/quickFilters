@@ -166,11 +166,8 @@
   "domainLicense.validate": {
     "message": "Varmista, että annat verkkotunnuksen * täsmälleen sellaisena kuin se on * yrityksesi sähköpostiosoitteissa (osassa * @ -merkin jälkeen), koska sitä käytetään valtuuttamaan käyttäjien sähköpostiosoitteet."
   },
-  "donate": {
-    "message": "Auta kertalahjoituksella."
-  },
   "donate-heading": {
-    "message": "Apua lahjoittamalla!"
+    "message": "Auta kertalahjoituksella."
   },
   "donate.label": {
     "message": "Lahjoittaa"
@@ -269,7 +266,7 @@
     "description": "Title of the click notification."
   },
   "ongoing-work": {
-    "message": "Muutokset $addonName$ muuntamiseksi uudeksi ohjelmointimalliksi kesti viikkoja ja olivat kalliita. Seuraavaa versiota 2023 on paljon enemmän. Tällaisen monimutkaisen lisäosan avulla kalliista työstä tulee väistämätöntä. Auta meitä tässä.",
+    "message": "Lisenssin ostaminen on täysin vapaaehtoista. Käyttäjien helpottamiseksi nykyinen versio pysyy yhteensopivana Thunderbird 115:n kanssa niin kauan kuin teknisesti mahdollista. Thunderbird seuraa nykyisin kuukausittaista julkaisuaikataulua, mikä lisää testaus- ja kehitystyömääräämme. Tuki auttaa meitä pysymään mukana näissä muutoksissa!",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -296,7 +293,7 @@
     "message": "Osta lisenssi."
   },
   "purchase-heading": {
-    "message": "Lisenssin ostaminen!"
+    "message": "Tukeminen lisenssillä"
   },
   "qf.assistant.ignoreFolders": {
     "message": "Assistantin pitäisi ohittaa nämä kansiot…"
@@ -1301,7 +1298,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12. syyskuuta"
+    "message": "24. maaliskuuta"
   },
   "special-offer-head": {
     "message": "Auttakaa quickFilters jatkaaksesi!"
@@ -1341,7 +1338,7 @@
     }
   },
   "support-suggestion": {
-    "message": "Jotta $addonName$ pysyisi toiminnassa ja elossa, tee se elintärkeäksi palvelukseksi:",
+    "message": "Jotta $addonName$ pysyisi toimivana ja ajan tasalla, harkitse sen tukemista:",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1349,6 +1346,7 @@
       }
     }
   },
+
   "testDrive": {
     "message": "Voit testata premium-ominaisuuksia ilmaisella versiolla, mutta ne saattavat olla hieman rajoitettuja."
   },
@@ -1402,7 +1400,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):"
   },
   "whats-new-list": {
-    "message": "{L1} Huoltokorjaus: edellisessä versiossa suodattimien yhdistäminen epäonnistui [issue 262]{L2} {L1} quickFilters on nyt yhteensopiva Thunderbird 130:n kanssa. {L2} {L1} Thunderbird 128:ssa liukuva ilmoitus, joka näytettiin avustajan aikana, johti joissakin tapauksissa toiminnon virheelliseen toimintaan; tämä toimii nyt oikein [issue 258]{L2} {L1} Parannettu tumman teeman tuki viestisuodattimien ikkunassa. {L2}{L1} Korjattu: Leikkaaminen ja liittäminen suodattimet eivät toimineet Thunderbird 128:ssa {L2} {L1} Korjattu: 'Aina painettu' ulkoasu valikkopainikkeessa. [issue 223] {L2}"
+    "message": "{L1} quickFilters on nyt yhteensopiva Thunderbird 137:n kanssa.{L2} {L1} Korjattu: suodattimien kaksoiskappaleiden nimet – estää mahdollisen tietojen menetyksen tuonnin aikana. [issue 277]{L2} {L1} Korjattu ongelma rikkoutuneessa ilmoitusruudussa. [issue 284]{L2}{L1} 'Lajittele suodattimen hakuehdot' -painike suodattimen muokkausohjelmassa toimii nyt myös sähköpostisovelluksissa, jotka tukevat monimutkaisia suodattimia. [issue 294] {L2} {L1} Poistettu pikanäppäinkonflikti 'AI Anywhere' -laajennuksen kanssa.{L2}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

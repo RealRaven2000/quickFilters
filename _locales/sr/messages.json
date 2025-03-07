@@ -2,48 +2,44 @@
   "_l10nstatus": {
     "message": "SPLASH"
   },
-  "active-version-info" : {
+  "active-version-info": {
     "message": "Сада покрећете {boldStart} верзију $addonVer$ {boldEnd} на Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
-      "addonVer" : {
-        "content" : "$1", 
-        "example" : "Version 1.1"
+      "addonVer": {
+        "content": "$1",
+        "example": "Version 1.1"
       },
-      "appVer" : {
-        "content" : "$2",
-        "example" : "78.0b4"
+      "appVer": {
+        "content": "$2",
+        "example": "78.0b4"
       }
-      
     }
-  },  
-  "addon-authors-struggle" : {
-    "message" : "Да би и даље били корисни, програмери додатака сада морамо да финансирамо ресурсе потребне за поправљање и преписивање како би наши корисници могли и даље имати користи од функционалности коју пружамо."
-  } ,
+  },
+  "addon-authors-struggle": {
+    "message": "Да би и даље били корисни, програмери додатака сада морамо да финансирамо ресурсе потребне за поправљање и преписивање како би наши корисници могли и даље имати користи од функционалности коју пружамо."
+  },
   "btn-extend-license": {
-    "message" : "Желим да продужим лиценцу за годину дана"
-  } ,
+    "message": "Желим да продужим лиценцу за годину дана"
+  },
   "btn-renew-license": {
-    "message" : "Желим да обновим лиценцу"
-  } ,
+    "message": "Желим да обновим лиценцу"
+  },
   "btn-want-a-license": {
-    "message" : "Желим да купим лиценцу"
-  } ,
-  "btn-want-to-donate" : {
-    "message" : "Желим да помогнем једнократном донацијом."
-  } ,
-  "donate" : {
-    "message" : "Помозите једнократном донацијом."
-  },   
-  "cost-of-independence" : {
-    "message" : "Развој софтвера кошта време и новац - за разлику од многих апликација на платформи, додатке не пишу велике корпорације, нити их Мозилла спонзорише на било који начин."
-  } ,
-  "donate-heading" : {
-    "message" : "Помоћ донацијом!"
-  } ,
-  "extend-your-license" : {
-    "message" : "Размислите о продужењу лиценце за годину дана."
-  },  
+    "message": "Желим да купим лиценцу"
+  },
+  "btn-want-to-donate": {
+    "message": "Желим да помогнем једнократном донацијом."
+  },
+  "donate-heading": {
+    "message": "Помозите једнократном донацијом."
+  },
+  "cost-of-independence": {
+    "message": "Развој софтвера кошта време и новац - за разлику од многих апликација на платформи, додатке не пишу велике корпорације, нити их Мозилла спонзорише на било који начин."
+  },
+  "extend-your-license": {
+    "message": "Размислите о продужењу лиценце за годину дана."
+  },
   "extensionDescription": {
     "message": "Брзо генеришите правила филтрирања поште у лету, повлачењем и испуштањем поште и анализом њихових атрибута.",
     "description": "Description of the extension."
@@ -56,57 +52,57 @@
     "message": "Успешно инсталиран $addonName$",
     "description": "page heading. first placeholder will be replaced with Add-on name",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
   },
   "heading-updated": {
     "message": "$addonName$ је успешно ажурирано",
     "description": "page heading. first placeholder will be replaced with Add-on name",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
   },
-  "label-remind-me" : {
+  "label-remind-me": {
     "message": "Подсети ме поново за {цоунтДаис} дана.",
     "placeholders": {
-      "countDays" : {
-        "content" : "$1", 
-        "example" : "10"
-      }    
-    }    
+      "countDays": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
   },
-  "license-is-extended" : {
+  "license-is-extended": {
     "message": "Хвала вам што сте недавно продужили лиценцу или ако сте донирали. Као што сте помогли у будућем доказивању овог додатка, можете једноставно затворити овај прозор.",
     "description": "Shown if license expires more than a year from now"
-  },  
-  "mozillas-basic-platform" : {
-    "message" : "Мозилла пружа само основну платформу за испоруку нашег софтвера вама, крајњим корисницима. Ако треба да затражимо од наших корисника плаћање или подршку, не можемо то да урадимо са аддонс.Thunderbird.нет - то није „продавница апликација“ са уграђеним платним зидовима или управљањем лиценцама као што су иТунес или гоогле плаи."
-  } ,
+  },
+  "mozillas-basic-platform": {
+    "message": "Мозилла пружа само основну платформу за испоруку нашег софтвера вама, крајњим корисницима. Ако треба да затражимо од наших корисника плаћање или подршку, не можемо то да урадимо са аддонс.Thunderbird.нет - то није „продавница апликација“ са уграђеним платним зидовима или управљањем лиценцама као што су иТунес или гоогле плаи."
+  },
   "ongoing-work": {
-    "message": "Измене за претварање $addonName$ у нови програмски модел трајале су недељама и биле су скупе. Постоји много више промена за следећу верзију 2023. године. Са оваквим сложеним додатком, скуп посао постаје неизбежан. Молимо вас да нам помогнете око овога.",
+    "message": "Куповина лиценце је потпуно добровољна. Да бисмо олакшали корисницима, тренутна верзија остаје компатибилна са Thunderbird 115 све док је то технички могуће. Међутим, Thunderbird сада прати месечни циклус издања, што повећава наш тестирајући и развојни рад. Ваша подршка нам помаже да пратимо ове промене!",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
   },
   "notificationTitle": {
     "message": "Click notification",
     "description": "Title of the click notification."
   },
-  "purchase-a-license" : {
-    "message" : "Купите лиценцу."
-  },      
-  "purchase-heading" : {
-    "message" : "Куповина лиценце!"
-  }, 
+  "purchase-a-license": {
+    "message": "Купите лиценцу."
+  },
+  "purchase-heading": {
+    "message": "Подршка путем лиценце"
+  },
   "quickfiltersToolbarButton.expired": {
     "message": "Дозвола истекла!"
   },
@@ -128,10 +124,10 @@
       }
     }
   },
-  "renew-your-license" : {
-    "message" : "Обновите лиценцу."
-  },  
-  "restart-app" : {
+  "renew-your-license": {
+    "message": "Обновите лиценцу."
+  },
+  "restart-app": {
     "message": "Поново покрените $application$ да бисте активирали ову опцију.",
     "placeholders": {
       "application": {
@@ -146,12 +142,12 @@
       "folderName": {
         "content": "$1"
       }
-    }    
+    }
   },
   "runFilters.selection.confirm": {
     "message": "Покренути филтере на изабраним имејловима?"
   },
-  "special-offer-content" : {
+  "special-offer-content": {
     "message": "Сада је најбоља прилика за добијање лиценце јер постоји {boldStart} $reduction$ снижење {boldEnd} цене лиценце КуицкФолдерс Про за прославу 9 година КуицкФолдерс-а! Ова посебна понуда биће доступна до {boldStart} $expirydate$ {boldEnd}.",
     "placeholders": {
       "expirydate": {
@@ -165,12 +161,12 @@
     }
   },
   "special-offer-expiry": {
-    "message": "12. септембар"
+    "message": "24. март"
   },
-  "special-offer-head" : {
+  "special-offer-head": {
     "message": "Помозите quickFilters да настави!"
-  } ,  
-  "special-offer-intro" : {
+  },
+  "special-offer-intro": {
     "message": "{boldStart} Поштовани {name} {boldEnd}, сада можете да помогнете $addonName$ који је спреман за будућност. Да бих био у току са променама у Тхундербирд-у, зависим од {болдСтарт}ваше помоћи{болдЕнд}!",
     "placeholders": {
       "addonName": {
@@ -178,7 +174,7 @@
         "example": "quickFilters"
       }
     }
-  } ,  
+  },
   "special-offer-renew": {
     "message": "Обновите лиценцу сада и уштедите {boldStart}$reduction${boldEnd}! Ова посебна понуда биће доступна до {boldStart} $expirydate$ {boldEnd}.",
     "placeholders": {
@@ -191,76 +187,76 @@
         "example": "50%"
       }
     }
-  },   
-  "support-preference" : {
+  },
+  "support-preference": {
     "message": "Ово је преферирани начин подршке $addonName$.",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
-  }, 
-  "support-suggestion" : {
-    "message": "Да би $addonName$ остао функционалан и жив, учините му виталну услугу:",
+  },
+  "support-suggestion": {
+    "message": "Da bi $addonName$ ostao funkcionalan i ažuriran, molimo vas da razmislite o njegovoj podršci:",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
   },
   "thanks-for-installing-intro": {
     "message": "Хвала вам што сте инсталирали $addonName$.",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
-  },  
-  "time-and-effort": { 
+  },
+  "time-and-effort": {
     "message": "$addonName$ захтева сталне промене како би остао компатибилан са Мозилла платформом. Стално радим на томе да задржим што више функционалности за будуће верзије Thunderbirdа.",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
   },
   "thanks-for-updating-intro": {
     "message": "Хвала вам што сте ажурирали $addonName$.",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
   },
-  "translated-by-google" : {
+  "translated-by-google": {
     "message": "преводи које пружа гоогле",
     "description": "disclaimer."
   },
-  "whats-new-btn" : {
+  "whats-new-btn": {
     "message": "Шта је ново?"
-  }, 
-  "whats-new-head" : {
+  },
+  "whats-new-head": {
     "message": "Важне промене"
   },
-  "whats-new-intro" : {
-    "message": "Детаљни дневник промена прочитајте овде (само на енглеском):" 
-  },  
+  "whats-new-intro": {
+    "message": "Детаљни дневник промена прочитајте овде (само на енглеском):"
+  },
   "whats-new-list": {
-    "message": "{L1} Поправка: у претходној верзији спајање филтера није успело [issue 262]{L2} {L1} quickFilters је сада компатибилан са Thunderbird 130. {L2} {L1} У Thunderbird 128, клизно обавештење приказано током асистента у неким случајевима је довело до тога да функција не ради исправно; ово сада исправно ради [issue 258]{L2} {L1} Побољшана подршка за тамну тему у прозору филтера порука. {L2}{L1} Поправљено: Сечење и лепљење филтера није функционисало у Thunderbird 128 {L2} {L1} Поправљен изглед „увек притиснутог” дугмета менија. [issue 223] {L2}"
+    "message": "{L1} quickFilters је сада компатибилан са Thunderbird 137.{L2} {L1} Поправљено: дуплирана имена филтера – спречава могући губитак података приликом увоза. [issue 277]{L2} {L1} Решен проблем са поквареним прозором за обавештења. [issue 284]{L2}{L1} Дугме 'сортирај критеријуме претраге филтера' у уређивачу филтера сада ради и у имејл апликацијама које подржавају сложене филтере. [issue 294] {L2} {L1} Уклоњен конфликт тастатурних пречица са проширењем 'AI Anywhere'.{L2}"
   },
   "window-title": {
     "message": "Добродошли у $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",
     "placeholders": {
-      "addonName" : {
-        "content" : "$1", 
-        "example" : "quickFilters"
-      }    
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
     }
-  }  
+  }
 }

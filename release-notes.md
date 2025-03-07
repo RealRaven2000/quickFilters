@@ -4,7 +4,7 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 **Improvements**
 
 *   Made compatible with Thunderbird 136.* \[issue #138\].
-*    Fixed: Filter rules Sort button isn't working (Betterbird). The new solution supports the "mixed" conditions of filters with grouping of "any search term" and "all terms" \[issue #294\]
+*   Support Filter search terms Sort button with complex filters (Betterbird). The new solution supports the "mixed" conditions of filters with grouping of "any search term" and "all terms" \[issue #294\]
 
 **Bug Fixes**
 

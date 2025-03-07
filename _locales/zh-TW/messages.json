@@ -152,11 +152,8 @@
   "domainLicense.validate": {
     "message": "請確保您在公司的電子郵件地址中*準確地*輸入域名（@ 符號*之後*的部分），因為它將用於授權您的用戶的電子郵件地址。"
   },
-  "donate": {
-    "message": "一次性捐款幫助。"
-  },
   "donate-heading": {
-    "message": "捐贈幫助！"
+    "message": "一次性捐款幫助。"
   },
   "donate.label": {
     "message": "捐贈"
@@ -253,7 +250,7 @@
     "description": "Title of the click notification."
   },
   "ongoing-work": {
-    "message": "將 $addonName$ 轉換為新編程模型的更改花費了數週時間，而且成本很高。 下一個2023版本將有更多更改。 有了這樣複雜的附加組件，昂貴的工作就變得不可避免。 請幫助我們。",
+    "message": "購買許可證完全自願。為了方便使用者，當前版本在技術上可行的情況下仍然與 Thunderbird 115 向後兼容。然而，Thunderbird 現在遵循每月發布週期，這增加了我們的測試和開發工作量。您的支持幫助我們跟上這些變化！",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -280,7 +277,7 @@
     "message": "購買許可證。"
   },
   "purchase-heading": {
-    "message": "購買許可證！"
+    "message": "透過許可證支持"
   },
   "qf.assistant.ignoreFolders": {
     "message": "助手應該忽略這些文件夾類型..."
@@ -1214,7 +1211,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "9月12日"
+    "message": "3月24日"
   },
   "special-offer-head": {
     "message": "請幫助quickFilters繼續！"
@@ -1254,7 +1251,7 @@
     }
   },
   "support-suggestion": {
-    "message": "為了使$addonName$保持功能性和活躍性，請務必這樣做：",
+    "message": "為了讓 $addonName$ 保持功能正常並保持最新，請考慮支持它：",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1313,7 +1310,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）："
   },
   "whats-new-list": {
-    "message": "{L1} 維護修復：在以前的版本中合併過濾器失敗 [issue 262]{L2}{L1} quickFilters 現在與 Thunderbird 130 兼容。 {L2} {L1} 在 Thunderbird 128 中，助理期間顯示的滑動通知在某些情況下導致功能無法正常運行；現在已正確運行 [issue 258]{L2} {L1} 改進了郵件篩選器窗口的暗主題支持。 {L2}{L1} 修復：在 Thunderbird 128 中剪切和粘貼篩選器不起作用 {L2} {L1} 修復了菜單按鈕上的“始終按下”外觀。 [issue 223] {L2}"
+    "message": "{L1} quickFilters 現已相容於 Thunderbird 137。{L2} {L1} 修正：重複的篩選器名稱 – 防止匯入時可能的資料遺失。[issue 277]{L2} {L1} 修正通知框異常問題。[issue 284]{L2}{L1} 篩選器編輯器中的「排序篩選條件」按鈕現在也適用於支援複雜篩選器的電子郵件應用程式。[issue 294] {L2} {L1} 移除了與「AI Anywhere」擴充功能的快捷鍵衝突。{L2}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

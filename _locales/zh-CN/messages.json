@@ -163,11 +163,8 @@
   "domainLicense.validate": {
     "message": "请确保您输入的域名与您的公司的电子邮件地址“完全匹配”，（即 @ 字符后面的部分）。"
   },
-  "donate": {
-    "message": "一次性捐款帮助。"
-  },
   "donate-heading": {
-    "message": "捐赠帮助！"
+    "message": "一次性捐款帮助。"
   },
   "donate.label": {
     "message": "捐助"
@@ -264,7 +261,7 @@
     "message": "Click notification"
   },
   "ongoing-work": {
-    "message": "将 $addonName$ 转换为新编程模型的更改花费了数周时间，而且成本很高。 下一个2023版本将有更多更改。 有了这样复杂的附加组件，昂贵的工作就变得不可避免。 请帮助我们。",
+    "message": "购买许可证完全自愿。为了方便用户，当前版本在技术上可行的情况下保持与 Thunderbird 115 向后兼容。然而，Thunderbird 现在遵循每月发布周期，增加了我们的测试和开发工作量。您的支持帮助我们跟上这些变化！",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -291,7 +288,7 @@
     "message": "购买许可证。"
   },
   "purchase-heading": {
-    "message": "购买许可证！"
+    "message": "通过许可证支持"
   },
   "qf.assistant.ignoreFolders": {
     "message": "助手应该忽略这些文件夹……"
@@ -1333,7 +1330,7 @@
     }
   },
   "support-suggestion": {
-    "message": "为了使$addonName$保持功能性和活跃性，请务必这样做：",
+    "message": "为了保持 $addonName$ 的功能和更新，请考虑支持它：",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1394,7 +1391,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} 维护修复：在以前的版本中合并过滤器失败 [issue 262]{L2}{L1} quickFilters 现在与 Thunderbird 130 兼容。 {L2} {L1} 在 Thunderbird 128 中，助理期间显示的滑动通知在某些情况下导致功能无法正常工作；现在已正确运行 [issue 258]{L2} {L1} 改进了邮件过滤器窗口的暗主题支持。 {L2}{L1} 修复：在 Thunderbird 128 中剪切和粘贴过滤器不起作用 {L2} {L1} 修复了菜单按钮上的“始终按下”外观。 [issue 223] {L2}"
+    "message": "{L1} quickFilters 现已兼容 Thunderbird 137。{L2} {L1} 修复：重复的过滤器名称 – 防止导入时可能的数据丢失。[issue 277]{L2} {L1} 修复了损坏的通知框问题。[issue 284]{L2}{L1} 过滤器编辑器中的“排序过滤器搜索条件”按钮现在也适用于支持复杂过滤器的邮件应用程序。[issue 294] {L2} {L1} 删除了与“AI Anywhere”扩展的快捷键冲突。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

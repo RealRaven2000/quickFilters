@@ -166,11 +166,8 @@
   "domainLicense.validate": {
     "message": "Make sure you enter the domain name *exactly as it is* on your Company's email addresses (the part *after* the @ sign), as it will be used to authorize the email addresses of your users."
   },
-  "donate": {
-    "message": "Help out with a one time donation."
-  },
   "donate-heading": {
-    "message": "Help by Donating!"
+    "message": "Help out with a one time donation."
   },
   "donate.label": {
     "message": "Donate"
@@ -252,12 +249,12 @@
     "description": "Shown if license expires more than a year from now",
     "message": "Thank you for recently extending your license or if you have donated. As you have helped to future proof this Add-on, you can simply close this window."
   },
-  "licenseTerms.hide" : {
+  "licenseTerms.hide": {
     "message": "🡇 Continue to License Selection 🡇"
   },
-  "licenseTerms.show" : {
+  "licenseTerms.show": {
     "message": "Show license terms"
-  },  
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro License"
   },
@@ -265,7 +262,7 @@
     "message": "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
   },
   "ongoing-work": {
-    "message": "The alterations to convert $addonName$ to the new programming model took weeks and were costly. There are many more changes for the next version. With a complex Add-on like this, expensive work becomes inevitable. Please help us with this.",
+    "message": "Buying a license is completely voluntary. To make things easier for users, the current version remains backwards compatible with Thunderbird 115 for as long as technically feasible. However, Thunderbird now follows a monthly release cycle, increasing our testing and development workload. Your support helps us keep up with these changes!",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -284,7 +281,7 @@
   },
   "pricing.section.hint": {
     "message": "Note: The price varies depending on the license model, country, VAT rate, current discounts or licenses already purchased."
-  },  
+  },
   "pricing.title": {
     "message": "Pricing"
   },
@@ -292,7 +289,7 @@
     "message": "Purchase a license."
   },
   "purchase-heading": {
-    "message": "Buying a License!"
+    "message": "Supporting through a License"
   },
   "qf.assistant.ignoreFolders": {
     "message": "Assistant should ignore these folder types…"
@@ -385,7 +382,7 @@
   },
   "qf.description.splash": {
     "message": "Display news and important changes, localized in your language:"
-  },  
+  },
   "qf.donate.tooltip": {
     "message": "Support Development of quickFilters!"
   },
@@ -584,13 +581,13 @@
   "qf.label.quickfilters": {
     "message": "quickFilters"
   },
-  "qf.label.removeOwnAddresses" : {
+  "qf.label.removeOwnAddresses": {
     "message": "Remove my own email addresses (recommended)"
   },
-  "qf.label.removeOwnAddresses.tip" : {
+  "qf.label.removeOwnAddresses.tip": {
     "message": "Extracting your own email addresses using the assistant may lead to undesired results, so address search terms remove these automatically."
   },
-  "qf.label.shortcut.challenge" : {
+  "qf.label.shortcut.challenge": {
     "message": "Ask before executing filters when not in an Inbox"
   },
   "qf.label.shortcut.runFolder": {
@@ -680,7 +677,7 @@
   "qf.templates.customTemplate.new": {
     "message": "Create New…"
   },
-  "qf.templates.customTemplate.restricted" : {
+  "qf.templates.customTemplate.restricted": {
     "message": "You need a valid quickFilters Pro license to create new custom templates for the assistant."
   },
   "qf.templates.customTemplate.tooltip": {
@@ -1191,7 +1188,7 @@
         "content": "quickFilters Pro"
       }
     }
-  },  
+  },
   "quickfilters.replyWithTemplate.label": {
     "message": "Reply with Template"
   },
@@ -1268,7 +1265,7 @@
   "renew-your-license": {
     "message": "Renew your license."
   },
-  "restart-app" : {
+  "restart-app": {
     "message": "Restart $application$ to activate this option.",
     "placeholders": {
       "application": {
@@ -1283,7 +1280,7 @@
       "folderName": {
         "content": "$1"
       }
-    }    
+    }
   },
   "runFilters.selection.confirm": {
     "message": "Run filters on selected mails?"
@@ -1302,7 +1299,7 @@
     }
   },
   "special-offer-expiry": {
-    "message": "September 12th"
+    "message": "March 24th"
   },
   "special-offer-head": {
     "message": "Please help quickFilters to continue!"
@@ -1331,7 +1328,7 @@
         "example": "50%"
       }
     }
-  },   
+  },
   "support-preference": {
     "message": "This is the preferred way of supporting $addonName$.",
     "placeholders": {
@@ -1342,7 +1339,7 @@
     }
   },
   "support-suggestion": {
-    "message": "So that $addonName$ stays functional and alive, please do it a vital favor:",
+    "message": "To keep $addonName$ functional and up to date, please consider supporting it:",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1403,7 +1400,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Fixed: Copying filters across to different server links the filters [issue 282]{L2} {L1} Change Request for userChromeJS script: Message Filters Toolbar Implementation - insert above filterHeader [issue 265]{L2}{L1} Removed Keyboard Shortcut conflict with 'AI Anywhere' extension. [issue 277] {L2} {L1} Made compatible with Thunderbird 134 {L2}"
+    "message": "{L1} quickFilters is now compatible with Thunderbird 137.{L2} {L1} Fixed: duplicate filter names - avoid possible data loss when importing. [issue 277]{L2} {L1} Fixed a problem with broken notification box [issue 284]{L2}{L1} The 'sort filter search terms' button in the filter editor now also works in mail applications that support complex filters. [issue 294] {L2} {L1} Removed keyboard shortcut conflict with the 'AI Anywhere' extension.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
