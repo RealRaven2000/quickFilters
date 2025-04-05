@@ -296,6 +296,13 @@ permalink: filtaquilla.html
      “detach” differs from a “save” in that, after detach, the message is 
     rewritten to remove the attachment, which can reduce the disk space 
     required to store the message.</p>
+    <p><b>Detach attachments must be the last action of a filter - this 
+      is because Thunderbird creates a new message with a new id which will 
+      break any subsequent action (the message will not be found)</b>.
+      With the new asynchronous method implemented in FiltaQuilla 5.0
+      you can do actions like "move mail" <i>before</i> detaching 
+      its attachments.
+    </p>
   <p>The issue described in&nbsp; “Combining Moves with Complex Actions” below applies to this action.</p>
 	
   <a name="javascript_action"> </a>
