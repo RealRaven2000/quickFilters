@@ -188,6 +188,14 @@ permalink: fq-versions.html
           Add-ons are allowed to be installed.
         </p>
       </li>
+      <li>
+        Fixed: Save Attachments To no longer working in Thunderbird 128 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/339">[issue 339]</a>.
+        This was a regression caused by modernizing the code which worked well with the 
+        current web extension API of the release version Thunderbird 137. I had to add 
+        some missing data to the attachments array in order to be able to filter the correct 
+        attachments (excluding inline images and other such data).
+      </li>
     </ul>
     <h5 class="inList">Planned work</h5>
     <ul>
