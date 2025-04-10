@@ -250,7 +250,7 @@ h3 {
   background: rgb(248,181,154);
   color: rgb(0,0,0,.75);
   display: inline-block;
-  box-shadow: inset 3px 3px 3px -1px rgba(0,0,0,0.7);
+  box-shadow: inset 4px 4px 3px -1px rgba(0,0,0,0.2);
   /*! border-radius: 0.5em; */
   font-weight: 600;
   font-size: 1.2em;
@@ -399,6 +399,7 @@ a[href]:visited {
 
 #main-content-no-nav a[href]:hover {
 	background-color: rgba(147, 0, 102, 0.7);
+  background-image: linear-gradient(to bottom,  #9c3465 0%,#7f0c48 50%,#8c1a62 100%);  
 	border: 1px dotted #FFB2A2;
 	border-radius: 0.5em;
 	box-sizing: border-box; /* make sure border doesn't resize box on hover */
