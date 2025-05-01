@@ -9,6 +9,8 @@
       --fill: var(--basiccolor);
       --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
       --highlight: var(--new-highlight,#0488d5);
+      --arrowUp:rgb(130, 161, 120);
+      --arrowDown:rgb(77, 98, 124);
     }
   }
 
@@ -18,12 +20,14 @@
       --fill: var(--basiccolor);
       --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
       --highlight: var(--new-highlight,#0aa5ff);
+      --arrowUp:rgb(168, 218, 151);
+      --arrowDown:rgb(103, 134, 172);
     }
   }
   </style> 
   <path 
     style="fill:var(--fill);"
     d="M11.75 12.73l-3.6-3.61a4.5 4.51 0 10-1.07 1.06l3.61 3.61a.75.75 0 001.06-1.06zM4.48 9.51a3 3 0 113-3 3 3 0 01-3 3z"/>
-  <path fill="#4fc825" d="M15.03 0H11c-1.33 0-1.33 2 0 2h1.62L9.79 4.8c-.96.95.48 2.38 1.42 1.4l2.82-2.79V5c0 1.33 2 1.33 2 0V1a1 1 0 00-1-1z"/>
-  <path fill="#307cdb" d="M15.03 16.03H11c-1.33 0-1.33-2.01 0-2.01h1.62L9.79 11.2c-.97-.93.48-2.38 1.42-1.4l2.82 2.81V11c0-1.33 2-1.33 2 0v4.03a1 1 0 01-1 1z"/>
+  <path style="fill:var(--arrowUp);" d="M15.03 0H11c-1.33 0-1.33 2 0 2h1.62L9.79 4.8c-.96.95.48 2.38 1.42 1.4l2.82-2.79V5c0 1.33 2 1.33 2 0V1a1 1 0 00-1-1z"/>
+  <path style="fill:var(--arrowDown);" d="M15.03 16.03H11c-1.33 0-1.33-2.01 0-2.01h1.62L9.79 11.2c-.97-.93.48-2.38 1.42-1.4l2.82 2.81V11c0-1.33 2-1.33 2 0v4.03a1 1 0 01-1 1z"/>
 </svg>

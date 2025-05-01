@@ -21,23 +21,9 @@ async function onLoad(activatedWhileWindowOpen) {
       WL.injectElements(`
       <div id="threadPane">
       <hbox id="quickFilters-injected" collapsed="true">
-        <toolbarbutton id="quickfilters-current-listbutton"
-                class="icon"
-                insertafter="QuickFolders-currentFolderFilterActive"
-                label=""
-                tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
-                oncommand="window.quickFilters.doCommand(this);"
-                />
-        <toolbarbutton id="quickfilters-current-searchfilterbutton"
-                class="icon"
-                insertafter="quickfilters-current-listbutton"
-                label=""
-                tooltiptext="__MSG_quickfilters.findFiltersForFolder.menu__"
-                oncommand="window.quickFilters.doCommand(this);"
-                />
         <toolbarbutton id="quickfilters-current-runbutton"
                 class="icon"
-                insertafter="quickfilters-current-listbutton"
+                insertafter="QuickFolders-currentFolderFilterActive"
                 label=""
                 tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
                 oncommand="window.quickFilters.doCommand(this);"
@@ -47,6 +33,20 @@ async function onLoad(activatedWhileWindowOpen) {
                 insertafter="quickfilters-current-runbutton"
                 label=""
                 tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
+                oncommand="window.quickFilters.doCommand(this);"
+                />
+        <toolbarbutton id="quickfilters-current-listbutton"
+                class="icon"
+                insertafter="quickfilters-current-msg-runbutton"
+                label=""
+                tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
+                oncommand="window.quickFilters.doCommand(this);"
+                />
+        <toolbarbutton id="quickfilters-current-searchfilterbutton"
+                class="icon"
+                insertafter="quickfilters-current-listbutton"
+                label=""
+                tooltiptext="__MSG_quickfilters.findFiltersForFolder.menu__"
                 oncommand="window.quickFilters.doCommand(this);"
                 />
       </hbox>
