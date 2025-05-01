@@ -244,8 +244,10 @@ permalink: filtaquilla.html
   // @CCLIST@ cc list
   // @DATEINSECONDS@ date in seconds
   // @MESSAGEURI@ URI for the message
-  // @PROPERTY@somedbproperty@ uses .getStringProperty(“somedbproperty”)</pre>
-  <p>The last item actually has a second internal substitutable 
+  // @UTF16@ uses nsIProcess.runw() after encoding parameters to UTF-16 - see [issue 102]
+  // @PROPERTY@somedbproperty@ uses .getStringProperty(“somedbproperty”)
+</pre>
+  <p>The last item "@PROPERTY@" actually has a second internal substitutable 
     parameters. It is intended to be used with a custom DB header, such as 
     “X-SPAM”. You must first define the custom db header by adding that 
     header to the preference mailnews.customDBHeaders, then you can use that
