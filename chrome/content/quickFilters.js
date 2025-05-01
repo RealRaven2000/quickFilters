@@ -638,8 +638,8 @@ END LICENSE BLOCK
     # [issue 262] Maintenance fix in v6.5.3: The merge filters option had stopped working in 6.5.2 
     # Added compatibility with Thunderbird 130
     
-  6.6 - WIP
-    # made compatible with Tb 137.*
+  6.6 - 07/03/2025
+    # made compatible with Tb 137.*+   
     # [issue 294] Support Filter search terms Sort button with complex filters (Betterbird)
     # [issue 282] Fixed: Copying filters across to different server links the filters
     # [issue 284] Compatibility with Tb 134: fixed a problem with broken notification box (.shown() removed)
@@ -647,6 +647,11 @@ END LICENSE BLOCK
     # [issue 295] Remove the custom templates actions tooltip from 'normal' filter editor.
     # [issue 275] Keyboard Shortcut conflict with 'AI Anywhere' extension
     
+
+  6.6.1 - 01/05/2025
+    # made compatible with Tb 138.*+   
+    # [issue 299] Fixed feature to run filters on local folder inbox
+    # Improved icons to distinguish menu commands which run filters from other ones
 
 
   ============================================================================================================
@@ -2019,127 +2024,125 @@ quickFilters.MsgFolderListener.qfInstance = quickFilters;
 quickFilters.FolderListener = {
   localMoved: [],
   qfInstance: quickFilters,
-  ELog: function(msg) {
+  ELog: function (msg) {
     try {
       try {
         Components.utils.reportError(msg);
-      }
-      catch(e) {
+      } catch (e) {
         Services.console.logStringMessage("quickFilters:" + msg);
       }
-    }
-    catch(e) {
+    } catch (e) {
       // write to TB status bar??
-      try{quickFilters.Util.logToConsole("Error: " + msg);} catch(e) {;};
-    };
+      try {
+        quickFilters.Util.logToConsole("Error: " + msg);
+      } catch (e) {}
+    }
   },
-  
-  onMessageAdded: function() {
-  },
+
+  // was: FolderListener.OnItemAdded()
   // legacy method: works in 91 https://searchfox.org/comm-esr91/source/mailnews/base/public/nsIFolderListener.idl
   // in Tb102 -= Replaced with void onMessageAdded(in nsIMsgFolder parent, in nsIMsgDBHdr msg);
   // https://searchfox.org/comm-central/rev/fa8e67bb1f40b7381b3e4db9545574cdc4758db9/mailnews/base/public/nsIFolderListener.idl#27
-  OnItemAdded: async function(parent, item) {
+  onMessageAdded: async function (parent, item) {
     const Ci = Components.interfaces;
     try {
       let qfEvent = this.qfInstance || quickFilters;
       if (!qfEvent) return;
-    
-      const win = qfEvent.Util ? qfEvent.Util.getMail3PaneWindow() : quickFilters.Util.getMail3PaneWindow(),
-            util = win.quickFilters.Util,
-            prefs = win.quickFilters.Preferences,
-            worker = win.quickFilters.Worker,
-            logDebug = util.logDebugOptional.bind(util),
-            isLocalFolders = prefs.getBoolPref('localFoldersRun');
-            
-      logDebug("events,msgMove","FolderListener.OnItemAdded() " + item.toString());    
+
+      const win = qfEvent.Util
+          ? qfEvent.Util.getMail3PaneWindow()
+          : quickFilters.Util.getMail3PaneWindow(),
+        util = win.quickFilters.Util,
+        prefs = win.quickFilters.Preferences,
+        logDebug = util.logDebugOptional.bind(util),
+        isLocalFolders = prefs.getBoolPref("localFoldersRun");
+
+      logDebug("events,msgMove", "FolderListener.onMessageAdded() " + item.toString());
       if (prefs.isDebugOption("events")) {
         console.log(parent, item);
       }
-            
-      // referencing parent may re-invoke OnItemAdded! [issue 80]
-      if (isLocalFolders && util.isLocalInbox(parent)) {
-        // make a stack of moved messages to work through
-        let h = item.QueryInterface(Ci.nsIMsgDBHdr);
-        // avoid duplicates
-        if (!quickFilters.FolderListener.localMoved.find(o => o.messageKey == h.messageKey)) {
-          util.logDebugOptional("msgMove", "Adding 1 message to list of localMoved");
-          quickFilters.FolderListener.localMoved.push(
-          { hdr: h,
-            key: h.messageKey}
-          );
-        }
+      if (!isLocalFolders) {
+        return;
       }
-      if (!worker || !quickFilters.Util.AssistantActive) return;
-      // removed old nostalgy code...
+      if (!util.isLocalInbox(parent)) {
+        return;
+      }
+      // referencing parent may re-invoke OnItemAdded! [issue 80]
+      // make a stack of moved messages to work through
+      let h = item.QueryInterface(Ci.nsIMsgDBHdr);
+      // avoid duplicates
+      if (!quickFilters.FolderListener.localMoved.find((o) => o.messageKey == h.messageKey)) {
+        util.logDebugOptional("msgMove", "Adding 1 message to list of localMoved");
+        quickFilters.FolderListener.localMoved.push({ hdr: h, key: h.messageKey });
+      }
+    } catch (e) {
+      this.ELog("Exception in FolderListener.onMessageAdded {}:\n" + e);
     }
-    catch(e) { 
-      this.ELog("Exception in FolderListener.OnItemAdded {}:\n" + e)
-    };
-  
   },
-  
-  OnItemEvent: function(item, event) {
+
+  onFolderEvent: function (item, event) {
+    // was: OnItemEvent
     if (!event) return; // early exit for 'bad' events happening during MsgMoveMessage
     let eString = event.toString();
     try {
       let qfEvent = this.qfInstance || quickFilters;
       if (!qfEvent) return;
-      const win = qfEvent.Util ? qfEvent.Util.getMail3PaneWindow() : quickFilters.Util.getMail3PaneWindow(),
-            util = win.quickFilters.Util,
-            worker = win.quickFilters.Worker;
-      util.logDebugOptional("events","OnItemEvent( " + item + ", " + eString +")");
+      const win = qfEvent.Util
+          ? qfEvent.Util.getMail3PaneWindow()
+          : quickFilters.Util.getMail3PaneWindow(),
+        util = win.quickFilters.Util;
+      util.logDebugOptional("events", "OnItemEvent( " + item + ", " + eString + ")");
       switch (eString) {
-        case "FolderLoaded": 
+        case "FolderLoaded":
           break;
         case "RenameCompleted":
           // find filters with this target and correct them?
           break;
         case "DeleteOrMoveMsgCompleted":
-          let isAssistant = quickFilters.Util.AssistantActive, 
-              srcName = (item ? (item.prettyName ? item.prettyName : item) : '<no folder>')
-              
-          util.logDebugOptional("events,msgMove","DeleteOrMoveMsgCompleted(" + 
-            srcName + ")\n" +
-            'Assistant is ' + (isAssistant ? 'active' : 'off'));
+          let isAssistant = quickFilters.Util.AssistantActive,
+            srcName = item ? (item.prettyName ? item.prettyName : item) : "<no folder>";
+
+          util.logDebugOptional(
+            "events,msgMove",
+            "DeleteOrMoveMsgCompleted(" +
+              srcName +
+              ")\n" +
+              "Assistant is " +
+              (isAssistant ? "active" : "off")
+          );
           let isLocal = util.isLocalInbox(item);
-          util.logDebugOptional("msgMove", "Source folder (" + srcName + ") is local inbox = " + isLocal);
-          if (!isAssistant && !util.isLocalInbox(item)) { // item is the source folder (usually another inbox, not local folders)
-          let LM = quickFilters.FolderListener.localMoved;
-          util.logDebugOptional("msgMove", "List of LocalMoved = " + (LM ? (LM.length + " items.") : "NULL!"));
+          util.logDebugOptional(
+            "msgMove",
+            "Source folder (" + srcName + ") is local inbox = " + isLocal
+          );
+          if (!isAssistant && !util.isLocalInbox(item)) {
+            // item is the source folder (usually another inbox, not local folders)
+            let LM = quickFilters.FolderListener.localMoved;
+            util.logDebugOptional(
+              "msgMove",
+              "List of LocalMoved = " + (LM ? LM.length + " items." : "NULL!")
+            );
             if (LM.length) {
               let target = LM[0].hdr.folder;
-              util.logDebugOptional("msgMove", "Running filters on " + LM.length + " messages in " + target.prettyName + "...");
-              while (LM.pop()); // empty array
-              setTimeout(function() { 
-                  util.applyFiltersToFolder(target); 
-                  util.popupProFeature("localFolderFilters", true);    
-                }, 25
+              util.logDebugOptional(
+                "msgMove",
+                "Running filters on " + LM.length + " messages in " + target.prettyName + "..."
               );
+              while (LM.pop()); // empty array
+              setTimeout(function () {
+                util.applyFiltersToFolder(target);
+                util.popupProFeature("localFolderFilters", true);
+              }, 25);
             }
           }
           break;
       }
+    } catch (e) {
+      this.ELog("Exception in FolderListener.OnItemEvent {" + eString + "}:\n" + e);
     }
-    catch(e) {this.ELog("Exception in FolderListener.OnItemEvent {" + eString + "}:\n" + e)};
-  } ,
+  },
 
-  
-  // TB 91
-  OnItemPropertyFlagChanged: function (item, property, oldFlag, newFlag) {
-    const win = quickFilters.Util.getMail3PaneWindow(),
-          util = win.quickFilters.Util;
-    try {
-      util.logDebugOptional("events","OnItemPropertyFlagChanged( " + item + ", " + property + "," + oldFlag + "," + newFlag + ")");
-      if (property == "Keywords") {
-        quickFilters.listenerFlagChanged(item, oldFlag, newFlag);
-      }
-    }
-    catch(e) {this.ELog("Exception in FolderListener.OnItemPropertyFlagChanged {" + property + "}:\n" + e)};
-  } ,
-
-
-  // Tb 102 - does not exist in Tb 91
+  // Tb 102+
   onFolderPropertyFlagChanged(item, property, oldFlag, newFlag) {
     switch (property) {
       case "Status": // not used
@@ -2150,9 +2153,8 @@ quickFilters.FolderListener = {
         quickFilters.listenerFlagChanged(item, oldFlag, newFlag);
         break;
     }
-  }  
-  
-}  // FolderListener
+  },
+};  // FolderListener
 quickFilters.FolderListener.qfInstance = quickFilters;
 
 // Custom Search Terms...

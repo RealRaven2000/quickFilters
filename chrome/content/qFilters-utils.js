@@ -72,9 +72,8 @@ quickFilters.Util = {
           
           if (data.detail) {
             event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`, {detail: data.detail}) 
-          }
-          else {
-            event =  new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`) ;
+          } else {
+            event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`) ;
           }
           window.dispatchEvent(event); 
         }       
@@ -142,7 +141,7 @@ quickFilters.Util = {
 		}
 	},
 		
-  getMsgFolderFromUri:  function getMsgFolderFromUri(uri, checkFolderAttributes) {
+  getMsgFolderFromUri:  function(uri, checkFolderAttributes) {
 		const util = quickFilters.Util;
     let msgfolder = null;
     var { MailUtils } = quickFilters_ESM
@@ -162,7 +161,7 @@ quickFilters.Util = {
     return msgfolder;
   } ,
 
-  getBundleString: function getBundleString(id, defaultText, substitions = []) { // moved from local copies in various modules.
+  getBundleString: function(id, defaultText, substitions = []) { // moved from local copies in various modules.
     // [mx-l10n]
     var { ExtensionParent } = ChromeUtils.importESModule("resource://gre/modules/ExtensionParent.sys.mjs");
     let extension = ExtensionParent.GlobalManager.getExtension('quickFilters@axelg.com');
@@ -193,12 +192,12 @@ quickFilters.Util = {
     }
   } ,
 
-  getMail3PaneWindow: function getMail3PaneWindow() {
+  getMail3PaneWindow: function() {
     let win3pane = Services.wm.getMostRecentWindow("mail:3pane");
     return win3pane;
   } ,
   
-  getLastFilterListWindow: function getLastFilterListWindow() {
+  getLastFilterListWindow: function() {
     return Services.wm.getMostRecentWindow('mailnews:filterlist');
   } ,
 
@@ -258,7 +257,7 @@ quickFilters.Util = {
     return this.getVersionSimple(this.Version);
   } ,
   
-  getVersionSimple: function getVersionSimple(ver) {
+  getVersionSimple: function(ver) {
     let pureVersion = ver,  // default to returning unchanged
         // get first match starting with numbers mixed with .   
         reg = new RegExp("[0-9.]*"),
@@ -280,7 +279,7 @@ quickFilters.Util = {
 	} ,
 	
 	
-  isVirtual: function isVirtual(folder) {
+  isVirtual: function(folder) {
     if (!folder)
       return true;
 		if (quickFilters.Util.FolderFlags.Virtual & folder.flags)
@@ -289,20 +288,18 @@ quickFilters.Util = {
   } ,
 	
 	isLocalInbox: function(folder) {
-		if (folder)
-		 return folder.flags && 
-			    (folder.flags & this.FolderFlags.Inbox) &&
-			    (folder.flags & this.FolderFlags.Mail) && 
-					(folder.server.username == "nobody" && folder.server.type == "none") ? true : false;
-		return false;
+    if (!folder) return false;
+    return folder.flags && 
+      (folder.flags & this.FolderFlags.Inbox) &&
+      (folder.flags & this.FolderFlags.Mail) && 
+      (folder.server.username == "nobody" && folder.server.type == "none") ? true : false;
 	} ,
 	
-	applyFiltersToFolder: function qfUtil_applyFiltersToFolder(folder, singleFilter) {
+	applyFiltersToFolder: function (folder, singleFilter) {
 		// a local copy of  MsgApplyFilters()
 		const Ci = Components.interfaces,
-		      Cc = Components.classes,
-					util = quickFilters.Util,
-		      filterService = MailServices.filters;
+      util = quickFilters.Util,
+      filterService = MailServices.filters;
 
 		try {
 			if (folder.isServer) { // if this is root, replace it with appropriate inbox
@@ -902,9 +899,7 @@ quickFilters.Util = {
       url: linkURI 
     });
 
-    if (evt) {
-      evt.stopPropagation();
-    }
+    evt?.stopPropagation();
     return;
   },
 
@@ -1019,7 +1014,7 @@ quickFilters.Util = {
       let messageIdList = [];
       for (let i = 0; i < messageUris.length; i++) {
         let Uri = messageUris[i],
-            msgHeader = MailServices.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
+          msgHeader = MailServices.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
         messageIdList.push(this.makeMessageListEntry(msgHeader, Uri));  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
 				quickFilters.Util.debugMsgAndFolders('Uri', Uri.toString(), targetFolder, msgHeader, "--");
       }
@@ -2376,14 +2371,13 @@ quickFilters.clsGetHeaders = class classGetHeaders {
   }
   
   async read() {
-    let messageURI = this.messageURI;
-    let messageFallbackContent = this.messageFallbackContent;
+    const messageURI = this.messageURI;
+    const messageFallbackContent = this.messageFallbackContent;
     
     // streaming the message works up to Tb91, in Tb102 we need to load the headers during when starting ComposeStartup() [async]
     const Ci = Components.interfaces,
-          Cc = Components.classes,
-          util = quickFilters.Util,
-          prefs = quickFilters.Preferences;
+      Cc = Components.classes,
+      util = quickFilters.Util;
     
     let messageService = MailServices.messageServiceFromURI(messageURI),
         messageStream = Cc["@mozilla.org/network/sync-stream-listener;1"].createInstance().QueryInterface(Ci.nsIInputStream),
