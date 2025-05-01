@@ -1399,7 +1399,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters är nu kompatibelt med Thunderbird 137.{L2} {L1} Åtgärdat: duplicerade filternamn – förhindrar eventuell dataförlust vid import. [issue 277]{L2} {L1} Fixat problem med trasig notifieringsruta. [issue 284]{L2}{L1} Knappen 'sortera filtervillkor' i filterredigeraren fungerar nu även i e-postprogram som stöder komplexa filter. [issue 294] {L2} {L1} Borttaget kortkommando-konflikt med tillägget 'AI Anywhere'.{L2}"
+    "message": "{L1} quickFilters är nu kompatibelt med Thunderbird 138.* {L2}{L1} Alternativet att köra filter i en inkorg i lokala mappar har återimplementerats för moderna versioner av Thunderbird. [issue 299]{L2}{L1} Förbättrade ikoner för att särskilja menykommandon som kör filter från andra kommandon.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1400,7 +1400,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters ist jetzt mit Thunderbird 137 kompatibel.{L2} {L1} Behoben: Doppelte Filter-Namen – möglicher Datenverlust beim Import vermieden. [issue 277]{L2} {L1} Ein Problem mit einer defekten Benachrichtigungsbox wurde behoben [issue 284]{L2}{L1} Die Schaltfläche 'Suchbegriffe sortieren' im Filter-Editor funktioniert jetzt auch in Mail-Anwendungen, die komplexe Filter unterstützen. [issue 294] {L2} {L1} Konflikt mit der Tastenkombination der Erweiterung 'AI Anywhere' entfernt.{L2}"
+    "message": "{L1} Kompatibilität mit Thunderbird 138.* hinzugefügt {L2}{L1} Die Option, Filter im Posteingang lokaler Ordner auszuführen, wurde für moderne Thunderbird-Versionen neu implementiert. [issue 299]{L2} {L1} Verbesserte Symbole zur Unterscheidung von Menübefehlen, die Filter ausführen, von anderen. {L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

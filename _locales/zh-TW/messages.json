@@ -1310,7 +1310,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）："
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters 現已相容於 Thunderbird 137。{L2} {L1} 修正：重複的篩選器名稱 – 防止匯入時可能的資料遺失。[issue 277]{L2} {L1} 修正通知框異常問題。[issue 284]{L2}{L1} 篩選器編輯器中的「排序篩選條件」按鈕現在也適用於支援複雜篩選器的電子郵件應用程式。[issue 294] {L2} {L1} 移除了與「AI Anywhere」擴充功能的快捷鍵衝突。{L2}"
+    "message": "{L1} quickFilters 現已相容於 Thunderbird 138.* {L2}{L1} 已針對新版 Thunderbird 重新實作在本機資料夾收件匣中執行篩選器的選項。[issue 299]{L2}{L1} 改善圖示以區分執行篩選器的選單指令與其他指令。{L2}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

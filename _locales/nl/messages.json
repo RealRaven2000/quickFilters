@@ -1400,7 +1400,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters is nu compatibel met Thunderbird 137.{L2} {L1} Opgelost: dubbele filternamen – voorkomt mogelijk gegevensverlies bij importeren. [issue 277]{L2} {L1} Een probleem met de kapotte notificatiebox is opgelost. [issue 284]{L2}{L1} De knop 'filterzoektermen sorteren' in de filtereditor werkt nu ook in e-mailapplicaties die complexe filters ondersteunen. [issue 294] {L2} {L1} Conflicterende sneltoetsen met de extensie 'AI Anywhere' verwijderd.{L2}"
+    "message": "{L1} quickFilters is nu compatibel met Thunderbird 138.* {L2}{L1} De optie om filters uit te voeren op een Postvak IN in lokale mappen is opnieuw geïmplementeerd voor moderne Thunderbird-versies. [issue 299]{L2}{L1} Verbeterde pictogrammen om menubevelen die filters uitvoeren te onderscheiden van andere opdrachten.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

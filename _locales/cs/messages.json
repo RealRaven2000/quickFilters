@@ -358,7 +358,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters je nyní kompatibilní s Thunderbirdem 137.{L2} {L1} Opraveno: duplicitní názvy filtrů – zabránění možné ztrátě dat při importu. [issue 277]{L2} {L1} Opraven problém s nefunkčním oznamovacím oknem [issue 284]{L2}{L1} Tlačítko 'třídit vyhledávací podmínky filtru' v editoru filtrů nyní funguje také v e-mailových aplikacích, které podporují komplexní filtry. [issue 294] {L2} {L1} Odstraněn konflikt klávesových zkratek s rozšířením 'AI Anywhere'.{L2}"
+    "message": "{L1} Byla přidána kompatibilita s Thunderbirdem 138.* {L2}{L1} Možnost spustit filtry ve složce Doručená pošta v místních složkách byla znovu implementována pro moderní verze Thunderbirdu. [issue 299]{L2} {L1} Vylepšené ikony pro odlišení příkazů menu, které spouštějí filtry, od ostatních. {L2}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

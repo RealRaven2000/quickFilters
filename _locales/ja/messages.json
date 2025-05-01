@@ -1400,7 +1400,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters は Thunderbird 137 と互換性があります。{L2} {L1} 修正: フィルター名の重複 – インポート時のデータ損失を防止。[issue 277]{L2} {L1} 壊れた通知ボックスの問題を修正しました。[issue 284]{L2}{L1} フィルターエディターの「フィルター検索条件を並べ替える」ボタンが、複雑なフィルターをサポートするメールアプリでも動作するようになりました。[issue 294] {L2} {L1} 「AI Anywhere」拡張機能とのキーボードショートカットの競合を解消しました。{L2}"
+    "message": "{L1} quickFilters は Thunderbird 138.* に対応しました {L2}{L1} ローカルフォルダーの受信トレイでフィルターを実行するオプションが、最新の Thunderbird バージョン向けに再実装されました。[issue 299]{L2}{L1} フィルターを実行するメニューコマンドを他と区別できるようアイコンを改善しました。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

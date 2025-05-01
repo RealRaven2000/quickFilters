@@ -1400,7 +1400,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters is now compatible with Thunderbird 137.{L2} {L1} Fixed: duplicate filter names - avoid possible data loss when importing. [issue 277]{L2} {L1} Fixed a problem with broken notification box [issue 284]{L2}{L1} The 'sort filter search terms' button in the filter editor now also works in mail applications that support complex filters. [issue 294] {L2} {L1} Removed keyboard shortcut conflict with the 'AI Anywhere' extension.{L2}"
+    "message": "{L1} Made quickFilters compatible with Thunderbird 138.* {L2}{L1} The option to run filters on an inbox in local folders was reimplemented for modern versions of Thunderbird. [issue 299]{L2} {L1} Improved icons to distinguish menu commands which run filters from other ones.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

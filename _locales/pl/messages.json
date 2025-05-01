@@ -1396,7 +1396,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters jest teraz kompatybilny z Thunderbirdem 137.{L2} {L1} Naprawiono: zduplikowane nazwy filtrów – zapobiega potencjalnej utracie danych podczas importu. [issue 277]{L2} {L1} Naprawiono problem z uszkodzonym oknem powiadomień. [issue 284]{L2}{L1} Przycisk 'sortuj warunki wyszukiwania filtra' w edytorze filtrów działa teraz również w aplikacjach pocztowych obsługujących złożone filtry. [issue 294] {L2} {L1} Usunięto konflikt skrótów klawiaturowych z rozszerzeniem 'AI Anywhere'.{L2}"
+    "message": "{L1} quickFilters jest teraz zgodny z Thunderbirdem 138.* {L2}{L1} Opcja uruchamiania filtrów w skrzynce odbiorczej folderów lokalnych została ponownie zaimplementowana dla nowoczesnych wersji Thunderbirda. [issue 299]{L2}{L1} Ulepszone ikony ułatwiają rozróżnienie poleceń menu uruchamiających filtry od innych poleceń.{L2}"
   },
   "window-title": {
     "message": "Witamy w $addonName$",

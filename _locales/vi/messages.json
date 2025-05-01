@@ -1400,7 +1400,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters hiện đã tương thích với Thunderbird 137.{L2} {L1} Đã sửa: trùng tên bộ lọc – ngăn chặn khả năng mất dữ liệu khi nhập. [issue 277]{L2} {L1} Đã khắc phục sự cố với hộp thông báo bị lỗi. [issue 284]{L2}{L1} Nút 'sắp xếp điều kiện tìm kiếm bộ lọc' trong trình chỉnh sửa bộ lọc hiện cũng hoạt động trên các ứng dụng email hỗ trợ bộ lọc phức tạp. [issue 294] {L2} {L1} Đã xóa xung đột phím tắt với tiện ích mở rộng 'AI Anywhere'.{L2}"
+    "message": "{L1} quickFilters hiện đã tương thích với Thunderbird 138.* {L2}{L1} Tùy chọn chạy bộ lọc trong hộp thư đến của thư mục cục bộ đã được triển khai lại cho các phiên bản Thunderbird hiện đại. [issue 299]{L2}{L1} Biểu tượng được cải tiến để phân biệt các lệnh menu chạy bộ lọc với các lệnh khác.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -247,7 +247,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters je zdaj združljiv s Thunderbirdom 137.{L2} {L1} Popravljeno: podvojena imena filtrov – preprečuje možno izgubo podatkov pri uvozu. [issue 277]{L2} {L1} Odpravljen problem z okvarjenim obvestilnim poljem. [issue 284]{L2}{L1} Gumb 'razvrsti iskalne pogoje filtra' v urejevalniku filtrov zdaj deluje tudi v poštnih aplikacijah, ki podpirajo kompleksne filtre. [issue 294] {L2} {L1} Odpravljen konflikt bližnjičnih tipk z razširitvijo 'AI Anywhere'.{L2}"
+    "message": "{L1} quickFilters je zdaj združljiv s Thunderbirdom 138.* {L2}{L1} Možnost zagona filtrov v mapi »Prejeto« lokalnih map je bila ponovno uvedena za sodobne različice Thunderbirda. [issue 299]{L2}{L1} Izboljšane ikone za lažje razlikovanje ukazov menija, ki zaženejo filtre, od drugih ukazov.{L2}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

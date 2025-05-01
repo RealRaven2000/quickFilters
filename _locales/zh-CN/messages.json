@@ -1391,7 +1391,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters 现已兼容 Thunderbird 137。{L2} {L1} 修复：重复的过滤器名称 – 防止导入时可能的数据丢失。[issue 277]{L2} {L1} 修复了损坏的通知框问题。[issue 284]{L2}{L1} 过滤器编辑器中的“排序过滤器搜索条件”按钮现在也适用于支持复杂过滤器的邮件应用程序。[issue 294] {L2} {L1} 删除了与“AI Anywhere”扩展的快捷键冲突。{L2}"
+    "message": "{L1} quickFilters 现已兼容 Thunderbird 138.* {L2}{L1} 针对现代 Thunderbird 版本，重新实现了在本地文件夹的收件箱中运行筛选器的选项。[issue 299]{L2}{L1} 改进了图标，以区分运行筛选器的菜单命令和其他命令。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

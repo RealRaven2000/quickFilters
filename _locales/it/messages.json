@@ -1399,7 +1399,7 @@
     "message": "Leggi qui l'elenco dettagliato delle modifiche (in inglese):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters è ora compatibile con Thunderbird 137.{L2} {L1} Corretto: nomi di filtri duplicati – evita una possibile perdita di dati durante l'importazione. [issue 277]{L2} {L1} Risolto un problema con la casella di notifica non funzionante. [issue 284]{L2}{L1} Il pulsante 'ordina criteri di ricerca dei filtri' nell'editor dei filtri ora funziona anche nelle applicazioni di posta che supportano filtri complessi. [issue 294] {L2} {L1} Rimosso il conflitto di scorciatoie da tastiera con l'estensione 'AI Anywhere'.{L2}"
+    "message": "{L1} quickFilters è ora compatibile con Thunderbird 138.* {L2}{L1} L'opzione per eseguire i filtri su una posta in arrivo nelle cartelle locali è stata reimplementata per le versioni moderne di Thunderbird. [issue 299]{L2}{L1} Icone migliorate per distinguere i comandi di menu che eseguono i filtri da altri comandi.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

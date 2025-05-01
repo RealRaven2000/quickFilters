@@ -1346,7 +1346,6 @@
       }
     }
   },
-
   "testDrive": {
     "message": "Voit testata premium-ominaisuuksia ilmaisella versiolla, mutta ne saattavat olla hieman rajoitettuja."
   },
@@ -1400,7 +1399,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters on nyt yhteensopiva Thunderbird 137:n kanssa.{L2} {L1} Korjattu: suodattimien kaksoiskappaleiden nimet – estää mahdollisen tietojen menetyksen tuonnin aikana. [issue 277]{L2} {L1} Korjattu ongelma rikkoutuneessa ilmoitusruudussa. [issue 284]{L2}{L1} 'Lajittele suodattimen hakuehdot' -painike suodattimen muokkausohjelmassa toimii nyt myös sähköpostisovelluksissa, jotka tukevat monimutkaisia suodattimia. [issue 294] {L2} {L1} Poistettu pikanäppäinkonflikti 'AI Anywhere' -laajennuksen kanssa.{L2}"
+    "message": "{L1} Yhteensopivuus Thunderbirdin version 138.* kanssa lisätty {L2}{L1} Paikallisten kansioiden saapuneiden kansioon suodattimien ajaminen on otettu uudelleen käyttöön moderneissa Thunderbird-versioissa. [issue 299]{L2} {L1} Parannetut kuvakkeet erottavat suodattimia ajavat valikkokomennot muista. {L2}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",
