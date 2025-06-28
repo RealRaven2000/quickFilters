@@ -184,6 +184,9 @@
   "firstName.label": {
     "message": "名："
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "自動將篩選器應用於收件郵件"
+  },
   "freeLicense": {
     "message": "如果您最近向 quickFilters 專案捐款或完成了貢獻工作，例如翻譯或編寫補丁，您可能有資格獲得免費許可證密鑰。 透過 quickFilters 選項中的支援標籤與我聯絡。"
   },

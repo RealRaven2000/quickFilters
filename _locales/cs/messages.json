@@ -78,6 +78,9 @@
   "firstName.label": {
     "message": "Jméno:"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "Automaticky použít filtry na příchozí poštu"
+  },
   "getquickFilters": {
     "message": "Získejte quickFilters Pro"
   },

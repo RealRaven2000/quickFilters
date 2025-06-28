@@ -198,6 +198,9 @@
   "firstName.label": {
     "message": "First Name:"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "Automatycznie stosuj filtry do przychodzącej poczty"
+  },
   "freeLicense": {
     "message": "Jeśli niedawno przekazałeś darowizny na rzecz projektu quickFilters lub wykonałeś prace pomocnicze, takie jak tłumaczenie lub pisanie poprawek, możesz kwalifikować się do otrzymania bezpłatnego klucza licencyjnego. Skontaktuj się ze mną na karcie pomocy technicznej w opcjach quickFilters."
   },

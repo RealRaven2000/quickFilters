@@ -195,6 +195,9 @@
   "firstName.label": {
     "message": "名字"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "自动将筛选器应用于收件邮件"
+  },
   "freeLicense": {
     "message": "如果您最近捐助了 quickFilters 项目或者帮助其完成工作，例如翻译项目或者撰写补丁，您可能有资格获得一个免费的授权密钥。请使用 quickFilters 选项中的支持选项卡与我联系。"
   },

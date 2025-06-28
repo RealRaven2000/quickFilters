@@ -198,6 +198,9 @@
   "firstName.label": {
     "message": "Etunimi:"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "Käytä suodattimia automaattisesti saapuviin viesteihin"
+  },
   "freeLicense": {
     "message": "Jos olet äskettäin lahjoittanut quickFilters-projektiin tai olet tehnyt avustavaa työtä, kuten kääntänyt tai kirjoittanut korjaustiedostoja, saatat saada ilmaisen lisenssiavaimen. Ota yhteyttä quickFilters-asetusten tukivälilehdestä."
   },

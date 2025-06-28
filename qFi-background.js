@@ -3,6 +3,7 @@ import {Licenser} from "./scripts/Licenser.mjs.js";
 
 const QUICKFOLDERS_APPNAME = "quickfolders@curious.be";
 const RUNFILTERFROMTREE_ID = "runFiltersFolderPane";
+const TOGGLE_APPLY_FILTERS_ID = "toggleApplyIncomingFilters";
 const FINDFILTERS_ID = "findFiltersFolder";
 const CREATEFILTERFROMMSG_ID = "createFromMailContext";
 const TOGGLE_ASSIST_TOOL_ID = "toggleFilterTools";
@@ -127,6 +128,38 @@ async function addFolderPaneListener() {
     console.log(`quickFilters adding the other folder tree context menu item ${menuLabel} ...`, menuProps);
   }
   messenger.menus.create(menuProps);  
+
+  const toggleLabel = messenger.i18n.getMessage("foldertree.toggleApplyIncomingFilters");
+  menuProps = {
+    contexts: ["folder_pane"],
+    onclick: async (event) => {
+      const folders = event?.selectedFolders;
+      if (!Array.isArray(folders) || folders.length !== 1) {
+        return;
+      }
+      const folder = folders[0];
+      if (!folder) {
+        return;
+      }
+      // Get the full folder URI via your Utilities API helper
+      const uri = await messenger.Utilities.getFolderUri(folder.accountId, folder.path);
+
+      try {
+        let currentState = await messenger.Utilities.getApplyIncomingFilters(uri);
+        await messenger.Utilities.setApplyIncomingFilters(uri, !currentState);
+      } catch (ex) {
+        console.error("Error toggling applyIncomingFilters:", ex);
+      }
+    },
+    id: TOGGLE_APPLY_FILTERS_ID,
+    title: toggleLabel,
+    type: "checkbox", // <-- essential
+    // icons: {
+    //   16: "chrome/content/skin/runFilters.svg",
+    // },
+    enabled: true,
+  };
+  messenger.menus.create(menuProps); 
 }
 
 async function addToolMenuListener() {
@@ -425,35 +458,24 @@ async function main() {
   */
   messenger.WindowListener.startListening();
   
-  let browserInfo = await messenger.runtime.getBrowserInfo();
-  function getThunderbirdVersion() {
-    let parts = browserInfo.version.split(".");
-    return {
-      major: parseInt(parts[0]),
-      minor: parseInt(parts[1]),
-      revision: parts.length > 2 ? parseInt(parts[2]) : 0,
-    }
-  }  
-  let tbVer = getThunderbirdVersion();
-  
+  // let browserInfo = await messenger.runtime.getBrowserInfo();
+
   // [issue 125] Exchange account validation
-  if (tbVer.major>=98) {
-    messenger.accounts.onCreated.addListener( async(id, account) => {
-      if (currentLicense.info.status == "MailNotConfigured") {
-        // redo license validation!
-        if (isDebugLicenser) {console.log("Account added, redoing license validation", id, account);} // test
-        currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
-        await currentLicense.validate();
-        if(currentLicense.info.status != "MailNotConfigured") {
-          if (isDebugLicenser) {console.log("notify experiment code of new license status: " + currentLicense.info.status);}
-          messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
-        }
-        if (isDebugLicenser) {console.log("quickFilters license info:", currentLicense.info);} // test
-      } else {
-        if (isDebugLicenser) {console.log("quickFilters license state after adding account:", currentLicense.info)}
+  messenger.accounts.onCreated.addListener( async(id, account) => {
+    if (currentLicense.info.status == "MailNotConfigured") {
+      // redo license validation!
+      if (isDebugLicenser) {console.log("Account added, redoing license validation", id, account);} // test
+      currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
+      await currentLicense.validate();
+      if(currentLicense.info.status != "MailNotConfigured") {
+        if (isDebugLicenser) {console.log("notify experiment code of new license status: " + currentLicense.info.status);}
+        messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
       }
-    });
-  }
+      if (isDebugLicenser) {console.log("quickFilters license info:", currentLicense.info);} // test
+    } else {
+      if (isDebugLicenser) {console.log("quickFilters license state after adding account:", currentLicense.info)}
+    }
+  });
 
   /* Add message thread context menu item */
   let menuLabel = messenger.i18n.getMessage("quickfilters.FromMessage.label");
@@ -485,6 +507,46 @@ async function main() {
     console.log(`quickFilters adding the message context menu item ${menuLabel} ...`, menuProps);
   }
   messenger.menus.create(menuProps);
+
+  messenger.menus.onShown.addListener(async (info) => {
+    function isHide(folders) {
+      if (!Array.isArray(folders) || folders.length !== 1) {
+        return true;
+      }
+      const folder = folders[0];
+      const hideFeature = new Set(["inbox", "drafts", "sent", "outbox"]);
+      return (
+        folder.specialUse &&
+        Array.isArray(folder.specialUse) &&
+        folder.specialUse.some((flag) => hideFeature.has(flag.toLowerCase()))
+      );
+    }
+
+    if (!info.contexts.includes("folder_pane")) {
+      return;
+    }
+    if (isHide(info?.selectedFolders)) {
+      await messenger.menus.update(TOGGLE_APPLY_FILTERS_ID, { visible: false });
+      await messenger.menus.refresh();
+      return;
+    }
+    const folder = info?.selectedFolders?.[0];
+
+    // Optional fallback to ensure robustness
+    const account = await messenger.accounts.get(folder.accountId);
+    const isImap = account.type === "imap";
+    const uri = await messenger.Utilities.getFolderUri(folder.accountId, folder.path);
+
+    // Hide the toggle item if it's not IMAP
+    await messenger.menus.update(TOGGLE_APPLY_FILTERS_ID, {
+      visible: isImap,
+      checked: isImap ? await messenger.Utilities.getApplyIncomingFilters(uri) : false,
+    });
+
+    // Must call menus.refresh after update to show changes
+    await messenger.menus.refresh();
+  });
+  
 
 
 } // end main()

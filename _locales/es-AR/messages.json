@@ -198,6 +198,9 @@
   "firstName.label": {
     "message": "Nombre:"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "Aplicar filtros automáticamente al correo entrante"
+  },
   "freeLicense": {
     "message": "Si recientemente ha donado al proyecto quickFilters o ha trabajado realizando contribuciones, como traducir o escribir parches, puede cumplir los requisitos para obtener una clave gratuita. Contacte conmigo desde la pestaña Soporte en las Opciones de quickFilters."
   },

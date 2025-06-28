@@ -198,6 +198,9 @@
   "firstName.label": {
     "message": "Förnamn:"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "Tillämpa filter automatiskt på inkommande e-post"
+  },
   "freeLicense": {
     "message": "Om du tidigare har donerat till quickFilters-projektet eller har bidragit med arbetsinsatser inom projektet, t.ex. genom att översätta eller skriva korrigeringskod, så kan du vara berättigad till en gratis licensnyckel. Kontakta oss via supportfliken i quickFilters inställningar."
   },

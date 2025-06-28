@@ -198,6 +198,9 @@
   "firstName.label": {
     "message": "First Name:"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "Áp dụng bộ lọc tự động cho thư đến"
+  },
   "freeLicense": {
     "message": "If you have recently donated to the quickFilters project or have done contributory work, such as translating or writing patches, you may be eligible for a free license key. Contact me from the support tab in quickFilters Options."
   },

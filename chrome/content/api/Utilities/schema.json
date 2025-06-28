@@ -28,26 +28,25 @@
         "async": true,
         "parameters": []
       },
-    
+
       {
         "name": "LicensedDaysLeft",
         "type": "function",
         "async": true,
         "parameters": []
       },
-     
+
       {
         "name": "isLicensed",
         "type": "function",
         "async": true,
         "parameters": [
           {
-            "name" : "forceValidation",
-            "type" : "boolean"
+            "name": "forceValidation",
+            "type": "boolean"
           }
         ]
       },
-
 
       {
         "name": "getAddonVersion",
@@ -63,14 +62,12 @@
         "parameters": []
       },
 
-
       {
         "name": "getAddonName",
         "type": "function",
         "async": true,
         "parameters": []
       },
-
 
       {
         "name": "showXhtmlPage",
@@ -100,21 +97,71 @@
         "name": "showVersionHistory",
         "type": "function",
         "parameters": []
-      }, 
+      },
 
       {
         "name": "showToolbarPopup",
         "type": "function",
         "parameters": []
-      },      
-        
+      },
+
       {
         "name": "getUserName",
         "type": "function",
         "async": true,
         "parameters": []
-      }
+      },
 
-   ]
+      {
+        "name": "getFolderUri",
+        "type": "function",
+        "async": true,
+        "description": "returns legacy URI for a folder / account",
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "description": "account key"
+          },
+          {
+            "name": "path",
+            "type": "string",
+            "optional": true,
+            "description": "path of the API folder"
+          }
+        ]
+      },
+
+      {
+        "name": "setApplyIncomingFilters",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "folderURI",
+            "type": "string",
+            "description": "The URI of the IMAP folder"
+          },
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "description": "Whether to enable incoming filters"
+          }
+        ]
+      },
+
+      {
+        "name": "getApplyIncomingFilters",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "folderURI",
+            "type": "string",
+            "description": "The URI of the IMAP folder"
+          }
+        ]
+      }
+    ]
   }
 ]

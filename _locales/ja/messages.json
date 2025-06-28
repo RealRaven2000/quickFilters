@@ -198,6 +198,9 @@
   "firstName.label": {
     "message": "名:"
   },
+  "foldertree.toggleApplyIncomingFilters": {
+    "message": "受信メールに自動的にフィルターを適用"
+  },
   "freeLicense": {
     "message": "quickFilters プロジェクトに最近ご寄付いただいた方や開発に貢献 (翻訳やパッチ提供) していただいている方は、無料ライセンスキーの取得資格があります。quickFilters オプションのサポートタブからお問い合わせください。"
   },
