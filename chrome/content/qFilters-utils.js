@@ -9,6 +9,12 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+/* 
+  globals 
+    gFilterListMsgWindow,
+    MsgStatusFeedback
+*/
+
 // moved import code to bottom for app version detection...
 
 var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
@@ -56,7 +62,8 @@ quickFilters.Util = {
         try {
           loc = window.document.URL || window.document.location ? window.document.location.href.toString() : "";
         }
-        catch(ex){;}
+        catch {;}
+        // eslint-disable-next-line no-prototype-builtins
         if (!data.hasOwnProperty("window") || data.window.includes(loc)) {
           window.quickFilters.Util.logDebugOptional("notifications", 
             `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
@@ -107,7 +114,7 @@ quickFilters.Util = {
   showToolbarPopup: function() {
     // quickFilters.List.showPopup(this,'quickFiltersSearchContext', event);
     let button = document.querySelector("button[extension='quickFilters@axelg.com']");
-    if (!button) return;
+    if (!button) {return;}
     const popupId = "quickFiltersMainPopup";
     let p = document.getElementById(popupId);
     if (p) {
@@ -123,40 +130,21 @@ quickFilters.Util = {
   } ,
 
 	get FolderFlags() {
-	  if (Components.interfaces.nsMsgFolderFlags)
-	    return Components.interfaces.nsMsgFolderFlags;
-		else { // sigh. Postbox doesn't have this?
-		  // from https://searchfox.org/comm-esr102/rev/3095765b3471ee29b8e3ca95ccdb1c429ac68d81/mailnews/base/public/nsMsgFolderFlags.idl#24
-		  return {
-        Trash: 0x00000100,
-			  Inbox: 0x00001000,
-				Drafts: 0x00000400,
-				Queue: 0x00000800,
-				SentMail: 0x00000200,
-				Newsgroup: 0x00000001,
-				Templates: 0x00400000,
-        Virtual: 0x00000020,
-        Archive: 0x00004000
-			}
-		}
+    return Components.interfaces.nsMsgFolderFlags;
 	},
 		
   getMsgFolderFromUri:  function(uri, checkFolderAttributes) {
 		const util = quickFilters.Util;
     let msgfolder = null;
-    var { MailUtils } = quickFilters_ESM
+    const { MailUtils } = quickFilters_ESM
       ? ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs")
       : ChromeUtils.import("resource:///modules/MailUtils.jsm");
 
     try {
-      if (MailUtils.getExistingFolder)
-        return MailUtils.getExistingFolder(uri, checkFolderAttributes);
-      else	
-        return MailUtils.getFolderForURI(uri, checkFolderAttributes);
+      msgfolder = MailUtils.getExistingFolder(uri, checkFolderAttributes);
     }
     catch (ex) {
-       //dump("failed to get the folder resource\n");
-       util.logException("getMsgFolderFromUri( " + uri + ")", ex);
+      util.logException("getMsgFolderFromUri( " + uri + ")", ex);
     }
     return msgfolder;
   } ,
@@ -262,33 +250,36 @@ quickFilters.Util = {
         // get first match starting with numbers mixed with .   
         reg = new RegExp("[0-9.]*"),
         results = ver.match(reg); 
-    if (results) 
+    if (results) {
       pureVersion = results[0];
+    }
     return pureVersion;
   } ,
 
 	get PlatformVersion() {
-		if (null==this.mPlatformVer)
+		if (null==this.mPlatformVer) {
 			try {
 				this.mPlatformVer = parseFloat(Services.appinfo.platformVersion);
+			} catch {
+				this.mPlatformVer = 115.0; // just a guess
 			}
-			catch(ex) {
-				this.mPlatformVer = 78.0; // just a guess
-			}
+    }
 		return this.mPlatformVer;
 	} ,
 	
 	
   isVirtual: function(folder) {
-    if (!folder)
+    if (!folder) {
       return true;
-		if (quickFilters.Util.FolderFlags.Virtual & folder.flags)
+    }
+		if (quickFilters.Util.FolderFlags.Virtual & folder.flags) {
 		  return true;
+    }
     return (folder.username && folder.username == 'nobody') || (folder.hostname == 'smart mailboxes');
   } ,
 	
 	isLocalInbox: function(folder) {
-    if (!folder) return false;
+    if (!folder) {return false;}
     return folder.flags && 
       (folder.flags & this.FolderFlags.Inbox) &&
       (folder.flags & this.FolderFlags.Mail) && 
@@ -304,9 +295,10 @@ quickFilters.Util = {
 		try {
 			if (folder.isServer) { // if this is root, replace it with appropriate inbox
 			  let f = quickFilters.Shim.findInboxFromRoot(folder, util.FolderFlags);
-				if (!f) 
+				if (!f) {
 					f = folder.getChildNamed('Inbox');
-				if (f) folder = f;
+        }
+				if (f) {folder = f;}
 			}
       
 			let selectedFolders = [];
@@ -324,16 +316,18 @@ quickFilters.Util = {
 			if (singleFilter) {
 				tempFilterList.insertFilterAt(0, singleFilter);
 			}
-			else for (let i = 0; i < numFilters; i++) {
-				let curFilter = curFilterList.getFilterAt(i);
-				// only add enabled, UI visibile filters that are in the manual context
-				if (curFilter.enabled && !curFilter.temporary &&
-						(curFilter.filterType & Ci.nsMsgFilterType.Manual))
-				{
-					tempFilterList.insertFilterAt(newFilterIndex, curFilter);
-					newFilterIndex++;
-				}
-			}
+			else {
+        for (let i = 0; i < numFilters; i++) {
+          const curFilter = curFilterList.getFilterAt(i);
+          // only add enabled, UI visibile filters that are in the manual context
+          if (curFilter.enabled && !curFilter.temporary &&
+              (curFilter.filterType & Ci.nsMsgFilterType.Manual))
+          {
+            tempFilterList.insertFilterAt(newFilterIndex, curFilter);
+            newFilterIndex++;
+          }
+        }
+      }
 			if (singleFilter) {
 				let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running Filter '{0}' in folder {1}.");
 				util.showStatusMessage(txtStatus.replace("{0}", singleFilter.filterName).replace("{1}", folder.prettyName), true);
@@ -358,10 +352,9 @@ quickFilters.Util = {
 	} ,
 	
 	getTabInfoByIndex: function getTabInfoByIndex(tabmail, idx) {
-		if (tabmail.tabInfo)
+		if (tabmail.tabInfo) {
 			return tabmail.tabInfo[idx];
-		if (tabmail.tabOwners)
-		  return tabmail.tabOwners[idx];  // Postbox
+    }
 		return null;
 	} ,	
 	
@@ -378,22 +371,25 @@ quickFilters.Util = {
 	// likely obsolete ###
 	// use this to temporarily open a tab for a folder if the msgDatabase remains invalid.
 	// there should be another way to do this, but for the moment this is the workaround.
-	openTempFolderInNewTab: function openTempFolderInNewTab(folder, background) {
-		let win = this.getMail3PaneWindow(),
-		    tabmail = this.tabmail;
-		if (tabmail) {
-		  let tabName = folder.name;
-		  this.tempFolderTab = tabmail.openTab(this.mailFolderTypeName, 
-			  {folder: folder, messagePaneVisible: true, background: background, disregardOpener: true, 
-				title: tabName} ) ; 
-		}
+	openTempFolderInNewTab: function (folder, background) {
+		const tabmail = this.tabmail;
+    if (!tabmail) { return; }
+    const tabName = folder.name;
+    this.tempFolderTab = tabmail.openTab(this.mailFolderTypeName, {
+      folder: folder,
+      messagePaneVisible: true,
+      background: background,
+      disregardOpener: true,
+      title: tabName,
+    }); 
 	} ,
 	
 	// likely obsolete ###
 	closeTempFolderTab: function closeTempFolderTab() {
 	  if(this.tempFolderTab) {
-		  if (this.tabmail.closeTab)
+		  if (this.tabmail.closeTab) {
 				this.tabmail.closeTab(this.tempFolderTab);
+      }
 			this.tempFolderTab = null;
 		}
 	} ,
@@ -418,8 +414,7 @@ quickFilters.Util = {
 				let service = Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService);
         service.showAlertNotification(icon, title, text, false, '', null);
 			});
-    }
-    catch(e) {
+    } catch {
       // prevents runtime error on platforms that don't implement nsIAlertsService
       alert(text);
     }
@@ -429,7 +424,7 @@ quickFilters.Util = {
   popupAlert: async function (text, title, icon, timeOut) {
     try {
 			let isTimeout = !(timeOut == 0);
-			if (!timeOut) timeOut = 4000;
+			if (!timeOut) { timeOut = 4000; }
       if (!icon) {
         icon = "chrome://quickfilters/content/skin/QuickFilters_32.png";
       } else {
@@ -444,6 +439,7 @@ quickFilters.Util = {
         let notificationBox = document.getElementById('quickFilterNotificationBox'),
             priority = notificationBox.PRIORITY_WARNING_MEDIUM;
             // appendNotification( label , value , image , priority , buttons, eventCallback )
+        const notificationKey = "quickfilters-popupAlert";
         const notification = await notificationBox.appendNotification( 
           notificationKey,
           {
@@ -479,7 +475,11 @@ quickFilters.Util = {
         }             
         
         if (isTimeout) {
-					window.setTimeout(function() {try{notificationBox.removeNotification(notification)}catch(e){};panel.hidePopup();}, timeOut);
+					window.setTimeout(function() {
+            try{notificationBox.removeNotification(notification)}
+            catch{;}
+            panel.hidePopup();
+          }, timeOut);
         }
       } else {
         Services.prompt.alert(window, title, text); 
@@ -506,8 +506,9 @@ quickFilters.Util = {
 				prefs = quickFilters.Preferences,
         countDown = null;
         
-    if (util.hasPremiumLicense())
+    if (util.hasPremiumLicense()) {
       return true;
+    }
 		
 		const mainWin = util.getMail3PaneWindow(),
 			notifyBox = mainWin.specialTabs.msgNotificationBar;
@@ -519,8 +520,9 @@ quickFilters.Util = {
           (featureName.includes(' ')) ?
           featureName : util.getBundleString('quickfilters.premium.title.' + featureName, featureName);
 		theText = theText.replace ("{1}", "'" + featureTitle + "'");
-		if (additionalText)
+		if (additionalText) {
 			theText = theText + '  ' + additionalText;
+    }
 		
 		let regBtn,
         hotKey = util.getBundleString("quickfilters.notification.premium.btn.hotKey", "L"),
@@ -536,7 +538,7 @@ quickFilters.Util = {
         try {
           countDown = prefs.getIntPref("restrictions." + featureName + ".countDown") ;
         }
-        catch (ex) {
+        catch {
           countDown = 5;
         }
 				countDown--;
@@ -549,9 +551,9 @@ quickFilters.Util = {
 				util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
 																	 + 'Countdown is ' + countDown);
 			}
-			catch(ex) {};
+			catch  {;}
       
-			if (!hotKey) hotKey='L'; // we also use this for hacking the style of the "Buy" button!
+			if (!hotKey) {hotKey='L';} // we also use this for hacking the style of the "Buy" button!
       if (util.licenseInfo.isExpired) {
         regBtn = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
       }
@@ -576,8 +578,9 @@ quickFilters.Util = {
 
 			
       let item = notifyBox.getNotificationWithValue(notificationKey);
-      if (item)
+      if (item) {
         notifyBox.removeNotification(item, false);
+      }
 		  const imgSrc = "chrome://quickfilters/content/skin/proFeature.png";
     
 			const newNotification = await notifyBox.appendNotification( 
@@ -616,10 +619,9 @@ quickFilters.Util = {
         }
       }
       return (countDown>=0);
-		}
-		else {
+		} else {
 			// fallback for systems that do not support notification (currently: SeaMonkey)
-			let result = Services.prompt.alert(null, title, theText); 
+			Services.prompt.alert(null, title, theText); 
       return true;
 		}
 	} ,  
@@ -638,7 +640,7 @@ quickFilters.Util = {
               break;
           }
         }
-				if (sbt)
+				if (sbt) {
 					for(let i = 0; i < sbt.childNodes.length; i++)
 					{
 						el = sbt.childNodes[i];
@@ -647,18 +649,21 @@ quickFilters.Util = {
 							if (isTimeout) {
 								// erase my status message after 5 secs
 								win.setTimeout(function() { 
-								    if (el.label == s) // remove my message if it is still there
+								    if (el.label == s) {
+                      // remove my message if it is still there
 											el.label = "";
+                    }
 									}, 
 									5000);
 							}
 							break;
 						}
 					}
-      }
-      else { MsgStatusFeedback.showStatusString(s); }        
-    }
-    catch(ex) {
+        }
+      } else { 
+        MsgStatusFeedback.showStatusString(s); 
+      }        
+    } catch(ex) {
       this.logToConsole("showStatusMessage - " +  ex);
       MsgStatusFeedback.showStatusString(s);
     }
@@ -686,7 +691,7 @@ quickFilters.Util = {
   } ,
 
   getSelectedMessages: function(selectedMessageUris, fromContextMenu=false) {
-    if (!selectedMessageUris) selectedMessageUris = [];
+    if (!selectedMessageUris) {selectedMessageUris = [];}
     let selectedMessages = [];
     let treeView = 
       fromContextMenu ? 
@@ -717,18 +722,18 @@ quickFilters.Util = {
       timePassed = '[' + elapsed + ' ms]   ';
       this.lastTime = endTime; // remember last time
     }
-    catch(e) {;}
+    catch {;}
     return end.getHours() + ':' + end.getMinutes() + ':' + end.getSeconds() + '.' + end.getMilliseconds() + '  ' + timePassed;
   },
 
-  logToConsole: function (args) {
+  logToConsole: function (...args) {
     let msg = "quickFilters " + quickFilters.Util.logTime() + "\n";
-    console.log(msg, ...arguments);    
+    console.log(msg, ...args);    
   },
 
-  logWarn: function (args) {
+  logWarn: function (...args) {
     let msg = "quickFilters " + quickFilters.Util.logTime() + "\n";
-    console.warn(msg, ...arguments);    
+    console.warn(msg, ...args);    
   },  
 
   // flags
@@ -748,17 +753,18 @@ quickFilters.Util = {
 
   logException: function logException(aMessage, ex) {
     let stack = '';
-    if (typeof ex.stack!='undefined')
+    if (typeof ex.stack!='undefined') {
       stack= ex.stack.replace("@","\n  ");
+    }
 
     let srcName = ex.fileName ? ex.fileName : "";
     this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
   } ,
   
-  logDebug: function logDebug(msg) {
+  logDebug: function logDebug(...args) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
     if (qF.Preferences.isDebug) {
-      this.logToConsole(...arguments);
+      this.logToConsole(...args);
     }
   },
 
@@ -775,7 +781,7 @@ quickFilters.Util = {
 	* @param {string} optionString comma delimited options
   * @param {string} msg text to log 
 	*/   
-  logDebugOptional: function (optionString, msg) {
+  logDebugOptional: function (optionString, _msg) {
 		try {
 			let qF = quickFilters ? quickFilters : this.mainInstance,
 					options = optionString.split(',');
@@ -787,11 +793,11 @@ quickFilters.Util = {
 				}
 			}        
 		}
-		catch(ex) {;}
+		catch {;}
   },
 
   // first argument is the option tag
-  logWithOption: function(a) {
+  logWithOption: function(_a) {
     arguments[0] =  "quickFilters "
       +  '{' + arguments[0].toUpperCase() + '} ' 
       + quickFilters.Util.logTime() + "\n";
@@ -799,10 +805,12 @@ quickFilters.Util = {
   },  
 	
   getTabInfoLength: function getTabInfoLength(tabmail) {
-		if (tabmail.tabInfo)
+		if (tabmail.tabInfo) {
 		  return tabmail.tabInfo.length;
-	  if (tabmail.tabOwners)
+    }
+	  if (tabmail.tabOwners) {
 		  return tabmail.tabOwners.length;
+    }
 		return null;
 	} ,
 	
@@ -817,7 +825,7 @@ quickFilters.Util = {
   // @tabInfo - tabInfo object
   // @type - one of "folder", "message", "search", "mail" (for folders+single messages), "other"
   isTabMode: function(tabInfo, type) {
-    if (!tabInfo) return false;
+    if (!tabInfo) {return false;}
     switch (tabInfo.mode.name) {
       case "mail3PaneTab":
         return (["folder","mail"].includes(type));
@@ -828,7 +836,6 @@ quickFilters.Util = {
       default:
         return (["other"].includes(type));
     }
-    return false;
   },
 	
 	getBaseURI: function baseURI(URL) {
@@ -836,12 +843,15 @@ quickFilters.Util = {
 				queryPos = URL.indexOf('?'),
 				baseURL = URL;
 				
-		if (hashPos>0)
+		if (hashPos>0) {
 			baseURL = URL.substr(0, hashPos);
-		else if (queryPos>0)
+    } else if (queryPos>0) {
 			baseURL = URL.substr(0, queryPos);
-		if (baseURL.endsWith('/'))
-			return baseURL.substr(0, baseURL.length-1); // match "x.com" with "x.com/"
+    }
+		if (baseURL.endsWith('/')) {
+      // match "x.com" with "x.com/"
+      return baseURL.substr(0, baseURL.length - 1);
+    }
 		return baseURL;		
 	} ,
 	
@@ -907,8 +917,8 @@ quickFilters.Util = {
   openURLWithEvent: async function (URL, evt) { // workaround for a bug in TB3 that causes href's not be followed anymore.
 	  const util = quickFilters.Util;
     if (await util.openURLInTab.call(util, URL) && null!=evt) {
-      if (evt.preventDefault)  evt.preventDefault();
-      if (evt.stopPropagation)  evt.stopPropagation();
+      if (evt.preventDefault)  {evt.preventDefault();}
+      if (evt.stopPropagation)  {evt.stopPropagation();}
     }
   },
 
@@ -965,29 +975,30 @@ quickFilters.Util = {
 	} ,	
 	
 	debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
-	  if (!quickFilters.Preferences.isDebugOption("createFilter"))
+	  if (!quickFilters.Preferences.isDebugOption("createFilter")) {
 		  return;
+    }
 	  try {
-			if (msg)
+			if (msg) {
 				quickFilters.Util.logDebugOptional ("createFilter",
-						"Message(\n"
-							+ label1 + "=" + val1 + "\n"
-							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
-							+ " message Id=" + msg.messageId + "\n"
-							+ " author=" + (msg.mime2DecodedAuthor || '') + "\n"
-							+ " subject=" + (msg.mime2DecodedSubject || '') + "\n"
-							+ " recipients=" + (msg.mime2DecodedRecipients || '') + "\n"
-							+ " filterAction=" + (filterAction || '') + "\n"
-							+ " cc=" + (msg.ccList || '') + "\n"
-							+ " bcc=" + (msg.bccList || '') + "\n"
-							+ " author=" +( msg.author || '')
-							+ ")");	
-			else {
+          "Message(\n"
+            + label1 + "=" + val1 + "\n"
+            + " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
+            + " message Id=" + msg.messageId + "\n"
+            + " author=" + (msg.mime2DecodedAuthor || '') + "\n"
+            + " subject=" + (msg.mime2DecodedSubject || '') + "\n"
+            + " recipients=" + (msg.mime2DecodedRecipients || '') + "\n"
+            + " filterAction=" + (filterAction || '') + "\n"
+            + " cc=" + (msg.ccList || '') + "\n"
+            + " bcc=" + (msg.bccList || '') + "\n"
+            + " author=" +( msg.author || '')
+            + ")");	
+      } else {
 				quickFilters.Util.logDebugOptional ("createFilter",
-						"Message(\n"
-							+ label1 + "=" + val1 + "\n"
-							+ " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
-							+ "msg is null.");
+          "Message(\n"
+            + label1 + "=" + val1 + "\n"
+            + " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
+            + "msg is null.");
 			}
 		}
 		catch(ex) {
@@ -1002,7 +1013,6 @@ quickFilters.Util = {
 	} ,
 
   createMessageIdArray: function createMessageIdArray(targetFolder, messageUris) {
-    let Ci = Components.interfaces;
     try {
       try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.createMessageIdArray: target = ' + targetFolder.prettyName );}
       catch(e) { alert('quickFilters.Util.createMessageIdArray:' + e); }
@@ -1025,7 +1035,6 @@ quickFilters.Util = {
       this.logToConsole('Exception in quickFilters.Util.createMessageIdArray \n' + e);
       return null;
     };
-    return null;
   } ,
 
   /**
@@ -1046,10 +1055,10 @@ quickFilters.Util = {
         
         if (afterId) {
           let elem = document.getElementById(afterId);
-          if (elem && elem.parentNode == toolbar)
-              before = elem.nextElementSibling;
-        }
-        else { // If no afterId is given, then insert the item to the toolbar before the search box.
+          if (elem && elem.parentNode == toolbar) {
+            before = elem.nextElementSibling;
+          }
+        } else { // If no afterId is given, then insert the item to the toolbar before the search box.
           // [issue 100] - Improve location of toolbar buttons when installing quickFilters
           before = document.getElementById("gloda-search"); // by default this is usually to the left of the button-appmenu
           if (!before) {
@@ -1066,15 +1075,14 @@ quickFilters.Util = {
         toolbar.insertItem(id, before);
         toolbar.setAttribute("currentset", toolbar.currentSet);
         this.logDebug("document.persist(" + toolbar.id + ")");
-        if (document.persist)
+        if (document.persist) {
           document.persist(toolbar.id, "currentset");
-        else { // code from customizeToolbar.js
+        } else { // code from customizeToolbar.js
           var currentSet = toolbar.currentSet;
           toolbar.setAttribute("currentset", currentSet);
           Services.xulStore.persist(toolbar, "currentset");
         }
-      }
-      catch(ex) {
+      } catch(ex) {
         this.logException("quickFilters.Util.installButton", ex);
       }
      }
@@ -1099,7 +1107,7 @@ quickFilters.Util = {
   },
 
   showHomePage: function showHomePage(queryString) {
-	  if (!queryString) queryString='index.html';
+	  if (!queryString) {queryString='index.html';}
     quickFilters.Util.openURL('https://quickfilters.quickfolders.org/' + queryString);
   } ,
 	
@@ -1144,9 +1152,8 @@ quickFilters.Util = {
 	},
 
 	// function to extract any header (including custom header) from the mail - uses mime Decoder so mesage must be streamable
-  replaceReservedWords: function(dmy, token, arg)	{
-    const util = quickFilters.Util,
-		      prefs = quickFilters.Preferences;
+  replaceReservedWords: function(_dummy, token, arg)	{
+    const util = quickFilters.Util;
     let msgDbHdr = util.CurrentMessage,
         hdr = util.CurrentHeader; 
         
@@ -1175,50 +1182,54 @@ quickFilters.Util = {
 		}
 		
     let tm = new Date(),
-        date = msgDbHdr.date,
-        charset = msgDbHdr.Charset,
-		    expand = function(str) { return str.replace(/%([\w-]+)%/gm, util.replaceReservedWords); }
+      date = msgDbHdr.date,
+      charset = msgDbHdr.Charset,
+      expand = function(str) { return str.replace(/%([\w-]+)%/gm, util.replaceReservedWords); }
 
 		// time of when original message was sent.
     tm.setTime(date / 1000);
 
 		try {
 			switch(token) {
-				case "subject":
+				case "subject": {
 					let ret = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset);
 					return finalize(token, ret);
-				case "subjectRegex":
+        }
+				case "subjectRegex": {
 					let subj = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset),
 					    regex = new RegExp(arg),
 							found = regex.exec(subj),
 							sSubject = found.length ? found[0] : ''; // take the first match only
 					return finalize(token, sSubject);
+        }
 				case "newsgroup":
 					return finalize(token, getNewsgroup());
-				case "identity":
+				case "identity": {
 				  /////
 					let fullId = identity.fullName + ' <' + identity.email + '>';
 					// we need the split to support (name,link) etc.
 					token = quickFilters.mimeDecoder.split(fullId, charset, arg, true); // disable charsets decoding!
-					break;
-				default:
+        } break;
+				default: {
 				  // if (!hdr.get && prefs.isDebug) debugger;
-					let isStripQuote = RegExp(" " + token + " ", "i").test(
-					                   " Bcc Cc Disposition-Notification-To Errors-To From Mail-Followup-To Mail-Reply-To Reply-To" +
-					                   " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "),
-              theHeader = hdr.get(token);
+					const isStripQuote = RegExp(" " + token + " ", "i").test(
+            " Bcc Cc Disposition-Notification-To Errors-To From Mail-Followup-To Mail-Reply-To Reply-To" +
+            " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "),
+            theHeader = hdr.get(token);
           // make sure empty header stays empty for this special case
-          if (!theHeader && RegExp(" " + token + " ", "i").test(" Bcc Cc list-id ")) // [Bug 26649] - list-id may not exist
-            return '';
+          if (!theHeader && RegExp(" " + token + " ", "i").test(" Bcc Cc list-id ")) {
+            // [Bug 26649] - list-id may not exist
+            return "";
+          }
 					if (isStripQuote) {
 						token = quickFilters.mimeDecoder.split(theHeader, charset, arg);
-					}
-					else {
+					} else {
 						token = quickFilters.mimeDecoder.decode(theHeader, charset);
 					}
 					break;
-					// unreachable code! =>
-					// token = token.replace(/\r\n|\r|\n/g, ""); //remove line breaks from 'other headers'
+        }
+        // unreachable code! =>
+        // token = token.replace(/\r\n|\r|\n/g, ""); //remove line breaks from 'other headers'
 			}
 		}
 		catch(ex) {
@@ -1279,7 +1290,7 @@ quickFilters.Util = {
         newTerm.attrib = searchTerm.attrib;
       }
       // nsMsgSearchOpValue
-      if (searchTerm.op) newTerm.op = searchTerm.op;
+      if (searchTerm.op) {newTerm.op = searchTerm.op;}
       if (searchTerm.value) {
         let val = newTerm.value; // nsIMsgSearchValue
         val.attrib = searchTerm.value.attrib;
@@ -1298,7 +1309,7 @@ quickFilters.Util = {
             replaceVal = newVal;
           }
           val.str = replaceVal; // .toLocaleString() ?
-        } else
+        } else {
           switch (val.attrib) {
             case AC.Priority:
               val.priority = searchTerm.value.priority;
@@ -1331,6 +1342,7 @@ quickFilters.Util = {
               val.junkPercent = searchTerm.value.junkPercent;
               break;
           }
+        }
         newTerm.value = val;
 
         // append newTerm ONLY if it does not already exist (avoid duplicates!)
@@ -1363,7 +1375,7 @@ quickFilters.Util = {
               }
             }
           }
-          if (isFound) continue; // skip this term, as it already exists
+          if (isFound) {continue;} // skip this term, as it already exists
 
           // if (mailsToOmit) debugger;
           // avoid own addresses when multiple mail is selected
@@ -1381,7 +1393,7 @@ quickFilters.Util = {
               case AC.To:
               case AC.Cc:
               case AC.ToOrCC:
-              case AC.AllAddresses:
+              case AC.AllAddresses: {
                 if (mailsToOmit.indexOf(val.str) >= 0) {
                   util.logDebug(
                     "Custom Template: omitting own Email Address or Part thereOf: " + val.str + ""
@@ -1404,9 +1416,10 @@ quickFilters.Util = {
                       break;
                     }
                   }
-                  if (matchedDomain) continue; // omit this one as well.
+                  if (matchedDomain) {continue;} // omit this one as well.
                 }
                 break;
+              }
               default:
                 break; // carry on
             }
@@ -1421,10 +1434,13 @@ quickFilters.Util = {
         newTerm.booleanAnd = searchTerm.booleanAnd;
       }
 
-      if ("arbitraryHeader" in searchTerm)
+      if ("arbitraryHeader" in searchTerm) {
         newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
-      if ("hdrProperty" in searchTerm) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
-      if ("customId" in searchTerm) newTerm.customId = searchTerm.customId;
+      }
+      if ("hdrProperty" in searchTerm) {
+        newTerm.hdrProperty = new String(searchTerm.hdrProperty);
+      }
+      if ("customId" in searchTerm) {newTerm.customId = searchTerm.customId;}
 
       // [issue 102]
       if (typeof newTerm.beginsGrouping == "number") {
@@ -1485,7 +1501,7 @@ quickFilters.Util = {
 		atom.filterDesc	= filter.filterDesc;	
 		atom.filterType = filter.filterType;
 		atom.temporary = filter.temporary;
-		if (filter.unparseable) atom.unparseable = true;
+		if (filter.unparseable) {atom.unparseable = true;}
 		atom.actionCount	= filter.actionCount;	
 		atom.enabled	= filter.enabled;	
 		atom.actionList = [];
@@ -1529,7 +1545,7 @@ quickFilters.Util = {
 							atomAction.customAction.allowDuplicates = cA.allowDuplicates;
 						}
 					}
-					catch(ex) {
+					catch {
 						customErrors.push( { name:filter.filterName, customId: action.customId } );
 						util.logToConsole("Filter [" + filter.filterName + "] cannot access customAction with id: " + action.customId + "\n"
 						  + "\nSaving id & strValue only.");
@@ -1538,10 +1554,10 @@ quickFilters.Util = {
 					break;
 			}				
 			try {
-				if (action.strValue)
-					atomAction.strValue = action.strValue;
-			}
-			catch (ex) {;}
+				if (action.strValue) {
+          atomAction.strValue = action.strValue;
+        }
+			} catch  {;}
 			atom.actionList.push(atomAction);
 		}
 		
@@ -1557,7 +1573,7 @@ quickFilters.Util = {
 				atomTerm.attrib = searchTerm.attrib;
 			}
 			// nsMsgSearchOpValue
-			if (searchTerm.op) atomTerm.op = searchTerm.op; 
+			if (searchTerm.op) {atomTerm.op = searchTerm.op;} 
 			if (searchTerm.value) {
 				let val = {}; // nsIMsgSearchValue
 				val.attrib = searchTerm.value.attrib;  
@@ -1572,44 +1588,52 @@ quickFilters.Util = {
 					replaceVal = newVal;
 					val.str = replaceVal;  // .toLocaleString() ?
 				}
-				else switch (val.attrib) {
-					case AC.Priority:
-						val.priority = searchTerm.value.priority;
-						break;
-					case AC.MessageKey:
-						val.msgKey = searchTerm.value.msgKey;
-						break;
-					case AC.AgeInDays:
-						val.age = searchTerm.value.age;
-						break;
-					case AC.Date:
-						val.date = searchTerm.value.date;
-						break;
-					case AC.MsgStatus: 
-						val.status = searchTerm.value.status;
-						break;
-					case AC.JunkStatus:
-						val.junkStatus = searchTerm.value.junkStatus;
-						break;
-					case AC.Size:
-						val.size = searchTerm.value.size;
-						break;
-					case AC.Label:
-						val.label = searchTerm.value.label; // might need special code for copying.
-						break;
-					case AC.FolderInfo:
-						val.folder = searchTerm.value.folder; // might need special code for copying.
-						break;
-					case AC.JunkPercent:
-						val.junkPercent = searchTerm.value.junkPercent; 
-						break;
-				}
+				else {
+          switch (val.attrib) {
+            case AC.Priority:
+              val.priority = searchTerm.value.priority;
+              break;
+            case AC.MessageKey:
+              val.msgKey = searchTerm.value.msgKey;
+              break;
+            case AC.AgeInDays:
+              val.age = searchTerm.value.age;
+              break;
+            case AC.Date:
+              val.date = searchTerm.value.date;
+              break;
+            case AC.MsgStatus: 
+              val.status = searchTerm.value.status;
+              break;
+            case AC.JunkStatus:
+              val.junkStatus = searchTerm.value.junkStatus;
+              break;
+            case AC.Size:
+              val.size = searchTerm.value.size;
+              break;
+            case AC.Label:
+              val.label = searchTerm.value.label; // might need special code for copying.
+              break;
+            case AC.FolderInfo:
+              val.folder = searchTerm.value.folder; // might need special code for copying.
+              break;
+            case AC.JunkPercent:
+              val.junkPercent = searchTerm.value.junkPercent; 
+              break;
+			  	}
+        }
 				atomTerm.value = val;
 			}
 			atomTerm.booleanAnd = searchTerm.booleanAnd;
-			if ('arbitraryHeader' in searchTerm && !isEmpty(searchTerm.arbitraryHeader)) atomTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
-			if ('hdrProperty' in searchTerm && !isEmpty(searchTerm.hdrProperty)) atomTerm.hdrProperty = new String(searchTerm.hdrProperty);
-			if ('customId' in searchTerm && !isEmpty(searchTerm.customId)) atomTerm.customId = searchTerm.customId;
+			if ("arbitraryHeader" in searchTerm && !isEmpty(searchTerm.arbitraryHeader)) {
+        atomTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
+      }
+      if ("hdrProperty" in searchTerm && !isEmpty(searchTerm.hdrProperty)) {
+        atomTerm.hdrProperty = new String(searchTerm.hdrProperty);
+      }
+      if ("customId" in searchTerm && !isEmpty(searchTerm.customId)) {
+        atomTerm.customId = searchTerm.customId;
+      }
 			atomTerm.beginsGrouping = searchTerm.beginsGrouping;
 			atomTerm.endsGrouping = searchTerm.endsGrouping;
 			
@@ -1633,7 +1657,7 @@ quickFilters.Util = {
 			newFilter.filterDesc	= jsonFilter.filterDesc;	
 			newFilter.filterType = jsonFilter.filterType;
 			newFilter.temporary = jsonFilter.temporary;
-			if (jsonFilter.unparseable) newFilter.unparseable = true;
+			if (jsonFilter.unparseable) {newFilter.unparseable = true;}
 			// newFilter.actionCount	= jsonFilter.actionCount;	
 			newFilter.enabled	= jsonFilter.enabled;	
 			
@@ -1687,8 +1711,10 @@ quickFilters.Util = {
 				}
 			}
 			
-      if (suppressTargetFolder && act.type == FA.MoveToFolder)
-        continue; // for custom filter templates, avoids duplicate folder move nonsense
+      if (suppressTargetFolder && act.type == FA.MoveToFolder) {
+        // for custom filter templates, avoids duplicate folder move nonsense
+        continue;
+      }  
 			if (append) {
 				let action;
 				if (isArray) {
@@ -1721,7 +1747,7 @@ quickFilters.Util = {
 						case FA.JunkScore:
 							action.junkScore = act.junkScore;
 							break;
-						case FA.Custom:
+						case FA.Custom: {
 							// note: custom action associated with Id must be set 
 							//       prior to reading ac.customAction attribute
 							action.customId = act.customId;
@@ -1738,12 +1764,17 @@ quickFilters.Util = {
 								  action.customAction.name = cA.name;
 								  action.customAction.allowDuplicates = cA.allowDuplicates;
                 }
-                if (act.hasOwnProperty('strValue'))
+                // eslint-disable-next-line no-prototype-builtins
+                if (act.hasOwnProperty('strValue')) {
                   action.strValue = act.strValue;
+                }
 							}
+              break;
+            }
 						default:
-						  if (act.strValue) 
+						  if (act.strValue) {
 								action.strValue = act.strValue;
+              }
 					}
 					// what about: FA.Forward, FA.Reply, F>.JunkScore
 				}
@@ -1770,10 +1801,10 @@ quickFilters.Util = {
   } ,
   
   extractEmail: function extractEmail(address, domainSwitch) {
-    if (!address) return "";
+    if (!address) {return "";}
     // filter out only mail portion
     let adp = address.match(/[^@<\s]+@[^@\s>]+/g)[0];
-    if (!adp) adp = address
+    if (!adp) {adp = address}
     // regex to strip out the email address
     if (domainSwitch) {
       let at = adp.indexOf('@');
@@ -1814,8 +1845,9 @@ quickFilters.Util = {
           util.filterCustomTemplates(attempt); 
         }, 250);
       }
-      else
-        util.logDebugOptional('template.custom','Giving up on filtering for custom templates.');
+      else {
+        util.logDebugOptional("template.custom", "Giving up on filtering for custom templates.");
+      }
     }
   } ,
 
@@ -1832,15 +1864,12 @@ quickFilters.Util = {
         // only show custom templates, on timeout if not ready
         // we are not using this Util as the originating window will be closed
         qF.Util.filterCustomTemplates(0); 
-      } 
-      catch (ex) {
+      }  catch (ex) {
         util.logException('editCustomTemplates failed', ex);
       }
   } ,
   
   getFilterList: function getFilterList(folder, win) {
-    if (typeof folder.getEditableFilterList === "undefined" || !win)
-      return folder.server.getFilterList(null); // Postbox
     return folder.getEditableFilterList(win);
   },
   
@@ -1859,9 +1888,9 @@ quickFilters.Util = {
         promptLabel = util.getBundleString('quickfilters.prompt.customTemplateName', 
                              'Name of Custom Template:'),
         result = Services.prompt.prompt(window, 'quickFilters', promptLabel, input, null, check); 
-    if (!result)
+    if (!result) {
       return false;
-    else {
+    } else {
       // make new filter
       let filterName = 'quickFilterCustomTemplate: ' + input.value,
           localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
@@ -1923,7 +1952,7 @@ quickFilters.Util = {
   } ,
 	
   hasPremiumLicense: function hasPremiumLicense() {
-    if (!quickFilters.Util.licenseInfo) return false;
+    if (!quickFilters.Util.licenseInfo) {return false;}
     return quickFilters.Util.licenseInfo.status == "Valid";
   } ,
 	
@@ -1934,32 +1963,31 @@ quickFilters.Util = {
 					isExpired = util.licenseInfo.isExpired;
 		try {
 			let uType = "";
-			if (isExpired) 
+			if (isExpired) {
 				uType = "proRenew"
-			else if (isPremiumLicense)
+      } else if (isPremiumLicense) {
 			  uType = "pro";
+      }
 			// make sure we can sanitize all pages for our premium users!
 			if (   uType
 			    && URL.indexOf("user=")==-1 
 					&& URL.indexOf("quickfilters.quickfolders.org")>0 ) {
 				// remove #NAMED anchors
 				let x = URL.indexOf("#"),
-				    anchor = '';
+          anchor = "";
 				if (x>0) {
 					anchor = URL.substr(x);
 					URL = URL.substr(0, x)
 				}
-				if (URL.indexOf("?")==-1)
+				if (URL.indexOf("?")==-1) {
 					URL = URL + "?user=" + uType;
-				else
+        } else {
 					URL = URL + "&user=" + uType;
+        }
 			}
 		}
-		catch(ex) {
-		}
-		finally {
-			return URL;
-		}
+		catch { ; }
+    return URL;
 	} ,
   
 	viewLicense: function viewLicense() {
@@ -2011,7 +2039,7 @@ quickFilters.Util = {
     let len = searchTerms.length;
     for (let i=0; i<len; i++) {
       let t = searchTerms[i];
-      if (t.termAsString == searchTerm.termAsString) return true;
+      if (t.termAsString == searchTerm.termAsString) {return true;}
     }
     return false;
   } ,
@@ -2021,7 +2049,7 @@ quickFilters.Util = {
     const Ci = Components.interfaces;
     let hdrs = Services.prefs.getCharPref("mailnews.customHeaders"),
         ArrayHdrs;
-    if (!hdrs) return 0;
+    if (!hdrs) {return 0;}
     hdrs = hdrs.replace(/\s+/g,'');  //remove white spaces before splitting
     ArrayHdrs = hdrs.split(":");
     for (let i = 0; i < ArrayHdrs.length; i++) {
@@ -2040,12 +2068,8 @@ quickFilters.Util = {
   } ,	
   
   showAboutConfig: function(clickedElement, filter, readOnly) {
-    const name = "Preferences:ConfigManager",
-		      util = quickFilters.Util,
-          Ci = Components.interfaces, 
-          Cc = Components.classes;
-    let isTbModern = util.versionGreaterOrEqual(util.AppverFull, "85"),
-        uri = (isTbModern) ? "about:config": "chrome://global/content/config.xhtml?debug";
+    const name = "Preferences:ConfigManager";
+    const uri = "about:config";
     
     let w = Services.wm.getMostRecentWindow(name),
         win = clickedElement ?
@@ -2057,22 +2081,24 @@ quickFilters.Util = {
     }
     w.focus();
     w.addEventListener('load', 
-      function () {
-        let id = (isTbModern) ? "about-config-search" : "textbox",
-            flt = w.document.getElementById(id);
+      () => {
+        let id = "about-config-search",
+          flt = w.document.getElementById(id);
             
         if (flt) {
           flt.value=filter;
           // make filter box readonly to prevent damage!
-          if (!readOnly)
+          if (!readOnly) {
             flt.focus();
-          else
+          } else {
             flt.setAttribute('readonly',true);
+          }
           if (w.self.FilterPrefs) {
             w.self.FilterPrefs();
           }
         }
-      });
+      }
+    );
   },
   
   // moved from the Shim object
@@ -2196,7 +2222,7 @@ quickFilters.Util = {
   
   // center a window on screen
   centerWindow: function(window) {
-    if (!window) return;
+    if (!window) {return;}
     if (window.screenX==0) {
       let dx = window.outerHeight / 2,
           dy = window.outerWidth / 2;
@@ -2317,7 +2343,7 @@ quickFilters.Util = {
       let p = targetFolder;
       while (p) {
         p = p.parent;
-        if (!p || p.isServer) break;
+        if (!p || p.isServer) {break;}
         if (p.flags & FLG.Archive) {
           console.log(`Disabled Assistant for folder:  ${targetFolder.prettyName} \nIt is in an Archived parent folder.\nFlags: 0x${p.flags.toString(16)}\nURI: ${p.URI}`);
           return true;
@@ -2329,7 +2355,7 @@ quickFilters.Util = {
   
   checkAssistantSourceExclusion: function(sourceFolder) {
     const FLG = quickFilters.Util.FolderFlags;
-    if (!sourceFolder) return false;
+    if (!sourceFolder) {return false;}
     
     let excluded = FLG.Queue | FLG.Templates | FLG.Drafts | FLG.Trash;
     if (excluded & sourceFolder.flags) {
@@ -2340,7 +2366,7 @@ quickFilters.Util = {
 
   getFileInitArg: function(win) {
 		// [bug 1882701] nsIFilePicker.init() first parameter changed from Tb125
-		if (!win) return null;
+		if (!win) {return null;}
 		if (this.versionGreaterOrEqual(this.AppverFull, "125")) {    
 			return win.browsingContext;
 		}
@@ -2349,14 +2375,15 @@ quickFilters.Util = {
 
   patchToolbarTheme: function(event, toolbarObj) {
     const eventType = event?.type;
-    if (!eventType) return false;
+    if (!eventType) {return false;}
 		quickFilters.Util.logDebugOptional("filterList",`patchToolbarTheme(${eventType})`, toolbarObj, event);
 
     switch (eventType) {
       case "activate":
       case "deactivate":
       case "windowlwthemeupdate":
-      case "toolbarvisibilitychange": // this.inferFromText(event.type, event.visible);
+      case "toolbarvisibilitychange": {
+        // this.inferFromText(event.type, event.visible);
         const toolbar = toolbarObj.doc.getElementById(toolbarObj.toolbarId);
         if (!toolbar) {
           quickFilters.Util.logDebugOptional("filterList",`patchToolbarTheme(${eventType})\nDid not find toolbar ${toolbarObj.toolbarId}`);
@@ -2368,6 +2395,7 @@ quickFilters.Util = {
           toolbar.removeAttribute("brighttext");
         }
         break;
+      }
       default:
         return false;
     }
@@ -2440,7 +2468,7 @@ quickFilters.clsGetHeaders = class classGetHeaders {
     }
     catch(ex) {
       util.logException('Reading inputStream failed:', ex);
-      if (!msgContent && !messageFallbackContent) throw(ex);
+      if (!msgContent && !messageFallbackContent) {throw(ex);}
     }
     
     if (msgContent.length==0) {
@@ -2484,10 +2512,10 @@ quickFilters.clsGetHeaders = class classGetHeaders {
     if (str && isUnescapeQuotes) {
       // if a string has nested escaped quotes in it, should we unescape them?
       // "Al \"Karsten\" Seltzer" <fxxxx@gmail.com>
-      retValue = str.replace(/\\\"/g, "\""); // unescape
-    }
-    else
+      retValue = str.replace(/\\"/g, "\""); // unescape
+    } else {
       retValue = str ? str : "";
+    }
     return retValue;
   };
   
@@ -2512,18 +2540,22 @@ quickFilters.mimeDecoder = {
 		 // #    RFC1555 ISO-8859-8 (Hebrew)
 		 // #    RFC1922 iso-2022-cn-ext (Chinese extended)
 
+		// eslint-disable-next-line no-control-regex
 		if (str.search(/\x1b\$[@B]|\x1b\(J|\x1b\$\(D/gi) !== -1) {   // RFC1468 (Japanese)
 		  charset = "iso-2022-jp"; 
 		} 
+		// eslint-disable-next-line no-control-regex
 		if (str.search(/\x1b\$\)C/gi) !== -1)                    {   // RFC1557 (Korean)
 		  charset = "iso-2022-kr"; 
 		} 
 		if (str.search(/~{/gi) !== -1)                           {   // RFC1842 (Chinese ASCII)
 		  charset = "HZ-GB-2312"; 
 		}
+		// eslint-disable-next-line no-control-regex
 		if (str.search(/\x1b\$\)[AG]|\x1b\$\*H/gi) !== -1)       {   // RFC1922 (Chinese) 
 		  charset = "iso-2022-cn"; 
 		}
+		// eslint-disable-next-line no-control-regex
 		if (str.search(/\x1b\$\(D/gi) !== -1) {  // RFC2237 (Japanese 1)
 		  charset = "iso-2022-jp-1"; 
 		}
@@ -2539,6 +2571,7 @@ quickFilters.mimeDecoder = {
 	// MIME decoding.
 	decode: function mime_decode(theString, charset) {
 		let decodedStr = "";
+    const util = quickFilters.Util;
 
 		try {
 			if (/=\?/.test(theString)) {
@@ -2554,8 +2587,7 @@ quickFilters.mimeDecoder = {
 					                  .getParameter(array[i].replace(/%/g, "%%").replace(/ /g, "-%-"), null, charset, true, { value: null })
 					                  .replace(/-%-/g, " ").replace(/%%/g, "%");
 				}
-			}
-			else {
+			} else {
         util.logDebug("Mailer has no manners, trying to decode string: " + theString);
         decodedStr = decodeURIComponent(escape(theString));
         util.logDebug("...decoded string: " + decodedStr);
@@ -2592,16 +2624,18 @@ quickFilters.mimeDecoder = {
 			return a.replace(/.*<(\S+)>.*/g, "$1");
 		}
 
+		// eslint-disable-next-line no-useless-escape
 		function _isLastName(format) { return (format.search(/^\(lastname[,\)]/, "i") != -1); };
     function _getBracketAddressArgs(format) { 
       let reg = /bracketMail\[(.+?)\]/g, // we have previously replaced bracketMail(*) with bracketMail[*] !
           ar = reg.exec(format);
-      if (ar && ar.length>1)
+      if (ar && ar.length>1) {
         return ar[1];
-      return '';
+      }
+      return "";
     };
     function _getCardFromAB(mail) {
-      if (!mail) return null;
+      if (!mail) {return null;}
       // https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Address_Book_Examples
       // http://mxr.mozilla.org/comm-central/source/mailnews/addrbook/public/nsIAbCard.idl
       
@@ -2613,10 +2647,10 @@ quickFilters.mimeDecoder = {
           // alert ("Directory Name:" + addressBook.dirName);
           try {
             let card = addressBook.cardForEmailAddress(mail);
-            if (card)
+            if (card) {
               return card;
-          }
-          catch(ex) {
+            }
+          } catch(ex) {
             util.logDebug('Problem with Addressbook: ' + addressBook.dirName + '\n' + ex) ;
           }
         }
@@ -2641,8 +2675,9 @@ quickFilters.mimeDecoder = {
         // the expression between brackets can also have empty delimiters; e.g. bracketMail(- ;) will prefix "- " and append nothing
         // we use ; as delimiter between the bracket expressions to avoid wrongly splitting format string elsewhere
         // (Should we allow escaped round brackets?)
-        if (!bracketParams.trim())
+        if (!bracketParams.trim()) {
           bracketParams = 'angle';
+        }
         let delimiters = bracketParams.split(';');
         switch(delimiters.length) {
           case 0: // error
@@ -2705,9 +2740,10 @@ quickFilters.mimeDecoder = {
     if (format) {
       // remove parentheses
       if (format.charAt(0)=='(')
-        format = format.slice(1);
-      if (format.charAt(format.length-1)==')')
+        {format = format.slice(1);}
+      if (format.charAt(format.length-1)==')') {
         format = format.slice(0, -1);
+      }
       
       let fs=format.split(',');
       for(let i=0; i<fs.length; i++) {
@@ -2728,8 +2764,9 @@ quickFilters.mimeDecoder = {
     let dbgText = 'addrstr.split() found [' + array.length + '] addresses \n' + 'Formats:\n';
     for (let i=0; i<formatArray.length; i++) {
       dbgText += formatArray[i].field;
-      if (formatArray[i].modifier)  
+      if (formatArray[i].modifier) {
         dbgText += '(' + formatArray[i].modifier + ')';
+      }
       dbgText += '\n';
     }
     util.logDebugOptional('mime.split', dbgText);
@@ -2751,37 +2788,45 @@ quickFilters.mimeDecoder = {
           addressField = array[i];
       // [Bug 25816] - missing names caused by differing encoding
       // MIME decode (moved into the loop)
-      if (!bypassCharsetDecoder)
+      if (!bypassCharsetDecoder) {
         addressField = this.decode(array[i], charset);
+      }
       
 			// Escape "," in mail addresses
 			array[i] = addressField.replace(/\r\n|\r|\n/g, "")
-			                   .replace(/"[^"]*"/,
-			                   function(s){ return s.replace(/-%-/g, ",").replace(/%%/g, "%"); });
+        .replace(
+          /"[^"]*"/,
+          (s) => { return s.replace(/-%-/g, ",").replace(/%%/g, "%"); }
+        );
 			// name or/and address
 			address = array[i].replace(/^\s*([^<]\S+[^>])\s*$/, "<$1>").replace(/^\s*(\S+)\s*\((.*)\)\s*$/, "$2 <$1>");
       
-      util.logDebugOptional('mime.split', 'processing: ' + addressField + ' => ' + array[i] + '\n'
-                                           + 'address: ' + address);
-      // [Bug 25643] get name from Addressbook
+      util.logDebugOptional(
+        "mime.split",
+        `processing: ${addressField} => ${array[i]}\n` + `address: ${address}`
+      );
+// [Bug 25643] get name from Addressbook
       emailAddress = _getEmailAddress(address); // get this always
       // this cuts off the angle-bracket address part: <fredflintstone@fire.com>
       addressee = address.replace(/\s*<\S+>\s*$/, "")
+                      // eslint-disable-next-line no-useless-escape
                       .replace(/^\s*\"|\"\s*$/g, "");  // %to% / %to(name)%
       if (!addressee) { // if no addressee part found we probably have only an email address.; take first part before the @
         addressee = address.slice(0, address.indexOf('@'));
-        if (addressee.charAt('0')=='<')
+        if (addressee.charAt('0')=='<') {
           addressee = addressee.slice(1);
+        }
       }
       // if somebody repeats the email address instead of a name at front, e.g. a.x@tcom, we cut the domain off anyway
-      if (addressee.indexOf('@')>0)
+      if (addressee.indexOf('@')>0) {
         addressee = addressee.slice(0, addressee.indexOf('@'));
+      }
 			fullName = addressee.trim();
       
       let names = fullName.split(' '),
           isOnlyOneName = (names.length==1) ? true : false;
-      if (!firstName) firstName = (names.length) ? names[0] : '';
-      if (!lastName) lastName = (names.length>1) ? names[names.length-1] : '';
+      if (!firstName) {firstName = (names.length) ? names[0] : '';}
+      if (!lastName) {lastName = (names.length>1) ? names[names.length-1] : '';}
       
       // build the part!
       addressField = ""; // reset to finalize
@@ -2794,10 +2839,12 @@ quickFilters.mimeDecoder = {
             part = emailAddress;
             break;
           case "name":
-            if (fullName)
+            if (fullName) {
               part = fullName;
-            else
-              part = address.replace(/.*<(\S+)@\S+>.*/g, "$1"); // email first part fallback
+            } else {
+              // email first part fallback
+              part = address.replace(/.*<(\S+)@\S+>.*/g, "$1");
+            }
             break;
           case "firstname":
             part = firstName;
@@ -2854,9 +2901,9 @@ quickFilters.mimeDecoder = {
             if (isOnlyOneName && format.indexOf("firstname")<0) {
               part = firstName; // fall back to first name if lastName was 
                                 // "emptied" because of duplication
-            }
-            else
+            } else {
               part = lastName;
+            }
             break;
           default:
             if (element.field.indexOf("bracketMail[")==0) {
@@ -2873,7 +2920,7 @@ quickFilters.mimeDecoder = {
         // append the next part
         if (part.length>1) {
           // space to append next parts
-          if(j) addressField += ' ';
+          if(j) {addressField += ' ';}
           addressField += part;
         }
       }
@@ -2914,17 +2961,16 @@ if (!quickFilters.Shim) {
 					let idMail = '';
 					if (account.defaultIdentity) {
 						idMail = account.defaultIdentity.email;
-					}
-					else if (account.identities.length) {
+					} else if (account.identities.length) {
 						idMail = account.identities[0].email; // outgoing identities
-					}
-					else {
+					} else {
 						util.logDebug('getIdentityMailAddresses() found account without identities: ' + account.key);
 					}
 					if (idMail) {
 						idMail = idMail.toLowerCase();
-						if (idMail && MailAddresses.indexOf(idMail)==-1) 
-							MailAddresses.push(idMail);
+						if (idMail && MailAddresses.indexOf(idMail)==-1) {
+              MailAddresses.push(idMail);
+            }
 					}
 				}
 				catch(ex) {
@@ -2939,12 +2985,14 @@ if (!quickFilters.Shim) {
 				// propertyName is what you want
 				// you can get the value like this: myObject[propertyName]
 				try {
+					// eslint-disable-next-line no-prototype-builtins
 					let hasOwn = msgHdr.hasOwnProperty(propertyName),
 							isCopied = false;  // replace msgHdr[propertyName] with prop
 					if (hasOwn && typeof prop != "function" && typeof prop != "object") {
 						messageClone[propertyName] = msgHdr[propertyName]; // copy to the clone!
-						if (messageClone[propertyName])  // make sure we have some data! (e.g. author, subject, recipient, date, charset, messageId)
+						if (messageClone[propertyName]) {  // make sure we have some data! (e.g. author, subject, recipient, date, charset, messageId)
 							dbg.countInit ++;
+            }
 						isCopied = true;
 					}
 					if (isCopied) {
@@ -2954,7 +3002,7 @@ if (!quickFilters.Shim) {
 						dbg.test2 = appendProperty(dbg.test2, msgHdr, propertyName);
 					}
 				}
-				catch(ex) { ; }
+				catch { ; }
 			}
 		} ,
 		

@@ -8,7 +8,9 @@ module.exports = {
   globals: {
     browser: "readonly",
     gFolderDisplay: "readonly",
+    gTabmail: "readonly",
     messenger: "readonly",
+    i18n: "readonly",
     ChromeUtils: "readonly",
     Components: "readonly",
     GetSelectedMsgFolders: "readonly",

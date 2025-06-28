@@ -10,6 +10,12 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+/* 
+  globals
+    Preferences
+*/
+
+
 var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
 var quickFilters_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
 var { MailServices } = quickFilters_ESM
@@ -32,10 +38,11 @@ quickFilters.Options = {
 			try {
 				this.optionsMode = window.arguments[1].inn.mode;
 				// force selection of a certain pane (-1 ignores)
-				if (this.optionsMode >= 0)
+				if (this.optionsMode >= 0) {
 					prefs.setIntPref('lastSelectedOptionsTab', this.optionsMode);
+        }
 			}
-			catch(e) {;}
+			catch {;}
     }
 
 		let tabbox = getElement("quickFilters-Options-Tabbox");
@@ -73,7 +80,7 @@ quickFilters.Options = {
 		}
 		
     let version = util.Version;
-    if (version=="") version='version?';
+    if (version=="") {version='version?';}
 
     let versionLabel = getElement("qf-options-version");
     versionLabel.setAttribute("value", version);
@@ -98,7 +105,7 @@ quickFilters.Options = {
     
     options.configExtra2Button();		
 		let panels = getElement('quickFilters-Panels');
-		panels.addEventListener('select', function(evt) { quickFilters.Options.onTabSelect(panels,event); } );
+		panels.addEventListener('select', function(_evt) { quickFilters.Options.onTabSelect(panels,event); } );
 		
     // dialog buttons are in a shadow DOM which needs to load its own css.
     // https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
@@ -114,7 +121,7 @@ quickFilters.Options = {
     // add tooltips:
     for (let node of document.querySelectorAll(".helpLink[clickyTooltip]")) {
       node.addEventListener("click",
-        (event) => {
+        (_event) => {
           window.quickFilters.Util.openTooltipPopup(node);
         }
       );    
@@ -134,8 +141,8 @@ quickFilters.Options = {
     terms.firstChild.textContent = termsTxt[0];
     let termsList = getElement("licenseOptions");
     // replace all leading whitespaces and "-"
-    termsList.appendChild(document.createElement("li")).textContent = termsTxt[1].replace(/\s*\-\s*/, ""); 
-    termsList.appendChild(document.createElement("li")).textContent = termsTxt[2].replace(/\s*\-\s*/, "");
+    termsList.appendChild(document.createElement("li")).textContent = termsTxt[1].replace(/\s*-\s*/, ""); 
+    termsList.appendChild(document.createElement("li")).textContent = termsTxt[2].replace(/\s*-\s*/, "");
 
     // split and inject a href link to QuickFolders.
     let cfd = getElement("currentFolderDescription");
@@ -145,13 +152,13 @@ quickFilters.Options = {
     QFlink.id = "quickfoldersLink";
     QFlink.textContent = "QuickFolders";
     cfd.appendChild(document.createTextNode(nodes[1]));
-    QFlink.addEventListener("click", (evt) => {quickFilters.Util.showQuickFolders();});
+    QFlink.addEventListener("click", (_evt) => {quickFilters.Util.showQuickFolders();});
 
 
     // ondialogextra2 event is broken!
     let extra2 = document.documentElement.getButton("extra2");
     if (extra2) {
-      extra2.addEventListener("click", (evt) => { 
+      extra2.addEventListener("click", (_evt) => { 
         window.quickFilters.Util.showLicenseDialog('options_' + window.quickFilters.Options.currentOptionsTab); 
         window.close();
       });
@@ -206,8 +213,9 @@ quickFilters.Options = {
 			
 			
 			util.logDebug("Adding " + prefArray.length + " preferences to Preferences loader…")
-			if (Preferences)
+			if (Preferences) {
 				Preferences.addAll(prefArray);
+      }
 		}
 		util.logDebug("loadPreferences - finished.");
 	} ,
@@ -218,10 +226,12 @@ quickFilters.Options = {
     let prefString = cb.getAttribute("preference"),
         pref = document.getElementById(prefString);
     
-    if (pref)
+    if (pref) {
       quickFilters.Preferences.setBoolPrefNative(pref.getAttribute('name'), cb.checked);
-    if (noUpdate)
+    }
+    if (noUpdate) {
       return true;
+    }
     return false // this.updateMainWindow();
   },
   
@@ -247,7 +257,7 @@ quickFilters.Options = {
         input = {value: ""},
         check = {value: false},
         result = Services.prompt.prompt(window, title, text, input, null, check); 
-    if (!result) return;
+    if (!result) {return;}
   
     let sURL="mailto:" + mailto + "?subject=[quickFilters]" + encodeURI(" " + input.value), // urlencode
         // make the URI
@@ -271,7 +281,7 @@ quickFilters.Options = {
 		let trimmedLicense =  
 		  strLicense.replace(/\r?\n|\r/g, ' ') // replace line breaks with spaces
 				.replace(/\s\s+/g, ' ')            // collapse multiple spaces
-        .replace('\[at\]','@')
+        .replace('[at]','@')
 				.trim();
     txtBox.value = trimmedLicense;
     util.logDebug('trimLicense() result : ' + trimmedLicense);
@@ -338,7 +348,7 @@ quickFilters.Options = {
           let d = new Date(decryptedDate);
           niceDate =d.toLocaleDateString();
         }
-        catch(ex) { niceDate = decryptedDate; }
+        catch { niceDate = decryptedDate; }
       }
       licenseDate.value = niceDate; 
       
@@ -348,7 +358,7 @@ quickFilters.Options = {
           validationPassed.collapsed=false;
           licenseDate.classList.add('valid'); // [issue 92]
           break;
-        case "Invalid":
+        case "Invalid": {
 				  validationDate.collapsed=true;
 				  let addonName = '';
 				  switch (quickFilters.Util.licenseInfo.licenseKey.substr(0,2)) {
@@ -373,7 +383,7 @@ quickFilters.Options = {
 						}
 						validationInvalidAddon.textContent = txt;
 					}
-          break;
+        } break;
         case "Expired":
           validationExpired.collapsed=false;
           break;
@@ -404,7 +414,7 @@ quickFilters.Options = {
   
   validateNewKey: async function validateNewKey() {
     this.trimLicense();
-    let rv = await quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicense", key: document.getElementById("txtLicenseKey").value });
+    await quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicense", key: document.getElementById("txtLicenseKey").value });
     // The background script will validate the new key and send a broadcast to all consumers on sucess.
     // In this script, the consumer is onBackgroundUpdate.
   },
@@ -425,17 +435,18 @@ quickFilters.Options = {
 					txtBox = document.getElementById('txtLicenseKey'),
 					strLicense = pastetext.toString();
 			txtBox.value = strLicense;
+			// eslint-disable-next-line no-unused-vars
 			finalLicense = this.trimLicense();
 		}    
     this.validateNewKey();
   } ,
   
-  validateLicenseInOptions: function validateLicenseInOptions(testMode) {
+  validateLicenseInOptions: function validateLicenseInOptions(_testMode) {
 		function replaceCssClass(el,addedClass) {
 			el.classList.add(addedClass);
-			if (addedClass!='paid')	el.classList.remove('paid');
-			if (addedClass!='expired')	el.classList.remove('expired');
-			if (addedClass!='free')	el.classList.remove('free');
+			if (addedClass!='paid')	{el.classList.remove('paid');}
+			if (addedClass!='expired')	{el.classList.remove('expired');}
+			if (addedClass!='free')	{el.classList.remove('free');}
 		}
 		const util = quickFilters.Util,
 					options = quickFilters.Options; 
@@ -443,8 +454,7 @@ quickFilters.Options = {
         getElement = wd.getElementById.bind(wd),
         btnLicense = getElement("btnLicense"),
 				proTab = getElement("quickFilters-Pro"),
-        titleContainer = getElement("qf-options-header"),
-				beautyTitle = getElement("qf-title");
+        titleContainer = getElement("qf-options-header");
     try {
       // old call to decryptLicense was here
       // 1 - sanitize License
@@ -457,20 +467,20 @@ quickFilters.Options = {
       
 			let result = quickFilters.Util.licenseInfo.status;
 			switch(result) {
-				case "Valid":
+				case "Valid": {
 					let today = new Date(),
 					    later = new Date(today.setDate(today.getDate()+30)), // pretend it's a month later:
 							dateString = later.toISOString().substr(0, 10);
 					// if we were a month ahead would this be expired?
 					if (quickFilters.Util.licenseInfo.expiryDate < dateString) {
 						options.labelLicenseBtn(btnLicense, "extend");
-					}
-					else
+					} else {
 				  	btnLicense.collapsed = true;
+          }
 					replaceCssClass(proTab, 'paid');
 					replaceCssClass(btnLicense, 'paid');
           titleContainer.classList.add("pro");
-				  break;
+				} break;
 				case "Expired":
 					options.labelLicenseBtn(btnLicense, "renew");
 					replaceCssClass(proTab, 'expired');
@@ -527,7 +537,7 @@ quickFilters.Options = {
 			return;
 		}
 		let donateButton = document.documentElement.getButton('extra2');
-		if(!el) el = document.getElementById("quickFilters-Panels");
+		if(!el) {el = document.getElementById("quickFilters-Panels");}
 		switch (el.selectedPanel.id) {
 			case 'quickFilters-Options-goPro':
 				donateButton.collapsed = true;
@@ -538,7 +548,7 @@ quickFilters.Options = {
 					options.labelLicenseBtn(donateButton, "buy");
 					donateButton.addEventListener(
 						"click", 
-					  function(event) { 
+					  function(_event) { 
               quickFilters.Util.showLicenseDialog('licenseTab'); 
 						}, 
 						false);
@@ -569,10 +579,9 @@ quickFilters.Options = {
 	
 	// put appropriate label on the license button and pass back the label text as well
 	labelLicenseBtn: function labelLicenseBtn(btnLicense, validStatus) {
-		const prefs = quickFilters.Preferences,
-		      util = quickFilters.Util;
+		const util = quickFilters.Util;
 		switch(validStatus) {
-			case  "extend":
+			case  "extend": {
 				let txtExtend = util.getBundleString("quickfilters.notification.premium.btn.extendLicense", "Extend License!");
 				btnLicense.collapsed = false
 				btnLicense.label = txtExtend; // text should be extend not renew
@@ -580,22 +589,24 @@ quickFilters.Options = {
 					util.getBundleString("quickfilters.notification.premium.btn.extendLicense.tooltip", 
 						"This will extend the current license date by 1 year. It's typically cheaper than a new license."));
 				return txtExtend;
-			case "renew":
+      }
+			case "renew": {
 				let txtRenew = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
 				btnLicense.label = txtRenew;
 			  return txtRenew;
-			case "buy":
+      }
+			case "buy": {
 				let buyLabel = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
 				btnLicense.label = buyLabel;
 			  return buyLabel;
+      }
 		}
 		return "";
 	} ,
   
   // scope = "folder" or "mails"
   configureShortcut: function configureShortcut(el, scope) {
-		const prefs = quickFilters.Preferences,
-		      util = quickFilters.Util;
+		const util = quickFilters.Util;
     util.logDebug("Changing shortcut setting for run filters on " + scope);
     const win = util.getMail3PaneWindow();
     setTimeout( function() { win.quickFilters.addKeyListener(win); }, 1000); // will enable key listener if previously disabled.

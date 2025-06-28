@@ -514,8 +514,10 @@ END LICENSE BLOCK
       for (let t = 0; t < len; t++) {
         let searchTerm = stCollection[t];
         if (searchTerm.value) {
+          // eslint-disable-next-line no-unused-vars
           let val = searchTerm.value; // nsIMsgSearchValue
           if (val && util.isStringAttrib(val.attrib)) {
+            // eslint-disable-next-line no-unused-vars
             let conditionStr = searchTerm.value.str || "";
           }
         }

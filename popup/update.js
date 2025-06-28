@@ -7,6 +7,11 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 // Script for splash screen displayed when updating this Extension
 
+/* 
+  globals
+    updateActions,
+*/
+
 const SALE_REDUCTION = "30%";   // reduction for buying quickFilters Pro
 const RENEW_REDUCTION = "20%";  // reduction for renewals
 
@@ -47,7 +52,7 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
   });  
 
 
-  addEventListener("load", async (event) => {
+  addEventListener("load", async (_event) => {
     const manifest = await messenger.runtime.getManifest(),
           browserInfo = await messenger.runtime.getBrowserInfo(),
           addonName = manifest.name,
@@ -78,16 +83,17 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
       if (!msg) {
         hasMsg = false;
       }
-      else console.log ("Splash screen - got a message\n" + msg);
+      else {console.log ("Splash screen - got a message\n" + msg);}
     }
       
     let h1 = document.getElementById("heading-updated");
     if (h1) {
       // this api function can do replacements for us
-      if (!hasMsg)
+      if (!hasMsg) {
         h1.innerText = messenger.i18n.getMessage("heading-updated", addonName);
-      else
+      } else {
         h1.innerText = "License Supported Feature";
+      }
     }
     
     if (hasMsg) {
@@ -99,10 +105,11 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     
     let introMsg = document.getElementById('intro-msg');
     if (introMsg) {
-      if (!hasMsg)
+      if (!hasMsg) {
         introMsg.innerText = messenger.i18n.getMessage("thanks-for-updating-intro", addonName);
-      else
+      } else {
         introMsg.innerText = msg;
+      }
     }
     
     let verInfo = document.getElementById('active-version-info');
@@ -123,8 +130,8 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     
     let timeAndEffort =  document.getElementById('time-and-effort');
     if (timeAndEffort) {
-      if (hasMsg) timeAndEffort.setAttribute('collapsed',true);
-      else timeAndEffort.innerText = messenger.i18n.getMessage("time-and-effort", addonName);
+      if (hasMsg) {timeAndEffort.setAttribute('collapsed',true);}
+      else {timeAndEffort.innerText = messenger.i18n.getMessage("time-and-effort", addonName);}
     }
     
     let suggestion = document.getElementById('support-suggestion');
@@ -200,9 +207,6 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
 
   });  
 
-  addEventListener("unload", async (event) => {
-    let remindMe = document.getElementById("remind").checked;
-  });  
 
 
 

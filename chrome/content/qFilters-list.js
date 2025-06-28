@@ -10,6 +10,13 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+/*
+  globals
+    gCurrentFilterList,
+    gFilterTreeView,
+    
+*/
+
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.List = {
   eventsAreHooked: false ,
@@ -52,8 +59,9 @@ quickFilters.List = {
   // helper Property for SeaMonkey/Postbox (which doesn't have a gCurrentFilterList)
   get FilterList() {
     try {
-      if (typeof gCurrentFilterList !== "undefined")
+      if (typeof gCurrentFilterList !== "undefined") {
         return gCurrentFilterList;
+      }
     }
     catch(ex) {
       quickFilters.Util.logException('quickFilters.List.FilterList: ', ex);
@@ -63,9 +71,7 @@ quickFilters.List = {
 
   // SeaMonkey / Postbox helper
   get gFilterTreeView() {
-    if (typeof gFilterTreeView !== "undefined")
-      return gFilterTreeView; // SM
-    return gFilterTree.view; //Postbox
+    return gFilterTreeView; //Postbox
   } ,
 	
   get ServerMenu() {
@@ -1523,7 +1529,7 @@ quickFilters.List = {
         // PROBLEM HERE!! -->
         aFolder = account ?
 					(MailUtils ? 
-					  (MailUtils.getExistingFolder ? MailUtils.getExistingFolder(account.serverURI) : MailUtils.getFolderForURI(account.serverURI)) 
+					  MailUtils.getExistingFolder(account.serverURI)
 						: account.rootMsgFolder) 
 					: null;
 
@@ -1532,8 +1538,9 @@ quickFilters.List = {
       let serverPopup = qList.ServerMenuPopup;
       serverPopup.selectFolder(aFolder); // this didn't rebuild anymore!
 			// rebuild list in case of server change
-			if (typeof gCurrentFilterList !== 'undefined')  // Tb
+			if (typeof gCurrentFilterList !== 'undefined')  { // Tb
 				gCurrentFilterList = aFolder.getEditableFilterList(gFilterListMsgWindow);
+      }
 			qList.rebuildFilterList();
 			qList.RunFolder = aFolder;  // also refreshes buttons
 		}
