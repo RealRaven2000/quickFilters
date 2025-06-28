@@ -10,6 +10,21 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+/*
+  globals
+    createSearchRow,
+    gFilter,
+    getSearchRowIndexForElement,
+    gSearchTermList,
+    gSearchScope,
+    gTotalSearchTerms: writable,
+    initializeDialog,
+    onAccept,
+    removeSearchRow,
+    saveFilter,
+    updateRemoveRowButton,
+*/
+
 // highlight removable filter conditions (duplicates)
 // window.onload = function()
 {
@@ -17,7 +32,7 @@ END LICENSE BLOCK
   quickFilters.FilterEditor = {
     isBetterBird: false,
     isDisabled: false,
-    onLoad: function loadEditor(event) {
+    onLoad: function loadEditor(_event) {
       const txtAbort = "Abandoning quickFilters processing.";
       if (!gFilter) {
         quickFilters.FilterEditor.isDisabled = true;
@@ -29,8 +44,7 @@ END LICENSE BLOCK
       }
       quickFilters.FilterEditor.isBetterBird =
         typeof gFilter.searchTerms[0].beginsGrouping == "number";
-      const util = quickFilters.Util,
-        prefs = quickFilters.Preferences;
+      const util = quickFilters.Util;
       util.logDebug("quickFilters.loadEditor()");
       // filterEditorOnLoad(); was already called as we now use a listener!
       setTimeout(function () {
@@ -109,7 +123,7 @@ END LICENSE BLOCK
               while (!found) {
                 for (let c = 0; c < list.children.length; c++) {
                   let item = list.children[c];
-                  if (item.childNodes)
+                  if (item.childNodes) {
                     for (let lc = 0; lc < item.childNodes.length; lc++) {
                       let listcell = item.childNodes[lc];
                       if (
@@ -136,11 +150,12 @@ END LICENSE BLOCK
                         }
                       }
                     }
-                  if (found) break;
+                  }
+                  if (found) {break;}
                 }
                 if (!found) {
                   util.logDebug("rowIndex = " + rowIndex + ",  lastrowIndex =" + lastrowIndex);
-                  if (lastrowIndex == rowIndex) break; // endless while if nothing found.
+                  if (lastrowIndex == rowIndex) {break;} // endless while if nothing found.
                   lastrowIndex = rowIndex;
                   rowIndex = searchRowIndex + 1;
                   util.logDebug("next rowIndex = " + rowIndex);
@@ -152,7 +167,7 @@ END LICENSE BLOCK
             }
 
             // highlight the row of the matched element
-            if (firstMatch)
+            if (firstMatch) {
               try {
                 list.ensureElementIsVisible(firstMatch);
                 firstMatch.style.backgroundImage =
@@ -161,10 +176,11 @@ END LICENSE BLOCK
               } catch (ex) {
                 util.logException("Highlighting matched row failed:" + ex);
               }
+            }
           } else {
             util.logDebug("No arguments for highlighting duplicates.");
           }
-        } else util.logDebug("No window arguments!");
+        } else {util.logDebug("No window arguments!");}
       }, 100);
 
       setTimeout(function () {
@@ -173,7 +189,8 @@ END LICENSE BLOCK
 
       // [issue 108]  Edit fields of custom search term "Reply-To" is not displayed in Thunderbird 101.b4
       function refreshItems() {
-        if (!gFilter.searchTerms) return false;
+        if (!gFilter.searchTerms) {return false;}
+        // eslint-disable-next-line curly
         if (!gFilter.searchTerms.length) return false;
         const isComplexFiltering = quickFilters.FilterEditor.isBetterBird;
         const isSimpleFiltering = !isComplexFiltering;
@@ -196,7 +213,7 @@ END LICENSE BLOCK
               try {
                 // evalute the nsIMsgSearchValue
                 filterVal = gFilter.searchTerms[i].value.str;
-              } catch (ex) {}
+              } catch { ; }
               if (filterVal && val.getAttribute("value") != filterVal) {
                 quickFilters.Util.logToConsole(
                   `Fixing search term ${gFilter.searchTerms[i].customId} - re-adding value "${filterVal}" ...`
@@ -281,12 +298,10 @@ END LICENSE BLOCK
       clipboardhelper.copyString(variable);
       //  remove *...*
       hdr = variable.substring(1, variable.length - 1);
-      let argPos = hdr.indexOf("("),
-        isCustom = false;
-      if (argPos > 0) hdr = hdr.substring(0, argPos);
+      let argPos = hdr.indexOf("(");
+      if (argPos > 0) {hdr = hdr.substring(0, argPos);}
       // make sure this is a known header!
       if (!["from", "to", "cc", "bcc", "subject", "subjectRegex", "reply-to"].includes(hdr)) {
-        isCustom = true;
         if (!util.checkCustomHeaderExists(hdr)) {
           txt = util.getBundleString(
             "quickfilters.prompt.createCustomHeader",
@@ -309,17 +324,14 @@ END LICENSE BLOCK
       this.addCondition(hdr, variable);
     },
 
-    onDomLoaded: function (event) {
-      const util = quickFilters.Util,
-        prefs = quickFilters.Preferences;
+    onDomLoaded: function (_event) {
+      const util = quickFilters.Util;
       util.logDebug("quickFilters.editorDomLoaded()");
     },
 
     addCondition: function addFilterCondition(hdr, value) {
       const Ci = Components.interfaces,
-        Cc = Components.classes,
         util = quickFilters.Util,
-        prefs = quickFilters.Preferences,
         typeAttrib = Ci.nsMsgSearchAttrib,
         typeOperator = Ci.nsMsgSearchOp;
 
@@ -354,7 +366,7 @@ END LICENSE BLOCK
           searchTerm.customId = "quickFilters@axelg.com#replyTo";
           searchTerm.arbitraryHeader = "Reply-To";
           break;
-        default: // custom header
+        default: { // custom header
           searchTerm.attrib = typeAttrib.Custom;
           //
           // document.getAnonymousNodes(gSearchTermList)[1]
@@ -369,7 +381,7 @@ END LICENSE BLOCK
           if ("arbitraryHeader" in searchTerm) {
             searchTerm.arbitraryHeader = hdr;
           }
-          break;
+        } break;
       }
       let val = searchTerm.value;
       val.attrib = searchTerm.attrib; // we assume this is always a string attribute
@@ -391,17 +403,17 @@ END LICENSE BLOCK
       function compareTerms(a, b) {
         try {
           // Ci.nsMsgSearchAttrib - long
-          if (a.attrib > b.attrib) return 1;
-          if (a.attrib < b.attrib) return -1;
+          if (a.attrib > b.attrib) {return 1;}
+          if (a.attrib < b.attrib) {return -1;}
           // Ci.nsMsgSearchOp - long
-          if (a.op > a.op) return 1;
-          if (a.op < a.op) return -1;
+          if (a.op > a.op) {return 1;}
+          if (a.op < a.op) {return -1;}
           // atrtirbute and operand are the same, now let"s sort equal values
           if (util.isStringAttrib(a.value.attrib)) {
-            if (a.value.str > b.value.str) return 1;
-            if (a.value.str < b.value.str) return -1;
+            if (a.value.str > b.value.str) {return 1;}
+            if (a.value.str < b.value.str) {return -1;}
           }
-        } catch (ex) {}
+        } catch { ; }
         // we don"t care about the rest
         return 0;
       }
@@ -421,9 +433,9 @@ END LICENSE BLOCK
         let currentPartition = [];
         let lastBeginsGrouping = -1;
 
-        termsArray.forEach((term, index) => {
+        termsArray.forEach((term, _index) => {
           if (term.beginsGrouping > lastBeginsGrouping) {
-            if (currentPartition.length) partitions.push(currentPartition);
+            if (currentPartition.length) {partitions.push(currentPartition);}
             currentPartition = [];
           }
 
@@ -434,7 +446,7 @@ END LICENSE BLOCK
           currentPartition.push(term);
 
           if (term.endsGrouping > 0) {
-            if (currentPartition.length) partitions.push(currentPartition);
+            if (currentPartition.length) {partitions.push(currentPartition);}
             currentPartition = [];
             lastBeginsGrouping = term.endsGrouping > 0 ? 0 : lastBeginsGrouping; // was -1
           }
@@ -487,7 +499,7 @@ END LICENSE BLOCK
       }
 
       if (!util.hasPremiumLicense()) {
-        if (!util.popupProFeature("sortSearchTerms", true)) return;
+        if (!util.popupProFeature("sortSearchTerms", true)) {return;}
       }
       // 1st save in case there were edits on screen!
       if (!saveFilter()) {
@@ -501,10 +513,8 @@ END LICENSE BLOCK
         len = stCollection.length;
       for (let t = 0; t < len; t++) {
         let searchTerm = stCollection[t];
-        //
         if (searchTerm.value) {
-          let val = searchTerm.value, // nsIMsgSearchValue
-            AC = Ci.nsMsgSearchAttrib;
+          let val = searchTerm.value; // nsIMsgSearchValue
           if (val && util.isStringAttrib(val.attrib)) {
             let conditionStr = searchTerm.value.str || "";
           }
@@ -532,7 +542,7 @@ END LICENSE BLOCK
       );
 
       const stCopy = theFilter.searchTerms; // Array<nsIMsgSearchTerm> searchTerms;
-      while (stCopy.length) stCopy.pop();
+      while (stCopy.length) {stCopy.pop();}
       theFilter.searchTerms = stCopy;
 
       // Bb hasn't got gTotalSearchTerms. it's more complicated!
@@ -540,7 +550,7 @@ END LICENSE BLOCK
         // initializeSearchRows(gSearchScope, theFilter.searchTerms);
         while (gSearchTermList.children.length > 1) {
           let lastItem = gSearchTermList.getItemAtIndex(gSearchTermList.children.length - 1);
-          if (!lastItem) break;
+          if (!lastItem) {break;}
 
           // Find the remove button
           const removeButton = lastItem.querySelector("button.small-button[label='−']");
@@ -595,8 +605,8 @@ END LICENSE BLOCK
   // custom search conditions: replace bindings - needed for:
   // # replyTo
   function patchCustomTextbox(es) {
-    if (es.firstChild && es.firstChild.classList.contains("qi-textbox")) return true;
-    if (es.firstChild) es.removeChild(es.firstChild);
+    if (es.firstChild && es.firstChild.classList.contains("qi-textbox")) {return true;}
+    if (es.firstChild) {es.removeChild(es.firstChild);}
     // patch!
     try {
       let textbox = window.MozXULElement.parseXULToFragment(
@@ -618,22 +628,22 @@ END LICENSE BLOCK
   } 
         
         
-  function callbackCustomSearchCondition(mutationList, observer) {
+  function callbackCustomSearchCondition(mutationList, _observer) {
     mutationList.forEach( (mutation) => {
       switch(mutation.type) {
-        case "childList":
+        case "childList": {
           /* One or more children have been added to and/or removed
              from the tree.
              (See mutation.addedNodes and mutation.removedNodes.) */
           // iterate nodelist of added nodes
           let nList = mutation.addedNodes;
           nList.forEach( (el) => {
-            if (!el.querySelectorAll) return; // leave the anonymous function, this continues with the next forEach
+            if (!el.querySelectorAll) {return;} // leave the anonymous function, this continues with the next forEach
             let hbox = el.querySelectorAll("hbox.search-value-custom");
             hbox.forEach ( (es) => {
               let attType = es.getAttribute("searchAttribute"),
                   isPatched = false;
-              if (!attType.startsWith("quickFilters@")) return;
+              if (!attType.startsWith("quickFilters@")) {return;}
               
               util.logDebug("Mutation observer (childList), check for patching: " + es);
               
@@ -650,37 +660,35 @@ END LICENSE BLOCK
               
             });
           });
-          break;
-          case "attributes":
-          {
-            let es = mutation.target;
-            if (es.classList.contains("search-value-custom")) {
-              let attType = es.getAttribute("searchAttribute"),
-                  isPatched = false;
-              util.logDebug("attribute changed: " + attType);
-              if (!attType.startsWith("quickFilters@")) return;
-              
-              
-              util.logDebug("Mutation observer (attribute), check for patching: " + es);
-              // console.log(es);
-              
-              switch(attType) {
-                case "quickFilters@axelg.com#replyTo" :      
-                  if (es.firstChild) {
-                    if (es.firstChild.classList.contains("qi-textbox")) return;
-                    es.removeChild(es.firstChild);
-                  }
-                  isPatched = patchCustomTextbox(es);
-                  break;
-                default:
-                  // irrelevant for quickFilters
-              }
-              if (isPatched) {
-                util.logDebug("mutation observer patched: "  + es);
-              }               
+        } break;
+        case "attributes": {
+          let es = mutation.target;
+          if (es.classList.contains("search-value-custom")) {
+            let attType = es.getAttribute("searchAttribute"),
+                isPatched = false;
+            util.logDebug("attribute changed: " + attType);
+            if (!attType.startsWith("quickFilters@")) {return;}
+            
+            
+            util.logDebug("Mutation observer (attribute), check for patching: " + es);
+            // console.log(es);
+            
+            switch(attType) {
+              case "quickFilters@axelg.com#replyTo" :      
+                if (es.firstChild) {
+                  if (es.firstChild.classList.contains("qi-textbox")) {return;}
+                  es.removeChild(es.firstChild);
+                }
+                isPatched = patchCustomTextbox(es);
+                break;
+              default:
+                // irrelevant for quickFilters
             }
-          }
-          break;          
+            if (isPatched) {
+              util.logDebug("mutation observer patched: "  + es);
+            }               
+          } 
+        } break;          
       }
     });
   }

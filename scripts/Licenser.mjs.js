@@ -25,22 +25,12 @@ const LicenseStates = {
 const ADDON_NAME = "quickFilters";
 
 async function getDefaultIdentity(accountId) {
-    const legacyIdentityMethod = (messenger.identities) ? false : true;
-    const _getDefaultIdentity = messenger.identities ? messenger.identities.getDefault : messenger.accounts.getDefaultIdentity;
-    try {
-      if (legacyIdentityMethod)
-        return await _getDefaultIdentity(accountId);
-      try {  // Tb 91
-        return await _getDefaultIdentity(accountId, false);  // avoid loading folders!
-      }
-      catch(ex) { // older versions don't have the second parameter
-        return await await _getDefaultIdentity(accountId);
-      }
-    }
-    catch (ex) {
-      console.log(ADDON_NAME + " Licenser - getDefaultIdentity() failed", ex);
-    }
-    return null; // should not happen
+  try {
+    return await messenger.identities.getDefault(accountId);
+  } catch (ex) {
+    console.warn(`${ADDON_NAME} messenger.identities.getDefault(${accountId}) failed:`, ex);
+    return null;
+  }
 }
 
 // format QF-EMAIL:DATE  // ;CRYPTO

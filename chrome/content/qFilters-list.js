@@ -1685,8 +1685,7 @@ quickFilters.List = {
 		const Cc = Components.classes,
           Ci = Components.interfaces,
           util = quickFilters.Util,
-					prefs = quickFilters.Preferences,
-					NSIFILE = Ci.nsILocalFile || Ci.nsIFile;
+					prefs = quickFilters.Preferences;
 		if (!util.popupProFeature(mode + "Filters", true))
       return; // saveFilters, loadFilters
 					
@@ -1696,7 +1695,7 @@ quickFilters.List = {
     
 		let dPath = prefs.getStringPref('files.path');
 		if (dPath) {
-			let defaultPath = Cc["@mozilla.org/file/local;1"].createInstance(NSIFILE);
+			let defaultPath = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
 			defaultPath.initWithPath(dPath);
 			if (defaultPath.exists()) { // avoid crashes if the folder has been deleted
 				fp.displayDirectory = defaultPath; // nsILocalFile

@@ -17,13 +17,13 @@ var AssistantActive = false;
 //TODO: textbox in CSS, search box??
 //TODO mailWindowOverlay: was never in use??
 //debugger;
-messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
+messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
   let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
   
   // Wait until the main startup routine has finished!
   await new Promise((resolve) => {
     if (startupFinished) {
-      if (isDebug) console.log("quickFilters - startup code finished.");
+      if (isDebug) {console.log("quickFilters - startup code finished.");}
       // Looks like we missed the one send by main()
       resolve();
     }
@@ -39,7 +39,7 @@ messenger.runtime.onInstalled.addListener(async ({ reason, temporary }) => {
   switch (reason) {
     case "install":
     {
-      if (isDebug) console.log("quickFilters onInstalled Listener - install...");
+      if (isDebug) {console.log("quickFilters onInstalled Listener - install...");}
       let url = browser.runtime.getURL("popup/installed.html");
       await browser.windows.create({ url, type: "popup", width: 900, height: 750, });
     }
@@ -132,7 +132,9 @@ async function addFolderPaneListener() {
 async function addToolMenuListener() {
   let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
   const menuStart = messenger.i18n.getMessage("quickfilters.FilterAssistant.start"),
-        menuStop = messenger.i18n.getMessage("quickfilters.FilterAssistant.stop"); // it's a toggle, not sure how to do this.
+    // eslint-disable-next-line no-unused-vars
+    _menuStop = messenger.i18n.getMessage("quickfilters.FilterAssistant.stop"); // it's a toggle, not sure how to do this.
+
   if (isDebug) {
     console.log("quickFilters: addToolMenuListener()");
   }
@@ -186,12 +188,12 @@ async function main() {
 
   // All important stuff has been done.
   // resolve all promises on the stack
-  if (isDebug) console.log("Finished setting up license startup code");
+  if (isDebug) {console.log("Finished setting up license startup code");}
   callbacks.forEach(callback => callback());
   startupFinished = true;
   
   // listeners for splash pages
-  messenger.runtime.onMessage.addListener(async (data, sender) => {
+  messenger.runtime.onMessage.addListener(async (data, _sender) => {
     if (!data.command) {
       return;
     }
@@ -242,7 +244,7 @@ async function main() {
             if (result && typeof result !== "undefined") {
               QF_license = result;
             }
-          } catch (ex) {
+          } catch {
             QF_license = { status: "unknown", type: 0 };
           }
         }
@@ -362,7 +364,7 @@ async function main() {
   });
   
     
-  messenger.runtime.onMessageExternal.addListener( async  (message, sender) =>  
+  messenger.runtime.onMessageExternal.addListener( async  (message, _sender) =>  
   {
     switch(message.command) {
       case "updateQuickFoldersLicense": // fall-through
@@ -439,17 +441,16 @@ async function main() {
     messenger.accounts.onCreated.addListener( async(id, account) => {
       if (currentLicense.info.status == "MailNotConfigured") {
         // redo license validation!
-        if (isDebugLicenser) console.log("Account added, redoing license validation", id, account); // test
+        if (isDebugLicenser) {console.log("Account added, redoing license validation", id, account);} // test
         currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
         await currentLicense.validate();
         if(currentLicense.info.status != "MailNotConfigured") {
-          if (isDebugLicenser) console.log("notify experiment code of new license status: " + currentLicense.info.status);
+          if (isDebugLicenser) {console.log("notify experiment code of new license status: " + currentLicense.info.status);}
           messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
         }
-        if (isDebugLicenser) console.log("quickFilters license info:", currentLicense.info); // test
-      }
-      else {
-        if (isDebugLicenser) console.log("quickFilters license state after adding account:", currentLicense.info)
+        if (isDebugLicenser) {console.log("quickFilters license info:", currentLicense.info);} // test
+      } else {
+        if (isDebugLicenser) {console.log("quickFilters license state after adding account:", currentLicense.info)}
       }
     });
   }

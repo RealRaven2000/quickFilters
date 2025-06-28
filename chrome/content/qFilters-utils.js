@@ -1230,145 +1230,174 @@ quickFilters.Util = {
     
 	// replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
   // fromFilter is a JSON object, not a filter!
-	copyTerms: async function copyTerms(fromFilter, toFilter, oReplaceTerms, mailsToOmit) {
-		const Ci = Components.interfaces,
-		      AC = Ci.nsMsgSearchAttrib,
-					SearchOP = Ci.nsMsgSearchOp,
-          util = quickFilters.Util;
-    
+	copyTerms: async function (fromFilter, toFilter, oReplaceTerms, mailsToOmit) {
+    const Ci = Components.interfaces,
+      AC = Ci.nsMsgSearchAttrib,
+      SearchOP = Ci.nsMsgSearchOp,
+      util = quickFilters.Util;
+
     // convert into an Array
-		let stCollection = fromFilter.searchTerms,
-        TargetTerms = toFilter.searchTerms,
-        isBooleanTarget = TargetTerms ? (TargetTerms.length>0) : false,
-        targetBoolean; // has boolean search terms which may need to be overwritten.
+    let stCollection = fromFilter.searchTerms,
+      TargetTerms = toFilter.searchTerms,
+      isBooleanTarget = TargetTerms ? TargetTerms.length > 0 : false,
+      targetBoolean; // has boolean search terms which may need to be overwritten.
+
     if (isBooleanTarget) {
       let firstFromTerm = stCollection[0];
-      
+
       if (firstFromTerm) {
         targetBoolean = firstFromTerm.booleanAnd;
       }
     }
-		
+
     if (oReplaceTerms) {
       if (oReplaceTerms.messageURI) {
         util.CurrentMessage = oReplaceTerms.msgHdr;
-        util.CurrentHeader = new quickFilters.clsGetHeaders(oReplaceTerms.messageURI, util.CurrentMessage); 
+        util.CurrentHeader = new quickFilters.clsGetHeaders(
+          oReplaceTerms.messageURI,
+          util.CurrentMessage
+        );
         await util.CurrentHeader.read();
       } else {
-        await util.popupAlert('Sorry, without messageURI I cannot parse mime headers - therefore cannot replace any variables. Tag listener with custom templates are currently not supported.'); 
+        await util.popupAlert(
+          "Sorry, without messageURI I cannot parse mime headers - therefore cannot replace any variables. Tag listener with custom templates are currently not supported."
+        );
         oReplaceTerms = null; // do conventional copy!
       }
     }
-		// Iterate Search Terms of Custom Template
-		// support passing in a deserialized array from JSON object for reading filters
+    // Iterate Search Terms of Custom Template
+    // support passing in a deserialized array from JSON object for reading filters
     // util.CurrentHeader.headers stores the collection of headers, can be extracted with getHeader()
     // e.g. util.CurrentHeader.headers.getHeader("delivered-to")
-		let theCount = stCollection.length;
-		for (let t = 0; t < theCount; t++) {
-			let searchTerm = stCollection[t],
-			    newTerm;
+    let theCount = stCollection.length;
+    for (let t = 0; t < theCount; t++) {
+      let searchTerm = stCollection[t],
+        newTerm;
       newTerm = toFilter.createTerm();
-      if (searchTerm.attrib || searchTerm.attrib==0) { // [issue 3]
+      if (searchTerm.attrib || searchTerm.attrib == 0) {
+        // [issue 3]
         newTerm.attrib = searchTerm.attrib;
       }
       // nsMsgSearchOpValue
-      if (searchTerm.op) newTerm.op = searchTerm.op; 
+      if (searchTerm.op) newTerm.op = searchTerm.op;
       if (searchTerm.value) {
         let val = newTerm.value; // nsIMsgSearchValue
-        val.attrib = searchTerm.value.attrib;  
-        if (val.attrib==0) {// fix [issue 3]
+        val.attrib = searchTerm.value.attrib;
+        if (val.attrib == 0) {
+          // fix [issue 3]
           newTerm.attrib = 0;
         }
         if (quickFilters.Util.isStringAttrib(val.attrib)) {
-          let replaceVal = searchTerm.value.str || ''; // guard against invalid str value. 
+          let replaceVal = searchTerm.value.str || ""; // guard against invalid str value.
           if (oReplaceTerms) {
-            let newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
-            this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
+            let newVal = replaceVal.replace(
+              /%([\w-:=]+)(\([^)]+\))*%/gm,
+              util.replaceReservedWords
+            );
+            this.logDebugOptional("replaceReservedWords", replaceVal + " ==> " + newVal);
             replaceVal = newVal;
           }
-          val.str = replaceVal;  // .toLocaleString() ?
-        } else switch (val.attrib) {
-          case AC.Priority:
-            val.priority = searchTerm.value.priority;
-            break;
-          case AC.MessageKey:
-            val.msgKey = searchTerm.value.msgKey;
-            break;
-          case AC.AgeInDays:
-            val.age = searchTerm.value.age;
-            break;
-          case AC.Date:
-            val.date = searchTerm.value.date;
-            break;
-          case AC.MsgStatus: 
-            val.status = searchTerm.value.status;
-            break;
-          case AC.JunkStatus:
-            val.junkStatus = searchTerm.value.junkStatus;
-            break;
-          case AC.Size:
-            val.size = searchTerm.value.size;
-            break;
-          case AC.Label:
-            val.label = searchTerm.value.label; // might need special code for copying.
-            break;
-          case AC.FolderInfo:
-            val.folder = searchTerm.value.folder; // might need special code for copying.
-            break;
-          case AC.JunkPercent:
-            val.junkPercent = searchTerm.value.junkPercent; 
-            break;
-        }
+          val.str = replaceVal; // .toLocaleString() ?
+        } else
+          switch (val.attrib) {
+            case AC.Priority:
+              val.priority = searchTerm.value.priority;
+              break;
+            case AC.MessageKey:
+              val.msgKey = searchTerm.value.msgKey;
+              break;
+            case AC.AgeInDays:
+              val.age = searchTerm.value.age;
+              break;
+            case AC.Date:
+              val.date = searchTerm.value.date;
+              break;
+            case AC.MsgStatus:
+              val.status = searchTerm.value.status;
+              break;
+            case AC.JunkStatus:
+              val.junkStatus = searchTerm.value.junkStatus;
+              break;
+            case AC.Size:
+              val.size = searchTerm.value.size;
+              break;
+            case AC.Label:
+              val.label = searchTerm.value.label; // might need special code for copying.
+              break;
+            case AC.FolderInfo:
+              val.folder = searchTerm.value.folder; // might need special code for copying.
+              break;
+            case AC.JunkPercent:
+              val.junkPercent = searchTerm.value.junkPercent;
+              break;
+          }
         newTerm.value = val;
-        
+
         // append newTerm ONLY if it does not already exist (avoid duplicates!)
         // [Bug 26543] Support gathering address fields from multiple mails:
         if (util.isStringAttrib(val.attrib)) {
           let existingTerms = toFilter.searchTerms,
-              isFound = false; 
+            isFound = false;
           for (let e = 0; e < existingTerms.length; e++) {
             let existingTerm = existingTerms[e],
-                existingVal = existingTerm.value; // nsIMsgSearchValue
+              existingVal = existingTerm.value; // nsIMsgSearchValue
 
             if (existingTerm.termAsString == newTerm.termAsString) {
               isFound = true;
-              util.logDebug("Custom Template - omitting duplicate term: " + existingTerm.termAsString);
+              util.logDebug(
+                "Custom Template - omitting duplicate term: " + existingTerm.termAsString
+              );
               break;
-            }
-            else if (existingVal && val.attrib == existingVal.attrib) {
-              if (existingVal.str == val.str) { // avoid duplicates
-                isFound = true; 
-                util.logDebug("Custom Template: omitting duplicate term of type[" + newTerm.value.attrib + "]\n"
-                  + "val = " + existingVal.str);
+            } else if (existingVal && val.attrib == existingVal.attrib) {
+              if (existingVal.str == val.str) {
+                // avoid duplicates
+                isFound = true;
+                util.logDebug(
+                  "Custom Template: omitting duplicate term of type[" +
+                    newTerm.value.attrib +
+                    "]\n" +
+                    "val = " +
+                    existingVal.str
+                );
                 break;
               }
             }
           }
           if (isFound) continue; // skip this term, as it already exists
-          
+
           // if (mailsToOmit) debugger;
           // avoid own addresses when multiple mail is selected
           let isRemoveOwn = quickFilters.Preferences.getBoolPref("newfilter.removeOwnAddresses");
-          if (isRemoveOwn && 
-              mailsToOmit && 
-              (searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.Is || 
-                searchTerm.op == SearchOP.BeginsWith || searchTerm.op == SearchOP.EndsWith)) {
+          if (
+            isRemoveOwn &&
+            mailsToOmit &&
+            (searchTerm.op == SearchOP.Contains ||
+              searchTerm.op == SearchOP.Is ||
+              searchTerm.op == SearchOP.BeginsWith ||
+              searchTerm.op == SearchOP.EndsWith)
+          ) {
             switch (searchTerm.attrib) {
               case AC.Sender:
               case AC.To:
               case AC.Cc:
               case AC.ToOrCC:
               case AC.AllAddresses:
-                if (mailsToOmit.indexOf(val.str)>=0) {
-                  util.logDebug("Custom Template: omitting own Email Address or Part thereOf: " + val.str + "");
+                if (mailsToOmit.indexOf(val.str) >= 0) {
+                  util.logDebug(
+                    "Custom Template: omitting own Email Address or Part thereOf: " + val.str + ""
+                  );
                   continue; // omit this one as well.
                 }
                 // domains
-                let domRegex = new RegExp("^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][a-zA-Z0-9-_]{1,61}[a-zA-Z0-9]))\.([a-zA-Z]{2,6}|[a-zA-Z0-9-]{2,30}\.[a-zA-Z]{2,3})$"),
-                    matchedDomain = false;
-                if ((searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.EndsWith)
-                    && domRegex.test(val.str)) {
-                  for (let d=0; d<mailsToOmit.length; d++) {
+                let domRegex = new RegExp(
+                    "^(([a-zA-Z]{1})|([a-zA-Z]{1}[a-zA-Z]{1})|([a-zA-Z]{1}[0-9]{1})|([0-9]{1}[a-zA-Z]{1})|([a-zA-Z0-9][a-zA-Z0-9-_]{1,61}[a-zA-Z0-9])).([a-zA-Z]{2,6}|[a-zA-Z0-9-]{2,30}.[a-zA-Z]{2,3})$"
+                  ),
+                  matchedDomain = false;
+                if (
+                  (searchTerm.op == SearchOP.Contains || searchTerm.op == SearchOP.EndsWith) &&
+                  domRegex.test(val.str)
+                ) {
+                  for (let d = 0; d < mailsToOmit.length; d++) {
                     if (mailsToOmit[d].endsWith(val.str)) {
                       util.logDebug("Custom Template: omitting own Email Domain: " + val.str + "");
                       matchedDomain = true;
@@ -1384,57 +1413,57 @@ quickFilters.Util = {
           }
         }
       }
-      
+
       // needs to be changed to the targetFilter format when merging!
       if (isBooleanTarget) {
         newTerm.booleanAnd = targetBoolean; // make sure filter is consistent with target (no mixed any / all)!
-      }
-      else {
+      } else {
         newTerm.booleanAnd = searchTerm.booleanAnd;
       }
-      
-      if ('arbitraryHeader' in searchTerm) newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
-      if ('hdrProperty' in searchTerm) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
-      if ('customId' in searchTerm) newTerm.customId = searchTerm.customId;
-      
+
+      if ("arbitraryHeader" in searchTerm)
+        newTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
+      if ("hdrProperty" in searchTerm) newTerm.hdrProperty = new String(searchTerm.hdrProperty);
+      if ("customId" in searchTerm) newTerm.customId = searchTerm.customId;
+
       // [issue 102]
-      if (typeof newTerm.beginsGrouping == "number") { // new BB format - parentheses are counters, not just booleans
+      if (typeof newTerm.beginsGrouping == "number") {
+        // new BB format - parentheses are counters, not just booleans
         if (typeof searchTerm.beginsGrouping == "boolean") {
           newTerm.beginsGrouping = searchTerm.beginsGrouping ? 1 : 0;
           newTerm.endsGrouping = searchTerm.endsGrouping ? 1 : 0;
-          
-        }
-        else {
+        } else {
           newTerm.beginsGrouping = searchTerm.beginsGrouping;
           newTerm.endsGrouping = searchTerm.endsGrouping;
         }
-      }
-      else {
+      } else {
         // transpose back to boolean
         newTerm.beginsGrouping = searchTerm.beginsGrouping ? true : false;
         newTerm.endsGrouping = searchTerm.endsGrouping ? true : false;
       }
-      
-      if (newTerm.attrib === Ci.nsMsgSearchAttrib.Custom
-          &&
-          newTerm.customId ==="quickFilters@axelg.com#replyTo" 
-          && 
-          !quickFilters.Preferences.getBoolPref('templates.replyTo')) {
+
+      if (
+        newTerm.attrib === Ci.nsMsgSearchAttrib.Custom &&
+        newTerm.customId === "quickFilters@axelg.com#replyTo" &&
+        !quickFilters.Preferences.getBoolPref("templates.replyTo")
+      ) {
         let txtLabel = util.getBundleString("qf.templates.replyTo.label");
-        util.logWarn(`Disabled search term in filter [${fromFilter.filterName}]\n`
-          + `To use this search method, enable the following in quickFilters advanced settings:\n${txtLabel}`)
-      }      
-      
-			// however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
-			util.logHighlightDebug("Appending search term: " + newTerm.termAsString );
-			toFilter.appendTerm(newTerm);
-		}
-        // remove special variables
-    if (oReplaceTerms) {
-      delete (util.CurrentHeader);   
-      delete (util.CurrentMessage);
+        util.logWarn(
+          `Disabled search term in filter [${fromFilter.filterName}]\n` +
+            `To use this search method, enable the following in quickFilters advanced settings:\n${txtLabel}`
+        );
+      }
+
+      // however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
+      util.logHighlightDebug("Appending search term: " + newTerm.termAsString);
+      toFilter.appendTerm(newTerm);
     }
-	} ,
+    // remove special variables
+    if (oReplaceTerms) {
+      delete util.CurrentHeader;
+      delete util.CurrentMessage;
+    }
+  } ,
 	
 	getActionCount: function getActionCount(filter) {
     return filter.actionCount;
@@ -2180,9 +2209,6 @@ quickFilters.Util = {
   setAssistantButton: function(isActive) {
     const doc = document,
           button = doc.getElementById('quickfilters-toolbar-button');
-    if (quickFilters.Preferences.isDebug) {
-      debugger;
-    }
     if (button) {
       button.setAttribute("checked", isActive);
     }
@@ -2434,8 +2460,8 @@ quickFilters.clsGetHeaders = class classGetHeaders {
   get(header) {
     // /nsIMimeHeaders.extractHeader
     let retValue = '',
-        str,
-        isUnescapeQuotes = false;
+      str = null,
+      isUnescapeQuotes = false;
 
     if (this.headers) {
       str = this.headers.extractHeader(header, false);

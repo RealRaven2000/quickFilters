@@ -1391,15 +1391,9 @@ quickFilters.Worker = {
         // retrieve the name of name customTemplate
         util.slideAlert('Creating Custom Filter from ' + customFilter.filterName + '...', 'quickFilters');
         // 1. create new filter
-        let isMergeTargetFolder = prefs.isMoveFolderAction && buildParams.targetFolder; // if we move to folder, remove default folder target
+        let isMergeTargetFolder =
+          prefs.isMoveFolderAction && typeof buildParams?.targetFolder === "object"; // if we move to folder, remove default folder target
         util.copyActions(customFilter, targetFilter, isMergeTargetFolder);
-        
-        
-        // build array of own emails to omit if multiple mails are evaluated to avoid adding damaging filter conditions:
-        // overwrite it with an empty array if only one email is selected.
-        /* if (messageList.length <= 1)
-          myMailAddresses = null; */
-        
         
         // 2. copy Terms, replacing all variables
         //    replaceTerms={msgHdr,messageURI} as 4th parameter is REQUIRED in order to parse all mime headers!!
@@ -1411,8 +1405,15 @@ quickFilters.Worker = {
             msgUri = buildParams.targetFolder.getUriForMsg(msg);
           }
           
-          try { 
-            await util.copyTerms(customFilter, targetFilter, {"msgHdr": msg, "messageURI": msgUri}, myMailAddresses);
+          try {
+            // this copy the terms from the custom filter and should resolve 
+            // any custom variable such as %from(domain)% 
+            await util.copyTerms(
+              customFilter,
+              targetFilter,
+              { msgHdr: msg, messageURI: msgUri },
+              myMailAddresses
+            );
           }
           catch(ex) {
             alert("Could not run copyTerms: " + ex.message);
