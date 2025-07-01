@@ -330,11 +330,20 @@ quickFilters.Util = {
       }
 			if (singleFilter) {
 				let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running Filter '{0}' in folder {1}.");
-				util.showStatusMessage(txtStatus.replace("{0}", singleFilter.filterName).replace("{1}", folder.prettyName), true);
-			}
-			else {
+				util.showStatusMessage(
+          txtStatus
+            .replace("{0}", singleFilter.filterName)
+            .replace("{1}", folder.prettyName || folder.localizedName),
+          true
+        );
+			} else {
 				let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running '{0}' Filters in folder {1}.");
-				util.showStatusMessage(txtStatus.replace("{0}", numFilters).replace("{1}", folder.prettyName), true);
+				util.showStatusMessage(
+          txtStatus
+            .replace("{0}", numFilters)
+            .replace("{1}", folder.prettyName || folder.localizedName),
+          true
+        );
 			}
 			filterService.applyFiltersToFolders(tempFilterList, selectedFolders, null);
 		}
@@ -979,29 +988,30 @@ quickFilters.Util = {
 		  return;
     }
 	  try {
+      const fName = targetFolder ? targetFolder.prettyName || targetFolder.localizedName : "none";
 			if (msg) {
-				quickFilters.Util.logDebugOptional ("createFilter",
-          "Message(\n"
-            + label1 + "=" + val1 + "\n"
-            + " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
-            + " message Id=" + msg.messageId + "\n"
-            + " author=" + (msg.mime2DecodedAuthor || '') + "\n"
-            + " subject=" + (msg.mime2DecodedSubject || '') + "\n"
-            + " recipients=" + (msg.mime2DecodedRecipients || '') + "\n"
-            + " filterAction=" + (filterAction || '') + "\n"
-            + " cc=" + (msg.ccList || '') + "\n"
-            + " bcc=" + (msg.bccList || '') + "\n"
-            + " author=" +( msg.author || '')
-            + ")");	
+        quickFilters.Util.logDebugOptional("createFilter", 
+          `Message(
+  ${label1}=${val1}
+  target folder=${fName}
+  message Id=${msg.messageId}
+  author=${msg.mime2DecodedAuthor || ''}
+  subject=${msg.mime2DecodedSubject || ''}
+  recipients=${msg.mime2DecodedRecipients || ''}
+  filterAction=${filterAction || ''}
+  cc=${msg.ccList || ''}
+  bcc=${msg.bccList || ''}
+  author=${msg.author || ''}
+)`
+        );
       } else {
-				quickFilters.Util.logDebugOptional ("createFilter",
-          "Message(\n"
-            + label1 + "=" + val1 + "\n"
-            + " target folder="+ (targetFolder ? targetFolder.prettyName || '' : 'none') + "\n"
-            + "msg is null.");
+				quickFilters.Util.logDebugOptional("createFilter",
+          `Message(\n`
+          + `${label1}=${val1}\n`
+          + `target folder=${fName}\n`
+          + `msg is null.\n`);
 			}
-		}
-		catch(ex) {
+		} catch(ex) {
 		  quickFilters.Util.logDebugOptional ("createFilter", "Exception: " + ex);
 		}
 	} ,
@@ -1014,7 +1024,13 @@ quickFilters.Util = {
 
   createMessageIdArray: function createMessageIdArray(targetFolder, messageUris) {
     try {
-      try {quickFilters.Util.logDebugOptional('dnd', 'quickFilters.Util.createMessageIdArray: target = ' + targetFolder.prettyName );}
+      try {
+        quickFilters.Util.logDebugOptional(
+          "dnd",
+          "quickFilters.Util.createMessageIdArray: target = " + 
+          targetFolder.prettyName || targetFolder.localizedName
+        );
+      }
       catch(e) { alert('quickFilters.Util.createMessageIdArray:' + e); }
 
       if (targetFolder.flags & this.FolderFlags.Virtual) {  // Ci.nsMsgFolderFlags.Virtual
@@ -2335,7 +2351,11 @@ quickFilters.Util = {
 
     if (excluded & targetFolder.flags) {
       if (isMoveDebug) {
-        console.log(`No Assistant triggered for excluded target folder:  ${targetFolder.prettyName} \nFlags: 0x${targetFolder.flags.toString(16)}\nURI: ${targetFolder.URI}`);
+        console.log(
+          `No Assistant triggered for excluded target folder:  ${
+            targetFolder.prettyName || targetFolder.localizedName
+          } \nFlags: 0x${targetFolder.flags.toString(16)}\nURI: ${targetFolder.URI}`
+        );
       }
       return true;
     }      
@@ -2345,7 +2365,13 @@ quickFilters.Util = {
         p = p.parent;
         if (!p || p.isServer) {break;}
         if (p.flags & FLG.Archive) {
-          console.log(`Disabled Assistant for folder:  ${targetFolder.prettyName} \nIt is in an Archived parent folder.\nFlags: 0x${p.flags.toString(16)}\nURI: ${p.URI}`);
+          console.log(
+            `Disabled Assistant for folder:  ${
+              targetFolder.prettyName || targetFolder.localizedName
+            } \nIt is in an Archived parent folder.\nFlags: 0x${p.flags.toString(16)}\nURI: ${
+              p.URI
+            }`
+          );
           return true;
         }
       }
@@ -3009,7 +3035,10 @@ if (!quickFilters.Shim) {
 		findInboxFromRoot: function findInboxFromRoot(root, fflags) {
 			for (let folder of root.subFolders) {  // fixIterator(, Ci.nsIMsgFolder)
 				if (folder.getFlag && folder.getFlag(fflags.Inbox) || folder.getFlag(fflags.Newsgroup)) {
-					quickFilters.Util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
+					quickFilters.Util.logDebugOptional(
+            "createFilter",
+            "sourceFolder: determined Inbox " + folder.prettyName || folder.localizedName
+          );
 					return folder;
 				}
 			}

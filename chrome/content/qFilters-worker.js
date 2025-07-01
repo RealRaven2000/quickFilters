@@ -9,6 +9,14 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+/* 
+  globals
+    currentHeaderData,
+    MsgFilterList,
+    FiltaQuilla,
+    specialTabs,
+*/
+
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.Worker = {
   bundle: null,
@@ -54,8 +62,9 @@ quickFilters.Worker = {
     function removeOldNotification(box, active, id) {
       if (!active && box) {
         let item = box.getNotificationWithValue(id);
-        if(item)
-          box.removeNotification(item, false); // (quickFilters.Util.Application == 'Postbox')->false
+        if (item) {
+          box.removeNotification(item, false);
+        } 
       }   
     }
     
@@ -69,15 +78,17 @@ quickFilters.Worker = {
       // do a tidy up in case this is already open!
       if (notifyBox) {
         try {
-          if (window.QuickFolders) 
-            removeOldNotification(notifyBox, false, 'quickfolders-filter');
-        } catch(ex) {;}       
-        
+          if (window.QuickFolders) {
+            removeOldNotification(notifyBox, false, "quickfolders-filter");
+          }
+        } catch { ; }
+
         let item = notifyBox.getNotificationWithValue(notificationKey);
-        if (item)
-          notifyBox.removeNotification(item, false); // second parameter in Postbox(not documented): skipAnimation
-      }
-      else {
+        if (item) {
+          // second parameter in Postbox(not documented): skipAnimation
+          notifyBox.removeNotification(item, false);
+        } 
+      } else {
         util.logToConsole("Sorry - I cannot show notifyBox, cannot find element \n" +
           "toggle_FilterMode(active=" + active + ", silent=false);");
       }
@@ -88,9 +99,7 @@ quickFilters.Worker = {
         &&
         quickFilters.Preferences.getBoolPref("filters.showMessage"))
       {
-        let title = util.getBundleString("quickfilters.filters.toggleMessage.title",
-                    "Creating Filters"),
-            theText = util.getBundleString("quickfilters.filters.toggleMessage.notificationText",
+        let theText = util.getBundleString("quickfilters.filters.toggleMessage.notificationText",
                     "Assisted filter mode started. Whenever you move an email into another mail folder a 'Create Filter Rule' assistant will start."
                     + " #1 uses message filters for automatically moving emails based on rules such as 'who is the sender?', 'is a certain keyword in the subject line?'."
                     + " To stop filter assisted mode, press the quickFilters Assistant button again." );
@@ -187,11 +196,13 @@ quickFilters.Worker = {
     let util = quickFilters.Util,
         win;
     try {
-      util.logDebug('openFilterList(' + isRefresh + ', '
-        + sourceFolder ? sourceFolder.prettyName : 'no sourceFolder' + ', '
-        + targetFilter ? targetFilter.name : 'no targetFilter'  + ', '
-        + targetFolder ? targetFolder.prettyName : 'no targetFolder' + ')'
-        );
+      util.logDebug(
+        "openFilterList(" + isRefresh + ", " + 
+          sourceFolder ? (sourceFolder.prettyName || sourceFolder.localizedName) : "no sourceFolder" + 
+          ", " + targetFilter ? targetFilter.name : "no targetFilter" + 
+          ", " + targetFolder ? (targetFolder.prettyName || targetFolder.localizedName) : "no targetFolder" 
+          + ")"
+      );
       win = util.getLastFilterListWindow();
       // [Bug 25203] "Error when adding a filter if Message Filters window is already open"
       // Thunderbird bug - if the filter list is already open and refresh is true
@@ -204,7 +215,7 @@ quickFilters.Worker = {
           args.alphabetic = isAlphabetic || false;
           // after patch: args.filter = targetFilter;
         }
-        if (targetFolder) args.targetFolder = targetFolder;
+        if (targetFolder) {args.targetFolder = targetFolder;}
         MsgFilterList(args);
       }
       else {
@@ -226,11 +237,12 @@ quickFilters.Worker = {
         }
       }
     }
-    catch (ex) {
+    catch {
       ;
     }
-    if (!win) 
+    if (!win) {
       win = util.getLastFilterListWindow();
+    }
     return win;
   } ,
 
@@ -260,7 +272,7 @@ quickFilters.Worker = {
       }
       util.logDebugOptional('createFilter.refreshHeaders', 'folders: ' + folder.name + ', ' + 
                             (folder2 ? folder2.name : '<none>'));
-      if (!messageList || !messageList.length) return false;
+      if (!messageList || !messageList.length) {return false;}
       if (messageList[0].msgClone && messageList[0].msgClone.initialized) {
         return true;
       }
@@ -283,8 +295,11 @@ quickFilters.Worker = {
         let msgHdr = messageDb1.getMsgHdrForMessageID(theMsg.messageId) || 
                      (messageDb2 ? messageDb2.getMsgHdrForMessageID(theMsg.messageId) : null);
         if (!msgHdr) {
-          util.logDebugOptional('createFilter.refreshHeaders', 'No Message Header in folder [' + folder.prettyName + ']'
-            +' for id: ' + theMsg.messageId);
+          util.logDebugOptional(
+            "createFilter.refreshHeaders",
+            `No Message Header in folder [${folder.prettyName || folder.localizedName}]` +
+              ` for id: ${theMsg.messageId}`              
+          );
           fails++;
           continue;
         }
@@ -316,11 +331,15 @@ quickFilters.Worker = {
             'COPIED     ***********************\n' + dbg.test
           + 'NOT COPIED     *******************\n' + dbg.test2);
         theMsg.msgClone = messageClone;
-        util.debugMsgAndFolders('[' + folder.prettyName + '] restore messageList[' + i + '] Id ', messageList[i].messageId, folder, messageList[i].msgHeader);
+        util.debugMsgAndFolders(
+          `[${folder.prettyName || folder.localizedName}] restore messageList[${i}] Id `,
+          messageList[i].messageId,
+          folder,
+          messageList[i].msgHeader
+        );
         util.logDebugOptional('createFilter.refreshHeaders', 'cloned header['+ i + ']');
       }
-    }
-    catch(ex) {
+    } catch(ex) {
       util.logException("refreshHeaders failed", ex);
       return false;
     }
@@ -328,9 +347,7 @@ quickFilters.Worker = {
   } ,
   
   getSourceFolder: function(msg) {
-    const Cc = Components.classes,
-          Ci = Components.interfaces,
-          util = quickFilters.Util;
+    const util = quickFilters.Util;
     let accountCount = 0,
         sourceFolder = null,
         aAccounts = util.Accounts,
@@ -391,7 +408,10 @@ quickFilters.Worker = {
       if (ac.incomingServer && ac.incomingServer.canHaveFilters) {
         // ac.defaultIdentity
         sourceFolder = ac.incomingServer.rootFolder;
-        util.logDebugOptional('createFilter', "rootfolder: " + sourceFolder.prettyName || '(empty)');
+        util.logDebugOptional(
+          "createFilter",
+          `rootfolder: ${sourceFolder.prettyName || sourceFolder.localizedName || "(empty)"}`
+        );
       } else {
         util.logDebugOptional('createFilter', "Account - No incoming Server or cannot have filters!");
         let wrn = util.getBundleString('quickfilters.createFilter.warning.noFilterFallback',
@@ -467,7 +487,14 @@ quickFilters.Worker = {
         firstMessage = messageList[0];
     
     /************* VALIDATE MSGHEADER  ********/
-    util.debugMsgAndFolders('sourceFolder', (sourceFolder ? sourceFolder.prettyName || '' : 'none'), targetFolder, firstMessage.msgHeader, filterAction);
+    const srcName = sourceFolder ? (sourceFolder.prettyName || sourceFolder.localizedName) : "none" ;
+    util.debugMsgAndFolders(
+      "sourceFolder",
+      srcName,
+      targetFolder,
+      firstMessage.msgHeader,
+      filterAction
+    );
     // Force always refresh Headers - we need to clone all messages for reliable filter building (parse group of emails)
     // refresh message headers
 
@@ -475,9 +502,7 @@ quickFilters.Worker = {
       if (!this.refreshHeaders(messageList, targetFolder, sourceFolder)) {
         return rerun('targetFolder Database not ready');
       }
-    } else {
-
-    }
+    } 
 
     // util.closeTempFolderTab(); // tidy up if it was necessary
     let messageDb = targetFolder.msgDatabase;
@@ -485,6 +510,7 @@ quickFilters.Worker = {
     /************* SOURCE FOLDER VALIDATION  ********/
     if (sourceFolder) {
       util.logDebugOptional('createFilter',' Starting source folder validation for ' + sourceFolder);
+      const srcName = sourceFolder.prettyName || sourceFolder.localizedName;
       
       if (sourceFolder.server) {
         if (!sourceFolder.server.canHaveFilters) {
@@ -498,20 +524,25 @@ quickFilters.Worker = {
           this.promiseCreateFilter = false;
           return false;
         }
-      }
-      else {
+      } else {
         util.logDebug ("sourceFolder has no server!");
         util.logDebug ("sourceFolder=" + sourceFolder);
-        util.logDebug ("sourceFolder.prettyName=" + sourceFolder.prettyName);
-        if (sourceFolder.prettyName) {
-          let wrn = util.getBundleString('quickfilters.createFilter.warning.noServer','Folder ({1}) does not have a server.');
-          await util.popupAlert(wrn.replace('{1}', sourceFolder.prettyName));
+        util.logDebug(`sourceFolder.prettyName=${srcName}`);
+        if (srcName) {
+          let wrn = util.getBundleString(
+            "quickfilters.createFilter.warning.noServer",
+            "Folder ({1}) does not have a server."
+          );
+          await util.popupAlert(wrn.replace("{1}", srcName));
         }
         this.promiseCreateFilter = false;
         return false;
       }
       
-      util.logDebugOptional('createFilter', "Validation passed: server of sourceFolder " + sourceFolder.prettyName + " can have filters");
+      util.logDebugOptional(
+        "createFilter",
+        `Validation passed: server of sourceFolder ${srcName} can have filters`
+      );
       if (!quickFilters.Util.AssistantActive ) {  
         this.promiseCreateFilter = false; 
         return -2; 
@@ -542,26 +573,24 @@ quickFilters.Worker = {
         // unfortunately, Postbox doesn't define subFolders of nsIMsgFolder
         if (typeof root.subFolders !== 'undefined') {
           let sF = quickFilters.Shim.findInboxFromRoot(root, fflags);
-          if (sF) sourceFolder = sF;      
-        }
-        else if (root.GetSubFolders) { // Postbox - mailCommands.js:879
+          if (sF) {sourceFolder = sF; }
+        } else if (root.GetSubFolders) { // Postbox - mailCommands.js:879
           let iter = root.GetSubFolders();
           while(true) {
             try {
               let folder = iter.currentItem();
               if (folder.getFlag && folder.getFlag(fflags.Inbox)) {
-                util.logDebugOptional('createFilter', "sourceFolder: determined Inbox " + folder.prettyName);
+                const fName = folder.prettyName || folder.localizedName;
+                util.logDebugOptional("createFilter", "sourceFolder: determined Inbox " + fName);
                 sourceFolder = folder;
                 break;
               }     
               iter.next();
-            } 
-            catch(ex) {
+            } catch {
               break;
             }
           }
-        }
-        else {
+        } else {
           util.logDebugOptional('createFilter', "no sourceFolder: root has no subFolders or method for getting them");
         }
       }
@@ -618,8 +647,9 @@ quickFilters.Worker = {
           }
           if (messageDb) {
             // important fix for new Postbox:
-            if (!messageHeader || !firstMessage.msgClone.initialized)
+            if (!messageHeader || !firstMessage.msgClone.initialized) {
               messageHeader = messageDb.getMsgHdrForMessageID(messageId);
+            }
           }
           else { // Postbox ??
             try {
@@ -628,7 +658,8 @@ quickFilters.Worker = {
             }
             catch(e) {
               let wrn = util.getBundleString('quickfilters.createFilter.warning.noMessageDb', "Cannot access message database for folder {1}");
-              await util.popupAlert(wrn.replace('{1}', targetFolder.prettyName) + "\n" + e);
+              const fName = targetFolder.prettyName || targetFolder.localizedName;
+              await util.popupAlert(wrn.replace("{1}", fName) + "\n" + e);
               this.promiseCreateFilter = false;
               return null;
             }
@@ -693,7 +724,6 @@ quickFilters.Worker = {
             recipients: msg.mime2DecodedRecipients || msg.recipients,
             subject: msg.mime2DecodedSubject || msg.subject,
             date: theDate,
-            lines: msg.lineCount,
             msgCount: messageList.length
           }
           let params = { 
@@ -721,8 +751,7 @@ quickFilters.Worker = {
                 primaryAction; // if primary action is moving to folder
             try {
               primaryAction = aFilter.getActionAt(0);
-            }
-            catch(ex) {
+            } catch {
               util.logDebug("Check for merging - omitting Filter because action cannot be retrieved: " + aFilter.filterName);
               primaryAction = null;
             }
@@ -787,7 +816,7 @@ quickFilters.Worker = {
 
           // user cancels:
           if (!params.answer) {
-            while (matchingFilters.length) matchingFilters.pop();
+            while (matchingFilters.length) {matchingFilters.pop();}
             this.promiseCreateFilter = false;
             return 0;
           }
@@ -822,15 +851,11 @@ quickFilters.Worker = {
       }
       this.promiseCreateFilter = false;
       return 1; // success
-    }
-    catch(e) {
+    } catch(e) {
       alert("Exception in quickFilters.Worker.createFilter: " + e.message);
       this.promiseCreateFilter = false;
       return -1;
     }
-    this.promiseCreateFilter = false;
-    return null;
-
   } ,
   
   // buildParams
@@ -860,6 +885,7 @@ quickFilters.Worker = {
       : ChromeUtils.import("resource:///modules/MailServices.jsm");
 
     if (quickFilters.Preferences.isDebugOption("assistant")) {
+      // eslint-disable-next-line no-debugger
       debugger;
     }
 
@@ -898,7 +924,7 @@ quickFilters.Worker = {
         }
         catch (ex) {
           doAppend = true; // need to append (and maybe restore first item)
-          if (insertOnTop) util.logException("Could not insert term at top - appending to end instead.", ex);
+          if (insertOnTop) {util.logException("Could not insert term at top - appending to end instead.", ex);}
         }
         finally {
           if (origLength == target.searchTerms.length) { // inserting on top failed but didn't throw
@@ -937,8 +963,9 @@ quickFilters.Worker = {
       value.attrib = searchTerm.attrib;
       value.str = val;
       searchTerm.value = value;
-      if (customId)
+      if (customId) {
         searchTerm.customId = customId;
+      }
       return searchTerm;
     }
 
@@ -984,8 +1011,9 @@ quickFilters.Worker = {
       let tagKeys = {};
       for (let ta=0; ta<tagArray.length; ta++) {
         let tagInfo = tagArray[ta];
-        if (tagInfo.tag)
+        if (tagInfo.tag) {
           tagKeys[tagInfo.key] = true;
+        }
       }
           
       let kw = msg.getStringProperty ? msg.getStringProperty("keywords") : msg.Keywords,
@@ -995,17 +1023,20 @@ quickFilters.Worker = {
       if (label)
       {
         let labelKey = "$label" + label;
-        if (tagKeyArray.indexOf(labelKey) < 0)
-        tagKeyArray.unshift(labelKey);
+        if (tagKeyArray.indexOf(labelKey) < 0) {
+          tagKeyArray.unshift(labelKey);
+        }
       }
 
       // Rebuild the keywords string with just the keys that are actual tags or
       // legacy labels and not other keywords like Junk and NonJunk.
       // Retain their order, though, with the label as oldest element.
-      for (let i = tagKeyArray.length - 1; i >= 0; --i)
-        if (!(tagKeyArray[i] in tagKeys))
-          tagKeyArray.splice(i, 1); // remove non-tag key
-      
+      for (let i = tagKeyArray.length - 1; i >= 0; --i) {
+        if (!(tagKeyArray[i] in tagKeys)) {
+          // remove non-tag key
+          tagKeyArray.splice(i, 1);
+        }
+      }
       return tagKeyArray;
     }
     
@@ -1029,34 +1060,34 @@ quickFilters.Worker = {
     }
 
     /** buildFilter: declarations **/
-    const nsMsgFilterType = Ci.nsMsgFilterType,    
-          nsMsgFilterAction = Ci.nsMsgFilterAction;
+    const nsMsgFilterType = Ci.nsMsgFilterType,
+      nsMsgFilterAction = Ci.nsMsgFilterAction,
+      folderName = buildParams.targetFolder.prettyName || buildParams.targetFolder.localizedName,
+      tagArray = getAllTags(),
+      TypeAttrib = Ci.nsMsgSearchAttrib,
+      TypeOperator = Ci.nsMsgSearchOp;
+      
     let isMerge = false,
-        folderName = buildParams.targetFolder.prettyName,
-        filterName = '{1}',
-        tagArray = getAllTags(),
-        targetFilter,
-        msgKeyArray,
-        addressArray = [],
-        typeAttrib = Ci.nsMsgSearchAttrib,
-        typeOperator = Ci.nsMsgSearchOp;
+      filterName = "{1}",
+      targetFilter,
+      msgKeyArray,
+      addressArray = [];
     
     // user has selected a template which is stored in a pref string.
     // this can be one of the following values:
     // 
     // quickFilterCustomTemplate:XXX  (unique filter name)
     let template = prefs.getCurrentFilterTemplate(),    
-        customTemplate = null,
-        customFilter = null,
-        searchTerm, searchTerm2, searchTerm3; // helper variables for creating filter terms
+      customTemplate = null,
+      customFilter = null,
+      searchTerm; // helper variables for creating filter terms
     if (template.indexOf('quickFilterCustomTemplate')==0) {
       customTemplate = template;
       template = 'custom';
       
-      let localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
-          localFolderList = 
-            localFolder.getEditableFilterList(null),
-          filterCount = localFolderList.filterCount;
+      const localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
+        localFolderList = localFolder.getEditableFilterList(null),
+        filterCount = localFolderList.filterCount;
       for (let i = 0; i < filterCount; i++) {
         let filter = localFolderList.getFilterAt(i);
         if (customTemplate == filter.filterName) {
@@ -1074,7 +1105,9 @@ quickFilters.Worker = {
     } else {
       targetFilter = buildParams.filtersList.createFilter(folderName);
     }
-    while (buildParams.matchingFilters.length) buildParams.matchingFilters.pop();
+    while (buildParams.matchingFilters.length) {
+      buildParams.matchingFilters.pop();
+    }
   
     // for safety let's refresh the headers now that the target folder has "settled".
     if (!buildParams.messageList[0].msgClone || buildParams.messageList[0].msgClone.messageId != buildParams.messageList[0].messageId) {
@@ -1104,7 +1137,7 @@ quickFilters.Worker = {
       case nsMsgFilterAction.MarkFlagged:
         filterName = filterName.replace("{1}", folderName + " ⭐");
         break;
-      case nsMsgFilterAction.AddTag:
+      case nsMsgFilterAction.AddTag: {
         msgKeyArray = getTagsFromMsg(tagArray, msg);
         // -- Now try to match the search term
         //createTerm(filter, attrib, op, val)
@@ -1113,8 +1146,7 @@ quickFilters.Worker = {
         if (buildParams.filterActionExt) {
           let newTag = tagArray.find(t => (t.key==buildParams.filterActionExt));
           sTags = newTag ? newTag.tag : buildParams.filterActionExt;
-        }        
-        else
+        } else {
           for (let i = msgKeyArray.length - 1; i >= 0; --i) {
             for (let ti=0; ti<tagArray.length; ti++) {
               let tagInfo = tagArray[ti];
@@ -1123,8 +1155,9 @@ quickFilters.Worker = {
               }
             }
           }
+        }
         filterName = filterName.replace("{1}", sTags);
-        break;
+      } break;
       case nsMsgFilterAction.Custom:
         if (buildParams.filterActionExt == "Archive") {
           if (FiltaQuilla && FiltaQuilla.Util.prefs.getBoolPref("archiveMessage.enabled")) {
@@ -1155,8 +1188,9 @@ quickFilters.Worker = {
       
       
       // Based on Sender (from) Conversation based on a Person 
+      // eslint-disable-next-line no-fallthrough
       case 'from': // was 'person' but that was badly labelled, so we are going to retire this string
-      case 'domain':
+      case 'domain': {
         // sender ...
 
         // ... recipient, to get whole conversation based on him / her
@@ -1164,35 +1198,61 @@ quickFilters.Worker = {
         // [Bug 25714] Fixed two-way Addressing
         // [Bug 25876] Fixed ONE-way addressing
         let twoWayAddressing = !prefs.getBoolPref("searchterm.addressesOneWay");
-        if ((twoWayAddressing && template!='replyto') || template=='from' || template=='domain') {
+        if (
+          (twoWayAddressing && template != "replyto") ||
+          template == "from" ||
+          template == "domain"
+        ) {
           // from
           addressArray = buildParams.emailAddress.split(",");
-          let op =  (template === 'domain') ? typeOperator.EndsWith : typeOperator.Contains;
-          createTermList(addressArray, targetFilter, typeAttrib.Sender, op, myMailAddresses, excludedAddresses, (template === 'domain'));
+          let op = template === "domain" ? TypeOperator.EndsWith : TypeOperator.Contains;
+          createTermList(
+            addressArray,
+            targetFilter,
+            TypeAttrib.Sender,
+            op,
+            myMailAddresses,
+            excludedAddresses,
+            template === "domain"
+          );
         }
-        if (template!='domain' && (twoWayAddressing || template=='to' || template=='replyto') ) {
+        if (
+          template != "domain" &&
+          (twoWayAddressing || template == "to" || template == "replyto")
+        ) {
           // to
           addressArray = buildParams.emailAddress.split(",");
-          let theTypeAttrib = typeAttrib.To,  
-              customId = null;
-          if (template=='replyto') {
-            theTypeAttrib = typeAttrib.Custom; // nsIMsgSearchCustomTerm 
+          let theTypeAttrib = TypeAttrib.To,
+            customId = null;
+          if (template == "replyto") {
+            theTypeAttrib = TypeAttrib.Custom; // nsIMsgSearchCustomTerm
             customId = quickFilters.CustomTermReplyTo.id;
-            
+
             let filterService = MailServices.filters; // nsIMsgFilterService
             if (!filterService.getCustomTerm(customId)) {
               filterService.addCustomTerm(quickFilters.CustomTermReplyTo);
             }
           }
-          createTermList(addressArray, targetFilter, theTypeAttrib, typeOperator.Contains, myMailAddresses, excludedAddresses, false, customId);
+          createTermList(
+            addressArray,
+            targetFilter,
+            theTypeAttrib,
+            TypeOperator.Contains,
+            myMailAddresses,
+            excludedAddresses,
+            false,
+            customId
+          );
         }
 
-        if (prefs.getBoolPref("naming.keyWord"))
-          filterName += " - " + buildParams.emailAddress.substr(0, 25); // truncate it for long cases
-        break;
+        if (prefs.getBoolPref("naming.keyWord")) {
+          // truncate it for long cases
+          filterName += " - " + buildParams.emailAddress.substr(0, 25);
+        } 
+      } break;
         
       // Group (collects senders of multiple mails)
-      case 'multifrom':
+      case 'multifrom': {
         if (buildParams.messageList.length <= 1) {
           let txtAlert = util.getBundleString('quickfilters.createFilter.warning.minimum2Mails', 'This template requires at least 2 mails');
           await util.popupAlert(txtAlert);
@@ -1217,7 +1277,7 @@ quickFilters.Worker = {
               }
             }
             else if (mailAddresses.indexOf(buildParams.emailAddress) == -1) { // avoid duplicates
-              searchTerm = createTerm(targetFilter, typeAttrib.Sender, typeOperator.Contains, buildParams.emailAddress);
+              searchTerm = createTerm(targetFilter, TypeAttrib.Sender, TypeOperator.Contains, buildParams.emailAddress);
               if (addTerm(targetFilter, searchTerm)) {
                 util.logDebugOptional ('template.multifrom', 'Added to multiple(from) filter: ' + buildParams.emailAddress);
                 mailAddresses.push(buildParams.emailAddress);
@@ -1229,10 +1289,10 @@ quickFilters.Worker = {
         if (!isMerge && prefs.getBoolPref("naming.keyWord")) {
           filterName += " - group ";
         }
-        break;
+      } break;
         
       // 2nd Filter Template: Conversation based on a Mailing list (email to fooList@bar.org [Bug 26192])
-      case 'maillist':
+      case 'maillist': {
         //// FROM
         // createTerm(filter, attrib, op, val)
         let hdrListId = 'list-id',
@@ -1260,6 +1320,7 @@ quickFilters.Worker = {
         else {
           let msgHdr = buildParams.messageDb.getMsgHdrForMessageID(msg.messageId);
           listIdValue = msgHdr.getStringProperty(hdrListId);
+          // eslint-disable-next-line no-prototype-builtins
           if (currentHeaderData && currentHeaderData.hasOwnProperty(hdrListId)) {
             listIdValue = currentHeaderData[hdrListId].headerValue;
           }
@@ -1275,8 +1336,8 @@ quickFilters.Worker = {
           // look for gViewAllHeaders
           // searchTerm = createTerm(targetFilter, typeAttrib.Custom, typeOperator.Contains, listIdValue, hdrListId);
           searchTerm = targetFilter.createTerm();
-          searchTerm.op = typeOperator.Contains;
-          searchTerm.attrib = typeAttrib.Custom;
+          searchTerm.op = TypeOperator.Contains;
+          searchTerm.attrib = TypeAttrib.Custom;
           if ('customId' in searchTerm) {
             searchTerm.customId = iCustomHdr ? iCustomHdr.toString() : hdrListId; // Tb
           }
@@ -1303,12 +1364,12 @@ quickFilters.Worker = {
         }
         else {
           addressArray = buildParams.emailAddress.split(",");
-          createTermList(addressArray, targetFilter, typeAttrib.Sender, typeOperator.Contains, myMailAddresses, excludedAddresses);
+          createTermList(addressArray, targetFilter, TypeAttrib.Sender, TypeOperator.Contains, myMailAddresses, excludedAddresses);
 
           //// CC
           if (msg.ccList) {
             addressArray = buildParams.ccAddress.split(",");
-            createTermList(addressArray, targetFilter, typeAttrib.CC, typeOperator.Contains, myMailAddresses, excludedAddresses);
+            createTermList(addressArray, targetFilter, TypeAttrib.CC, TypeOperator.Contains, myMailAddresses, excludedAddresses);
           }
         }
         if (prefs.getBoolPref("naming.keyWord")) {
@@ -1316,10 +1377,10 @@ quickFilters.Worker = {
         }
 
         util.logDebug("maillist: " + targetFilter.searchTerms.length + " search term(s) added. ListId value=[" + listIdValue + "]");
-        break;
+      } break;
 
       // 3d Filter Template: Conversation based on a Subject  (starts with [blabla])
-      case 'topic':
+      case 'topic': {
         //// TO DO ... improve parsing of subject keywords
         //createTerm(filter, attrib, op, val)
         //searchTerm = createTerm(targetFilter, Ci.nsMsgSearchAttrib.Subject, Ci.nsMsgSearchOp.Contains, emailAddress);
@@ -1332,18 +1393,19 @@ quickFilters.Worker = {
           let tmsg = buildParams.messageList[i].msgClone;
           if (tmsg) {
             let topicFilter = getMailKeyword(tmsg.mime2DecodedSubject);
-            if (!topicFilter) continue;
+            if (!topicFilter) {continue;}
             // guard against duplicates
             let isDupe=false;
             for (let j=0; j<topicList.length; j++) {
-              if (topicList[j] == topicFilter)
+              if (topicList[j] == topicFilter) {
                 isDupe = true;
+              }
             }
-            if (isDupe) continue;
+            if (isDupe) {continue;}
             topicList.push(topicFilter);
             searchTerm = targetFilter.createTerm();
-            searchTerm.attrib = typeAttrib.Subject;
-            searchTerm.op = typeOperator.Contains;
+            searchTerm.attrib = TypeAttrib.Subject;
+            searchTerm.op = TypeOperator.Contains;
             if (buildParams.messageList.length>1) {
               searchTerm.booleanAnd = false;
             }
@@ -1358,13 +1420,13 @@ quickFilters.Worker = {
               str: topicFilter
             };
             addTerm(targetFilter, searchTerm);
-            if (i==0) topics = topicFilter;
+            if (i==0) {topics = topicFilter;}
           }
         }
         if (prefs.getBoolPref("naming.keyWord")) {
           filterName += " - " + topics;
         }
-        break;
+      } break;
 
       // 4th Filter Template: Based on a Tag
       case 'tag':
@@ -1375,7 +1437,7 @@ quickFilters.Worker = {
         // -- Now try to match the search term
         //createTerm(filter, attrib, op, val)
         for (let i = msgKeyArray.length - 1; i >= 0; --i) {
-          searchTerm = createTerm(targetFilter, typeAttrib.Keywords, typeOperator.Contains, msgKeyArray[i]);
+          searchTerm = createTerm(targetFilter, TypeAttrib.Keywords, TypeOperator.Contains, msgKeyArray[i]);
           addTerm(targetFilter, searchTerm);
           for (let ta=0; ta<tagArray.length; ta++) {
             let tagInfo = tagArray[ta];
@@ -1386,7 +1448,7 @@ quickFilters.Worker = {
         }               
         break;
         
-      case 'custom':
+      case 'custom': {
         util.popupProFeature("customTemplate", true);    
         // retrieve the name of name customTemplate
         util.slideAlert('Creating Custom Filter from ' + customFilter.filterName + '...', 'quickFilters');
@@ -1419,7 +1481,7 @@ quickFilters.Worker = {
             alert("Could not run copyTerms: " + ex.message);
           }
         }       
-        break;
+      } break;
         
       default: // shouldn't happen => no l10n
         await util.popupAlert('invalid template: ' + template);
@@ -1434,7 +1496,9 @@ quickFilters.Worker = {
     if (prefs.getBoolPref("naming.parentFolder")) {
       if (buildParams?.targetFolder.parent) {
         let folderDelim = prefs.getStringPref('naming.folderDelimiter').trim() + " "; // leave blank to collapse to single space.
-        filterName = buildParams.targetFolder.parent.prettyName + " " + folderDelim + filterName;
+        const parent = buildParams.targetFolder.parent;
+        const fName = parent.prettyName || parent.localizedName;
+        filterName = fName + " " + folderDelim + filterName;
       }
     }
     /* New Filter Options */
@@ -1529,14 +1593,15 @@ quickFilters.Worker = {
           let tagActionValue;
           if (buildParams.filterActionExt) {
             tagActionValue = buildParams.filterActionExt;
-          }
-          else for (let ta=0; ta<tagArray.length; ta++) {
+          } else {
+            for (let ta = 0; ta < tagArray.length; ta++) {
               let tagInfo = tagArray[ta];
               if (tagInfo.key === msgKeyArray[i]) {
                 tagActionValue = tagInfo.key;
                 break;
               }
             }
+          }
         
           let append = true;
           // avoid duplicates
@@ -1703,22 +1768,24 @@ quickFilters.Worker = {
           messageDb,
           msgHeader;
       try {
+        var { AppConstants } = ChromeUtils.importESModule(
+          "resource://gre/modules/AppConstants.sys.mjs"
+        );
+        var ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
+        var { MailUtils } = ESM
+          ? ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs")
+          : ChromeUtils.import("resource:///modules/MailUtils.jsm");
         msgHeader = MailUtils.getMsgHdrForMsgId(messageId, targetServer); // [issue 215] narrow down to increase speed
         messageDb = targetFolder.msgDatabase; // msgDatabase
       }
-      catch(ex) {
-        
-      }
+      catch { ;}
       if ((!messageDb || !messageDb.getMsgHdrForMessageID(messageId))
           && 
           sourceFolder)
       {
         try {
           messageDb = sourceFolder.msgDatabase; // msgDatabase
-        }
-        catch(ex) {
-          
-        }
+        } catch  { ; }
       }
       if (!msgHeader && messageDb) {
         msgHeader = messageDb.getMsgHdrForMessageID(messageId);
@@ -1729,13 +1796,15 @@ quickFilters.Worker = {
             await new Promise(resolve => { window.setTimeout(resolve, 250) } );
             // returns a promise, can be awaited from outside to resolve inner promise
             return quickFilters.Worker.createFilterAsync(sourceFolder, targetFolder, messageIdList, filterAction, filterActionExt, isSlow, retry); 
-          }
-          else {
+          } else {
             // no joy! we need an error in console (and possibly an alert!)
-            util.logWithOption ("createFilter",
-              "legacy createFilterAsync()\n"
-              + `I am giving up, can't get msgHeader from ${targetFolder.prettyName},\n`
-              + `messageId = ${messageId}`);
+            const fName = targetFolder.prettyName || targetFolder.localizedName;
+            util.logWithOption(
+              "createFilter",
+              "legacy createFilterAsync()\n" +
+                `I am giving up, can't get msgHeader from ${fName},\n` +
+                `messageId = ${messageId}`
+            );
           }
           return null;
         }
@@ -1750,6 +1819,7 @@ quickFilters.Worker = {
     
     if (messageList.length) {
       if (quickFilters.Preferences.isDebugOption("assistant")) {
+        // eslint-disable-next-line no-debugger
         debugger;
       }
       return await this.createFilterAsync_New(sourceFolder, targetFolder, messageList, filterAction, filterActionExt);
@@ -1759,6 +1829,7 @@ quickFilters.Worker = {
   createFilterAsync_New: async function(sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isFromAPI=false) {
     const Ci = Components.interfaces;
     if (quickFilters.Preferences.isDebugOption("assistant")) {
+      // eslint-disable-next-line no-debugger
       debugger;
     }
     if (filterAction ===false) {  // old isCopy value

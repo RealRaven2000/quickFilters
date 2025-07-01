@@ -660,11 +660,13 @@ END LICENSE BLOCK
     # Improved icons to distinguish menu commands which run filters from other ones
 
   6.7 - WIP
-    # made compatible with Tb 137.*+   
-    # [issue 301]  Custom fields %from(domain)%, %from% create empty search terms
-    #              when moving mail + merging via assistant
-    # [issue ]   
-    # [issue ]   
+    # made compatible with Tb 141.*+   
+    # [issue 305] Added User Interface to allow running filters automatically
+    #             on folders other than inbox (IMAP only)
+    # [issue 308] Thunderbird 141 removed nsIMsgFolder.prettyName
+    # [issue 301] Custom fields %from(domain)%, %from% create empty search terms
+    #             when moving mail + merging via assistant
+    # Fixed finding duplicate filters from tags (qFilters-list.js:1360)
     # [issue ]   
 
 
@@ -1102,7 +1104,10 @@ var quickFilters = {
         "quickfilters.runningFiltersOnFolder.notify",
         "Running filters on folder {1}"
       );
-      util.slideAlert(text.replace("{1}", folder.prettyName), "quickFilters");
+      util.slideAlert(
+        text.replace("{1}", folder.prettyName || folder.localizedName),
+        "quickFilters"
+      );
     }
 
     if (folder.flags & util.FolderFlags.Inbox) {
@@ -1112,7 +1117,9 @@ var quickFilters = {
       // is the account itself selected?
       if (folder.isServer) {
         console.log(
-          `Attempt to run filters on account [${folder.prettyName}]: no folder selected - trying to find related Inbox instead`
+          `Attempt to run filters on account [${
+            folder.prettyName || folder.localizedName
+          }]: no folder selected - trying to find related Inbox instead`
         );
         // use inbox instead.
         folder = folder.subFolders.find((f) => f.flags & 4096);
@@ -1816,7 +1823,7 @@ var quickFilters = {
                 let folder = util.getCurrentFolder();
                 if (!folder.getFlag(util.FolderFlags.Inbox)) {
                   let txt = util.getBundleString("runFilters.folder.confirm", "", [
-                    folder.prettyName,
+                    folder.prettyName || folder.localizedName,
                   ]);
                   let result = Services.prompt.confirm(
                     util.getMail3PaneWindow(),
@@ -2028,7 +2035,17 @@ quickFilters.MsgFolderListener = {
     let qF = quickFilters ? quickFilters : this.qfInstance;
     let isMoveDebug = qF.Preferences.isDebugOption("msgMove"), 
         isDebugDetail = false;
-    qF.Util.logDebugOptional("listeners", `MsgFolderListener.msgsMoveCopyCompleted()\n ${aSrcMsgs[0].folder.prettyName} ${targetFolder.prettyName}  ${aDestMsgs && aDestMsgs.length ? aDestMsgs[0].folder.prettyName : "no destmsg!"}`);
+    qF.Util.logDebugOptional(
+      "listeners",
+      `MsgFolderListener.msgsMoveCopyCompleted()\n ${
+        aSrcMsgs[0].folder.prettyName || aSrcMsgs[0].folder.localizedName
+      } ${targetFolder.prettyName}  ${
+        aDestMsgs && aDestMsgs.length
+          ? aDestMsgs[0].folder.prettyName || aDestMsgs[0].folder.localizedName
+          : "no destmsg!"
+      }`
+    );
+
     if (isMoveDebug) {
       console.log ("msgsMoveCopyCompleted()\n", {isMoved, aSrcMsgs, targetFolder, aDestMsgs});
       isDebugDetail = qF.Preferences.isDebugOption("msgMove.detail");
@@ -2055,9 +2072,13 @@ quickFilters.MsgFolderListener = {
       let msgList = [];
 
       if (isMoveDebug) {
-        console.log(`Assistant triggered for folder ${targetFolder.prettyName}`, 
-        targetFolder, 
-          `\nflags: 0x${targetFolder.flags.toString(16)}\nURI: ${targetFolder.URI}`)
+        console.log(
+          `Assistant triggered for folder ${
+            targetFolder.prettyName || targetFolder.localizedName
+          } `,
+          targetFolder,
+          `\nflags: 0x${targetFolder.flags.toString(16)}\nURI: ${targetFolder.URI}`
+        );
       }
       // guard against being triggered during filtering:
       // check if there is a filter for the folder
@@ -2139,7 +2160,9 @@ quickFilters.MsgFolderListener = {
     let qF = quickFilters ? quickFilters : this.qfInstance;
     let isMoveDebug = qF.Preferences.isDebugOption("msgMove");
     if (isMoveDebug) {
-      console.log (`msgsDeleted()\nImmediately deleted messages from ${aMsgs[0].folder.prettyName}`, aMsgs);
+      console.log (`msgsDeleted()\nImmediately deleted messages from ${
+        aMsgs[0].folder.prettyName || aMsgs[0].folder.localizedName
+      }`, aMsgs);
     }
   },
   folderAdded: function folderAdded(_aFolder){ ; },
@@ -2231,7 +2254,7 @@ quickFilters.FolderListener = {
           break;
         case "DeleteOrMoveMsgCompleted": {
           let isAssistant = quickFilters.Util.AssistantActive,
-            srcName = item ? (item.prettyName ? item.prettyName : item) : "<no folder>";
+            srcName = item ? (item.prettyName || item.localizedName) : "<no folder>";
 
           util.logDebugOptional(
             "events,msgMove",
@@ -2254,10 +2277,11 @@ quickFilters.FolderListener = {
               "List of LocalMoved = " + (LM ? LM.length + " items." : "NULL!")
             );
             if (LM.length) {
-              let target = LM[0].hdr.folder;
+              const target = LM[0].hdr.folder,
+                tName = target.prettyName || target.localizedName;
               util.logDebugOptional(
                 "msgMove",
-                "Running filters on " + LM.length + " messages in " + target.prettyName + "..."
+                `Running filters on ${LM.length} messages in ${tName}...`
               );
               while (LM.pop()){;} // empty array
               setTimeout(function () {
