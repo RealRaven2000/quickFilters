@@ -11,6 +11,7 @@ module.exports = {
     gTabmail: "readonly",
     messenger: "readonly",
     i18n: "readonly",
+    IOUtils: "readonly",
     ChromeUtils: "readonly",
     Components: "readonly",
     GetSelectedMsgFolders: "readonly",
