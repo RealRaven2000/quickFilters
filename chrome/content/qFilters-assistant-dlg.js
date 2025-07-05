@@ -9,6 +9,10 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK 
 */
 
+/*
+  globals
+    Preferences,
+    */
 
 quickFilters.Assistant = {
   selectedMergedFilterIndex: -1,
@@ -18,7 +22,7 @@ quickFilters.Assistant = {
   TEMPLATEPAGE : 1,
   ContinueLabel: "", // Edit Filter...
   
-  selectTemplate : function selectTemplate(element) {
+  selectTemplate : function (element) {
     if (!element) {
       element = this.TemplateList;
     }
@@ -34,7 +38,7 @@ quickFilters.Assistant = {
     return parseInt(this.CurrentDeck.selectedIndex);
   },
 
-  next : function next() {
+  next : function () {
     const prefs = quickFilters.Preferences,
           showEditor = prefs.getBoolPref("showEditorAfterCreateFilter"),
           showList = prefs.getBoolPref("showListAfterCreateFilter");
@@ -84,7 +88,7 @@ quickFilters.Assistant = {
   } ,
   
   get NextButton() {
-    if (!document.documentElement.getButton) return null;
+    if (!document.documentElement.getButton) {return null;}
     return document.documentElement.getButton('extra1');
     // document.getElementsByClassName('accept')[0];
   },
@@ -97,7 +101,7 @@ quickFilters.Assistant = {
     return document.getElementById('assistantDeck');
   } ,
 
-  cancelTemplate : function cancelTemplate() {
+  cancelTemplate : function () {
     quickFilters.Assistant.initialised = false; // avoid templateSelect timer
     quickFilters.Worker.TemplateSelected = false;
     let params = window.arguments[0];
@@ -110,11 +114,11 @@ quickFilters.Assistant = {
     return document.getElementById('qf-filter-templates');
   } ,
   
-  toggleMergePane: function toggleMergePane(isMerge) {
+  toggleMergePane: function (isMerge) {
     this.CurrentDeck.selectedIndex = isMerge ? this.MERGEPAGE : this.TEMPLATEPAGE;
   } ,
 
-  selectMatchFromList: function selectMatchFromList(list) {
+  selectMatchFromList: function (list) {
     let isMerge = document.getElementById('chkMerge'),
         chkCreateNew = document.getElementById('chkCreateNew');
     if (list.selectedCount>0) {
@@ -127,7 +131,7 @@ quickFilters.Assistant = {
     }
   } ,
   
-  selectMatch: function selectMatch(list) {
+  selectMatch: function (list) {
     let isMerge = document.getElementById('chkMerge');
     if (list.selectedCount>0) {
       isMerge.setAttribute("checked", true);
@@ -137,25 +141,18 @@ quickFilters.Assistant = {
     }
   } ,
   
-  selectMerge: function selectMerge(isMerge) {
+  selectMerge: function (isMerge) {
     this.MatchedFilters.selectedIndex = (isMerge.checked ? 0 : -1);
     let chkNew = document.getElementById('chkCreateNew');
     chkNew.checked = !isMerge.checked;
   } ,
   
-  selectCreateNew: function selectCreateNew(el) {
+  selectCreateNew: function (el) {
     let isNew = el.getAttribute("checked");
-    let chkMerge = document.getElementById('chkMerge');
     this.MatchedFilters.selectedIndex = (isNew ? -1 : 0);
-    if (!isNew) {
-      isMerge.setAttribute("checked", true);
-    }
-    else {
-      isMerge.removeAttribute("checked");
-    }
   } ,
   
-  l10n: function l10n() {
+  l10n: function () {
     // [mx-l10n]
     quickFilters.Util.localize(window, {extra1: "qf.continueFilter.label" , extra2: "qf.label.donate", cancel: "qf.label.cancel" });  
   },
@@ -177,18 +174,18 @@ quickFilters.Assistant = {
 
     // wire up dialog buttons manually in Thunderbird 68 (something going wrong there with the click events)    
     let dlgButtons = document.getElementsByTagName('dialog')[0]._buttons;
-    dlgButtons['extra1'].addEventListener("click", (e) => {return quickFilters.Assistant.next();});
-    dlgButtons['cancel'].addEventListener("click", (e) => {return quickFilters.Assistant.cancelTemplate();});
+    dlgButtons['extra1'].addEventListener("click", (_e) => {return quickFilters.Assistant.next();});
+    dlgButtons['cancel'].addEventListener("click", (_e) => {return quickFilters.Assistant.cancelTemplate();});
 
     if (quickFilters.Util.licenseInfo) {
       if (quickFilters.Util.licenseInfo.isValid) {
         dlgButtons['extra2'].style.visibility="hidden";
       } else if (quickFilters.Util.licenseInfo.isExpired) {
         dlgButtons['extra2'].label = quickFilters.Util.getBundleString("quickfilters.notification.premium.btn.renewLicense");
-        dlgButtons['extra2'].addEventListener("click", (e) => {quickFilters.Util.showLicenseDialog("assistant_renew");});
+        dlgButtons['extra2'].addEventListener("click", (_e) => {quickFilters.Util.showLicenseDialog("assistant_renew");});
       } else {
         // old case (donate)
-        dlgButtons['extra2'].addEventListener("click", (e) => {quickFilters.Util.showLicensePage();});
+        dlgButtons['extra2'].addEventListener("click", (_e) => {quickFilters.Util.showLicensePage();});
       }
     }
     
@@ -229,14 +226,15 @@ quickFilters.Assistant = {
               listItem.setAttribute("value", filter.filterName.toString());
               description.textContent = token[1].trim();
               listItem.appendChild(description);
-              if (!templateList.itemCount)
+              if (!templateList.itemCount) {
                 templateList.appendChild(listItem);
-              else
+              } else {
                 templateList.insertBefore(listItem, templateList.children.item(0));
+              }
             }
             else {
               await util.popupAlert('Invalid custom Filter name {' + filter.filterName + '}\n' +
-                              'Expected Format is \"quickFilterCustomTemplate:title\"');
+                              'Expected Format is "quickFilterCustomTemplate:title"');
             }
           }
         }
@@ -257,8 +255,9 @@ quickFilters.Assistant = {
       let matchList = this.MatchedFilters;
       for (let i=0; i<matchingFilters.length; i++) {
         let itemLabel = matchingFilters[i].filterName;
-        if (!matchingFilters[i].enabled)
-          itemLabel += ' (disabled)';
+        if (!matchingFilters[i].enabled) {
+          itemLabel += " (disabled)";
+        }
         matchList.appendItem(itemLabel, i);
       }
       this.currentCmd = params.cmd;
@@ -336,8 +335,9 @@ quickFilters.Assistant = {
     // hide flag / star checkbox depending on application
     const hideCheckbox = 'chkActionFlag';
     let chk = document.getElementById(hideCheckbox);
-    if (chk)
+    if (chk) {
       chk.collapsed = true;
+    }
     
     if (isMergePossible) {
       // 1. default select merge
@@ -370,8 +370,7 @@ quickFilters.Assistant = {
           }
         }
       }
-    }
-    catch(ex) {;}
+    } catch {;}
     finally {
       quickFilters.Assistant.initialised = true;
       this.selectTemplateFromListTmr(templateList); // make sure Deescription is displayed initially.
@@ -399,34 +398,38 @@ quickFilters.Assistant = {
         prefArray.push(p);
         foundElements[it.id].setAttribute("preference", it.getAttribute("name"));
       }
-      if (Preferences)
+      if (Preferences) {
         Preferences.addAll(prefArray);
+      }
     }             
   },
 
  
-  enableCreate: function enableCreate(b) {
-    if (this.NextButton)
+  enableCreate: function (b) {
+    if (this.NextButton) {
       this.NextButton.disabled = !b;
-    else
-      quickFilters.Util.logToConsole("enableCreate(" + b + ")\nCannot access Create Filter Button!");
+    } else {
+      quickFilters.Util.logToConsole(
+        "enableCreate(" + b + ")\nCannot access Create Filter Button!"
+      );
+    }
   },
   
-  selectTemplateFromListTmr: function selectTemplateFromListTimer (el) {
+  selectTemplateFromListTmr: function (el) {
     if (!quickFilters.Assistant.initialised) {
       return;
     }
     quickFilters.Util.logDebug("selectTemplateFromListTimer()");
     quickFilters.Assistant.enableCreate(false);
     window.setTimeout(
-      function(el) {
+      () => {
         quickFilters.Assistant.selectTemplateFromList(el);
       }, 50);
   },
     
-  selectTemplateFromList: function selectTemplateFromList(element) {
+  selectTemplateFromList: function (element) {
     const _self = quickFilters.Assistant;
-    if (!_self.initialised) return;
+    if (!_self.initialised) {return;}
     if (!element) {
       element = this.TemplateList;
     }
@@ -438,8 +441,9 @@ quickFilters.Assistant = {
     _self.enableCreate(true);
     let templateType = element.selectedItem.value;
     if (templateType) {
-      if (templateType.indexOf('quickFilterCustomTemplate')==0)
+      if (templateType.indexOf('quickFilterCustomTemplate')==0) {
         templateType = 'custom';
+      }
       let descriptionId = "qf.filters.template." + templateType + ".description",
           desc = document.getElementById ("templateDescription");
       if (desc) {
@@ -457,7 +461,7 @@ quickFilters.Assistant = {
     }
   },
   
-  setNextSteps: function (element) {
+  setNextSteps: function () {
     const getBundleString = quickFilters.Util.getBundleString.bind(quickFilters.Assistant),
           NextButton = this.NextButton,
           chkAutoRun = document.getElementById('chkAutoRun');
