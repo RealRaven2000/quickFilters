@@ -1403,7 +1403,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters 6.7 ist jetzt vollständig kompatibel mit Thunderbird 141 und dessen aktuellem Release-Zyklus.{P2}{L1} Ein kritischer Fehler wurde behoben, der durch die Änderung der internen Handhabung von Ordnernamen in Thunderbird verursacht wurde. [issue 308]{L2}{L1} Eine Kontextmenü-Option wurde hinzugefügt, um Filter automatisch in anderen Ordnern als dem Posteingang auszuführen (IMAP nur, experimentell) [issue 305].{L2}{L1} Fehler mit benutzerdefinierten Feldern (%from(domain)%, %from%), die beim Verschieben und Zusammenführen von Mails leere Suchbegriffe erzeugten, wurden behoben. [issue 301]{L2}{L1} Verbesserte Erkennung von doppelten Filtern im Zusammenhang mit Tags.{L2}"
+    "message": "{P1} quickFilters 6.7 ist jetzt vollständig kompatibel mit Thunderbird 141 und dessen aktuellem Release-Zyklus.{P2}{L1} Ein kritischer Fehler wurde behoben, der durch die Änderung der internen Handhabung von Ordnernamen in Thunderbird verursacht wurde. [issue 308]{L2}{L1} Eine Kontextmenü-Option wurde hinzugefügt, um Filter automatisch in anderen Ordnern als dem Posteingang auszuführen (nur IMAP, experimentell) [issue 305].{L2}{L1} Fehler mit benutzerdefinierten Feldern (%from(domain)%, %from%), die beim Verschieben und Zusammenführen von Mails leere Suchbegriffe erzeugten, wurden behoben. [issue 301]{L2}{L1} Verbesserte Erkennung von doppelten Filtern im Zusammenhang mit Tags.{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
