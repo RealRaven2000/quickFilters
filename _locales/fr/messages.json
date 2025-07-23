@@ -1402,7 +1402,7 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters est désormais compatible avec Thunderbird 138.* {L2}{L1} L'option permettant d'exécuter des filtres sur une boîte de réception dans les dossiers locaux a été réimplémentée pour les versions modernes de Thunderbird. [issue 299]{L2}{L1} Icônes améliorées pour distinguer les commandes du menu qui exécutent les filtres des autres commandes.{L2}"
+    "message": "{P1} quickFilters 6.7 est maintenant entièrement compatible avec Thunderbird 141 et son cycle de publication actuel.{P2}{L1} Correction d’un problème critique causé par un changement dans la façon dont Thunderbird gère les noms de dossiers en interne. [issue 308]{L2}{L1} Ajout d’une option dans le menu contextuel pour exécuter automatiquement les filtres sur des dossiers autres que la boîte de réception (IMAP uniquement, expérimental) [issue 305].{L2}{L1} Correction d’un problème avec les champs personnalisés (%from(domain)%, %from%) créant des termes de recherche vides lors du déplacement et de la fusion des mails. [issue 301]{L2}{L1} Amélioration de la détection des filtres en double liés aux tags.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

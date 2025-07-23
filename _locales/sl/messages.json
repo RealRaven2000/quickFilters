@@ -247,7 +247,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters je zdaj združljiv s Thunderbirdom 138.* {L2}{L1} Možnost zagona filtrov v mapi »Prejeto« lokalnih map je bila ponovno uvedena za sodobne različice Thunderbirda. [issue 299]{L2}{L1} Izboljšane ikone za lažje razlikovanje ukazov menija, ki zaženejo filtre, od drugih ukazov.{L2}"
+    "message": "{P1} quickFilters 6.7 je zdaj popolnoma združljiv s Thunderbird 141 in njegovim trenutnim ciklom izdaj.{P2}{L1} Odpravili smo kritično težavo, ki je nastala zaradi spremembe notranjega ravnanja z imeni map v Thunderbirdu. [issue 308]{L2}{L1} Dodana nova možnost v kontekstnem meniju za samodejno izvajanje filtrov v mapah, razen v Prejetih (samo IMAP, eksperimentalno) [issue 305].{L2}{L1} Odpravljena težava s prilagojenimi polji (%from(domain)%, %from%), ki so ustvarjala prazne iskalne izraze med premikanjem in združevanjem sporočil. [issue 301]{L2}{L1} Izboljšano zaznavanje podvojenih filtrov, povezanih z oznakami.{L2}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

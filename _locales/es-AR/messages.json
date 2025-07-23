@@ -1402,10 +1402,9 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{L1} Se agregó compatibilidad con Thunderbird 138.* {L2}{L1} Se reimplementó la opción de ejecutar filtros en la bandeja de entrada de carpetas locales para versiones modernas de Thunderbird. [issue 299]{L2} {L1} Iconos mejorados para distinguir los comandos de menú que ejecutan filtros de otros. {L2}"
+    "message": "{P1} quickFilters 6.7 ahora es totalmente compatible con Thunderbird 141 y su ciclo de versiones actual.{P2}{L1} Se corrigió un problema crítico causado por un cambio en la forma en que Thunderbird maneja internamente los nombres de las carpetas. [issue 308]{L2}{L1} Se agregó una opción en el menú contextual para ejecutar filtros automáticamente en carpetas distintas a la Bandeja de entrada (solo IMAP, experimental) [issue 305].{L2}{L1} Se corrigió un problema con campos personalizados (%from(domain)%, %from%) que creaban términos de búsqueda vacíos al mover y fusionar correos. [issue 301]{L2}{L1} Mejorada la detección de filtros duplicados relacionados con etiquetas.{L2}"
   },
   "window-title": {
-    "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Bienvenido a $addonName$",
     "placeholders": {
       "addonName": {

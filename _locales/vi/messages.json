@@ -1403,7 +1403,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters hiện đã tương thích với Thunderbird 138.* {L2}{L1} Tùy chọn chạy bộ lọc trong hộp thư đến của thư mục cục bộ đã được triển khai lại cho các phiên bản Thunderbird hiện đại. [issue 299]{L2}{L1} Biểu tượng được cải tiến để phân biệt các lệnh menu chạy bộ lọc với các lệnh khác.{L2}"
+    "message": "{P1} quickFilters 6.7 hiện đã tương thích hoàn toàn với Thunderbird 141 và chu kỳ phát hành hiện tại của nó.{P2}{L1} Đã sửa lỗi nghiêm trọng gây ra bởi sự thay đổi cách Thunderbird xử lý tên thư mục nội bộ. [issue 308]{L2}{L1} Thêm tùy chọn menu ngữ cảnh để tự động chạy bộ lọc trên các thư mục ngoài Hộp thư đến (chỉ IMAP, thử nghiệm) [issue 305].{L2}{L1} Đã sửa lỗi trường tùy chỉnh (%from(domain)%, %from%) tạo điều kiện tìm kiếm trống khi di chuyển và hợp nhất thư. [issue 301]{L2}{L1} Cải thiện việc phát hiện bộ lọc trùng lặp liên quan đến thẻ. {L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1399,7 +1399,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters jest teraz zgodny z Thunderbirdem 138.* {L2}{L1} Opcja uruchamiania filtrów w skrzynce odbiorczej folderów lokalnych została ponownie zaimplementowana dla nowoczesnych wersji Thunderbirda. [issue 299]{L2}{L1} Ulepszone ikony ułatwiają rozróżnienie poleceń menu uruchamiających filtry od innych poleceń.{L2}"
+    "message": "{P1} quickFilters 6.7 jest teraz w pełni kompatybilny z Thunderbird 141 i jego aktualnym cyklem wydań.{P2}{L1} Naprawiono krytyczny problem spowodowany zmianą sposobu wewnętrznego obsługi nazw folderów w Thunderbirdzie. [issue 308]{L2}{L1} Dodano opcję w menu kontekstowym umożliwiającą automatyczne uruchamianie filtrów w folderach innych niż Skrzynka odbiorcza (tylko IMAP, eksperymentalne) [issue 305].{L2}{L1} Naprawiono problem z polami niestandardowymi (%from(domain)%, %from%), które tworzyły puste warunki wyszukiwania podczas przenoszenia i scalania wiadomości. [issue 301]{L2}{L1} Ulepszono wykrywanie zduplikowanych filtrów związanych z tagami.{L2}"
   },
   "window-title": {
     "message": "Witamy w $addonName$",

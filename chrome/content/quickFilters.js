@@ -660,15 +660,13 @@ END LICENSE BLOCK
     # Improved icons to distinguish menu commands which run filters from other ones
 
   6.7 - WIP
-    # made compatible with Tb 141.*+   
-    # [issue 305] Added User Interface to allow running filters automatically
+    # made compatible with Tb 141.*
+    # [issue 308] Fixed: Thunderbird 141 removed nsIMsgFolder.prettyName
+    # [issue 305] Added context menu item to allow running filters automatically
     #             on folders other than inbox (IMAP only)
-    # [issue 308] Thunderbird 141 removed nsIMsgFolder.prettyName
-    # [issue 301] Custom fields %from(domain)%, %from% create empty search terms
+    # [issue 301] Fixed: Custom fields %from(domain)%, %from% create empty search terms
     #             when moving mail + merging via assistant
     # Fixed finding duplicate filters from tags (qFilters-list.js:1360)
-    # [issue ]   
-
 
   ============================================================================================================
   6.* - WIP

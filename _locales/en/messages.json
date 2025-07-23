@@ -1403,7 +1403,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{L1} Made quickFilters compatible with Thunderbird 138.* {L2}{L1} The option to run filters on an inbox in local folders was reimplemented for modern versions of Thunderbird. [issue 299]{L2} {L1} Improved icons to distinguish menu commands which run filters from other ones.{L2}"
+    "message": "{P1} quickFilters 6.7 is now fully compatible with Thunderbird 141 and its current release cycle.{P2}{L1} Fixed a critical issue caused by Thunderbird changing how folder names are handled internally. [issue 308]{L2}{L1} Added a context menu option to run filters automatically on folders other than Inbox (IMAP only, experimental) [issue 305].{L2}{L1} Fixed custom fields (%from(domain)%, %from%) creating empty search terms during mail moves and filter merges. [issue 301]{L2}{L1} Improved duplicate filter detection related to tags.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

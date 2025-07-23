@@ -1403,7 +1403,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters is nu compatibel met Thunderbird 138.* {L2}{L1} De optie om filters uit te voeren op een Postvak IN in lokale mappen is opnieuw geïmplementeerd voor moderne Thunderbird-versies. [issue 299]{L2}{L1} Verbeterde pictogrammen om menubevelen die filters uitvoeren te onderscheiden van andere opdrachten.{L2}"
+    "message": "{P1} quickFilters 6.7 is nu volledig compatibel met Thunderbird 141 en de huidige releasecyclus.{P2}{L1} Kritiek probleem opgelost veroorzaakt door een wijziging in hoe Thunderbird intern mapnamen verwerkt. [issue 308]{L2}{L1} Een nieuwe optie toegevoegd in het contextmenu om filters automatisch uit te voeren in andere mappen dan de inbox (alleen IMAP, experimenteel) [issue 305].{L2}{L1} Probleem opgelost waarbij aangepaste velden (%from(domain)%, %from%) lege zoektermen aanmaakten bij het verplaatsen en samenvoegen van e-mails. [issue 301]{L2}{L1} Verbeterde detectie van dubbele filters gerelateerd aan tags.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

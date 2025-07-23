@@ -1313,7 +1313,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）："
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters 現已相容於 Thunderbird 138.* {L2}{L1} 已針對新版 Thunderbird 重新實作在本機資料夾收件匣中執行篩選器的選項。[issue 299]{L2}{L1} 改善圖示以區分執行篩選器的選單指令與其他指令。{L2}"
+    "message": "{P1} quickFilters 6.7 已針對 Thunderbird 141 進行更新，並與其當前發行週期完全相容。{P2}{L1} 修復了由於 Thunderbird 更改內部資料夾名稱處理方式導致的關鍵問題。 [issue 308]{L2}{L1} 新增上下文選單選項，可在收件匣以外的資料夾自動執行篩選器（僅限 IMAP，實驗性） [issue 305]。{L2}{L1} 修復了自訂欄位（%from(domain)%，%from%）在移動郵件和合併篩選器時產生空搜尋條件的問題。 [issue 301]{L2}{L1} 改善了與標籤相關的重複篩選器偵測。{L2}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

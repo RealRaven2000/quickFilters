@@ -1402,7 +1402,7 @@
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters är nu kompatibelt med Thunderbird 138.* {L2}{L1} Alternativet att köra filter i en inkorg i lokala mappar har återimplementerats för moderna versioner av Thunderbird. [issue 299]{L2}{L1} Förbättrade ikoner för att särskilja menykommandon som kör filter från andra kommandon.{L2}"
+    "message": "{P1} quickFilters 6.7 är nu helt kompatibelt med Thunderbird 141 och dess nuvarande utgivningscykel.{P2}{L1} Fixade ett kritiskt problem som orsakades av en ändring i hur Thunderbird internt hanterar mappnamn. [issue 308]{L2}{L1} En ny kontextmenyvalmöjlighet har lagts till för att automatiskt köra filter på mappar utanför inkorgen (endast IMAP, experimentell) [issue 305].{L2}{L1} Fixade ett problem med anpassade fält (%from(domain)%, %from%) som skapade tomma söktermer vid flytt och sammanslagning av mail. [issue 301]{L2}{L1} Förbättrad upptäckt av dubblettfilter relaterade till taggar.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -361,7 +361,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):"
   },
   "whats-new-list": {
-    "message": "{L1} Byla přidána kompatibilita s Thunderbirdem 138.* {L2}{L1} Možnost spustit filtry ve složce Doručená pošta v místních složkách byla znovu implementována pro moderní verze Thunderbirdu. [issue 299]{L2} {L1} Vylepšené ikony pro odlišení příkazů menu, které spouštějí filtry, od ostatních. {L2}"
+    "message": "{P1} quickFilters 6.7 je nyní plně kompatibilní s Thunderbird 141 a jeho aktuálním cyklem vydání.{P2}{L1} Opraven kritický problém způsobený změnou v tom, jak Thunderbird interně pracuje s názvy složek. [issue 308]{L2}{L1} Přidána možnost v kontextové nabídce spouštět filtry automaticky i ve složkách mimo Doručenou poštu (pouze IMAP, experimentální) [issue 305].{L2}{L1} Opraven problém s vlastním polem (%from(domain)%, %from%), které při přesunu a slučování zpráv vytvářelo prázdné vyhledávací výrazy. [issue 301]{L2}{L1} Vylepšeno vyhledávání duplicitních filtrů souvisejících s tagy.{L2}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

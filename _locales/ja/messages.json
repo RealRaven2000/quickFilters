@@ -1403,7 +1403,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{L1} quickFilters は Thunderbird 138.* に対応しました {L2}{L1} ローカルフォルダーの受信トレイでフィルターを実行するオプションが、最新の Thunderbird バージョン向けに再実装されました。[issue 299]{L2}{L1} フィルターを実行するメニューコマンドを他と区別できるようアイコンを改善しました。{L2}"
+    "message": "{P1} quickFilters 6.7 は Thunderbird 141 およびその現在のリリースサイクルと完全に互換性があります。{P2}{L1} Thunderbird がフォルダー名の内部処理方法を変更したことによる重大な問題を修正しました。 [issue 308]{L2}{L1} コンテキストメニューに、受信トレイ以外のフォルダーでフィルターを自動実行するオプションを追加しました（IMAP のみ、実験的）[issue 305]。{L2}{L1} メールの移動およびフィルターのマージ時にカスタムフィールド（%from(domain)%, %from%）が空の検索条件を作成する問題を修正しました。 [issue 301]{L2}{L1} タグに関連する重複フィルター検出を改善しました。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
