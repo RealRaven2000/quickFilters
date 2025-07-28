@@ -80,54 +80,113 @@ async function addFolderPaneListener() {
   }
   let menuProps = {
     contexts: ["folder_pane"],
-    onclick: async (event) => {    
+    onclick: async (event) => {
       if (isDebug) {
         console.log("quickFilters folderpane context menu", event);
       }
-      const menuItem = { id: RUNFILTERFROMTREE_ID };   // fake menu item to pass to doCommand
+      const menuItem = { id: RUNFILTERFROMTREE_ID }; // fake menu item to pass to doCommand
       let currentTab = await messenger.mailTabs.getCurrent();
 
+      const selectedFolders = event?.selectedFolders || null;
+      // multiple folders are selected, we cannot execute
+      if (selectedFolders && selectedFolders.length > 1) {
+        console.log(
+          "quickFilters: findFiltersForFolder - cannot execute when multiple folders are selected!"
+        );
+        return;
+      }
+
+      // determine clicked folder of tree:
+      const selectedFolder = event?.selectedFolder || null;
+      const selectedAccount = event?.selectedAccount || null;
+      let URI = selectedFolder
+        ? await messenger.Utilities.getFolderUri(selectedFolder.accountId, selectedFolder.path)
+        : await messenger.Utilities.getFolderUri(selectedAccount.id);
+
       // trigger win.quickFilters.doCommand(menuItem);
-      messenger.NotifyTools.notifyExperiment( { event: "doCommand", detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id } } );
+      messenger.NotifyTools.notifyExperiment({
+        event: "doCommand",
+        detail: {
+          commandItem: menuItem,
+          windowId: currentTab.windowId,
+          tabId: currentTab.id,
+          folderURI: URI,
+          selectedFolder: selectedFolder,
+          selectedAccount: selectedAccount,
+        },
+      });
     },
     icons: {
-      "16": "chrome/content/skin/runFilters.svg"
-    } ,
+      16: "chrome/content/skin/runFilters.svg",
+    },
     enabled: true,
     id: RUNFILTERFROMTREE_ID,
-    title: menuLabel
-  }
+    title: menuLabel,
+  };
   if (isDebug) {
-    console.log(`quickFilters adding the folder tree context menu item ${menuLabel} ...`, menuProps);
+    console.log(
+      `quickFilters adding the folder tree context menu item ${menuLabel} ...`,
+      menuProps
+    );
   }
   messenger.menus.create(menuProps);
   // ************************* ///
   // Find filters
 
+
   menuLabel = messenger.i18n.getMessage("quickfilters.findFiltersForFolder.menu");
   menuProps = {
     contexts: ["folder_pane"],
-    onclick: async (event) => {    
+    onclick: async (event) => {
       if (isDebug) {
         console.log("quickFilters folderpane context menu", event);
       }
-      const menuItem = { id: FINDFILTERS_ID };   // fake menu item to pass to doCommand
+      const menuItem = { id: FINDFILTERS_ID }; // fake menu item to pass to doCommand
       let currentTab = await messenger.mailTabs.getCurrent();
 
+      const selectedFolders = event?.selectedFolders || null;
+      // multiple folders are selected, we cannot execute
+      if (selectedFolders && selectedFolders.length > 1) {
+        console.log(
+          "quickFilters: findFiltersForFolder - cannot execute when multiple folders are selected!"
+        );
+        return;
+      }
+
+      // determine clicked folder of tree:
+      const selectedFolder = event?.selectedFolder || null;
+      const selectedAccount = event?.selectedAccount || null;
+      let URI = selectedFolder
+        ? await messenger.Utilities.getFolderUri(selectedFolder.accountId, selectedFolder.path)
+        : await messenger.Utilities.getFolderUri(selectedAccount.id);
+
       // trigger win.quickFilters.doCommand(menuItem);
-      messenger.NotifyTools.notifyExperiment( { event: "doCommand", detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id } } );
+      messenger.NotifyTools.notifyExperiment({
+        event: "doCommand",
+        detail: {
+          commandItem: menuItem,
+          windowId: currentTab.windowId,
+          tabId: currentTab.id,
+          folderURI: URI,
+          selectedFolder: selectedFolder,
+          selectedAccount: selectedAccount,
+        },
+      });
     },
     icons: {
-      "16": "chrome/content/skin/findFilters.svg"
-    } ,
+      16: "chrome/content/skin/findFilters.svg",
+    },
     enabled: true,
     id: FINDFILTERS_ID,
-    title: menuLabel
-  }
+    title: menuLabel,
+  };
   if (isDebug) {
-    console.log(`quickFilters adding the other folder tree context menu item ${menuLabel} ...`, menuProps);
+    console.log(
+      `quickFilters adding the other folder tree context menu item ${menuLabel} ...`,
+      menuProps
+    );
   }
-  messenger.menus.create(menuProps);  
+  messenger.menus.create(menuProps);
 
   const toggleLabel = messenger.i18n.getMessage("foldertree.toggleApplyIncomingFilters");
   menuProps = {
@@ -159,7 +218,7 @@ async function addFolderPaneListener() {
     // },
     enabled: true,
   };
-  messenger.menus.create(menuProps); 
+  messenger.menus.create(menuProps);
 }
 
 async function addToolMenuListener() {

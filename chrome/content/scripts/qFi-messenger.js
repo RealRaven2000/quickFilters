@@ -1,3 +1,7 @@
+/*
+  globals
+    WL,
+*/
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/quickFilters.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-utils.js", window, "UTF-8");
@@ -17,6 +21,7 @@ var listener_toggleFolder,
     listener_doCommand, 
     listener_initKeyListener;
 
+// eslint-disable-next-line no-unused-vars
 async function onLoad(activatedWhileWindowOpen) {
   // console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
@@ -32,9 +37,18 @@ async function onLoad(activatedWhileWindowOpen) {
 
   // [issue 122] false positives from antivirus scanners
   let btnRun = document.getElementById("quickfilters-menu-runMenu");
-  if (btnRun) btnRun.addEventListener("command", function(event) {window.quickFilters.onApplyFilters(event);} );
+  if (btnRun) {
+    btnRun.addEventListener("command", function (event) {
+      window.quickFilters.onApplyFilters(event);
+    });
+  }
   let btnFind = document.getElementById("quickfilters-menu-findFilter");
-  if (btnFind) btnFind.addEventListener("command", function(event) {window.quickFilters.searchFiltersFromFolder(event);} );
+  // eslint-disable-next-line curly
+  if (btnFind) {
+    btnFind.addEventListener("command", function (event) {
+      window.quickFilters.searchFiltersFromFolder(event);
+    });
+  }
   
   WL.injectElements(`
 
@@ -86,12 +100,13 @@ async function onLoad(activatedWhileWindowOpen) {
               break;
             case "valid":
               break;
-            default:
+            default: {
               let txtDefault = "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.";
               let txt = window.quickFilters.Util.getBundleString(
                 "quickfilters.notification.QF.navigationbar", txtDefault, ["quickFilters"]);
               window.quickFilters.Util.alert(txt);
               return;
+            }
           }
         }
       }
@@ -112,8 +127,11 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickfilters-toolbar-runbutton": // fall-throughs
       case "quickfilters-runFilters":
       case "quickfilters-current-runbutton":
-      case RUNFILTERFROMTREE_ID:
-          window.quickFilters.onApplyFilters();
+      case RUNFILTERFROMTREE_ID:          
+          window.quickFilters.onApplyFilters(
+            true,
+            window.quickFilters.Util.getMsgFolderFromUri (eventDetail?.folderURI)
+          );
         break;
       case "quickfilters-toolbar-msg-runbutton":  // fall-throughs
       case "quickfilters-runFiltersMsg":
@@ -138,7 +156,9 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickfilters-menu-searchfilters": // fall-through
       case "quickfilters-current-searchfilterbutton":
       case FINDFILTERS_ID:
-        window.quickFilters.searchFiltersFromFolder();
+        window.quickFilters.searchFiltersFromFolder(
+          eventDetail
+        );
         break;
       case "quickfilters-menu-test-midnight":
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" });
@@ -158,7 +178,9 @@ async function onLoad(activatedWhileWindowOpen) {
     while (parent && parent.tagName != "button") {
       parent = parent.parentElement;
     }
-    if (!parent) return;
+    if (!parent) {
+      return;
+    }
     if (parent.id=="quickfilters-toolbar-button") {
       parent.removeAttribute("aria-pressed");
     }
@@ -251,7 +273,7 @@ async function onLoad(activatedWhileWindowOpen) {
   window.quickFilters.onLoadQuickFilters();
   
 
-  for (info of window.gTabmail.tabInfo) {
+  for (let info of window.gTabmail.tabInfo) {
     if (info.mode.name != "mail3PaneTab") {
       continue;
     }
@@ -262,8 +284,10 @@ async function onLoad(activatedWhileWindowOpen) {
     
 }
 
+// eslint-disable-next-line no-unused-vars
 function onUnload(isAddOnShutown) {
   window.quickFilters.onUnload();
+  // eslint-disable-next-line no-unused-vars
   function deleteBtn(id) {
     let btn = window.document.getElementById(id);
     if (btn) {
@@ -281,7 +305,7 @@ function onUnload(isAddOnShutown) {
   }
   window.quickFilters.removeTabEventListener();
 
-  for (info of window.gTabmail.tabInfo) {
+  for (let info of window.gTabmail.tabInfo) {
     if (info.mode.name != "mail3PaneTab") {
       continue;
     }

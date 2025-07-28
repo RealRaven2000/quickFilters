@@ -659,7 +659,7 @@ END LICENSE BLOCK
     # [issue 299] Fixed feature to run filters on local folder inbox
     # Improved icons to distinguish menu commands which run filters from other ones
 
-  6.7 - WIP
+  6.7 - 23/07/2025
     # made compatible with Tb 141.*
     # [issue 308] Fixed: Thunderbird 141 removed nsIMsgFolder.prettyName
     # [issue 305] Added context menu item to allow running filters automatically
@@ -668,6 +668,12 @@ END LICENSE BLOCK
     #             when moving mail + merging via assistant
     # Fixed finding duplicate filters from tags (qFilters-list.js:1360)
 
+  6.7.1 - WIP
+    # [issue 313] context menu "Find filters" and "Run Filters" work on current folder and not on clicked folder
+    # [issue ]   
+    # [issue ]   
+
+    
   ============================================================================================================
   6.* - WIP
     # [issue ]   
@@ -1085,7 +1091,7 @@ var quickFilters = {
     }
   },
 
-  onApplyFilters: function (silent) {
+  onApplyFilters: function (silent, forceFolder = null) {
     // does this work in non-inbox current folder?
     // Get the folder where filters should be defined, if that server
     // can accept filters.
@@ -1093,7 +1099,7 @@ var quickFilters = {
       Ci = Components.interfaces,
       Cc = Components.classes;
 
-    let folder = util.getCurrentFolder(),
+    let folder = forceFolder || util.getCurrentFolder(),
       msgWindow = Cc["@mozilla.org/messenger/msgwindow;1"].createInstance(Ci.nsIMsgWindow);
 
     // from  MsgApplyFiltersToSelection()
@@ -1185,10 +1191,16 @@ var quickFilters = {
     }
   },
 
-  searchFiltersFromFolder: function (_e) {
+  searchFiltersFromFolder: function (event) {
     const util = quickFilters.Util,
       Ci = Components.interfaces;
-    let folders = GetSelectedMsgFolders(); // quickFilters.folderTreeView.getSelectedFolders();
+    let folders;
+    if (event && event.folderURI) {
+      folders = [util.getMsgFolderFromUri(event.folderURI)];
+    } else {
+      folders = GetSelectedMsgFolders(); // quickFilters.folderTreeView.getSelectedFolders();
+    }
+    
     if (!folders.length) {
       return false;
     }
@@ -1215,16 +1227,9 @@ var quickFilters = {
             let numFilters = filterList.filterCount;
             util.logDebugOptional(
               "filterSearch",
-              "checking account [" +
-                ac.prettyName +
-                "] for target folder: " +
-                targetFolder.URI +
-                "\n" +
-                "iterating " +
-                numFilters +
-                " filters..."
+              `checking account [${ac.prettyName}] for target folder: ${targetFolder.URI}\n` +
+              `iterating ${numFilters} filters...`
             );
-
             for (let i = 0; i < numFilters; i++) {
               let curFilter = filterList.getFilterAt(i),
                 actionList = curFilter.sortedActionList,
