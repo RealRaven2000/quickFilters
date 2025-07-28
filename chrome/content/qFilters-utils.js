@@ -23,12 +23,12 @@ var { MailServices } = quickFilters_ESM
   ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
   : ChromeUtils.import("resource:///modules/MailServices.jsm");
 
-var QuickFilters_TabURIregexp = {
-  get _thunderbirdRegExp() {
-    delete this._thunderbirdRegExp;
-    return this._thunderbirdRegExp = new RegExp("^https://quickfilters.quickfolders.org/");
-  }
-};
+// var QuickFilters_TabURIregexp = {
+//   get _thunderbirdRegExp() {
+//     delete this._thunderbirdRegExp;
+//     return this._thunderbirdRegExp = new RegExp("^https://quickfilters.quickfolders.org/");
+//   }
+// };
 
 
 quickFilters.Util = {
@@ -534,9 +534,8 @@ quickFilters.Util = {
     }
 		
 		let regBtn,
-        hotKey = util.getBundleString("quickfilters.notification.premium.btn.hotKey", "L"),
-				nbox_buttons = [],
-        dontShow = util.getBundleString("quickfilters.notification.dontShowAgain", "Do not show this message again.") + ' [' + featureTitle + ']';
+      hotKey = util.getBundleString("quickfilters.notification.premium.btn.hotKey", "L"),
+      nbox_buttons = [];
 				
 		if (notifyBox) {
 			let notificationKey = "quickfilters-proFeature";
@@ -1178,6 +1177,9 @@ quickFilters.Util = {
       let acctKey = msgDbHdr.accountKey;
       return acctKey;
     }
+    function getIdentityKey() {
+      console.error("To do: determine identity of current email!");
+    }
         
 	  // calling this function just for logging purposes
 		function finalize(tok, s, comment) {
@@ -1199,8 +1201,8 @@ quickFilters.Util = {
 		
     let tm = new Date(),
       date = msgDbHdr.date,
-      charset = msgDbHdr.Charset,
-      expand = function(str) { return str.replace(/%([\w-]+)%/gm, util.replaceReservedWords); }
+      charset = msgDbHdr.Charset;
+    // const expand = function(str) { return str.replace(/%([\w-]+)%/gm, util.replaceReservedWords); }
 
 		// time of when original message was sent.
     tm.setTime(date / 1000);
@@ -1222,6 +1224,9 @@ quickFilters.Util = {
 					return finalize(token, getNewsgroup());
 				case "identity": {
 				  /////
+          let idkey = getIdentityKey(),
+            identity = MailServices.accounts.getIdentity(idkey);
+
 					let fullId = identity.fullName + ' <' + identity.email + '>';
 					// we need the split to support (name,link) etc.
 					token = quickFilters.mimeDecoder.split(fullId, charset, arg, true); // disable charsets decoding!
@@ -1663,13 +1668,9 @@ quickFilters.Util = {
 	// initialize a filter object from a JSON
 	// pass in the newFilter object, return success boolean
 	deserializeFilter: async function deserializeFilter(jsonFilter, newFilter) {
-		const Ci = Components.interfaces,
-					FA = Ci.nsMsgFilterAction,
-					AC = Ci.nsMsgSearchAttrib,
-					util = quickFilters.Util;
+		const util = quickFilters.Util;
 		try {
-		let atom = {};
-			newFilter.filterName	= jsonFilter.filterName;	
+		  newFilter.filterName	= jsonFilter.filterName;	
 			newFilter.filterDesc	= jsonFilter.filterDesc;	
 			newFilter.filterType = jsonFilter.filterType;
 			newFilter.temporary = jsonFilter.temporary;
@@ -1989,10 +1990,9 @@ quickFilters.Util = {
 			    && URL.indexOf("user=")==-1 
 					&& URL.indexOf("quickfilters.quickfolders.org")>0 ) {
 				// remove #NAMED anchors
-				let x = URL.indexOf("#"),
-          anchor = "";
+				let x = URL.indexOf("#");
 				if (x>0) {
-					anchor = URL.substr(x);
+					// let anchor = URL.substr(x);
 					URL = URL.substr(0, x)
 				}
 				if (URL.indexOf("?")==-1) {
@@ -2118,7 +2118,7 @@ quickFilters.Util = {
   },
   
   // moved from the Shim object
-  validateFilterTargets: function validateFilterTargets(sourceURI, targetURI) {
+  validateFilterTargets: function (sourceURI, targetURI) {
     const util = quickFilters.Util,
           Ci = Components.interfaces;
           
@@ -2162,9 +2162,9 @@ quickFilters.Util = {
           if (filtersList) {
             // build a dictionary of terms; this might take some time!
             let numFilters = filtersList.filterCount;
-            util.logDebugOptional("filterSearch", "checking account [" + ac.prettyName + "] "
-                                   + "for target folder: " +  targetFolder.URI + '\n'
-                                   + "iterating " + numFilters + " filters...");
+            util.logDebugOptional("filterSearch", 
+              `Checking account [${ac.prettyName}] for target folder: ${targetFolder.URI}\n'`
+              + `iterating ${numFilters} filters...`);
             for (let idx = 0; idx < numFilters; idx++) {
               let curFilter = filtersList.getFilterAt(idx),
                   actionList = curFilter.sortedActionList,
@@ -2475,14 +2475,13 @@ quickFilters.clsGetHeaders = class classGetHeaders {
       throw ex;
     }
 
-    let msgContent = "",
-        contentCache = "";
+    let msgContent = "";
     try {
       while (inputStream.available()) { 
         msgContent = msgContent + inputStream.read(2048); 
         let p = msgContent.search(/\r\n\r\n|\r\r|\n\n/); //todo: it would be faster to just search in the new block (but also needs to check the last 3 bytes)
         if (p > 0) {
-          contentCache = msgContent.substr(p + (msgContent[p] == msgContent[p+1] ? 2 : 4));
+          // const contentCache = msgContent.substr(p + (msgContent[p] == msgContent[p+1] ? 2 : 4));
           msgContent = msgContent.substr(0, p) + "\r\n";
           break;
         }
@@ -2979,7 +2978,7 @@ if (!quickFilters.Util.Accounts) {
 if (!quickFilters.Shim) {
 	quickFilters.Shim = {
 		
-		getIdentityMailAddresses: function getIdentityMailAddresses(MailAddresses) {
+		getIdentityMailAddresses: function (MailAddresses) {
 			const util = quickFilters.Util;
 													
 			for (let account of util.Accounts) {
