@@ -2649,7 +2649,7 @@ quickFilters.mimeDecoder = {
 			return a.replace(/.*<(\S+)>.*/g, "$1");
 		}
 
-		// eslint-disable-next-line no-useless-escape
+		// eslint-disable-next-line no-useless-escape, no-unused-vars
 		function _isLastName(format) { return (format.search(/^\(lastname[,\)]/, "i") != -1); };
     function _getBracketAddressArgs(format) { 
       let reg = /bracketMail\[(.+?)\]/g, // we have previously replaced bracketMail(*) with bracketMail[*] !
@@ -2659,6 +2659,7 @@ quickFilters.mimeDecoder = {
       }
       return "";
     };
+    // eslint-disable-next-line no-unused-vars
     function _getCardFromAB(mail) {
       if (!mail) {return null;}
       // https://developer.mozilla.org/en-US/docs/Mozilla/Thunderbird/Address_Book_Examples

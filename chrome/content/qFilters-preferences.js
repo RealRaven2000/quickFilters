@@ -20,17 +20,22 @@ quickFilters.Preferences = {
 	},
 
 	isDebugOption: function(option) { // granular debugging
-		if(!this.isDebug) return false;
-		try {return this.getBoolPref("debug." + option);}
-		catch(e) {return false;}
+		if(!this.isDebug) { 
+			return false; 
+		}
+		try {
+			return this.getBoolPref("debug." + option);
+		}
+		catch {return false;}
 	},
 	
 	getIntPref: function(p) {
 		try {
       return this.service.getIntPref(this.Prefix + p);
     } catch(e) {
-			let s="Err:" +e;
-			quickFilters.Util.logToConsole("getIntPref(" + this.Prefix + p + ") failed:\n" + s);
+			quickFilters.Util.logToConsole(`getIntPref( ${this.Prefix}${p}) failed:\n` + 
+				"Err:" +e
+			);
 			throw(e);
 		}
 	},
@@ -46,8 +51,7 @@ quickFilters.Preferences = {
 	getBoolPrefSilent: function(p) {
 		try {
 			return this.getBoolPref(p);
-		}
-		catch(e) {
+		} catch {
 			return false;
 		}
 	},
@@ -56,7 +60,7 @@ quickFilters.Preferences = {
 		try {
 			return this.service.getBoolPref(p);
 		} catch(e) {
-			let s="Err:" +e;
+			let s="Err:" + e;
 			quickFilters.Util.logToConsole("getBoolPrefNative(" + p + ") failed:\n" + s);
 			return false;
 		}
@@ -74,7 +78,7 @@ quickFilters.Preferences = {
 		try {
 			return this.service.setBoolPref(p, v);
 		} catch(e) {
-			let s="Err:" +e;
+			console.error(`setBoolPrefNative(${p},${v}) failed:\n`, e);
 			return false;
 		}
 	} ,
@@ -91,9 +95,9 @@ quickFilters.Preferences = {
     let prefString ='',
 		    key = "extensions.quickfilters." + p;
     try {
-			if (this.service.getStringPref)
+			if (this.service.getStringPref) {
 				prefString = this.service.getStringPref(key);
-			else { // Thunderbird 52.0
+			} else { // Thunderbird 52.0
 				const Ci = Components.interfaces;				
 				prefString = Services.prefs.getComplexValue(key, Ci.nsISupportsString).data.toString();
 			}
@@ -101,44 +105,45 @@ quickFilters.Preferences = {
     catch(ex) {
       quickFilters.Util.logDebug("Could not find string pref: " + p + "\n" + ex.message);
     }
-    finally {
-      return prefString;
-    }
+		return prefString;
 	} ,
 	
 	setStringPref: function setStringPref(p, v) {
 		let key = "extensions.quickfilters." + p;
- 		if (this.service.setStringPref)
+ 		if (this.service.setStringPref) {
 			return this.service.setStringPref(key, v);
-		else { // Tb 52.*
+		} else { // Tb 52.*
 		  const Cc = Components.classes,
 						Ci = Components.interfaces;
 			let str = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
 			str.data = v;
 			Services.prefs.setComplexValue(key, Ci.nsISupportsString, str);			
 		}
-			
 	} ,	
 	
 	existsCharPref: function(pref) {
 		try {
-			if(this.service.prefHasUserValue(pref))
+			if (this.service.prefHasUserValue(pref)) {
 				return true;
-			if (this.service.getCharPref(pref))
+			}
+			if (this.service.getCharPref(pref)) {
 				return true;
-		}
-		catch (e) {return false; }
+			}
+		} catch {return false; }
 		return false;
 	},
 
 	existsBoolPref: function(pref) {
 		try {
-			if(this.service.prefHasUserValue(pref))
+			if(this.service.prefHasUserValue(pref)) {
 				return true;
-			if (this.service.getBoolPrefNative(pref))
+			}
+			if (this.service.getBoolPrefNative(pref)) {
 				return true;
+			}
+		} catch {
+			return false; 
 		}
-		catch (e) {return false; }
 		return false;
 	},
 	
@@ -152,12 +157,14 @@ quickFilters.Preferences = {
 	} ,
 	
 	set isMoveFolderAction(b) {
-	  return this.setBoolPref('actions.moveFolder', b);
+	  this.setBoolPref('actions.moveFolder', b);
 	} ,
 	
   getCurrentFilterTemplate : function() {
 		let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");
-		if (current == "undefined") current = null;
+		if (current == "undefined") {
+			current = null;
+		}
     return current;
   } ,
   
@@ -177,8 +184,7 @@ quickFilters.Preferences = {
     }
     try {
       return this.getBoolPref("shortcuts." + scope);
-    }
-    catch(x) {;}
+    } catch { ; }
     return false;
   } ,
   
