@@ -117,23 +117,23 @@ async function onLoad(activatedWhileWindowOpen) {
         break;
       case "quickfilters-news": // fal;-through
       case "quickfilters-changelog":
-        window.quickFilters.Util.viewSplash(); 
+        window.quickFilters.Util.viewSplash();
         break;
       case "quickfilters-toolbar-listbutton": // fall-throughs
       case "quickfilters-menu-filterlist":
       case "quickfilters-current-listbutton":
-          window.quickFilters.onToolbarListCommand();
+        window.quickFilters.onToolbarListCommand();
         break;
       case "quickfilters-toolbar-runbutton": // fall-throughs
       case "quickfilters-runFilters":
       case "quickfilters-current-runbutton":
-      case RUNFILTERFROMTREE_ID:          
-          window.quickFilters.onApplyFilters(
-            true,
-            window.quickFilters.Util.getMsgFolderFromUri (eventDetail?.folderURI)
-          );
+      case RUNFILTERFROMTREE_ID:
+        window.quickFilters.onApplyFilters(
+          true,
+          window.quickFilters.Util.getMsgFolderFromUri(eventDetail?.folderURI)
+        );
         break;
-      case "quickfilters-toolbar-msg-runbutton":  // fall-throughs
+      case "quickfilters-toolbar-msg-runbutton": // fall-throughs
       case "quickfilters-runFiltersMsg":
       case "quickfilters-current-msg-runbutton":
         window.quickFilters.onApplyFiltersToSelection();
@@ -146,29 +146,39 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.showOptions();
         break;
       case "quickfilters-gopro":
-        window.quickFilters.Util.showLicenseDialog('mainBtnPopupMenu');
+        window.quickFilters.Util.showLicenseDialog("mainBtnPopupMenu");
         break;
       case "quickFilters-menu-filterFromMsg": // fall-throughs
       case CREATEFILTERFROMMSG_ID:
       case "quickFilters-fromMessage":
-        window.quickFilters.onMenuItemCommand('createFilterFromMsg', eventDetail);
+        window.quickFilters.onMenuItemCommand("createFilterFromMsg", eventDetail);
         break;
       case "quickfilters-menu-searchfilters": // fall-through
       case "quickfilters-current-searchfilterbutton":
       case FINDFILTERS_ID:
-        window.quickFilters.searchFiltersFromFolder(
-          eventDetail
-        );
+        window.quickFilters.searchFiltersFromFolder(eventDetail);
+        break;
+      case "quickfilters-menu-test-htmlAssistant": // [issue 309] make assistant wx compatible with HTML
+        window.quickFilters.Util.notifyTools.notifyBackground({
+          func: "quickFiltersAssistant",
+          context: "fromSelectedMessages",
+        });
         break;
       case "quickfilters-menu-test-midnight":
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" });
         break;
       case "quickfilters-menu-test-news":
         window.quickFilters.Preferences.setBoolPref("hasNews", true);
-        window.quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"}); 
+        window.quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" });
+        break;
+      case "quickfilters-menu-test-api-util":
+        window.quickFilters.Util.notifyTools.notifyBackground({ func: "API-test-Utilities" });
+        break;
+      case "quickfilters-menu-test-api-FilterAPI":
+        window.quickFilters.Util.notifyTools.notifyBackground({ func: "API-test-FilterAPI" });
         break;
       case "quickfilters-menu-registration":
-        window.quickFilters.Util.showLicenseDialog('toolsMenu');
+        window.quickFilters.Util.showLicenseDialog("toolsMenu");
         break;
       default:
         console.log("unknown quickFilters command", el.id || "id: N/A", el);
