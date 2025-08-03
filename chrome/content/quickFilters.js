@@ -662,15 +662,15 @@ END LICENSE BLOCK
   6.7 - 23/07/2025
     # made compatible with Tb 141.*
     # [issue 308] Fixed: Thunderbird 141 removed nsIMsgFolder.prettyName
-    # [issue 305] Added context menu item to allow running filters automatically
-    #             on folders other than inbox (IMAP only)
+    # [issue 305, issue 318] Added context menu item to allow running filters 
+    #     automatically on folders other than inbox (IMAP only)
     # [issue 301] Fixed: Custom fields %from(domain)%, %from% create empty search terms
     #             when moving mail + merging via assistant
     # Fixed finding duplicate filters from tags (qFilters-list.js:1360)
 
   6.7.1 - WIP
     # [issue 313] context menu "Find filters" and "Run Filters" work on current folder and not on clicked folder
-    # [issue ]   
+    # [issue 309] Convert Assistant window from XUL to HTML
     # [issue ]   
 
     
@@ -698,6 +698,30 @@ var { MailServices } = quickFilters_ESM
     
 var quickFilters = {
   Properties: {},
+  blocks: {
+    _map: {},
+
+    /**
+     * Attempt to block an action.
+     * @param {string} action
+     * @returns {boolean} true if already blocked, false if newly blocked
+     */
+    tryBlock(action) {
+      if (this._map[action]) {
+        return true; // Already blocked
+      }
+      this._map[action] = true;
+      return false; // Newly blocked
+    },
+
+    release(action) {
+      delete this._map[action];
+    },
+
+    isBlocked(action) {
+      return !!this._map[action];
+    }
+  },
   _folderTree: null,
   strings: null,
   initialized: false,
@@ -936,7 +960,10 @@ var quickFilters = {
         quickFilters.Worker.toggle_FilterMode(!quickFilters.Util.AssistantActive);
         break;
       case "createFilterFromMsg":
-        {
+        try { // prevent multiple events 
+          if (quickFilters.blocks.tryBlock("createFilter")) {
+            return;
+          }          
           let selectedMessageUris = [],
             selectedMessages = [],
             messageList = [],
@@ -1073,8 +1100,10 @@ var quickFilters = {
             );
             await util.popupAlert(wrn);
           }
-        }
-        break;
+        } finally {
+           quickFilters.blocks.release("createFilter");
+        };
+        
     }
   },
 
@@ -2543,14 +2572,21 @@ quickFilters.patchMailPane = () => {
           <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuseparator />
           <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-          <menu label="__MSG_quickfilters.menu.tools__">
+          <menu id="quickfilters-menu-tools" label="__MSG_quickfilters.menu.tools__" class="menu-iconic">
             <menupopup>
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
               <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuseparator />
               <menuitem id="quickfilters-menu-registration" label="__MSG_quickfilters.registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-              <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-              <menuitem id="quickfilters-menu-test-news" label="Test - set has news flag!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menu label="Test" id="qFilters-menu-test" class="menu-iconic">
+                <menupopup>
+                  <menuitem id="quickfilters-menu-test-htmlAssistant" label="quickFilters Assistant - HTML version!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+                  <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+                  <menuitem id="quickfilters-menu-test-news" label="Test - set has news flag!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+                  <menuitem id="quickfilters-menu-test-api-util" label="API: Utilities" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+                  <menuitem id="quickfilters-menu-test-api-FilterAPI" label="API: FilterAPI" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+                </menupopup>
+              </menu>
             </menupopup>
           </menu>
           <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();" />
