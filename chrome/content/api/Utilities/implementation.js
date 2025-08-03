@@ -1,8 +1,6 @@
-/* eslint-disable object-shorthand */
-
 var { ExtensionCommon } = ChromeUtils.importESModule(
   "resource://gre/modules/ExtensionCommon.sys.mjs"
-)
+);
 var win = Services.wm.getMostRecentWindow("mail:3pane");
 
 var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
@@ -11,12 +9,11 @@ var { MailServices } = quickFilters_ESM
   ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
   : ChromeUtils.import("resource:///modules/MailServices.jsm");
 
+// console.log("quickFilters - implementation utilities");
 
-console.log("quickFilters - implementation utilities");
 // eslint-disable-next-line no-unused-vars
 var Utilities = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {    
-    
     return {
       Utilities: {
         latestMainWindow: function () {
@@ -76,7 +73,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
               retVal = folder.URI;
             } else {
               // this is an account.
-              retVal = null; 
+              retVal = null;
             }
             return retVal;
           } catch (ex) {
@@ -121,7 +118,39 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           }
         },
 
-        // get may only return something, if a value is set
+        // retrieve the API messageId for a given folderURI and messageID
+        async getApiMessageId(folderURI, messageID) {
+          // Get a MessageHeader from an nsIMsgDBHdr.messageId and a folderURI:
+          let folder = MailServices.folderLookup.getFolderForURL(folderURI);
+          if (!folder) {
+            console.warn(`getMessageId: No folder found for URI: ${folderURI}`);
+            return null;
+          }
+          const db = folder.msgDatabase;
+          if (!db) {
+            console.warn(`Folder database not ready yet for ${folderURI}`);
+            return null; // Or throw new Error("DB not ready")
+          }
+          const messageHdr = db.getMsgHdrForMessageID(messageID); //  nsIMsgDBHdr;
+          if (!messageHdr) {
+            console.warn(`getMessageId: No message found for msgHdr: ${messageID}`, folderURI);
+            return null;
+          }
+          // https://webextension-api.thunderbird.net/en/stable/experiments/folders_and_messages.html
+          try {
+            let MessageHeader = await context.extension.messageManager.convert(messageHdr);
+            const apiId = MessageHeader?.id; // this is the API messageId
+            // what about MessageHeader.headerMessageId
+            if (!apiId) {
+              console.warn(`getMessageId: No message found for msgHdr: ${messageID}`, messageHdr);
+              return null;
+            }
+            return apiId;
+          } catch (ex) {
+            console.error("messageManager.convert failed:", ex);
+            return -1;
+          }
+        },
       },
     };
   };
