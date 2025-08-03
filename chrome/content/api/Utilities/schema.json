@@ -16,60 +16,6 @@
       },
 
       {
-        "name": "LicenseIsExpired",
-        "type": "function",
-        "async": true,
-        "parameters": []
-      },
-
-      {
-        "name": "LicenseIsProUser",
-        "type": "function",
-        "async": true,
-        "parameters": []
-      },
-
-      {
-        "name": "LicensedDaysLeft",
-        "type": "function",
-        "async": true,
-        "parameters": []
-      },
-
-      {
-        "name": "isLicensed",
-        "type": "function",
-        "async": true,
-        "parameters": [
-          {
-            "name": "forceValidation",
-            "type": "boolean"
-          }
-        ]
-      },
-
-      {
-        "name": "getAddonVersion",
-        "type": "function",
-        "async": true,
-        "parameters": []
-      },
-
-      {
-        "name": "getTBVersion",
-        "type": "function",
-        "async": true,
-        "parameters": []
-      },
-
-      {
-        "name": "getAddonName",
-        "type": "function",
-        "async": true,
-        "parameters": []
-      },
-
-      {
         "name": "showXhtmlPage",
         "type": "function",
         "parameters": [
@@ -161,7 +107,31 @@
             "description": "The URI of the IMAP folder"
           }
         ]
+      },
+      
+      {
+        "name": "getApiMessageId",
+        "type": "function",
+        "async": true,
+        "description": "Retrieve the API messageId for a given folderURI and messageID.",
+        "parameters": [
+          {
+            "name": "folderURI",
+            "type": "string",
+            "description": "The URI of the folder containing the message"
+          },
+          {
+            "name": "messageID",
+            "type": "string",
+            "description": "The message ID of the message to look up"
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "The API messageId or null if not found"
+        }
       }
+
     ]
   }
 ]
