@@ -1,0 +1,139 @@
+<!-- new UI replacing chrome/content/filterTemplate./xhtml -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>__MSG_qf.filters.title__</title>
+  <link rel="stylesheet" href="filterAssistant.css">
+</head>
+
+<body>
+  <div id="main" class="column-layout">
+    <!-- Heading -->
+    <header id="header" class="flex-row space-between align-center">
+      <img id="qf-title" src="../chrome/content/skin/QuickFilters-title.png" alt="QuickFilters" />
+      <button id="quickFiltersBtnHelp" title="Support">❓</button>
+    </header>
+
+    <!-- Assistant Step Area -->
+    <main id="assistantDeck" class="flex-grow scrollable" currentStep="stepMerge">
+      <!-- We'll dynamically show/hide .step containers inside here -->
+      <section class="step" id="stepMerge">
+        <p id="mergeSummary">
+          __MSG_qf.description.mergeSummary__
+        </p>
+
+        <p id="mergeInstructions">
+          __MSG_qf.description.mergeInstructions__
+        </p>
+
+        <label>
+          <input type="checkbox" id="chkMerge" onchange="quickFilters.Assistant.selectMerge(this)">
+          __MSG_qf.check.mergeWithExisting__
+        </label>
+
+        <div id="filterArea" class="flex-row" style="gap: 1em; align-items: flex-start;">
+          <select id="filterMatches" size="6" onchange="quickFilters.Assistant.selectMatchFromList(this)" ondblclick="quickFilters.Assistant.selectMatch(this)">
+            <!-- options populated dynamically -->
+            <option value="test 1" selected>test 1 filter</option>
+            <option value="test 2" selected>test 2 filter</option>
+          </select>
+
+          <p id="filterDescription" style="margin: 0;">
+            __MSG_qf.description.selectToExtend__
+          </p>
+        </div>
+
+        <label>
+          <input type="checkbox" id="chkCreateNew" checked onchange="quickFilters.Assistant.selectCreateNew(this)">
+          __MSG_qf.check.createNew__
+        </label>        
+      </section>
+
+      <section class="step hidden" id="stepDetail">
+
+        <div class="step" style="display: flex; gap: 1rem;">
+          <!-- Template list -->
+          <select id="qf-filter-templates" size="8" 
+                  title="__MSG_qf.filters.instructions__" 
+                  style="flex-grow: 2;">
+            <option value="from">__MSG_qf.filters.template.from__</option>
+            <option value="domain">__MSG_qf.filters.template.domain__</option>
+            <option value="to">__MSG_qf.filters.template.to__</option>
+            <option value="replyto">__MSG_qf.filters.template.replyto__</option>
+            <option value="multifrom">__MSG_qf.filters.template.multifrom__</option>
+            <option value="maillist">__MSG_qf.filters.template.maillist__</option>
+            <option value="topic">__MSG_qf.filters.template.topic__</option>
+            <option value="tag">__MSG_qf.filters.template.tag__</option>
+          </select>
+
+          <!-- Actions fieldset -->
+          <fieldset title="__MSG_qf.filters.actions.tooltip__" style="display: flex; flex-direction: column; gap: 0.25rem;">
+            <legend>__MSG_qf.filters.actions.caption__</legend>
+            <label><input type="checkbox" id="chkActionTargetFolder" checked> __MSG_qf.filters.actions.targetFolder__</label>
+            <label><input type="checkbox" id="chkActionTags"> __MSG_qf.filters.actions.tag__</label>
+            <label><input type="checkbox" id="chkActionPriority"> __MSG_qf.filters.actions.priority__</label>
+            <!-- Thunderbird only -->
+            <label><input type="checkbox" id="chkActionStar"> __MSG_qf.filters.actions.star__</label>
+            <!-- SeaMonkey -->
+            <label><input type="checkbox" id="chkActionFlag"> __MSG_qf.filters.actions.flag__</label>
+          </fieldset>
+
+          <!-- Steps fieldset -->
+          <fieldset title="__MSG_qf.filters.steps.tooltip__" style="display: flex; flex-direction: column; gap: 0.25rem;">
+            <legend>__MSG_qf.filters.steps.caption__</legend>
+            <label><input type="checkbox" id="chkShowEditor" 
+              title="__MSG_qf.filters.steps.showEditor.tooltip__" 
+              onchange="quickFilters.Assistant.setNextSteps();"> __MSG_qf.filters.steps.showEditor__</label>
+            <label><input type="checkbox" id="chkShowList" 
+              title="__MSG_qf.filters.steps.showList.tooltip__" 
+              onchange="quickFilters.Assistant.setNextSteps();"> __MSG_qf.filters.steps.showList__</label>
+            <label><input type="checkbox" id="chkAutoRun" 
+              title="__MSG_qf.filters.steps.autoRunFilter.tooltip__" 
+              onchange="quickFilters.Assistant.setNextSteps();"> __MSG_qf.filters.steps.autoRunFilter__</label>
+          </fieldset>
+        </div>
+
+        <div id="boxDescription">
+          <span id="expandDescription" class="sectionExpander"></span>
+          <label for="templateDescription">__MSG_qf.filters.templates.description.label__</label>
+          <p id="templateDescription"></p>
+        </div>
+
+        <div id="preview" style="margin-top: 1rem;">
+          <span id="expandPreview" class="sectionExpander"></span>
+          <label>Email(s)</label>
+          <div id="previewContent" class="fieldset-body" style="padding-left: 0.5rem;">
+            <p class="plain" id="previewFrom">Author: </p>
+            <p class="plain" id="previewTo">Recipients: </p>
+            <p class="plain" id="previewSubject">Subject: </p>
+            <div style="display: flex; justify-content: space-between;">
+              <p class="plain" id="previewDate">Date: </p>
+              <p class="plain" id="previewLines">Lines: </p>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+    </main>
+
+  </div>
+
+  <!-- Static Footer Buttons -->
+  <footer id="assistant-buttons" class="flex-row space-between">
+    <div></div> <!-- optional left-aligned buttons -->
+    <div class="button-group">
+      <button id="btnNext">Next</button>
+      <button id="btnCancel">Cancel</button>
+    </div>
+  </footer>
+
+  <script src="../chrome/content/i18n.js"></script>
+  <script src="assistant-quickFilters.js" note="quickFilters object"></script>
+  <script src="assistant-util.js" note=".Util object"></script>
+  <script src="assistant-dlg.js" note=".Assistant object"></script>
+
+  <script type="module" src="filterAssistant.js"></script>
+
+
+</body>
