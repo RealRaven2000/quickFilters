@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.7.1pre4",
+  "version": "6.7.1pre8",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -13,7 +13,7 @@
     "gecko": {
       "id": "quickFilters@axelg.com",
       "strict_min_version" : "115.0",
-      "strict_max_version" : "141.*"
+      "strict_max_version" : "142.*"
     }
   },
   "background": {
@@ -21,7 +21,9 @@
   },
   "permissions": [
     "accountsRead",
+    "folders",
     "notifications",
+    "mailTabs", 
     "menus",
     "messagesRead",
     "tabs"
@@ -51,7 +53,6 @@
         "scopes": ["addon_parent"],
         "paths": [["LegacyPrefs"]],
         "script": "chrome/content/api/LegacyPrefs/implementation.js"
-
       }
     },
     "NotifyTools": {
@@ -63,13 +64,21 @@
         "events": ["startup"]
       }
     },
+    "FiltersAPI": {
+      "schema": "chrome/content/api/FiltersAPI/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["FiltersAPI"]],
+        "script": "chrome/content/api/FiltersAPI/implementation.js"
+      }
+    },
     "Utilities": {
       "schema": "chrome/content/api/Utilities/schema.json",
       "parent": {
         "scopes": ["addon_parent"],
         "paths": [["Utilities"]],
         "script": "chrome/content/api/Utilities/implementation.js"
-       }
+      }
     }
   },
 
