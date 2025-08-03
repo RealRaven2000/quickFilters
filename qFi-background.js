@@ -265,6 +265,65 @@ function showSplash() {
   browser.windows.create({ url, type: "popup", width: 1000, height: windowHeight, allowScriptsToClose: true,});
 }
 
+async function displayAssistant(data) {
+  // [issue 309] open the HTML version of the assistant
+  const assistantURL = browser.runtime.getURL("html/filterAssistant.html");
+  const url = new URL(assistantURL);
+  url.searchParams.set("context", data?.context || "");
+  const tabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
+  // possible contexts:
+  // - currentMail: simulate right click on selected message
+  const currentTab = tabs?.length ? tabs[0] : null;
+
+  if (currentTab.displayedFolder) {
+    const currentFolder = currentTab.displayedFolder;
+    if (currentFolder) {
+      const uri = await messenger.Utilities.getFolderUri(
+        currentFolder.accountId,
+        currentFolder.path
+      );
+      const targetFolder = {
+        accountId: currentFolder.accountId,
+        path: currentFolder.path,
+        uri: uri,
+      };
+      url.searchParams.set("targetFolder", JSON.stringify(targetFolder));
+      // find any mergeable filters:
+      const mergableFilters = await messenger.FiltersAPI.getFilters(uri, "merge");
+      if (mergableFilters?.length) {
+        url.searchParams.set("matchedFilters", encodeURIComponent(JSON.stringify(mergableFilters)));
+      }
+    }
+  }
+
+  if (data.context === "fromSelectedMessages" && currentTab) {
+    // Get selected messages in the tab
+    // NOTE: getSelectedMessages() Lists the selected messages in the current folder.
+    // Includes messages in collapsed threads. Does not include messages which are
+    // context-clicked, but not selected. The context-clicked messages
+    // are always returned by the onClicked event of the menus API
+
+    const messageList = await messenger.mailTabs.getSelectedMessages(currentTab.id);
+    // read data from returned MessagesList:
+    console.log(messageList.messages); // Array of message objects`
+    if (messageList.messages.length) {
+      const messageIds = messageList.messages.map((msg) => msg.id);
+      const jsonMessageIds = JSON.stringify(messageIds); // no need to encode - all are integers
+      url.searchParams.set("messageIds", jsonMessageIds);
+    }
+  }
+
+  let screenH = window.screen.height,
+    windowHeight = screenH > 650 ? 650 : screenH;
+  browser.windows.create({
+    url: url.toString(),
+    type: "popup",
+    width: 780,
+    height: windowHeight,
+    allowScriptsToClose: true,
+  });
+}
+
 async function main() {
   const legacy_root = "extensions.quickfilters.";
   // load defaults
@@ -286,6 +345,7 @@ async function main() {
   
   // listeners for splash pages
   messenger.runtime.onMessage.addListener(async (data, _sender) => {
+    console.log("runtime.onMessage", data, _sender);
     if (!data.command) {
       return;
     }
@@ -293,6 +353,10 @@ async function main() {
     switch (data.command) {
       case "getLicenseInfo":
         return currentLicense.info;
+      case "getFilters": {
+        let filters = await messenger.FiltersAPI.getFilters(data.accountId);
+        return filters;
+      }
     }
   });
     
@@ -452,6 +516,43 @@ async function main() {
         messenger.windows.openDefaultBrowser(data.url);
         return;
       }
+
+      case "quickFiltersAssistant": {
+        displayAssistant(data)
+
+        break;
+      }
+      case "API-test-Utilities":
+        console.log("quickFilters - API-test-Utilities");
+        try {
+          // messenger.Utilities.showLicenseDialog("test");
+          messenger.Utilities.logDebug("logDebug from Utilities API");
+          console.log("getUserName: ", await messenger.Utilities.getUserName());
+          const currentTabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
+          const tab = currentTabs.length ? currentTabs[0] : null;
+          console.log(
+            "getFolderUri(selected): ",
+            tab
+              ? await messenger.Utilities.getFolderUri(
+                  tab.displayedFolder.accountId,
+                  tab.displayedFolder.path
+                )
+              : "none"
+          );
+        } catch (ex) {
+          console.error("Error in Utilities", ex);
+        }
+        break;
+      case "API-test-FilterAPI":
+        console.log("quickFilters - API-test-FilterAPI");
+        try {
+          let FL = await messenger.FiltersAPI.getFilters("local");
+          console.log("Local filters:", FL);
+        } catch(ex) {
+          console.error("Error in FilterAPI", ex);
+        }
+
+        break;
     }
   });
   
