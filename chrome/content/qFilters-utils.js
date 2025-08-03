@@ -1502,7 +1502,7 @@ quickFilters.Util = {
     }
   } ,
 	
-	getActionCount: function getActionCount(filter) {
+	getActionCount: function (filter) {
     return filter.actionCount;
 	} ,
 	
@@ -1886,7 +1886,7 @@ quickFilters.Util = {
       }
   } ,
   
-  getFilterList: function getFilterList(folder, win) {
+  getFilterList: function (folder, win) {
     return folder.getEditableFilterList(win);
   },
   
