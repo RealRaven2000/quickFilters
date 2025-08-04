@@ -1,13 +1,23 @@
 :root {
+  --box-background-color: #c7c7d8;
   --dialogbackground: #f9f9f9;
   --dialogcolor: #191919;
 }
 /* for some reason the theme media selector doesn't work yet */
 @media (prefers-color-scheme: dark) {
   :root {
+    --box-background-color: #2a284b;
     --dialogbackground: #191919;
-    --dialogcolor: #f9f9f9;
+    --dialogcolor: rgb(241, 243, 250);
   }
+}
+
+select, #previewContent * {
+  color: var(--dialogcolor);
+  background-color: var(--box-background-color);
+}
+#previewContent {
+  background-color: var(--box-background-color) !important;
 }
 
 html, body {

@@ -175,19 +175,19 @@ quickFilters.Assistant = {
         return;
       }
 
-      let AcceptLabel = isMerge
+      let txtNext = isMerge
         ? messenger.i18n.getMessage("qf.button.editFilter")
         : messenger.i18n.getMessage("qf.button.createFilter");
 
       if (!showEditor && !showList) {
         // relabel as [OK]
-        AcceptLabel = "OK";
+        txtNext = "OK";
       }
+      this.NextButton.textContent = txtNext;
 
       switch (_currentPage) {
         case "stepMerge": // existing filters were found, lets store selected filter index or -1!
           this.toggleMergePane(false);
-          this.NextButton.label = AcceptLabel;
           break;
         case "stepDetail": // we are in template selection, either go on to create new filter or edit the selected one from first step
           await quickFilters.Assistant.selectTemplate();

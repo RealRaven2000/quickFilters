@@ -33,10 +33,8 @@
         </label>
 
         <div id="filterArea" class="flex-row" style="gap: 1em; align-items: flex-start;">
+          <!--  marge matches are populated dynamically -->
           <select id="filterMatches" size="6" onchange="quickFilters.Assistant.selectMatchFromList(this)" ondblclick="quickFilters.Assistant.selectMatch(this)">
-            <!-- options populated dynamically -->
-            <option value="test 1" selected>test 1 filter</option>
-            <option value="test 2" selected>test 2 filter</option>
           </select>
 
           <p id="filterDescription" style="margin: 0;">
