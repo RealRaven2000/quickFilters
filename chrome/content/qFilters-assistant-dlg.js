@@ -20,7 +20,6 @@ quickFilters.Assistant = {
   initialised: false,
   MERGEPAGE: 0,
   TEMPLATEPAGE: 1,
-  ContinueLabel: "", // Edit Filter...
 
   get AssistantDeck() {
     return document.getElementById("assistantDeck");
@@ -51,7 +50,6 @@ quickFilters.Assistant = {
       element = this.TemplateList;
     }
     if (element.selectedItem) {
-      quickFilters.Worker.SelectedValue = element.selectedItem.value;
       quickFilters.Preferences.setCurrentFilterTemplate(element.selectedItem.value);
       return false;
     }
@@ -96,7 +94,6 @@ quickFilters.Assistant = {
         break;
       case this.TEMPLATEPAGE: // we are in template selection, either go on to create new filter or edit the selected one from first step
         quickFilters.Assistant.selectTemplate();
-        quickFilters.Worker.TemplateSelected = true;
         params.answer = true;
         params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
         setTimeout(function () {
@@ -110,7 +107,6 @@ quickFilters.Assistant = {
 
   cancelTemplate: function () {
     quickFilters.Assistant.initialised = false; // avoid templateSelect timer
-    quickFilters.Worker.TemplateSelected = false;
     let params = window.arguments[0];
     params.answer = false;
     params.selectedMergedFilterIndex = -1;
@@ -202,8 +198,6 @@ quickFilters.Assistant = {
         });
       }
     }
-
-    this.ContinueLabel = this.NextButton.label;
 
     // [Bug 25989] Custom Templates Support
     if (prefs.getBoolPref("templates.custom")) {
@@ -533,5 +527,6 @@ window.document.addEventListener('DOMContentLoaded',
 
 window.addEventListener('load', 
   quickFilters.Assistant.loadAssistant.bind(quickFilters.Assistant) , 
-  { once: true });
+  { once: true }
+);
   

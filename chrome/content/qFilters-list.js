@@ -1879,8 +1879,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		
     // let's get all the settings from the key and then put them in a json structure:
     const util = quickFilters.Util,
-          settings = quickFilters.Settings,
-					qfList = quickFilters.List; // this object
+      qfList = quickFilters.List; // this object
 			
     if (event.ctrlKey) {
       this.storeSelected();

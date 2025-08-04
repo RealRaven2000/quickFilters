@@ -23,8 +23,6 @@ quickFilters.Worker = {
   FilterMode: false,  // replace with Util.AssistantActive
   reRunCount: 0,  // avoid endless loop
   promiseCreateFilter: false, // quickmove semaphor
-  TemplateSelected: null,
-  SelectedValue: "",
 
   // FILTER WIZARD FUNCTIONS ...
   showMessage: function showMessage(show) {
