@@ -1,3 +1,11 @@
+/* BEGIN LICENSE BLOCK
+
+quickFolders is released under the Creative Commons (CC BY-ND 4.0)
+Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) 
+For details, please refer to license.txt in the root folder of this extension
+
+END LICENSE BLOCK */
+
 quickFilters.Util = {
   lastTime: 0,
   logTime: function () {
@@ -12,7 +20,7 @@ quickFilters.Util = {
       let elapsed = new String(endTime - this.lastTime); // time in milliseconds
       timePassed = "[" + elapsed + " ms]   ";
       this.lastTime = endTime; // remember last time
-    } catch { ; }
+    } catch {;}
     return (
       `${end.getHours()}:${end.getMinutes()}:${end.getSeconds()}.${end.getMilliseconds()} ` +
       timePassed
@@ -23,13 +31,16 @@ quickFilters.Util = {
     console.log(msg, ...args);
   },
   logException: function (aMessage, ex) {
+    /*
     let stack = "";
     if (typeof ex.stack != "undefined") {
       stack = ex.stack.replace("@", "\n  ");
     }
 
     let srcName = ex.fileName ? ex.fileName : "";
-    this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
+    */
+    console.error(aMessage, ex);
+    // this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
   },
 
   logDebug: async function (...args) {
@@ -38,8 +49,15 @@ quickFilters.Util = {
       this.logToConsole(...args);
     }
   },
+  logHighlightDebug: async function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
+    const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
+    if (isDebug) {
+      console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
+    }
+  },
+
   showHomePage: function (page) {
-		const dataUrl = "https://quickfilters.quickfolders.org/" + page;
+    const dataUrl = "https://quickfilters.quickfolders.org/" + page;
     messenger.tabs.create({ active: true, url: dataUrl });
-  }
+  },
 };

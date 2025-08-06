@@ -11,6 +11,58 @@ END LICENSE BLOCK
 
 /* replaces qFilters-assistant-dlg.js */
 
+var requestId;
+
+// API helper
+async function formatFolderPath(folder) {
+  if (!folder || !folder.accountId || !folder.path) {
+    return "";
+  }
+  try {
+    // Get account info from accountId
+    let accountName = folder.accountId;
+    try {
+      const accounts = await messenger.accounts.list();
+      const account = accounts.find((acc) => acc.id === folder.accountId);
+      if (account) {
+        accountName = account.name || account.id;
+      }
+    } catch (e) {
+      console.warn("Failed to get accounts:", e);
+    }
+    // Split path and filter empty
+    const parts = folder.path.split("/").filter(Boolean);
+    if (parts.length === 0) {
+      return accountName;
+    }
+
+    // Get folder info for last part to get localized name
+    let lastFolderName = parts[parts.length - 1];
+    try {
+      // Construct full folder path, assuming path is relative to account root
+      // This can vary; you may need to tweak this if folder paths differ.
+      const folderUri = `accountid://${folder.accountId}${folder.path}`;
+      const folderInfo = await messenger.folders.getFolder(folderUri);
+      if (folderInfo && folderInfo.name) {
+        lastFolderName = folderInfo.name;
+      }
+    } catch {
+      // fallback to path last part
+    }
+
+    // Build display path with all but last parts from the path (non-localized)
+    const leadingPath = parts.slice(0, -1).join(" » ");
+
+    return leadingPath
+      ? `${accountName} » ${leadingPath} » ${lastFolderName}`
+      : `${accountName} » ${lastFolderName}`;
+  } catch (ex) {
+    console.logException(ex);
+    return "N/A";
+  }
+}
+
+
 const quickFiltersPrefs = {
   _map: {
     selectedTemplate: "extensions.quickfilters.filters.currentTemplate",
@@ -64,6 +116,7 @@ quickFilters.Assistant = {
   currentCmd: null,
   initialised: false,
   licenseInfo: null,
+  hasSentResult: false,
   passedMessages: [], // new array for data passed in  (message ids)
   blocks: {
     _map: {},
@@ -166,9 +219,17 @@ quickFilters.Assistant = {
       }
 
       if (params.currentCmd == "mergeList") {
-        params.answer = true;
-        params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
         // TO DO
+        this.hasSentResult = true;
+        await browser.runtime.sendMessage({
+          command: "assistantResult",
+          requestId,
+          result: "merge",
+          params: {
+            answer: true,
+            mergedFilterIndex: this.selectedMergedFilterIndex,
+          },
+        });
         setTimeout(function () {
           window.close();
         });
@@ -191,8 +252,16 @@ quickFilters.Assistant = {
           break;
         case "stepDetail": // we are in template selection, either go on to create new filter or edit the selected one from first step
           await quickFilters.Assistant.selectTemplate();
-          params.answer = true;
-          params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
+          this.hasSentResult = true;
+          await browser.runtime.sendMessage({
+            command: "assistantResult",
+            requestId,
+            result: "success",
+            params: {
+              answer: true,
+              selectedMergedFilterIndex: this.selectedMergedFilterIndex,
+            },
+          });          
           setTimeout(function () {
             window.close();
           });
@@ -206,15 +275,18 @@ quickFilters.Assistant = {
     }
   },
 
-  cancelTemplate: function () {
+  cancelTemplate: async function () {
     quickFilters.Assistant.initialised = false; // avoid templateSelect timer
-
-    // eslint-disable-next-line no-unused-vars
-    const params = { // TO DO: send result back to caller
-      answer: false,
-      selectedMergedFilterIndex: -1,
-    };
-
+    this.hasSentResult = true;
+    await browser.runtime.sendMessage({
+      command: "assistantResult",
+      requestId,
+      result: "cancelled",
+      params :{ 
+        answer: false,
+        mergedFilterIndex: -1,
+      },
+    });        
     window.close();
     return true;
   },
@@ -318,6 +390,25 @@ quickFilters.Assistant = {
     return filters.length;
   },
 
+  previewFromApi: async function(messageId) {
+    try {
+      const msg = await messenger.messages.get(messageId);
+
+      // Basic metadata to be shown in preview
+      return {
+        author: msg.author,
+        recipients: msg.recipients.join(", "),
+        subject: msg.subject,
+        date: new Date(msg.date).toLocaleString(),
+        lines: `${msg.size} bytes`, // optional: could estimate number of lines if needed
+        msgCount: 1
+      };
+    } catch (ex) {
+      console.error("Failed to load message preview from API for id:", messageId, ex);
+      return null;
+    }
+  },
+
   initPreview: function (params) {
     // TO DO: for API compatibility, we could build a MessageList (?) using messageIds
     // or simply an array of MessageHeader objects
@@ -346,6 +437,11 @@ quickFilters.Assistant = {
     set("previewDate", "date");
     set("previewLines", "lines");
 
+    if (params.folderPath) {
+      set("previewPath", "folderPath");
+    }
+    document.getElementById("previewPath").hidden = !params.folderPath;
+
     const caption = document.getElementById("previewCaption");
     if (caption && preview.msgCount) {
       caption.textContent = `{0} Email(s)`.replace("{0}", preview.msgCount);
@@ -357,7 +453,17 @@ quickFilters.Assistant = {
     if (quickFilters.Assistant.initialised) {
       return;
     }
+    const urlParams = new URLSearchParams(window.location.search);
+    requestId = urlParams.get("requestId"); 
+    await this.loadPreferences(); // set all checkboxes
     const templateList = this.TemplateList;
+    const context = urlParams.get("context")
+    await quickFilters.Util.logHighlightDebug(
+      " loadAssistant() ",
+      "rgba(250, 235, 119, 1)",
+      "#9d4201ff",
+      `Context: ${context}`
+    );
     quickFilters.Assistant.licenseInfo = await messenger.runtime.sendMessage({
       command: "getLicenseInfo",
     });
@@ -394,8 +500,7 @@ quickFilters.Assistant = {
     const countMatched = this.initMatchedFilters();
     const isMergePossible = countMatched > 0;
 
-    const urlParams = new URLSearchParams(window.location.search);
-    switch (urlParams.get("context")) {
+    switch (context) {
       case "fromSelectedMessages":
         {
           const jsonMsg = urlParams.get("messageIds");
@@ -454,11 +559,18 @@ quickFilters.Assistant = {
         );
         this.NextButton.label = messenger.i18n.getMessage("qf.button.next");
     }
-    if (this.passedMessages.length) {
-      this.initPreview({
-        preview: this.passedMessages[0]
-      });
+    // build a preview 
+    let preview;
+    if (this.selectedApiMessages?.length) { // use API to build it fresh
+      const folderPath = await formatFolderPath(this.selectedApiMessages[0].folder);
+      preview = await this.previewFromApi(this.selectedApiMessages[0].messageId);
+      if (folderPath) {
+        preview.folderPath = folderPath;
+      }
+    } else if (this.passedMessages.length) { // legacy messages?
+      preview = this.passedMessages[0];
     }
+    this.initPreview({preview});
 
     templateList.value = await this.getCurrentFilterTemplate();
 

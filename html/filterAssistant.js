@@ -41,6 +41,11 @@ const startup = async () => {
     quickFilters.Assistant.selectCreateNew(event.currentTarget);
   });
 
+  window.addEventListener("beforeunload", () => {
+    if (!quickFilters.Assistant.hasSentResult) {
+      quickFilters.Assistant.cancelTemplate();
+    }
+  });
 
 }
 

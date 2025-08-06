@@ -1021,7 +1021,7 @@ quickFilters.Util = {
 	  return {"messageId":msgHeader.messageId, "msgHeader":msgHeader, "messageURI":Uri};
 	} ,
 
-  createMessageIdArray: function createMessageIdArray(targetFolder, messageUris) {
+  createMessageIdArray: function (targetFolder, messageUris) {
     try {
       try {
         quickFilters.Util.logDebugOptional(
@@ -2428,6 +2428,11 @@ quickFilters.Util = {
     return true;
   },  
 
+  createUniqueId: function(prefix = "") {
+    // create a unique id for a promise resolver
+    let unixTime = Math.floor(Date.now() / 1000).toString(16);
+    return prefix + unixTime;
+  },
 	
   dummy: function() {
 		/* 

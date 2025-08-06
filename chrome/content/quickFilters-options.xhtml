@@ -207,7 +207,6 @@
 				type="bool"
 				instantApply="true"
 				/>
-
 			<preference id="notifyRunFilter"
 				name="extensions.quickfilters.notifications.runFilter"
 				type="bool"
@@ -238,7 +237,10 @@
 	              name="extensions.quickfilters.shortcuts.challenge"
 								type="bool"
 								instantApply="true" />
-
+      <preference id="AssistantHTML"
+	              name="extensions.quickfilters.assistant.html"
+								type="bool"
+								instantApply="true" />
     </preferences>
 
 	<box id="helpBox">
@@ -509,6 +511,9 @@
 							<spacer flex="1" />
 						</vbox>
 					</hbox>
+					<checkbox preference="AssistantHTML"
+						label="Assistant window as HTML"
+						tooltiptext="Opens a new version of the assistant using future proof HTML."/>
 				</vbox>
 
 			</html:fieldset>

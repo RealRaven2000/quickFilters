@@ -159,6 +159,10 @@ quickFilters.Preferences = {
 	set isMoveFolderAction(b) {
 	  this.setBoolPref('actions.moveFolder', b);
 	} ,
+
+	get isAssistantModeHTML() {
+		return this.getBoolPref("assistant.html");
+	}, 
 	
   getCurrentFilterTemplate : function() {
 		let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");

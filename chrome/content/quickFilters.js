@@ -720,8 +720,9 @@ var quickFilters = {
 
     isBlocked(action) {
       return !!this._map[action];
-    }
+    },
   },
+  _pendingAssistantRequests: [],
   _folderTree: null,
   strings: null,
   initialized: false,
@@ -954,21 +955,29 @@ var quickFilters = {
     const util = quickFilters.Util,
       Ci = Components.interfaces,
       prefs = quickFilters.Preferences;
+    let isBlockLocal = false;
+    
     switch (cmd) {
       case "toggle_Filters":
         // this one is now async
         quickFilters.Worker.toggle_FilterMode(!quickFilters.Util.AssistantActive);
         break;
       case "createFilterFromMsg":
-        try { // prevent multiple events 
-          if (quickFilters.blocks.tryBlock("createFilter")) {
+        try {
+          // prevent multiple events
+          if (quickFilters.blocks.tryBlock("createFilterFromMsg")) {
+            util.logDebugOptional("assistant", "Prevented blocked createFilterFromMsg event");
             return;
-          }          
+          }
+          util.logDebugOptional("assistant", "createFilterFromMsg menu item command triggered");
+          isBlockLocal = true;
           let selectedMessageUris = [],
             selectedMessages = [],
+            selectedApiMessages = [],
             messageList = [],
             isInbox = false;
           let sourceFolder;
+
 
           if (eventDetail) {
             // this is passing info from API: the tab id + message ids.
@@ -976,9 +985,19 @@ var quickFilters = {
             let msg = eventDetail.messages;
             for (let i = 0; i < msg.messages.length; i++) {
               let m = msg.messages[i];
+              // nsIMsgHdr
               let realMessage = await window.quickFilters.WL.extension.messageManager.get(m.id);
               selectedMessages.push(realMessage || m);
               selectedMessageUris.push(null); // there is no URI!
+
+              // store API message metadata separately - for my new html window
+              selectedApiMessages.push({
+                messageId: m.id,
+                folder: {
+                  accountId: m.folder.accountId,
+                  path: m.folder.path,
+                }
+              });
             }
             sourceFolder = util.getCurrentFolder();
           } else {
@@ -1082,17 +1101,22 @@ var quickFilters = {
               // fA = Ci.nsMsgFilterAction.AddTag;
               fA = Ci.nsMsgFilterAction.MarkFlagged; // ??
             }
+            
+            const isAssistantModeHTML = quickFilters.Preferences.isAssistantModeHTM;
+            const isFromMsgContext =
+              eventDetail &&
+              (isAssistantModeHTML ? eventDetail.context === "fromMessageContext" : true);
 
             // now really an async function:
-            // TO DO:  test / check this code branch asyncify - (create filter from message seems to fail)
-            quickFilters.Worker.createFilterAsync_New(
-              null,
-              currentMessageFolder,
+            quickFilters.Worker.startFilterAssistant({
+              sourceFolder: null,
+              targetFolder: currentMessageFolder,
               messageList,
-              fA,
-              false,
-              !!eventDetail
-            ); // from API
+              filterAction: fA,
+              filterActionExt: false,
+              isMsgContext: isFromMsgContext,
+              context: eventDetail?.context
+            });
           } else {
             let wrn = util.getBundleString(
               "quickfilters.createFromMail.selectWarning",
@@ -1100,10 +1124,19 @@ var quickFilters = {
             );
             await util.popupAlert(wrn);
           }
+        } catch(ex) {
+          util.logException("createFilterFromMsg", ex);
+          if (quickFilters.Preferences.isDebug ) {
+            // eslint-disable-next-line no-debugger
+            debugger;
+          }
         } finally {
-           quickFilters.blocks.release("createFilter");
-        };
-        
+          util.logDebugOptional("assistant", `createFilterFromMsg- finally isBlockLocal:${isBlockLocal}`);
+          if (isBlockLocal) {
+            quickFilters.blocks.release("createFilterFromMsg");
+            util.logDebugOptional("assistant", "released block on createFilterFromMsg");
+          }
+        }
     }
   },
 
@@ -1229,7 +1262,7 @@ var quickFilters = {
     } else {
       folders = GetSelectedMsgFolders(); // quickFilters.folderTreeView.getSelectedFolders();
     }
-    
+
     if (!folders.length) {
       return false;
     }
@@ -1257,7 +1290,7 @@ var quickFilters = {
             util.logDebugOptional(
               "filterSearch",
               `checking account [${ac.prettyName}] for target folder: ${targetFolder.URI}\n` +
-              `iterating ${numFilters} filters...`
+                `iterating ${numFilters} filters...`
             );
             for (let i = 0; i < numFilters; i++) {
               let curFilter = filterList.getFilterAt(i),
@@ -1276,7 +1309,8 @@ var quickFilters = {
                     if (isTargetMatch) {
                       util.logDebugOptional(
                         "filterSearch",
-                        `FOUND FILTER MATCH at index [${i}]:\n` + `filter '${curFilter.filterName}'\n`
+                        `FOUND FILTER MATCH at index [${i}]:\n` +
+                          `filter '${curFilter.filterName}'\n`
                       );
                       matchedFilter = curFilter;
                       matchedAccount = ac;
@@ -1344,7 +1378,8 @@ var quickFilters = {
     );
 
     if (quickFilters.isNewAssistantMode) {
-      // will be handled by folder listener!
+      // test code with deprecated folder listener!
+      console.warn("EARLY EXIT onFolderTreeViewDrop: isNewAssistantMode is deprecated!");
       return;
     }
 
@@ -1377,7 +1412,7 @@ var quickFilters = {
     try {
       util.logDebugOptional(
         "dnd",
-        `onDrop: ${messageUris.length} messageUris to ${targetFolder.URI}` 
+        `onDrop: ${messageUris.length} messageUris to ${targetFolder.URI}`
       );
       if (messageUris.length > 0 && !sourceFolder) {
         // note: getCurrentFolder fails when we are in a search results window!!
@@ -1392,15 +1427,19 @@ var quickFilters = {
       if (quickFilters.Util.checkAssistantSourceExclusion(sourceFolder)) {
         return;
       }
-      // TODO - asyncify ?
+
       window.setTimeout(async function () {
-        worker.createFilterAsync_New(
+        worker.startFilterAssistant({
           sourceFolder,
           targetFolder,
-          msgList,
-          isMove ? Ci.nsMsgFilterAction.MoveToFolder : Ci.nsMsgFilterAction.CopyToFolder,
-          null
-        );
+          messageList: msgList,
+          filterAction: isMove
+            ? Ci.nsMsgFilterAction.MoveToFolder
+            : Ci.nsMsgFilterAction.CopyToFolder,
+          filterActionExt: null,
+          isMsgContext: false,
+          context: "onTreeviewDrop"
+        });
       });
     } catch (e) {
       quickFilters.LocalErrorLogger("Exception in onFolderTreeViewDrop:" + e);
@@ -1427,6 +1466,7 @@ var quickFilters = {
 
     if (quickFilters.isNewAssistantMode) {
       // will be handled by folder listener!
+      console.warn("EARLY EXIT onFolderTreeDrop: isNewAssistantMode is deprecated!");
       return false;
     }
 
@@ -1495,15 +1535,17 @@ var quickFilters = {
           }
 
           window.setTimeout(async function () {
-            worker.createFilterAsync_New(
+            worker.startFilterAssistant({
               sourceFolder,
               targetFolder,
-              msgList,
-              isMove
-                ? Components.interfaces.nsMsgFilterAction.MoveToFolder
-                : Components.interfaces.nsMsgFilterAction.CopyToFolder,
-              null
-            );
+              messageList: msgList,
+              filterAction: isMove
+                ? Ci.nsMsgFilterAction.MoveToFolder
+                : Ci.nsMsgFilterAction.CopyToFolder,
+              filterActionExt: null,
+              isMsgContext: false,
+              context: "onFolderTreeDrop"
+            });
           });
         }
       }
@@ -1564,6 +1606,11 @@ var quickFilters = {
     }
   },
 
+  /*
+   * Deprecated: MsgMove_Wrapper and MsgCopy_Wrapper not used anymore.
+   * Consider removing after verifying no external calls depend on them.
+   */
+  /*
   MsgMove_Wrapper: function (uri) {
     const util = quickFilters.Util;
     try {
@@ -1686,6 +1733,7 @@ var quickFilters = {
       promiseDone(); //was setTimeout(promiseDone, 20);
     }
   } ,
+   */
 
   MsgArchive_Wrapper: async function (callbackFunction) {
     const util = quickFilters.Util,
@@ -1716,14 +1764,17 @@ var quickFilters = {
         // so we use the source folder. The action will be archice and so doesn't need a new targetFolder
         destMsgFolder = sourceFolder;
         if (messageList.length) {
-          await quickFilters.Worker.createFilterAsync_New(
+          const params = {
             sourceFolder,
-            destMsgFolder,
+            targetFolder: destMsgFolder,
             messageList,
-            fA, // filterAction
-            "Archive"
-          ); // filterActionExt
-          util.logDebugOptional("msgMove", "After calling createFilterAsync_New()");
+            filterAction: fA, // Custom action for archive
+            filterActionExt: "Archive",
+            isMsgContext: false, // optional, if you want to be explicit
+            context: "wrappedArchive"
+          };      
+          await quickFilters.Worker.startFilterAssistant(params);  
+          util.logDebugOptional("msgMove", "After calling startFilterAssistant()");
         }
       }
     } catch (ex) {
@@ -1733,11 +1784,11 @@ var quickFilters = {
   },
 
   doCommandWrapper: function (cmd, aTab) {
-    if (
-      (cmd == "cmd_delete" || cmd == "button_delete") &&
-      DefaultController.isCommandEnabled(cmd)
-    ) {
-      try {
+    try {
+      if (
+        (cmd == "cmd_delete" || cmd == "button_delete") &&
+        DefaultController.isCommandEnabled(cmd)
+      ) {
         // determine which messages are currently selected
         // then call assistant first. Or alternatively call after original function returns true.
         // original call was gFolderDisplay.doCommand(Ci.nsMsgViewCommandType.deleteMsg);
@@ -1747,44 +1798,58 @@ var quickFilters = {
           `doCommandWrapper(${cmd}, ${aTab}):`
         );
 
-        if (quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode) {
+        do { // do-while (just one run through) to allow early exit
+          let isAssistant = quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode;
+          if (!isAssistant) {
+            break;
+          }
+
           if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
             quickFilters.Util.logDebugOptional(
               "assistant,msgMove",
               "Not invoking assistant on delete as it is excluded."
             );
-          } else {
-            let selectedMessages = quickFilters.Util.getSelectedMessages();
-            if (selectedMessages.length) {
-              let selectedMails = [];
-              for (let i = 0; i < selectedMessages.length; i++) {
-                let msgHdr = selectedMessages[i];
-                selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr));
-              }
-              let src = selectedMessages[0].folder;
-              // determine the target (Trash for this account)
-              if (src.canDeleteMessages) {
-                let targetFolder = src.server.rootFolder.getFolderWithFlags(
-                  Ci.nsMsgFolderFlags.Trash
-                );
-                quickFilters.Worker.createFilterAsync_New(
-                  src,
-                  targetFolder,
-                  selectedMails,
-                  Components.interfaces.nsMsgFilterAction.Delete,
-                  null
-                );
-              }
-            }
+            break;
+          } 
+          let selectedMessages = quickFilters.Util.getSelectedMessages();
+          if (!selectedMessages?.length) {
+            break; //early exit. we still want to use finally to return the original command!!
           }
-        }
-      } catch (ex) {
-        quickFilters.Util.logException("quickFilters.doCommandWrapper()", ex);
-      }
-    }
 
-    let result = quickFilters.doCommandOriginal.call(DefaultController, cmd, aTab); // make sure to bind "this" to DefaultController!
-    return result;
+          let selectedMails = [];
+          for (let i = 0; i < selectedMessages.length; i++) {
+            let msgHdr = selectedMessages[i];
+            selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr));
+          }
+          let src = selectedMessages[0].folder;
+          // determine the target (Trash for this account)
+          if (!src.canDeleteMessages) {
+            break;
+          }
+          let targetFolder = src.server.rootFolder.getFolderWithFlags(
+            Ci.nsMsgFolderFlags.Trash
+          );
+          const params = {
+            sourceFolder: src,
+            targetFolder,
+            messageList: selectedMails,
+            filterAction: Components.interfaces.nsMsgFilterAction.Delete,
+            filterActionExt: null,
+            isMsgContext: false,
+            context: "doCommandWrapper"
+          };
+          quickFilters.Worker.startFilterAssistant(params);
+        // eslint-disable-next-line no-constant-condition
+        } while (false); // do-while to allow early exit
+      }
+    } catch (ex) {
+      quickFilters.Util.logException("quickFilters.doCommandWrapper()", ex);
+    }
+    finally {
+      let result = quickFilters.doCommandOriginal.call(DefaultController, cmd, aTab); // make sure to bind "this" to DefaultController!
+      // eslint-disable-next-line no-unsafe-finally
+      return result;
+    }
   },
 
   windowKeyPress: function (e, dir) {
@@ -1862,7 +1927,9 @@ var quickFilters = {
                     "quickFilters",
                     txt
                   );
-                  if (!result) {return;}
+                  if (!result) {
+                    return;
+                  }
                 }
               }
               quickFilters.onApplyFilters();
@@ -1883,7 +1950,9 @@ var quickFilters = {
                   "quickFilters",
                   txt
                 );
-                if (!result) {return;}
+                if (!result) {
+                  return;
+                }
               }
               quickFilters.onApplyFiltersToSelection();
               return;
@@ -2002,10 +2071,16 @@ var quickFilters = {
     }
     if (newTags.length) {
       // tags have been added.
-      if (!quickFilters.Util.AssistantActive) {return false;}
-      if (!quickFilters.Preferences.getBoolPref("listener.tags")) {return false;}
+      if (!quickFilters.Util.AssistantActive) {
+        return false;
+      }
+      if (!quickFilters.Preferences.getBoolPref("listener.tags")) {
+        return false;
+      }
       let messages = quickFilters.Util.getSelectedMessages();
-      if (!messages.length) {return false;}
+      if (!messages.length) {
+        return false;
+      }
       let msgHdr = messages[0];
       let selectedMails = [];
       selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
@@ -2052,16 +2127,14 @@ var quickFilters = {
 }; // quickFilters MAIN OBJECT
 
 
-// https://mxr.mozilla.org/addons/source/3376/chrome/content/mailclassifier/js/main.js#91
+/*
 quickFilters.MsgFolderListener = {
   qfInstance: quickFilters,
-  /**
-   * Event fired after message was moved or copied
-   * @param {boolean} isMoved  
-   * @param {nsIArray} aSrcMsgs    Array of Messages
-   * @param {nsIMsgFolder} targetFolder   
-   * @param {nsIArray} aDestMsgs    Array of Messages
-   */
+  //  * Event fired after message was moved or copied
+  //  * @param {boolean} isMoved  
+  //  * @param {nsIArray} aSrcMsgs    Array of Messages
+  //  * @param {nsIMsgFolder} targetFolder   
+  //  * @param {nsIArray} aDestMsgs    Array of Messages
   msgsMoveCopyCompleted: function(isMoved, aSrcMsgs, targetFolder, aDestMsgs) {
     const Ci = Components.interfaces;
     let qF = quickFilters ? quickFilters : this.qfInstance;
@@ -2204,9 +2277,13 @@ quickFilters.MsgFolderListener = {
   itemEvent: function itemEvent(_aItem, _aEvent, _aData){ ; }
 }; // MsgFolderListener
 quickFilters.MsgFolderListener.qfInstance = quickFilters;
+*/
 
-// this should do all the event work necessary
-// not necessary for mail related work!
+/**
+ * FolderListener: manages message and folder events for local folders,
+ * especially to support automatic filtering on POP3/non-inbox folders.
+ * Active only if preference "localFoldersRun" is true.
+ */
 quickFilters.FolderListener = {
   localMoved: [],
   qfInstance: quickFilters,
@@ -2225,10 +2302,6 @@ quickFilters.FolderListener = {
     }
   },
 
-  // was: FolderListener.OnItemAdded()
-  // legacy method: works in 91 https://searchfox.org/comm-esr91/source/mailnews/base/public/nsIFolderListener.idl
-  // in Tb102 -= Replaced with void onMessageAdded(in nsIMsgFolder parent, in nsIMsgDBHdr msg);
-  // https://searchfox.org/comm-central/rev/fa8e67bb1f40b7381b3e4db9545574cdc4758db9/mailnews/base/public/nsIFolderListener.idl#27
   onMessageAdded: async function (parent, item) {
     const Ci = Components.interfaces;
     try {
@@ -2448,16 +2521,18 @@ quickFilters.addFolderListeners = function() {
     Ci.nsIFolderListener.added | 
     Ci.nsIFolderListener.propertyFlagChanged );
 
-   // nsIMsgFolderListener
+  // nsIMsgFolderListener
+  /*
   MailServices.mfn.addListener(quickFilters.MsgFolderListener,
       MailServices.mfn.msgsMoveCopyCompleted |
       MailServices.mfn.msgsDeleted |
       MailServices.mfn.msgKeyChanged
   );
+  */
 }
 
 quickFilters.removeFolderListeners = function() {
-  MailServices.mfn.removeListener(quickFilters.MsgFolderListener);
+  // MailServices.mfn.removeListener(quickFilters.MsgFolderListener);
   MailServices.mailSession.RemoveFolderListener(quickFilters.FolderListener);
 }
 
@@ -2466,81 +2541,86 @@ quickFilters.removeFolderListeners = function() {
 // quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Ci.nsIFolderListener.all);
 quickFilters.addTagListener = function(win) {
   const util = quickFilters.Util,
-        prefs = quickFilters.Preferences;
-  if (util) {
-    util.logDebugOptional('listeners', "addTagListener()");
-    // wrap the original method
-    if (win.mailContextMenu && win.mailContextMenu._toggleMessageTag) {
-      if (!quickFilters.ToggleMessageTag) {
-        util.logDebugOptional('listeners','Wrapping ToggleMessageTag...');
-        let originalTagToggler = win.mailContextMenu._toggleMessageTag;
-        if (!originalTagToggler) {
-          util.logToConsole("getMail3PaneWindow - Could not retrieve the original ToggleMessageTage function from main window:\n" + util.getMail3PaneWindow());
-          return false; // let's short ciruit here
-        }
-        if (typeof originalTagToggler.fromQuickFilters !== 'undefined') {
-          util.logDebug("quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n");
+    prefs = quickFilters.Preferences;
+  if (!util) {
+    setTimeout(function() { quickFilters.addTagListener() } , 1000); // retry
+    return false; 
+  }
+  util.logDebugOptional('listeners', "addTagListener()");
+  // wrap the original method
+  if (win.mailContextMenu && win.mailContextMenu._toggleMessageTag) {
+    if (!quickFilters.ToggleMessageTag) {
+      util.logDebugOptional('listeners','Wrapping ToggleMessageTag...');
+      let originalTagToggler = win.mailContextMenu._toggleMessageTag;
+      if (!originalTagToggler) {
+        util.logToConsole("getMail3PaneWindow - Could not retrieve the original ToggleMessageTage function from main window:\n" + util.getMail3PaneWindow());
+        return false; // let's short ciruit here
+      }
+      if (typeof originalTagToggler.fromQuickFilters !== 'undefined') {
+        util.logDebug("quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n");
+        return false;
+      }
+      win.quickFilters_ToggleMessageTag = originalTagToggler; // store namespaced original in window
+      
+      // closure the window
+      win.mailContextMenu._toggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
+        // call the original function (tag setter) first
+        let tmt = win.quickFilters_ToggleMessageTag;
+        util.logDebugOptional('listeners', "ToggleMessageTagWrapped()"
+          + `\nwin.quickFilters == quickFilters: ${(win.quickFilters == quickFilters)}`
+          + `\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: ${(originalTagToggler == tmt)}`);
+
+        win.quickFilters_ToggleMessageTag(tag, checked);
+
+        // no Assistant active - if current folder is the inbox: apply the filters.
+        // Bug 26457 - disable this behavior by default
+        if (!quickFilters.Util.AssistantActive && prefs.getBoolPref('listener.tags.autofilter')) { 
+          quickFilters.onApplyFiltersToSelection(true); // suppress the message
           return false;
         }
-        win.quickFilters_ToggleMessageTag = originalTagToggler; // store namespaced original in window
+
+        if (!checked) { return true; }
+        // only if tag  gets toggle ON
+        // Assistant is active?
+        if (!quickFilters.Util.AssistantActive) {return false;} 
+        // make it possible to ignore tag changes.
+        if (!prefs.getBoolPref('listener.tags')) {return false;} 
+
+        let selectedMessages = quickFilters.Util.getSelectedMessages(); 
+        if (!selectedMessages.length) {return false;}
+        let msgHdr = selectedMessages[0];
+
+        let selectedMails = [];  
+        selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+
+        window.setTimeout(async function () {
+          const params = {
+            sourceFolder: null,
+            targetFolder: msgHdr.folder,
+            messageList: selectedMails,
+            filterAction: Components.interfaces.nsMsgFilterAction.AddTag,
+            filterActionExt: tag,
+            isMsgContext: false,
+            context: "addTagListener"
+          };
+          quickFilters.Worker.startFilterAssistant(params);
+        });
+                    
         
-        // closure the window
-        win.mailContextMenu._toggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
-          // call the original function (tag setter) first
-          let tmt = win.quickFilters_ToggleMessageTag;
-          util.logDebugOptional('listeners', "ToggleMessageTagWrapped()"
-            + `\nwin.quickFilters == quickFilters: ${(win.quickFilters == quickFilters)}`
-            + `\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: ${(originalTagToggler == tmt)}`);
+        return true;
+      } //  wrapper function for ToggleMessageTag
 
-          win.quickFilters_ToggleMessageTag(tag, checked);
-
-          // no Assistant active - if current folder is the inbox: apply the filters.
-          // Bug 26457 - disable this behavior by default
-          if (!quickFilters.Util.AssistantActive && prefs.getBoolPref('listener.tags.autofilter')) { 
-            quickFilters.onApplyFiltersToSelection(true); // suppress the message
-            return false;
-          }
-
-          if (checked) { // only if tag  gets toggle ON
-            // Assistant is active?
-            if (!quickFilters.Util.AssistantActive) {return false;} 
-            // make it possible to ignore tag changes.
-            if (!prefs.getBoolPref('listener.tags')) {return false;} 
-
-            let selectedMessages = quickFilters.Util.getSelectedMessages(); 
-            if (!selectedMessages.length) {return false;}
-            let msgHdr = selectedMessages[0];
-
-            let selectedMails = [];  
-            selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-            window.setTimeout(async function() {
-              quickFilters.Worker.createFilterAsync_New(
-                null, 
-                msgHdr.folder, 
-                selectedMails, 
-                Components.interfaces.nsMsgFilterAction.AddTag, 
-                tag);
-            });
-          }
-          return true;
-        } //  wrapper function for ToggleMessageTag
-
-
-        util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag + "\n adding flag...");
-        win.mailContextMenu._toggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
-        util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag);
-      }
+      util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag + "\n adding flag...");
+      win.mailContextMenu._toggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
+      util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag);
     }
-
-    return true; // early exit, no need for this in Tb/Sm
   }
-  setTimeout(function() { quickFilters.addTagListener() } , 1000); // retry
-  return false;
+  return true; 
 }
 
 quickFilters.restoreTagListener = function(win) {
   if (win.quickFilters_ToggleMessageTag) {
-    win.mailContextMenu._toggleMessageTag = win.quickFilters_ToggleMessageTag; // restore roginal function
+    win.mailContextMenu._toggleMessageTag = win.quickFilters_ToggleMessageTag; // restore original function
     delete win.quickFilters_ToggleMessageTag; // scrap backup
   }
 }

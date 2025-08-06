@@ -270,12 +270,14 @@ async function displayAssistant(data) {
   const assistantURL = browser.runtime.getURL("html/filterAssistant.html");
   const url = new URL(assistantURL);
   url.searchParams.set("context", data?.context || "");
+  // Add unique id for this request, used for async duties
+  url.searchParams.set("requestId", data.requestId);
   const tabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
   // possible contexts:
   // - currentMail: simulate right click on selected message
   const currentTab = tabs?.length ? tabs[0] : null;
 
-  if (currentTab.displayedFolder) {
+  if (currentTab?.displayedFolder) {
     const currentFolder = currentTab.displayedFolder;
     if (currentFolder) {
       const uri = await messenger.Utilities.getFolderUri(
@@ -296,22 +298,56 @@ async function displayAssistant(data) {
     }
   }
 
-  if (data.context === "fromSelectedMessages" && currentTab) {
-    // Get selected messages in the tab
-    // NOTE: getSelectedMessages() Lists the selected messages in the current folder.
-    // Includes messages in collapsed threads. Does not include messages which are
-    // context-clicked, but not selected. The context-clicked messages
-    // are always returned by the onClicked event of the menus API
+  switch (data.context) {
+    case "fromSelectedMessages":
+      if (currentTab) {
+        // Get selected messages in the tab
+        // NOTE: getSelectedMessages() Lists the selected messages in the current folder.
+        // Includes messages in collapsed threads. Does not include messages which are
+        // context-clicked, but not selected. The context-clicked messages
+        // are always returned by the onClicked event of the menus API
 
-    const messageList = await messenger.mailTabs.getSelectedMessages(currentTab.id);
-    // read data from returned MessagesList:
-    console.log(messageList.messages); // Array of message objects`
-    if (messageList.messages.length) {
-      const messageIds = messageList.messages.map((msg) => msg.id);
-      const jsonMessageIds = JSON.stringify(messageIds); // no need to encode - all are integers
-      url.searchParams.set("messageIds", jsonMessageIds);
-    }
+        const messageList = await messenger.mailTabs.getSelectedMessages(currentTab.id);
+        // read data from returned MessagesList:
+        console.log(messageList.messages); // Array of message objects`
+        if (messageList.messages.length) {
+          const messageIds = messageList.messages.map((msg) => msg.id);
+          const jsonMessageIds = JSON.stringify(messageIds); // no need to encode - all are integers
+          url.searchParams.set("messageIds", jsonMessageIds);
+        }
+      }
+      break;
+    case "fromMessageContext": {
+      // using the API context menu
+      // info comes from the context menu click event (we can ignore tab)
+      const { info, selectedApiMessages } = data;
+
+      // info.messageId is the clicked message id (should be available)
+      let messageId = info.messageId;
+      if (!messageId && info.selectedMessages && info.selectedMessages.length > 0) {
+        messageId = info.selectedMessages[0].id;
+      }
+
+      if (messageId) {
+        const messageIds = [messageId];
+        const jsonMessageIds = JSON.stringify(messageIds);
+        url.searchParams.set("messageIds", jsonMessageIds);
+        url.searchParams.set("context", "fromMessageContext");
+      } else {
+        console.warn("No messageId found in context menu info", info);
+      }
+
+      // Now marshal the selectedApiMessages array if it exists
+      if (selectedApiMessages && selectedApiMessages.length > 0) {
+        // Serialize the array (JSON-encode it)
+        const jsonApiMessages = encodeURIComponent(JSON.stringify(selectedApiMessages));
+        url.searchParams.set("selectedApiMessages", jsonApiMessages);
+      }
+    } break;
+
   }
+  
+
 
   let screenH = window.screen.height,
     windowHeight = screenH > 650 ? 650 : screenH;
@@ -345,11 +381,10 @@ async function main() {
   
   // listeners for splash pages
   messenger.runtime.onMessage.addListener(async (data, _sender) => {
-    console.log("runtime.onMessage", data, _sender);
+    // console.log("runtime.onMessage", data, _sender);
     if (!data.command) {
       return;
     }
-
     switch (data.command) {
       case "getLicenseInfo":
         return currentLicense.info;
@@ -357,6 +392,19 @@ async function main() {
         let filters = await messenger.FiltersAPI.getFilters(data.accountId);
         return filters;
       }
+      case "assistantResult": {
+        const { requestId, result } = data;
+        const isDebug = await messenger.LegacyPrefs.getPref(legacy_root + "debug.assistant");
+        if (isDebug) {
+          console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
+        }
+        if (requestId) {
+          await messenger.Utilities.resolveAssistant(requestId, result, {
+            answer: data.params?.answer,
+            selectedMergedFilterIndex: data.params?.selectedMergedFilterIndex || -1,
+          });
+        }
+      } break;
     }
   });
     
@@ -519,9 +567,9 @@ async function main() {
 
       case "quickFiltersAssistant": {
         displayAssistant(data)
-
         break;
       }
+      
       case "API-test-Utilities":
         console.log("quickFilters - API-test-Utilities");
         try {
@@ -647,13 +695,25 @@ async function main() {
         console.log("quickFilters message context menu", info, tab);
       }
       const menuItem = { id: CREATEFILTERFROMMSG_ID };   // fake menu item to pass to doCommand
+      const detail = {
+        commandItem: menuItem,
+        tabId: tab.id,
+        windowId: tab.windowId,
+        messages: info.selectedMessages,
+      };
       // trigger win.quickFilters.doCommand(menuItem);
-      messenger.NotifyTools.notifyExperiment(
-        {
-          event: "doCommand", 
-          detail: {commandItem: menuItem, tabId: tab.id, windowId: tab.windowId, messages: info.selectedMessages }
-        }
-      );
+      if (await messenger.LegacyPrefs.getPref("extensions.quickfilters.assistant.html")) {
+        // call the new thingy with context="fromMessageContext"
+        // const data = { info, tab
+        // displayAssistant(data);
+        // <== that won't work because we need the lgacry context of quickFIlters.Worker.createQuickFilterExec(..)
+        detail.context = "fromMessageContext";
+      }
+
+      messenger.NotifyTools.notifyExperiment({
+        event: "doCommand",
+        detail : detail,
+      });      
     },
     icons: {
       "16": "chrome/content/skin/createFilter.svg",
