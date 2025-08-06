@@ -13,7 +13,8 @@ var { MailServices } = quickFilters_ESM
 
 // eslint-disable-next-line no-unused-vars
 var Utilities = class extends ExtensionCommon.ExtensionAPI {
-  getAPI(context) {    
+  getAPI(context) {   
+     console.log("quickFilters exp API: Utilities.getAPI() called"); 
     return {
       Utilities: {
         latestMainWindow: function () {
@@ -150,6 +151,37 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
             console.error("messageManager.convert failed:", ex);
             return -1;
           }
+        },
+
+        resolveAssistant:  async (requestId, result, params) => {
+          win.quickFilters.Util.logDebugOptional(
+            "assistant",
+            `resolveAssistant(${requestId}) called with result: ${result}, params: ${params}`
+          );
+
+          let pending = win.quickFilters._pendingAssistantRequests;
+          if (pending && pending[requestId]) {
+            let resolve = pending[requestId];
+            delete pending[requestId]; // clean up after resolving
+
+            // Create the full results object as expected
+            const results = {
+              result,
+              params,
+            };
+
+            win.quickFilters.Util.logDebugOptional(
+              "assistant",
+              `Resolving ${requestId} with Result:`,
+              results
+            );
+
+            // Call the stored resolve function with the full results object
+            resolve(results);
+
+            return true;
+          }
+          return false; // request ID not found
         },
       },
     };

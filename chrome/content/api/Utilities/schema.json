@@ -130,6 +130,38 @@
           "type": "string",
           "description": "The API messageId or null if not found"
         }
+      },
+
+      {
+        "name": "resolveAssistant",
+        "type": "function",
+        "async": true,
+        "description": "Send back assistant result from HTML assistant",
+        "parameters": [
+          {
+            "name": "requestId",
+            "type": "string"
+          },
+          {
+            "name": "result",
+            "type": "string",
+            "enum": ["merge", "success", "cancelled"]
+          },
+          {
+            "name": "params",
+            "type": "object",
+            "properties": {
+              "answer": { "type": "boolean" },
+              "selectedMergedFilterIndex": { "type": "integer" }
+            },
+            "required": ["answer"],
+            "additionalProperties": true
+          }
+        ],
+        "returns": {
+          "type": "boolean",
+          "description": "whether promise was found + resolved"
+        }
       }
 
     ]
