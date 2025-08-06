@@ -1,6 +1,7 @@
 #quickfilters-toolbar-button,
 #quickFilters-fromMessage,
-#quickFilters-fromMessageInMenu {
+#quickFilters-fromMessageInMenu,
+#quickfilters-menu-test-htmlAssistant {
   list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
   -moz-context-properties: fill;
   fill: currentColor;
