@@ -2,11 +2,13 @@
   --box-background-color: #c7c7d8;
   --dialogbackground: #f9f9f9;
   --dialogcolor: #191919;
+  --color-white: #fff;
+  --color-gray-80: #27272a;
 }
 /* for some reason the theme media selector doesn't work yet */
 @media (prefers-color-scheme: dark) {
   :root {
-    --box-background-color: #2a284b;
+    --box-background-color:var(--color-gray-80);
     --dialogbackground: #191919;
     --dialogcolor: rgb(241, 243, 250);
   }
@@ -158,7 +160,7 @@ footer, #main {
 
 #previewContent.minimized,
 #templateDescription.minimized {
-	-webkit-line-clamp: 1;
+/*	-webkit-line-clamp: 1; */
 	height: 1em !important;
 	min-height: 2.2em;
 	overflow: hidden;
