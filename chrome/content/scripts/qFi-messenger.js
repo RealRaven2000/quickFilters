@@ -151,7 +151,8 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickFilters-menu-filterFromMsg": // fall-throughs
       case CREATEFILTERFROMMSG_ID:
       case "quickFilters-fromMessage":
-        window.quickFilters.onMenuItemCommand("createFilterFromMsg", eventDetail);
+        // legacy path:
+        window.quickFilters.onMenuItemCommand("createFilterFromMsg", eventDetail);        
         break;
       case "quickfilters-menu-searchfilters": // fall-through
       case "quickfilters-current-searchfilterbutton":

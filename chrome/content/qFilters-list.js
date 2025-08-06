@@ -362,6 +362,7 @@ quickFilters.List = {
 
     // user has selected a template
     let template = prefs.getCurrentFilterTemplate();
+    util.logDebugOptional("merge", `Selected template: ${template}`);
     if (mergeFilterIndex >= 0) {
       targetFilter = matchingFilters[mergeFilterIndex];
     } else {
