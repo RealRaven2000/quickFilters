@@ -1,5 +1,9 @@
 // Default preference values. These are accessible via the preferences system
 // or via the optional chrome/content/options.xul preferences dialog.
+/*
+  globals
+    pref
+*/
 pref("extensions.quickfilters.debug", false);
 pref("extensions.quickfilters.debug.assistant", false);
 pref("extensions.quickfilters.debug.buildFilter", false);
@@ -69,6 +73,7 @@ pref("extensions.quickfilters.searchterm.addressesOneWay", false); // Bug 25714
 pref("extensions.quickfilters.searchterm.insertOnTop", false); // Bug 26664
 
 
+pref("extensions.quickfilters.assistant.html", false); // use html version
 pref("extensions.quickfilters.assistant.exclude.trash", false);
 pref("extensions.quickfilters.assistant.exclude.junk", false);
 pref("extensions.quickfilters.assistant.exclude.archive", true);
