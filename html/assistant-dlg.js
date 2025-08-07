@@ -261,7 +261,7 @@ quickFilters.Assistant = {
               answer: true,
               selectedMergedFilterIndex: this.selectedMergedFilterIndex,
             },
-          });          
+          });
           setTimeout(function () {
             window.close();
           });
@@ -282,11 +282,11 @@ quickFilters.Assistant = {
       command: "assistantResult",
       requestId,
       result: "cancelled",
-      params :{ 
+      params: {
         answer: false,
         mergedFilterIndex: -1,
       },
-    });        
+    });
     window.close();
     return true;
   },
@@ -354,24 +354,24 @@ quickFilters.Assistant = {
 
   initMatchedFilters: function () {
     const params = new URLSearchParams(location.search);
-    const filtersEncoded = params.get("matchedFilters");
-    if (!filtersEncoded) {
+    const filtersJson = params.get("matchedFilters");
+    if (!filtersJson) {
       return 0;
     }
 
     let filters;
     try {
-      filters = JSON.parse(decodeURIComponent(filtersEncoded));
+      filters = JSON.parse(filtersJson);
       if (!Array.isArray(filters)) {
         console.error("Matched filters data is not an array:", filters);
         return 0;
-      }      
+      }
     } catch (ex) {
       console.error("Failed to parse matched filters:", ex);
       return 0;
     }
 
-    const matchList = this.MatchedFilters;
+    const matchList = this.MatchedFilters; // input element
     // reset the list
     matchList.textContent = "";
     const chkAutoRun = document.getElementById("chkAutoRun");
@@ -390,7 +390,7 @@ quickFilters.Assistant = {
     return filters.length;
   },
 
-  previewFromApi: async function(messageId) {
+  previewFromApi: async function (messageId) {
     try {
       const msg = await messenger.messages.get(messageId);
 
@@ -400,8 +400,8 @@ quickFilters.Assistant = {
         recipients: msg.recipients.join(", "),
         subject: msg.subject,
         date: new Date(msg.date).toLocaleString(),
-        lines: `${msg.size} bytes`, // optional: could estimate number of lines if needed
-        msgCount: 1
+        size: msg.size, // optional: could estimate number of lines if needed
+        msgCount: 1,
       };
     } catch (ex) {
       console.error("Failed to load message preview from API for id:", messageId, ex);
@@ -420,13 +420,23 @@ quickFilters.Assistant = {
     if (!preview) {
       return;
     }
-    const set = (id, field) => {
+    const formatSize = (bytes) => {
+      if (typeof bytes !== "number" || bytes < 0) {
+        return "";
+      }
+      if (bytes < 1024) {
+        return `${bytes} bytes`;
+      }
+      return `${(bytes / 1024).toFixed(1)} KB`;
+    };
+    const set = (id, field, format = "") => {
       try {
         const el = document.getElementById(id);
         if (el && field in preview) {
-          el.textContent = el.textContent + " " + preview[field];
+          const val = format == "size" ? formatSize(preview[field]) : preview[field];
+          el.textContent = el.textContent + " " + val;
         }
-      } catch(ex) {
+      } catch (ex) {
         console.log(`couldn't set preview field: id=${id} field: ${field}`, ex);
       }
     };
@@ -435,12 +445,12 @@ quickFilters.Assistant = {
     set("previewTo", "recipients");
     set("previewSubject", "subject");
     set("previewDate", "date");
-    set("previewLines", "lines");
+    set("previewLines", "size", "size");
 
-    if (params.folderPath) {
+    if (preview.folderPath) {
       set("previewPath", "folderPath");
     }
-    document.getElementById("previewPath").hidden = !params.folderPath;
+    document.getElementById("previewPath").hidden = !preview.folderPath;
 
     const caption = document.getElementById("previewCaption");
     if (caption && preview.msgCount) {
@@ -449,15 +459,17 @@ quickFilters.Assistant = {
   },
 
   loadAssistant: async function () {
-    console.trace("loadAssistant called");    
+    console.trace("loadAssistant called");
     if (quickFilters.Assistant.initialised) {
       return;
     }
     const urlParams = new URLSearchParams(window.location.search);
-    requestId = urlParams.get("requestId"); 
+    requestId = urlParams.get("requestId");
     await this.loadPreferences(); // set all checkboxes
+    const urlApiMessages = urlParams.get("selectedApiMessages");
+    this.selectedApiMessages = urlApiMessages ? JSON.parse(urlApiMessages) : [];
     const templateList = this.TemplateList;
-    const context = urlParams.get("context")
+    const context = urlParams.get("context");
     await quickFilters.Util.logHighlightDebug(
       " loadAssistant() ",
       "rgba(250, 235, 119, 1)",
@@ -496,9 +508,18 @@ quickFilters.Assistant = {
       }
     }
 
+
+    document.getElementById("qf-filter-templates").addEventListener("change", (event) => {
+      quickFilters.Assistant.selectTemplateFromListTmr(event.target);
+    });
+
     // find any filters that match and add them to the MatchedFilters listbox
     const countMatched = this.initMatchedFilters();
     const isMergePossible = countMatched > 0;
+    this.toggleMergePane(isMergePossible);
+    if (!isMergePossible) {
+      this.NextButton.textContent = messenger.i18n.getMessage("qf.button.createFilter");
+    }
 
     switch (context) {
       case "fromSelectedMessages":
@@ -508,7 +529,7 @@ quickFilters.Assistant = {
             quickFilters.Util.logDebug("Missing messageIds parameter!");
             break;
           }
-          const messageIds = JSON.parse(decodeURIComponent(jsonMsg));
+          const messageIds = JSON.parse(jsonMsg);
           if (!Array.isArray(messageIds)) {
             throw new Error("messageIds is not an array");
           }
@@ -531,6 +552,12 @@ quickFilters.Assistant = {
           }
         }
         break;
+      default:
+        break;
+    }
+    if (context.startsWith("createFilterAsync")) {
+      // from QuickFOlders: createFilterAsync (legacy)
+      // drag + drop etc: createFilterAsync
     }
     switch (urlParams.get("currentCmd")) {
       case "mergeList":
@@ -559,18 +586,20 @@ quickFilters.Assistant = {
         );
         this.NextButton.label = messenger.i18n.getMessage("qf.button.next");
     }
-    // build a preview 
+    // build a preview
     let preview;
-    if (this.selectedApiMessages?.length) { // use API to build it fresh
+    if (this.selectedApiMessages?.length) {
+      // use API to build it fresh
       const folderPath = await formatFolderPath(this.selectedApiMessages[0].folder);
       preview = await this.previewFromApi(this.selectedApiMessages[0].messageId);
       if (folderPath) {
         preview.folderPath = folderPath;
       }
-    } else if (this.passedMessages.length) { // legacy messages?
+    } else if (this.passedMessages.length) {
+      // legacy messages?
       preview = this.passedMessages[0];
     }
-    this.initPreview({preview});
+    this.initPreview({ preview });
 
     templateList.value = await this.getCurrentFilterTemplate();
 
@@ -679,7 +708,7 @@ quickFilters.Assistant = {
       */
     quickFilters.Assistant.selectTemplate(element); // set worker value and store in prefs. something bad happens on next!
     quickFilters.Assistant.enableCreate(true);
-    let templateType = element.selectedItem?.value;
+    let templateType = element.value;
     if (templateType) {
       if (templateType.indexOf("quickFilterCustomTemplate") == 0) {
         templateType = "custom";

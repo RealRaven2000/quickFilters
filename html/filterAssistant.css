@@ -1,5 +1,5 @@
 :root {
-  --box-background-color: #c7c7d8;
+  --box-background-color: #E7E7E8;
   --dialogbackground: #f9f9f9;
   --dialogcolor: #191919;
   --color-white: #fff;
@@ -155,7 +155,7 @@ footer, #main {
 
 #previewContent p {
   margin-top: 0.1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 #previewContent.minimized,
@@ -168,8 +168,9 @@ footer, #main {
 }
 
 #templateDescription {
-  padding: 0.5em;
-  display: -webkit-box;
+  padding-block: 0.1em;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 

@@ -496,6 +496,9 @@ quickFilters.Worker = {
     // Destructure for easier access inside the function
     let { sourceFolder } = params;
     const { targetFolder, messageList, filterAction, filterActionExt, isMsgContext } = params;
+    // params may also contain the selectedApiMessages array which gives us context data
+    // from right-clicking a message! See below when "quickFiltersAssistant" is called 
+    // via background notification
     const util = quickFilters.Util,
       Ci = Components.interfaces,
       prefs = quickFilters.Preferences;
@@ -955,9 +958,9 @@ quickFilters.Worker = {
               "#9d4201ff",
               `Request Id: ${requestId}`
             );
-            let theContext = "createQuickFilterExec (Generic)";
-            if (params.isMsgContext) {
-              theContext = "fromSelectedMessages";
+            let theContext = params.context || "createQuickFilterExec (Generic)";
+            if (params.isMsgContext && !params.context) {
+              theContext = "fromMessageContext";
             }
             const backgroundCallObject = {
               func: "quickFiltersAssistant",
@@ -968,6 +971,60 @@ quickFilters.Worker = {
             };
             if (params?.cmd) {
               backgroundCallObject.cmd = params.cmd; // "new" or "merge"
+            }
+            if (params.messageList) {
+              for (const m of params.messageList) {
+                try {
+                  const apiMsg = await quickFilters.WL.extension.messageManager.convert(
+                    m.msgHeader
+                  );
+                  if (!apiMsg) {
+                    console.warn(
+                      `Could not convert msgHeader[${m.messageId}] to MessageHeader. Skipping...`,
+                      m.msgHeader
+                    );
+                    continue;
+                  }
+
+                  if (backgroundCallObject.selectedApiMessages.some(
+                    (msg) => msg.messageId === apiMsg.id
+                  )) { continue; } // avoid duplicates
+
+                  backgroundCallObject.selectedApiMessages.push({
+                    messageId: apiMsg.id,
+                    folder: {
+                      accountId: apiMsg.folder.accountId,
+                      path: apiMsg.folder.path,
+                    }
+                  });
+                } catch (ex) {
+                  console.error("Failed to convert legacy message:", ex);
+                  // fallback, push legacy info if available
+                  backgroundCallObject.selectedApiMessages.push({
+                    messageId: m.messageId,
+                    folder: {
+                      accountId: m.msgHeader?.folder?.accountId || "",
+                      path: m.msgHeader?.folder?.path || "",
+                    },
+                  });
+                }
+              }
+            }
+            if (targetFolder) {
+              const account = quickFilters.Util.Accounts.find(
+                (ac) => ac.incomingServer === targetFolder?.server
+              );
+              const apiFolder = quickFilters.WL.extension.folderManager.convert(
+                targetFolder,
+                account?.key || null
+              );
+              if (apiFolder) {
+                backgroundCallObject.targetFolder = {
+                  accountId: apiFolder.accountId,
+                  path: apiFolder.path,
+                  name: apiFolder.name // optional
+                };
+              }
             }
 
             quickFilters._pendingAssistantRequests = quickFilters._pendingAssistantRequests || {};

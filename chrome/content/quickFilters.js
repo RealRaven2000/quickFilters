@@ -964,6 +964,7 @@ var quickFilters = {
         break;
       case "createFilterFromMsg":
         try {
+          let theContext = "";
           // prevent multiple events
           if (quickFilters.blocks.tryBlock("createFilterFromMsg")) {
             util.logDebugOptional("assistant", "Prevented blocked createFilterFromMsg event");
@@ -982,25 +983,28 @@ var quickFilters = {
           if (eventDetail) {
             // this is passing info from API: the tab id + message ids.
             // tabId: currentTab.id, windowId: currentTab.windowId, messages: selectedMessages
+            theContext = eventDetail.context;
             let msg = eventDetail.messages;
             for (let i = 0; i < msg.messages.length; i++) {
               let m = msg.messages[i];
-              // nsIMsgHdr
-              let realMessage = await window.quickFilters.WL.extension.messageManager.get(m.id);
-              selectedMessages.push(realMessage || m);
-              selectedMessageUris.push(null); // there is no URI!
-
               // store API message metadata separately - for my new html window
               selectedApiMessages.push({
                 messageId: m.id,
                 folder: {
                   accountId: m.folder.accountId,
                   path: m.folder.path,
-                }
+                },
               });
+
+              // XPCOM - nsIMsgHdr
+              let realMessage = await window.quickFilters.WL.extension.messageManager.get(m.id);
+              selectedMessages.push(realMessage || m);
+              selectedMessageUris.push(null); // there is no URI!
             }
             sourceFolder = util.getCurrentFolder();
           } else {
+            theContext = "fromSelectedMessages";
+            // consider XPCOM=>API conversion for selectedApiMessages?
             selectedMessages = quickFilters.Util.getSelectedMessages(selectedMessageUris, true);
             if (selectedMessages.length) {
               sourceFolder = selectedMessages[0].folder;
@@ -1104,18 +1108,18 @@ var quickFilters = {
             
             const isAssistantModeHTML = quickFilters.Preferences.isAssistantModeHTM;
             const isFromMsgContext =
-              eventDetail &&
-              (isAssistantModeHTML ? eventDetail.context === "fromMessageContext" : true);
+              eventDetail && (isAssistantModeHTML ? theContext === "fromMessageContext" : true);
 
             // now really an async function:
             quickFilters.Worker.startFilterAssistant({
               sourceFolder: null,
               targetFolder: currentMessageFolder,
               messageList,
+              selectedApiMessages,
               filterAction: fA,
               filterActionExt: false,
               isMsgContext: isFromMsgContext,
-              context: eventDetail?.context
+              context: theContext,
             });
           } else {
             let wrn = util.getBundleString(

@@ -272,32 +272,42 @@ async function displayAssistant(data) {
   url.searchParams.set("context", data?.context || "");
   // Add unique id for this request, used for async duties
   url.searchParams.set("requestId", data.requestId);
-  const tabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
-  // possible contexts:
-  // - currentMail: simulate right click on selected message
-  const currentTab = tabs?.length ? tabs[0] : null;
 
-  if (currentTab?.displayedFolder) {
-    const currentFolder = currentTab.displayedFolder;
-    if (currentFolder) {
-      const uri = await messenger.Utilities.getFolderUri(
-        currentFolder.accountId,
-        currentFolder.path
-      );
-      const targetFolder = {
-        accountId: currentFolder.accountId,
-        path: currentFolder.path,
-        uri: uri,
-      };
-      url.searchParams.set("targetFolder", JSON.stringify(targetFolder));
-      // find any mergeable filters:
-      const mergableFilters = await messenger.FiltersAPI.getFilters(uri, "merge");
-      if (mergableFilters?.length) {
-        url.searchParams.set("matchedFilters", encodeURIComponent(JSON.stringify(mergableFilters)));
-      }
+  let targetFolder = data.targetFolder; 
+  let currentTab; 
+
+  if (data.context == "fromSelectedMessages" || data.context == "fromMessageContext") {
+    const tabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
+    // possible contexts:
+    // - currentMail: simulate right click on selected message
+    currentTab = tabs?.length ? tabs[0] : null;
+
+    if (currentTab?.displayedFolder) {
+      targetFolder = currentTab.displayedFolder;
     }
   }
 
+  if (!targetFolder && data.selectedApiMessages?.length) {
+    targetFolder = data.selectedApiMessages[0].folder;
+  }  
+
+  if (targetFolder) {
+    const uri = await messenger.Utilities.getFolderUri(targetFolder.accountId, targetFolder.path);
+    const target = {
+      accountId: targetFolder.accountId,
+      path: targetFolder.path,
+      uri: uri,
+    };
+    url.searchParams.set("targetFolder", JSON.stringify(target)); // future use.
+    // find any mergeable filters:
+    const mergableFilters = await messenger.FiltersAPI.getFilters(uri, "merge");
+    if (mergableFilters?.length) {
+      url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
+    }
+  }
+
+
+  const { selectedApiMessages } = data; // always try to retrieve this
   switch (data.context) {
     case "fromSelectedMessages":
       if (currentTab) {
@@ -317,37 +327,38 @@ async function displayAssistant(data) {
         }
       }
       break;
-    case "fromMessageContext": {
-      // using the API context menu
-      // info comes from the context menu click event (we can ignore tab)
-      const { info, selectedApiMessages } = data;
-
-      // info.messageId is the clicked message id (should be available)
-      let messageId = info.messageId;
-      if (!messageId && info.selectedMessages && info.selectedMessages.length > 0) {
-        messageId = info.selectedMessages[0].id;
+    case "fromMessageContext":
+      {
+        // using the API context menu
+        // we cannot use info from the context menu click event
+        // - because it doesn't exist anymore after returning from legacy createQuickFilterExec
+        if (!selectedApiMessages) {
+          console.error("displayAssistant (fromMessageContext): no selectedApiMessages  in data!");
+          return;
+        }
+        if (!selectedApiMessages.length) {
+          console.error("displayAssistant (fromMessageContext): selectedApiMessages is empty!");
+          return;
+        }
       }
-
-      if (messageId) {
-        const messageIds = [messageId];
-        const jsonMessageIds = JSON.stringify(messageIds);
-        url.searchParams.set("messageIds", jsonMessageIds);
-        url.searchParams.set("context", "fromMessageContext");
-      } else {
-        console.warn("No messageId found in context menu info", info);
-      }
-
-      // Now marshal the selectedApiMessages array if it exists
-      if (selectedApiMessages && selectedApiMessages.length > 0) {
-        // Serialize the array (JSON-encode it)
-        const jsonApiMessages = encodeURIComponent(JSON.stringify(selectedApiMessages));
-        url.searchParams.set("selectedApiMessages", jsonApiMessages);
-      }
-    } break;
-
+      break;
   }
-  
+  // info.messageId is the clicked message id (should be available)
+  if (selectedApiMessages) {
+    const messageIds = selectedApiMessages.map((msg) => msg.messageId).filter(Boolean); // nsIMsgHdr
+    if (messageIds.length) {
+      const jsonMessageIds = JSON.stringify(messageIds);
+      url.searchParams.set("messageIds", jsonMessageIds);
+      url.searchParams.set("context", "fromMessageContext");
+    } else {
+      console.warn("No valid messageIds found in selectedApiMessages");
+    }
 
+    // Serialize the array (JSON-encode it)
+    const jsonApiMessages = JSON.stringify(selectedApiMessages); // not necessary to encodeURIComponent, next command will do it:
+    // Now marshal the selectedApiMessages array
+    url.searchParams.set("selectedApiMessages", jsonApiMessages);
+  }
 
   let screenH = window.screen.height,
     windowHeight = screenH > 650 ? 650 : screenH;
