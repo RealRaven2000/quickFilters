@@ -113,6 +113,7 @@ function expandCollapse(element, collapseElementId) {
 
 quickFilters.Assistant = {
   selectedMergedFilterIndex: -1,
+  mergeCandidates: [],
   currentCmd: null,
   initialised: false,
   licenseInfo: null,
@@ -186,8 +187,9 @@ quickFilters.Assistant = {
     if (!element) {
       element = this.TemplateList;
     }
-    if (element.selectedItem) {
-      await this.setPref("filters.currentTemplate", element.selectedItem.value);
+    const selectedOption = element.options[element.selectedIndex];
+    if (selectedOption) {
+      await this.setPref("filters.currentTemplate", selectedOption.value);
       return false;
     }
     return true;
@@ -205,7 +207,7 @@ quickFilters.Assistant = {
         _currentPage = this.currentPage;
 
       const urlParams = new URLSearchParams(window.location.search);
-      let isMerge = false;
+      let isMerge = document.getElementById("chkMerge").checked;
 
       const params = {
         answer: urlParams.get("answer"),
@@ -214,7 +216,6 @@ quickFilters.Assistant = {
       };
 
       if (_currentPage == "stepMerge") {
-        isMerge = document.getElementById("chkMerge").checked;
         this.selectedMergedFilterIndex = isMerge ? this.MatchedFilters.selectedIndex : -1;
       }
 
@@ -251,20 +252,30 @@ quickFilters.Assistant = {
           this.toggleMergePane(false);
           break;
         case "stepDetail": // we are in template selection, either go on to create new filter or edit the selected one from first step
-          await quickFilters.Assistant.selectTemplate();
-          this.hasSentResult = true;
-          await browser.runtime.sendMessage({
-            command: "assistantResult",
-            requestId,
-            result: "success",
-            params: {
+          {
+            await quickFilters.Assistant.selectTemplate();
+            this.hasSentResult = true;
+            let resultParams = {
               answer: true,
-              selectedMergedFilterIndex: this.selectedMergedFilterIndex,
-            },
-          });
-          setTimeout(function () {
-            window.close();
-          });
+            };
+            if (document.getElementById("chkMerge").checked) {
+              this.selectedMergedFilterIndex = this.MatchedFilters.selectedIndex;
+              const selectedFilter = this.mergeCandidates[this.selectedMergedFilterIndex];
+              if (selectedFilter) {
+                resultParams.selectedMergedFilterName = selectedFilter.filterName;
+                resultParams.selectedMergedFilterAccountId = selectedFilter.accountId || null;
+              }
+            }
+            await browser.runtime.sendMessage({
+              command: "assistantResult",
+              requestId,
+              result: "success",
+              params: resultParams,
+            });
+            setTimeout(function () {
+              window.close();
+            });
+          }
           break;
       }
       return;
@@ -366,6 +377,7 @@ quickFilters.Assistant = {
         console.error("Matched filters data is not an array:", filters);
         return 0;
       }
+      this.mergeCandidates = filters; // remember the list for result generation
     } catch (ex) {
       console.error("Failed to parse matched filters:", ex);
       return 0;
@@ -507,7 +519,6 @@ quickFilters.Assistant = {
         }
       }
     }
-
 
     document.getElementById("qf-filter-templates").addEventListener("change", (event) => {
       quickFilters.Assistant.selectTemplateFromListTmr(event.target);
@@ -700,12 +711,6 @@ quickFilters.Assistant = {
     if (!element) {
       element = this.TemplateList;
     }
-    /*
-    if (element.selectedItem == null) {
-      quickFilters.Assistant.selectTemplateFromListTmr(element);
-      return;
-    }
-      */
     quickFilters.Assistant.selectTemplate(element); // set worker value and store in prefs. something bad happens on next!
     quickFilters.Assistant.enableCreate(true);
     let templateType = element.value;

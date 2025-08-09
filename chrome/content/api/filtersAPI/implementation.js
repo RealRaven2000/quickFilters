@@ -68,7 +68,7 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
         // options: set to "merge" to only return filters that move / copy mail to the folder
         getFilters: async function (folderUri, options = "all") {
           const FA = Components.interfaces.nsMsgFilterAction;
-          options = (options || "all").toLowerCase();          
+          options = (options || "all").toLowerCase();
           console.log("quickFilters - filtersAPI.getFilters()");
           const win = Services.wm.getMostRecentWindow("mail:3pane");
           const util = win.quickFilters.Util;
@@ -84,10 +84,14 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
             filterCount = localFolderList.filterCount;
           const results = [];
 
+          // get accountId from folder server
+          const accountId = folder.server?.accountKey || folder.server?.key || null;
+
           for (let i = 0; i < filterCount; i++) {
             const filter = localFolderList.getFilterAt(i);
             const result = {
               filterName: filter.filterName,
+              accountId,
             };
 
             const token = filter.filterName.split(":");
@@ -105,7 +109,7 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
               continue;
             }
             // merge: check all actions for folder URI
-            for (let a=0; a<filter.actionCount; a++) {
+            for (let a = 0; a < filter.actionCount; a++) {
               const action = filter.getActionAt(a);
               if (action.type === FA.MoveToFolder || action.type === FA.CopyToFolder) {
                 if (action?.targetFolderUri === folderUri) {

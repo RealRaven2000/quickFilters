@@ -1038,9 +1038,37 @@ quickFilters.Worker = {
             const resultData = await assistantResultPromise;
             if (resultData.result === "cancelled") {
               isCancelled = true;
+              quickFilters.Util.logDebug("Filter creation cancelled");
             }
             params = resultData.params;
             // make sure selectedMergedFilterIndex is correct
+            if (
+              !isCancelled &&
+              params.selectedMergedFilterIndex >= 0 &&
+              params.selectedMergedFilterIndex < matchingFilters.length
+            ) {
+              quickFilters.Util.logDebug("Filter assistant returned these params: ", params);
+              selectedMergedFilterIndex = params.selectedMergedFilterIndex;
+              // sanity check filter name
+              if (
+                matchingFilters[selectedMergedFilterIndex].filterName ==
+                params.selectedMergedFilterName
+              ) {
+                quickFilters.Util.logDebug(
+                  `Successfully matched XPCOM filter [${params.selectedMergedFilterName}]`
+                );
+              } else {
+                const xpcomIndex = matchingFilters.findIndex(
+                  (f) => f.filterName === params.selectedMergedFilterName
+                );
+                quickFilters.Util.logDebug(
+                  `Found a different filter index for xpcom filter [${params.selectedMergedFilterName}] : ${xpcomIndex}`
+                );
+                if (xpcomIndex >= 0) {
+                  selectedMergedFilterIndex = xpcomIndex;
+                }
+              }
+            }
           } else {
             const win = await window
               .openDialog(
