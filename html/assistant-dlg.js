@@ -105,10 +105,66 @@ function expandCollapse(element, collapseElementId) {
       element.setAttribute("containercollapsed", "true");
       colElement.classList.add("minimized");
     }
+    window.resizeWindowToContent();
   } catch (ex) {
     console.error("expandCollapse()\nError toggling collapse state:", ex);
   }
 }
+
+function resizeWindowToContent() {
+  // Helper to get total height including margins
+  const getTotalHeight = (el) => {
+    if (!el) {
+      return 0;
+    }
+    const rect = el.getBoundingClientRect();
+    const style = window.getComputedStyle(el);
+    const marginTop = Math.ceil(parseFloat(style.marginTop) || 0);
+    const marginBottom = Math.ceil(parseFloat(style.marginBottom) || 0);
+    return Math.ceil(rect.height) + marginTop + marginBottom;
+  };
+
+  const visibleStep = document.querySelector(".step:not(.hidden)");
+  const main = document.getElementById("main"); 
+  const header = document.getElementById("header");
+  const footer = document.getElementById("assistant-buttons");
+
+  if (!visibleStep) {
+    return;
+  }
+
+  const stepHeight = getTotalHeight(visibleStep);
+  const footerHeight = getTotalHeight(footer);
+  const headerHeight = getTotalHeight(header);
+  const style = window.getComputedStyle(main);
+  const captionHeight = window.outerHeight - window.innerHeight;
+  const mainPaddingTop = parseInt(style.paddingTop, 10);
+
+  // Add extra margin for safety
+  const SAFETY_Y = 20;
+
+  const desiredHeight =
+    captionHeight + stepHeight + footerHeight + headerHeight + mainPaddingTop + SAFETY_Y;
+
+  const currentHeight = captionHeight + window.innerHeight;
+
+  quickFilters.Util.logDebug(
+    `resizeWindowToContent from current height ${currentHeight}`,
+    `Height calculation = desired: ${desiredHeight}\n` +
+      `captionHeight = ${captionHeight}\n` +
+      `stepHeight = ${stepHeight}\n` +
+      `footerHeight = ${footerHeight}\n` +
+      `headerHeight = ${headerHeight}\n` +
+      `padding main (top) = ${mainPaddingTop}\n` +
+      `Safety Y = ${SAFETY_Y}`
+  );
+
+  messenger.runtime.sendMessage({
+    command: "resizeAssistant",
+    height: desiredHeight,
+  });
+}
+
 
 
 quickFilters.Assistant = {
@@ -250,6 +306,7 @@ quickFilters.Assistant = {
       switch (_currentPage) {
         case "stepMerge": // existing filters were found, lets store selected filter index or -1!
           this.toggleMergePane(false);
+          resizeWindowToContent();
           break;
         case "stepDetail": // we are in template selection, either go on to create new filter or edit the selected one from first step
           {
@@ -445,11 +502,18 @@ quickFilters.Assistant = {
       try {
         const el = document.getElementById(id);
         if (el && field in preview) {
-          const val = format == "size" ? formatSize(preview[field]) : preview[field];
-          el.textContent = el.textContent + " " + val;
+          // after the label have a separate content span that wraps:
+          let contentEl = el.querySelector(".content");
+          if (!contentEl) {
+            contentEl = document.createElement("span");
+            contentEl.className = "content";
+            el.appendChild(contentEl);
+          }
+          const val = format === "size" ? formatSize(preview[field]) : preview[field];
+          contentEl.textContent = val;
         }
       } catch (ex) {
-        console.log(`couldn't set preview field: id=${id} field: ${field}`, ex);
+        console.log(`Couldn't set preview field: id=${id} field: ${field}`, ex);
       }
     };
 
@@ -521,7 +585,7 @@ quickFilters.Assistant = {
     }
 
     document.getElementById("qf-filter-templates").addEventListener("change", (event) => {
-      quickFilters.Assistant.selectTemplateFromListTmr(event.target);
+      quickFilters.Assistant.selectTemplateFromListTmr(event.target, true); // force resize.
     });
 
     // find any filters that match and add them to the MatchedFilters listbox
@@ -651,6 +715,7 @@ quickFilters.Assistant = {
 
     quickFilters.Assistant.initialised = true;
     this.selectTemplateFromListTmr(templateList); // make sure Deescription is displayed initially.
+    resizeWindowToContent();
   },
 
   loadPreferences: async function () {
@@ -693,7 +758,7 @@ quickFilters.Assistant = {
     }
   },
 
-  selectTemplateFromListTmr: function (el) {
+  selectTemplateFromListTmr: function (el, isResize = false) {
     if (!quickFilters.Assistant.initialised) {
       return;
     }
@@ -702,6 +767,12 @@ quickFilters.Assistant = {
     window.setTimeout(() => {
       quickFilters.Assistant.selectTemplateFromList(el);
     }, 500);
+    window.setTimeout(() => {
+      quickFilters.Assistant.selectTemplateFromList(el);
+      if (isResize) {
+        window.resizeWindowToContent();
+      }
+    }, 50);
   },
 
   selectTemplateFromList: function (element) {

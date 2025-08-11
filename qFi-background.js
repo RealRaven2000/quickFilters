@@ -391,7 +391,7 @@ async function main() {
   startupFinished = true;
   
   // listeners for splash pages
-  messenger.runtime.onMessage.addListener(async (data, _sender) => {
+  messenger.runtime.onMessage.addListener(async (data, sender) => {
     // console.log("runtime.onMessage", data, _sender);
     if (!data.command) {
       return;
@@ -416,6 +416,22 @@ async function main() {
           });
         }
       } break;
+      case "resizeAssistant":
+        if (sender.tab) {
+          let newHeight = data.height;
+          const maxHeight = window.screen.availHeight; // or window.screen.height for full screen height
+          
+          if (newHeight > maxHeight) {
+            newHeight = maxHeight;
+            console.warn(
+              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`
+            );
+          }
+
+          const windowId = sender.tab.windowId;
+          browser.windows.update(windowId, { height: newHeight });
+        }
+        break;
     }
   });
     

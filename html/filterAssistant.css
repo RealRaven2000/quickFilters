@@ -173,6 +173,25 @@ footer, #main {
   margin-bottom: 0.5em;
 }
 
+.nobreak {
+  white-space: nowrap;
+}
 
+#previewContent p {
+  display: flex;
+  align-items: baseline;
+}
+
+#previewContent p .label {
+  white-space: nowrap;
+  font-weight: bold;
+  margin-right: 0.4em;
+  flex-shrink: 0;
+}
+
+#previewContent p .content {
+  flex-grow: 1;
+  word-break: break-word;
+}
 
 

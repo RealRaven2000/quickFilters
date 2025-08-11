@@ -94,22 +94,34 @@
 
         <div id="boxDescription">
           <span id="expandDescription" class="sectionExpander"></span>
-          <label for="templateDescription">__MSG_qf.filters.templates.description.label__</label>
+          <label for="templateDescription" class="nobreak">__MSG_qf.filters.templates.description.label__</label>
           <p id="templateDescription"></p>
         </div>
 
         <div id="preview" style="margin-top: 1rem;">
           <span id="expandPreview" class="sectionExpander"></span>
-          <label>Email(s)</label>
+          <label class="nobreak">__MSG_msg.preview.title__</label>
           <div id="previewContent" class="fieldset-body" style="padding-left: 0.5rem;">
-            <p class="plain" id="previewFrom">Author: </p>
-            <p class="plain" id="previewTo">Recipients: </p>
-            <p class="plain" id="previewSubject">Subject: </p>
+            <p class="plain" id="previewFrom">
+              <span class="label">__MSG_msg.preview.author__:</span> 
+            </p>
+            <p class="plain" id="previewTo">
+              <span class="label">__MSG_msg.preview.recipients__:</span> 
+            </p>
+            <p class="plain" id="previewSubject">
+              <span class="label">__MSG_msg.preview.subject__:</span> 
+            </p>
             <div style="display: flex; justify-content: space-between;">
-              <p class="plain" id="previewDate">Date: </p>
-              <p class="plain" id="previewLines">Size: </p>
+              <p class="plain" id="previewDate"> 
+                <span class="label">__MSG_msg.preview.date__:</span>
+              </p>
+              <p class="plain" id="previewLines">
+                <span class="label">__MSG_msg.preview.size__:</span> 
+              </p>
             </div>
-            <p class="plain" id="previewPath">Location: </p>
+            <p class="plain" id="previewPath">
+              <span class="label">__MSG_msg.preview.location__:</span> 
+            </p>
           </div>
         </div>
         
