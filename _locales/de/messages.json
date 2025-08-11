@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "Um weiterhin nützlich zu sein, müssen Add-On-Entwickler nun vermehrt die für die Reparatur und das Umschreiben erforderlichen Mittel aufbringen, damit unsere Benutzer weiterhin von den Funktionen profitieren können, die wir an den Tisch bringen."
   },
+  "assistant.ux.title": {
+    "message": "Benutzeroberfläche"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Assistenten in neuer HTML-Benutzeroberfläche anzeigen"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Öffnet die neue Version des Assistenten mit zukunftssicherem HTML. XUL wird in Zukunft von Mozilla abgeschafft."
+  },
   "btn-extend-license": {
     "message": "Ich möchte meine Lizenz um ein Jahr verlängern"
   },
@@ -263,6 +272,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla bietet nur eine Basis-Plattform, um unsere Software für Sie als Endbenutzer weiterzuleiten. Wenn wir unsere Benutzer um Zahlung oder Support bitten müssen, können wir dies nicht über addons.thunderbird.net tun - es handelt sich nicht um einen App Store mit integrierten Paywalls oder Lizenzverwaltung wie iTunes oder Google Play."
+  },
+  "msg.preview.author": {
+    "message": "Absender"
+  },
+  "msg.preview.date": {
+    "message": "Datum"
+  },
+  "msg.preview.location": {
+    "message": "Ort"
+  },
+  "msg.preview.recipients": {
+    "message": "Empfänger"
+  },
+  "msg.preview.size": {
+    "message": "Größe"
+  },
+  "msg.preview.subject": {
+    "message": "Betreff"
+  },
+  "msg.preview.title": {
+    "message": "E-Mail"
   },
   "notificationTitle": {
     "description": "Title of the click notification.",

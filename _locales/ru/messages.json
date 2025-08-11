@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "Чтобы и дальше оставаться полезными, нам, разработчикам дополнений, теперь необходимо финансировать исправления, для того чтобы наши пользователи могли продолжать пользоваться предоставляемыми нами функциями."
   },
+  "assistant.ux.title": {
+    "message": "Пользовательский интерфейс"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Показать помощника в новом HTML-интерфейсе"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Открывает новую версию помощника с использованием перспективного HTML. В будущем XUL будет удалён Mozilla."
+  },
   "btn-extend-license": {
     "message": "Я хочу продлить лицензию на один год"
   },
@@ -263,6 +272,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla предоставляет только базовую платформу для доставки нашего программного обеспечения вам, конечным пользователям. Если нам нужно запросить у наших пользователей оплату или поддержку, мы не сможем сделать это через addons.thunderbird.net - это не «магазин приложений» со встроенными платными доступом или управлением лицензиями, такими как iTunes или Google Play."
+  },
+  "msg.preview.author": {
+    "message": "Автор"
+  },
+  "msg.preview.date": {
+    "message": "Дата"
+  },
+  "msg.preview.location": {
+    "message": "Местоположение"
+  },
+  "msg.preview.recipients": {
+    "message": "Получатели"
+  },
+  "msg.preview.size": {
+    "message": "Размер"
+  },
+  "msg.preview.subject": {
+    "message": "Тема"
+  },
+  "msg.preview.title": {
+    "message": "Письмо"
   },
   "notificationTitle": {
     "description": "Title of the click notification.",

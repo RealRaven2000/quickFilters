@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "Jatkaaksemme hyödyllisyyttä meidän lisäosakehittäjien on nyt rahoitettava korjaamiseen ja uudelleenkirjoittamiseen tarvittavat resurssit, jotta käyttäjät voivat edelleen hyötyä tarjoamistamme toiminnoista."
   },
+  "assistant.ux.title": {
+    "message": "Käyttöliittymä"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Näytä avustaja uudessa HTML-käyttöliittymässä"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Avaa avustajan uuden version, joka käyttää tulevaisuuden kestävää HTML:ää. XUL poistuu käytöstä Mozillan toimesta tulevaisuudessa."
+  },
   "btn-extend-license": {
     "message": "Haluan jatkaa lisenssini vuodella"
   },
@@ -263,6 +272,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla tarjoaa vain perusalustan ohjelmistojemme toimittamiseksi sinulle, loppukäyttäjille. Jos meidän on pyydettävä käyttäjiltämme maksua tai tukea, emme voi tehdä tätä osoitteesta addons.thunderbird.net - se ei ole '' sovelluskauppa '', jossa on sisäänrakennetut paywallit tai lisenssien hallinta, kuten iTunes tai Google Play."
+  },
+  "msg.preview.author": {
+    "message": "Lähettäjä"
+  },
+  "msg.preview.date": {
+    "message": "Päivämäärä"
+  },
+  "msg.preview.location": {
+    "message": "Sijainti"
+  },
+  "msg.preview.recipients": {
+    "message": "Vastaanottajat"
+  },
+  "msg.preview.size": {
+    "message": "Koko"
+  },
+  "msg.preview.subject": {
+    "message": "Aihe"
+  },
+  "msg.preview.title": {
+    "message": "Sähköposti"
   },
   "notificationTitle": {
     "message": "Click notification",

@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "To continue to be useful, Add-on developers now need to fund the resources needed to fix and rewrite so that our users can keep benefiting from the functionality we bring to the table."
   },
+  "assistant.ux.title": {
+    "message": "User Interface"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Display Assistant in new HTML user interface"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Opens a new version of the assistant using future proof HTML. XUL will be deprecated by Mozilla in the future."
+  },
   "btn-extend-license": {
     "message": "I want to extend my license by one year"
   },
@@ -263,6 +272,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
+  },
+  "msg.preview.author": {
+    "message": "Author"
+  },
+  "msg.preview.date": {
+    "message": "Date"
+  },
+  "msg.preview.location": {
+    "message": "Location"
+  },
+  "msg.preview.recipients": {
+    "message": "Recipients"
+  },
+  "msg.preview.size": {
+    "message": "Size"
+  },
+  "msg.preview.subject": {
+    "message": "Subject"
+  },
+  "msg.preview.title": {
+    "message": "Email"
   },
   "ongoing-work": {
     "message": "Buying a license is completely voluntary. To make things easier for users, the current version remains backwards compatible with Thunderbird 115 for as long as technically feasible. However, Thunderbird now follows a monthly release cycle, increasing our testing and development workload. Your support helps us keep up with these changes!",

@@ -22,6 +22,15 @@
   "addon-authors-struggle": {
     "message": "Abychom byli i nadále užiteční, musíme nyní vývojáři doplňků financovat prostředky potřebné k opravě a přepsání, aby naši uživatelé mohli nadále těžit z funkcí, které poskytujeme."
   },
+  "assistant.ux.title": {
+    "message": "Uživatelské rozhraní"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Zobrazit asistenta v novém uživatelském rozhraní HTML"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Otevře novou verzi asistenta pomocí moderního HTML. XUL bude v budoucnu Mozillou zrušen."
+  },
   "btn-extend-license": {
     "message": "Chci prodloužit licenci o jeden rok"
   },
@@ -122,6 +131,27 @@
   },
   "licenseWindow.title": {
     "message": "quickFilters Pro Licence"
+  },
+  "msg.preview.author": {
+    "message": "Autor"
+  },
+  "msg.preview.date": {
+    "message": "Datum"
+  },
+  "msg.preview.location": {
+    "message": "Umístění"
+  },
+  "msg.preview.recipients": {
+    "message": "Příjemci"
+  },
+  "msg.preview.size": {
+    "message": "Velikost"
+  },
+  "msg.preview.subject": {
+    "message": "Předmět"
+  },
+  "msg.preview.title": {
+    "message": "Email"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla poskytuje pouze základní platformu pro doručování našeho softwaru vám, koncovým uživatelům. Pokud potřebujeme požádat naše uživatele o platbu nebo podporu, nemůžeme to udělat z addons.thunderbird.net - nejedná se o „obchod s aplikacemi“ s vestavěnými paywally nebo správou licencí, jako je iTunes nebo Google Play."

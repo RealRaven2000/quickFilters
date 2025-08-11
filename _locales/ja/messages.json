@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "引き続き有用であるために、アドオン開発者は、ユーザーが提供する機能の恩恵を受け続けることができるように、修正と書き換えに必要なリソースに資金を提供する必要があります。"
   },
+  "assistant.ux.title": {
+    "message": "ユーザーインターフェース"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "新しい HTML ユーザーインターフェースでアシスタントを表示"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "将来性のある HTML を使用したアシスタントの新バージョンを開きます。XUL は将来的に Mozilla により廃止されます。"
+  },
   "btn-extend-license": {
     "message": "ライセンスを 1 年延長します"
   },
@@ -263,6 +272,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla は、エンドユーザーであるあなたにソフトウェアを提供するための基本的なプラットフォームのみを提供します。ユーザーに支払いやサポートを依頼する必要がある場合、addons.thunderbird.net からこれを行うことはできません。これは、アプリ内決済機能や、iTunes や Google Play のようなライセンス管理が組み込まれた「アプリストア」ではありません。"
+  },
+  "msg.preview.author": {
+    "message": "差出人"
+  },
+  "msg.preview.date": {
+    "message": "日付"
+  },
+  "msg.preview.location": {
+    "message": "場所"
+  },
+  "msg.preview.recipients": {
+    "message": "受信者"
+  },
+  "msg.preview.size": {
+    "message": "サイズ"
+  },
+  "msg.preview.subject": {
+    "message": "件名"
+  },
+  "msg.preview.title": {
+    "message": "メール"
   },
   "notificationTitle": {
     "description": "Title of the click notification.",

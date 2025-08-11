@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "为了继续发挥作用，我们的附加组件开发人员现在需要资助修复和重写所需的资源，以便我们的用户可以继续从我们提供的功能中受益。"
   },
+  "assistant.ux.title": {
+    "message": "用户界面"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "在新的 HTML 用户界面中显示助手"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "使用面向未来的 HTML 打开助手的新版本。XUL 将在未来被 Mozilla 废弃。"
+  },
   "btn-extend-license": {
     "message": "我想将我的执照延长一年"
   },
@@ -258,6 +267,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla仅提供了一个向您（最终用户）交付我们软件的基本平台。 如果我们需要向我们的用户付款或提供支持，则不能通过addons.thunderbird.net进行操作-这不是内置付费界面或许可证管理（如iTunes或Google Play）的“应用商店”。"
+  },
+  "msg.preview.author": {
+    "message": "发件人"
+  },
+  "msg.preview.date": {
+    "message": "日期"
+  },
+  "msg.preview.location": {
+    "message": "位置"
+  },
+  "msg.preview.recipients": {
+    "message": "收件人"
+  },
+  "msg.preview.size": {
+    "message": "大小"
+  },
+  "msg.preview.subject": {
+    "message": "主题"
+  },
+  "msg.preview.title": {
+    "message": "邮件"
   },
   "notificationTitle": {
     "description": "Title of the click notification.",

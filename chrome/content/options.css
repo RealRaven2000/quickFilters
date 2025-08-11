@@ -202,11 +202,6 @@ label.text-link {
 	transition-duration: 0.2s, 0.2s;
 }
 
-button.text-link:hover,
-label.text-link:hover {
-	/*! margin: 1.0em 6.2em 0.5em 10.2em !important; */
-	/*! box-shadow: 1px 1px 2px -1px rgba(0,0,0,0.8); */
-}
 
 button.text-link,
 button.text-link[visited="true"],
@@ -258,13 +253,6 @@ label.text-link[visited="true"] {
 	border: 1px #006 solid;
   list-style-image: url("chrome://messenger/skin/preferences/arrow_green.png");
 /* text-decoration: underline !important; */
-}
-
-label#L1:hover {
-	/*! color: #FFFFFF !important; */
-	/*! background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important; */
-	/*! border: 1px #24463C solid; */
-	/*! text-decoration: underline !important; */
 }
 
 label#L1:active {
@@ -530,3 +518,6 @@ tabpanel fieldset legend {
   margin-top: 8px;
 }
 
+.alignFlexColumns fieldset {
+  flex-grow: inherit;
+}

@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "Per proseguire il lavoro, gli sviluppatori delle estensioni debbono ora disporre di risorse finanziarie necessarie per poterle correggere e/o riscrivere così che gli utenti possano continuare a usufruire delle loro funzionalità."
   },
+  "assistant.ux.title": {
+    "message": "Interfaccia utente"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Mostra l'Assistente nella nuova interfaccia utente HTML"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Apre una nuova versione dell'Assistente utilizzando HTML a prova di futuro. XUL sarà deprecato da Mozilla in futuro."
+  },
   "btn-extend-license": {
     "message": "Voglio estendere la mia licenza di un anno"
   },
@@ -263,6 +272,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Le modifiche per convertire $addonName$ nel nuovo modello di programmazione hanno richiesto settimane e sono state costose. Ci sono molte altre modifiche previste per la prossima versione del 2022. Con una estensione così complessa, è inevitabile che il lavoro diventi economicamente assai oneroso. Per favore aiutateci!"
+  },
+  "msg.preview.author": {
+    "message": "Mittente"
+  },
+  "msg.preview.date": {
+    "message": "Data"
+  },
+  "msg.preview.location": {
+    "message": "Posizione"
+  },
+  "msg.preview.recipients": {
+    "message": "Destinatari"
+  },
+  "msg.preview.size": {
+    "message": "Dimensione"
+  },
+  "msg.preview.subject": {
+    "message": "Oggetto"
+  },
+  "msg.preview.title": {
+    "message": "Email"
   },
   "ongoing-work": {
     "message": "L'acquisto di una licenza è completamente facoltativo. Per facilitare le cose agli utenti, la versione attuale rimane compatibile con Thunderbird 115 per quanto tecnicamente possibile. Tuttavia, Thunderbird ora segue un ciclo di rilascio mensile, aumentando il nostro carico di lavoro per test e sviluppo. Il tuo supporto ci aiuta a stare al passo con questi cambiamenti!",

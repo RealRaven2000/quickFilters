@@ -25,6 +25,15 @@
   "addon-authors-struggle": {
     "message": "Để tiếp tục hữu ích, các nhà phát triển Tiện ích bổ sung của chúng tôi hiện cần tài trợ các tài nguyên cần thiết để sửa và viết lại để người dùng của chúng tôi có thể tiếp tục hưởng lợi từ chức năng mà chúng tôi cung cấp."
   },
+  "assistant.ux.title": {
+    "message": "Giao diện người dùng"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Hiển thị Trợ lý trong giao diện HTML mới"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Mở phiên bản mới của Trợ lý sử dụng HTML có khả năng mở rộng trong tương lai. XUL sẽ bị Mozilla loại bỏ trong tương lai."
+  },
   "btn-extend-license": {
     "message": "Tôi muốn gia hạn giấy phép của mình thêm một năm"
   },
@@ -263,6 +272,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla chỉ cung cấp một nền tảng cơ bản để cung cấp phần mềm của chúng tôi cho bạn, những người dùng cuối. Nếu chúng tôi cần yêu cầu người dùng thanh toán hoặc hỗ trợ, chúng tôi không thể thực hiện việc này từ addons.thunderbird.net - nó không phải là một 'cửa hàng ứng dụng' có tường trả phí tích hợp hoặc quản lý giấy phép như iTunes hoặc google play."
+  },
+  "msg.preview.author": {
+    "message": "Người gửi"
+  },
+  "msg.preview.date": {
+    "message": "Ngày"
+  },
+  "msg.preview.location": {
+    "message": "Vị trí"
+  },
+  "msg.preview.recipients": {
+    "message": "Người nhận"
+  },
+  "msg.preview.size": {
+    "message": "Kích thước"
+  },
+  "msg.preview.subject": {
+    "message": "Chủ đề"
+  },
+  "msg.preview.title": {
+    "message": "Thư"
   },
   "notificationTitle": {
     "description": "Title of the click notification.",

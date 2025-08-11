@@ -19,6 +19,15 @@
   "addon-authors-struggle": {
     "message": "Da bomo še naprej koristni, moramo razvijalci dodatkov zdaj financirati vire, potrebne za popravljanje in prepisovanje, tako da bodo lahko naši uporabniki še naprej koristili funkcionalnost, ki jo ponujamo."
   },
+  "assistant.ux.title": {
+    "message": "Uporabniški vmesnik"
+  },
+  "assistant.ux.assistant.html": {
+    "message": "Prikaži pomočnika v novem uporabniškem vmesniku HTML"
+  },
+  "assistant.ux.assistant.html.tooltip": {
+    "message": "Odpre novo različico pomočnika z uporabo sodobnega HTML-ja. XUL bo v prihodnosti ukinil Mozilla."
+  },
   "btn-extend-license": {
     "message": "Licenco želim podaljšati za eno leto"
   },
@@ -83,6 +92,27 @@
   },
   "mozillas-basic-platform": {
     "message": "Mozilla ponuja samo osnovno platformo za dostavo naše programske opreme vam, končnim uporabnikom. Če moramo uporabnike prositi za plačilo ali podporo, tega ne moremo storiti z addons.thunderbird.net - to ni 'trgovina z aplikacijami' z vgrajenimi plačilnimi zidovi ali upravljanjem licenc, kot sta iTunes ali google play."
+  },
+  "msg.preview.author": {
+    "message": "Avtor"
+  },
+  "msg.preview.date": {
+    "message": "Datum"
+  },
+  "msg.preview.location": {
+    "message": "Lokacija"
+  },
+  "msg.preview.recipients": {
+    "message": "Prejemniki"
+  },
+  "msg.preview.size": {
+    "message": "Velikost"
+  },
+  "msg.preview.subject": {
+    "message": "Zadeva"
+  },
+  "msg.preview.title": {
+    "message": "E-pošta"
   },
   "notificationTitle": {
     "message": "Click notification",
