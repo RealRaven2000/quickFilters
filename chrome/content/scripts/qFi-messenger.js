@@ -99,7 +99,7 @@ async function onLoad(activatedWhileWindowOpen) {
     // If last command was same ID and within 200ms, ignore duplicate
     if (
       window.quickFilters._lastDoCommandId === el.id &&
-      now - window.quickFilters._lastDoCommandTime < 200
+      now - window.quickFilters._lastDoCommandTime < 250
     ) {
       console.log(`Ignoring duplicate doCommand for ${el.id}`);
       return;
@@ -150,6 +150,7 @@ async function onLoad(activatedWhileWindowOpen) {
           true,
           window.quickFilters.Util.getMsgFolderFromUri(eventDetail?.folderURI)
         );
+        window.quickFilters._lastDoCommandTime = Date.now();
         break;
       case "quickfilters-toolbar-msg-runbutton": // fall-throughs
       case "quickfilters-runFiltersMsg":
@@ -171,11 +172,13 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickFilters-fromMessage":
         // legacy path:
         window.quickFilters.onMenuItemCommand("createFilterFromMsg", eventDetail);        
+        window.quickFilters._lastDoCommandTime = Date.now();
         break;
       case "quickfilters-menu-searchfilters": // fall-through
       case "quickfilters-current-searchfilterbutton":
       case FINDFILTERS_ID:
         window.quickFilters.searchFiltersFromFolder(eventDetail);
+        window.quickFilters._lastDoCommandTime = Date.now();
         break;
       case "quickfilters-menu-test-htmlAssistant": // [issue 309] make assistant wx compatible with HTML
         window.quickFilters.Util.notifyTools.notifyBackground({
