@@ -29,6 +29,9 @@ async function onLoad(activatedWhileWindowOpen) {
   let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css");
   window.quickFilters.Util.logDebug("injected style sheets:", layout, layout2, layout3);
 
+  window.quickFilters._lastDoCommandTime = 0;
+  window.quickFilters._lastDoCommandId = null;
+
   // call on background page to implement folder pane listener
   window.quickFilters.Util.notifyTools.notifyBackground({ func: "addFolderPaneListener" }); 
   // call on background page to implement tools menu listener
@@ -89,6 +92,21 @@ async function onLoad(activatedWhileWindowOpen) {
     if (!el) {
       return;
     }
+    // debounce commands
+    const now = Date.now();
+
+    // DEBOUNCE API context menu items (happen through update / install over)
+    // If last command was same ID and within 200ms, ignore duplicate
+    if (
+      window.quickFilters._lastDoCommandId === el.id &&
+      now - window.quickFilters._lastDoCommandTime < 200
+    ) {
+      console.log(`Ignoring duplicate doCommand for ${el.id}`);
+      return;
+    }
+    window.quickFilters._lastDoCommandId = el.id;
+    window.quickFilters._lastDoCommandTime = now;
+
     if (el.id.startsWith("quickfilters-current-")) {
       if (!window.quickFilters.Util.licenseInfo.isValid) {
         // check the QuickFolders license status for this cross Add-on support feature
