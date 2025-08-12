@@ -137,6 +137,15 @@ hbox > button {
 
 
 /****** support tab	********/
+
+/* redesign support page as grid */
+#quickFilters-Options-support {
+  display: grid;
+  grid-template-columns: 1fr auto; /* description takes all space, link is auto-sized */
+  gap: 0.4em 1em; /* row gap, column gap */
+  align-items: center; /* vertically center both cells */
+}
+
 label.text-link[href],
 button.text-link[href] {
 	padding: 3px 2px 3px 5px !important;
@@ -196,7 +205,7 @@ label [href^="mailto"] {
 button.text-link,
 label.text-link {
 	border-radius: 3px;
-	margin: 0.7em 6em 0.8em 10em!important;
+	margin: 0.7em 2em 0.8em !important;
 	/*! box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.6); */
 	transition-property: box-shadow, margin;
 	transition-duration: 0.2s, 0.2s;
@@ -361,12 +370,11 @@ label#L5:active {
 
 
 label#L1,label#L2,label#L3,label#L4,label#L5 {
-	margin: 10px 30px;
 	text-align: center;
 	width: auto;
 	text-shadow: none !important;
 	font-style: normal;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 
@@ -374,7 +382,7 @@ div.quickhelp-desc, description.quickhelp-dbg {
 	text-align:justify;
 	max-width: 620px;
 	padding: 2px 0px;
-	margin: 1px 0px;
+	margin: 0.2em 0px 1px;
 	line-height:1.2em;
 	bottom:5px;
 }
@@ -518,6 +526,12 @@ tabpanel fieldset legend {
   margin-top: 8px;
 }
 
+/* Force inactive <tabpanel> elements to not dispolay and cause tabpanels to be too tall */
+tabpanels > tabpanel:not(.deck-selected) {
+  display: none !important;
+}
+
 .alignFlexColumns fieldset {
   flex-grow: inherit;
 }
+
