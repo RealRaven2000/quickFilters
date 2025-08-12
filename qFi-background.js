@@ -72,7 +72,12 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
   }
 });
 
+
 async function addFolderPaneListener() {
+  try {
+    await messenger.menus.remove(FINDFILTERS_ID);
+    await messenger.menus.remove(RUNFILTERFROMTREE_ID);
+  } catch { ; }
   let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
   let menuLabel = messenger.i18n.getMessage("quickfilters.RunButton.label");
   if (isDebug) {
@@ -186,7 +191,7 @@ async function addFolderPaneListener() {
       menuProps
     );
   }
-  messenger.menus.create(menuProps);
+  await messenger.menus.create(menuProps);
 
   const toggleLabel = messenger.i18n.getMessage("foldertree.toggleApplyIncomingFilters");
   menuProps = {
@@ -273,34 +278,52 @@ async function displayAssistant(data) {
   // Add unique id for this request, used for async duties
   url.searchParams.set("requestId", data.requestId);
 
-  let targetFolder = data.targetFolder; 
+  let sourceFolder = data.sourceFolder; 
+  let targetFolder = data?.targetFolder; 
   let currentTab; 
 
-  if (data.context == "fromSelectedMessages" || data.context == "fromMessageContext") {
+  if (
+    !sourceFolder &&
+    (data.context === "fromSelectedMessages" || data.context === "fromMessageContext")
+  ) {
     const tabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
     // possible contexts:
     // - currentMail: simulate right click on selected message
     currentTab = tabs?.length ? tabs[0] : null;
 
     if (currentTab?.displayedFolder) {
-      targetFolder = currentTab.displayedFolder;
+      sourceFolder = currentTab.displayedFolder;
     }
   }
 
-  if (!targetFolder && data.selectedApiMessages?.length) {
-    targetFolder = data.selectedApiMessages[0].folder;
+  // possibly a BAD fallback, we really want to know where the mail came from. 
+  // not where it currently is
+  if (!sourceFolder && data.selectedApiMessages?.length) {
+    sourceFolder = data.selectedApiMessages[0].folder;
   }  
 
-  if (targetFolder) {
-    const uri = await messenger.Utilities.getFolderUri(targetFolder.accountId, targetFolder.path);
+  let targetUri = "";
+  if (targetFolder && targetFolder != sourceFolder) {
+    targetUri = await messenger.Utilities.getFolderUri(targetFolder.accountId, targetFolder.path);
     const target = {
       accountId: targetFolder.accountId,
       path: targetFolder.path,
-      uri: uri,
+      uri: targetUri,
     };
     url.searchParams.set("targetFolder", JSON.stringify(target)); // future use.
+  }  
+
+
+  if (sourceFolder) {
+    const uri = await messenger.Utilities.getFolderUri(sourceFolder.accountId, sourceFolder.path);
+    const source = {
+      accountId: sourceFolder.accountId,
+      path: sourceFolder.path,
+      uri: uri,
+    };
+    url.searchParams.set("sourceFolder", JSON.stringify(source)); // future use.
     // find any mergeable filters:
-    const mergableFilters = await messenger.FiltersAPI.getFilters(uri, "merge");
+    const mergableFilters = await messenger.FiltersAPI.getFilters(uri, targetUri, "merge");
     if (mergableFilters?.length) {
       url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
     }
