@@ -41,6 +41,11 @@ const startup = async () => {
     quickFilters.Assistant.selectCreateNew(event.currentTarget);
   });
 
+  document.getElementById("quickFiltersBtnHelp").addEventListener("click", () => {
+    quickFilters.Assistant.help();
+  });
+  
+
   window.addEventListener("beforeunload", () => {
     if (!quickFilters.Assistant.hasSentResult) {
       quickFilters.Assistant.cancelTemplate();

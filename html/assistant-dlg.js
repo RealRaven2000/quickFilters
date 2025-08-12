@@ -805,7 +805,7 @@ quickFilters.Assistant = {
     }
   },
 
-  help: function help() {
+  help: function () {
     switch (this.currentPage) {
       case "stepMerge":
         quickFilters.Util.showHomePage("index.html#merge");

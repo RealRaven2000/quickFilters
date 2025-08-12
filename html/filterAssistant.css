@@ -160,9 +160,8 @@ footer, #main {
 
 #previewContent.minimized,
 #templateDescription.minimized {
-/*	-webkit-line-clamp: 1; */
+  white-space: nowrap;
 	height: 1em !important;
-	min-height: 2.2em;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
