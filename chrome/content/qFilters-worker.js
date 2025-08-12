@@ -378,6 +378,46 @@ quickFilters.Worker = {
     return fails == 0;
   },
 
+  /**
+   * Validate message.accountKey against current accounts.
+   * @param {nsIMsgAccount[]} accounts - Array of accounts (from MailServices.accounts)
+   * @param {nsIMsgDBHdr} msg - Message header
+   * @returns {string|null} - Valid accountKey, or null if not trusted
+   */
+  validateAccountKey: function(accounts, msg) {
+    if (!msg || !msg.accountKey) {
+      return null; // No account key to validate
+    }
+    const accountKey = msg.accountKey;
+
+    // Try to find the matching account object
+    const account = accounts.find((ac) => ac.key === accountKey);
+    if (!account) {
+      return null; // Key doesn't belong to any known account
+    }
+
+    // Resolve the default identity for this account
+    const id = account.defaultIdentity;
+    if (!id) {
+      return null; // No identity to verify with
+    }
+    const defaultEmail = id.email?.toLowerCase();
+    if (!defaultEmail) {
+      return null; // No email to compare
+    }
+
+    const recipients = (msg.recipients || "").toLowerCase();
+    const author = (msg.author || "").toLowerCase();
+
+    // sanity check: account email must match either a recipient or the author
+    if (recipients.includes(defaultEmail) || author.includes(defaultEmail)) {
+      return accountKey; // ✅ trusted
+    }
+
+    return null; // mismatch → untrusted
+  },
+
+
   getSourceFolder: function (msg) {
     const util = quickFilters.Util;
     let accountCount = 0,
@@ -397,14 +437,14 @@ quickFilters.Worker = {
       // (Should we count LocalFolders? typically no filtering on that inbox occurs?)
       //    we could also add an account picker GUI here for Postbox,
       //    or parse From/To/Bcc for account email addresses
-      let accountKey = msg.accountKey;
+      let accountKey = this.validateAccountKey(aAccounts, msg);
 
       if (!accountKey) {
         util.logDebug(
-          "getSourceFolder() - no accountKey in message, trying to find a match via recipients vs own accounts..."
+          "getSourceFolder() - no valid accountKey in message, trying to find a match via recipients vs own accounts..."
         );
         // could be Local Folder! message could be a search result
-        let recipients = msg.recipients.split(",");
+        let recipients = util.extractEmails(msg.recipients);
         for (let i = 0; i < myIdentities.length; i++) {
           let r = recipients.find((e) => e.includes(myIdentities[i].mail));
           if (r) {
@@ -437,14 +477,14 @@ quickFilters.Worker = {
       let ac = aAccounts.find((a) => a.key == accountKey);
       if (!ac && accountCount == 1) {
         ac = aAccounts[0]; // fallback: only account!
-        util.logDebugOptional("getSourceFolder", `using the only account ${ac.prettyName}`);
+        util.logDebugOptional("getSourceFolder", `using the only account ${ac?.incomingServer?.prettyName}`);
       }
       if (!ac) {
         return null;
       }
       util.logDebugOptional(
         "getSourceFolder",
-        "Found account for source folder - " + ac.prettyName
+        "Found account for source folder - " + ac?.incomingServer?.prettyName
       );
       // account.incomingServer is an nsIMsgIncomingServer
       if (ac.incomingServer && ac.incomingServer.canHaveFilters) {
@@ -472,6 +512,7 @@ quickFilters.Worker = {
     }
     return null;
   },
+  
   createQuickFilterLock: null,
 
   createQuickFilter: async function (params) {
@@ -1010,22 +1051,30 @@ quickFilters.Worker = {
                 }
               }
             }
-            if (targetFolder) {
+            const addFolder = (parmsObject, folderRole, folder) => {
+              if (!folder) {
+                return;
+              }
               const account = quickFilters.Util.Accounts.find(
-                (ac) => ac.incomingServer === targetFolder?.server
+                (ac) => ac.incomingServer === folder?.server
               );
+
               const apiFolder = quickFilters.WL.extension.folderManager.convert(
-                targetFolder,
+                folder, 
                 account?.key || null
               );
+
               if (apiFolder) {
-                backgroundCallObject.targetFolder = {
+                parmsObject[folderRole] = {
                   accountId: apiFolder.accountId,
                   path: apiFolder.path,
-                  name: apiFolder.name // optional
+                  name: apiFolder.name, // optional
                 };
-              }
-            }
+              }              
+            };
+
+            addFolder(backgroundCallObject, "sourceFolder", sourceFolder);
+            addFolder(backgroundCallObject, "targetFolder", targetFolder);
 
             quickFilters._pendingAssistantRequests = quickFilters._pendingAssistantRequests || {};
 
@@ -1500,7 +1549,7 @@ quickFilters.Worker = {
             template == "domain"
           ) {
             // from
-            addressArray = buildParams.emailAddress.split(",");
+            addressArray = util.extractEmails(buildParams.emailAddress);
             let op = template === "domain" ? TypeOperator.EndsWith : TypeOperator.Contains;
             createTermList(
               addressArray,
@@ -1517,7 +1566,7 @@ quickFilters.Worker = {
             (twoWayAddressing || template == "to" || template == "replyto")
           ) {
             // to
-            addressArray = buildParams.emailAddress.split(",");
+            addressArray = util.extractEmails(buildParams.emailAddress);
             let theTypeAttrib = TypeAttrib.To,
               customId = null;
             if (template == "replyto") {
@@ -1678,7 +1727,7 @@ quickFilters.Worker = {
             searchTerm.value = val; // copy object back into
             addTerm(targetFilter, searchTerm);
           } else {
-            addressArray = buildParams.emailAddress.split(",");
+            addressArray =  util.extractEmails(buildParams.emailAddress);
             createTermList(
               addressArray,
               targetFilter,
@@ -1690,7 +1739,7 @@ quickFilters.Worker = {
 
             //// CC
             if (msg.ccList) {
-              addressArray = buildParams.ccAddress.split(",");
+              addressArray = util.extractEmails(buildParams.ccAddress);
               createTermList(
                 addressArray,
                 targetFilter,

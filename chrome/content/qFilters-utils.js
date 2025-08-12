@@ -132,6 +132,22 @@ quickFilters.Util = {
 	get FolderFlags() {
     return Components.interfaces.nsMsgFolderFlags;
 	},
+
+  extractEmails: function(headerValue) {
+    let addresses = [];
+    try {
+      let parsed = MailServices.headerParser.parseDecodedHeader(headerValue);
+      for (let addr of parsed) {
+        if (addr.email) {
+          addresses.push(addr.email.toLowerCase());
+        }
+      }
+    }
+    catch (ex) {
+      this.logDebug("extractEmails() failed: " + ex);
+    }
+    return addresses;
+  },
 		
   getMsgFolderFromUri:  function(uri, checkFolderAttributes) {
 		const util = quickFilters.Util;
