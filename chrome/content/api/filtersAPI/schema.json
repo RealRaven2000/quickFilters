@@ -51,7 +51,13 @@
           {
             "name": "folderUri",
             "type": "string",
-            "description": "folder URI to find account"
+            "description": "folder URI to find account where filters are stored (applied inbox)"
+          },
+          {
+            "name": "targetUri",
+            "type": "string",
+            "optional": true,
+            "description": "folder URI targeted by filters (move / copy to)"
           },
           {
             "name": "options",

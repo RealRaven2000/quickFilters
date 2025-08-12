@@ -66,20 +66,24 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
 
         // retrieve a list of filters for a given account (through a folder URI)
         // options: set to "merge" to only return filters that move / copy mail to the folder
-        getFilters: async function (folderUri, options = "all") {
+        getFilters: async function (folderUri, targetUri = "", options = "all") {
           const FA = Components.interfaces.nsMsgFilterAction;
           options = (options || "all").toLowerCase();
+
           console.log("quickFilters - filtersAPI.getFilters()");
           const win = Services.wm.getMostRecentWindow("mail:3pane");
           const util = win.quickFilters.Util;
+
           if (folderUri === "local") {
             folderUri = "mailbox://nobody@Local%20Folders";
           }
           util.logDebug(`FiltersAPI.getFilters(${folderUri})`);
+
           const folder = util.getMsgFolderFromUri(folderUri);
           if (!folder) {
             throw new Error(`Folder with URI ${folderUri} not found`);
           }
+
           const localFolderList = folder.getEditableFilterList(null),
             filterCount = localFolderList.filterCount;
           const results = [];
@@ -112,7 +116,7 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
             for (let a = 0; a < filter.actionCount; a++) {
               const action = filter.getActionAt(a);
               if (action.type === FA.MoveToFolder || action.type === FA.CopyToFolder) {
-                if (action?.targetFolderUri === folderUri) {
+                if (action?.targetFolderUri === targetUri) {
                   results.push(result);
                   break; // no need to check further actions
                 }
