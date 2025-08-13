@@ -517,6 +517,7 @@ quickFilters.Worker = {
 
   createQuickFilter: async function (params) {
     if (this.createQuickFilterLock) {
+      quickFilters.Util.logDebug("createQuickFilter() blocked by previous call - unfinished!");
       return this.createQuickFilterLock; // Return the current pending promise
     }
 
@@ -1084,6 +1085,11 @@ quickFilters.Worker = {
 
             quickFilters.Util.notifyTools.notifyBackground(backgroundCallObject);
             // we need to block for the background call to return
+
+            if (quickFilters.Preferences.isDebugOption("assistant")) {
+              // eslint-disable-next-line no-debugger
+              debugger;
+            }            
             const resultData = await assistantResultPromise;
             if (resultData.result === "cancelled") {
               isCancelled = true;
@@ -1093,25 +1099,22 @@ quickFilters.Worker = {
             // make sure selectedMergedFilterIndex is correct
             if (
               !isCancelled &&
-              params.selectedMergedFilterIndex >= 0 &&
-              params.selectedMergedFilterIndex < matchingFilters.length
+              params?.mergeFilter &&
+              params.mergeFilter?.index >= 0 &&
+              params.mergeFilter?.index < matchingFilters.length
             ) {
               quickFilters.Util.logDebug("Filter assistant returned these params: ", params);
-              selectedMergedFilterIndex = params.selectedMergedFilterIndex;
+              selectedMergedFilterIndex = params.mergeFilter.index;
+              const fName = params.mergeFilter.filterName;
               // sanity check filter name
-              if (
-                matchingFilters[selectedMergedFilterIndex].filterName ==
-                params.selectedMergedFilterName
-              ) {
+              if (matchingFilters[selectedMergedFilterIndex].filterName == fName) {
                 quickFilters.Util.logDebug(
-                  `Successfully matched XPCOM filter [${params.selectedMergedFilterName}]`
+                  `Successfully matched XPCOM filter[${selectedMergedFilterIndex}] by name:${fName}`
                 );
               } else {
-                const xpcomIndex = matchingFilters.findIndex(
-                  (f) => f.filterName === params.selectedMergedFilterName
-                );
+                const xpcomIndex = matchingFilters.findIndex((f) => f.filterName === fName);
                 quickFilters.Util.logDebug(
-                  `Found a different filter index for xpcom filter [${params.selectedMergedFilterName}] : ${xpcomIndex}`
+                  `Found a different filter index for xpcom filter [${xpcomIndex}] : ${fName}`
                 );
                 if (xpcomIndex >= 0) {
                   selectedMergedFilterIndex = xpcomIndex;
@@ -1119,6 +1122,7 @@ quickFilters.Worker = {
               }
             }
           } else {
+            // LEGACY CODE
             const win = await window
               .openDialog(
                 "chrome://quickfilters/content/filterTemplate.xhtml",
@@ -1205,11 +1209,6 @@ quickFilters.Worker = {
     var { MailServices } = quickFilters.Util.quickFilters_ESM
       ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
       : ChromeUtils.import("resource:///modules/MailServices.jsm");
-
-    if (quickFilters.Preferences.isDebugOption("assistant")) {
-      // eslint-disable-next-line no-debugger
-      debugger;
-    }
 
     function addTerm(target, term) {
       // avoid duplicate:

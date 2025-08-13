@@ -49,7 +49,7 @@
         "async": true,
         "parameters": [
           {
-            "name": "folderUri",
+            "name": "sourceUri",
             "type": "string",
             "description": "folder URI to find account where filters are stored (applied inbox)"
           },
@@ -57,13 +57,7 @@
             "name": "targetUri",
             "type": "string",
             "optional": true,
-            "description": "folder URI targeted by filters (move / copy to)"
-          },
-          {
-            "name": "options",
-            "type": "string",
-            "optional": true,
-            "description": "Filter selection mode: 'all' to list all filters for the account, 'merge' to list only filters that move mail to the folder."
+            "description": "folder URI targeted by filters (move / copy to). omit to list all filters for thge account"
           }
         ],
         "returns": {

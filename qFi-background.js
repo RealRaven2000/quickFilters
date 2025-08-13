@@ -323,7 +323,7 @@ async function displayAssistant(data) {
     };
     url.searchParams.set("sourceFolder", JSON.stringify(source)); // future use.
     // find any mergeable filters:
-    const mergableFilters = await messenger.FiltersAPI.getFilters(uri, targetUri, "merge");
+    const mergableFilters = await messenger.FiltersAPI.getFilters(uri, targetUri);
     if (mergableFilters?.length) {
       url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
     }
@@ -423,7 +423,7 @@ async function main() {
       case "getLicenseInfo":
         return currentLicense.info;
       case "getFilters": {
-        let filters = await messenger.FiltersAPI.getFilters(data.accountId);
+        let filters = await messenger.FiltersAPI.getFilters(data.sourceUri);
         return filters;
       }
       case "assistantResult": {
@@ -433,9 +433,13 @@ async function main() {
           console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
         }
         if (requestId) {
+          const mergeFilter = data.params?.mergeFilter || null;
+          const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
+          // { index, filterName , accountId }
           await messenger.Utilities.resolveAssistant(requestId, result, {
             answer: data.params?.answer,
-            selectedMergedFilterIndex: data.params?.selectedMergedFilterIndex || -1,
+            selectedMergedFilterIndex: resultIdx,
+            mergeFilter,
           });
         }
       } break;

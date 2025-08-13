@@ -319,8 +319,11 @@ quickFilters.Assistant = {
               this.selectedMergedFilterIndex = this.MatchedFilters.selectedIndex;
               const selectedFilter = this.mergeCandidates[this.selectedMergedFilterIndex];
               if (selectedFilter) {
-                resultParams.selectedMergedFilterName = selectedFilter.filterName;
-                resultParams.selectedMergedFilterAccountId = selectedFilter.accountId || null;
+                resultParams.mergeFilter = {
+                  index: this.MatchedFilters.selectedIndex,
+                  filterName: selectedFilter.filterName,
+                  accountId: selectedFilter.accountId || null
+                }
               }
             }
             await browser.runtime.sendMessage({
@@ -344,6 +347,7 @@ quickFilters.Assistant = {
   },
 
   cancelTemplate: async function () {
+    quickFilters.Util.logDebug("cancelTemplate()");
     quickFilters.Assistant.initialised = false; // avoid templateSelect timer
     this.hasSentResult = true;
     await browser.runtime.sendMessage({
@@ -352,8 +356,13 @@ quickFilters.Assistant = {
       result: "cancelled",
       params: {
         answer: false,
-        mergedFilterIndex: -1,
+        mergeFilter: null,
       },
+    });
+    quickFilters.Util.logDebug("after sendMessage(assistantResult)", {
+      requestId: requestId,
+      answer: false,
+      mergeFilters: null,
     });
     window.close();
     return true;
@@ -562,7 +571,7 @@ quickFilters.Assistant = {
       // Uses background to call experimental API
       const filterItems = await messenger.runtime.sendMessage({
         command: "getFilters",
-        accountId: "local",
+        sourceUri: "local",
       });
       const firstItem = templateList.firstElementChild;
 
