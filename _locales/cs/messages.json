@@ -391,7 +391,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters 6.7 je nyní plně kompatibilní s Thunderbird 141 a jeho aktuálním cyklem vydání.{P2}{L1} Opraven kritický problém způsobený změnou v tom, jak Thunderbird interně pracuje s názvy složek. [issue 308]{L2}{L1} Přidána možnost v kontextové nabídce spouštět filtry automaticky i ve složkách mimo Doručenou poštu (pouze IMAP, experimentální) [issue 305].{L2}{L1} Opraven problém s vlastním polem (%from(domain)%, %from%), které při přesunu a slučování zpráv vytvářelo prázdné vyhledávací výrazy. [issue 301]{L2}{L1} Vylepšeno vyhledávání duplicitních filtrů souvisejících s tagy.{L2}"
+    "message": "{P1} quickFilters 6.8 je nyní plně kompatibilní s Thunderbirdem 142 a jeho aktuálním cyklem vydání.{P2}{L1}Asistent byl převeden z XUL do HTML. To připravuje quickFilters na budoucnost, protože staré XUL prvky již nebudou navždy podporovány. Rozvržení je responzivnější než starý dialog a nabízí lepší čitelnost. Chcete-li vyzkoušet nové uživatelské rozhraní, povolte jej v nastavení quickFilters » Akce » Uživatelské rozhraní. [issue 309]{L2}{L1}Zlepšení: Nyní příkazy „Najít filtry“ a „Spustit filtry“ fungují na složce kliknuté pravým tlačítkem, nikoli na aktuální složce. [issue 313]{L2}{L1}Vylepšený dialog nastavení, aby se zabránilo svislému oříznutí.{L2}{L1}Vylepšena práce s příjemci / autorem zprávy během asistenta.{L2}{L1}Vylepšené vyhledávání filtrů: zabraňuje nesprávným výsledkům způsobeným starými / nesprávnými klíči účtů, které mohou vzniknout importem dat účtů nebo přejmenováním / přesunem účtů.{L2}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

@@ -1433,7 +1433,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters 6.7 is now fully compatible with Thunderbird 141 and its current release cycle.{P2}{L1} Fixed a critical issue caused by Thunderbird changing how folder names are handled internally. [issue 308]{L2}{L1} Added a context menu option to run filters automatically on folders other than Inbox (IMAP only, experimental) [issue 305].{L2}{L1} Fixed custom fields (%from(domain)%, %from%) creating empty search terms during mail moves and filter merges. [issue 301]{L2}{L1} Improved duplicate filter detection related to tags.{L2}"
+    "message": "{P1} quickFilters 6.8 is now fully compatible with Thunderbird 142 and its current release cycle.{P2}{L1}Converted Assistant window from XUL to HTML. This is to future proof quickFilters as using the old XUL elements will not be supported forever. The layout is more responsive than the old dialog and also adds better readability. To test the new user interface, please enable it in quickFilters settings » Actions » User Interface. [issue 309]{L2}{L1}Improvement: From now 'Find filters' and 'Run Filters' work on right-clicked folder and not the current folder. [issue 313]{L2}{L1}Improved settings dialog to avoid vertical truncation.{L2}{L1}Improved handling recipients / author retrieved from message during assistant.{L2}{L1}Improved filter search: avoids being misled by old / incorrect account keys which can result from importing account data or renaming / moving accounts.{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

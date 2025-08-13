@@ -1,18 +1,18 @@
-The full log including screenshots is available at:
-<a href="https://quickfilters.quickfolders.org/version.html#6.7">quickFilters Change Log</a>
+The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.8">quickFilters Change Log</a>
 
 <b>Improvements</b>
 <ul>
-  <li> Made quickFilters compatible with Tb 141.* </li>
-  <li> Added a new context menu option to run filters automatically on folders other than Inbox (IMAP only, experimental). You can use this feature in conjunction with FiltaQuilla's search term "match folder name". <a href="https://github.com/RealRaven2000/quickFilters/issues/308">[issue 305]</a></li>
-  <li> Improved duplicate filter detection related to tags.</li>
-</ul>  
-
+<li>Made quickFilters compatible with Tb 142.*</li>
+<li>Converted Filter Assistant window from XUL to HTML for better responsiveness and readability. This change future-proofs quickFilters, as the old XUL-based format will eventually be unsupported. <a href="https://github.com/RealRaven2000/quickFilters/issues/309">[issue #309]</a></li>
+<li>Added option in quickFilters settings (Actions page) to enable the new HTML interface.</li>
+<li>Improved settings dialog to avoid vertical truncation.</li>
+<li>Improved handling of recipients/author retrieved from a message during the assistant.</li>
+<li>Improved filter search: avoids being misled by old/incorrect account keys which can result from importing account data or renaming/moving accounts.</li>
+</ul>
 
 <b>Bug Fixes</b>
 <ul>
-  <li> Fixed a critical issue caused by Thunderbird changing how folder names are handled internally. <a href="https://github.com/RealRaven2000/quickFilters/issues/308">[issue 308]</a></li>
-  <li> Fixed an issue with custom fields (%from(domain)%, %from%) creating empty search terms during mail moves and filter merges. <a href="https://github.com/RealRaven2000/quickFilters/issues/301"></a>[issue 301]</li>
+<li>Fixed “Find filters” and “Run Filters” items in the folder context menu so they now work on the right-clicked folder rather than the selected mails. <a href="https://github.com/RealRaven2000/quickFilters/issues/313">[issue #313]</a></li>
 </ul>
 
 

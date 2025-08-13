@@ -1424,7 +1424,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters 6.7 已针对 Thunderbird 141 进行了更新，并与其当前发布周期完全兼容。{P2}{L1} 修复了由于 Thunderbird 更改内部文件夹名称处理方式导致的关键问题。 [issue 308]{L2}{L1} 添加了上下文菜单选项，可在收件箱以外的文件夹上自动运行筛选器（仅限 IMAP，实验性） [issue 305]。{L2}{L1} 修复了自定义字段（%from(domain)%，%from%）在移动邮件和合并筛选器时创建空搜索条件的问题。 [issue 301]{L2}{L1} 改进了与标签相关的重复筛选器检测。{L2}"
+    "message": "{P1} quickFilters 6.8 现已与 Thunderbird 142 及其当前的发布周期完全兼容。{P2}{L1}助手窗口已从 XUL 转换为 HTML。这是为了让 quickFilters 更加面向未来，因为旧的 XUL 元素将来不会一直受到支持。新布局比旧对话框响应更快，并且可读性更好。要测试新的用户界面，请在 quickFilters 设置 » 操作 » 用户界面 中启用它。[问题 309]{L2}{L1}改进：从现在起，“查找过滤器”和“运行过滤器”在右键点击的文件夹上运行，而不是当前文件夹。[问题 313]{L2}{L1}改进了设置对话框，以避免垂直截断。{L2}{L1}改进了在助手期间从邮件中获取的收件人 / 作者的处理。{L2}{L1}改进了过滤器搜索：避免被旧的 / 不正确的账户键误导，这些问题可能出现在导入账户数据或重命名 / 移动账户时。{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
