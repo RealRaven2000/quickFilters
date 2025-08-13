@@ -98,6 +98,10 @@ permalink: version.html
     margin: 1rem auto 1.2rem 30px;
     max-width: 60rem;
   }  
+
+  code {
+    font-family: consolas, 'Courier New', Courier, monospace;
+  }
 </style>
 
 <img id="blueBauble" src="img/blueBauble.png" alt="" />
@@ -115,7 +119,7 @@ permalink: version.html
 <p>
   Thunderbird 115: I had to implement 
   <a href="https://github.com/RealRaven2000/quickFilters/issues/181">fundamental changes for Thunderbird 115</a> 
-  in order to stay compatible. Tb 115 is scheduled for release in July 2023 and has a completely 
+  in order to stay compatible. Thunderbird 115 is scheduled for release in July 2023 and has a completely 
   <a target="_blank" href="https://blog.thunderbird.net/2023/02/thunderbird-115-supernova-preview-the-new-folder-pane/">new 
   user interface </a> called "Supernova".
   This required considerable work of <b>rewriting all elements interacting with the main page</b> 
@@ -227,14 +231,16 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h5 class="inList"> Improvements </h5>
   <ul>
     <li>
-      Made quickFilters compatible with Tb 142.
+      Made quickFilters compatible with Thunderbird 142.
     </li>
 		<li>
       <p>
         Converted Filter Assistant window from XUL to HTML. This is to future-proof
         quickFilters as using the old XUL elements will not be supported forever.
         The layout is more responsive than the old dialog and also adds better 
-        readability.
+        readability. If you have struggled with not being able to resize the assistant
+        or it being cut off by small screens I highly recommend to test it before
+        if becomes standard.
         <a href="https://github.com/RealRaven2000/quickFilters/issues/309">[issue 309]</a>.
       </p>
       <p>
@@ -242,6 +248,24 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
         » Actions » User Interface</i>.
       </p>
       <img class="screenshot" src="img/assistant-html-option.png" alt="option to activate assistant in html mode">
+      <p>
+        New assistant, merge step - this is only displayed if 
+        existing filters move mail to the same folder:
+      </p>
+        <img class="screenshot" src="img/assistant-html-merge.png" alt="merging step">
+      <p>
+        Select a template to create the new filter (or merge to existing filter).
+        The preview is using API methods to retrieve message info, which is more future
+        proof than using internal functions:
+      </p>
+        <img class="screenshot" src="img/assistant-html-create.png" alt="filter template">
+      <p>
+        Internally there is some complex information passing between the window
+        and the internal function that creates the filter.. as this technology 
+        still uses internal functionality from Mozilla; there is no web extension
+        API for filters yet, so I started creating my own experimental API. 
+        More to come soon!
+      </p>
     </li>
     <li>
       Improved settings dialog to avoid vertical truncation.
@@ -275,8 +299,8 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h5 class="inList"> Improvements </h5>
   <ul>
 		<li>
-      Made quickFilters compatible with Tb 141.* <br>
-      Note: we increased compatibility to Tb 142.* on ATN without uploading 
+      Made quickFilters compatible with Thunderbird 141.* <br>
+      Note: we increased compatibility to Thunderbird 142.* on ATN without uploading 
             a new version, this is legit if we can test run it in that version
     </li>
 		<li>
@@ -293,8 +317,9 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h5 class="inList"> Bugfixes </h5>  
   <ul>
 		<li>
-      Custom fields %from(domain)%, %from% create empty search terms
-      when moving mail + merging via assistant [issue 301]
+      Custom field values <code>%from(domain)%</code>, <code>%from%</code> create empty search terms
+      when moving mail + merging via assistant 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/301">[issue 301]</a>
     </li>
 		<li>
       Fixed a critical issue caused by Thunderbird changing how folder 
@@ -313,7 +338,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h5 class="inList"> Improvements </h5>
   <ul>
     <li>
-      Made quickFilters compatible with Tb 138.*
+      Made quickFilters compatible with Thunderbird 138.*
     </li>
     <li>
       <p>
@@ -1306,7 +1331,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Improved toolbar Icon colors for Thunderbird 102 integration.
     </li>
     <li> 
-      Support of license validation with Exchange accounts (from Tb 102)
+      Support of license validation with Exchange accounts (from Thunderbird 102)
       <a href="https://github.com/RealRaven2000/quickFilters/issues/125">[issue 125]</a>
     </li>
     <li> 
@@ -1395,7 +1420,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     </li>
 		<li> 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/107">[issue 107]</a> 
-      Existing "Reply-To" conditions cannot be edited (no text field displayed in Tb 91)
+      Existing "Reply-To" conditions cannot be edited (no text field displayed in Thunderbird 91)
     </li>
 		<li> 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/108">[issue 108]</a> 
@@ -1421,7 +1446,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       [5.5.1 - Maintenance Release] On request from <a href="https://extensionworkshop.com/documentation/publish/add-on-policies/">ATN Reviewers</a> removed debugger statements.
     </li>
     <li>
-      Increasing maximum TB version for next ESR - Thunderbird 102.* is planned to be supported from now on.
+      Increasing maximum Thunderbird version for next ESR - Thunderbird 102.* is planned to be supported from now on.
     </li>
     <li> 
       <p>
@@ -1692,7 +1717,10 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Avoid Empty Conditions list due to removed recipients - filter cannot be edited.
       In this case, (when removing invalid emails would lead to a filter without any search conditions) an error message is displayed instead of displaying a filter dialog that cannot be edited.</li>
     <li>Added a step to the troubleshooter that finds filters without search terms.</li>
-    <li><a href="https://github.com/RealRaven2000/quickFilters/issues/47">[issue 47]</a> Fixed: Using the %subject% placeholder in custom templates doesn't work in Assistant. </li>
+    <li>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/47">[issue 47]</a> 
+      Fixed: Using the <code>%subject%</code>
+      placeholder in custom templates doesn't work in Assistant. </li>
     <li>
       quickFilters settings can now be opened from the Add-ons Manager (via the ... menu).
       You can also still use the shortcut of right-clicking the filter assistant button on the main toolbar.
@@ -1965,7 +1993,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/4.1.1">quickFilters 4.1.1 - 06/09/2019</a>
 	</h4>
   <ul>
-		<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/1">[issue 1]</a> Fixed: The button <i>Run Filters on Folder</i> stopped working in Tb 60 because Thunderbird 
+		<li> <a href="https://github.com/RealRaven2000/quickFilters/issues/1">[issue 1]</a> Fixed: The button <i>Run Filters on Folder</i> stopped working in Thunderbird 60 because Thunderbird 
 		     renamed mailServices to MailServices</li>
 		<li> Improved labelling for <i>Troubleshooting</i> (was 'Debug') button and "running filters on folder" notifications<br>
 				 <img src="img/troubleshoot-filters.png" alt="troubleshooting" class="screenshot">
@@ -2440,7 +2468,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 		<li>Release Video: please click the youtube link in the bottom right to visit my channel<br>
 				<iframe width="560" height="315" src="https://www.youtube.com/embed/_mIxeZeNXqA" frameborder="0" allowfullscreen></iframe></li>
 		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26200">[Bug 26200]</a>
-		    "Move To" context menu entry not working in Tb 45.0</li>
+		    "Move To" context menu entry not working in Thunderbird 45.0</li>
 		<li>Added button with link to <a href="https://www.youtube.com/c/thunderbirddaily" target="_blank">Thunderbird Daily</a> YouYube channel</li>
 		<li><a href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=26231">[Bug 26231]</a>
 		    Add option to run filters on read IMAP mails<br>
@@ -2811,7 +2839,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 		</li>
 		<li> Added Postbox compatibility (still experimental)</li>
 		<li> Improved integration with QuickFolders</li>
-		<li> Compatibility change for Tb 24 / Sm2.17 (nsIMsgAccountManager.accounts changed from nsIMutableArray to nsIArray)</li>
+		<li> Compatibility change for Thunderbird 24 / Sm2.17 (nsIMsgAccountManager.accounts changed from nsIMutableArray to nsIArray)</li>
 		<li> Added donate button to settings dialog</li>
   </ul>
 </li>
