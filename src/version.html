@@ -222,29 +222,42 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h4>
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/" 
 		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
-     quickFilters 6.8 - WIP</a>
+     quickFilters 6.8 - 14/08/2025</a>
 	</h4>
   <h5 class="inList"> Improvements </h5>
   <ul>
+    <li>
+      Made quickFilters compatible with Tb 142.
+    </li>
 		<li>
       <p>
-        Convert Filter Assistant window from XUL to HTML. This is done to future proof
-        quickFilters as xhtml format using the old XUL elements will not be supported
-        forever. The layout is more responsive than the old dialog and brings overall 
-        better readability.
+        Converted Filter Assistant window from XUL to HTML. This is to future-proof
+        quickFilters as using the old XUL elements will not be supported forever.
+        The layout is more responsive than the old dialog and also adds better 
+        readability.
         <a href="https://github.com/RealRaven2000/quickFilters/issues/309">[issue 309]</a>.
       </p>
       <p>
-        In order to activate the new interface you have to enable it for now in 
-        quickFilters settings on the actions page:
+        To test the new user interface, please enable it in <i>quickFilters settings 
+        » Actions » User Interface</i>.
       </p>
       <img class="screenshot" src="img/assistant-html-option.png" alt="option to activate assistant in html mode">
     </li>
+    <li>
+      Improved settings dialog to avoid vertical truncation.
+    </li>
+    <li>
+      Improved handling of recipients/author retrieved from a message during the assistant.
+    </li>    
+    <li>
+      Improved filter search: avoids being misled by old/incorrect account keys which can result
+      from importing account data or renaming/moving accounts.
+    </li>    
   </ul>
   <h5 class="inList"> Bugfixes </h5>  
   <ul>
 		<li>
-      The items from the mail vontext menu "Find filters" and "Run Filters" 
+      The items from the mail context menu "Find filters" and "Run Filters" 
       will now work on the right-clicked folder as expected, and not on the 
       selected mails.
       <a href="https://github.com/RealRaven2000/quickFilters/issues/313">[issue 313]</a>.
