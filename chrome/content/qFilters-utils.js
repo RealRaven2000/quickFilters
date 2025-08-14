@@ -148,6 +148,33 @@ quickFilters.Util = {
     }
     return addresses;
   },
+
+  addFolderToAssistantParams: function (parameters, folderRole, folder) {
+    if (!folder) {
+      return;
+    }
+    const account = quickFilters.Util.Accounts.find(
+      (ac) => ac.incomingServer === folder?.server
+    );
+
+    let WL = quickFilters?.WL;
+    if (!WL) {
+      WL = quickFilters.Util.getMail3PaneWindow().quickFilters.WL;
+    }
+
+    const apiFolder = WL.extension.folderManager.convert(
+      folder, 
+      account?.key || null
+    );
+
+    if (apiFolder) {
+      parameters[folderRole] = {
+        accountId: apiFolder.accountId,
+        path: apiFolder.path,
+        name: apiFolder.name, // optional
+      };
+    }              
+  },
 		
   getMsgFolderFromUri:  function(uri, checkFolderAttributes) {
 		const util = quickFilters.Util;

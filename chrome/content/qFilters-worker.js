@@ -1052,28 +1052,7 @@ quickFilters.Worker = {
                 }
               }
             }
-            const addFolder = (parmsObject, folderRole, folder) => {
-              if (!folder) {
-                return;
-              }
-              const account = quickFilters.Util.Accounts.find(
-                (ac) => ac.incomingServer === folder?.server
-              );
-
-              const apiFolder = quickFilters.WL.extension.folderManager.convert(
-                folder, 
-                account?.key || null
-              );
-
-              if (apiFolder) {
-                parmsObject[folderRole] = {
-                  accountId: apiFolder.accountId,
-                  path: apiFolder.path,
-                  name: apiFolder.name, // optional
-                };
-              }              
-            };
-
+            const addFolder = quickFilters.Util.addFolderToAssistantParams;
             addFolder(backgroundCallObject, "sourceFolder", sourceFolder);
             addFolder(backgroundCallObject, "targetFolder", targetFolder);
 
@@ -1097,11 +1076,12 @@ quickFilters.Worker = {
             }
             params = resultData.params;
             // make sure selectedMergedFilterIndex is correct
+            let mergedFilter = params?.mergeFilter;
             if (
               !isCancelled &&
-              params?.mergeFilter &&
-              params.mergeFilter?.index >= 0 &&
-              params.mergeFilter?.index < matchingFilters.length
+              mergedFilter &&
+              mergedFilter.index >= 0 &&
+              mergedFilter.index < matchingFilters.length
             ) {
               quickFilters.Util.logDebug("Filter assistant returned these params: ", params);
               selectedMergedFilterIndex = params.mergeFilter.index;

@@ -225,7 +225,7 @@ quickFilters.List = {
 		const prefs = quickFilters.Preferences,
 		      util = quickFilters.Util,
 					Ci = Components.interfaces;
-    let params = { answer: null, selectedMergedFilterIndex: -1, cmd: 'mergeList' },
+    let params = { answer: null, selectedMergedFilterIndex: -1, cmd: "mergeList" },
         filtersList = this.FilterList, // Tb / SM
         sourceFolder = filtersList.folder,
         list = this.FilterListElement,
@@ -340,26 +340,112 @@ quickFilters.List = {
         // OR list.removeItemAt(f);
       }
     }
+
+    let mergeFilterIndex;
     
     // **************************************************************
     // *******   SYNCHRONOUS PART: Shows Filter Assistant!    *******
     // **************************************************************
-    util.logDebugOptional("merge", "OPENING MODAL DIALOG\n==========================");
-    window.openDialog('chrome://quickfilters/content/filterTemplate.xhtml',
-      'quickfilters-filterTemplate',
-      'chrome,titlebar,centerscreen,modal,centerscreen,resizable=yes,accept=yes,cancel=yes',
-      params,
-      matchingFilters).focus(); // pass array of matching filters as additional arg
-    // user cancels:
-    if (!params.answer) {
-      while (matchingFilters.length) {matchingFilters.pop();}
-      return;
+    if (quickFilters.Preferences.isAssistantModeHTML) {
+      // to do: add code for new window!
+      const requestId = util.createUniqueId("assistant_"); // e.g. timestamp or UUID
+      util.logHighlightDebug(
+        "HTML Assistant",
+        "rgba(250, 235, 119, 1)",
+        "#9d4201ff",
+        `Request Id: ${requestId}`
+      );
+      const selFilters = [];
+      // list is reversed
+      const filterCandidates = matchingFilters.reverse();
+      for (let i = 0; i < filterCandidates.length; i++) {
+        const m = filterCandidates[i];
+        selFilters.push({
+          filterName: m.filterName,
+          index: i,
+          accountId: m.accountId || null,
+        });
+      }
+
+      const backgroundCallObject = {
+        func: "quickFiltersAssistant",
+        context: "mergeList", // merging from list
+        cmd: "merge",
+        preview: null, // no message data!
+        requestId,
+        selectedFilters: selFilters,
+        selectedApiMessages: [],
+      };
+      // do we need these?
+      quickFilters.Util.addFolderToAssistantParams(
+        backgroundCallObject,
+        "sourceFolder",
+        sourceFolder
+      ); // where filters are stored.
+
+      // in order to resolve a global promise reference we need to use the main window
+      const mainWin = window.opener || quickFilters.Util.getMail3PaneWindow();
+      const mainInstance = mainWin.quickFilters;
+
+      mainInstance._pendingAssistantRequests = mainInstance._pendingAssistantRequests || {};
+      const assistantResultPromise = new Promise((resolve) => {
+        mainInstance._pendingAssistantRequests[requestId] = resolve;
+      });
+      quickFilters.Util.notifyTools.notifyBackground(backgroundCallObject);
+      const resultData = await assistantResultPromise;
+      // result should be "merge"
+      if (resultData.result === "cancelled") {
+        quickFilters.Util.logDebug("Filter creation cancelled");
+        return;
+      }
+      params = resultData.params;
+      if (!params?.mergeFilter) {
+        console.log("No target Filter selected! Aborting merge...");
+        return;
+      }
+      mergeFilterIndex = params.mergeFilter?.index;
+      if (mergeFilterIndex < 0 || typeof mergeFilterIndex === "undefined") {
+        console.log("No target Filter selected! Aborting merge...");
+        return;
+      }
+      if (mergeFilterIndex >= filterCandidates.length) {
+        console.log("No target Filter selected! Aborting merge...");
+        return;
+      }
+
+      quickFilters.Util.logDebug("Filter assistant returned these params: ", params);
+      const fName = params.mergeFilter.filterName;
+      // sanity check filter name
+      if (filterCandidates[mergeFilterIndex].filterName == fName) {
+        quickFilters.Util.logDebug(
+          `Successfully matched XPCOM filter[${mergeFilterIndex}] by name:${fName}`
+        );
+      } else {
+        const xpcomIndex = filterCandidates.findIndex((f) => f.filterName === fName);
+        quickFilters.Util.logDebug(
+          `Found a different filter index for xpcom filter [${xpcomIndex}] : ${fName}`
+        );
+        if (xpcomIndex >= 0) {
+          mergeFilterIndex = xpcomIndex;
+        }
+      }
+    } else {
+      util.logDebugOptional("merge", "OPENING MODAL DIALOG\n==========================");
+      window.openDialog('chrome://quickfilters/content/filterTemplate.xhtml',
+        'quickfilters-filterTemplate',
+        'chrome,titlebar,centerscreen,modal,centerscreen,resizable=yes,accept=yes,cancel=yes',
+        params,
+        matchingFilters).focus(); // pass array of matching filters as additional arg
+      // user cancels:
+      if (!params.answer) {
+        while (matchingFilters.length) {matchingFilters.pop();}
+        return;
+      }
+      mergeFilterIndex = params.selectedMergedFilterIndex;
     }
     
     // is there an existing filter selected for merging?
-    let mergeFilterIndex = params.selectedMergedFilterIndex,
-        targetFilter;
-
+    let targetFilter;
     // user has selected a template
     let template = prefs.getCurrentFilterTemplate();
     util.logDebugOptional("merge", `Selected template: ${template}`);
@@ -798,14 +884,7 @@ quickFilters.List = {
 
   onLoadFilterList: function(_evt) {
     const util = quickFilters.Util,
-					qList = quickFilters.List;
-    function removeElement(el) {
-      try {
-        el.collapsed = true;
-      } catch(ex) {
-        util.logException('onLoadFilterList - removeElement() failed', ex);
-      }
-    }
+      qList = quickFilters.List;
     
     function formatListLabel(el) {
       if (el) {
@@ -1559,9 +1638,7 @@ quickFilters.List = {
     // find out of we need to change server:
     let item = el.selectedItem,
         account = item.targetAccount,  
-        targetFilter = item.targetFilter,
-        uri = item.getAttribute('targetFolderUri'),
-        actionType = item.getAttribute('actionType'),    
+        targetFilter = item.targetFilter,    
         // change server to correct account (originating inbox)
         // PROBLEM HERE!! -->
         aFolder = account ?
@@ -1984,12 +2061,16 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 				iSuccess++;
 				quickFilters.Util.logDebug("# " + (i+1) + ". Added filter to JSON: " + fn)
 				filtersJSON.filters.push(jsonAtom);
-			}
-			else {
+			} else {
 				iFail++;
 				quickFilters.Util.logToConsole("# " + (i+1) + ". COULD NOT ADD filter: " + fn);
 			}
 		}
+    if (iFail) {
+      console.warn(`Serializing filters ERROR: ${iSuccess} filters serialized, ${iFail} filters failed to\n` +
+        "See list above for details.");
+    }
+
 
     let json = JSON.stringify(filtersJSON, null, '  ');
     await this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server

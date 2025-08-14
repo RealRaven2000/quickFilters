@@ -154,8 +154,10 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         },
 
         resolveAssistant:  async (requestId, result, params) => {
-          win.quickFilters.Util.logDebugOptional(
-            "assistant",
+          win.quickFilters.Util.logHighlightDebug(
+            "quickFilters API",
+            "#ffff0bff",
+            "rgba(112, 15, 161, 1)",
             `resolveAssistant(${requestId}) called with result: ${result}, params: ${params}`
           );
 
@@ -170,8 +172,10 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
               params,
             };
 
-            win.quickFilters.Util.logDebugOptional(
-              "assistant",
+            win.quickFilters.Util.logHighlightDebug(
+              "quickFilters API",
+              "#ffff0bff",
+              "rgba(112, 15, 161, 1)",
               `Resolving ${requestId} with Result:`,
               results
             );
@@ -181,6 +185,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
             return true;
           }
+          console.warn(`resolveAssistant(): requestId "${requestId}" not found in pending requests.`);
           return false; // request ID not found
         },
       },

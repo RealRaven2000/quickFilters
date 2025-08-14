@@ -265,32 +265,8 @@ quickFilters.Assistant = {
       const urlParams = new URLSearchParams(window.location.search);
       let isMerge = document.getElementById("chkMerge").checked;
 
-      const params = {
-        answer: urlParams.get("answer"),
-        selectedMergedFilterIndex: urlParams.get("selectedMergedFilterIndex"),
-        currentCmd: urlParams.get("currentCmd"),
-      };
-
       if (_currentPage == "stepMerge") {
         this.selectedMergedFilterIndex = isMerge ? this.MatchedFilters.selectedIndex : -1;
-      }
-
-      if (params.currentCmd == "mergeList") {
-        // TO DO
-        this.hasSentResult = true;
-        await browser.runtime.sendMessage({
-          command: "assistantResult",
-          requestId,
-          result: "merge",
-          params: {
-            answer: true,
-            mergedFilterIndex: this.selectedMergedFilterIndex,
-          },
-        });
-        setTimeout(function () {
-          window.close();
-        });
-        return;
       }
 
       let txtNext = isMerge
@@ -303,8 +279,34 @@ quickFilters.Assistant = {
       }
       this.NextButton.textContent = txtNext;
 
+      const context = urlParams.get("context");
+
       switch (_currentPage) {
         case "stepMerge": // existing filters were found, lets store selected filter index or -1!
+          if (context=="mergeList") {
+            // return the selected filter from match list (target filter for merge)
+            const selectedFilter = this.mergeCandidates[this.selectedMergedFilterIndex];
+            let resultParams = {
+              answer: true,
+              mergedFilterIndex: this.selectedMergedFilterIndex,
+              mergeFilter : {
+                index: this.MatchedFilters.selectedIndex,
+                filterName: selectedFilter.filterName,
+                accountId: selectedFilter.accountId || null
+              }
+            };
+            this.hasSentResult = true;
+            await browser.runtime.sendMessage({
+              command: "assistantResult",
+              requestId,
+              result: "merge",
+              params: resultParams,
+            });
+            setTimeout(function () {
+              window.close();
+            }, 300);
+            return;
+          }
           this.toggleMergePane(false);
           resizeWindowToContent();
           break;
@@ -645,7 +647,7 @@ quickFilters.Assistant = {
     }
     switch (urlParams.get("currentCmd")) {
       case "mergeList":
-        this.NextButton.label = messenger.i18n.getMessage("qf.button.merge");
+        this.NextButton.textContent = messenger.i18n.getMessage("qf.button.merge");
         document.getElementById("mergeSummary").innerText = messenger.i18n.getMessage(
           "qf.description.mergeAddSummary"
         );
@@ -657,6 +659,7 @@ quickFilters.Assistant = {
         );
         document.getElementById("filterDescription").innerText = "";
         document.getElementById("chkCreateNew").hidden = true;
+        document.getElementById("lblCreateNew").hidden = true;
         break;
       default:
         document.getElementById("mergeSummary").innerText = messenger.i18n.getMessage(

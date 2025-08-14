@@ -323,14 +323,17 @@ async function displayAssistant(data) {
     };
     url.searchParams.set("sourceFolder", JSON.stringify(source)); // future use.
     // find any mergeable filters:
-    const mergableFilters = await messenger.FiltersAPI.getFilters(uri, targetUri);
-    if (mergableFilters?.length) {
-      url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
+    if (data.context != "mergeList") {
+      const mergableFilters = await messenger.FiltersAPI.getFilters(uri, targetUri);
+      if (mergableFilters?.length) {
+        url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
+      }
     }
   }
 
 
   const { selectedApiMessages } = data; // always try to retrieve this
+  const { selectedFilters } = data; // only in mergeList case
   switch (data.context) {
     case "fromSelectedMessages":
       if (currentTab) {
@@ -365,9 +368,13 @@ async function displayAssistant(data) {
         }
       }
       break;
+    case "mergeList": // select one of a group of filters as target filter for merging
+      url.searchParams.set("matchedFilters", JSON.stringify(selectedFilters));
+      url.searchParams.set("currentCmd", "mergeList"); // make sure the button reads 'Merge'
+      break;
   }
   // info.messageId is the clicked message id (should be available)
-  if (selectedApiMessages) {
+  if (selectedApiMessages && selectedApiMessages.length) {
     const messageIds = selectedApiMessages.map((msg) => msg.messageId).filter(Boolean); // nsIMsgHdr
     if (messageIds.length) {
       const jsonMessageIds = JSON.stringify(messageIds);

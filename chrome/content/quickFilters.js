@@ -668,13 +668,18 @@ END LICENSE BLOCK
     #             when moving mail + merging via assistant
     # Fixed finding duplicate filters from tags (qFilters-list.js:1360)
 
-  6.8 - WIP
+  6.8 - 14/08/2025
     # [issue 313] context menu "Find filters" and "Run Filters" work on current folder and not on clicked folder
     # [issue 309] Convert Assistant window from XUL to HTML
     # Improved settings dialog to avoid vertical truncation
     # Improve handling recipient / author retreive from msg during assistant (using MailUtils.headerParser)
     # Improved filter search: avoids being mislead by old / incorrect account keys. these can be created by 
     # importing account data or renaming / moving accounts.
+
+  6.8.1 - WIP
+    # [issue 315] Call new html assistent dialog from "merge" function in filter list. 
+    #             let params = { answer: null, selectedMergedFilterIndex: -1, cmd: "mergeList" },
+    # [issue ]   
 
     
   ============================================================================================================
