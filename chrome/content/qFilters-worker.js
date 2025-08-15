@@ -539,7 +539,7 @@ quickFilters.Worker = {
     let { sourceFolder } = params;
     const { targetFolder, messageList, filterAction, filterActionExt, isMsgContext } = params;
     // params may also contain the selectedApiMessages array which gives us context data
-    // from right-clicking a message! See below when "quickFiltersAssistant" is called 
+    // from right-clicking a message! See below when "quickFiltersAssistant" is called
     // via background notification
     const util = quickFilters.Util,
       Ci = Components.interfaces,
@@ -747,10 +747,14 @@ quickFilters.Worker = {
     // allow moving mails from one Inbox to another/
     // mail has not been moved here - likely this filter will be about tagging or other actions, not moving mail!
     // [issue 140] allow moving mails to another Inbox
-    if (
+    /* REMOVED 
       (filterAction &&
-        filterAction != Ci.nsMsgFilterAction.CopyToFolder &&
-        filterAction != Ci.nsMsgFilterAction.MoveToFolder) ||
+          filterAction != Ci.nsMsgFilterAction.CopyToFolder &&
+          filterAction != Ci.nsMsgFilterAction.MoveToFolder)
+
+      because it will disable folder target if an email is "starred" or "flagged"
+    */
+    if (
       sourceFolder.URI == targetFolder.URI ||
       targetFolder.getFlag(fflags.Drafts) ||
       targetFolder.getFlag(fflags.SentMail) ||
@@ -1028,16 +1032,20 @@ quickFilters.Worker = {
                     continue;
                   }
 
-                  if (backgroundCallObject.selectedApiMessages.some(
-                    (msg) => msg.messageId === apiMsg.id
-                  )) { continue; } // avoid duplicates
+                  if (
+                    backgroundCallObject.selectedApiMessages.some(
+                      (msg) => msg.messageId === apiMsg.id
+                    )
+                  ) {
+                    continue;
+                  } // avoid duplicates
 
                   backgroundCallObject.selectedApiMessages.push({
                     messageId: apiMsg.id,
                     folder: {
                       accountId: apiMsg.folder.accountId,
                       path: apiMsg.folder.path,
-                    }
+                    },
                   });
                 } catch (ex) {
                   console.error("Failed to convert legacy message:", ex);
@@ -1068,7 +1076,7 @@ quickFilters.Worker = {
             if (quickFilters.Preferences.isDebugOption("assistant")) {
               // eslint-disable-next-line no-debugger
               debugger;
-            }            
+            }
             const resultData = await assistantResultPromise;
             if (resultData.result === "cancelled") {
               isCancelled = true;
