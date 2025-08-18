@@ -679,7 +679,7 @@ END LICENSE BLOCK
   6.8.1 - WIP
     # [issue 315] Call new html assistent dialog from "merge" function in filter list. 
     #             let params = { answer: null, selectedMergedFilterIndex: -1, cmd: "mergeList" },
-    # [issue ]   
+    # During merge, removed code that disabled target folder option (triggered by starred message)
 
     
   ============================================================================================================
@@ -2692,7 +2692,13 @@ quickFilters.patchMailPane = () => {
       mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
     }
   } else {
-    console.log("quickFilters - mainButton not found!!")
+    const selectedTab = quickFilters.Util?.tabContainer?.selectedItem;
+    console.log(
+      "quickFilters - mainButton not found!\n" +
+        "Maybe you have configured your toolbar so that the quickFilters button is not shown?\n" +
+        `The selected tab "${selectedTab?.label}" should be a mail tab`,
+      selectedTab
+    );
   }
 }
 

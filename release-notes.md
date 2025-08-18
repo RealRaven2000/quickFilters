@@ -1,4 +1,4 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.8) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.8.1) 
 
 **Improvements**
 
@@ -12,7 +12,12 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 **Bug Fixes**
 
-*   Fixed “Find filters” and “Run Filters” items in the folder context menu so they now work on the right-clicked folder rather than the selected mails. [issue #313]
+*   Fixed “Find filters” and “Run Filters” items in the folder context menu so they now work on the right-clicked folder rather than the selected mails. [issue #313]#
+
+**6.8.1 Changes**
+
+*   6.8.1: Call new html assistent dialog from "merge" function in filter list.
+*   6.8.1: During merge, removed code that disabled target folder option (triggered by starred mails)
 
 
 All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features.](https://quickfilters.quickfolders.org/premium.html#featureList)
