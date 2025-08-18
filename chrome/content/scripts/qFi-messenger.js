@@ -260,7 +260,10 @@ async function onLoad(activatedWhileWindowOpen) {
 
   // The following will only work if we are currently in a mail pane (ATN update)
   // otherwise, we need to call this again in a tab listener
-  window.quickFilters.patchMailPane(); 
+  const selectedTab = window.gTabmail.tabInfo.find((t) => t.selected);
+  if (selectedTab && window.quickFilters.Util.isTabMode( selectedTab, "mail")) {
+    window.quickFilters.patchMailPane();
+  }
 
   // iterate all mail tabs!
   window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => {
