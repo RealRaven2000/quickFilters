@@ -52,6 +52,29 @@ const startup = async () => {
     }
   });
 
+  // default dialog key handlers [Enter] = Next [Cancel] = close dialog
+  document.body.addEventListener("keydown", (ev) => {
+    // Ignore Enter on elements where it has its own default behavior
+    if (
+      ev.key === "Enter" &&
+      ev.target.matches("textarea, input[type=checkbox], input[type=radio]")
+    ) {
+      return; // let default happen
+    }
+
+  switch (ev.key) {
+    case "Enter":
+      ev.preventDefault();
+      document.getElementById("btnNext")?.click();
+      break;
+    case "Escape":
+      ev.preventDefault();
+      document.getElementById("btnCancel")?.click();
+      break;
+    }
+
+  });  
+
 }
 
 window.document.addEventListener(

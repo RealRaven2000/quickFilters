@@ -99,13 +99,6 @@ footer, #main {
   flex: stretch;
 }
 
-#assistant-buttons {
-  position: fixed;
-  bottom: 0;
-  left:0;
-  right:0;
-}
-
 .sectionExpander {
   display: inline-flex;
 	margin-right: 0.5em;
@@ -193,4 +186,32 @@ footer, #main {
   word-break: break-word;
 }
 
+/* DIALOG PANEL BUTTON BEHAVIOR */
+/* default button - reacts to Enter */
+#assistant-buttons {
+  position: fixed;
+  bottom: 0;
+  left:0;
+  right:0;
+}
 
+#btnNext {
+  background-color: #0a84ff; /* Tb primary blue */
+  color: white;
+  border: none;
+}
+
+#btnNext, #btnCancel {
+  padding: 6px 12px !important;
+  border-radius: 4px !important;
+}
+
+button:focus {
+  outline: 2px solid currentColor; 
+  outline-offset: 1px; 
+}
+
+button {
+  background: var(--box-background-color);
+  color: var(--dialogcolor);
+}
