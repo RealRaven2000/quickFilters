@@ -676,12 +676,15 @@ END LICENSE BLOCK
     # Improved filter search: avoids being mislead by old / incorrect account keys. these can be created by 
     # importing account data or renaming / moving accounts.
 
-  6.8.1 - WIP
+  6.8.1 - 18/08/2025
     # [issue 315] Call new html assistent dialog from "merge" function in filter list. 
     #             let params = { answer: null, selectedMergedFilterIndex: -1, cmd: "mergeList" },
     # During merge, removed code that disabled target folder option (triggered by starred message)
 
-    
+  6.8.2 - WIP
+    # [issue 231] Implement [Enter] and [Escape] keys to cause default action / close in filter assistant
+    # [issue 317] Thunderbird 143: menu icons of main toolbar button missing
+
   ============================================================================================================
   6.* - WIP
     # [issue ]   
@@ -2650,7 +2653,7 @@ quickFilters.patchMailPane = () => {
     mainButton.id = "quickfilters-toolbar-button";
     mainButton.setAttribute("popup", "quickFiltersMainPopup");
     // we still may have to remove the default command handler and add the popup one,
-    // just like 
+    // just like
 
     // build the menu - quick and dirty:
     quickFilters.WL.injectElements(`
@@ -2685,9 +2688,9 @@ quickFilters.patchMailPane = () => {
           <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
         </menupopup>
       </button>
-    `); 
+    `);
 
-    let mnuToolsCreateFromMsg  = document.getElementById("quickFilters-menu-filterFromMsg");
+    let mnuToolsCreateFromMsg = document.getElementById("quickFilters-menu-filterFromMsg");
     if (mnuToolsCreateFromMsg) {
       mnuToolsCreateFromMsg.label = mnuToolsCreateFromMsg.label.replace("quickFilters: ", "");
     }
@@ -2700,6 +2703,51 @@ quickFilters.patchMailPane = () => {
       selectedTab
     );
   }
+
+  // popup is closured
+  const popup = document.getElementById("quickFiltersMainPopup");
+  if (!popup) {
+    return;
+  }
+  const tbVer = quickFilters.Util.Appver;
+  if (quickFilters.Util.versionLower("143", tbVer)) {
+    return; // no patch necessary
+  }
+
+  // inject list-style-image as image attribute to fix borked XUL:
+  const patchMenuIcons = (el) => {
+    const applyImage = (item) => {
+      const listImg = window.getComputedStyle(item).getPropertyValue("list-style-image");
+      if (listImg && listImg !== "none") {
+        const match = listImg.match(/^url\(["']?(.*?)["']?\)$/);
+        if (match && match.length > 1) {
+          item.setAttribute("image", match[1]);
+        }
+      } else {
+        const emptyIcon = `data:image/svg+xml;base64,${btoa(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"></svg>'
+        )}`;
+        item.setAttribute("image", emptyIcon);
+      }
+    };
+    el.querySelectorAll("menuitem[id]").forEach(applyImage);
+    el.querySelectorAll("menu[id]").forEach(applyImage);
+  };
+
+  // Attach a popupshowing listener to a menupopup and recursively to nested ones
+  function attachPopupListener(menupopup) {
+    if (!menupopup) { return; }
+
+    menupopup.addEventListener("popupshowing", (_e) => {
+      patchMenuIcons(menupopup);
+
+      // Recursively attach to any nested menupopups in this popup
+      menupopup.querySelectorAll("menupopup").forEach(attachPopupListener);
+    });
+  }
+
+  // Kickoff: attach to the root popup
+  attachPopupListener(popup);
 }
 
 quickFilters.TabListener = {
