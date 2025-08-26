@@ -1585,15 +1585,16 @@ var quickFilters = {
       // iterate all 3pane documents of mail tabs.
       for (let tabInfo of window.gTabmail.tabInfo.filter((t) => t.mode.name == "mail3PaneTab")) {
         let doc = tabInfo.chromeBrowser.contentDocument;
+        const container = doc.getElementById( "quickFilters-injected");
 
-        let btnList = doc.getElementById("quickfilters-current-listbutton");
-        if (!btnList) {
+        if (!container) {
           // [issue 234]
-          setTimeout(() => quickFilters.toggleCurrentFolderButtons(), 5000);
+          setTimeout(() => quickFilters.toggleCurrentFolderButtons(), 10000);
           return;
         }
 
-        let injected = doc.getElementById("quickFilters-injected"),
+        const btnList = doc.getElementById("quickfilters-current-listbutton"),
+          injected = doc.getElementById("quickFilters-injected"),
           btnRun = doc.getElementById("quickfilters-current-runbutton"),
           btnMsgRun = doc.getElementById("quickfilters-current-msg-runbutton"),
           btnSearch = doc.getElementById("quickfilters-current-searchfilterbutton");

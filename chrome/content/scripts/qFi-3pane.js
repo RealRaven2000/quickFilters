@@ -15,12 +15,6 @@ async function onLoad(_activatedWhileWindowOpen) {
   WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
 
-  Services.scriptloader.loadSubScript(
-    "chrome://quickfilters/content/scripts/qFi-ui-polyfill.js",
-    window,
-    "UTF-8"
-  );
-
   window.setTimeout((win = window) => {
     console.log("qFi-3pane.js - onLoad()");
     win.quickFilters = win.parent.quickFilters;
