@@ -760,7 +760,7 @@ quickFilters.Util = {
     return selectedMessages;
   },
 
-  logTime: function logTime() {
+  logTime: function () {
     let timePassed = '',
         end = new Date(),
         endTime = end.getTime();
@@ -792,7 +792,7 @@ quickFilters.Util = {
   // warningFlag    0x1   Warning messages.
   // exceptionFlag  0x2   An exception was thrown for this case - exception-aware hosts can ignore this.
   // strictFlag     0x4
-  logError: function logError(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags) {
+  logError: function (aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags) {
     const Ci = Components.interfaces,
 					Cc = Components.classes;
     let consoleService = Services.console,
@@ -802,7 +802,7 @@ quickFilters.Util = {
     consoleService.logMessage(scriptError);
   } ,
 
-  logException: function logException(aMessage, ex) {
+  logException: function (aMessage, ex) {
     let stack = '';
     if (typeof ex.stack!='undefined') {
       stack= ex.stack.replace("@","\n  ");
@@ -812,7 +812,7 @@ quickFilters.Util = {
     this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
   } ,
   
-  logDebug: function logDebug(...args) {
+  logDebug: function (...args) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
     if (qF.Preferences.isDebug) {
       this.logToConsole(...args);
@@ -855,7 +855,7 @@ quickFilters.Util = {
     console.log(...arguments);
   },  
 	
-  getTabInfoLength: function getTabInfoLength(tabmail) {
+  getTabInfoLength: function (tabmail) {
 		if (tabmail.tabInfo) {
 		  return tabmail.tabInfo.length;
     }
@@ -865,7 +865,7 @@ quickFilters.Util = {
 		return null;
 	} ,
 	
-	getTabMode: function getTabMode(tabInfo) {
+	getTabMode: function (tabInfo) {
     // Tb 115: mailMessageTab or mail3PaneTab for mail related tabs
 	  if (tabInfo && tabInfo.mode) {   // Tb / Sm
 			return tabInfo.mode.name;
@@ -889,7 +889,7 @@ quickFilters.Util = {
     }
   },
 	
-	getBaseURI: function baseURI(URL) {
+	getBaseURI: function (URL) {
 		let hashPos = URL.indexOf('#'),
 				queryPos = URL.indexOf('?'),
 				baseURL = URL;
@@ -1146,17 +1146,17 @@ quickFilters.Util = {
      }
   }  ,
 
-  showVersionHistory: function showVersionHistory() {
+  showVersionHistory: function () {
 		const util = quickFilters.Util;
     let version = util.VersionSanitized;
     util.openURL(util.makeUriPremium("https://quickfilters.quickfolders.org/version.html") + "#" + version);
   } ,
 
-  showLicensePage: function showLicensePage() {
+  showLicensePage: function () {
     quickFilters.Util.openURL('https://quickfilters.quickfolders.org/donate.html');
   }  ,
 	
-	showYouTubePage: function showYouTubePage() {
+	showYouTubePage: function () {
 		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V');
 	} ,
 
@@ -1169,15 +1169,15 @@ quickFilters.Util = {
     quickFilters.Util.openURL('https://quickfilters.quickfolders.org/' + queryString);
   } ,
 	
-  showBug: function showBug(bugNumber) {
+  showBug: function (bugNumber) {
     quickFilters.Util.openURL('https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=' + bugNumber);
   } ,
   
-  showIssue: function showIssue(issueNumber) {
+  showIssue: function (issueNumber) {
     quickFilters.Util.openURL('https://github.com/RealRaven2000/quickFilters/issues/' + issueNumber);
   } ,
   
-	showYouTube: function showYouTube() {
+	showYouTube: function () {
 		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/c/thunderbirddaily');
 	} ,
 
@@ -1189,17 +1189,17 @@ quickFilters.Util = {
     quickFilters.Util.openURL('https://quickfilters.quickfolders.org/premium.html');
 	} ,
   
-  versionLower: function versionLower(a, b) {
+  versionLower: function (a, b) {
     let versionComparator = Services.vc;
     return (versionComparator.compare(a, b) < 0);
   } ,
   
-  versionHigher: function versionHigher(a, b) {
+  versionHigher: function (a, b) {
     let versionComparator = Services.vc;
     return (versionComparator.compare(a, b) > 0);
   } ,
 	
-	isStringAttrib: function isStringAttrib(attr) {
+	isStringAttrib: function (attr) {
 	  const AC = Components.interfaces.nsMsgSearchAttrib;
 		let isString =
 	    !( attr == AC.Priority || attr == AC.Date || attr == AC.MsgStatus || attr == AC.MessageKey || attr == AC.Size || attr == AC.AgeInDays
@@ -1552,7 +1552,7 @@ quickFilters.Util = {
 	// create a JSON object from a filter
 	// pass in nsIMsgFilter
 	// uses adapted code from copyTerms and copyActions to build JSON object.
-	serializeFilter: function serializeFilter(filter, customErrors) {
+	serializeFilter: function (filter, customErrors) {
 		const Ci = Components.interfaces,
 					FA = Ci.nsMsgFilterAction,
 					AC = Ci.nsMsgSearchAttrib,
@@ -1710,7 +1710,7 @@ quickFilters.Util = {
 	
 	// initialize a filter object from a JSON
 	// pass in the newFilter object, return success boolean
-	deserializeFilter: async function deserializeFilter(jsonFilter, newFilter) {
+	deserializeFilter: async function (jsonFilter, newFilter) {
 		const util = quickFilters.Util;
 		try {
 		  newFilter.filterName	= jsonFilter.filterName;	
@@ -1737,7 +1737,7 @@ quickFilters.Util = {
 	} ,
 	
 	
-	copyActions: function copyActions(fromFilter, toFilter, suppressTargetFolder, isArray) {
+	copyActions: function (fromFilter, toFilter, suppressTargetFolder, isArray) {
     const Ci = Components.interfaces,
           FA = Ci.nsMsgFilterAction;
 		let actionCount = this.getActionCount(fromFilter);
@@ -1849,7 +1849,7 @@ quickFilters.Util = {
   
 	// returns an Array of "active Email addresses"
 	// = mail addresses of default identities only
-  getIdentityMailAddresses: function getIdentityMailAddresses() {
+  getIdentityMailAddresses: function () {
     this.logDebug('getIdentityMailAddresses()');
     // make a stop list (my own email addresses)
     let myMailAddresses = [];
@@ -1860,7 +1860,7 @@ quickFilters.Util = {
     return myMailAddresses;
   } ,
   
-  extractEmail: function extractEmail(address, domainSwitch) {
+  extractEmail: function (address, domainSwitch) {
     if (!address) {return "";}
     // filter out only mail portion
     let adp = address.match(/[^@<\s]+@[^@\s>]+/g)[0];
@@ -1875,7 +1875,7 @@ quickFilters.Util = {
     return adp;
   }  ,
   
-  filterCustomTemplates: function filterCustomTemplates(attempt) {
+  filterCustomTemplates: function (attempt) {
     const util = quickFilters.Util;
     attempt++;
     util.logDebugOptional('template.custom','filterCustomTemplates(' + attempt + ')');
@@ -1933,7 +1933,7 @@ quickFilters.Util = {
     return folder.getEditableFilterList(win);
   },
   
-  createCustomTemplate: function editCustomTemplates() {
+  createCustomTemplate: function () {
     const Ci = Components.interfaces, 
           nsMsgFilterType = Ci.nsMsgFilterType,    
           nsMsgFilterAction = Ci.nsMsgFilterAction,
@@ -2011,13 +2011,13 @@ quickFilters.Util = {
     }
   } ,
 	
-  hasPremiumLicense: function hasPremiumLicense() {
+  hasPremiumLicense: function () {
     if (!quickFilters.Util.licenseInfo) {return false;}
     return quickFilters.Util.licenseInfo.status == "Valid";
   } ,
 	
 	// appends user=pro OR user=proRenew if user has a valid / expired license
-	makeUriPremium: function makeUriPremium(URL) {
+	makeUriPremium: function (URL) {
 		const util = quickFilters.Util,
 					isPremiumLicense = util.hasPremiumLicense(),
 					isExpired = util.licenseInfo.isExpired;
@@ -2049,7 +2049,7 @@ quickFilters.Util = {
     return URL;
 	} ,
   
-	viewLicense: function viewLicense() {
+	viewLicense: function () {
 		let win = quickFilters.Util.getMail3PaneWindow(),
         params = {inn:{mode:"licenseKey",tab:-1, message: "", instance: win.quickFilters}, out:null};
     
@@ -2066,7 +2066,7 @@ quickFilters.Util = {
 	  
 	}, 
 	
-	viewSupport: function viewSupport() {
+	viewSupport: function () {
 		let win = quickFilters.Util.getMail3PaneWindow(),
 		    params = {inn:{mode:"supportOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
     win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
@@ -2075,7 +2075,7 @@ quickFilters.Util = {
 				params).focus();
 	},
 
-	viewAdvanced: function viewAdvanced() {
+	viewAdvanced: function () {
 		let win = quickFilters.Util.getMail3PaneWindow(),
 		    params = {inn:{mode:"advancedOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
     win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
@@ -2084,7 +2084,7 @@ quickFilters.Util = {
 				params).focus();
 	} ,
 	
-	viewFilterProps: function viewFilterProps() {
+	viewFilterProps: function () {
 		let win = quickFilters.Util.getMail3PaneWindow(),
 		    params = {inn:{mode:"newFilter",tab:-1, message: "", instance: win.quickFilters}, out:null};
     win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
@@ -2094,7 +2094,7 @@ quickFilters.Util = {
 	},
   
   // helper function to see whether a search condition already exists
-  checkExistsTerm: function checkExistsTerm(searchTerms, searchTerm) {
+  checkExistsTerm: function (searchTerms, searchTerm) {
     let len = searchTerms.length;
     for (let i=0; i<len; i++) {
       let t = searchTerms[i];
@@ -2188,7 +2188,7 @@ quickFilters.Util = {
     }
   }	,
   
-  findFromTargetFolder: function findFromTargetFolder(targetFolder, searchFilterResults) {
+  findFromTargetFolder: function (targetFolder, searchFilterResults) {
     const util = quickFilters.Util,
           Ci = Components.interfaces,
           FA = Ci.nsMsgFilterAction;
