@@ -685,22 +685,9 @@ async function main() {
   });
       
     
-  messenger.WindowListener.registerChromeUrl([ 
-        ["content", "quickfilters", "chrome/content/"],
-        ["locale",  "quickfilters", "en",    "chrome/locale/en/"],
-        ["locale",  "quickfilters", "de",    "chrome/locale/de/"],
-        ["locale",  "quickfilters", "es",    "chrome/locale/es/"],
-        ["locale",  "quickfilters", "es-AR", "chrome/locale/es-AR/"],
-        ["locale",  "quickfilters", "fr",    "chrome/locale/fr/"],
-        ["locale",  "quickfilters", "it",    "chrome/locale/it/"],
-        ["locale",  "quickfilters", "ja",    "chrome/locale/ja/"],
-        ["locale",  "quickfilters", "nl",    "chrome/locale/nl/"],
-        ["locale",  "quickfilters", "ru",    "chrome/locale/ru/"],
-        ["locale",  "quickfilters", "sv",    "chrome/locale/sv/"],
-        ["locale",  "quickfilters", "vi",    "chrome/locale/vi/"],
-        ["locale",  "quickfilters", "zh-CN", "chrome/locale/zh-CN/"]
-    
-      ]);
+  messenger.WindowListener.registerChromeUrl([
+    ["content", "quickfilters", "chrome/content/"],
+  ]);
  
   messenger.WindowListener.registerOptionsPage("chrome://quickfilters/content/quickFilters-options.xhtml"); 
    
