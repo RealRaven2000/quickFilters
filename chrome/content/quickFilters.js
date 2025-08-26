@@ -902,7 +902,7 @@ var quickFilters = {
       .focus();
   },
 
-  checkFirstRun: function checkFirstRun() {
+  checkFirstRun: function () {
     let util = quickFilters.Util,
       prefs = quickFilters.Preferences;
     try {
@@ -2704,6 +2704,7 @@ quickFilters.patchMailPane = () => {
     );
   }
 
+  /*
   // popup is closured
   const popup = document.getElementById("quickFiltersMainPopup");
   if (!popup) {
@@ -2748,6 +2749,7 @@ quickFilters.patchMailPane = () => {
 
   // Kickoff: attach to the root popup
   attachPopupListener(popup);
+  */
 }
 
 quickFilters.TabListener = {
