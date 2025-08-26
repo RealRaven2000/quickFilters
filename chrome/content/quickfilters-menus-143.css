@@ -1,0 +1,53 @@
+/* default icon (empty) avoids placeholder square */
+#quickFiltersMainPopup .menuitem-iconic:not([--menuitem-icon]),
+#quickFiltersMainPopup menu.menu-iconic:not([--menuitem-icon]) {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/blank.svg");
+}
+
+#quickfilters-news, #quickfilters-changelog {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/info.svg") !important;
+}
+
+#quickfilters-toggleAssistant {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
+}
+
+#quickfilters-menu-registration {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/pro-default.svg") !important;
+}
+
+#quickfilters-checkLicense {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/info.svg") !important;
+}
+
+#quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/quickFilters-active.svg") !important;
+}
+
+#quickfilters-runFilters {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/runFilters.svg") !important;
+}
+
+#quickfilters-runFiltersMsg {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/runFilters-selected.svg") !important;
+}
+
+#quickfilters-menu-filterlist {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/filterList.svg") !important;
+}
+
+#quickfilters-options {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/settings.svg") !important;
+}
+
+#quickfilters-menu-tools {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/wrench.svg") !important;
+}
+
+#quickFilters-menu-filterFromMsg {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/createFilter.svg") !important;
+}
+
+#quickfilters-menu-searchfilters {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/searchFilters.svg") !important;
+}

@@ -1,24 +1,32 @@
+/* globals 
+  WL
+*/
 
 async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
 }
+// eslint-disable-next-line no-unused-vars
 async function addTagListener(win, e) {
   window.quickFilters.Util.addTagListener(win);
 }
 
-async function onLoad(activatedWhileWindowOpen) {
-  let WAIT_FOR_3PANE = 2000;
+// eslint-disable-next-line no-unused-vars
+async function onLoad(_activatedWhileWindowOpen) {
+  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
+  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
 
-  let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
-  let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
-  
-  window.setTimeout( 
-    (win = window) => {
-      console.log("qFi-3pane.js - onLoad()");
-      win.quickFilters = win.parent.quickFilters;
+  Services.scriptloader.loadSubScript(
+    "chrome://quickfilters/content/scripts/qFi-ui-polyfill.js",
+    window,
+    "UTF-8"
+  );
 
-      // QUICKFOLDERS NAVIGATION BAR INJECTION
-      WL.injectElements(`
+  window.setTimeout((win = window) => {
+    console.log("qFi-3pane.js - onLoad()");
+    win.quickFilters = win.parent.quickFilters;
+
+    // QUICKFOLDERS NAVIGATION BAR INJECTION
+    WL.injectElements(`
       <div id="threadPane">
       <hbox id="quickFilters-injected" collapsed="true">
         <toolbarbutton id="quickfilters-current-runbutton"
@@ -50,17 +58,13 @@ async function onLoad(activatedWhileWindowOpen) {
                 oncommand="window.quickFilters.doCommand(this);"
                 />
       </hbox>
-      </div>`); 
-
-    }
-  );
+      </div>`);
+  });
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
-
-
 }
 
-
+// eslint-disable-next-line no-unused-vars
 function onUnload(isAddOnShutown) {
   let document3pane = window.document;
   window.quickFilters.restoreTagListener(window);
@@ -73,11 +77,12 @@ function onUnload(isAddOnShutown) {
   }
 
   // clean up current folder bar (if QuickFolders is installed)
-  deleteBtn('quickfilters-current-listbutton');
-  deleteBtn('quickfilters-current-runbutton');
-  deleteBtn('quickfilters-current-msg-runbutton');
-  deleteBtn('quickfilters-current-searchfilterbutton');
-  window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
-
+  deleteBtn("quickfilters-current-listbutton");
+  deleteBtn("quickfilters-current-runbutton");
+  deleteBtn("quickfilters-current-msg-runbutton");
+  deleteBtn("quickfilters-current-searchfilterbutton");
+  window.removeEventListener(
+    "quickFilters.BackgroundUpdate.setAssistantButton",
+    setAssistantButton
+  );
 }
-
