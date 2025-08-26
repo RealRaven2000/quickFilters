@@ -11,11 +11,6 @@
   fill: currentColor;
 }
 
-@media (prefers-color-scheme: dark) {
-  #quickFiltersBtnHelp {
-  }
-}
-
 #quickFiltersHelpBar {
   display: block;
   position: fixed;
@@ -115,15 +110,15 @@ input.flexinput {
 /* ICON RULE TO OVERWRITE IN PRO VERSION */
 /* menuitem.cmd[tagName="qfRegister"],  */
 tab#quickFilters-Pro {
-	list-style-image : url('chrome://quickfilters/content/skin/pro.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/pro-default.svg') !important;
 }
 
 tab#quickFilters-Pro.paid {
-	list-style-image : url('chrome://quickfilters/content/skin/pro-paid.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/pro-paid.svg') !important;
 }
 
 tab#quickFilters-Pro.expired {
-	list-style-image : url('chrome://quickfilters/content/skin/pro-expired.png') !important;
+	list-style-image : url('chrome://quickfilters/content/skin/pro-expired.svg') !important;
 }
 
 
@@ -198,10 +193,6 @@ tab#quickFilters-Support {
 }
 .helpLink:not([tip-left]) .tooltip {
   right: 25px !important;
-}
-
-.helpLink[tip-left] .tooltip {
- /* left: 25px !important; */
 }
 
 
