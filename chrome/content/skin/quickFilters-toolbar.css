@@ -11,6 +11,12 @@
 #quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant {
   list-style-image: url("chrome://quickfilters/content/skin/quickFilters-active.svg") !important;
 }
+
+#quickfilters-menu-registration {
+  list-style-image: url("chrome://quickfilters/content/skin/pro-default.svg") !important;
+}
+
+
 #quickfilters-toolbar-button[checked="true"] {
   outline: red 2px solid; /* fix problem in thunderbird 128 - list0style image was ignored */
   /* not sure whether this chrome URL is visible in this context */
@@ -44,19 +50,19 @@
 }
 
 #quickfilters-runFilters {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg") !important;
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
 }
 
 #quickfilters-runFiltersMsg {
-  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg") !important;
+  list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
 }
 
 #quickfilters-options {
-  list-style-image: url("chrome://quickfilters/content/skin/settings.svg") !important;
+  list-style-image: url("chrome://quickfilters/content/skin/settings.svg");
 }
 
 #quickfilters-checkLicense {
-  list-style-image: url("chrome://quickfilters/content/skin/info.svg") !important;
+  list-style-image: url("chrome://quickfilters/content/skin/info.svg");
 }
 
 #quickfilters-gopro {
