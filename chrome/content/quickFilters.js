@@ -684,6 +684,9 @@ END LICENSE BLOCK
   6.8.2 - WIP
     # [issue 231] Implement [Enter] and [Escape] keys to cause default action / close in filter assistant
     # [issue 317] Thunderbird 143: menu icons of main toolbar button missing
+    # [issue 320] Regression: Cannot copy messages using the "Move To" / "copy To" messages context menu
+
+
 
   ============================================================================================================
   6.* - WIP
@@ -1626,7 +1629,6 @@ var quickFilters = {
    * Deprecated: MsgMove_Wrapper and MsgCopy_Wrapper not used anymore.
    * Consider removing after verifying no external calls depend on them.
    */
-  /*
   MsgMove_Wrapper: function (uri) {
     const util = quickFilters.Util;
     try {
@@ -1749,7 +1751,6 @@ var quickFilters = {
       promiseDone(); //was setTimeout(promiseDone, 20);
     }
   } ,
-   */
 
   MsgArchive_Wrapper: async function (callbackFunction) {
     const util = quickFilters.Util,
