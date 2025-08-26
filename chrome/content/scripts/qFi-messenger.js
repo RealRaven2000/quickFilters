@@ -33,10 +33,9 @@ async function onLoad(activatedWhileWindowOpen) {
   window.quickFilters._lastDoCommandId = null;
 
   // call on background page to implement folder pane listener
-  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addFolderPaneListener" }); 
+  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addFolderPaneListener" });
   // call on background page to implement tools menu listener
-  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addToolMenuListener"  }); 
-
+  window.quickFilters.Util.notifyTools.notifyBackground({ func: "addToolMenuListener" });
 
   // [issue 122] false positives from antivirus scanners
   let btnRun = document.getElementById("quickfilters-menu-runMenu");
@@ -52,7 +51,7 @@ async function onLoad(activatedWhileWindowOpen) {
       window.quickFilters.searchFiltersFromFolder(event);
     });
   }
-  
+
   WL.injectElements(`
 
   <toolbarpalette id="MailToolbarPalette">
@@ -86,7 +85,7 @@ async function onLoad(activatedWhileWindowOpen) {
                    oncommand="window.quickFilters.doCommand(this);"
                    />
   </toolbarpalette>
-`); 
+`);
 
   window.quickFilters.doCommand = async function (el, eventDetail = null) {
     if (!el) {
@@ -110,18 +109,26 @@ async function onLoad(activatedWhileWindowOpen) {
     if (el.id.startsWith("quickfilters-current-")) {
       if (!window.quickFilters.Util.licenseInfo.isValid) {
         // check the QuickFolders license status for this cross Add-on support feature
-        let lic = await window.quickFilters.Util.notifyTools.notifyBackground({ func: "getQuickFolderslicense" }); // replace worker.FilterMode
+        let lic = await window.quickFilters.Util.notifyTools.notifyBackground({
+          func: "getQuickFolderslicense",
+        }); // replace worker.FilterMode
         if (lic && lic.status) {
           switch (lic.status.toLowerCase()) {
             case "unknown":
-              window.quickFilters.Util.logHighlightDebug("getQuickFolderslicense() - not yet supported by current version.");
+              window.quickFilters.Util.logHighlightDebug(
+                "getQuickFolderslicense() - not yet supported by current version."
+              );
               break;
             case "valid":
               break;
             default: {
-              let txtDefault = "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.";
+              let txtDefault =
+                "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.";
               let txt = window.quickFilters.Util.getBundleString(
-                "quickfilters.notification.QF.navigationbar", txtDefault, ["quickFilters"]);
+                "quickfilters.notification.QF.navigationbar",
+                txtDefault,
+                ["quickFilters"]
+              );
               window.quickFilters.Util.alert(txt);
               return;
             }
@@ -171,7 +178,7 @@ async function onLoad(activatedWhileWindowOpen) {
       case CREATEFILTERFROMMSG_ID:
       case "quickFilters-fromMessage":
         // legacy path:
-        window.quickFilters.onMenuItemCommand("createFilterFromMsg", eventDetail);        
+        window.quickFilters.onMenuItemCommand("createFilterFromMsg", eventDetail);
         window.quickFilters._lastDoCommandTime = Date.now();
         break;
       case "quickfilters-menu-searchfilters": // fall-through
@@ -213,100 +220,131 @@ async function onLoad(activatedWhileWindowOpen) {
     if (!parent) {
       return;
     }
-    if (parent.id=="quickfilters-toolbar-button") {
+    if (parent.id == "quickfilters-toolbar-button") {
       parent.removeAttribute("aria-pressed");
     }
-
-  }
+  };
 
   // we need the WindowListener to inject UI later (tab listener)
   window.quickFilters.WL = WL;
+  // this requires quickFilters.WL
+  Services.scriptloader.loadSubScript(
+    "chrome://quickfilters/content/scripts/qFi-ui-polyfill.js",
+    window,
+    "UTF-8"
+  );
 
   // Enable the global notify notifications from background.
   window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
   // set up updating the label at midnight
   window.quickFilters.Util.setMidnightTimer();
-  
+
   // window.addEventListener("quickFilters.BackgroundUpdate", window.quickFilters.initLicensedUI);
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   listener_toggleFolder = window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters);
-  window.addEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
+  window.addEventListener(
+    "quickFilters.BackgroundUpdate.toggleCurrentFolderButtons",
+    listener_toggleFolder
+  );
 
   listener_initKeyListener = window.quickFilters.addKeyListener.bind(window.quickFilters, window);
   window.addEventListener("quickFilters.BackgroundUpdate.addKeyListener", listener_initKeyListener);
 
-
   listener_doCommand = (event) => {
-    window.quickFilters.Util.logHighlightDebug("listener_doCommand()", "white", "magenta", event.detail);
+    window.quickFilters.Util.logHighlightDebug(
+      "listener_doCommand()",
+      "white",
+      "magenta",
+      event.detail
+    );
     if (!event.detail.windowId) {
       console.warn("listener_doCommand failed - missing detail.windowId!");
       return;
-    }    
+    }
     let windowId = event.detail.windowId;
     // find out if we are in the correct window:
     // context.extension.windowManager
     let windowObject = WL.extension.windowManager.get(windowId);
-		if (windowObject && window == windowObject.window) {
-      window.quickFilters.doCommand.call(window.quickFilters, event.detail.commandItem, event.detail);
+    if (windowObject && window == windowObject.window) {
+      window.quickFilters.doCommand.call(
+        window.quickFilters,
+        event.detail.commandItem,
+        event.detail
+      );
     }
-  }; 
+  };
   window.addEventListener("quickFilters.BackgroundUpdate.doCommand", listener_doCommand);
 
-  
-  listener_updatequickFiltersLabel = window.quickFilters.updatequickFiltersLabel.bind(window.quickFilters);
-  window.addEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
+  listener_updatequickFiltersLabel = window.quickFilters.updatequickFiltersLabel.bind(
+    window.quickFilters
+  );
+  window.addEventListener(
+    "quickFilters.BackgroundUpdate.updatequickFiltersLabel",
+    listener_updatequickFiltersLabel
+  );
 
   // The following will only work if we are currently in a mail pane (ATN update)
   // otherwise, we need to call this again in a tab listener
   const selectedTab = window.gTabmail.tabInfo.find((t) => t.selected);
-  if (selectedTab && window.quickFilters.Util.isTabMode( selectedTab, "mail")) {
+  if (selectedTab && window.quickFilters.Util.isTabMode(selectedTab, "mail")) {
     window.quickFilters.patchMailPane();
   }
 
   // iterate all mail tabs!
-  window.gTabmail.tabInfo.filter(t => t.mode.name == "mail3PaneTab").forEach(tabInfo => {
-    const quickFilters = window.quickFilters;
-    const callBackCommands = tabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
-    // backup wrapped functions:
-    callBackCommands.quickFilters_cmd_moveMessage = callBackCommands.cmd_moveMessage; 
-    callBackCommands.quickFilters_cmd_copyMessage = callBackCommands.cmd_copyMessage; 
-    callBackCommands.quickFilters_cmd_archive = callBackCommands.cmd_archive;
+  window.gTabmail.tabInfo
+    .filter((t) => t.mode.name == "mail3PaneTab")
+    .forEach((tabInfo) => {
+      const quickFilters = window.quickFilters;
+      const callBackCommands =
+        tabInfo.chromeBrowser.contentWindow.commandController._callbackCommands;
+      // backup wrapped functions:
+      callBackCommands.quickFilters_cmd_moveMessage = callBackCommands.cmd_moveMessage;
+      callBackCommands.quickFilters_cmd_copyMessage = callBackCommands.cmd_copyMessage;
+      callBackCommands.quickFilters_cmd_archive = callBackCommands.cmd_archive;
 
-    if (callBackCommands.cmd_moveMessage == callBackCommands.cmd_copyMessage) {
-      Services.prompt.alert(window, "quickFilters Update", 
-        `Important - Thunderbird just updated from quickFilters 6.0 - you may have run a previous version of quickFilters which could not restore the action 'move message'. 
+      if (callBackCommands.cmd_moveMessage == callBackCommands.cmd_copyMessage) {
+        Services.prompt.alert(
+          window,
+          "quickFilters Update",
+          `Important - Thunderbird just updated from quickFilters 6.0 - you may have run a previous version of quickFilters which could not restore the action 'move message'. 
   Instead it will likely copy the messages right now.
-  Please restart Thunderbird to avoid duplicate messages!`);
-    }
+  Please restart Thunderbird to avoid duplicate messages!`
+        );
+      }
 
-    callBackCommands.cmd_moveMessage = function (destFolder) {
-      // isCopy = false
-      quickFilters.MsgMoveCopy_Wrapper(destFolder, false, callBackCommands.quickFilters_cmd_moveMessage);  
-    }
+      callBackCommands.cmd_moveMessage = function (destFolder) {
+        // isCopy = false
+        quickFilters.MsgMoveCopy_Wrapper(
+          destFolder,
+          false,
+          callBackCommands.quickFilters_cmd_moveMessage
+        );
+      };
 
-    callBackCommands.cmd_copyMessage = function (destFolder) {
-      // isCopy = true
-      quickFilters.MsgMoveCopy_Wrapper(destFolder, true, callBackCommands.quickFilters_cmd_copyMessage);  
-    }
+      callBackCommands.cmd_copyMessage = function (destFolder) {
+        // isCopy = true
+        quickFilters.MsgMoveCopy_Wrapper(
+          destFolder,
+          true,
+          callBackCommands.quickFilters_cmd_copyMessage
+        );
+      };
 
-    // monkey patch for archiving
-    callBackCommands.cmd_archive = function () {
-      quickFilters.MsgArchive_Wrapper(callBackCommands.quickFilters_cmd_archive);
-    }    
-    // monkey foldertree patch drop method
-    window.quickFilters.patchFolderTree(tabInfo);
-
-  });
+      // monkey patch for archiving
+      callBackCommands.cmd_archive = function () {
+        quickFilters.MsgArchive_Wrapper(callBackCommands.quickFilters_cmd_archive);
+      };
+      // monkey foldertree patch drop method
+      window.quickFilters.patchFolderTree(tabInfo);
+    });
 
   window.quickFilters.addTabEventListener(); // add monkey patch code to new tabs..
-  
+
   window.quickFilters.addKeyListener(window);
-  
 
   window.quickFilters.onLoadQuickFilters();
-  
 
   for (let info of window.gTabmail.tabInfo) {
     if (info.mode.name != "mail3PaneTab") {
@@ -316,7 +354,6 @@ async function onLoad(activatedWhileWindowOpen) {
   }
 
   window.quickFilters.addFolderListeners();
-    
 }
 
 // eslint-disable-next-line no-unused-vars
