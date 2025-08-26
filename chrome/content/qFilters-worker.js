@@ -864,6 +864,13 @@ quickFilters.Worker = {
           util.logDebugOptional("createFilter", "message header parsed.");
         } else {
           // exception
+          util.logHighlightDebug(
+            "createQuickFilterExec() Problem:",
+            "rgba(250, 235, 119, 1)",
+            "#930f08ff",
+            "MISSING or incomplete MailServices.headerParser:\nEarly Exit!",
+            hdrParser
+          );          
           this.promiseCreateFilter = false;
           return 0;
         }
@@ -1131,10 +1138,9 @@ quickFilters.Worker = {
 
           // user cancels:
           if (isCancelled) {
-            while (matchingFilters.length) {
-              matchingFilters.pop();
-            }
+            matchingFilters.length = 0; // clear array
             this.promiseCreateFilter = false;
+            util.logDebugOptional("createFilter","User Cancelled. return 0");
             return 0;
           }
 
