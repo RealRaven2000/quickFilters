@@ -1,5 +1,14 @@
 The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.8.1) 
 
+
+**Maintenance Release 6.8.2**
+*   Made quickFilters compatible with Tb 143.*
+*   Regression Fixed: Cannot copy messages using the "Move To" / "copy To" messages context menu [issue #320]
+*   Regression Fixed - (Thunderbird 143 and later): menu icons of main toolbar button missing [issue #317]
+*   added switch extensions.quickfilters.notifications.changelog to disable version tab [issue #318]
+
+
+
 **Improvements**
 
 *   Made quickFilters compatible with Tb 142.*
