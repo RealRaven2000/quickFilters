@@ -10,6 +10,7 @@ END LICENSE BLOCK */
 /* 
   globals
     updateActions,
+    formatAll,
 */
 
 const SALE_REDUCTION = "30%";   // reduction for buying quickFilters Pro
@@ -182,20 +183,7 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     
     let whatsNewLst = document.getElementById('whatsNewList');
     if (whatsNewLst) {
-      whatsNewLst.innerHTML = messenger.i18n
-        .getMessage("whats-new-list")
-        .replace(/\{L1\}/g, "<li>")
-        .replace(/\{L2\}/g, "</li>")
-        .replace(/\{boldStart\}/g, "<b>")
-        .replace(/\{boldEnd\}/g, "</b>")
-        .replace(/\{addonName\}/g, "quickFilters")
-        .replace(/\[issue (\d*)\]/g, "<a class=issue no=$1>[issue $1]</a>")
-        .replace(/\{P1(?:\s+([^}]+))?\}/g, (_, attrs) => {
-          // attrs will be undefined if no class specified
-          return attrs ? `<p ${attrs}>` : "<p>";
-        })
-        .replace(/\{P2\}/g, "</p>");
-
+      whatsNewLst.innerHTML = formatAll(messenger.i18n.getMessage("whats-new-list"));
     }
     
     

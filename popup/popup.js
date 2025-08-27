@@ -9,18 +9,17 @@ END LICENSE BLOCK */
 /* shared module for installation popups */
 const SALE_DATE = "2025-03-24"; // starts 2025-03-10
 
+// eslint-disable-next-line no-unused-vars
 async function updateActions(addonName) {
   let licenseInfo = await messenger.runtime.sendMessage({command:"getLicenseInfo"});
   
   // LICENSING FLOW
-  let isExpired = licenseInfo.isExpired,
-      isValid = licenseInfo.isValid,
-      isProUser = true,
-      isStandard= false; // future use
+  const isExpired = licenseInfo.isExpired,
+    isValid = licenseInfo.isValid; 
 
   function hide(id) {
     let el = document.getElementById(id);
-    if (!el) return null;
+    if (!el) { return null; }
     el.setAttribute('collapsed',true);
     return el;
   }
@@ -32,7 +31,7 @@ async function updateActions(addonName) {
   }
   function show(id) {
     let el = document.getElementById(id);
-    if (!el) return null;
+    if (!el) { return null; }
     el.setAttribute('collapsed',false);
     return el;
   }
@@ -98,16 +97,41 @@ async function updateActions(addonName) {
   const win = await browser.windows.getCurrent(),
     wrapper = document.getElementById('innerwrapper'),
     r = wrapper.getBoundingClientRect(),
-    newHeight = Math.round(r.height) + 80,
     maxHeight = window.screen.height;
+
+  let newHeight = Math.round(r.height) + 80;
 
   /* retrieve specific OS for LInuz styling */
   let { os } = await messenger.runtime.getPlatformInfo(); // mac / win / linux
   wrapper.setAttribute("os", os);
 
      
-  if (newHeight>maxHeight) newHeight = maxHeight-15;
+  if (newHeight>maxHeight) {newHeight = maxHeight-15;}
   browser.windows.update(win.id, 
     {height: newHeight}
   );
+}
+
+// eslint-disable-next-line no-unused-vars
+function formatAll(txt) {
+  if (!txt) {return "";}
+  let localizedMsg = txt
+    .replace(/\{L1(?:\s+([^}]+))?\}/g, (_, attrs) => {
+      // attrs will be undefined if no class specified
+      return attrs ? `<li ${attrs}>` : "<li>";
+    })
+    .replace(/\{L2\}/g, "</li>")
+    .replace(/\{boldStart\}/g, "<b>")
+    .replace(/\{boldEnd\}/g, "</b>")
+    .replace(/\{imp1\}/g, "<span class='important'>")
+    .replace(/\{imp2\}/g, "</span>")
+    .replace(/\{addonName\}/g, "quickFilters")
+    .replace(/\[issue (\d*)\]/g, "<a class=issue no=$1>[issue $1]</a>")
+    .replace(/\{P1(?:\s+([^}]+))?\}/g, (_, attrs) => {
+      // attrs will be undefined if no class specified
+      return attrs ? `<p ${attrs}>` : "<p>";
+    })
+    .replace(/\{P2\}/g, "</p>");
+
+  return localizedMsg;
 }

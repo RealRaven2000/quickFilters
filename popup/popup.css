@@ -43,9 +43,6 @@
   pointer-events: none;
 }
 
-ul.actions {
-  
-}
 
 .actionlinks {
   text-align: center;
@@ -176,14 +173,6 @@ canvas[collapsed=true] {
   background: transparent !important;
 }
 
-
-#purchaseLicenseListItem { /* test */
-/*
-  background-color: lightyellow;
-  color: rgb(120,0,0);
-  */
-}
-
 #whatsNewList li {
   margin-bottom: 0.8em;
 }
@@ -257,4 +246,29 @@ h2 {
 
 h3 {
   font-size: 1.2em;
+}
+
+#changesList .important {
+  color: rgb(255, 184, 53) !important;
+}
+
+li {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-left: 1em;   
+  position: relative;
+}
+
+
+li.important {
+  list-style-type: none;
+  margin-left: 1em;
+}
+
+li.important::before {
+  content: "▶";
+  color: rgb(208, 0, 0);
+  font-size: 0.9em;
+  position: absolute;
+  left: -1em; 
 }
