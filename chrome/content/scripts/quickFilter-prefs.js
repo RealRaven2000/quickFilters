@@ -111,6 +111,7 @@ pref("extensions.quickfilters.templates.custom", false);
 pref("extensions.quickfilters.multipaste", false);
 
 pref("extensions.quickfilters.notifications.runFilter", true);
+pref("extensions.quickfilters.notifications.changelog", true);
 
 
 // Premium features

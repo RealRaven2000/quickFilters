@@ -685,6 +685,8 @@ END LICENSE BLOCK
     # [issue 231] Implement [Enter] and [Escape] keys to cause default action / close in filter assistant
     # [issue 317] Thunderbird 143: menu icons of main toolbar button missing
     # [issue 320] Regression: Cannot copy messages using the "Move To" / "copy To" messages context menu
+    # known issue: icons in search options of message filters need to also be fixed for Tb 143
+    # [issue 318] WIP - added switch extensions.quickfilters.notifications.changelog to disable version tab
 
 
 
@@ -951,7 +953,9 @@ var quickFilters = {
                 `Current Version: ${installedV}\n` +
                 `New Version: ${currentV}`
             );
-            util.showVersionHistory();
+            if (prefs.getBoolPref("notifications.changelog")) {
+              util.showVersionHistory();
+            }
           }
         } else {
           util.logDebug("currentVersion not determined: " + currentVersion);
