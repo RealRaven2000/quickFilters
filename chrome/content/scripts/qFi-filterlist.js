@@ -1,3 +1,9 @@
+/*
+ globals
+    WL,
+    ToolbarIconColor
+*/
+
 async function setAssistantButton(e) {
   window.quickFilters.List.setAssistantButton(e.detail.active);
 }
@@ -16,11 +22,10 @@ Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-pref
 
 var quickFilters_themeHandler;
 
-async function onLoad(activatedWhileWindowOpen) {
-  //TODO do we need "chrome://global/skin/"??
-  let layout1 = WL.injectCSS("chrome://quickfilters/content/filterList.css");
-  let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
-  
+// eslint-disable-next-line no-unused-vars
+async function onLoad(_activatedWhileWindowOpen) {
+  WL.injectCSS("chrome://quickfilters/content/filterList.css");
+  WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
 
   WL.injectElements(`
   
@@ -276,7 +281,13 @@ async function onLoad(activatedWhileWindowOpen) {
 
     
   const util=window.quickFilters.Util,
-        list = window.quickFilters.List;
+    list = window.quickFilters.List;
+
+  if (util.versionGreaterOrEqual(Services.appinfo.version, "143")) {
+    WL.injectCSS("chrome://quickfilters/content/filterList-143.css");
+  }
+
+
   util.logDebug('Adding FilterList...');
 
   // a quick hack to support dark themes!
@@ -328,6 +339,7 @@ async function onLoad(activatedWhileWindowOpen) {
 
 }
 
+// eslint-disable-next-line no-unused-vars
 function onUnload(isAddOnShutDown) {
   if (typeof ToolbarIconColor !== "undefined") {
     ToolbarIconColor.uninit();

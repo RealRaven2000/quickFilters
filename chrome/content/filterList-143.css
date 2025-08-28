@@ -1,0 +1,17 @@
+#quickFiltersSearchContext .menuitem-iconic:not([--menuitem-icon]):not([checked])  {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/blank.svg");
+}
+
+
+#quickFiltersCut {
+	--menuitem-icon: url("chrome://quickfilters/content/skin/cut.svg") !important;
+}
+
+#quickFiltersCopy {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/copy.svg") !important;
+}
+
+#quickFiltersPaste {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/paste.svg") !important;
+}
+
