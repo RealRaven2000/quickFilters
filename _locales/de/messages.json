@@ -762,7 +762,7 @@
     "message": "Lizenzstatus prüfen…"
   },
   "quickfilters.menu.news": {
-    "message": "Neuigkeiten / Änderungsprotokoll (lesen setzt die Schaltfläche oben zurück)…"
+    "message": "Neuigkeiten / Änderungsprotokoll…"
   },
   "quickfilters.menu.tools": {
     "message": "Werkzeuge"
@@ -1283,7 +1283,7 @@
     "message": "quickFilters wurde aktualisiert!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Klicken Sie einmal hier, um den Begrüßungsbildschirm und die Neuerungen in quickFilters anzuzeigen."
+    "message": "Öffnen Sie das Menü '$menulabel$' unten, um zu sehen, was neu ist. Dadurch wird auch die 🟠 entfernt."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Lizenz läuft ab in $daysLeft$ Tagen",

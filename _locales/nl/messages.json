@@ -762,7 +762,7 @@
     "message": "Licentiestatus controleren…"
   },
   "quickfilters.menu.news": {
-    "message": "News / Change Log (lees dit om bovenstaande knop te resetten)…"
+    "message": "News / Change Log…"
   },
   "quickfilters.menu.tools": {
     "message": "Hulpmiddelen"
@@ -1284,7 +1284,7 @@
     "message": "quickFilters is bijgewerkt!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Klik hier eenmaal om het Splash-scherm te zien en wat er nieuw is in quickFilters."
+    "message": "Open het '$menulabel$'-menu hieronder om te zien wat nieuw is. Hiermee wordt ook de 🟠 verwijderd."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Licentie verloopt over $daysLeft$ dagen",

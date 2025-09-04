@@ -762,7 +762,7 @@
     "message": "ライセンスのステータスを確認…"
   },
   "quickfilters.menu.news": {
-    "message": "ニュース / 変更ログ (これを読んで上のリセットボタンを押してください)…"
+    "message": "ニュース / 変更ログ…"
   },
   "quickfilters.menu.tools": {
     "message": "ツール"
@@ -1283,7 +1283,7 @@
     "message": "quickFiltersが更新されました！"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "スプラッシュ画面とquickFiltersの新機能を確認するには、ここをクリックしてください。"
+    "message": "下の '$menulabel$' メニューを開いて新しい情報を確認してください。これにより 🟠 も消えます。"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "ライセンスは $daysLeft$ 日後に期限切れになります",

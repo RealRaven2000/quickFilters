@@ -762,7 +762,7 @@
     "message": "Kontrollera licensstatus…"
   },
   "quickfilters.menu.news": {
-    "message": "Nyheter / Ändringslogg (läs detta för att återställa knappen ovan)…"
+    "message": "Nyheter / Ändringslogg…"
   },
   "quickfilters.menu.tools": {
     "message": "Verktyg"
@@ -1283,7 +1283,7 @@
     "message": "quickFilters uppdaterades!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Klicka här en gång för att se startskärmen och vad som är nytt i quickFilters."
+    "message": "Öppna menyn '$menulabel$' nedan för att se nyheterna. Detta tar också bort 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Licensen löper ut om $daysLeft$ dagar",

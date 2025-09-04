@@ -208,7 +208,7 @@
     "message": "Zkontrolujte stav licence…"
   },
   "quickfilters.menu.news": {
-    "message": "Novinky / Protokol změn (kliknutím na tlačítko resetovat výše)…"
+    "message": "Novinky / Protokol změn…"
   },
   "quickfilters.menu.tools": {
     "message": "Tools"
@@ -250,7 +250,7 @@
     "message": "quickFilters byl aktualizován!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Jedním kliknutím sem zobrazíte úvodní obrazovku a co je nového v quickFilters."
+    "message": "Otevřete menu '$menulabel$' níže a podívejte se, co je nového. Tím se také odstraní 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Platnost licence vyprší za $daysLeft$ dní",

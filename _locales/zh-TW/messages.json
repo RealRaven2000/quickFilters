@@ -719,7 +719,7 @@
     "message": "檢查許可證狀態..."
   },
   "quickfilters.menu.news": {
-    "message": "新聞/更改日誌（閱讀此內容以重置上面的按鈕）..."
+    "message": "新聞/更改日誌..."
   },
   "quickfilters.menu.tools": {
     "message": "工具"
@@ -1198,7 +1198,7 @@
     "message": "quickFilters 已更新！"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "單擊此處一次以查看啟動畫面和 quickFilters 中的新功能。"
+    "message": "打開下方的 '$menulabel$' 選單查看最新內容。這也會移除 🟠。"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "許可證在 $daysLeft$ 天后到期",

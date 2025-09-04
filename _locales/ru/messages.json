@@ -762,7 +762,7 @@
     "message": "Проверить статус лицензии…"
   },
   "quickfilters.menu.news": {
-    "message": "Новости / Журнал изменений (прочитайте это, чтобы сбросить кнопку выше)…"
+    "message": "Новости / Журнал изменений…"
   },
   "quickfilters.menu.tools": {
     "message": "Инструменты"
@@ -1283,7 +1283,7 @@
     "message": "quickFilters обновлен!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Щелкните здесь один раз, чтобы увидеть экран-заставку и узнать, что нового в quickFilters."
+    "message": "Откройте меню '$menulabel$' ниже, чтобы увидеть новые функции. Это также удаляет 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Срок действия лицензии истекает через $daysLeft$ дн.",

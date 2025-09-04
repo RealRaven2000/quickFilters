@@ -1496,8 +1496,12 @@ var quickFilters = {
       } else {
         removeClass(btn, "expired");
         if (hasNews) {
+          const newsMenuLabel = util.getBundleString("quickfilters.menu.news");
           newLabel = util.getBundleString("quickfiltersToolbarButton.updated");
-          newTooltip = util.getBundleString("quickfiltersToolbarButton.updated.tip");
+          newTooltip = util
+            .getBundleString("quickfiltersToolbarButton.updated.tip")
+            .replace("$menulabel$", newsMenuLabel);
+          
           isDropDownMarkerStyled = true;
         } else {
           newLabel = "quickFilters"; // let's use the standard label

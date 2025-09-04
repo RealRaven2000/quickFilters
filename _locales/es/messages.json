@@ -762,7 +762,7 @@
     "message": "Verifique el estado de la licencia …"
   },
   "quickfilters.menu.news": {
-    "message": "Noticias / Registro de cambios (lea esto para restablecer el botón de arriba) …"
+    "message": "Noticias / Registro de cambios…"
   },
   "quickfilters.menu.tools": {
     "message": "Herramientas"
@@ -1283,7 +1283,7 @@
     "message": "¡quickFilters fue actualizado!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Haga clic aquí una vez para ver la pantalla de bienvenida y las novedades de quickFilters."
+    "message": "Abra el menú '$menulabel$' abajo para ver qué hay de nuevo. Haciendo esto también se elimina el 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "La licencia caduca en $daysLeft$ días",

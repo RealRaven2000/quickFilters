@@ -762,7 +762,7 @@
     "message": "Tarkista lisenssin tila…"
   },
   "quickfilters.menu.news": {
-    "message": "Uutiset / Muutosloki (lue tämä nollataksesi painikkeen yllä)…"
+    "message": "Uutiset / Muutosloki…"
   },
   "quickfilters.menu.tools": {
     "message": "Työkalut"
@@ -1283,7 +1283,7 @@
     "message": "quickFilters päivitettiin!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Napsauta tätä kerran nähdäksesi Splash-näytön ja quickFiltersin uudet ominaisuudet."
+    "message": "Avaa '$menulabel$'-valikko alla nähdäksesi, mitä on uutta. Tämä poistaa myös 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Lisenssi vanhenee $daysLeft$ päivän kuluttua",

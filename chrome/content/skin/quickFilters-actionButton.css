@@ -35,10 +35,39 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
 }
 
 .newsflash menuitem#quickfilters-news::after {
-  content: "🟠";
-  font-size: 9px;        /* tweak to match toolbar badge size */
+  animation: coin-flip 2.5s infinite alternate;
+  content: url("badge-news.svg");  /* replace Unicode dot 🟠*/
   pointer-events: none;
-  animation: glow-orange 2.5s infinite alternate;
+  height: 1.0em !important;  
+  width: 1.0em !important;
+}
+
+/* attract attention, ok for a menu item */
+@keyframes coin-flip {
+  0%, 20% {
+    transform: rotateY(0deg);
+  }
+  40%, 60% {
+    transform: rotateY(180deg);
+  }
+  80%, 100% {
+    transform: rotateY(0deg);
+  }
+}
+
+@keyframes pulse-orange {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px #ffb84d);
+  }
+  50% {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 4px #ffb84d);
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px #ffb84d);
+  }
 }
 
 @keyframes glow-orange {
@@ -58,21 +87,22 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
   }
 }
 
-/* main icon - NEWS BADGE */
-li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash.news-minimal {
+/* main icon - NEWS BADGE  - removed .newsflash.news-minimal */
+li[item-id="ext-quickFilters@axelg.com"] .live-content {
   overflow: visible; /* allow the badge to overflow */
   position: relative; /* keep positioning context if needed */
 }
 
 li[item-id="ext-quickFilters@axelg.com"] .live-content.news-minimal::after {
-  content: "🟠";  /* Unicode dot currently used */
+  content: url("badge-news.svg");  /* replace Unicode dot 🟠*/
   position: absolute;
   top: -2px;
   right: -4px;
-  font-size: 9px;
   line-height: 1;
   display: block;
   pointer-events: none; /* don’t block clicks */
+  width: 0.9em !important;
+  height: 0.9em !important;
 }
 
 

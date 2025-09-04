@@ -765,7 +765,7 @@
     "message": "Controlla lo stato della licenza…"
   },
   "quickfilters.menu.news": {
-    "message": "Notizie / Registro delle modifiche (leggere questo per ripristinare il pulsante principale sopra)…"
+    "message": "Notizie / Registro delle modifiche…"
   },
   "quickfilters.menu.tools": {
     "message": "Strumenti"
@@ -1286,7 +1286,7 @@
     "message": "quickFilters è stato aggiornato!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Fare clic qui per visulizzare la schermata iniziale e le novità di quickFilters."
+    "message": "Apri il menu '$menulabel$' qui sotto per vedere le novità. Facendo così si rimuove anche il 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "La licenza scade tra $daysLeft$ giorni",

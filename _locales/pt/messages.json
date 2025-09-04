@@ -765,7 +765,7 @@
     "message": "Verifique o status da licença…"
   },
   "quickfilters.menu.news": {
-    "message": "Notícias / Change Log (leia isto para redefinir o botão acima)…"
+    "message": "Notícias / Change Log…"
   },
   "quickfilters.menu.tools": {
     "message": ""
@@ -1286,7 +1286,7 @@
     "message": "quickFilters foi atualizado!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Clique aqui uma vez para ver a tela inicial e o que há de novo em quickFilters."
+    "message": "Abra o menu '$menulabel$' abaixo para ver as novidades. Isso também remove o 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "A licença expira em $daysLeft$ dias",

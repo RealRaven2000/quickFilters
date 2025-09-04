@@ -765,7 +765,7 @@
     "message": "Check license status…"
   },
   "quickfilters.menu.news": {
-    "message": "News / Change Log (please read - resets the main button above)…"
+    "message": "News / Change Log…"
   },
   "quickfilters.menu.tools": {
     "message": "Tools"
@@ -1287,7 +1287,7 @@
     "message": "quickFilters was updated!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Click here once to see the Splash screen and what's new in quickFilters."
+    "message": "Open the '$menulabel$' menu below to see what's new. Doing so also removes the 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "License expires in $daysLeft$ days",

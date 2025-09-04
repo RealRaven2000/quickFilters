@@ -762,7 +762,7 @@
     "message": "Kiểm tra trạng thái giấy phép…"
   },
   "quickfilters.menu.news": {
-    "message": "Tin tức / Nhật ký thay đổi (đọc phần này để đặt lại nút ở trên)…"
+    "message": "Tin tức / Nhật ký thay đổi…"
   },
   "quickfilters.menu.tools": {
     "message": "Công cụ"
@@ -1283,7 +1283,7 @@
     "message": "quickFilters đã được cập nhật!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Nhấp vào đây một lần để xem màn hình Splash và có gì mới trong quickFilters."
+    "message": "Mở menu '$menulabel$' bên dưới để xem những cập nhật mới. Điều này cũng loại bỏ 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Giấy phép hết hạn sau $daysLeft$ ngày",
