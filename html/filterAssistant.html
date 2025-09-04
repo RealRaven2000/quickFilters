@@ -5,6 +5,26 @@
   <meta charset="utf-8">
   <title>__MSG_qf.filters.title__</title>
   <link rel="stylesheet" href="filterAssistant.css">
+  <style>
+    #quickFiltersBtnHelp {
+      background-image: url("../chrome/content/skin/help-new.svg");
+      border: none;
+      height: 24px;
+      width: 24px;
+      background-size: contain;   /* scales the icon to fit the box */
+      background-repeat: no-repeat; 
+      background-position: center center;
+      background-color: transparent !important;
+      cursor: pointer;
+      display: inline-block;       /* ensures width/height are respected */ 
+      transition: transform 0.2s ease, filter 0.2s ease, border 0.2s ease;
+    }
+    #quickFiltersBtnHelp:hover {
+      transform: scale(1.25); /* zoom in 25% */
+      filter: brightness(0.9);
+      border: 1pcx solid var(--button-hover-border-color, #0064a7) !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -12,7 +32,7 @@
     <!-- Heading -->
     <header id="header" class="flex-row space-between align-center">
       <img id="qf-title" src="../chrome/content/skin/QuickFilters-title.png" alt="QuickFilters" />
-      <button id="quickFiltersBtnHelp" title="Support">❓</button>
+      <button id="quickFiltersBtnHelp" title="Support"></button>
     </header>
 
     <!-- Assistant Step Area -->
