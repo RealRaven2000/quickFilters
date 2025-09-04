@@ -294,6 +294,12 @@
   "msg.preview.title": {
     "message": "Email"
   },
+  "news.minimal": {
+    "message": "Non mostrare l'etichetta delle novità durante l'aggiornamento"
+  },
+  "news.minimal.tip": {
+    "message": "Se selezionato, quickFilters non modificherà l'etichetta del pulsante. Apparirà solo un piccolo punto arancione 🟠."
+  },
   "ongoing-work": {
     "message": "L'acquisto di una licenza è completamente facoltativo. Per facilitare le cose agli utenti, la versione attuale rimane compatibile con Thunderbird 115 per quanto tecnicamente possibile. Tuttavia, Thunderbird ora segue un ciclo di rilascio mensile, aumentando il nostro carico di lavoro per test e sviluppo. Il tuo supporto ci aiuta a stare al passo con questi cambiamenti!",
     "placeholders": {

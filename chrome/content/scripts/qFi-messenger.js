@@ -26,7 +26,7 @@ async function onLoad(activatedWhileWindowOpen) {
   // console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
-  let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css");
+  let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css?v=2");
   window.quickFilters.Util.logDebug("injected style sheets:", layout, layout2, layout3);
 
   window.quickFilters._lastDoCommandTime = 0;

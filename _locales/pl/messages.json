@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "E-mail"
   },
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
+  "news.minimal": {
+    "message": "Nie wyświetlaj etykiety wiadomości podczas aktualizacji"
+  },
+  "news.minimal.tip": {
+    "message": "Jeśli zaznaczone, quickFilters nie zmieni nazwy przycisku. Pojawi się tylko mała pomarańczowa kropka 🟠."
   },
   "ongoing-work": {
     "message": "Zakup licencji jest całkowicie dobrowolny. Aby ułatwić użytkownikom, obecna wersja pozostaje wstecznie kompatybilna z Thunderbird 115 tak długo, jak to technicznie możliwe. Thunderbird obecnie stosuje miesięczny cykl wydania, co zwiększa naszą pracę w zakresie testowania i rozwoju. Twoje wsparcie pomaga nam nadążyć za tymi zmianami!",

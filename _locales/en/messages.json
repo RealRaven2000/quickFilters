@@ -294,6 +294,12 @@
   "msg.preview.title": {
     "message": "Email"
   },
+  "news.minimal": {
+    "message": "Do not display news label on update"
+  },
+  "news.minimal.tip": {
+    "message": "If checked, quickFilters will not modify the button label. Only a small orange badge 🟠 will appear instead."
+  },
   "ongoing-work": {
     "message": "Buying a license is completely voluntary. To make things easier for users, the current version remains backwards compatible with Thunderbird 115 for as long as technically feasible. However, Thunderbird now follows a monthly release cycle, increasing our testing and development workload. Your support helps us keep up with these changes!",
     "placeholders": {

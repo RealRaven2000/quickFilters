@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "メール"
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
+  "news.minimal": {
+    "message": "更新時にニュースラベルを表示しない"
+  },
+  "news.minimal.tip": {
+    "message": "チェックすると、quickFilters はボタンのラベルを変更しません。小さなオレンジ色の点 🟠 のみが表示されます。"
   },
   "ongoing-work": {
     "message": "ライセンスの購入は完全に任意です。ユーザーのために、現在のバージョンは技術的に可能な限りThunderbird 115と後方互換性があります。しかし、Thunderbirdは現在月次リリースサイクルを採用しており、これによりテストと開発の作業負荷が増加します。ご支援いただければ、これらの変更に追いつくことができます！",

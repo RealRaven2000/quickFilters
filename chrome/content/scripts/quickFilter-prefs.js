@@ -89,6 +89,7 @@ pref("extensions.quickfilters.filters.showMessage", true);
 pref("extensions.quickfilters.firstRun", true);
 pref("extensions.quickfilters.installedVersion", "0");
 pref("extensions.quickfilters.hasNews", false); /* splash screen status after update */
+pref("extensions.quickfilters.news.minimal", false);
 
 pref("extensions.quickfilters.quickfolders.curFolderbar.listbutton", true);
 pref("extensions.quickfilters.quickfolders.curFolderbar.folderbutton", true);

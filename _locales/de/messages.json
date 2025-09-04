@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "E-Mail"
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
+  "news.minimal": {
+    "message": "News-Label bei Updates nicht anzeigen"
+  },
+  "news.minimal.tip": {
+    "message": "Wenn aktiviert, ändert quickFilters das Label seiner Schaltfläche nicht. Stattdessen erscheint nur ein kleiner orangefarbener Punkt 🟠."
   },
   "ongoing-work": {
     "message": "Der Kauf einer Lizenz ist völlig freiwillig. Um es den Benutzern zu erleichtern, bleibt die aktuelle Version für so lange wie technisch möglich mit Thunderbird 115 rückwärtskompatibel. Thunderbird folgt jetzt einem monatlichen Veröffentlichungszyklus, was unsere Test- und Entwicklungsbelastung erhöht. Ihre Unterstützung hilft uns, mit diesen Änderungen Schritt zu halten!",

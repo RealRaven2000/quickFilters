@@ -114,6 +114,12 @@
   "msg.preview.title": {
     "message": "Е-пошта"
   },
+  "news.minimal": {
+    "message": "Не приказујте ознаку вести приликом ажурирања"
+  },
+  "news.minimal.tip": {
+    "message": "Ако је означено, quickFilters неће мењати натпис дугмета. Приказаће се само мала наранџаста тачка 🟠."
+  },
   "ongoing-work": {
     "message": "Куповина лиценце је потпуно добровољна. Да бисмо олакшали корисницима, тренутна верзија остаје компатибилна са Thunderbird 115 све док је то технички могуће. Међутим, Thunderbird сада прати месечни циклус издања, што повећава наш тестирајући и развојни рад. Ваша подршка нам помаже да пратимо ове промене!",
     "placeholders": {
@@ -122,10 +128,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
   },
   "purchase-a-license": {
     "message": "Купите лиценцу."

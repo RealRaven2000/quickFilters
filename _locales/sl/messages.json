@@ -114,9 +114,11 @@
   "msg.preview.title": {
     "message": "E-pošta"
   },
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
+  "news.minimal": {
+    "message": "Ne prikaži oznake novic ob posodobitvi"
+  },
+  "news.minimal.tip": {
+    "message": "Če je izbrano, quickFilters ne bo spremenil oznake gumba. Pojavi se le majhna oranžna pika 🟠."
   },
   "ongoing-work": {
     "message": "Nakup licence je popolnoma prostovoljen. Da bi uporabnikom olajšali delo, trenutna različica ostaja združljiva s Thunderbird 115, dokler je to tehnično mogoče. Vendar pa Thunderbird zdaj sledi mesečnemu ciklu izdaj, kar povečuje naše delovno obremenitev pri testiranju in razvoju. Vaša podpora nam pomaga slediti tem spremembam!",

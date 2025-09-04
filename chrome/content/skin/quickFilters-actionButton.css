@@ -19,13 +19,62 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
   background-image: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) !important;
   color: white;
 }
+
+
+.icons-only #quickfilters-toolbar-button.news-minimal.newsflash > .button-label {
+    display: none !important; /* label stays visible if needed */
+}
+
 /* highlight news item but only if the button is highlighted as news (hasNews pref set) */
 .newsflash #quickfilters-news.marching-ants {
 	border: 1px solid transparent !important;
 	background: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) padding-box,
 	            repeating-linear-gradient(-45deg, var(--lwt-text-color,black) 0, var(--lwt-text-color,black) 25%, transparent 0, transparent 50%) 0 / .6em .6em !important;
+  position:relative;
 	animation: quickfilters-ants 8s linear infinite !important;
 }
+
+.newsflash menuitem#quickfilters-news::after {
+  content: "🟠";
+  font-size: 9px;        /* tweak to match toolbar badge size */
+  pointer-events: none;
+  animation: glow-orange 2.5s infinite alternate;
+}
+
+@keyframes glow-orange {
+  0% {
+    text-shadow:
+      0 0 2px #ffb84d;
+  }
+  50% {
+    text-shadow:
+      0 0 2px #ffd27f,
+      0 0 6px #ffb84d,
+      0 0 8px #ff8c00;
+  }
+  100% {
+    text-shadow:
+      0 0 2px #ffb84d;
+  }
+}
+
+/* main icon - NEWS BADGE */
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash.news-minimal {
+  overflow: visible; /* allow the badge to overflow */
+  position: relative; /* keep positioning context if needed */
+}
+
+li[item-id="ext-quickFilters@axelg.com"] .live-content.news-minimal::after {
+  content: "🟠";  /* Unicode dot currently used */
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  font-size: 9px;
+  line-height: 1;
+  display: block;
+  pointer-events: none; /* don’t block clicks */
+}
+
 
 /** common layout fixes for all special states **/
 li[item-id="ext-quickFilters@axelg.com"] > .live-content:where(.renew,.newsflash,.expired) {
@@ -61,11 +110,6 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.renew button {
 }
 
 
-/* chevron styling */
-#quickfilters-toolbar-button:where(.expired,.renew,.newsflash)  {
-  /*! fill: white !important; */
-}
-
 #quickfilters-toolbar-button:where(.expired, .newsflash):hover > :where(label,.button-label) {
   color: rgb(249, 235, 214) !important;
 }
@@ -73,12 +117,6 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.renew button {
 #quickfilters-toolbar-button:where(.expired, .renew, .newsflash) > :where(label, .button-label) {
   color: rgb(255,255,255) !important;
 }
-
-#quickFiltersMainPopup :where(menuitem,menu,menupopup),
-#quickFiltersMainPopup :where(menuitem,menu,menupopup) label {
- /* color: var(--lwt-text-color, black); */
-}
-
 
 li[item-id="ext-quickFilters@axelg.com"] .live-content.expired:hover {
 	background-color: #6d0202 !important; 

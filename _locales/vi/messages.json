@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "Thư"
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
+  "news.minimal": {
+    "message": "Không hiển thị nhãn tin tức khi cập nhật"
+  },
+  "news.minimal.tip": {
+    "message": "Nếu được chọn, quickFilters sẽ không thay đổi nhãn nút. Chỉ một huy hiệu nhỏ màu cam 🟠 sẽ xuất hiện thay thế."
   },
   "ongoing-work": {
     "message": "Việc mua giấy phép hoàn toàn là tự nguyện. Để làm việc này dễ dàng hơn cho người dùng, phiên bản hiện tại vẫn giữ khả năng tương thích ngược với Thunderbird 115 miễn là kỹ thuật cho phép. Tuy nhiên, Thunderbird hiện nay tuân theo chu kỳ phát hành hàng tháng, điều này làm tăng khối lượng công việc kiểm tra và phát triển của chúng tôi. Sự hỗ trợ của bạn giúp chúng tôi theo kịp những thay đổi này!",

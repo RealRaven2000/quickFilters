@@ -1,5 +1,6 @@
 import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
+import { compareVersions } from "./scripts/mozilla-version-comparator.js";
 
 const QUICKFOLDERS_APPNAME = "quickfolders@curious.be";
 const RUNFILTERFROMTREE_ID = "runFiltersFolderPane";
@@ -14,6 +15,10 @@ var startupFinished = false;
 var callbacks = [];
 // Worker.FilterMode
 var AssistantActive = false;
+
+function versionGreater(v1, v2) {
+  return compareVersions(v1, v2) > 0;
+}
 
 //TODO: textbox in CSS, search box??
 //TODO mailWindowOverlay: was never in use??
@@ -39,31 +44,49 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
   // if (temporary) return; // skip during development
   switch (reason) {
     case "install":
-    {
-      if (isDebug) {console.log("quickFilters onInstalled Listener - install...");}
-      let url = browser.runtime.getURL("popup/installed.html");
-      await browser.windows.create({ url, type: "popup", width: 900, height: 750, });
-    }
+      if (isDebug) {
+        console.log("quickFilters onInstalled Listener - install...");
+      }
+      await browser.windows.create({
+        url: browser.runtime.getURL("popup/installed.html"),
+        type: "popup",
+        width: 900,
+        height: 750,
+      });
       break;
     // see below
     case "update":
     {
+      // note quickfilters.installedVersion is currently set in legacy code (quickFilters.checkFirstRun())
       // set a flag which will be cleared by clicking the [quickFilters assistant] button once
-      setTimeout(
-        async function() {
-          let origVer = await messenger.LegacyPrefs.getPref("extensions.quickfilters.installedVersion","0");
-          const manifest = await messenger.runtime.getManifest();
-          let installedVersion = manifest.version.replace(/pre.*/,""); 
-          if (installedVersion > origVer) {
-            // only show news if major or minor version have changed:
-            messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
-            // we need to move this to local Storage so that it will be removed if the Add-on is removed.
+      setTimeout(async function () {
+        let origVer = await messenger.LegacyPrefs.getPref(
+          "extensions.quickfilters.installedVersion",
+          "0"
+        );
+        const manifest = await messenger.runtime.getManifest();
+        let installedVersion = manifest.version.replace(/pre.*/, "").replace(/\.$/, "");
+        const isUpgrade = versionGreater(installedVersion, origVer);
+        if (isDebug) {
+          console.log(`SmartTemplates Update:  old=${origVer}  new=${installedVersion}`);
+        }
+
+        if (isUpgrade) {
+          if (
+            (await messenger.LegacyPrefs.getPref("extensions.quickfilters.hasNews")) &&
+            installedVersion.startsWith("6.8.3")
+          ) {
+            if (isDebug) {
+              console.log("Setting news.minimal flag, as news flag was already set / ignored.");
+            }
+            await messenger.LegacyPrefs.setPref("extensions.quickfilters.news.minimal", true);
           }
-          messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
-        },
-        200
-      ); 
-      
+          // only show news if major or minor version have changed:
+          messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
+          // we need to move this to local Storage so that it will be removed if the Add-on is removed.
+        }
+        messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
+      }, 200);
     }
       break;
     default:

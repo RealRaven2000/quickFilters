@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "Email"
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
+  "news.minimal": {
+    "message": "Ne pas afficher le libellé des nouveautés lors de la mise à jour"
+  },
+  "news.minimal.tip": {
+    "message": "Si activé, quickFilters ne modifie pas le libellé du bouton. Seul un petit point orange 🟠 sera affiché."
   },
   "ongoing-work": {
     "message": "L'achat d'une licence est totalement volontaire. Pour faciliter les choses aux utilisateurs, la version actuelle reste compatible avec Thunderbird 115 tant que cela est techniquement possible. Cependant, Thunderbird suit désormais un cycle de publication mensuel, ce qui augmente notre charge de travail en tests et développement. Votre soutien nous aide à suivre ces changements !",

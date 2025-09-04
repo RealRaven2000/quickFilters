@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "Sähköposti"
   },
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
+  "news.minimal": {
+    "message": "Älä näytä uutisotsikkoa päivityksissä"
+  },
+  "news.minimal.tip": {
+    "message": "Jos valittu, quickFilters ei muuta painikkeen nimeä. Näkyviin tulee vain pieni oranssi piste 🟠."
   },
   "ongoing-work": {
     "message": "Lisenssin ostaminen on täysin vapaaehtoista. Käyttäjien helpottamiseksi nykyinen versio pysyy yhteensopivana Thunderbird 115:n kanssa niin kauan kuin teknisesti mahdollista. Thunderbird seuraa nykyisin kuukausittaista julkaisuaikataulua, mikä lisää testaus- ja kehitystyömääräämme. Tuki auttaa meitä pysymään mukana näissä muutoksissa!",

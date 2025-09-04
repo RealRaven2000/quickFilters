@@ -289,9 +289,11 @@
   "msg.preview.title": {
     "message": "邮件"
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
+  "news.minimal": {
+    "message": "更新时不显示新闻标签"
+  },
+  "news.minimal.tip": {
+    "message": "如果勾选，quickFilters 不会更改按钮标签。只会显示一个小橙色圆点 🟠。"
   },
   "ongoing-work": {
     "message": "购买许可证完全自愿。为了方便用户，当前版本在技术上可行的情况下保持与 Thunderbird 115 向后兼容。然而，Thunderbird 现在遵循每月发布周期，增加了我们的测试和开发工作量。您的支持帮助我们跟上这些变化！",

@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "E-mail"
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
+  "news.minimal": {
+    "message": "Nieuwslabel niet weergeven bij updates"
+  },
+  "news.minimal.tip": {
+    "message": "Als ingeschakeld, wijzigt quickFilters het knoplabel niet. Er verschijnt alleen een klein oranje punt 🟠."
   },
   "ongoing-work": {
     "message": "Het kopen van een licentie is volledig vrijwillig. Om het gebruikers gemakkelijker te maken, blijft de huidige versie achterwaarts compatibel met Thunderbird 115 zolang dit technisch mogelijk is. Thunderbird volgt nu een maandelijks release-cyclus, waardoor onze test- en ontwikkelingswerkbelasting toeneemt. Uw steun helpt ons om deze veranderingen bij te houden!",

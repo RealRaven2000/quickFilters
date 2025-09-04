@@ -294,9 +294,11 @@
   "msg.preview.title": {
     "message": "E-post"
   },
-  "notificationTitle": {
-    "description": "Title of the click notification.",
-    "message": "Click notification"
+  "news.minimal": {
+    "message": "Visa inte nyhetsetikett vid uppdateringar"
+  },
+  "news.minimal.tip": {
+    "message": "Om markerad ändrar quickFilters inte knappens etikett. Endast en liten orange prick 🟠 visas."
   },
   "ongoing-work": {
     "message": "Att köpa en licens är helt frivilligt. För att göra det enklare för användarna förblir den nuvarande versionen bakåtkompatibel med Thunderbird 115 så länge det tekniskt är möjligt. Thunderbird följer nu en månadsvis utgivningscykel, vilket ökar vårt arbetsbelastning för testning och utveckling. Ditt stöd hjälper oss att hänga med i dessa förändringar!",

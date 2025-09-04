@@ -156,9 +156,11 @@
   "mozillas-basic-platform": {
     "message": "Mozilla poskytuje pouze základní platformu pro doručování našeho softwaru vám, koncovým uživatelům. Pokud potřebujeme požádat naše uživatele o platbu nebo podporu, nemůžeme to udělat z addons.thunderbird.net - nejedná se o „obchod s aplikacemi“ s vestavěnými paywally nebo správou licencí, jako je iTunes nebo Google Play."
   },
-  "notificationTitle": {
-    "message": "Click notification",
-    "description": "Title of the click notification."
+  "news.minimal": {
+    "message": "Nezobrazovat štítek novinek při aktualizaci"
+  },
+  "news.minimal.tip": {
+    "message": "Pokud je zaškrtnuto, quickFilters nezmění název tlačítka. Zobrazí se pouze malý oranžový bod 🟠."
   },
   "ongoing-work": {
     "message": "Nákup licence je zcela dobrovolný. Abychom usnadnili uživatelům práci, současná verze zůstává zpětně kompatibilní s Thunderbirdem 115, jak dlouho to bude technicky možné. Thunderbird nyní následuje měsíční cyklus vydání, což zvyšuje naši zátěž na testování a vývoj. Vaše podpora nám pomáhá držet krok s těmito změnami!",
