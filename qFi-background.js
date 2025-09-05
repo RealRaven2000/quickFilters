@@ -85,12 +85,12 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
           messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
           // we need to move this to local Storage so that it will be removed if the Add-on is removed.
         }
-        messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
+        notifyWhenUIReady({ event: "updatequickFiltersLabel" });
       }, 200);
     }
       break;
     default:
-      messenger.NotifyTools.notifyExperiment({event: "updatequickFiltersLabel"});
+      notifyWhenUIReady({ event: "updatequickFiltersLabel" });
       break;
   }
 });
@@ -424,6 +424,28 @@ async function displayAssistant(data) {
   });
 }
 
+// create a "deferred" promise for all event listeners on the experimental side
+let uiResolve;
+const uiReadyPromise = new Promise((resolve) => {
+  uiResolve = resolve; // save the resolver
+});
+
+// Wrapper that supports multiple args
+async function notifyWhenUIReady(...args) {
+  try {
+    // Wait until st-messenger signals that all listeners are ready
+    await uiReadyPromise;
+
+    // Pass all args to notifyExperiment and return its promise
+    return messenger.NotifyTools.notifyExperiment(...args);
+  } catch (err) {
+    console.error("Error in notifyWhenUIReady:", err);
+    throw err; // propagate to caller
+  }
+}
+
+
+
 async function main() {
   const legacy_root = "extensions.quickfilters.";
   // load defaults
@@ -500,6 +522,10 @@ async function main() {
                    "=========================");
     }
     switch (data.func) {
+      case "UIListenersReady":
+        // makes sure all event listeners in st-messenger.js are set up and ready to receive
+        uiResolve(); // resolve the promise
+        break;
       case "slideAlert":
         util.slideAlert(...data.args); // title, text, [icon]
         break;
@@ -540,7 +566,7 @@ async function main() {
 
       case "setAssistantMode": // toggle "FilterMode"
         AssistantActive = data.active;
-        messenger.NotifyTools.notifyExperiment({
+        notifyWhenUIReady({
           event: "setAssistantMode",
           detail: { active: AssistantActive },
         });
@@ -548,34 +574,34 @@ async function main() {
 
       // future use - update all toolbar buttons for assistant state
       case "updateToolbars":
-        messenger.NotifyTools.notifyExperiment({ event: "updateToolbars" });
+        notifyWhenUIReady({ event: "updateToolbars" });
         break;
 
       case "setAssistantButton":
-        messenger.NotifyTools.notifyExperiment({
+        notifyWhenUIReady({
           event: "setAssistantButton",
           detail: { active: data.active },
         });
         break;
 
       case "setupListToolbar":
-        messenger.NotifyTools.notifyExperiment({ event: "setupListToolbar" });
+        notifyWhenUIReady({ event: "setupListToolbar" });
         break;
 
       case "toggleCurrentFolderButtons":
-        messenger.NotifyTools.notifyExperiment({ event: "toggleCurrentFolderButtons" });
+        notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
         break;
 
       case "updatequickFiltersLabel":
-        messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
+        notifyWhenUIReady({ event: "updatequickFiltersLabel" });
         break;
 
       // refresh license info (at midnight) and update label afterwards.
       case "updateLicenseTimer":
         await currentLicense.updateLicenseDates();
 
-        messenger.NotifyTools.notifyExperiment({ licenseInfo: currentLicense.info });
-        messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
+        notifyWhenUIReady({ licenseInfo: currentLicense.info });
+        notifyWhenUIReady({ event: "updatequickFiltersLabel" });
         break;
 
       case "updateLicense":
@@ -604,8 +630,8 @@ async function main() {
           );
           currentLicense = newLicense;
           // Broadcast -without event is used for the licenser.
-          messenger.NotifyTools.notifyExperiment({ licenseInfo: currentLicense.info });
-          messenger.NotifyTools.notifyExperiment({ event: "updatequickFiltersLabel" });
+          notifyWhenUIReady({ licenseInfo: currentLicense.info });
+          notifyWhenUIReady({ event: "updatequickFiltersLabel" });
         }
         return true;
       case "setActionTip":
@@ -627,7 +653,7 @@ async function main() {
         break;
 
       case "addKeyListener":
-        messenger.NotifyTools.notifyExperiment({ event: "addKeyListener" });
+        notifyWhenUIReady({ event: "addKeyListener" });
         break;
 
       case "openLinkInTab":
@@ -650,10 +676,10 @@ async function main() {
       }
 
       case "quickFiltersAssistant": {
-        displayAssistant(data)
+        displayAssistant(data);
         break;
       }
-      
+
       case "API-test-Utilities":
         console.log("quickFilters - API-test-Utilities");
         try {
@@ -680,7 +706,7 @@ async function main() {
         try {
           let FL = await messenger.FiltersAPI.getFilters("local");
           console.log("Local filters:", FL);
-        } catch(ex) {
+        } catch (ex) {
           console.error("Error in FilterAPI", ex);
         }
 
@@ -701,7 +727,7 @@ async function main() {
           await util.logDebugHighlight("received external message 'injectButtonsQFNavigationBar'", "yellow", "rgb(0, 128, 50)", message, QF_license);
         }
         if (message.command == "injectButtonsQFNavigationBar") {
-          messenger.NotifyTools.notifyExperiment({event: "toggleCurrentFolderButtons"});
+          notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
         }
         break;
     }
@@ -748,7 +774,7 @@ async function main() {
       await currentLicense.validate();
       if(currentLicense.info.status != "MailNotConfigured") {
         if (isDebugLicenser) {console.log("notify experiment code of new license status: " + currentLicense.info.status);}
-        messenger.NotifyTools.notifyExperiment({licenseInfo: currentLicense.info});
+        notifyWhenUIReady({ licenseInfo: currentLicense.info });
       }
       if (isDebugLicenser) {console.log("quickFilters license info:", currentLicense.info);} // test
     } else {
