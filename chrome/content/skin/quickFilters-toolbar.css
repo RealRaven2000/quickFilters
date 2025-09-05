@@ -95,31 +95,32 @@
 #quickfilters-toolbar-button.newsflash #quickfilters-news label {
   color: white !important;
 }
-#quickfilters-toolbar-button.newsflash #quickfilters-news image {
-  fill: rgba(255, 255, 255, 0.95) !important;
+#quickfilters-toolbar-button.newsflash #quickfilters-news .menu-icon {
+  color: rgba(255, 255, 255, 0.95) !important;
 }
-#quickfilters-toolbar-button.newsflash #quickfilters-news:hover image {
-  fill: white !important;
+#quickfilters-toolbar-button.newsflash #quickfilters-news:hover .menu-icon {
+  color: white !important;
 }
 
 /* red icon if assistant is active */
 #quickfilters-toolbar-button[checked="true"] .button-icon,
-#quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant image {
-  fill: #f30606 !important; 
-  -moz-context-properties: fill, fill-opacity;
+#quickfilters-toolbar-button[checked="true"] #quickfilters-toggleAssistant .menu-icon {
+  color: #f30606 !important; 
 }
 
 #quickfilters-toolbar-button:where(.newsflash, .expired, .renew) > :where(label, .button-label) {
   color: white !important;
+  color-scheme: dark; /* make sure we have bright icon on the blue button */
 }
 
-/* main icon */
-#quickfilters-toolbar-button:not([checked="true"]):where(.expired,.renew,.newsflash) > .button-icon {
-  fill: #ffffff !important;
+/* main icon  :not([checked="true"]) - uses currentColor, theme aware */
+#quickfilters-toolbar-button:where(.expired,.renew,.newsflash) > .button-icon {
+  color: rgb(251,251,254) !important;
+  color-scheme: dark; /* make sure we have bright icon on the blue button */
 }
 
 #quickfilters-toolbar-button:where(.expired, .newsflash):hover > .button-icon {
-  fill: rgb(249, 235, 214) !important;
+  color: rgb(249, 235, 214) !important;
 }
 
 /* force visible label */

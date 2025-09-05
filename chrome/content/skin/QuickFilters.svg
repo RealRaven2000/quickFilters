@@ -2,8 +2,7 @@
   <style>
   @media (prefers-color-scheme: light) {
     :root {
-      --basiccolor: rgb(20,20,20);
-      --fill: var(--basiccolor);
+      --fill: currentColor;
       --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
       --highlight: var(--new-highlight,#0488d5);
     }
@@ -11,7 +10,7 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --basiccolor: rgb(251,251,254);
+      --basiccolor: currentcolor; /* rgb(251,251,254);*/
       --fill: var(--basiccolor);
       --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
       --highlight: var(--new-highlight,#0aa5ff);

@@ -5,7 +5,7 @@
 // eslint-disable-next-line no-unused-vars
 function onLoad(activatedWhileWindowOpen) {
   WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
-  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
+  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=");
   
   // we may have to relabel the main toolbar button after 
   // the window calls its buildPalette() function (see customizeToolbar.js)

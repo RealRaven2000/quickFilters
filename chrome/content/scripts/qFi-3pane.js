@@ -13,7 +13,7 @@ async function addTagListener(win, e) {
 // eslint-disable-next-line no-unused-vars
 async function onLoad(_activatedWhileWindowOpen) {
   WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
-  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css");
+  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=4");
 
   window.setTimeout((win = window) => {
     console.log("qFi-3pane.js - onLoad()");

@@ -1481,7 +1481,7 @@ var quickFilters = {
       } else {
         removeClass(btn, "newsflash");
       }
-      if (isNewsMinimal) {
+      if (hasNews && isNewsMinimal) {
         addClass(btn, "news-minimal");
         newLabel = "quickFilters"; // the default
       } else {
