@@ -101,8 +101,8 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.news-minimal::after {
   line-height: 1;
   display: block;
   pointer-events: none; /* don’t block clicks */
-  width: 0.9em !important;
-  height: 0.9em !important;
+  width: calc(0.9em + 1px) !important;
+  width: calc(0.9em + 1px) !important;
 }
 
 
