@@ -10,7 +10,7 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --basiccolor: currentcolor; /* rgb(251,251,254);*/
+      --basiccolor: rgb(251,251,254);
       --fill: var(--basiccolor);
       --stroke: color-mix(in srgb,var(--basiccolor) 20%,transparent);
       --highlight: var(--new-highlight,#0aa5ff);

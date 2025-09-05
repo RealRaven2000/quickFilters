@@ -261,23 +261,26 @@ async function addToolMenuListener() {
   let menuProps = {
     contexts: ["tools_menu"],
     checked: false,
-    onclick: async (event) => {    
+    onclick: async (event) => {
       if (isDebug) {
         console.log("quickFilters tools menu", event);
       }
-      const menuItem = { id: TOGGLE_ASSIST_TOOL_ID };   // fake menu item to pass to doCommand
+      const menuItem = { id: TOGGLE_ASSIST_TOOL_ID }; // fake menu item to pass to doCommand
       let currentTab = await messenger.mailTabs.getCurrent();
 
       // trigger win.quickFilters.doCommand(menuItem);
-      messenger.NotifyTools.notifyExperiment( { event: "doCommand", detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id } } );
+      messenger.NotifyTools.notifyExperiment({
+        event: "doCommand",
+        detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id },
+      });
     },
     icons: {
-      "16": "chrome/content/skin/QuickFilters.svg"
-    } ,
+      16: "chrome/content/skin/QuickFilters.svg",
+    },
     enabled: true,
     id: TOGGLE_ASSIST_TOOL_ID,
-    title: menuStart
-  }
+    title: menuStart,
+  };
   if (isDebug) {
     console.log(`quickFilters adding the tools menu item ${menuStart} ...`, menuProps);
   }
