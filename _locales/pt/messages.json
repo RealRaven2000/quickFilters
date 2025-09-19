@@ -1418,6 +1418,9 @@
     "description": "disclaimer.",
     "message": "traduções fornecidas pelo google"
   },
+  "updates.displayVersionTab": {
+    "message": "Exibir aba com histórico de versões após a atualização"
+  },
   "updates.title": {
     "message": "Atualizações"
   },
@@ -1437,7 +1440,7 @@
     "message": "Leia o registro de alterações detalhado aqui (somente em inglês):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters é agora totalmente compatível com o Thunderbird 143 e o seu ciclo de lançamento atual.{P2}{L1 class=important}6.8.2: Corrigida uma regressão que quebrava os comandos do menu de contexto para mover / copiar mensagens{L2}{L1}6.8.2: Também corrigidos os ícones do menu que foram quebrados pelas últimas alterações no Thunderbird 143{L2}{L1}Janela do Assistente convertida de XUL para HTML: para preparar o quickFilters para o futuro, já que o uso de elementos XUL será descontinuado. Para testar a nova interface, ative-a em Configurações do quickFilters » Ações » Interface do usuário. [issue 309]{L2}{L1}Melhoria: A partir de agora 'Localizar filtros' e 'Executar filtros' funcionam na pasta clicada com o botão direito e não na pasta atual. [issue 313]{L2}{L1}Janela de configurações aprimorada para evitar corte vertical.{L2}{L1}Melhorado o tratamento de destinatários / autor recuperados da mensagem durante o assistente.{L2}{L1}Pesquisa de filtros aprimorada: evita ser induzido em erro por chaves de contas antigas / incorretas que podem resultar da importação de dados da conta ou da renomeação / movimentação de contas.{L2}"
+    "message": "{P1} quickFilters agora é totalmente compatível com o Thunderbird 144 e seu ciclo de lançamento atual.{P2}{L1}Melhor integração do quickFilters com QuickFolders — injeção de botões e correções na barra de ferramentas da pasta atual [issue 321]{L2}{L1}Ícones de menu corrigidos que estavam quebrados no Thunderbird 143 no menu pop-up da lista de filtros e nas opções de pesquisa [issue 317]{L2}{L1}Ícone do botão de ajuda melhorado no assistente{L2}{L1}Adicionada opção na caixa de diálogo de configurações para desativar a aba de versão após atualização [issue 318]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -377,6 +377,9 @@
     "message": "překlady poskytované google",
     "description": "disclaimer."
   },
+  "updates.displayVersionTab": {
+    "message": "Zobrazit kartu s historií verzí po aktualizaci"
+  },
   "updates.title": {
     "message": "Aktualizace"
   },
@@ -393,7 +396,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters je nyní plně kompatibilní s Thunderbirdem 143 a jeho aktuálním vydávacím cyklem.{P2}{L1 class=important}6.8.2: Opravená regrese, která narušila příkazy kontextového menu pro přesun / kopírování zpráv{L2}{L1}6.8.2: Také opraveny ikony menu, které byly rozbity nejnovějšími změnami v Thunderbirdu 143{L2}{L1}Asistent převeden z okna XUL na HTML: aby byl quickFilters do budoucna připraven, protože používání prvků XUL bude zrušeno. Pro otestování nového uživatelského rozhraní jej prosím povolte v nastavení quickFilters » Akce » Uživatelské rozhraní. [issue 309]{L2}{L1}Vylepšení: Od teď fungují 'Najít filtry' a 'Spustit filtry' na pravým tlačítkem kliknuté složce a ne na aktuální složce. [issue 313]{L2}{L1}Vylepšený dialog nastavení, aby nedocházelo k vertikálnímu oříznutí.{L2}{L1}Vylepšeno zpracování příjemců / autora načteného ze zprávy během asistenta.{L2}{L1}Vylepšené hledání filtrů: vyhýbá se zavádějícím starým / nesprávným klíčům účtů, které mohou vzniknout importem dat účtu nebo přejmenováním / přesouváním účtů.{L2}"
+    "message": "{P1} quickFilters je nyní plně kompatibilní s Thunderbird 144 a jeho aktuálním cyklem vydání.{P2}{L1}Vylepšená integrace quickFilters s QuickFolders — injektování tlačítek a opravy panelu aktuální složky [issue 321]{L2}{L1}Opraveny ikony menu, které byly rozbity v Thunderbird 143 v kontextovém menu seznamu filtrů a možnostech hledání [issue 317]{L2}{L1}Vylepšena ikona tlačítka nápovědy v asistentovi{L2}{L1}Přidána možnost v dialogu nastavení pro zakázání karty verzí po aktualizaci [issue 318]{L2}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

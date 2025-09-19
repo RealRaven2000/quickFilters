@@ -1415,6 +1415,9 @@
     "description": "disclaimer.",
     "message": "traducciones proporcionadas por google"
   },
+  "updates.displayVersionTab": {
+    "message": "Mostrar pestaña con historial de versiones tras la actualización"
+  },
   "updates.title": {
     "message": "Actualizaciones"
   },
@@ -1434,7 +1437,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters ahora es totalmente compatible con Thunderbird 143 y su ciclo de lanzamiento actual.{P2}{L1 class=important}6.8.2: Se corrigió una regresión que rompía los comandos del menú contextual para mover / copiar mensajes{L2}{L1}6.8.2: También se corrigieron los iconos del menú que se rompieron con los últimos cambios en Thunderbird 143{L2}{L1}Ventana del asistente convertida de XUL a HTML: para preparar quickFilters para el futuro, ya que los elementos XUL quedarán obsoletos. Para probar la nueva interfaz de usuario, actívela en Configuración de quickFilters » Acciones » Interfaz de usuario. [issue 309]{L2}{L1}Mejora: A partir de ahora 'Buscar filtros' y 'Ejecutar filtros' funcionan en la carpeta sobre la que se hace clic derecho y no en la carpeta actual. [issue 313]{L2}{L1}Se mejoró el diálogo de configuración para evitar el recorte vertical.{L2}{L1}Mejorado el manejo de destinatarios / autor recuperados de mensajes durante el asistente.{L2}{L1}Búsqueda de filtros mejorada: evita errores provocados por claves de cuenta antiguas / incorrectas que pueden resultar de importar datos de cuenta o renombrar / mover cuentas.{L2}"
+    "message": "{P1} quickFilters es ahora totalmente compatible con Thunderbird 144 y su ciclo de lanzamiento actual.{P2}{L1}Mejor integración de quickFilters con QuickFolders — inyección de botones y correcciones en la barra de herramientas de la carpeta actual [issue 321]{L2}{L1}Corrección de iconos de menú rotos en Thunderbird 143 en el menú emergente de lista de filtros y opciones de búsqueda [issue 317]{L2}{L1}Mejorado el icono del botón de ayuda en el asistente{L2}{L1}Añadida opción en el diálogo de configuración para desactivar la pestaña de versión después de actualizar [issue 318]{L2}"
   },
   "window-title": {
     "message": "Bienvenido a $addonName$",

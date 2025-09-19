@@ -1420,6 +1420,9 @@
     "description": "disclaimer.",
     "message": "translations provided by google"
   },
+  "updates.displayVersionTab": {
+    "message": "Display tab with version history after update"
+  },
   "updates.title": {
     "message": "Updates"
   },
@@ -1439,7 +1442,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters is now fully compatible with Thunderbird 143 and its current release cycle.{P2}{L1 class=important}6.8.2: Fixed a regression that broke the context menu commands to move / copy messages{L2}{L1}6.8.2: Also fixed menu icons that were broken by latest changes in Thunderbird 143{L2}{L1}Converted Assistant window from XUL to HTML: to future proof quickFilters as using XUL elements will will be deprecated. To test the new user interface, please enable it in quickFilters settings » Actions » User Interface. [issue 309]{L2}{L1}Improvement: From now 'Find filters' and 'Run Filters' work on right-clicked folder and not the current folder. [issue 313]{L2}{L1}Improved settings dialog to avoid vertical truncation.{L2}{L1}Improved handling recipients / author retrieved from message during assistant.{L2}{L1}Improved filter search: avoids being misled by old / incorrect account keys which can result from importing account data or renaming / moving accounts.{L2}"
+    "message": "{P1} quickFilters is now fully compatible with Thunderbird 144 and its current release cycle.{P2}{L1}Improved quickFilters integration with QuickFolders — button injection and current folder toolbar fixes [issue 321]{L2}{L1}Fixed menu icons broken in Thunderbird 143 in filter list popup menu and search options [issue 317]{L2}{L1}Improved help button icon in assistant{L2}{L1}Added an option in settings dialog to disable version tab after updating [issue 318]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

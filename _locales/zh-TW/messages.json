@@ -1325,6 +1325,9 @@
     "message": "谷歌提供的翻譯",
     "description": "disclaimer."
   },
+  "updates.displayVersionTab": {
+    "message": "更新後顯示版本歷史分頁"
+  },
   "updates.title": {
     "message": "更新"
   },
@@ -1345,7 +1348,7 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）："
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters 現已完全相容於 Thunderbird 143 及其目前的發行週期。{P2}{L1 class=important}6.8.2: 修復了一個導致右鍵選單命令無法移動/複製郵件的回歸問題{L2}{L1}6.8.2: 也修復了因 Thunderbird 143 的最新變更而損壞的選單圖示{L2}{L1}已將助理視窗從 XUL 轉換為 HTML：為 quickFilters 的未來做好準備，因為 XUL 元素將被棄用。要測試新的使用者介面，請在 quickFilters 設定 » 操作 » 使用者介面 中啟用它。[issue 309]{L2}{L1}改進：從現在起，「尋找過濾器」和「執行過濾器」將在右鍵點擊的資料夾上運行，而不是目前的資料夾。[issue 313]{L2}{L1}改進了設定對話框以避免垂直截斷。{L2}{L1}改進了在助理過程中從郵件中取得收件人/作者的處理。{L2}{L1}改進了過濾器搜尋：避免因匯入帳號資料或重新命名/移動帳號而導致的舊/錯誤帳號鍵帶來的誤導。{L2}"
+    "message": "{P1} quickFilters 現已完全兼容 Thunderbird 144 及其當前發行週期。{P2}{L1}改進了 quickFilters 與 QuickFolders 的整合 — 按鈕注入及目前資料夾工具列修正 [issue 321]{L2}{L1}修復了 Thunderbird 143 過濾器列表彈出選單及搜尋選項中損壞的選單圖示 [issue 317]{L2}{L1}改進了助理中的說明按鈕圖示{L2}{L1}在設定對話框中新增更新後禁用版本分頁的選項 [issue 318]{L2}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

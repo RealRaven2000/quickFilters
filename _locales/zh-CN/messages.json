@@ -1407,6 +1407,9 @@
     "description": "disclaimer.",
     "message": "谷歌提供的翻译"
   },
+  "updates.displayVersionTab": {
+    "message": "更新后显示版本历史标签页"
+  },
   "updates.title": {
     "message": "更新"
   },
@@ -1426,7 +1429,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters 现已完全兼容 Thunderbird 143 及其当前的发布周期。{P2}{L1 class=important}6.8.2: 修复了一个导致上下文菜单命令无法移动/复制邮件的回归问题{L2}{L1}6.8.2: 还修复了因 Thunderbird 143 的最新更改而损坏的菜单图标{L2}{L1}已将助手窗口从 XUL 转换为 HTML：为 quickFilters 的未来做准备，因为 XUL 元素将被弃用。要测试新的用户界面，请在 quickFilters 设置 » 操作 » 用户界面 中启用它。[issue 309]{L2}{L1}改进：从现在起，“查找过滤器”和“运行过滤器”将在右键点击的文件夹上运行，而不是当前文件夹。[issue 313]{L2}{L1}改进了设置对话框以避免垂直截断。{L2}{L1}改进了在助手过程中从邮件中获取收件人/作者的处理。{L2}{L1}改进了过滤器搜索：避免因导入帐户数据或重命名/移动帐户而导致的旧/错误帐户键带来的误导。{L2}"
+    "message": "{P1} quickFilters 现在已完全兼容 Thunderbird 144 及其当前发布周期。{P2}{L1}改进了 quickFilters 与 QuickFolders 的集成 — 按钮注入和当前文件夹工具栏修复 [issue 321]{L2}{L1}修复了 Thunderbird 143 中过滤器列表弹出菜单和搜索选项中损坏的菜单图标 [issue 317]{L2}{L1}改进了助手中的帮助按钮图标{L2}{L1}在设置对话框中添加了更新后禁用版本标签的选项 [issue 318]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

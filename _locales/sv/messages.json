@@ -1415,6 +1415,9 @@
     "description": "disclaimer.",
     "message": "översättningar från google"
   },
+  "updates.displayVersionTab": {
+    "message": "Прикажи картицу са историјом верзија након ажурирања"
+  },
   "updates.title": {
     "message": "Uppdateringar"
   },
