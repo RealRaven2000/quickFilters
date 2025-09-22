@@ -246,6 +246,14 @@
 								type="bool"
 								instantApply="true" />
 
+      <preference id="updateDisplayChangeLog"
+	              name="extensions.quickfilters.notifications.changelog"
+								type="bool"
+								instantApply="true" />
+								
+
+
+
     </preferences>
 
 	<box id="helpBox">
@@ -386,7 +394,11 @@
 
 					<checkbox preference="updateMinimalNews"
 						label="__MSG_news.minimal__"
-						tooltiptext="__MSG_news.minimal.tip__"/>						
+						tooltiptext="__MSG_news.minimal.tip__"/>	
+						
+					<checkbox preference="updateDisplayChangeLog"
+						label="__MSG_updates.displayVersionTab__"/>	
+						
 				</html:fieldset>
 			</hbox>
     </tabpanel>
