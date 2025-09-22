@@ -35,9 +35,8 @@ menuitem.cmd[tagName="qfFilter"] .menu-iconic-icon {
   fill: currentColor;
 }
 
-
 #QuickFolders-CurrentFolderTools #QuickFolders-currentFolderFilterActive[mode="filter"] {
-  fill: #4fc825;
+	list-style-image: url("chrome://quickfilters/content/skin/quickFilters-active.svg") !important;
 }
 
 
