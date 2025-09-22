@@ -754,6 +754,10 @@ async function main() {
     
   // styling for QuickFolders navigation bar - lives in 3pane!
   messenger.WindowListener.registerWindow("about:3pane", "chrome/content/scripts/qFi-3pane.js");
+  messenger.WindowListener.registerWindow(
+    "about:message",
+    "chrome/content/scripts/qFi-message.js"
+  );
 
   // how to add a click event
   // browser.actionButton.onClicked.addListener(() => { …. });
