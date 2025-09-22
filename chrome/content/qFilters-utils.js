@@ -403,7 +403,7 @@ quickFilters.Util = {
 		return this._tabContainer;
 	} ,
 	
-	getTabInfoByIndex: function getTabInfoByIndex(tabmail, idx) {
+	getTabInfoByIndex: function (tabmail, idx) {
 		if (tabmail.tabInfo) {
 			return tabmail.tabInfo[idx];
     }
@@ -437,7 +437,7 @@ quickFilters.Util = {
 	} ,
 	
 	// likely obsolete ###
-	closeTempFolderTab: function closeTempFolderTab() {
+	closeTempFolderTab: function () {
 	  if(this.tempFolderTab) {
 		  if (this.tabmail.closeTab) {
 				this.tabmail.closeTab(this.tempFolderTab);
@@ -446,7 +446,7 @@ quickFilters.Util = {
 		}
 	} ,
 	
-  slideAlert: function slideAlert(text, title, icon) {
+  slideAlert: function (text, title, icon) {
     const Ci = Components.interfaces,
 					Cc = Components.classes,
 					util = quickFilters.Util;
@@ -2293,7 +2293,7 @@ quickFilters.Util = {
   
   setAssistantButton: function(isActive) {
     const doc = document,
-          button = doc.getElementById('quickfilters-toolbar-button');
+      button = doc.getElementById('quickfilters-toolbar-button');
     if (button) {
       button.setAttribute("checked", isActive);
     }
@@ -2303,6 +2303,19 @@ quickFilters.Util = {
     let mnuToggle = doc.getElementById("quickfilters-toggleAssistant");
     if (mnuToggle) {
       mnuToggle.label = theLabel;
+    }
+    if (window.QuickFolders) {
+      // update assistant buttons in all current folder toolbars
+      for (let tabInfo of gTabmail.tabInfo.filter(
+        (t) => t.mode.name === "mail3PaneTab" || t.mode.name === "mailMessageTab"
+      )) {
+        const doc = tabInfo?.chromeBrowser?.contentDocument;
+        if (!doc) {continue;}
+        const btnFilterToggle = doc.getElementById("QuickFolders-currentFolderFilterActive");
+        if (btnFilterToggle) {
+          btnFilterToggle.setAttribute("mode", isActive ? "filter" : "");
+        }
+      }
     }
   } ,
 
@@ -2606,7 +2619,7 @@ quickFilters.mimeDecoder = {
 	// see also: hg.mozilla.org/users/Pidgeot18_gmail.com/patch-queues/file/cd19874b48f8/patches-newmime/parser-charsets
 	//           http://encoding.spec.whatwg.org/#interface-textdecoder
 	//           
-	detectCharset: function mime_detectCharset(str) {
+	detectCharset: function (str) {
 		let charset = "", 
         util = quickFilters.Util;
 		 // not supported                  
@@ -2642,7 +2655,7 @@ quickFilters.mimeDecoder = {
 
 	// -----------------------------------
 	// MIME decoding.
-	decode: function mime_decode(theString, charset) {
+	decode: function (theString, charset) {
 		let decodedStr = "";
     const util = quickFilters.Util;
 
@@ -2679,7 +2692,7 @@ quickFilters.mimeDecoder = {
   // addrstr - comma separated string of address-parts
   // charset - character set of target string (probably silly to have one for all)
   // format - list of parts for target string: name, firstName, lastName, mail, link, bracketMail()
-	split: function mime_split(addrstr, charset, format, bypassCharsetDecoder)	{
+	split: function (addrstr, charset, format, bypassCharsetDecoder)	{
     let util = quickFilters.Util
 	  // jcranmer: you want to use parseHeadersWithArray
 		//           that gives you three arrays
@@ -3053,7 +3066,7 @@ if (!quickFilters.Shim) {
 			}
 		} ,
 
-		cloneHeaders: function cloneHeaders(msgHdr, messageClone, dbg, appendProperty) {
+		cloneHeaders: function (msgHdr, messageClone, dbg, appendProperty) {
 			// Object.entries does not exist before Platform==47
 			for (let [propertyName, prop] of Object.entries(msgHdr)) {
 				// propertyName is what you want
@@ -3080,7 +3093,7 @@ if (!quickFilters.Shim) {
 			}
 		} ,
 		
-		findInboxFromRoot: function findInboxFromRoot(root, fflags) {
+		findInboxFromRoot: function (root, fflags) {
 			for (let folder of root.subFolders) {  // fixIterator(, Ci.nsIMsgFolder)
 				if (folder.getFlag && folder.getFlag(fflags.Inbox) || folder.getFlag(fflags.Newsgroup)) {
 					quickFilters.Util.logDebugOptional(

@@ -150,9 +150,11 @@ END LICENSE BLOCK
     # [issue 318] WIP - added switch extensions.quickfilters.notifications.changelog to disable version tab
 
   6.8.3 - WIP
-    # [issue 317] Thunderbird 143: menu icons broken in filter list: list popup menu and search options
-    # [issue 318] TO DO: Add user interface to disable version tab : option in settings dialog
+    # Compatibility with Thunderird 144
     # Improved help button icon in assistant
+    # [issue 317] Fixed menu icons broken Thunderbird 143 in filter list popup menu and search options 
+    # [issue 318] Added option in settings dialog to disable version tab 
+    # [issue 321] Improved quickFilters integration with QuickFolders — button injection & toolbar fixes
 
 
   ============================================================================================================
@@ -1043,51 +1045,94 @@ var quickFilters = {
   },
 
   // read QF options and hide buttons from current folder bar
-  toggleCurrentFolderButtons: function () {
-    // options:
-    //   quickfolders.curFolderbar.listbutton
-    //   quickfolders.curFolderbar.folderbutton
-    //   quickfolders.curFolderbar.messagesbutton
-    let prefs = quickFilters.Preferences,
-      util = quickFilters.Util;
+  toggleCurrentFolderButtons: function (retries = 0) {
+    retries = typeof retries === "number" ? retries : 0;
+    const util = quickFilters.Util;
+    const prefs = quickFilters.Preferences;
+    const MAX_TRIES = 2;
 
-    // iterate all tabs a to get 3pane documents.
-    util.logDebug("toggleCurrentFolderButtons()");
+    // define all buttons once
+    const buttons = [
+      {
+        id: "quickfilters-current-runbutton",
+        insertAfter: "QuickFolders-currentFolderFilterActive",
+        pref: "folderbutton",
+        tooltipKey: "quickfilters.RunButton.tooltip",
+      },
+      {
+        id: "quickfilters-current-msg-runbutton",
+        insertAfter: "quickfilters-current-runbutton",
+        pref: "messagesbutton",
+        tooltipKey: "quickfilters.RunButtonMsg.tooltip",
+      },
+      {
+        id: "quickfilters-current-listbutton",
+        insertAfter: "quickfilters-current-msg-runbutton",
+        pref: "listbutton",
+        tooltipKey: "quickfilters.ListButton.tooltip",
+      },
+      {
+        id: "quickfilters-current-searchfilterbutton",
+        insertAfter: "quickfilters-current-listbutton",
+        pref: "findfilterbutton",
+        tooltipKey: "quickfilters.findFiltersForFolder.menu",
+      },
+    ];
+
+    util.logDebug(`toggleCurrentFolderButtons(retries=${retries})`);
+
     try {
       // iterate all 3pane documents of mail tabs.
-      for (let tabInfo of window.gTabmail.tabInfo.filter((t) => t.mode.name == "mail3PaneTab")) {
+      // .filter((t) => t.mode.name == "mail3PaneTab")
+      for (let tabInfo of window.gTabmail.tabInfo) {
+        const modeName = tabInfo.mode.name;
+        const isThreePane = modeName === "mail3PaneTab";
+        const isSingleMessage = modeName === "mailMessageTab"; 
+        if (isSingleMessage) {
+          util.setAssistantButton(util.AssistantActive);
+          continue;
+        }
+        if (!isThreePane) {continue;}
         let doc = tabInfo.chromeBrowser.contentDocument;
-        const container = doc.getElementById( "quickFilters-injected");
+        const container = doc.getElementById("quickFilters-injected");
+        const toolbar = doc.getElementById("QuickFolders-CurrentFolderTools");
+
+        if (retries > MAX_TRIES && !toolbar) {
+          // no QF toolbar after 30 seconds. let's give up to avoid infinite processing
+          console.log(
+            `toggleCurrentFolderButtons() - giving up after ${retries} tries without any QF toolbar.`
+          );
+          continue; // no more retries
+        }
 
         if (!container) {
-          // [issue 234]
-          setTimeout(() => quickFilters.toggleCurrentFolderButtons(), 10000);
+          // wait a little longer if we need to do multiple tries for Tb get ready
+          setTimeout(
+            () => quickFilters.toggleCurrentFolderButtons(retries + 1),
+            10000 + retries * 10000
+          );
           return;
         }
 
-        const btnList = doc.getElementById("quickfilters-current-listbutton"),
-          injected = doc.getElementById("quickFilters-injected"),
-          btnRun = doc.getElementById("quickfilters-current-runbutton"),
-          btnMsgRun = doc.getElementById("quickfilters-current-msg-runbutton"),
-          btnSearch = doc.getElementById("quickfilters-current-searchfilterbutton");
-
-        if (injected) {
-          util.logDebug("found injected container with current toolbar buttons");
-          // insert after QuickFolders-currentFolderFilterActive
-          let toolbar = doc.getElementById("QuickFolders-CurrentFolderTools");
-          if (toolbar) {
-            let refNode = doc.getElementById("QuickFolders-Options");
-            toolbar.insertBefore(btnList, refNode);
-            toolbar.insertBefore(btnRun, refNode);
-            toolbar.insertBefore(btnMsgRun, refNode);
-            toolbar.insertBefore(btnSearch, refNode);
+        buttons.forEach((btn) => {
+          let element = doc.getElementById(btn.id);
+          if (!element) {
+            // recreate missing button, through our injection script
+            const win = doc.defaultView;
+            element = win.quickFilters_injectButton(container, btn.id, {
+              insertAfter: btn.insertAfter,
+              tooltip: quickFilters.Util.getBundleString(btn.tooltipKey),
+            });
           }
-        }
-        // QuickFolders settings - we need to notify quickfolders instead!
-        btnList.collapsed = !prefs.getBoolPref("quickfolders.curFolderbar.listbutton");
-        btnRun.collapsed = !prefs.getBoolPref("quickfolders.curFolderbar.folderbutton");
-        btnMsgRun.collapsed = !prefs.getBoolPref("quickfolders.curFolderbar.messagesbutton");
-        btnSearch.collapsed = !prefs.getBoolPref("quickfolders.curFolderbar.findfilterbutton");
+
+          if (toolbar) {
+            const refNode = doc.getElementById("QuickFolders-Options");
+            toolbar.insertBefore(element, refNode);
+          }
+
+          // collapse according to current QuickFolders preference
+          element.collapsed = !prefs.getBoolPref(`quickfolders.curFolderbar.${btn.pref}`);
+        });
       }
     } catch (ex) {
       util.logException("toggleCurrentFolderButtons()", ex);
