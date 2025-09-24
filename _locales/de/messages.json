@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Filter in Lokalem Inbox-Verzeichnis automatisch ausführen"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Nur die erste Aktion zum Finden passender Filter verwenden"
+  },
   "chkMergeAuto.label": {
     "message": "Automatisch Kombinieren"
   },

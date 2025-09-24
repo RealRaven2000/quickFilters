@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Filters op Postvak IN in Lokale mappen automatisch toepassen"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Gebruik alleen de eerste actie om overeenkomende filters te vinden"
+  },
   "chkMergeAuto.label": {
     "message": "Samenvoegen automatisch selecteren"
   },

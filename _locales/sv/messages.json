@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Kör filter i inkorgens lokala mappar automatiskt"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Använd endast första åtgärden för att hitta matchande filter"
+  },
   "chkMergeAuto.label": {
     "message": "Välj Slå samman automatiskt"
   },

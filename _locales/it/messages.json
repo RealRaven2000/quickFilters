@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Esecuzione automatica dei filtri sulla “Posta in arrivo” delle Cartelle locali"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Usa solo la prima azione per trovare i filtri corrispondenti"
+  },
   "chkMergeAuto.label": {
     "message": "Seleziona automaticamente Unione"
   },

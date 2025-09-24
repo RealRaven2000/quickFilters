@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Suorita suodattimet Paikalliset kansiot -postilaatikossa automaattisesti"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Käytä vain ensimmäistä toimintoa vastaavien suodattimien löytämiseen"
+  },
   "chkMergeAuto.label": {
     "message": "Valitse Yhdistä automaattisesti"
   },

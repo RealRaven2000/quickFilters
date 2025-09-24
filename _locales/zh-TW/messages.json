@@ -103,6 +103,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "自動對本地文件夾收件箱運行過濾器"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "僅使用第一個操作來尋找符合的篩選器"
+  },
   "chkMergeAuto.label": {
     "message": "自動選擇合併"
   },

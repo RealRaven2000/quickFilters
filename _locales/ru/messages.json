@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Автозапуск фильтров на локальной папке Входящие"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Использовать только первое действие для поиска совпадающих фильтров"
+  },
   "chkMergeAuto.label": {
     "message": "Автоматический выбор объединения"
   },

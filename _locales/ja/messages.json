@@ -118,6 +118,9 @@
   "chkMergeAuto.label": {
     "message": "自動的に統合モードを選択する"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "一致するフィルターを見つけるには最初のアクションのみ使用"
+  },
   "chkMergeAuto.tooltip": {
     "message": "フィルタが既に存在する場合、自動的に統合モードを選択して最初に一致するフィルタを統合します。"
   },

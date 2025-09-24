@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Uruchamiaj filtry automatycznie w skrzynce odbiorczej folderów lokalnych"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Użyj tylko pierwszej akcji do znalezienia pasujących filtrów"
+  },
   "chkMergeAuto.label": {
     "message": "Automatycznie wybierz Scal"
   },

@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Ejecute filtros en la Bandeja de entrada de carpetas locales automáticamente"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Usar solo la primera acción para encontrar filtros coincidentes"
+  },
   "chkMergeAuto.label": {
     "message": "Seleccionar combinar automáticamente"
   },

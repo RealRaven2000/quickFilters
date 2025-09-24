@@ -112,6 +112,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "自动对本地文件夹收件箱运行过滤器"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "仅使用第一个操作来查找匹配的筛选器"
+  },
   "chkMergeAuto.label": {
     "message": "自动选择合并"
   },

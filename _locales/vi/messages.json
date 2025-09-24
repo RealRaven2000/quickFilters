@@ -115,6 +115,9 @@
   "chkLocalFoldersAutorun.label": {
     "message": "Tự động chạy các bộ lọc trên Hộp thư đến của Thư mục Cục bộ"
   },
+  "chkMerge.onlyFirstAction": {
+    "message": "Chỉ sử dụng hành động đầu tiên để tìm bộ lọc phù hợp"
+  },
   "chkMergeAuto.label": {
     "message": "Tự động chọn Hợp nhất"
   },
