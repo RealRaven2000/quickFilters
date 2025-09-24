@@ -914,25 +914,30 @@ quickFilters.Worker = {
               **/
           // We have to do prefill filter so we are going to launch the
           // filterEditor dialog and prefill that with the emailAddress.
+          const firstActionOnly = prefs.getBoolPref("assistant.merge.firstActionOnly");
           filtersList = sourceFolder.getEditableFilterList(msgWindow);
           // we can clone a new nsIMsgFilterList that has matching target folders.
           let matchingFilters = [];
           for (let f = 0; f < filtersList.filterCount; f++) {
-            let aFilter = filtersList.getFilterAt(f), // nsIMsgFilter
-              primaryAction; // if primary action is moving to folder
-            try {
-              primaryAction = aFilter.getActionAt(0);
-            } catch {
-              util.logDebug(
-                "Check for merging - omitting Filter because action cannot be retrieved: " +
-                  aFilter.filterName
-              );
-              primaryAction = null;
-            }
+            const aFilter = filtersList.getFilterAt(f); // nsIMsgFilter
+            let bounds = firstActionOnly ? 1 : aFilter.actionCount;
 
             // make a list of filters with matching primary action
             // see https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsMsgRuleActionType
-            if (primaryAction && filterAction == primaryAction.type) {
+            for (let i = 0; i < bounds; i++) {
+              let primaryAction;
+              try {
+                primaryAction = aFilter.getActionAt(i);
+              } catch {
+                util.logDebug(
+                  "Check for merging - omitting Filter because action cannot be retrieved: " +
+                    aFilter.filterName
+                );
+                continue;
+              }
+              if (!primaryAction) {continue;}
+              // Only consider actions matching the requested filterAction
+              if (primaryAction.type !== filterAction) {continue; }         
               switch (primaryAction.type) {
                 case Ci.nsMsgFilterAction.MoveToFolder:
                 case Ci.nsMsgFilterAction.CopyToFolder:
@@ -961,9 +966,7 @@ quickFilters.Worker = {
                   // this is unspecific so we need to guess
                   // [Bug 26545] Filter Merge not working
                   if (filterActionExt) {
-                    let kw = msg.getStringProperty
-                      ? msg.getStringProperty("keywords")
-                      : msg.Keywords;
+                    let kw = msg.getStringProperty ? msg.getStringProperty("keywords") : msg.Keywords;
                     if (kw.indexOf(primaryAction.strValue) >= 0) {
                       matchingFilters.push(aFilter);
                       util.logDebugOptional(
@@ -995,6 +998,7 @@ quickFilters.Worker = {
                     );
                   }
               }
+              if (matchingFilters.includes(aFilter)) {break}; // stop checking remaining actions for this filter              
             }
           }
           // **************************************************************
@@ -1025,6 +1029,9 @@ quickFilters.Worker = {
             if (params?.cmd) {
               backgroundCallObject.cmd = params.cmd; // "new" or "merge"
             }
+            // add the new filter parameters
+            backgroundCallObject.filterAction = params.filterAction || null;
+            backgroundCallObject.filterActionExt = params.filterActionExt || null;
             if (params.messageList) {
               for (const m of params.messageList) {
                 try {
@@ -2327,6 +2334,10 @@ quickFilters.Worker = {
         break;
       case true: // old isCopy value
         params.filterAction = Ci.nsMsgFilterAction.CopyToFolder;
+        break;
+      default:
+        // params.filterAction = nsMsgFilterAction constant
+        params.filterActionExt = params.filterActionExt || null;
         break;
     }
     try {

@@ -58,11 +58,23 @@
             "type": "string",
             "optional": true,
             "description": "folder URI targeted by filters (move / copy to). omit to list all filters for thge account"
+          },
+          {
+            "name": "filterAction",
+            "type": "number",
+            "optional": true,
+            "description": "Optional: filter action type to match (e.g., MoveToFolder, Delete, AddTag, Custom)"
+          },
+          {
+            "name": "filterActionExt",
+            "type": "string",
+            "optional": true,
+            "description": "Optional: extended filter action info (e.g., tag name for AddTag, customId for Custom actions)"
           }
         ],
         "returns": {
           "type": "any",
-          "description": "List of filter names"
+          "description": "Array of filter objects, each containing filterName, accountId, type, templateName (if applicable), description, enabled, matchedActionType, and matchedActionExt"
         }
       }
     ]

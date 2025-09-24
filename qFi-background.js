@@ -350,7 +350,13 @@ async function displayAssistant(data) {
     url.searchParams.set("sourceFolder", JSON.stringify(source)); // future use.
     // find any mergeable filters:
     if (data.context != "mergeList") {
-      const mergableFilters = await messenger.FiltersAPI.getFilters(uri, targetUri);
+      const { filterAction, filterActionExt } = data; 
+      const mergableFilters = await messenger.FiltersAPI.getFilters(
+        uri,
+        targetUri,
+        filterAction || null,
+        filterActionExt || null
+      );
       if (mergableFilters?.length) {
         url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
       }
@@ -478,7 +484,13 @@ async function main() {
       case "getLicenseInfo":
         return currentLicense.info;
       case "getFilters": {
-        let filters = await messenger.FiltersAPI.getFilters(data.sourceUri);
+        const { sourceUri, targetUri, filterAction, filterActionExt } = data;
+        let filters = await messenger.FiltersAPI.getFilters(
+          sourceUri,
+          targetUri || "",
+          filterAction || null,
+          filterActionExt || null
+        );
         return filters;
       }
       case "assistantResult": {
@@ -754,6 +766,7 @@ async function main() {
     
   // styling for QuickFolders navigation bar - lives in 3pane!
   messenger.WindowListener.registerWindow("about:3pane", "chrome/content/scripts/qFi-3pane.js");
+  // might be obsolete - but it might also style the main button in single message window?
   messenger.WindowListener.registerWindow(
     "about:message",
     "chrome/content/scripts/qFi-message.js"

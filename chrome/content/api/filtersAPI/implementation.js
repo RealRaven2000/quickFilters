@@ -66,7 +66,12 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
 
         // retrieve a list of filters for a given account (through a folder URI)
         // options: set to "merge" to only return filters that move / copy mail to the folder
-        getFilters: async function (sourceUri, targetUri = "") {
+        getFilters: async function (
+          sourceUri,
+          targetUri = "",
+          filterAction = null,
+          filterActionExt = null
+        ) {
           const FA = Components.interfaces.nsMsgFilterAction;
 
           console.log("quickFilters - filtersAPI.getFilters()");
@@ -106,19 +111,52 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
             }
             result.description = filter.description;
             result.enabled = filter.enabled;
-            if (!targetUri) {
+            result.matchedActionType = null; 
+            result.matchedActionExt = null; 
+            if (!targetUri && !filterAction && !filterActionExt) {
               // only return filters that match the folder URI
               results.push(result);
               continue;
             }
             // merge: check all actions for folder URI
-            for (let a = 0; a < filter.actionCount; a++) {
+            const prefs = win.quickFilters.Preferences;
+            const isFirstActionOnly = prefs.getBoolPref("assistant.merge.firstActionOnly");
+            const bounds = isFirstActionOnly ? 1 : filter.actionCount;
+            for (let a = 0; a < bounds; a++) {
+              if (results.some(r => r.filterName === result.filterName && r.accountId === result.accountId)) {
+                break;
+              }
               const action = filter.getActionAt(a);
+              result.matchedActionType = action?.type; // nsMsgFilterAction constant
               if (action.type === FA.MoveToFolder || action.type === FA.CopyToFolder) {
-                if (action?.targetFolderUri === targetUri) {
+                if (targetUri && action?.targetFolderUri === targetUri) {
+                  result.matchedActionExt = targetUri; 
                   results.push(result);
                   break; // no need to check further actions
                 }
+              }
+              if (action.type === filterAction) {  
+                switch (action.type) {
+                  case FA.Delete:
+                    results.push(result);
+                    break;
+                  case FA.AddTag:
+                    if (filterActionExt && filterActionExt==action.strValue) {
+                      result.matchedActionExt = action.strValue
+                      results.push(result);
+                    }
+                    break;
+                  case FA.Custom:
+                    if (
+                      filterActionExt === "Archive" &&
+                      action.customId === "filtaquilla@mesquilla.com#archiveMessage"
+                    ) {
+                      result.matchedActionExt = action.customId;
+                      results.push(result);
+                    }
+                    break;
+                }
+                break;
               }
             }
           }

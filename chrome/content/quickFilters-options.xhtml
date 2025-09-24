@@ -92,6 +92,12 @@
 				type="bool"
 				instantApply="true"
 				/>
+			<preference id="firstActionOnly"
+				name="extensions.quickfilters.assistant.merge.firstActionOnly"
+				type="bool"
+				instantApply="true"
+				/>
+	
 
 <!-- New Filter Properties -->
 			<preference id="newfilter.autorun"
@@ -384,6 +390,10 @@
 								preference="insertNewTermTop"
 								label="__MSG_chkInsertRulesAtTop.label__"
 								/>
+						<checkbox id="chkFirstAction"
+								preference="firstActionOnly"
+								label="__MSG_chkMerge.onlyFirstAction__"
+								/>								
 					</vbox>
 				</html:fieldset>
 				<html:fieldset orient="vertical" flex="1">

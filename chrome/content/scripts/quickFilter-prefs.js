@@ -77,6 +77,7 @@ pref("extensions.quickfilters.assistant.html", false); // use html version
 pref("extensions.quickfilters.assistant.exclude.trash", false);
 pref("extensions.quickfilters.assistant.exclude.junk", false);
 pref("extensions.quickfilters.assistant.exclude.archive", true);
+pref("extensions.quickfilters.assistant.merge.firstActionOnly", true);
 pref("extensions.quickfilters.merge.autoSelect", false);
 pref("extensions.quickfilters.merge.silent", false);
 
