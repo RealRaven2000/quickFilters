@@ -151,6 +151,96 @@ permalink: fq-versions.html
 -->
 
 <ul id="version-history">
+  <a name="latest"></a>
+
+  <a name="5.4"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
+       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+       FiltaQuilla 5.4 - WIP</a>
+    </h4>
+    <h5 class="inList">Latest News</h5>
+    <p>
+      The Thunderbird monthly release cycle will deliver new features and interface updates 
+      as they’re developed. Please check whether your current add-ons support this release model. 
+      To help with this, you can install the 
+      <a href="https://addons.thunderbird.net/thunderbird/addon/addon-compatibility-check/" class="native">Add-on 
+        Compatibility Check</a>.
+    </p>
+    <p>
+      Some users may have seen a false incompatibility warning after updating from Thunderbird to v142 or 
+      higher. This was caused by cached compatibility information in Thunderbird, which sometimes fails 
+      to refresh correctly. The previous version of FiltaQuilla was already fully compatible with 143. 
+    </p>
+    <p>
+      To get this fixed I raised a bug with Thunderbird: 
+      <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1986027">[Bugzilla 1986027]</a>.
+    </p>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> 
+        Made compatible with Thunderbird 144.*.  
+      </li>
+      <li> 
+        Rewrote the Tonequilla portion (play sound) to use current window 
+        as a parameter or the last 3pane window. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/258">[issue 258]</a>
+      </li>
+    </ul>
+  </li>
+
+
+  <a name="5.3.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/5.3.1">
+       FiltaQuilla 5.3.1 - 24/07/2025</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> Made compatible with Thunderbird 141.*.  </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li> Thunderbird 141 removed <tt>nsIMsgFolder.prettyName</tt> </li>
+    </ul>
+  </li>  
+
+  <a name="5.3"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/5.3">
+       FiltaQuilla 5.3 - 25/06/2025</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> 
+        Made compatible with Thunderbird 140.*. Minimum version going forward will now be 
+        <b>Thunderbird 128</b>. </li>
+      <li> 
+        Improvement in asynchronous Save Attachments, leading to slow down of Thunderbird 
+        when filtering POP3 mail (no copy listener) 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/349">[issue 349]</a>. 
+        We are now allowed to use <tt>nsIThreadManager.processNextEvent()</tt> in order to 
+        return processing cycles to the system while the attachments are processed. 
+      </li>
+      <li>
+        Play sound improvements: Fixed open sound file button, extracting the supplied sounds 
+        to the default folder <tt>profile/extensions/filtaquilla</tt> and added a play sound 
+        button to filter editor. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/350">[issue 350]</a>
+      </li>
+    </ul>
+    <h5 class="inList">Miscellaneus</h5>
+    <ul>
+      <li> 
+        Refactored internal action logic for better maintainability and consistency.
+      </li> 
+      <li>
+        Rewrote <tt>saveMessageAsFile</tt> to support concurrency and cleaner path handling.
+      </li>
+    </ul>
+  </li>    
 
   <a name="5.2"> &nbsp; </a>
   <li>
@@ -249,8 +339,6 @@ permalink: fq-versions.html
     </ul>
   </li>
 
-
-  <a name="latest"></a>
 
 
   <a name="5.0"> &nbsp; </a>
