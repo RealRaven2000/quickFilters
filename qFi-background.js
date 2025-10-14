@@ -271,7 +271,7 @@ async function addToolMenuListener() {
       // trigger win.quickFilters.doCommand(menuItem);
       messenger.NotifyTools.notifyExperiment({
         event: "doCommand",
-        detail: { commandItem: menuItem, windowId: currentTab.windowId, tabId: currentTab.id },
+        detail: { commandItem: menuItem, windowId: currentTab?.windowId, tabId: currentTab?.id },
       });
     },
     icons: {
@@ -284,7 +284,19 @@ async function addToolMenuListener() {
   if (isDebug) {
     console.log(`quickFilters adding the tools menu item ${menuStart} ...`, menuProps);
   }
-  messenger.menus.create(menuProps);
+  await messenger.menus.create(menuProps);
+
+  // hide the item when not in a mail tab
+  browser.menus.onShown.addListener(async (_info, _tab) => {
+    let currentWindow = await messenger.windows.getCurrent();
+
+    // If we're in a compose window or no mail tab, hide the item
+    let shouldShow = currentWindow.type !== "messageCompose";
+
+    browser.menus.update(TOGGLE_ASSIST_TOOL_ID, { visible: shouldShow });
+    browser.menus.refresh();
+  });
+
 }
 
 
@@ -493,28 +505,30 @@ async function main() {
         );
         return filters;
       }
-      case "assistantResult": {
-        const { requestId, result } = data;
-        const isDebug = await messenger.LegacyPrefs.getPref(legacy_root + "debug.assistant");
-        if (isDebug) {
-          console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
+      case "assistantResult":
+        {
+          const { requestId, result } = data;
+          const isDebug = await messenger.LegacyPrefs.getPref(legacy_root + "debug.assistant");
+          if (isDebug) {
+            console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
+          }
+          if (requestId) {
+            const mergeFilter = data.params?.mergeFilter || null;
+            const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
+            // { index, filterName , accountId }
+            await messenger.Utilities.resolveAssistant(requestId, result, {
+              answer: data.params?.answer,
+              selectedMergedFilterIndex: resultIdx,
+              mergeFilter,
+            });
+          }
         }
-        if (requestId) {
-          const mergeFilter = data.params?.mergeFilter || null;
-          const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
-          // { index, filterName , accountId }
-          await messenger.Utilities.resolveAssistant(requestId, result, {
-            answer: data.params?.answer,
-            selectedMergedFilterIndex: resultIdx,
-            mergeFilter,
-          });
-        }
-      } break;
+        break;
       case "resizeAssistant":
         if (sender.tab) {
           let newHeight = data.height;
           const maxHeight = window.screen.availHeight; // or window.screen.height for full screen height
-          
+
           if (newHeight > maxHeight) {
             newHeight = maxHeight;
             console.warn(
@@ -525,6 +539,15 @@ async function main() {
           const windowId = sender.tab.windowId;
           browser.windows.update(windowId, { height: newHeight });
         }
+        break;
+      case "splashScreen":
+        showSplash();
+        break;
+      case "showAboutConfig":
+        messenger.Utilities.showAboutConfig(data.filter); // , data.editable || false
+        break;
+      case "setupListToolbar":
+        notifyWhenUIReady({ event: "setupListToolbar" });
         break;
     }
   });
@@ -694,6 +717,10 @@ async function main() {
         displayAssistant(data);
         break;
       }
+
+      case "quickFiltersSettings":
+        browser.tabs.create({ url: "html/quickfilters-settings.html" });
+        break;
 
       case "API-test-Utilities":
         console.log("quickFilters - API-test-Utilities");

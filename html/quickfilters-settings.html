@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- theme support -->
+  
+  <meta name="color-scheme" content="dark light">
+  <link rel='stylesheet' type='text/css' href="chrome://global/skin/in-content/common.css">
+  <link rel='stylesheet' type='text/css' href="chrome://messenger/skin/variables.css">
+  <link rel='stylesheet' type='text/css' href="chrome://messenger/skin/preferences/preferences.css">
+  <link rel='stylesheet' type='text/css' href="chrome://messenger/skin/shared/themeableDialog.css">
+  <link rel="stylesheet" href="quickfilters-dialogs.css">
+  <link rel="stylesheet" href="quickfilters-settings.css">
+
+  <title>__MSG_prefwindow.title__</title>
+
+</head>
+<body>
+
+  <!-- Header -->
+  <div id="qf-header-container" class="hbox align-center">
+    <img id="qf-options-icon"
+        src="../chrome/content/skin/QuickFilters_32.svg"
+        alt="quickFilters logo" />
+    <div id="qf-options-header">
+      <div id="qf-options-version" title="__MSG_qf.options.versionnumber.tooltip__">
+        *.*
+      </div>
+    </div>
+    <span class="spacer"></span>
+    <img id="qf-youtube" src="../chrome/content/skin/youtube.png"
+      title="__MSG_qf.youtube.tbdaily__"/>
+  </div>
+
+
+
+  <!-- Tab navigation -->
+  <nav class="tabs tabbox">
+    <ul role="tablist">
+      <li role="tab">
+        <button isTab="true" id="quickFilters-Actions" value="actionsTab" class="active" tabindex="0">
+          __MSG_qf.tab.actions__
+        </button>
+      </li>
+      <li role="tab">
+        <button isTab="true" id="quickFilters-FilterProperties" value="filterPropsTab" tabindex="0">
+          __MSG_qf.tab.newFilterProps__
+        </button>
+      </li>
+      <li role="tab">
+        <button isTab="true" id="quickFilters-Advanced" value="advancedTab" tabindex="0">
+          __MSG_qf.tab.advanced__
+        </button>
+      </li>
+      <li role="tab">
+        <button isTab="true" id="quickFilters-Support" value="supportTab" tabindex="0">
+          __MSG_qf.tab.support__
+        </button>
+      </li>
+      <li role="tab">
+        <button isTab="true" id="quickFilters-Pro" value="licenseTab" class="free" tabindex="0">
+          __MSG_qf.tab.gopro__
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Tab panels -->
+  <div class="tabcontent-container" id="tabcontainer">
+
+    <!-- Actions Tab -->
+    <section class="tabpanel active" id="actionsTab">
+      <div class="hbox columns">
+        <!-- Left column -->
+        <div class="vbox">
+          <label>
+            <input type="checkbox" id="chkAutoClose" data-pref-name="extensions.quickfilters.abortAfterCreate">
+            __MSG_chkAutoClose.label__
+          </label>
+          <label>
+            <input type="checkbox" id="chkAutoStart" data-pref-name="extensions.quickfilters.autoStart">
+            __MSG_chkAutoStart.label__
+          </label>
+          <label>
+            <input type="checkbox" id="chkToolbar" data-pref-name="extensions.quickfilters.toolbar">
+            __MSG_chkToolbar.label__
+          </label>
+          <label title="__MSG_chkShowList.tooltip__">
+            <input type="checkbox" id="chkShowList" data-pref-name="extensions.quickfilters.showListAfterCreateFilter">
+            __MSG_chkShowList.label__
+          </label>
+          <label>
+            <input type="checkbox" id="chkShowEditor" data-pref-name="extensions.quickfilters.showEditorAfterCreateFilter">
+            __MSG_chkShowEditor.label__
+          </label>
+          <label>
+            <input type="checkbox" data-pref-name="mail.imap.filter_on_new">
+            __MSG_chkImapOnRead.label__
+          </label>
+          <label>
+            <input type="checkbox" data-pref-name="extensions.quickfilters.subjectDisableKeywordsExtract">
+            __MSG_subjectCompleteExtract__
+          </label>
+        </div>
+
+        <!-- Right column -->
+        <div class="vbox">
+          <label title="__MSG_qf.listener.tags.tooltip__">
+            <input type="checkbox" data-pref-name="extensions.quickfilters.listener.tags">
+            __MSG_qf.listener.tags__
+          </label>
+          <label>
+            <input type="checkbox" data-pref-name="extensions.quickfilters.listener.tags.autofilter">
+            __MSG_qf.listener.tags.autofilter__
+          </label>
+          <label title="__MSG_qf.onewayaddress.tooltip__">
+            <input type="checkbox" data-pref-name="extensions.quickfilters.searchterm.addressesOneWay">
+            __MSG_qf.onewayaddress.label__
+          </label>
+
+          <label id="getCopySentToCurrent" title="https://addons.thunderbird.net/thunderbird/addon/copy-sent-to-current/">
+            Get 'Copy Sent to Current'
+          </label>
+
+          <button id="assistantIgnore" class="configSettings withlabel" filter="quickfilters.assistant.exclude">
+            __MSG_qf.assistant.ignoreFolders__
+          </button>
+        </div>
+      </div>
+
+      <hr style="background-color: currentColor; height: 1px; opacity: 0.3;">
+
+      <div class="hbox alignFlexColumns">
+        <!-- Merge settings -->
+        <fieldset class="vbox">
+          <legend>__MSG_grpMerge.label__</legend>
+          <label title="__MSG_chkMergeAuto.tooltip__">
+            <input type="checkbox" id="chkMergeAuto" data-pref-name="extensions.quickfilters.merge.autoSelect"
+                  onclick="quickFilters.Options.selectMergeAuto(this);">
+            __MSG_chkMergeAuto.label__
+          </label>
+          <label title="__MSG_chkMergeSkip.tooltip__">
+            <input type="checkbox" id="chkMergeSkip" data-pref-name="extensions.quickfilters.merge.silent"
+                  onclick="quickFilters.Options.selectMergeSkip(this);">
+            __MSG_chkMergeSkip.label__
+          </label>
+          <label>
+            <input type="checkbox" id="chkInsertRulesAtTop" data-pref-name="extensions.quickfilters.searchterm.insertOnTop">
+            __MSG_chkInsertRulesAtTop.label__
+          </label>
+          <label>
+            <input type="checkbox" id="chkFirstAction" data-pref-name="extensions.quickfilters.assistant.merge.firstActionOnly">
+            __MSG_chkMerge.onlyFirstAction__
+          </label>
+        </fieldset>
+
+        <!-- Assistant / UX settings -->
+        <fieldset class="vbox">
+          <legend>__MSG_assistant.ux.title__</legend>
+          <label title="__MSG_assistant.ux.assistant.html.tooltip__">
+            <input type="checkbox" data-pref-name="extensions.quickfilters.assistant.html">
+            __MSG_assistant.ux.assistant.html__
+          </label>
+          <label title="__MSG_news.minimal.tip__">
+            <input type="checkbox" data-pref-name="extensions.quickfilters.news.minimal">
+            __MSG_news.minimal__
+          </label>
+          <label>
+            <input type="checkbox" data-pref-name="extensions.quickfilters.notifications.changelog">
+            __MSG_updates.displayVersionTab__
+          </label>
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- New Filter Properties Tab -->
+    <section class="tabpanel" id="filterPropsTab">
+      <label>__MSG_qf.newFilterProps.intro__</label>
+
+      <div class="columns">
+        <div class="vbox">
+          <fieldset>
+            <legend>__MSG_qf.grp.whenToRun__</legend>
+            <div class="vbox">
+              <label><input type="checkbox" id="chkAutoRun" data-pref-name="extensions.quickfilters.newfilter.autorun">__MSG_chkAutoRun.label__</label>
+              <label><input type="checkbox" id="chkRunManual" data-pref-name="extensions.quickfilters.newfilter.manual">__MSG_chkRunManual.label__</label>
+              <label><input type="checkbox" id="chkAfterJunk" data-pref-name="extensions.quickfilters.newfilter.runAfterPlugins">__MSG_chkAfterJunk.label__</label>
+              <label><input type="checkbox" id="chkWhenArchiving" data-pref-name="extensions.quickfilters.newfilter.runArchiving">__MSG_chkWhenArchiving.label__</label>
+              <label><input type="checkbox" id="chkAfterSending" data-pref-name="extensions.quickfilters.newfilter.runPostOutgoing">__MSG_chkAfterSending.label__</label>
+              <label><input type="checkbox" id="chkPeriodically" data-pref-name="extensions.quickfilters.newfilter.runPeriodically" title="__MSG_chkPeriodically.tooltip__">__MSG_chkPeriodically.label__</label>
+            </div>
+          </fieldset>
+
+          <label><input type="checkbox" id="chkAlphabetic" data-pref-name="extensions.quickfilters.newfilter.insertAlphabetical" title="__MSG_chkAlphabetic.tooltip__">__MSG_chkAlphabetic.label__</label>
+        </div>
+
+        <div class="vbox">
+          <fieldset class="vbox" style="flex:0">
+            <legend>__MSG_qf.label.naming__</legend>
+            <div class="vbox">
+              <div class="hbox">
+                <label><input type="checkbox" id="chkNamingParentFolder" data-pref-name="extensions.quickfilters.naming.parentFolder">__MSG_qf.label.naming.parentFolder__</label>
+                <label class="textBoxLabel" style="margin-left: 1em; margin-top: 1px;">__MSG_qf.label.naming.folderDelimiter__</label>
+                <input type="text" data-pref-name="extensions.quickfilters.naming.folderDelimiter" style="width: 3em;" title="__MSG_qf.tooltip.naming.folderDelimiter__">
+              </div>
+
+              <label><input type="checkbox" id="chkNamingKeyWord" data-pref-name="extensions.quickfilters.naming.keyWord">__MSG_qf.label.naming.keyWord__</label>
+
+              <div class="hbox">
+                <label class="textBoxLabel">__MSG_qf.cloned.label__</label>
+                <input type="text" id="txtClonedName" data-pref-name="extensions.quickfilters.cloned.append">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="hbox">
+            <label><input type="checkbox" id="chkRemoveOwnAddress" data-pref-name="extensions.quickfilters.newfilter.removeOwnAddresses">__MSG_qf.label.removeOwnAddresses__</label>
+            <div class="helpLink" tip-left="true" clickyTooltip="__MSG_qf.label.removeOwnAddresses.tip__"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+		<!-- Advanced Tab --> 
+    <section class="tabpanel" id="advancedTab">
+      <fieldset>
+        <legend>__MSG_qf.templates.advanced__</legend>
+        <div class="vbox">
+          <div class="hbox">
+            <label><input type="checkbox" id="chkReplyTo" data-pref-name="extensions.quickfilters.templates.replyTo" title="__MSG_qf.templates.replyTo.tooltip__">__MSG_qf.templates.replyTo.label__</label>
+            <label class="plain-link" 
+              href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25863">[Bug 25863]</label>
+          </div>
+
+          <div class="hbox">
+            <div class="hbox">
+              <label><input type="checkbox" data-pref-name="extensions.quickfilters.templates.custom" title="__MSG_qf.templates.customTemplate.tooltip__">__MSG_qf.templates.customTemplate.label__</label>
+              <button id="editCustomFilters" onclick="quickFilters.Util.editCustomTemplates(); window.close();">__MSG_qf.templates.customTemplate.edit__</button>
+              <button id="newCustomFilter" onclick="if (quickFilters.Util.createCustomTemplate()) {window.close();}">__MSG_qf.templates.customTemplate.new__</button>
+              <div class="hbox labelWithHelpLink">
+                <div class="helpLink" clickyTooltip="__MSG_qf.templates.customTemplate.restricted__"></div>
+              </div>
+            </div>
+            <div class="vbox">
+              <div class="flexSpacer"></div>
+              <label class="plain-link" 
+                href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25989">[Bug 25989]</label>
+              <div class="flexSpacer"></div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="currentFolderGroup">
+        <legend>__MSG_qf.label.currentFolderButtons__</legend>
+        <div class="vbox">
+          <p id="currentFolderDescription">__MSG_qf.description.currentFolderButtons__</p>
+          <div class="hbox columns">
+            <div class="vbox">
+              <label class="filterlist checkbox-icon"><input type="checkbox" id="chkCurrentToolbarFiltersButton" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.listbutton">__MSG_chkCurrentToolbar.btn.FilterList.label__</label>
+              <label class="runfilters-folder checkbox-icon"><input type="checkbox" id="chkCurrentToolbarFolderButton" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.folderbutton">__MSG_chkCurrentToolbar.btn.RunOnFolder.label__</label>
+            </div>
+            <div class="vbox">
+              <label class="runfilters-selected checkbox-icon"><input type="checkbox" id="chkCurrentToolbarMessagesButton" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.messagesbutton">__MSG_chkCurrentToolbar.btn.RunOnMessages.label__</label>
+              <label class="searchfilters checkbox-icon"><input type="checkbox" id="chkCurrentFindFilterButton" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.findfilterbutton" title="__MSG_chkCurrentToolbar.btn.FindFilter.tooltip__">__MSG_chkCurrentToolbar.btn.FindFilter.label__</label>
+            </div>
+          </div>
+          <div id="quickFoldersNavLicensing" class="licenseRestriction">
+            <ul id="licenseOptions"></ul>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset id="filterListGroup">
+        <legend>__MSG_qf.filterlist.group__</legend>
+        <div class="vbox">
+          <div class="hbox">
+            <label><input type="checkbox" id="chkMultiPaste" data-pref-name="extensions.quickfilters.multipaste">__MSG_qf.filterlist.multipaste__</label>
+            <label class="plain-link" href="https://github.com/RealRaven2000/quickFilters/issues/20">[Issue 20]</label>
+          </div>
+        </div>
+      </fieldset>
+      
+      <div class="hbox" style="width: 100%;">
+        <div class="flexSpacer"></div>
+        <span class="hbox hasConfigEvent">
+          <label>
+            <input type="checkbox" id="chkDebug" data-pref-name="extensions.quickfilters.debug" title="__MSG_chkDebug.accesskey__">__MSG_chkDebug.label__
+          </label>
+          <button class="configSettings" filter="extensions.quickfilters.debug">
+            &nbsp;
+          </button> 
+        </span>
+      </div>
+      <hr>
+    </section>
+
+    <!-- Support Tab -->
+    <section class="tabpanel" id="supportTab">
+      <div class="support-grid">
+        <div class="quickhelp-desc">__MSG_qf.description.splash__</div>
+        <label id="L4" class="text-link">
+          __MSG_qf.btn.splash__
+        </label>
+
+        <div class="quickhelp-desc">__MSG_qf.description.about__</div>
+        <label id="L1" class="text-link">
+          __MSG_qf.label.aboutLink__
+        </label>
+
+        <div class="quickhelp-desc">__MSG_qf.github.description__</div>
+        <label id="L5" class="text-link">
+          __MSG_qf.github.link__
+        </label>
+
+        <div class="quickhelp-desc">__MSG_qf.youtube.description__</div>
+        <label id="L2" class="text-link">
+          __MSG_qf.youtube.link__
+        </label>
+
+        <div id="contactLabel" class="quickhelp-desc">__MSG_qf.description.contactMe__</div>
+        <label id="L3" class="text-link" onclick="quickFilters.Options.sendMail();">
+          __MSG_qf.label.contactLink__
+        </label>
+      </div>
+    </section>
+
+
+    <!-- Licensing Tab -->
+    <section class="tabpanel" id="licenseTab">
+      <p>__MSG_qf.label.insertLicense__</p>
+
+      <div id="licenseContainer">
+        <textarea id="txtLicenseKey"
+                  class="licenseKey"
+                  rows="4"
+                  style="min-height: 4.5em; width:100%;"
+                  title="__MSG_qf.label.insertLicense.tooltip__"></textarea>
+
+        <div class="hbox">
+          <div style="flex:1;" class="spacer"></div>
+          <button id="btnPasteLicense">__MSG_qf.button.pasteLicense__</button>
+          <button id="btnValidateLicense">__MSG_qf.button.validateLicense__</button>
+        </div>
+      </div>
+
+      <hr class="licenseSeparator" />
+
+      <div id="validationResults" class="hbox">
+        <div class="vbox">
+          <p id="validationPassed" class="niceFont" hidden>__MSG_qf.licenseValidation.passed__</p>
+          <p id="validationFailed" class="niceFont licenseError" hidden>__MSG_qf.licenseValidation.failed__</p>
+          <p id="validationExpired" class="niceFont licenseWarning" hidden>__MSG_qf.licenseValidation.expired__</p>
+          <p id="validationInvalidEmail" class="niceFont licenseWarning" hidden>__MSG_qf.licenseValidation.invalidMail__</p>
+          <p id="validationEmailNoMatch" class="niceFont licenseWarning" hidden>__MSG_qf.licenseValidation.notMatchedMail__</p>
+          <p id="validationInvalidAddon" class="niceFont licenseError" hidden>__MSG_qf.licenseValidation.invalidAddon__</p>
+        </div>
+        <div style="flex:1;"></div>
+      </div>
+
+      <hr class="licenseSeparator" />
+
+      <div id="validationDate" class="hbox" style="align-items:center;">
+        <label>__MSG_qf.label.licenseValid__</label>
+        <label id="licenseDate" value="-">-</label>
+      </div>
+
+      <hr style="height:1em;" />
+
+      <div class="hbox">
+        <div style="flex:1;"></div>
+        <button id="btnLicense"
+                onclick="setTimeout(function() {quickFilters.Util.showLicenseDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });">
+          Buy License
+        </button>
+        <div style="flex:1;"></div>
+      </div>
+
+      <div class="hbox">
+        <fieldset id="premiumConfig">
+          <legend>__MSG_qf.premiumConfig__</legend>
+          <div class="vbox">
+
+            <div class="hbox">
+              <label class="plain-link" href="https://quickfilters.quickfolders.org/premium.html#featureList">
+                __MSG_qf.label.premiumFeaturesSite__
+              </label>
+            </div>
+
+            <div class="hbox">
+              <label><input type="checkbox" id="chkFoldersShortcut" data-pref-name="extensions.quickfilters.shortcuts.folder">__MSG_qf.label.shortcut.runFolder__</label>
+              <input type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.folder.key">
+            </div>
+
+            <div class="hbox">
+              <label><input type="checkbox" id="chkMailsShortcut" data-pref-name="extensions.quickfilters.shortcuts.mails">__MSG_qf.label.shortcut.runMails__</label>
+              <input type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.mails.key">
+            </div>
+
+            <label style="margin-left:2em;"><input type="checkbox" data-pref-name="extensions.quickfilters.shortcuts.challenge">__MSG_qf.label.shortcut.challenge__</label>
+            <label><input type="checkbox" id="chkLocalFoldersAutorun" data-pref-name="extensions.quickfilters.localFoldersRun">__MSG_chkLocalFoldersAutorun.label__</label>
+            <label><input type="checkbox" id="chkNotifyRunFilter" data-pref-name="extensions.quickfilters.notifications.runFilter">__MSG_chkNotify.RunFilter__</label>
+
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+
+
+  
+
+  </div>  
+
+
+  <script src="../chrome/content/i18n.js"></script>
+  <script src="qi-main.js"></script>
+  <script src="qi-util.js"></script>
+  <script src="qi-options.js"></script>
+  <script src="quickfilters-settings.js"></script>
+
+</body>

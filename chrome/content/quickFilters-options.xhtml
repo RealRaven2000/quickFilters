@@ -304,114 +304,115 @@
 
 		<tabpanels id="quickFilters-Panels">
 
-			<tabpanel id="quickFilters-Options-actions"
-			          orient="vertical"
-			          label="__MSG_qf.tab.options__"
-			          style="position:relative;">
-			<hbox class="columns">
+		<!-- Actions Tab -->
+		<tabpanel id="quickFilters-Options-actions"
+							orient="vertical"
+							label="__MSG_qf.tab.options__"
+							style="position:relative;">
+		<hbox class="columns">
+			<vbox>
+				<checkbox id="chkAutoClose"
+							preference="abort"
+							label="__MSG_chkAutoClose.label__"
+							accesskey="__MSG_chkAutoClose.accesskey__"
+							/>
+				<checkbox id="chkAutoStart"
+							preference="autoStart"
+							label="__MSG_chkAutoStart.label__"
+							accesskey="__MSG_chkAutoStart.accesskey__"
+							/>
+				<checkbox id="chkToolbar"
+							preference="toolbar"
+							label="__MSG_chkToolbar.label__"
+							accesskey="__MSG_chkToolbar.accesskey__"
+							oncommand="quickFilters.Options.notifyToolbars();"
+							/>
+				<checkbox id="chkShowList"
+							preference="showListAfterCreateFilter"
+							label="__MSG_chkShowList.label__"
+							tooltiptext="__MSG_chkShowList.tooltip__"
+							/>
+				<checkbox id="chkShowEditor"
+							preference="showEditorAfterCreateFilter"
+							label="__MSG_chkShowEditor.label__"
+							/>
+				<checkbox
+							preference="runImapOnRead"
+							label="__MSG_chkImapOnRead.label__"
+							/>
+				<checkbox
+							preference="subjectDisableKeywordsExtract"
+							label="__MSG_subjectCompleteExtract__"
+							/>
+			</vbox>
+			<vbox>
+				<checkbox id="chkListTags"
+							preference="listen.tags"
+							label="__MSG_qf.listener.tags__"
+							tooltiptext="__MSG_qf.listener.tags.tooltip__"
+							/>
+				<checkbox 
+							preference="listen.tags.autofilter"
+							label="__MSG_qf.listener.tags.autofilter__"
+							/>
+				<checkbox preference="onewayaddresses"
+							label="__MSG_qf.onewayaddress.label__"
+							tooltiptext="__MSG_qf.onewayaddress.tooltip__"
+							/>
+
+				<label id="getCopySentToCurrent"
+								tooltiptext="https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/"
+								onclick="quickFilters.Util.openURLInTab('https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
+
+				<button id="assistantIgnore"
+								label="__MSG_qf.assistant.ignoreFolders__" 
+								onclick="quickFilters.Util.showAboutConfig(this, 'quickfilters.assistant.exclude', true)" />
+			</vbox>
+		</hbox>
+
+		<separator class="groove-thin" />
+		<hbox flex="1" class="alignFlexColumns">
+			<html:fieldset orient="vertical" flex="1">
+				<html:legend>__MSG_grpMerge.label__</html:legend>
 				<vbox>
-					<checkbox id="chkAutoClose"
-								preference="abort"
-								label="__MSG_chkAutoClose.label__"
-								accesskey="__MSG_chkAutoClose.accesskey__"
-								/>
-					<checkbox id="chkAutoStart"
-								preference="autoStart"
-								label="__MSG_chkAutoStart.label__"
-								accesskey="__MSG_chkAutoStart.accesskey__"
-								/>
-					<checkbox id="chkToolbar"
-								preference="toolbar"
-								label="__MSG_chkToolbar.label__"
-								accesskey="__MSG_chkToolbar.accesskey__"
-                oncommand="quickFilters.Options.notifyToolbars();"
-								/>
-					<checkbox id="chkShowList"
-								preference="showListAfterCreateFilter"
-								label="__MSG_chkShowList.label__"
-								tooltiptext="__MSG_chkShowList.tooltip__"
-								/>
-					<checkbox id="chkShowEditor"
-								preference="showEditorAfterCreateFilter"
-								label="__MSG_chkShowEditor.label__"
-								/>
-					<checkbox
-								preference="runImapOnRead"
-								label="__MSG_chkImapOnRead.label__"
-								/>
-          <checkbox
-                preference="subjectDisableKeywordsExtract"
-                label="__MSG_subjectCompleteExtract__"
-                />
+					<checkbox id="chkMergeAuto"
+							preference="merge.autoSelect"
+							label="__MSG_chkMergeAuto.label__"
+							tooltiptext="__MSG_chkMergeAuto.tooltip__"
+							oncommand="quickFilters.Options.selectMergeAuto(this);"
+							/>
+					<checkbox id="chkMergeSkip"
+							preference="merge.silent"
+							label="__MSG_chkMergeSkip.label__"
+							tooltiptext="__MSG_chkMergeSkip.tooltip__"
+							oncommand="quickFilters.Options.selectMergeSkip(this);"
+							/>
+					<checkbox id="chkInsertRulesAtTop"
+							preference="insertNewTermTop"
+							label="__MSG_chkInsertRulesAtTop.label__"
+							/>
+					<checkbox id="chkFirstAction"
+							preference="firstActionOnly"
+							label="__MSG_chkMerge.onlyFirstAction__"
+							/>								
 				</vbox>
-				<vbox>
-					<checkbox id="chkListTags"
-								preference="listen.tags"
-								label="__MSG_qf.listener.tags__"
-								tooltiptext="__MSG_qf.listener.tags.tooltip__"
-								/>
-					<checkbox 
-								preference="listen.tags.autofilter"
-								label="__MSG_qf.listener.tags.autofilter__"
-								/>
-					<checkbox preference="onewayaddresses"
-								label="__MSG_qf.onewayaddress.label__"
-								tooltiptext="__MSG_qf.onewayaddress.tooltip__"
-								/>
+			</html:fieldset>
+			<html:fieldset orient="vertical" flex="1">
+				<html:legend>__MSG_assistant.ux.title__</html:legend>
+				<checkbox preference="AssistantHTML"
+					label="__MSG_assistant.ux.assistant.html__"
+					tooltiptext="__MSG_assistant.ux.assistant.html.tooltip__"/>
 
-					<label id="getCopySentToCurrent"
-								 tooltiptext="https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/"
-								 onclick="quickFilters.Util.openURLInTab('https://addons.thunderbird.net/en-US/thunderbird/addon/copy-sent-to-current/');">Get 'Copy Sent to Current'</label>
-
-					<button id="assistantIgnore"
-					        label="__MSG_qf.assistant.ignoreFolders__" 
-									onclick="quickFilters.Util.showAboutConfig(this, 'quickfilters.assistant.exclude', true)" />
-				</vbox>
-			</hbox>
-
-			<separator class="groove-thin" />
-			<hbox flex="1" class="alignFlexColumns">
-				<html:fieldset orient="vertical" flex="1">
-					<html:legend>__MSG_grpMerge.label__</html:legend>
-					<vbox>
-						<checkbox id="chkMergeAuto"
-								preference="merge.autoSelect"
-								label="__MSG_chkMergeAuto.label__"
-								tooltiptext="__MSG_chkMergeAuto.tooltip__"
-								oncommand="quickFilters.Options.selectMergeAuto(this);"
-								/>
-						<checkbox id="chkMergeSkip"
-								preference="merge.silent"
-								label="__MSG_chkMergeSkip.label__"
-								tooltiptext="__MSG_chkMergeSkip.tooltip__"
-								oncommand="quickFilters.Options.selectMergeSkip(this);"
-								/>
-						<checkbox id="chkInsertRulesAtTop"
-								preference="insertNewTermTop"
-								label="__MSG_chkInsertRulesAtTop.label__"
-								/>
-						<checkbox id="chkFirstAction"
-								preference="firstActionOnly"
-								label="__MSG_chkMerge.onlyFirstAction__"
-								/>								
-					</vbox>
-				</html:fieldset>
-				<html:fieldset orient="vertical" flex="1">
-					<html:legend>__MSG_assistant.ux.title__</html:legend>
-					<checkbox preference="AssistantHTML"
-						label="__MSG_assistant.ux.assistant.html__"
-						tooltiptext="__MSG_assistant.ux.assistant.html.tooltip__"/>
-
-					<checkbox preference="updateMinimalNews"
-						label="__MSG_news.minimal__"
-						tooltiptext="__MSG_news.minimal.tip__"/>	
-						
-					<checkbox preference="updateDisplayChangeLog"
-						label="__MSG_updates.displayVersionTab__"/>	
-						
-				</html:fieldset>
-			</hbox>
-    </tabpanel>
+				<checkbox preference="updateMinimalNews"
+					label="__MSG_news.minimal__"
+					tooltiptext="__MSG_news.minimal.tip__"/>	
+					
+				<checkbox preference="updateDisplayChangeLog"
+					label="__MSG_updates.displayVersionTab__"/>	
+					
+			</html:fieldset>
+		</hbox>
+		</tabpanel>
 
 		<!-- New Filter Properties Tab -->
 	  <tabpanel id="quickFilters-Options-newFilterProps"

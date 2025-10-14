@@ -40,6 +40,20 @@
       },
 
       {
+        "name": "showAboutConfig",
+        "type": "function",
+        "async": false,
+        "description": "opens about:config",
+        "parameters": [
+          {
+            "name": "filter",
+            "type": "string",
+            "description": "(optional) filter string to restrict configuration via search box (read only)"
+          }
+        ]
+      },
+
+      {
         "name": "showVersionHistory",
         "type": "function",
         "parameters": []

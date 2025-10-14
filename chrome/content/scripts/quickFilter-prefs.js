@@ -52,6 +52,7 @@ pref("extensions.quickfilters.newfilter.runArchiving", false);
 pref("extensions.quickfilters.newfilter.runPostOutgoing", false);
 pref("extensions.quickfilters.newfilter.runPeriodically", false);
 pref("extensions.quickfilters.newfilter.removeOwnAddresses", true); // Bug 26664
+pref("extensions.quickfilters.lastSelectedOptionsTab","");
 
 pref("extensions.quickfilters.files.path", "");
 pref("extensions.quickfilters.warnInboxAssistant", true); // warn when creating email from message in inbox (and no tag set)

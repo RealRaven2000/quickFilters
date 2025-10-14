@@ -36,7 +36,7 @@
   --menuitem-icon: url("chrome://quickfilters/content/skin/filterList.svg") !important;
 }
 
-#quickfilters-options {
+#quickfilters-options, #quickfilters-settings {
   --menuitem-icon: url("chrome://quickfilters/content/skin/settings.svg") !important;
 }
 

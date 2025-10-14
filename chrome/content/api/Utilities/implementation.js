@@ -60,6 +60,39 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           win.quickFilters.Util.showLicenseDialog(referrer);
         },
 
+        showAboutConfig: function (filter) {
+          const name = "Preferences:ConfigManager",
+            mediator = Services.wm,
+            uri = "about:config";
+
+          let w = mediator.getMostRecentWindow(name),
+            win = mediator.getMostRecentWindow("mail:3pane");
+
+          if (!w) {
+            let watcher = Services.ww;
+            w = watcher.openWindow(
+              win,
+              uri,
+              name,
+              "chrome,resizable,centerscreen,width=800px,height=380px",
+              null
+            );
+          }
+          w.focus();
+          w.addEventListener("load", function () {
+            let id = "about-config-search",
+              flt = w.document.getElementById(id);
+            if (flt) {
+              flt.value = filter;
+              // make filter box readonly to prevent damage!
+              flt.setAttribute("readonly", true);
+              if (w.self.FilterPrefs) {
+                w.self.FilterPrefs();
+              }
+            }
+          });
+        },
+
         getFolderUri: async function (accountId, path = null) {
           const win = Services.wm.getMostRecentWindow("mail:3pane");
           try {
@@ -153,7 +186,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           }
         },
 
-        resolveAssistant:  async (requestId, result, params) => {
+        resolveAssistant: async (requestId, result, params) => {
           win.quickFilters.Util.logHighlightDebug(
             "quickFilters API",
             "#ffff0bff",
@@ -185,7 +218,9 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
             return true;
           }
-          console.warn(`resolveAssistant(): requestId "${requestId}" not found in pending requests.`);
+          console.warn(
+            `resolveAssistant(): requestId "${requestId}" not found in pending requests.`
+          );
           return false; // request ID not found
         },
       },

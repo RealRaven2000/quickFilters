@@ -1,0 +1,35 @@
+/* xul conversion helpers */
+.hbox, .vbox {
+  display: flex;
+}
+.hbox {
+  flex-direction: row;
+}
+.vbox {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .columns {
+    flex-direction: column;
+  }
+}
+
+/* Make the columns container responsive */
+.columns,
+.alignFlexColumns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0em 2em; /* row, column */
+}
+
+/* Each column should take equal width, but shrink on small screens */
+.columns > .vbox,
+.alignFlexColumns > fieldset {
+  flex: 0 1 auto; 
+  min-width: 250px;
+}
+

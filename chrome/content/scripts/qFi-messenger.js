@@ -16,10 +16,10 @@ async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
 }
 
-var listener_toggleFolder, 
-    listener_updatequickFiltersLabel, 
-    listener_doCommand, 
-    listener_initKeyListener;
+var listener_toggleFolder,
+  listener_updatequickFiltersLabel,
+  listener_doCommand,
+  listener_initKeyListener;
 
 // eslint-disable-next-line no-unused-vars
 async function onLoad(activatedWhileWindowOpen) {
@@ -168,8 +168,13 @@ async function onLoad(activatedWhileWindowOpen) {
       case TOGGLE_ASSIST_TOOL_ID:
         window.quickFilters.onMenuItemCommand("toggle_Filters");
         break;
-      case "quickfilters-options":
-        window.quickFilters.showOptions();
+      case "quickfilters-options": // legacy dialog (xhtml)
+        window.quickFilters.showOptions(true);
+        break;
+      case "quickfilters-settings": // to do: convert (majority of) menu items to use API next!
+        window.quickFilters.Util.notifyTools.notifyBackground({
+          func: "quickFiltersSettings"
+        });
         break;
       case "quickfilters-gopro":
         window.quickFilters.Util.showLicenseDialog("mainBtnPopupMenu");
@@ -252,6 +257,7 @@ async function onLoad(activatedWhileWindowOpen) {
   listener_initKeyListener = window.quickFilters.addKeyListener.bind(window.quickFilters, window);
   window.addEventListener("quickFilters.BackgroundUpdate.addKeyListener", listener_initKeyListener);
 
+  
   listener_doCommand = (event) => {
     window.quickFilters.Util.logHighlightDebug(
       "listener_doCommand()",
@@ -370,7 +376,11 @@ function onUnload(isAddOnShutown) {
   window.removeEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   window.removeEventListener("quickFilters.BackgroundUpdate.doCommand", listener_doCommand);
   window.removeEventListener("quickFilters.BackgroundUpdate.toggleCurrentFolderButtons", listener_toggleFolder);
-  window.removeEventListener("quickFilters.BackgroundUpdate.addKeyListener", listener_initKeyListener);
+  window.removeEventListener(
+    "quickFilters.BackgroundUpdate.addKeyListener",
+    listener_initKeyListener
+  );
+  
   window.removeEventListener("quickFilters.BackgroundUpdate.updatequickFiltersLabel", listener_updatequickFiltersLabel);
   
   if (window.quickFilters.isKeyListener) {
