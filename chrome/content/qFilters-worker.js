@@ -1686,7 +1686,7 @@ quickFilters.Worker = {
             let msgHdr = buildParams.messageDb.getMsgHdrForMessageID(msg.messageId);
             listIdValue = msgHdr.getStringProperty(hdrListId);
             // eslint-disable-next-line no-prototype-builtins
-            if (currentHeaderData && currentHeaderData.hasOwnProperty(hdrListId)) {
+            if (typeof currentHeaderData !== "undefined" && currentHeaderData.hasOwnProperty(hdrListId)) {
               listIdValue = currentHeaderData[hdrListId].headerValue;
             }
             if (!listIdValue) {
