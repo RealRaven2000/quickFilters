@@ -149,16 +149,58 @@ permalink: fq-versions.html
   </li>
   
 -->
-
 <ul id="version-history">
   <a name="latest"></a>
 
-  <a name="5.4"> &nbsp; </a>
+  <a name="5.5"> &nbsp; </a>
   <li>
     <h4>
     <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
-       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
-       FiltaQuilla 5.4 - WIP</a>
+       onclick="alert('This version is stawaiting review!\nPlease mail me if you want a preview version for testing.')">
+       FiltaQuilla 5.5 - 13/10/2025</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> 
+        Made FiltaQuilla compatible with Thunderbird 145.*.  
+      </li>
+      <li> 
+        Added localisations for French, Japanese, Italian and Spanish users.
+      </li>
+      <li> 
+        Converted settings dialog to html. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/366">[issue 366]</a>
+        <p>
+          Settings are shown in a responsive tab, which is ideal for all screen sizes.
+          This is a big positive step in modernizing the code base and making it future compatible.
+        </p>
+      </li>
+      <li> 
+        <p>
+          Added a toolbar button for convenient access to settings. If it's not needed, you can remove 
+          the button via View » Toolbars » Toolbar Layout.
+        </p>
+        <img src="img/filtaquilla-menu.png" alt="FiltaQuilla Toolbar Button" class="screenshot"/>
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li> 
+        In some cases, attachments can be saved under wrong name and wrong format. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/364">[issue 364]</a>. 
+        I added some manual correction to fix the problem. This is a bug in the messages API, 
+        that returns an incorrectly encoded file name (it should decode the file name and return
+        it correctly), so I raised <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1992976">Bug 1992976</a> 
+        in this matter.
+      </li>
+    </ul>
+  </li>
+
+  <a name="5.4"> &nbsp; </a>
+  <a name="5.4.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/5.4">
+       FiltaQuilla 5.4 - 29/09/2025</a>
     </h4>
     <h5 class="inList">Latest News</h5>
     <p>
