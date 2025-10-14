@@ -149,12 +149,19 @@ END LICENSE BLOCK
     # known issue: icons in search options of message filters need to also be fixed for Tb 143
     # [issue 318] WIP - added switch extensions.quickfilters.notifications.changelog to disable version tab
 
-  6.8.3 - WIP
+  6.8.3 - 19/08/2025
     # Compatibility with Thunderird 144
     # Improved help button icon in assistant
     # [issue 317] Fixed menu icons broken Thunderbird 143 in filter list popup menu and search options 
     # [issue 318] Added option in settings dialog to disable version tab 
     # [issue 321] Improved quickFilters integration with QuickFolders — button injection & toolbar fixes
+
+  6.9 - WIP
+    # Compatibility with Thunderird 145
+    # [issue 325] Convert Settings Dialog from XUL to HTML
+    # [issue 322] Merging filters broken in new html assistant
+    # [issue 324] Disable Assistant in Composer
+
 
 
   ============================================================================================================
@@ -364,7 +371,13 @@ var quickFilters = {
     }
   },
 
-  showOptions: function showOptions() {
+  showOptions: function (legacy = false) {
+    if (!legacy) {
+      quickFilters.Util.notifyTools.notifyBackground({
+        func: "quickFiltersSettings"
+      });
+      return;
+    }
     window
       .openDialog(
         "chrome://quickfilters/content/quickFilters-options.xhtml",
@@ -2193,7 +2206,8 @@ quickFilters.patchMailPane = () => {
           <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuseparator />
-          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-settings" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__ (legacy)" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menu id="quickfilters-menu-tools" label="__MSG_quickfilters.menu.tools__" class="menu-iconic">
             <menupopup>
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    

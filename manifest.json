@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.8.4pre6",
+  "version": "6.9pre17",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -13,7 +13,7 @@
     "gecko": {
       "id": "quickFilters@axelg.com",
       "strict_min_version": "115.0",
-      "strict_max_version": "144.*"
+      "strict_max_version": "145.*"
     }
   },
   "background": {
@@ -83,5 +83,9 @@
   "icons": {
     "32": "chrome/content/skin/QuickFilters_32.svg",
     "64": "chrome/content/skin/QuickFilters_32.svg"
+  },
+  "options_ui": {
+    "page": "html/quickfilters-settings.html",
+    "open_in_tab": true
   }
 }
