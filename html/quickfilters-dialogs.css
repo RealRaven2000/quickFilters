@@ -33,3 +33,32 @@
   min-width: 250px;
 }
 
+label {
+  display: flex;
+  align-items: center;
+}
+
+*[collapsed=true] {
+  display: none !important;
+}
+
+
+#btnLicense, #btnDomainLicense {
+  list-style-image: none !important;
+  background: url("../chrome/content/skin/QuickFilters_32.svg")  no-repeat 10px center / 32px 32px,
+    linear-gradient(to bottom, #b8d31b 0%,#7aa612 50%,#5c8a00 51%,#87b513 100%)
+    !important;
+  color: white !important;
+  min-height: 3em !important;
+  padding-left: 50px;
+  transition: font-size 0.5s ease-out;
+}
+
+#btnLicense:hover,
+#btnDomainLicense:hover
+{
+  background: 
+    url("../chrome/content/skin/QuickFilters_32.svg")  no-repeat 10px center / 32px 32px,
+    linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
+  transition: font-size 0.5s ease-out;
+}

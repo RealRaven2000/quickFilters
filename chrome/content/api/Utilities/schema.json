@@ -122,7 +122,7 @@
           }
         ]
       },
-      
+
       {
         "name": "getApiMessageId",
         "type": "function",
@@ -176,8 +176,21 @@
           "type": "boolean",
           "description": "whether promise was found + resolved"
         }
-      }
+      },
 
+      {
+        "name": "editCustomTemplates",
+        "description": "edit custom filter templates",
+        "type": "function",
+        "parameters": []
+      },
+      
+      {
+        "name": "createCustomTemplate",
+        "description": "create a new filter template (pro function)",
+        "type": "function",
+        "parameters": []
+      }
     ]
   }
 ]

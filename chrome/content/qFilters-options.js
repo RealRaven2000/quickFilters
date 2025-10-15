@@ -288,7 +288,7 @@ quickFilters.Options = {
     return trimmedLicense;
   } ,
   
-  enablePremiumConfig: function enablePremiumConfig(isEnabled) {
+  enablePremiumConfig: function (isEnabled) {
     let getElement      = document.getElementById.bind(document),
         chkLocalFoldersAutorun = getElement('chkLocalFoldersAutorun'),
         chkFoldersShortcut = getElement('chkFoldersShortcut'),
@@ -302,7 +302,6 @@ quickFilters.Options = {
     chkMultiPaste.disabled = !isEnabled;
     newCustomFilter.disabled = !isEnabled;
     chkNotifyRunFilter.disabled = !isEnabled;
-    
   },
   
   // [issue 92] allow license extension
@@ -319,7 +318,7 @@ quickFilters.Options = {
     }
   },  
   
-  updateLicenseOptionsUI: function updateLicenseOptionsUI() {
+  updateLicenseOptionsUI: function () {
 		const util = quickFilters.Util;
     let getElement = document.getElementById.bind(document),
         validationPassed       = getElement('validationPassed'),
@@ -612,7 +611,7 @@ quickFilters.Options = {
     setTimeout( function() { win.quickFilters.addKeyListener(win); }, 1000); // will enable key listener if previously disabled.
   } ,
   
-  selectMergeAutoselectMergeAuto: function(checkBox) {
+  selectMergeAuto: function(checkBox) {
     // MergeSkip must be unchecked!
     if (!checkBox.checked) {  
       let chkSkip = document.getElementById('chkMergeSkip');
@@ -629,7 +628,7 @@ quickFilters.Options = {
       chkMerge.checked = true;
       quickFilters.Preferences.setBoolPref("merge.autoSelect", true);
     }
-  }   ,
+  } ,
   
   notifyToolbars: function() {
     // update toolbar of message list window

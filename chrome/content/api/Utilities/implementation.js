@@ -4,10 +4,8 @@ var { ExtensionCommon } = ChromeUtils.importESModule(
 var win = Services.wm.getMostRecentWindow("mail:3pane");
 
 var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
-var quickFilters_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
-var { MailServices } = quickFilters_ESM
-  ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
-  : ChromeUtils.import("resource:///modules/MailServices.jsm");
+var { MailServices } = 
+  ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
 
 // console.log("quickFilters - implementation utilities");
 
@@ -223,6 +221,15 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           );
           return false; // request ID not found
         },
+
+        createCustomTemplate: () => {
+          win.quickFilters.Util.createCustomTemplate();
+        },
+
+        editCustomTemplates: () => {
+          return win.quickFilters.Util.editCustomTemplates();
+        },
+
       },
     };
   };

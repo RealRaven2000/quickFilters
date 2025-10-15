@@ -1,6 +1,72 @@
+/*
+  globals
+*/
+
 console.log("Loading qi-util.js");
 quickFilters.Util = {
   ADDON_SUPPORT_MAIL: "axel.grude@gmail.com",
+
+  logTime: function logTime() {
+    let timePassed = "",
+      end = new Date(),
+      endTime = end.getTime();
+    try {
+      // AG added time logging for test
+      if (this.lastTime == 0) {
+        this.lastTime = endTime;
+        return "[logTime init]";
+      }
+      let elapsed = new String(endTime - this.lastTime); // time in milliseconds
+      timePassed = "[" + elapsed + " ms]   ";
+      this.lastTime = endTime; // remember last time
+    } catch  { ; }
+    return `${end.getHours()}:${end.getMinutes()}:${end.getSeconds()}.${end.getMilliseconds()}  ${timePassed}`;
+  },
+
+  // first argument is the option tag
+  logWithOption: function logWithOption(_a) {
+    arguments[0] =
+      "QuickFolders " +
+      "{" +
+      arguments[0].toUpperCase() +
+      "} " +
+      quickFilters.Util.logTime() +
+      "\n";
+    console.log(...arguments);
+  },
+
+  logToConsole: function logToConsole(_a) {
+    let msg = "QuickFolders " + quickFilters.Util.logTime() + "\n";
+    console.log(msg, ...arguments);
+  },
+
+  logException: function logException(aMessage, ex) {
+    /*
+      let stack = "";
+      if (typeof ex.stack != "undefined") {
+        stack = ex.stack.replace("@", "\n  ");
+      }
+      // let's display a caught exception as a warning.
+      let fn = ex.fileName || "?";
+      this.logError(aMessage + "\n" + ex.message, fn, stack, ex.lineNumber, 0, 0x1);
+    */
+    console.error(aMessage, ex);
+  },
+
+  logDebug: async function (_a) {
+    if (await quickFilters.Preferences.isDebug()) {
+      this.logToConsole(...arguments); /* ...msg */
+    }
+  },
+
+  logMissing: function (txt) {
+    console.log(
+      `%cFUNCTION Work in Progress - to do: %c${txt}`,
+      "color:blue;",
+      "background: blue; color:yellow;"
+    );
+  },
+
   getBaseURI: (URL) => {
     let hashPos = URL.indexOf("#");
     let queryPos = URL.indexOf("?");

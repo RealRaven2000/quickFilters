@@ -43,6 +43,14 @@
   }
 }
 
+/* disabled features  without pro */
+label.proFeature[disabled] {
+	background: url("../chrome/content/skin/pro-disabled.svg") no-repeat !important;
+  background-position: left center !important;
+  background-size: 18px 18px !important;
+  padding-left: 24px !important;
+}
+
 #qf-header-container {
 	box-sizing: border-box;
 	width: 100%;
@@ -76,21 +84,24 @@
 
 
 #qf-options-version {
-  border: 1px transparent;
+  border: 1px solid transparent;
   border-radius: 4px;
+  
+	cursor: pointer;
+	color: #FFF;
+	background-color: rgba(13, 127, 242, 0.95);
   color: #FFFFFF;
   cursor: pointer;
   font: 12pt Calibri,arial,sans-serif;
-  font-weight: bold;
+  font-weight: normal;
   margin-left: auto;
   margin-right: 1.3em;
-  padding: 0 3px;
-  text-shadow: #000 0 0 1px, #606000 0 0 2px, #000 2px 2px 3px;
+  padding: 0.2em 0.4em;
 }
 
 #qf-options-version:hover {
-	border: 1px rgba(100,60,60,0.6);
-	box-shadow: 3px 3px 2px rgba(40,40,40,0.3);
+	border: 1px solid rgba(255,255,255,0.6);  
+	background-color: rgba(13, 110, 180, 0.95);
 }
 
 #qf-youtube {
@@ -523,7 +534,9 @@ label#getCopySentToCurrent, #getCopySentToCurrent:focus {
 	border: 1px solid rgb(187, 204, 238) !important;
 	border-radius: 2px;
 	color: #ffffff;
-	padding: 3px;
+	padding: 3px 2em !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: auto !important;
 	text-align: center !important;
 }
 label#getCopySentToCurrent:hover {
@@ -699,4 +712,40 @@ button.configSettings {
 .flexSpacer {
   flex-grow: 1;
 }
+
+#licenseDate[readonly] {
+	appearance: none;
+  border: none;
+  background: transparent; 
+}
+
+.licenseError {
+	border: 1px solid white;
+	color: white !important;
+	background: #A50B5E !important;
+	padding: 5px;
+}
+.licenseWarning {
+	border: 1px solid #00468C;
+	color: #00468C !important;
+	background: #FFD12A !important;
+	padding: 5px;
+}
+
+
+#validationResults {
+	max-height: 3em;
+}
+#validationResults description {
+  max-width: 45em !important;
+}
+#validationResults:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#validationPassed {
+  color: rgb(0,120,0);
+}
+
+
 

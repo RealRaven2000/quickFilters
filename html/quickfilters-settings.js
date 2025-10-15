@@ -1,4 +1,111 @@
 
+var licenseInfo;
+
+async function configureBuyButton() {
+  function replaceCssClass(el, addedClass) {
+    if (!el) {
+      return;
+    }
+    el.classList.add(addedClass);
+    if (addedClass != "paid") {
+      el.classList.remove("paid");
+    }
+    if (addedClass != "expired") {
+      el.classList.remove("expired");
+    }
+    if (addedClass != "free") {
+      el.classList.remove("free");
+    }
+  }
+
+  let wd = window.document,
+    getElement = wd.getElementById.bind(wd),
+    btnLicense = getElement("btnLicense"),
+    proTab = getElement("quickFilters-Pro");
+  let result = licenseInfo.status;
+
+  switch (result) {
+    case "Valid": {
+      let today = new Date(),
+        later = new Date(today.setDate(today.getDate() + 30)), // pretend it's a month later:
+        dateString = later.toISOString().substr(0, 10);
+      // if we were a month ahead would this be expired?
+      if (licenseInfo.expiryDate < dateString) {
+        quickFilters.Options.labelLicenseBtn(btnLicense, "extend");
+      } else {
+        if (licenseInfo.keyType == 2) {
+          // standard license
+          btnLicense.classList.add("upgrade"); // removes "pulsing" animation
+          btnLicense.setAttribute("collapsed", false);
+          quickFilters.Options.labelLicenseBtn(btnLicense, "upgrade");
+        } else {
+          btnLicense.setAttribute("collapsed", true);
+        }
+      }
+      replaceCssClass(proTab, "paid");
+      replaceCssClass(btnLicense, "paid");
+      break;
+    }
+    case "Expired":
+      quickFilters.Options.labelLicenseBtn(btnLicense, "renew");
+      replaceCssClass(proTab, "expired");
+      replaceCssClass(btnLicense, "expired");
+      btnLicense.setAttribute("collapsed", false);
+      break;
+    default:
+      quickFilters.Options.labelLicenseBtn(btnLicense, "buy");
+      btnLicense.setAttribute("collapsed", false);
+      replaceCssClass(btnLicense, "register");
+      replaceCssClass(proTab, "free");
+  }
+}
+
+async function validateLicenseInOptions(evt = false) {
+  let silent = typeof evt === "object" ? false : evt; // will be an event when called from background script!
+
+  // old call to decryptLicense was here
+  // 1 - sanitize License
+  // 2 - validate license
+  // 3 - update options ui with reaction messages; make expiry date visible or hide!;
+  quickFilters.Options.updateLicenseOptionsUI(silent); // async!
+
+  // this the updating the first button on the toolbar via the main instance
+  // we use the quickfolders label to show if License needs renewal!
+  // use notify tools for updating the [QuickFolders] label
+  messenger.runtime.sendMessage({ command: "updateQuickFoldersLabel" });
+
+  // 4 - update buy / extend button or hide it.
+  configureBuyButton();
+  // util.logDebug("validateLicense - result = " + result);
+} 
+
+async function initLicenseInfo() {
+  licenseInfo = await messenger.runtime.sendMessage({ command: "getLicenseInfo" });
+  const licenseTxt = document.getElementById("txtLicenseKey");
+  licenseTxt.value = licenseInfo.licenseKey;
+  quickFilters.Options.updateAriaLicenseLabel(licenseTxt);
+
+  if (licenseInfo.licenseKey) {
+    await validateLicenseInOptions(true);
+    quickFilters.Options.enableProFeatures(licenseInfo.isValid);
+  } else {
+    // add the [pro] icon to features that are restricted
+    quickFilters.Options.enableProFeatures(false);
+  }
+
+  // add an event listener for changes:
+  // window.addEventListener("QuickFolders.BackgroundUpdate", validateLicenseInOptions);
+
+  messenger.runtime.onMessage.addListener((data, _sender) => {
+    if (data.msg == "updatedLicense") {
+      licenseInfo = data.licenseInfo;
+      quickFilters.Options.updateLicenseOptionsUI(false); // we may have to switch off silent if we cause this
+      configureBuyButton();
+      return Promise.resolve(true); // returns a promise of "undefined"
+    }
+  });
+}
+
 const activateTab = (event) => {
   const tabSheets = document.querySelectorAll(".tabcontent-container section"),
     tabs = document.querySelectorAll(".tabbox button");
@@ -45,8 +152,6 @@ const initEventListeners = async () => {
   }
 
 
-
-
   for (let txtLink of document.querySelectorAll(".text-link")) {
     txtLink.addEventListener("click", () => {
       switch (txtLink.id) {
@@ -85,13 +190,34 @@ const initEventListeners = async () => {
     //e.g. onclick="quickFilters.Util.showAboutConfig(this, 'quickfilters.assistant.exclude', true)"
     quickFilters.Options.addConfigEvent(btn, filter);
   }
+  const newCustomFilter = document.getElementById("newCustomFilter");
+  newCustomFilter.addEventListener("click", () => { 
+    messenger.Utilities.createCustomTemplate();
+  });
+  const editCustomFilters = document.getElementById("editCustomFilters");
+  editCustomFilters.addEventListener("click", () => {
+    messenger.Utilities.editCustomTemplates();
+  });
+  const chkMergeAuto = document.getElementById("chkMergeAuto");
+  chkMergeAuto.addEventListener("click", () => {
+    quickFilters.Options.selectMergeAuto(chkMergeAuto);
+  });
+  const chkMergeSkip = document.getElementById("chkMergeSkip");
+  chkMergeSkip.addEventListener("click", () => {
+    quickFilters.Options.selectMergeSkip(chkMergeSkip);
+  });
+  const btnLicense = document.getElementById("btnLicense");
+  btnLicense.addEventListener("click", () => {
+    const referrer = "options_" + quickFilters.Options.currentOptionsTab;
+    messenger.Utilities.showLicenseDialog(referrer);
+    window.close();
+  });
 
 
   const btnVersion = document.getElementById("qf-options-version");
   btnVersion.addEventListener("click", () => {
-    // quickFilters.Util.showVersionHistory(); setTimeout(() => window.close(), 100);
-    browser.runtime.openOptionsPage();
-    // window.close();
+    // we can call experimental APIs directly!!
+    messenger.Utilities.showVersionHistory();
   });
   const btnYoutube = document.getElementById("qf-youtube");
   btnYoutube.addEventListener("click", () => {
@@ -102,8 +228,9 @@ const initEventListeners = async () => {
     quickFilters.Options.pasteLicense();
   });
   const btnValidate = document.getElementById("btnValidateLicense");
-  btnValidate.addEventListener("click", () => {
-    quickFilters.Options.validateNewKey();
+  btnValidate.addEventListener("click", async () => {
+    await quickFilters.Options.validateNewKey();
+    initLicenseInfo();
   });
 }
 
@@ -170,6 +297,7 @@ const startup = async () => {
   await initEventListeners();
   await initPrefs();
   quickFilters.Options.load();
+  initLicenseInfo();
 
   const verPanel = document.getElementById("qf-options-version");
   const manifest = browser.runtime.getManifest();

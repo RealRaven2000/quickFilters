@@ -1942,6 +1942,7 @@ quickFilters.Util = {
           typeOperator = Ci.nsMsgSearchOp,
 					prefs = quickFilters.Preferences,
 					util = quickFilters.Util;
+    util.logDebug("createCustomTemplate()");
     
     let input = {value: ""},
         check = {value: false},

@@ -11,6 +11,7 @@
   <link rel='stylesheet' type='text/css' href="chrome://messenger/skin/shared/themeableDialog.css">
   <link rel="stylesheet" href="quickfilters-dialogs.css">
   <link rel="stylesheet" href="quickfilters-settings.css">
+  <link rel="stylesheet" href="../chrome/content/skin/license.css">
 
   <title>__MSG_prefwindow.title__</title>
 
@@ -23,13 +24,13 @@
         src="../chrome/content/skin/QuickFilters_32.svg"
         alt="quickFilters logo" />
     <div id="qf-options-header">
-      <div id="qf-options-version" title="__MSG_qf.options.versionnumber.tooltip__">
-        *.*
-      </div>
-    </div>
+    </div>      
     <span class="spacer"></span>
     <img id="qf-youtube" src="../chrome/content/skin/youtube.png"
       title="__MSG_qf.youtube.tbdaily__"/>
+    <div id="qf-options-version" title="__MSG_qf.options.versionnumber.tooltip__">
+      *.*
+    </div>
   </div>
 
 
@@ -118,7 +119,7 @@
             __MSG_qf.onewayaddress.label__
           </label>
 
-          <label id="getCopySentToCurrent" title="https://addons.thunderbird.net/thunderbird/addon/copy-sent-to-current/">
+          <label id="getCopySentToCurrent" class="text-link" title="https://addons.thunderbird.net/thunderbird/addon/copy-sent-to-current/">
             Get 'Copy Sent to Current'
           </label>
 
@@ -135,13 +136,11 @@
         <fieldset class="vbox">
           <legend>__MSG_grpMerge.label__</legend>
           <label title="__MSG_chkMergeAuto.tooltip__">
-            <input type="checkbox" id="chkMergeAuto" data-pref-name="extensions.quickfilters.merge.autoSelect"
-                  onclick="quickFilters.Options.selectMergeAuto(this);">
+            <input type="checkbox" id="chkMergeAuto" data-pref-name="extensions.quickfilters.merge.autoSelect">
             __MSG_chkMergeAuto.label__
           </label>
           <label title="__MSG_chkMergeSkip.tooltip__">
-            <input type="checkbox" id="chkMergeSkip" data-pref-name="extensions.quickfilters.merge.silent"
-                  onclick="quickFilters.Options.selectMergeSkip(this);">
+            <input type="checkbox" id="chkMergeSkip" data-pref-name="extensions.quickfilters.merge.silent">
             __MSG_chkMergeSkip.label__
           </label>
           <label>
@@ -234,9 +233,9 @@
 
           <div class="hbox">
             <div class="hbox">
-              <label><input type="checkbox" data-pref-name="extensions.quickfilters.templates.custom" title="__MSG_qf.templates.customTemplate.tooltip__">__MSG_qf.templates.customTemplate.label__</label>
-              <button id="editCustomFilters" onclick="quickFilters.Util.editCustomTemplates(); window.close();">__MSG_qf.templates.customTemplate.edit__</button>
-              <button id="newCustomFilter" onclick="if (quickFilters.Util.createCustomTemplate()) {window.close();}">__MSG_qf.templates.customTemplate.new__</button>
+              <label class="proFeature"><input type="checkbox" data-pref-name="extensions.quickfilters.templates.custom" title="__MSG_qf.templates.customTemplate.tooltip__">__MSG_qf.templates.customTemplate.label__</label>
+              <button id="editCustomFilters">__MSG_qf.templates.customTemplate.edit__</button>
+              <button class="proFeature" id="newCustomFilter">__MSG_qf.templates.customTemplate.new__</button>
               <div class="hbox labelWithHelpLink">
                 <div class="helpLink" clickyTooltip="__MSG_qf.templates.customTemplate.restricted__"></div>
               </div>
@@ -275,7 +274,7 @@
         <legend>__MSG_qf.filterlist.group__</legend>
         <div class="vbox">
           <div class="hbox">
-            <label><input type="checkbox" id="chkMultiPaste" data-pref-name="extensions.quickfilters.multipaste">__MSG_qf.filterlist.multipaste__</label>
+            <label class="proFeature"><input type="checkbox" id="chkMultiPaste" data-pref-name="extensions.quickfilters.multipaste">__MSG_qf.filterlist.multipaste__</label>
             <label class="plain-link" href="https://github.com/RealRaven2000/quickFilters/issues/20">[Issue 20]</label>
           </div>
         </div>
@@ -319,7 +318,7 @@
         </label>
 
         <div id="contactLabel" class="quickhelp-desc">__MSG_qf.description.contactMe__</div>
-        <label id="L3" class="text-link" onclick="quickFilters.Options.sendMail();">
+        <label id="L3" class="text-link">
           __MSG_qf.label.contactLink__
         </label>
       </div>
@@ -328,8 +327,7 @@
 
     <!-- Licensing Tab -->
     <section class="tabpanel" id="licenseTab">
-      <p>__MSG_qf.label.insertLicense__</p>
-
+      <label for="txtLicenseKey">__MSG_qf.label.insertLicense__</label>
       <div id="licenseContainer">
         <textarea id="txtLicenseKey"
                   class="licenseKey"
@@ -348,33 +346,31 @@
 
       <div id="validationResults" class="hbox">
         <div class="vbox">
-          <p id="validationPassed" class="niceFont" hidden>__MSG_qf.licenseValidation.passed__</p>
-          <p id="validationFailed" class="niceFont licenseError" hidden>__MSG_qf.licenseValidation.failed__</p>
-          <p id="validationExpired" class="niceFont licenseWarning" hidden>__MSG_qf.licenseValidation.expired__</p>
-          <p id="validationInvalidEmail" class="niceFont licenseWarning" hidden>__MSG_qf.licenseValidation.invalidMail__</p>
-          <p id="validationEmailNoMatch" class="niceFont licenseWarning" hidden>__MSG_qf.licenseValidation.notMatchedMail__</p>
-          <p id="validationInvalidAddon" class="niceFont licenseError" hidden>__MSG_qf.licenseValidation.invalidAddon__</p>
+          <p id="validationPassed" class="niceFont" collapsed>__MSG_qf.licenseValidation.passed__</p>
+          <p id="validationFailed" class="niceFont licenseError" collapsed>__MSG_qf.licenseValidation.failed__</p>
+          <p id="validationExpired" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.expired__</p>
+          <p id="validationInvalidEmail" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.invalidMail__</p>
+          <p id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.notMatchedMail__</p>
+          <p id="validationInvalidAddon" class="niceFont licenseError" collapsed>__MSG_qf.licenseValidation.invalidAddon__</p>
         </div>
         <div style="flex:1;"></div>
       </div>
 
-      <hr class="licenseSeparator" />
+      <span id="validationDateSpace" class="separator licenseSeparator"></span>
 
       <div id="validationDate" class="hbox" style="align-items:center;">
-        <label>__MSG_qf.label.licenseValid__</label>
-        <label id="licenseDate" value="-">-</label>
+        <label id="licenseDateLabel">__MSG_qf.label.licenseValid__</label>
+        <input type="text" id="licenseDate" readonly aria-readonly="true" tabindex="0" 
+          aria-describedby="licenseDateLabel" role="representation">
       </div>
 
       <hr style="height:1em;" />
 
-      <div class="hbox">
-        <div style="flex:1;"></div>
-        <button id="btnLicense"
-                onclick="setTimeout(function() {quickFilters.Util.showLicenseDialog('options_' + quickFilters.Options.currentOptionsTab); window.close(); });">
+      <box class="btnLicenseContainer">
+        <button id="btnLicense">
           Buy License
         </button>
-        <div style="flex:1;"></div>
-      </div>
+      </box>
 
       <div class="hbox">
         <fieldset id="premiumConfig">
@@ -387,19 +383,19 @@
               </label>
             </div>
 
-            <div class="hbox">
-              <label><input type="checkbox" id="chkFoldersShortcut" data-pref-name="extensions.quickfilters.shortcuts.folder">__MSG_qf.label.shortcut.runFolder__</label>
-              <input type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.folder.key">
+            <div class="hbox align-center">
+              <label class="proFeature"><input type="checkbox" id="chkFoldersShortcut" data-pref-name="extensions.quickfilters.shortcuts.folder">__MSG_qf.label.shortcut.runFolder__</label>
+              <input class="proFeature" type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.folder.key">
             </div>
 
-            <div class="hbox">
-              <label><input type="checkbox" id="chkMailsShortcut" data-pref-name="extensions.quickfilters.shortcuts.mails">__MSG_qf.label.shortcut.runMails__</label>
-              <input type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.mails.key">
+            <div class="hbox align-center">
+              <label class="proFeature"><input type="checkbox" id="chkMailsShortcut" data-pref-name="extensions.quickfilters.shortcuts.mails">__MSG_qf.label.shortcut.runMails__</label>
+              <input class="proFeature" type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.mails.key">
             </div>
 
             <label style="margin-left:2em;"><input type="checkbox" data-pref-name="extensions.quickfilters.shortcuts.challenge">__MSG_qf.label.shortcut.challenge__</label>
-            <label><input type="checkbox" id="chkLocalFoldersAutorun" data-pref-name="extensions.quickfilters.localFoldersRun">__MSG_chkLocalFoldersAutorun.label__</label>
-            <label><input type="checkbox" id="chkNotifyRunFilter" data-pref-name="extensions.quickfilters.notifications.runFilter">__MSG_chkNotify.RunFilter__</label>
+            <label class="proFeature"><input type="checkbox" id="chkLocalFoldersAutorun" data-pref-name="extensions.quickfilters.localFoldersRun">__MSG_chkLocalFoldersAutorun.label__</label>
+            <label class="proFeature"><input type="checkbox" id="chkNotifyRunFilter" data-pref-name="extensions.quickfilters.notifications.runFilter">__MSG_chkNotify.RunFilter__</label>
 
           </div>
         </fieldset>

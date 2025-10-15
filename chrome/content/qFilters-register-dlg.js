@@ -123,10 +123,12 @@ var Register = {
 				licenseDate.textContent = " ";
         isLicenseTermsHidden = true;
 			  break;
-			default: // default class=register will animate the button
+			default: {
+        // default class=register will animate the button
         let txt = "License Status: " + licenseInfo.description;
 			  licenseDate.textContent = txt;
         util.logToConsole("Registration Problem\n" + txt + "\nDecrypted part: " + licenseInfo.decryptedPart);
+      }
 		}
     getElement('qfLicenseTerm').collapsed = isLicenseTermsHidden;
     window.sizeToContent();
@@ -134,9 +136,10 @@ var Register = {
   
   updateUI: async function updateUI() {
     const getElement = document.getElementById.bind(document),
-          util = quickFilters.Util,
-          prefs = quickFilters.Preferences;
-        
+      util = quickFilters.Util,
+      prefs = quickFilters.Preferences,
+      Ci = Components.interfaces;
+      
     let dropdownCount = 0;
     function appendIdentity(dropdown, id, account) {
       if (!id) {
@@ -202,7 +205,7 @@ var Register = {
           // use ac.defaultIdentity ??
           // populate the dropdown with nsIMsgIdentity details
           let id = ids[i].QueryInterface(Ci.nsIMsgIdentity);
-          if (!id) continue;
+          if (!id) {continue;}
           appendIdentity(popup, id, ac);
         }
       }
@@ -213,7 +216,7 @@ var Register = {
     // select first item
     idSelector.selectedIndex = 0;
     this.selectIdentity(idSelector);
-		if (prefs.isDebugOption('premium.licenser')) getElement('referrer').collapsed=false;
+		if (prefs.isDebugOption('premium.licenser')) {getElement('referrer').collapsed=false;}
 
   } ,
   
@@ -269,8 +272,7 @@ var Register = {
   sanitizeName: function sanitizeName(name) {
     // remove bracketed stuff: "fred jones (freddy)" => "fred jones"
     let x = name.replace(/ *\([^)]*\) */g, "");
-    if (x.trim)
-      return x.trim();
+    if (x.trim) { return x.trim(); }
     return x;
   } ,
   

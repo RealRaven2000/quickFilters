@@ -16,6 +16,8 @@ var callbacks = [];
 // Worker.FilterMode
 var AssistantActive = false;
 
+const legacy_root = "extensions.quickfilters.";
+
 function versionGreater(v1, v2) {
   return compareVersions(v1, v2) > 0;
 }
@@ -465,10 +467,32 @@ async function notifyWhenUIReady(...args) {
   }
 }
 
+async function updateLicense(key) {
+  let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
+      legacy_root + "licenser.forceSecondaryIdentity"
+    ),
+    isDebugLicenser = await messenger.LegacyPrefs.getPref(legacy_root + "debug.premium.licenser");
 
+  // we create a new Licenser object for overwriting, this will also ensure that key_type can be changed.
+  let newLicense = new Licenser(key, {
+    forceSecondaryIdentity,
+    debug: isDebugLicenser,
+  });
+  await newLicense.validate();
+  // Check new license and accept if ok.
+  // You may return values here, which will be send back to the caller.
+  // return false;
+
+  // Update background license.
+  await messenger.LegacyPrefs.setPref(legacy_root + "LicenseKey", newLicense.info.licenseKey);
+  currentLicense = newLicense;
+  // Broadcast -without event is used for the licenser.
+  notifyWhenUIReady({ licenseInfo: currentLicense.info });
+  notifyWhenUIReady({ event: "updatequickFiltersLabel" });
+  return true;
+}
 
 async function main() {
-  const legacy_root = "extensions.quickfilters.";
   // load defaults
   messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
   
@@ -486,7 +510,7 @@ async function main() {
   callbacks.forEach(callback => callback());
   startupFinished = true;
   
-  // listeners for splash pages
+  // listeners for splash pages, new settings dialog
   messenger.runtime.onMessage.addListener(async (data, sender) => {
     // console.log("runtime.onMessage", data, _sender);
     if (!data.command) {
@@ -548,6 +572,11 @@ async function main() {
         break;
       case "setupListToolbar":
         notifyWhenUIReady({ event: "setupListToolbar" });
+        break;
+      case "updateLicense":
+        return await updateLicense(data.key);
+      case "slideAlert":
+        util.slideAlert(...data.args);
         break;
     }
   });
@@ -643,35 +672,8 @@ async function main() {
         break;
 
       case "updateLicense":
-        {
-          let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
-              legacy_root + "licenser.forceSecondaryIdentity"
-            ),
-            isDebugLicenser = await messenger.LegacyPrefs.getPref(
-              legacy_root + "debug.premium.licenser"
-            );
+        return await updateLicense(data.key);
 
-          // we create a new Licenser object for overwriting, this will also ensure that key_type can be changed.
-          let newLicense = new Licenser(data.key, {
-            forceSecondaryIdentity,
-            debug: isDebugLicenser,
-          });
-          await newLicense.validate();
-          // Check new license and accept if ok.
-          // You may return values here, which will be send back to the caller.
-          // return false;
-
-          // Update background license.
-          await messenger.LegacyPrefs.setPref(
-            legacy_root + "LicenseKey",
-            newLicense.info.licenseKey
-          );
-          currentLicense = newLicense;
-          // Broadcast -without event is used for the licenser.
-          notifyWhenUIReady({ licenseInfo: currentLicense.info });
-          notifyWhenUIReady({ event: "updatequickFiltersLabel" });
-        }
-        return true;
       case "setActionTip":
         // https://webextension-api.thunderbird.net/en/stable/browserAction.html#settitle-details
         messenger.browserAction.setTitle({ title: data.text });
