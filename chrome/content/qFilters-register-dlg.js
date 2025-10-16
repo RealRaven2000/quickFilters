@@ -21,8 +21,37 @@ var Register = {
     await quickFilters.Util.init();
     this.updateUI();
     this.updateLicenseUI();
-    window.addEventListener("quickFilters.BackgroundUpdate", this.updateLicenseUI.bind(this));
+    this.addEventListeners();
+
   },
+
+
+  addEventListeners: function() {
+    window.addEventListener("quickFilters.BackgroundUpdate", this.updateLicenseUI.bind(this));
+    const btnEnterCode = document.getElementById("btnEnterCode");
+    btnEnterCode.addEventListener("click", () => {
+      quickFilters.Util.notifyTools.notifyBackground({
+        func: "quickFiltersSettings",
+        page: "licenseTab",
+      });
+      window.close();
+    });
+    const toggleSwitchLicenseTerms = document.getElementById("toggleSwitchLicenseTerms");
+    toggleSwitchLicenseTerms.addEventListener("click", (event) => {
+      this.toggleTerms(event.currentTarget);
+    });
+    const btnLicense = document.getElementById("btnLicense");
+    btnLicense.addEventListener("click", () => {
+      this.goPro(0);
+    });
+    const btnDomainLicense = document.getElementById("btnDomainLicense");
+    btnDomainLicense.addEventListener("click", () => {
+      this.goPro(1);
+    });
+
+
+  },
+
 
   toggleTerms: function(btn) {
     let termsBox = document.getElementById("licenseTerms");

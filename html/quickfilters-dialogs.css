@@ -62,3 +62,16 @@ label {
     linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
   transition: font-size 0.5s ease-out;
 }
+
+.niceFont,
+.niceFont description,
+.niceFont button,
+.niceFont label
+{
+  font-family: cambria, Georgia, serif;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+
+

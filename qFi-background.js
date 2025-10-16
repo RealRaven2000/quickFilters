@@ -447,6 +447,36 @@ async function displayAssistant(data) {
   });
 }
 
+async function displaySettings(data) {
+  const page = data?.page;
+  const baseUrl = browser.runtime.getURL("html/quickfilters-settings.html");
+  const targetUrl = page ? `${baseUrl}#${page}` : baseUrl;
+
+  const tabs = await browser.tabs.query({});
+
+  // Try to find an existing tab with the same base URL (ignoring hash)
+  const existingTab = tabs.find((t) => {
+    if (!t.url) { return false; }
+    const cleanUrl = t.url.split("#")[0];
+    return cleanUrl === baseUrl;
+  });
+
+  if (existingTab) {
+    // If it already shows the same page, just activate it
+    if (existingTab.url === targetUrl) {
+      await browser.tabs.update(existingTab.id, { active: true });
+      await browser.windows.update(existingTab.windowId, { focused: true });
+    } else {
+      // Update the hash and reload
+      await browser.tabs.update(existingTab.id, { url: targetUrl, active: true });
+      await browser.windows.update(existingTab.windowId, { focused: true });
+    }
+    return;
+  } 
+  
+  await browser.tabs.create({ url: targetUrl });  
+}
+
 // create a "deferred" promise for all event listeners on the experimental side
 let uiResolve;
 const uiReadyPromise = new Promise((resolve) => {
@@ -720,10 +750,10 @@ async function main() {
         break;
       }
 
-      case "quickFiltersSettings":
-        browser.tabs.create({ url: "html/quickfilters-settings.html" });
+      case "quickFiltersSettings": 
+        displaySettings(data);
         break;
-
+      
       case "API-test-Utilities":
         console.log("quickFilters - API-test-Utilities");
         try {

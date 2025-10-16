@@ -11,10 +11,10 @@
   xmlns:html="http://www.w3.org/1999/xhtml"
 >
 
-	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js" />
-	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js" />
-	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js" />
-	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-register-dlg.js" />
+	<script type="application/javascript" src="chrome://quickfilters/content/quickFilters.js"></script>
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-utils.js"></script>
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-preferences.js"></script>
+	<script type="application/javascript" src="chrome://quickfilters/content/qFilters-register-dlg.js"></script>
 
 <vbox id="outerWrapper">
 
@@ -37,9 +37,8 @@
 				<label id="haveLicense">__MSG_qf.label.haveLicense__</label>
 				<hbox>
 					<button id="btnEnterCode"
-									label="__MSG_enterLicenseKey.button__"
-									tooltiptext="__MSG_enterLicenseKey.tooltip__"
-									oncommand="quickFilters.Util.viewLicense();window.close();" />
+						label="__MSG_enterLicenseKey.button__"
+						tooltiptext="__MSG_enterLicenseKey.tooltip__"></button>								        
 				</hbox>
 			</vbox>
 			
@@ -83,9 +82,7 @@
 					</td>
 				</tr>	
 			</table>
-			<button id="toggleSwitchLicenseTerms"
-						label="__MSG_licenseTerms.show__"
-						oncommand="Register.toggleTerms(this);" />			
+			<button id="toggleSwitchLicenseTerms" label="__MSG_licenseTerms.show__"></button>	
 		</vbox>
 	</vbox>
 	
@@ -112,17 +109,11 @@
 	  <spacer flex="1"/>
 	  <vbox>
 			<hbox>
-				<label control="firstName"
-							 class="ref"
-							 value="__MSG_firstName.label__" 
-							 />
+				<label control="firstName" class="ref" value="__MSG_firstName.label__" />
 				<html:input type="text" id="firstName" />
 			</hbox>
 			<hbox>
-				<label control="lastName"
-				       class="ref"
-							 value="__MSG_lastName.label__" 
-							 />
+				<label control="lastName" class="ref" value="__MSG_lastName.label__" />
 				<html:input type="text" id="lastName" />
 			</hbox>
 		</vbox>
@@ -138,10 +129,8 @@
 					<label class="shilling">__MSG_buyLicense.instruct__</label>
 				</td>
 				<td class="btnLicenseContainer">
-					<button id="btnLicense"
-					  class="register"
-						label="__MSG_buyPersonalLicense.button__"
-						oncommand="Register.goPro(0);" />
+					<button id="btnLicense" class="register"
+						label="__MSG_buyPersonalLicense.button__"> </button>
 				</td>
 			</tr>
 			<!-- hide these when releasing first version !!-->
@@ -153,9 +142,7 @@
 					<label class="shilling">__MSG_buyDomainLicense.instruct__</label>
 				</td>
 				<td>
-					<button id="btnDomainLicense"
-						label="__MSG_buyDomainLicense.button__"
-						oncommand="Register.goPro(1);" />
+					<button id="btnDomainLicense" label="__MSG_buyDomainLicense.button__" />
 				</td>
 			</tr>
 		</table>

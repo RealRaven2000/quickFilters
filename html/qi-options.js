@@ -33,7 +33,7 @@ quickFilters.Options = {
     messenger.compose.beginNew({ subject: subjectline, to: mailto });
   },
 
-  dispatchAboutConfig: async (filter, readOnly, updateUI = false) => {
+  dispatchAboutConfig: async (filter, readOnly, _updateUI = false) => {
     // we put the notification listener into quickfolders-tablistener.js - should only happen in ONE main window!
     messenger.Utilities.showAboutConfig(filter);
     /*
@@ -135,15 +135,15 @@ quickFilters.Options = {
             validationDateSpace.setAttribute("collapsed", true);
             let addonName = "";
             switch (licenseInfo.licenseKey.substr(0, 2)) {
-              case "QI":
-                addonName = "quickFilters";
+              case "QF":
+              case "QS":
+                addonName = "QuickFolders";
                 break;
               case "S1":
               case "ST":
                 addonName = "SmartTemplates";
                 break;
-              case "QF":
-              case "QS":
+              case "QI":
               default:
                 quickFilters.Options.showValidationMessage(validationFailed, silent);
             }

@@ -262,6 +262,7 @@ const initPrefs = async () => {
 }
 
 /**** FLOATING TOOLTIPS ===> **** */
+// eslint-disable-next-line no-unused-vars
 function toggleTooltip(button) {
   const row = button.closest(".option-horizontal");
   if (!row) {
@@ -302,5 +303,23 @@ const startup = async () => {
   const verPanel = document.getElementById("qf-options-version");
   const manifest = browser.runtime.getManifest();
   verPanel.textContent = manifest.version;
+
+  const params = new URLSearchParams(window.location.search);
+  const page = params.get("page");
+  if (page) {
+    const button = document.querySelector(`.tabbox button[value="${page}"]`);
+    if (button) {
+      button.click(); // triggers activateTab()
+    } else {
+      console.warn(`No tab button found for page querystring parameter="${page}"`);
+    }
+  } else {
+    // select last active tab
+    const lastTab = await browser.LegacyPrefs.getPref("extensions.quickfilters.lastSelectedOptionsTab");
+    const button = document.querySelector(`.tabbox button[value="${lastTab}"]`);
+    if (button) {
+      button.click();
+    } 
+  }
 };
 startup();

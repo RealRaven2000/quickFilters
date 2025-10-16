@@ -381,7 +381,13 @@ label.proFeature[disabled] {
 	list-style-type: disc;
 }
 
+#currentFolderDescription {
+  margin-block: 1em;
+}
+
 #quickFoldersNavLicensing {
+  margin-block-start: 1em;
+  max-width: 60em;
   flex-direction: column;
 }
 
@@ -733,9 +739,6 @@ button.configSettings {
 }
 
 
-#validationResults {
-	max-height: 3em;
-}
 #validationResults description {
   max-width: 45em !important;
 }
@@ -745,6 +748,11 @@ button.configSettings {
 
 #validationPassed {
   color: rgb(0,120,0);
+}
+
+#validationResults {
+  margin-inline: auto;
+  max-width: 60em;
 }
 
 
