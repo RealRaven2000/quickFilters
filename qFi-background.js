@@ -473,7 +473,7 @@ async function displaySettings(data) {
     }
     return;
   } 
-  
+
   await browser.tabs.create({ url: targetUrl });  
 }
 
@@ -812,7 +812,7 @@ async function main() {
     ["content", "quickfilters", "chrome/content/"],
   ]);
  
-  messenger.WindowListener.registerOptionsPage("chrome://quickfilters/content/quickFilters-options.xhtml"); 
+  // messenger.WindowListener.registerOptionsPage("chrome://quickfilters/content/quickFilters-options.xhtml"); 
    
     
  //attention: each target window (like messenger.xul) can appear only once
