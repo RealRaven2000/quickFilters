@@ -1,16 +1,17 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.8.3) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.9) 
 
 
 **Improvements**
 
-*   Compatibility with Thunderbird 144
-*   Improved quickFilters integration with QuickFolders — button injection & current folder toolbar fixes [issue #321]
-*   Improved help button icon in assistant
-*   Added option in settings dialog to disable version tab after updating [issue #318]
+*   Compatibility with Thunderbird 145
+*   Converted Settings Dialog from XUL to HTML [issue #325]
+*   Fixed: Thunderbird 143: Custom Filter Template modifications missing [issue #326]
+*   Disable Assistant in Composer [issue #324]
+
 
 **Bug Fixes**
+*   Fixed: Merging filters broken in new html assistant [issue #322]
 
-*   Fixed menu icons broken in Thunderbird 143 in filter list popup menu and search options [issue #317]
 
 
 
