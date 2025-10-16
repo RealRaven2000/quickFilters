@@ -256,7 +256,7 @@ END LICENSE BLOCK
       // Custome Template Initialize:
       util.logDebug("Found Custom Filter Template:\n" + filterName);
       // show "QuickFilters Custom Template" Heading and move it on top of the Filter Name:
-      customEl.setAttribute("collapsed", false);
+      customEl.removeAttribute("collapsed");
       // find container of filterName
       let hbox = filterNameElement.parentElement, // #filterNameBox
         container = hbox.parentElement; // dialog?
@@ -267,13 +267,13 @@ END LICENSE BLOCK
       // localise dropdown for custom filter elements
       let custVarLabel = document.getElementById("quickFilters-variablePicker-label"),
         custVarPicker = document.getElementById("quickFilters-variablePicker");
-      variablesBox.setAttribute("collapsed", false);
+      variablesBox.removeAttribute("collapsed");
       hbox.appendChild(variablesBox);
       custVarPicker.label = custVarLabel.value; // show label on dropdown!
       // make "template name" label visible and collapse "filter name"
       filterNameElement.previousElementSibling.setAttribute("collapsed", true); // hide #filterNameLabel
       hbox.insertBefore(templateLabel, filterNameElement);
-      templateLabel.setAttribute("collapsed", false);
+      templateLabel.removeAttribute("collapsed");
       filterNameElement.setAttribute("flex", 8);
       
       // hide sort Button for custom templates
@@ -707,7 +707,7 @@ END LICENSE BLOCK
   util.logDebug("qFilters-filterEditor.js - finished.")
 }
 
-quickFilters.Util.acceptEditFilter = function acceptEditFilter(win) {
+quickFilters.Util.acceptEditFilter = function (win) {
 	let retVal = onAccept();
   quickFilters.Util.logDebug("quickFilters.Util.accept(" + win + ")");
   let op = win.opener;

@@ -1,16 +1,21 @@
+/*
+  globals
+	  WL
+*/
+
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/quickFilters.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-utils.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-filterEditor.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 
+// eslint-disable-next-line no-unused-vars
 async function onLoad(activatedWhileWindowOpen) {
-    let layout2 = WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
- 
-    WL.injectElements(`
+	WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
+
+	WL.injectElements(`
     
-	<dialog id="FilterEditor"
-	  ondialogaccept = "{ return quickFilters.Util.acceptEditFilter(window); }" >
+	<dialog>
 		
 		<hbox id="quickFilters-CustomTemplate" collapsed="true" >
 			<img src="chrome:///quickfilters/content/skin/proFeature24.png" id="customLogo" />
@@ -119,6 +124,17 @@ async function onLoad(activatedWhileWindowOpen) {
 	</dialog>
     
     `);
+
+	const dlg = document.querySelector("dialog");
+	dlg.setAttribute(
+    "title",
+    window.quickFilters.Util.getBundleString("qf.templates.customTemplate.label")
+  );
+	const shadowRoot = dlg.shadowRoot;
+	const okButton = shadowRoot.querySelector('button[dlgtype="accept"]');
+  okButton.addEventListener("click", () => {
+		return quickFilters.Util.acceptEditFilter(window);
+  });
     
   const btnPicker = document.getElementById("quickFilters-variablePicker");
   btnPicker.addEventListener("command", function(evt) { window.quickFilters.FilterEditor.selectCustomHeader(this,evt); })
@@ -126,7 +142,7 @@ async function onLoad(activatedWhileWindowOpen) {
   const helpWidget = document.getElementById("qfi_help_actions_customtemplate"),
     actionBox = document.getElementById("filterActionList");
   if (actionBox && helpWidget) {
-    hbox = helpWidget.parentNode;
+    const hbox = helpWidget.parentNode;
     // debugger;
     actionBox.parentNode.insertBefore(hbox, actionBox);
     let lbl = hbox.previousSibling;
@@ -137,7 +153,7 @@ async function onLoad(activatedWhileWindowOpen) {
   // add tooltips:
   for (let node of document.querySelectorAll(".helpLink[clickyTooltip]")) {
     node.addEventListener("click",
-      (event) => {
+      () => {
         window.quickFilters.Util.openTooltipPopup(node);
       }
     );    
@@ -169,7 +185,7 @@ async function onLoad(activatedWhileWindowOpen) {
     });
   }
   
-  window.quickFilters.Util.notifyTools.enable();
+  // window.quickFilters.Util.notifyTools.enable();
   await window.quickFilters.Util.init();
     
   if (!activatedWhileWindowOpen) {
@@ -177,8 +193,4 @@ async function onLoad(activatedWhileWindowOpen) {
   }
   
  
-}
-
-function onUnload(isAddOnShutDown) {
-  
 }
