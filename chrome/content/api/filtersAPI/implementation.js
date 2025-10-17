@@ -95,12 +95,23 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
           // get accountId from folder server
           const accountId = folder.server?.accountKey || folder.server?.key || null;
 
+          util.logDebug(
+            `found ${filterCount} filters for server[${accountId}] ${folder?.server?.prettyName}. Iterating...`
+          );
+
+          const prefs = win.quickFilters.Preferences;
+          const isFirstActionOnly = prefs.getBoolPref("assistant.merge.firstActionOnly");
+          const isDebugDetail = prefs.getBoolPref("debug.FiltersAPI");
+
           for (let i = 0; i < filterCount; i++) {
             const filter = localFolderList.getFilterAt(i);
             const result = {
               filterName: filter.filterName,
               accountId,
             };
+            if (isDebugDetail) { 
+              console.log(`Checking filter ${i} : ${result.filterName} ...`); 
+            }
 
             const token = filter.filterName.split(":");
             if (token[0] && token[0].indexOf("quickFilterCustomTemplate") == 0) {
@@ -109,7 +120,7 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
             } else {
               result.type = "filter";
             }
-            result.description = filter.description;
+            result.description = filter.description || "";
             result.enabled = filter.enabled;
             result.matchedActionType = null; 
             result.matchedActionExt = null; 
@@ -119,14 +130,21 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
               continue;
             }
             // merge: check all actions for folder URI
-            const prefs = win.quickFilters.Preferences;
-            const isFirstActionOnly = prefs.getBoolPref("assistant.merge.firstActionOnly");
             const bounds = isFirstActionOnly ? 1 : filter.actionCount;
             for (let a = 0; a < bounds; a++) {
               if (results.some(r => r.filterName === result.filterName && r.accountId === result.accountId)) {
                 break;
               }
-              const action = filter.getActionAt(a);
+              let action;
+              try {
+                action = filter.getActionAt(a);
+              } catch {
+                console.warn(`No action[${a}], skipping filter ${result.filterName}...`);
+                if (!filterAction) {
+                  results.push(result);
+                }
+                continue;
+              }
               result.matchedActionType = action?.type; // nsMsgFilterAction constant
               if (action.type === FA.MoveToFolder || action.type === FA.CopyToFolder) {
                 if (targetUri && action?.targetFolderUri === targetUri) {
@@ -159,6 +177,9 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
                 break;
               }
             }
+          }
+          if (isDebugDetail) { 
+            console.log("Returning results.", results);
           }
           return results;
         },

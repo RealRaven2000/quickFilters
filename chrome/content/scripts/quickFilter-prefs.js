@@ -34,6 +34,8 @@ pref("extensions.quickfilters.debug.template.custom", false);
 pref("extensions.quickfilters.debug.premium", false);
 pref("extensions.quickfilters.debug.premium.licenser", false);
 pref("extensions.quickfilters.debug.premium.rsa", false);
+pref("extensions.quickfilters.debug.FiltersAPI", false);
+
 
 pref("extensions.quickfilters.debug.functions", false);
 pref("extensions.quickfilters.debug.mime", false);

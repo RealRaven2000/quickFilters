@@ -312,8 +312,11 @@ function showSplash() {
 
 async function displayAssistant(data) {
   // [issue 309] open the HTML version of the assistant
+  messenger.Utilities.logDebug("displayAssistant()");
   const assistantURL = browser.runtime.getURL("html/filterAssistant.html");
+  messenger.Utilities.logDebug(`assistantURL=${assistantURL}`);
   const url = new URL(assistantURL);
+  messenger.Utilities.logDebug(`url=${url}`);
   url.searchParams.set("context", data?.context || "");
   // Add unique id for this request, used for async duties
   url.searchParams.set("requestId", data.requestId);
@@ -364,15 +367,19 @@ async function displayAssistant(data) {
     url.searchParams.set("sourceFolder", JSON.stringify(source)); // future use.
     // find any mergeable filters:
     if (data.context != "mergeList") {
-      const { filterAction, filterActionExt } = data; 
-      const mergableFilters = await messenger.FiltersAPI.getFilters(
-        uri,
-        targetUri,
-        filterAction || null,
-        filterActionExt || null
-      );
-      if (mergableFilters?.length) {
-        url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
+      try {
+        const { filterAction, filterActionExt } = data;
+        const mergableFilters = await messenger.FiltersAPI.getFilters(
+          uri,
+          targetUri,
+          filterAction || null,
+          filterActionExt || null
+        );
+        if (mergableFilters?.length) {
+          url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
+        }
+      } catch (ex) {
+        console.warn(" FiltersAPI.getFilters failed, continuing without auto-merging ", ex);
       }
     }
   }
@@ -746,7 +753,21 @@ async function main() {
       }
 
       case "quickFiltersAssistant": {
-        displayAssistant(data);
+        try {
+          displayAssistant(data);
+        } catch (ex) {
+          console.logError("displayAssistant failed!", ex);
+          if (data?.requestId) {
+            if (data.requestId.startsWith("assistant_")) {
+              await messenger.Utilities.resolveAssistant(data.requestId, "error", {
+                answer: null,
+                selectedMergedFilterIndex: -1,
+                mergeFilter: null,
+                error: ex.message,
+              });            
+            }
+          }
+        }
         break;
       }
 
