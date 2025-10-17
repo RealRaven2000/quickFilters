@@ -258,8 +258,8 @@ quickFilters.Assistant = {
       return;
     }
     try {
-      const showEditor = await quickFilters.Assistant.getPref("showEditorAfterCreateFilter"),
-        showList = await quickFilters.Assistant.getPref("showListAfterCreateFilter"),
+      const showEditor = await quickFilters.Assistant.getPref("showEditorAfterCreate"),
+        showList = await quickFilters.Assistant.getPref("showListAfterCreate"),
         _currentPage = this.currentPage;
 
       const urlParams = new URLSearchParams(window.location.search);
@@ -283,17 +283,17 @@ quickFilters.Assistant = {
 
       switch (_currentPage) {
         case "stepMerge": // existing filters were found, lets store selected filter index or -1!
-          if (context=="mergeList") {
+          if (context == "mergeList") {
             // return the selected filter from match list (target filter for merge)
             const selectedFilter = this.mergeCandidates[this.selectedMergedFilterIndex];
             let resultParams = {
               answer: true,
               mergedFilterIndex: this.selectedMergedFilterIndex,
-              mergeFilter : {
+              mergeFilter: {
                 index: this.MatchedFilters.selectedIndex,
                 filterName: selectedFilter.filterName,
-                accountId: selectedFilter.accountId || null
-              }
+                accountId: selectedFilter.accountId || null,
+              },
             };
             this.hasSentResult = true;
             await browser.runtime.sendMessage({
@@ -324,8 +324,8 @@ quickFilters.Assistant = {
                 resultParams.mergeFilter = {
                   index: this.MatchedFilters.selectedIndex,
                   filterName: selectedFilter.filterName,
-                  accountId: selectedFilter.accountId || null
-                }
+                  accountId: selectedFilter.accountId || null,
+                };
               }
             }
             await browser.runtime.sendMessage({
@@ -413,6 +413,25 @@ quickFilters.Assistant = {
     return current;
   },
 
+  setNextSteps: async function () {
+    const getBundleString = quickFilters.Util.getBundleString.bind(quickFilters.Assistant),
+      NextButton = this.NextButton,
+      showEditor = quickFilters.Assistant.getPref("showEditorAfterCreate"),
+      showList = quickFilters.Assistant.getPref("showListAfterCreate"),
+      chkAutoRun = document.getElementById("chkAutoRun");
+
+    window.setTimeout(function () {
+      let AcceptLabel = "";
+      chkAutoRun.disabled = showList;
+      if (!showEditor && !showList) {
+        AcceptLabel = "OK";
+      } else {
+        AcceptLabel = getBundleString("qf.button.createFilter", "Create Filter...");
+      }
+      NextButton.label = AcceptLabel;
+    }, 150);
+  },
+
   /* TO PASS matching filters:
     const filters = matchingFilters.map(f => ({
       accountId: f.accountId,
@@ -455,7 +474,7 @@ quickFilters.Assistant = {
     // reset the list
     matchList.textContent = "";
     const chkAutoRun = document.getElementById("chkAutoRun");
-    chkAutoRun.disabled = this.getPref("showListAfterCreateFilter");
+    chkAutoRun.disabled = this.getPref("showListAfterCreate");
 
     if (filters.length > 0) {
       this.toggleMergePane(true);
@@ -701,7 +720,11 @@ quickFilters.Assistant = {
       expandCollapse(e.target, "previewContent");
     });
 
-    // TO DO: window.sizeToContent();
+    let stepOptions = document.querySelectorAll("#chkShowEditor, #chkShowList, #chkAutoRun");
+    for (const step of stepOptions) {
+      step.addEventListener("change", () => quickFilters.Assistant.setNextSteps());
+    }
+
     // TO DO: templateList.ensureIndexIsVisible(templateList.selectedIndex);
     // TO DO: hide flag / star checkbox depending on application
 

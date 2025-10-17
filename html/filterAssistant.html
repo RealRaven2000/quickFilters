@@ -48,13 +48,13 @@
         </p>
 
         <label>
-          <input type="checkbox" id="chkMerge" onchange="quickFilters.Assistant.selectMerge(this)">
+          <input type="checkbox" id="chkMerge"">
           __MSG_qf.check.mergeWithExisting__
         </label>
 
         <div id="filterArea" class="flex-row" style="gap: 1em; align-items: flex-start;">
           <!--  marge matches are populated dynamically -->
-          <select id="filterMatches" size="6" onchange="quickFilters.Assistant.selectMatchFromList(this)" ondblclick="quickFilters.Assistant.selectMatch(this)">
+          <select id="filterMatches" size="6">
           </select>
 
           <p id="filterDescription" style="margin: 0;">
@@ -63,7 +63,7 @@
         </div>
 
         <label id="lblCreateNew">
-          <input type="checkbox" id="chkCreateNew" checked onchange="quickFilters.Assistant.selectCreateNew(this)">
+          <input type="checkbox" id="chkCreateNew" checked>
           __MSG_qf.check.createNew__
         </label>        
       </section>
@@ -101,14 +101,11 @@
           <fieldset title="__MSG_qf.filters.steps.tooltip__" style="display: flex; flex-direction: column; gap: 0.25rem;">
             <legend>__MSG_qf.filters.steps.caption__</legend>
             <label><input type="checkbox" id="chkShowEditor" 
-              title="__MSG_qf.filters.steps.showEditor.tooltip__" 
-              onchange="quickFilters.Assistant.setNextSteps();"> __MSG_qf.filters.steps.showEditor__</label>
+              title="__MSG_qf.filters.steps.showEditor.tooltip__"> __MSG_qf.filters.steps.showEditor__</label>
             <label><input type="checkbox" id="chkShowList" 
-              title="__MSG_qf.filters.steps.showList.tooltip__" 
-              onchange="quickFilters.Assistant.setNextSteps();"> __MSG_qf.filters.steps.showList__</label>
+              title="__MSG_qf.filters.steps.showList.tooltip__"> __MSG_qf.filters.steps.showList__</label>
             <label><input type="checkbox" id="chkAutoRun" 
-              title="__MSG_qf.filters.steps.autoRunFilter.tooltip__" 
-              onchange="quickFilters.Assistant.setNextSteps();"> __MSG_qf.filters.steps.autoRunFilter__</label>
+              title="__MSG_qf.filters.steps.autoRunFilter.tooltip__"> __MSG_qf.filters.steps.autoRunFilter__</label>
           </fieldset>
         </div>
 
