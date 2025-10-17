@@ -133,7 +133,7 @@ async function onLoad(activatedWhileWindowOpen) {
 	const shadowRoot = dlg.shadowRoot;
 	const okButton = shadowRoot.querySelector('button[dlgtype="accept"]');
   okButton.addEventListener("click", () => {
-		return quickFilters.Util.acceptEditFilter(window);
+		return window.quickFilters.Util.acceptEditFilter(window);
   });
     
   const btnPicker = document.getElementById("quickFilters-variablePicker");
