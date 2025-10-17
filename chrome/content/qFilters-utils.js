@@ -116,7 +116,10 @@ quickFilters.Util = {
     let button = document.querySelector("button[extension='quickFilters@axelg.com']");
     if (!button) {return;}
     const popupId = "quickFiltersMainPopup";
-    let p = document.getElementById(popupId);
+    let p =
+      document.getElementById(popupId) ||
+      document.querySelector("button[extension='quickFilters@axelg.com']");
+    
     if (p) {
       p.targetNode = button; 
       p.openPopup(button,'after_start', 0, -1,true,false); // no event
