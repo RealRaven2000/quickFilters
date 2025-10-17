@@ -162,12 +162,18 @@ END LICENSE BLOCK
     # [issue 322] Merging filters broken in new html assistant
     # [issue 324] Disable Assistant in Composer
     # [issue 326] Thunderbird 143: Custom Filter Template modifications missing
+    # [issue 324] Removed "Start Filter Assistant" in Composer
+    # [issue 323] "Mailing List" filter template shows alert: "currentHeaderData is not defined"
+    # Improved html assistant: integration of next steps; more resilient filter search API 
+    # (these used to fail with invalid actions and cause complete blocking of the assistant) 
 
 
 
   ============================================================================================================
   6.* - WIP
-    # [issue ]   
+    # [issue 290] Feature Request: add more folders of path in Filter Name for "Move / copy Message" actions
+    
+    
     # [issue ]   
     # [issue ]   
     # convert settings to html / Thunderbird tab
