@@ -11,7 +11,6 @@ END LICENSE BLOCK
 
 /* 
   globals
-    currentHeaderData,
     MsgFilterList,
     FiltaQuilla,
     specialTabs,
@@ -517,7 +516,9 @@ quickFilters.Worker = {
 
   createQuickFilter: async function (params) {
     if (this.createQuickFilterLock) {
-      quickFilters.Util.logDebug("createQuickFilter() blocked by previous call - unfinished!");
+      quickFilters.Util.logDebug(
+        `createQuickFilter() blocked by previous call - unfinished!`
+      );
       return this.createQuickFilterLock; // Return the current pending promise
     }
 
@@ -529,6 +530,7 @@ quickFilters.Worker = {
       return await this.createQuickFilterLock; // return the result of the async operation (as a promise)
     } finally {
       this.createQuickFilterLock = null;
+      quickFilters.Util.logDebug(`createQuickFilter() lock released.`);
     }
   },
 
@@ -584,8 +586,12 @@ quickFilters.Worker = {
       }
       //targetFolder.updateFolder(msgWindow);
       window.setTimeout(async function () {
-        let filtered = await quickFilters.Worker.createQuickFilter(params);
-        quickFilters.Util.logDebug("createQuickFilter returned: " + filtered);
+        try {
+          let filtered = await quickFilters.Worker.createQuickFilter(params);
+          quickFilters.Util.logDebug("createQuickFilter returned: " + filtered);
+        } catch (e) {
+          quickFilters.Util.logDebugHighlight("Rerun call failed:", "rgba(255,0,0,0.8)", "#000", e);
+        }
       }, 400);
       return 0;
     }
@@ -887,7 +893,7 @@ quickFilters.Worker = {
 
             theDate =
               `${dt.getDate()}/` +
-              `${dt.getMonth() + 1} ` +
+              `${dt.getMonth() + 1}/` +
               `${dt.getFullYear()} ` +
               `${dt.getHours()}:` +
               `${dt.getMinutes()}:` +
@@ -1087,10 +1093,7 @@ quickFilters.Worker = {
             quickFilters.Util.notifyTools.notifyBackground(backgroundCallObject);
             // we need to block for the background call to return
 
-            if (quickFilters.Preferences.isDebugOption("assistant")) {
-              // eslint-disable-next-line no-debugger
-              debugger;
-            }
+            /***** waiting for background quickFiltersAssistant to resolve the promise through passed through requestId ****/
             const resultData = await assistantResultPromise;
             if (resultData.result === "cancelled") {
               isCancelled = true;
@@ -1685,10 +1688,9 @@ quickFilters.Worker = {
           } else {
             let msgHdr = buildParams.messageDb.getMsgHdrForMessageID(msg.messageId);
             listIdValue = msgHdr.getStringProperty(hdrListId);
-            // eslint-disable-next-line no-prototype-builtins
-            if (typeof currentHeaderData !== "undefined" && currentHeaderData.hasOwnProperty(hdrListId)) {
-              listIdValue = currentHeaderData[hdrListId].headerValue;
-            }
+            
+            // [issue 323] "currentHeaderData is not defined"
+            // listIdValue = currentHeaderData[hdrListId].headerValue;
             if (!listIdValue) {
               let uri = buildParams.targetFolder.getUriForMsg(msg);
               util.CurrentMessage = msgHdr;
