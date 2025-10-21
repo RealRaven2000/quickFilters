@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Cognome:"
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "Grazie per aver recentemente prolungato la tua licenza o per la tua donazione. Poiché hai contribuito a rendere questa estensione a prova di futuro, puoi semplicemente chiudere questa finestra."
@@ -1444,7 +1447,7 @@
     "message": "Leggi qui l'elenco dettagliato delle modifiche (in inglese):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters è ora pienamente compatibile con Thunderbird 144 e il suo ciclo di rilascio attuale.{P2}{L1}Integrazione migliorata di quickFilters con QuickFolders — iniezione dei pulsanti e correzioni della barra degli strumenti della cartella corrente [issue 321]{L2}{L1}Icone dei menu corrette, rotte in Thunderbird 143 nel menu a comparsa della lista filtri e nelle opzioni di ricerca [issue 317]{L2}{L1}Icona del pulsante di aiuto migliorata nell’assistente{L2}{L1}Aggiunta un’opzione nel dialogo delle impostazioni per disattivare la scheda versioni dopo l’aggiornamento [issue 318]{L2}"
+    "message": "{P1} Thunderbird sta progressivamente sostituendo i suoi vecchi componenti XHTML con interfacce HTML moderne. Ciò significa che le vecchie finestre di dialogo e impostazioni devono essere reimplementate per rimanere compatibili con le versioni future. quickFilters ha migrato le sue principali interfacce utente (impostazioni, assistente) per garantire la compatibilità a lungo termine con la moderna base di codice di Thunderbird. Per ora, puoi continuare a usare le finestre di dialogo legacy come soluzione temporanea fino a quando non saranno rimosse in una futura versione. {P2}{L1} quickFilters è ora compatibile con Thunderbird 145 {L2}{L1} Finestra delle impostazioni aggiornata alla versione HTML moderna. [issue 325]{L2}{L1} Rimosso il vecchio 'Start Filter Assistant' dal menu strumenti dell'editor di posta [issue 324]{L2}{L1} Risolto: la fusione dei filtri non funzionava nel nuovo assistente HTML [issue 322] [issue 327]{L2}{L1} Risolto: in Thunderbird 143 mancavano elementi del modello di filtro personalizzato [issue 326]{L2}{L1} Risolto: il modello di filtro Mailing List mostrava un avviso: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "姓:"
   },
+  "legacy": {
+    "message": "レガシー"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "最近ライセンスを延長するか、寄付していただきありがとうございます。 このアドオンの将来の保証に役立ったので、このウィンドウを閉じるだけです。"
@@ -1441,7 +1444,7 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters は Thunderbird 144 およびその現在のリリースサイクルと完全に互換性があります。{P2}{L1}QuickFolders との quickFilters 統合を改善 — ボタンの注入と現在のフォルダーツールバーの修正 [issue 321]{L2}{L1}フィルターリストのポップアップメニューと検索オプションで Thunderbird 143 で壊れていたメニューアイコンを修正 [issue 317]{L2}{L1}アシスタントのヘルプボタンアイコンを改善{L2}{L1}更新後にバージョンタブを無効にするオプションを設定ダイアログに追加 [issue 318]{L2}"
+    "message": "{P1} Thunderbird は古い XHTML コンポーネントを段階的にモダンな HTML インターフェイスに置き換えています。これにより、古いダイアログや設定ウィンドウは、将来のバージョンとの互換性を維持するために再実装する必要があります。quickFilters は主要なユーザーインターフェイス（設定、アシスタント）を移行し、Thunderbird の最新コードベースとの長期的な互換性を確保しています。現在のところ、古いダイアログも将来的に削除されるまでバックアップとして使用可能です。 {P2}{L1} quickFilters は Thunderbird 145 と互換性があります {L2}{L1} 設定ダイアログをモダンな HTML バージョンに更新しました。 [issue 325]{L2}{L1} 古い 'Start Filter Assistant' をメールエディタのツールメニューから削除しました [issue 324]{L2}{L1} 修正: 新しい HTML アシスタントでフィルターの統合が機能しなかった [issue 322] [issue 327]{L2}{L1} 修正: Thunderbird 143 でカスタムフィルターテンプレートの要素が欠落していた [issue 326]{L2}{L1} 修正: メーリングリストフィルターテンプレートが警告を表示していた: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

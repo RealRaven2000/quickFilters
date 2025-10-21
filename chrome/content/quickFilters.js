@@ -160,6 +160,7 @@ END LICENSE BLOCK
     # Compatibility with Thunderird 145
     # [issue 325] Convert Settings Dialog from XUL to HTML
     # [issue 322] Merging filters broken in new html assistant
+    # [issue 327] Moving mail across accounts - HTML Assistant creates new filter, deletes old one instead of merging
     # [issue 324] Disable Assistant in Composer
     # [issue 326] Thunderbird 143: Custom Filter Template modifications missing
     # [issue 324] Removed "Start Filter Assistant" in Composer
@@ -2214,7 +2215,7 @@ quickFilters.patchMailPane = () => {
           <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuseparator />
           <menuitem id="quickfilters-settings" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__ (legacy)" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__ (__MSG_legacy__)" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menu id="quickfilters-menu-tools" label="__MSG_quickfilters.menu.tools__" class="menu-iconic">
             <menupopup>
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    

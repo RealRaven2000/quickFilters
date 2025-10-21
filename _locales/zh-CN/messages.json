@@ -255,6 +255,9 @@
   "lastName.label": {
     "message": "姓氏"
   },
+  "legacy": {
+    "message": "传统"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "感谢您最近延长许可证或捐赠。 当您帮助将来对该插件进行验证时，只需关闭此窗口即可。"
@@ -1432,7 +1435,7 @@
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters 现在已完全兼容 Thunderbird 144 及其当前发布周期。{P2}{L1}改进了 quickFilters 与 QuickFolders 的集成 — 按钮注入和当前文件夹工具栏修复 [issue 321]{L2}{L1}修复了 Thunderbird 143 中过滤器列表弹出菜单和搜索选项中损坏的菜单图标 [issue 317]{L2}{L1}改进了助手中的帮助按钮图标{L2}{L1}在设置对话框中添加了更新后禁用版本标签的选项 [issue 318]{L2}"
+    "message": "{P1} Thunderbird 正在逐步将其旧版 XHTML 组件替换为现代 HTML 界面。这意味着旧的对话框和设置窗口需要重新实现，以确保与未来版本的兼容性。quickFilters 已迁移其主要用户界面（设置、助手），以确保与 Thunderbird 的现代代码库长期兼容。目前，您仍然可以将旧对话框作为备用选项使用，直到在将来的版本中移除。 {P2}{L1} quickFilters 现已兼容 Thunderbird 145 {L2}{L1} 设置对话框已更新为现代 HTML 版本。 [issue 325]{L2}{L1} 从邮件编辑器的工具菜单中移除了过时的 'Start Filter Assistant' [issue 324]{L2}{L1} 修复：在新的 HTML 助手中合并过滤器无法正常工作 [issue 322] [issue 327]{L2}{L1} 修复：在 Thunderbird 143 中缺少自定义过滤器模板元素 [issue 326]{L2}{L1} 修复：Mailing List 过滤器模板显示警告：'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

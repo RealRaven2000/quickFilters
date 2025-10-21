@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Nazwisko:"
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "message": "Dziękujemy za niedawne przedłużenie licencji lub przekazanie darowizny. Ponieważ pomogłeś w przygotowaniu tego dodatku w przyszłości, możesz po prostu zamknąć to okno.",
     "description": "Shown if license expires more than a year from now"
@@ -1437,7 +1440,7 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters jest teraz w pełni kompatybilny z Thunderbird 144 i jego aktualnym cyklem wydawniczym.{P2}{L1}Ulepszona integracja quickFilters z QuickFolders — wstrzykiwanie przycisków i poprawki paska narzędzi bieżącego folderu [issue 321]{L2}{L1}Naprawiono ikony menu, które były uszkodzone w Thunderbird 143 w menu kontekstowym listy filtrów i opcjach wyszukiwania [issue 317]{L2}{L1}Ulepszona ikona przycisku pomocy w asystencie{L2}{L1}Dodano opcję w oknie ustawień do wyłączenia karty wersji po aktualizacji [issue 318]{L2}"
+    "message": "{P1} Thunderbird stopniowo zastępuje swoje przestarzałe komponenty XHTML nowoczesnymi interfejsami HTML. Oznacza to, że starsze okna dialogowe i ustawień muszą zostać przeprojektowane, aby pozostać kompatybilne z przyszłymi wersjami. quickFilters przeniósł główne interfejsy użytkownika (ustawienia, asystent), aby zapewnić długoterminową kompatybilność z nowoczesną bazą kodu Thunderbirda. Na razie nadal można korzystać ze starszych okien dialogowych jako tymczasowego rozwiązania, dopóki nie zostaną usunięte w przyszłej wersji. {P2}{L1} quickFilters jest teraz kompatybilny z Thunderbird 145 {L2}{L1} Zaktualizowano okno ustawień do nowoczesnej wersji HTML. [issue 325]{L2}{L1} Usunięto przestarzały 'Start Filter Assistant' z menu narzędzi edytora poczty [issue 324]{L2}{L1} Naprawiono: scalanie filtrów nie działało w nowym asystencie HTML [issue 322] [issue 327]{L2}{L1} Naprawiono: w Thunderbird 143 brakowało elementów szablonu niestandardowego filtra [issue 326]{L2}{L1} Naprawiono: szablon filtra Mailing List wyświetlał alert: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "message": "Witamy w $addonName$",

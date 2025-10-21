@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Apellidos:"
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "Gracias por extender su licencia recientemente o si ha donado. Como ha ayudado a preparar este complemento para el futuro, simplemente puede cerrar esta ventana."
@@ -1440,7 +1443,7 @@
     "message": "Lea el registro de cambios detallado aquí (solo en inglés):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters ahora es totalmente compatible con Thunderbird 144 y su ciclo de actualizaciones actual.{P2}{L1}Mejor integración de quickFilters con QuickFolders — inyección de botones y correcciones en la barra de la carpeta actual [issue 321]{L2}{L1}Se corrigieron iconos de menú rotos en Thunderbird 143 en el menú emergente de la lista de filtros y opciones de búsqueda [issue 317]{L2}{L1}Mejorado el ícono del botón de ayuda en el asistente{L2}{L1}Se añadió una opción en el diálogo de configuración para desactivar la pestaña de versión después de actualizar [issue 318]{L2}"
+    "message": "{P1} Thunderbird está reemplazando de forma gradual sus componentes XHTML antiguos por interfaces HTML modernas. Esto implica que las ventanas de diálogo y configuración más viejas deben rehacerse para mantener la compatibilidad con futuras versiones. quickFilters migró sus principales interfaces de usuario (configuración, asistente) para asegurar la compatibilidad a largo plazo con la base de código moderna de Thunderbird. Por ahora, todavía podés usar los cuadros de diálogo antiguos como alternativa hasta que sean eliminados en una versión futura. {P2}{L1} quickFilters ahora es compatible con Thunderbird 145 {L2}{L1} Diálogo de configuración actualizado a una versión moderna en HTML. [issue 325]{L2}{L1} Se eliminó el obsoleto 'Start Filter Assistant' del menú de herramientas del editor de correo [issue 324]{L2}{L1} Solucionado: la fusión de filtros no funcionaba en el nuevo asistente HTML [issue 322] [issue 327]{L2}{L1} Solucionado: En Thunderbird 143 faltaban elementos de la plantilla de filtro personalizado [issue 326]{L2}{L1} Solucionado: La plantilla de filtro de Mailing List mostraba una alerta: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "message": "Bienvenido a $addonName$",

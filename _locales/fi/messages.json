@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Sukunimi:"
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "message": "Kiitos, että lisenssit äskettäin tai olet lahjoittanut. Koska olet auttanut todistamaan tämän lisäosan tulevaisuudessa, voit yksinkertaisesti sulkea tämän ikkunan.",
     "description": "Shown if license expires more than a year from now"
@@ -1440,7 +1443,7 @@
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters on nyt täysin yhteensopiva Thunderbird 144:n ja sen nykyisen julkaisusykliin kanssa.{P2}{L1}Parannettu quickFiltersin integrointi QuickFoldersin kanssa — painikkeiden lisääminen ja nykyisen kansion työkalupalkin korjaukset [issue 321]{L2}{L1}Korjatut rikkinäiset valikkokuvakkeet Thunderbird 143:n suodatuslistan ponnahdusvalikossa ja hakuvaihtoehdoissa [issue 317]{L2}{L1}Parannettu ohje-painikkeen kuvake assistentissa{L2}{L1}Lisätty asetusvalintaikkunaan vaihtoehto poistaa versiot-välilehti päivityksen jälkeen [issue 318]{L2}"
+    "message": "{P1} Thunderbird on asteittain korvaamassa vanhoja XHTML-komponenttejaan moderneilla HTML-käyttöliittymillä. Tämä tarkoittaa, että vanhat asetusten ja dialogien ikkunat on toteutettava uudelleen, jotta ne pysyvät yhteensopivina tulevien versioiden kanssa. quickFilters on siirtänyt pääasialliset käyttöliittymänsä (asetukset, apuri) varmistaakseen pitkäaikaisen yhteensopivuuden Thunderbirden modernin koodipohjan kanssa. Toistaiseksi voit edelleen käyttää vanhoja dialogeja varajärjestelmänä, kunnes ne poistetaan tulevassa versiossa. {P2}{L1} quickFilters on nyt yhteensopiva Thunderbird 145:n kanssa {L2}{L1} Asetusdialogi päivitetty moderniksi HTML-versioksi. [issue 325]{L2}{L1} Poistettu vanhentunut 'Start Filter Assistant' sähköpostieditorin työkalumenuusta [issue 324]{L2}{L1} Korjattu: Suodattimien yhdistäminen ei toiminut uudessa HTML-apurissa [issue 322] [issue 327]{L2}{L1} Korjattu: Thunderbird 143:ssa puuttui mukautetun suodatinmallin elementtejä [issue 326]{L2}{L1} Korjattu: Mailing List -suodatinmalli näytti varoituksen: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

@@ -86,6 +86,9 @@
       }
     }
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "message": "Zahvaljujemo se vam za nedavno podaljšanje licence ali če ste prispevali. Ker ste pomagali pri prihodnjem preverjanju tega dodatka, lahko preprosto zaprete to okno.",
     "description": "Shown if license expires more than a year from now"
@@ -279,7 +282,7 @@
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters je zdaj popolnoma združljiv s Thunderbird 144 in njegovim trenutnim ciklom izdaj.{P2}{L1}Izboljšana integracija quickFilters s QuickFolders — vstavljanje gumbov in popravki orodne vrstice trenutne mape [issue 321]{L2}{L1}Popravljene ikone menija, ki so bile pokvarjene v Thunderbird 143 v pojavnem meniju seznama filtrov in možnostih iskanja [issue 317]{L2}{L1}Izboljšana ikona gumba za pomoč v pomočniku{L2}{L1}Dodana možnost v nastavitvenem pogovornem oknu za onemogočanje zavihka različice po posodobitvi [issue 318]{L2}"
+    "message": "{P1} Thunderbird postopoma nadomešča svoje zastarele XHTML-komponente z modernimi HTML-vmesniki. To pomeni, da je treba stare nastavitvene in pogovorne okne prenoviti, da bodo še naprej združljive z prihodnjimi različicami. quickFilters je migriral svoje glavne uporabniške vmesnike (nastavitve, pomočnik), da zagotovi dolgoročno združljivost z moderno kodo Thunderbirda. Za zdaj lahko stare pogovorne okne še vedno uporabljate kot rezervno možnost, dokler jih ne odstranimo v prihodnji različici. {P2}{L1} quickFilters je zdaj združljiv s Thunderbird 145 {L2}{L1} Posodobljen nastavitveni pogovorni okno na moderno HTML različico. [issue 325]{L2}{L1} Odstranjen zastareli 'Start Filter Assistant' iz orodnega menija urejevalnika pošte [issue 324]{L2}{L1} Odpravljeno: združevanje filtrov ni delovalo v novem HTML pomočniku [issue 322] [issue 327]{L2}{L1} Odpravljeno: v Thunderbird 143 so manjkali elementi predloge po meri [issue 326]{L2}{L1} Odpravljeno: predloga filtra Mailing List je prikazovala opozorilo: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

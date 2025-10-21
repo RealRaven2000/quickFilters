@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Last Name:"
   },
+  "legacy": {
+    "message": "legacy"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "Thank you for recently extending your license or if you have donated. As you have helped to future proof this Add-on, you can simply close this window."
@@ -1445,7 +1448,7 @@
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters is now fully compatible with Thunderbird 144 and its current release cycle.{P2}{L1}Improved quickFilters integration with QuickFolders — button injection and current folder toolbar fixes [issue 321]{L2}{L1}Fixed menu icons broken in Thunderbird 143 in filter list popup menu and search options [issue 317]{L2}{L1}Improved help button icon in assistant{L2}{L1}Added an option in settings dialog to disable version tab after updating [issue 318]{L2}"
+    "message": "{P1} Thunderbird is gradually replacing its legacy XHTML components with modern HTML interfaces. This means that older dialog and settings windows need to be re-implemented to stay compatible with future versions. quickFilters has migrated its main user interfaces (settings, assistant) to ensure long-term compatibility with Thunderbird’s modern code base. For now, you can still use legacy dialogs as a fallback until we remove them in a future version. {P2}{L1} Made quickFilters compatible with Thunderbird 145 {L2}{L1} Updated Settings dialog to a modern HTML version. [issue 325]{L2}{L1} Removed obsolete 'Start Filter Assistant' from tool menu of mail editor [issue 324]{L2}{L1} Fixed: Merging filters broken in new html assistant [issue 322] [issue 327]{L2}{L1} Fixed: In Thunderbird 143 Custom Filter Template elements were missing [issue 326]{L2}{L1} Fixed: Mailing List filter template showed an alert: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Achternaam:"
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "Bedankt voor het onlangs verlengen van uw licentie of als u heeft gedoneerd. Omdat u heeft geholpen om deze add-on toekomstbestendig te maken, kunt u dit venster eenvoudig sluiten."
@@ -1441,7 +1444,7 @@
     "message": "Lees hier het gedetailleerde wijzigingslogboek (alleen in het Engels):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters is nu volledig compatibel met Thunderbird 144 en de huidige releasecyclus.{P2}{L1}Verbeterde integratie van quickFilters met QuickFolders — knopinjectie en huidige map werkbalk fixes [issue 321]{L2}{L1}Gerepareerde menu-iconen die kapot waren in Thunderbird 143 in het filterlijst popup-menu en zoekopties [issue 317]{L2}{L1}Verbeterd help-knopicoon in de assistent{L2}{L1}Toegevoegd een optie in het instellingenvenster om de versie-tab na update uit te schakelen [issue 318]{L2}"
+    "message": "{P1} Thunderbird vervangt geleidelijk zijn verouderde XHTML-componenten door moderne HTML-interfaces. Dit betekent dat oudere dialoog- en instellingenvensters opnieuw moeten worden geïmplementeerd om compatibel te blijven met toekomstige versies. quickFilters heeft zijn belangrijkste gebruikersinterfaces (instellingen, assistent) gemigreerd om langdurige compatibiliteit met de moderne Thunderbird-codebasis te garanderen. Voorlopig kunt u de oude dialogen nog als fallback gebruiken totdat ze in een toekomstige versie worden verwijderd. {P2}{L1} quickFilters is nu compatibel met Thunderbird 145 {L2}{L1} Instellingenvenster bijgewerkt naar een moderne HTML-versie. [issue 325]{L2}{L1} Verouderde 'Start Filter Assistant' verwijderd uit het hulpmenu van de mail-editor [issue 324]{L2}{L1} Opgelost: Filters samenvoegen werkte niet in de nieuwe HTML-assistent [issue 322] [issue 327]{L2}{L1} Opgelost: In Thunderbird 143 ontbraken elementen van de aangepaste filtertemplate [issue 326]{L2}{L1} Opgelost: Mailing List-filtertemplate gaf een waarschuwing weer: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

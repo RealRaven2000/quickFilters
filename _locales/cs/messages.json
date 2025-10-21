@@ -119,6 +119,9 @@
   "lastName.label": {
     "message": "Příjmení:"
   },
+  "legacy": {
+    "message": "legacy"
+  },
   "license-is-extended": {
     "message": "Děkujeme, že jste nedávno prodloužili licenci nebo jste darovali. Jelikož jste pomohli doložit tento doplněk do budoucna, můžete toto okno jednoduše zavřít.",
     "description": "Shown if license expires more than a year from now"
@@ -396,7 +399,7 @@
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters je nyní plně kompatibilní s Thunderbird 144 a jeho aktuálním cyklem vydání.{P2}{L1}Vylepšená integrace quickFilters s QuickFolders — injektování tlačítek a opravy panelu aktuální složky [issue 321]{L2}{L1}Opraveny ikony menu, které byly rozbity v Thunderbird 143 v kontextovém menu seznamu filtrů a možnostech hledání [issue 317]{L2}{L1}Vylepšena ikona tlačítka nápovědy v asistentovi{L2}{L1}Přidána možnost v dialogu nastavení pro zakázání karty verzí po aktualizaci [issue 318]{L2}"
+    "message": "{P1} Thunderbird postupně nahrazuje své starší komponenty XHTML moderními HTML rozhraními. To znamená, že starší dialogová a nastavovací okna je nutné přepracovat, aby zůstala kompatibilní s budoucími verzemi. quickFilters převedl svá hlavní uživatelská rozhraní (nastavení, asistent), aby byla zajištěna dlouhodobá kompatibilita s moderním kódem Thunderbirdu. Prozatím můžete starší dialogy stále používat jako záložní řešení, dokud je v budoucí verzi neodstraníme. {P2}{L1} quickFilters je nyní kompatibilní s Thunderbird 145 {L2}{L1} Aktualizováno nastavení dialogu na moderní HTML verzi. [issue 325]{L2}{L1} Odstraněn zastaralý 'Start Filter Assistant' z nabídky nástrojů editoru pošty [issue 324]{L2}{L1} Opraveno: Sloučení filtrů nefungovalo v novém HTML asistentovi [issue 322] [issue 327]{L2}{L1} Opraveno: V Thunderbird 143 chyběly prvky šablony vlastního filtru [issue 326]{L2}{L1} Opraveno: Šablona filtru Mailing List zobrazovala upozornění: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

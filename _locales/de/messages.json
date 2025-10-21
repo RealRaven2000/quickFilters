@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Nachname:"
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "Vielen Dank, dass Sie kürzlich Ihre Lizenz verlängert haben oder gespendet haben. Da Sie zur Zukunftssicherung dieses Add-ons beigetragen haben, können Sie dieses Fenster einfach schließen."
@@ -1441,7 +1444,7 @@
     "message": "Lesen Sie hier das detaillierte Änderungsprotokoll (nur Englisch):"
   },
   "whats-new-list": {
-    "message": "{P1}quickFilters ist nun vollständig kompatibel mit Thunderbird 144 und dessen aktuellem Release-Zyklus.{P2}{L1}Verbesserte Integration von quickFilters mit QuickFolders — Button-Injektion und Anpassungen der aktuellen Ordnerleiste [issue 321]{L2}{L1}Repariert: Menüicons, die in Thunderbird 143 im Filterlisten-Popup-Menü und den Suchoptionen kaputt waren [issue 317]{L2}{L1}Verbessertes Hilfe-Button-Icon im Assistenten{L2}{L1}Im Einstellungsdialog wurde eine Option hinzugefügt, um die Versions-Registerkarte nach dem Update zu deaktivieren [issue 318]{L2}"
+    "message": "{P1} Thunderbird ersetzt nach und nach seine alten XHTML-Komponenten durch moderne HTML-Oberflächen. Das bedeutet, dass ältere Dialog- und Einstellungsfenster neu implementiert werden müssen, um mit zukünftigen Versionen kompatibel zu bleiben. quickFilters hat seine wichtigsten Benutzeroberflächen (Einstellungen, Assistent) migriert, um die langfristige Kompatibilität mit Thunderbirds modernem Code sicherzustellen. Vorerst können die alten Dialoge weiterhin als Fallback genutzt werden, bis sie in einer zukünftigen Version entfernt werden. {P2}{L1} quickFilters ist jetzt kompatibel mit Thunderbird 145 {L2}{L1} Einstellungsdialog auf moderne HTML-Version aktualisiert. [issue 325]{L2}{L1} Veralteten 'Start Filter Assistant' aus dem Werkzeugmenü des Mail-Editors entfernt [issue 324]{L2}{L1} Behoben: Zusammenführen von Filtern funktionierte im neuen HTML-Assistenten nicht [issue 322] [issue 327]{L2}{L1} Behoben: In Thunderbird 143 fehlten Elemente der benutzerdefinierten Filtervorlage [issue 326]{L2}{L1} Behoben: Mailing-Listen-Filtervorlage zeigte eine Warnung: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

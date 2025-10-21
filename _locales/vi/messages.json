@@ -260,6 +260,9 @@
   "lastName.label": {
     "message": "Last Name:"
   },
+  "legacy": {
+    "message": "Legacy"
+  },
   "license-is-extended": {
     "description": "Shown if license expires more than a year from now",
     "message": "Cảm ơn bạn đã gia hạn giấy phép gần đây hoặc nếu bạn đã đóng góp. Vì bạn đã giúp chứng minh Tiện ích bổ sung này trong tương lai, bạn có thể chỉ cần đóng cửa sổ này."
@@ -1441,7 +1444,7 @@
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters hiện đã hoàn toàn tương thích với Thunderbird 144 và chu kỳ phát hành hiện tại của nó.{P2}{L1}Cải thiện tích hợp quickFilters với QuickFolders — chèn nút và sửa thanh công cụ thư mục hiện tại [issue 321]{L2}{L1}Sửa các biểu tượng menu bị hỏng trong Thunderbird 143 trong menu popup danh sách bộ lọc và các tùy chọn tìm kiếm [issue 317]{L2}{L1}Cải thiện biểu tượng nút trợ giúp trong trợ lý{L2}{L1}Thêm tùy chọn trong hộp thoại cài đặt để vô hiệu hóa tab phiên bản sau khi cập nhật [issue 318]{L2}"
+    "message": "{P1} Thunderbird đang dần thay thế các thành phần XHTML cũ bằng giao diện HTML hiện đại. Điều này có nghĩa là các cửa sổ hộp thoại và cài đặt cũ cần được tái hiện lại để vẫn tương thích với các phiên bản trong tương lai. quickFilters đã di chuyển các giao diện chính của người dùng (cài đặt, trợ lý) để đảm bảo khả năng tương thích lâu dài với cơ sở mã hiện đại của Thunderbird. Hiện tại, bạn vẫn có thể sử dụng các hộp thoại cũ như phương án dự phòng cho đến khi chúng bị loại bỏ trong phiên bản tương lai. {P2}{L1} quickFilters hiện đã tương thích với Thunderbird 145 {L2}{L1} Cập nhật hộp thoại Cài đặt lên phiên bản HTML hiện đại. [issue 325]{L2}{L1} Loại bỏ 'Start Filter Assistant' lỗi thời khỏi menu công cụ của trình soạn thảo thư [issue 324]{L2}{L1} Sửa: Việc gộp bộ lọc không hoạt động trong trợ lý HTML mới [issue 322] [issue 327]{L2}{L1} Sửa: Trong Thunderbird 143 các phần tử mẫu bộ lọc tùy chỉnh bị thiếu [issue 326]{L2}{L1} Sửa: Mẫu bộ lọc Mailing List hiển thị cảnh báo: 'currentHeaderData is not defined' [issue 323]{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
