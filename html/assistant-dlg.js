@@ -258,8 +258,8 @@ quickFilters.Assistant = {
       return;
     }
     try {
-      const showEditor = await quickFilters.Assistant.getPref("showEditorAfterCreate"),
-        showList = await quickFilters.Assistant.getPref("showListAfterCreate"),
+      const showEditor = await quickFilters.Assistant.getPref("showEditorAfterCreateFilter"),
+        showList = await quickFilters.Assistant.getPref("showListAfterCreateFilter"),
         _currentPage = this.currentPage;
 
       const urlParams = new URLSearchParams(window.location.search);
@@ -416,8 +416,8 @@ quickFilters.Assistant = {
   setNextSteps: async function () {
     const getBundleString = quickFilters.Util.getBundleString.bind(quickFilters.Assistant),
       NextButton = this.NextButton,
-      showEditor = quickFilters.Assistant.getPref("showEditorAfterCreate"),
-      showList = quickFilters.Assistant.getPref("showListAfterCreate"),
+      showEditor = quickFilters.Assistant.getPref("showEditorAfterCreateFilter"),
+      showList = quickFilters.Assistant.getPref("showListAfterCreateFilter"),
       chkAutoRun = document.getElementById("chkAutoRun");
 
     window.setTimeout(function () {
@@ -450,7 +450,7 @@ quickFilters.Assistant = {
     });
   */
 
-  initMatchedFilters: function () {
+  initMatchedFilters: async function () {
     const params = new URLSearchParams(location.search);
     const filtersJson = params.get("matchedFilters");
     if (!filtersJson) {
@@ -474,7 +474,7 @@ quickFilters.Assistant = {
     // reset the list
     matchList.textContent = "";
     const chkAutoRun = document.getElementById("chkAutoRun");
-    chkAutoRun.disabled = this.getPref("showListAfterCreate");
+    chkAutoRun.disabled = await this.getPref("showListAfterCreateFilter");
 
     if (filters.length > 0) {
       this.toggleMergePane(true);
@@ -619,7 +619,7 @@ quickFilters.Assistant = {
     });
 
     // find any filters that match and add them to the MatchedFilters listbox
-    const countMatched = this.initMatchedFilters();
+    const countMatched = await this.initMatchedFilters();
     const isMergePossible = countMatched > 0;
     this.toggleMergePane(isMergePossible);
     if (!isMergePossible) {
@@ -770,6 +770,7 @@ quickFilters.Assistant = {
       });
     };
 
+    // the following functions are using the map keys to bind controls to actual prefs
     // Template dropdown
     await bindSelect("qf-filter-templates", "selectedTemplate");
 
