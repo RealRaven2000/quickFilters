@@ -5,12 +5,12 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 *   Compatibility with Thunderbird 145
 *   Converted Settings Dialog from XUL to HTML [issue #325]
-*   Fixed: Thunderbird 143: Custom Filter Template elements  missing [issue #326]
-*   Remove Start Assistant from tools menu in Composer [issue #324]
+*   Removed obsolete "Start Filter Assistant" from Composer's tool menu [issue #324]
 
 
 **Bug Fixes**
-*   Fixed: Merging filters broken in new html assistant [issue #322]
+*   Fixed: Thunderbird 143: Custom Filter Template elements  missing [issue #326]
+*   Fixed: Merging filters broken in new html assistant [issue #322] [issue #327]
 *   Fixed: "Mailing List" filter template shows alert: "`currentHeaderData` is not defined" [issue #323]
 
 
