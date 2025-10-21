@@ -56,6 +56,10 @@
   list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
 }
 
+#quickfilters-settings {
+  list-style-image: url("chrome://quickfilters/content/skin/settings-simple.svg");
+}
+
 #quickfilters-options {
   list-style-image: url("chrome://quickfilters/content/skin/settings.svg");
 }

@@ -25,7 +25,7 @@ var listener_toggleFolder,
 async function onLoad(activatedWhileWindowOpen) {
   // console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
-  let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=4");
+  let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
   let layout3 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-actionButton.css?v=5");
   window.quickFilters.Util.logDebug("injected style sheets:", layout, layout2, layout3);
 

@@ -97,7 +97,7 @@ function injectButton(parentElement, id, options = {}) {
 // eslint-disable-next-line no-unused-vars
 async function onLoad(_activatedWhileWindowOpen) {
   WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css?v=2");
-  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=4");
+  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
 
   window.setTimeout((win = window) => {
     console.log("qFi-3pane.js - onLoad()");

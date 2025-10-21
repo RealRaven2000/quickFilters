@@ -34,7 +34,7 @@
   // Tb143+ override
   // Deals with [issue 390] Thunderbird 143: all menu icons of all popups broken
   if (isPoly143) {
-    willy.injectCSS("chrome://quickfilters/content/quickfilters-menus-143.css?v=3");
+    willy.injectCSS("chrome://quickfilters/content/quickfilters-menus-143.css?v=6.9");
   }
 
   // Future regression patches can be added here

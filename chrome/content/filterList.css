@@ -7,7 +7,6 @@
   --toolbarbutton-checkedhover-backgroundcolor: var(--lwt-toolbarbutton-hover-background, rgba(0, 0, 0, .2));
 }
 
-
 #quickFilterNotificationBox {
 	width: 100%;
 }
@@ -186,7 +185,7 @@
 }
 
 #quickFiltersBtnSettings {
-	list-style-image: url("chrome://quickfilters/content/skin/settings.svg");
+	list-style-image: url("chrome://quickfilters/content/skin/settings-simple.svg");
 }
 
 /* Sorting and Ordering ...  */
