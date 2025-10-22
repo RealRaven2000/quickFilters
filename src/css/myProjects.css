@@ -56,7 +56,7 @@ table.quickFiltersProRenew,
 	display: block;
 	position: relative;
 	left: -100px;
-	top: -100px;
+	top: -150px;
 	opacity: 100%;
   animation: quickfiltersPulse 2.5s 1s ease-in-out infinite;
 	width: 180px;
