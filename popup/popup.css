@@ -145,13 +145,13 @@ canvas[collapsed=true] {
   cursor: pointer;
   float: right;
   position: relative;
-  right: -3em;
-  top: -3em;
+  right: -2em;
+  top: -5em;
   transition: transform 0.5s ease;
   border: 15px solid rgba(60, 60, 90, 0.6);
   background-color: rgba(60, 60, 90, 0.6);
-  border-radius: 95px;
-  margin-left: -95px; /* avoid pushing the text to the left! */
+  border-radius: 36px;
+  margin-left: -105px; /* avoid pushing the text to the left! */
   z-index: 10000;
 }
 

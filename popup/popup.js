@@ -7,7 +7,19 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 
 /* shared module for installation popups */
-const SALE_DATE = "2025-03-24"; // starts 2025-03-10
+const SALE_END_DATE = "2025-10-31"; // starts 2025-10-23
+
+// eslint-disable-next-line no-unused-vars
+function getSaleEndLabel() {
+  // format date based on user’s locale
+  const now = new Date();
+  const endSale = new Date(SALE_END_DATE);
+  const includeYear = endSale.getFullYear() !== now.getFullYear();
+  const dateOptions = includeYear
+    ? { month: "long", day: "numeric", year: "numeric" }
+    : { month: "long", day: "numeric" };
+  return endSale.toLocaleDateString(messenger.i18n.getUILanguage(), dateOptions);
+}
 
 // eslint-disable-next-line no-unused-vars
 async function updateActions(addonName) {
@@ -43,7 +55,7 @@ async function updateActions(addonName) {
   let isActionList = true;
 
   let currentTime = new Date(),
-      endSale = new Date(SALE_DATE); // Next Sale End Date
+      endSale = new Date(SALE_END_DATE); // Next Sale End Date
   let isSale = (currentTime < endSale);
   hideSelectorItems('.donations');
 

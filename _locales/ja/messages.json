@@ -1338,10 +1338,6 @@
       }
     }
   },
-  "special-offer-expiry": {
-    "message": "3月24日"
-  },
-
   "special-offer-head": {
     "message": "続行するには、quickFiltersをご利用ください。"
   },
