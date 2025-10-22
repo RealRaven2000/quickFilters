@@ -26,6 +26,10 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
 }
 
 /* highlight news item but only if the button is highlighted as news (hasNews pref set) */
+.newsflash #quickfilters-news {
+  color-scheme: dark;
+}
+
 .newsflash #quickfilters-news.marching-ants {
 	border: 1px solid transparent !important;
 	background: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) padding-box,

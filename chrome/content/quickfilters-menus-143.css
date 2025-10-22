@@ -17,6 +17,7 @@
 }
 
 #quickfilters-checkLicense {
+  color-scheme: dark;
   --menuitem-icon: url("chrome://quickfilters/content/skin/info.svg") !important;
 }
 
