@@ -9,8 +9,8 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 
 **Bug Fixes**
-*   Fixed: Thunderbird 143: Custom Filter Template elements  missing [issue #326]
 *   Fixed: Merging filters broken in new html assistant [issue #322] [issue #327]
+*   Fixed: Thunderbird 143: Custom Filter Template elements  missing [issue #326]
 *   Fixed: "Mailing List" filter template shows alert: "`currentHeaderData` is not defined" [issue #323]
 
 
