@@ -2054,47 +2054,39 @@ quickFilters.Util = {
 	} ,
   
 	viewLicense: function () {
-		let win = quickFilters.Util.getMail3PaneWindow(),
-        params = {inn:{mode:"licenseKey",tab:-1, message: "", instance: win.quickFilters}, out:null};
-    
     if (!quickFilters.Util.licenseInfo.isLicenseViewed) {
       quickFilters.Util.licenseInfo.isLicenseViewed = true; // session variable to mark license stuff as "seen".
       quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"}); 
     }
 		// open options and open the last tab!
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
-				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
-				quickFilters,
-				params).focus();
-    
-	  
+    window.quickFilters.Util.notifyTools.notifyBackground({
+      func: "quickFiltersSettings",
+      page: "licenseTab",
+      mode:"licenseKey"
+    });    
 	}, 
 	
 	viewSupport: function () {
-		let win = quickFilters.Util.getMail3PaneWindow(),
-		    params = {inn:{mode:"supportOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
-				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
-				quickFilters,
-				params).focus();
+    window.quickFilters.Util.notifyTools.notifyBackground({
+      func: "quickFiltersSettings",
+      page: "supportTab",
+      mode: "supportOnly",
+    });    
 	},
 
 	viewAdvanced: function () {
-		let win = quickFilters.Util.getMail3PaneWindow(),
-		    params = {inn:{mode:"advancedOnly",tab:-1, message: "", instance: win.quickFilters}, out:null};
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
-				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
-				quickFilters,
-				params).focus();
+    window.quickFilters.Util.notifyTools.notifyBackground({
+      func: "quickFiltersSettings",
+      page: "advancedTab",
+    });    
 	} ,
 	
 	viewFilterProps: function () {
-		let win = quickFilters.Util.getMail3PaneWindow(),
-		    params = {inn:{mode:"newFilter",tab:-1, message: "", instance: win.quickFilters}, out:null};
-    win.openDialog('chrome://quickfilters/content/quickFilters-options.xhtml',
-				'quickfilters-options','chrome,titlebar,centerscreen,resizable,alwaysRaised ',
-				quickFilters,
-				params).focus();
+    window.quickFilters.Util.notifyTools.notifyBackground({
+      func: "quickFiltersSettings",
+      page: "filterPropsTab",
+      mode: "newFilter",
+    });
 	},
   
   // helper function to see whether a search condition already exists
