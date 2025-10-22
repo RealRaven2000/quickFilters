@@ -1,9 +1,23 @@
-var sales_name = "SPRING SALE"; // .saleName
-var sales_start_lbl = "March 10th"; // .saleStart
-var sales_end_lbl = "March 24th";  // .saleEnd
-var sales_start = new Date("2025-03-10");
-var sales_end = new Date("2025-03-24");
+const sales_name = "HALLOWEEN SALE"; // .saleName
+const SALE_START_DATE = "2025-10-23";
+const SALE_END_DATE = "2025-10-31";
 
+// --- Helper to format dates ---
+function formatSaleDate(isoDate, includeYear = false) {
+  const date = new Date(isoDate);
+  const options = includeYear
+    ? { month: "long", day: "numeric", year: "numeric" }
+    : { month: "long", day: "numeric" };
+
+  // always use English for the website
+  return date.toLocaleDateString("en-US", options);
+}
+
+const sales_start = new Date(SALE_START_DATE);
+const sales_start_lbl = formatSaleDate(SALE_START_DATE); // .saleStart
+
+const sales_end = new Date(SALE_END_DATE);
+const sales_end_lbl = formatSaleDate(SALE_END_DATE); // .saleEnd
 
 
 /* functions that remove elements depending on the user type (from user=pro querystring ) */
