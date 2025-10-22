@@ -9,7 +9,8 @@ END LICENSE BLOCK */
 
 /*
   globals
-    licenseInfo,
+    licenseInfo: writable,
+    validateLicenseInOptions
   */
 
 quickFilters.Options = {
@@ -277,12 +278,21 @@ quickFilters.Options = {
   },
 
   validateNewKey: async function () {
-    quickFilters.Options.trimLicense();
+    let newKey = quickFilters.Options.trimLicense();
     // do a round trip through the background script.
     await messenger.runtime.sendMessage({
       command: "updateLicense",
-      key: document.getElementById("txtLicenseKey").value,
+      key: newKey,
     });
+    licenseInfo = await messenger.runtime.sendMessage({ command: "getLicenseInfo" });
+    // local license key for settings window
+    if (licenseInfo.licenseKey) {
+      await validateLicenseInOptions(true);
+      quickFilters.Options.enableProFeatures(licenseInfo.isValid);
+    } else {
+      // add the [pro] icon to features that are restricted
+      quickFilters.Options.enableProFeatures(false);
+    }   
   },
 
   pasteLicense: async function () {

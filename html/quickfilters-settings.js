@@ -93,9 +93,6 @@ async function initLicenseInfo() {
     quickFilters.Options.enableProFeatures(false);
   }
 
-  // add an event listener for changes:
-  // window.addEventListener("QuickFolders.BackgroundUpdate", validateLicenseInOptions);
-
   messenger.runtime.onMessage.addListener((data, _sender) => {
     if (data.msg == "updatedLicense") {
       licenseInfo = data.licenseInfo;
@@ -223,14 +220,18 @@ const initEventListeners = async () => {
   btnYoutube.addEventListener("click", () => {
     quickFilters.Util.showYouTube();
   });
-  const btnCopy = document.getElementById("btnPasteLicense");
-  btnCopy.addEventListener("click", () => {
-    quickFilters.Options.pasteLicense();
-  });
+  const btnPaste = document.getElementById("btnPasteLicense");
+  let info = await messenger.runtime.getBrowserInfo();
+  if (parseInt(info.version.split(".")[0]) < 125) {
+    btnPaste.hidden = true;
+  } else {
+    btnPaste.addEventListener("click", () => {
+      quickFilters.Options.pasteLicense();
+    });
+  }
   const btnValidate = document.getElementById("btnValidateLicense");
   btnValidate.addEventListener("click", async () => {
     await quickFilters.Options.validateNewKey();
-    initLicenseInfo();
   });
 }
 
