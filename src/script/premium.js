@@ -1,4 +1,4 @@
-const sales_name = "HALLOWEEN SALE"; // .saleName
+const SALE_TITLE = "HALLOWEEN SALE"; // .saleName
 const SALE_START_DATE = "2025-10-23";
 const SALE_END_DATE = "2025-10-31";
 
@@ -92,9 +92,11 @@ var removedItems = [];
 			}
 		};
 
-		// remove sales stuff
+		// remove remaining sales stuff, if Sale not started / finished
 		const current = new Date();
-		if ((sales_start && sales_start < current) || (sales_end && current > sales_end)) {
+		const saleNotStarted = sales_start && sales_start > current;
+		const saleFinished = sales_end && current > sales_end;
+		if (saleNotStarted || saleFinished) {
       removableItems.forEach((e) => {
         if (!removedItems.includes(e)) {
           removeClassItems(e);
@@ -105,7 +107,7 @@ var removedItems = [];
       // update all sales items:
       let saleLabels = document.querySelectorAll(".saleName");
       for (let s of saleLabels) {
-        s.textContent = sales_name; // e.g. "AUTUMN SALE"
+        s.textContent = SALE_TITLE; // e.g. "AUTUMN SALE"
       }
       let saleStarts = document.querySelectorAll(".saleStart");
       for (let s of saleStarts) {
