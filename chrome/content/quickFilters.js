@@ -156,7 +156,7 @@ END LICENSE BLOCK
     # [issue 318] Added option in settings dialog to disable version tab 
     # [issue 321] Improved quickFilters integration with QuickFolders — button injection & toolbar fixes
 
-  6.9 - WIP
+  6.9 - 22/10/2025
     # Compatibility with Thunderird 145
     # [issue 325] Convert Settings Dialog from XUL to HTML
     # [issue 322] Merging filters broken in new html assistant
@@ -168,11 +168,17 @@ END LICENSE BLOCK
     # Improved html assistant: integration of next steps; more resilient filter search API 
     # (these used to fail with invalid actions and cause complete blocking of the assistant) 
 
-
+  6.9.1 - WIP
+    # [issue 328] RegressionL Current folder buttons (on the QuickFolders toolbar) don't update immediately
+    # [issue ]   
+    # [issue ]   
+    
 
   ============================================================================================================
   6.* - WIP
     # [issue 290] Feature Request: add more folders of path in Filter Name for "Move / copy Message" actions
+    # [issue ]   
+    # [issue ]   
     
     
     # [issue ]   
