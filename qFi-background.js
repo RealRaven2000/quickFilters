@@ -615,6 +615,12 @@ async function main() {
       case "slideAlert":
         util.slideAlert(...data.args);
         break;
+      case "updateCurrentFolderButtons":
+        notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
+        break;
+      default:
+        console.warn("Unknown command received in background:", data.command);
+        break;
     }
   });
     
@@ -692,7 +698,7 @@ async function main() {
         notifyWhenUIReady({ event: "setupListToolbar" });
         break;
 
-      case "toggleCurrentFolderButtons":
+      case "toggleCurrentFolderButtons": // legacy settings
         notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
         break;
 

@@ -69,11 +69,6 @@ async function validateLicenseInOptions(evt = false) {
   // 3 - update options ui with reaction messages; make expiry date visible or hide!;
   quickFilters.Options.updateLicenseOptionsUI(silent); // async!
 
-  // this the updating the first button on the toolbar via the main instance
-  // we use the quickfolders label to show if License needs renewal!
-  // use notify tools for updating the [QuickFolders] label
-  messenger.runtime.sendMessage({ command: "updateQuickFoldersLabel" });
-
   // 4 - update buy / extend button or hide it.
   configureBuyButton();
   // util.logDebug("validateLicense - result = " + result);
@@ -245,6 +240,10 @@ const initPrefs = async () => {
 
     el.addEventListener("change", () => {
       messenger.LegacyPrefs.setPref(prefName, el.checked);
+      if (el.classList.contains("currentFolderQF")) {
+        // [issue 328] update current folder buttons if changed in options
+        messenger.runtime.sendMessage({ command: "updateCurrentFolderButtons" });
+      }
     });
   }
   // text / number inputs
