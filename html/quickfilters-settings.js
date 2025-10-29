@@ -80,8 +80,8 @@ async function initLicenseInfo() {
   licenseTxt.value = licenseInfo.licenseKey;
   quickFilters.Options.updateAriaLicenseLabel(licenseTxt);
 
+  await validateLicenseInOptions(true);
   if (licenseInfo.licenseKey) {
-    await validateLicenseInOptions(true);
     quickFilters.Options.enableProFeatures(licenseInfo.isValid);
   } else {
     // add the [pro] icon to features that are restricted
@@ -315,11 +315,33 @@ const startup = async () => {
     }
   } else {
     // select last active tab
-    const lastTab = await browser.LegacyPrefs.getPref("extensions.quickfilters.lastSelectedOptionsTab");
+    const lastTab = await browser.LegacyPrefs.getPref(
+      "extensions.quickfilters.lastSelectedOptionsTab"
+    );
     const button = document.querySelector(`.tabbox button[value="${lastTab}"]`);
     if (button) {
       button.click();
-    } 
+    }
+  }
+  // collapse all other tab buttons if mode is set
+  const mode = params.get("mode"); 
+  // possible modes: supportOnly, licenseKey, newFilter
+  if (mode) {
+    let tabButtons = document.querySelectorAll(".tabbox li > button[isTab]");
+    for (let btn of tabButtons) {
+      switch (mode) {
+        case "supportOnly":
+          if (btn.value != "supportTab") { continue; }
+          break;
+        case "licenseKey":
+          if (btn.value != "licenseTab") { continue; }
+          break;
+        case "newFilter":
+          if (btn.value != "filterPropsTab") { continue; }
+          break;        
+      }
+      btn.parentNode.setAttribute("collapsed", "true");
+    }
   }
 };
 startup();
