@@ -725,6 +725,18 @@ button.configSettings {
   background: transparent; 
 }
 
+#licenseDate {
+  margin-left: 1.5em;
+}
+
+#licenseDate.valid {
+  cursor: pointer;
+}
+
+#licenseDate.valid:hover {
+  text-decoration: underline;
+}
+
 .licenseError {
 	border: 1px solid white;
 	color: white !important;

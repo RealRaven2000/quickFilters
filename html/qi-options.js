@@ -73,6 +73,17 @@ quickFilters.Options = {
       /\s*-\s*/,
       ""
     );
+    // [issue 329]
+    document
+      .getElementById("licenseDate")
+      .addEventListener("click", quickFilters.Options.showExtensionButton);
+  },
+
+  showExtensionButton: function () {
+    if (licenseInfo?.status !== "Valid") {
+      return;
+    }
+    quickFilters.Options.labelLicenseBtn(document.getElementById("btnLicense"), "extend");
   },
 
   enableProFeatures: function (isEnabled) {
@@ -122,11 +133,13 @@ quickFilters.Options = {
         }
       }
       licenseDate.value = niceDate; // invalid ??
+      licenseDate.classList.remove("valid");
       switch (result) {
         case "Valid":
           quickFilters.Options.enableProFeatures(true);
           quickFilters.Options.showValidationMessage(validationPassed, silent);
           // getElement("dialogProductTitle").value = "quickFilters Pro";
+          licenseDate.classList.add("valid");
           licenseDate.value = niceDate;
           licenseDateLabel.textContent = messenger.i18n.getMessage("qf.label.licenseValid");
           break;
@@ -164,6 +177,7 @@ quickFilters.Options = {
           }
           break;
         case "Expired":
+          licenseDate.classList.add("valid");
           licenseDateLabel.value = messenger.i18n.getMessage(
             "quickfilters.licenseValidation.expired"
           );
