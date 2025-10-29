@@ -2065,29 +2065,6 @@ quickFilters.Util = {
       mode:"licenseKey"
     });    
 	}, 
-	
-	viewSupport: function () {
-    window.quickFilters.Util.notifyTools.notifyBackground({
-      func: "quickFiltersSettings",
-      page: "supportTab",
-      mode: "supportOnly",
-    });    
-	},
-
-	viewAdvanced: function () {
-    window.quickFilters.Util.notifyTools.notifyBackground({
-      func: "quickFiltersSettings",
-      page: "advancedTab",
-    });    
-	} ,
-	
-	viewFilterProps: function () {
-    window.quickFilters.Util.notifyTools.notifyBackground({
-      func: "quickFiltersSettings",
-      page: "filterPropsTab",
-      mode: "newFilter",
-    });
-	},
   
   // helper function to see whether a search condition already exists
   checkExistsTerm: function (searchTerms, searchTerm) {

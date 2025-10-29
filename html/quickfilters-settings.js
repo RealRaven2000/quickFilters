@@ -114,6 +114,17 @@ const activateTab = (event) => {
   btn.parentElement.setAttribute("aria-selected", true); // li
   // store last selected tab
   browser.LegacyPrefs.setPref("extensions.quickfilters.lastSelectedOptionsTab", btn.value);
+
+  // update URL hash and remove any query string params
+  try {
+    const url = new URL(window.location.href);
+    url.search = ""; // remove any ?mode=...
+    url.hash = btn.value; // set hash to current tab
+    history.replaceState(null, "", url.toString());
+  } catch (e) {
+    console.warn("Failed to update URL hash/query:", e);
+  }
+
   // display the section
   const {
     target: { value: activeTabSheetId = "" },
@@ -303,9 +314,26 @@ const startup = async () => {
   const verPanel = document.getElementById("qf-options-version");
   const manifest = browser.runtime.getManifest();
   verPanel.textContent = manifest.version;
+  handleNavigation();
 
+};
+
+const handleNavigation = async (notAclick = false) => {
   const params = new URLSearchParams(window.location.search);
-  const page = params.get("page");
+  const hash = window.location.hash.substring(1); // remove leading '#'
+  const page = hash || null;
+  const tabButtons = document.querySelectorAll(".tabbox li > button[isTab]");
+
+  // clear the previous active tab in case user clicked on it last.
+  if (notAclick && document.activeElement) {
+    for (const btn of tabButtons) {
+      if (btn === document.activeElement) {
+        document.activeElement.blur();
+        break;
+      }
+    }
+  }
+
   if (page) {
     const button = document.querySelector(`.tabbox button[value="${page}"]`);
     if (button) {
@@ -324,24 +352,44 @@ const startup = async () => {
     }
   }
   // collapse all other tab buttons if mode is set
-  const mode = params.get("mode"); 
+  const mode = params.get("mode");
   // possible modes: supportOnly, licenseKey, newFilter
+  for (let btn of tabButtons) {
+    btn.parentNode.removeAttribute("collapsed");
+  }
   if (mode) {
-    let tabButtons = document.querySelectorAll(".tabbox li > button[isTab]");
+    // only show a single page:
     for (let btn of tabButtons) {
       switch (mode) {
         case "supportOnly":
-          if (btn.value != "supportTab") { continue; }
+          if (btn.value === "supportTab") {
+            continue;
+          }
           break;
         case "licenseKey":
-          if (btn.value != "licenseTab") { continue; }
+          if (btn.value === "licenseTab") {
+            continue;
+          }
           break;
         case "newFilter":
-          if (btn.value != "filterPropsTab") { continue; }
-          break;        
+          if (btn.value === "filterPropsTab") {
+            continue;
+          }
+          break;
       }
       btn.parentNode.setAttribute("collapsed", "true");
     }
   }
 };
+
 startup();
+// make sure to trugger startup again if a different page is requested
+let lastURI = window.location.href;
+browser.runtime.onMessage.addListener((data) => {
+  if (data.msg === "refreshNavigation") {
+    if (window.location.href !== lastURI) {
+      lastURI = window.location.href;
+      handleNavigation(true);
+    }
+  }
+});

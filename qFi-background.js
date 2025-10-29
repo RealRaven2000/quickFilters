@@ -456,32 +456,45 @@ async function displayAssistant(data) {
 
 async function displaySettings(data) {
   const page = data?.page;
+  const mode = data?.mode; // e.g. "licenseKey" | "supportOnly"  | "newFilter"
   const baseUrl = browser.runtime.getURL("html/quickfilters-settings.html");
-  const targetUrl = page ? `${baseUrl}#${page}` : baseUrl;
+  const query = mode ? `?mode=${encodeURIComponent(mode)}` : "";  
+  const activePage = page ? `#${page}` : "";
+  const targetUrl = `${baseUrl}${query}${activePage}`;
 
   const tabs = await browser.tabs.query({});
 
   // Try to find an existing tab with the same base URL (ignoring hash)
+  const tabBase = new URL(baseUrl);
   const existingTab = tabs.find((t) => {
-    if (!t.url) { return false; }
-    const cleanUrl = t.url.split("#")[0];
-    return cleanUrl === baseUrl;
+    if (!t.url) {
+      return false;
+    }
+    try {
+      const tabUrl = new URL(t.url);
+      return tabUrl.origin === tabBase.origin && tabUrl.pathname === tabBase.pathname;
+    } catch {
+      return false;
+    }
   });
 
   if (existingTab) {
-    // If it already shows the same page, just activate it
-    if (existingTab.url === targetUrl) {
-      await browser.tabs.update(existingTab.id, { active: true });
-      await browser.windows.update(existingTab.windowId, { focused: true });
-    } else {
-      // Update the hash and reload
-      await browser.tabs.update(existingTab.id, { url: targetUrl, active: true });
-      await browser.windows.update(existingTab.windowId, { focused: true });
-    }
-    return;
-  } 
+    const urlNeedsReload = !!data?.page || !!data?.mode;
 
-  await browser.tabs.create({ url: targetUrl });  
+    if (urlNeedsReload) {
+      // Force reload with new hash/mode
+      await browser.tabs.update(existingTab.id, { url: targetUrl, active: true });
+      browser.tabs.sendMessage(existingTab.id, { msg: "refreshNavigation" });
+    } else {
+      // Only activate/focus the tab, no reload
+      await browser.tabs.update(existingTab.id, { active: true });
+    }
+
+    await browser.windows.update(existingTab.windowId, { focused: true });
+    return;
+  }
+
+  await browser.tabs.create({ url: targetUrl });
 }
 
 // create a "deferred" promise for all event listeners on the experimental side
