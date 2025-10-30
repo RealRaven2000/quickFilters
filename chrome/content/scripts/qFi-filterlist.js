@@ -284,7 +284,7 @@ async function onLoad(_activatedWhileWindowOpen) {
     list = window.quickFilters.List;
 
   if (util.versionGreaterOrEqual(Services.appinfo.version, "143")) {
-    WL.injectCSS("chrome://quickfilters/content/filterList-143.css?v=6.9");
+    WL.injectCSS("chrome://quickfilters/content/filterList-143.css?v=6.9.1");
   }
 
 
