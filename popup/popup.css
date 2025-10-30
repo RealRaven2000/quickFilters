@@ -202,6 +202,10 @@ body p, body li {
     opacity: 0.13;
 }
 
+p.heading {
+  font-weight: bold;
+} 
+
 
 
 /*
