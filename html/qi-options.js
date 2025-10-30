@@ -88,11 +88,22 @@ quickFilters.Options = {
 
   enableProFeatures: function (isEnabled) {
     // this replaces the icon with the [Pro] logo!
-    for (let el of document.querySelectorAll(".proFeature, .proFeature input, .proFeature button")) {
+    for (let el of document.querySelectorAll(
+      ".proFeature, .proFeature input, .proFeature button"
+    )) {
       if (isEnabled) {
         el.removeAttribute("disabled");
       } else {
         el.setAttribute("disabled", true);
+      }
+    }
+    // update the logo in the header
+    let header = document.getElementById("qf-options-header");
+    if (header) {
+      if (isEnabled) {
+        header.classList.add("pro");
+      } else {
+        header.classList.remove("pro");
       }
     }
   },
