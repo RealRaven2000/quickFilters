@@ -7,7 +7,7 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 
 /* shared module for installation popups */
-const SALE_END_DATE = "2025-10-31"; // starts 2025-10-23
+const SALE_END_DATE = "2025-11-11"; // starts 2025-10-23
 
 // eslint-disable-next-line no-unused-vars
 function getSaleEndLabel() {
