@@ -7,7 +7,10 @@
     --selectedcolor: #FFFFFF;
     --activecolor: #a5f7fcd9;
     --configColor: rgba(250,40,80, 0.85);
-    --focus-ring-color: #ffaa00aa;     
+    --focus-ring-color: #ffaa00aa;  
+    --validation-passed-color: rgb(110,210,120);
+    --validation-fail-background: #A50B3E;
+    --validation-fail-color; #FFF;
 
     /* tooltips */
     --QFI_tooltipbackground: rgb(30, 30, 30);
@@ -30,6 +33,9 @@
     --activecolor: #FFFFFF;
     --configColor: rgb(140,0,0);
     --focus-ring-color: #0044aaaa;
+    --validation-passed-color: rgb(0,120,0);
+    --validation-fail-background: #A50B1E;
+    --validation-fail-color; #FFF;
 
     /* tooltips */
 		--QFI_tooltipbackground: rgb(244, 244, 244);
@@ -738,9 +744,9 @@ button.configSettings {
 }
 
 .licenseError {
+	background: var(--validation-fail-background,#A50B5E) !important;
 	border: 1px solid white;
 	color: white !important;
-	background: #A50B5E !important;
 	padding: 5px;
 }
 .licenseWarning {
@@ -759,7 +765,7 @@ button.configSettings {
 }
 
 #validationPassed {
-  color: rgb(0,120,0);
+  color: var(--validation-passed-color, rgb(0,120,0));
 }
 
 #validationResults {
