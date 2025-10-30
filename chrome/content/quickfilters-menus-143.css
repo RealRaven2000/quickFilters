@@ -4,6 +4,11 @@
   --menuitem-icon: url("chrome://quickfilters/content/skin/blank.svg");
 }
 
+#quickfilters-gopro {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/pro-expired.svg") !important;
+}
+
+
 #quickfilters-news, #quickfilters-changelog {
   --menuitem-icon: url("chrome://quickfilters/content/skin/info.svg") !important;
 }

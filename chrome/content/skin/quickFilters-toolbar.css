@@ -76,6 +76,10 @@
   list-style-image: url("chrome://quickfilters/content/skin/info.svg") !important;
 }
 
+#quickfilters-gopro {
+  list-style-image: url("chrome://quickfilters/content/skin/pro-expired.svg") !important;
+}
+
 #quickfilters-toolbar-button:not(.expired):not(.renew) #quickfilters-checkLicense {
   display: none;
 }
