@@ -1,6 +1,6 @@
 const SALE_TITLE = "HALLOWEEN SALE"; // .saleName
 const SALE_START_DATE = "2025-10-23";
-const SALE_END_DATE = "2025-10-31";
+const SALE_END_DATE = "2025-11-11";
 
 // --- Helper to format dates ---
 function formatSaleDate(isoDate, includeYear = false) {
