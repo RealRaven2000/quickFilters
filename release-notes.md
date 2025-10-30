@@ -1,5 +1,12 @@
 The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.9) 
 
+**Maintenance Release 6.9.1**
+
+*   Various accessibility improvements in the new HTML settings dialog including life URL updates, correct reusing of an already existing tab.
+*   Update of settings heading logo to reflect license status
+*   Fixed: The new HTML Settings quickFilters Pro page was not configured properly without license key [issue #330]
+*   Fixed: Current folder buttons (on the QuickFolders toolbar) don't update immediately [issue #328]
+*   Added in HTML settings: Click on expiry date to show "extend license" button. [issue #329]
 
 **Improvements**
 
