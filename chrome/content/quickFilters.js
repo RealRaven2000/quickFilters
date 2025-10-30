@@ -168,10 +168,11 @@ END LICENSE BLOCK
     # Improved html assistant: integration of next steps; more resilient filter search API 
     # (these used to fail with invalid actions and cause complete blocking of the assistant) 
 
-  6.9.1 - WIP
-    # [issue 328] RegressionL Current folder buttons (on the QuickFolders toolbar) don't update immediately
-    # [issue ]   
-    # [issue ]   
+  6.9.1 - 31/10/2025
+    # Improved accessibility in new HTML Settings dialog, including correct tab reuse + navigation in URI
+    # [issue 330] HTML Settings: quickFilters Licenses screen is not configured properly without license key
+    # [issue 328] Regression: Current folder buttons (on the QuickFolders toolbar) don't update immediately
+    # [issue 329] HTML settings: Show "extend license" button by clicking on expiry date
     
 
   ============================================================================================================

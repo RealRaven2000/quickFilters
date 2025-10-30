@@ -1440,7 +1440,8 @@
     "message": "Lisez le journal des modifications détaillé ici (en anglais uniquement):"
   },
   "whats-new-list": {
-    "message": "{P1} quickFilters est désormais entièrement compatible avec Thunderbird 144 et son cycle de sortie actuel.{P2}{L1}Intégration améliorée de quickFilters avec QuickFolders — injection de boutons et corrections de la barre d’outils du dossier courant [issue 321]{L2}{L1}Icônes de menu corrigées qui étaient cassées dans Thunderbird 143 dans le menu contextuel de la liste des filtres et les options de recherche [issue 317]{L2}{L1}Icône du bouton d’aide améliorée dans l’assistant{L2}{L1}Ajout d’une option dans la boîte de dialogue des paramètres pour désactiver l’onglet des versions après mise à jour [issue 318]{L2}"
+    "description": "🇫🇷 change log",
+    "message": "{P1 class=heading} Maintenance Release 6.9.1 {P2}{L1}Améliorations générales de l'accessibilité dans la nouvelle fenêtre de paramètres HTML, y compris la réutilisation correcte des onglets.{L2}{L1}Corrigé : La nouvelle page HTML Settings quickFilters Pro n'était pas correctement configurée sans clé de licence.{L2}{L1}Cliquer sur la date d'expiration future affiche désormais le bouton 'Étendre la licence' (auparavant affiché seulement 24 jours avant l'expiration) [issue 329]{L2}{P1} Thunderbird remplace progressivement ses composants XHTML hérités par des interfaces HTML modernes. quickFilters a migré ses principales interfaces (paramètres, assistant) pour garantir une compatibilité à long terme. Pour l'instant, les dialogues hérités peuvent encore être utilisés en tant que solution de secours. {P2}{L1}Compatible avec Thunderbird 145{L2}{L1}Fenêtre de paramètres mise à jour vers une version HTML moderne [issue 325]{L2}{L1}Pour encore plus d'améliorations incluses dans la 6.9, consultez le changelog détaillé sur le site…{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

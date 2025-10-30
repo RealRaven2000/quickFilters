@@ -1351,7 +1351,8 @@
     "message": "在此處閱讀詳細的更改日誌（僅英語）："
   },
   "whats-new-list": {
-    "message": "{P1} Thunderbird 正逐步將其舊版 XHTML 元件替換為現代 HTML 介面。這意味著舊的對話框和設定視窗需要重新實現，以確保與未來版本的相容性。quickFilters 已遷移其主要使用者介面（設定、助理），以確保與 Thunderbird 的現代程式碼庫長期相容。目前，您仍然可以將舊對話框作為備用選項使用，直到在未來版本中移除。 {P2}{L1} quickFilters 現已相容於 Thunderbird 145 {L2}{L1} 設定對話框已更新為現代 HTML 版本。 [issue 325]{L2}{L1} 從郵件編輯器的工具選單中移除了過時的 'Start Filter Assistant' [issue 324]{L2}{L1} 修復：在新的 HTML 助理中合併過濾器無法正常工作 [issue 322] [issue 327]{L2}{L1} 修復：在 Thunderbird 143 中缺少自訂過濾器模板元素 [issue 326]{L2}{L1} 修復：Mailing List 過濾器模板顯示警告：'currentHeaderData is not defined' [issue 323]{L2}"
+    "description": "🇹🇼 change log",
+    "message": "{P1 class=heading} Maintenance Release 6.9.1 {P2}{L1}新的HTML設定對話框在可及性方面進行了整體改進，包括標籤頁的正確重複使用。{L2}{L1}修復：新的HTML Settings quickFilters Pro頁面在沒有授權金鑰時未正確配置。{L2}{L1}點擊未來到期日期現在顯示“延長授權”按鈕（之前僅在到期前24天顯示）[issue 329]{L2}{P1}Thunderbird正在逐步將其舊的XHTML組件替換為現代HTML介面。quickFilters已遷移其主要用戶介面（設定、助理）以確保長期相容性。目前仍可將舊對話框用作備用。 {P2}{L1}相容於Thunderbird 145{L2}{L1}設定對話框更新為現代HTML版本 [issue 325]{L2}{L1}有關6.9中更多改進，請參閱網站上的詳細變更日誌…{L2}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

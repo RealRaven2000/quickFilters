@@ -1440,7 +1440,8 @@
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
-    "message": "{P1} Thunderbird は古い XHTML コンポーネントを段階的にモダンな HTML インターフェイスに置き換えています。これにより、古いダイアログや設定ウィンドウは、将来のバージョンとの互換性を維持するために再実装する必要があります。quickFilters は主要なユーザーインターフェイス（設定、アシスタント）を移行し、Thunderbird の最新コードベースとの長期的な互換性を確保しています。現在のところ、古いダイアログも将来的に削除されるまでバックアップとして使用可能です。 {P2}{L1} quickFilters は Thunderbird 145 と互換性があります {L2}{L1} 設定ダイアログをモダンな HTML バージョンに更新しました。 [issue 325]{L2}{L1} 古い 'Start Filter Assistant' をメールエディタのツールメニューから削除しました [issue 324]{L2}{L1} 修正: 新しい HTML アシスタントでフィルターの統合が機能しなかった [issue 322] [issue 327]{L2}{L1} 修正: Thunderbird 143 でカスタムフィルターテンプレートの要素が欠落していた [issue 326]{L2}{L1} 修正: メーリングリストフィルターテンプレートが警告を表示していた: 'currentHeaderData is not defined' [issue 323]{L2}"
+    "description": "🇯🇵 change log",
+    "message": "{P1 class=heading} Maintenance Release 6.9.1 {P2}{L1}新しいHTML設定ダイアログのアクセシビリティが全般的に改善され、タブの正しい再利用も可能になりました。{L2}{L1}修正: 新しいHTML Settings quickFilters Proページはライセンスキーなしでは正しく構成されていませんでした。{L2}{L1}将来の有効期限をクリックすると、'ライセンス延長'ボタンが表示されます（以前は有効期限24日前のみ表示） [issue 329]{L2}{P1} Thunderbirdは古いXHTMLコンポーネントを徐々にモダンなHTMLインターフェイスに置き換えています。quickFiltersは主要なUI（設定、アシスタント）を移行し、長期的な互換性を確保しました。現時点では古いダイアログもフォールバックとして使用可能です。 {P2}{L1}Thunderbird 145に対応{L2}{L1}設定ダイアログをモダンなHTML版に更新 [issue 325]{L2}{L1}6.9に含まれるその他の改善点については、ウェブサイトの詳細な変更履歴をご覧ください…{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
