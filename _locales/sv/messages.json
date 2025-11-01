@@ -351,6 +351,12 @@
   "qf.button.merge": {
     "message": "Slå samman"
   },
+  "qf.button.mergeFilterRules": {
+    "message": "Kombinera “$filterName$” med nya regler…",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
   "qf.button.next": {
     "message": "Nästa"
   },

@@ -351,6 +351,12 @@
   "qf.button.merge": {
     "message": "Samenvoegen"
   },
+  "qf.button.mergeFilterRules": {
+    "message": "“$filterName$” combineren met nieuwe regels…",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
   "qf.button.next": {
     "message": "Volgende"
   },

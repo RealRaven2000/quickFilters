@@ -346,6 +346,12 @@
   "qf.button.merge": {
     "message": "合并"
   },
+  "qf.button.mergeFilterRules": {
+    "message": "将“$filterName$”与新规则合并…",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
   "qf.button.next": {
     "message": "下一步"
   },

@@ -351,6 +351,12 @@
   "qf.button.merge": {
     "message": "マージ"
   },
+  "qf.button.mergeFilterRules": {
+    "message": "「$filterName$」を新しいルールと統合…",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
   "qf.button.next": {
     "message": "次へ"
   },

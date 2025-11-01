@@ -351,6 +351,12 @@
   "qf.button.merge": {
     "message": "Łączyć"
   },
+  "qf.button.mergeFilterRules": {
+    "message": "Połącz „$filterName$” z nowymi regułami…",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
   "qf.button.next": {
     "message": "Kolejny"
   },

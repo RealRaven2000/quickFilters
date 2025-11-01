@@ -335,6 +335,12 @@
   "qf.button.merge": {
     "message": "合併"
   },
+  "qf.button.mergeFilterRules": {
+    "message": "將「$filterName$」與新規則合併…",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
   "qf.button.next": {
     "message": "下一個"
   },

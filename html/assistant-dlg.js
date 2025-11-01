@@ -269,8 +269,12 @@ quickFilters.Assistant = {
         this.selectedMergedFilterIndex = isMerge ? this.MatchedFilters.selectedIndex : -1;
       }
 
+      const selectedFilter = isMerge ? this.mergeCandidates[this.selectedMergedFilterIndex] : null;
+
       let txtNext = isMerge
-        ? messenger.i18n.getMessage("qf.button.editFilter")
+        ? messenger.i18n.getMessage("qf.button.mergeFilterRules", [
+            selectedFilter?.filterName || "N/A",
+          ])
         : messenger.i18n.getMessage("qf.button.createFilter");
 
       if (!showEditor && !showList) {
@@ -285,7 +289,6 @@ quickFilters.Assistant = {
         case "stepMerge": // existing filters were found, lets store selected filter index or -1!
           if (context == "mergeList") {
             // return the selected filter from match list (target filter for merge)
-            const selectedFilter = this.mergeCandidates[this.selectedMergedFilterIndex];
             let resultParams = {
               answer: true,
               mergedFilterIndex: this.selectedMergedFilterIndex,

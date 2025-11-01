@@ -351,6 +351,12 @@
   "qf.button.merge": {
     "message": "Merge"
   },
+  "qf.button.mergeFilterRules": {
+    "message": "Kết hợp “$filterName$” với các quy tắc mới…",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
   "qf.button.next": {
     "message": "Next"
   },
