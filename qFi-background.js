@@ -372,8 +372,8 @@ async function displayAssistant(data) {
         const mergableFilters = await messenger.FiltersAPI.getFilters(
           uri,
           targetUri,
-          filterAction || null,
-          filterActionExt || null
+          Number.isNaN(filterAction) ? undefined : filterAction,
+          ["string","boolean"].includes(typeof filterActionExt) ? String(filterActionExt) : undefined
         );
         if (mergableFilters?.length) {
           url.searchParams.set("matchedFilters", JSON.stringify(mergableFilters)); // encodeURIComponent()
@@ -574,8 +574,10 @@ async function main() {
         let filters = await messenger.FiltersAPI.getFilters(
           sourceUri,
           targetUri || "",
-          filterAction || null,
-          filterActionExt || null
+          Number.isNaN(filterAction) ? undefined : filterAction,
+          ["string", "boolean"].includes(typeof filterActionExt)
+            ? String(filterActionExt)
+            : undefined
         );
         return filters;
       }
