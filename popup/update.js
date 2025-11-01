@@ -11,7 +11,8 @@ END LICENSE BLOCK */
   globals
     updateActions,
     formatAll,
-    getSaleEndLabel
+    getSaleEndLabel,
+    insertHtmlSafely
 */
 
 const SALE_REDUCTION = "30%";   // reduction for buying quickFilters Pro
@@ -125,10 +126,14 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
       if (hasMsg) {
         verInfo.setAttribute("collapsed", true);
       } else {
-        verInfo.innerHTML = messenger.i18n
-          .getMessage("active-version-info", [addonVer, appVer])
-          .replace("{boldStart}", "<b class='versionnumber'>")
-          .replace("{boldEnd}", "</b>");
+        insertHtmlSafely(
+          verInfo, 
+          messenger.i18n
+            .getMessage("active-version-info", [addonVer, appVer])
+            .replace("{boldStart}", "<b class='versionnumber'>")
+            .replace("{boldEnd}", "</b>"),
+          true
+        );
       }
     }
 
@@ -164,20 +169,28 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     if (specialOffer) {
       let reduction = SALE_REDUCTION;
       // note: expiry day is set in popup.js "endSale" variable
-      specialOffer.innerHTML = messenger.i18n
-        .getMessage("special-offer-content", [localEndSale, reduction])
-        .replace(/\{boldStart\}/g, "<b>")
-        .replace(/\{boldEnd\}/g, "</b>");
+      insertHtmlSafely(
+        specialOffer, 
+        messenger.i18n
+          .getMessage("special-offer-content", [localEndSale, reduction])
+          .replace(/\{boldStart\}/g, "<b>")
+          .replace(/\{boldEnd\}/g, "</b>"),
+        true
+      );
     }
 
     let specialRenew = document.getElementById("specialOfferRenewTxt");
     if (specialRenew) {
       let reduction = RENEW_REDUCTION;
       // note: expiry day is set in popup.js "endSale" variable
-      specialRenew.innerHTML = messenger.i18n
-        .getMessage("special-offer-renew", [localEndSale, reduction])
-        .replace(/\{boldStart\}/g, "<b>")
-        .replace(/\{boldEnd\}/g, "</b>");
+      insertHtmlSafely(
+        specialRenew,
+        messenger.i18n
+          .getMessage("special-offer-renew", [localEndSale, reduction])
+          .replace(/\{boldStart\}/g, "<b>")
+          .replace(/\{boldEnd\}/g, "</b>"),
+        true
+      );
     }
 
     let elementsSI = document.querySelectorAll(".specialOfferIntro"),
@@ -187,12 +200,12 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
         .replace(/\{boldEnd\}/g, "</b>")
         .replace("{name}", userName);
     for (let el of elementsSI) {
-      el.innerHTML = txtSI;
+      insertHtmlSafely(el, txtSI, true);
     }
 
     let whatsNewLst = document.getElementById("whatsNewList");
     if (whatsNewLst) {
-      whatsNewLst.innerHTML = formatAll(messenger.i18n.getMessage("whats-new-list"));
+      insertHtmlSafely(whatsNewLst, formatAll(messenger.i18n.getMessage("whats-new-list")), true);
     }
 
     let ongoing = document.getElementById("ongoing-work");

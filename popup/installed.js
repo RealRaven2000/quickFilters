@@ -7,6 +7,12 @@ For details, please refer to license.txt in the root folder of this extension
 END LICENSE BLOCK */
 // Script for splash screen displayed when installing this Extension
 
+/*
+  globals 
+    updateActions,
+    insertHtmlSafely
+*/
+
 addEventListener("click", async (event) => {
 	if (event.target.id.startsWith("register")) {
 	  messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-install");
@@ -22,7 +28,7 @@ addEventListener("click", async (event) => {
 
 
 
-  addEventListener("load", async (event) => {
+  addEventListener("load", async () => {
     const manifest = await messenger.runtime.getManifest(),
           browserInfo = await messenger.runtime.getBrowserInfo(),
           addonName = manifest.name, 
@@ -49,9 +55,10 @@ addEventListener("click", async (event) => {
       // use the i18n API      
       // You are now running <b class="versionnumber">version {version}</b> on Thunderbird {appver}.
       // for multiple replacements, pass an array
-      verInfo.innerHTML = messenger.i18n.getMessage("active-version-info", [addonVer, appVer])
+      insertHtmlSafely(verInfo, messenger.i18n.getMessage("active-version-info", [addonVer, appVer])
         .replace("{boldStart}","<b class='versionnumber'>")
-        .replace("{boldEnd}","</b>");
+        .replace("{boldEnd}","</b>"),
+      true);
     }    
     
     let suggestion = document.getElementById('support-suggestion');
@@ -70,8 +77,9 @@ addEventListener("click", async (event) => {
     }
     
     let title = document.getElementById('window-title');
-    if (title)
+    if (title) {
       title.innerText = messenger.i18n.getMessage("window-title", addonName);
+    }
     
     updateActions(addonName);
 
