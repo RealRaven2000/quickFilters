@@ -218,6 +218,7 @@ function formatAll(txt) {
       return attrs ? `<li ${attrs}>` : "<li>";
     })
     .replace(/\{L2\}/g, "</li>")
+    .replace(/\{br\}/g, "<br>")
     .replace(/\{boldStart\}/g, "<b>")
     .replace(/\{boldEnd\}/g, "</b>")
     .replace(/\{imp1\}/g, "<span class='important'>")
