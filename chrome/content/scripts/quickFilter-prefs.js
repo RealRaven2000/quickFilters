@@ -76,7 +76,7 @@ pref("extensions.quickfilters.searchterm.addressesOneWay", false); // Bug 25714
 pref("extensions.quickfilters.searchterm.insertOnTop", false); // Bug 26664
 
 
-pref("extensions.quickfilters.assistant.html", false); // use html version
+pref("extensions.quickfilters.assistant.html", true); // use html version
 pref("extensions.quickfilters.assistant.exclude.trash", false);
 pref("extensions.quickfilters.assistant.exclude.junk", false);
 pref("extensions.quickfilters.assistant.exclude.archive", true);
