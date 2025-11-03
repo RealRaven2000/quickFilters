@@ -2324,7 +2324,7 @@ quickFilters.Worker = {
    * @param {boolean} [params.isMsgContext=false] - Whether invoked form mail context menu.
    */
   startFilterAssistant: async function (params) {
-    // sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isMsgContext=false) {
+    // old params: (sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isMsgContext=false)
     const Ci = Components.interfaces;
     if (quickFilters.Preferences.isDebugOption("assistant")) {
       // eslint-disable-next-line no-debugger
