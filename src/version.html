@@ -308,17 +308,29 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   </p>
 
   <h5 class="inList"> Maintenance Release 6.9.2 </h5> 
-  <ul>
+  <ul>  
+    <li class="important">
+      The HTML Assistant is now the default. It’s more future-proof and responsive 
+      to different screen sizes.<br>
+      To continue using the legacy XUL version, you can change this back on 
+      quickFilters Settings ➔ Actions tab ➔ User Interface.<br>
+      Eventually, the legacy interface will be removed to make quickFilters f
+      ully future compatible.
+    </li>
     <li>
       Compatibility with Thunderbird 146
     </li>
     <li>
-      Improved merging filters in the new HTML assistant: API calls are now more 
-      robust and the data type problem in the new Filters API is fixed. I also added
-      the targeted filter name to the edit filter button for clarity:
+      I added the targeted filter name to the edit filter button for clarity:
       <p>
-        <img class="screenshot" src="img/assistant-merge-button.png" alt="edit merged filter">
+        <img class="screenshot" src="img/assistant-merge-button.png" alt="edit merged filter"
+        style="max-width: 600px; width: auto">
+        When merging filters, it is now much clearer which filter is being edited.
       </p>
+    </li>
+    <li>
+      Fixed issues with merging filters in the new HTML assistant.
+      API calls are now more robust and the data type problem in the new Filters API is fixed.
     </li>
     <li>
       Fix: Always reliably remove "Go Pro" menu item when news are displayed with a valid license.
