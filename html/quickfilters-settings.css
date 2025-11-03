@@ -10,7 +10,7 @@
     --focus-ring-color: #ffaa00aa;  
     --validation-passed-color: rgb(110,210,120);
     --validation-fail-background: #A50B3E;
-    --validation-fail-color; #FFF;
+    --validation-fail-color: #FFF;
 
     /* tooltips */
     --QFI_tooltipbackground: rgb(30, 30, 30);
@@ -35,7 +35,7 @@
     --focus-ring-color: #0044aaaa;
     --validation-passed-color: rgb(0,120,0);
     --validation-fail-background: #A50B1E;
-    --validation-fail-color; #FFF;
+    --validation-fail-color: #FFF;
 
     /* tooltips */
 		--QFI_tooltipbackground: rgb(244, 244, 244);
