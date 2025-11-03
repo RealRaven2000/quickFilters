@@ -352,7 +352,7 @@
     "message": "Merge"
   },
   "qf.button.mergeFilterRules": {
-    "message": "Merge “$filterName$” with new rules…",
+    "message": "Combine new rules with “$filterName$”…",
     "placeholders": {
       "filterName": {
         "content": "$1"
@@ -1454,7 +1454,7 @@
   },
   "whats-new-list": {
     "description": "🇬🇧 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.1 {P2}{L1}General accessibility improvements in the new HTML settings dialog, including correct tab reuse.{L2}{L1}Fixed: The new HTML Settings quickFilters Pro page was not configured properly without a license key.{L2}{L1}Click on future expiry date now shows 'Extend license' button (previously only shown 24 days before expiry) [issue 329]{L2}{P1} Thunderbird is gradually replacing its legacy XHTML components with modern HTML interfaces. quickFilters has migrated its main user interfaces (settings, assistant) to ensure long-term compatibility. For now, legacy dialogs can still be used as a fallback. {P2}{L1}Made quickFilters compatible with Thunderbird 145{L2}{L1}Updated Settings dialog to modern HTML version [issue 325]{L2}{L1}For even more improvements included in 6.9, see the detailed changelog on the website…{L2}"
+    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}The HTML Assistant is now the default. It’s more future-proof and responsive to different screen sizes.{br}To continue using the legacy XUL version, you can change this back on quickFilters Settings ➔ Actions tab ➔ User Interface.{br}Eventually, the legacy interface will be removed to make quickFilters fully future compatible.{L2}{L1}Added the targeted filter name to the edit filter button for clarity{L2}{L1}Fixed issues with merging filters in the new HTML assistant{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Improved accessibility in the new HTML settings dialog, including better tab reuse{L2}{L1}Fixed: quickFilters Pro settings tab now works correctly without a license key{L2}{L1}Clicking on future expiry dates now shows the 'Extend license' button [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Updated Settings dialog to modern HTML version [issue 325]{L2}{L1}For the complete list of improvements included in the 6.9.* releases, please see the detailed changelog on the website…{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1439,7 +1439,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.1 {P2}{L1}新的HTML设置对话框在可访问性方面进行了整体改进，包括标签页的正确复用。{L2}{L1}修复：新的HTML Settings quickFilters Pro页面在没有许可密钥时未正确配置。{L2}{L1}点击未来到期日期现在显示“延长许可证”按钮（之前仅在到期前24天显示）[issue 329]{L2}{P1}Thunderbird正在逐步将其旧的XHTML组件替换为现代HTML界面。quickFilters已迁移其主要用户界面（设置、助手）以确保长期兼容性。目前，仍可将旧对话框用作备用。 {P2}{L1}兼容Thunderbird 145{L2}{L1}设置对话框更新为现代HTML版本 [issue 325]{L2}{L1}有关6.9中更多改进，请参阅网站上的详细更改日志…{L2}"
+    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML 助手现在是默认选项。它更具未来适应性，并可响应不同屏幕尺寸。{br}若要继续使用传统 XUL 版本，可在 quickFilters 设置 → 操作选项卡 → 用户界面中更改回去。{br}传统界面最终将被移除，以使 quickFilters 完全兼容未来。{L2}{L1}在编辑按钮中添加目标过滤器名称以提高清晰度{L2}{L1}修复了在新 HTML 助手中合并过滤器的问题{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}改进了新 HTML 设置对话框的可访问性，包括更好的标签重用{L2}{L1}修复：quickFilters Pro 设置选项卡现在即使没有许可证密钥也能正常工作{L2}{L1}点击未来到期日期现在会显示“延长许可证”按钮 [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}设置对话框更新为现代 HTML 版本 [issue 325]{L2}{L1}有关 6.9.* 版本中包含的完整改进列表，请参阅网站上的详细更改日志…{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

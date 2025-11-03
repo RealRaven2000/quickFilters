@@ -1358,7 +1358,7 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.1 {P2}{L1}新的HTML設定對話框在可及性方面進行了整體改進，包括標籤頁的正確重複使用。{L2}{L1}修復：新的HTML Settings quickFilters Pro頁面在沒有授權金鑰時未正確配置。{L2}{L1}點擊未來到期日期現在顯示“延長授權”按鈕（之前僅在到期前24天顯示）[issue 329]{L2}{P1}Thunderbird正在逐步將其舊的XHTML組件替換為現代HTML介面。quickFilters已遷移其主要用戶介面（設定、助理）以確保長期相容性。目前仍可將舊對話框用作備用。 {P2}{L1}相容於Thunderbird 145{L2}{L1}設定對話框更新為現代HTML版本 [issue 325]{L2}{L1}有關6.9中更多改進，請參閱網站上的詳細變更日誌…{L2}"
+    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML 助手現在為預設。它更具未來適應性，並可響應不同螢幕尺寸。{br}若要繼續使用傳統 XUL 版本，可在 quickFilters 設定 → 操作標籤 → 使用者介面中改回去。{br}傳統介面最終將被移除，使 quickFilters 完全未來兼容。{L2}{L1}在編輯按鈕中添加目標篩選器名稱以提高清晰度{L2}{L1}修復了在新 HTML 助手中合併篩選器的問題{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}改善新 HTML 設定對話框的可及性，包括更好的標籤重用{L2}{L1}修復：quickFilters Pro 設定標籤現在即使沒有授權金鑰也能正常工作{L2}{L1}點擊未來到期日期現在會顯示「延長授權」按鈕 [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}設定對話框更新為現代 HTML 版本 [issue 325]{L2}{L1}有關 6.9.* 版本中包含的完整改進列表，請參閱網站上的詳細更改日誌…{L2}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

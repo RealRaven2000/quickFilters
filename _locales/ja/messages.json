@@ -1447,7 +1447,7 @@
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.1 {P2}{L1}新しいHTML設定ダイアログのアクセシビリティが全般的に改善され、タブの正しい再利用も可能になりました。{L2}{L1}修正: 新しいHTML Settings quickFilters Proページはライセンスキーなしでは正しく構成されていませんでした。{L2}{L1}将来の有効期限をクリックすると、'ライセンス延長'ボタンが表示されます（以前は有効期限24日前のみ表示） [issue 329]{L2}{P1} Thunderbirdは古いXHTMLコンポーネントを徐々にモダンなHTMLインターフェイスに置き換えています。quickFiltersは主要なUI（設定、アシスタント）を移行し、長期的な互換性を確保しました。現時点では古いダイアログもフォールバックとして使用可能です。 {P2}{L1}Thunderbird 145に対応{L2}{L1}設定ダイアログをモダンなHTML版に更新 [issue 325]{L2}{L1}6.9に含まれるその他の改善点については、ウェブサイトの詳細な変更履歴をご覧ください…{L2}"
+    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTMLアシスタントがデフォルトになりました。将来性が高く、さまざまな画面サイズに対応しています。{br}従来のXULバージョンを引き続き使用する場合は、quickFilters 設定 → アクションタブ → ユーザーインターフェイスで戻すことができます。{br}従来のインターフェイスは最終的に削除され、quickFiltersは完全に将来互換になります。{L2}{L1}編集ボタンに対象フィルター名を追加してわかりやすくしました{L2}{L1}新しいHTMLアシスタントでのフィルター統合の問題を修正{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}新しいHTML設定ダイアログのアクセシビリティを改善、タブの再利用も向上{L2}{L1}修正：quickFilters Pro 設定タブがライセンスキーなしでも正しく動作するようになりました{L2}{L1}将来の有効期限をクリックすると『ライセンス延長』ボタンが表示されるようになりました [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}設定ダイアログをモダンHTML版に更新 [issue 325]{L2}{L1}6.9.*リリースに含まれる改善点の完全なリストは、ウェブサイトの詳細な変更ログをご覧ください…{L2}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
