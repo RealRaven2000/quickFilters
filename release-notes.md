@@ -1,4 +1,12 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.9) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.9.2) 
+
+**Maintenance Release 6.9.2**
+
+*   Compatibility with Thunderbird 146
+*   Added the targeted filter name to the edit filter button for clarity.
+*   Improved merging filters in the new HTML assistant: API calls are now more robust and the data type problem in the new Filters API is fixed
+*   Fix: Always reliably remove "Go Pro" menu item when news are displayed with a valid license
+*   Removed assignments to `innerHTML` in update/install welcome screens
 
 **Maintenance Release 6.9.1**
 

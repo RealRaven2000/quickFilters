@@ -178,7 +178,7 @@ END LICENSE BLOCK
     # Fix: Now always Remove go pro menu item when news are displayed with a valid license
     # Fixed Merging - there was a problem with a data type in the new Filters API
     # Remove assignments to innerHTML in update / install welcome screens
-    # Improved merging filters in new HTML assistant
+    # Improved merging filters in new HTML assistant, by making API calls more robust
     
 
   ============================================================================================================
