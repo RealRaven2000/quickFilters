@@ -148,7 +148,7 @@
     "message": "quickFilters је ажуриран!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Отворите мени '$menulabel$' испод да бисте видели шта је ново. То такође уклања 🟠."
+    "message": "Отворите мени '{menulabel}' испод да бисте видели шта је ново. То такође уклања 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Лиценца истиче за $daysLeft$ дана",

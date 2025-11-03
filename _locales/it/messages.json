@@ -277,7 +277,7 @@
     "message": "Licenza di quickFilters Pro"
   },
   "mozillas-basic-platform": {
-    "message": "Le modifiche per convertire $addonName$ nel nuovo modello di programmazione hanno richiesto settimane e sono state costose. Ci sono molte altre modifiche previste per la prossima versione del 2022. Con una estensione così complessa, è inevitabile che il lavoro diventi economicamente assai oneroso. Per favore aiutateci!"
+    "message": "Mozilla fornisce solo una piattaforma di base per distribuire il nostro software a voi, gli utenti finali. Se dobbiamo richiedere un pagamento o supporto ai nostri utenti, non possiamo farlo tramite addons.thunderbird.net – non è un 'app store' con sistemi di pagamento o gestione licenze integrati come iTunes o Google Play."
   },
   "msg.preview.author": {
     "message": "Mittente"
@@ -1298,7 +1298,7 @@
     "message": "quickFilters è stato aggiornato!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Apri il menu '$menulabel$' qui sotto per vedere le novità. Facendo così si rimuove anche il 🟠."
+    "message": "Apri il menu '{menulabel}' qui sotto per vedere le novità. Facendo così si rimuove anche il 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "La licenza scade tra $daysLeft$ giorni",
@@ -1352,7 +1352,7 @@
     "message": "Aiuta lo sviluppo di quickFilters"
   },
   "special-offer-intro": {
-    "message": "{boldStart}Gentile {name}{boldEnd}, supporta $addon$ sottoscrivendo una licenza. Il codice-programma di Thunderbird si evolve continuamente e abbiamo bisogno del {boldStart}tuo aiuto{boldEnd} per stare al passo!",
+    "message": "{boldStart}Gentile {name}{boldEnd}, supporta $addonName$ sottoscrivendo una licenza. Il codice-programma di Thunderbird si evolve continuamente e abbiamo bisogno del {boldStart}tuo aiuto{boldEnd} per stare al passo!",
     "placeholders": {
       "addonName": {
         "content": "$1",

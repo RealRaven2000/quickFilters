@@ -1295,7 +1295,7 @@
     "message": "quickFiltersが更新されました！"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "下の '$menulabel$' メニューを開いて新しい情報を確認してください。これにより 🟠 も消えます。"
+    "message": "下の '{menulabel}' メニューを開いて新しい情報を確認してください。これにより 🟠 も消えます。"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "ライセンスは $daysLeft$ 日後に期限切れになります",

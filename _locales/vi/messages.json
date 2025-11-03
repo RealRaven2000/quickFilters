@@ -1295,7 +1295,7 @@
     "message": "quickFilters đã được cập nhật!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Mở menu '$menulabel$' bên dưới để xem những cập nhật mới. Điều này cũng loại bỏ 🟠."
+    "message": "Mở menu '{menulabel}' bên dưới để xem những cập nhật mới. Điều này cũng loại bỏ 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Giấy phép hết hạn sau $daysLeft$ ngày",

@@ -1295,7 +1295,7 @@
     "message": "quickFilters päivitettiin!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Avaa '$menulabel$'-valikko alla nähdäksesi, mitä on uutta. Tämä poistaa myös 🟠."
+    "message": "Avaa '{menulabel}'-valikko alla nähdäksesi, mitä on uutta. Tämä poistaa myös 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Lisenssi vanhenee $daysLeft$ päivän kuluttua",

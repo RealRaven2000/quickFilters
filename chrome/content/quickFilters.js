@@ -1597,7 +1597,7 @@ var quickFilters = {
           newLabel = util.getBundleString("quickfiltersToolbarButton.updated");
           newTooltip = util
             .getBundleString("quickfiltersToolbarButton.updated.tip")
-            .replace("$menulabel$", newsMenuLabel);
+            .replace("{menulabel}", newsMenuLabel);
           
           isDropDownMarkerStyled = true;
         } else {

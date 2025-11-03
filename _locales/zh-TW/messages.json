@@ -1210,7 +1210,7 @@
     "message": "quickFilters 已更新！"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "打開下方的 '$menulabel$' 選單查看最新內容。這也會移除 🟠。"
+    "message": "打開下方的 '{menulabel}' 選單查看最新內容。這也會移除 🟠。"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "許可證在 $daysLeft$ 天后到期",

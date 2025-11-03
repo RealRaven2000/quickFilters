@@ -1296,7 +1296,7 @@
     "message": "quickFilters is bijgewerkt!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Open het '$menulabel$'-menu hieronder om te zien wat nieuw is. Hiermee wordt ook de 🟠 verwijderd."
+    "message": "Open het '{menulabel}'-menu hieronder om te zien wat nieuw is. Hiermee wordt ook de 🟠 verwijderd."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Licentie verloopt over $daysLeft$ dagen",

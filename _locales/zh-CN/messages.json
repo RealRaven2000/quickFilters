@@ -1287,7 +1287,7 @@
     "message": "quickFilters 已更新！"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "打开下面的 '$menulabel$' 菜单查看最新内容。这也会移除 🟠。"
+    "message": "打开下面的 '{menulabel}' 菜单查看最新内容。这也会移除 🟠。"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "许可证在 $daysLeft$ 天后到期",

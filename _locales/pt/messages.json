@@ -1298,7 +1298,7 @@
     "message": "quickFilters foi atualizado!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Abra o menu '$menulabel$' abaixo para ver as novidades. Isso também remove o 🟠."
+    "message": "Abra o menu '{menulabel}' abaixo para ver as novidades. Isso também remove o 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "A licença expira em $daysLeft$ dias",

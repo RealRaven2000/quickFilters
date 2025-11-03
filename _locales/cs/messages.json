@@ -253,7 +253,7 @@
     "message": "quickFilters byl aktualizován!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Otevřete menu '$menulabel$' níže a podívejte se, co je nového. Tím se také odstraní 🟠."
+    "message": "Otevřete menu '{menulabel}' níže a podívejte se, co je nového. Tím se také odstraní 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Platnost licence vyprší za $daysLeft$ dní",

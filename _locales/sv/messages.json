@@ -1295,7 +1295,7 @@
     "message": "quickFilters uppdaterades!"
   },
   "quickfiltersToolbarButton.updated.tip": {
-    "message": "Öppna menyn '$menulabel$' nedan för att se nyheterna. Detta tar också bort 🟠."
+    "message": "Öppna menyn '{menulabel}' nedan för att se nyheterna. Detta tar också bort 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Licensen löper ut om $daysLeft$ dagar",
