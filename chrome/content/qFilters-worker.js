@@ -929,7 +929,7 @@ quickFilters.Worker = {
             let bounds = firstActionOnly ? 1 : aFilter.actionCount;
 
             // make a list of filters with matching primary action
-            // see https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsMsgRuleActionType
+            // see https://udn.realityripple.com/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIMsgRuleAction
             for (let i = 0; i < bounds; i++) {
               let primaryAction;
               try {
@@ -941,9 +941,13 @@ quickFilters.Worker = {
                 );
                 continue;
               }
-              if (!primaryAction) {continue;}
+              if (!primaryAction) {
+                continue;
+              }
               // Only consider actions matching the requested filterAction
-              if (primaryAction.type !== filterAction) {continue; }         
+              if (primaryAction.type !== filterAction) {
+                continue;
+              }
               switch (primaryAction.type) {
                 case Ci.nsMsgFilterAction.MoveToFolder:
                 case Ci.nsMsgFilterAction.CopyToFolder:
@@ -959,7 +963,7 @@ quickFilters.Worker = {
                       matchingFilters.push(aFilter);
                       util.logDebugOptional(
                         "merge,merge.detail",
-                        "======================= MERGE MATCH  ===================\n" +
+                        "======================= MERGE MATCH (folder) ===================\n" +
                           "  Found filter [" +
                           aFilter.filterName +
                           "] merging match target folder. ADDING TO matchingFilters."
@@ -972,12 +976,14 @@ quickFilters.Worker = {
                   // this is unspecific so we need to guess
                   // [Bug 26545] Filter Merge not working
                   if (filterActionExt) {
-                    let kw = msg.getStringProperty ? msg.getStringProperty("keywords") : msg.Keywords;
+                    let kw = msg.getStringProperty
+                      ? msg.getStringProperty("keywords")
+                      : msg.Keywords;
                     if (kw.indexOf(primaryAction.strValue) >= 0) {
                       matchingFilters.push(aFilter);
                       util.logDebugOptional(
                         "merge,merge.detail",
-                        "======================= MERGE MATCH  ===================\n" +
+                        "======================= MERGE MATCH (tag) ===================\n" +
                           "Found filter [" +
                           aFilter.filterName +
                           "] merging match tag: " +
@@ -997,14 +1003,16 @@ quickFilters.Worker = {
                     matchingFilters.push(aFilter);
                     util.logDebugOptional(
                       "merge,merge.detail",
-                      "======================= MERGE MATCH  ===================\n" +
+                      "======================= MERGE MATCH (custom) ===================\n" +
                         "  Found filter [" +
                         aFilter.filterName +
                         "] merging match custom action Archiving (FiltaQuilla) ADDING TO matchingFilters."
                     );
                   }
               }
-              if (matchingFilters.includes(aFilter)) {break}; // stop checking remaining actions for this filter              
+              if (matchingFilters.includes(aFilter)) {
+                break;
+              } // stop checking remaining actions for this filter
             }
           }
           // **************************************************************

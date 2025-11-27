@@ -22,11 +22,18 @@ function versionGreater(v1, v2) {
   return compareVersions(v1, v2) > 0;
 }
 
+function prefKey(name) {
+  if (name.startsWith(legacy_root)) { 
+    return name;
+  }
+  return legacy_root + name;
+}
+
 //TODO: textbox in CSS, search box??
 //TODO mailWindowOverlay: was never in use??
 //debugger;
 messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
-  let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
+  let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
   
   // Wait until the main startup routine has finished!
   await new Promise((resolve) => {
@@ -63,7 +70,7 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
       // set a flag which will be cleared by clicking the [quickFilters assistant] button once
       setTimeout(async function () {
         let origVer = await messenger.LegacyPrefs.getPref(
-          "extensions.quickfilters.installedVersion",
+          prefKey("installedVersion"),
           "0"
         );
         const manifest = await messenger.runtime.getManifest();
@@ -75,16 +82,16 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
 
         if (isUpgrade) {
           if (
-            (await messenger.LegacyPrefs.getPref("extensions.quickfilters.hasNews")) &&
+            (await messenger.LegacyPrefs.getPref(prefKey("hasNews"))) &&
             installedVersion.startsWith("6.8.3")
           ) {
             if (isDebug) {
               console.log("Setting news.minimal flag, as news flag was already set / ignored.");
             }
-            await messenger.LegacyPrefs.setPref("extensions.quickfilters.news.minimal", true);
+            await messenger.LegacyPrefs.setPref(prefKey("news.minimal"), true);
           }
           // only show news if major or minor version have changed:
-          messenger.LegacyPrefs.setPref("extensions.quickfilters.hasNews", true);
+          messenger.LegacyPrefs.setPref(prefKey("hasNews"), true);
           // we need to move this to local Storage so that it will be removed if the Add-on is removed.
         }
         notifyWhenUIReady({ event: "updatequickFiltersLabel" });
@@ -103,7 +110,7 @@ async function addFolderPaneListener() {
     await messenger.menus.remove(FINDFILTERS_ID);
     await messenger.menus.remove(RUNFILTERFROMTREE_ID);
   } catch { ; }
-  let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
+  let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
   let menuLabel = messenger.i18n.getMessage("quickfilters.RunButton.label");
   if (isDebug) {
     console.log("quickFilters: addFolderPaneListener()");
@@ -252,7 +259,7 @@ async function addFolderPaneListener() {
 }
 
 async function addToolMenuListener() {
-  let isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
+  let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
   const menuStart = messenger.i18n.getMessage("quickfilters.FilterAssistant.start"),
     // eslint-disable-next-line no-unused-vars
     _menuStop = messenger.i18n.getMessage("quickfilters.FilterAssistant.stop"); // it's a toggle, not sure how to do this.
@@ -311,8 +318,9 @@ function showSplash() {
 }
 
 async function displayAssistant(data) {
+  const isDebugMsg = await messenger.LegacyPrefs.getPref(prefKey("debug.assistant.msg"));
   // [issue 309] open the HTML version of the assistant
-  messenger.Utilities.logDebug("displayAssistant()");
+  messenger.Utilities.logDebug(`displayAssistant()\ncontext=${data?.context}\nrequestId=${data?.requestId}`);
   const assistantURL = browser.runtime.getURL("html/filterAssistant.html");
   messenger.Utilities.logDebug(`assistantURL=${assistantURL}`);
   const url = new URL(assistantURL);
@@ -343,6 +351,9 @@ async function displayAssistant(data) {
   // not where it currently is
   if (!sourceFolder && data.selectedApiMessages?.length) {
     sourceFolder = data.selectedApiMessages[0].folder;
+    if (isDebugMsg) {
+      console.log("displayAssistant(): using sourceFolder from selectedApiMessages[0]", sourceFolder);
+    }
   }  
 
   let targetUri = "";
@@ -387,6 +398,10 @@ async function displayAssistant(data) {
 
   const { selectedApiMessages } = data; // always try to retrieve this
   const { selectedFilters } = data; // only in mergeList case
+  if (isDebugMsg) {
+    console.log("Selected Mails from API:", selectedApiMessages);
+    console.log("selectedFilters:", selectedFilters);
+  }
   switch (data.context) {
     case "fromSelectedMessages":
       if (currentTab) {
@@ -519,9 +534,9 @@ async function notifyWhenUIReady(...args) {
 
 async function updateLicense(key) {
   let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
-      legacy_root + "licenser.forceSecondaryIdentity"
+      prefKey("licenser.forceSecondaryIdentity")
     ),
-    isDebugLicenser = await messenger.LegacyPrefs.getPref(legacy_root + "debug.premium.licenser");
+    isDebugLicenser = await messenger.LegacyPrefs.getPref(prefKey("debug.premium.licenser"));
 
   // we create a new Licenser object for overwriting, this will also ensure that key_type can be changed.
   let newLicense = new Licenser(key, {
@@ -534,7 +549,7 @@ async function updateLicense(key) {
   // return false;
 
   // Update background license.
-  await messenger.LegacyPrefs.setPref(legacy_root + "LicenseKey", newLicense.info.licenseKey);
+  await messenger.LegacyPrefs.setPref(prefKey("LicenseKey"), newLicense.info.licenseKey);
   currentLicense = newLicense;
   // Broadcast -without event is used for the licenser.
   notifyWhenUIReady({ licenseInfo: currentLicense.info });
@@ -546,10 +561,10 @@ async function main() {
   // load defaults
   messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
   
-  let key = await messenger.LegacyPrefs.getPref(legacy_root + "LicenseKey"),
-      forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(legacy_root + "licenser.forceSecondaryIdentity"),
-      isDebug = await messenger.LegacyPrefs.getPref(legacy_root + "debug"),
-      isDebugLicenser = await messenger.LegacyPrefs.getPref(legacy_root + "debug.premium.licenser");
+  let key = await messenger.LegacyPrefs.getPref(prefKey("LicenseKey")),
+      forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(prefKey("licenser.forceSecondaryIdentity")),
+      isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug")),
+      isDebugLicenser = await messenger.LegacyPrefs.getPref(prefKey("debug.premium.licenser"));
 
   currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
   await currentLicense.validate();
@@ -584,7 +599,7 @@ async function main() {
       case "assistantResult":
         {
           const { requestId, result } = data;
-          const isDebug = await messenger.LegacyPrefs.getPref(legacy_root + "debug.assistant");
+          const isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug.assistant"));
           if (isDebug) {
             console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
           }
@@ -640,7 +655,7 @@ async function main() {
   });
     
   messenger.NotifyTools.onNotifyBackground.addListener(async (data) => {
-    let isLog = await messenger.LegacyPrefs.getPref(legacy_root + "debug.notifications");
+    let isLog = await messenger.LegacyPrefs.getPref(prefKey("debug.notifications"));
     if (isLog && data.func) {
       console.log ("=========================\n" +
                    "BACKGROUND LISTENER received: " + data.func + "\n" +
@@ -920,7 +935,7 @@ async function main() {
         messages: info.selectedMessages,
       };
       // trigger win.quickFilters.doCommand(menuItem);
-      if (await messenger.LegacyPrefs.getPref("extensions.quickfilters.assistant.html")) {
+      if (await messenger.LegacyPrefs.getPref(prefKey("assistant.html"))) {
         // call the new thingy with context="fromMessageContext"
         // const data = { info, tab
         // displayAssistant(data);

@@ -6,6 +6,8 @@
 */
 pref("extensions.quickfilters.debug", false);
 pref("extensions.quickfilters.debug.assistant", false);
+pref("extensions.quickfilters.debug.assistant.ui", false);
+pref("extensions.quickfilters.debug.assistant.msg", false);
 pref("extensions.quickfilters.debug.buildFilter", false);
 pref("extensions.quickfilters.debug.clipboard", false);
 pref("extensions.quickfilters.debug.createFilter", false);

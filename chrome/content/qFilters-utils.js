@@ -850,11 +850,10 @@ quickFilters.Util = {
 		catch {;}
   },
 
-  // first argument is the option tag
   logWithOption: function(_a) {
-    arguments[0] =  "quickFilters "
-      +  '{' + arguments[0].toUpperCase() + '} ' 
-      + quickFilters.Util.logTime() + "\n";
+    // first argument is the option tag
+    arguments[0] =
+      "quickFilters " + `{${arguments[0].toUpperCase()}} ${quickFilters.Util.logTime()}\n`;
     console.log(...arguments);
   },  
 	

@@ -43,17 +43,41 @@ quickFilters.Util = {
     // this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
   },
 
+  logWithOption: function (_a) {
+    // first argument is the option tag
+    arguments[0] =
+      "quickFilters " + `{${arguments[0].toUpperCase()}} ${quickFilters.Util.logTime()}\n`;
+    console.log(...arguments);
+  },
+
   logDebug: async function (...args) {
     const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
     if (isDebug) {
       this.logToConsole(...args);
     }
   },
+
   logHighlightDebug: async function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
     const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
     if (isDebug) {
       console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
     }
+  },
+
+  logDebugOptional: async function (optionString, _msg) {
+    try {
+      const options = optionString.split(",");
+      for (let i = 0; i < options.length; i++) {
+        const option = options[i];
+        const isDebug = await messenger.LegacyPrefs.getPref(
+          `extensions.quickfilters.debug.${option}`
+        );
+        if (isDebug) {
+          this.logWithOption(...arguments);
+          break; // only log once, in case multiple log switches are on
+        }
+      }
+    } catch {;}
   },
 
   showHomePage: function (page) {

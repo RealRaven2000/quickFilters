@@ -139,7 +139,6 @@ function resizeWindowToContent() {
   const style = window.getComputedStyle(main);
   const captionHeight = window.outerHeight - window.innerHeight;
   const mainPaddingTop = parseInt(style.paddingTop, 10);
-
   // Add extra margin for safety
   const SAFETY_Y = 20;
 
@@ -148,7 +147,9 @@ function resizeWindowToContent() {
 
   const currentHeight = captionHeight + window.innerHeight;
 
-  quickFilters.Util.logDebug(
+  // async
+  quickFilters.Util.logDebugOptional(
+    "assistant.ui",
     `resizeWindowToContent from current height ${currentHeight}`,
     `Height calculation = desired: ${desiredHeight}\n` +
       `captionHeight = ${captionHeight}\n` +
@@ -352,7 +353,7 @@ quickFilters.Assistant = {
   },
 
   cancelTemplate: async function () {
-    quickFilters.Util.logDebug("cancelTemplate()");
+    await quickFilters.Util.logDebug("cancelTemplate()");
     quickFilters.Assistant.initialised = false; // avoid templateSelect timer
     this.hasSentResult = true;
     await browser.runtime.sendMessage({
@@ -364,7 +365,7 @@ quickFilters.Assistant = {
         mergeFilter: null,
       },
     });
-    quickFilters.Util.logDebug("after sendMessage(assistantResult)", {
+    await quickFilters.Util.logDebug("after sendMessage(assistantResult)", {
       requestId: requestId,
       answer: false,
       mergeFilters: null,
@@ -494,6 +495,11 @@ quickFilters.Assistant = {
 
   previewFromApi: async function (messageId) {
     try {
+      await quickFilters.Util.logDebugOptional(
+        "assistant.msg",
+        "previewFromApi()",
+        `Loading message id: ${messageId}...`
+      );
       const msg = await messenger.messages.get(messageId);
 
       // Basic metadata to be shown in preview
@@ -506,20 +512,25 @@ quickFilters.Assistant = {
         msgCount: 1,
       };
     } catch (ex) {
-      console.error("Failed to load message preview from API for id:", messageId, ex);
+      console.warn("previewFromApi() Failed to load message preview from API for id:", messageId, ex);
       return null;
     }
   },
 
-  initPreview: function (params) {
+  initPreview: async function (params) {
     // TO DO: for API compatibility, we could build a MessageList (?) using messageIds
     // or simply an array of MessageHeader objects
     // https://webextension-api.thunderbird.net/en/stable/messages.html#get-messageid
     // let MessageHeader = messages.get(messageId)
     // <== this should get us most of the required data for the preview
     // lets add: params.messageIds = [id1, id2 ...]
+    await quickFilters.Util.logDebugOptional("assistant.msg", "initPreview()", params);
     const preview = params?.preview;
     if (!preview) {
+      await quickFilters.Util.logDebugOptional(
+        "assistant.msg",
+        "initPreview() no preview data provided, exiting."
+      );
       return;
     }
     const formatSize = (bytes) => {
@@ -546,7 +557,7 @@ quickFilters.Assistant = {
           contentEl.textContent = val;
         }
       } catch (ex) {
-        console.log(`Couldn't set preview field: id=${id} field: ${field}`, ex);
+        console.warn(`Couldn't set preview field: id=${id} field: ${field}`, ex);
       }
     };
 
@@ -568,8 +579,12 @@ quickFilters.Assistant = {
   },
 
   loadAssistant: async function () {
-    console.trace("loadAssistant called");
+    const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug.assistant");
+    if (isDebug) { console.trace("loadAssistant called"); }
     if (quickFilters.Assistant.initialised) {
+      if (isDebug) { 
+        console.log("quickFilters.Assistant already initialised, early exit...");
+      }
       return;
     }
     const urlParams = new URLSearchParams(window.location.search);
@@ -583,7 +598,7 @@ quickFilters.Assistant = {
       " loadAssistant() ",
       "rgba(250, 235, 119, 1)",
       "#9d4201ff",
-      `Context: ${context}`
+      `\nContext: ${context}` + `\nApiMessages: ${urlApiMessages}`
     );
     quickFilters.Assistant.licenseInfo = await messenger.runtime.sendMessage({
       command: "getLicenseInfo",
@@ -627,6 +642,8 @@ quickFilters.Assistant = {
     this.toggleMergePane(isMergePossible);
     if (!isMergePossible) {
       this.NextButton.textContent = messenger.i18n.getMessage("qf.button.createFilter");
+    } else {
+      await quickFilters.Util.logDebug(`loadAssistant: merging possible, found ${countMatched} matches`);
     }
 
     switch (context) {
@@ -634,14 +651,18 @@ quickFilters.Assistant = {
         {
           const jsonMsg = urlParams.get("messageIds");
           if (!jsonMsg) {
-            quickFilters.Util.logDebug("Missing messageIds parameter!");
+            await quickFilters.Util.logHighlightDebug(
+              " loadAssistant() ",
+              "rgba(250, 235, 119, 1)",
+              "#9d4201ff",
+              "Missing messageIds parameter!");
             break;
           }
           const messageIds = JSON.parse(jsonMsg);
           if (!Array.isArray(messageIds)) {
             throw new Error("messageIds is not an array");
           }
-          quickFilters.Util.logDebug("Messages passed to assistant:", messageIds);
+          await quickFilters.Util.logDebug("Messages passed to assistant:", messageIds);
           for (const id of messageIds) {
             try {
               // The method below would be your experimental API call
@@ -655,7 +676,7 @@ quickFilters.Assistant = {
                 this.passedMessages.push(msg);
               }
             } catch (ex) {
-              quickFilters.Util.logDebug(`Message with ID ${id} not found or error:`, ex);
+              await quickFilters.Util.logDebug(`Message with ID ${id} not found or error:`, ex);
             }
           }
         }
@@ -708,7 +729,8 @@ quickFilters.Assistant = {
       // legacy messages?
       preview = this.passedMessages[0];
     }
-    this.initPreview({ preview });
+    
+    await this.initPreview({ preview });
 
     templateList.value = await this.getCurrentFilterTemplate();
 
@@ -733,16 +755,25 @@ quickFilters.Assistant = {
 
     if (isMergePossible) {
       // 1. default select merge
-      if ((await this.getPref("merge.autoSelect")) || (await this.getPref("merge.silent"))) {
+      const autoSelect = await this.getPref("merge.autoSelect");
+      const silentMerge = await this.getPref("merge.silent");
+      await quickFilters.Util.logDebug(
+        `loadAssistant: isMergePossible=true, autoSelect:${autoSelect}, silentMerge:${silentMerge}`
+      );
+
+
+      if (autoSelect || silentMerge) {
         let mergeBox = document.getElementById("chkMerge");
         mergeBox.checked = true;
         // this will select the first item in the list
-        quickFilters.Util.logDebug("Merge filter: Selecting merge as default");
+        await quickFilters.Util.logDebug("Merge filter: Selecting merge as default");
         quickFilters.Assistant.selectMerge(mergeBox);
       }
       // 2. automatically continue on to the next screen
-      if (await this.getPref("merge.silent")) {
-        quickFilters.Util.logDebug("Merge filter: Skipping merge page (silent merge selected).");
+      if (silentMerge) {
+        await quickFilters.Util.logDebug(
+          "Merge filter: Skipping merge page (silent merge selected)."
+        );
         setTimeout(function () {
           quickFilters.Assistant.next();
         });
@@ -752,13 +783,17 @@ quickFilters.Assistant = {
     // TO DO: find and remove "replyto" feature!" still experimental until 2.8 release
 
     quickFilters.Assistant.initialised = true;
-    this.selectTemplateFromListTmr(templateList); // make sure Deescription is displayed initially.
+    this.selectTemplateFromListTmr(templateList); // make sure Description is displayed initially.
     resizeWindowToContent();
   },
 
   loadPreferences: async function () {
     const bindCheckbox = async (id, prefKey) => {
       const el = document.getElementById(id);
+      if (!el) {
+        quickFilters.Util.logDebug(`loadPreferences: missing element #${id}`);
+        return;
+      }
       el.checked = await quickFiltersPrefs.get(prefKey);
       el.addEventListener("change", (e) => {
         quickFiltersPrefs.set(prefKey, e.target.checked);
@@ -767,6 +802,10 @@ quickFilters.Assistant = {
 
     const bindSelect = async (id, prefKey) => {
       const el = document.getElementById(id);
+      if (!el) {
+        quickFilters.Util.logDebug(`loadPreferences: missing element #${id}`);
+        return;
+      }
       el.value = await quickFiltersPrefs.get(prefKey);
       el.addEventListener("change", (e) => {
         quickFiltersPrefs.set(prefKey, e.target.value);
@@ -801,6 +840,7 @@ quickFilters.Assistant = {
     if (!quickFilters.Assistant.initialised) {
       return;
     }
+    // async
     quickFilters.Util.logDebug("selectTemplateFromListTimer()");
     quickFilters.Assistant.enableCreate(false);
     window.setTimeout(() => {
