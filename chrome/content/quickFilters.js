@@ -174,11 +174,14 @@ END LICENSE BLOCK
     # [issue 328] Regression: Current folder buttons (on the QuickFolders toolbar) don't update immediately
     # [issue 329] HTML settings: Show "extend license" button by clicking on expiry date
 
-  6.9.2 - WIP
+  6.9.2 - 03/11/2025
     # Fix: Now always Remove go pro menu item when news are displayed with a valid license
     # Fixed Merging - there was a problem with a data type in the new Filters API
     # Remove assignments to innerHTML in update / install welcome screens
     # Improved merging filters in new HTML assistant, by making API calls more robust
+
+  6.9.3
+    # [] 
     
 
   ============================================================================================================

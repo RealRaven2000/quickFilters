@@ -48,8 +48,6 @@ var Register = {
     btnDomainLicense.addEventListener("click", () => {
       this.goPro(1);
     });
-
-
   },
 
 
@@ -118,8 +116,6 @@ var Register = {
 						  "This will extend the current license date by 1 year. It's typically cheaper than a new license."));
 				}
 
-				btnLicense.removeAttribute('oncommand');
-				btnLicense.setAttribute('oncommand', 'Register.goPro(2);');
 				btnLicense.classList.add('expired');
 				// hide the "Enter License Key..." button + label
 				if (licenseInfo.status == "Valid") {
@@ -253,32 +249,39 @@ var Register = {
   
   } ,
   
-  goPro: function goPro(license_type) {
+  goPro: function(license_type) {
     const prefs =  quickFilters.Preferences,
           util = quickFilters.Util;
     // redirect to registration site; pass in the feature that brought user here
     // short order process
     // if (util.isDebug) debugger;
-    let shortOrder,
-		    featureName = document.getElementById('referrer').value; // hidden field
+    let featureName = document.getElementById('referrer').value; // hidden field
+    // renewal / extension
+    const isRenew =
+      quickFilters.Util.licenseInfo.status == "Expired" ||
+      quickFilters.Util.licenseInfo.status == "Valid";
+    if (isRenew) {
+      // should we autoselect the correct email address on dialog init?
+      featureName = encodeURI(prefs.getStringPref("LicenseKey"));
+    }
+    let productLink = "";
     switch	(license_type) {
 			case 0:  // personal license
-				shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfilters";
+        if (isRenew) {
+          productLink = "instant/quickfiltersrenew";
+        } else {
+				  productLink = "instant/quickfilters";
+        }
 			  break;
 			case 1: // domain license
-				shortOrder = "http://sites.fastspring.com/quickfolders/product/quickfiltersdomainlicense";
-			  break;
-			case 2: // license renewal
-				if (quickFilters.Util.licenseInfo.keyType==1) { // domain license!
-					shortOrder = "https://sites.fastspring.com/quickfolders/product/quickfiltersdomainrenew"; // domainrenewal 
-				}
-				else {
-					shortOrder = "https://sites.fastspring.com/quickfolders/instant/quickfiltersrenew";
+        if (isRenew) {
+          productLink = "product/quickfiltersdomainrenew";
+        } else {
+          productLink = "product/quickfiltersdomainlicense";
         }
-				featureName = encodeURI(prefs.getStringPref('LicenseKey'));
-				// should we autoselect the correct email address?
 			  break;
 		}
+    const shortOrder = "http://sites.fastspring.com/quickfolders/" + productLink;
     // view product detail
     let firstName = document.getElementById('firstName').value,
         lastName = document.getElementById('lastName').value,
