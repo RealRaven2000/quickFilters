@@ -872,16 +872,6 @@ quickFilters.List = {
     }
 	} ,
 	
-	onSelectFilter : function (_evt) {
-    let list = this.FilterListElement,
-        numFiltersSelected = this.getSelectedCount(list),
-        oneFilterSelected = (numFiltersSelected === 1),
-        upDisabled = !(oneFilterSelected &&
-                       this.getSelectedFilterAt(list, 0) != list.childNodes[1]),
-        downDisabled = (!oneFilterSelected
-        || list.currentIndex === this.getListElementCount(list)-1);
-  } ,
-
   onLoadFilterList: function(_evt) {
     const util = quickFilters.Util,
       qList = quickFilters.List;
