@@ -331,6 +331,7 @@ quickFilters.Options = {
       }
     });
   },
+  
   selectMergeAuto: function (checkBox) {
     // MergeSkip must be unchecked!
     if (!checkBox.checked) {
@@ -340,7 +341,7 @@ quickFilters.Options = {
     }
   },
 
-  selectMergeSkip: function selectMergeSkip(checkBox) {
+  selectMergeSkip: function (checkBox) {
     // MergeAuto must be checked!
     if (checkBox.checked) {
       let chkMerge = document.getElementById("chkMergeAuto");
