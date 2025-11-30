@@ -2338,6 +2338,20 @@ quickFilters.Worker = {
       // eslint-disable-next-line no-debugger
       debugger;
     }
+    if (this.createQuickFilterLock) {
+      for (let win of Services.wm.getEnumerator(null)) {
+        // if I can find the window, bring it to front.
+        if (win?.browser?.documentURI?.filePath.endsWith("filterAssistant.html")) {
+          quickFilters.Util.slideAlert(
+            "A previous filter creation is already in progress.",
+            "quickFilters"
+          );
+          win.focus();
+          break;
+        };
+      }
+      return null;
+    }
     switch (params.filterAction) {
       case false: // old isCopy value
         params.filterAction = Ci.nsMsgFilterAction.MoveToFolder;
