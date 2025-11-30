@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.9.2",
+  "version": "6.9.3pre13",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -36,6 +36,15 @@
     "default_title": "quickFilters",
     "default_popup": "chrome/content/quickfilters_main_popup.html",
     "allowed_spaces": ["mail"]
+  },
+  "commands": {
+    "create-filter-from-message": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+R",
+        "mac": "Command+Alt+R"
+      },
+      "description": "Create a filter from the selected message"
+    }
   },
   "experiment_apis": {
     "WindowListener": {

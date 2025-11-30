@@ -557,6 +557,13 @@ async function updateLicense(key) {
   return true;
 }
 
+function stripEllipsis(label) {
+  if (label.endsWith("…")) { return label.slice(0, -1); }
+  if (label.endsWith("...")) { return label.slice(0, -3); }
+  return label;
+}
+
+
 async function main() {
   // load defaults
   messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
@@ -842,6 +849,58 @@ async function main() {
         }
 
         break;
+    }
+  });
+
+  await messenger.commands.update({
+    name: "create-filter-from-message",
+    description: stripEllipsis(messenger.i18n.getMessage("quickfilters.FromMessage.label")),
+  });
+
+  browser.commands.onCommand.addListener(async (command) => {
+    let legalCommands = ["create-filter-from-message"];
+    if (!legalCommands.includes(command)) {
+      return;
+    }
+
+    const tabs = await browser.tabs.query({ active: true, currentWindow: true });
+    const mailTab = tabs.find((t) => t.type === "mail");
+    if (!mailTab) {
+      console.warn("No active mail tab found!");
+      // we should add an alert.
+      return;
+    }    
+    switch(command) {
+      case "create-filter-from-message":
+      {
+        const menuItem = { id: CREATEFILTERFROMMSG_ID };   // fake menu item to pass to doCommand
+        const selectedMails = await browser.mailTabs.getSelectedMessages(mailTab.id);  
+        if (!selectedMails?.length) {
+          console.warn("No selected messages found for create-filter-from-message command!");          
+          messenger.notifications.create({
+            type: "basic",
+            title: "quickFilters",
+            message: messenger.i18n.getMessage("quickfilters.createFromMail.selectWarning")
+          });          
+        }
+        const detail = {
+          commandItem: menuItem,
+          tabId: mailTab.id,
+          windowId: mailTab.windowId,
+          messages: selectedMails,
+        };
+        // trigger win.quickFilters.doCommand(menuItem);
+        if (await messenger.LegacyPrefs.getPref(prefKey("assistant.html"))) {
+          // displayAssistant(data);
+          // <== that won't work because we need the lgacry context of quickFIlters.Worker.createQuickFilterExec(..)
+          detail.context = "fromMessageContext";
+        }
+        messenger.NotifyTools.notifyExperiment({
+          event: "doCommand",
+          detail: detail
+        });         
+        break;
+      }
     }
   });
   
