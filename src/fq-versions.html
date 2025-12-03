@@ -127,12 +127,12 @@ permalink: fq-versions.html
 
 
 <!--
-  <a name="5.x"> &nbsp; </a>
+  <a name="6.x"> &nbsp; </a>
   <li>
     <h4>
     <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
        onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
-       FiltaQuilla 5.x - WIP</a>
+       FiltaQuilla 6.x - WIP</a>
     </h4>
     <h5 class="inList">Improvements</h5>
     <ul>
@@ -152,12 +152,81 @@ permalink: fq-versions.html
 <ul id="version-history">
   <a name="latest"></a>
 
+  <a name="6.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
+       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+       FiltaQuilla 6.0 - 02/12/2025</a>
+    </h4>
+    <p>
+      We decided to concentrate on the latest versions from FIltaQuilla v140 onward 
+      because the code base was getting pretty unmanageable  due to the substantial changes 
+      in Thunderbird Core and additional features added by the extended mail extension APIs. 
+      Being able to support this and legacy ways of doing the same thing within the 
+      same Add-on proved to be very difficult and produce unmanageable code.
+    </p>
+    <p>
+      Even just supporting both ESR140 and the current release versions (currently 145), 
+      is already a difficult thing leading to substantially branching code paths within 
+      the same Add-on. This cut-off point will also be used to prepare for a number of 
+      long desired feature additions around saving attachments, which will be 
+      delivered next.      
+    </p>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        Made FiltaQuilla compatible with Thunderbird 146.*.
+      </li>
+      <li> 
+        Signatures are now excluded when saving or detaching attachments to avoid 
+        useless files. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/372">[issue 372]</a>
+      </li>
+      <li>
+        Removed legacy options screen and tightened UX in the modern html version 
+        for added clarity. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/379">[issue 379]</a>
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li> 
+        Some attachments were not saved correctly – fixed 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/376">[issue 376]</a>.
+      </li>
+      <li> 
+        Reimplemented attachment detaching after Tb142 removed the original API. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/369">[issue 369]</a>
+      </li>
+      <li> 
+        Fixed double-saving of PDF and TXT files from the same filter action.
+         <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/367">[issue 367]</a>, 
+         <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/370">[issue 370]</a>
+      </li>
+    </ul>
+    <h3 class="inList">Planned Next</h3>
+    <ul>
+      <li> 
+        Notification after filter actions. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/240">[issue 240]</a>
+      </li>
+      <li> 
+        Custom filenames when saving attachments. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/219">[issue 219]</a>
+      </li>
+      <li> 
+        Review of <code>attachRegEx_match</code> for current Thunderbird versions.
+      </li>
+    </ul>
+  </li>
+
+
   <a name="5.5"> &nbsp; </a>
   <a name="5.5.1"> &nbsp; </a>
   <li>
     <h4>
     <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
-       onclick="alert('This version is stawaiting review!\nPlease mail me if you want a preview version for testing.')">
+       onclick="alert('This version is still awaiting review!\nPlease mail me if you want a preview version for testing.')">
        FiltaQuilla 5.5.1 - 17/10/2025</a>
     </h4>
     <h5 class="inList">Improvements (5.5 13/10/2025)</h5>
