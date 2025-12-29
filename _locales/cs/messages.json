@@ -6,7 +6,7 @@
     "message": "Vyberte účet:"
   },
   "active-version-info": {
-    "message": "Nyní používáte {boldStart} verzi $addonVer$ {boldEnd} na Thunderbirdu $appVer$.",
+    "message": "Nyní používáte {bold} verzi $addonVer$ {/bold}  na Thunderbirdu $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
@@ -288,7 +288,7 @@
     "message": "Spustit filtry na vybrané e-maily?"
   },
   "special-offer-content": {
-    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {boldStart}$reduction$ snížení{boldEnd} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {boldStart}$expirydate${boldEnd}.",
+    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {bold$reduction$ snížení{/bold}  ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {bold$expirydate${/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -304,7 +304,7 @@
     "message": "Prosím, pomozte quickFilters pokračovat!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Vážený uživateli {name} {boldEnd}, nyní můžete pomoci $addonName$, který je připraven na budoucnost. Abych držel krok se změnami v Thunderbirdu, spoléhám na {boldStart}vaši pomoc{boldEnd}!",
+    "message": "{bold} Vážený uživateli {name} {/bold} , nyní můžete pomoci $addonName$, který je připraven na budoucnost. Abych držel krok se změnami v Thunderbirdu, spoléhám na {boldvaši pomoc{/bold} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -313,7 +313,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Renoveu la llicència ara i estalvieu reducció de {boldStart}$reduction${boldEnd}. Aquesta oferta especial estarà disponible fins al dia {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Renoveu la llicència ara i estalvieu reducció de {bold$reduction${/bold} . Aquesta oferta especial estarà disponible fins al dia {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -397,7 +397,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇿 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML Assistant je nyní výchozí. Je více připravený do budoucna a přizpůsobuje se různým velikostem obrazovky.{br}Pokud chcete nadále používat starší verzi XUL, můžete to změnit v quickFilters Nastavení → Karta Akce → Uživatelské rozhraní.{br}Postupně bude staré rozhraní odstraněno, aby byl quickFilters plně kompatibilní do budoucna.{L2}{L1}Přidán název cílového filtru do tlačítka pro úpravu filtru pro lepší přehlednost{L2}{L1}Opraveny problémy s slučováním filtrů v novém HTML assistantu{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Zlepšená přístupnost v novém HTML dialogu nastavení, včetně lepšího znovupoužití záložek{L2}{L1}Opraveno: quickFilters Pro záložka nastavení nyní funguje správně i bez licenčního klíče{L2}{L1}Kliknutí na budoucí datum vypršení licence nyní zobrazí tlačítko 'Prodloužit licenci' [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Aktualizovaný dialog nastavení na moderní HTML verzi [issue 325]{L2}{L1}Pro kompletní seznam vylepšení zahrnutých v 6.9.* verzích si prosím prohlédněte podrobný changelog na webu…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML Assistant je nyní výchozí. Je více připravený do budoucna a přizpůsobuje se různým velikostem obrazovky.{br}Pokud chcete nadále používat starší verzi XUL, můžete to změnit v quickFilters Nastavení → Karta Akce → Uživatelské rozhraní.{br}Postupně bude staré rozhraní odstraněno, aby byl quickFilters plně kompatibilní do budoucna.{/L}{L}Přidán název cílového filtru do tlačítka pro úpravu filtru pro lepší přehlednost{/L}{L}Opraveny problémy s slučováním filtrů v novém HTML assistantu{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Zlepšená přístupnost v novém HTML dialogu nastavení, včetně lepšího znovupoužití záložek{/L}{L}Opraveno: quickFilters Pro záložka nastavení nyní funguje správně i bez licenčního klíče{/L}{L}Kliknutí na budoucí datum vypršení licence nyní zobrazí tlačítko 'Prodloužit licenci' [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Aktualizovaný dialog nastavení na moderní HTML verzi [issue 325]{/L}{L}Pro kompletní seznam vylepšení zahrnutých v 6.9.* verzích si prosím prohlédněte podrobný changelog na webu…{/L}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

@@ -10,7 +10,7 @@
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
-    "message": "Bạn hiện đang chạy phiên bản {boldStart} $addonVer$ {boldEnd} trên Thunderbird $appVer$.",
+    "message": "Bạn hiện đang chạy phiên bản {bold} $addonVer$ {/bold}  trên Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -1332,7 +1332,7 @@
     "message": "Chạy bộ lọc trên các thư đã chọn?"
   },
   "special-offer-content": {
-    "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {boldStart} giảm $reduction$ {boldEnd} giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {bold} giảm $reduction$ {/bold}  giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1348,7 +1348,7 @@
     "message": "Vui lòng giúp quickFilters để tiếp tục!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Kính gửi {name} {boldEnd}, Giờ đây, bạn có thể trợ giúp $addonName$ đảm bảo cho tương lai. Để bắt kịp những thay đổi trong Thunderbird, tôi trông cậy vào {boldStart}sự trợ giúp của bạn{boldEnd}!",
+    "message": "{bold} Kính gửi {name} {/bold} , Giờ đây, bạn có thể trợ giúp $addonName$ đảm bảo cho tương lai. Để bắt kịp những thay đổi trong Thunderbird, tôi trông cậy vào {boldsự trợ giúp của bạn{/bold} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1357,7 +1357,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Gia hạn Giấy phép của bạn ngay bây giờ và tiết kiệm {boldStart}$reduction${boldEnd}! Ưu đãi đặc biệt này sẽ có sẵn cho đến {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Gia hạn Giấy phép của bạn ngay bây giờ và tiết kiệm {bold$reduction${/bold} ! Ưu đãi đặc biệt này sẽ có sẵn cho đến {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1447,7 +1447,7 @@
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}Trợ lý HTML hiện là mặc định. Nó thân thiện với tương lai hơn và phản hồi tốt với các kích thước màn hình khác nhau.{br}Để tiếp tục sử dụng phiên bản XUL cũ, bạn có thể thay đổi trong quickFilters Cài đặt → Tab Hành động → Giao diện người dùng.{br}Giao diện cũ cuối cùng sẽ bị loại bỏ để quickFilters hoàn toàn tương thích với tương lai.{L2}{L1}Tên bộ lọc mục tiêu đã được thêm vào nút chỉnh sửa để rõ ràng hơn{L2}{L1}Đã sửa các sự cố khi hợp nhất bộ lọc trong Trợ lý HTML mới{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Cải thiện khả năng truy cập trong hộp thoại cài đặt HTML mới, bao gồm tái sử dụng tab tốt hơn{L2}{L1}Sửa: Tab cài đặt quickFilters Pro giờ hoạt động chính xác ngay cả khi không có khóa giấy phép{L2}{L1}Nhấn vào ngày hết hạn trong tương lai giờ hiển thị nút 'Gia hạn giấy phép' [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Hộp thoại cài đặt cập nhật lên phiên bản HTML hiện đại [issue 325]{L2}{L1}Để xem danh sách đầy đủ các cải tiến trong các phiên bản 6.9.*, hãy xem changelog chi tiết trên trang web…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}Trợ lý HTML hiện là mặc định. Nó thân thiện với tương lai hơn và phản hồi tốt với các kích thước màn hình khác nhau.{br}Để tiếp tục sử dụng phiên bản XUL cũ, bạn có thể thay đổi trong quickFilters Cài đặt → Tab Hành động → Giao diện người dùng.{br}Giao diện cũ cuối cùng sẽ bị loại bỏ để quickFilters hoàn toàn tương thích với tương lai.{/L}{L}Tên bộ lọc mục tiêu đã được thêm vào nút chỉnh sửa để rõ ràng hơn{/L}{L}Đã sửa các sự cố khi hợp nhất bộ lọc trong Trợ lý HTML mới{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Cải thiện khả năng truy cập trong hộp thoại cài đặt HTML mới, bao gồm tái sử dụng tab tốt hơn{/L}{L}Sửa: Tab cài đặt quickFilters Pro giờ hoạt động chính xác ngay cả khi không có khóa giấy phép{/L}{L}Nhấn vào ngày hết hạn trong tương lai giờ hiển thị nút 'Gia hạn giấy phép' [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Hộp thoại cài đặt cập nhật lên phiên bản HTML hiện đại [issue 325]{/L}{L}Để xem danh sách đầy đủ các cải tiến trong các phiên bản 6.9.*, hãy xem changelog chi tiết trên trang web…{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

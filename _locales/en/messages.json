@@ -9,8 +9,8 @@
     "message": "Select account:"
   },
   "active-version-info": {
-    "message": "You are now running {boldStart} version $addonVer$ {boldEnd} on Thunderbird $appVer$.",
-    "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "You are now running {bold} version $addonVer$ {/bold}  on Thunderbird $appVer$.",
+    "description": "The bold and /bold parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -1339,7 +1339,7 @@
     "message": "Run filters on selected mails?"
   },
   "special-offer-content": {
-    "message": "Now is the best opportunity to get a License as there is a {boldStart}$reduction$ reduction{boldEnd} on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {boldStart}$expirydate${boldEnd}.",
+    "message": "Now is the best opportunity to get a License as there is a {bold$reduction$ reduction{/bold}  on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {bold$expirydate${/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1355,7 +1355,7 @@
     "message": "Please help quickFilters to continue!"
   },
   "special-offer-intro": {
-    "message": "{boldStart}Dear {name}{boldEnd}, you can now help future-proof $addonName$. To keep up with the changes in Thunderbird, I depend on {boldStart}your help{boldEnd}!",
+    "message": "{boldDear {name}{/bold} , you can now help future-proof $addonName$. To keep up with the changes in Thunderbird, I depend on {boldyour help{/bold} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1367,7 +1367,7 @@
     "message": "Always insert the complete subject line."
   },
   "special-offer-renew": {
-    "message": "Renew your License now and save {boldStart}$reduction${boldEnd}! This special offer will be available until {boldStart}$expirydate${boldEnd}.",
+    "message": "Renew your License now and save {bold$reduction${/bold} ! This special offer will be available until {bold$expirydate${/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1454,7 +1454,7 @@
   },
   "whats-new-list": {
     "description": "🇬🇧 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}The HTML Assistant is now the default. It’s more future-proof and responsive to different screen sizes.{br}To continue using the legacy XUL version, you can change this back on quickFilters Settings ➔ Actions tab ➔ User Interface.{br}Eventually, the legacy interface will be removed to make quickFilters fully future compatible.{L2}{L1}Added the targeted filter name to the edit filter button for clarity{L2}{L1}Fixed issues with merging filters in the new HTML assistant{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Improved accessibility in the new HTML settings dialog, including better tab reuse{L2}{L1}Fixed: quickFilters Pro settings tab now works correctly without a license key{L2}{L1}Clicking on future expiry dates now shows the 'Extend license' button [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Updated Settings dialog to modern HTML version [issue 325]{L2}{L1}For the complete list of improvements included in the 6.9.* releases, please see the detailed changelog on the website…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}The HTML Assistant is now the default. It’s more future-proof and responsive to different screen sizes.{br}To continue using the legacy XUL version, you can change this back on quickFilters Settings ➔ Actions tab ➔ User Interface.{br}Eventually, the legacy interface will be removed to make quickFilters fully future compatible.{/L}{L}Added the targeted filter name to the edit filter button for clarity{/L}{L}Fixed issues with merging filters in the new HTML assistant{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Improved accessibility in the new HTML settings dialog, including better tab reuse{/L}{L}Fixed: quickFilters Pro settings tab now works correctly without a license key{/L}{L}Clicking on future expiry dates now shows the 'Extend license' button [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Updated Settings dialog to modern HTML version [issue 325]{/L}{L}For the complete list of improvements included in the 6.9.* releases, please see the detailed changelog on the website…{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

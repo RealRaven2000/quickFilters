@@ -130,8 +130,8 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
           verInfo, 
           messenger.i18n
             .getMessage("active-version-info", [addonVer, appVer])
-            .replace("{boldStart}", "<b class='versionnumber'>")
-            .replace("{boldEnd}", "</b>"),
+            .replace("{bold}", "<b class='versionnumber'>")
+            .replace("{/bold}", "</b>"),
           true
         );
       }

@@ -10,7 +10,7 @@
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
-    "message": "Es läuft jetzt {boldStart} Version $addonVer$ {boldEnd} auf Thunderbird $appVer$.",
+    "message": "Es läuft jetzt {bold} Version $addonVer$ {/bold}  auf Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -1333,7 +1333,7 @@
     "message": "Filter für ausgewählte E-Mails ausführen?"
   },
   "special-offer-content": {
-    "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldStart}um $reduction$ gesenkt{boldEnd} ist. Dieses Sonderangebot gilt bis zum {boldStart}$expirydate${boldEnd}.",
+    "message": "Jetzt ist die beste Gelegenheit, Ihre Lizenz zu erwerben, da der Preis einer quickFilters Pro-Lizenz anlässlich des 9-jährigen Bestehens von quickFilters {boldum $reduction$ gesenkt{/bold}  ist. Dieses Sonderangebot gilt bis zum {bold$expirydate${/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1349,7 +1349,7 @@
     "message": "Bitte helfen Sie quickFilters, in Zukunft weiter zu machen!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Liebe(r) {name} {boldEnd}, Sie können jetzt dazu beitragen, $addonName$ zukunftssicher zu machen. Um mit den Änderungen in Thunderbird Schritt zu halten, bin ich auf {boldStart}Ihre Hilfe{boldEnd} angewiesen!",
+    "message": "{bold} Liebe(r) {name} {/bold} , Sie können jetzt dazu beitragen, $addonName$ zukunftssicher zu machen. Um mit den Änderungen in Thunderbird Schritt zu halten, bin ich auf {boldIhre Hilfe{/bold}  angewiesen!",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1361,7 +1361,7 @@
     "message": "Immer die vollständige Betreffzeile einfügen."
   },
   "special-offer-renew": {
-    "message": "Erneuern Sie jetzt Ihre Lizenz und sparen Sie {boldStart}$reduction${boldEnd}! Dieses Sonderangebot ist bis zum {boldStart}$expirydate${boldEnd} verfügbar.",
+    "message": "Erneuern Sie jetzt Ihre Lizenz und sparen Sie {bold$reduction${/bold} ! Dieses Sonderangebot ist bis zum {bold$expirydate${/bold}  verfügbar.",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1448,7 +1448,7 @@
   },
   "whats-new-list": {
     "description": "🇩🇪 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}Der HTML Assistant ist jetzt Standard. Er ist zukunftssicherer und passt sich verschiedenen Bildschirmgrößen an.{br}Um weiterhin die Legacy XUL-Version zu verwenden, können Sie dies unter quickFilters Einstellungen → Aktionen-Tab → Benutzeroberfläche ändern.{br}Die Legacy-Oberfläche wird schließlich entfernt, um quickFilters vollständig zukunftskompatibel zu machen.{L2}{L1}Der Name des Ziel-Filters wurde der Schaltfläche zum Bearbeiten hinzugefügt, um mehr Übersicht zu bieten{L2}{L1}Probleme beim Zusammenführen von Filtern im neuen HTML Assistant wurden behoben{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Verbesserte Barrierefreiheit im neuen HTML Einstellungsdialog, einschließlich besserer Wiederverwendung von Tabs{L2}{L1}Behoben: quickFilters Pro Einstellungen-Tab funktioniert jetzt auch ohne Lizenzschlüssel korrekt{L2}{L1}Klicken auf zukünftige Ablaufdaten zeigt nun die Schaltfläche 'Lizenz verlängern' [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Einstellungsdialog auf moderne HTML-Version aktualisiert [issue 325]{L2}{L1}Für die vollständige Liste der Verbesserungen in den 6.9.* Releases siehe bitte das ausführliche Changelog auf der Webseite…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}Der HTML Assistant ist jetzt Standard. Er ist zukunftssicherer und passt sich verschiedenen Bildschirmgrößen an.{br}Um weiterhin die Legacy XUL-Version zu verwenden, können Sie dies unter quickFilters Einstellungen → Aktionen-Tab → Benutzeroberfläche ändern.{br}Die Legacy-Oberfläche wird schließlich entfernt, um quickFilters vollständig zukunftskompatibel zu machen.{/L}{L}Der Name des Ziel-Filters wurde der Schaltfläche zum Bearbeiten hinzugefügt, um mehr Übersicht zu bieten{/L}{L}Probleme beim Zusammenführen von Filtern im neuen HTML Assistant wurden behoben{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Verbesserte Barrierefreiheit im neuen HTML Einstellungsdialog, einschließlich besserer Wiederverwendung von Tabs{/L}{L}Behoben: quickFilters Pro Einstellungen-Tab funktioniert jetzt auch ohne Lizenzschlüssel korrekt{/L}{L}Klicken auf zukünftige Ablaufdaten zeigt nun die Schaltfläche 'Lizenz verlängern' [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Einstellungsdialog auf moderne HTML-Version aktualisiert [issue 325]{/L}{L}Für die vollständige Liste der Verbesserungen in den 6.9.* Releases siehe bitte das ausführliche Changelog auf der Webseite…{/L}"
   },
   "window-title": {
     "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",

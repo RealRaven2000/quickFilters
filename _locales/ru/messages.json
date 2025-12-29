@@ -10,7 +10,7 @@
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
-    "message": "Теперь вы используете {boldStart} версию $addonVer$ {boldEnd} на Thunderbird $appVer$.",
+    "message": "Теперь вы используете {bold} версию $addonVer$ {/bold}  на Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -1332,7 +1332,7 @@
     "message": "Запускать фильтры для выбранных писем?"
   },
   "special-offer-content": {
-    "message": "Сейчас это лучшая возможность получить лицензию, поскольку существует {boldStart} $reduction$ скидка {boldEnd} на цену лицензии quickFilters Pro в честь 9-летия quickFilters! Это специальное предложение будет доступно до {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Сейчас это лучшая возможность получить лицензию, поскольку существует {bold} $reduction$ скидка {/bold}  на цену лицензии quickFilters Pro в честь 9-летия quickFilters! Это специальное предложение будет доступно до {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1348,7 +1348,7 @@
     "message": "Пожалуйста, помогите quickFilters продолжить развитие!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Дорогой {name} {boldEnd}, теперь вы можете помочь будущему $addonName$. Чтобы не отставать от изменений в Thunderbird, мне нужна {boldStart}ваша помощь{boldEnd}!",
+    "message": "{bold} Дорогой {name} {/bold} , теперь вы можете помочь будущему $addonName$. Чтобы не отставать от изменений в Thunderbird, мне нужна {boldваша помощь{/bold} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1357,7 +1357,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Продлите лицензию сейчас и сэкономьте {boldStart}$reduction${boldEnd}! Это специальное предложение будет действовать до {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Продлите лицензию сейчас и сэкономьте {bold$reduction${/bold} ! Это специальное предложение будет действовать до {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1444,7 +1444,7 @@
   },
   "whats-new-list": {
     "description": "🇷🇺 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML-помощник теперь используется по умолчанию. Он более перспективный и адаптируется к разным размерам экрана.{br}Чтобы продолжить использовать устаревшую версию XUL, можно вернуть её через quickFilters Настройки → Вкладка Действия → Пользовательский интерфейс.{br}В конечном итоге устаревший интерфейс будет удален, чтобы quickFilters был полностью совместим с будущим.{L2}{L1}Добавлено имя целевого фильтра к кнопке редактирования для ясности{L2}{L1}Исправлены проблемы с объединением фильтров в новом HTML-помощнике{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Улучшена доступность нового диалогового окна настроек HTML, включая лучшее повторное использование вкладок{L2}{L1}Исправлено: вкладка настроек quickFilters Pro теперь работает корректно без лицензионного ключа{L2}{L1}При клике на будущие даты окончания отображается кнопка 'Продлить лицензию' [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Диалог настроек обновлен до современной HTML-версии [issue 325]{L2}{L1}Для полного списка улучшений в версиях 6.9.* см. подробный changelog на сайте…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML-помощник теперь используется по умолчанию. Он более перспективный и адаптируется к разным размерам экрана.{br}Чтобы продолжить использовать устаревшую версию XUL, можно вернуть её через quickFilters Настройки → Вкладка Действия → Пользовательский интерфейс.{br}В конечном итоге устаревший интерфейс будет удален, чтобы quickFilters был полностью совместим с будущим.{/L}{L}Добавлено имя целевого фильтра к кнопке редактирования для ясности{/L}{L}Исправлены проблемы с объединением фильтров в новом HTML-помощнике{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Улучшена доступность нового диалогового окна настроек HTML, включая лучшее повторное использование вкладок{/L}{L}Исправлено: вкладка настроек quickFilters Pro теперь работает корректно без лицензионного ключа{/L}{L}При клике на будущие даты окончания отображается кнопка 'Продлить лицензию' [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Диалог настроек обновлен до современной HTML-версии [issue 325]{/L}{L}Для полного списка улучшений в версиях 6.9.* см. подробный changelog на сайте…{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

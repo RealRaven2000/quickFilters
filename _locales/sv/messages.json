@@ -10,7 +10,7 @@
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
-    "message": "Du kör nu {boldStart} version $addonVer$ {boldEnd} på Thunderbird $appVer$.",
+    "message": "Du kör nu {bold} version $addonVer$ {/bold}  på Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -1332,7 +1332,7 @@
     "message": "Köra filter på utvalda mail?"
   },
   "special-offer-content": {
-    "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {boldStart} $reduction$ rabatt {boldEnd} på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {bold} $reduction$ rabatt {/bold}  på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1348,7 +1348,7 @@
     "message": "Snälla hjälp quickFilters att fortsätta!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Kära {name} {boldEnd}, Du kan nu hjälpa framtidssäkra $addonName$. För att hänga med i förändringarna i Thunderbird är jag beroende av {boldStart}din hjälp{boldEnd}!",
+    "message": "{bold} Kära {name} {/bold} , Du kan nu hjälpa framtidssäkra $addonName$. För att hänga med i förändringarna i Thunderbird är jag beroende av {bolddin hjälp{/bold} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1357,7 +1357,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Förnya din licens nu och spara {boldStart}$reduction${boldEnd}! Detta specialerbjudande är tillgängligt fram till {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Förnya din licens nu och spara {bold$reduction${/bold} ! Detta specialerbjudande är tillgängligt fram till {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1447,7 +1447,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇪 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML-assistenten är nu standard. Den är mer framtidssäker och anpassar sig till olika skärmstorlekar.{br}För att fortsätta använda den gamla XUL-versionen kan du ändra detta under quickFilters Inställningar → Fliken Åtgärder → Användargränssnitt.{br}Den gamla gränssnittet tas så småningom bort för att göra quickFilters helt framtidssäkert.{L2}{L1}Målfilter-namn tillagt på redigeringsknappen för tydlighet{L2}{L1}Problem med sammanslagning av filter i den nya HTML-assistenten åtgärdade{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Förbättrad tillgänglighet i det nya HTML-inställningsfönstret, inklusive bättre återanvändning av flikar{L2}{L1}Fixat: quickFilters Pro-inställningsfliken fungerar nu korrekt utan licensnyckel{L2}{L1}Klick på framtida utgångsdatum visar nu knappen 'Förläng licens' [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Inställningsfönster uppdaterat till modern HTML-version [issue 325]{L2}{L1}För den fullständiga listan över förbättringar i 6.9.* versionerna, se den detaljerade changelog på webbplatsen…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML-assistenten är nu standard. Den är mer framtidssäker och anpassar sig till olika skärmstorlekar.{br}För att fortsätta använda den gamla XUL-versionen kan du ändra detta under quickFilters Inställningar → Fliken Åtgärder → Användargränssnitt.{br}Den gamla gränssnittet tas så småningom bort för att göra quickFilters helt framtidssäkert.{/L}{L}Målfilter-namn tillagt på redigeringsknappen för tydlighet{/L}{L}Problem med sammanslagning av filter i den nya HTML-assistenten åtgärdade{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Förbättrad tillgänglighet i det nya HTML-inställningsfönstret, inklusive bättre återanvändning av flikar{/L}{L}Fixat: quickFilters Pro-inställningsfliken fungerar nu korrekt utan licensnyckel{/L}{L}Klick på framtida utgångsdatum visar nu knappen 'Förläng licens' [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Inställningsfönster uppdaterat till modern HTML-version [issue 325]{/L}{L}För den fullständiga listan över förbättringar i 6.9.* versionerna, se den detaljerade changelog på webbplatsen…{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

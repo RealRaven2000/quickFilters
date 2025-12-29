@@ -9,7 +9,7 @@
     "message": "Valitse tili:"
   },
   "active-version-info": {
-    "message": "Käytät nyt  {boldStart} versiota $addonVer$ {boldEnd} Thunderbird $appVer$ lla. ",
+    "message": "Käytät nyt  {bold} versiota $addonVer$ {/bold}  Thunderbird $appVer$ lla. ",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
@@ -1332,7 +1332,7 @@
     "message": "Suoritetaanko suodattimet valituille viesteille?"
   },
   "special-offer-content": {
-    "message": "Nyt on paras mahdollisuus hankkia lisenssi, koska quickFilters Pro -lisenssin hinta on {boldStart} $reduction$ alempi {boldEnd} juhlimaan 9 vuotta quickFilters! Tämä erikoistarjous on saatavilla {boldStart}$expirydate${boldEnd} asti.",
+    "message": "Nyt on paras mahdollisuus hankkia lisenssi, koska quickFilters Pro -lisenssin hinta on {bold} $reduction$ alempi {/bold}  juhlimaan 9 vuotta quickFilters! Tämä erikoistarjous on saatavilla {bold$expirydate${/bold}  asti.",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1348,7 +1348,7 @@
     "message": "Auttakaa quickFilters jatkaaksesi!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Hyvä {name} {boldEnd}, Voit nyt auttaa tulevaisuudenkestäviä $addonName$. Pysyn ajan tasalla Thunderbirdin muutoksista luotan {boldStart}apuun{boldEnd}!",
+    "message": "{bold} Hyvä {name} {/bold} , Voit nyt auttaa tulevaisuudenkestäviä $addonName$. Pysyn ajan tasalla Thunderbirdin muutoksista luotan {boldapuun{/bold} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1357,7 +1357,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Uusi lisenssi nyt ja säästä {boldStart}$reduction${boldEnd}! Tämä erikoistarjous on voimassa {boldStart} $expirydate$ {boldEnd} asti.",
+    "message": "Uusi lisenssi nyt ja säästä {bold$reduction${/bold} ! Tämä erikoistarjous on voimassa {bold} $expirydate$ {/bold}  asti.",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1447,7 +1447,7 @@
   },
   "whats-new-list": {
     "description": "🇫🇮 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML-avustaja on nyt oletusarvo. Se on tulevaisuuden kestävämpi ja mukautuu eri näytön kokoihin.{br}Jos haluat jatkaa perinteisen XUL-version käyttöä, voit vaihtaa sen takaisin quickFilters Asetukset → Toiminnot-välilehti → Käyttöliittymä.{br}Lopulta vanha käyttöliittymä poistetaan, jotta quickFilters on täysin tulevaisuuden mukainen.{L2}{L1}Kohdefiltterin nimi lisätty muokkauspainikkeeseen selkeyden lisäämiseksi{L2}{L1}Korjattu ongelmat suodatinten yhdistämisessä uudessa HTML-avustajassa{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Parannettu saavutettavuutta uudessa HTML-asetuspaneelissa, mukaan lukien paremman välilehtien uudelleenkäytön tuki{L2}{L1}Korjattu: quickFilters Pro -asetuspaneeli toimii nyt oikein ilman lisenssiavainta{L2}{L1}Napsauttamalla tulevia vanhentumispäiviä näytetään nyt 'Laajenna lisenssi' -painike [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Asetuspaneeli päivitetty moderniin HTML-versioon [issue 325]{L2}{L1}Täydellisen luettelon 6.9.* -versioiden parannuksista löydät yksityiskohtaisesta changelogista verkkosivustolla…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML-avustaja on nyt oletusarvo. Se on tulevaisuuden kestävämpi ja mukautuu eri näytön kokoihin.{br}Jos haluat jatkaa perinteisen XUL-version käyttöä, voit vaihtaa sen takaisin quickFilters Asetukset → Toiminnot-välilehti → Käyttöliittymä.{br}Lopulta vanha käyttöliittymä poistetaan, jotta quickFilters on täysin tulevaisuuden mukainen.{/L}{L}Kohdefiltterin nimi lisätty muokkauspainikkeeseen selkeyden lisäämiseksi{/L}{L}Korjattu ongelmat suodatinten yhdistämisessä uudessa HTML-avustajassa{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Parannettu saavutettavuutta uudessa HTML-asetuspaneelissa, mukaan lukien paremman välilehtien uudelleenkäytön tuki{/L}{L}Korjattu: quickFilters Pro -asetuspaneeli toimii nyt oikein ilman lisenssiavainta{/L}{L}Napsauttamalla tulevia vanhentumispäiviä näytetään nyt 'Laajenna lisenssi' -painike [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Asetuspaneeli päivitetty moderniin HTML-versioon [issue 325]{/L}{L}Täydellisen luettelon 6.9.* -versioiden parannuksista löydät yksityiskohtaisesta changelogista verkkosivustolla…{/L}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

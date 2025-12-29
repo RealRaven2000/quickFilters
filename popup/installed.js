@@ -56,8 +56,8 @@ addEventListener("click", async (event) => {
       // You are now running <b class="versionnumber">version {version}</b> on Thunderbird {appver}.
       // for multiple replacements, pass an array
       insertHtmlSafely(verInfo, messenger.i18n.getMessage("active-version-info", [addonVer, appVer])
-        .replace("{boldStart}","<b class='versionnumber'>")
-        .replace("{boldEnd}","</b>"),
+        .replace("{bold}","<b class='versionnumber'>")
+        .replace("{/bold}","</b>"),
       true);
     }    
     

@@ -9,7 +9,7 @@
     "message": "帳戶："
   },
   "active-version-info": {
-    "message": "您現在在Thunderbird $appVer$ 上運行{boldStart}版本 $addonVer$ {boldEnd}。",
+    "message": "您現在在Thunderbird $appVer$ 上運行{bold版本 $addonVer$ {/bold} 。",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
@@ -1245,7 +1245,7 @@
     "message": "對選定的郵件運行過濾器？"
   },
   "special-offer-content": {
-    "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {boldStart} $reduction$ {boldEnd}！ 此特別優惠將持續到 {boldStart}$expirydate${boldEnd}.",
+    "message": "現在是獲得許可證的最佳機會，因為慶祝quickFilters成立9週年的quickFilters Pro許可證價格降低了 {bold} $reduction$ {/bold} ！ 此特別優惠將持續到 {bold$expirydate${/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1261,7 +1261,7 @@
     "message": "請幫助quickFilters繼續！"
   },
   "special-offer-intro": {
-    "message": "{boldStart}尊敬的{name} {boldEnd}：您現在可以為面向未來的$addonName$提供幫助。 為了跟上 Thunderbird 的變化，我依賴於{boldStart}您的幫助{boldEnd}！",
+    "message": "{bold尊敬的{name} {/bold} ：您現在可以為面向未來的$addonName$提供幫助。 為了跟上 Thunderbird 的變化，我依賴於{bold您的幫助{/bold} ！",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1270,7 +1270,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "立即續訂您的許可證並節省{boldStart}$reduction${boldEnd}！ 此特別優惠有效期至 {boldStart}$expirydate${boldEnd}。",
+    "message": "立即續訂您的許可證並節省{bold$reduction${/bold} ！ 此特別優惠有效期至 {bold$expirydate${/bold} 。",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1358,7 +1358,7 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML 助手現在為預設。它更具未來適應性，並可響應不同螢幕尺寸。{br}若要繼續使用傳統 XUL 版本，可在 quickFilters 設定 → 操作標籤 → 使用者介面中改回去。{br}傳統介面最終將被移除，使 quickFilters 完全未來兼容。{L2}{L1}在編輯按鈕中添加目標篩選器名稱以提高清晰度{L2}{L1}修復了在新 HTML 助手中合併篩選器的問題{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}改善新 HTML 設定對話框的可及性，包括更好的標籤重用{L2}{L1}修復：quickFilters Pro 設定標籤現在即使沒有授權金鑰也能正常工作{L2}{L1}點擊未來到期日期現在會顯示「延長授權」按鈕 [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}設定對話框更新為現代 HTML 版本 [issue 325]{L2}{L1}有關 6.9.* 版本中包含的完整改進列表，請參閱網站上的詳細更改日誌…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML 助手現在為預設。它更具未來適應性，並可響應不同螢幕尺寸。{br}若要繼續使用傳統 XUL 版本，可在 quickFilters 設定 → 操作標籤 → 使用者介面中改回去。{br}傳統介面最終將被移除，使 quickFilters 完全未來兼容。{/L}{L}在編輯按鈕中添加目標篩選器名稱以提高清晰度{/L}{L}修復了在新 HTML 助手中合併篩選器的問題{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}改善新 HTML 設定對話框的可及性，包括更好的標籤重用{/L}{L}修復：quickFilters Pro 設定標籤現在即使沒有授權金鑰也能正常工作{/L}{L}點擊未來到期日期現在會顯示「延長授權」按鈕 [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}設定對話框更新為現代 HTML 版本 [issue 325]{/L}{L}有關 6.9.* 版本中包含的完整改進列表，請參閱網站上的詳細更改日誌…{/L}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

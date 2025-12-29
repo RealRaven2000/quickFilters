@@ -3,7 +3,7 @@
     "message": "SPLASH"
   },
   "active-version-info": {
-    "message": "Сада покрећете {boldStart} верзију $addonVer$ {boldEnd} на Thunderbird $appVer$.",
+    "message": "Сада покрећете {bold} верзију $addonVer$ {/bold}  на Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
@@ -183,7 +183,7 @@
     "message": "Покренути филтере на изабраним имејловима?"
   },
   "special-offer-content": {
-    "message": "Сада је најбоља прилика за добијање лиценце јер постоји {boldStart} $reduction$ снижење {boldEnd} цене лиценце КуицкФолдерс Про за прославу 9 година КуицкФолдерс-а! Ова посебна понуда биће доступна до {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Сада је најбоља прилика за добијање лиценце јер постоји {bold} $reduction$ снижење {/bold}  цене лиценце КуицкФолдерс Про за прославу 9 година КуицкФолдерс-а! Ова посебна понуда биће доступна до {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -199,7 +199,7 @@
     "message": "Помозите quickFilters да настави!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Поштовани {name} {boldEnd}, сада можете да помогнете $addonName$ који је спреман за будућност. Да бих био у току са променама у Тхундербирд-у, зависим од {болдСтарт}ваше помоћи{болдЕнд}!",
+    "message": "{bold} Поштовани {name} {/bold} , сада можете да помогнете $addonName$ који је спреман за будућност. Да бих био у току са променама у Тхундербирд-у, зависим од {болдСтарт}ваше помоћи{болдЕнд}!",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -208,7 +208,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Обновите лиценцу сада и уштедите {boldStart}$reduction${boldEnd}! Ова посебна понуда биће доступна до {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Обновите лиценцу сада и уштедите {bold$reduction${/bold} ! Ова посебна понуда биће доступна до {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -280,7 +280,7 @@
   },
   "whats-new-list": {
     "description": "🇷🇸 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML asistent je sada podrazumevan. Više je budućnosti-proof i prilagođava se različitim veličinama ekrana.{br}Da biste nastavili da koristite staru XUL verziju, možete to promeniti u quickFilters Podešavanja → Kartica Akcije → Korisnički interfejs.{br}Legacy interfejs će biti uklonjen kako bi quickFilters bio potpuno budućnosti-kompatibilan.{L2}{L1}Ime ciljanog filtera dodato dugmetu za uređivanje radi veće preglednosti{L2}{L1}Ispravljeni problemi sa spajanjem filtera u novom HTML asistentu{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Poboljšana pristupačnost u novom HTML dijalogu podešavanja, uključujući bolje ponovno korišćenje kartica{L2}{L1}Ispravljeno: quickFilters Pro kartica podešavanja sada radi ispravno bez ključa licence{L2}{L1}Klik na buduće datume isteka sada prikazuje dugme 'Produži licencu' [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Dijalog podešavanja ažuriran na modernu HTML verziju [issue 325]{L2}{L1}Za kompletnu listu poboljšanja u 6.9.* izdanjima, pogledajte detaljan changelog na sajtu…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML asistent je sada podrazumevan. Više je budućnosti-proof i prilagođava se različitim veličinama ekrana.{br}Da biste nastavili da koristite staru XUL verziju, možete to promeniti u quickFilters Podešavanja → Kartica Akcije → Korisnički interfejs.{br}Legacy interfejs će biti uklonjen kako bi quickFilters bio potpuno budućnosti-kompatibilan.{/L}{L}Ime ciljanog filtera dodato dugmetu za uređivanje radi veće preglednosti{/L}{L}Ispravljeni problemi sa spajanjem filtera u novom HTML asistentu{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Poboljšana pristupačnost u novom HTML dijalogu podešavanja, uključujući bolje ponovno korišćenje kartica{/L}{L}Ispravljeno: quickFilters Pro kartica podešavanja sada radi ispravno bez ključa licence{/L}{L}Klik na buduće datume isteka sada prikazuje dugme 'Produži licencu' [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Dijalog podešavanja ažuriran na modernu HTML verziju [issue 325]{/L}{L}Za kompletnu listu poboljšanja u 6.9.* izdanjima, pogledajte detaljan changelog na sajtu…{/L}"
   },
   "window-title": {
     "message": "Добродошли у $addonName$",

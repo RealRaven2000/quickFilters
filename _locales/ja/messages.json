@@ -10,7 +10,7 @@
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
-    "message": "Thunderbird $appVer$ 上で{boldStart}バージョン $addonVer$ {boldEnd}を実行しています。",
+    "message": "Thunderbird $appVer$ 上で{boldバージョン $addonVer$ {/bold} を実行しています。",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -1332,7 +1332,7 @@
     "message": "選択したメールにフィルターを実行しますか?"
   },
   "special-offer-content": {
-    "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {boldStart} $reduction$割引{boldEnd} されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{boldStart}$expirydate${boldEnd} までご利用いただけます。",
+    "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {bold} $reduction$割引{/bold}  されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{bold$expirydate${/bold}  までご利用いただけます。",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1348,7 +1348,7 @@
     "message": "続行するには、quickFiltersをご利用ください。"
   },
   "special-offer-intro": {
-    "message": "{boldStart}親愛なる{name} {boldEnd}、$addonName$ を将来にわたってサポートできるようになりました。 Thunderbird の変更に遅れないようにするには、{boldStart}あなたの助け{boldEnd}が必要です。",
+    "message": "{bold親愛なる{name} {/bold} 、$addonName$ を将来にわたってサポートできるようになりました。 Thunderbird の変更に遅れないようにするには、{boldあなたの助け{/bold} が必要です。",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1357,7 +1357,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "今すぐライセンスを更新して、{boldStart}$reduction${boldEnd}を節約してください！ この特別オファーは、{boldStart} $expirydate$ {boldEnd}までご利用いただけます。",
+    "message": "今すぐライセンスを更新して、{bold$reduction${/bold} を節約してください！ この特別オファーは、{bold} $expirydate$ {/bold} までご利用いただけます。",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -1447,7 +1447,7 @@
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTMLアシスタントがデフォルトになりました。将来性が高く、さまざまな画面サイズに対応しています。{br}従来のXULバージョンを引き続き使用する場合は、quickFilters 設定 → アクションタブ → ユーザーインターフェイスで戻すことができます。{br}従来のインターフェイスは最終的に削除され、quickFiltersは完全に将来互換になります。{L2}{L1}編集ボタンに対象フィルター名を追加してわかりやすくしました{L2}{L1}新しいHTMLアシスタントでのフィルター統合の問題を修正{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}新しいHTML設定ダイアログのアクセシビリティを改善、タブの再利用も向上{L2}{L1}修正：quickFilters Pro 設定タブがライセンスキーなしでも正しく動作するようになりました{L2}{L1}将来の有効期限をクリックすると『ライセンス延長』ボタンが表示されるようになりました [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}設定ダイアログをモダンHTML版に更新 [issue 325]{L2}{L1}6.9.*リリースに含まれる改善点の完全なリストは、ウェブサイトの詳細な変更ログをご覧ください…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTMLアシスタントがデフォルトになりました。将来性が高く、さまざまな画面サイズに対応しています。{br}従来のXULバージョンを引き続き使用する場合は、quickFilters 設定 → アクションタブ → ユーザーインターフェイスで戻すことができます。{br}従来のインターフェイスは最終的に削除され、quickFiltersは完全に将来互換になります。{/L}{L}編集ボタンに対象フィルター名を追加してわかりやすくしました{/L}{L}新しいHTMLアシスタントでのフィルター統合の問題を修正{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}新しいHTML設定ダイアログのアクセシビリティを改善、タブの再利用も向上{/L}{L}修正：quickFilters Pro 設定タブがライセンスキーなしでも正しく動作するようになりました{/L}{L}将来の有効期限をクリックすると『ライセンス延長』ボタンが表示されるようになりました [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}設定ダイアログをモダンHTML版に更新 [issue 325]{/L}{L}6.9.*リリースに含まれる改善点の完全なリストは、ウェブサイトの詳細な変更ログをご覧ください…{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

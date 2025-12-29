@@ -211,25 +211,28 @@ async function updateActions(addonName) {
 
 // eslint-disable-next-line no-unused-vars
 function formatAll(txt) {
-  if (!txt) {return "";}
+  if (!txt) {
+    return "";
+  }
   let localizedMsg = txt
-    .replace(/\{L1(?:\s+([^}]+))?\}/g, (_, attrs) => {
+    .replace(/\{L(?:\s+([^}]+))?\}/g, (_, attrs) => {
       // attrs will be undefined if no class specified
       return attrs ? `<li ${attrs}>` : "<li>";
     })
-    .replace(/\{L2\}/g, "</li>")
+    .replace(/\{\/L\}/g, "</li>")
     .replace(/\{br\}/g, "<br>")
-    .replace(/\{boldStart\}/g, "<b>")
-    .replace(/\{boldEnd\}/g, "</b>")
-    .replace(/\{imp1\}/g, "<span class='important'>")
-    .replace(/\{imp2\}/g, "</span>")
+    .replace(/\{bold\}/g, "<b>").replace(/\{\/bold\}/g, "</b>")
+    .replace(/\{italic\}/g, "<i>").replace(/\{\/italic\}/g, "</i>")
+    .replace(/\{U\}/g, "<ul>").replace(/\{\/U\}/g, "</ul>")
+    .replace(/\{emph\}/g, "<span class='important'>").replace(/\{\/emph\}/g, "</span>")
     .replace(/\{addonName\}/g, "quickFilters")
-    .replace(/\[issue (\d*)\]/g, "<a class=issue no=$1>[issue $1]</a>")
-    .replace(/\{P1(?:\s+([^}]+))?\}/g, (_, attrs) => {
+    .replace(/\[issue (\d+)\]/g, "<a class=issue no=$1>[issue $1]</a>")
+    .replace(/\{P(?:\s+([^}]+))?\}/g, (_, attrs) => {
       // attrs will be undefined if no class specified
       return attrs ? `<p ${attrs}>` : "<p>";
     })
-    .replace(/\{P2\}/g, "</p>");
+    .replace(/\{\/P\}/g, "</p>");
 
   return localizedMsg;
 }
+

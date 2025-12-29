@@ -3,7 +3,7 @@
     "message": "SPLASH"
   },
   "active-version-info": {
-    "message": "Zdaj izvajate {boldStart} različico $addonVer$ {boldEnd} na Thunderbird $appVer$.",
+    "message": "Zdaj izvajate {bold} različico $addonVer$ {/bold}  na Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "placeholders": {
       "addonVer": {
@@ -183,7 +183,7 @@
     "message": "Želite zagnati filtre za izbrana sporočila?"
   },
   "special-offer-content": {
-    "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {boldStart} $reduction$ znižanje {boldEnd} cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Zdaj je najboljša priložnost za pridobitev licence, saj obstaja {bold} $reduction$ znižanje {/bold}  cene licence quickFilters Pro za praznovanje 9 let quickFilters! Ta posebna ponudba bo na voljo do {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -199,7 +199,7 @@
     "message": "Prosimo, pomagajte quickFilters nadaljevati!"
   },
   "special-offer-intro": {
-    "message": "{boldStart} Spoštovani {name} {boldEnd}, zdaj lahko pomagate $addonName$, ki je pripravljen na prihodnost. Da bom na tekočem s spremembami v Thunderbirdu, se zanašam na {boldStart}vašo pomoč{boldEnd}!",
+    "message": "{bold} Spoštovani {name} {/bold} , zdaj lahko pomagate $addonName$, ki je pripravljen na prihodnost. Da bom na tekočem s spremembami v Thunderbirdu, se zanašam na {boldvašo pomoč{/bold} !",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -208,7 +208,7 @@
     }
   },
   "special-offer-renew": {
-    "message": "Podaljšajte licenco zdaj in prihranite {boldStart}$reduction${boldEnd}! Ta posebna ponudba bo na voljo do {boldStart} $expirydate$ {boldEnd}.",
+    "message": "Podaljšajte licenco zdaj in prihranite {bold$reduction${/bold} ! Ta posebna ponudba bo na voljo do {bold} $expirydate$ {/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",
@@ -280,7 +280,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇮 change log",
-    "message": "{P1 class=heading} Maintenance Release 6.9.2 {P2}{L1 class=important}HTML asistent je zdaj privzeta možnost. Je bolj pripravljen za prihodnost in se prilagaja različnim velikostim zaslona.{br}Če želite še naprej uporabljati staro XUL različico, to lahko spremenite v quickFilters Nastavitve → Zavihek Dejanja → Uporabniški vmesnik.{br}Stari vmesnik bo sčasoma odstranjen, da bo quickFilters popolnoma združljiv s prihodnostjo.{L2}{L1}Ime ciljnega filtra dodano gumbu za urejanje za večjo preglednost{L2}{L1}Odpravljene težave pri združevanju filtrov v novem HTML asistentu{L2}{P1 class=heading} Maintenance Release 6.9.1 - 30/10/2025 {P2}{L1}Izboljšana dostopnost v novem HTML nastavitvenem oknu, vključno z boljšim ponovnim uporabo zavihkov{L2}{L1}Odpravljeno: zavihek nastavitve quickFilters Pro zdaj deluje pravilno brez licenčnega ključa{L2}{L1}Klik na prihodnje datume poteka zdaj prikaže gumb 'Podaljšaj licenco' [issue 329]{L2}{P1 class=heading} Release 6.9 - 22/10/2025 {P2}{L1}Nastavitveno okno posodobljeno na sodobno HTML različico [issue 325]{L2}{L1}Za popoln seznam izboljšav v izdajah 6.9.* si oglejte podroben changelog na spletni strani…{L2}"
+    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML asistent je zdaj privzeta možnost. Je bolj pripravljen za prihodnost in se prilagaja različnim velikostim zaslona.{br}Če želite še naprej uporabljati staro XUL različico, to lahko spremenite v quickFilters Nastavitve → Zavihek Dejanja → Uporabniški vmesnik.{br}Stari vmesnik bo sčasoma odstranjen, da bo quickFilters popolnoma združljiv s prihodnostjo.{/L}{L}Ime ciljnega filtra dodano gumbu za urejanje za večjo preglednost{/L}{L}Odpravljene težave pri združevanju filtrov v novem HTML asistentu{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}Izboljšana dostopnost v novem HTML nastavitvenem oknu, vključno z boljšim ponovnim uporabo zavihkov{/L}{L}Odpravljeno: zavihek nastavitve quickFilters Pro zdaj deluje pravilno brez licenčnega ključa{/L}{L}Klik na prihodnje datume poteka zdaj prikaže gumb 'Podaljšaj licenco' [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}Nastavitveno okno posodobljeno na sodobno HTML različico [issue 325]{/L}{L}Za popoln seznam izboljšav v izdajah 6.9.* si oglejte podroben changelog na spletni strani…{/L}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",
