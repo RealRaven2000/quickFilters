@@ -30,20 +30,27 @@ END LICENSE BLOCK
 {
   
   quickFilters.FilterEditor = {
+    get currentFilter() {
+      if (typeof gFilter !== "undefined") {
+        return gFilter;
+      }
+      return window?.currentFilter() || null;
+    },
     isBetterBird: false,
     isDisabled: false,
     onLoad: function loadEditor(_event) {
       const txtAbort = "Abandoning quickFilters processing.";
-      if (!gFilter) {
+      const theFilter = quickFilters.FilterEditor.currentFilter;
+      if (!theFilter) {
         quickFilters.FilterEditor.isDisabled = true;
-        throw "quickFilters Editor: no gFilter!\n" + txtAbort;
+        throw "quickFilters Editor: no global filter!\n" + txtAbort;
       }
-      if (!gFilter.searchTerms || !gFilter.searchTerms.length) {
+      if (!theFilter.searchTerms || !theFilter.searchTerms.length) {
         quickFilters.FilterEditor.isDisabled = true;
         throw "quickFilters Editor: no searchTerms!\n" + txtAbort;
       }
       quickFilters.FilterEditor.isBetterBird =
-        typeof gFilter.searchTerms[0].beginsGrouping == "number";
+        typeof theFilter.searchTerms[0].beginsGrouping == "number";
       const util = quickFilters.Util;
       util.logDebug("quickFilters.loadEditor()");
       // filterEditorOnLoad(); was already called as we now use a listener!
@@ -187,11 +194,14 @@ END LICENSE BLOCK
         quickFilters.FilterEditor.showTitle();
       }, 100);
 
-      // [issue 108]  Edit fields of custom search term "Reply-To" is not displayed in Thunderbird 101.b4
       function refreshItems() {
-        if (!gFilter.searchTerms) {return false;}
-        // eslint-disable-next-line curly
-        if (!gFilter.searchTerms.length) return false;
+        const theFilter = quickFilters.FilterEditor.currentFilter;
+        if (!theFilter.searchTerms) {
+          return false;
+        }
+        if (!theFilter.searchTerms.length) {
+          return false;
+        }
         const isComplexFiltering = quickFilters.FilterEditor.isBetterBird;
         const isSimpleFiltering = !isComplexFiltering;
 
@@ -202,25 +212,39 @@ END LICENSE BLOCK
 
         for (let i = 0; i < termChildren.length; i++) {
           let el = termChildren[i];
-          if (gFilter.searchTerms[i].attrib == -2) {
+          if (theFilter.searchTerms[i].attrib == -2) {
             if (
-              gFilter.searchTerms[i].customId &&
-              gFilter.searchTerms[i].customId.startsWith("quickFilters")
+              theFilter.searchTerms[i].customId &&
+              theFilter.searchTerms[i].customId.startsWith("quickFilters")
             ) {
               // this is one of my own search terms...
               let val = el.querySelector("search-value");
               let filterVal;
               try {
                 // evalute the nsIMsgSearchValue
-                filterVal = gFilter.searchTerms[i].value.str;
+                filterVal = theFilter.searchTerms[i].value.str;
               } catch { ; }
-              if (filterVal && val.getAttribute("value") != filterVal) {
-                quickFilters.Util.logToConsole(
-                  `Fixing search term ${gFilter.searchTerms[i].customId} - re-adding value "${filterVal}" ...`
-                );
+
+              const displayVal = (filterVal === "%empty%") ? "" : filterVal;
+              if (val.getAttribute("value") != filterVal || displayVal === "") {
                 val.setAttribute("value", filterVal);
+                if (val.firstChild) {
+                  val.firstChild.value = displayVal;
+                }
                 el.replaceWith(el);
-              }
+                setTimeout(() => {
+                  const displayVal = (filterVal === "%empty%") ? "" : filterVal;
+                  const val = el.querySelector("search-value");
+                  quickFilters.Util.logToConsole(
+                    `Fixing search term ${theFilter.searchTerms[i].customId} - re-adding value "${filterVal}" ...`
+                  );                
+                  
+                  const input = val.querySelector("input.search-value-textbox");                  
+                  if (input) {
+                    input.value = displayVal;
+                  }
+                }, 200);
+              }   
             }
           }
         }
@@ -329,18 +353,20 @@ END LICENSE BLOCK
       util.logDebug("quickFilters.editorDomLoaded()");
     },
 
-    addCondition: function addFilterCondition(hdr, value) {
+    addCondition: function (hdr, value) {
       const Ci = Components.interfaces,
         util = quickFilters.Util,
         typeAttrib = Ci.nsMsgSearchAttrib,
         typeOperator = Ci.nsMsgSearchOp;
 
+      const theFilter = quickFilters.FilterEditor.currentFilter;        
+
       // from http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#232
       //      onMore() called when the [+] button is clicked on a row (simulate last row)
       let rowIndex = gSearchTermList.getRowCount(),
-        searchTerm = gFilter.createTerm(); // global filter variable; create a new nsIMsgSearchTerm
+        searchTerm = theFilter.createTerm(); // global filter variable; create a new nsIMsgSearchTerm
       searchTerm.op = typeOperator.Contains;
-      util.logDebug("addFilterCondition(" + hdr + ", " + value + ")");
+      util.logDebug("quickFilters.FilterEditor.addFilterCondition(" + hdr + ", " + value + ")");
       switch (hdr) {
         case "to":
           searchTerm.attrib = typeAttrib.To;
@@ -389,7 +415,7 @@ END LICENSE BLOCK
       // retrieve valueId from value!  - if the term was added as a custom term it will have an id in the attributes dropdown
       val.str = value; // copy string into val object
       searchTerm.value = val; // copy object back into
-      gFilter.appendTerm(searchTerm);
+      theFilter.appendTerm(searchTerm);
 
       createSearchRow(rowIndex, gSearchScope, searchTerm, false);
       gTotalSearchTerms++;
@@ -607,8 +633,13 @@ END LICENSE BLOCK
   // custom search conditions: replace bindings - needed for:
   // # replyTo
   function patchCustomTextbox(es) {
-    if (es.firstChild && es.firstChild.classList.contains("qi-textbox")) {return true;}
-    if (es.firstChild) {es.removeChild(es.firstChild);}
+    if (es.firstChild && es.firstChild.classList.contains("qi-textbox")) {
+      util.logDebug("patchCustomTextbox: already patched.");
+      return true;
+    }
+    if (es.firstChild) { 
+      es.removeChild(es.firstChild);
+    }
     // patch!
     try {
       let textbox = window.MozXULElement.parseXULToFragment(
