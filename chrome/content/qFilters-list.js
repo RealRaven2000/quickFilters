@@ -823,6 +823,7 @@ quickFilters.List = {
 		//    for this, we need to return to the filter list on the original server!
 		if (isRemove) {
 			for (let i = 0; i < clpFilters.length; i++) {
+				// eslint-disable-next-line no-unused-vars
 				let filter = clpFilters[i].QueryInterface(Ci.nsIMsgFilter);
 			}
 		}
