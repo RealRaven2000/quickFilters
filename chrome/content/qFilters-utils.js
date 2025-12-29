@@ -1682,6 +1682,33 @@ quickFilters.Util = {
     return namedTermsList;
   },
 
+  /**
+   * Appends unique named terms to a base string for building descriptive filter names.
+   *
+   * @param {string} inputString
+   *   The initial string to which named terms will be appended (e.g., a base filter name).
+   * @param {Array<{attrib: number|string, str: string}>} namedTermsList
+   *   An array of objects representing resolved search terms from a message.
+   *   Each object should have:
+   *     - attrib: The search term type/attribute (e.g., sender, subject, etc.).
+   *     - str: The resolved string value of the term.
+   * @returns {string}
+   *   A new string consisting of the inputString followed by each unique term in namedTermsList,
+   *   separated by " - ". Duplicate strings are skipped.
+   */
+  replaceNamedTermsInString: function (inputString, namedTermsList) {
+    let outputString = inputString;
+    const rawStrings = []; // avoid duplicates (even with different search attrib / type)
+    for (let i = 0; i < namedTermsList.length; i++) {
+      const term = namedTermsList[i];
+      if (rawStrings.includes(term.str)) {
+        continue;
+      }
+      rawStrings.push(term.str);
+      outputString += " - " + term.str;
+    }
+    return outputString;
+  },
 
   getActionCount: function (filter) {
     return filter.actionCount;

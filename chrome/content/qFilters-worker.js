@@ -1859,6 +1859,7 @@ quickFilters.Worker = {
 
       case "custom":
         {
+          const namedTermsList = [];
           util.popupProFeature("customTemplate", true);
           // retrieve the name of name customTemplate
           util.slideAlert(
@@ -1883,15 +1884,21 @@ quickFilters.Worker = {
             try {
               // this copy the terms from the custom filter and should resolve
               // any custom variable such as %from(domain)%
-              await util.copyTerms(
+              const results = await util.copyTerms(
                 customFilter,
                 targetFilter,
                 { msgHdr: msg, messageURI: msgUri },
                 myMailAddresses
               );
+              if (Array.isArray(results)) {
+                namedTermsList.push(...results);
+              }
             } catch (ex) {
               alert("Could not run copyTerms: " + ex.message);
             }
+          }
+          if (namedTermsList.length) {
+            filterName = util.replaceNamedTermsInString(filterName, namedTermsList);
           }
         }
         break;
