@@ -1485,6 +1485,23 @@ quickFilters.Util = {
             this.logDebugOptional("replaceReservedWords", replaceVal + " ==> " + newVal);
             replaceVal = newVal;
           }
+          if (!namedTermsList.some((t) => t.attrib === val.attrib && t.str === replaceVal)) {
+            const nameTerm = { attrib: val.attrib, str: replaceVal };
+            if (val.attrib == AC.Custom && "customId" in searchTerm) {
+              nameTerm.customId = searchTerm.customId;
+            }
+            // [issue 335]
+            if (nameTerm.str) { 
+              namedTermsList.push(nameTerm);
+            };
+          }
+          if (
+            !replaceVal &&
+            "customId" in searchTerm &&
+            searchTerm.customId.startsWith("quickFilters")
+          ) {
+            replaceVal = "%empty%";
+          }
           val.str = replaceVal; // .toLocaleString() ?
         } else {
           switch (val.attrib) {
@@ -1662,7 +1679,9 @@ quickFilters.Util = {
       delete util.CurrentHeader;
       delete util.CurrentMessage;
     }
+    return namedTermsList;
   },
+
 
   getActionCount: function (filter) {
     return filter.actionCount;
