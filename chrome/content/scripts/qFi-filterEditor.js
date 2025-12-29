@@ -180,8 +180,9 @@ async function onLoad(activatedWhileWindowOpen) {
       </toolbar>
     `);    
     let btn = document.getElementById("quickFiltersBtnSort");
+		const theFilter = window.quickFilters.FilterEditor.currentFilter; // initialize getter
     btn.addEventListener("command", function() {
-      window.quickFilters.FilterEditor.sortConditions(window.gFilter);
+      window.quickFilters.FilterEditor.sortConditions(theFilter);
     });
   }
   
