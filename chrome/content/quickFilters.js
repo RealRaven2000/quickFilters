@@ -180,8 +180,17 @@ END LICENSE BLOCK
     # Remove assignments to innerHTML in update / install welcome screens
     # Improved merging filters in new HTML assistant, by making API calls more robust
 
-  6.9.3
-    # [] 
+  6.10 - WIP
+    # [issue 335] Improve default filter names based on Custom Templates.
+    # [issue 338] Empty search terms from assistant or built-in templates 
+    #     (Reply-To, filter-tagging) now display correctly in the editor.
+    #     (Tb used to remove the edit box)
+    # [issue 334] Add keyboard shortcut for 'Create Filter from Message'
+    # [issue 331] After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge" 
+    #             not honored (need to be selected each time)
+    # [issue 333] Fixed: Extend License button opens 2 tabs
+    # bring assistant to foreground if lock is on and user tries to spawn a new one
+    # Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird
     
 
   ============================================================================================================
