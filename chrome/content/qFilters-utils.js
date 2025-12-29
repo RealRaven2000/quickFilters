@@ -38,63 +38,85 @@ quickFilters.Util = {
   mAppver: null,
   mAppName: null,
   mHost: null,
-	mPlatformVer: null,
+  mPlatformVer: null,
   ConsoleService: null,
   lastTime: 0,
   _tabContainer: null,
-  tempFolderTab: null,	 // likely obsolete ###
+  tempFolderTab: null, // likely obsolete ###
   get quickFilters_ESM() {
     return quickFilters_ESM;
   },
-  
-  async init() {
 
+  async init() {
     const onBackgroundUpdates = (data) => {
       if (data.licenseInfo) {
         quickFilters.Util.licenseInfo = data.licenseInfo;
-        quickFilters.Util.logDebugOptional("notifications", "onBackgroundUpdates - dispatching licenseInfo ");
+        quickFilters.Util.logDebugOptional(
+          "notifications",
+          "onBackgroundUpdates - dispatching licenseInfo "
+        );
         const event = new CustomEvent("quickFilters.BackgroundUpdate");
-        window.dispatchEvent(event); 
+        window.dispatchEvent(event);
       }
       // Event forwarder - take event from background script and forward to windows with appropriate listeners
       if (data.event) {
         let loc = "";
         try {
-          loc = window.document.URL || window.document.location ? window.document.location.href.toString() : "";
-        }
-        catch {;}
+          loc =
+            window.document.URL || window.document.location
+              ? window.document.location.href.toString()
+              : "";
+        } catch {;}
         // eslint-disable-next-line no-prototype-builtins
         if (!data.hasOwnProperty("window") || data.window.includes(loc)) {
-          window.quickFilters.Util.logDebugOptional("notifications", 
+          window.quickFilters.Util.logDebugOptional(
+            "notifications",
             `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
-            `into ${loc}`);
+              `into ${loc}`
+          );
           let event;
           if (data.event == "setAssistantMode") {
             if (data.detail) {
               quickFilters.Util.AssistantActive = data.detail.active;
-              quickFilters.Util.logHighlightDebug(" setAssistantMode() ","#ffffe0", "rgb(0,120,30)", `AssistantActive: ${quickFilters.Util.AssistantActive}`);
+              quickFilters.Util.logHighlightDebug(
+                " setAssistantMode() ",
+                "#ffffe0",
+                "rgb(0,120,30)",
+                `AssistantActive: ${quickFilters.Util.AssistantActive}`
+              );
             }
             return;
           }
-          
+
           if (data.detail) {
-            event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`, {detail: data.detail}) 
+            event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`, {
+              detail: data.detail,
+            });
           } else {
-            event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`) ;
+            event = new CustomEvent(`quickFilters.BackgroundUpdate.${data.event}`);
           }
-          window.dispatchEvent(event); 
-        }       
-      }      
-    }   
+          window.dispatchEvent(event);
+        }
+      }
+    };
     quickFilters.Util.notifyTools.addListener(onBackgroundUpdates);
-    
-    quickFilters.Util.AssistantActive = await quickFilters.Util.notifyTools.notifyBackground({ func: "getAssistantMode" }); // replace worker.FilterMode
-    quickFilters.Util.licenseInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getLicenseInfo" });
-    quickFilters.Util.platformInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getPlatformInfo" });
-    quickFilters.Util.browserInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getBrowserInfo" });
-    quickFilters.Util.addonInfo = await quickFilters.Util.notifyTools.notifyBackground({ func: "getAddonInfo" });
-    quickFilters.Util.logDebugOptional("notifications",
-    {
+
+    quickFilters.Util.AssistantActive = await quickFilters.Util.notifyTools.notifyBackground({
+      func: "getAssistantMode",
+    }); // replace worker.FilterMode
+    quickFilters.Util.licenseInfo = await quickFilters.Util.notifyTools.notifyBackground({
+      func: "getLicenseInfo",
+    });
+    quickFilters.Util.platformInfo = await quickFilters.Util.notifyTools.notifyBackground({
+      func: "getPlatformInfo",
+    });
+    quickFilters.Util.browserInfo = await quickFilters.Util.notifyTools.notifyBackground({
+      func: "getBrowserInfo",
+    });
+    quickFilters.Util.addonInfo = await quickFilters.Util.notifyTools.notifyBackground({
+      func: "getAddonInfo",
+    });
+    quickFilters.Util.logDebugOptional("notifications", {
       platformInfo: quickFilters.Util.platformInfo,
       browserInfo: quickFilters.Util.browserInfo,
       addonInfo: quickFilters.Util.addonInfo,
@@ -105,38 +127,44 @@ quickFilters.Util = {
         Assistant active: ${util.AssistantActive}
         BrowserInfo: ${util.browserInfo}
       `;
-      quickFilters.Util.logHighlightDebug(" quickFilters.Init() ","#ffffe0", "rgb(0,120,30)", info);
+      quickFilters.Util.logHighlightDebug(
+        " quickFilters.Init() ",
+        "#ffffe0",
+        "rgb(0,120,30)",
+        info
+      );
     }
-    
-  },  
+  },
 
   // special function for displaying the popup on the quickFilters toolbar button
-  showToolbarPopup: function() {
+  showToolbarPopup: function () {
     // quickFilters.List.showPopup(this,'quickFiltersSearchContext', event);
     let button = document.querySelector("button[extension='quickFilters@axelg.com']");
-    if (!button) {return;}
+    if (!button) {
+      return;
+    }
     const popupId = "quickFiltersMainPopup";
     let p =
       document.getElementById(popupId) ||
       document.querySelector("button[extension='quickFilters@axelg.com']");
-    
+
     if (p) {
-      p.targetNode = button; 
-      p.openPopup(button,'after_start', 0, -1,true,false); // no event
-    }    
-  },  
+      p.targetNode = button;
+      p.openPopup(button, "after_start", 0, -1, true, false); // no event
+    }
+  },
 
   // return main quickFilters instance (if we are in a child window / dialog or come from an event)
   get mainInstance() {
     let win = this.getMail3PaneWindow();
     return win.quickFilters;
-  } ,
+  },
 
-	get FolderFlags() {
+  get FolderFlags() {
     return Components.interfaces.nsMsgFolderFlags;
-	},
+  },
 
-  extractEmails: function(headerValue) {
+  extractEmails: function (headerValue) {
     let addresses = [];
     try {
       let parsed = MailServices.headerParser.parseDecodedHeader(headerValue);
@@ -145,8 +173,7 @@ quickFilters.Util = {
           addresses.push(addr.email.toLowerCase());
         }
       }
-    }
-    catch (ex) {
+    } catch (ex) {
       this.logDebug("extractEmails() failed: " + ex);
     }
     return addresses;
@@ -156,19 +183,14 @@ quickFilters.Util = {
     if (!folder) {
       return;
     }
-    const account = quickFilters.Util.Accounts.find(
-      (ac) => ac.incomingServer === folder?.server
-    );
+    const account = quickFilters.Util.Accounts.find((ac) => ac.incomingServer === folder?.server);
 
     let WL = quickFilters?.WL;
     if (!WL) {
       WL = quickFilters.Util.getMail3PaneWindow().quickFilters.WL;
     }
 
-    const apiFolder = WL.extension.folderManager.convert(
-      folder, 
-      account?.key || null
-    );
+    const apiFolder = WL.extension.folderManager.convert(folder, account?.key || null);
 
     if (apiFolder) {
       parameters[folderRole] = {
@@ -176,11 +198,11 @@ quickFilters.Util = {
         path: apiFolder.path,
         name: apiFolder.name, // optional
       };
-    }              
+    }
   },
-		
-  getMsgFolderFromUri:  function(uri, checkFolderAttributes) {
-		const util = quickFilters.Util;
+
+  getMsgFolderFromUri: function (uri, checkFolderAttributes) {
+    const util = quickFilters.Util;
     let msgfolder = null;
     const { MailUtils } = quickFilters_ESM
       ? ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs")
@@ -188,52 +210,54 @@ quickFilters.Util = {
 
     try {
       msgfolder = MailUtils.getExistingFolder(uri, checkFolderAttributes);
-    }
-    catch (ex) {
+    } catch (ex) {
       util.logException("getMsgFolderFromUri( " + uri + ")", ex);
     }
     return msgfolder;
-  } ,
+  },
 
-  getBundleString: function(id, defaultText, substitions = []) { // moved from local copies in various modules.
+  getBundleString: function (id, defaultText, substitions = []) {
+    // moved from local copies in various modules.
     // [mx-l10n]
-    var { ExtensionParent } = ChromeUtils.importESModule("resource://gre/modules/ExtensionParent.sys.mjs");
-    let extension = ExtensionParent.GlobalManager.getExtension('quickFilters@axelg.com');
+    var { ExtensionParent } = ChromeUtils.importESModule(
+      "resource://gre/modules/ExtensionParent.sys.mjs"
+    );
+    let extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
     let localized = extension.localeData.localizeMessage(id, substitions);
-  
+
     let s = "";
     if (localized) {
       s = localized;
-    }
-    else {
+    } else {
       s = defaultText;
-      this.logToConsole ("Could not retrieve bundle string: " + id + "");
+      this.logToConsole("Could not retrieve bundle string: " + id + "");
     }
     return s;
-  } ,
-  
-  localize: function(window, buttons = null) {
+  },
+
+  localize: function (window, buttons = null) {
     Services.scriptloader.loadSubScript(
       quickFilters.Util.extension.rootURI.resolve("chrome/content/i18n.js"),
       window,
       "UTF-8"
     );
-    window.i18n.updateDocument({extension: quickFilters.Util.extension});
+    window.i18n.updateDocument({ extension: quickFilters.Util.extension });
     if (buttons) {
       for (let [name, label] of Object.entries(buttons)) {
-        window.document.documentElement.getButton(name).label =  quickFilters.Util.extension.localeData.localizeMessage(label); // apply
+        window.document.documentElement.getButton(name).label =
+          quickFilters.Util.extension.localeData.localizeMessage(label); // apply
       }
     }
-  } ,
+  },
 
-  getMail3PaneWindow: function() {
+  getMail3PaneWindow: function () {
     let win3pane = Services.wm.getMostRecentWindow("mail:3pane");
     return win3pane;
-  } ,
-  
-  getLastFilterListWindow: function() {
-    return Services.wm.getMostRecentWindow('mailnews:filterlist');
-  } ,
+  },
+
+  getLastFilterListWindow: function () {
+    return Services.wm.getMostRecentWindow("mailnews:filterlist");
+  },
 
   get AppverFull() {
     let appInfo = Services.appinfo;
@@ -242,39 +266,39 @@ quickFilters.Util = {
 
   get Appver() {
     if (null === this.mAppver) {
-    let appVer=this.AppverFull.substr(0,3); // only use 1st three letters - that's all we need for compatibility checking!
+      let appVer = this.AppverFull.substr(0, 3); // only use 1st three letters - that's all we need for compatibility checking!
       this.mAppver = parseFloat(appVer); // quick n dirty!
     }
     return this.mAppver;
   },
 
   get Application() {
-    if (null===this.mAppName) {
+    if (null === this.mAppName) {
       let appInfo = Services.appinfo;
       const FIREFOX_ID = "{ec8030f7-c20a-464f-9b0e-13a3a9e97384}";
       const THUNDERBIRD_ID = "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
       const SEAMONKEY_ID = "{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}";
       const POSTBOX_ID = "postbox@postbox-inc.com";
-      switch(appInfo.ID) {
+      switch (appInfo.ID) {
         case FIREFOX_ID:
-          return this.mAppName='Firefox';
+          return (this.mAppName = "Firefox");
         case THUNDERBIRD_ID:
-          return this.mAppName='Thunderbird';
+          return (this.mAppName = "Thunderbird");
         case SEAMONKEY_ID:
-          return this.mAppName='SeaMonkey';
+          return (this.mAppName = "SeaMonkey");
         case POSTBOX_ID:
-          return this.mAppName='Postbox';
+          return (this.mAppName = "Postbox");
         default:
-          this.mAppName=appInfo.name;
-          this.logDebug ( 'Unknown Application: ' + appInfo.name);
+          this.mAppName = appInfo.name;
+          this.logDebug("Unknown Application: " + appInfo.name);
           return appInfo.name;
       }
     }
     return this.mAppName;
   },
-  
+
   get HostSystem() {
-    if (null===this.mHost) {
+    if (null === this.mHost) {
       let osString = Services.appinfo.OS;
       this.mHost = osString.toLowerCase();
     }
@@ -285,150 +309,165 @@ quickFilters.Util = {
     // this used to call VersionProxy() which opened quickfolders.init
     quickFilters.Util.logDebug("Version() getter. addonInfo:", quickFilters.Util.addonInfo);
     return quickFilters.Util.addonInfo.version;
-  } ,
+  },
 
   get VersionSanitized() {
     return this.getVersionSimple(this.Version);
-  } ,
-  
-  getVersionSimple: function(ver) {
-    let pureVersion = ver,  // default to returning unchanged
-        // get first match starting with numbers mixed with .   
-        reg = new RegExp("[0-9.]*"),
-        results = ver.match(reg); 
+  },
+
+  getVersionSimple: function (ver) {
+    let pureVersion = ver, // default to returning unchanged
+      // get first match starting with numbers mixed with .
+      reg = new RegExp("[0-9.]*"),
+      results = ver.match(reg);
     if (results) {
       pureVersion = results[0];
     }
     return pureVersion;
-  } ,
+  },
 
-	get PlatformVersion() {
-		if (null==this.mPlatformVer) {
-			try {
-				this.mPlatformVer = parseFloat(Services.appinfo.platformVersion);
-			} catch {
-				this.mPlatformVer = 115.0; // just a guess
-			}
+  get PlatformVersion() {
+    if (null == this.mPlatformVer) {
+      try {
+        this.mPlatformVer = parseFloat(Services.appinfo.platformVersion);
+      } catch {
+        this.mPlatformVer = 115.0; // just a guess
+      }
     }
-		return this.mPlatformVer;
-	} ,
-	
-	
-  isVirtual: function(folder) {
+    return this.mPlatformVer;
+  },
+
+  isVirtual: function (folder) {
     if (!folder) {
       return true;
     }
-		if (quickFilters.Util.FolderFlags.Virtual & folder.flags) {
-		  return true;
+    if (quickFilters.Util.FolderFlags.Virtual & folder.flags) {
+      return true;
     }
-    return (folder.username && folder.username == 'nobody') || (folder.hostname == 'smart mailboxes');
-  } ,
-	
-	isLocalInbox: function(folder) {
-    if (!folder) {return false;}
-    return folder.flags && 
-      (folder.flags & this.FolderFlags.Inbox) &&
-      (folder.flags & this.FolderFlags.Mail) && 
-      (folder.server.username == "nobody" && folder.server.type == "none") ? true : false;
-	} ,
-	
-	applyFiltersToFolder: function (folder, singleFilter) {
-		// a local copy of  MsgApplyFilters()
-		const Ci = Components.interfaces,
+    return (folder.username && folder.username == "nobody") || folder.hostname == "smart mailboxes";
+  },
+
+  isLocalInbox: function (folder) {
+    if (!folder) {
+      return false;
+    }
+    return folder.flags &&
+      folder.flags & this.FolderFlags.Inbox &&
+      folder.flags & this.FolderFlags.Mail &&
+      folder.server.username == "nobody" &&
+      folder.server.type == "none"
+      ? true
+      : false;
+  },
+
+  applyFiltersToFolder: function (folder, singleFilter) {
+    // a local copy of  MsgApplyFilters()
+    const Ci = Components.interfaces,
       util = quickFilters.Util,
       filterService = MailServices.filters;
 
-		try {
-			if (folder.isServer) { // if this is root, replace it with appropriate inbox
-			  let f = quickFilters.Shim.findInboxFromRoot(folder, util.FolderFlags);
-				if (!f) {
-					f = folder.getChildNamed('Inbox');
+    try {
+      if (folder.isServer) {
+        // if this is root, replace it with appropriate inbox
+        let f = quickFilters.Shim.findInboxFromRoot(folder, util.FolderFlags);
+        if (!f) {
+          f = folder.getChildNamed("Inbox");
         }
-				if (f) {folder = f;}
-			}
-      
-			let selectedFolders = [];
+        if (f) {
+          folder = f;
+        }
+      }
+
+      let selectedFolders = [];
       selectedFolders.push(folder);
-			
-			// create a new filter list and copy over the enabled filters to it.
-			
-			let curFilterList = folder.getFilterList(null), /* msgWindow */
-					tempFilterList = filterService.getTempFilterList(folder),
-					numFilters = curFilterList.filterCount;
-			// make sure the temp filter list uses the same log stream
-			tempFilterList.logStream = curFilterList.logStream;
-			tempFilterList.loggingEnabled = curFilterList.loggingEnabled;
-			let newFilterIndex = 0;
-			if (singleFilter) {
-				tempFilterList.insertFilterAt(0, singleFilter);
-			}
-			else {
+
+      // create a new filter list and copy over the enabled filters to it.
+
+      let curFilterList = folder.getFilterList(null) /* msgWindow */,
+        tempFilterList = filterService.getTempFilterList(folder),
+        numFilters = curFilterList.filterCount;
+      // make sure the temp filter list uses the same log stream
+      tempFilterList.logStream = curFilterList.logStream;
+      tempFilterList.loggingEnabled = curFilterList.loggingEnabled;
+      let newFilterIndex = 0;
+      if (singleFilter) {
+        tempFilterList.insertFilterAt(0, singleFilter);
+      } else {
         for (let i = 0; i < numFilters; i++) {
           const curFilter = curFilterList.getFilterAt(i);
           // only add enabled, UI visibile filters that are in the manual context
-          if (curFilter.enabled && !curFilter.temporary &&
-              (curFilter.filterType & Ci.nsMsgFilterType.Manual))
-          {
+          if (
+            curFilter.enabled &&
+            !curFilter.temporary &&
+            curFilter.filterType & Ci.nsMsgFilterType.Manual
+          ) {
             tempFilterList.insertFilterAt(newFilterIndex, curFilter);
             newFilterIndex++;
           }
         }
       }
-			if (singleFilter) {
-				let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running Filter '{0}' in folder {1}.");
-				util.showStatusMessage(
+      if (singleFilter) {
+        let txtStatus = util.getBundleString(
+          "quickfilters.runSingleFilterInFolder.status",
+          "Running Filter '{0}' in folder {1}."
+        );
+        util.showStatusMessage(
           txtStatus
             .replace("{0}", singleFilter.filterName)
             .replace("{1}", folder.prettyName || folder.localizedName),
           true
         );
-			} else {
-				let txtStatus = util.getBundleString('quickfilters.runSingleFilterInFolder.status', "Running '{0}' Filters in folder {1}.");
-				util.showStatusMessage(
+      } else {
+        let txtStatus = util.getBundleString(
+          "quickfilters.runSingleFilterInFolder.status",
+          "Running '{0}' Filters in folder {1}."
+        );
+        util.showStatusMessage(
           txtStatus
             .replace("{0}", numFilters)
             .replace("{1}", folder.prettyName || folder.localizedName),
           true
         );
-			}
-			filterService.applyFiltersToFolders(tempFilterList, selectedFolders, null);
-		}
-		catch(ex) {
-			util.logException("applyFiltersToFolder()", ex);
-		}
-	} ,
-
-	get tabContainer() {
-		if (!this._tabContainer) {
-		  let doc = this.getMail3PaneWindow().document;
-			this._tabContainer = doc.getElementById('tabmail').tabContainer;
-		}
-		return this._tabContainer;
-	} ,
-	
-	getTabInfoByIndex: function (tabmail, idx) {
-		if (tabmail.tabInfo) {
-			return tabmail.tabInfo[idx];
+      }
+      filterService.applyFiltersToFolders(tempFilterList, selectedFolders, null);
+    } catch (ex) {
+      util.logException("applyFiltersToFolder()", ex);
     }
-		return null;
-	} ,	
-	
-	get mailFolderTypeName() {
+  },
+
+  get tabContainer() {
+    if (!this._tabContainer) {
+      let doc = this.getMail3PaneWindow().document;
+      this._tabContainer = doc.getElementById("tabmail").tabContainer;
+    }
+    return this._tabContainer;
+  },
+
+  getTabInfoByIndex: function (tabmail, idx) {
+    if (tabmail.tabInfo) {
+      return tabmail.tabInfo[idx];
+    }
+    return null;
+  },
+
+  get mailFolderTypeName() {
     return "folder";
-	} ,	
-	
-	get tabmail() {
-		let doc = this.getMail3PaneWindow().document,
-		    tabmail = doc.getElementById("tabmail");
-		return tabmail;
-	} ,
-	
-	// likely obsolete ###
-	// use this to temporarily open a tab for a folder if the msgDatabase remains invalid.
-	// there should be another way to do this, but for the moment this is the workaround.
-	openTempFolderInNewTab: function (folder, background) {
-		const tabmail = this.tabmail;
-    if (!tabmail) { return; }
+  },
+
+  get tabmail() {
+    let doc = this.getMail3PaneWindow().document,
+      tabmail = doc.getElementById("tabmail");
+    return tabmail;
+  },
+
+  // likely obsolete ###
+  // use this to temporarily open a tab for a folder if the msgDatabase remains invalid.
+  // there should be another way to do this, but for the moment this is the workaround.
+  openTempFolderInNewTab: function (folder, background) {
+    const tabmail = this.tabmail;
+    if (!tabmail) {
+      return;
+    }
     const tabName = folder.name;
     this.tempFolderTab = tabmail.openTab(this.mailFolderTypeName, {
       folder: folder,
@@ -436,50 +475,51 @@ quickFilters.Util = {
       background: background,
       disregardOpener: true,
       title: tabName,
-    }); 
-	} ,
-	
-	// likely obsolete ###
-	closeTempFolderTab: function () {
-	  if(this.tempFolderTab) {
-		  if (this.tabmail.closeTab) {
-				this.tabmail.closeTab(this.tempFolderTab);
+    });
+  },
+
+  // likely obsolete ###
+  closeTempFolderTab: function () {
+    if (this.tempFolderTab) {
+      if (this.tabmail.closeTab) {
+        this.tabmail.closeTab(this.tempFolderTab);
       }
-			this.tempFolderTab = null;
-		}
-	} ,
-	
+      this.tempFolderTab = null;
+    }
+  },
+
   slideAlert: function (text, title, icon) {
     const Ci = Components.interfaces,
-					Cc = Components.classes,
-					util = quickFilters.Util;
+      Cc = Components.classes,
+      util = quickFilters.Util;
     try {
       if (!icon) {
         icon = "chrome://quickfilters/content/skin/QuickFilters_32.svg";
-      }
-      else {
+      } else {
         icon = "chrome://quickfilters/content/skin/" + icon;
       }
       if (!title) {
         title = "quickFilters";
       }
-      util.logToConsole('slideAlert(' + text + ', ' + title + ')');
-			// let's put this into a timeout
-			window.setTimeout(function() {
-				let service = Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService);
-        service.showAlertNotification(icon, title, text, false, '', null);
-			});
+      util.logToConsole("slideAlert(" + text + ", " + title + ")");
+      // let's put this into a timeout
+      window.setTimeout(function () {
+        let service = Cc["@mozilla.org/alerts-service;1"].getService(Ci.nsIAlertsService);
+        service.showAlertNotification(icon, title, text, false, "", null);
+      });
     } catch {
       // prevents runtime error on platforms that don't implement nsIAlertsService
       alert(text);
     }
-  } ,
-  
+  },
+
   /* [issue 258] needs to be async from Thunderbird 128! */
   popupAlert: async function (text, title, icon, timeOut) {
     try {
-			let isTimeout = !(timeOut == 0);
-			if (!timeOut) { timeOut = 4000; }
+      let isTimeout = !(timeOut == 0);
+      if (!timeOut) {
+        timeOut = 4000;
+      }
       if (!icon) {
         icon = "chrome://quickfilters/content/skin/QuickFilters_32.png";
       } else {
@@ -488,35 +528,37 @@ quickFilters.Util = {
       if (!title) {
         title = "quickFilters";
       }
-      let panel = document.getElementById('quickFilterNotification');
+      let panel = document.getElementById("quickFilterNotification");
       if (panel) {
         panel.openPopup(null, "after_start", 0, 0, false, false);
-        let notificationBox = document.getElementById('quickFilterNotificationBox'),
-            priority = notificationBox.PRIORITY_WARNING_MEDIUM;
-            // appendNotification( label , value , image , priority , buttons, eventCallback )
+        let notificationBox = document.getElementById("quickFilterNotificationBox"),
+          priority = notificationBox.PRIORITY_WARNING_MEDIUM;
+        // appendNotification( label , value , image , priority , buttons, eventCallback )
         const notificationKey = "quickfilters-popupAlert";
-        const notification = await notificationBox.appendNotification( 
+        const notification = await notificationBox.appendNotification(
           notificationKey,
           {
             priority: priority,
             label: text,
-            eventCallback: null
+            eventCallback: null,
           },
           null // no buttons
         );
-      notificationBox.addEventListener('alertclose', function() { alert('test'); });
-        
-        // setting img was removed in Tb91  
+        notificationBox.addEventListener("alertclose", function () {
+          alert("test");
+        });
+
+        // setting img was removed in Tb91
 
         // notification box definition:
         // https://searchfox.org/mozilla-esr128/source/toolkit/content/widgets/notificationbox.js#421
         let containerSelector;
         switch (notification?.messageImage?.tagName) {
           case "span":
-            containerSelector = ".container";  // Tb 115
+            containerSelector = ".container"; // Tb 115
             break;
           case "img":
-            containerSelector = ".icon-container";  // Tb 128
+            containerSelector = ".icon-container"; // Tb 128
             break;
         }
 
@@ -527,122 +569,132 @@ quickFilters.Util = {
             im.setAttribute("src", icon);
             container.insertBefore(im, notification.shadowRoot.querySelector(".icon"));
           }
-        }             
-        
+        }
+
         if (isTimeout) {
-					window.setTimeout(function() {
-            try{notificationBox.removeNotification(notification)}
-            catch{;}
+          window.setTimeout(function () {
+            try {
+              notificationBox.removeNotification(notification);
+            } catch {;}
             panel.hidePopup();
           }, timeOut);
         }
       } else {
-        Services.prompt.alert(window, title, text); 
+        Services.prompt.alert(window, title, text);
       }
-    }
-    catch(e) {
+    } catch (e) {
       // prevents runtime error on platforms that don't implement nsIAlertsService
-      this.logException (`quickFilters.util.popupAlert(${text}) `, e);
+      this.logException(`quickFilters.util.popupAlert(${text}) `, e);
       alert(text);
     }
-  } ,
-  
+  },
+
   alert: function alert(msg, caption) {
     caption = caption || "quickFilters";
     Services.prompt.alert(null, caption, msg);
   },
 
   /* quickFilters Pro / licensing features */
-	// default to isRegister from now = show button for buying a license.
-	// featureName: namne of the feature used (will be transmitted to shop when purchasing)
-	// isRegister: show registration button
-	popupProFeature: async function(featureName, isRegister, additionalText) {
-		let util = quickFilters.Util,
-				prefs = quickFilters.Preferences,
-        countDown = null;
-        
+  // default to isRegister from now = show button for buying a license.
+  // featureName: namne of the feature used (will be transmitted to shop when purchasing)
+  // isRegister: show registration button
+  popupProFeature: async function (featureName, isRegister, additionalText) {
+    let util = quickFilters.Util,
+      prefs = quickFilters.Preferences,
+      countDown = null;
+
     if (util.hasPremiumLicense()) {
       return true;
     }
-		
-		const mainWin = util.getMail3PaneWindow(),
-			notifyBox = mainWin.specialTabs.msgNotificationBar;
 
-		let title = util.getBundleString("quickfilters.notification.proFeature.title", "Premium Feature"),
-		    theText = util.getBundleString("quickfilters.notification.premium.text",
-				"{1} is a Premium feature, please get a quickFilters Pro License for using it. "),
-        featureTitle = 
-          (featureName.includes(' ')) ?
-          featureName : util.getBundleString('quickfilters.premium.title.' + featureName, featureName);
-		theText = theText.replace ("{1}", "'" + featureTitle + "'");
-		if (additionalText) {
-			theText = theText + '  ' + additionalText;
+    const mainWin = util.getMail3PaneWindow(),
+      notifyBox = mainWin.specialTabs.msgNotificationBar;
+
+    let title = util.getBundleString(
+        "quickfilters.notification.proFeature.title",
+        "Premium Feature"
+      ),
+      theText = util.getBundleString(
+        "quickfilters.notification.premium.text",
+        "{1} is a Premium feature, please get a quickFilters Pro License for using it. "
+      ),
+      featureTitle = featureName.includes(" ")
+        ? featureName
+        : util.getBundleString("quickfilters.premium.title." + featureName, featureName);
+    theText = theText.replace("{1}", "'" + featureTitle + "'");
+    if (additionalText) {
+      theText = theText + "  " + additionalText;
     }
-		
-		let regBtn,
+
+    let regBtn,
       hotKey = util.getBundleString("quickfilters.notification.premium.btn.hotKey", "L"),
       nbox_buttons = [];
-				
-		if (notifyBox) {
-			let notificationKey = "quickfilters-proFeature";
-			try {
-				if (featureName.indexOf('Advanced search') == 0) {
-					featureName="advancedSearchType";
+
+    if (notifyBox) {
+      let notificationKey = "quickfilters-proFeature";
+      try {
+        if (featureName.indexOf("Advanced search") == 0) {
+          featureName = "advancedSearchType";
         }
         try {
-          countDown = prefs.getIntPref("restrictions." + featureName + ".countDown") ;
-        }
-        catch {
+          countDown = prefs.getIntPref("restrictions." + featureName + ".countDown");
+        } catch {
           countDown = 5;
         }
-				countDown--;
-        if (countDown>0) {
-          let countText = util.getBundleString("quickfilters.notification.premium.freeUses", "You can use this feature for free {1} more times.");
+        countDown--;
+        if (countDown > 0) {
+          let countText = util.getBundleString(
+            "quickfilters.notification.premium.freeUses",
+            "You can use this feature for free {1} more times."
+          );
           countText = countText.replace("{1}", countDown);
           theText = theText + " " + countText;
         }
-				prefs.setIntPref("restrictions." + featureName + ".countDown", countDown);
-				util.logDebug('Showing notifyBox for [' + notificationKey + ']...\n'
-																	 + 'Countdown is ' + countDown);
-			}
-			catch  {;}
-      
-			if (!hotKey) {hotKey='L';} // we also use this for hacking the style of the "Buy" button!
+        prefs.setIntPref("restrictions." + featureName + ".countDown", countDown);
+        util.logDebug(
+          "Showing notifyBox for [" + notificationKey + "]...\n" + "Countdown is " + countDown
+        );
+      } catch {;}
+
+      if (!hotKey) {
+        hotKey = "L";
+      } // we also use this for hacking the style of the "Buy" button!
       if (util.licenseInfo.isExpired) {
-        regBtn = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
-      }
-      else {
-			  regBtn = util.getBundleString("quickfilters.notification.premium.btn.getLicense", "Buy License!");
-      }
-      
-      // registration button
-      if (isRegister) {
-        
-        nbox_buttons.push(
-          {
-            label: regBtn,
-            accessKey: hotKey,   
-            callback: function() { 
-              quickFilters.Util.showLicenseDialog(featureName); 
-            },
-            popup: null
-          }
+        regBtn = util.getBundleString(
+          "quickfilters.notification.premium.btn.renewLicense",
+          "Renew License!"
+        );
+      } else {
+        regBtn = util.getBundleString(
+          "quickfilters.notification.premium.btn.getLicense",
+          "Buy License!"
         );
       }
 
-			
+      // registration button
+      if (isRegister) {
+        nbox_buttons.push({
+          label: regBtn,
+          accessKey: hotKey,
+          callback: function () {
+            quickFilters.Util.showLicenseDialog(featureName);
+          },
+          popup: null,
+        });
+      }
+
       let item = notifyBox.getNotificationWithValue(notificationKey);
       if (item) {
         notifyBox.removeNotification(item, false);
       }
-		  const imgSrc = "chrome://quickfilters/content/skin/proFeature.png";
-    
-			const newNotification = await notifyBox.appendNotification( 
+      const imgSrc = "chrome://quickfilters/content/skin/proFeature.png";
+
+      const newNotification = await notifyBox.appendNotification(
         notificationKey, // "String identifier that can uniquely identify the type of the notification."
         {
           priority: notifyBox.PRIORITY_WARNING_HIGH,
           label: theText,
-          eventCallback: null
+          eventCallback: null,
         },
         nbox_buttons // no buttons
       );
@@ -650,21 +702,27 @@ quickFilters.Util = {
       let containerSelector;
       switch (newNotification?.messageImage?.tagName) {
         case "span":
-          containerSelector = ".container";  // Tb 115
+          containerSelector = ".container"; // Tb 115
           break;
         case "img":
-          containerSelector = ".icon-container";  // Tb 128
+          containerSelector = ".icon-container"; // Tb 128
           break;
-      }      
-       
+      }
+
       // setting img was removed in Tb91
       if (containerSelector) {
         // style needs to go into shadowroot
         let linkEl = document.createElement("link");
         linkEl.setAttribute("rel", "stylesheet");
-        linkEl.setAttribute("href", "chrome://quickfilters/content/skin/qFilters-notifications.css");
-        newNotification.shadowRoot.insertBefore(linkEl, newNotification.shadowRoot.firstChild.nextSibling);         
-        
+        linkEl.setAttribute(
+          "href",
+          "chrome://quickfilters/content/skin/qFilters-notifications.css"
+        );
+        newNotification.shadowRoot.insertBefore(
+          linkEl,
+          newNotification.shadowRoot.firstChild.nextSibling
+        );
+
         let container = newNotification.shadowRoot.querySelector(containerSelector);
         if (container) {
           let im = document.createElement("img");
@@ -672,56 +730,54 @@ quickFilters.Util = {
           container.insertBefore(im, newNotification.shadowRoot.querySelector(".icon"));
         }
       }
-      return (countDown>=0);
-		} else {
-			// fallback for systems that do not support notification (currently: SeaMonkey)
-			Services.prompt.alert(null, title, theText); 
+      return countDown >= 0;
+    } else {
+      // fallback for systems that do not support notification (currently: SeaMonkey)
+      Services.prompt.alert(null, title, theText);
       return true;
-		}
-	} ,  
+    }
+  },
 
   showStatusMessage: function showStatusMessage(s, isTimeout) {
     try {
-			let win = this.getMail3PaneWindow(),
-          sb = win.document.getElementById('status-bar'),
-          el, sbt;
+      let win = this.getMail3PaneWindow(),
+        sb = win.document.getElementById("status-bar"),
+        el,
+        sbt;
       if (sb) {
-        for(let i = 0; i < sb.childNodes.length; i++)
-        {
+        for (let i = 0; i < sb.childNodes.length; i++) {
           el = sb.childNodes[i];
-          if (el.nodeType === 1 && el.id === 'statusTextBox') {
+          if (el.nodeType === 1 && el.id === "statusTextBox") {
             sbt = el;
-              break;
+            break;
           }
         }
-				if (sbt) {
-					for(let i = 0; i < sbt.childNodes.length; i++)
-					{
-						el = sbt.childNodes[i];
-						if (el.nodeType === 1 && el.id === 'statusText') {
-							el.label = s;
-							if (isTimeout) {
-								// erase my status message after 5 secs
-								win.setTimeout(function() { 
-								    if (el.label == s) {
-                      // remove my message if it is still there
-											el.label = "";
-                    }
-									}, 
-									5000);
-							}
-							break;
-						}
-					}
+        if (sbt) {
+          for (let i = 0; i < sbt.childNodes.length; i++) {
+            el = sbt.childNodes[i];
+            if (el.nodeType === 1 && el.id === "statusText") {
+              el.label = s;
+              if (isTimeout) {
+                // erase my status message after 5 secs
+                win.setTimeout(function () {
+                  if (el.label == s) {
+                    // remove my message if it is still there
+                    el.label = "";
+                  }
+                }, 5000);
+              }
+              break;
+            }
+          }
         }
-      } else { 
-        MsgStatusFeedback.showStatusString(s); 
-      }        
-    } catch(ex) {
-      this.logToConsole("showStatusMessage - " +  ex);
+      } else {
+        MsgStatusFeedback.showStatusString(s);
+      }
+    } catch (ex) {
+      this.logToConsole("showStatusMessage - " + ex);
       MsgStatusFeedback.showStatusString(s);
     }
-  } ,
+  },
 
   // GetLoadedMsgFolder - SeaMonkey only
   // GetSelectedFolderURI - deprecated
@@ -738,25 +794,28 @@ quickFilters.Util = {
       if (!currentURI) {
         return null;
       }
-      aFolder = quickFilters.Util.getMsgFolderFromUri(currentURI, true).QueryInterface(Components.interfaces.nsIMsgFolder); 
+      aFolder = quickFilters.Util.getMsgFolderFromUri(currentURI, true).QueryInterface(
+        Components.interfaces.nsIMsgFolder
+      );
     }
     // in search result folders, there is no current URI!
     return aFolder;
-  } ,
+  },
 
-  getSelectedMessages: function(selectedMessageUris, fromContextMenu=false) {
-    if (!selectedMessageUris) {selectedMessageUris = [];}
+  getSelectedMessages: function (selectedMessageUris, fromContextMenu = false) {
+    if (!selectedMessageUris) {
+      selectedMessageUris = [];
+    }
     let selectedMessages = [];
-    let treeView = 
-      fromContextMenu ? 
-        gTabmail.currentAbout3Pane.gDBView :
-        gTabmail.currentTabInfo.chromeBrowser.contentWindow.threadTree.view;
-     
+    let treeView = fromContextMenu
+      ? gTabmail.currentAbout3Pane.gDBView
+      : gTabmail.currentTabInfo.chromeBrowser.contentWindow.threadTree.view;
+
     if (treeView) {
       selectedMessages = treeView.getSelectedMsgHdrs();
       // we can also read message.properties (list of property ids)
       // read with message.getStringProperty("subject")
-      selectedMessages.forEach(hdr => {
+      selectedMessages.forEach((hdr) => {
         selectedMessageUris.push(hdr.folder.getUriForMsg(hdr));
       });
     }
@@ -764,31 +823,34 @@ quickFilters.Util = {
   },
 
   logTime: function () {
-    let timePassed = '',
-        end = new Date(),
-        endTime = end.getTime();
-    try { // AG added time logging for test
+    let timePassed = "",
+      end = new Date(),
+      endTime = end.getTime();
+    try {
+      // AG added time logging for test
       if (this.lastTime === 0) {
         this.lastTime = endTime;
-        return "[logTime init]"
+        return "[logTime init]";
       }
       let elapsed = new String(endTime - this.lastTime); // time in milliseconds
-      timePassed = '[' + elapsed + ' ms]   ';
+      timePassed = "[" + elapsed + " ms]   ";
       this.lastTime = endTime; // remember last time
-    }
-    catch {;}
-    return end.getHours() + ':' + end.getMinutes() + ':' + end.getSeconds() + '.' + end.getMilliseconds() + '  ' + timePassed;
+    } catch {;}
+    return (
+      `${end.getHours()}:${end.getMinutes()}:${end.getSeconds()}.` +
+      `${end.getMilliseconds()}  ${timePassed}`
+    );
   },
 
   logToConsole: function (...args) {
     let msg = "quickFilters " + quickFilters.Util.logTime() + "\n";
-    console.log(msg, ...args);    
+    console.log(msg, ...args);
   },
 
   logWarn: function (...args) {
     let msg = "quickFilters " + quickFilters.Util.logTime() + "\n";
-    console.warn(msg, ...args);    
-  },  
+    console.warn(msg, ...args);
+  },
 
   // flags
   // errorFlag    0x0   Error messages. A pseudo-flag for the default, error case.
@@ -797,24 +859,32 @@ quickFilters.Util = {
   // strictFlag     0x4
   logError: function (aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags) {
     const Ci = Components.interfaces,
-					Cc = Components.classes;
+      Cc = Components.classes;
     let consoleService = Services.console,
-        aCategory = '',
-        scriptError = Cc["@mozilla.org/scripterror;1"].createInstance(Ci.nsIScriptError);
-    scriptError.init(aMessage, aSourceName, aSourceLine, aLineNumber, aColumnNumber, aFlags, aCategory);
+      aCategory = "",
+      scriptError = Cc["@mozilla.org/scripterror;1"].createInstance(Ci.nsIScriptError);
+    scriptError.init(
+      aMessage,
+      aSourceName,
+      aSourceLine,
+      aLineNumber,
+      aColumnNumber,
+      aFlags,
+      aCategory
+    );
     consoleService.logMessage(scriptError);
-  } ,
+  },
 
   logException: function (aMessage, ex) {
-    let stack = '';
-    if (typeof ex.stack!='undefined') {
-      stack= ex.stack.replace("@","\n  ");
+    let stack = "";
+    if (typeof ex.stack != "undefined") {
+      stack = ex.stack.replace("@", "\n  ");
     }
 
     let srcName = ex.fileName ? ex.fileName : "";
     this.logError(aMessage + "\n" + ex.message, srcName, stack, ex.lineNumber, 0, 0x1); // use warning flag, as this is an exception we caught ourselves
-  } ,
-  
+  },
+
   logDebug: function (...args) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
     if (qF.Preferences.isDebug) {
@@ -822,144 +892,146 @@ quickFilters.Util = {
     }
   },
 
-	// optional logging for important points in flow.
-	logHighlightDebug: function(txt, color="white", background="rgb(80,0,0)", ...args) {
-		if (quickFilters.Preferences.isDebug) {
-			console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
-		}
-	},  
-
-  /** 
-	* only logs if debug mode is set and specific debug option are active
-	* 
-	* @param {string} optionString comma delimited options
-  * @param {string} msg text to log 
-	*/   
-  logDebugOptional: function (optionString, _msg) {
-		try {
-			let qF = quickFilters ? quickFilters : this.mainInstance,
-					options = optionString.split(',');
-			for (let i=0; i<options.length; i++) {
-				let option = options[i];
-				if (qF.Preferences.isDebugOption(option)) {
-					this.logWithOption(...arguments);
-					break; // only log once, in case multiple log switches are on
-				}
-			}        
-		}
-		catch {;}
+  // optional logging for important points in flow.
+  logHighlightDebug: function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
+    if (quickFilters.Preferences.isDebug) {
+      console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
+    }
   },
 
-  logWithOption: function(_a) {
+  /**
+   * only logs if debug mode is set and specific debug option are active
+   *
+   * @param {string} optionString comma delimited options
+   * @param {string} msg text to log
+   */
+  logDebugOptional: function (optionString, _msg) {
+    try {
+      let qF = quickFilters ? quickFilters : this.mainInstance,
+        options = optionString.split(",");
+      for (let i = 0; i < options.length; i++) {
+        let option = options[i];
+        if (qF.Preferences.isDebugOption(option)) {
+          this.logWithOption(...arguments);
+          break; // only log once, in case multiple log switches are on
+        }
+      }
+    } catch {;}
+  },
+
+  logWithOption: function (_a) {
     // first argument is the option tag
     arguments[0] =
       "quickFilters " + `{${arguments[0].toUpperCase()}} ${quickFilters.Util.logTime()}\n`;
     console.log(...arguments);
-  },  
-	
+  },
+
   getTabInfoLength: function (tabmail) {
-		if (tabmail.tabInfo) {
-		  return tabmail.tabInfo.length;
+    if (tabmail.tabInfo) {
+      return tabmail.tabInfo.length;
     }
-	  if (tabmail.tabOwners) {
-		  return tabmail.tabOwners.length;
+    if (tabmail.tabOwners) {
+      return tabmail.tabOwners.length;
     }
-		return null;
-	} ,
-	
-	getTabMode: function (tabInfo) {
+    return null;
+  },
+
+  getTabMode: function (tabInfo) {
     // Tb 115: mailMessageTab or mail3PaneTab for mail related tabs
-	  if (tabInfo && tabInfo.mode) {   // Tb / Sm
-			return tabInfo.mode.name;
-		}
-		return "";
-	},
+    if (tabInfo && tabInfo.mode) {
+      // Tb / Sm
+      return tabInfo.mode.name;
+    }
+    return "";
+  },
 
   // @tabInfo - tabInfo object
   // @type - one of "folder", "message", "search", "mail" (for folders+single messages), "other"
-  isTabMode: function(tabInfo, type) {
-    if (!tabInfo) {return false;}
+  isTabMode: function (tabInfo, type) {
+    if (!tabInfo) {
+      return false;
+    }
     switch (tabInfo.mode.name) {
       case "mail3PaneTab":
-        return (["folder","mail"].includes(type));
+        return ["folder", "mail"].includes(type);
       case "mailMessageTab":
-        return (["folder","message"].includes(type));
-      case "glodaSearch": case "glodaSearch-result":
-        return (["search"].includes(type));
+        return ["folder", "message"].includes(type);
+      case "glodaSearch":
+      case "glodaSearch-result":
+        return ["search"].includes(type);
       default:
-        return (["other"].includes(type));
+        return ["other"].includes(type);
     }
   },
-	
-	getBaseURI: function (URL) {
-		let hashPos = URL.indexOf('#'),
-				queryPos = URL.indexOf('?'),
-				baseURL = URL;
-				
-		if (hashPos>0) {
-			baseURL = URL.substr(0, hashPos);
-    } else if (queryPos>0) {
-			baseURL = URL.substr(0, queryPos);
+
+  getBaseURI: function (URL) {
+    let hashPos = URL.indexOf("#"),
+      queryPos = URL.indexOf("?"),
+      baseURL = URL;
+
+    if (hashPos > 0) {
+      baseURL = URL.substr(0, hashPos);
+    } else if (queryPos > 0) {
+      baseURL = URL.substr(0, queryPos);
     }
-		if (baseURL.endsWith('/')) {
+    if (baseURL.endsWith("/")) {
       // match "x.com" with "x.com/"
       return baseURL.substr(0, baseURL.length - 1);
     }
-		return baseURL;		
-	} ,
-	
-	findMailTab: function (tabmail, URL) {
-		const util = quickFilters.Util;
-		// mail: tabmail.tabInfo[n].browser		
-		let baseURL = util.getBaseURI(URL),
-				numTabs = util.getTabInfoLength(tabmail);
-		
-		for (let i = 0; i < numTabs; i++) {
-			let info = util.getTabInfoByIndex(tabmail, i);
-			if (info.browser && info.browser.currentURI) {
-				let tabUri = util.getBaseURI(info.browser.currentURI.spec);
-				if (tabUri == baseURL) {
-					tabmail.switchToTab(i);
+    return baseURL;
+  },
+
+  findMailTab: function (tabmail, URL) {
+    const util = quickFilters.Util;
+    // mail: tabmail.tabInfo[n].browser
+    let baseURL = util.getBaseURI(URL),
+      numTabs = util.getTabInfoLength(tabmail);
+
+    for (let i = 0; i < numTabs; i++) {
+      let info = util.getTabInfoByIndex(tabmail, i);
+      if (info.browser && info.browser.currentURI) {
+        let tabUri = util.getBaseURI(info.browser.currentURI.spec);
+        if (tabUri == baseURL) {
+          tabmail.switchToTab(i);
           try {
             let params = {
-              triggeringPrincipal: Services.scriptSecurityManager.getSystemPrincipal()
-            }
+              triggeringPrincipal: Services.scriptSecurityManager.getSystemPrincipal(),
+            };
             info.browser.loadURI(URL, params);
-          }
-          catch(ex) {
+          } catch (ex) {
             util.logException(ex);
           }
-					return true;
-				}
-			}
-		}
-		return false;
-	} ,	
-		
+          return true;
+        }
+      }
+    }
+    return false;
+  },
 
   // dedicated function for email clients which don't support tabs
   // and for secured pages (donation page).
   openLinkInBrowserForced: function (linkURI) {
     const Ci = Components.interfaces,
-					Cc = Components.classes;
+      Cc = Components.classes;
     try {
       this.logDebug("openLinkInBrowserForced (" + linkURI + ")");
-      let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"]
-                              .getService(Ci.nsIExternalProtocolService),
-          ioservice = Cc["@mozilla.org/network/io-service;1"].
-            getService(Ci.nsIIOService),
-          uri = ioservice.newURI(linkURI, null, null);
+      let service = Cc["@mozilla.org/uriloader/external-protocol-service;1"].getService(
+          Ci.nsIExternalProtocolService
+        ),
+        ioservice = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService),
+        uri = ioservice.newURI(linkURI, null, null);
       service.loadURI(uri);
+    } catch (e) {
+      this.logDebug("openLinkInBrowserForced (" + linkURI + ") " + e.toString());
     }
-    catch(e) { this.logDebug("openLinkInBrowserForced (" + linkURI + ") " + e.toString()); }
   },
 
   // moved from options.js
   // use this to follow a href that did not trigger the browser to open (from a XUL file)
   openLinkInBrowser: function (evt, linkURI) {
-    quickFilters.Util.notifyTools.notifyBackground({ 
-      func: "openBrowserLink", 
-      url: linkURI 
+    quickFilters.Util.notifyTools.notifyBackground({
+      func: "openBrowserLink",
+      url: linkURI,
     });
 
     evt?.stopPropagation();
@@ -967,117 +1039,121 @@ quickFilters.Util = {
   },
 
   // moved from options.js (then called
-  openURLWithEvent: async function (URL, evt) { // workaround for a bug in TB3 that causes href's not be followed anymore.
-	  const util = quickFilters.Util;
-    if (await util.openURLInTab.call(util, URL) && null!=evt) {
-      if (evt.preventDefault)  {evt.preventDefault();}
-      if (evt.stopPropagation)  {evt.stopPropagation();}
+  openURLWithEvent: async function (URL, evt) {
+    // workaround for a bug in TB3 that causes href's not be followed anymore.
+    const util = quickFilters.Util;
+    if ((await util.openURLInTab.call(util, URL)) && null != evt) {
+      if (evt.preventDefault) {
+        evt.preventDefault();
+      }
+      if (evt.stopPropagation) {
+        evt.stopPropagation();
+      }
     }
   },
 
-	openURL: async function(URL) { 
-		const util = quickFilters.Util;
-		return await util.openURLInTab.call(util, URL);
-	},  
+  openURL: async function (URL) {
+    const util = quickFilters.Util;
+    return await util.openURLInTab.call(util, URL);
+  },
 
   openURLInTab: async function (aURL) {
     const util = quickFilters.Util;
     try {
       let URL = util.makeUriPremium(aURL);
 
-			// use API. Look Ma, no tabmail!
-			// getBaseURI to check if we already opened the page and need to 
-			// jump to a different anchor.
-			await quickFilters.Util.notifyTools.notifyBackground(
-				{ 
-					func: "openLinkInTab", 
-					URL: URL, 
-					baseURI: quickFilters.Util.getBaseURI(URL)
-				}
-			);
-			return true;
-		}
-    catch(e) { 
-			quickFilters.Util.logException('openURLInTab(' + URL + ')', e);
-      return false; 
+      // use API. Look Ma, no tabmail!
+      // getBaseURI to check if we already opened the page and need to
+      // jump to a different anchor.
+      await quickFilters.Util.notifyTools.notifyBackground({
+        func: "openLinkInTab",
+        URL: URL,
+        baseURI: quickFilters.Util.getBaseURI(URL),
+      });
+      return true;
+    } catch (e) {
+      quickFilters.Util.logException("openURLInTab(" + URL + ")", e);
+      return false;
     }
-  } ,
-	
-	versionGreaterOrEqual: function(a, b) {
-		/*
-			Compares Application Versions
-			returns
-			- is smaller than 0, then A < B
-			-  equals 0 then Version, then A==B
-			- is bigger than 0, then A > B
-		*/
-		let versionComparator = Services.vc;
-		return (versionComparator.compare(a, b) >= 0);
-	} ,
+  },
 
-	versionSmaller: function(a, b) {
-		/*
+  versionGreaterOrEqual: function (a, b) {
+    /*
 			Compares Application Versions
 			returns
 			- is smaller than 0, then A < B
 			-  equals 0 then Version, then A==B
 			- is bigger than 0, then A > B
 		*/
-		let versionComparator = Services.vc;
-		return (versionComparator.compare(a, b) < 0);
-	} ,	
-	
-	debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
-	  if (!quickFilters.Preferences.isDebugOption("createFilter")) {
-		  return;
+    let versionComparator = Services.vc;
+    return versionComparator.compare(a, b) >= 0;
+  },
+
+  versionSmaller: function (a, b) {
+    /*
+			Compares Application Versions
+			returns
+			- is smaller than 0, then A < B
+			-  equals 0 then Version, then A==B
+			- is bigger than 0, then A > B
+		*/
+    let versionComparator = Services.vc;
+    return versionComparator.compare(a, b) < 0;
+  },
+
+  debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
+    if (!quickFilters.Preferences.isDebugOption("createFilter")) {
+      return;
     }
-	  try {
+    try {
       const fName = targetFolder ? targetFolder.prettyName || targetFolder.localizedName : "none";
-			if (msg) {
-        quickFilters.Util.logDebugOptional("createFilter", 
+      if (msg) {
+        quickFilters.Util.logDebugOptional(
+          "createFilter",
           `Message(
   ${label1}=${val1}
   target folder=${fName}
   message Id=${msg.messageId}
-  author=${msg.mime2DecodedAuthor || ''}
-  subject=${msg.mime2DecodedSubject || ''}
-  recipients=${msg.mime2DecodedRecipients || ''}
-  filterAction=${filterAction || ''}
-  cc=${msg.ccList || ''}
-  bcc=${msg.bccList || ''}
-  author=${msg.author || ''}
+  author=${msg.mime2DecodedAuthor || ""}
+  subject=${msg.mime2DecodedSubject || ""}
+  recipients=${msg.mime2DecodedRecipients || ""}
+  filterAction=${filterAction || ""}
+  cc=${msg.ccList || ""}
+  bcc=${msg.bccList || ""}
+  author=${msg.author || ""}
 )`
         );
       } else {
-				quickFilters.Util.logDebugOptional("createFilter",
-          `Message(\n`
-          + `${label1}=${val1}\n`
-          + `target folder=${fName}\n`
-          + `msg is null.\n`);
-			}
-		} catch(ex) {
-		  quickFilters.Util.logDebugOptional ("createFilter", "Exception: " + ex);
-		}
-	} ,
-	
-	// ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-	// so let's store the header itself as well, just in case
-	makeMessageListEntry: function makeMessageListEntry(msgHeader, Uri) {
-	  return {"messageId":msgHeader.messageId, "msgHeader":msgHeader, "messageURI":Uri};
-	} ,
+        quickFilters.Util.logDebugOptional(
+          "createFilter",
+          `Message(\n` + `${label1}=${val1}\n` + `target folder=${fName}\n` + `msg is null.\n`
+        );
+      }
+    } catch (ex) {
+      quickFilters.Util.logDebugOptional("createFilter", "Exception: " + ex);
+    }
+  },
+
+  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+  // so let's store the header itself as well, just in case
+  makeMessageListEntry: function makeMessageListEntry(msgHeader, Uri) {
+    return { messageId: msgHeader.messageId, msgHeader: msgHeader, messageURI: Uri };
+  },
 
   createMessageIdArray: function (targetFolder, messageUris) {
     try {
       try {
         quickFilters.Util.logDebugOptional(
           "dnd",
-          "quickFilters.Util.createMessageIdArray: target = " + 
-          targetFolder.prettyName || targetFolder.localizedName
+          "quickFilters.Util.createMessageIdArray: target = " + targetFolder.prettyName ||
+            targetFolder.localizedName
         );
+      } catch (e) {
+        alert("quickFilters.Util.createMessageIdArray:" + e);
       }
-      catch(e) { alert('quickFilters.Util.createMessageIdArray:' + e); }
 
-      if (targetFolder.flags & this.FolderFlags.Virtual) {  // Ci.nsMsgFolderFlags.Virtual
+      if (targetFolder.flags & this.FolderFlags.Virtual) {
+        // Ci.nsMsgFolderFlags.Virtual
         return null;
       }
 
@@ -1085,17 +1161,16 @@ quickFilters.Util = {
       for (let i = 0; i < messageUris.length; i++) {
         let Uri = messageUris[i],
           msgHeader = MailServices.messageServiceFromURI(Uri).messageURIToMsgHdr(Uri); // retrieve nsIMsgDBHdr
-        messageIdList.push(this.makeMessageListEntry(msgHeader, Uri));  // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-				quickFilters.Util.debugMsgAndFolders('Uri', Uri.toString(), targetFolder, msgHeader, "--");
+        messageIdList.push(this.makeMessageListEntry(msgHeader, Uri)); // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+        quickFilters.Util.debugMsgAndFolders("Uri", Uri.toString(), targetFolder, msgHeader, "--");
       }
 
       return messageIdList;
-    }
-    catch(e) {
-      this.logToConsole('Exception in quickFilters.Util.createMessageIdArray \n' + e);
+    } catch (e) {
+      this.logToConsole("Exception in quickFilters.Util.createMessageIdArray \n" + e);
       return null;
-    };
-  } ,
+    }
+  },
 
   /**
    * Installs the toolbar button with the given ID into the given
@@ -1111,14 +1186,15 @@ quickFilters.Util = {
         this.logDebug("installButton(" + toolbarId + "," + id + "," + afterId + ")");
 
         let toolbar = document.getElementById(toolbarId),
-            before = null;
-        
+          before = null;
+
         if (afterId) {
           let elem = document.getElementById(afterId);
           if (elem && elem.parentNode == toolbar) {
             before = elem.nextElementSibling;
           }
-        } else { // If no afterId is given, then insert the item to the toolbar before the search box.
+        } else {
+          // If no afterId is given, then insert the item to the toolbar before the search box.
           // [issue 100] - Improve location of toolbar buttons when installing quickFilters
           before = document.getElementById("gloda-search"); // by default this is usually to the left of the button-appmenu
           if (!before) {
@@ -1131,187 +1207,219 @@ quickFilters.Util = {
           }
         }
 
-        this.logDebug("toolbar.insertItem(" + id  + "," + before + ")");
+        this.logDebug("toolbar.insertItem(" + id + "," + before + ")");
         toolbar.insertItem(id, before);
         toolbar.setAttribute("currentset", toolbar.currentSet);
         this.logDebug("document.persist(" + toolbar.id + ")");
         if (document.persist) {
           document.persist(toolbar.id, "currentset");
-        } else { // code from customizeToolbar.js
+        } else {
+          // code from customizeToolbar.js
           var currentSet = toolbar.currentSet;
           toolbar.setAttribute("currentset", currentSet);
           Services.xulStore.persist(toolbar, "currentset");
         }
-      } catch(ex) {
+      } catch (ex) {
         this.logException("quickFilters.Util.installButton", ex);
       }
-     }
-  }  ,
+    }
+  },
 
   showVersionHistory: function () {
-		const util = quickFilters.Util;
+    const util = quickFilters.Util;
     let version = util.VersionSanitized;
-    util.openURL(util.makeUriPremium("https://quickfilters.quickfolders.org/version.html") + "#" + version);
-  } ,
+    util.openURL(
+      util.makeUriPremium("https://quickfilters.quickfolders.org/version.html") + "#" + version
+    );
+  },
 
   showLicensePage: function () {
-    quickFilters.Util.openURL('https://quickfilters.quickfolders.org/donate.html');
-  }  ,
-	
-	showYouTubePage: function () {
-		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V');
-	} ,
+    quickFilters.Util.openURL("https://quickfilters.quickfolders.org/donate.html");
+  },
 
-  showGithub: function() {
-    quickFilters.Util.openLinkInBrowserForced("https://github.com/RealRaven2000/quickFilters/issues");
+  showYouTubePage: function () {
+    quickFilters.Util.openLinkInBrowserForced(
+      "https://www.youtube.com/playlist?list=PLApv7QYQO9nSUTaBbX8ZTz2XcIt61l73V"
+    );
+  },
+
+  showGithub: function () {
+    quickFilters.Util.openLinkInBrowserForced(
+      "https://github.com/RealRaven2000/quickFilters/issues"
+    );
   },
 
   showHomePage: function showHomePage(queryString) {
-	  if (!queryString) {queryString='index.html';}
-    quickFilters.Util.openURL('https://quickfilters.quickfolders.org/' + queryString);
-  } ,
-	
-  showBug: function (bugNumber) {
-    quickFilters.Util.openURL('https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=' + bugNumber);
-  } ,
-  
-  showIssue: function (issueNumber) {
-    quickFilters.Util.openURL('https://github.com/RealRaven2000/quickFilters/issues/' + issueNumber);
-  } ,
-  
-	showYouTube: function () {
-		quickFilters.Util.openLinkInBrowserForced('https://www.youtube.com/c/thunderbirddaily');
-	} ,
-
-  showQuickFolders: function() {
-		quickFilters.Util.openLinkInBrowserForced('https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/');
+    if (!queryString) {
+      queryString = "index.html";
+    }
+    quickFilters.Util.openURL("https://quickfilters.quickfolders.org/" + queryString);
   },
-	
-	showPremiumFeatures: function showPremiumFeatures() {
-    quickFilters.Util.openURL('https://quickfilters.quickfolders.org/premium.html');
-	} ,
-  
+
+  showBug: function (bugNumber) {
+    quickFilters.Util.openURL(
+      "https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=" + bugNumber
+    );
+  },
+
+  showIssue: function (issueNumber) {
+    quickFilters.Util.openURL(
+      "https://github.com/RealRaven2000/quickFilters/issues/" + issueNumber
+    );
+  },
+
+  showYouTube: function () {
+    quickFilters.Util.openLinkInBrowserForced("https://www.youtube.com/c/thunderbirddaily");
+  },
+
+  showQuickFolders: function () {
+    quickFilters.Util.openLinkInBrowserForced(
+      "https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/"
+    );
+  },
+
+  showPremiumFeatures: function showPremiumFeatures() {
+    quickFilters.Util.openURL("https://quickfilters.quickfolders.org/premium.html");
+  },
+
   versionLower: function (a, b) {
     let versionComparator = Services.vc;
-    return (versionComparator.compare(a, b) < 0);
-  } ,
-  
+    return versionComparator.compare(a, b) < 0;
+  },
+
   versionHigher: function (a, b) {
     let versionComparator = Services.vc;
-    return (versionComparator.compare(a, b) > 0);
-  } ,
-	
-	isStringAttrib: function (attr) {
-	  const AC = Components.interfaces.nsMsgSearchAttrib;
-		let isString =
-	    !( attr == AC.Priority || attr == AC.Date || attr == AC.MsgStatus || attr == AC.MessageKey || attr == AC.Size || attr == AC.AgeInDays
-		  || attr == AC.FolderInfo || attr == AC.Location || attr == AC.Label || attr == AC.JunkStatus || attr == AC.Uint32HdrProperty
-			|| attr == AC.JunkPercent || attr == AC.HasAttachmentStatus);
-		// what about To, Sender, CC, Subject
-		return isString;   
-	},
+    return versionComparator.compare(a, b) > 0;
+  },
 
-	// function to extract any header (including custom header) from the mail - uses mime Decoder so mesage must be streamable
-  replaceReservedWords: function(_dummy, token, arg)	{
+  isStringAttrib: function (attr) {
+    const AC = Components.interfaces.nsMsgSearchAttrib;
+    let isString = !(
+      attr == AC.Priority ||
+      attr == AC.Date ||
+      attr == AC.MsgStatus ||
+      attr == AC.MessageKey ||
+      attr == AC.Size ||
+      attr == AC.AgeInDays ||
+      attr == AC.FolderInfo ||
+      attr == AC.Location ||
+      attr == AC.Label ||
+      attr == AC.JunkStatus ||
+      attr == AC.Uint32HdrProperty ||
+      attr == AC.JunkPercent ||
+      attr == AC.HasAttachmentStatus
+    );
+    // what about To, Sender, CC, Subject
+    return isString;
+  },
+
+  // function to extract any header (including custom header) from the mail - uses mime Decoder so mesage must be streamable
+  replaceReservedWords: function (_dummy, token, arg) {
     const util = quickFilters.Util;
     let msgDbHdr = util.CurrentMessage,
-        hdr = util.CurrentHeader; 
-        
+      hdr = util.CurrentHeader;
+
     function getNewsgroup() {
-      util.logDebugOptional('regularize', 'getNewsgroup()');
+      util.logDebugOptional("regularize", "getNewsgroup()");
       let acctKey = msgDbHdr.accountKey;
       return acctKey;
     }
     function getIdentityKey() {
       console.error("To do: determine identity of current email!");
     }
-        
-	  // calling this function just for logging purposes
-		function finalize(tok, s, comment) {
-			if (s) {
-				let text = "replaceReservedWords( %" + tok + "% ) = " + s;
-				if (comment) {
-					text += '\n' + comment;
-				}
-				util.logDebugOptional ('replaceReservedWords', text);
-			};
-			return s;
-		} 
-		
-		if (!hdr) {
-		  let txt = 'Cannot replace token [{1}]\nMessage header not available.';
-			util.slideAlert(txt.replace("{1}", token),'replaceReservedWords() failed');
-			return "??";
-		}
-		
+
+    // calling this function just for logging purposes
+    function finalize(tok, s, comment) {
+      if (s) {
+        let text = "replaceReservedWords( %" + tok + "% ) = " + s;
+        if (comment) {
+          text += "\n" + comment;
+        }
+        util.logDebugOptional("replaceReservedWords", text);
+      }
+      return s;
+    }
+
+    if (!hdr) {
+      let txt = "Cannot replace token [{1}]\nMessage header not available.";
+      util.slideAlert(txt.replace("{1}", token), "replaceReservedWords() failed");
+      return "??";
+    }
+
     let tm = new Date(),
       date = msgDbHdr.date,
       charset = msgDbHdr.Charset;
     // const expand = function(str) { return str.replace(/%([\w-]+)%/gm, util.replaceReservedWords); }
 
-		// time of when original message was sent.
+    // time of when original message was sent.
     tm.setTime(date / 1000);
 
-		try {
-			switch(token) {
-				case "subject": {
-					let ret = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset);
-					return finalize(token, ret);
+    try {
+      switch (token) {
+        case "subject": {
+          let ret = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset);
+          return finalize(token, ret);
         }
-				case "subjectRegex": {
-					let subj = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset),
-					    regex = new RegExp(arg),
-							found = regex.exec(subj),
-							sSubject = found.length ? found[0] : ''; // take the first match only
-					return finalize(token, sSubject);
+        case "subjectRegex": {
+          let subj = quickFilters.mimeDecoder.decode(hdr.get("subject"), charset),
+            regex = new RegExp(arg),
+            found = regex.exec(subj),
+            sSubject = found.length ? found[0] : ""; // take the first match only
+          return finalize(token, sSubject);
         }
-				case "newsgroup":
-					return finalize(token, getNewsgroup());
-				case "identity": {
-				  /////
-          let idkey = getIdentityKey(),
-            identity = MailServices.accounts.getIdentity(idkey);
+        case "newsgroup":
+          return finalize(token, getNewsgroup());
+        case "identity":
+          {
+            /////
+            let idkey = getIdentityKey(),
+              identity = MailServices.accounts.getIdentity(idkey);
 
-					let fullId = identity.fullName + ' <' + identity.email + '>';
-					// we need the split to support (name,link) etc.
-					token = quickFilters.mimeDecoder.split(fullId, charset, arg, true); // disable charsets decoding!
-        } break;
-				default: {
-				  // if (!hdr.get && prefs.isDebug) debugger;
-					const isStripQuote = RegExp(" " + token + " ", "i").test(
-            " Bcc Cc Disposition-Notification-To Errors-To From Mail-Followup-To Mail-Reply-To Reply-To" +
-            " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "),
+            let fullId = identity.fullName + " <" + identity.email + ">";
+            // we need the split to support (name,link) etc.
+            token = quickFilters.mimeDecoder.split(fullId, charset, arg, true); // disable charsets decoding!
+          }
+          break;
+        default: {
+          // if (!hdr.get && prefs.isDebug) debugger;
+          const isStripQuote = RegExp(" " + token + " ", "i").test(
+              " Bcc Cc Disposition-Notification-To Errors-To From Mail-Followup-To Mail-Reply-To Reply-To" +
+                " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "
+            ),
             theHeader = hdr.get(token);
           // make sure empty header stays empty for this special case
           if (!theHeader && RegExp(" " + token + " ", "i").test(" Bcc Cc list-id ")) {
             // [Bug 26649] - list-id may not exist
             return "";
           }
-					if (isStripQuote) {
-						token = quickFilters.mimeDecoder.split(theHeader, charset, arg);
-					} else {
-						token = quickFilters.mimeDecoder.decode(theHeader, charset);
-					}
-					break;
+          if (isStripQuote) {
+            token = quickFilters.mimeDecoder.split(theHeader, charset, arg);
+          } else {
+            token = quickFilters.mimeDecoder.decode(theHeader, charset);
+          }
+          break;
         }
         // unreachable code! =>
         // token = token.replace(/\r\n|\r|\n/g, ""); //remove line breaks from 'other headers'
-			}
-		}
-		catch(ex) {
-			util.logException('replaceReservedWords(dmy, ' + token + ', ' + arg +') failed - unknown token?', ex);
-			token="??";
-		}
-		return token; // this.escapeHtml(token);
-	},	
-    
-	// replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
+      }
+    } catch (ex) {
+      util.logException(
+        "replaceReservedWords(dmy, " + token + ", " + arg + ") failed - unknown token?",
+        ex
+      );
+      token = "??";
+    }
+    return token; // this.escapeHtml(token);
+  },
+
+  // replaceTerms [ {msgHdr, messageURI} ] - pass message header and message URI replace term variables like %from% %to% etc.
   // fromFilter is a JSON object, not a filter!
-	copyTerms: async function (fromFilter, toFilter, oReplaceTerms, mailsToOmit) {
+  copyTerms: async function (fromFilter, toFilter, oReplaceTerms, mailsToOmit) {
     const Ci = Components.interfaces,
       AC = Ci.nsMsgSearchAttrib,
       SearchOP = Ci.nsMsgSearchOp,
       util = quickFilters.Util;
+    const namedTermsList = []; // [issue 335] gather terms to build a filter name later on.
 
     // convert into an Array
     let stCollection = fromFilter.searchTerms,
@@ -1356,7 +1464,9 @@ quickFilters.Util = {
         newTerm.attrib = searchTerm.attrib;
       }
       // nsMsgSearchOpValue
-      if (searchTerm.op) {newTerm.op = searchTerm.op;}
+      if (searchTerm.op) {
+        newTerm.op = searchTerm.op;
+      }
       if (searchTerm.value) {
         let val = newTerm.value; // nsIMsgSearchValue
         val.attrib = searchTerm.value.attrib;
@@ -1364,6 +1474,7 @@ quickFilters.Util = {
           // fix [issue 3]
           newTerm.attrib = 0;
         }
+
         if (quickFilters.Util.isStringAttrib(val.attrib)) {
           let replaceVal = searchTerm.value.str || ""; // guard against invalid str value.
           if (oReplaceTerms) {
@@ -1441,7 +1552,9 @@ quickFilters.Util = {
               }
             }
           }
-          if (isFound) {continue;} // skip this term, as it already exists
+          if (isFound) {
+            continue;
+          } // skip this term, as it already exists
 
           // if (mailsToOmit) debugger;
           // avoid own addresses when multiple mail is selected
@@ -1482,7 +1595,9 @@ quickFilters.Util = {
                       break;
                     }
                   }
-                  if (matchedDomain) {continue;} // omit this one as well.
+                  if (matchedDomain) {
+                    continue;
+                  } // omit this one as well.
                 }
                 break;
               }
@@ -1506,7 +1621,9 @@ quickFilters.Util = {
       if ("hdrProperty" in searchTerm) {
         newTerm.hdrProperty = new String(searchTerm.hdrProperty);
       }
-      if ("customId" in searchTerm) {newTerm.customId = searchTerm.customId;}
+      if ("customId" in searchTerm) {
+        newTerm.customId = searchTerm.customId;
+      }
 
       // [issue 102]
       if (typeof newTerm.beginsGrouping == "number") {
@@ -1545,116 +1662,120 @@ quickFilters.Util = {
       delete util.CurrentHeader;
       delete util.CurrentMessage;
     }
-  } ,
-	
-	getActionCount: function (filter) {
+  },
+
+  getActionCount: function (filter) {
     return filter.actionCount;
-	} ,
-	
-	// create a JSON object from a filter
-	// pass in nsIMsgFilter
-	// uses adapted code from copyTerms and copyActions to build JSON object.
-	serializeFilter: function (filter, customErrors) {
-		const Ci = Components.interfaces,
-					FA = Ci.nsMsgFilterAction,
-					AC = Ci.nsMsgSearchAttrib,
-					util = quickFilters.Util;
-		function isEmpty(v) {
-			return (v==="" || v===null);
-		}
-		let atom = {};
-		atom.filterName	= filter.filterName;	
-		atom.filterDesc	= filter.filterDesc;	
-		atom.filterType = filter.filterType;
-		atom.temporary = filter.temporary;
-		if (filter.unparseable) {atom.unparseable = true;}
-		atom.actionCount	= filter.actionCount;	
-		atom.enabled	= filter.enabled;	
-		atom.actionList = [];
-		// copy actions
-		let actionCount = this.getActionCount(filter);
-		for (let a = 0; a < actionCount; a++) {
-			let action = filter.getActionAt(a).QueryInterface(Ci.nsIMsgRuleAction);
-			// https://dxr.mozilla.org/comm-central/source/obj-x86_64-pc-linux-gnu/dist/include/nsMsgFilterCore.h?q=nsMsgRuleActionType&redirect_type=direct#82
-			let atomAction = {};
-			atomAction.type = action.type;
-			switch(action.type) {
-				case FA.ChangePriority:
-					atomAction.priority = action.priority;
-					break;
-				case FA.CopyToFolder:
-				case FA.MoveToFolder:
-					atomAction.targetFolderUri = action.targetFolderUri;
-					break;
-				case FA.AddTag:
-					atomAction.strValue = action.strValue;
-					// atomAction.label = action.label;
-					break;
-				case FA.JunkScore:
-					atomAction.junkScore = action.junkScore;
-					break;
-				case FA.Custom:
-					// note: custom action associated with Id must be set 
-					//       prior to reading ac.customAction attribute
-					atomAction.customId = action.customId;
-					try {
-						let cA = action.customAction; // nsIMsgFilterCustomAction
-						if (cA) {
-							// not quite sure how to fully persist these functions:
-							//   (we need to look at where Thunderbird stores them / are they 
-							//   part of the filter backup / msgFilterRules.dat?)
-							//   specifically, [how] are the methods validateActionValue(), apply() and
-							//   isValidForType() implemented / persisted?
-							atomAction.customAction = {};
-							atomAction.customAction.id = cA.id;
-							atomAction.customAction.name = cA.name;
-							atomAction.customAction.allowDuplicates = cA.allowDuplicates;
-						}
-					}
-					catch {
-						customErrors.push( { name:filter.filterName, customId: action.customId } );
-						util.logToConsole("Filter [" + filter.filterName + "] cannot access customAction with id: " + action.customId + "\n"
-						  + "\nSaving id & strValue only.");
-					}
-					
-					break;
-			}				
-			try {
-				if (action.strValue) {
+  },
+
+  // create a JSON object from a filter
+  // pass in nsIMsgFilter
+  // uses adapted code from copyTerms and copyActions to build JSON object.
+  serializeFilter: function (filter, customErrors) {
+    const Ci = Components.interfaces,
+      FA = Ci.nsMsgFilterAction,
+      AC = Ci.nsMsgSearchAttrib,
+      util = quickFilters.Util;
+    function isEmpty(v) {
+      return v === "" || v === null;
+    }
+    let atom = {};
+    atom.filterName = filter.filterName;
+    atom.filterDesc = filter.filterDesc;
+    atom.filterType = filter.filterType;
+    atom.temporary = filter.temporary;
+    if (filter.unparseable) {
+      atom.unparseable = true;
+    }
+    atom.actionCount = filter.actionCount;
+    atom.enabled = filter.enabled;
+    atom.actionList = [];
+    // copy actions
+    let actionCount = this.getActionCount(filter);
+    for (let a = 0; a < actionCount; a++) {
+      let action = filter.getActionAt(a).QueryInterface(Ci.nsIMsgRuleAction);
+      // https://dxr.mozilla.org/comm-central/source/obj-x86_64-pc-linux-gnu/dist/include/nsMsgFilterCore.h?q=nsMsgRuleActionType&redirect_type=direct#82
+      let atomAction = {};
+      atomAction.type = action.type;
+      switch (action.type) {
+        case FA.ChangePriority:
+          atomAction.priority = action.priority;
+          break;
+        case FA.CopyToFolder:
+        case FA.MoveToFolder:
+          atomAction.targetFolderUri = action.targetFolderUri;
+          break;
+        case FA.AddTag:
+          atomAction.strValue = action.strValue;
+          // atomAction.label = action.label;
+          break;
+        case FA.JunkScore:
+          atomAction.junkScore = action.junkScore;
+          break;
+        case FA.Custom:
+          // note: custom action associated with Id must be set
+          //       prior to reading ac.customAction attribute
+          atomAction.customId = action.customId;
+          try {
+            let cA = action.customAction; // nsIMsgFilterCustomAction
+            if (cA) {
+              // not quite sure how to fully persist these functions:
+              //   (we need to look at where Thunderbird stores them / are they
+              //   part of the filter backup / msgFilterRules.dat?)
+              //   specifically, [how] are the methods validateActionValue(), apply() and
+              //   isValidForType() implemented / persisted?
+              atomAction.customAction = {};
+              atomAction.customAction.id = cA.id;
+              atomAction.customAction.name = cA.name;
+              atomAction.customAction.allowDuplicates = cA.allowDuplicates;
+            }
+          } catch {
+            customErrors.push({ name: filter.filterName, customId: action.customId });
+            util.logToConsole(
+              `Filter [${filter.filterName}] cannot access customAction with id: ${action.customId}` +
+                "\n\nSaving id & strValue only."
+            );
+          }
+
+          break;
+      }
+      try {
+        if (action.strValue) {
           atomAction.strValue = action.strValue;
         }
-			} catch  {;}
-			atom.actionList.push(atomAction);
-		}
-		
-		// 3. iterate all conditions & clone them
-		// util.copyTerms(customFilter, targetFilter, {"msgHdr": msg, "messageURI": msgUri});
-		let stCollection = filter.searchTerms; 
-		
-		atom.searchTerms = [];
-		for (let t = 0; t < stCollection.length; t++) {
-			let searchTerm = stCollection[t],
-					atomTerm = {};
-			if (searchTerm.attrib || searchTerm.attrib==0) {
-				atomTerm.attrib = searchTerm.attrib;
-			}
-			// nsMsgSearchOpValue
-			if (searchTerm.op) {atomTerm.op = searchTerm.op;} 
-			if (searchTerm.value) {
-				let val = {}; // nsIMsgSearchValue
-				val.attrib = searchTerm.value.attrib;  
-				if (util.isStringAttrib(val.attrib)) {
-					let replaceVal = searchTerm.value.str || '', // guard against invalid str value. 
-					    newVal = replaceVal;
+      } catch {;}
+      atom.actionList.push(atomAction);
+    }
+
+    // 3. iterate all conditions & clone them
+    // util.copyTerms(customFilter, targetFilter, {"msgHdr": msg, "messageURI": msgUri});
+    let stCollection = filter.searchTerms;
+
+    atom.searchTerms = [];
+    for (let t = 0; t < stCollection.length; t++) {
+      let searchTerm = stCollection[t],
+        atomTerm = {};
+      if (searchTerm.attrib || searchTerm.attrib == 0) {
+        atomTerm.attrib = searchTerm.attrib;
+      }
+      // nsMsgSearchOpValue
+      if (searchTerm.op) {
+        atomTerm.op = searchTerm.op;
+      }
+      if (searchTerm.value) {
+        let val = {}; // nsIMsgSearchValue
+        val.attrib = searchTerm.value.attrib;
+        if (util.isStringAttrib(val.attrib)) {
+          let replaceVal = searchTerm.value.str || "", // guard against invalid str value.
+            newVal = replaceVal;
           // [issue 105] Backup of Custom Templates (Local Folders) does not store placeholders correctly
           // if (!filter.filterName.startsWith("quickFilterCustomTemplate")) {
           //   newVal = replaceVal.replace(/%([\w-:=]+)(\([^)]+\))*%/gm, util.replaceReservedWords);
           // }
-					this.logDebugOptional ('replaceReservedWords', replaceVal + ' ==> ' + newVal);
-					replaceVal = newVal;
-					val.str = replaceVal;  // .toLocaleString() ?
-				}
-				else {
+          this.logDebugOptional("replaceReservedWords", replaceVal + " ==> " + newVal);
+          replaceVal = newVal;
+          val.str = replaceVal; // .toLocaleString() ?
+        } else {
           switch (val.attrib) {
             case AC.Priority:
               val.priority = searchTerm.value.priority;
@@ -1668,7 +1789,7 @@ quickFilters.Util = {
             case AC.Date:
               val.date = searchTerm.value.date;
               break;
-            case AC.MsgStatus: 
+            case AC.MsgStatus:
               val.status = searchTerm.value.status;
               break;
             case AC.JunkStatus:
@@ -1684,14 +1805,14 @@ quickFilters.Util = {
               val.folder = searchTerm.value.folder; // might need special code for copying.
               break;
             case AC.JunkPercent:
-              val.junkPercent = searchTerm.value.junkPercent; 
+              val.junkPercent = searchTerm.value.junkPercent;
               break;
-			  	}
+          }
         }
-				atomTerm.value = val;
-			}
-			atomTerm.booleanAnd = searchTerm.booleanAnd;
-			if ("arbitraryHeader" in searchTerm && !isEmpty(searchTerm.arbitraryHeader)) {
+        atomTerm.value = val;
+      }
+      atomTerm.booleanAnd = searchTerm.booleanAnd;
+      if ("arbitraryHeader" in searchTerm && !isEmpty(searchTerm.arbitraryHeader)) {
         atomTerm.arbitraryHeader = new String(searchTerm.arbitraryHeader);
       }
       if ("hdrProperty" in searchTerm && !isEmpty(searchTerm.hdrProperty)) {
@@ -1700,271 +1821,288 @@ quickFilters.Util = {
       if ("customId" in searchTerm && !isEmpty(searchTerm.customId)) {
         atomTerm.customId = searchTerm.customId;
       }
-			atomTerm.beginsGrouping = searchTerm.beginsGrouping;
-			atomTerm.endsGrouping = searchTerm.endsGrouping;
-			
-			// append newTerm ONLY if it does not already exist (avoid duplicates!)
-			// however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
-			atom.searchTerms.push(atomTerm);
-		}
-		return atom;
-	} ,
-	
-	// initialize a filter object from a JSON
-	// pass in the newFilter object, return success boolean
-	deserializeFilter: async function (jsonFilter, newFilter) {
-		const util = quickFilters.Util;
-		try {
-		  newFilter.filterName	= jsonFilter.filterName;	
-			newFilter.filterDesc	= jsonFilter.filterDesc;	
-			newFilter.filterType = jsonFilter.filterType;
-			newFilter.temporary = jsonFilter.temporary;
-			if (jsonFilter.unparseable) {newFilter.unparseable = true;}
-			// newFilter.actionCount	= jsonFilter.actionCount;	
-			newFilter.enabled	= jsonFilter.enabled;	
-			
-			// add a closured method for retrieving indexed actions
-			jsonFilter.getActionAt = function getAction(i) {
-				return jsonFilter.actionList[i];
-			}
-      util.copyActions(jsonFilter, newFilter, false, true);
-			
-			await util.copyTerms(jsonFilter, newFilter, null);
-		}
-		catch (ex) {
-			util.logException(ex, "deserializFilter(" + jsonFilter.filterName +  ")");
-			return false;
-		}
-		return true;
-	} ,
-	
-	
-	copyActions: function (fromFilter, toFilter, suppressTargetFolder, isArray) {
-    const Ci = Components.interfaces,
-          FA = Ci.nsMsgFilterAction;
-		let actionCount = this.getActionCount(fromFilter);
-		for (let a = 0; a < actionCount; a++) {
-			let act = fromFilter.getActionAt(a),
-			    append = true,
-			    newActions = toFilter.sortedActionList;
-			act = isArray ? act : act.QueryInterface(Ci.nsIMsgRuleAction);
-      // don't add dummy action to filter (customTemplate uses set prio=normal as only action)
-      if (actionCount==1 
-        &&
-          act.type == FA.ChangePriority
-        && 
-          act.priority == Ci.nsMsgPriority.normal) {
-          continue;
+      atomTerm.beginsGrouping = searchTerm.beginsGrouping;
+      atomTerm.endsGrouping = searchTerm.endsGrouping;
+
+      // append newTerm ONLY if it does not already exist (avoid duplicates!)
+      // however: this logic is probably not desired if AND + OR are mixed!  (A && B) || (A && C)
+      atom.searchTerms.push(atomTerm);
+    }
+    return atom;
+  },
+
+  // initialize a filter object from a JSON
+  // pass in the newFilter object, return success boolean
+  deserializeFilter: async function (jsonFilter, newFilter) {
+    const util = quickFilters.Util;
+    try {
+      newFilter.filterName = jsonFilter.filterName;
+      newFilter.filterDesc = jsonFilter.filterDesc;
+      newFilter.filterType = jsonFilter.filterType;
+      newFilter.temporary = jsonFilter.temporary;
+      if (jsonFilter.unparseable) {
+        newFilter.unparseable = true;
       }
-			// avoid duplicate actions?
-			for (let b = 0; b < this.getActionCount(toFilter); b++) { 
-				let ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction);
+      // newFilter.actionCount	= jsonFilter.actionCount;
+      newFilter.enabled = jsonFilter.enabled;
+
+      // add a closured method for retrieving indexed actions
+      jsonFilter.getActionAt = function getAction(i) {
+        return jsonFilter.actionList[i];
+      };
+      util.copyActions(jsonFilter, newFilter, false, true);
+
+      await util.copyTerms(jsonFilter, newFilter, null);
+    } catch (ex) {
+      util.logException(ex, "deserializFilter(" + jsonFilter.filterName + ")");
+      return false;
+    }
+    return true;
+  },
+
+  copyActions: function (fromFilter, toFilter, suppressTargetFolder, isArray) {
+    const Ci = Components.interfaces,
+      FA = Ci.nsMsgFilterAction;
+    let actionCount = this.getActionCount(fromFilter);
+    for (let a = 0; a < actionCount; a++) {
+      let act = fromFilter.getActionAt(a),
+        append = true,
+        newActions = toFilter.sortedActionList;
+      act = isArray ? act : act.QueryInterface(Ci.nsIMsgRuleAction);
+      // don't add dummy action to filter (customTemplate uses set prio=normal as only action)
+      if (
+        actionCount == 1 &&
+        act.type == FA.ChangePriority &&
+        act.priority == Ci.nsMsgPriority.normal
+      ) {
+        continue;
+      }
+      // avoid duplicate actions?
+      for (let b = 0; b < this.getActionCount(toFilter); b++) {
+        let ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction);
         /*
           newActions.queryElementAt ?
             newActions.queryElementAt(b, Ci.nsIMsgRuleAction):
             newActions.QueryElementAt(b, Ci.nsIMsgRuleAction);
             */
         // eliminate duplicates
-				if (ac.type == act.type
-						&& 
-						ac.strValue == act.strValue) {
-					append = false;
-					break;
-				}
-			}
-			
+        if (ac.type == act.type && ac.strValue == act.strValue) {
+          append = false;
+          break;
+        }
+      }
+
       if (suppressTargetFolder && act.type == FA.MoveToFolder) {
         // for custom filter templates, avoids duplicate folder move nonsense
         continue;
-      }  
-			if (append) {
-				let action;
-				if (isArray) {
-					action = toFilter.createAction(); // nsIMsgRuleAction 
-					action.type = act.type;
-					switch(act.type) {
-						case FA.MoveToFolder: case FA.CopyToFolder:
-						  action.targetFolderUri = act.targetFolderUri;
-							break;
-						case FA.AddTag:
-							action.strValue = act.strValue;
-							break;
-						case FA.ChangePriority:
-							action.priority = act.priority;
-							break;
-						case FA.Delete:
-						case FA.None:
-						case FA.KillThread:
-						case FA.KillSubthread:
-						case FA.WatchThread:
-						case FA.MarkFlagged:
-						case FA.MarkUnread:
-						case FA.StopExecution:
-						case FA.DeleteFromPop3Server:
-						case FA.LeaveOnPop3Server:
-						  break;
-						case FA.Label:
-							action.strValue = act.strValue;
-							break;
-						case FA.JunkScore:
-							action.junkScore = act.junkScore;
-							break;
-						case FA.Custom: {
-							// note: custom action associated with Id must be set 
-							//       prior to reading ac.customAction attribute
-							action.customId = act.customId;
-							let cA = act.customAction; // nsIMsgFilterCustomAction
-							if (cA) {
-								// not quite sure how to fully persist these functions:
-								//   (we need to look at where Thunderbird stores them / are they 
-								//   part of the filter backup / msgFilterRules.dat?)
-								//   specifically, [how] are the methods validateActionValue(), apply() and
-								//   isValidForType() implemented / persisted?
-								if (!action.customAction) {
+      }
+      if (append) {
+        let action;
+        if (isArray) {
+          action = toFilter.createAction(); // nsIMsgRuleAction
+          action.type = act.type;
+          switch (act.type) {
+            case FA.MoveToFolder:
+            case FA.CopyToFolder:
+              action.targetFolderUri = act.targetFolderUri;
+              break;
+            case FA.AddTag:
+              action.strValue = act.strValue;
+              break;
+            case FA.ChangePriority:
+              action.priority = act.priority;
+              break;
+            case FA.Delete:
+            case FA.None:
+            case FA.KillThread:
+            case FA.KillSubthread:
+            case FA.WatchThread:
+            case FA.MarkFlagged:
+            case FA.MarkUnread:
+            case FA.StopExecution:
+            case FA.DeleteFromPop3Server:
+            case FA.LeaveOnPop3Server:
+              break;
+            case FA.Label:
+              action.strValue = act.strValue;
+              break;
+            case FA.JunkScore:
+              action.junkScore = act.junkScore;
+              break;
+            case FA.Custom: {
+              // note: custom action associated with Id must be set
+              //       prior to reading ac.customAction attribute
+              action.customId = act.customId;
+              let cA = act.customAction; // nsIMsgFilterCustomAction
+              if (cA) {
+                // not quite sure how to fully persist these functions:
+                //   (we need to look at where Thunderbird stores them / are they
+                //   part of the filter backup / msgFilterRules.dat?)
+                //   specifically, [how] are the methods validateActionValue(), apply() and
+                //   isValidForType() implemented / persisted?
+                if (!action.customAction) {
                   action.customAction = {};
-								  action.customAction.id = cA.id;
-								  action.customAction.name = cA.name;
-								  action.customAction.allowDuplicates = cA.allowDuplicates;
+                  action.customAction.id = cA.id;
+                  action.customAction.name = cA.name;
+                  action.customAction.allowDuplicates = cA.allowDuplicates;
                 }
                 // eslint-disable-next-line no-prototype-builtins
-                if (act.hasOwnProperty('strValue')) {
+                if (act.hasOwnProperty("strValue")) {
                   action.strValue = act.strValue;
                 }
-							}
+              }
               break;
             }
-						default:
-						  if (act.strValue) {
-								action.strValue = act.strValue;
+            default:
+              if (act.strValue) {
+                action.strValue = act.strValue;
               }
-					}
-					// what about: FA.Forward, FA.Reply, F>.JunkScore
-				}
-				else {
-					action = act;
-				}
-				toFilter.appendAction(action);
-				
-			}
-		}
-	} ,
-  
-	// returns an Array of "active Email addresses"
-	// = mail addresses of default identities only
+          }
+          // what about: FA.Forward, FA.Reply, F>.JunkScore
+        } else {
+          action = act;
+        }
+        toFilter.appendAction(action);
+      }
+    }
+  },
+
+  // returns an Array of "active Email addresses"
+  // = mail addresses of default identities only
   getIdentityMailAddresses: function () {
-    this.logDebug('getIdentityMailAddresses()');
+    this.logDebug("getIdentityMailAddresses()");
     // make a stop list (my own email addresses)
     let myMailAddresses = [];
-		
-		quickFilters.Shim.getIdentityMailAddresses(myMailAddresses);
-		
-    this.logDebugOptional("default", 'getIdentityMailAddresses - retrieved ' + myMailAddresses.length + ' Addresses' );
+
+    quickFilters.Shim.getIdentityMailAddresses(myMailAddresses);
+
+    this.logDebugOptional(
+      "default",
+      "getIdentityMailAddresses - retrieved " + myMailAddresses.length + " Addresses"
+    );
     return myMailAddresses;
-  } ,
-  
+  },
+
   extractEmail: function (address, domainSwitch) {
-    if (!address) {return "";}
+    if (!address) {
+      return "";
+    }
     // filter out only mail portion
     let adp = address.match(/[^@<\s]+@[^@\s>]+/g)[0];
-    if (!adp) {adp = address}
+    if (!adp) {
+      adp = address;
+    }
     // regex to strip out the email address
     if (domainSwitch) {
-      let at = adp.indexOf('@');
-      if (at>0) {
+      let at = adp.indexOf("@");
+      if (at > 0) {
         return adp.substr(at);
       }
     }
     return adp;
-  }  ,
-  
+  },
+
   filterCustomTemplates: function (attempt) {
     const util = quickFilters.Util;
     attempt++;
-    util.logDebugOptional('template.custom','filterCustomTemplates(' + attempt + ')');
+    util.logDebugOptional("template.custom", "filterCustomTemplates(" + attempt + ")");
     let fWin = util.getLastFilterListWindow(),
-        isProcessed = false;
-    if (fWin && fWin.quickFilters) { // [issue 204]
+      isProcessed = false;
+    if (fWin && fWin.quickFilters) {
+      // [issue 204]
       let list = fWin.quickFilters.List;
       if (list) {
-        list.toggleSearchType('name');
+        list.toggleSearchType("name");
         let searchBox = fWin.document.getElementById("searchBox");
-        util.logDebugOptional('template.custom','filterCustomTemplates - searchBox=' + searchBox);
+        util.logDebugOptional("template.custom", "filterCustomTemplates - searchBox=" + searchBox);
         if (searchBox) {
-          searchBox.value = 'quickFilterCustomTemplate';
+          searchBox.value = "quickFilterCustomTemplate";
           isProcessed = true;
-          util.logDebugOptional('template.custom','getLastFilterListWindow() calls onFindFilter...');
+          util.logDebugOptional(
+            "template.custom",
+            "getLastFilterListWindow() calls onFindFilter..."
+          );
           list.onFindFilter(false);
         }
       }
     }
     if (!isProcessed) {
-      util.logDebugOptional('template.custom','getLastFilterListWindow() not able to process yet...');
-      if (attempt<10) {
-        window.setTimeout(function() { 
+      util.logDebugOptional(
+        "template.custom",
+        "getLastFilterListWindow() not able to process yet..."
+      );
+      if (attempt < 10) {
+        window.setTimeout(function () {
           // debugger;
           const util = quickFilters.Util;
-          util.logDebugOptional('template.custom','timeout - filterCustomTemplates(' + attempt + ')..');
-          util.filterCustomTemplates(attempt); 
+          util.logDebugOptional(
+            "template.custom",
+            "timeout - filterCustomTemplates(" + attempt + ").."
+          );
+          util.filterCustomTemplates(attempt);
         }, 250);
-      }
-      else {
+      } else {
         util.logDebugOptional("template.custom", "Giving up on filtering for custom templates.");
       }
     }
-  } ,
+  },
 
   editCustomTemplates: function () {
-      const util = quickFilters.Util;
-      try {
-        // we need to select Local Folders
-        // and then filter for name "quickFilterCustomTemplate:"
-        // see searchFiltersFromFolder
-        let win = util.getMail3PaneWindow(),
-            localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
-            qF = win.quickFilters; // , filtersList = localFolder.getEditableFilterList(null)
-        qF.Worker.openFilterList(true, localFolder, null, null);
-        // only show custom templates, on timeout if not ready
-        // we are not using this Util as the originating window will be closed
-        qF.Util.filterCustomTemplates(0); 
-      }  catch (ex) {
-        util.logException('editCustomTemplates failed', ex);
-      }
-  } ,
-  
+    const util = quickFilters.Util;
+    try {
+      // we need to select Local Folders
+      // and then filter for name "quickFilterCustomTemplate:"
+      // see searchFiltersFromFolder
+      let win = util.getMail3PaneWindow(),
+        localFolder = util.getMsgFolderFromUri("mailbox://nobody@Local%20Folders"),
+        qF = win.quickFilters; // , filtersList = localFolder.getEditableFilterList(null)
+      qF.Worker.openFilterList(true, localFolder, null, null);
+      // only show custom templates, on timeout if not ready
+      // we are not using this Util as the originating window will be closed
+      qF.Util.filterCustomTemplates(0);
+    } catch (ex) {
+      util.logException("editCustomTemplates failed", ex);
+    }
+  },
+
   getFilterList: function (folder, win) {
     return folder.getEditableFilterList(win);
   },
-  
+
   createCustomTemplate: function () {
-    const Ci = Components.interfaces, 
-          nsMsgFilterType = Ci.nsMsgFilterType,    
-          nsMsgFilterAction = Ci.nsMsgFilterAction,
-          nsMsgPriority = Ci.nsMsgPriority,
-          typeAttrib = Ci.nsMsgSearchAttrib,
-          typeOperator = Ci.nsMsgSearchOp,
-					prefs = quickFilters.Preferences,
-					util = quickFilters.Util;
+    const Ci = Components.interfaces,
+      nsMsgFilterType = Ci.nsMsgFilterType,
+      nsMsgFilterAction = Ci.nsMsgFilterAction,
+      nsMsgPriority = Ci.nsMsgPriority,
+      typeAttrib = Ci.nsMsgSearchAttrib,
+      typeOperator = Ci.nsMsgSearchOp,
+      prefs = quickFilters.Preferences,
+      util = quickFilters.Util;
     util.logDebug("createCustomTemplate()");
-    
-    let input = {value: ""},
-        check = {value: false},
-        promptLabel = util.getBundleString('quickfilters.prompt.customTemplateName', 
-                             'Name of Custom Template:'),
-        result = Services.prompt.prompt(window, 'quickFilters', promptLabel, input, null, check); 
+
+    let input = { value: "" },
+      check = { value: false },
+      promptLabel = util.getBundleString(
+        "quickfilters.prompt.customTemplateName",
+        "Name of Custom Template:"
+      ),
+      result = Services.prompt.prompt(window, "quickFilters", promptLabel, input, null, check);
     if (!result) {
       return false;
     } else {
       // make new filter
-      let filterName = 'quickFilterCustomTemplate: ' + input.value,
-          localFolder = util.getMsgFolderFromUri('mailbox://nobody@Local%20Folders'),
-          filtersList = util.getFilterList(localFolder),
-          filterCount = filtersList.filterCount;
+      let filterName = "quickFilterCustomTemplate: " + input.value,
+        localFolder = util.getMsgFolderFromUri("mailbox://nobody@Local%20Folders"),
+        filtersList = util.getFilterList(localFolder),
+        filterCount = filtersList.filterCount;
       // make sure it is unique
       for (let i = 0; i < filterCount; i++) {
         let filter = filtersList.getFilterAt(i);
         if (filterName == filter.filterName) {
-          let wrn = util.getBundleString('quickfilters.warning.templateNameNotUnique', 
-                                         'A filter of this name already exists! It must be unique.');
+          let wrn = util.getBundleString(
+            "quickfilters.warning.templateNameNotUnique",
+            "A filter of this name already exists! It must be unique."
+          );
 
           util.popupAlert(wrn);
           return false;
@@ -1973,7 +2111,7 @@ quickFilters.Util = {
       let targetFilter = filtersList.createFilter(filterName);
       // at least one action is necessary!
       let dummyAction = targetFilter.createAction();
-      dummyAction.type = nsMsgFilterAction.ChangePriority; 
+      dummyAction.type = nsMsgFilterAction.ChangePriority;
       dummyAction.priority = nsMsgPriority.normal; // 4
       targetFilter.appendAction(dummyAction);
       let searchTerm = targetFilter.createTerm();
@@ -1981,7 +2119,7 @@ quickFilters.Util = {
       searchTerm.op = typeOperator.Contains;
       // at least one search Term is necessary
       let value = searchTerm.value,
-          val = "%from(mail)%";
+        val = "%from(mail)%";
       value.attrib = searchTerm.attrib;
       value.str = val;
       searchTerm.value = value;
@@ -1989,17 +2127,23 @@ quickFilters.Util = {
       // name it and open editor
       targetFilter.filterType = nsMsgFilterType.Manual;
       targetFilter.filterName = filterName;
-      
+
       filtersList.insertFilterAt(0, targetFilter);
-      
+
       /************************************
-        ***  OPEN FILTER RULES DIALOG   ***
-        ***********************************
-        */
-      setTimeout( function() {
-        let args = { filter:targetFilter, filterList: filtersList};
-        util.getMail3PaneWindow().openDialog("chrome://messenger/content/FilterEditor.xhtml", "",
-                          "chrome, modal, resizable,centerscreen,dialog=yes", args);
+       ***  OPEN FILTER RULES DIALOG   ***
+       ***********************************
+       */
+      setTimeout(function () {
+        let args = { filter: targetFilter, filterList: filtersList };
+        util
+          .getMail3PaneWindow()
+          .openDialog(
+            "chrome://messenger/content/FilterEditor.xhtml",
+            "",
+            "chrome, modal, resizable,centerscreen,dialog=yes",
+            args
+          );
         if ("refresh" in args && args.refresh) {
           // [Ok]
           if (prefs.getBoolPref("showListAfterCreateFilter")) {
@@ -2009,269 +2153,283 @@ quickFilters.Util = {
           // [Cancel]
           filtersList.removeFilterAt(0);
         }
-      } );
+      });
       return true;
     }
-  } ,
-	
+  },
+
   hasPremiumLicense: function () {
-    if (!quickFilters.Util.licenseInfo) {return false;}
+    if (!quickFilters.Util.licenseInfo) {
+      return false;
+    }
     return quickFilters.Util.licenseInfo.status == "Valid";
-  } ,
-	
-	// appends user=pro OR user=proRenew if user has a valid / expired license
-	makeUriPremium: function (URL) {
-		const util = quickFilters.Util,
-					isPremiumLicense = util.hasPremiumLicense(),
-					isExpired = util.licenseInfo.isExpired;
-		try {
-			let uType = "";
-			if (isExpired) {
-				uType = "proRenew"
+  },
+
+  // appends user=pro OR user=proRenew if user has a valid / expired license
+  makeUriPremium: function (URL) {
+    const util = quickFilters.Util,
+      isPremiumLicense = util.hasPremiumLicense(),
+      isExpired = util.licenseInfo.isExpired;
+    try {
+      let uType = "";
+      if (isExpired) {
+        uType = "proRenew";
       } else if (isPremiumLicense) {
-			  uType = "pro";
+        uType = "pro";
       }
-			// make sure we can sanitize all pages for our premium users!
-			if (   uType
-			    && URL.indexOf("user=")==-1 
-					&& URL.indexOf("quickfilters.quickfolders.org")>0 ) {
-				// remove #NAMED anchors
-				let x = URL.indexOf("#");
-				if (x>0) {
-					// let anchor = URL.substr(x);
-					URL = URL.substr(0, x)
-				}
-				if (URL.indexOf("?")==-1) {
-					URL = URL + "?user=" + uType;
-        } else {
-					URL = URL + "&user=" + uType;
+      // make sure we can sanitize all pages for our premium users!
+      if (uType && URL.indexOf("user=") == -1 && URL.indexOf("quickfilters.quickfolders.org") > 0) {
+        // remove #NAMED anchors
+        let x = URL.indexOf("#");
+        if (x > 0) {
+          // let anchor = URL.substr(x);
+          URL = URL.substr(0, x);
         }
-			}
-		}
-		catch { ; }
+        if (URL.indexOf("?") == -1) {
+          URL = URL + "?user=" + uType;
+        } else {
+          URL = URL + "&user=" + uType;
+        }
+      }
+    } catch {;}
     return URL;
-	} ,
-  
-	viewLicense: function () {
+  },
+
+  viewLicense: function () {
     if (!quickFilters.Util.licenseInfo.isLicenseViewed) {
       quickFilters.Util.licenseInfo.isLicenseViewed = true; // session variable to mark license stuff as "seen".
-      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel"}); 
+      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" });
     }
-		// open options and open the last tab!
+    // open options and open the last tab!
     window.quickFilters.Util.notifyTools.notifyBackground({
       func: "quickFiltersSettings",
       page: "licenseTab",
-      mode:"licenseKey"
-    });    
-	}, 
-  
+      mode: "licenseKey",
+    });
+  },
+
   // helper function to see whether a search condition already exists
   checkExistsTerm: function (searchTerms, searchTerm) {
     let len = searchTerms.length;
-    for (let i=0; i<len; i++) {
+    for (let i = 0; i < len; i++) {
       let t = searchTerms[i];
-      if (t.termAsString == searchTerm.termAsString) {return true;}
+      if (t.termAsString == searchTerm.termAsString) {
+        return true;
+      }
     }
     return false;
-  } ,
-	
+  },
+
   checkCustomHeaderExists: function (hdr) {
     // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19
     const Ci = Components.interfaces;
     let hdrs = Services.prefs.getCharPref("mailnews.customHeaders"),
-        ArrayHdrs;
-    if (!hdrs) {return 0;}
-    hdrs = hdrs.replace(/\s+/g,'');  //remove white spaces before splitting
+      ArrayHdrs;
+    if (!hdrs) {
+      return 0;
+    }
+    hdrs = hdrs.replace(/\s+/g, ""); //remove white spaces before splitting
     ArrayHdrs = hdrs.split(":");
     for (let i = 0; i < ArrayHdrs.length; i++) {
       if (!ArrayHdrs[i]) {
-        ArrayHdrs.splice(i,1);  //remove any null elements
+        ArrayHdrs.splice(i, 1); //remove any null elements
       }
     }
-    for (let i = 0;i < ArrayHdrs.length; i++) {
+    for (let i = 0; i < ArrayHdrs.length; i++) {
       if (ArrayHdrs[i] == hdr) {
-        return i + Ci.nsMsgSearchAttrib.OtherHeader + 1; // custom Header exists, return id 
+        return i + Ci.nsMsgSearchAttrib.OtherHeader + 1; // custom Header exists, return id
         // 52 (Tb) is for showing customize - in ui headers start from 53 onwards up until 99.
         // 59 (Pb)
       }
     }
     return 0;
-  } ,	
-  
-  showAboutConfig: function(clickedElement, filter, readOnly) {
+  },
+
+  showAboutConfig: function (clickedElement, filter, readOnly) {
     const name = "Preferences:ConfigManager";
     const uri = "about:config";
-    
+
     let w = Services.wm.getMostRecentWindow(name),
-        win = clickedElement ?
-              (clickedElement.ownerDocument.defaultView ? clickedElement.ownerDocument.defaultView : window)
-              : window;
+      win = clickedElement
+        ? clickedElement.ownerDocument.defaultView
+          ? clickedElement.ownerDocument.defaultView
+          : window
+        : window;
     if (!w) {
       let watcher = Services.ww;
-      w = watcher.openWindow(win, uri, name, "dependent,chrome,resizable,centerscreen,alwaysRaised,width=750px,height=450px", null);
+      w = watcher.openWindow(
+        win,
+        uri,
+        name,
+        "dependent,chrome,resizable,centerscreen,alwaysRaised,width=750px,height=450px",
+        null
+      );
     }
     w.focus();
-    w.addEventListener('load', 
-      () => {
-        let id = "about-config-search",
-          flt = w.document.getElementById(id);
-            
-        if (flt) {
-          flt.value=filter;
-          // make filter box readonly to prevent damage!
-          if (!readOnly) {
-            flt.focus();
-          } else {
-            flt.setAttribute('readonly',true);
-          }
-          if (w.self.FilterPrefs) {
-            w.self.FilterPrefs();
-          }
+    w.addEventListener("load", () => {
+      let id = "about-config-search",
+        flt = w.document.getElementById(id);
+
+      if (flt) {
+        flt.value = filter;
+        // make filter box readonly to prevent damage!
+        if (!readOnly) {
+          flt.focus();
+        } else {
+          flt.setAttribute("readonly", true);
+        }
+        if (w.self.FilterPrefs) {
+          w.self.FilterPrefs();
         }
       }
-    );
+    });
   },
-  
+
   // moved from the Shim object
   validateFilterTargets: function (sourceURI, targetURI) {
     const util = quickFilters.Util,
-          Ci = Components.interfaces;
-          
+      Ci = Components.interfaces;
+
     // fix any filters that might still point to the moved folder.
     // 1. nsIMsgAccountManager  loop through list of servers
     try {
-                          
       for (let account of util.Accounts) {
-        if (account.incomingServer && account.incomingServer.canHaveFilters )
-        {
+        if (account.incomingServer && account.incomingServer.canHaveFilters) {
           let ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer);
-          util.logDebugOptional("filters", "checking account for filter changes: " +  ac.prettyName);
+          util.logDebugOptional("filters", "checking account for filter changes: " + ac.prettyName);
           // 2. getFilterList
-          let filterList = ac.getFilterList(gFilterListMsgWindow).QueryInterface(Ci.nsIMsgFilterList);
+          let filterList = ac
+            .getFilterList(gFilterListMsgWindow)
+            .QueryInterface(Ci.nsIMsgFilterList);
           // 3. use  nsIMsgFilterList.matchOrChangeFilterTarget(oldUri, newUri, false)
           if (filterList) {
-            filterList.matchOrChangeFilterTarget(sourceURI, targetURI, false)
+            filterList.matchOrChangeFilterTarget(sourceURI, targetURI, false);
           }
         }
       }
-    }
-    catch(ex) {
+    } catch (ex) {
       util.logException("Exception in quickFilters.Util.validateFilterTargets ", ex);
     }
-  }	,
-  
+  },
+
   findFromTargetFolder: function (targetFolder, searchFilterResults) {
     const util = quickFilters.Util,
-          Ci = Components.interfaces,
-          FA = Ci.nsMsgFilterAction;
-            
+      Ci = Components.interfaces,
+      FA = Ci.nsMsgFilterAction;
+
     try {
-      // 1. create a list of matched filters and corresponding accounts 
+      // 1. create a list of matched filters and corresponding accounts
       //    (these will be linked via index
       for (let account of util.Accounts) {
-        if (account.incomingServer && account.incomingServer.canHaveFilters ) {
-          let msg ='',
-              ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer),
-              // 2. getFilterList
-              filtersList = ac.getFilterList(gFilterListMsgWindow).QueryInterface(Ci.nsIMsgFilterList);
+        if (account.incomingServer && account.incomingServer.canHaveFilters) {
+          let msg = "",
+            ac = account.incomingServer.QueryInterface(Ci.nsIMsgIncomingServer),
+            // 2. getFilterList
+            filtersList = ac
+              .getFilterList(gFilterListMsgWindow)
+              .QueryInterface(Ci.nsIMsgFilterList);
           if (filtersList) {
             // build a dictionary of terms; this might take some time!
             let numFilters = filtersList.filterCount;
-            util.logDebugOptional("filterSearch", 
-              `Checking account [${ac.prettyName}] for target folder: ${targetFolder.URI}\n'`
-              + `iterating ${numFilters} filters...`);
+            util.logDebugOptional(
+              "filterSearch",
+              `Checking account [${ac.prettyName}] for target folder: ${targetFolder.URI}\n'` +
+                `iterating ${numFilters} filters...`
+            );
             for (let idx = 0; idx < numFilters; idx++) {
               let curFilter = filtersList.getFilterAt(idx),
-                  actionList = curFilter.sortedActionList,
-                  acLength = actionList.length;
+                actionList = curFilter.sortedActionList,
+                acLength = actionList.length;
               // Match Target Folder by iterating all actions
               for (let index = 0; index < acLength; index++) {
-                let action = actionList[index].QueryInterface(Ci.nsIMsgRuleAction);  // qryAt(index, Ci.nsIMsgRuleAction);
+                let action = actionList[index].QueryInterface(Ci.nsIMsgRuleAction); // qryAt(index, Ci.nsIMsgRuleAction);
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) {
-                    let isMatch = (action.targetFolderUri === targetFolder.URI),
-                        label = isMatch ? "MATCHED URI: " : "Target URI:  ";
-                    msg += "[" + idx + "] " + label +  action.targetFolderUri + "\n";
-                    if (action.targetFolderUri === targetFolder.URI) { 
-                      util.logDebugOptional("filterSearch", "FOUND FILTER MATCH:\n" + curFilter.filterName);
-                      searchFilterResults.push (
-                        {
-                          Filter: curFilter,
-                          Account: ac,
-                          Action: action
-                        }
-                      ); // create a new object which contains this trinity
+                    let isMatch = action.targetFolderUri === targetFolder.URI,
+                      label = isMatch ? "MATCHED URI: " : "Target URI:  ";
+                    msg += "[" + idx + "] " + label + action.targetFolderUri + "\n";
+                    if (action.targetFolderUri === targetFolder.URI) {
+                      util.logDebugOptional(
+                        "filterSearch",
+                        "FOUND FILTER MATCH:\n" + curFilter.filterName
+                      );
+                      searchFilterResults.push({
+                        Filter: curFilter,
+                        Account: ac,
+                        Action: action,
+                      }); // create a new object which contains this trinity
                       break; // only add one action per filter (in case it is duplicated)
                     }
                   }
-                }        
+                }
               }
               // .. End Match Action Loop
-            }       
+            }
           }
           util.logDebugOptional("filterSearch.detail", msg);
         }
       }
       util.logDebugOptional("filterSearch", "Matches found: " + searchFilterResults.length);
-      
+
       // 2. Persist in dropdown
       // dropdown with terms
-      let filtersDropDown = document.getElementById('quickFiltersFoundResults');
+      let filtersDropDown = document.getElementById("quickFiltersFoundResults");
       filtersDropDown.selectedIndex = -1;
       let menuPopup = quickFilters.List.clearFoundFiltersPopup(true);
-      
+
       for (let idx = 0; idx < searchFilterResults.length; idx++) {
         let target = searchFilterResults[idx],
-            menuItem = document.createXULElement ? document.createXULElement("menuitem") : document.createElement("menuitem"),
-            filterIdLabel = target.Filter.filterName;
+          menuItem = document.createXULElement
+            ? document.createXULElement("menuitem")
+            : document.createElement("menuitem"),
+          filterIdLabel = target.Filter.filterName;
         if (target.Account.prettyName) {
-          filterIdLabel = '[' + target.Account.prettyName + '] ' +  filterIdLabel;
+          filterIdLabel = "[" + target.Account.prettyName + "] " + filterIdLabel;
         }
         // let theLabel = filterIdLabel + ' = ' + this.getActionLabel(target.Action.type) + ': ' + valueLabel;
         menuItem.setAttribute("label", filterIdLabel);
-        menuItem.targetFilter = target.Filter; 
-        menuItem.targetAccount = target.Account;  
-        menuItem.setAttribute("actionType", target.Action.type); 
-        menuItem.setAttribute("targetFolderUri", target.Action.targetFolderUri);        
+        menuItem.targetFilter = target.Filter;
+        menuItem.targetAccount = target.Account;
+        menuItem.setAttribute("actionType", target.Action.type);
+        menuItem.setAttribute("targetFolderUri", target.Action.targetFolderUri);
         menuPopup.appendChild(menuItem);
       }
       if (searchFilterResults.length) {
         filtersDropDown.collapsed = false;
         // hide duplicates button?
-        document.getElementById('quickFiltersBtnDupe').collapsed = true;
-        document.getElementById('quickFiltersBtnCancelDuplicates').collapsed = true;
+        document.getElementById("quickFiltersBtnDupe").collapsed = true;
+        document.getElementById("quickFiltersBtnCancelDuplicates").collapsed = true;
         // show cancel button
-        document.getElementById('quickFiltersBtnCancelFound').collapsed = false;
+        document.getElementById("quickFiltersBtnCancelFound").collapsed = false;
         filtersDropDown.selectedIndex = 0;
       }
-      
-    } catch(ex) {
+    } catch (ex) {
       util.logException("Exception in quickFilters.Util.findFromTargetFolder ", ex);
-    }  
-    
-  } ,  
-  
-  // center a window on screen
-  centerWindow: function(window) {
-    if (!window) {return;}
-    if (window.screenX==0) {
-      let dx = window.outerHeight / 2,
-          dy = window.outerWidth / 2;
-      window.moveTo(window.screen.availWidth/2 - dx,
-                    window.screen.availHeight/2 -dy);
-      
     }
-  } ,
-  
-  setAssistantButton: function(isActive) {
+  },
+
+  // center a window on screen
+  centerWindow: function (window) {
+    if (!window) {
+      return;
+    }
+    if (window.screenX == 0) {
+      let dx = window.outerHeight / 2,
+        dy = window.outerWidth / 2;
+      window.moveTo(window.screen.availWidth / 2 - dx, window.screen.availHeight / 2 - dy);
+    }
+  },
+
+  setAssistantButton: function (isActive) {
     const doc = document,
-      button = doc.getElementById('quickfilters-toolbar-button');
+      button = doc.getElementById("quickfilters-toolbar-button");
     if (button) {
       button.setAttribute("checked", isActive);
     }
     const theLabel = quickFilters.Util.getBundleString(
       isActive ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",
-      isActive ? "stop filter assistant" : "start filter assistant");
+      isActive ? "stop filter assistant" : "start filter assistant"
+    );
     let mnuToggle = doc.getElementById("quickfilters-toggleAssistant");
     if (mnuToggle) {
       mnuToggle.label = theLabel;
@@ -2282,57 +2440,63 @@ quickFilters.Util = {
         (t) => t.mode.name === "mail3PaneTab" || t.mode.name === "mailMessageTab"
       )) {
         const doc = tabInfo?.chromeBrowser?.contentDocument;
-        if (!doc) {continue;}
+        if (!doc) {
+          continue;
+        }
         const btnFilterToggle = doc.getElementById("QuickFolders-currentFolderFilterActive");
         if (btnFilterToggle) {
           btnFilterToggle.setAttribute("mode", isActive ? "filter" : "");
         }
       }
     }
-  } ,
+  },
 
   showLicenseDialog: function (featureName) {
-		let params = {
-      inn:{
-        referrer: featureName, 
-        instance: quickFilters   // Why? should this be the main interface? make obsolete!
-      }, 
-      out:null
+    let params = {
+      inn: {
+        referrer: featureName,
+        instance: quickFilters, // Why? should this be the main interface? make obsolete!
+      },
+      out: null,
     };
     let win = window;
-    if (win.closed) { // notifications caused by a close parent window will fail!
+    if (win.closed) {
+      // notifications caused by a close parent window will fail!
       win = quickFilters.Util.getMail3PaneWindow();
     }
-    win.openDialog("chrome://quickfilters/content/register.xhtml",
-      "quickfilters-register","chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply",
-      quickFilters,
-      params).focus();
-  } , 
-  
-  viewSplash: function() {
+    win
+      .openDialog(
+        "chrome://quickfilters/content/register.xhtml",
+        "quickfilters-register",
+        "chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply",
+        quickFilters,
+        params
+      )
+      .focus();
+  },
+
+  viewSplash: function () {
     quickFilters.Util.notifyTools.notifyBackground({ func: "splashScreen" });
     if (quickFilters.Preferences.getBoolPref("hasNews")) {
       // reset news flag!
       quickFilters.Preferences.setBoolPref("hasNews", false);
-      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" }); 
+      quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" });
     }
-  } ,
+  },
 
-	setMidnightTimer: function() {
-		let today = new Date(),
-		    tomorrow = new Date(today.getFullYear(),today.getMonth(),today.getDate()+1),
-		    timeToMidnight = (tomorrow-today);
-		setTimeout(
-			() => {
-        quickFilters.Util.licenseInfo.isLicenseViewed = false;
-				quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" }); 
-				quickFilters.Util.setMidnightTimer();
-			},
-			timeToMidnight);
-	},
-  
+  setMidnightTimer: function () {
+    let today = new Date(),
+      tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1),
+      timeToMidnight = tomorrow - today;
+    setTimeout(() => {
+      quickFilters.Util.licenseInfo.isLicenseViewed = false;
+      quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" });
+      quickFilters.Util.setMidnightTimer();
+    }, timeToMidnight);
+  },
+
   // new type of tooltips: click first displays the hovering text in the clickyTooltip attribute!
-  openTooltipPopup: function(el) {
+  openTooltipPopup: function (el) {
     if (el.getAttribute("hasToolTip")) {
       return;
     }
@@ -2340,32 +2504,37 @@ quickFilters.Util = {
     const isLeft = el.hasAttribute("tip-left");
     if (txt) {
       let tip = document.createElement("div");
-      tip.classList.add('tooltip');
+      tip.classList.add("tooltip");
       tip.innerText = txt;
       tip.style.transform =
         "translate(" +
-            (isLeft ? "calc(-100% - 5px)" : "15px") 
-          +  ", " + (el.hasAttribute("tip-top") ? "-100%" : "0") +
+        (isLeft ? "calc(-100% - 5px)" : "15px") +
+        ", " +
+        (el.hasAttribute("tip-top") ? "-100%" : "0") +
         ")";
       el.appendChild(tip);
-      el.onmousemove = e => {
-        tip.style.left = e.clientX + 'px'; // isLeft?
-        tip.style.top = (e.clientY + 15) + 'px';
-      };    
+      el.onmousemove = (e) => {
+        tip.style.left = e.clientX + "px"; // isLeft?
+        tip.style.top = e.clientY + 15 + "px";
+      };
       el.setAttribute("hasToolTip", true);
     }
-  },  
-  
-  promptToRestart: function() {
-    let txt = quickFilters.Util.getBundleString("restart-app", "Restart $application$ to activate this option.", [quickFilters.Util.Application]);
-    Services.prompt.alert(null, "quickFilters", txt);    
   },
 
-  checkAssistantTargetExclusion: function(targetFolder) {
+  promptToRestart: function () {
+    let txt = quickFilters.Util.getBundleString(
+      "restart-app",
+      "Restart $application$ to activate this option.",
+      [quickFilters.Util.Application]
+    );
+    Services.prompt.alert(null, "quickFilters", txt);
+  },
+
+  checkAssistantTargetExclusion: function (targetFolder) {
     // Avoid triggering assistant
     const FLG = quickFilters.Util.FolderFlags,
-          isArchiveExcluded = quickFilters.Preferences.getBoolPref("assistant.exclude.archive");
-    let excluded = FLG.Queue | FLG.Templates  | FLG.SentMail  | FLG.Drafts  | FLG.Newsgroup;
+      isArchiveExcluded = quickFilters.Preferences.getBoolPref("assistant.exclude.archive");
+    let excluded = FLG.Queue | FLG.Templates | FLG.SentMail | FLG.Drafts | FLG.Newsgroup;
     const isMoveDebug = quickFilters.Preferences.isDebugOption("msgMove");
     if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
       excluded = excluded | FLG.Trash;
@@ -2386,12 +2555,15 @@ quickFilters.Util = {
         );
       }
       return true;
-    }      
-    if (isArchiveExcluded) { // exclude all Archive child folders
+    }
+    if (isArchiveExcluded) {
+      // exclude all Archive child folders
       let p = targetFolder;
       while (p) {
         p = p.parent;
-        if (!p || p.isServer) {break;}
+        if (!p || p.isServer) {
+          break;
+        }
         if (p.flags & FLG.Archive) {
           console.log(
             `Disabled Assistant for folder:  ${
@@ -2406,11 +2578,13 @@ quickFilters.Util = {
     }
     return false;
   },
-  
-  checkAssistantSourceExclusion: function(sourceFolder) {
+
+  checkAssistantSourceExclusion: function (sourceFolder) {
     const FLG = quickFilters.Util.FolderFlags;
-    if (!sourceFolder) {return false;}
-    
+    if (!sourceFolder) {
+      return false;
+    }
+
     let excluded = FLG.Queue | FLG.Templates | FLG.Drafts | FLG.Trash;
     if (excluded & sourceFolder.flags) {
       return true;
@@ -2418,19 +2592,28 @@ quickFilters.Util = {
     return false;
   },
 
-  getFileInitArg: function(win) {
-		// [bug 1882701] nsIFilePicker.init() first parameter changed from Tb125
-		if (!win) {return null;}
-		if (this.versionGreaterOrEqual(this.AppverFull, "125")) {    
-			return win.browsingContext;
-		}
-		return win;
-	},
+  getFileInitArg: function (win) {
+    // [bug 1882701] nsIFilePicker.init() first parameter changed from Tb125
+    if (!win) {
+      return null;
+    }
+    if (this.versionGreaterOrEqual(this.AppverFull, "125")) {
+      return win.browsingContext;
+    }
+    return win;
+  },
 
-  patchToolbarTheme: function(event, toolbarObj) {
+  patchToolbarTheme: function (event, toolbarObj) {
     const eventType = event?.type;
-    if (!eventType) {return false;}
-		quickFilters.Util.logDebugOptional("filterList",`patchToolbarTheme(${eventType})`, toolbarObj, event);
+    if (!eventType) {
+      return false;
+    }
+    quickFilters.Util.logDebugOptional(
+      "filterList",
+      `patchToolbarTheme(${eventType})`,
+      toolbarObj,
+      event
+    );
 
     switch (eventType) {
       case "activate":
@@ -2440,11 +2623,17 @@ quickFilters.Util = {
         // this.inferFromText(event.type, event.visible);
         const toolbar = toolbarObj.doc.getElementById(toolbarObj.toolbarId);
         if (!toolbar) {
-          quickFilters.Util.logDebugOptional("filterList",`patchToolbarTheme(${eventType})\nDid not find toolbar ${toolbarObj.toolbarId}`);
+          quickFilters.Util.logDebugOptional(
+            "filterList",
+            `patchToolbarTheme(${eventType})\nDid not find toolbar ${toolbarObj.toolbarId}`
+          );
           return false;
         }
-        if (toolbarObj.win.matchMedia && toolbarObj.win.matchMedia('(prefers-color-scheme: dark)').matches) {
-          toolbar.setAttribute("brighttext",true);
+        if (
+          toolbarObj.win.matchMedia &&
+          toolbarObj.win.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          toolbar.setAttribute("brighttext", true);
         } else {
           toolbar.removeAttribute("brighttext");
         }
@@ -2454,24 +2643,23 @@ quickFilters.Util = {
         return false;
     }
     return true;
-  },  
+  },
 
-  createUniqueId: function(prefix = "") {
+  createUniqueId: function (prefix = "") {
     // create a unique id for a promise resolver
     let unixTime = Math.floor(Date.now() / 1000).toString(16);
     return prefix + unixTime;
   },
-	
-  dummy: function() {
-		/* 
-		 *
-		 *  END OF QUICKFILTERS.UTIL OBJECT
-		 *  ADD NEW ATTRIBUTES ON TOP  ^ ^ ^ 
-		 *  ================================================================
-		 *  ================================================================
-		 */
-	}
 
+  dummy: function () {
+    /*
+     *
+     *  END OF QUICKFILTERS.UTIL OBJECT
+     *  ADD NEW ATTRIBUTES ON TOP  ^ ^ ^
+     *  ================================================================
+     *  ================================================================
+     */
+  },
 }; // Util
 
   // -------------------------------------------------------------------
