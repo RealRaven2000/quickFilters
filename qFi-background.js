@@ -11,7 +11,6 @@ const TOGGLE_ASSIST_TOOL_ID = "toggleFilterTools";
 
 var currentLicense;
 var QF_license = {status:"unknown", type: 0}
-var startupFinished = false;
 var callbacks = [];
 // Worker.FilterMode
 var AssistantActive = false;
@@ -29,27 +28,23 @@ function prefKey(name) {
   return legacy_root + name;
 }
 
+let startupPromiseResolve;
+const startupPromise = new Promise((resolve) => {
+  startupPromiseResolve = resolve;
+});
+
 //TODO: textbox in CSS, search box??
 //TODO mailWindowOverlay: was never in use??
 //debugger;
 messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
   let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
-  
   // Wait until the main startup routine has finished!
-  await new Promise((resolve) => {
-    if (startupFinished) {
-      if (isDebug) {console.log("quickFilters - startup code finished.");}
-      // Looks like we missed the one send by main()
-      resolve();
-    }
-    callbacks.push(resolve);
-  });
+  await startupPromise;
   if (isDebug) {
     console.log("Startup has finished");
     console.log("quickFilters - currentLicense", currentLicense);
   }
-  
-  
+
   // if (temporary) return; // skip during development
   switch (reason) {
     case "install":
@@ -65,43 +60,45 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
       break;
     // see below
     case "update":
-    {
-      // note quickfilters.installedVersion is currently set in legacy code (quickFilters.checkFirstRun())
-      // set a flag which will be cleared by clicking the [quickFilters assistant] button once
-      setTimeout(async function () {
-        let origVer = await messenger.LegacyPrefs.getPref(
-          prefKey("installedVersion"),
-          "0"
-        );
-        const manifest = await messenger.runtime.getManifest();
-        let installedVersion = manifest.version.replace(/pre.*/, "").replace(/\.$/, "");
-        const isUpgrade = versionGreater(installedVersion, origVer);
-        if (isDebug) {
-          console.log(`SmartTemplates Update:  old=${origVer}  new=${installedVersion}`);
-        }
-
-        if (isUpgrade) {
-          if (
-            (await messenger.LegacyPrefs.getPref(prefKey("hasNews"))) &&
-            installedVersion.startsWith("6.8.3")
-          ) {
-            if (isDebug) {
-              console.log("Setting news.minimal flag, as news flag was already set / ignored.");
-            }
-            await messenger.LegacyPrefs.setPref(prefKey("news.minimal"), true);
+      {
+        // note quickfilters.installedVersion is currently set in legacy code (quickFilters.checkFirstRun())
+        // set a flag which will be cleared by clicking the [quickFilters assistant] button once
+        setTimeout(async function () {
+          let origVer = await messenger.LegacyPrefs.getPref(prefKey("installedVersion"), "0");
+          const manifest = await messenger.runtime.getManifest();
+          let installedVersion = manifest.version.replace(/pre.*/, "").replace(/\.$/, "");
+          const isUpgrade = versionGreater(installedVersion, origVer);
+          if (isDebug) {
+            console.log(`SmartTemplates Update:  old=${origVer}  new=${installedVersion}`);
           }
-          // only show news if major or minor version have changed:
-          messenger.LegacyPrefs.setPref(prefKey("hasNews"), true);
-          // we need to move this to local Storage so that it will be removed if the Add-on is removed.
-        }
-        notifyWhenUIReady({ event: "updatequickFiltersLabel" });
-      }, 200);
-    }
+
+          if (isUpgrade) {
+            if (
+              (await messenger.LegacyPrefs.getPref(prefKey("hasNews"))) &&
+              installedVersion.startsWith("6.8.3")
+            ) {
+              if (isDebug) {
+                console.log("Setting news.minimal flag, as news flag was already set / ignored.");
+              }
+              await messenger.LegacyPrefs.setPref(prefKey("news.minimal"), true);
+            }
+            // only show news if major or minor version have changed:
+            messenger.LegacyPrefs.setPref(prefKey("hasNews"), true);
+            // we need to move this to local Storage so that it will be removed if the Add-on is removed.
+          }
+          notifyWhenUIReady({ event: "updatequickFiltersLabel" });
+        }, 200);
+      }
       break;
     default:
       notifyWhenUIReady({ event: "updatequickFiltersLabel" });
       break;
   }
+});
+
+messenger.runtime.onStartup.addListener(async () => {
+  await startupPromise;
+  notifyWhenUIReady({ event: "updatequickFiltersLabel" });
 });
 
 
@@ -580,7 +577,7 @@ async function main() {
   // resolve all promises on the stack
   if (isDebug) {console.log("Finished setting up license startup code");}
   callbacks.forEach(callback => callback());
-  startupFinished = true;
+  startupPromiseResolve(); // unblock code that depends on licenser
   
   // listeners for splash pages, new settings dialog
   messenger.runtime.onMessage.addListener(async (data, sender) => {

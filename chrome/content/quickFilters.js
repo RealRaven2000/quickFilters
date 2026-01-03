@@ -181,6 +181,7 @@ END LICENSE BLOCK
     # Improved merging filters in new HTML assistant, by making API calls more robust
 
   6.10 - WIP
+    # [issue 339] Improve startup stability
     # [issue 335] Improve default filter names based on Custom Templates.
     # [issue 338] Empty search terms from assistant or built-in templates 
     #     (Reply-To, filter-tagging) now display correctly in the editor.

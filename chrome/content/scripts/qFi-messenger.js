@@ -293,7 +293,13 @@ async function onLoad(activatedWhileWindowOpen) {
 
   // The following will only work if we are currently in a mail pane (ATN update)
   // otherwise, we need to call this again in a tab listener
-  const selectedTab = window.gTabmail.tabInfo.find((t) => t.selected);
+  const selectedTab = window.gTabmail.selectedTab;
+  window.quickFilters.Util.logHighlightDebug(
+    `qFi-messenger onLoad triggered, selectedTab: mode.name=${selectedTab?.mode?.name}`,
+    "yellow",
+    "rgb(0, 128, 50)",
+    selectedTab
+  );   
   if (selectedTab && window.quickFilters.Util.isTabMode(selectedTab, "mail")) {
     window.quickFilters.patchMailPane();
   }
