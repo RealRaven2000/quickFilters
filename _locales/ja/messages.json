@@ -1447,7 +1447,7 @@
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTMLアシスタントがデフォルトになりました。将来性が高く、さまざまな画面サイズに対応しています。{br}従来のXULバージョンを引き続き使用する場合は、quickFilters 設定 → アクションタブ → ユーザーインターフェイスで戻すことができます。{br}従来のインターフェイスは最終的に削除され、quickFiltersは完全に将来互換になります。{/L}{L}編集ボタンに対象フィルター名を追加してわかりやすくしました{/L}{L}新しいHTMLアシスタントでのフィルター統合の問題を修正{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}新しいHTML設定ダイアログのアクセシビリティを改善、タブの再利用も向上{/L}{L}修正：quickFilters Pro 設定タブがライセンスキーなしでも正しく動作するようになりました{/L}{L}将来の有効期限をクリックすると『ライセンス延長』ボタンが表示されるようになりました [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}設定ダイアログをモダンHTML版に更新 [issue 325]{/L}{L}6.9.*リリースに含まれる改善点の完全なリストは、ウェブサイトの詳細な変更ログをご覧ください…{/L}"
+    "message": "{L}「{createFilterFromMessage}」用の設定可能なキーボードショートカットを追加しました。アドオンマネージャー » ⚙ » 「拡張機能のショートカットを管理」で設定できます。{/L}{L}Custom Templates に基づくデフォルトのフィルター名を改善しました。{/L}{L}起動時の安定性を改善し、起動時に quickFilters ボタンが表示されない問題を修正しました [issue 339]。{/L}{L}quickFilters アシスタントが既に開いている場合、新しく起動しようとすると既存のウィンドウが前面に表示されます。{/L}{L}修正: アシスタントまたは組み込みテンプレートからの空の検索条件が正しく表示されるようになりました [issue 338]。{/L}{L}修正: quickFilters 6.9.2 以降、HTML アシスタントで「Automatically select Merge」が反映されていませんでした [issue 331]。{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

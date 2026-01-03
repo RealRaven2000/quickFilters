@@ -221,17 +221,25 @@ function formatAll(txt) {
     })
     .replace(/\{\/L\}/g, "</li>")
     .replace(/\{br\}/g, "<br>")
-    .replace(/\{bold\}/g, "<b>").replace(/\{\/bold\}/g, "</b>")
-    .replace(/\{italic\}/g, "<i>").replace(/\{\/italic\}/g, "</i>")
-    .replace(/\{U\}/g, "<ul>").replace(/\{\/U\}/g, "</ul>")
-    .replace(/\{emph\}/g, "<span class='important'>").replace(/\{\/emph\}/g, "</span>")
+    .replace(/\{bold\}/g, "<b>")
+    .replace(/\{\/bold\}/g, "</b>")
+    .replace(/\{italic\}/g, "<i>")
+    .replace(/\{\/italic\}/g, "</i>")
+    .replace(/\{U\}/g, "<ul>")
+    .replace(/\{\/U\}/g, "</ul>")
+    .replace(/\{emph\}/g, "<span class='important'>")
+    .replace(/\{\/emph\}/g, "</span>")
     .replace(/\{addonName\}/g, "quickFilters")
     .replace(/\[issue (\d+)\]/g, "<a class=issue no=$1>[issue $1]</a>")
     .replace(/\{P(?:\s+([^}]+))?\}/g, (_, attrs) => {
       // attrs will be undefined if no class specified
       return attrs ? `<p ${attrs}>` : "<p>";
     })
-    .replace(/\{\/P\}/g, "</p>");
+    .replace(/\{\/P\}/g, "</p>")
+    .replace(
+      /\{createFilterFromMessage\}/g,
+      messenger.i18n.getMessage("quickfilters.FromMessage.label")
+    );
 
   return localizedMsg;
 }

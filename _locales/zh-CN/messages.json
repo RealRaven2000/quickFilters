@@ -1439,7 +1439,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{P class=heading} Maintenance Release 6.9.2 {/P}{L class=important}HTML 助手现在是默认选项。它更具未来适应性，并可响应不同屏幕尺寸。{br}若要继续使用传统 XUL 版本，可在 quickFilters 设置 → 操作选项卡 → 用户界面中更改回去。{br}传统界面最终将被移除，以使 quickFilters 完全兼容未来。{/L}{L}在编辑按钮中添加目标过滤器名称以提高清晰度{/L}{L}修复了在新 HTML 助手中合并过滤器的问题{/L}{P class=heading} Maintenance Release 6.9.1 - 30/10/2025 {/P}{L}改进了新 HTML 设置对话框的可访问性，包括更好的标签重用{/L}{L}修复：quickFilters Pro 设置选项卡现在即使没有许可证密钥也能正常工作{/L}{L}点击未来到期日期现在会显示“延长许可证”按钮 [issue 329]{/L}{P class=heading} Release 6.9 - 22/10/2025 {/P}{L}设置对话框更新为现代 HTML 版本 [issue 325]{/L}{L}有关 6.9.* 版本中包含的完整改进列表，请参阅网站上的详细更改日志…{/L}"
+    "message": "{L}新增可配置的键盘快捷键用于“{createFilterFromMessage}”——可在附加组件管理器 » ⚙ » “管理扩展快捷键”中设置。{/L}{L}改进了基于 Custom Templates 的默认过滤器名称。{/L}{L}提升了启动稳定性，包括修复启动时偶尔缺失 quickFilters 按钮的问题 [issue 339]。{/L}{L}如果 quickFilters 助手已经打开，再次启动将把现有窗口置于前台，而不是打开新窗口。{/L}{L}已修复：来自助手或内置模板的空搜索条件现在可以正确显示 [issue 338]。{/L}{L}已修复：在 quickFilters 6.9.2 之后，HTML 助手中未正确应用 “Automatically select Merge” 选项 [issue 331]。{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
