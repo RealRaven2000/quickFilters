@@ -1,42 +1,27 @@
 The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.9.2">quickFilters Change Log</a>
 
-
-<b>Maintenance Release 6.9.2</b>
+<b>Improvements</b>
 <ul>
-<li>The HTML Assistant is now the default. It’s more future-proof and responsive 
-to different screen sizes.
-To continue using the legacy XUL version, you can change this back on quickFilters Settings ➔ Actions tab ➔ User Interface.
-Eventually, the legacy interface will be removed to make quickFilters fully future compatible.
-</li>
-<li>Compatibility with Thunderbird 146</li>
-<li>Added the targeted filter name to the edit filter button for clarity</li>
-<li>Improved merging filters in the new HTML assistant: API calls are now more robust and the data type problem in the new Filters API is fixed.</li>
-<li>Fix: Always reliably remove "Go Pro" menu item when news are displayed with a valid license.</li>
-<li>Removed assignments to <code>innerHTML</code> in update/install welcome screens.</li>
-</ul>
+<li>Compatibility with Thunderbird 148</li>
+<li>Improved startup stability <a href="https://github.com/RealRaven2000/quickFilters/issues/339">[issue 339]</a></li>
+<li>Improved default filter names based on Custom Templates <a href="https://github.com/RealRaven2000/quickFilters/issues/335">[issue 335]</a></li>
+<li>Added a configurable keyboard shortcut for 'Create Filter from Message' <a href="https://github.com/RealRaven2000/quickFilters/issues/334">[issue 334]</a></li>
+<li>If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening another.</li>
+</ul> 
 
-
-<b>Maintenance Release 6.9.1</b>
+<b>Bug Fixes</b>
 <ul>
-<li>Various accessibility improvements in the new HTML settings dialog including life URL updates, correct reusing of an already existing tab.</li>
-<li>Update of settings heading logo to reflect license status.</li>
-<li>Fixed: The new HTML Settings quickFilters Pro page was not configured properly without license key </li>
-<li>Fixed: Current folder buttons (on the QuickFolders toolbar) don't update immediately <a href="https://github.com/RealRaven2000/quickFilters/issues/328">[issue 328]</a></li>
-<li>Added in HTML settings: Click on expiry date to show "extend license" button. <a href="https://github.com/RealRaven2000/quickFilters/issues/329">[issue 329]</a></li>
-</ul>
+<li>Fixed Empty search terms from assistant or built-in templates 
+    (Reply-To, filter-tagging) now display correctly in the editor.
+    (Tb used to remove the edit box) <a href="https://github.com/RealRaven2000/quickFilters/issues/338">[issue 338]</a></li>
+<li>Fixed: After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge"  was not honored (needed to be selected each time) <a href="https://github.com/RealRaven2000/quickFilters/issues/331">[issue 331]</a></li>
+<li>Fixed: Extend License button opens 2 tabs <a href="https://github.com/RealRaven2000/quickFilters/issues/333">[issue 333]</a></li>
+</ul> 
 
-<b>Improvements 6.9</b>
+<b>Miscellaneus</b>
 <ul>
-<li>Compatibility with Thunderbird 145</li>
-<li>Converted Settings Dialog from XUL to HTML <a href="https://github.com/RealRaven2000/quickFilters/issues/325">[issue 325]</a>.  This displays the settings in a Thunderbird fully responsive tab and also fix sizing problems such as issue <a href="https://github.com/RealRaven2000/quickFilters/issues/307">307</a>. It is also paying a technical debt before further innovating quickFilters with new features.</li>
-<li>Removed obsolete "Start Filter Assistant" from Composer's tool menu  <a href="https://github.com/RealRaven2000/quickFilters/issues/324">[issue 324]</a></li>
-</ul>
-
-<b>Bug Fixes  6.9</b>
-<ul>
-<li>Fixed: Merging filters broken in new html assistant <a href="https://github.com/RealRaven2000/quickFilters/issues/322">[issue 322]</a>, <a href="https://github.com/RealRaven2000/quickFilters/issues/322">[issue 327]</a></li>
-<li>Fixed: Thunderbird 143: Custom Filter Template modifications missing <a href="https://github.com/RealRaven2000/quickFilters/issues/326">[issue 326]</a></li>
-<li>Fixed: "Mailing List" filter template shows alert: "currentHeaderData is not defined" <a href="https://github.com/RealRaven2000/quickFilters/issues/323">[issue 323]</a></li>
+<li>Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird.</li>
+<li>Removed invalid permissions 'folders' and 'mailTab'.</li>
 </ul>
 
 
