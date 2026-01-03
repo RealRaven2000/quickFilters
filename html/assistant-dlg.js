@@ -512,7 +512,11 @@ quickFilters.Assistant = {
         msgCount: 1,
       };
     } catch (ex) {
-      console.warn("previewFromApi() Failed to load message preview from API for id:", messageId, ex);
+      console.warn(
+        "previewFromApi() Failed to load message preview from API for id:",
+        messageId,
+        ex
+      );
       return null;
     }
   },
@@ -531,6 +535,12 @@ quickFilters.Assistant = {
         "assistant.msg",
         "initPreview() no preview data provided, exiting."
       );
+      return;
+    }
+    if (preview.error) {
+      let errorField = document.getElementById("previewError");
+      errorField.textContent = preview.error;
+      errorField.removeAttribute("collapsed");
       return;
     }
     const formatSize = (bytes) => {
@@ -580,9 +590,11 @@ quickFilters.Assistant = {
 
   loadAssistant: async function () {
     const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug.assistant");
-    if (isDebug) { console.trace("loadAssistant called"); }
+    if (isDebug) {
+      console.trace("loadAssistant called");
+    }
     if (quickFilters.Assistant.initialised) {
-      if (isDebug) { 
+      if (isDebug) {
         console.log("quickFilters.Assistant already initialised, early exit...");
       }
       return;
@@ -643,7 +655,9 @@ quickFilters.Assistant = {
     if (!isMergePossible) {
       this.NextButton.textContent = messenger.i18n.getMessage("qf.button.createFilter");
     } else {
-      await quickFilters.Util.logDebug(`loadAssistant: merging possible, found ${countMatched} matches`);
+      await quickFilters.Util.logDebug(
+        `loadAssistant: merging possible, found ${countMatched} matches`
+      );
     }
 
     switch (context) {
@@ -655,7 +669,8 @@ quickFilters.Assistant = {
               " loadAssistant() ",
               "rgba(250, 235, 119, 1)",
               "#9d4201ff",
-              "Missing messageIds parameter!");
+              "Missing messageIds parameter!"
+            );
             break;
           }
           const messageIds = JSON.parse(jsonMsg);
@@ -722,14 +737,18 @@ quickFilters.Assistant = {
       // use API to build it fresh
       const folderPath = await formatFolderPath(this.selectedApiMessages[0].folder);
       preview = await this.previewFromApi(this.selectedApiMessages[0].messageId);
-      if (folderPath) {
+      if (folderPath && preview) {
         preview.folderPath = folderPath;
+      }
+      if (!preview) {
+        preview = {};
+        preview.error = "Sorry we couldn't retrieve the preview. The API didn't find it.";
       }
     } else if (this.passedMessages.length) {
       // legacy messages?
       preview = this.passedMessages[0];
     }
-    
+
     await this.initPreview({ preview });
 
     templateList.value = await this.getCurrentFilterTemplate();
@@ -760,7 +779,6 @@ quickFilters.Assistant = {
       await quickFilters.Util.logDebug(
         `loadAssistant: isMergePossible=true, autoSelect:${autoSelect}, silentMerge:${silentMerge}`
       );
-
 
       if (autoSelect || silentMerge) {
         let mergeBox = document.getElementById("chkMerge");
