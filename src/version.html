@@ -254,22 +254,27 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     </li>
     <li>
       Improved default filter names based on Custom Templates. This will use the retrieved
-      values from the message to include the actual values (e.g. google.com for <code>%from(mail)%</code>) within the filter name for a more descriptive default.
+      values from the message to include the actual values (e.g. google.com for <code>%from(mail)%</code>) 
+      within the filter name for a more descriptive default.
       <a href="https://github.com/RealRaven2000/quickFilters/issues/335">[issue 335]</a>
     </li>
     <li>
-      If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening another.
+      If the quickFilters assistant is already open, trying to start a new one will 
+      bring the existing window to the front instead of opening another.
     </li>
   </ul>
 
   <h5 class="inList"> Bugfixes </h5>  
   <ul>
-    <li>Fixed Empty search terms from assistant or built-in templates 
-        (Reply-To, filter-tagging) now display correctly in the editor.
-        (Tb used to remove the edit box) <a href="https://github.com/RealRaven2000/quickFilters/issues/338">[issue 338]</a>
+    <li>
+      Fixed: The Thunderbird filter editor was missing the search term edit box
+        if search terms did not retrieve any value
+        (no Reply-To, missing mail tags)
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/338">[issue 338]</a>
     </li>
     <li>
-      Fixed: After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge"  was not honored (needed to be selected each time) 
+      Fixed: After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge"  
+      was not honored (needed to be selected each time) 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/331">[issue 331]</a>
     </li>
     <li>
@@ -286,7 +291,9 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Removed invalid permissions <code>folders</code> and <code>mailTab</code>
     </li>
     <li>
-      Removed <code>strict_max_version</code> from manifest.json
+      Set Compatibility with Thunderbird 148 - unfortunately the Add-on review policies 
+      for Add-ons with "experimental" APIs do not allow us to remove 
+      <code>strict_max_version</code> from manifest.json
     </li>
   </ul>
 
