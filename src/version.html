@@ -100,8 +100,23 @@ permalink: version.html
   }  
 
   code {
-    font-family: consolas, 'Courier New', Courier, monospace;
+    font-family: 
+        "Fira Code", "JetBrains Mono", "Cascadia Code", 
+        "Source Code Pro", "Consolas", "Menlo", "Monaco", monospace !important;
+    box-shadow: inset 4px 4px 6px rgba(0,0,0,0.5);
+    font-size: 0.8em;
+    padding: 1em;
+    color: #333;
+    transition: background-color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    background-color: rgba(255, 255, 255, 0.15); 
   }
+
+  code {
+    background-color: rgba(255, 255, 255, 0.45); 
+    outline: 1px solid rgb(0,0,0,0.1);
+  }
+
+
 </style>
 
 <img id="blueBauble" src="img/blueBauble.png" alt="" />
@@ -221,6 +236,65 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
  
 -->
 
+<a name="6.10"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.10" 
+		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+     quickFilters 6.10 - WIP</a>
+	</h4>
+
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+    <li>
+      Compatibility with Thunderbird 148
+    </li>
+    <li>
+      Improved startup stability <a href="https://github.com/RealRaven2000/quickFilters/issues/339">[issue 339]</a>
+    </li>
+    <li>
+      Improved default filter names based on Custom Templates <a href="https://github.com/RealRaven2000/quickFilters/issues/335">
+      [issue 335]</a>
+    </li>
+    <li>
+      Added a configurable keyboard shortcut for 'Create Filter from Message' 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/334">[issue 334]</a>
+    </li>
+    <li>
+      If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening another.
+    </li>
+  </ul>
+
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+    <li>Fixed Empty search terms from assistant or built-in templates 
+        (Reply-To, filter-tagging) now display correctly in the editor.
+        (Tb used to remove the edit box) <a href="https://github.com/RealRaven2000/quickFilters/issues/338">[issue 338]</a>
+    </li>
+    <li>
+      Fixed: After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge"  was not honored (needed to be selected each time) 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/331">[issue 331]</a>
+    </li>
+    <li>
+      Fixed: Extend License button opens 2 tabs <a href="https://github.com/RealRaven2000/quickFilters/issues/333">[issue 333]</a>
+    </li>
+  </ul>
+
+  <h5 class="inList"> Miscellaneus </h5>  
+  <ul>
+    <li>
+      Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird
+    </li>
+    <li>
+      Removed invalid permissions <code>folders</code> and <code>mailTab</code>
+    </li>
+    <li>
+      Removed <code>strict_max_version</code> from manifest.json
+    </li>
+  </ul>
+
+</li>
+
 <a name="6.9"> &nbsp; </a>
 <a name="6.9.1"> &nbsp; </a>
 <a name="6.9.2"> &nbsp; </a>
@@ -229,8 +303,6 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.9.1">
     quickFilters 6.9 - 22/10/2025</a>
 	</h4>
-
-
 
   <table class="quickFiltersFreeUser bargain"> 
     <tr>
