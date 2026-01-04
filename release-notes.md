@@ -22,6 +22,7 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 *   Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird
 *   Removed invalid permissions `folders` and `mailTab` from manifest.
+*   Removed `strict_max_version` from manifest.json
 
 
 
