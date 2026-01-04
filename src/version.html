@@ -99,19 +99,18 @@ permalink: version.html
     max-width: 60rem;
   }  
 
-  code {
+  code, tt {
     font-family: 
         "Fira Code", "JetBrains Mono", "Cascadia Code", 
         "Source Code Pro", "Consolas", "Menlo", "Monaco", monospace !important;
-    box-shadow: inset 4px 4px 6px rgba(0,0,0,0.5);
-    font-size: 0.8em;
-    padding: 1em;
+    padding: 0 3px;
+    border-radius: 3px;    
     color: #333;
     transition: background-color 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
     background-color: rgba(255, 255, 255, 0.15); 
   }
 
-  code {
+  code:hover, tt:hover {
     background-color: rgba(255, 255, 255, 0.45); 
     outline: 1px solid rgb(0,0,0,0.1);
   }
