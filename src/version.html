@@ -27,16 +27,6 @@ permalink: version.html
     font-size: 1.15em;
   }
 
-	/* about:config settings */
-	#version-history li tt {
-		font-size: 11pt;
-		font-family: Consolas, "Lucida Console", Courier, monospace; 
-		background-color: rgba(200,50,230,0.2);
-		padding: 2px 4px;
-		border-radius: 0.4em;
-		border: 2px solid rgba(100,100,100,0.3) !important;
-	}
-
 	quote p {
 		margin-left: 32px;
 		font-size: 0.9em;
@@ -114,6 +104,15 @@ permalink: version.html
     background-color: rgba(255, 255, 255, 0.45); 
     outline: 1px solid rgb(0,0,0,0.1);
   }
+
+	/* about:config settings */
+	#version-history li code.config {
+		font-size: 11pt;
+		background-color: rgba(200,50,230,0.2);
+		padding: 1px 4px;
+		border-radius: 0.3em;
+		outline: 1px solid rgba(100,100,100,0.1) !important;
+	}  
 
 
 </style>
@@ -528,7 +527,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       button missing <a href="https://github.com/RealRaven2000/quickFilters/issues/317">[issue 317]</a>
     </li>
     <li> 
-      Added a switch <tt>extensions.quickfilters.notifications.changelog</tt> to disable version tab 
+      Added a switch <code class="config">extensions.quickfilters.notifications.changelog</code> to disable version tab 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/318">[issue 318]</a>
     </li>
   </ul>
@@ -786,7 +785,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <p>
         Improved dark theme support to message filters window; full theme integration for all 
         features that quickFilters adds to the message filters window. For this I removed 
-        the <tt>context-fill</tt> and similar attribute from svg icons so they can also be used in themeable 
+        the <code>context-fill</code> and similar attribute from svg icons so they can also be used in themeable 
         HTML pages which are the default for web extensions. 
         <a href="https://github.com/RealRaven2000/quickFilters/issues/259">[issue 259]</a>
         <br>
@@ -828,7 +827,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Currently the verification of quickFilters licenses fails when the license is bound to an 
       exchange account when it is accessed using Owl. This is due to a bug in 
       the <a href="https://webextension-api.thunderbird.net/en/128-esr-mv2/accounts.html#accounts-api">extensions.accounts</a> 
-      Webextensions API - which doesn't include them when using <tt>accounts.list()</tt> - 
+      Webextensions API - which doesn't include them when using <code>accounts.list()</code> - 
       which the Thunderbird team is working on and is planned to land in one of the next 
       versions of ESR128.  
       <a href="https://github.com/RealRaven2000/quickFilters/issues/260">[issue 260]</a>
@@ -842,7 +841,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <a href="https://github.com/RealRaven2000/quickFilters/issues/254">[issue 254]</a>
     </li>
     <li>
-      Code Maintenance: Removed vendor prefix from <tt>-moz-appearance</tt>
+      Code Maintenance: Removed vendor prefix from <code>-moz-appearance</code>
     </li>
   </ul>
 </li>
@@ -1483,12 +1482,12 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
           </li>
           <li>
             To disable the assistant when deleting toggle the setting 
-            <tt>extensions.quickfilters.assistant.exclude.trash = true</tt><br><br>
-            <img class="screenshot" src="img/assistant-exclude-trash.png") />
+            <code class="config">extensions.quickfilters.assistant.exclude.trash = true</code><br><br>
+            <img class="screenshot" src="img/assistant-exclude-trash.png"/>
             <br><br>
             To enable the assistant when archiving (in order to create filters that archive mail),
             set 
-            <tt>extensions.quickfilters.assistant.exclude.archive = false</tt><br><br>
+            <code class="config">extensions.quickfilters.assistant.exclude.archive = false</code><br><br>
             Then make sure to install <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/">FiltaQuilla</a>
             and enable the "archive" action.
           </li>
@@ -2201,16 +2200,16 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
        <p>Added configuration options to troubleshooter. Simply right-click the troubleshoot button to get 
        a choice between the following tests:</p>
        <ol>
-         <li><tt>incomingFlag</tt> - filters sometimes are missing this flag and will never be executed when 
+         <li><code>incomingFlag</code> - filters sometimes are missing this flag and will never be executed when 
            downloading new mail. However you may want to have some filters that you only want to run manually
            so you may want to generally disable this check.</li>
-         <li><tt>invalidTargetFolder</tt> - can occur when filters are imported from other / older mail profiles or 
+         <li><code>invalidTargetFolder</code> - can occur when filters are imported from other / older mail profiles or 
            folders are moved / deleted on Imap.
          </li>
-         <li><tt>customActions</tt> - finds invalid custom actions which may have been added by 3rd party add-ons  
+         <li><code>customActions</code> - finds invalid custom actions which may have been added by 3rd party add-ons  
            (e.g FiltaQuilla); this problem will occur such Add-ons are disabled or uninstalled.
          </li>
-         <li><tt>mixedAnyAndAll</tt> - NEW TROUBLESHOOTING STEP: Fix filters that have both mixed Any and All conditions. 
+         <li><code>mixedAnyAndAll</code> - NEW TROUBLESHOOTING STEP: Fix filters that have both mixed Any and All conditions. 
            This can occur when merging filters that have different Any/All definitions and may lead to 
            some conditions being omitted.
          </li>
@@ -2503,7 +2502,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 				<i>"Run Manually"</i> (and later the additional settings in the <i>"Apply Filter when"</i> box)
 				<br>
 				<img src="img/new-filter-apply-when.png" alt="when to run filters" class="screenshot"><br>
-				The flags <tt>nsMsgFilterType.InboxRule</tt> or <tt>nsMsgFilterType.NewsRule</tt> have to be added 
+				The flags <code>nsMsgFilterType.InboxRule</code> or <code>nsMsgFilterType.NewsRule</code> have to be added 
 				to existing filters that had the "manual" box unchecked.
 			</p>
 			<p>
@@ -2751,7 +2750,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 		    Tag Listener repeats Assistant multiple times</li>
 		<li>Added config setting to suppress notification when running a filter: Go to 
 		   <i>Thunderbird Options &gt; Advanced &gt; General &gt; Config Editor</i> 
-			 and change <tt>extensions.quickfilters.notifications.runFilter</tt> to false.
+			 and change <code class="config">extensions.quickfilters.notifications.runFilter</code> to false.
 		    </li>
 		<li>Added a sliding notification if during use of customized templates a header cannot be retrieved from the email</li>
   </ul>
@@ -2788,7 +2787,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 		<li>removed for..each..in to avoid unnecessary warnings in log window</li>
 		<li>Made delay for refreshing headers configurable - if there are problems 
 		    creating filters on IMAP servers increase the configuration value
-				<tt>extensions.quickfilters.refreshHeaders.wait</tt></li>
+				<code class="config">extensions.quickfilters.refreshHeaders.wait</code ></li>
   </ul>
 </li>
 
@@ -2925,7 +2924,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       - on some systems the background gradient was not visible, so it now falls back to a plain red background</li>
 		<li>Completed Chinese translations for 2.6</li>
 		<li>The merge symbol (m+) which is appended to the name of a merged filter can now be modified using the config setting:<br>
-      <tt>extensions.quickfilters.naming.mergeToken</tt></li>
+      <code class="config">extensions.quickfilters.naming.mergeToken</code></li>
 		<li>When displaying long folder names in duplicate search, these will be now cut off at the 
 		    front (30 characters limit) to avoid an excessively wide duplicate list</li>
   </ul>
@@ -2971,7 +2970,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 		    accounts without a from email address fail with error "idMail is null"</li>
 		<li>Preparation code for filtering changing to ANY / ALL conditions</li>
 		<li>Added notification system for premium features</li>
-    <li>Added hidden switch <tt>extensions.quickfilters.showListAfterCreateFilter</tt> to disable showing list after editing filter rules</li>
+    <li>Added hidden switch <code class="config">extensions.quickfilters.showListAfterCreateFilter</code> to disable showing list after editing filter rules</li>
   </ul>
 </li>
 
