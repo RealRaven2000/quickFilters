@@ -247,18 +247,17 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h5 class="inList"> Improvements </h5>
   <ul>
     <li>
-      Compatibility with Thunderbird 148
+      Added a configurable keyboard shortcut for the command 'Create Filter from Message' 
+      - you can set this in Add-ons Manager » ⚙ » „Manage Extension Shortcuts“
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/334">[issue 334]</a>
     </li>
     <li>
       Improved startup stability <a href="https://github.com/RealRaven2000/quickFilters/issues/339">[issue 339]</a>
     </li>
     <li>
-      Improved default filter names based on Custom Templates <a href="https://github.com/RealRaven2000/quickFilters/issues/335">
-      [issue 335]</a>
-    </li>
-    <li>
-      Added a configurable keyboard shortcut for 'Create Filter from Message' 
-      <a href="https://github.com/RealRaven2000/quickFilters/issues/334">[issue 334]</a>
+      Improved default filter names based on Custom Templates. This will use the retrieved
+      values from the message to include the actual values (e.g. google.com for <code>%from(mail)%</code>) within the filter name for a more descriptive default.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/335">[issue 335]</a>
     </li>
     <li>
       If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening another.
@@ -301,7 +300,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 <li>
   <h4>
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.9.1">
-    quickFilters 6.9 - 22/10/2025</a>
+    quickFilters 6.9.2 - 03/11/2025</a>
 	</h4>
 
   <table class="quickFiltersFreeUser bargain"> 
@@ -379,7 +378,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     fallback until we remove them in a future version.
   </p>
 
-  <h5 class="inList"> Maintenance Release 6.9.2 </h5> 
+  <h5 class="inList"> Maintenance Release 6.9.2 - 03/11/2025</h5> 
   <ul>  
     <li class="important">
       The HTML Assistant is now the default. It’s more future-proof and responsive 
