@@ -1,19 +1,17 @@
-The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.9.2">quickFilters Change Log</a>
+The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.10">quickFilters Change Log</a>
 
 <b>Improvements</b>
 <ul>
-<li>Compatibility with Thunderbird 148</li>
+<li>Set Compatibility with Thunderbird 148 - unfortunately the Add-on review policies do not allow us to remove strict_max_version</li>
+<li>Added a configurable keyboard shortcut for the command 'Create Filter from Message' - you can set this in Add-ons Manager » ⚙ » „Manage Extension Shortcuts“ <a href="https://github.com/RealRaven2000/quickFilters/issues/334">[issue 334]</a></li>
+<li>Improved default filter names based on Custom Templates. This will use the retrieved values from the message to include the actual values (e.g. google.com for <code>%from(mail)%</code>) within the filter name for a more descriptive default. <a href="https://github.com/RealRaven2000/quickFilters/issues/335">[issue 335]</a></li>
 <li>Improved startup stability <a href="https://github.com/RealRaven2000/quickFilters/issues/339">[issue 339]</a></li>
-<li>Improved default filter names based on Custom Templates <a href="https://github.com/RealRaven2000/quickFilters/issues/335">[issue 335]</a></li>
-<li>Added a configurable keyboard shortcut for 'Create Filter from Message' <a href="https://github.com/RealRaven2000/quickFilters/issues/334">[issue 334]</a></li>
-<li>If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening another.</li>
+<li>If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening a second one.</li>
 </ul> 
 
 <b>Bug Fixes</b>
 <ul>
-<li>Fixed Empty search terms from assistant or built-in templates 
-    (Reply-To, filter-tagging) now display correctly in the editor.
-    (Tb used to remove the edit box) <a href="https://github.com/RealRaven2000/quickFilters/issues/338">[issue 338]</a></li>
+<li> Fixed: The Thunderbird filter editor was missing the search term edit box when search terms did not retrieve any value (e.g. no Reply-To, missing mail tags) <a href="https://github.com/RealRaven2000/quickFilters/issues/338">[issue 338]</a></li>
 <li>Fixed: After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge"  was not honored (needed to be selected each time) <a href="https://github.com/RealRaven2000/quickFilters/issues/331">[issue 331]</a></li>
 <li>Fixed: Extend License button opens 2 tabs <a href="https://github.com/RealRaven2000/quickFilters/issues/333">[issue 333]</a></li>
 </ul> 

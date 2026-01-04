@@ -239,7 +239,9 @@ function formatAll(txt) {
     .replace(
       /\{createFilterFromMessage\}/g,
       messenger.i18n.getMessage("quickfilters.FromMessage.label")
-    );
+    )
+    .replace(/\{autoMerge\}/g,
+      messenger.i18n.getMessage("chkMergeAuto.label"));
 
   return localizedMsg;
 }

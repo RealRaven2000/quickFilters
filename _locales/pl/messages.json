@@ -1443,8 +1443,8 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list": {
-    "description": "🇵🇱 change log",
-    "message": "{L}Dodano konfigurowalny skrót klawiaturowy dla „{createFilterFromMessage}” — można go ustawić w Menedżerze dodatków » ⚙ » „Zarządzaj skrótami rozszerzeń”.{/L}{L}Ulepszone domyślne nazwy filtrów na podstawie Custom Templates.{/L}{L}Poprawiona stabilność uruchamiania, w tym naprawy sporadycznie brakującego przycisku quickFilters podczas startu [issue 339].{/L}{L}Jeśli asystent quickFilters jest już otwarty, próba uruchomienia nowego spowoduje przeniesienie istniejącego okna na pierwszy plan.{/L}{L}Naprawiono: Puste warunki wyszukiwania z asystenta lub wbudowanych szablonów są teraz poprawnie wyświetlane [issue 338].{/L}{L}Naprawiono: Po quickFilters 6.9.2 opcja „Automatically select Merge” nie była respektowana w asystencie HTML [issue 331].{/L}"
+    "description": "🇳🇱 change log",
+    "message": "{L}Een configureerbare sneltoets toegevoegd voor „{createFilterFromMessage}“ – kan worden ingesteld in Add-ons Manager » ⚙ » „Beheer extensiesneltoetsen“. [issue 334]{/L}{L}Verbeterde standaardfilternamen op basis van Custom Templates. Er worden waarden uit het bericht gebruikt (bijv. google.com voor %from(mail)%) [issue 335]{/L}{L}Verbeterde opstartstabiliteit van Thunderbird, inclusief oplossingen voor het incidenteel ontbrekende quickFilters-commandomenu [issue 339].{/L}{L}Als de quickFilters-assistent al open is, zal het proberen een nieuwe te starten het bestaande venster naar voren brengen in plaats van een nieuw venster te openen.{/L}{L}Hersteld: Het filtereditor-veld van Thunderbird voor zoektermen werd niet weergegeven wanneer er geen waarde werd opgehaald (bijv. geen Reply-To, ontbrekende mail-tags) [issue 338].{/L}{L}Hersteld: Na quickFilters 6.9.2 HTML Assistant werd „{autoMerge}“ niet toegepast [issue 331].{/L}"
   },
   "window-title": {
     "message": "Witamy w $addonName$",

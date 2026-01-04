@@ -1447,7 +1447,7 @@
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{L}Đã thêm phím tắt có thể cấu hình cho «{createFilterFromMessage}» — bạn có thể thiết lập trong Trình quản lý tiện ích » ⚙ » «Quản lý phím tắt tiện ích mở rộng».{/L}{L}Cải thiện tên bộ lọc mặc định dựa trên Custom Templates.{/L}{L}Cải thiện độ ổn định khi khởi động, bao gồm sửa lỗi nút quickFilters đôi khi bị thiếu khi khởi động [issue 339].{/L}{L}Nếu trợ lý quickFilters đã mở, việc khởi động lại sẽ đưa cửa sổ hiện có lên phía trước thay vì mở cửa sổ mới.{/L}{L}Đã sửa: Các cụm từ tìm kiếm trống từ trợ lý hoặc mẫu tích hợp giờ hiển thị chính xác [issue 338].{/L}{L}Đã sửa: Sau quickFilters 6.9.2, tùy chọn «Automatically select Merge» không được áp dụng trong trợ lý HTML [issue 331].{/L}"
+    "message": "{L}Đã thêm phím tắt có thể cấu hình cho „{createFilterFromMessage}“ – có thể cài đặt trong Trình quản lý Tiện ích » ⚙ » „Quản lý phím tắt tiện ích mở rộng“. [issue 334]{/L}{L}Cải thiện tên bộ lọc mặc định dựa trên Custom Templates. Sử dụng giá trị thu được từ thông điệp (ví dụ: google.com cho %from(mail)%) [issue 335]{/L}{L}Cải thiện độ ổn định khi khởi động Thunderbird, bao gồm sửa lỗi menu lệnh quickFilters thỉnh thoảng không hiển thị [issue 339].{/L}{L}Nếu trợ lý quickFilters đã mở, việc cố gắng mở mới sẽ đưa cửa sổ hiện có ra trước thay vì mở một cửa sổ khác.{/L}{L}Đã sửa: Trình chỉnh sửa bộ lọc của Thunderbird không hiển thị ô nhập tìm kiếm nếu các điều kiện tìm kiếm không trả về giá trị (ví dụ: không có Reply-To, thiếu thẻ mail) [issue 338].{/L}{L}Đã sửa: Sau quickFilters 6.9.2 HTML Assistant, „{autoMerge}“ không được áp dụng [issue 331].{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

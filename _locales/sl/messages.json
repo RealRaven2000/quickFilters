@@ -280,7 +280,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇮 change log",
-    "message": "{L}Dodana je nastavljiva bližnjica na tipkovnici za »{createFilterFromMessage}« — nastavite jo lahko v Upravitelju dodatkov » ⚙ » »Upravljanje bližnjic razširitev«.{/L}{L}Izboljšana privzeta imena filtrov na podlagi Custom Templates.{/L}{L}Izboljšana stabilnost ob zagonu, vključno s popravki občasno manjkajočega gumba quickFilters ob zagonu [issue 339].{/L}{L}Če je pomočnik quickFilters že odprt, bo poskus zagona novega pripeljal obstoječe okno v ospredje.{/L}{L}Popravljeno: Prazni iskalni izrazi iz pomočnika ali vgrajenih predlog se zdaj pravilno prikazujejo [issue 338].{/L}{L}Popravljeno: Po quickFilters 6.9.2 možnost »Automatically select Merge« v HTML pomočniku ni bila upoštevana [issue 331].{/L}"
+    "message": "{L}Dodana je nastavljiva bližnjica za tipkovnico za „{createFilterFromMessage}“ – nastaviti jo lahko v upravitelju dodatkov » ⚙ » „Upravljanje bližnjic razširitev“. [issue 334]{/L}{L}Izboljšana privzeta imena filtrov na podlagi Custom Templates. Uporabljene bodo vrednosti iz sporočila (npr. google.com za %from(mail)%) [issue 335]{/L}{L}Izboljšana stabilnost zagona Thunderbirda, vključno z odpravo občasno manjkajočega menija ukazov quickFilters [issue 339].{/L}{L}Če je quickFilters pomočnik že odprt, bo poskus odprtja novega prinesel obstoječe okno v ospredje, namesto da bi odprl novo.{/L}{L}Popravljeno: Urejevalnik filtrov Thunderbirda ni prikazoval polja za iskalni niz, če ni bilo vrnjeno nobeno iskanje (npr. brez Reply-To, manjkajoče oznake pošte) [issue 338].{/L}{L}Popravljeno: Po quickFilters 6.9.2 HTML Assistant se nastavitev „{autoMerge}“ ni upoštevala [issue 331].{/L}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

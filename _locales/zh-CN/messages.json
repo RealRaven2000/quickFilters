@@ -1439,7 +1439,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}新增可配置的键盘快捷键用于“{createFilterFromMessage}”——可在附加组件管理器 » ⚙ » “管理扩展快捷键”中设置。{/L}{L}改进了基于 Custom Templates 的默认过滤器名称。{/L}{L}提升了启动稳定性，包括修复启动时偶尔缺失 quickFilters 按钮的问题 [issue 339]。{/L}{L}如果 quickFilters 助手已经打开，再次启动将把现有窗口置于前台，而不是打开新窗口。{/L}{L}已修复：来自助手或内置模板的空搜索条件现在可以正确显示 [issue 338]。{/L}{L}已修复：在 quickFilters 6.9.2 之后，HTML 助手中未正确应用 “Automatically select Merge” 选项 [issue 331]。{/L}"
+    "message": "{L}为 „{createFilterFromMessage}“ 添加了可配置的快捷键 – 可以在附加组件管理器 » ⚙ » 「管理扩展快捷键」中设置。[issue 334]{/L}{L}改进了基于自定义模板的默认筛选器名称。将使用消息中检索的值（例如 %from(mail) 的 google.com） [issue 335]{/L}{L}改进了 Thunderbird 启动稳定性，包括修复 quickFilters 命令菜单间歇性缺失的问题 [issue 339]。{/L}{L}如果 quickFilters 助手已经打开，尝试启动新助手将把现有窗口置于前端，而不是打开另一个窗口。{/L}{L}修复: 当搜索条件未检索到任何值（例如没有 Reply-To，缺少邮件标签）时，Thunderbird 筛选器编辑器未显示搜索框 [issue 338]。{/L}{L}修复: 在 quickFilters 6.9.2 HTML Assistant 中，「{autoMerge}」未被执行 [issue 331]。{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
