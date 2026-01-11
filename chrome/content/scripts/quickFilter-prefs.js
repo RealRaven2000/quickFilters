@@ -43,6 +43,8 @@ pref("extensions.quickfilters.debug.functions", false);
 pref("extensions.quickfilters.debug.mime", false);
 pref("extensions.quickfilters.debug.mime.split", false);
 
+pref("extensions.quickfilters.naming.targetAccount", false);
+pref("extensions.quickfilters.naming.parentFolder.maxCount", 1);
 pref("extensions.quickfilters.naming.parentFolder", true);
 pref("extensions.quickfilters.naming.folderDelimiter", "»"); // UTF8 - for some reason not read correctly.
 pref("extensions.quickfilters.naming.keyWord", false);

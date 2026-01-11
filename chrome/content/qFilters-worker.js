@@ -1911,14 +1911,37 @@ quickFilters.Worker = {
 
     // possible that we could not clone other array members. Let's re-initialize
     msg = buildParams.messageList[0].msgClone;
+    const getParentFolderName = (targetFolder, maxCount, filterName) => {
+      const folder = targetFolder?.parent;
+      if (!folder || maxCount < 1 || folder.isServer) {
+        return filterName;
+      }
+      const fName = folder.prettyName || folder.localizedName;
+      const folderDelim = prefs.getStringPref("naming.folderDelimiter").trim(); // leave blank to collapse to single space.
+      filterName = `${fName} ${folderDelim} ${filterName}`;
+      maxCount--;
+      return getParentFolderName(folder, maxCount, filterName);
+    }
 
     // ACTIONS: target folder, add tags
     if (prefs.getBoolPref("naming.parentFolder")) {
-      if (buildParams?.targetFolder.parent) {
-        let folderDelim = prefs.getStringPref("naming.folderDelimiter").trim() + " "; // leave blank to collapse to single space.
-        const parent = buildParams.targetFolder.parent;
-        const fName = parent.prettyName || parent.localizedName;
-        filterName = fName + " " + folderDelim + filterName;
+      const maxCount = prefs.getIntPref("naming.parentFolder.maxCount") || 1; // minimum 1
+      filterName = getParentFolderName(buildParams?.targetFolder, maxCount, filterName);
+    }
+    if (prefs.getBoolPref("naming.targetAccount")) {
+      const targetServer = buildParams?.targetFolder?.server;
+      if (
+        buildParams?.sourceFolder?.server &&
+        targetServer &&
+        buildParams.sourceFolder.server != targetServer
+      ) {
+        filterName = (
+          (targetServer?.prettyName || targetServer.localizedName) +
+          " " +
+          prefs.getStringPref("naming.folderDelimiter").trim() +
+          " " +
+          filterName
+        ).trim();
       }
     }
     /* New Filter Options */

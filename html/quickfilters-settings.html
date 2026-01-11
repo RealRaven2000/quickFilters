@@ -202,8 +202,18 @@
                 <label class="textBoxLabel" style="margin-left: 1em; margin-top: 1px;">__MSG_qf.label.naming.folderDelimiter__</label>
                 <input type="text" data-pref-name="extensions.quickfilters.naming.folderDelimiter" style="width: 3em;" title="__MSG_qf.tooltip.naming.folderDelimiter__">
               </div>
+              <label>
+                Maximum folder levels:
+                <input type="number" id="numParentFolderLevels" data-pref-name="extensions.quickfilters.naming.parentFolder.maxCount" style="width: 4em;" min="1">
+              </label>
+              <label>
+                <input type="checkbox" id="chkNamingTargetAccount" data-pref-name="extensions.quickfilters.naming.targetAccount">
+                __MSG_qf.label.naming.targetAccount__
+              </label>
 
-              <label><input type="checkbox" id="chkNamingKeyWord" data-pref-name="extensions.quickfilters.naming.keyWord">__MSG_qf.label.naming.keyWord__</label>
+              <label><input type="checkbox" id="chkNamingKeyWord" data-pref-name="extensions.quickfilters.naming.keyWord">
+                __MSG_qf.label.naming.keyWord__
+              </label>
 
               <div class="hbox">
                 <label class="textBoxLabel">__MSG_qf.cloned.label__</label>
