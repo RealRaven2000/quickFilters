@@ -1221,6 +1221,8 @@ quickFilters.Worker = {
     var { MailServices } = quickFilters.Util.quickFilters_ESM
       ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
       : ChromeUtils.import("resource:///modules/MailServices.jsm");
+    
+    util.logDebugOptional("buildFilter", "buildFilter() called with params: ", buildParams);
 
     function addTerm(target, term) {
       // avoid duplicate:
@@ -1383,23 +1385,97 @@ quickFilters.Worker = {
     }
 
     function getMailKeyword(subject) {
-      let topicFilter = subject,
-        left,
-        right;
+      if (!subject) {
+        return "";
+      }
+
       if (quickFilters.Preferences.getBoolPref("subjectDisableKeywordsExtract")) {
         return subject;
       }
-      if ((left = subject.indexOf("[")) < (right = subject.indexOf("]"))) {
-        topicFilter = subject.substr(left, right - left + 1);
-      } else if ((left = subject.indexOf("{")) < (right = subject.indexOf("}"))) {
-        topicFilter = subject.substr(left, right - left + 1);
+
+      // Match all square-bracketed topics
+      let matches = subject.match(/\[[^\]]+\]/g);
+      if (matches && matches.length) {
+        const topic = matches.join(" ");
+        util.logDebugOptional("createFilter", `subject parsed: ${topic}`);
+        return topic;
       }
-      if (!topicFilter) {
-        topicFilter = subject;
+
+      // Optionally, same for curly braces
+      // In JavaScript regex, inside a character class [...] the only characters that need escaping are ], \, ^, and -
+      //     hence first } is not escaped
+      matches = subject.match(/\{[^}]+\}/g);
+      if (matches && matches.length) {
+        const topic = matches.join(" ");
+        util.logDebugOptional("createFilter", `subject parsed: ${topic}`);
+        return topic;
       }
-      util.logDebugOptional("createFilter", `subject parsed: ${topicFilter}`);
-      return topicFilter;
+
+      let blacklist = prefs
+        .getStringPref("naming.subject.blacklist")
+        .toLowerCase()
+        .split(",")
+        .map((s) => s.trim())
+        .filter((item) => !!item);
+
+      let cleanSubject = subject;
+
+      // remove multi-word blacklist entries first
+      for (let blk of blacklist) {
+        if (!blk) {
+          continue;
+        }
+        const pattern = new RegExp(`\\b${blk}\\b`, "gi");
+        cleanSubject = cleanSubject
+          .replace(pattern, "")
+          .replace(/\s{2,}/g, " ")
+          .trim();
+      }
+
+      let subjectlist = cleanSubject.split(/\s+/);
+      if (subjectlist.length < 2) {
+        return cleanSubject;
+      }
+      let result = [];
+      const END_PUNCT = /[.;!?]+$/;
+      for (let s of subjectlist) {
+        const token = s.toLowerCase().replace(END_PUNCT, "");
+        if (!blacklist.includes(token)) {
+          result.push(s);
+        }
+      }
+      if (!result.length) {
+        return cleanSubject.trim() || subject;
+      }
+      const finalSubject = result.join(" ");
+
+      util.logDebugOptional(
+        "createFilter",
+        `subject parsed: ${subject}\nCleaned subject: ${finalSubject}`
+      );
+      return finalSubject;
     }
+
+
+    function trimWithEllipsis(str, maxLen) {
+      if (!str) {
+        return "";
+      }
+      str = str.trim();
+      if (str.length <= maxLen) {
+        return str;
+      }
+      return str.substring(0, maxLen - 1) + "…";
+    }
+
+    function buildTopicSuffix(topicList) {
+      // truncate very long words / subject lines
+      const MAX_ITEM_LEN = 16;
+      const MAX_SUBJECT_LEN = 80;
+      let parts = topicList.map((t) => trimWithEllipsis(t, MAX_ITEM_LEN));
+      let result = parts.join(" ");
+      return trimWithEllipsis(result, MAX_SUBJECT_LEN);
+    }    
 
     /** buildFilter: declarations **/
     const nsMsgFilterType = Ci.nsMsgFilterType,
@@ -1408,18 +1484,21 @@ quickFilters.Worker = {
       tagArray = getAllTags(),
       TypeAttrib = Ci.nsMsgSearchAttrib,
       TypeOperator = Ci.nsMsgSearchOp;
+      
 
     let isMerge = false,
       filterName = "{1}",
       targetFilter,
       msgKeyArray,
-      addressArray = [];
+      addressArray = [],
+      folderNamesAdded = 0;
 
     // user has selected a template which is stored in a pref string.
     // this can be one of the following values:
     //
     // quickFilterCustomTemplate:XXX  (unique filter name)
     let template = prefs.getCurrentFilterTemplate();
+    util.logDebugOptional("buildFilter", `Using template: ${template}`);
     let customTemplate = null,
       customFilter = null;
     let searchTerm; // helper variables for creating filter terms
@@ -1437,6 +1516,10 @@ quickFilters.Worker = {
           break;
         }
       }
+      util.logDebugOptional(
+        "buildFilter",
+        `${filterCount} custom Template Filters found`
+      );
     }
 
     // if (prefs.isDebugOption("buildFilter")) debugger;
@@ -1444,6 +1527,10 @@ quickFilters.Worker = {
     if (buildParams.mergeFilterIndex >= 0) {
       targetFilter = buildParams.matchingFilters[buildParams.mergeFilterIndex];
       isMerge = true;
+      util.logDebugOptional(
+        "buildFilter",
+        `Merging preselected from merge index [${buildParams.mergeFilterIndex}] with filter: ${targetFilter.filterName}`
+      );
     } else {
       targetFilter = buildParams.filtersList.createFilter(folderName);
     }
@@ -1482,13 +1569,16 @@ quickFilters.Worker = {
       myMailAddresses = util.getIdentityMailAddresses(),
       excludedAddresses = [];
 
+    util.logDebugOptional("buildFilter", `build name for filter action: ${buildParams.filterAction}`);
     switch (buildParams.filterAction) {
       case nsMsgFilterAction.MoveToFolder:
       case nsMsgFilterAction.CopyToFolder:
         filterName = filterName.replace("{1}", folderName);
+        folderNamesAdded++;
         break;
       case nsMsgFilterAction.MarkFlagged:
         filterName = filterName.replace("{1}", folderName + " ⭐");
+        folderNamesAdded++;
         break;
       case nsMsgFilterAction.AddTag:
         {
@@ -1525,10 +1615,12 @@ quickFilters.Worker = {
         break;
       default:
         filterName = filterName.replace("{1}", folderName);
+        folderNamesAdded++;
         break;
     }
 
     // TEMPLATES: filters
+    util.logDebugOptional("buildFilter", `Applying filter template: ${template}`);
     switch (template) {
       // Based on Recipient (to) Conversation based on a Person
       case "to":
@@ -1611,7 +1703,7 @@ quickFilters.Worker = {
       // Group (collects senders of multiple mails)
       case "multifrom":
         {
-          if (buildParams.messageList.length <= 1) {
+          if (!isMerge && buildParams.messageList.length <= 1) {
             let txtAlert = util.getBundleString(
               "quickfilters.createFilter.warning.minimum2Mails",
               "This template requires at least 2 mails"
@@ -1780,8 +1872,7 @@ quickFilters.Worker = {
           //// TO DO ... improve parsing of subject keywords
           //createTerm(filter, attrib, op, val)
           //searchTerm = createTerm(targetFilter, Ci.nsMsgSearchAttrib.Subject, Ci.nsMsgSearchOp.Contains, emailAddress);
-          let topics = "",
-            topicList = []; // Array checking for duplicates (doesn't work yet in merge case)
+          const topicList = []; // Array checking for duplicates (doesn't work yet in merge case)
           for (let i = 0; i < buildParams.messageList.length; i++) {
             // sender ...
             //let hdr = messageDb.getMsgHdrForMessageID(messageList[i].messageId);
@@ -1821,13 +1912,14 @@ quickFilters.Worker = {
                 str: topicFilter,
               };
               addTerm(targetFilter, searchTerm);
-              if (i == 0) {
-                topics = topicFilter;
-              }
+
             }
           }
           if (prefs.getBoolPref("naming.keyWord")) {
-            filterName += " - " + topics;
+            const topics = buildTopicSuffix(topicList);
+            if (topics) {
+              filterName += " - " + topics;
+            }
           }
         }
         break;
@@ -1924,8 +2016,9 @@ quickFilters.Worker = {
     }
 
     // ACTIONS: target folder, add tags
-    if (prefs.getBoolPref("naming.parentFolder")) {
-      const maxCount = prefs.getIntPref("naming.parentFolder.maxCount") || 1; // minimum 1
+    if (prefs.getBoolPref("naming.parentFolder") && folderNamesAdded>0) {
+      // count: include the name(s) already added to the filter name.
+      const maxCount = prefs.getIntPref("naming.parentFolder.maxCount") - folderNamesAdded;
       filterName = getParentFolderName(buildParams?.targetFolder, maxCount, filterName);
     }
     if (prefs.getBoolPref("naming.targetAccount")) {

@@ -257,9 +257,9 @@ const initPrefs = async () => {
       }
     });
   }
-  // text / number inputs
+  // text / number inputs, any textareas outside of license key
   const inputs = document.querySelectorAll(
-    "input[type=text][data-pref-name], input[type=number][data-pref-name]"
+    "input[type=text][data-pref-name], input[type=number][data-pref-name], #txtSubjectBlacklist"
   );
   for (const el of inputs) {
     const prefName = el.getAttribute("data-pref-name");

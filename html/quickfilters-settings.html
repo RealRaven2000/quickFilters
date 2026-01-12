@@ -194,7 +194,7 @@
         </div>
 
         <div class="vbox">
-          <fieldset class="vbox" style="flex:0">
+          <fieldset class="vbox" style="flex: 1 1 auto; width:100%; box-sizing: border-box;">
             <legend>__MSG_qf.label.naming__</legend>
             <div class="vbox">
               <div class="hbox">
@@ -215,9 +215,20 @@
                 __MSG_qf.label.naming.keyWord__
               </label>
 
+              <div class="hbox textarea-row" style="align-items: flex-start; margin-top: 0.5em;">
+                <label class="textBoxLabel" style="margin-top: 0.2em;">
+                  __MSG_qf.label.naming.keyWord.blacklist__
+                </label>
+                <textarea id="txtSubjectBlacklist"
+                  data-pref-name="extensions.quickfilters.naming.subject.blacklist"
+                  title="__MSG_qf.label.naming.keyWord.blacklist.tip__">
+                </textarea>
+              </div>              
+
               <div class="hbox">
                 <label class="textBoxLabel">__MSG_qf.cloned.label__</label>
-                <input type="text" id="txtClonedName" data-pref-name="extensions.quickfilters.cloned.append">
+                <input type="text" id="txtClonedName" data-pref-name="extensions.quickfilters.cloned.append" 
+                placeholder="__MSG_quickfilters.clone.label__">
               </div>
             </div>
           </fieldset>
@@ -237,22 +248,24 @@
         <div class="vbox">
           <div class="hbox">
             <label><input type="checkbox" id="chkReplyTo" data-pref-name="extensions.quickfilters.templates.replyTo" title="__MSG_qf.templates.replyTo.tooltip__">__MSG_qf.templates.replyTo.label__</label>
-            <label class="plain-link" 
+            <label class="plain-link nowrap" 
               href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25863">[Bug 25863]</label>
           </div>
 
           <div class="hbox">
-            <div class="hbox">
+            <div class="hbox" style="flex-wrap:wrap;">
               <label class="proFeature"><input type="checkbox" data-pref-name="extensions.quickfilters.templates.custom" title="__MSG_qf.templates.customTemplate.tooltip__">__MSG_qf.templates.customTemplate.label__</label>
-              <button id="editCustomFilters">__MSG_qf.templates.customTemplate.edit__</button>
-              <button class="proFeature" id="newCustomFilter">__MSG_qf.templates.customTemplate.new__</button>
+              <div class="hbox">
+                <button id="editCustomFilters">__MSG_qf.templates.customTemplate.edit__</button>
+                <button class="proFeature" id="newCustomFilter">__MSG_qf.templates.customTemplate.new__</button>
+              </div>
               <div class="hbox labelWithHelpLink">
                 <div class="helpLink" clickyTooltip="__MSG_qf.templates.customTemplate.restricted__"></div>
               </div>
             </div>
             <div class="vbox">
               <div class="flexSpacer"></div>
-              <label class="plain-link" 
+              <label class="plain-link nowrap" 
                 href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25989">[Bug 25989]</label>
               <div class="flexSpacer"></div>
             </div>
@@ -285,7 +298,7 @@
         <div class="vbox">
           <div class="hbox">
             <label class="proFeature"><input type="checkbox" id="chkMultiPaste" data-pref-name="extensions.quickfilters.multipaste">__MSG_qf.filterlist.multipaste__</label>
-            <label class="plain-link" href="https://github.com/RealRaven2000/quickFilters/issues/20">[Issue 20]</label>
+            <label class="plain-link nowrap" href="https://github.com/RealRaven2000/quickFilters/issues/20">[Issue 20]</label>
           </div>
         </div>
       </fieldset>

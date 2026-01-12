@@ -18,6 +18,11 @@
   }
 }
 
+
+.nowrap {
+  white-space: nowrap;
+}
+
 /* Make the columns container responsive */
 .columns,
 .alignFlexColumns {
@@ -29,9 +34,30 @@
 /* Each column should take equal width, but shrink on small screens */
 .columns > .vbox,
 .alignFlexColumns > fieldset {
-  flex: 0 1 auto; 
+  flex: 1 1 auto; 
   min-width: 250px;
 }
+
+/* Make the hbox containing the blacklist textarea fill its parent */
+.hbox.textarea-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+}
+/* Label stays natural width, textarea grows */
+.hbox.textarea-row label {
+  flex-shrink: 0;
+}
+.hbox.textarea-row textarea {
+  flex: 1 1 auto;
+  font-size: 0.85em;
+  height: 4.5em;
+  min-width: 10em; /* avoids shrinking too small */
+  margin-left: 0.5em;
+  margin-left: 1.5em;  
+}
+
 
 label {
   display: flex;
