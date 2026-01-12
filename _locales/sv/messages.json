@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "n"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Ta bort något av följande ord från namnet:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "En kommaseparerad lista med ord som ska tas bort från det föreslagna filtret, t.ex. 'Fwd:, Re:, Mail' - skillnad mellan stora och små bokstäver ignoreras"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Lägg till namn på överordnad mapp"
+    "message": "Lägg till namn på överordnade mappar"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Maximalt antal överordnade mappar som ska läggas till:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Lägg till namn på målkonto (för filter som flyttar mail till ett annat konto)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "m"

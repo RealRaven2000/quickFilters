@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "k"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "名前から以下の単語を削除："
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "提案されたフィルター名から削除するカンマ区切りの単語リスト、例：'Fwd:, Re:, Mail' - 大文字小文字は区別されません"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "親フォルダの名前を追加する"
+    "message": "親フォルダ名を追加"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "追加する親フォルダの最大数："
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "宛先アカウント名を追加（別のアカウントにメールを移動するフィルター用）"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "p"

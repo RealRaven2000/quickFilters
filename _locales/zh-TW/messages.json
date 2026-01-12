@@ -580,8 +580,20 @@
   "qf.label.naming.keyWord": {
     "message": "添加規則特定關鍵字"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "從名稱中刪除以下任何單詞："
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "以逗號分隔的單詞列表，將從建議的過濾器名稱中刪除，例如 'Fwd:, Re:, Mail' - 不區分大小寫"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "添加父文件夾名稱"
+    "message": "新增父資料夾名稱"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "要添加的父資料夾最大數量："
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "添加目標帳戶名稱（用於將郵件移至另一帳戶的過濾器）"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "在我們的網站上了解有關高級功能的更多信息"

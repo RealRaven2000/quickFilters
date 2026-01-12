@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "S"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Folgende Wörter aus dem Namen entfernen:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Eine durch Kommas getrennte Liste von Wörtern, die aus dem vorgeschlagenen Filternamen entfernt werden sollen, z. B. 'Fwd:, Re:, Mail' - Groß-/Kleinschreibung wird ignoriert"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Name des Elternverzeichnis hinzufügen"
+    "message": "Name der übergeordneten Verzeichnisse hinzufügen"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Maximale Anzahl der hinzuzufügenden übergeordneten Ordner:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Name des Zielkontos hinzufügen (für Filter, die E-Mails in ein anderes Konto verschieben)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "E"

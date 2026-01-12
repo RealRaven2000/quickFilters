@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "a"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Poista seuraavat sanat nimestä:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Pilkuilla erotettu luettelo sanoista, jotka tulee poistaa ehdotetusta suodattimen nimestä, esim. 'Fwd:, Re:, Mail' - kirjainkoko ei ole merkityksellinen"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Lisää ylätason kansion nimi"
+    "message": "Lisää pääkansiot"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Lisättävien yläkansioiden enimmäismäärä:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Lisää kohdetilin nimi (suodattimille, jotka siirtävät sähköpostit toiseen tiliin)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "k"

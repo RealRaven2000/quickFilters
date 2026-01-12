@@ -189,6 +189,21 @@
   "purchase-heading": {
     "message": "Podpora prostřednictvím licence"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Odstranit následující slova z názvu:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Seznam slov oddělených čárkami, která mají být odstraněna z navrhovaného názvu filtru, např. 'Fwd:, Re:, Mail' - rozlišování velikosti písmen se ignoruje"
+  },
+  "qf.label.naming.parentFolder": {
+    "message": "Přidat název nadřazené složky"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Maximální počet nadřazených složek k přidání:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Přidat název cílového účtu (pro filtry přesouvající poštu do jiného účtu)"
+  },
   "qf.label.removeOwnAddresses": {
     "message": "Odebrat mé vlastní e-mailové adresy (doporučeno)"
   },

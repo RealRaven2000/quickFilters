@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "к"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Удалить из имени любые из следующих слов:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Список слов через запятую, которые должны быть удалены из предложенного имени фильтра, например 'Fwd:, Re:, Mail' - регистр букв не учитывается"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Добавить имя вышестоящей папки"
+    "message": "Добавить имена родительских папок"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Максимальное количество родительских папок для добавления:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Добавить имя целевого аккаунта (для фильтров, которые перемещают письма в другой аккаунт)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "о"

@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "t"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Verwijder de volgende woorden uit de naam:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Door komma's gescheiden lijst van woorden die uit de voorgestelde filternaam moeten worden verwijderd, bijv. 'Fwd:, Re:, Mail' - hoofdlettergebruik wordt genegeerd"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Naam bovenliggende map toevoegen"
+    "message": "Hoofdmapnamen toevoegen"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Maximaal aantal bovenliggende mappen om toe te voegen:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Voeg naam van doelaccount toe (voor filters die e-mail naar een ander account verplaatsen)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "N"

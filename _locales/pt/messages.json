@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "a"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Remover quaisquer das seguintes palavras do nome:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Lista de palavras separadas por vírgula que devem ser removidas do nome sugerido do filtro, por exemplo 'Fwd:, Re:, Mail' - a correspondência não diferencia maiúsculas de minúsculas"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Adicionar o nome da pasta pai"
+    "message": "Adicionar nomes das pastas principais"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Número máximo de pastas principais a adicionar:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Adicionar nome da conta de destino (para filtros que movem e-mails para outra conta)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "p"

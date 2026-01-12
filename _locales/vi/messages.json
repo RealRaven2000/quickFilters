@@ -617,8 +617,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "k"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Xóa bất kỳ từ nào sau đây khỏi tên:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Danh sách các từ phân tách bằng dấu phẩy cần loại bỏ khỏi tên bộ lọc được đề xuất, ví dụ: 'Fwd:, Re:, Mail' - không phân biệt chữ hoa/thường"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Thêm tên thư mục mẹ"
+    "message": "Thêm tên các thư mục cha"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Số lượng tối đa các thư mục cha cần thêm:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Thêm tên tài khoản đích (cho các bộ lọc di chuyển mail sang tài khoản khác)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "p"

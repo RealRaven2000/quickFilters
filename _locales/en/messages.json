@@ -622,8 +622,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "k"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Remove any of the following words from name:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "A comma separated list of words that should be removed from the suggested filter name, e.g. 'Fwd:, Re:, Mail' - matching is case insensitive"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Add parent folder name"
+    "message": "Add parent folder names"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Maximum number of parent folders to add:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Add destination account name (for filters that move mail to a different account)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "p"

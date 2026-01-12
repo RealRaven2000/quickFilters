@@ -620,8 +620,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "C"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "Rimuovere le seguenti parole dal nome:"
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "Elenco di parole separate da virgola che devono essere rimosse dal nome del filtro suggerito, es. 'Fwd:, Re:, Mail' - il confronto non distingue maiuscole/minuscole"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "Aggiunge alla regola il nome della cartella di livello superiore"
+    "message": "Aggiungi i nomi delle cartelle principali"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "Numero massimo di cartelle principali da aggiungere:"
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "Aggiungi il nome dell'account di destinazione (per i filtri che spostano la posta in un altro account)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "S"

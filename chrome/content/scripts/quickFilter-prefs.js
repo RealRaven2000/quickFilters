@@ -44,6 +44,8 @@ pref("extensions.quickfilters.debug.mime", false);
 pref("extensions.quickfilters.debug.mime.split", false);
 
 pref("extensions.quickfilters.naming.targetAccount", false);
+pref("extensions.quickfilters.naming.subject.blacklist", "re:, fwd:, aw:, urgent, important, wg:, antw:, the, der, die, das");
+
 pref("extensions.quickfilters.naming.parentFolder.maxCount", 1);
 pref("extensions.quickfilters.naming.parentFolder", true);
 pref("extensions.quickfilters.naming.folderDelimiter", "»"); // UTF8 - for some reason not read correctly.

@@ -612,8 +612,20 @@
   "qf.label.naming.keyWord.accesskey": {
     "message": "k"
   },
+  "qf.label.naming.keyWord.blacklist": {
+    "message": "从名称中删除以下任何单词："
+  },
+  "qf.label.naming.keyWord.blacklist.tip": {
+    "message": "以逗号分隔的单词列表，这些单词将从建议的过滤器名称中删除，例如 'Fwd:, Re:, Mail' - 区分大小写"
+  },
   "qf.label.naming.parentFolder": {
-    "message": "添加父目录名称"
+    "message": "添加父文件夹名称"
+  },
+  "qf.label.naming.parentFolder.maxCount": {
+    "message": "要添加的父文件夹最大数量："
+  },
+  "qf.label.naming.targetAccount": {
+    "message": "添加目标帐户名称（用于将邮件移动到另一个帐户的过滤器）"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "p"
