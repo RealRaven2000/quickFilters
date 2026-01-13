@@ -1951,10 +1951,19 @@ quickFilters.Worker = {
             !(squareBracketPrefix.test(commonStart) || curlyBracePrefix.test(commonStart));
 
           if (needsConfirmation) {
-            const txt =
-              "Found a common subject start: '{1}' - shall we use this as only subject search condition?";
+            
             const preview = trimWithEllipsis(commonStart, 60);
-            if (confirm(txt.replace("{1}", preview))) {
+            const txt =
+              'Found subjects starting with the same text: "$prefix$"\nUse this as subject search condition?'.replace(
+                "$prefix$",
+                preview
+              );
+            const l10nTxt = util.getBundleString(
+              "quickfilters.prompt.confirmCommonSubjectStart",
+              txt,
+              preview
+            );
+            if (confirm(l10nTxt)) {
               topicList.length = 0;
               topicList.push(commonStart);
             }

@@ -1132,6 +1132,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "對搜索詞進行排序"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "找到以相同文字開頭的主題：\"$prefix$\"。\n是否將此文字用作主題搜尋條件？",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "請輸入簡短的主題行："
   },

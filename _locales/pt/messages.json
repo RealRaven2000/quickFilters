@@ -1220,6 +1220,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Classificar termos de pesquisa"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Foram encontrados assuntos que começam com o mesmo texto: \"$prefix$\".\nUsar este texto como condição de pesquisa do assunto?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Insira uma linha de assunto curta:"
   },

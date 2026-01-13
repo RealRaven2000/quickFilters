@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Suchbegriffe sortieren"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Es wurden Betreffzeilen gefunden, die mit demselben Text beginnen: \"$prefix$\".\nDiesen Text als Suchbedingung für den Betreff verwenden?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Bitte eine Betreffzeile eingeben:"
   },

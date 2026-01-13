@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Ordenar términos de búsqueda"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Se encontraron asuntos que comienzan con el mismo texto: \"$prefix$\".\n¿Usar este texto como condición de búsqueda del asunto?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Por favor, introduzca una línea de Asunto corta:"
   },

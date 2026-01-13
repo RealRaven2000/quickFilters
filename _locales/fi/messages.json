@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Lajittele hakutermit"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Löytyi aiheita, jotka alkavat samalla tekstillä: \"$prefix$\".\nKäytetäänkö tätä aiheen hakuehtona?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Anna lyhyt aiherivi:"
   },

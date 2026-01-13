@@ -1222,6 +1222,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Sort Search Terms"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Found subjects starting with the same text: \"$prefix$\".\nUse this as the subject search condition?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Please enter a short subject line:"
   },

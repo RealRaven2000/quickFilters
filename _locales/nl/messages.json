@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Zoektermen sorteren"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Onderwerpen gevonden die beginnen met dezelfde tekst: \"$prefix$\".\nDeze tekst als zoekvoorwaarde voor het onderwerp gebruiken?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Voer een korte onderwerpregel in:"
   },

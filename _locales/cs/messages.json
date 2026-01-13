@@ -174,6 +174,10 @@
       }
     }
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Nalezeny předměty začínající stejným textem: \"$prefix$\".\nPoužít tento text jako podmínku hledání v předmětu?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "pricing.section": {
     "message": "Chcete-li zjistit svou cenu, vyberte nejprve jednu z následujících možností. Otevře se samostatné okno prohlížeče, kde můžete dokončit nákup v internetovém obchodě."
   },

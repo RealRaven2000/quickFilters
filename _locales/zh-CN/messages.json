@@ -1209,6 +1209,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "对搜索词进行排序"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "发现主题以相同文本开头：\"$prefix$\"。\n是否将此文本用作主题搜索条件？",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "请输入短主题:"
   },

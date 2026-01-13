@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Sắp xếp các cụm từ tìm kiếm"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Đã tìm thấy các tiêu đề bắt đầu bằng cùng một văn bản: \"$prefix$\".\nSử dụng văn bản này làm điều kiện tìm kiếm tiêu đề?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Vui lòng nhập một dòng chủ đề ngắn:"
   },

@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Sortera söktermer"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Hittade ämnen som börjar med samma text: \"$prefix$\".\nAnvänd denna text som sökvillkor för ämnet?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Ange en kort, beskrivande ämnesrubrik:"
   },

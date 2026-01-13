@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Сортировка условий поиска"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Найдены темы, начинающиеся с одного и того же текста: \"$prefix$\".\nИспользовать этот текст в качестве условия поиска по теме?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Введите тему сообщения:"
   },

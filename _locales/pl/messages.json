@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "Sortuj wyszukiwane hasła"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Znaleziono tematy rozpoczynające się tym samym tekstem: \"$prefix$\".\nCzy użyć tego tekstu jako warunku wyszukiwania w temacie?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "Wpisz krótki temat:"
   },

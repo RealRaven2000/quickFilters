@@ -1217,6 +1217,10 @@
   "quickfilters.premium.title.sortSearchTerms": {
     "message": "検索用語を並べ替える"
   },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "同じテキストで始まる件名が見つかりました: \"$prefix$\"。\nこのテキストを件名検索条件として使用しますか？",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
   "quickfilters.prompt.contact.subject": {
     "message": "件名を短く入力してください:"
   },
