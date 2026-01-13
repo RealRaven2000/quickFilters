@@ -209,12 +209,37 @@ async function updateActions(addonName) {
   );
 }
 
+function replaceNested(text) {
+  let result = text;
+  const maxLoops = 5; // prevent infinite recursion
+
+  for (let i = 0; i < maxLoops; i++) {
+    let changed = false;
+
+    result = result.replace(/\{\+([\w.]+)\}/g, (_, id) => {
+      // replace is streaming results from 1st capturing group:
+      // (fullMatch, group1, index, originalString)
+      const replacement = messenger.i18n.getMessage(id) || `{+${id}}`;
+      if (replacement !== `{+${id}}`) {
+        changed = true;
+      }
+      return replacement;
+    });
+
+    if (!changed) {
+      break;
+    }
+  }
+
+  return result;
+}
+
 // eslint-disable-next-line no-unused-vars
 function formatAll(txt) {
   if (!txt) {
     return "";
   }
-  let localizedMsg = txt
+  let localizedMsg = replaceNested(txt)
     .replace(/\{L(?:\s+([^}]+))?\}/g, (_, attrs) => {
       // attrs will be undefined if no class specified
       return attrs ? `<li ${attrs}>` : "<li>";
@@ -240,8 +265,7 @@ function formatAll(txt) {
       /\{createFilterFromMessage\}/g,
       messenger.i18n.getMessage("quickfilters.FromMessage.label")
     )
-    .replace(/\{autoMerge\}/g,
-      messenger.i18n.getMessage("chkMergeAuto.label"));
+    .replace(/\{autoMerge\}/g, messenger.i18n.getMessage("chkMergeAuto.label"));
 
   return localizedMsg;
 }
