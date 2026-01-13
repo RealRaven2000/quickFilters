@@ -1456,6 +1456,47 @@ quickFilters.Worker = {
       return finalSubject;
     }
 
+    function getCommonSubjectStart(
+      topics,
+      {
+        minWords = 3, // minimum number of words
+        minLength = 1, // minimum length per word
+      } = {}
+    ) {
+      if (!topics || topics.length < 2) {
+        return "";
+      } // only makes sense for multiple topics
+
+      const wordArrays = topics.map((t) => t.split(/\s+/));
+      let prefix = [];
+      let i = 0;
+
+      while (i<200) { // or until we run out of words
+        const currentWords = wordArrays.map((words) => words[i]);
+
+        if (currentWords.includes(undefined)) {
+          break;
+        }
+        const first = currentWords[0];
+        // 1. all subjects must share the same word
+        if (!currentWords.every((w) => w === first)) {
+          break;
+        }
+        // 2. filter out short words (Re, FW, etc.) - only when filter naming.
+        if (first.length < minLength) {
+          break;
+        }
+        // 3. accept this word as part of the common prefix
+        prefix.push(first);
+        i++;
+      }
+
+      const result = prefix.join(" ");
+      if (prefix.length < minWords) {
+        return "";
+      } // too short
+      return result;
+    }
 
     function trimWithEllipsis(str, maxLen) {
       if (!str) {
@@ -1468,11 +1509,22 @@ quickFilters.Worker = {
       return str.substring(0, maxLen - 1) + "…";
     }
 
+    // pass in subject line(s) from email(s)
+    // creates a truncated string suitable for filter naming!
     function buildTopicSuffix(topicList) {
       // truncate very long words / subject lines
       const MAX_ITEM_LEN = 16;
       const MAX_SUBJECT_LEN = 80;
-      let parts = topicList.map((t) => trimWithEllipsis(t, MAX_ITEM_LEN));
+
+      if (!topicList || !topicList.length) {
+        return "";
+      }
+
+      // flatten all topic strings into individual words
+      let words = topicList.flatMap((subj) => subj.split(/\s+/));
+
+      // truncate individual words
+      let parts = words.map((t) => trimWithEllipsis(t, MAX_ITEM_LEN));
       let result = parts.join(" ");
       return trimWithEllipsis(result, MAX_SUBJECT_LEN);
     }    
@@ -1872,51 +1924,73 @@ quickFilters.Worker = {
           //// TO DO ... improve parsing of subject keywords
           //createTerm(filter, attrib, op, val)
           //searchTerm = createTerm(targetFilter, Ci.nsMsgSearchAttrib.Subject, Ci.nsMsgSearchOp.Contains, emailAddress);
-          const topicList = []; // Array checking for duplicates (doesn't work yet in merge case)
+          const topicList = []; // extracted subject fragments from selected messages (may contain duplicates)
+          const finalTopics = [];
           for (let i = 0; i < buildParams.messageList.length; i++) {
             // sender ...
             //let hdr = messageDb.getMsgHdrForMessageID(messageList[i].messageId);
             //msg = hdr.QueryInterface(Ci.nsIMsgDBHdr);
-            let tmsg = buildParams.messageList[i].msgClone;
+            const tmsg = buildParams.messageList[i].msgClone;
             if (tmsg) {
               let topicFilter = getMailKeyword(tmsg.mime2DecodedSubject);
               if (!topicFilter) {
                 continue;
               }
-              // guard against duplicates
-              let isDupe = false;
-              for (let j = 0; j < topicList.length; j++) {
-                if (topicList[j] == topicFilter) {
-                  isDupe = true;
-                }
-              }
-              if (isDupe) {
-                continue;
-              }
               topicList.push(topicFilter);
-              searchTerm = targetFilter.createTerm();
-              searchTerm.attrib = TypeAttrib.Subject;
-              searchTerm.op = TypeOperator.Contains;
-              if (buildParams.messageList.length > 1) {
-                searchTerm.booleanAnd = false;
-              }
-              if (targetFilter.searchTerms.length) {
-                // [issue 161] merging breaks filter (mixed any/all!)
-                if (targetFilter.searchTerms[0].booleanAnd == false) {
-                  searchTerm.booleanAnd = false;
-                }
-              }
-
-              searchTerm.value = {
-                attrib: searchTerm.attrib,
-                str: topicFilter,
-              };
-              addTerm(targetFilter, searchTerm);
-
             }
           }
+          let commonStart = "";
+          if (topicList.length > 1 && !isMerge) {
+            commonStart = getCommonSubjectStart(topicList, { minWords: 3 });
+          }
+
+          const squareBracketPrefix = /^\[[^\]]+\]$/; // matches [some thing]
+          const curlyBracePrefix = /^\{[^}]+\}$/; // matches {some thing}
+          const needsConfirmation =
+            commonStart &&
+            !(squareBracketPrefix.test(commonStart) || curlyBracePrefix.test(commonStart));
+
+          if (needsConfirmation) {
+            const txt =
+              "Found a common subject start: '{1}' - shall we use this as only subject search condition?";
+            const preview = trimWithEllipsis(commonStart, 60);
+            if (confirm(txt.replace("{1}", preview))) {
+              topicList.length = 0;
+              topicList.push(commonStart);
+            }
+          }
+
+          // guard against duplicates
+          for (let t of topicList) {
+            const norm = t.trim().toLowerCase();
+            if (!finalTopics.some((ft) => ft.trim().toLowerCase() === norm)) {
+              finalTopics.push(t);
+            }
+          }
+
+          for (let topicFilter of finalTopics) {
+            searchTerm = targetFilter.createTerm();
+            searchTerm.attrib = TypeAttrib.Subject;
+            searchTerm.op = TypeOperator.Contains;
+            if (buildParams.messageList.length > 1) {
+              searchTerm.booleanAnd = false;
+            }
+            if (targetFilter.searchTerms.length) {
+              // [issue 161] merging breaks filter (mixed any/all!)
+              if (targetFilter.searchTerms[0].booleanAnd == false) {
+                searchTerm.booleanAnd = false;
+              }
+            }
+
+            searchTerm.value = {
+              attrib: searchTerm.attrib,
+              str: topicFilter,
+            };
+            addTerm(targetFilter, searchTerm);
+          }
+
           if (prefs.getBoolPref("naming.keyWord")) {
-            const topics = buildTopicSuffix(topicList);
+            const topics = buildTopicSuffix(finalTopics);
             if (topics) {
               filterName += " - " + topics;
             }
