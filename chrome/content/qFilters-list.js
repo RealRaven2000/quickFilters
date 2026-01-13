@@ -136,8 +136,7 @@ quickFilters.List = {
 		    newName = selectedFilter.filterName + ' '
 		if (clonedLabel.trim()) {
 		  newName += clonedLabel;
-		}
-		else {
+		} else {
 		 // get default localized clone label
 			newName += util.getBundleString('quickfilters.clone.label', '(copy)');		
 		}
