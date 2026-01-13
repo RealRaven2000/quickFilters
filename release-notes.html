@@ -1,27 +1,18 @@
-The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.10">quickFilters Change Log</a>
+The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.10.1">quickFilters Change Log</a>
 
 <b>Improvements</b>
 <ul>
-<li>Set Compatibility with Thunderbird 148 - unfortunately the Add-on review policies do not allow us to remove strict_max_version</li>
-<li>Added a configurable keyboard shortcut for the command 'Create Filter from Message' - you can set this in Add-ons Manager » ⚙ » „Manage Extension Shortcuts“ <a href="https://github.com/RealRaven2000/quickFilters/issues/334">[issue 334]</a></li>
-<li>Improved default filter names based on Custom Templates. This will use the retrieved values from the message to include the actual values (e.g. google.com for <code>%from(mail)%</code>) within the filter name for a more descriptive default. <a href="https://github.com/RealRaven2000/quickFilters/issues/335">[issue 335]</a></li>
-<li>Improved startup stability <a href="https://github.com/RealRaven2000/quickFilters/issues/339">[issue 339]</a></li>
-<li>If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening a second one.</li>
+<li>Add more folders of path in Filter Name for "Move / copy Message" actions <a href="https://github.com/RealRaven2000/quickFilters/issues/290">[issue 290]</a></li>
+<li>Allow merging of a single mail to group filter <a href="https://github.com/RealRaven2000/quickFilters/issues/342">[issue 342]</a></li>
+<li>Enhance Filter Naming: Add Subject Keyword Blacklist and Multi-Topic Support <a href="https://github.com/RealRaven2000/quickFilters/issues/343">[issue 343]</a></li>
+<li>Improved subject matching: detect subjects starting with the same word combos <a href="https://github.com/RealRaven2000/quickFilters/issues/344">[issue 344]</a></li>
 </ul> 
 
 <b>Bug Fixes</b>
 <ul>
-<li> Fixed: The Thunderbird filter editor was missing the search term edit box when search terms did not retrieve any value (e.g. no Reply-To, missing mail tags) <a href="https://github.com/RealRaven2000/quickFilters/issues/338">[issue 338]</a></li>
-<li>Fixed: After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge"  was not honored (needed to be selected each time) <a href="https://github.com/RealRaven2000/quickFilters/issues/331">[issue 331]</a></li>
-<li>Fixed: Extend License button opens 2 tabs <a href="https://github.com/RealRaven2000/quickFilters/issues/333">[issue 333]</a></li>
+<li>Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. <a href="https://github.com/RealRaven2000/quickFilters/issues/341"></a>[issue 341]</li>
 </ul> 
 
-<b>Miscellaneus</b>
-<ul>
-<li>Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird.</li>
-<li>Removed invalid permissions 'folders' and 'mailTab'.</li>
-<li>Removed 'strict_max_version' from manifest.json</li>
-</ul>
 
 
 All development and free support work for quickFilters is financed via the <a href="http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN">quickFilters 

@@ -180,7 +180,7 @@ END LICENSE BLOCK
     # Remove assignments to innerHTML in update / install welcome screens
     # Improved merging filters in new HTML assistant, by making API calls more robust
 
-  6.10 - WIP
+  6.10 - 04/01/2026 (reviewed 13/01/2026)
     # [issue 339] Improve startup stability
     # [issue 335] Improve default filter names based on Custom Templates.
     # [issue 338] Empty search terms from assistant or built-in templates 
@@ -192,11 +192,17 @@ END LICENSE BLOCK
     # [issue 333] Fixed: Extend License button opens 2 tabs
     # bring assistant to foreground if lock is on and user tries to spawn a new one
     # Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird
+
+  6.10.1 - WIP
+    # [issue 290] Feature Request: add more folders of path in Filter Name for "Move / copy Message" actions
+    # [issue 341] Message Filters ⇒ New... ⇒ Copy... creates TWO Copies
+    # [issue 342] Allow merging of a single mail to group filter
+    # [issue 343] Enhance Filter Naming: Add Subject Keyword Blacklist and Multi-Topic Support
+    # [issue 344] Improved subject matching: detect subjects starting with the same word combos
     
 
   ============================================================================================================
   6.* - WIP
-    # [issue 290] Feature Request: add more folders of path in Filter Name for "Move / copy Message" actions
     # [issue ]   
     # [issue ]   
     

@@ -1,25 +1,18 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.10) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.10.1) 
 
 
 **Improvements**
 
-*   Set Compatibility with Thunderbird 148 - unfortunately the Add-on review policies for Add-ons with "experimental" APIs do not allow us to remove `strict_max_version` from manifest.json
-*   Improved startup stability [issue #339]
-*   Improved default filter names based on Custom Templates [issue #335]
-*   Added a configurable keyboard shortcut for 'Create Filter from Message' [issue #334]
-*   If the quickFilters assistant is already open, trying to start a new one will bring the existing window to the front instead of opening another. (`quickFilters.Worker.createQuickFilterLock`)
+*   Add more folders of path in Filter Name for "Move / copy Message" actions [issue 290]
+*   Allow merging of a single mail to group filter [issue 342]
+*   Enhance Filter Naming: Add Subject Keyword Blacklist and Multi-Topic Support [issue 343]
+*   Improved subject matching: detect subjects starting with the same word combos [issue 344]
 
 
 **Bug Fixes**
 
-*   Fixed: The Thunderbird filter editor was missing the search term edit box when search terms did not retrieve any value (e.g. no Reply-To, missing mail tags) [issue #338]
-*   Fixed: After quickFilters 6.9.2 HTML Assistant - "Automatically select Merge"  was not honored (needed to be selected each time) [issue #331]
-*   Fixed: Extend License button opens 2 tabs [issue #333]
+*   Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. [issue 341]
 
-**Miscellaneus**
-
-*   Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird
-*   Removed invalid permissions `folders` and `mailTab` from manifest.
 
 
 
