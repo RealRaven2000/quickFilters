@@ -429,17 +429,29 @@ END LICENSE BLOCK
       function compareTerms(a, b) {
         try {
           // Ci.nsMsgSearchAttrib - long
-          if (a.attrib > b.attrib) {return 1;}
-          if (a.attrib < b.attrib) {return -1;}
+          if (a.attrib > b.attrib) {
+            return 1;
+          }
+          if (a.attrib < b.attrib) {
+            return -1;
+          }
           // Ci.nsMsgSearchOp - long
-          if (a.op > a.op) {return 1;}
-          if (a.op < a.op) {return -1;}
+          if (a.op > a.op) {
+            return 1;
+          }
+          if (a.op < a.op) {
+            return -1;
+          }
           // atrtirbute and operand are the same, now let"s sort equal values
           if (util.isStringAttrib(a.value.attrib)) {
-            if (a.value.str > b.value.str) {return 1;}
-            if (a.value.str < b.value.str) {return -1;}
+            if (a.value.str > b.value.str) {
+              return 1;
+            }
+            if (a.value.str < b.value.str) {
+              return -1;
+            }
           }
-        } catch { ; }
+        } catch {;}
         // we don"t care about the rest
         return 0;
       }
@@ -461,7 +473,9 @@ END LICENSE BLOCK
 
         termsArray.forEach((term, _index) => {
           if (term.beginsGrouping > lastBeginsGrouping) {
-            if (currentPartition.length) {partitions.push(currentPartition);}
+            if (currentPartition.length) {
+              partitions.push(currentPartition);
+            }
             currentPartition = [];
           }
 
@@ -472,7 +486,9 @@ END LICENSE BLOCK
           currentPartition.push(term);
 
           if (term.endsGrouping > 0) {
-            if (currentPartition.length) {partitions.push(currentPartition);}
+            if (currentPartition.length) {
+              partitions.push(currentPartition);
+            }
             currentPartition = [];
             lastBeginsGrouping = term.endsGrouping > 0 ? 0 : lastBeginsGrouping; // was -1
           }
@@ -525,7 +541,9 @@ END LICENSE BLOCK
       }
 
       if (!util.hasPremiumLicense()) {
-        if (!util.popupProFeature("sortSearchTerms", true)) {return;}
+        if (!util.popupProFeature("sortSearchTerms", true)) {
+          return;
+        }
       }
       // 1st save in case there were edits on screen!
       if (!saveFilter()) {
@@ -570,7 +588,9 @@ END LICENSE BLOCK
       );
 
       const stCopy = theFilter.searchTerms; // Array<nsIMsgSearchTerm> searchTerms;
-      while (stCopy.length) {stCopy.pop();}
+      while (stCopy.length) {
+        stCopy.pop();
+      }
       theFilter.searchTerms = stCopy;
 
       // Bb hasn't got gTotalSearchTerms. it's more complicated!
@@ -578,7 +598,9 @@ END LICENSE BLOCK
         // initializeSearchRows(gSearchScope, theFilter.searchTerms);
         while (gSearchTermList.children.length > 1) {
           let lastItem = gSearchTermList.getItemAtIndex(gSearchTermList.children.length - 1);
-          if (!lastItem) {break;}
+          if (!lastItem) {
+            break;
+          }
 
           // Find the remove button
           const removeButton = lastItem.querySelector("button.small-button[label='−']");
@@ -739,13 +761,17 @@ END LICENSE BLOCK
 }
 
 quickFilters.Util.acceptEditFilter = function (win) {
-	let retVal = onAccept();
+  // let retVal = onAccept(); // [issue 341] Message Filters ⇒ New... ⇒ Copy... creates TWO Copies
+  if (quickFilters.Preferences.isDebugOption("filterEdit")) {
+    // eslint-disable-next-line no-debugger
+    debugger;
+  }
   quickFilters.Util.logDebug("quickFilters.Util.accept(" + win + ")");
   let op = win.opener;
   if (op && op.quickFilters && op.quickFilters.List) {
     op.quickFilters.List.refreshDuplicates(true);
   }
-	return retVal;
+  // return retVal;
 } ;
 
 window.addEventListener("load", function(e) { quickFilters.FilterEditor.onLoad(e);}, false); 
