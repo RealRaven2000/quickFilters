@@ -28,10 +28,7 @@ function prefKey(name) {
   return legacy_root + name;
 }
 
-let startupPromiseResolve;
-const startupPromise = new Promise((resolve) => {
-  startupPromiseResolve = resolve;
-});
+const startup = Promise.withResolvers();
 
 //TODO: textbox in CSS, search box??
 //TODO mailWindowOverlay: was never in use??
@@ -39,7 +36,9 @@ const startupPromise = new Promise((resolve) => {
 messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
   let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
   // Wait until the main startup routine has finished!
-  await startupPromise;
+  const res = await startup.promise;
+  messenger.Util.logDebug(res, "runtime startup / installation listeners");
+
   if (isDebug) {
     console.log("Startup has finished");
     console.log("quickFilters - currentLicense", currentLicense);
@@ -97,7 +96,8 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
 });
 
 messenger.runtime.onStartup.addListener(async () => {
-  await startupPromise;
+  const res = await startup.promise;
+  messenger.Util.logDebug(res, "startup listeners, ready to call updatequickFiltersLabel");
   notifyWhenUIReady({ event: "updatequickFiltersLabel" });
 });
 
@@ -564,21 +564,30 @@ function stripEllipsis(label) {
 async function main() {
   // load defaults
   messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
-  
+
   let key = await messenger.LegacyPrefs.getPref(prefKey("LicenseKey")),
-      forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(prefKey("licenser.forceSecondaryIdentity")),
-      isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug")),
-      isDebugLicenser = await messenger.LegacyPrefs.getPref(prefKey("debug.premium.licenser"));
+    forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
+      prefKey("licenser.forceSecondaryIdentity"),
+    ),
+    isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug")),
+    isDebugLicenser = await messenger.LegacyPrefs.getPref(prefKey("debug.premium.licenser"));
 
   currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
   await currentLicense.validate();
 
   // All important stuff has been done.
   // resolve all promises on the stack
-  if (isDebug) {console.log("Finished setting up license startup code");}
-  callbacks.forEach(callback => callback());
-  startupPromiseResolve(); // unblock code that depends on licenser
+  if (isDebug) {
+    console.log("Finished setting up license startup code");
+  }
+  callbacks.forEach((callback) => callback());
+  // unblock code that depends on licenser
+  startup.resolve("unblock startup for quickFilters in main()");
+  if (isDebug) {
+    console.log("Startup resolved");
+  }
   
+
   // listeners for splash pages, new settings dialog
   messenger.runtime.onMessage.addListener(async (data, sender) => {
     // console.log("runtime.onMessage", data, _sender);
@@ -596,7 +605,7 @@ async function main() {
           Number.isNaN(filterAction) ? undefined : filterAction,
           ["string", "boolean"].includes(typeof filterActionExt)
             ? String(filterActionExt)
-            : undefined
+            : undefined,
         );
         return filters;
       }
@@ -627,7 +636,7 @@ async function main() {
           if (newHeight > maxHeight) {
             newHeight = maxHeight;
             console.warn(
-              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`
+              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`,
             );
           }
 
@@ -657,13 +666,17 @@ async function main() {
         break;
     }
   });
-    
+
   messenger.NotifyTools.onNotifyBackground.addListener(async (data) => {
     let isLog = await messenger.LegacyPrefs.getPref(prefKey("debug.notifications"));
     if (isLog && data.func) {
-      console.log ("=========================\n" +
-                   "BACKGROUND LISTENER received: " + data.func + "\n" +
-                   "=========================");
+      console.log(
+        "=========================\n" +
+          "BACKGROUND LISTENER received: " +
+          data.func +
+          "\n" +
+          "=========================",
+      );
     }
     switch (data.func) {
       case "UIListenersReady":
@@ -804,17 +817,17 @@ async function main() {
                 selectedMergedFilterIndex: -1,
                 mergeFilter: null,
                 error: ex.message,
-              });            
+              });
             }
           }
         }
         break;
       }
 
-      case "quickFiltersSettings": 
+      case "quickFiltersSettings":
         displaySettings(data);
         break;
-      
+
       case "API-test-Utilities":
         console.log("quickFilters - API-test-Utilities");
         try {
@@ -828,9 +841,9 @@ async function main() {
             tab
               ? await messenger.Utilities.getFolderUri(
                   tab.displayedFolder.accountId,
-                  tab.displayedFolder.path
+                  tab.displayedFolder.path,
                 )
-              : "none"
+              : "none",
           );
         } catch (ex) {
           console.error("Error in Utilities", ex);
@@ -849,7 +862,7 @@ async function main() {
     }
   });
 
-  await messenger.commands.update({
+  messenger.commands.update({
     name: "create-filter-from-message",
     description: stripEllipsis(messenger.i18n.getMessage("quickfilters.FromMessage.label")),
   });
@@ -866,19 +879,18 @@ async function main() {
       console.warn("No active mail tab found!");
       // we should add an alert.
       return;
-    }    
-    switch(command) {
-      case "create-filter-from-message":
-      {
-        const menuItem = { id: CREATEFILTERFROMMSG_ID };   // fake menu item to pass to doCommand
-        const selectedMails = await browser.mailTabs.getSelectedMessages(mailTab.id);  
+    }
+    switch (command) {
+      case "create-filter-from-message": {
+        const menuItem = { id: CREATEFILTERFROMMSG_ID }; // fake menu item to pass to doCommand
+        const selectedMails = await browser.mailTabs.getSelectedMessages(mailTab.id);
         if (!selectedMails?.length) {
-          console.warn("No selected messages found for create-filter-from-message command!");          
+          console.warn("No selected messages found for create-filter-from-message command!");
           messenger.notifications.create({
             type: "basic",
             title: "quickFilters",
-            message: messenger.i18n.getMessage("quickfilters.createFromMail.selectWarning")
-          });          
+            message: messenger.i18n.getMessage("quickfilters.createFromMail.selectWarning"),
+          });
         }
         const detail = {
           commandItem: menuItem,
@@ -894,24 +906,28 @@ async function main() {
         }
         messenger.NotifyTools.notifyExperiment({
           event: "doCommand",
-          detail: detail
-        });         
+          detail: detail,
+        });
         break;
       }
     }
   });
-  
-    
-  messenger.runtime.onMessageExternal.addListener( async  (message, _sender) =>  
-  {
-    switch(message.command) {
+
+  messenger.runtime.onMessageExternal.addListener(async (message, _sender) => {
+    switch (message.command) {
       case "updateQuickFoldersLicense": // fall-through
       case "injectButtonsQFNavigationBar":
         // call the code for injecting the toolbar buttons that integrate with QF current folder bar
         // this is called from onLoad in qFi-messenger.js
         QF_license = message.license; // restrict buttons - we need either (any) QF license or a quickFilters Pro.
         if (isDebug) {
-          await util.logDebugHighlight("received external message 'injectButtonsQFNavigationBar'", "yellow", "rgb(0, 128, 50)", message, QF_license);
+          await util.logDebugHighlight(
+            "received external message 'injectButtonsQFNavigationBar'",
+            "yellow",
+            "rgb(0, 128, 50)",
+            message,
+            QF_license,
+          );
         }
         if (message.command == "injectButtonsQFNavigationBar") {
           notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
@@ -919,58 +935,73 @@ async function main() {
         break;
     }
   });
-      
-    
-  messenger.WindowListener.registerChromeUrl([
-    ["content", "quickfilters", "chrome/content/"],
-  ]);
- 
-  // messenger.WindowListener.registerOptionsPage("chrome://quickfilters/content/quickFilters-options.xhtml"); 
-   
-    
- //attention: each target window (like messenger.xul) can appear only once
- // this is different from chrome.manifest
- // xhtml for Tb78
-  messenger.WindowListener.registerWindow("chrome://messenger/content/messenger.xhtml", "chrome/content/scripts/qFi-messenger.js");
-  messenger.WindowListener.registerWindow("chrome://messenger/content/customizeToolbar.xhtml", "chrome/content/scripts/qFi-customizetoolbar.js");
-  messenger.WindowListener.registerWindow("chrome://messenger/content/FilterEditor.xhtml", "chrome/content/scripts/qFi-filterEditor.js");
-  messenger.WindowListener.registerWindow("chrome://messenger/content/FilterListDialog.xhtml", "chrome/content/scripts/qFi-filterlist.js");
-    
+
+  messenger.WindowListener.registerChromeUrl([["content", "quickfilters", "chrome/content/"]]);
+
+  // messenger.WindowListener.registerOptionsPage("chrome://quickfilters/content/quickFilters-options.xhtml");
+
+  //attention: each target window (like messenger.xul) can appear only once
+  // this is different from chrome.manifest
+  // xhtml for Tb78
+  messenger.WindowListener.registerWindow(
+    "chrome://messenger/content/messenger.xhtml",
+    "chrome/content/scripts/qFi-messenger.js",
+  );
+  messenger.WindowListener.registerWindow(
+    "chrome://messenger/content/customizeToolbar.xhtml",
+    "chrome/content/scripts/qFi-customizetoolbar.js",
+  );
+  messenger.WindowListener.registerWindow(
+    "chrome://messenger/content/FilterEditor.xhtml",
+    "chrome/content/scripts/qFi-filterEditor.js",
+  );
+  messenger.WindowListener.registerWindow(
+    "chrome://messenger/content/FilterListDialog.xhtml",
+    "chrome/content/scripts/qFi-filterlist.js",
+  );
+
   // styling for QuickFolders navigation bar - lives in 3pane!
   messenger.WindowListener.registerWindow("about:3pane", "chrome/content/scripts/qFi-3pane.js");
   // might be obsolete - but it might also style the main button in single message window?
-  messenger.WindowListener.registerWindow(
-    "about:message",
-    "chrome/content/scripts/qFi-message.js"
-  );
+  messenger.WindowListener.registerWindow("about:message", "chrome/content/scripts/qFi-message.js");
 
   // how to add a click event
   // browser.actionButton.onClicked.addListener(() => { …. });
-  
- /*
-  * Start listening for opened windows. Whenever a window is opened, the registered
-  * JS file is loaded. To prevent namespace collisions, the files are loaded into
-  * an object inside the global window. The name of that object can be specified via
-  * the parameter of startListening(). This object also contains an extension member.
-  */
+
+  /*
+   * Start listening for opened windows. Whenever a window is opened, the registered
+   * JS file is loaded. To prevent namespace collisions, the files are loaded into
+   * an object inside the global window. The name of that object can be specified via
+   * the parameter of startListening(). This object also contains an extension member.
+   */
   messenger.WindowListener.startListening();
-  
+
   // let browserInfo = await messenger.runtime.getBrowserInfo();
 
   // [issue 125] Exchange account validation
-  messenger.accounts.onCreated.addListener( async(id, account) => {
+  messenger.accounts.onCreated.addListener(async (id, account) => {
     if (currentLicense.info.status == "MailNotConfigured") {
       // redo license validation!
-      if (isDebugLicenser) {console.log("Account added, redoing license validation", id, account);} // test
+      if (isDebugLicenser) {
+        console.log("Account added, redoing license validation", id, account);
+      } // test
       currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
       await currentLicense.validate();
-      if(currentLicense.info.status != "MailNotConfigured") {
-        if (isDebugLicenser) {console.log("notify experiment code of new license status: " + currentLicense.info.status);}
+      if (currentLicense.info.status != "MailNotConfigured") {
+        if (isDebugLicenser) {
+          console.log(
+            "notify experiment code of new license status: " + currentLicense.info.status,
+          );
+        }
         notifyWhenUIReady({ licenseInfo: currentLicense.info });
       }
-      if (isDebugLicenser) {console.log("quickFilters license info:", currentLicense.info);} // test
+      if (isDebugLicenser) {
+        console.log("quickFilters license info:", currentLicense.info);
+      } // test
     } else {
-      if (isDebugLicenser) {console.log("quickFilters license state after adding account:", currentLicense.info)}
+      if (isDebugLicenser) {
+        console.log("quickFilters license state after adding account:", currentLicense.info);
+      }
     }
   });
 
@@ -979,11 +1010,11 @@ async function main() {
   // let menuAccel = messenger.i18n.getMessage("quickfilters.FromMessage.accesskey");
   let menuProps = {
     contexts: ["message_list"],
-    onclick: async (info, tab) => {    
+    onclick: async (info, tab) => {
       if (isDebug) {
         console.log("quickFilters message context menu", info, tab);
       }
-      const menuItem = { id: CREATEFILTERFROMMSG_ID };   // fake menu item to pass to doCommand
+      const menuItem = { id: CREATEFILTERFROMMSG_ID }; // fake menu item to pass to doCommand
       const detail = {
         commandItem: menuItem,
         tabId: tab.id,
@@ -1001,17 +1032,17 @@ async function main() {
 
       messenger.NotifyTools.notifyExperiment({
         event: "doCommand",
-        detail : detail,
-      });      
+        detail: detail,
+      });
     },
     icons: {
-      "16": "chrome/content/skin/createFilter.svg",
-      "24": "chrome/content/skin/createFilter.svg"
-    } ,
+      16: "chrome/content/skin/createFilter.svg",
+      24: "chrome/content/skin/createFilter.svg",
+    },
     enabled: true,
     id: CREATEFILTERFROMMSG_ID,
-    title: menuLabel
-  }
+    title: menuLabel,
+  };
   if (isDebug) {
     console.log(`quickFilters adding the message context menu item ${menuLabel} ...`, menuProps);
   }
@@ -1055,9 +1086,6 @@ async function main() {
     // Must call menus.refresh after update to show changes
     await messenger.menus.refresh();
   });
-  
-
-
 } // end main()
 
 main();
