@@ -28,6 +28,18 @@ function prefKey(name) {
   return legacy_root + name;
 }
 
+ // pre Thunderbird 121
+if (typeof Promise.withResolvers !== "function") {
+  Promise.withResolvers = function () {
+    let resolve, reject;
+    const promise = new Promise((res, rej) => {
+      resolve = res;
+      reject = rej;
+    });
+    return { promise, resolve, reject };
+  };
+}
+
 const startup = Promise.withResolvers();
 
 //TODO: textbox in CSS, search box??
