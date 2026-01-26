@@ -193,7 +193,8 @@ END LICENSE BLOCK
     # bring assistant to foreground if lock is on and user tries to spawn a new one
     # Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird
 
-  6.10.1 - WIP
+  6.11 - WIP
+    # [issue 346] - _toggleMessageTag was moved in Tb145, see [bug 1990790]
     # [issue 290] Feature Request: add more folders of path in Filter Name for "Move / copy Message" actions
     # [issue 341] Message Filters ⇒ New... ⇒ Copy... creates TWO Copies
     # [issue 342] Allow merging of a single mail to group filter
@@ -2139,85 +2140,113 @@ quickFilters.addTagListener = function(win) {
   const util = quickFilters.Util,
     prefs = quickFilters.Preferences;
   if (!util) {
-    setTimeout(function() { quickFilters.addTagListener() } , 1000); // retry
-    return false; 
+    setTimeout(function () {
+      quickFilters.addTagListener();
+    }, 1000); // retry
+    return false;
   }
-  util.logDebugOptional('listeners', "addTagListener()");
+  util.logDebugOptional("listeners", "addTagListener()");
+  // [issue 346] - _toggleMessageTag was moved in Tb145, see [bug 1990790]
+  const owningObject = win.mailContextMenu?._toggleMessageTag
+    ? win.mailContextMenu
+    : win.commandController;
+
   // wrap the original method
-  if (win.mailContextMenu && win.mailContextMenu._toggleMessageTag) {
-    if (!quickFilters.ToggleMessageTag) {
-      util.logDebugOptional('listeners','Wrapping ToggleMessageTag...');
-      let originalTagToggler = win.mailContextMenu._toggleMessageTag;
-      if (!originalTagToggler) {
-        util.logToConsole("getMail3PaneWindow - Could not retrieve the original ToggleMessageTage function from main window:\n" + util.getMail3PaneWindow());
-        return false; // let's short ciruit here
-      }
-      if (typeof originalTagToggler.fromQuickFilters !== 'undefined') {
-        util.logDebug("quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n");
-        return false;
-      }
-      win.quickFilters_ToggleMessageTag = originalTagToggler; // store namespaced original in window
-      
-      // closure the window
-      win.mailContextMenu._toggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
-        // call the original function (tag setter) first
-        let tmt = win.quickFilters_ToggleMessageTag;
-        util.logDebugOptional('listeners', "ToggleMessageTagWrapped()"
-          + `\nwin.quickFilters == quickFilters: ${(win.quickFilters == quickFilters)}`
-          + `\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: ${(originalTagToggler == tmt)}`);
-
-        win.quickFilters_ToggleMessageTag(tag, checked);
-
-        // no Assistant active - if current folder is the inbox: apply the filters.
-        // Bug 26457 - disable this behavior by default
-        if (!quickFilters.Util.AssistantActive && prefs.getBoolPref('listener.tags.autofilter')) { 
-          quickFilters.onApplyFiltersToSelection(true); // suppress the message
-          return false;
-        }
-
-        if (!checked) { return true; }
-        // only if tag  gets toggle ON
-        // Assistant is active?
-        if (!quickFilters.Util.AssistantActive) {return false;} 
-        // make it possible to ignore tag changes.
-        if (!prefs.getBoolPref('listener.tags')) {return false;} 
-
-        let selectedMessages = quickFilters.Util.getSelectedMessages(); 
-        if (!selectedMessages.length) {return false;}
-        let msgHdr = selectedMessages[0];
-
-        let selectedMails = [];  
-        selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
-
-        window.setTimeout(async function () {
-          const params = {
-            sourceFolder: null,
-            targetFolder: msgHdr.folder,
-            messageList: selectedMails,
-            filterAction: Components.interfaces.nsMsgFilterAction.AddTag,
-            filterActionExt: tag,
-            isMsgContext: false,
-            context: "addTagListener"
-          };
-          quickFilters.Worker.startFilterAssistant(params);
-        });
-                    
-        
-        return true;
-      } //  wrapper function for ToggleMessageTag
-
-      util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag + "\n adding flag...");
-      win.mailContextMenu._toggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
-      util.logDebugOptional('listeners', "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag);
-    }
+  if (!owningObject || !owningObject?._toggleMessageTag) {
+    return false;
   }
-  return true; 
+
+  util.logDebugOptional("listeners", "Wrapping ToggleMessageTag...");
+  let currentTogglerFunction = owningObject._toggleMessageTag;
+  if (!currentTogglerFunction) {
+    util.logToConsole(
+      "getMail3PaneWindow - Could not retrieve the original ToggleMessageTage function from main window:\n" +
+        util.getMail3PaneWindow(),
+    );
+    return false; // let's short ciruit here
+  }
+  if (typeof currentTogglerFunction.fromQuickFilters !== "undefined") {
+    util.logDebug(
+      "quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n",
+    );
+    return false;
+  }
+  win.quickFilters_ToggleMessageTag = currentTogglerFunction; // store namespaced original in window
+
+  // closure the window
+  owningObject._toggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
+    // call the original function (tag setter) first
+    let tmt = win.quickFilters_ToggleMessageTag;
+    util.logDebugOptional(
+      "listeners",
+      "ToggleMessageTagWrapped()" +
+        `\nwin.quickFilters == quickFilters: ${win.quickFilters == quickFilters}` +
+        `\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: ${currentTogglerFunction == tmt}`,
+    );
+
+    win.quickFilters_ToggleMessageTag(tag, checked);
+
+    // no Assistant active - if current folder is the inbox: apply the filters.
+    // Bug 26457 - disable this behavior by default
+    if (!quickFilters.Util.AssistantActive && prefs.getBoolPref("listener.tags.autofilter")) {
+      quickFilters.onApplyFiltersToSelection(true); // suppress the message
+      return false;
+    }
+
+    if (!checked) {
+      return true;
+    }
+    // only if tag  gets toggle ON
+    // Assistant is active?
+    if (!quickFilters.Util.AssistantActive) {
+      return false;
+    }
+    // make it possible to ignore tag changes.
+    if (!prefs.getBoolPref("listener.tags")) {
+      return false;
+    }
+
+    let selectedMessages = quickFilters.Util.getSelectedMessages();
+    if (!selectedMessages.length) {
+      return false;
+    }
+    let msgHdr = selectedMessages[0];
+
+    let selectedMails = [];
+    selectedMails.push(util.makeMessageListEntry(msgHdr)); // Array of message entries  ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
+
+    window.setTimeout(async function () {
+      const params = {
+        sourceFolder: null,
+        targetFolder: msgHdr.folder,
+        messageList: selectedMails,
+        filterAction: Components.interfaces.nsMsgFilterAction.AddTag,
+        filterActionExt: tag,
+        isMsgContext: false,
+        context: "addTagListener",
+      };
+      quickFilters.Worker.startFilterAssistant(params);
+    });
+
+    return true;
+  }; //  wrapper function for ToggleMessageTag
+
+  util.logDebugOptional(
+    "listeners",
+    "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag + "\n adding flag...",
+  );
+  owningObject._toggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
+  util.logDebugOptional("listeners", "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag);
+  return true;
 }
 
 quickFilters.restoreTagListener = function(win) {
-  if (win.quickFilters_ToggleMessageTag) {
-    win.mailContextMenu._toggleMessageTag = win.quickFilters_ToggleMessageTag; // restore original function
-    delete win.quickFilters_ToggleMessageTag; // scrap backup
+  const owningObject = win.mailContextMenu?._toggleMessageTag
+    ? win.mailContextMenu
+    : win.commandController;
+  if (owningObject._toggleMessageTag?.fromQuickFilters && win.quickFilters_ToggleMessageTag) {
+    owningObject._toggleMessageTag = win.quickFilters_ToggleMessageTag; // restore original function
+    delete owningObject.quickFilters_ToggleMessageTag; // scrap backup
   }
 }
 
