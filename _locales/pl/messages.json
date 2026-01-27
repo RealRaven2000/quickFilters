@@ -1459,8 +1459,8 @@
     "message": "Przeczytaj szczegółowy dziennik zmian tutaj (tylko w języku angielskim):"
   },
   "whats-new-list": {
-    "description": "🇳🇱 change log",
-    "message": "{L}Een configureerbare sneltoets toegevoegd voor „{createFilterFromMessage}“ – kan worden ingesteld in Add-ons Manager » ⚙ » „Beheer extensiesneltoetsen“. [issue 334]{/L}{L}Verbeterde standaardfilternamen op basis van Custom Templates. Er worden waarden uit het bericht gebruikt (bijv. google.com voor %from(mail)%) [issue 335]{/L}{L}Verbeterde opstartstabiliteit van Thunderbird, inclusief oplossingen voor het incidenteel ontbrekende quickFilters-commandomenu [issue 339].{/L}{L}Als de quickFilters-assistent al open is, zal het proberen een nieuwe te starten het bestaande venster naar voren brengen in plaats van een nieuw venster te openen.{/L}{L}Hersteld: Het filtereditor-veld van Thunderbird voor zoektermen werd niet weergegeven wanneer er geen waarde werd opgehaald (bijv. geen Reply-To, ontbrekende mail-tags) [issue 338].{/L}{L}Hersteld: Na quickFilters 6.9.2 HTML Assistant werd „{autoMerge}“ niet toegepast [issue 331].{/L}"
+    "description": "🇵🇱 change log",
+    "message": "{L}Dodano opcję wyciągania nazw folderów nadrzędnych w regułach nazewnictwa filtrów dla akcji Przenieś/Kopiuj wiadomość [issue 290]{/L}{L}Ulepszone nazewnictwo filtrów: konfigurowalna czarna lista usuwająca słowa z tematu; dodano również możliwość wyodrębniania wielu wyrażeń w nawiasach z tematu wiadomości e-mail. [issue 343]{P}Wszystkie nowe reguły nazewnictwa można skonfigurować na stronie \"Właściwości nowego filtru\".{/P}{/L}{L}Ulepszono dopasowywanie tematów wiadomości zaczynających się od tych samych kombinacji słów. [issue 344]{/L}{L}Można teraz połączyć pojedynczą wiadomość w filtr grupowy. [issue 342]{/L}{L}Naprawiono problem, w którym kopiowanie filtru tworzyło dwie kopie [issue 341]{/L}{L}Naprawiono, że asystent quickFilter nie uruchamiał się po ręcznych zmianach tagów w Thunderbird 145+ [Bugzilla 1990790]. [issue 346]{/L}{L}Wycofano stary dialog ustawień oparty na przestarzałym XUL.{/L}"
   },
   "window-title": {
     "message": "Witamy w $addonName$",

@@ -950,8 +950,6 @@ async function main() {
 
   messenger.WindowListener.registerChromeUrl([["content", "quickfilters", "chrome/content/"]]);
 
-  // messenger.WindowListener.registerOptionsPage("chrome://quickfilters/content/quickFilters-options.xhtml");
-
   //attention: each target window (like messenger.xul) can appear only once
   // this is different from chrome.manifest
   // xhtml for Tb78

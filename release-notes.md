@@ -3,9 +3,9 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 **Improvements**
 
-*   Add more folders of path in Filter Name for "Move / copy Message" actions [issue 290]
+*   Added option for extracting parent folder names in default filter naming rules for Move/Copy actions [issue 290]
 *   Allow merging of a single mail to group filter [issue 342]
-*   Enhance Filter Naming: Add Subject Keyword Blacklist and Multi-Topic Support [issue 343]
+*   Enhanced Filter Naming: configurable blacklist that removes words from subject and possibility to extract multiple bracketed expressions from an email subject. [issue 343]
 *   Improved subject matching: detect subjects starting with the same word combos [issue 344]
 
 

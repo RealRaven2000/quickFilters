@@ -195,7 +195,7 @@ END LICENSE BLOCK
 
   6.11 - WIP
     # [issue 346] - _toggleMessageTag was moved in Tb145, see [bug 1990790]
-    # [issue 290] Feature Request: add more folders of path in Filter Name for "Move / copy Message" actions
+    # [issue 290] Add parent folder names in Filter Name for "Move / copy Message" actions
     # [issue 341] Message Filters ⇒ New... ⇒ Copy... creates TWO Copies
     # [issue 342] Allow merging of a single mail to group filter
     # [issue 343] Enhance Filter Naming: Add Subject Keyword Blacklist and Multi-Topic Support

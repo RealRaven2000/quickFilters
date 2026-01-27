@@ -1463,7 +1463,7 @@
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{L}「{createFilterFromMessage}」のカスタマイズ可能なキーボードショートカットを追加しました。アドオンマネージャ » ⚙ » 「拡張機能のショートカットを管理」で設定できます。[issue 334]{/L}{L}カスタムテンプレートに基づくフィルターのデフォルト名を改善しました。メッセージから取得した値を使用します（例: %from(mail)% は google.com） [issue 335]{/L}{L}Thunderbird の起動安定性を改善しました。quickFilters コマンドメニューが間欠的に表示されない問題を修正 [issue 339].{/L}{L}quickFilters アシスタントがすでに開かれている場合、新しいウィンドウを起動しようとすると、既存のウィンドウが前面に表示されます。{/L}{L}修正: 検索条件が取得できない場合（例: Reply-To が無い、メールタグが欠落）に Thunderbird フィルターエディタで検索ボックスが表示されなかった問題 [issue 338].{/L}{L}修正: quickFilters 6.9.2 HTML アシスタントで「{autoMerge}」が反映されなかった [issue 331].{/L}"
+    "message": "{L}移動/コピー操作のフィルタ命名ルールで親フォルダ名を抽出するオプションを追加 [issue 290]{/L}{L}フィルタ命名の強化: 件名から単語を削除する設定可能なブラックリスト; さらにメール件名から複数の角括弧内表現を抽出する機能を追加 [issue 343]{P}すべての新しい命名ルールは「新しいフィルタのプロパティ」ページで設定できます.{/P}{/L}{L}共通の単語組み合わせで始まる件名のメッセージに対する一致精度を改善 [issue 344]{/L}{L}単一のメールをグループフィルタに統合できるようになりました [issue 342]{/L}{L}フィルタをコピーすると二重に作成される問題を修正 [issue 341]{/L}{L}Thunderbird 145以降で、手動タグ変更後にquickFilterアシスタントが動作しなかった問題を修正 [Bugzilla 1990790]. [issue 346]{/L}{L}廃止予定のXULに基づく古い設定ダイアログを削除.{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

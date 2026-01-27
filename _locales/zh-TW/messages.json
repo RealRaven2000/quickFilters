@@ -1374,7 +1374,7 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{L}新增「{createFilterFromMessage}」的可自訂鍵盤快捷鍵 - 可在附加元件管理員 » ⚙ » 「管理擴充套件快捷鍵」中設定。 [issue 334]{/L}{L}改進基於自訂範本的預設篩選器名稱。這將使用郵件中取得的值來包含實際值（例如 %from(mail)% 對應 google.com） [issue 335]{/L}{L}改進 Thunderbird 啟動穩定性，包括修正 quickFilters 命令選單間歇性消失的問題 [issue 339]。{/L}{L}如果 quickFilters 助手已經開啟，嘗試啟動新的助手會將現有視窗帶到前景，而不會開啟另一個。{/L}{L}修正：當搜尋條件未取得任何值時（例如沒有 Reply-To、缺少郵件標籤），Thunderbird 篩選器編輯器缺少搜尋欄位的問題 [issue 338]。{/L}{L}修正：在 quickFilters 6.9.2 HTML 助手中，「{autoMerge}」選項未被遵循 [issue 331]。{/L}"
+    "message": "{L}在“移動/複製”操作的過濾器命名規則中新增提取父資料夾名稱的選項 [issue 290]{/L}{L}增強過濾器命名：可配置的黑名單，可刪除主旨中的詞；還新增從電子郵件主旨中提取多個方括號表達式的功能 [issue 343]{P}可以在「新過濾器屬性」頁面配置所有新命名規則.{/P}{/L}{L}改進主旨匹配，用於以常見詞組開頭的郵件 [issue 344]{/L}{L}現在可以將單封郵件合併到群組過濾器中 [issue 342]{/L}{L}修復複製過濾器時生成兩份副本的問題 [issue 341]{/L}{L}修復 Thunderbird 145+ 中手動標籤更改後 quickFilter 助手未觸發的問題 [Bugzilla 1990790]. [issue 346]{/L}{L}棄用基於過時 XUL 的舊設定對話框.{/L}"
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

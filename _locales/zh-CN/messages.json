@@ -1455,7 +1455,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}为 „{createFilterFromMessage}“ 添加了可配置的快捷键 – 可以在附加组件管理器 » ⚙ » 「管理扩展快捷键」中设置。[issue 334]{/L}{L}改进了基于自定义模板的默认筛选器名称。将使用消息中检索的值（例如 %from(mail) 的 google.com） [issue 335]{/L}{L}改进了 Thunderbird 启动稳定性，包括修复 quickFilters 命令菜单间歇性缺失的问题 [issue 339]。{/L}{L}如果 quickFilters 助手已经打开，尝试启动新助手将把现有窗口置于前端，而不是打开另一个窗口。{/L}{L}修复: 当搜索条件未检索到任何值（例如没有 Reply-To，缺少邮件标签）时，Thunderbird 筛选器编辑器未显示搜索框 [issue 338]。{/L}{L}修复: 在 quickFilters 6.9.2 HTML Assistant 中，「{autoMerge}」未被执行 [issue 331]。{/L}"
+    "message": "{L}在“移动/复制”操作的过滤器命名规则中添加提取父文件夹名称的选项 [issue 290]{/L}{L}增强的过滤器命名：可配置的黑名单，可删除主题中的词；还新增从邮件主题中提取多个方括号表达式的功能 [issue 343]{P}可以在“新建过滤器属性”页面配置所有新命名规则.{/P}{/L}{L}改进主题匹配，用于以常见词组开头的邮件 [issue 344]{/L}{L}现在可以将单封邮件合并到组过滤器中 [issue 342]{/L}{L}修复复制过滤器时生成两份副本的问题 [issue 341]{/L}{L}修复 Thunderbird 145+ 中手动标签更改后 quickFilter 助手未触发的问题 [Bugzilla 1990790]. [issue 346]{/L}{L}弃用基于过时 XUL 的旧设置对话框.{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
