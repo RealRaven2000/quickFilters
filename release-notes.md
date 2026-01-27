@@ -3,15 +3,15 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 **Improvements**
 
-*   Added option for extracting parent folder names in default filter naming rules for Move/Copy actions [issue 290]
-*   Allow merging of a single mail to group filter [issue 342]
-*   Enhanced Filter Naming: configurable blacklist that removes words from subject and possibility to extract multiple bracketed expressions from an email subject. [issue 343]
-*   Improved subject matching: detect subjects starting with the same word combos [issue 344]
+*   Added option for extracting parent folder names in default filter naming rules for Move/Copy actions [issue #290]
+*   Allow merging of a single mail to group filter [issue #342]
+*   Enhanced Filter Naming: configurable blacklist that removes words from subject and possibility to extract multiple bracketed expressions from an email subject. [issue #343]
+*   Improved subject matching: detect subjects starting with the same word combos [issue #344]
 
 
 **Bug Fixes**
 
-*   Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. [issue 341]
+*   Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. [issue #341]
 
 
 **Miscellaneus**
