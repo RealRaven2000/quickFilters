@@ -60,10 +60,6 @@
   list-style-image: url("chrome://quickfilters/content/skin/settings-simple.svg");
 }
 
-#quickfilters-options {
-  list-style-image: url("chrome://quickfilters/content/skin/settings.svg");
-}
-
 #quickfilters-checkLicense {
   list-style-image: url("chrome://quickfilters/content/skin/info.svg");
 }

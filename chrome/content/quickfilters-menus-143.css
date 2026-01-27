@@ -46,11 +46,6 @@
   --menuitem-icon: url("chrome://quickfilters/content/skin/settings-simple.svg") !important;
 }
 
-/* legacy */
-#quickfilters-options {
-  --menuitem-icon: url("chrome://quickfilters/content/skin/settings.svg") !important;
-}
-
 #quickfilters-menu-tools {
   --menuitem-icon: url("chrome://quickfilters/content/skin/wrench.svg") !important;
 }

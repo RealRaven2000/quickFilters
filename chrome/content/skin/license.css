@@ -40,7 +40,7 @@
 
 #btnLicense, #btnEnterCode, #btnDomainLicense {
 	cursor: pointer;
-  font-family: cambria, Georgia, serif; /* see also .niceFont in options.css */
+  font-family: cambria, Georgia, serif; /* see also .niceFont in quickfilters-dialogs.css */
   font-size: 10.2pt;
 	font-style: normal;
 	margin: 2px 2px 2px 2px !important;

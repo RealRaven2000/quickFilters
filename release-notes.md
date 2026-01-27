@@ -14,6 +14,9 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 *   Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. [issue 341]
 
 
+**Miscellaneus**
+
+*   Retired the old settings dialog (xul will be deprecated in the future)
 
 
 

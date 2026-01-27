@@ -168,9 +168,6 @@ async function onLoad(activatedWhileWindowOpen) {
       case TOGGLE_ASSIST_TOOL_ID:
         window.quickFilters.onMenuItemCommand("toggle_Filters");
         break;
-      case "quickfilters-options": // legacy dialog (xhtml)
-        window.quickFilters.showOptions(true);
-        break;
       case "quickfilters-settings": // to do: convert (majority of) menu items to use API next!
         window.quickFilters.Util.notifyTools.notifyBackground({
           func: "quickFiltersSettings"

@@ -200,6 +200,7 @@ END LICENSE BLOCK
     # [issue 342] Allow merging of a single mail to group filter
     # [issue 343] Enhance Filter Naming: Add Subject Keyword Blacklist and Multi-Topic Support
     # [issue 344] Improved subject matching: detect subjects starting with the same word combos
+    # Removed old settings dialog (xul will be deprecated in the future)
     
 
   ============================================================================================================
@@ -412,20 +413,10 @@ var quickFilters = {
     }
   },
 
-  showOptions: function (legacy = false) {
-    if (!legacy) {
-      quickFilters.Util.notifyTools.notifyBackground({
-        func: "quickFiltersSettings"
-      });
-      return;
-    }
-    window
-      .openDialog(
-        "chrome://quickfilters/content/quickFilters-options.xhtml",
-        "quickfilters-options",
-        "chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply"
-      )
-      .focus();
+  showOptions: function () {
+    quickFilters.Util.notifyTools.notifyBackground({
+      func: "quickFiltersSettings"
+    });
   },
 
   checkFirstRun: function () {
@@ -2277,7 +2268,6 @@ quickFilters.patchMailPane = () => {
           <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuseparator />
           <menuitem id="quickfilters-settings" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-options" label="__MSG_quickfilters.button.settings__ (__MSG_legacy__)" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menu id="quickfilters-menu-tools" label="__MSG_quickfilters.menu.tools__" class="menu-iconic">
             <menupopup>
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
