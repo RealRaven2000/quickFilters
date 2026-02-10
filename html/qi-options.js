@@ -236,7 +236,8 @@ quickFilters.Options = {
         // QuickFolders.Util.slideAlert (util.ADDON_NAME, el.textContent);
         await messenger.runtime.sendMessage({
           command: "slideAlert",
-          args: ["quickFilters", el.textContent.trim()],
+          title: "quickFilters",
+          text: el.textContent.trim(),
         });
       }
     }

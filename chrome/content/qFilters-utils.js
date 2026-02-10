@@ -489,9 +489,7 @@ quickFilters.Util = {
   },
 
   slideAlert: function (text, title, icon) {
-    const Ci = Components.interfaces,
-      Cc = Components.classes,
-      util = quickFilters.Util;
+    const util = quickFilters.Util;
     try {
       if (!icon) {
         icon = "chrome://quickfilters/content/skin/QuickFilters_32.svg";
@@ -504,8 +502,12 @@ quickFilters.Util = {
       util.logToConsole("slideAlert(" + text + ", " + title + ")");
       // let's put this into a timeout
       window.setTimeout(function () {
-        let service = Cc["@mozilla.org/alerts-service;1"].getService(Ci.nsIAlertsService);
-        service.showAlertNotification(icon, title, text, false, "", null);
+        quickFilters.Util.notifyTools.notifyBackground({
+          func: "slideAlert",
+          title, 
+          text
+        });
+        return; 
       });
     } catch {
       // prevents runtime error on platforms that don't implement nsIAlertsService

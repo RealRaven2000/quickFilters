@@ -49,7 +49,9 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
   let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
   // Wait until the main startup routine has finished!
   const res = await startup.promise;
-  messenger.Util.logDebug(res, "runtime startup / installation listeners");
+  messenger.Utilities.logDebug(
+    `runtime startup / installation listeners\nResult: ${res}\n` + `onInstalled Reason: ${reason}`,
+  );
 
   if (isDebug) {
     console.log("Startup has finished");
@@ -109,7 +111,9 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
 
 messenger.runtime.onStartup.addListener(async () => {
   const res = await startup.promise;
-  messenger.Util.logDebug(res, "startup listeners, ready to call updatequickFiltersLabel");
+  messenger.Utilities.logDebug(
+    `startup listeners, ready to call updatequickFiltersLabel\n` + `startup result: ${res}`,
+  );
   notifyWhenUIReady({ event: "updatequickFiltersLabel" });
 });
 
@@ -329,7 +333,9 @@ function showSplash() {
 async function displayAssistant(data) {
   const isDebugMsg = await messenger.LegacyPrefs.getPref(prefKey("debug.assistant.msg"));
   // [issue 309] open the HTML version of the assistant
-  messenger.Utilities.logDebug(`displayAssistant()\ncontext=${data?.context}\nrequestId=${data?.requestId}`);
+  messenger.Utilities.logDebug(
+    `displayAssistant()\ncontext=${data?.context}\nrequestId=${data?.requestId}`,
+  );
   const assistantURL = browser.runtime.getURL("html/filterAssistant.html");
   messenger.Utilities.logDebug(`assistantURL=${assistantURL}`);
   const url = new URL(assistantURL);
@@ -668,7 +674,7 @@ async function main() {
       case "updateLicense":
         return await updateLicense(data.key);
       case "slideAlert":
-        util.slideAlert(...data.args);
+        util.slideAlert(data?.title, data.text, data?.icon);
         break;
       case "updateCurrentFolderButtons":
         notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
@@ -696,7 +702,7 @@ async function main() {
         uiResolve(); // resolve the promise
         break;
       case "slideAlert":
-        util.slideAlert(...data.args); // title, text, [icon]
+        util.slideAlert(data?.title, data.text, data?.icon); // title, text, [icon]
         break;
 
       case "splashScreen":
