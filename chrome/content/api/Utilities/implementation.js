@@ -145,6 +145,9 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
             if (!folder || folder.server.type !== "imap") {
               return false;
             }
+            if (folder.isServer) {
+              return false;
+            }
             folder.QueryInterface(Ci.nsIMsgImapMailFolder);
             return "true" === folder.getStringProperty("applyIncomingFilters");
           } catch (ex) {
