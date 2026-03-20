@@ -19,7 +19,6 @@ END LICENSE BLOCK
     gSearchScope,
     gTotalSearchTerms: writable,
     initializeDialog,
-    onAccept,
     removeSearchRow,
     saveFilter,
     updateRemoveRowButton,
