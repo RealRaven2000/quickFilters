@@ -30,6 +30,16 @@
 
 #quickfilters-toolbar {
   height: 38px;
+} 
+
+#quickfilters-toolbar toolbarbutton.icon {
+  -moz-context-properties: fill, fill-opacity, stroke, stroke-opacity;
+  fill: currentColor;
+  fill-opacity: 0.8;
+}
+
+#quickfilters-toolbar toolbarbutton.icon:hover {
+  fill-opacity: 1.0;
 }
 
 /* increase font size [issue 237] */
@@ -68,7 +78,7 @@
   margin-top: 4px;
   margin-bottom: 4px;
   /* Tb 102 */
-  -moz-context-properties: fill;
+  -moz-context-properties: fill, fill-opacity;
   fill: currentColor;
 }
 
@@ -100,7 +110,7 @@
 	margin-left: auto;
 	margin-right: 2px;
 	list-style-image: url("chrome://quickfilters/content/skin/settings.svg");
-	-moz-context-properties: fill;
+	-moz-context-properties: fill, fill-opacity;
 	fill: currentColor;
 }
 #searchBox {
@@ -211,7 +221,7 @@
 #reorderDownButton .button-icon,
 #reorderUpButton .button-icon {
   margin-inline-end: 2px;
-	-moz-context-properties: fill;
+	-moz-context-properties: fill, fill-opacity;
 	fill: currentColor;
 }
 

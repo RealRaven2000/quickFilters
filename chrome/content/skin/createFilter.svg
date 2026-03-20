@@ -18,39 +18,41 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs12" />
-  <sodipodi:namedview
-     id="namedview10"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     showgrid="false"
-     inkscape:zoom="64.1875"
-     inkscape:cx="8.0155794"
-     inkscape:cy="7.8753651"
-     inkscape:window-width="2560"
-     inkscape:window-height="1418"
-     inkscape:window-x="-4"
-     inkscape:window-y="1436"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg8" />
+  <style>
+      :root {
+         --fill: var(--basiccolor);
+         --fill-opacity: context-fill-opacity;
+         --arrowUp: #4fc825;
+         --arrowDown: #307cdb;
+         --star-color: #ffa516;
+      }
+      @media (prefers-color-scheme: light) {
+         :root {
+            --basiccolor: context-fill rgb(20,20,20);
+         }
+      }
+      @media (prefers-color-scheme: dark) {
+         :root {
+            --basiccolor: context-fill rgb(251,251,254);
+         }
+      }
+
+  </style>
   <path
+      style="fill:var(--fill); fill-opacity:var(--fill-opacity);"
      d="M11 3H3C1.3 3 0 4.3 0 6v4c0 1.7 1.3 3 3 3h8v-2H3c-.6 0-1-.4-1-1V5.8c0 .1.1.1.2.1l4.5 4c.1.1.2.1.3.1.1 0 .2 0 .3-.1l4.5-4c.1 0 .1-.1.1-.2zm0 2c.1 0 .2 0 .3.1h-.1L7 8.9 2.8 5.1h-.1c.1-.1.2-.1.3-.1z"
      id="path2" />
   <path
-     fill="#4fc825"
+     style="fill:var(--arrowUp);"
      d="M15.03 0H11c-1.33 0-1.33 2 0 2h1.62L9.79 4.8c-.96.95.48 2.38 1.42 1.4l2.82-2.79V5c0 1.33 2 1.33 2 0V1a1 1 0 00-1-1z"
      id="path4" />
   <path
-     fill="#307cdb"
+     style="fill:var(--arrowDown);"
      d="M15.03 16.03H11c-1.33 0-1.33-2.01 0-2.01h1.62L9.79 11.2c-.97-.93.48-2.38 1.42-1.4l2.82 2.81V11c0-1.33 2-1.33 2 0v4.03a1 1 0 01-1 1z"
      id="path6" />
   <path
      sodipodi:type="star"
-     style="fill:#ffa516;stroke-width:28.3238"
+     style="fill:var(--star-color);stroke-width:28.3238"
      id="path306"
      inkscape:flatsided="false"
      sodipodi:sides="5"

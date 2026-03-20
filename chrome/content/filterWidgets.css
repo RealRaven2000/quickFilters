@@ -7,7 +7,7 @@
 #quickFiltersBtnHelp {
 	list-style-image: url("chrome://quickfilters/content/skin/help.svg");
   /* Tb 102 */
-  -moz-context-properties: fill;
+  -moz-context-properties: fill, fill-opacity;
   fill: currentColor;
 }
 

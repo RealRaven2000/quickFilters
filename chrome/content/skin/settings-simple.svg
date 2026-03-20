@@ -4,16 +4,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
   <style>
    path {
-      --basiccolor: var(--in-content-page-color,rgb(20,20,20));
+      --basiccolor: context-fill var(--in-content-page-color,rgb(20,20,20));
       --fill: var(--basiccolor);
-      --fill-opacity: 0.9;
+      --fill-opacity:context-fill-opacity;
    }
 
    @media (prefers-color-scheme: dark) {
       path {
-        --basiccolor: var(--in-content-page-color,rgb(251,251,254));
+        --basiccolor: context-fill var(--in-content-page-color,rgb(251,251,254));
         --fill: var(--basiccolor);
-        --fill-opacity: 0.8;
       }
       *:hover path {
         --fill: darkred;
