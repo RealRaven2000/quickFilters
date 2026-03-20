@@ -662,8 +662,26 @@
   "qf.label.supportWithLicense": {
     "message": "Supporta quickFilters acquistando una licenza"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Passare alla versione Base?{br}La chiave di licenza verrà conservata su questo computer così potrai rinnovarla in seguito al {b}prezzo di rinnovo scontato{/b}.{/P}{P}Grazie per aver supportato quickFilters — le licenze rendono possibile lo sviluppo software indipendente e aiutano a mantenere vivo il progetto. Anche se scaduta, puoi rinnovare la licenza o effettuare l’upgrade da una licenza Standard in qualsiasi momento per utilizzare le {a class=features}Funzionalità Pro{/a} per un anno intero.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Recupera chiave di licenza"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Puoi ripristinare la licenza precedente per ottenere condizioni di rinnovo più vantaggiose."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "La chiave è stata ripristinata correttamente. Anche se era scaduta, puoi ottenere una nuova chiave con uno sconto."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Passa alla versione Base"
+  },
   "qf.licenseValidation.expired": {
-    "message": "La chiave di licenza inserita è scaduta. Premere il pulsante sottostante per rinnovare la licenza."
+    "message": "La chiave di licenza inserita è scaduta. Premi il pulsante qui sotto per rinnovare la licenza."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "In alternativa, puoi usare temporaneamente la versione Base — potrai ripristinare la licenza in seguito."
   },
   "qf.licenseValidation.failed": {
     "message": "La chiave di licenza inserita non è valida. Controllare il messaggio proveniente da FastSpring per avere istruzioni al riguardo. Se permanessero dei problemi, contattatemi tramite la scheda “Supporto”."

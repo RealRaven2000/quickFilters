@@ -220,6 +220,27 @@
   "qf.label.licenseValid": {
     "message": "Vaše licence je platná do:"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Canviar a la versió bàsica?{br}La vostra clau de llicència es conservarà en aquest ordinador perquè la pugueu renovar més endavant al {b}preu de renovació amb descompte{/b}.{/P}{P}Gràcies per haver donat suport a quickFilters — les llicències fan possible el desenvolupament de programari independent i ajuden a mantenir viu el projecte. Fins i tot quan ha caducat, podeu renovar la llicència o actualitzar des d’una llicència Estàndard en qualsevol moment per utilitzar les {a class=features}Funcions Pro{/a} durant un any complet.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Recuperar la clau de llicència"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Podeu restaurar la vostra llicència anterior per obtenir condicions de renovació més econòmiques."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "La vostra clau s’ha restaurat correctament. Tot i que havia caducat, podeu obtenir una clau nova amb descompte."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Canviar a la versió bàsica"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "La clau de llicència que heu introduït ha caducat. Premeu el botó següent per renovar la llicència."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Alternativament, podeu utilitzar la versió bàsica de moment — encara podreu restaurar la llicència més endavant."
+  },
   "qf.listener.tags.autofilter": {
     "message": "Spouštět filtry automaticky při změně značek"
   },
@@ -307,7 +328,7 @@
     "message": "Spustit filtry na vybrané e-maily?"
   },
   "special-offer-content": {
-    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {bold$reduction$ snížení{/bold}  ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {bold$expirydate${/bold} .",
+    "message": "Nyní je nejlepší příležitost získat licenci, protože k oslavě 9 let quickFilters došlo k {bold$reduction$ snížení{/bold} ceny licence QuickFolders Pro!Tato speciální nabídka bude k dispozici do  {bold$expirydate${/bold} .",
     "placeholders": {
       "expirydate": {
         "content": "$1",

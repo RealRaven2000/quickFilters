@@ -372,6 +372,11 @@
           <p id="validationPassed" class="niceFont" collapsed>__MSG_qf.licenseValidation.passed__</p>
           <p id="validationFailed" class="niceFont licenseError" collapsed>__MSG_qf.licenseValidation.failed__</p>
           <p id="validationExpired" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.expired__</p>
+          <p id="validationRestored" class="niceFont" collapsed="true">
+            __MSG_qf.licenseBackup.restored__</p>
+          <p id="validationKeyBackedUp" class="niceFont" collapsed="true">
+            __MSG_qf.licenseBackup.recoverable__</p>
+
           <p id="validationInvalidEmail" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.invalidMail__</p>
           <p id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.notMatchedMail__</p>
           <p id="validationInvalidAddon" class="niceFont licenseError" collapsed>__MSG_qf.licenseValidation.invalidAddon__</p>
@@ -390,10 +395,10 @@
       <hr style="height:1em;" />
 
       <box class="btnLicenseContainer">
-        <button id="btnLicense">
-          Buy License
-        </button>
-      </box>
+        <button class="register" id="btnLicense">Buy License</button>
+        <button class="register" id="btnSwitchToFree" hidden>__MSG_qf.licenseBackup.switch__</button>
+        <button class="register" id="btnRecoverLicense" hidden>__MSG_qf.licenseBackup.recover__</button>
+        </box>
 
       <div class="hbox">
         <fieldset id="premiumConfig">
@@ -425,11 +430,18 @@
       </div>
     </section>
 
-
-
-  
-
   </div>  
+
+  <dialog id="confirmationDialog">
+    <form method="dialog">
+      <div id="confirmMessage"></div>
+      <menu>
+        <button value="cancel">__MSG_qf.label.cancel__</button>
+        <button id="confirmOk" value="ok">__MSG_qf.label.ok__</button>
+      </menu>
+    </form>
+  </dialog>
+
 
 
   <script src="../chrome/content/i18n.js"></script>
@@ -438,5 +450,7 @@
   <script src="qi-prefs.js"></script>
   <script src="qi-options.js"></script>
   <script src="quickfilters-settings.js"></script>
+  <script src="../popup/popup.js"></script>
+  
 
 </body>

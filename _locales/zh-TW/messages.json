@@ -619,8 +619,26 @@
   "qf.label.supportWithLicense": {
     "message": "通過獲取許可證來支持快速過濾器！"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}切換到基礎版本？{br}您的授權金鑰將保存在此電腦上，以便稍後以{b}折扣續費{/b}。{/P}{P}感謝您支持 quickFilters — 授權讓獨立軟體開發成為可能，並幫助專案持續運作。即使授權已過期，您仍可隨時續訂或從標準授權升級，以使用 {a class=features}專業功能{/a} 一整年。{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "恢復授權金鑰"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "您可以恢復先前的授權以取得更優惠的續費條件。"
+  },
+  "qf.licenseBackup.restored": {
+    "message": "您的金鑰已安全恢復。即使已過期，您仍可獲得折扣新金鑰。"
+  },
+  "qf.licenseBackup.switch": {
+    "message": "切換到基礎版本"
+  },
   "qf.licenseValidation.expired": {
-    "message": "您輸入的許可證密鑰已過期。 請按下面的按鈕更新您的許可證。"
+    "message": "您輸入的授權金鑰已過期。請按下面的按鈕續訂授權。"
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "或者，您現在可以使用基礎版本 — 之後仍可恢復授權。"
   },
   "qf.licenseValidation.failed": {
     "message": "您輸入的許可證密鑰無效。 檢查來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"

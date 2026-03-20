@@ -659,9 +659,28 @@
   "qf.label.supportWithLicense": {
     "message": "Suporte quickFilters obtendo uma licença!"
   },
-  "qf.licenseValidation.expired": {
-    "message": "A chave de licença que você digitou já expirou. Clique no botão abaixo para renovar sua licença."
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Mudar para a Versão Básica?{br}A sua chave de licença será mantida neste computador para que possa renová-la mais tarde ao {b}preço de renovação com desconto{/b}.{/P}{P}Obrigado por apoiar o quickFilters — as licenças tornam possível o desenvolvimento independente de software e ajudam a manter o projeto ativo. Mesmo após expirar, pode renovar a licença ou atualizar a partir de uma licença Standard a qualquer momento para utilizar as {a class=features}Funcionalidades Pro{/a} durante um ano completo.{/P}"
   },
+  "qf.licenseBackup.recover": {
+    "message": "Recuperar chave de licença"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Pode restaurar a licença anterior para obter condições de renovação mais vantajosas."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "A sua chave foi restaurada com sucesso. Mesmo estando expirada, pode obter uma nova chave com desconto."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Mudar para a Versão Básica"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "A chave de licença introduzida expirou. Prima o botão abaixo para renovar a licença."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Em alternativa, pode usar temporariamente a Versão Básica — pode restaurar a licença mais tarde."
+  },
+
   "qf.licenseValidation.failed": {
     "message": "A chave de licença que você digitou não é válida. Consulte instruções no email recebido da FastSpring. Se ainda estiver com problemas, entre em contato pela aba de suporte."
   },

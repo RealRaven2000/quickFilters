@@ -659,8 +659,26 @@
   "qf.label.supportWithLicense": {
     "message": "Hỗ trợ quickFilters bằng cách xin giấy phép!"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Chuyển sang Phiên bản Cơ bản?{br}Khóa giấy phép của bạn sẽ được lưu trên máy tính này để bạn có thể gia hạn sau với {b}giá gia hạn ưu đãi{/b}.{/P}{P}Cảm ơn bạn đã ủng hộ quickFilters — giấy phép giúp phát triển phần mềm độc lập trở nên khả thi và giữ cho dự án tiếp tục hoạt động. Ngay cả khi đã hết hạn, bạn vẫn có thể gia hạn hoặc nâng cấp từ giấy phép Standard bất cứ lúc nào để sử dụng {a class=features}Tính năng Pro{/a} trong một năm đầy đủ.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Khôi phục khóa giấy phép"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Bạn có thể khôi phục giấy phép trước đó để có điều kiện gia hạn tốt hơn."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Khóa của bạn đã được khôi phục an toàn. Ngay cả khi hết hạn, bạn vẫn có thể lấy khóa mới với giá ưu đãi."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Chuyển sang Phiên bản Cơ bản"
+  },
   "qf.licenseValidation.expired": {
-    "message": "Khóa cấp phép bạn nhập đã hết hạn. Vui lòng nhấn nút bên dưới để gia hạn giấy phép của bạn."
+    "message": "Khóa giấy phép bạn nhập đã hết hạn. Vui lòng nhấn nút bên dưới để gia hạn giấy phép."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Ngoài ra, bạn có thể tạm thời sử dụng Phiên bản Cơ bản — bạn vẫn có thể khôi phục giấy phép sau."
   },
   "qf.licenseValidation.failed": {
     "message": "Khóa cấp phép bạn đã nhập không hợp lệ. Kiểm tra email của bạn từ FastSpring để biết hướng dẫn. Nếu bạn vẫn gặp sự cố, vui lòng liên hệ với tôi từ tab Hỗ trợ."

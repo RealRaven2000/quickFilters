@@ -1,4 +1,9 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.11) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.11.1) 
+
+**Maintenance 6.11.1**
+*    Fixed: Replace deprecated showAlertNotification  with showAlert [issue #349]
+*    Fixed: List-Id header case sensitive 🡆 Filter creation with template "Mailing Lists" fails [issue #350]
+
 
 
 **Improvements**

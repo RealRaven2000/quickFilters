@@ -659,8 +659,26 @@
   "qf.label.supportWithLicense": {
     "message": "¡Apoye quickFilters comprando una licencia!"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}¿Cambiar a la versión Básica?{br}Tu clave de licencia se conservará en este ordenador para que puedas renovarla más adelante al {b}precio de renovación con descuento{/b}.{/P}{P}Gracias por haber apoyado a quickFilters — las licencias hacen posible el desarrollo de software independiente y ayudan a mantener el proyecto en marcha. Incluso cuando haya caducado, puedes renovar tu licencia o actualizar desde una licencia Estándar en cualquier momento para usar las {a class=features}Funciones Pro{/a} durante un año completo.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Recuperar clave de licencia"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Puedes restaurar tu licencia anterior para obtener mejores condiciones de renovación."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Tu clave se ha restaurado correctamente. Aunque estaba caducada, puedes obtener una clave nueva con descuento."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Cambiar a la versión Básica"
+  },
   "qf.licenseValidation.expired": {
-    "message": "La clave de licencia que introdujo ha caducado. Por favor, pulse el botón de debajo para renovar su licencia."
+    "message": "La clave de licencia que has introducido ha caducado. Pulsa el botón de abajo para renovar tu licencia."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Alternativamente, puedes usar la versión Básica por ahora — aún podrás restaurar tu licencia más adelante."
   },
   "qf.licenseValidation.failed": {
     "message": "La clave de licencia que ha introducido no es válida. Compruebe su correo en busca de instrucciones desde FastSpring. Si todavía tiene problemas, por favor, contacte conmigo desde la pestaña Soporte."

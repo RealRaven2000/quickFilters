@@ -1,3 +1,10 @@
+/*
+ globals  
+   formatAll,
+   insertHtmlSafely,
+
+*/
+
 
 var licenseInfo;
 
@@ -239,6 +246,65 @@ const initEventListeners = async () => {
   btnValidate.addEventListener("click", async () => {
     await quickFilters.Options.validateNewKey();
   });
+
+
+  const btnSwitchToFree = document.querySelector("#btnSwitchToFree");
+  btnSwitchToFree.addEventListener("click", async () => {
+    const dialog = document.getElementById("confirmationDialog");
+    const message = document.getElementById("confirmMessage");
+
+    function awaitDialogClose(dialog) {
+      return new Promise((resolve) => {
+        dialog.addEventListener("close", () => resolve(dialog.returnValue), { once: true });
+      });
+    }
+
+    // set your localized message
+    const html = formatAll(messenger.i18n.getMessage("qf.licenseBackup.confirmation"));
+    if (insertHtmlSafely(message, html, true)) {
+      const featureLink = message.querySelector(".features");
+      featureLink?.addEventListener("click", () => {
+        messenger.windows.openDefaultBrowser(
+          "https://quickfilters.quickfolders.org/premium.html#featureComparison",
+        );
+      });
+    }
+
+    // show modal and wait for user choice
+    dialog.showModal();
+    const choice = await awaitDialogClose(dialog);
+    if (choice !== "ok") {
+      return;
+    }
+
+    // 1. Hide the button
+    btnSwitchToFree.hidden = true;
+
+    // 2. Backup the expired license
+    await messenger.LegacyPrefs.setPref(
+      "extensions.quickfilters.LicenseKey.backup",
+      licenseInfo.licenseKey,
+    );
+
+    document.getElementById("txtLicenseKey").value = "";
+
+    // 3. Remove current license
+    await quickFilters.Options.validateNewKey();
+
+    // 4. Refresh any dependent UI (buttons / toolbar labels)
+    configureBuyButton();
+
+    // 5. Update UI - Shows message: "You can restore your previous license to get cheaper renewal conditions."
+    quickFilters.Options.updateLicenseOptionsUI();
+  });
+
+  const btnRecover = document.getElementById("btnRecoverLicense");
+  btnRecover.addEventListener("click", async () => {
+    const lastKey = await browser.LegacyPrefs.getPref("extensions.quickfilters.LicenseKey.backup");
+    document.getElementById("txtLicenseKey").value = lastKey;
+    await quickFilters.Options.validateNewKey();
+    quickFilters.Options.updateLicenseOptionsUI();
+  });
 }
 
 const initPrefs = async () => {
@@ -309,7 +375,8 @@ const startup = async () => {
   await initEventListeners();
   await initPrefs();
   quickFilters.Options.load();
-  initLicenseInfo();
+  await initLicenseInfo();
+  await quickFilters.Options.initLicenseBackupUI();  
 
   const verPanel = document.getElementById("qf-options-version");
   const manifest = browser.runtime.getManifest();

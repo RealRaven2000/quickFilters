@@ -659,8 +659,26 @@
   "qf.label.supportWithLicense": {
     "message": "Tuki quickFilters hankkimalla lisenssi!"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Vaihdetaanko Perusversioon?{br}Lisenssiavaimesi säilytetään tällä tietokoneella, jotta voit uusia sen myöhemmin {b}alennettuun uusintahintaan{/b}.{/P}{P}Kiitos, että olet tukenut quickFiltersia — lisenssit mahdollistavat riippumattoman ohjelmistokehityksen ja auttavat pitämään projektin käynnissä. Vaikka lisenssi olisi vanhentunut, voit uusia sen tai päivittää Standard-lisenssistä milloin tahansa käyttääksesi {a class=features}Pro-ominaisuuksia{/a} kokonaisen vuoden ajan.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Palauta lisenssiavain"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Voit palauttaa aiemman lisenssisi saadaksesi edullisemmat uusintaehtoja."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Avaimesi palautettiin onnistuneesti. Vaikka se oli vanhentunut, voit hankkia uuden avaimen alennuksella."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Vaihda Perusversioon"
+  },
   "qf.licenseValidation.expired": {
-    "message": "Antamasi lisenssiavain on vanhentunut. Päivitä lisenssi painamalla alla olevaa painiketta."
+    "message": "Syöttämäsi lisenssiavain on vanhentunut. Uusi lisenssisi painamalla alla olevaa painiketta."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Vaihtoehtoisesti voit toistaiseksi käyttää Perusversiota — voit palauttaa lisenssisi myöhemmin."
   },
   "qf.licenseValidation.failed": {
     "message": "Syöttämäsi lisenssiavain ei ole voimassa. Tarkista sähköpostisi FatSpringiltä saadaksesi ohjeistusta. Jos ongelmia edelleen ilmenee, ota yhteyttä minuun Tuki-välilehdeltä."

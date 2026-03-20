@@ -640,6 +640,9 @@
   "qf.label.naming.parentFolder.accesskey": {
     "message": "p"
   },
+  "qf.label.ok": {
+    "message": "Ok"
+  },
   "qf.label.premiumFeaturesSite": {
     "message": "Read more about Premium Features on our Website"
   },
@@ -664,8 +667,22 @@
   "qf.label.supportWithLicense": {
     "message": "Support quickFilters by getting a license!"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Switch to Basic version?{br}Your license key will be kept on this computer so you can renew it later at the discounted {b}renewal price{/b}.{/P}{P}Thank you for having supported quickFilters — licenses make independent software development possible and help keep the project going. Even when expired, you can renew your license or upgrade from a Standard license anytime to use the {a class=features}Pro Features{/a} for a full year.{/P}"
+  },
+  "qf.licenseBackup.recover": { "message": "Recover license key" },
+  "qf.licenseBackup.recoverable": {
+    "message": "You can restore your previous license to get cheaper renewal conditions."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Your key was safely restored. Even though it expired, you can get a fresh key for a discount."
+  },
+  "qf.licenseBackup.switch": { "message": "Switch to Basic version" },
   "qf.licenseValidation.expired": {
     "message": "The license key you entered is expired. Please press the button below to renew your license."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Alternatively, you can use the Basic version for now — you can still restore your license later."
   },
   "qf.licenseValidation.failed": {
     "message": "The license key you entered is not valid. Check your email from FastSpring for instructions. If you still have problems, please contact me from the Support tab."

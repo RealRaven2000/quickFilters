@@ -139,6 +139,7 @@ pref("extensions.quickfilters.restrictions.loadFilters.countDown", 3);
 pref("extensions.quickfilters.licenser.forceSecondaryIdentity",false);
 pref("extensions.quickfilters.licenseType", 0); // private license, 1-domain
 pref("extensions.quickfilters.LicenseKey", "");
+pref("extensions.quickfilters.LicenseKey.backup", "");
 pref("extensions.quickfilters.licenser.renewalReminder", 0); // 0 - no renewal necessary, 1 - renewal reminder, 2 - disable reminder
 pref("extensions.quickfilters.localFoldersRun", false);
 pref("extensions.quickfilters.shortcuts.folder", false);

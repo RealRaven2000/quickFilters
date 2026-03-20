@@ -659,9 +659,28 @@
   "qf.label.supportWithLicense": {
     "message": "Wesprzyj quickFilters, zdobywając licencję!"
   },
-  "qf.licenseValidation.expired": {
-    "message": "Wprowadzony klucz licencyjny stracił ważność. Naciśnij poniższy przycisk, aby odnowić swoją licencję."
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Przełączyć na Wersję Podstawową?{br}Klucz licencyjny zostanie zachowany na tym komputerze, dzięki czemu będzie można go później odnowić po {b}obniżonej cenie odnowienia{/b}.{/P}{P}Dziękujemy za wsparcie quickFilters — licencje umożliwiają niezależny rozwój oprogramowania i pomagają utrzymać projekt przy życiu. Nawet po wygaśnięciu możesz w dowolnym momencie odnowić licencję lub dokonać aktualizacji z licencji Standard, aby korzystać z {a class=features}Funkcji Pro{/a} przez pełny rok.{/P}"
   },
+  "qf.licenseBackup.recover": {
+    "message": "Odzyskaj klucz licencyjny"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Możesz przywrócić poprzednią licencję, aby uzyskać korzystniejsze warunki odnowienia."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Klucz został pomyślnie przywrócony. Mimo że wygasł, możesz uzyskać nowy klucz z rabatem."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Przełącz na Wersję Podstawową"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "Wprowadzony klucz licencyjny wygasł. Naciśnij przycisk poniżej, aby odnowić licencję."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Alternatywnie możesz tymczasowo korzystać z Wersji Podstawowej — licencję można przywrócić później."
+  },
+
   "qf.licenseValidation.failed": {
     "message": "Wprowadzony klucz licencyjny jest nieprawidłowy. Sprawdź e-mail od FastSpring, aby uzyskać instrukcje. Jeśli nadal masz problemy, skontaktuj się ze mną z zakładki Wsparcie."
   },

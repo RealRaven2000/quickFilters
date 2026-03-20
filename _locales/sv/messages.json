@@ -659,8 +659,26 @@
   "qf.label.supportWithLicense": {
     "message": "Stöd quickFilters genom att skaffa en licens!"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Byt till Grundversion?{br}Din licensnyckel sparas på den här datorn så att du kan förnya den senare till det {b}rabatterade förnyelsepriset{/b}.{/P}{P}Tack för att du stödjer quickFilters — licenser gör oberoende mjukvaruutveckling möjlig och håller projektet igång. Även när den har gått ut kan du när som helst förnya licensen eller uppgradera från en Standard-licens för att använda {a class=features}Pro-funktionerna{/a} i ett helt år.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Återställ licensnyckel"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Du kan återställa din tidigare licens för att få bättre förnyelsevillkor."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Din nyckel har återställts säkert. Även om den har gått ut kan du få en ny nyckel med rabatt."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Byt till Grundversion"
+  },
   "qf.licenseValidation.expired": {
-    "message": "Licensnyckeln du angav har förfallit. Klicka på knappen nedan för att förnya din licens."
+    "message": "Den licensnyckel du angav har gått ut. Tryck på knappen nedan för att förnya licensen."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Alternativt kan du använda Grundversionen tills vidare — du kan fortfarande återställa din licens senare."
   },
   "qf.licenseValidation.failed": {
     "message": "Licensnyckeln du angav är ogiltig. Läs instruktionerna i meddelandet du fick från FastSpring. Kontakta oss via supportfliken om problemet kvarstår."

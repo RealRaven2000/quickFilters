@@ -659,8 +659,26 @@
   "qf.label.supportWithLicense": {
     "message": "Unterstützen Sie quickFilters mit einer Lizenz!"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Auf Basisversion umschalten?{br}Ihr Lizenzschlüssel wird auf diesem Computer gespeichert, sodass Sie ihn später zum reduzierten {b}Erneuerungspreis{/b} wieder aktivieren können.{/P}{P}Vielen Dank, dass Sie quickFilters unterstützt haben — Lizenzen ermöglichen unabhängige Softwareentwicklung und halten das Projekt am Laufen. Selbst wenn der Schlüssel abgelaufen ist, können Sie Ihre Lizenz jederzeit erneuern oder von einer Standardlizenz auf die {a class=features}Pro Features{/a} upgraden und diese ein Jahr lang nutzen.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Lizenzschlüssel wiederherstellen"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Sie können Ihre vorherige Lizenz wiederherstellen, um von günstigeren Erneuerungsbedingungen zu profitieren."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Ihr Schlüssel wurde erfolgreich wiederhergestellt. Auch wenn er abgelaufen war, können Sie einen neuen Schlüssel zu einem Rabatt erhalten."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Auf Basisversion umschalten"
+  },
   "qf.licenseValidation.expired": {
-    "message": "Der eingegebene  Lizenzschlüssel ist abgelaufen. Zum Erneuern betätigen Sie bitte die Schaltfläche unten."
+    "message": "Der eingegebene Lizenzschlüssel ist abgelaufen. Bitte drücken Sie die Schaltfläche unten, um Ihre Lizenz zu erneuern."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Alternativ können Sie vorerst die Basisversion nutzen — Ihre Lizenz lässt sich jederzeit wiederherstellen."
   },
   "qf.licenseValidation.failed": {
     "message": "Der eingegebene Lizenzschlüssel ist ungültig. Bitte folgen Sie den Instruktionen Ihrer Bestätigungs Email von FastSpring. Falls Sie Probleme mit dem Validierungsprozess haben, kontaktieren Sie mich bitte über den Support tab."

@@ -248,10 +248,14 @@ function formatAll(txt) {
     .replace(/\{br\}/g, "<br>")
     .replace(/\{bold\}/g, "<b>")
     .replace(/\{\/bold\}/g, "</b>")
+    .replace(/\{b\}/g, "<b>")
+    .replace(/\{\/b\}/g, "</b>")
     .replace(/\{italic\}/g, "<i>")
     .replace(/\{\/italic\}/g, "</i>")
     .replace(/\{U\}/g, "<ul>")
     .replace(/\{\/U\}/g, "</ul>")
+    .replace(/\{a ([^}]+?)\}/g, "<a $1>")
+    .replace(/\{\/a\}/gi, "</a>")
     .replace(/\{emph\}/g, "<span class='important'>")
     .replace(/\{\/emph\}/g, "</span>")
     .replace(/\{addonName\}/g, "quickFilters")
@@ -263,7 +267,7 @@ function formatAll(txt) {
     .replace(/\{\/P\}/g, "</p>")
     .replace(
       /\{createFilterFromMessage\}/g,
-      messenger.i18n.getMessage("quickfilters.FromMessage.label")
+      messenger.i18n.getMessage("quickfilters.FromMessage.label"),
     )
     .replace(/\{autoMerge\}/g, messenger.i18n.getMessage("chkMergeAuto.label"));
 

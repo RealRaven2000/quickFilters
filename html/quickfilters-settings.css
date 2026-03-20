@@ -773,5 +773,39 @@ button.configSettings {
   max-width: 60em;
 }
 
+#confirmationDialog {
+  max-width: 700px;
+  width: 90%;
+  padding: 1.5em;
+  border-radius: 0.5em;
+  border: 1px solid #888;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+#confirmationDialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#confirmMessage {
+  white-space: pre-wrap; /* preserves \n */
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+#confirmMessage p {
+	margin-bottom: 1.3em;
+}
+
+form[method=dialog] menu {
+	text-align: center;
+}
+
+form[method=dialog] menu button {
+	font-size: 1.2em;
+   padding-block: 0.5em;
+}
+
 
 

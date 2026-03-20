@@ -659,9 +659,28 @@
   "qf.label.supportWithLicense": {
     "message": "ライセンスを取得して quickFilters をサポート"
   },
-  "qf.licenseValidation.expired": {
-    "message": "入力されたライセンスキーが有効期限切れです。下のボタンをクリックしてライセンスを更新してください。"
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}ベーシック版に切り替えますか？{br}ライセンスキーはこのコンピューターに保存され、後から{b}割引された更新価格{/b}で更新できます。{/P}{P}quickFilters をご支援いただきありがとうございます — ライセンスは独立したソフトウェア開発を可能にし、プロジェクトの継続を支えています。有効期限が切れていても、いつでもライセンスを更新するか、Standard ライセンスからアップグレードして、{a class=features}Pro 機能{/a}を1年間ご利用いただけます。{/P}"
   },
+  "qf.licenseBackup.recover": {
+    "message": "ライセンスキーを復元"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "以前のライセンスを復元して、より有利な更新条件を利用できます。"
+  },
+  "qf.licenseBackup.restored": {
+    "message": "キーは正常に復元されました。期限切れでも、割引価格で新しいキーを取得できます。"
+  },
+  "qf.licenseBackup.switch": {
+    "message": "ベーシック版に切り替え"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "入力されたライセンスキーは期限切れです。下のボタンを押してライセンスを更新してください。"
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "または、当面はベーシック版を使用できます — 後でライセンスを復元できます。"
+  },
+
   "qf.licenseValidation.failed": {
     "message": "入力されたライセンスキーが正しくありません。FastSpring からのメールに書かれた手順を確認してください。何か問題がある場合は、サポートタブからお問い合わせください。"
   },

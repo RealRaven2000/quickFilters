@@ -18,7 +18,7 @@ quickFilters.Options = {
     const activeTab = document.querySelector("nav button.active");
     if (activeTab) {
       return activeTab.value;
-    } 
+    }
     return "";
   },
 
@@ -67,16 +67,32 @@ quickFilters.Options = {
     // replace all leading whitespaces and "-"
     termsList.appendChild(document.createElement("li")).textContent = termsTxt[1].replace(
       /\s*-\s*/,
-      ""
+      "",
     );
     termsList.appendChild(document.createElement("li")).textContent = termsTxt[2].replace(
       /\s*-\s*/,
-      ""
+      "",
     );
     // [issue 329]
     document
       .getElementById("licenseDate")
       .addEventListener("click", quickFilters.Options.showExtensionButton);
+  },
+
+  initLicenseBackupUI: async function () {
+    const getElement = document.getElementById.bind(document),
+      validationKeyBackedUp = getElement("validationKeyBackedUp"),
+      btnRecover = getElement("btnRecoverLicense"),
+      txtLicense = getElement("txtLicenseKey");
+
+    btnRecover.hidden = true;
+    validationKeyBackedUp.setAttribute("collapsed", true);
+
+    const lastKey = await browser.LegacyPrefs.getPref("extensions.quickfolders.LicenseKey.backup");
+    if (lastKey?.length > 3 && !txtLicense.value) {
+      validationKeyBackedUp.removeAttribute("collapsed");
+      btnRecover.hidden = false;
+    }
   },
 
   showExtensionButton: function () {
@@ -89,7 +105,7 @@ quickFilters.Options = {
   enableProFeatures: function (isEnabled) {
     // this replaces the icon with the [Pro] logo!
     for (let el of document.querySelectorAll(
-      ".proFeature, .proFeature input, .proFeature button"
+      ".proFeature, .proFeature input, .proFeature button",
     )) {
       if (isEnabled) {
         el.removeAttribute("disabled");
@@ -118,6 +134,9 @@ quickFilters.Options = {
       validationEmailNoMatch = getElement("validationEmailNoMatch"),
       validationDate = getElement("validationDate"),
       validationDateSpace = getElement("validationDateSpace"),
+      validationKeyBackedUp = getElement("validationKeyBackedUp"),
+      btnSwitchToFree = getElement("btnSwitchToFree"),
+      btnRecover = getElement("btnRecoverLicense"),
       licenseDate = getElement("licenseDate"),
       licenseDateLabel = getElement("licenseDateLabel"),
       decryptedMail = licenseInfo.email,
@@ -130,8 +149,12 @@ quickFilters.Options = {
     validationInvalidAddon.setAttribute("collapsed", true);
     validationInvalidEmail.setAttribute("collapsed", true);
     validationEmailNoMatch.setAttribute("collapsed", true);
+    validationKeyBackedUp.setAttribute("collapsed", true);
     validationDate.setAttribute("collapsed", false);
     validationDateSpace.setAttribute("collapsed", false);
+    btnRecover.hidden = true;
+    btnSwitchToFree.hidden = true;
+
     quickFilters.Options.enableProFeatures(false);
     try {
       let niceDate = decryptedDate;
@@ -187,14 +210,26 @@ quickFilters.Options = {
             }
           }
           break;
-        case "Expired":
+        case "Expired": {
+          let expiredMsg = messenger.i18n.getMessage("qf.licenseValidation.expired");
           licenseDate.classList.add("valid");
           licenseDateLabel.value = messenger.i18n.getMessage(
-            "quickfilters.licenseValidation.expired"
+            "qf.licenseValidation.expired",
           );
           licenseDate.value = niceDate;
+
+          const expiryDate = new Date(licenseInfo.expiryDate);
+          // add 28 days
+          const graceThreshold = new Date(expiryDate.getTime() + 28 * 24 * 60 * 60 * 1000);
+          // Show Switch to Free button only if 28+ days after expiry
+          if (Date.now() >= graceThreshold.getTime()) {
+            const freeHint = messenger.i18n.getMessage("qf.licenseValidation.expired.freeHint");
+            expiredMsg += "\n" + freeHint;
+            btnSwitchToFree.hidden = false;
+          }
+          validationExpired.textContent = expiredMsg;
           quickFilters.Options.showValidationMessage(validationExpired, false); // always show
-          break;
+        } break;
         case "MailNotConfigured":
           validationDate.setAttribute("collapsed", true);
           validationDateSpace.setAttribute("collapsed", true);
@@ -218,10 +253,14 @@ quickFilters.Options = {
           Services.prompt.alert(null, "quickFilters", "Unknown license status: " + result);
           break;
       }
+      if (result == "Empty") {
+        quickFilters.Options.initLicenseBackupUI();
+      }
+
     } catch (ex) {
       quickFilters.Util.logException(
         "Error in quickFilters.Options.updateLicenseOptionsUI():\n",
-        ex
+        ex,
       );
     }
     return result;
@@ -247,27 +286,35 @@ quickFilters.Options = {
   labelLicenseBtn: function (btnLicense, validStatus) {
     switch (validStatus) {
       case "extend": {
-        let txtExtend = messenger.i18n.getMessage("quickfilters.notification.premium.btn.extendLicense");
+        let txtExtend = messenger.i18n.getMessage(
+          "quickfilters.notification.premium.btn.extendLicense",
+        );
         btnLicense.setAttribute("collapsed", false);
         btnLicense.textContent = txtExtend; // text should be extend not renew
         btnLicense.setAttribute(
           "tooltiptext",
-          messenger.i18n.getMessage("quickfilters.notification.premium.btn.extendLicense.tooltip")
+          messenger.i18n.getMessage("quickfilters.notification.premium.btn.extendLicense.tooltip"),
         );
         return txtExtend;
       }
       case "renew": {
-        let txtRenew = messenger.i18n.getMessage("quickfilters.notification.premium.btn.renewLicense");
+        let txtRenew = messenger.i18n.getMessage(
+          "quickfilters.notification.premium.btn.renewLicense",
+        );
         btnLicense.textContent = txtRenew;
         return txtRenew;
       }
       case "buy": {
-        let buyLabel = messenger.i18n.getMessage("quickfilters.notification.premium.btn.getLicense");
+        let buyLabel = messenger.i18n.getMessage(
+          "quickfilters.notification.premium.btn.getLicense",
+        );
         btnLicense.textContent = buyLabel;
         return buyLabel;
       }
       case "upgrade": {
-        let upgradeLabel = messenger.i18n.getMessage("quickfilters.notification.premium.btn.upgrade");
+        let upgradeLabel = messenger.i18n.getMessage(
+          "quickfilters.notification.premium.btn.upgrade",
+        );
         btnLicense.textContent = upgradeLabel;
         btnLicense.classList.add("upgrade"); // stop flashing
         return upgradeLabel;
@@ -318,7 +365,7 @@ quickFilters.Options = {
     } else {
       // add the [pro] icon to features that are restricted
       quickFilters.Options.enableProFeatures(false);
-    }   
+    }
   },
 
   pasteLicense: async function () {
@@ -332,7 +379,7 @@ quickFilters.Options = {
       }
     });
   },
-  
+
   selectMergeAuto: function (checkBox) {
     // MergeSkip must be unchecked!
     if (!checkBox.checked) {

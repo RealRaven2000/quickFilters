@@ -659,8 +659,26 @@
   "qf.label.supportWithLicense": {
     "message": "Support quickFilters by getting a license!"
   },
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Passer à la version Basique ?{br}Votre clé de licence sera conservée sur cet ordinateur afin que vous puissiez la renouveler ultérieurement au {b}tarif de renouvellement réduit{/b}.{/P}{P}Merci d’avoir soutenu quickFilters — les licences rendent possible le développement de logiciels indépendants et contribuent à la pérennité du projet. Même expirée, vous pouvez renouveler votre licence ou effectuer une mise à niveau depuis une licence Standard à tout moment afin d’utiliser les {a class=features}Fonctionnalités Pro{/a} pendant une année complète.{/P}"
+  },
+  "qf.licenseBackup.recover": {
+    "message": "Récupérer la clé de licence"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Vous pouvez restaurer votre licence précédente afin de bénéficier de meilleures conditions de renouvellement."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Votre clé a été restaurée avec succès. Bien qu’elle ait expiré, vous pouvez obtenir une nouvelle clé à prix réduit."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Passer à la version Basique"
+  },
   "qf.licenseValidation.expired": {
-    "message": "La clé de licence saisie a expiré. Veuillez cliquer sur le bouton ci-dessous pour renouveler votre licence."
+    "message": "La clé de licence que vous avez saisie a expiré. Veuillez cliquer sur le bouton ci-dessous pour renouveler votre licence."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Vous pouvez également utiliser la version Basique pour le moment — vous pourrez restaurer votre licence ultérieurement."
   },
   "qf.licenseValidation.failed": {
     "message": "La clé de licence que vous avez saisie n'est pas valide. Vérifiez votre courriel de FastSpring pour des instructions complémentaires. Si vous rencontrez encore des problèmes, veuillez me contacter à partir de l'onglet d'aide."

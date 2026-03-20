@@ -659,9 +659,28 @@
   "qf.label.supportWithLicense": {
     "message": "Ondersteun quickFilters door een licentie aan te schaffen!"
   },
-  "qf.licenseValidation.expired": {
-    "message": "De ingevoerde licentiesleutel is verlopen. Klik op de onderstaande knop om uw licentie te vernieuwen."
+  "qf.licenseBackup.confirmation": {
+    "message": "{P}Overschakelen naar de Basisversie?{br}Je licentiesleutel wordt op deze computer bewaard zodat je deze later kunt verlengen tegen het {b}gereduceerde verlengingstarief{/b}.{/P}{P}Dank je wel voor het ondersteunen van quickFilters — licenties maken onafhankelijke softwareontwikkeling mogelijk en helpen het project draaiende te houden. Zelfs wanneer de licentie is verlopen, kun je deze op elk moment verlengen of upgraden vanaf een Standard-licentie om een volledig jaar gebruik te maken van de {a class=features}Pro-functies{/a}.{/P}"
   },
+  "qf.licenseBackup.recover": {
+    "message": "Licentiesleutel herstellen"
+  },
+  "qf.licenseBackup.recoverable": {
+    "message": "Je kunt je vorige licentie herstellen om van gunstigere verlengingsvoorwaarden te profiteren."
+  },
+  "qf.licenseBackup.restored": {
+    "message": "Je sleutel is succesvol hersteld. Ook al was deze verlopen, je kunt een nieuwe sleutel met korting verkrijgen."
+  },
+  "qf.licenseBackup.switch": {
+    "message": "Overschakelen naar de Basisversie"
+  },
+  "qf.licenseValidation.expired": {
+    "message": "De ingevoerde licentiesleutel is verlopen. Druk op de knop hieronder om je licentie te verlengen."
+  },
+  "qf.licenseValidation.expired.freeHint": {
+    "message": "Je kunt ook voorlopig de Basisversie gebruiken — je kunt je licentie later herstellen."
+  },
+
   "qf.licenseValidation.failed": {
     "message": "De ingevoerde licentiesleutel is ongeldig. Lees uw e-mailbericht van FastSpring voor instructies. Als de problemen aanhouden, neem dan contact met me op via het tabblad Ondersteuning."
   },
