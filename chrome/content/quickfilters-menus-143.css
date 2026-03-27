@@ -4,6 +4,10 @@
   --menuitem-icon: url("chrome://quickfilters/content/skin/blank.svg");
 }
 
+#quickFiltersMainPopup menu, #quickFiltersMainPopup menuitem {
+  fill: currentColor;
+}
+
 #quickfilters-gopro {
   --menuitem-icon: url("chrome://quickfilters/content/skin/pro-expired.svg") !important;
 }
@@ -15,6 +19,7 @@
 
 #quickfilters-toggleAssistant {
   --menuitem-icon: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
+  -moz-context-properties: fill, fill-opacity, stroke;
 }
 
 #quickfilters-menu-registration {

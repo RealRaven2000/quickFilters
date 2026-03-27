@@ -30,6 +30,7 @@
 #quickfilters-current-searchfilterbutton,
 #quickfilters-menu-searchfilters {
   list-style-image: url("chrome://quickfilters/content/skin/searchFilters.svg");
+  -moz-context-properties: fill, fill-opacity, stroke;
 }
 
 #quickfilters-current-msg-runbutton {
@@ -46,18 +47,23 @@
 
 #quickfilters-toggleAssistant {
   list-style-image: url("chrome://quickfilters/content/skin/QuickFilters.svg") !important;
+  -moz-context-properties: fill, fill-opacity, stroke;
 }
 
 #quickfilters-runFilters {
   list-style-image: url("chrome://quickfilters/content/skin/runFilters.svg");
+  -moz-context-properties: fill, fill-opacity, stroke;
 }
 
 #quickfilters-runFiltersMsg {
   list-style-image: url("chrome://quickfilters/content/skin/runFilters-selected.svg");
+  -moz-context-properties: fill, fill-opacity, stroke;
 }
 
 #quickfilters-settings {
   list-style-image: url("chrome://quickfilters/content/skin/settings-simple.svg");
+  -moz-context-properties: fill, fill-opacity, stroke;
+
 }
 
 #quickfilters-checkLicense {
@@ -70,6 +76,8 @@
 
 #quickfilters-news, #quickfilters-changelog {
   list-style-image: url("chrome://quickfilters/content/skin/info.svg") !important;
+  -moz-context-properties: fill, fill-opacity, stroke;
+
 }
 
 #quickfilters-gopro {
@@ -144,6 +152,7 @@
 
 #quickfilters-menu-tools {
   list-style-image: url("chrome://quickfilters/content/skin/wrench.svg");
+  -moz-context-properties: fill, fill-opacity, stroke;
 }
 
 #quickfilters-toolbar-runbutton {
