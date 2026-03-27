@@ -2271,6 +2271,7 @@ quickFilters.Util = {
   checkCustomHeaderExists: function (hdr) {
     // see http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/CustomHeaders.js#19
     const Ci = Components.interfaces;
+    hdr = hdr.toLowerCase();
     let hdrs = Services.prefs.getCharPref("mailnews.customHeaders"),
       ArrayHdrs;
     if (!hdrs) {
@@ -2284,7 +2285,7 @@ quickFilters.Util = {
       }
     }
     for (let i = 0; i < ArrayHdrs.length; i++) {
-      if (ArrayHdrs[i] == hdr) {
+      if (ArrayHdrs[i].toLowerCase() == hdr) {
         return i + Ci.nsMsgSearchAttrib.OtherHeader + 1; // custom Header exists, return id
         // 52 (Tb) is for showing customize - in ui headers start from 53 onwards up until 99.
         // 59 (Pb)
