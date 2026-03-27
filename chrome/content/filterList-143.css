@@ -15,3 +15,6 @@
   --menuitem-icon: url("chrome://quickfilters/content/skin/paste.svg") !important;
 }
 
+#quickFiltersRemoveDuplicate {
+ --menuitem-icon: url("chrome://quickfilters/content/skin/duplicates.svg");
+}
