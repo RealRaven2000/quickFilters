@@ -193,7 +193,7 @@ END LICENSE BLOCK
     # bring assistant to foreground if lock is on and user tries to spawn a new one
     # Custom Template Editor / Filter Editor: gFilter was removed in modern versions of Thunderbird
 
-  6.11 - WIP
+  6.11 - 27/01/2026
     # [issue 346] - _toggleMessageTag was moved in Tb145, see [bug 1990790]
     # [issue 290] Add parent folder names in Filter Name for "Move / copy Message" actions
     # [issue 341] Message Filters ⇒ New... ⇒ Copy... creates TWO Copies
@@ -201,7 +201,17 @@ END LICENSE BLOCK
     # [issue 343] Enhance Filter Naming: Add Subject Keyword Blacklist and Multi-Topic Support
     # [issue 344] Improved subject matching: detect subjects starting with the same word combos
     # Removed old settings dialog (xul will be deprecated in the future)
-    
+
+  6.12 - WIP
+    # Compatibility with Thunderbird 151
+    # [issue 349] Replace deprecated showAlertNotification with showAlert
+    # [issue 350] List-Id header case sensitive 🡆 Filter creation with template "Mailing Lists" fails
+    # [issue 354] Add “Switch to Free version” option and license backup / recovery after key expiry 
+    # [issue 346] quickFilter assistant does not trigger after manual tag changes (Tb 147) 
+    # [issue 356] Right-click on Thunderbird account in folder tree shows an error in console
+    # [issue 357] Toolbar Icons should reflect the main theme color
+    # [issue 359] Remove duplicate condition - context menu missing icon
+
 
   ============================================================================================================
   6.* - WIP
@@ -1655,14 +1665,11 @@ var quickFilters = {
       console.log("listenerFlagChanged - new tags:", item, oldFlag, newFlag, newTags);
     }
     if (!quickFilters.Preferences.getBoolPref("listener.tags")) {
-      return; // ignore tag changes.
+      return false; // ignore tag changes categorically.
     }
     if (newTags.length) {
       // tags have been added.
       if (!quickFilters.Util.AssistantActive) {
-        return false;
-      }
-      if (!quickFilters.Preferences.getBoolPref("listener.tags")) {
         return false;
       }
       let messages = quickFilters.Util.getSelectedMessages();
@@ -2127,6 +2134,9 @@ quickFilters.removeFolderListeners = function() {
 
 // jcranmer suggest using this
 // quickFilters.notificationService.addListener(quickFilters.MsgFolderListener, Ci.nsIFolderListener.all);
+// Problem: any folder listener cannot distinguish between user interaction and filter caused changes
+//          =>  we must never trigger the assistant if a filter changes mail metadata / headers !!!!
+//          therefore we are forced to monkey patch the command controller 
 quickFilters.addTagListener = function(win) {
   const util = quickFilters.Util,
     prefs = quickFilters.Preferences;
@@ -2165,7 +2175,7 @@ quickFilters.addTagListener = function(win) {
   win.quickFilters_ToggleMessageTag = currentTogglerFunction; // store namespaced original in window
 
   // closure the window
-  owningObject._toggleMessageTag = function ToggleMessageTagWrapped(tag, checked) {
+  owningObject._toggleMessageTag = function (tag, checked) {
     // call the original function (tag setter) first
     let tmt = win.quickFilters_ToggleMessageTag;
     util.logDebugOptional(

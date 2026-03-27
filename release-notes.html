@@ -1,23 +1,42 @@
-The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.11">quickFilters Change Log</a>
+The full log with screenshots is available at:
+<a href="https://quickfilters.quickfolders.org/version.html#6.12">quickFilters Change Log</a>
+
+<b>6.12</b>
+
 
 <b>Improvements</b>
 <ul>
-<li>Added option for extracting parent folder names in default filter naming for "Move / copy Message" actions <a href="https://github.com/RealRaven2000/quickFilters/issues/290">[issue 290]</a></li>
-<li>Allow merging of a single mail to group filter <a href="https://github.com/RealRaven2000/quickFilters/issues/342">[issue 342]</a></li>
-<li>Enhanced Filter Naming: configurable blacklist that removes words from subject and possibility to extract multiple bracketed expressions from an email subject. <a href="https://github.com/RealRaven2000/quickFilters/issues/343">[issue 343]</a></li>
-<li>Improved subject matching: detect subjects starting with the same word combos <a href="https://github.com/RealRaven2000/quickFilters/issues/344">[issue 344]</a></li>
-</ul> 
+  <li>Compatibility with Thunderbird 151</li>
+  <li>Added: “Switch to Free Version” option and license backup / recovery after key expiry
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/354">[issue 354]</a>
+  </li>
+  <li>Improved: Toolbar icons now reflect the main theme color
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/357">[issue 357]</a>
+  </li>
+</ul>
 
 <b>Bug Fixes</b>
 <ul>
-<li>Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. <a href="https://github.com/RealRaven2000/quickFilters/issues/341"></a>[issue 341]</li>
-</ul> 
-
-<b>Miscellaneus</b>
-<ul>
-<li> Retired the old settings dialog (xul will be deprecated in the future) </li>
+  <li>Fixed: Replaced deprecated <code>showAlertNotification</code> with <code>showAlert</code>
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/349">[issue 349]</a>
+  </li>
+  <li>Fixed: List-Id header case sensitivity caused filter creation with template "Mailing Lists" to fail. From now on, all custom header comparisons are case-insensitive for higher stability. 
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/350">[issue 350]</a>
+  </li>
+  <li>Fixed: quickFilters Assistant is now again triggered by manual tag changes (broken in Thunderbird 147)
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/346">[issue 346]</a>
+  </li>
+  <li>Fixed: “Remove duplicate condition” context menu item was missing an icon
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/359">[issue 359]</a>
+  </li>
 </ul>
 
+<b>Miscellaneous</b>
+<ul>
+  <li>Fixed: Right-clicking a Thunderbird account in the folder tree caused a console error
+    <a href="https://github.com/RealRaven2000/quickFilters/issues/356">[issue 356]</a>
+  </li>
+</ul>
 
 All development and free support work for quickFilters is financed via the <a href="http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN">quickFilters 
 Pro license</a> which also adds some <a href="https://quickfilters.quickfolders.org/premium.html#featureList">additional features.</a>
