@@ -1258,13 +1258,14 @@ quickFilters.List = {
   } ,
   // gets string from search-attributes.properties
   getSearchAttributeString: function (id, defaultText) {
+    // https://searchfox.org/comm-central/source/mailnews/search/content/searchWidgets.js#525
+    // MozSearchAttribute.valueLabel .valueIds .valueStrings
     let s;
     try {
-      s = this.bundleSA.GetStringFromName(id); 
-    }
-    catch(e) {
+      s = this.bundleSA.GetStringFromName(id);
+    } catch (e) {
       s = defaultText;
-      quickFilters.Util.logException ("Could not retrieve bundle string: " + id, e);
+      quickFilters.Util.logException("Could not retrieve bundle string: " + id, e);
     }
     return s;
   } ,  
