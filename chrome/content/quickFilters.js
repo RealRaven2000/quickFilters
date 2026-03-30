@@ -213,6 +213,7 @@ END LICENSE BLOCK
     # [issue 359] Remove duplicate condition - context menu missing icon
 
   6.12.1 - WIP
+    # [issue 360] Domain Renewal mislabelled. 
 
 
   ============================================================================================================
