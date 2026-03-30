@@ -32,13 +32,11 @@
 
 #btnLicense.register, #btnLicense.expired {
   animation: quickfiltersPulse  2s infinite cubic-bezier(0.66, 0, 0, 1);
-	box-shadow: 0 0 0 0px rgba(40, 40, 40, 0.0);
 }
 
 #btnLicense.register:hover, #btnLicense.expired:hover {
 	animation-play-state: paused;
 	opacity: 1 !important;
-	font-size: 1.3em !important;
 }
 
 #btnLicense label,

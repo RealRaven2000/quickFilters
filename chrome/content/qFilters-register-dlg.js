@@ -86,11 +86,12 @@ var Register = {
   
   updateLicenseUI: async function() {
     const licenseInfo = quickFilters.Util.licenseInfo,
-          getElement = document.getElementById.bind(document),
-          util = quickFilters.Util;
+      getElement = document.getElementById.bind(document),
+      util = quickFilters.Util;
     
     let decryptedDate = licenseInfo.expiryDate;
     let btnLicense = getElement('btnLicense');
+    let btnDomainLicense = getElement('btnDomainLicense');
     btnLicense.label = util.getBundleString("buyPersonalLicense.button","Buy Personal License!");
     if (decryptedDate) {
 			if (util.isDebug) {
@@ -107,13 +108,35 @@ var Register = {
 
 			if (licenseInfo.status == "Expired" || licenseInfo.status == "Valid") {
 				if(licenseInfo.status == "Expired") {
-					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.renewLicense", "Renew License!");
+          const renewalText = util.getBundleString(
+            "quickfilters.notification.premium.btn.renewLicense",
+            "Renew License!",
+          );
+          if (licenseInfo.keyType == 1) {
+            // domain license
+            btnDomainLicense.label = renewalText;
+          } else {
+            btnLicense.label = renewalText;
+          }
         } else {
-					btnLicense.label = util.getBundleString("quickfilters.notification.premium.btn.extendLicense", "Extend License!");
-					// add tooltip
-					btnLicense.setAttribute('tooltiptext',
-					  util.getBundleString("quickfilters.notification.premium.btn.extendLicense.tooltip", 
-						  "This will extend the current license date by 1 year. It's typically cheaper than a new license."));
+          const extendText = util.getBundleString(
+            "quickfilters.notification.premium.btn.extendLicense",
+            "Extend License!",
+          );
+          if (licenseInfo.keyType == 1) { 
+            // domain license
+            btnDomainLicense.label = extendText;
+          } else {
+            btnLicense.label = extendText;
+            // add tooltip
+            btnLicense.setAttribute(
+              "tooltiptext",
+              util.getBundleString(
+                "quickfilters.notification.premium.btn.extendLicense.tooltip",
+                "This will extend the current license date by 1 year. It's typically cheaper than a new license.",
+              ),
+            );
+          }
 				}
 
 				btnLicense.classList.add('expired');

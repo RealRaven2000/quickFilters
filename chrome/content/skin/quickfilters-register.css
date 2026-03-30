@@ -99,6 +99,8 @@ td {
   padding: 0.3em 1em 0.2em 1em;
   text-shadow: 1px 1px 0 0 rgba(40,30,0,0.3);
   vertical-align: middle;
+  white-space: nowrap collapse;
+  word-wrap: unset;
 }
 .para {
   margin: 0.5em 0;

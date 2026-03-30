@@ -21,6 +21,7 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 **Miscellaneus**
 
 *   Fixed: Right-clicking a Thunderbird account in the folder tree caused a console error [issue #356]
+*   Domain Renewal mislabelled. [issue #360]
 
 
 All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features.](https://quickfilters.quickfolders.org/premium.html#featureList)
