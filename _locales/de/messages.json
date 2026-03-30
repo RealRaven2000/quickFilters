@@ -1485,7 +1485,7 @@
     "message": "{L}Kompatibilität mit Thunderbird 151{/L}{L}Option „Zur kostenlosen Version wechseln“ sowie Sicherung / Wiederherstellung der Lizenz nach Ablauf des Schlüssels hinzugefügt [issue 354]{/L}{L}Symbolleisten-Icons spiegeln nun die Hauptfarbe des Themes wider [issue 357]{/L}{L}Problem mit Groß-/Kleinschreibung im List-Id-Header behoben, das das Erstellen von Filtern mit der Vorlage „Mailing Lists“ verhinderte. Benutzerdefinierte Header-Vergleiche sind jetzt nicht mehr von Groß- und Kleinschreibung abhängig. [issue 350]{/L}{L}Problem behoben, dass der quickFilters-Assistent nach manuellen Tag-Änderungen (Thunderbird 147) nicht ausgelöst wurde [issue 346]{/L}"
   },
   "window-title": {
-    "description": "Seitentitel. Der erste placeholder wird durch den Add-on Namen ersetzt",
+    "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Willkommen zu $addonName$",
     "placeholders": {
       "addonName": {

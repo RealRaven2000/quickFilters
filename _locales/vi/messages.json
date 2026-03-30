@@ -1481,7 +1481,7 @@
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{L}Thêm tùy chọn trích xuất tên thư mục cha trong quy tắc đặt tên bộ lọc cho các hành động Di chuyển/Sao chép [issue 290]{/L}{L}Cải thiện đặt tên bộ lọc: danh sách đen có thể cấu hình để loại bỏ từ trong chủ đề; cũng thêm khả năng trích xuất nhiều biểu thức trong dấu ngoặc từ chủ đề email. [issue 343]{P}Bạn có thể cấu hình tất cả quy tắc đặt tên mới trên trang \"Thuộc tính bộ lọc mới\".{/P}{/L}{L}Cải thiện việc khớp chủ đề cho các tin nhắn bắt đầu bằng các tổ hợp từ phổ biến. [issue 344]{/L}{L}Bây giờ bạn có thể gộp một email vào bộ lọc nhóm. [issue 342]{/L}{L}Sửa lỗi khi sao chép bộ lọc tạo ra hai bản sao [issue 341]{/L}{L}Sửa lỗi quickFilter assistant không kích hoạt sau khi thay đổi nhãn thủ công trong Thunderbird 145+ [Bugzilla 1990790]. [issue 346]{/L}{L}Ngừng sử dụng hộp thoại cài đặt cũ dựa trên XUL đã lỗi thời.{/L}"
+    "message": "{L}Tương thích với Thunderbird 151{/L}{L}Thêm tùy chọn “Chuyển sang phiên bản miễn phí” và sao lưu / khôi phục giấy phép sau khi khóa hết hạn [issue 354]{/L}{L}Các biểu tượng thanh công cụ giờ phản ánh màu chủ đề chính [issue 357]{/L}{L}Đã sửa lỗi phân biệt chữ hoa/thường trong tiêu đề List-Id gây lỗi khi tạo bộ lọc từ mẫu “Mailing Lists”. So sánh tiêu đề tùy chỉnh hiện không phân biệt chữ hoa/thường. [issue 350]{/L}{L}Đã sửa lỗi quickFilters Assistant không kích hoạt sau khi thay đổi thẻ thủ công (Thunderbird 147) [issue 346]{/L}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

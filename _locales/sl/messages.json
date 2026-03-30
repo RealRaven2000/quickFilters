@@ -280,7 +280,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇮 change log",
-    "message": "{L}Dodana možnost pridobivanja imen nadrejenih map v pravilih poimenovanja filtrov za akcije Premakni/Kopiraj sporočila [issue 290]{/L}{L}Izboljšano poimenovanje filtrov: konfigurabilen črni seznam, ki odstrani besede iz zadeve; dodana tudi možnost pridobivanja več izrazov v oglatih oklepajih iz zadeve e-pošte. [issue 343]{P}Vsa nova pravila poimenovanja lahko nastavite na strani \"Lastnosti novega filtra\".{/P}{/L}{L}Izboljšano ujemanje zadeve za sporočila, ki se začnejo z istimi kombinacijami besed. [issue 344]{/L}{L}Zdaj lahko združite eno e-pošto v skupinski filter. [issue 342]{/L}{L}Odpravljen problem, ko je kopiranje filtra ustvarjalo dve kopiji [issue 341]{/L}{L}Odpravljen problem, ko quickFilter pomočnik ni deloval po ročnih spremembah oznak v Thunderbird 145+ [Bugzilla 1990790]. [issue 346]{/L}{L}Odstrnjen stari dialog nastavitev, ki temelji na zastarelem XUL.{/L}"
+    "message": "{L}Združljivost s Thunderbird 151{/L}{L}Dodana možnost »Preklopi na brezplačno različico« ter varnostno kopiranje / obnovitev licence po poteku ključa [issue 354]{/L}{L}Ikone orodne vrstice zdaj odražajo glavno barvo teme [issue 357]{/L}{L}Odpravljena občutljivost na velike/male črke v glavi List-Id, ki je povzročala napake pri ustvarjanju filtrov iz predloge »Mailing Lists«. Primerjave glav po meri zdaj niso občutljive na velike/male črke. [issue 350]{/L}{L}Odpravljena težava, da se pomočnik quickFilters ni sprožil po ročnih spremembah oznak (Thunderbird 147) [issue 346]{/L}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

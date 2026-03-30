@@ -1481,7 +1481,7 @@
   },
   "whats-new-list": {
     "description": "🇫🇮 change log",
-    "message": "{L}Lisätty vaihtoehto pääkansioiden nimen poimimiseen suodattimien nimeämissäännöissä Siirrä/Kopioi-toiminnoissa [issue 290]{/L}{L>Parannettu suodattimen nimeämistä: konfiguroitava musta lista, joka poistaa sanat aiheesta; lisätty myös mahdollisuus poimia useita hakasulkeissa olevia ilmauksia sähköpostin aiheesta. [issue 343]{P}Voit määrittää kaikki uudet nimeämissäännöt \"Uuden suodattimen ominaisuudet\" -sivulla.{/P}{/L}{L>Parannettu viestien aiheen tunnistusta samoilla sanayhdistelmillä alkaville viesteille. [issue 344]{/L}{L}Voit nyt yhdistää yksittäisen sähköpostin ryhmäsuodattimeen. [issue 342]{/L}{L}Korjattu ongelma, jossa suodattimen kopiointi loi kaksi kopiota [issue 341]{/L}{L}Korjattu quickFilter-avustaja ei aktivoitunut manuaalisten tunnistemuutosten jälkeen Thunderbird 145+:ssa [Bugzilla 1990790]. [issue 346]{/L}{L}Poistettu vanha XUL-pohjainen asetukset-dialogi.{/L}"
+    "message": "{L}Yhteensopivuus Thunderbird 151:n kanssa{/L}{L}Lisätty “Vaihda ilmaiseen versioon” -vaihtoehto sekä lisenssin varmuuskopiointi / palautus avaimen vanhentumisen jälkeen [issue 354]{/L}{L}Työkalupalkin kuvakkeet heijastavat nyt teeman pääväriä [issue 357]{/L}{L}Korjattu List-Id-otsakkeen kirjainkoon herkkyys, joka aiheutti virheitä luotaessa suodattimia “Mailing Lists” -mallista. Mukautettujen otsakkeiden vertailu ei enää huomioi kirjainkokoa. [issue 350]{/L}{L}Korjattu quickFilters-avustajan käynnistymättömyys manuaalisten tunnisteiden muutosten jälkeen (Thunderbird 147) [issue 346]{/L}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

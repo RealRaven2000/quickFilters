@@ -437,7 +437,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇿 change log",
-    "message": "{L}Přidána možnost získat názvy nadřazených složek v pravidlech pojmenování filtrů pro akce Přesun/Kopírovat zprávu [issue 290]{/L}{L}Vylepšené pojmenování filtrů: konfigurovatelný blacklist, který odstraňuje slova z předmětu; také přidána možnost extrahovat více výrazů v hranatých závorkách z předmětu emailu. [issue 343]{P}Všechny nové pravidla pojmenování lze nastavit na stránce \"Vlastnosti nového filtru\".{/P}{/L}{L}Zlepšené porovnávání předmětů pro zprávy začínající stejnými kombinacemi slov. [issue 344]{/L}{L}Nyní můžete sloučit jednotlivý email do skupinového filtru. [issue 342]{/L}{L}Opraven problém, kdy kopírování filtru vytvářelo dvě kopie [issue 341]{/L}{L}Opraveno, že quickFilter asistent se nespouštěl po ručních změnách štítků v Thunderbird 145+ [Bugzilla 1990790]. [issue 346]{/L}{L}Zrušen starý dialog nastavení založený na zastaralém XUL.{/L}"
+    "message": "{L}Kompatibilita s Thunderbirdem 151{/L}{L}Přidána možnost „Přepnout na bezplatnou verzi“ a záloha / obnova licence po vypršení klíče [issue 354]{/L}{L}Ikony panelu nástrojů nyní odrážejí hlavní barvu motivu [issue 357]{/L}{L}Opravena citlivost na velikost písmen v hlavičce List-Id, která způsobovala selhání při vytváření filtrů ze šablony „Mailing Lists“. Porovnání vlastních hlaviček nyní nerozlišuje velikost písmen. [issue 350]{/L}{L}Opraveno nespouštění asistenta quickFilters po ručních změnách štítků (Thunderbird 147) [issue 346]{/L}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

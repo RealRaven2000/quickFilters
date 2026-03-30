@@ -1479,7 +1479,7 @@
   },
   "whats-new-list": {
     "description": "🇵🇱 change log",
-    "message": "{L}Dodano opcję wyciągania nazw folderów nadrzędnych w regułach nazewnictwa filtrów dla akcji Przenieś/Kopiuj wiadomość [issue 290]{/L}{L}Ulepszone nazewnictwo filtrów: konfigurowalna czarna lista usuwająca słowa z tematu; dodano również możliwość wyodrębniania wielu wyrażeń w nawiasach z tematu wiadomości e-mail. [issue 343]{P}Wszystkie nowe reguły nazewnictwa można skonfigurować na stronie \"Właściwości nowego filtru\".{/P}{/L}{L}Ulepszono dopasowywanie tematów wiadomości zaczynających się od tych samych kombinacji słów. [issue 344]{/L}{L}Można teraz połączyć pojedynczą wiadomość w filtr grupowy. [issue 342]{/L}{L}Naprawiono problem, w którym kopiowanie filtru tworzyło dwie kopie [issue 341]{/L}{L}Naprawiono, że asystent quickFilter nie uruchamiał się po ręcznych zmianach tagów w Thunderbird 145+ [Bugzilla 1990790]. [issue 346]{/L}{L}Wycofano stary dialog ustawień oparty na przestarzałym XUL.{/L}"
+    "message": "{L}Zgodność z Thunderbird 151{/L}{L}Dodano opcję „Przełącz na wersję darmową” oraz kopię zapasową / odzyskiwanie licencji po wygaśnięciu klucza [issue 354]{/L}{L}Ikony paska narzędzi odzwierciedlają teraz główny kolor motywu [issue 357]{/L}{L}Naprawiono wrażliwość na wielkość liter w nagłówku List-Id, która powodowała błędy podczas tworzenia filtrów z szablonu „Mailing Lists”. Porównania nagłówków niestandardowych nie uwzględniają wielkości liter. [issue 350]{/L}{L}Naprawiono brak uruchamiania asystenta quickFilters po ręcznych zmianach tagów (Thunderbird 147) [issue 346]{/L}"
   },
   "window-title": {
     "message": "Witamy w $addonName$",
