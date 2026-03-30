@@ -1,28 +1,26 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.11.1) 
+**Release 6.15**
 
-**Maintenance 6.11.1**
-*    Fixed: Replace deprecated showAlertNotification  with showAlert [issue #349]
-*    Fixed: List-Id header case sensitive 🡆 Filter creation with template "Mailing Lists" fails [issue #350]
-
-
+QuickFolders has been fully modernized for 2026, with a refreshed user interface, improved usability, and enhanced theme support — making your folder management faster, cleaner, and more intuitive than ever. Try the new **Thunderbird Tabs** theme for a fresh, minimalist experience.
 
 **Improvements**
 
-*   Added option for extracting parent folder names in default filter naming rules for Move/Copy actions [issue #290]
-*   Allow merging of a single mail to group filter [issue #342]
-*   Enhanced Filter Naming: configurable blacklist that removes words from subject and possibility to extract multiple bracketed expressions from an email subject. [issue #343]
-*   Improved subject matching: detect subjects starting with the same word combos [issue #344]
-
+* Flat Style improvement: the active folder now highlights with the user-assigned tab color (if set). You can revert to the original behavior in theme settings [issue #646]  
+* Redesigned themes: Native Tabs and Pushbuttons refreshed with a new layout [issue #643]  
+* Toolbar icons now reflect the main theme colors instead of using hard-coded values, improving consistency especially in custom themes [issue #655]  
+* Improved theme handling: switching themes now resets layout rules for full fidelity [issue #650]  
+* New Pro feature: show the account name of the current folder instead of the QuickFolders label [issue #648]  
+* Custom icons in the folder tree are now automatically resized and no longer cropped when too large [issue #619]  
+* Added an option to temporarily switch to the Basic version after license expiry without losing your license. The license key is backed up locally and can be restored later [issue #652]  
 
 **Bug Fixes**
 
-*   Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. [issue #341]
+* Fixed duplicate custom icons in the folder tree on Thunderbird 148 [issue #633]  
+* Fixed non-working menu items in the QuickFolders Commands submenu [issue #639]  
+* Fixed broken XHTML dialog "Change order of tabs" [issue #647]  
+* Fixed: Removed custom folder icon reappeared after restarting Thunderbird [issue #651]  
+* Fixed: Changes in Advanced search settings ("quickMove Advanced Settings") were not stored [issue #654]  
 
+**Miscellaneous**
 
-**Miscellaneus**
-
-*   Retired the old settings dialog (xul will be deprecated in the future)
-
-
-
-All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features.](https://quickfilters.quickfolders.org/premium.html#featureList)
+* Removed usage of PluralForm.sys.mjs to align with Thunderbird code changes [issue #653]  
+* Removed unnecessary console errors from quickfolders-util.js  
