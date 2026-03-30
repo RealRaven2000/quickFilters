@@ -202,7 +202,7 @@ END LICENSE BLOCK
     # [issue 344] Improved subject matching: detect subjects starting with the same word combos
     # Removed old settings dialog (xul will be deprecated in the future)
 
-  6.12 - WIP
+  6.12 - 30/03/2026
     # Compatibility with Thunderbird 151
     # [issue 349] Replace deprecated showAlertNotification with showAlert
     # [issue 350] List-Id header case sensitive 🡆 Filter creation with template "Mailing Lists" fails
@@ -211,6 +211,8 @@ END LICENSE BLOCK
     # [issue 356] Right-click on Thunderbird account in folder tree shows an error in console
     # [issue 357] Toolbar Icons should reflect the main theme color
     # [issue 359] Remove duplicate condition - context menu missing icon
+
+  6.12.1 - WIP
 
 
   ============================================================================================================
