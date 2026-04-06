@@ -30,13 +30,15 @@
 
 
 
-#btnLicense.register, #btnLicense.expired {
+#btnLicense.attention, #btnLicense.attention {
   animation: quickfiltersPulse  2s infinite cubic-bezier(0.66, 0, 0, 1);
+	box-shadow: 0 0 0 0px rgba(40, 40, 40, 0.0);
 }
 
-#btnLicense.register:hover, #btnLicense.expired:hover {
+#btnLicense.attention:hover, #btnLicense.attention:hover {
 	animation-play-state: paused;
 	opacity: 1 !important;
+	font-size: 1.3em !important;
 }
 
 #btnLicense label,
@@ -46,30 +48,26 @@
   padding: 0.6em 1em;
 }
 
-button.register {
-	cursor: pointer;
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-  font-size: 11pt;
-	font-style: normal;
-	margin: 2px 2px 2px 2px !important;
-}
-
-button.register {
+#btnLicense, #btnDomainLicense {
 	appearance: none;
 	background-color: rgb(7, 97, 48) !important;
 	background: linear-gradient(to bottom, rgba(184,211,27,1) 0%,rgba(122,166,18,1) 50%,rgba(92,138,0,1) 51%,rgba(135,181,19,1) 100%);
 	border: 1px solid #fff;
 	border-radius: 0.4em;
-	box-shadow: 3px 3px 4px -1px rgba(0, 0, 0, 0.5);
 	color: #FFFFFF !important;
+	cursor: pointer;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+	font-style: normal;
+	margin: 2px 2px 2px 2px !important;
+	min-height: 36px;
 	font-weight: bold;
 	transition-property: box-shadow, margin;
 	transition-duration: 0.75s, 0.2s;
 	list-style-image: url("QuickFilters_32.svg");
 }
 
-button.register:hover {
-	/* margin: 4px 0px 0px 4px !important; */
+button.attention:hover {
 	box-shadow: 2px 2px 2px -1px rgba(0, 0, 0, 0.8);
 	background: rgb(254,222,178);
 	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%);
@@ -78,7 +76,7 @@ button.register:hover {
 
 #btnSwitchToFree, #btnRecoverLicense {
   background-color: rgba(180,150,20,1) !important; 
-  background-color: rgb(18, 110, 66) !important; /* slightly more teal */
+  background-color: rgb(18, 110, 66) !important;
     background: linear-gradient(to bottom, rgba(220,200,50,1) 0%, rgba(180,150,20,1) 50%, rgba(140,110,10,1) 51%, rgba(190,160,30,1) 100%
   ) !important;
 	margin-left: 2em !important;
@@ -97,10 +95,8 @@ button.register:hover {
 }
 
 #btnLicense:active,
-#btnDomainLicense:active
-{
+#btnDomainLicense:active {
 	margin: 4px 0px 0px 4px !important;
-	box-shadow: 1px 1px 2px -1px rgba(0, 0, 0, 0.9);
 	background: rgb(254,222,178);
 	background: linear-gradient(to bottom, rgba(191,210,85,1) 0%, rgba(142,185,42,1) 50%, rgba(114,170,0,1) 51%, rgba(158,203,45,1) 100%) !important;
 }

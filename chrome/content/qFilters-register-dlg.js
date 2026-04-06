@@ -147,8 +147,7 @@ var Register = {
 				}
         getElement('licenseDate').collapsed = false;
 			}
-		}
-    else {
+		} else {
       getElement('haveLicense').collapsed=false;
       getElement('btnEnterCode').collapsed=false;
       getElement('licenseDate').collapsed = true;
@@ -160,10 +159,11 @@ var Register = {
 		switch(licenseInfo.status) {
 			case "Expired":
 			  licenseDate.textContent = util.getBundleString("quickfilters.register.licenseValid.expired","Your license expired on:")
-				getElement('qfLicenseTerm').classList.add('expired');
+				getElement("qfLicenseTerm").classList.add("expired");
+				getElement("qfLicenseTerm").classList.add("attention");
 			  break;
 			case "Valid":
-			  getElement('btnLicense').classList.remove('register'); // remove the "pulsing effect" if license is valid.
+			  getElement("btnLicense").classList.remove("attention"); // remove the "pulsing effect" if license is valid.
         licenseDate.textContent =  util.getBundleString("qf.label.licenseValid","Your license is valid until:");
 			  break;
 			case "Empty":
@@ -172,10 +172,12 @@ var Register = {
         isLicenseTermsHidden = true;
 			  break;
 			default: {
-        // default class=register will animate the button
+        // class=attention will animate the button
         let txt = "License Status: " + licenseInfo.description;
-			  licenseDate.textContent = txt;
-        util.logToConsole("Registration Problem\n" + txt + "\nDecrypted part: " + licenseInfo.decryptedPart);
+        licenseDate.textContent = txt;
+        util.logToConsole(
+          "Registration Problem\n" + txt + "\nDecrypted part: " + licenseInfo.decryptedPart,
+        );
       }
 		}
     getElement('qfLicenseTerm').collapsed = isLicenseTermsHidden;
