@@ -1,4 +1,4 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.12) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.12.2) 
 
 
 **Improvements**
@@ -22,6 +22,6 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 *   Fixed: Right-clicking a Thunderbird account in the folder tree caused a console error [issue #356]
 *   Domain Renewal mislabelled. [issue #360]
-
+*   Fixed: colors of buttons in registration dialog - these could lead to unusable button in macOS.
 
 All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features.](https://quickfilters.quickfolders.org/premium.html#featureList)
