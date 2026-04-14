@@ -506,7 +506,6 @@ quickFilters.Util = {
     }
   },
 
-  /* [issue 258] needs to be async from Thunderbird 128! */
   popupAlert: async function (text, title, icon, timeOut) {
     try {
       let isTimeout = !(timeOut == 0);

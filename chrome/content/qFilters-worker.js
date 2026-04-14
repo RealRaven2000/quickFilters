@@ -2427,13 +2427,7 @@ quickFilters.Worker = {
         messageDb,
         msgHeader;
       try {
-        var { AppConstants } = ChromeUtils.importESModule(
-          "resource://gre/modules/AppConstants.sys.mjs"
-        );
-        var ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
-        var { MailUtils } = ESM
-          ? ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs")
-          : ChromeUtils.import("resource:///modules/MailUtils.jsm");
+        var { MailUtils } =  ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs");
         msgHeader = MailUtils.getMsgHdrForMsgId(messageId, targetServer); // [issue 215] narrow down to increase speed
         messageDb = targetFolder.msgDatabase; // msgDatabase
       } catch {;}
