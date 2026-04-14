@@ -17,11 +17,7 @@ END LICENSE BLOCK
 
 // moved import code to bottom for app version detection...
 
-var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
-var quickFilters_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
-var { MailServices } = quickFilters_ESM
-  ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
-  : ChromeUtils.import("resource:///modules/MailServices.jsm");
+var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
 
 // var QuickFilters_TabURIregexp = {
 //   get _thunderbirdRegExp() {
@@ -43,9 +39,6 @@ quickFilters.Util = {
   lastTime: 0,
   _tabContainer: null,
   tempFolderTab: null, // likely obsolete ###
-  get quickFilters_ESM() {
-    return quickFilters_ESM;
-  },
 
   async init() {
     const onBackgroundUpdates = (data) => {
@@ -204,9 +197,7 @@ quickFilters.Util = {
   getMsgFolderFromUri: function (uri, checkFolderAttributes) {
     const util = quickFilters.Util;
     let msgfolder = null;
-    const { MailUtils } = quickFilters_ESM
-      ? ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs")
-      : ChromeUtils.import("resource:///modules/MailUtils.jsm");
+    const { MailUtils } = ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs");
 
     try {
       msgfolder = MailUtils.getExistingFolder(uri, checkFolderAttributes);

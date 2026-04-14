@@ -547,9 +547,7 @@ quickFilters.Worker = {
       Ci = Components.interfaces,
       prefs = quickFilters.Preferences;
 
-    var { MailServices } = quickFilters.Util.quickFilters_ESM
-      ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
-      : ChromeUtils.import("resource:///modules/MailServices.jsm");
+    var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
 
     // do an async repeat if it fails for the first time
     function rerun(reason) {
@@ -1218,9 +1216,7 @@ quickFilters.Worker = {
       util = quickFilters.Util,
       prefs = quickFilters.Preferences;
 
-    var { MailServices } = quickFilters.Util.quickFilters_ESM
-      ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
-      : ChromeUtils.import("resource:///modules/MailServices.jsm");
+    var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
     
     util.logDebugOptional("buildFilter", "buildFilter() called with params: ", buildParams);
 

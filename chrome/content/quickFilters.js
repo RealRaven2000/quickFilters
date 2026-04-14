@@ -212,8 +212,14 @@ END LICENSE BLOCK
     # [issue 357] Toolbar Icons should reflect the main theme color
     # [issue 359] Remove duplicate condition - context menu missing icon
 
-  6.12.1 - WIP
+  6.12.2 - 07/04/2026
     # [issue 360] Domain Renewal mislabelled. 
+
+  6.13 - WIP
+    # new Github Default branch ESR140
+    # [issue 362] Set Minimum Version to Thunderbird 140 to avoid problems with deprecated APIs
+    # [issue ] 
+
 
 
   ============================================================================================================
@@ -235,11 +241,7 @@ END LICENSE BLOCK
     
    */
 
-var { AppConstants } = ChromeUtils.importESModule("resource://gre/modules/AppConstants.sys.mjs");
-var quickFilters_ESM = parseInt(AppConstants.MOZ_APP_VERSION, 10) >= 128;
-var { MailServices } = quickFilters_ESM
-  ? ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs")
-  : ChromeUtils.import("resource:///modules/MailServices.jsm");
+var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
     
 var quickFilters = {
   Properties: {},
