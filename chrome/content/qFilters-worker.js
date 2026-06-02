@@ -313,10 +313,19 @@ quickFilters.Worker = {
           );
           continue;
         }
-        util.logDebugOptional("createFilter.refreshHeaders", `cloning header[${i}] ...`);
-        const msgHdr =
-          messageDb1.getMsgHdrForMessageID(theMsg.messageId) ||
-          (messageDb2 ? messageDb2.getMsgHdrForMessageID(theMsg.messageId) : null);
+        util.logDebugOptional(
+          "createFilter.refreshHeaders",
+          `cloning header[${i}] in ${folder.prettyName || folder.localizedName} ...`,
+        );
+        const m1 = messageDb1.getMsgHdrForMessageID(theMsg.messageId);
+        if (!m1) {
+          util.logDebugOptional(
+            "createFilter.refreshHeaders",
+            `No matching Message Header in folder [${folder.prettyName || folder.localizedName}]` +
+              ` for id: ${theMsg.messageId}`,
+          );
+        }
+        const msgHdr = m1; // || (messageDb2 ? messageDb2.getMsgHdrForMessageID(theMsg.messageId) : null);
         if (!msgHdr) {
           util.logDebugOptional(
             "createFilter.refreshHeaders",
@@ -1047,7 +1056,8 @@ quickFilters.Worker = {
             if (params.messageList) {
               for (const m of params.messageList) {
                 try {
-                  const apiMsg = await quickFilters.WL.extension.messageManager.convert(
+                  //[issue 364] - msgHeader is stale when moving to local folder, it has the original folder
+                  const apiMsg = await quickFilters.Util.messageManager.convert(
                     m.msgHeader
                   );
                   if (!apiMsg) {

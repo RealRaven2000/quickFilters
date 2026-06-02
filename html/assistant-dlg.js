@@ -41,10 +41,12 @@ async function formatFolderPath(folder) {
     try {
       // Construct full folder path, assuming path is relative to account root
       // This can vary; you may need to tweak this if folder paths differ.
-      const folderUri = `accountid://${folder.accountId}${folder.path}`;
-      const folderInfo = await messenger.folders.getFolder(folderUri);
-      if (folderInfo && folderInfo.name) {
-        lastFolderName = folderInfo.name;
+      const [foundFolder] = await messenger.folders.query({
+        accountId: folder.accountId,
+        path: folder.path,
+      });
+      if (foundFolder) {
+        lastFolderName = foundFolder.name;
       }
     } catch {
       // fallback to path last part
