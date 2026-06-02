@@ -234,6 +234,54 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
  
 -->
 
+<a name="6.13"> &nbsp; </a>
+<li>
+  <h4>
+	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.13" 
+		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+     quickFilters 6.13 - WIP</a>
+	</h4>
+  <h5 class="inList"> Improvements </h5>
+  <ul>
+		<li> 
+      Compatible with Thunderbird 152. 
+      Minimum version requirement for new versions increased to Thunderbird 140. 
+    </li>
+		<li> Added Czech translation </li>
+		<li>
+      <p>
+        New search method in message filters: 
+        find filters by folder URI (parts of target folder path)
+        <a href="https://github.com/RealRaven2000/quickFilters/issues/366">[issue 366]</a>
+        <br>
+      </p>
+      <img src="img/search-target-folder-uri.png" alt="Search by Folder URI">
+    </li>
+		<li>
+      Improve QuickFolders current folder bar integration
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a>
+    </li>
+  </ul>
+  <h5 class="inList"> Bugfixes </h5>  
+  <ul>
+		<li>
+      HTML Assistant cannot read API message preview when moving mail to local folder.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/364">[issue 364]</a>
+    </li>
+  </ul>
+  <h5 class="inList"> Miscellaneous </h5>  
+  <ul>
+		<li>
+      Set Minimum Version to Thunderbird 140 to avoid problems with deprecated APIs.
+      Created a new default branch for Thunderbird ESR 140 on Github.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/362">[issue 362]</a>
+    </li>
+  </ul>
+</li>
+ 
+
+
+
 <a name="6.12"> &nbsp; </a>
 <a name="6.12.1"> &nbsp; </a>
 <a name="6.12.2"> &nbsp; </a>
@@ -283,6 +331,9 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     </li>
     <li>
       Fixed: Domain Renewal mislabelled. <a href="https://github.com/RealRaven2000/quickFilters/issues/360">[issue 360]</a>
+    </li>
+    <li>
+      Fixed: colors of buttons in registration dialog - these could lead to unusable button in macOS.
     </li>
   </ul>
 </li>
