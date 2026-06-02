@@ -877,6 +877,9 @@ async function main() {
         }
 
         break;
+      case "updateCurrentFolderBar": // updateCurrentFolderButtons
+        notifyWhenUIReady({ event: "updateCurrentFolderBar" });
+        break;
     }
   });
 

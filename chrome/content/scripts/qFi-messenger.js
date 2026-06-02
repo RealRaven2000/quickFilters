@@ -202,6 +202,9 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.Preferences.setBoolPref("hasNews", true);
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "updatequickFiltersLabel" });
         break;
+      case "quickfilters-menu-test-qurrentFolderBar":
+        window.quickFilters.Util.notifyTools.notifyBackground({ func: "updateCurrentFolderBar" });
+        break;
       case "quickfilters-menu-test-api-util":
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "API-test-Utilities" });
         break;

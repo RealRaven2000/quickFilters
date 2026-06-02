@@ -1,6 +1,62 @@
-/* globals 
-  WL
+/* globals  
 */
+
+const qFInjector = {
+  injectCSS(win, url) {
+    const WL = win.WL;
+
+    if (WL?.injectCSS) {
+      return WL.injectCSS(url);
+    }
+
+    const doc = win.document;
+
+    const link = doc.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = url;
+
+    doc.head.appendChild(link);
+    return link;
+  },
+
+  injectElements(xulString) {
+    function localize(entity) {
+      let msg = entity.slice("__MSG_".length, -2);
+      return extension.localeData.localizeMessage(msg);
+    }
+    const WL = window.WL;
+    const debug = false;
+    var { ExtensionParent } = ChromeUtils.importESModule(
+      "resource://gre/modules/ExtensionParent.sys.mjs",
+    );
+    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+
+    // Primary: real WL path
+    if (WL?.injectElements) {
+      return WL.injectElements(xulString, [], debug);
+    }
+
+    // Fallback: minimal safe DOM injection
+    const doc = window.document;
+    try {
+      let localizedXulString = xulString.replace(/__MSG_(.*?)__/g, localize);
+      const frag = window.MozXULElement.parseXULToFragment(localizedXulString);
+
+      const node = frag.firstElementChild;
+      if (!node) {
+        console.warn("injectElements: empty XUL fragment");
+        return null;
+      }
+
+      doc.documentElement.appendChild(node);
+      return node;
+    } catch (e) {
+      console.error("injectElements: XUL parse failed", e);
+      return null;
+    }
+  },
+};
 
 async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
@@ -9,6 +65,23 @@ async function setAssistantButton(e) {
 async function addTagListener(win, e) {
   window.quickFilters.Util.addTagListener(win);
 }
+
+async function updateCurrentFolderBar() {
+  function logDebug(...args) {
+    if (window?.quickFilters?.Util) {
+      window.quickFilters.Util.logDebug(...args);
+    }
+  }
+  logDebug("updateCurrentFolderBar() called");
+  const container =
+    window.document.getElementById("quickFilters-injected");
+  logDebug("updateCurrentFolderBar() - container:", container);
+  if (!container) {
+    injectQFelements(window);
+  }
+}
+
+
 
 /**
  * Injects a XUL toolbarbutton into a specified parent element, or relocates it
@@ -93,45 +166,57 @@ function injectButton(parentElement, id, options = {}) {
   return btn;
 }
 
+async function injectQFelements(win) {
+  // QUICKFOLDERS NAVIGATION BAR INJECTION
+  qFInjector.injectElements(`
+      <div id="threadPane">
+      <hbox id="quickFilters-injected" collapsed="true"></hbox>
+      </div>`);
+  const container = win.document.getElementById("quickFilters-injected");
+  const localize = win.quickFilters.Util.getBundleString;
+
+  injectButton(container, "quickfilters-current-runbutton", {
+    insertAfter: "QuickFolders-currentFolderFilterActive",
+    tooltip: localize("quickfilters.RunButton.tooltip"),
+  });
+  injectButton(container, "quickfilters-current-msg-runbutton", {
+    insertAfter: "quickfilters-current-runbutton",
+    tooltip: localize("quickfilters.RunButtonMsg.tooltip"),
+  });
+  injectButton(container, "quickfilters-current-listbutton", {
+    insertAfter: "quickfilters-current-msg-runbutton",
+    tooltip: localize("quickfilters.ListButton.tooltip"),
+  });
+  injectButton(container, "quickfilters-current-searchfilterbutton", {
+    insertAfter: "quickfilters-current-listbutton",
+    tooltip: localize("quickfilters.findFiltersForFolder.menu"),
+  });
+}
+
+
 
 // eslint-disable-next-line no-unused-vars
 async function onLoad(_activatedWhileWindowOpen) {
-  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css?v=2");
-  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
+  // see https://github.com/thunderbird/webext-examples/blob/master/manifest_v2/experiment.activityManager/api/ActivityManager/implementation.js
+  if (typeof window.hasDOMContentLoaded==="object") {
+    await window.hasDOMContentLoaded;
+  } 
+  qFInjector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters.css?v=2");
+  qFInjector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
 
   window.setTimeout((win = window) => {
     console.log("qFi-3pane.js - onLoad()");
     win.quickFilters = win.parent.quickFilters;
 
-    // QUICKFOLDERS NAVIGATION BAR INJECTION
-    WL.injectElements(`
-      <div id="threadPane">
-      <hbox id="quickFilters-injected" collapsed="true"></hbox>
-      </div>`);
-    const container = win.document.getElementById("quickFilters-injected");
-    const localize = win.quickFilters.Util.getBundleString;
-
-    injectButton(container, "quickfilters-current-runbutton", {
-      insertAfter: "QuickFolders-currentFolderFilterActive",
-      tooltip: localize("quickfilters.RunButton.tooltip"),
-    });
-    injectButton(container, "quickfilters-current-msg-runbutton", {
-      insertAfter: "quickfilters-current-runbutton",
-      tooltip: localize("quickfilters.RunButtonMsg.tooltip"),
-    });
-    injectButton(container, "quickfilters-current-listbutton", {
-      insertAfter: "quickfilters-current-msg-runbutton",
-      tooltip: localize("quickfilters.ListButton.tooltip"),
-    });
-    injectButton(container, "quickfilters-current-searchfilterbutton", {
-      insertAfter: "quickfilters-current-listbutton",
-      tooltip: localize("quickfilters.findFiltersForFolder.menu"),
-    });
-
+    injectQFelements(win);
   });
 
-
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
+  // window.quickFilters.toggleCurrentFolderButtons is running in experimental context
+  window.addEventListener(
+    "quickFilters.BackgroundUpdate.updateCurrentFolderBar",
+    updateCurrentFolderBar,
+  );
 }
 
 // eslint-disable-next-line no-unused-vars

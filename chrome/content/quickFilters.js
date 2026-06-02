@@ -218,8 +218,9 @@ END LICENSE BLOCK
   6.13 - WIP
     # new Github Default branch ESR140
     # [issue 362] Set Minimum Version to Thunderbird 140 to avoid problems with deprecated APIs
-    # [issue ] 
-
+    # [issue 364] HTML Assistant cannot read API message preview when moving mail to local folder
+    # [issue 365] Improve QuickFolders current folder bar integration
+    # [issue 366] Search filters by folder URI (parts of target folder path)
 
 
   ============================================================================================================
@@ -617,11 +618,11 @@ var quickFilters = {
                 if (eventDetail) {
                   try {
                     util.logDebug(
-                      `calling WindowListener.extension.folderManager.get(${firstSelectedMsg.folder.accountId},${firstSelectedMsg.folder.path})`
+                      `calling extension.folderManager.get(${firstSelectedMsg.folder.accountId},${firstSelectedMsg.folder.path})`
                     );
-                    let realFolder = window.quickFilters.WL.extension.folderManager.get(
+                    let realFolder = window.quickFilters.Util.folderManager.get(
                       firstSelectedMsg.folder.accountId,
-                      firstSelectedMsg.folder.path
+                      firstSelectedMsg.folder.path,
                     );
                     currentMessageFolder = realFolder;
                   } catch (ex) {
@@ -1105,7 +1106,7 @@ var quickFilters = {
   },
 
   // read QF options and hide buttons from current folder bar
-  toggleCurrentFolderButtons: function (retries = 0) {
+  toggleCurrentFolderButtons: async function (retries = 0) {
     retries = typeof retries === "number" ? retries : 0;
     const util = quickFilters.Util;
     const prefs = quickFilters.Preferences;
@@ -1158,6 +1159,12 @@ var quickFilters = {
         const toolbar = doc.getElementById("QuickFolders-CurrentFolderTools");
 
         if (retries > MAX_TRIES && !toolbar) {
+          if (retries==1) {
+            // try recreating the container
+            await window.quickFilters.Util.notifyTools.notifyBackground({
+              func: "updateCurrentFolderBar",
+            });
+          }
           // no QF toolbar after 30 seconds. let's give up to avoid infinite processing
           console.log(
             `toggleCurrentFolderButtons() - giving up after ${retries} tries without any QF toolbar.`
@@ -2294,6 +2301,7 @@ quickFilters.patchMailPane = () => {
                   <menuitem id="quickfilters-menu-test-htmlAssistant" label="quickFilters Assistant - HTML version!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-news" label="Test - set has news flag!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+                  <menuitem id="quickfilters-menu-test-qurrentFolderBar" label="Update QuickFolders Current Folder Bar" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-api-util" label="API: Utilities" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-api-FilterAPI" label="API: FilterAPI" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                 </menupopup>

@@ -39,6 +39,20 @@ quickFilters.Util = {
   lastTime: 0,
   _tabContainer: null,
   tempFolderTab: null, // likely obsolete ###
+  get folderManager() { 
+    const { ExtensionParent } = ChromeUtils.importESModule(
+      "resource://gre/modules/ExtensionParent.sys.mjs"
+    );
+    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+    return extension.folderManager;
+  },
+  get messageManager() {
+    const { ExtensionParent } = ChromeUtils.importESModule(
+      "resource://gre/modules/ExtensionParent.sys.mjs"
+    );
+    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+    return extension.messageManager;
+  },
 
   async init() {
     const onBackgroundUpdates = (data) => {
@@ -177,13 +191,7 @@ quickFilters.Util = {
       return;
     }
     const account = quickFilters.Util.Accounts.find((ac) => ac.incomingServer === folder?.server);
-
-    let WL = quickFilters?.WL;
-    if (!WL) {
-      WL = quickFilters.Util.getMail3PaneWindow().quickFilters.WL;
-    }
-
-    const apiFolder = WL.extension.folderManager.convert(folder, account?.key || null);
+    const apiFolder = quickFilters.Util.folderManager.convert(folder, account?.key || null);
 
     if (apiFolder) {
       parameters[folderRole] = {
