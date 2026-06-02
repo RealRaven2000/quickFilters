@@ -1,6 +1,9 @@
 {
   "_l10nstatus": {
-    "message": "SPLASH+LICENSE"
+    "message": "SPLASH+UI"
+  },
+  "about": {
+    "message": "O aplikaci"
   },
   "account.label": {
     "message": "Vyberte účet:"
@@ -49,17 +52,131 @@
   "buyDomainLicense.instruct": {
     "message": "Potřebujete Pro Licence pro společnost s více než pěti uživateli? Získání licence na domény bude fungovat levněji:"
   },
+  "buyLicense.instruct": {
+    "message": "Chcete používat všechny prémiové funkce bez omezení? Získejte licenci quickFilters Pro. Je vázán na vaši osobní e-mailovou adresu a lze jej použít ve více instalacích."
+  },
   "buyPersonalLicense.button": {
     "message": "Koupit licenci Pro!"
   },
-  "buyLicense.instruct": {
-    "message": "Chcete používat všechny prémiové funkce bez omezení? Získejte licenci quickFilters Pro. Je vázán na vaši osobní e-mailovou adresu a lze jej použít ve více instalacích."
+  "chkAfterJunk.label": {
+    "message": "Po klasifikaci spamu"
+  },
+  "chkAfterSending.label": {
+    "message": "Po odeslání"
+  },
+  "chkAlphabetic.label": {
+    "message": "Vkládat nové filtry v abecedním pořadí"
+  },
+  "chkAlphabetic.tooltip": {
+    "message": "Používá název filtru pro jeho umístění. Doporučeno při použití pravidla pojmenování podle nadřazené složky. Pozor, ovlivňuje pořadí vykonávání filtrů!"
+  },
+  "chkAutoClose.accesskey": {
+    "message": "E"
+  },
+  "chkAutoClose.label": {
+    "message": "Ukončit Průvodce filtry po vytvoření filtru"
+  },
+  "chkAutoRun.label": {
+    "message": "Při přijetí nové pošty"
+  },
+  "chkAutoStart.accesskey": {
+    "message": "A"
+  },
+  "chkAutoStart.label": {
+    "message": "Automaticky spustit režim Průvodce filtry při spuštění aplikace"
+  },
+  "chkCurrentToolbar.btn.FilterList.label": {
+    "message": "Zobrazit seznam filtrů"
+  },
+  "chkCurrentToolbar.btn.FindFilter.label": {
+    "message": "Najít filtry pro složku"
+  },
+  "chkCurrentToolbar.btn.FindFilter.tooltip": {
+    "message": "Najde všechny filtry, které přesouvají poštu do této složky."
+  },
+  "chkCurrentToolbar.btn.RunOnFolder.label": {
+    "message": "Spustit filtry na složce"
+  },
+  "chkCurrentToolbar.btn.RunOnMessages.label": {
+    "message": "Spustit filtry na vybraných zprávách"
+  },
+  "chkDebug.accesskey": {
+    "message": "D"
+  },
+  "chkDebug.label": {
+    "message": "Režim ladění"
+  },
+  "chkImapOnRead.label": {
+    "message": "Spustit filtr také při čtení e-mailů v IMAP účtech."
+  },
+  "chkInsertRulesAtTop.label": {
+    "message": "Přidávat nová pravidla na začátek seznamu."
+  },
+  "chkLocalFoldersAutorun.label": {
+    "message": "Automaticky spouštět filtry na doručené poště místních složek"
+  },
+  "chkMerge.onlyFirstAction": {
+    "message": "Při hledání odpovídajících filtrů použít pouze první akci"
+  },
+  "chkMergeAuto.label": {
+    "message": "Automaticky vybrat sloučení"
+  },
+  "chkMergeAuto.tooltip": {
+    "message": "Pokud již filtr existuje, automaticky vybere režim sloučení a první odpovídající filtr."
   },
   "chkMergeSkip.label": {
     "message": "Přejít na krok výběru šablony"
   },
+  "chkMergeSkip.tooltip": {
+    "message": "Přeskočí krok „výběr cíle sloučení“ a přejde přímo na „výběr šablony“."
+  },
+  "chkNotify.RunFilter": {
+    "message": "Zobrazit oznámení při ručním spuštění filtru."
+  },
+  "chkPeriodically.label": {
+    "message": "Spouštět pravidelně"
+  },
+  "chkPeriodically.tooltip": {
+    "message": "Spouští filtr v pravidelných intervalech"
+  },
+  "chkRunManual.label": {
+    "message": "Spouštět ručně"
+  },
+  "chkShowEditor.label": {
+    "message": "Otevřít editor po vytvoření filtru"
+  },
+  "chkShowList.label": {
+    "message": "Zobrazit seznam filtrů po vytvoření filtru"
+  },
+  "chkShowList.tooltip": {
+    "message": "Zobrazí seznam pro otestování nového filtru na všech zprávách."
+  },
+  "chkToolbar.accesskey": {
+    "message": "T"
+  },
+  "chkToolbar.label": {
+    "message": "Zobrazit panel nástrojů ve správci filtrů"
+  },
+  "chkWhenArchiving.label": {
+    "message": "Při archivaci"
+  },
   "cost-of-independence": {
     "message": "Vývoj softwaru stojí čas a peníze - na rozdíl od mnoha aplikací na platformě nejsou doplňky napsány velkými korporacemi, ani nejsou žádným způsobem sponzorovány společností Mozilla."
+  },
+  "createdBy": {
+    "message": "Vytvořil:"
+  },
+  "domainLicense.email": {
+    "message": "Budeme vás kontaktovat na tuto e-mailovou adresu za účelem vygenerování doménové licence; prosíme o umožnění až dvou pracovních dnů na odpověď. Na další stránce zadejte název domény pro licenci."
+  },
+  "domainLicense.header": {
+    "message": "Licencovaná e-mailová doména"
+  },
+  "domainLicense.instruct": {
+    "message": "Licence je vázána na doménu vaší společnosti. Umožní uživatelům s e-mailovými adresami končícími na tuto doménu používat quickFilters Pro. Např. pokud zadáte doménu 'abc.com', uživatelé jako fred@abc.com, martha@abc.com, mike.doe@abc.com atd. budou oprávněni licenci používat. Maximální počet platných jednotlivých uživatelů odpovídá počtu zadanému na úvodní obrazovce."
+  },
+  "domainLicense.validate": {
+    "message": "Ujistěte se, že zadáváte doménu *přesně tak, jak je* ve firemních e-mailových adresách (část *za* znakem @), protože bude použita k autorizaci e-mailových adres vašich uživatelů."
   },
   "donate-heading": {
     "message": "Pomozte s jednorázovým darem."
@@ -76,13 +193,13 @@
   "extend-your-license": {
     "message": "Zvažte prodloužení licence o rok."
   },
-  "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
-  },
   "extensionDescription": {
     "message": "Rychle generujte pravidla pro filtrování pošty za chodu přetažením a přetažením e-mailů a analýzou jejich atributů.",
     "description": "Description of the extension."
+  },
+   "extensionName": {
+    "message": "quickFilters",
+    "description": "Name of the extension."
   },
   "firstName.label": {
     "message": "Jméno:"
@@ -92,6 +209,9 @@
   },
   "getquickFilters": {
     "message": "Získejte quickFilters Pro"
+  },
+  "grpMerge.label": {
+    "message": "Pravidla sloučení"
   },
   "heading-updated": {
     "message": "$addonName$ Úspěšně aktualizováno",
@@ -123,8 +243,8 @@
     "message": "legacy"
   },
   "license-is-extended": {
-    "message": "Děkujeme, že jste nedávno prodloužili licenci nebo jste darovali. Jelikož jste pomohli doložit tento doplněk do budoucna, můžete toto okno jednoduše zavřít.",
-    "description": "Shown if license expires more than a year from now"
+    "description": "Shown if license expires more than a year from now",
+    "message": "Děkujeme, že jste nedávno prodloužili licenci nebo jste darovali. Jelikož jste pomohli doložit tento doplněk do budoucna, můžete toto okno jednoduše zavřít."
   },
   "licenseTerms.hide": {
     "message": "🡇 Pokračovat výběrem licence 🡇"
@@ -134,6 +254,9 @@
   },
   "licenseWindow.title": {
     "message": "quickFilters Pro Licence"
+  },
+  "mozillas-basic-platform": {
+    "message": "Mozilla poskytuje pouze základní platformu pro doručování našeho softwaru vám, koncovým uživatelům. Pokud potřebujeme požádat naše uživatele o platbu nebo podporu, nemůžeme to udělat z addons.thunderbird.net - nejedná se o „obchod s aplikacemi“ s vestavěnými paywally nebo správou licencí, jako je iTunes nebo Google Play."
   },
   "msg.preview.author": {
     "message": "Autor"
@@ -156,9 +279,6 @@
   "msg.preview.title": {
     "message": "Email"
   },
-  "mozillas-basic-platform": {
-    "message": "Mozilla poskytuje pouze základní platformu pro doručování našeho softwaru vám, koncovým uživatelům. Pokud potřebujeme požádat naše uživatele o platbu nebo podporu, nemůžeme to udělat z addons.thunderbird.net - nejedná se o „obchod s aplikacemi“ s vestavěnými paywally nebo správou licencí, jako je iTunes nebo Google Play."
-  },
   "news.minimal": {
     "message": "Nezobrazovat štítek novinek při aktualizaci"
   },
@@ -174,30 +294,312 @@
       }
     }
   },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Název cílové složky"
+  "pane1.title": {
+    "message": "Nastavení quickFilters"
   },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "Cesta cílové složky"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "Nalezeny předměty začínající stejným textem: \"$prefix$\".\nPoužít tento text jako podmínku hledání v předmětu?",
-    "placeholders": { "prefix": { "content": "$1" } }
+  "prefwindow.title": {
+    "message": "Nastavení quickFilters"
   },
   "pricing.section": {
-    "message": "Chcete-li zjistit svou cenu, vyberte nejprve jednu z následujících možností. Otevře se samostatné okno prohlížeče, kde můžete dokončit nákup v internetovém obchodě."
+    "message": "Pro zjištění ceny nejprve vyberte jednu z následujících možností. Otevře se samostatné okno prohlížeče, kde můžete dokončit nákup v internetovém obchodě."
   },
   "pricing.section.hint": {
-    "message": "Poznámka: Cena se liší v závislosti na modelu licence, zemi, sazbě DPH, aktuálních slevách nebo již zakoupených licencích."
+    "message": "Poznámka: Cena se liší podle licenčního modelu, země, sazby DPH, aktuálních slev nebo již zakoupených licencí."
   },
   "pricing.title": {
     "message": "Ceny"
   },
   "purchase-a-license": {
-    "message": "Kupte si licenci."
+    "message": "Zakoupit licenci."
   },
   "purchase-heading": {
     "message": "Podpora prostřednictvím licence"
+  },
+  "qf.assistant.ignoreFolders": {
+    "message": "Asistent by měl ignorovat tyto typy složek…"
+  },
+  "qf.btn.splash": {
+    "message": "Zobrazit úvodní obrazovku"
+  },
+  "qf.button.createFilter": {
+    "message": "Vytvořit nový filtr…"
+  },
+  "qf.button.editFilter": {
+    "message": "Upravit filtr…"
+  },
+  "qf.button.merge": {
+    "message": "Sloučit"
+  },
+  "qf.button.mergeFilterRules": {
+    "message": "Kombinovat nová pravidla s „$filterName$“…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "qf.button.next": {
+    "message": "Další"
+  },
+  "qf.button.pasteLicense": {
+    "message": "vložit"
+  },
+  "qf.button.reorderButtonBottom": {
+    "message": "Přesunout dolů"
+  },
+  "qf.button.reorderButtonBottom.accessKey": {
+    "message": "b"
+  },
+  "qf.button.reorderButtonBottom.toolTip": {
+    "message": "Přesune filtr tak, aby se spouštěl po všech ostatních"
+  },
+  "qf.button.reorderButtonTop": {
+    "message": "Přesunout nahoru"
+  },
+  "qf.button.reorderButtonTop.accessKey": {
+    "message": "o"
+  },
+  "qf.button.reorderButtonTop.toolTip": {
+    "message": "Přesune filtr tak, aby se spouštěl před všemi ostatními"
+  },
+  "qf.button.targetSelected": {
+    "message": "Cílový filtr vybrán"
+  },
+  "qf.button.validateLicense": {
+    "message": "ověřit"
+  },
+  "qf.check.createNew": {
+    "message": "Vytvořit nový filtr"
+  },
+  "qf.check.mergeWithExisting": {
+    "message": "Sloučit s existujícím filtrem:"
+  },
+  "qf.cloned.label": {
+    "message": "Přidat k názvu klonovaného filtru:"
+  },
+  "qf.continueFilter.label": {
+    "message": "Vytvořit filtr…"
+  },
+  "qf.continueFilter.shortcut": {
+    "message": "F"
+  },
+  "qf.description.about": {
+    "message": "Podrobný popis quickFilters najdete na následující stránce:"
+  },
+  "qf.description.contactMe": {
+    "message": "Můžete mě také kontaktovat přímo na $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "qf.description.currentFolderButtons": {
+    "message": "Tato volba platí pouze při použití doplňku QuickFolders, který přidává malý panel nástrojů nad náhled zprávy."
+  },
+  "qf.description.mergeAddInstructions": {
+    "message": "Všechny ostatní filtry v tomto seznamu budou sloučeny do tohoto a poté smazány."
+  },
+  "qf.description.mergeAddSummary": {
+    "message": "Vyberte filtr, který zdědí vlastnosti ostatních."
+  },
+  "qf.description.mergeInstructions": {
+    "message": "Můžete jeden z nich rozšířit nebo vytvořit zcela nový filtr."
+  },
+  "qf.description.mergeSummary": {
+    "message": "Průvodce quickFilters našel filtry, které již provádějí stejnou akci."
+  },
+  "qf.description.selectToExtend": {
+    "message": "Vyberte filtr pro rozšíření o nová pravidla."
+  },
+  "qf.description.splash": {
+    "message": "Zobrazovat novinky a důležité změny, lokalizované do vašeho jazyka:"
+  },
+  "qf.donate.tooltip": {
+    "message": "Podpořte vývoj quickFilters!"
+  },
+  "qf.filterlist.group": {
+    "message": "Funkce seznamu filtrů"
+  },
+  "qf.filterlist.multipaste": {
+    "message": "Povolit vkládání filtrů do více účtů"
+  },
+  "qf.filters.actions.caption": {
+    "message": "Akce"
+  },
+  "qf.filters.actions.flag": {
+    "message": "Označit vlajkou"
+  },
+  "qf.filters.actions.flag.accesskey": {
+    "message": "F"
+  },
+  "qf.filters.actions.priority": {
+    "message": "Priorita"
+  },
+  "qf.filters.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "qf.filters.actions.star": {
+    "message": "Hvězdička"
+  },
+  "qf.filters.actions.star.accesskey": {
+    "message": "S"
+  },
+  "qf.filters.actions.tag": {
+    "message": "Štítky"
+  },
+  "qf.filters.actions.tag.accesskey": {
+    "message": "T"
+  },
+  "qf.filters.actions.targetFolder": {
+    "message": "Cílová složka"
+  },
+  "qf.filters.actions.tooltip": {
+    "message": "Filtr kopíruje tyto atributy z původního e-mailu"
+  },
+  "qf.filters.instructions": {
+    "message": "Vyberte šablonu. Pravidla filtru můžete doladit na další obrazovce."
+  },
+  "qf.filters.steps.autoRunFilter": {
+    "message": "Spustit automaticky"
+  },
+  "qf.filters.steps.autoRunFilter.tooltip": {
+    "message": "Automaticky spustí filtr na původní doručené poště po vytvoření."
+  },
+  "qf.filters.steps.caption": {
+    "message": "Další kroky"
+  },
+  "qf.filters.steps.showEditor": {
+    "message": "Pravidla filtru"
+  },
+  "qf.filters.steps.showEditor.tooltip": {
+    "message": "Upravit detaily filtru po vytvoření pomocí asistenta."
+  },
+  "qf.filters.steps.showList": {
+    "message": "Seznam filtrů"
+  },
+  "qf.filters.steps.showList.tooltip": {
+    "message": "Zobrazí filtr v kontextu pro jeho otestování"
+  },
+  "qf.filters.steps.tooltip": {
+    "message": "Jaké obrazovky zobrazit po vytvoření filtru"
+  },
+  "qf.filters.template.custom.description": {
+    "message": "Vlastní filtr – chování je definováno uživatelem – použijte proměnné jako %from% %to% %subject% atd."
+  },
+  "qf.filters.template.domain": {
+    "message": "Podle domény odesílatele"
+  },
+  "qf.filters.template.domain.description": {
+    "message": "Stejné jako šablona „podle odesílatele“, ale porovnává pouze doménu (např. @xyz.com) e-mailové adresy odesílatele"
+  },
+  "qf.filters.template.from": {
+    "message": "Podle odesílatele (from)"
+  },
+  "qf.filters.template.from.description": {
+    "message": "Toto je pravděpodobně nejčastěji používaný vzor: načte e-mailovou adresu odesílatele a vloží ji do podmínky filtru pro pole from a to. Tímto způsobem budou všechny konverzace s odesílatelem přesunuty do nové složky."
+  },
+  "qf.filters.template.list.description": {
+    "message": "Podobné jako „podle odesílatele“, ale nevyplňuje podmínku pole „to“."
+  },
+  "qf.filters.template.maillist": {
+    "message": "Mailing list"
+  },
+  "qf.filters.template.maillist.description": {
+    "message": "Užitečné pro mailing listy s polem „List-Id“. Pokud není nastaveno, použije se místo toho adresa odesílatele."
+  },
+  "qf.filters.template.multifrom": {
+    "message": "Skupina (sbírá odesílatele více zpráv)"
+  },
+  "qf.filters.template.multifrom.description": {
+    "message": "Použijte pro přetažení více e-mailů a přidání všech odesílatelů do podmínky. (Vylučuje vaše vlastní e-mailové adresy)"
+  },
+  "qf.filters.template.replyto": {
+    "message": "Podle Reply-To"
+  },
+  "qf.filters.template.replyto.description": {
+    "message": "Filtr je založen na poli Reply-To."
+  },
+  "qf.filters.template.tag": {
+    "message": "Podle štítků"
+  },
+  "qf.filters.template.tag.description": {
+    "message": "Použije štítky e-mailu a přidá je jako podmínky filtru."
+  },
+  "qf.filters.template.to": {
+    "message": "Podle příjemce (to)"
+  },
+  "qf.filters.template.to.description": {
+    "message": "Podobné jako „podle odesílatele“: použijte, když označíte e-mail, který jste někomu poslali. Načte e-mailovou adresu příjemce a vloží ji do podmínky filtru pro pole from a to. Tímto způsobem bude celá konverzace s kontaktem přesunuta do nové složky."
+  },
+  "qf.filters.template.topic": {
+    "message": "Podle předmětu"
+  },
+  "qf.filters.template.topic.description": {
+    "message": "Hledá speciální výrazy v závorkách, např. [sběratelé známek] nebo {vegani}, a vytvoří podle nich podmínku filtru; mnoho hromadných e-mailů tento vzor používá, takže se velmi snadno používá."
+  },
+  "qf.filters.templates.description.label": {
+    "message": "Popis:"
+  },
+  "qf.filters.title": {
+    "message": "Vytvořit filtry"
+  },
+  "qf.github.description": {
+    "message": "Nahlaste chyby nebo navrhněte nové funkce zde:"
+  },
+  "qf.github.link": {
+    "message": "quickFilters na GitHubu…"
+  },
+  "qf.grp.whenToRun": {
+    "message": "Použít filtr při"
+  },
+  "qf.label.aboutLink": {
+    "message": "Web quickFilters…"
+  },
+  "qf.label.cancel": {
+    "message": "Zrušit"
+  },
+  "qf.label.contactLink": {
+    "message": "Kontaktujte mě (anglicky nebo německy)…"
+  },
+  "qf.label.currentFolderButtons": {
+    "message": "Panel nástrojů aktuální složky QuickFolders"
+  },
+  "qf.label.donate": {
+    "message": "Darovat"
+  },
+  "qf.label.filterCountN_of_M": {
+    "message": "{0} z {1}"
+  },
+  "qf.label.filterEntities": {
+    "message": "položky"
+  },
+  "qf.label.filterSingleEntity": {
+    "message": "1 položka"
+  },
+  "qf.label.haveLicense": {
+    "message": "Už máte licenci?"
+  },
+  "qf.label.insertLicense": {
+    "message": "Vložte sem svůj licenční klíč:"
+  },
+  "qf.label.insertLicense.tooltip": {
+    "message": "Váš licenční klíč je uveden v potvrzovacím e-mailu od FastSpring."
+  },
+  "qf.label.licenseValid": {
+    "message": "Vaše licence je platná do:"
+  },
+  "qf.label.naming": {
+    "message": "Pravidla pojmenování"
+  },
+  "qf.label.naming.folderDelimiter": {
+    "message": "Oddělovač:"
+  },
+  "qf.label.naming.keyWord": {
+    "message": "Přidat klíčové slovo pravidla"
+  },
+  "qf.label.naming.keyWord.accesskey": {
+    "message": "k"
   },
   "qf.label.naming.keyWord.blacklist": {
     "message": "Odstranit následující slova z názvu:"
@@ -214,41 +616,169 @@
   "qf.label.naming.targetAccount": {
     "message": "Přidat název cílového účtu (pro filtry přesouvající poštu do jiného účtu)"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "p"
+  },
+  "qf.label.ok": {
+    "message": "OK"
+  },
+  "qf.label.premiumFeaturesSite": {
+    "message": "Přečtěte si více o prémiových funkcích na našem webu"
+  },
+  "qf.label.quickfilters": {
+    "message": "quickFilters"
+  },
   "qf.label.removeOwnAddresses": {
     "message": "Odebrat mé vlastní e-mailové adresy (doporučeno)"
   },
   "qf.label.removeOwnAddresses.tip": {
     "message": "Extrahování vlastních e-mailových adres pomocí asistenta může vést k nežádoucím výsledkům, takže vyhledávací výrazy adresy je automaticky odstraní."
   },
-  "qf.label.haveLicense": {
-    "message": "Už máte licenci?"
+  "qf.label.shortcut.challenge": {
+    "message": "Zeptat se před spuštěním filtrů mimo složku Doručená pošta"
   },
-  "qf.label.licenseValid": {
-    "message": "Vaše licence je platná do:"
+  "qf.label.shortcut.runFolder": {
+    "message": "Zkratka pro spuštění filtrů na složce: Shift + "
+  },
+  "qf.label.shortcut.runMails": {
+    "message": "Zkratka pro spuštění filtrů na vybraných zprávách: Shift + "
+  },
+  "qf.label.supportWithLicense": {
+    "message": "Podpořte quickFilters získáním licence!"
   },
   "qf.licenseBackup.confirmation": {
     "message": "{P}Canviar a la versió bàsica?{br}La vostra clau de llicència es conservarà en aquest ordinador perquè la pugueu renovar més endavant al {b}preu de renovació amb descompte{/b}.{/P}{P}Gràcies per haver donat suport a quickFilters — les llicències fan possible el desenvolupament de programari independent i ajuden a mantenir viu el projecte. Fins i tot quan ha caducat, podeu renovar la llicència o actualitzar des d’una llicència Estàndard en qualsevol moment per utilitzar les {a class=features}Funcions Pro{/a} durant un any complet.{/P}"
   },
-  "qf.licenseBackup.recover": {
-    "message": "Recuperar la clau de llicència"
-  },
+  "qf.licenseBackup.recover": { "message": "Recuperar la clau de llicència" },
   "qf.licenseBackup.recoverable": {
     "message": "Podeu restaurar la vostra llicència anterior per obtenir condicions de renovació més econòmiques."
   },
   "qf.licenseBackup.restored": {
     "message": "La vostra clau s’ha restaurat correctament. Tot i que havia caducat, podeu obtenir una clau nova amb descompte."
   },
-  "qf.licenseBackup.switch": {
-    "message": "Canviar a la versió bàsica"
-  },
+  "qf.licenseBackup.switch": { "message": "Canviar a la versió bàsica" },
   "qf.licenseValidation.expired": {
     "message": "La clau de llicència que heu introduït ha caducat. Premeu el botó següent per renovar la llicència."
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternativament, podeu utilitzar la versió bàsica de moment — encara podreu restaurar la llicència més endavant."
   },
+  "qf.licenseValidation.failed": {
+    "message": "Zadaný licenční klíč není platný. Zkontrolujte e-mail od FastSpring s pokyny. Pokud problém přetrvává, kontaktujte mě přes záložku Podpora."
+  },
+  "qf.licenseValidation.invalidAddon": {
+    "message": "Zadaný licenční klíč může být určen pro jiný doplněk. Licenční klíče pro {0} začínají na {1}."
+  },
+  "qf.licenseValidation.invalidMail": {
+    "message": "E-mailová adresa přiřazená k licenčnímu klíči [{1}] není aktuálně uvedena v žádném z vašich e-mailových účtů. Pro pomoc mě kontaktujte přes záložku Podpora."
+  },
+  "qf.licenseValidation.notMatchedMail": {
+    "message": "Šifrovaná e-mailová adresa neodpovídá čitelné verzi."
+  },
+  "qf.licenseValidation.passed": {
+    "message": "Děkujeme za registraci quickFilters Pro! Všechny prémiové funkce jsou nyní odemčeny."
+  },
+  "qf.listener.tags": {
+    "message": "Sledovat změny štítků"
+  },
   "qf.listener.tags.autofilter": {
     "message": "Spouštět filtry automaticky při změně značek"
+  },
+  "qf.listener.tags.tooltip": {
+    "message": "Při aktivaci se Průvodce filtry spustí také při označení zprávy štítkem."
+  },
+  "qf.newFilterProps.intro": {
+    "message": "Následující nastavení budou použita pro všechny nové filtry vytvořené pomocí Průvodce filtry."
+  },
+  "qf.notify.filterCreated": {
+    "message": "Nový filtr '{0}' byl úspěšně vytvořen."
+  },
+  "qf.notify.filterMergeUpdated": {
+    "message": "Filtr '{0}' byl úspěšně aktualizován."
+  },
+  "qf.onewayaddress.label": {
+    "message": "Zakázat obousměrné vyhledávání adres"
+  },
+  "qf.onewayaddress.tooltip": {
+    "message": "Ve výchozím nastavení quickFilters přidává podmínky 'from' i 'to', aby umožnil filtrování kompletních vláken včetně vašich odpovědí. Pokud chcete ponechat odpovědi vždy ve složce Odeslané, můžete toto chování vypnout. Doplněk 'Copy Sent to Current' lze použít pro udržení odpovědí u původních zpráv."
+  },
+  "qf.options.versionnumber.tooltip": {
+    "message": "Klikněte pravým tlačítkem pro historii verzí."
+  },
+  "qf.premiumConfig": {
+    "message": "Prémiové funkce"
+  },
+  "qf.tab.actions": {
+    "message": "Akce"
+  },
+  "qf.tab.advanced": {
+    "message": "Pokročilé"
+  },
+  "qf.tab.gopro": {
+    "message": "quickFilters Pro"
+  },
+  "qf.tab.newFilterProps": {
+    "message": "Vlastnosti nového filtru"
+  },
+  "qf.tab.options": {
+    "message": "Možnosti"
+  },
+  "qf.tab.support": {
+    "message": "Podpora"
+  },
+  "qf.templates.advanced": {
+    "message": "Pokročilé šablony"
+  },
+  "qf.templates.customTemplate.edit": {
+    "message": "Upravit…"
+  },
+  "qf.templates.customTemplate.label": {
+    "message": "Vlastní šablony"
+  },
+  "qf.templates.customTemplate.new": {
+    "message": "Vytvořit novou…"
+  },
+  "qf.templates.customTemplate.restricted": {
+    "message": "Pro vytvoření nových vlastních šablon pro Průvodce filtry potřebujete platnou licenci quickFilters Pro."
+  },
+  "qf.templates.customTemplate.tooltip": {
+    "message": "Umožňuje vytváření vlastních šablon, viz popis pro podrobnosti."
+  },
+  "qf.templates.replyTo.label": {
+    "message": "Šablona Reply-To"
+  },
+  "qf.templates.replyTo.tooltip": {
+    "message": "Zobrazení šablony Reply-To, viz popis pro podrobnosti."
+  },
+  "qf.textbox.searchBox.emptyText": {
+    "message": "Hledat filtry podle názvu…"
+  },
+  "qf.textbox.searchBox.toolTip": {
+    "message": "Zadejte klíčové slovo pro vyhledávání filtrů podle názvu"
+  },
+  "qf.tooltip.naming.folderDelimiter": {
+    "message": "Znak vložený mezi nadřazenou složku a název"
+  },
+  "qf.youtube.description": {
+    "message": "Podrobné informace o doplňcích Thunderbird a videa o používání quickFilters najdete na mém YouTube kanálu."
+  },
+  "qf.youtube.link": {
+    "message": "Sledujte videa quickFilters na Thunderbird Daily…"
+  },
+  "qf.youtube.tbdaily": {
+    "message": "Navštivte Thunderbird Daily - YouTube kanál pro tipy a návody k použití quickFilters a desktopové pošty"
+  },
+  "quickfilters.FilterAssistant.start": {
+    "message": "Spustit Průvodce filtry"
+  },
+  "quickfilters.FilterAssistant.stop": {
+    "message": "Ukončit Průvodce filtry"
+  },
+  "quickfilters.FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "quickfilters.FromMessage.label": {
+    "message": "Vytvořit filtr ze zprávy…"
   },
   "quickfilters.menu.changelog": {
     "message": "Protokol změn…"
@@ -261,6 +791,342 @@
   },
   "quickfilters.menu.tools": {
     "message": "Tools"
+  },
+  "quickfilters.ListButton.label": {
+    "message": "Filtry zpráv…"
+  },
+  "quickfilters.ListButton.tooltip": {
+    "message": "Zobrazit seznam filtrů zpráv"
+  },
+  "quickfilters.RunButton.label": {
+    "message": "Spustit filtry"
+  },
+  "quickfilters.RunButton.tooltip": {
+    "message": "Spustí filtry nastavené pro aktuální složku"
+  },
+  "quickfilters.RunButtonMsg.label": {
+    "message": "Filtrovat vybrané zprávy"
+  },
+  "quickfilters.RunButtonMsg.tooltip": {
+    "message": "Spustí filtry na vybraných zprávách"
+  },
+  "quickfilters.Start.label": {
+    "message": "Spustit Průvodce filtry…"
+  },
+  "quickfilters.addTag.label": {
+    "message": "Označit zprávu štítkem"
+  },
+  "quickfilters.backup.archivingFilters": {
+    "message": "Archivuje se {1} filtrů"
+  },
+  "quickfilters.backup.customErrors": {
+    "message": "Následující filtry obsahují vlastní akce, které nelze kompletně uložit – může chybět doplněk třetí strany:"
+  },
+  "quickfilters.backup.failedFilters": {
+    "message": "{1} filtrů nelze zakódovat! Zkontrolujte prosím log chyb pro podrobnosti."
+  },
+  "quickfilters.button.assistant": {
+    "message": "Přepnout asistenta…"
+  },
+  "quickfilters.button.assistant.tooltiptext": {
+    "message": "Zapíná/vypíná režim asistenta filtrů. Po aktivaci můžete přetahovat e-maily pro vytváření filtrů."
+  },
+  "quickfilters.button.bug": {
+    "message": "Řešení problémů"
+  },
+  "quickfilters.button.bug.tooltiptext1": {
+    "message": "Řešení problémů: 1. filtry, které se nespouštějí automaticky 2. neplatné cílové složky 3. validace vlastních akcí"
+  },
+  "quickfilters.button.bug.tooltiptext2": {
+    "message": "4. smíšené podmínky „jakýkoli“/„vše“. Klikněte pravým tlačítkem pro konfiguraci kroků."
+  },
+  "quickfilters.button.cancelDuplicates.label": {
+    "message": "Zrušit duplikáty"
+  },
+  "quickfilters.button.cancelDuplicates.tooltip": {
+    "message": "Resetovat hledání duplicit"
+  },
+  "quickfilters.button.cancelFindInFolder.label": {
+    "message": "Zrušit hledání"
+  },
+  "quickfilters.button.cancelFindInFolder.tooltip": {
+    "message": "Zrušit hledání ve složce"
+  },
+  "quickfilters.button.clone": {
+    "message": "Klonovat"
+  },
+  "quickfilters.button.clone.accesskey": {
+    "message": "C"
+  },
+  "quickfilters.button.clone.tooltiptext": {
+    "message": "Klonovat filtr"
+  },
+  "quickfilters.button.findDuplicates.label": {
+    "message": "Najít duplicity"
+  },
+  "quickfilters.button.findDuplicates.tooltip": {
+    "message": "Najít duplicitní atributy"
+  },
+  "quickfilters.button.getOtherAddon": {
+    "message": "Získat {1}"
+  },
+  "quickfilters.button.loadFilters.tooltip": {
+    "message": "Obnovit filtry…"
+  },
+  "quickfilters.button.merge": {
+    "message": "Sloučit"
+  },
+  "quickfilters.button.merge.accesskey": {
+    "message": "M"
+  },
+  "quickfilters.button.merge.tooltiptext": {
+    "message": "Sloučit více filtrů se stejnou akcí"
+  },
+  "quickfilters.button.saveFilters.tooltip": {
+    "message": "Zálohovat filtry…"
+  },
+  "quickfilters.button.searchProperties": {
+    "message": "Změnit vlastnosti vyhledávání…"
+  },
+  "quickfilters.button.settings": {
+    "message": "Nastavení quickFilters…"
+  },
+  "quickfilters.button.sort": {
+    "message": "Seřadit"
+  },
+  "quickfilters.button.sort.tooltiptext": {
+    "message": "Seřadit abecedně"
+  },
+  "quickfilters.button.support": {
+    "message": "Stránka podpory quickFilters"
+  },
+  "quickfilters.clone.label": {
+    "message": "(kopie)"
+  },
+  "quickfilters.clone.selectOne": {
+    "message": "Pro klonování vyberte přesně jeden filtr."
+  },
+  "quickfilters.clone.undetermined": {
+    "message": "Nelze určit, který filtr je vybrán"
+  },
+  "quickfilters.copy.warning.emptyClipboard": {
+    "message": "Schránka neobsahuje žádné filtry!"
+  },
+  "quickfilters.copy.warning.selectFilter": {
+    "message": "Vyberte alespoň jeden filtr!"
+  },
+  "quickfilters.copy.warning.selectOtherAccount": {
+    "message": "Pro vložení položek vyberte jiný účet!"
+  },
+  "quickfilters.copyMessage.label": {
+    "message": "Kopírovat zprávu do"
+  },
+  "quickfilters.createFilter.warning.canNotHaveFilters": {
+    "message": "Účet ({1}) nemůže mít filtry."
+  },
+  "quickfilters.createFilter.warning.minimum2Mails": {
+    "message": "Tato šablona vyžaduje alespoň 2 e-maily."
+  },
+  "quickfilters.createFilter.warning.noFilterFallback": {
+    "message": "Účet [{1}] původu zprávy nemůže mít filtry!\nPoužívá se aktuální doručená pošta."
+  },
+  "quickfilters.createFilter.warning.noHeaderParser": {
+    "message": "Omlouváme se, ale v této verzi {1} nelze vytvářet filtry, protože nepodporuje extrakci adres ze záhlaví zprávy."
+  },
+  "quickfilters.createFilter.warning.noMessageDb": {
+    "message": "Nelze získat přístup k databázi zpráv pro složku {1}"
+  },
+  "quickfilters.createFilter.warning.noMessageId": {
+    "message": "Nepodařilo se vytvořit filtr – nelze získat ID zprávy pro první položku seznamu zpráv!\nZvažte spuštění příkazu Opravit složku."
+  },
+  "quickfilters.createFilter.warning.noServer": {
+    "message": "Složka ({1}) nemá server."
+  },
+  "quickfilters.createFilter.warning.suggestUpdate": {
+    "message": "Zvažte aktualizaci na novější verzi pro získání této funkce."
+  },
+  "quickfilters.createFromMail.inboxWarning": {
+    "message": "„Vytvořit filtr ze zprávy“ je mnohem užitečnější, pokud jste e-mail již přesunuli do jiné složky nebo mu přidali štítek, protože quickFilters pak automaticky vybere odpovídající akci.\nChcete přesto vytvořit filtr z této zprávy?"
+  },
+  "quickfilters.createFromMail.selectWarning": {
+    "message": "Pro vytvoření filtru vyberte přesně jeden e-mail!"
+  },
+  "quickfilters.customHeader.BlindCarbonCopy": {
+    "message": "Skrytá kopie (BCC)"
+  },
+  "quickfilters.customHeader.CarbonCopy": {
+    "message": "Kopie (CC)"
+  },
+  "quickfilters.customHeader.defaultActionTip": {
+    "message": "Průvodce quickFilters automaticky přidá akci. Ponechte prosím výchozí akci „nastavit prioritu na normální“ jako zástupnou."
+  },
+  "quickfilters.customHeader.Domain": {
+    "message": "Doména e-mailu"
+  },
+  "quickfilters.customHeader.Domain.Ext": {
+    "message": "doménová koncovka"
+  },
+  "quickfilters.customHeader.Domain.Root": {
+    "message": "kořenová doména"
+  },
+  "quickfilters.customHeader.Domain.Sub": {
+    "message": "subdoména"
+  },
+  "quickfilters.customHeader.Email": {
+    "message": "E-mailová adresa"
+  },
+  "quickfilters.customHeader.FirstName": {
+    "message": "Křestní jméno"
+  },
+  "quickfilters.customHeader.From": {
+    "message": "Odesílatel"
+  },
+  "quickfilters.customHeader.LastName": {
+    "message": "Příjmení"
+  },
+  "quickfilters.customHeader.ListId": {
+    "message": "ID seznamu"
+  },
+  "quickfilters.customHeader.ListPost": {
+    "message": "List-Post"
+  },
+  "quickfilters.customHeader.NamePart": {
+    "message": "Celé jméno"
+  },
+  "quickfilters.customHeader.Newsgroups": {
+    "message": "Diskusní skupiny"
+  },
+  "quickfilters.customHeader.ReplyTo": {
+    "message": "Reply-To"
+  },
+  "quickfilters.customHeader.Subject": {
+    "message": "Předmět"
+  },
+  "quickfilters.customHeader.SubjectRegex": {
+    "message": "Regulární výraz předmětu"
+  },
+  "quickfilters.customHeader.To": {
+    "message": "Příjemce"
+  },
+  "quickfilters.customTemplate.name": {
+    "message": "Název šablony:"
+  },
+  "quickfilters.customTemplate.title": {
+    "message": "Vlastní šablona quickFilters"
+  },
+  "quickfilters.customVariable.label": {
+    "message": "Vlastní proměnné"
+  },
+  "quickfilters.customVariable.tooltip": {
+    "message": "Při vytváření filtru jsou tyto proměnné nahrazeny odpovídajícími hlavičkami aktuální zprávy."
+  },
+  "quickfilters.customfilter.replyto": {
+    "message": "Reply-To"
+  },
+  "quickfilters.debug.fixFilters": {
+    "message": "Nalezeno {0} aktivních filtrů, které nemají způsob spuštění (ani ručně, ani při přijetí, ani automaticky). Mají být nastaveny tak, aby se spouštěly automaticky při přijetí nové pošty?"
+  },
+  "quickfilters.debug.fixFilters.AnyAll": {
+    "message": "Nalezeny podmínky kombinující 'Any' / 'All' – tyto mohou nefungovat správně. Chcete je opravit?"
+  },
+  "quickfilters.debug.fixFilters.customActionErrors": {
+    "message": "Nalezeno {0} filtrů s nevyřešenými vlastními akcemi. Možná chybí doplněk třetí strany nebo je potřeba jej nakonfigurovat pro podporu vlastních akcí?"
+  },
+  "quickfilters.debug.fixFilters.invalidUris": {
+    "message": "Nalezeno {0} filtrů s neplatnými cílovými složkami. Mohly být importovány z jiného profilu? Nebo cílová složka již neexistuje či byla přesunuta."
+  },
+  "quickfilters.debug.fixFilters.none": {
+    "message": "Nebyly nalezeny žádné chybné filtry."
+  },
+  "quickfilters.debug.fixFilters.result": {
+    "message": "Opraveno {0} filtrů."
+  },
+  "quickfilters.deleteFromPOP.label": {
+    "message": "Smazat ze serveru POP"
+  },
+  "quickfilters.deleteMessage.label": {
+    "message": "Smazat zprávu"
+  },
+  "quickfilters.fetchFromPOP.label": {
+    "message": "Stáhnout ze serveru POP"
+  },
+  "quickfilters.filters.toggleMessage.dontShow": {
+    "message": "Tuto zprávu znovu nezobrazovat."
+  },
+  "quickfilters.filters.toggleMessage.notificationText": {
+    "message": "Režim asistenta filtrů byl spuštěn. Při přesunu e-mailu do jiné složky se spustí průvodce „Vytvořit pravidlo filtru“. #1 používá filtry zpráv pro automatické přesouvání e-mailů podle pravidel jako např. „kdo je odesílatel?“ nebo „je v předmětu určité klíčové slovo?“. Pro ukončení režimu stiskněte znovu tlačítko [filter assistant]."
+  },
+  "quickfilters.filters.toggleMessage.title": {
+    "message": "Režim asistenta filtrů"
+  },
+  "quickfilters.findFiltersForFolder.menu": {
+    "message": "Najít filtry…"
+  },
+  "quickfilters.forwardTo.label": {
+    "message": "Přeposlat zprávu do"
+  },
+  "quickfilters.fpJsonFile": {
+    "message": "JSON soubor"
+  },
+  "quickfilters.ignoreSubthread.label": {
+    "message": "Ignorovat podvlákno"
+  },
+  "quickfilters.ignoreThread.label": {
+    "message": "Ignorovat vlákno"
+  },
+  "quickfilters.licenseValidation.guessAddon": {
+    "message": "(Zadaný klíč může být určen pro {2})."
+  },
+  "quickfilters.markMessageRead.label": {
+    "message": "Označit jako přečtené"
+  },
+  "quickfilters.markMessageStarred.label": {
+    "message": "Přidat hvězdičku"
+  },
+  "quickfilters.markMessageUnread.label": {
+    "message": "Označit jako nepřečtené"
+  },
+  "quickfilters.menu.copy": {
+    "message": "Kopírovat"
+  },
+  "quickfilters.menu.cut": {
+    "message": "Vyjmout"
+  },
+  "quickfilters.menu.paste": {
+    "message": "Vložit"
+  },
+  "quickfilters.menu.removeDupeAction": {
+    "message": "Odstranit duplicitní akci"
+  },
+  "quickfilters.menu.removeDupeCondition": {
+    "message": "Odstranit duplicitní podmínku"
+  },
+  "quickfilters.merge.addressesOmitted": {
+    "message": "E-mailové adresy byly vynechány z podmínek – quickFilters se vyhýbá filtrování vašich vlastních e-mailových adres:"
+  },
+  "quickfilters.merge.warning.missingAction": {
+    "message": "Nelze získat hlavní akci filtru: {1}"
+  },
+  "quickfilters.merge.warning.selectMismatch": {
+    "message": "Nelze sloučit všechny vybrané filtry: nesoulad akce s filtrem {1}!"
+  },
+  "quickfilters.merge.warning.selectMismatchContinue": {
+    "message": "Odznačit neodpovídající filtry a pokračovat?"
+  },
+  "quickfilters.merge.warning.selectMultiple": {
+    "message": "Pro sloučení vyberte alespoň 2 filtry"
+  },
+  "quickfilters.merge.warning.selectMultiple2": {
+    "message": "Nelze určit první vybraný filtr – pro sloučení musíte vybrat alespoň 2 filtry!"
+  },
+  "quickfilters.merge.warning.selectTarget": {
+    "message": "Pro sloučení musí být vybrán cílový filtr!"
+  },
+  "quickfilters.move.selectOne": {
+    "message": "Musí být vybrána právě jedna položka filtru!"
+  },
+  "quickfilters.moveMessage.label": {
+    "message": "Přesunout zprávu do"
   },
   "quickfilters.notification.donate": {
     "message": "Darovat"
@@ -280,6 +1146,21 @@
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Obnovit licenci"
   },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "You can use this feature {1} more times for free."
+  },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it."
+  },
+  "quickfilters.notification.premium.title": {
+    "message": "Premium Feature"
+  },
+  "quickfilters.notification.proFeature.notificationText": {
+    "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
+  },
+  "quickfilters.notification.proFeature.title": {
+    "message": "Premium Feature"
+  },
   "quickfilters.notification.QF.navigationbar": {
     "message": "Použití funkcí filtru z navigačního panelu QuickFolders v Thunderbirdu 115:\n – potřebujete platnou licenci QuickFolders\n – nebo můžete získat licenci $addonName$ Pro podporující tuto funkci.",
     "placeholders": {
@@ -288,6 +1169,138 @@
         "example": "quickFilters"
       }
     }
+  },
+  "quickfilters.notification.register": {
+    "message": "Registrovat {1}"
+  },
+  "quickfilters.option.searchProperty.addTag": {
+    "message": "Přidat štítek"
+  },
+  "quickfilters.option.searchProperty.name": {
+    "message": "Název"
+  },
+  "quickfilters.option.searchProperty.replyWithTemplate": {
+    "message": "Odpovědět pomocí šablony"
+  },
+  "quickfilters.option.searchProperty.searchCondition": {
+    "message": "Vyhledávací podmínka (text)"
+  },
+  "quickfilters.option.searchProperty.setCustomStringAction": {
+    "message": "Akce upravující řetězce"
+  },
+  "quickfilters.option.searchProperty.targetFolder": {
+    "message": "Název cílové složky"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Cesta cílové složky"
+  },
+  "quickfilters.premium.renewLicense.tooltip": {
+    "message": "Vaše licence vypršela před {1} dny"
+  },
+  "quickfilters.premium.title.customTemplate": {
+    "message": "Vlastní šablony"
+  },
+  "quickfilters.premium.title.duplicatesFinder": {
+    "message": "Vyhledávání duplicit"
+  },
+  "quickfilters.premium.title.loadFilters": {
+    "message": "Obnovení filtrů"
+  },
+  "quickfilters.premium.title.saveFilters": {
+    "message": "Záloha filtrů"
+  },
+  "quickfilters.premium.title.searchFolder": {
+    "message": "Vyhledávání filtrů pro složku"
+  },
+  "quickfilters.premium.title.sortFilters": {
+    "message": "Řazení filtrů"
+  },
+  "quickfilters.premium.title.sortSearchTerms": {
+    "message": "Řazení vyhledávacích výrazů"
+  },
+  "quickfilters.prompt.confirmCommonSubjectStart": {
+    "message": "Nalezeny předměty začínající stejným textem: \"$prefix$\".\nPoužít tento text jako podmínku hledání v předmětu?",
+    "placeholders": { "prefix": { "content": "$1" } }
+  },
+  "quickfilters.prompt.contact.subject": {
+    "message": "Zadejte prosím krátký předmět:"
+  },
+  "quickfilters.prompt.contact.title": {
+    "message": "Kontaktovat podporu quickFilters"
+  },
+  "quickfilters.prompt.copiedCustomVar": {
+    "message": "Proměnná {1} byla zkopírována do schránky, vložte ji prosím do vyhledávacího výrazu."
+  },
+  "quickfilters.prompt.createCustomHeader": {
+    "message": "Přidejte prosím výraz '{1}' jako vlastní hlavičku pro použití v filtru."
+  },
+  "quickfilters.prompt.customTemplateName": {
+    "message": "Název vlastní šablony:"
+  },
+  "quickfilters.prompt.fixDuplicates": {
+    "message": "Nalezli jsme duplicity u následujících filtrů níže.\nOpravit je a přesto importovat?"
+  },
+  "quickfilters.promptDontRepeat": {
+    "message": "Toto upozornění znovu nezobrazovat."
+  },
+  "quickfilters.register.licenseValid.expired": {
+    "message": "Vaše licence vypršela dne:"
+  },
+  "quickfilters.registration.menu": {
+    "message": "Licence $licenseName$…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
+  "quickfilters.replyWithTemplate.label": {
+    "message": "Odpovědět pomocí šablony"
+  },
+  "quickfilters.runFiltersOnMails.notify": {
+    "message": "Použít filtry na vybrané zprávy…"
+  },
+  "quickfilters.runMultiFilterInFolder.status": {
+    "message": "Spouští se {0} filtrů ve složce {1}."
+  },
+  "quickfilters.runSingleFilterInFolder.status": {
+    "message": "Spouští se filtr '{0}' ve složce {1}."
+  },
+  "quickfilters.runningFiltersOnFolder.notify": {
+    "message": "Spouštění filtrů ve složce '{1}'…"
+  },
+  "quickfilters.search.warning.noresults": {
+    "message": "Nebyly nalezeny žádné filtry cílené na tuto složku."
+  },
+  "quickfilters.setJunkScore.label": {
+    "message": "Nastavit úroveň spamu na"
+  },
+  "quickfilters.setPriority.label": {
+    "message": "Nastavit prioritu na"
+  },
+  "quickfilters.sort": {
+    "message": "Seřadit"
+  },
+  "quickfilters.sort.tooltip": {
+    "message": "Seřadit vyhledávací výrazy"
+  },
+  "quickfilters.sort.warning.selectMultiple": {
+    "message": "Pro abecední řazení vyberte alespoň 2 filtry"
+  },
+  "quickfilters.stopExecution.label": {
+    "message": "Zastavit běh filtrů"
+  },
+  "quickfilters.warning.emptyFilter": {
+    "message": "Nelze vytvořit filtr: bez platných vyhledávacích výrazů jej nelze upravit."
+  },
+  "quickfilters.warning.templateNameNotUnique": {
+    "message": "Šablona s tímto názvem již existuje! Název musí být jedinečný."
+  },
+  "quickfilters.watchThread.label": {
+    "message": "Sledovat vlákno"
+  },
+  "quickfiltersToolbarButton.label": {
+    "message": "Průvodce quickFilters"
   },
   "quickfiltersToolbarButton.expired": {
     "message": "Licence vypršela!"
@@ -309,6 +1322,9 @@
         "example": "9"
       }
     }
+  },
+  "quickfiltersToolbarButton.tooltip": {
+    "message": "Průvodce pro vytváření filtrů; nástroje pro práci s filtry"
   },
   "renew-your-license": {
     "message": "Obnovte si licenci."
@@ -371,6 +1387,9 @@
       }
     }
   },
+  "subjectCompleteExtract": {
+    "message": "Vždy vložit celý předmět zprávy."
+  },
   "support-preference": {
     "message": "Toto je upřednostňovaný způsob podpory $addonName$.",
     "placeholders": {
@@ -419,9 +1438,9 @@
       }
     }
   },
-  "translated-by-google": {
-    "message": "překlady poskytované google",
-    "description": "disclaimer."
+  "translated-by-AI": {
+    "description": "disclaimer.",
+    "message": "překlady poskytované google"
   },
   "updates.displayVersionTab": {
     "message": "Zobrazit kartu s historií verzí po aktualizaci"
