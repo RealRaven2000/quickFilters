@@ -275,12 +275,16 @@
   "whats-new-head": {
     "message": "Pomembne spremembe"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "Podroben dnevnik sprememb preberite tukaj (samo v angleščini):"
   },
   "whats-new-list": {
     "description": "🇸🇮 change log",
-    "message": "{L}Združljivost s Thunderbird 151{/L}{L}Dodana možnost »Preklopi na brezplačno različico« ter varnostno kopiranje / obnovitev licence po poteku ključa [issue 354]{/L}{L}Ikone orodne vrstice zdaj odražajo glavno barvo teme [issue 357]{/L}{L}Odpravljena občutljivost na velike/male črke v glavi List-Id, ki je povzročala napake pri ustvarjanju filtrov iz predloge »Mailing Lists«. Primerjave glav po meri zdaj niso občutljive na velike/male črke. [issue 350]{/L}{L}Odpravljena težava, da se pomočnik quickFilters ni sprožil po ročnih spremembah oznak (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Dodana združljivost s Thunderbird 152.{/L}{L}Dodano češko prevajanje.{/L}{L}Dodana možnost v upravitelju filtrov za iskanje filtrov po celotni poti mape, uporabljeni v dejanjih premikanja/kopiranja.{/L}{L}Izboljšana integracija vrstice trenutne mape v QuickFolders.{/L}{L}Odpravljena težava, pri kateri predogled sporočila ni bil na voljo pri premikanju v lokalne mape.{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}Ta izdaja usklajuje {b}{+extensionName}{/b} z nedavnimi spremembami načrtovanja platforme Thunderbird. Predhodno napovedana omejitev, ki bi dovoljevala, da starejši dodatki delujejo samo v kanalu ESR, je bila prestavljena na kasnejši ESR cikel (trenutno predvideno za leto 2027).{/P} {P}Takojšnji ukrepi niso potrebni. {b}{+extensionName}{/b} še naprej deluje v različicah Thunderbird Release in ESR, kjer je to podprto.{/P} {P}Uporabniki, ki se zanašajo na napredne ali eksperimentalne funkcije, lahko raje uporabljajo kanal ESR zaradi stabilnejšega okolja. Priporočena točka prehoda z Release na ESR je Thunderbird 153 (predvideno julija 2026).{/P}"
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

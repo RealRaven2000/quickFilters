@@ -1483,12 +1483,16 @@
   "whats-new-head": {
     "message": "Cambiamenti importanti"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "Leggi qui l'elenco dettagliato delle modifiche (in inglese):"
   },
   "whats-new-list": {
     "description": "🇮🇹 change log",
-    "message": "{L}Compatibilità con Thunderbird 151{/L}{L}Aggiunta l’opzione “Passa alla versione gratuita” e backup / ripristino della licenza dopo la scadenza della chiave [issue 354]{/L}{L}Le icone della barra degli strumenti ora riflettono il colore principale del tema [issue 357]{/L}{L}Corretta la sensibilità alle maiuscole/minuscole nell’intestazione List-Id che causava errori nella creazione di filtri dal modello “Mailing Lists”. I confronti tra intestazioni personalizzate ora non distinguono le maiuscole. [issue 350]{/L}{L}Corretta la mancata attivazione dell’assistente quickFilters dopo modifiche manuali dei tag (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Aggiunta compatibilità con Thunderbird 152.{/L}{L}Aggiunta traduzione ceca.{/L}{L}Aggiunta opzione nel gestore filtri per cercare i filtri in base al percorso completo della cartella utilizzata nelle azioni di spostamento/copia.{/L}{L}Migliorata l’integrazione della barra della cartella corrente di QuickFolders.{/L}{L}Risolto un problema per cui l’anteprima dei messaggi non era disponibile durante lo spostamento nelle cartelle locali.{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}Questa versione allinea {b}{+extensionName}{/b} alle recenti modifiche di pianificazione della piattaforma Thunderbird. Una restrizione annunciata in precedenza, che avrebbe permesso alle estensioni legacy di funzionare solo sul canale ESR, è stata posticipata a un ciclo ESR successivo (attualmente previsto per il 2027).{/P} {P}Non è richiesta alcuna azione immediata. {b}{+extensionName}{/b} continua a funzionare sulle versioni Release ed ESR di Thunderbird dove supportato.{/P} {P}Gli utenti che si affidano a funzionalità avanzate o sperimentali possono preferire il canale ESR per un ambiente più stabile. Il punto di migrazione consigliato da Release a ESR è Thunderbird 153 (previsto per luglio 2026).{/P}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

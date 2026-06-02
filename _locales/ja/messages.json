@@ -1480,12 +1480,16 @@
   "whats-new-head": {
     "message": "重要な変更"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "ここで詳細な変更ログを読んでください（英語のみ）："
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{L}Thunderbird 151との互換性{/L}{L}「無料版に切り替え」オプションを追加し、キー期限切れ後のライセンスバックアップ / 復元に対応 [issue 354]{/L}{L}ツールバーアイコンがテーマのメインカラーを反映するようになりました [issue 357]{/L}{L}List-Idヘッダーの大文字小文字の区別が原因で「Mailing Lists」テンプレートからフィルター作成時に失敗する問題を修正しました。カスタムヘッダー比較は大文字小文字を区別しません。 [issue 350]{/L}{L}タグを手動変更した後にquickFiltersアシスタントが起動しない問題を修正しました（Thunderbird 147） [issue 346]{/L}"
+    "message": "{L}Thunderbird 152 との互換性を追加しました。{/L}{L}チェコ語翻訳を追加しました。{/L}{L}メッセージフィルター管理に、移動/コピー操作で使用されるフォルダーの完全パスでフィルターを検索するオプションを追加しました。{/L}{L}QuickFolders の現在フォルダー・バーの統合を改善しました。{/L}{L}ローカルフォルダーへ移動時にメッセージプレビューが利用できない問題を修正しました。{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}このリリースでは {b}{+extensionName}{/b} を Thunderbird プラットフォームの最近の計画変更に合わせています。以前に発表された、レガシーアドオンを ESR チャンネルでのみ実行可能にする制限は、後の ESR サイクル（現在は 2027 年を予定）に延期されました。{/P} {P}直ちに対応は必要ありません。{b}{+extensionName}{/b} は対応している限り、Thunderbird の Release および ESR バージョンで動作し続けます。{/P} {P}高度または実験的な機能に依存するユーザーは、より安定した環境のため ESR チャンネルを選択する場合があります。Release から ESR への推奨移行時期は Thunderbird 153（2026 年 7 月予定）です。{/P}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

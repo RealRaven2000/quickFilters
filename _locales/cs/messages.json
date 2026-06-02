@@ -1457,12 +1457,16 @@
   "whats-new-head": {
     "message": "Hlavní body"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "Přečtěte si podrobný protokol změn zde (pouze v angličtině):"
   },
   "whats-new-list": {
     "description": "🇨🇿 change log",
-    "message": "{L}Kompatibilita s Thunderbirdem 151{/L}{L}Přidána možnost „Přepnout na bezplatnou verzi“ a záloha / obnova licence po vypršení klíče [issue 354]{/L}{L}Ikony panelu nástrojů nyní odrážejí hlavní barvu motivu [issue 357]{/L}{L}Opravena citlivost na velikost písmen v hlavičce List-Id, která způsobovala selhání při vytváření filtrů ze šablony „Mailing Lists“. Porovnání vlastních hlaviček nyní nerozlišuje velikost písmen. [issue 350]{/L}{L}Opraveno nespouštění asistenta quickFilters po ručních změnách štítků (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Přidána kompatibilita s Thunderbirdem 152.{/L}{L}Přidán český překlad.{/L}{L}Přidána možnost ve správci filtrů vyhledávat filtry podle úplné cesty složky použité v akcích přesunu/kopírování zpráv.{/L}{L}Vylepšena integrace lišty aktuální složky v QuickFolders.{/L}{L}Opraven problém, kdy nebyl k dispozici náhled zprávy při přesouvání e-mailů do místních složek.{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}Toto vydání uvádí {b}{+extensionName}{/b} do souladu s aktuálními změnami v plánování platformy Thunderbird. Dříve oznámené omezení, které by umožnilo, aby starší doplňky fungovaly pouze na kanálu ESR, bylo odloženo do pozdějšího cyklu ESR (aktuálně plánováno na rok 2027).{/P} {P}Není nutná žádná okamžitá akce. {b}{+extensionName}{/b} nadále funguje na verzích Thunderbird Release i ESR, kde je to podporováno.{/P} {P}Uživatelé spoléhající na pokročilé nebo experimentální funkce mohou preferovat kanál ESR pro stabilnější prostředí. Doporučený bod migrace z Release na ESR je Thunderbird 153 (očekáváno v červenci 2026).{/P}"
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

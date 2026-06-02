@@ -1,48 +1,48 @@
 The full log with screenshots is available at:
-<a href="https://quickfilters.quickfolders.org/version.html#6.12.2">quickFilters Change Log</a>
+<a href="https://quickfilters.quickfolders.org/version.html#6.13">quickFilters Change Log</a>
 
-<b>6.12</b>
+<b>6.13</b>
 
+This release updates quickFilters to reflect recent changes in Thunderbird’s add-on platform planning. A previously announced restriction that would allow legacy Add-ons on the Release channel only has been postponed to a later ESR cycle (currently targeted for 2027).
+
+No action is required at this time. quickFilters continues to work on both Release and ESR versions of Thunderbird where supported.
+
+Users who rely on advanced or experimental functionality may prefer the ESR channel for a more stable environment with fewer platform changes. The best point in time to migrate your existing profile from Release to ESR is when Thunderbird 153 will be published in July 2026.
 
 <b>Improvements</b>
 <ul>
-  <li>Compatibility with Thunderbird 151</li>
   <li>
-    Added: “Switch to Free Version” option and license backup / recovery after key expiry <a href="https://github.com/RealRaven2000/quickFilters/issues/354">[issue 354]</a>
+    Compatibility updates for Thunderbird 152
   </li>
   <li>
-    Improved: Toolbar icons now reflect the main theme color <a href="https://github.com/RealRaven2000/quickFilters/issues/357">[issue 357]</a>
+    Added Czech translation
+  </li>
+  <li>
+    Search filters can now be found by target folder URI (folder path) <a href="https://github.com/RealRaven2000/quickFilters/issues/366">[issue 366]</a>
+  </li>
+  <li>
+    Improved integration of QuickFolders current folder bar <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a>
   </li>
 </ul>
 
 <b>Bug Fixes</b>
 <ul>
   <li>
-    Fixed: Replaced deprecated <code>showAlertNotification</code> with <code>showAlert</code> <a href="https://github.com/RealRaven2000/quickFilters/issues/349">[issue 349]</a>
+    Fixed HTML Assistant issue where message preview API was not available when moving mail to local folders <a href="https://github.com/RealRaven2000/quickFilters/issues/364">[issue 364]</a>
   </li>
   <li>
-    Fixed: List-Id header case sensitivity caused filter creation with template "Mailing Lists" to fail. From now on, all custom header comparisons are case-insensitive for higher stability.  <a href="https://github.com/RealRaven2000/quickFilters/issues/350">[issue 350]</a>
-  </li>
-  <li>
-    Fixed: quickFilters Assistant is now again triggered by manual tag changes (broken in Thunderbird 147) <a href="https://github.com/RealRaven2000/quickFilters/issues/346">[issue 346]</a>
-  </li>
-  <li>
-    Fixed: “Remove duplicate condition” context menu item was missing an icon <a href="https://github.com/RealRaven2000/quickFilters/issues/359">[issue 359]</a>
+    Set minimum supported Thunderbird version to 140 to avoid deprecated API issues <a href="https://github.com/RealRaven2000/quickFilters/issues/362">[issue 362]</a>
   </li>
 </ul>
 
-<b>Miscellaneous</b>
+<b>Compatibility</b>
 <ul>
   <li>
-    Fixed: Right-clicking a Thunderbird account in the folder tree caused a console error <a href="https://github.com/RealRaven2000/quickFilters/issues/356">[issue 356]</a>
-  </li>
-  <li>
-    Fixed: Domain Renewal mislabelled. <a href="https://github.com/RealRaven2000/quickFilters/issues/360">[issue 360]</a>
-  </li>
-  <li>
-    Fixed: colors of buttons in registration dialog.
+    Updated default GitHub branch alignment to ESR140
   </li>
 </ul>
 
-All development and free support work for quickFilters is financed via the <a href="http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN">quickFilters 
-Pro license</a> which also adds some <a href="https://quickfilters.quickfolders.org/premium.html#featureList">additional features.</a>
+All development and free support work for quickFilters is financed via the
+<a href="http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN">quickFilters Pro license</a>,
+which also provides access to additional
+<a href="https://quickfilters.quickfolders.org/premium.html#featureList">premium features</a>.

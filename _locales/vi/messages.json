@@ -1479,12 +1479,16 @@
   "whats-new-head": {
     "message": "Những thay đổi quan trọng"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "Đọc nhật ký thay đổi chi tiết tại đây (chỉ bằng tiếng Anh):"
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{L}Tương thích với Thunderbird 151{/L}{L}Thêm tùy chọn “Chuyển sang phiên bản miễn phí” và sao lưu / khôi phục giấy phép sau khi khóa hết hạn [issue 354]{/L}{L}Các biểu tượng thanh công cụ giờ phản ánh màu chủ đề chính [issue 357]{/L}{L}Đã sửa lỗi phân biệt chữ hoa/thường trong tiêu đề List-Id gây lỗi khi tạo bộ lọc từ mẫu “Mailing Lists”. So sánh tiêu đề tùy chỉnh hiện không phân biệt chữ hoa/thường. [issue 350]{/L}{L}Đã sửa lỗi quickFilters Assistant không kích hoạt sau khi thay đổi thẻ thủ công (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Thêm khả năng tương thích với Thunderbird 152.{/L}{L}Thêm bản dịch tiếng Séc.{/L}{L}Thêm tùy chọn trong Trình quản lý Bộ lọc để tìm kiếm bộ lọc theo toàn bộ đường dẫn thư mục được dùng trong thao tác di chuyển/sao chép.{/L}{L}Cải thiện tích hợp thanh thư mục hiện tại của QuickFolders.{/L}{L}Sửa lỗi không hiển thị bản xem trước thư khi di chuyển vào thư mục cục bộ.{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}Bản phát hành này giúp {b}{+extensionName}{/b} phù hợp với các thay đổi gần đây trong kế hoạch nền tảng Thunderbird. Một hạn chế được công bố trước đây, theo đó các tiện ích cũ chỉ có thể chạy trên kênh ESR, đã được hoãn sang một chu kỳ ESR sau (hiện dự kiến năm 2027).{/P} {P}Không cần thực hiện hành động ngay. {b}{+extensionName}{/b} vẫn tiếp tục hỗ trợ cả phiên bản Release và ESR của Thunderbird khi tương thích.{/P} {P}Người dùng phụ thuộc vào các tính năng nâng cao hoặc thử nghiệm có thể ưu tiên kênh ESR để có môi trường ổn định hơn. Mốc chuyển đổi khuyến nghị từ Release sang ESR là Thunderbird 153 (dự kiến tháng 7 năm 2026).{/P}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

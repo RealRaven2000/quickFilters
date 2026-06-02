@@ -1471,12 +1471,16 @@
   "whats-new-head": {
     "message": "重要变化"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}兼容 Thunderbird 151{/L}{L}新增“切换到免费版本”选项，并支持许可证在密钥过期后的备份 / 恢复 [issue 354]{/L}{L}工具栏图标现在会反映主题的主色调 [issue 357]{/L}{L}修复 List-Id 标头大小写敏感导致从“Mailing Lists”模板创建过滤器失败的问题。自定义标头比较现在不区分大小写。 [issue 350]{/L}{L}修复在手动更改标签后 quickFilters Assistant 未触发的问题（Thunderbird 147） [issue 346]{/L}"
+    "message": "{L}新增对 Thunderbird 152 的兼容支持。{/L}{L}新增捷克语翻译。{/L}{L}在过滤器管理器中新增按用于移动/复制操作的完整文件夹路径搜索过滤器的选项。{/L}{L}改进 QuickFolders 当前文件夹栏的集成。{/L}{L}修复将邮件移动到本地文件夹时无法显示邮件预览的问题。{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}本版本使 {b}{+extensionName}{/b} 与 Thunderbird 平台的最新规划调整保持一致。此前宣布的一项限制（仅允许旧版扩展在 ESR 渠道运行）已推迟到更晚的 ESR 周期（目前预计为 2027 年）。{/P} {P}无需立即操作。{b}{+extensionName}{/b} 在兼容情况下仍可在 Thunderbird Release 和 ESR 版本中运行。{/P} {P}依赖高级或实验性功能的用户可能更倾向于 ESR 渠道，以获得更稳定的环境。建议从 Release 迁移到 ESR 的时间点为 Thunderbird 153（预计 2026 年 7 月）。{/P}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

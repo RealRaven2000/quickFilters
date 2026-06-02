@@ -202,6 +202,15 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     for (let el of elementsSI) {
       insertHtmlSafely(el, txtSI, true);
     }
+    let divIntro = document.querySelector("div.importantChanges");
+    if (divIntro) {
+      let htmlMsg = messenger.i18n.getMessage("whats-new-list-intro").trim();
+      if (htmlMsg) {
+         insertHtmlSafely(divIntro, formatAll(htmlMsg), true);
+      } else {
+        divIntro.setAttribute("collapsed", true);
+      }
+    }
 
     let whatsNewLst = document.getElementById("whatsNewList");
     if (whatsNewLst) {

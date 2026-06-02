@@ -95,6 +95,19 @@ canvas[collapsed=true] {
 #changesList {
   background-color: transparent;
 }
+/* [optional] special intro before change list */
+.importantChanges {
+  background-color: rgba(60, 0, 76, 0.9);
+  background-image: linear-gradient(55deg, rgba(6, 19, 162, 0.9) 0%, rgba(115, 3, 85, 0.9) 100%);
+  border-radius: 6px;
+  border:rgba(255, 221, 53, 0.8) solid 2px;
+  color: white;
+  margin: 0.8em;
+  padding: 0.5em 1.5em !important;
+}
+.importantChanges b {
+  color: rgb(255, 221, 53) !important;
+}
 
 .importantInfo a {
   background-color: transparent;

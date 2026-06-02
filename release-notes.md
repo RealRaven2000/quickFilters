@@ -1,27 +1,32 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.12.2) 
+**Release 6.13**
+
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13)
+
+
+This release updates quickFilters to reflect recent changes in Thunderbird’s add-on platform planning. A previously announced restriction that would allow legacy Add-ons on the Release channel only has been postponed to a later ESR cycle (currently targeted for 2027).
+
+No immediate action is required. quickFilters continues to work on both Release and ESR versions of Thunderbird where supported.
+
+Users who rely on advanced or experimental functionality may prefer the ESR channel for a more stable environment with fewer platform changes. The recommended migration point from Release to ESR is Thunderbird 153, expected in July 2026.
 
 
 **Improvements**
 
-*   Compatibility with Thunderbird 151
-*   Added: “Switch to Free Version” option and license backup / recovery after key expiry [issue #354]  
-*   Improved: Toolbar icons now reflect the main theme color [issue #357]
-  
+* Compatibility updates for Thunderbird 152
+* Added Czech translation
+* Search filters can now be found by target folder URI (folder path) [issue #366]
+* Improved integration of QuickFolders current folder bar [issue #365]
 
 
 **Bug Fixes**
 
-*   Fixed: Message Filters ⇒ New... ⇒ Copy... creates TWO Copies. [issue #341]
-*   Fixed: Replaced deprecated <code>showAlertNotification</code> with <code>showAlert</code> [issue #349]
-*   Fixed: List-Id header case sensitivity caused filter creation with template "Mailing Lists" to fail. From now on, all custom header comparisons are case-insensitive for higher stability. [issue #350]
-*   Fixed: quickFilters Assistant is now again triggered by manual tag changes (broken in Thunderbird 147) [issue #346]
-*   Fixed: “Remove duplicate condition” context menu item was missing an icon [issue #359]
+* Fixed HTML Assistant issue where message preview API was not available when moving mail to local folders [issue #364]
+* Set minimum supported Thunderbird version to 140 to avoid deprecated API issues [issue #362]
 
 
-**Miscellaneus**
+**Compatibility**
 
-*   Fixed: Right-clicking a Thunderbird account in the folder tree caused a console error [issue #356]
-*   Domain Renewal mislabelled. [issue #360]
-*   Fixed: colors of buttons in registration dialog - these could lead to unusable button in macOS.
+* Updated default GitHub branch alignment to ESR140
 
-All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features.](https://quickfilters.quickfolders.org/premium.html#featureList)
+
+All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features](https://quickfilters.quickfolders.org/premium.html#featureList).

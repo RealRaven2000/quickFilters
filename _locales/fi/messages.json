@@ -1479,12 +1479,16 @@
   "whats-new-head": {
     "message": "Tärkeät muutokset"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "Lue yksityiskohtainen muutosloki täältä (vain englanniksi):"
   },
   "whats-new-list": {
     "description": "🇫🇮 change log",
-    "message": "{L}Yhteensopivuus Thunderbird 151:n kanssa{/L}{L}Lisätty “Vaihda ilmaiseen versioon” -vaihtoehto sekä lisenssin varmuuskopiointi / palautus avaimen vanhentumisen jälkeen [issue 354]{/L}{L}Työkalupalkin kuvakkeet heijastavat nyt teeman pääväriä [issue 357]{/L}{L}Korjattu List-Id-otsakkeen kirjainkoon herkkyys, joka aiheutti virheitä luotaessa suodattimia “Mailing Lists” -mallista. Mukautettujen otsakkeiden vertailu ei enää huomioi kirjainkokoa. [issue 350]{/L}{L}Korjattu quickFilters-avustajan käynnistymättömyys manuaalisten tunnisteiden muutosten jälkeen (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Lisätty yhteensopivuus Thunderbird 152:n kanssa.{/L}{L}Lisätty tšekinkielinen käännös.{/L}{L}Lisätty vaihtoehto viestisuodattimien hallintaan suodattimien hakemiseksi koko kansiopolun perusteella siirto-/kopiointitoiminnoissa.{/L}{L}Parannettu QuickFoldersin nykyisen kansion palkin integraatiota.{/L}{L}Korjattu ongelma, jossa viestin esikatselu ei ollut käytettävissä siirrettäessä viestejä paikallisiin kansioihin.{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}Tämä julkaisu linjaa {b}{+extensionName}{/b}:n Thunderbird-alustan viimeaikaisten suunnittelumuutosten kanssa. Aiemmin ilmoitettu rajoitus, jonka mukaan vanhat lisäosat toimisivat vain ESR-kanavalla, on siirretty myöhempään ESR-sykliin (tällä hetkellä suunniteltu vuodelle 2027).{/P} {P}Välittömiin toimenpiteisiin ei ole tarvetta. {b}{+extensionName}{/b} toimii edelleen Thunderbirdin Release- ja ESR-versioissa, joissa se on tuettu.{/P} {P}Käyttäjät, jotka hyödyntävät edistyneitä tai kokeellisia ominaisuuksia, voivat suosia ESR-kanavaa vakaamman ympäristön vuoksi. Suositeltu siirtymäkohta Release-versiosta ESR:ään on Thunderbird 153 (odotettu heinäkuussa 2026).{/P}"
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

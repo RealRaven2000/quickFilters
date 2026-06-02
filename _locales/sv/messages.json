@@ -1479,12 +1479,16 @@
   "whats-new-head": {
     "message": "Viktiga förändringar"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "Läs den detaljerade ändringsloggen här (endast engelska):"
   },
   "whats-new-list": {
     "description": "🇸🇪 change log",
-    "message": "{L}Kompatibilitet med Thunderbird 151{/L}{L}Lagt till alternativet “Byt till gratisversion” samt säkerhetskopiering / återställning av licens efter att nyckeln har gått ut [issue 354]{/L}{L}Verktygsfältets ikoner återspeglar nu huvudtemats färg [issue 357]{/L}{L}Åtgärdat skiftlägeskänslighet i List-Id-huvudet som orsakade fel vid skapande av filter från mallen “Mailing Lists”. Anpassade huvudjämförelser är nu skiftlägesokänsliga. [issue 350]{/L}{L}Åtgärdat problem där quickFilters-assistenten inte startade efter manuella taggändringar (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Lagt till kompatibilitet med Thunderbird 152.{/L}{L}Lagt till tjeckisk översättning.{/L}{L}Lagt till alternativ i filterhanteraren för att söka filter baserat på hela mappsökvägen som används i flytta/kopiera-åtgärder.{/L}{L}Förbättrad integration av QuickFolders aktuella mappfält.{/L}{L}Åtgärdat ett problem där förhandsvisning av meddelanden inte var tillgänglig vid flytt till lokala mappar.{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}Denna version anpassar {b}{+extensionName}{/b} till de senaste planeringsändringarna i Thunderbird-plattformen. En tidigare aviserad begränsning som skulle tillåta att äldre tillägg endast körs på ESR-kanalen har skjutits upp till en senare ESR-cykel (för närvarande planerad till 2027).{/P} {P}Ingen omedelbar åtgärd krävs. {b}{+extensionName}{/b} fortsätter att fungera på Thunderbird Release- och ESR-versioner där det stöds.{/P} {P}Användare som förlitar sig på avancerade eller experimentella funktioner kan föredra ESR-kanalen för en mer stabil miljö. Rekommenderad migreringspunkt från Release till ESR är Thunderbird 153 (förväntas i juli 2026).{/P}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1484,12 +1484,16 @@
   "whats-new-head": {
     "message": "Important Changes"
   },
-  "whats-new-intro": {
+  "whats-new-link": {
     "message": "Read the detailed change log here (English only):"
   },
   "whats-new-list": {
     "description": "🇬🇧 change log",
-    "message": "{L}Compatibility with Thunderbird 151{/L}{L}Added “Switch to Free Version” option and license backup / recovery after key expiry [issue 354]{/L}{L}Toolbar icons now reflect the main theme color [issue 357]{/L}{L}Fixed List-Id header case sensitivity causing failures when creating filters from the \"Mailing Lists\" template. Custom header comparisons are now case-insensitive. [issue 350]{/L}{L}Fixed quickFilters Assistant not triggering after manual tag changes (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Added compatibility with Thunderbird 152.{/L}{L}Added Czech translation.{/L}{L}Added option in Message Filters dialog to search filters by full folder path used in move/copy actions.{/L}{L}Improved QuickFolders current folder bar integration.{/L}{L}Fixed an issue where message preview was unavailable when moving mail to local folders.{/L}"
+  },
+  "whats-new-list-intro": {
+    "description": "Optional change log intro. leave empty to omit!",
+    "message": "{P}This release aligns {b}{+extensionName}{/b} with recent Thunderbird platform planning changes. A previously announced restriction that would allow legacy Add-ons to only run on the ESR channel has been postponed to a later ESR cycle (currently targeted for 2027).{/P} {P}No immediate action is required. {b}{+extensionName}{/b} continues to support both Release and ESR versions of Thunderbird where compatible.{/P} {P}Users relying on advanced or experimental features may prefer the ESR channel for a more stable environment. The recommended migration point from Release to ESR is Thunderbird 153 (expected July 2026).{/P}"
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
