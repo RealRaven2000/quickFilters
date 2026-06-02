@@ -1210,7 +1210,10 @@
     "message": "(Aangepast) stringactie instellen"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Doelmap"
+    "message": "Naam van doelmap"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Pad van doelmap"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Uw licentie is {1} dag(en) geleden verlopen"

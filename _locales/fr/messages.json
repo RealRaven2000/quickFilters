@@ -1209,7 +1209,10 @@
     "message": "Actions that modify Strings"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Dossier cible"
+    "message": "Nom du dossier cible"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Chemin du dossier cible"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Your license expired {1} days ago"

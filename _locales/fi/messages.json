@@ -1209,7 +1209,10 @@
     "message": "Toiminnot, jotka muuttavat merkkijonoja"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Kohdekansio"
+    "message": "Kohdekansion nimi"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Kohdekansion polku"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Lisenssi vanhensi {1} päivää sitten"

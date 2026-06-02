@@ -174,6 +174,12 @@
       }
     }
   },
+  "quickfilters.option.searchProperty.targetFolder": {
+    "message": "Název cílové složky"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Cesta cílové složky"
+  },
   "quickfilters.prompt.confirmCommonSubjectStart": {
     "message": "Nalezeny předměty začínající stejným textem: \"$prefix$\".\nPoužít tento text jako podmínku hledání v předmětu?",
     "placeholders": { "prefix": { "content": "$1" } }

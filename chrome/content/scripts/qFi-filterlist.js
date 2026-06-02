@@ -79,6 +79,14 @@ async function onLoad(_activatedWhileWindowOpen) {
         name="searchType"
         />
       <menuitem 
+          id="quickFiltersSearchTargetFolderUri"
+          class="menuitem-iconic"
+        label="__MSG_quickfilters.option.searchProperty.targetFolderUri__"
+        oncommand="quickFilters.List.toggleSearchType('targetFolderUri',true);"
+        type="radio"
+        name="searchType"
+        />        
+      <menuitem 
           id="quickFiltersSearchCondition"
           class="menuitem-iconic"
         label="__MSG_quickfilters.option.searchProperty.searchCondition__"

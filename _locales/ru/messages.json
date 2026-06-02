@@ -1209,7 +1209,10 @@
     "message": "Actions that modify Strings"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Папка для сохранения"
+    "message": "Имя целевой папки"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Путь к целевой папке"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Ваша лицензия истекла {1} дней назад"

@@ -1209,7 +1209,10 @@
     "message": "(Anpassad) ange stränghandling"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Målmapp"
+    "message": "Målmappens namn"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Sökväg till målmappen"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Din licens gick ut för {1} dygn sedan"

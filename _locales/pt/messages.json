@@ -1213,7 +1213,10 @@
     "message": "Ações que modificam Strings"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Pasta de destino"
+    "message": "Nome da pasta de destino"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Caminho da pasta de destino"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Sua licença expirou há {1} dias"

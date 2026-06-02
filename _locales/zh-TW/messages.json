@@ -1124,7 +1124,10 @@
     "message": "修改字符串的操作"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "目標文件夾"
+    "message": "目標資料夾名稱"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "目標資料夾路徑"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "您的許可證已在 {1} 天前過期"

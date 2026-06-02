@@ -1148,28 +1148,33 @@ quickFilters.List = {
     // more search options
     let FA = Ci.nsMsgFilterAction,
         acLength = util.getActionCount(aFilter);
-    switch(quickFilters.List.searchType) {
-      case 'name':
-        return (aFilter.filterName.toLocaleLowerCase().indexOf(aKeyword)>=0);
-      case 'targetFolder':
+    switch (quickFilters.List.searchType) {
+      case "name":
+        return aFilter.filterName.toLocaleLowerCase().indexOf(aKeyword) >= 0;
+      case "targetFolder": // fall-through
+      case "targetFolderUri":
         for (let index = 0; index < acLength; index++) {
           let ac = aFilter.getActionAt(index);
-          if (ac.type == FA.MoveToFolder || ac.type == FA.CopyToFolder) {
-            if (ac.targetFolderUri) { 
-              // also allow complete match (for duplicate search)
-              if (ac.targetFolderUri.toLocaleLowerCase() == aKeyword) {
-                return true;
-              }
-              let lI = ac.targetFolderUri.lastIndexOf('/');
-              if (lI<0) {lI=0;}
-              if (ac.targetFolderUri.substr(lI).toLocaleLowerCase().indexOf(aKeyword)>=0) {
-                return true;
-              }
-            }
+          if (ac.type != FA.MoveToFolder && ac.type != FA.CopyToFolder) {
+            return false;
           }
-        }        
+          if (!ac.targetFolderUri) {
+            return false;
+          }
+          // also allow complete match (for duplicate search)
+          if (ac.targetFolderUri.toLocaleLowerCase() == aKeyword) {
+            return true;
+          }
+          let lI = ac.targetFolderUri.lastIndexOf("/");
+          if (lI < 0 || quickFilters.List.searchType == "targetFolderUri") {
+            lI = 0;
+          }
+          if (ac.targetFolderUri.substr(lI).toLocaleLowerCase().indexOf(aKeyword) >= 0) {
+            return true;
+          }
+        }
         return false;
-      case 'condition': {
+      case "condition": {
         let stCollection = aFilter.searchTerms;
         for (let t = 0; t < stCollection.length; t++) {
           // http://mxr.mozilla.org/comm-central/source/mailnews/base/search/content/searchTermOverlay.js#177
@@ -1178,8 +1183,8 @@ quickFilters.List = {
           if (searchTerm.value) {
             let val = searchTerm.value; // nsIMsgSearchValue
             if (val && util.isStringAttrib(val.attrib)) {
-              let conditionStr = searchTerm.value.str || '';  // guard against invalid str value.
-              if (conditionStr.toLocaleLowerCase().indexOf(aKeyword)>=0) {
+              let conditionStr = searchTerm.value.str || ""; // guard against invalid str value.
+              if (conditionStr.toLocaleLowerCase().indexOf(aKeyword) >= 0) {
                 return true;
               }
             }
@@ -1187,7 +1192,7 @@ quickFilters.List = {
         }
         return false;
       }
-      case 'tagLabel':
+      case "tagLabel":
         for (let index = 0; index < acLength; index++) {
           let ac = aFilter.getActionAt(index);
           if (ac.type == FA.AddTag || ac.type == FA.Label) {
@@ -1196,35 +1201,36 @@ quickFilters.List = {
               return true;
             }
           }
-        } 
+        }
         return false;
-			case 'stringAction': // any (custom) action that sets a string
+      case "stringAction": // any (custom) action that sets a string
         for (let index = 0; index < acLength; index++) {
           let ac = aFilter.getActionAt(index);
           if (ac.type == FA.Custom) {
-						try {
-							if (ac.strValue && ac.strValue.toLocaleLowerCase().indexOf(aKeyword) >= 0) {
+            try {
+              if (ac.strValue && ac.strValue.toLocaleLowerCase().indexOf(aKeyword) >= 0) {
                 // partly match case insensitive
                 return true;
               }
-						}
-						catch {;} 
+            } catch { ; }
           }
-        } 
-			  return false;
-      case 'replyWithTemplate':
+        }
+        return false;
+      case "replyWithTemplate":
         for (let index = 0; index < acLength; index++) {
           let ac = aFilter.getActionAt(index, Ci);
           if (ac.type == FA.Reply) {
-            if (ac.strValue) { 
-              let searchSubject = quickFilters.List.retrieveSubjectFromReply(ac.strValue).toLocaleLowerCase();
-              if (searchSubject.indexOf(aKeyword)>=0) {
+            if (ac.strValue) {
+              let searchSubject = quickFilters.List.retrieveSubjectFromReply(
+                ac.strValue,
+              ).toLocaleLowerCase();
+              if (searchSubject.indexOf(aKeyword) >= 0) {
                 // full match for tags, but case insensitive.
                 return true;
               }
             }
           }
-        }        
+        }
         return false;
     }
     return true; // no search filter.

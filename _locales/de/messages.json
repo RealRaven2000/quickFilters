@@ -1209,7 +1209,10 @@
     "message": "Aktionen die Text modifizieren"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Zielverzeichnis"
+    "message": "Name des Zielordners"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Pfad des Zielordners"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Ihre Lizenz lief ab vor {1} Tagen"

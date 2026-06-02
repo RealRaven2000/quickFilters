@@ -1210,7 +1210,10 @@
     "message": "Akcje, które modyfikują ciągi"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Folder docelowy"
+    "message": "Nazwa folderu docelowego"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Ścieżka folderu docelowego"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Twoja licencja wygasła {1} dni temu"

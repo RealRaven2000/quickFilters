@@ -1212,7 +1212,10 @@
     "message": "Azioni che modificano le stringhe"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Cartella-destinazione"
+    "message": "Nome della cartella di destinazione"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Percorso della cartella di destinazione"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "La licenza è scaduta {1} giorni fa"

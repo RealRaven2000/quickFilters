@@ -1209,7 +1209,10 @@
     "message": "Acciones que modifican cadenas"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Carpeta objetivo"
+    "message": "Nombre de la carpeta de destino"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Ruta de la carpeta de destino"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Su licencia expiró hace {1} días"

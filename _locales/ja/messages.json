@@ -1210,7 +1210,10 @@
     "message": "文字列を変更する操作"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "対象フォルダ"
+    "message": "対象フォルダー名"
+  },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "対象フォルダーのパス"
   },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "ライセンスの有効期限が {1} 日前に切れています"

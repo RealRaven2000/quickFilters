@@ -1213,8 +1213,11 @@
     "message": "Actions that modify Strings"
   },
   "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Target folder"
+    "message": "Target Folder Name"
   },
+  "quickfilters.option.searchProperty.targetFolderUri": {
+    "message": "Target Folder Path"
+  },  
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Your license expired {1} days ago"
   },
