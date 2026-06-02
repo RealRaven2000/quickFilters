@@ -217,6 +217,8 @@ END LICENSE BLOCK
 
   6.13 - WIP
     # new Github Default branch ESR140
+    # support for Thunderbird 152
+    # Added Czech translation
     # [issue 362] Set Minimum Version to Thunderbird 140 to avoid problems with deprecated APIs
     # [issue 364] HTML Assistant cannot read API message preview when moving mail to local folder
     # [issue 365] Improve QuickFolders current folder bar integration
