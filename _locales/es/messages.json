@@ -1457,9 +1457,9 @@
       }
     }
   },
-  "translated-by-google": {
+  "translated-by-AI": {
     "description": "disclaimer.",
-    "message": "traducciones proporcionadas por google"
+    "message": "Las traducciones fueron generadas por IA y pueden no ser precisas."
   },
   "updates.displayVersionTab": {
     "message": "Mostrar pestaña con historial de versiones tras la actualización"

@@ -265,9 +265,9 @@
       }
     }
   },
-  "translated-by-google": {
-    "message": "prevode, ki jih google",
-    "description": "disclaimer."
+  "translated-by-AI": {
+    "description": "disclaimer.",
+    "message": "Prevode je zagotovila umetna inteligenca in morda niso točni."
   },
   "whats-new-btn": {
     "message": "Kaj je novega?"

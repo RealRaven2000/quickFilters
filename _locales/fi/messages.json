@@ -1457,9 +1457,9 @@
       }
     }
   },
-  "translated-by-google": {
-    "message": "käännökset tarjoaa google",
-    "description": "disclaimer."
+  "translated-by-AI": {
+    "description": "disclaimer.",
+    "message": "Käännökset on tuotettu tekoälyn avulla, eivätkä ne välttämättä ole tarkkoja."
   },
   "updates.displayVersionTab": {
     "message": "Näytä päivityksen jälkeen version historia -välilehti"

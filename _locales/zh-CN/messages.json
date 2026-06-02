@@ -1449,9 +1449,9 @@
       }
     }
   },
-  "translated-by-google": {
+  "translated-by-AI": {
     "description": "disclaimer.",
-    "message": "谷歌提供的翻译"
+    "message": "翻译由AI提供，可能不准确。"
   },
   "updates.displayVersionTab": {
     "message": "更新后显示版本历史标签页"

@@ -1367,9 +1367,9 @@
       }
     }
   },
-  "translated-by-google": {
-    "message": "谷歌提供的翻譯",
-    "description": "disclaimer."
+  "translated-by-AI": {
+    "description": "disclaimer.",
+    "message": "翻譯由 AI 提供，可能不準確。"
   },
   "updates.displayVersionTab": {
     "message": "更新後顯示版本歷史分頁"

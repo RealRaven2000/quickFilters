@@ -265,9 +265,9 @@
       }
     }
   },
-  "translated-by-google": {
-    "message": "преводи које пружа гоогле",
-    "description": "disclaimer."
+  "translated-by-AI": {
+    "description": "disclaimer.",
+    "message": "Преводе је обезбедила вештачка интелигенција и можда нису тачни."
   },
   "whats-new-btn": {
     "message": "Шта је ново?"

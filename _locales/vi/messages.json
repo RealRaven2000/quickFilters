@@ -1457,9 +1457,9 @@
       }
     }
   },
-  "translated-by-google": {
+  "translated-by-AI": {
     "description": "disclaimer.",
-    "message": "bản dịch do google cung cấp"
+    "message": "Bản dịch được cung cấp bởi AI và có thể không chính xác."
   },
   "updates.displayVersionTab": {
     "message": "Hiển thị tab lịch sử phiên bản sau khi cập nhật"

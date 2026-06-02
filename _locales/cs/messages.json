@@ -197,7 +197,7 @@
     "message": "Rychle generujte pravidla pro filtrování pošty za chodu přetažením a přetažením e-mailů a analýzou jejich atributů.",
     "description": "Description of the extension."
   },
-   "extensionName": {
+  "extensionName": {
     "message": "quickFilters",
     "description": "Name of the extension."
   },
@@ -1440,7 +1440,7 @@
   },
   "translated-by-AI": {
     "description": "disclaimer.",
-    "message": "překlady poskytované google"
+    "message": "Překlady byly vytvořeny pomocí AI a nemusí být přesné."
   },
   "updates.displayVersionTab": {
     "message": "Zobrazit kartu s historií verzí po aktualizaci"

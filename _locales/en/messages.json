@@ -1217,7 +1217,7 @@
   },
   "quickfilters.option.searchProperty.targetFolderUri": {
     "message": "Target Folder Path"
-  },  
+  },
   "quickfilters.premium.renewLicense.tooltip": {
     "message": "Your license expired {1} days ago"
   },
@@ -1317,7 +1317,6 @@
   "quickfilters.warning.emptyFilter": {
     "message": "Could not create filter: without valid search terms the filter can not be edited."
   },
-
   "quickfilters.warning.templateNameNotUnique": {
     "message": "A template of this name already exists! The name must be unique."
   },
@@ -1399,9 +1398,6 @@
       }
     }
   },
-  "subjectCompleteExtract": {
-    "message": "Always insert the complete subject line."
-  },
   "special-offer-renew": {
     "message": "Renew your License now and save {bold$reduction${/bold} ! This special offer will be available until {bold$expirydate${/bold} .",
     "placeholders": {
@@ -1414,6 +1410,9 @@
         "example": "50%"
       }
     }
+  },
+  "subjectCompleteExtract": {
+    "message": "Always insert the complete subject line."
   },
   "support-preference": {
     "message": "This is the preferred way of supporting $addonName$.",
@@ -1463,9 +1462,9 @@
       }
     }
   },
-  "translated-by-google": {
+  "translated-by-AI": {
     "description": "disclaimer.",
-    "message": "translations provided by google"
+    "message": "translations were provided by AI and may not be accurate."
   },
   "updates.displayVersionTab": {
     "message": "Display tab with version history after update"

@@ -1459,9 +1459,9 @@
       }
     }
   },
-  "translated-by-google": {
+  "translated-by-AI": {
     "description": "disclaimer.",
-    "message": "vertalingen geleverd door Google"
+    "message": "Vertalingen zijn door AI gegenereerd en kunnen mogelijk niet nauwkeurig zijn."
   },
   "updates.displayVersionTab": {
     "message": "Tabblad met versiegeschiedenis na update weergeven"
