@@ -264,11 +264,11 @@ quickFilters.Options = {
     setTimeout( function() {optionsWin.close();}, 200 );
   },
     
-  toggleCurrentFolderButtons_check: function toggleCurrentFolderButtons_check() {
+  toggleCurrentFolderButtons_check: function () {
     quickFilters.Util.notifyTools.notifyBackground({ func: "toggleCurrentFolderButtons" }); 
   } ,
 	
-  trimLicense: function trimLicense() {
+  trimLicense: function () {
 		const util = quickFilters.Util;
     let txtBox = document.getElementById('txtLicenseKey'),
         strLicense = txtBox.value.toString();
@@ -407,14 +407,14 @@ quickFilters.Options = {
 		return result;
   } ,
   
-  validateNewKey: async function validateNewKey() {
+  validateNewKey: async function () {
     this.trimLicense();
     await quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicense", key: document.getElementById("txtLicenseKey").value });
     // The background script will validate the new key and send a broadcast to all consumers on sucess.
     // In this script, the consumer is onBackgroundUpdate.
   },
   
-  pasteLicense: function pasteLicense() {
+  pasteLicense: function () {
     let trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(Components.interfaces.nsITransferable),
         str       = {},
         strLength = {},
@@ -436,7 +436,7 @@ quickFilters.Options = {
     this.validateNewKey();
   } ,
   
-  validateLicenseInOptions: function validateLicenseInOptions(_testMode) {
+  validateLicenseInOptions: function (_testMode) {
 		function replaceCssClass(el,addedClass) {
 			el.classList.add(addedClass);
 			if (addedClass!='paid')	{el.classList.remove('paid');}
