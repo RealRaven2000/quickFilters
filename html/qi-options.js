@@ -88,7 +88,7 @@ quickFilters.Options = {
     btnRecover.hidden = true;
     validationKeyBackedUp.setAttribute("collapsed", true);
 
-    const lastKey = await browser.LegacyPrefs.getPref("extensions.quickfolders.LicenseKey.backup");
+    const lastKey = await browser.LegacyPrefs.getPref("extensions.quickfilters.LicenseKey.backup");
     if (lastKey?.length > 3 && !txtLicense.value) {
       validationKeyBackedUp.removeAttribute("collapsed");
       btnRecover.hidden = false;
