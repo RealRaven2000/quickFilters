@@ -202,7 +202,7 @@ END LICENSE BLOCK
     # [issue 344] Improved subject matching: detect subjects starting with the same word combos
     # Removed old settings dialog (xul will be deprecated in the future)
 
-  6.12 - 30/03/2026
+  6.12.1 - 30/03/2026
     # Compatibility with Thunderbird 151
     # [issue 349] Replace deprecated showAlertNotification with showAlert
     # [issue 350] List-Id header case sensitive 🡆 Filter creation with template "Mailing Lists" fails
@@ -212,8 +212,13 @@ END LICENSE BLOCK
     # [issue 357] Toolbar Icons should reflect the main theme color
     # [issue 359] Remove duplicate condition - context menu missing icon
 
-  6.12.1 - WIP
+  6.12.2 - 07/04/2026
     # [issue 360] Domain Renewal mislabelled. 
+
+  6.12.3 - 09/06/2026
+    # support for Thunderbird 152
+    # [issue 364] Fixed: HTML Assistant cannot populate preview message when moving mail to local folder
+    # Fixed: License key restore has the wrong key (QuickFolders instead of quickFilters)
 
 
   ============================================================================================================

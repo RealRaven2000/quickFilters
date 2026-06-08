@@ -1,4 +1,10 @@
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.12.2) 
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.12.3) 
+
+**Maintenance Update 6.12.3**
+
+*   Compatibility with Thunderbird 152
+*   Fixed an issue where message preview was unavailable when moving mail to local folders [issue #364]
+*   Fixed: License key restore has the wrong key (QuickFolders instead of quickFilters)
 
 
 **Improvements**
