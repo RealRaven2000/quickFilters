@@ -234,6 +234,36 @@ function replaceNested(text) {
   return result;
 }
 
+function specialAttributes(str, content) {
+  if (!str) {
+    return "";
+  }
+
+  let out = [];
+  let title;
+
+  for (const p of str.split(/\s+/)) {
+    const [k, v] = p.split("=");
+
+    if (!k || !v) {
+      continue;
+    }
+
+    if (k === "class" && v.includes("maintenance")) {
+      // for class=maintenance the tag contains the maintenance version number!
+      const tooltip = messenger.i18n.getMessage("whats-new-maintenance", [content]);
+      title = `title="${tooltip}"`;
+    }
+
+    out.push(`${k}="${v}"`);
+  }
+  if (title) {
+    out.push(title);
+  }
+
+  return out.join(" ");
+}
+
 // eslint-disable-next-line no-unused-vars
 function formatAll(txt) {
   if (!txt) {
@@ -248,8 +278,10 @@ function formatAll(txt) {
     .replace(/\{br\}/g, "<br>")
     .replace(/\{bold\}/g, "<b>")
     .replace(/\{\/bold\}/g, "</b>")
-    .replace(/\{b\}/g, "<b>")
-    .replace(/\{\/b\}/g, "</b>")
+    .replace(/\{b(?:\s+([^}]+))?\}(.*?)\{\/b\}/g, (_, attrs, content) => {
+      const attrStr = attrs ? specialAttributes(attrs, content) : "";
+      return attrStr ? `<b ${attrStr}>${content}</b>` : `<b>${content}</b>`;
+    })
     .replace(/\{italic\}/g, "<i>")
     .replace(/\{\/italic\}/g, "</i>")
     .replace(/\{U\}/g, "<ul>")

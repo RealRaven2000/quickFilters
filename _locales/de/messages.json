@@ -1491,6 +1491,12 @@
     "description": "Optional change log intro. leave empty to omit!",
     "message": "{P}Diese Version bringt {b}{+extensionName}{/b} in Einklang mit den aktuellen Planungsänderungen der Thunderbird-Plattform. Eine zuvor angekündigte Änderung, nach der ältere Add-ons nur im ESR-Kanal ausgeführt werden dürfen, wurde auf einen späteren ESR-Zyklus verschoben (derzeit für 2027 vorgesehen).{/P} {P}Es sind keine sofortigen Maßnahmen erforderlich. {b}{+extensionName}{/b} funktioniert weiterhin auf den Thunderbird-Versionen Release und ESR, sofern unterstützt.{/P} {P}Nutzer, die auf erweiterte oder experimentelle Funktionen angewiesen sind, bevorzugen möglicherweise den ESR-Kanal für eine stabilere Umgebung. Der empfohlene Migrationszeitpunkt von Release zu ESR ist Thunderbird 153 (erwartet im Juli 2026).{/P}"
   },
+  "whats-new-maintenance": {
+    "message": "Wartungsupdate $ver$. Dieser spezifische Fix wurde seit der vorherigen Version hinzugefügt.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Willkommen zu $addonName$",

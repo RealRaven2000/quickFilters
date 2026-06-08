@@ -1495,6 +1495,12 @@
     "description": "Optional change log intro. leave empty to omit!",
     "message": "{P}This release aligns {b}{+extensionName}{/b} with recent Thunderbird platform planning changes. A previously announced restriction that would allow legacy Add-ons to only run on the ESR channel has been postponed to a later ESR cycle (currently targeted for 2027).{/P} {P}No immediate action is required. {b}{+extensionName}{/b} continues to support both Release and ESR versions of Thunderbird where compatible.{/P} {P}Users relying on advanced or experimental features may prefer the ESR channel for a more stable environment. The recommended migration point from Release to ESR is Thunderbird 153 (expected July 2026).{/P}"
   },
+  "whats-new-maintenance": {
+    "message": "Maintenance Update $ver$. This particular fix was added since the previous release.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "Welcome to $addonName$",

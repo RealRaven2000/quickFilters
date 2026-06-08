@@ -1482,6 +1482,12 @@
     "description": "Optional change log intro. leave empty to omit!",
     "message": "{P}本版本使 {b}{+extensionName}{/b} 与 Thunderbird 平台的最新规划调整保持一致。此前宣布的一项限制（仅允许旧版扩展在 ESR 渠道运行）已推迟到更晚的 ESR 周期（目前预计为 2027 年）。{/P} {P}无需立即操作。{b}{+extensionName}{/b} 在兼容情况下仍可在 Thunderbird Release 和 ESR 版本中运行。{/P} {P}依赖高级或实验性功能的用户可能更倾向于 ESR 渠道，以获得更稳定的环境。建议从 Release 迁移到 ESR 的时间点为 Thunderbird 153（预计 2026 年 7 月）。{/P}"
   },
+  "whats-new-maintenance": {
+    "message": "维护更新 $ver$。此特定修复已包含在上一版本之后的更新中。",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "欢迎使用 $addonName$",

@@ -1401,6 +1401,12 @@
     "description": "Optional change log intro. leave empty to omit!",
     "message": "{P}此版本使 {b}{+extensionName}{/b} 與 Thunderbird 平台的最新規劃變更保持一致。先前宣布的一項限制（僅允許舊版附加元件在 ESR 通道執行）已延後至較後的 ESR 週期（目前預計為 2027 年）。{/P} {P}目前無需任何立即操作。{b}{+extensionName}{/b} 在相容情況下持續支援 Thunderbird Release 與 ESR 版本。{/P} {P}依賴進階或實驗性功能的使用者可能會偏好 ESR 通道，以獲得更穩定的環境。建議從 Release 轉移至 ESR 的時間點為 Thunderbird 153（預計 2026 年 7 月）。{/P}"
   },
+  "whats-new-maintenance": {
+    "message": "維護更新 $ver$。此特定修正已包含在上一個版本之後的更新中。",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
+  },
   "window-title": {
     "message": "歡迎使用 $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

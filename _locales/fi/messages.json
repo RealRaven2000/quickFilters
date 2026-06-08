@@ -1490,6 +1490,12 @@
     "description": "Optional change log intro. leave empty to omit!",
     "message": "{P}Tämä julkaisu linjaa {b}{+extensionName}{/b}:n Thunderbird-alustan viimeaikaisten suunnittelumuutosten kanssa. Aiemmin ilmoitettu rajoitus, jonka mukaan vanhat lisäosat toimisivat vain ESR-kanavalla, on siirretty myöhempään ESR-sykliin (tällä hetkellä suunniteltu vuodelle 2027).{/P} {P}Välittömiin toimenpiteisiin ei ole tarvetta. {b}{+extensionName}{/b} toimii edelleen Thunderbirdin Release- ja ESR-versioissa, joissa se on tuettu.{/P} {P}Käyttäjät, jotka hyödyntävät edistyneitä tai kokeellisia ominaisuuksia, voivat suosia ESR-kanavaa vakaamman ympäristön vuoksi. Suositeltu siirtymäkohta Release-versiosta ESR:ään on Thunderbird 153 (odotettu heinäkuussa 2026).{/P}"
   },
+  "whats-new-maintenance": {
+    "message": "Huoltopäivitys $ver$. Tämä yksittäinen korjaus lisättiin edellisestä versiosta lähtien.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
+  },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1491,6 +1491,12 @@
     "description": "Optional change log intro. leave empty to omit!",
     "message": "{P}このリリースでは {b}{+extensionName}{/b} を Thunderbird プラットフォームの最近の計画変更に合わせています。以前に発表された、レガシーアドオンを ESR チャンネルでのみ実行可能にする制限は、後の ESR サイクル（現在は 2027 年を予定）に延期されました。{/P} {P}直ちに対応は必要ありません。{b}{+extensionName}{/b} は対応している限り、Thunderbird の Release および ESR バージョンで動作し続けます。{/P} {P}高度または実験的な機能に依存するユーザーは、より安定した環境のため ESR チャンネルを選択する場合があります。Release から ESR への推奨移行時期は Thunderbird 153（2026 年 7 月予定）です。{/P}"
   },
+  "whats-new-maintenance": {
+    "message": "メンテナンス更新 $ver$。この特定の修正は前回のリリース以降に追加されました。",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
+  },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
     "message": "$addonName$ へようこそ",

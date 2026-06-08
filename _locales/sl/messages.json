@@ -286,6 +286,12 @@
     "description": "Optional change log intro. leave empty to omit!",
     "message": "{P}Ta izdaja usklajuje {b}{+extensionName}{/b} z nedavnimi spremembami načrtovanja platforme Thunderbird. Predhodno napovedana omejitev, ki bi dovoljevala, da starejši dodatki delujejo samo v kanalu ESR, je bila prestavljena na kasnejši ESR cikel (trenutno predvideno za leto 2027).{/P} {P}Takojšnji ukrepi niso potrebni. {b}{+extensionName}{/b} še naprej deluje v različicah Thunderbird Release in ESR, kjer je to podprto.{/P} {P}Uporabniki, ki se zanašajo na napredne ali eksperimentalne funkcije, lahko raje uporabljajo kanal ESR zaradi stabilnejšega okolja. Priporočena točka prehoda z Release na ESR je Thunderbird 153 (predvideno julija 2026).{/P}"
   },
+  "whats-new-maintenance": {
+    "message": "Vzdrževalna posodobitev $ver$. Ta specifičen popravek je bil dodan od prejšnje izdaje.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
+  },
   "window-title": {
     "message": "Dobrodošli v $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",

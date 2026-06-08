@@ -109,6 +109,17 @@ canvas[collapsed=true] {
   color: rgb(255, 221, 53) !important;
 }
 
+/* maintenance tag */
+b.maintenance {
+  border-radius: 0.5em;
+  background-color: #550342 !important;
+  background-image: linear-gradient(55deg, rgba(6, 19, 162, 0.9) 0%, rgba(115, 3, 85, 0.9) 100%);
+  border:#ffd84d 1px solid;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0 0.3em;
+}
+
 .importantInfo a {
   background-color: transparent;
   color: lightyellow;
