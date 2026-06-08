@@ -170,28 +170,29 @@ export const Preferences = {
     const stored = await browser.storage.local.get();
     const version = stored.settingsVersion ?? 0;
 
-    if (version < this.CURRENT_VERSION) {
-      const migrated = await this._migrateLegacyPrefs();
+    if (version < Preferences.CURRENT_VERSION) {
+      const migrated = await Preferences._migrateLegacyPrefs();
+      // avoid overwriting newer backup with older one:
       if (stored["LicenseKey.backup"] !== undefined) {
-        delete migrated["LicenseKey.backup"];
+        migrated["LicenseKey.backup"] = stored["LicenseKey.backup"];
       }
 
       await browser.storage.local.set({
         ...migrated,
-        settingsVersion: this.CURRENT_VERSION,
+        settingsVersion: Preferences.CURRENT_VERSION,
       });
 
-      this._data = {
-        ...this.Defaults,
+      Preferences._data = {
+        ...Preferences.Defaults,
         ...migrated,
       };
     } else {
-      this._data = {
-        ...this.Defaults,
+      Preferences._data = {
+        ...Preferences.Defaults,
         ...stored,
       };
     }
-    this._ready = true;
+    Preferences._ready = true;
 
     // live sync all changes to cache
     browser.storage.onChanged.addListener((changes, area) => {
@@ -214,26 +215,26 @@ export const Preferences = {
   },
 
   _ensureReady(info) {
-    if (!this._ready) {
-      const err = new Error("PreferencesService not initialized");
+    if (!Preferences._ready) {
+      const err = new Error("Preferences not initialized");
       err.info = info;
       throw err;
     }
   },
 
   get(name) {
-    this._ensureReady({ reason: "get", key: name });
+    Preferences._ensureReady({ reason: "get", key: name });
 
-    return this._data[name] ?? this.Defaults[name];
+    return Preferences._data[name] ?? Preferences.Defaults[name];
   },
 
   async set(name, value) {
-    this._ensureReady({ reason: "set", key: name });
-    if (this._data[name] === value) {
+    Preferences._ensureReady({ reason: "set", key: name });
+    if (Preferences._data[name] === value) {
       return;
     }
 
-    this._data[name] = value;
+    Preferences._data[name] = value;
 
     // fire-and-forget persistence (important)
     await browser.storage.local.set({
