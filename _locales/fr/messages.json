@@ -1481,7 +1481,13 @@
   },
   "whats-new-list": {
     "description": "🇫🇷 change log",
-    "message": "{L}Compatibilité avec Thunderbird 151{/L}{L}Ajout de l’option « Passer à la version gratuite » et sauvegarde / restauration de licence après expiration de la clé [issue 354]{/L}{L}Les icônes de la barre d’outils reflètent désormais la couleur principale du thème [issue 357]{/L}{L}Correction de la sensibilité à la casse de l’en-tête List-Id provoquant des échecs lors de la création de filtres à partir du modèle « Listes de diffusion ». Les comparaisons d’en-têtes personnalisés sont désormais insensibles à la casse. [issue 350]{/L}{L}Correction du non-déclenchement de l’assistant quickFilters après des modifications manuelles des étiquettes (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Compatibilité avec Thunderbird 152 ajoutée.{/L}{L}{b class=maintenance}6.12.3{/b} Problème corrigé où l’aperçu du message n’était pas disponible lors du déplacement de mails vers des dossiers locaux [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Correction : la restauration de la clé de licence utilisait une mauvaise clé (QuickFolders au lieu de quickFilters){/L}{L}Ajout de l’option « Passer à la version gratuite » et sauvegarde / restauration de licence après expiration de la clé [issue 354]{/L}{L}Les icônes de la barre d’outils correspondent désormais au thème principal de couleurs [issue 357]{/L}{L}Correction de la sensibilité à la casse de l’en-tête List-Id lors de la création de filtres depuis le modèle « Mailing Lists ». Les comparaisons d’en-têtes sont désormais insensibles à la casse. [issue 350]{/L}{L}Correction du non-déclenchement de quickFilters Assistant après modifications manuelles de tags (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Mise à jour de maintenance $ver$. Ce correctif spécifique a été ajouté depuis la version précédente.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

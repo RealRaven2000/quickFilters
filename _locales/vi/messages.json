@@ -1481,7 +1481,13 @@
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{L}Tương thích với Thunderbird 151{/L}{L}Thêm tùy chọn “Chuyển sang phiên bản miễn phí” và sao lưu / khôi phục giấy phép sau khi khóa hết hạn [issue 354]{/L}{L}Các biểu tượng thanh công cụ giờ phản ánh màu chủ đề chính [issue 357]{/L}{L}Đã sửa lỗi phân biệt chữ hoa/thường trong tiêu đề List-Id gây lỗi khi tạo bộ lọc từ mẫu “Mailing Lists”. So sánh tiêu đề tùy chỉnh hiện không phân biệt chữ hoa/thường. [issue 350]{/L}{L}Đã sửa lỗi quickFilters Assistant không kích hoạt sau khi thay đổi thẻ thủ công (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Đã thêm khả năng tương thích với Thunderbird 152.{/L}{L}{b class=maintenance}6.12.3{/b} Đã sửa lỗi không thể xem trước thư khi di chuyển email vào thư mục cục bộ [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Sửa lỗi: khôi phục khóa cấp phép sử dụng sai khóa (QuickFolders thay vì quickFilters){/L}{L}Đã thêm tùy chọn «Chuyển sang phiên bản miễn phí» và sao lưu / khôi phục giấy phép sau khi hết hạn khóa [issue 354]{/L}{L}Biểu tượng thanh công cụ giờ phù hợp với chủ đề màu chính [issue 357]{/L}{L}Đã sửa lỗi phân biệt chữ hoa/thường của tiêu đề List-Id khi tạo bộ lọc từ mẫu «Mailing Lists». So sánh tiêu đề hiện không phân biệt chữ hoa/thường. [issue 350]{/L}{L}Đã sửa quickFilters Assistant không kích hoạt sau khi thay đổi thẻ thủ công (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Cập nhật bảo trì $ver$. Bản sửa lỗi cụ thể này đã được thêm từ bản phát hành trước.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

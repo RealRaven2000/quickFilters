@@ -1481,7 +1481,13 @@
   },
   "whats-new-list": {
     "description": "🇫🇮 change log",
-    "message": "{L}Yhteensopivuus Thunderbird 151:n kanssa{/L}{L}Lisätty “Vaihda ilmaiseen versioon” -vaihtoehto sekä lisenssin varmuuskopiointi / palautus avaimen vanhentumisen jälkeen [issue 354]{/L}{L}Työkalupalkin kuvakkeet heijastavat nyt teeman pääväriä [issue 357]{/L}{L}Korjattu List-Id-otsakkeen kirjainkoon herkkyys, joka aiheutti virheitä luotaessa suodattimia “Mailing Lists” -mallista. Mukautettujen otsakkeiden vertailu ei enää huomioi kirjainkokoa. [issue 350]{/L}{L}Korjattu quickFilters-avustajan käynnistymättömyys manuaalisten tunnisteiden muutosten jälkeen (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Lisätty yhteensopivuus Thunderbird 152:n kanssa.{/L}{L}{b class=maintenance}6.12.3{/b} Korjattu ongelma, jossa viestin esikatselu ei ollut käytettävissä siirrettäessä sähköposteja paikallisiin kansioihin [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Korjaus: lisenssiavaimen palautus käytti väärää avainta (QuickFolders eikä quickFilters){/L}{L}Lisätty vaihtoehto «Vaihda ilmaiseen versioon» sekä lisenssin varmuuskopiointi / palautus avaimen vanhentumisen jälkeen [issue 354]{/L}{L}Työkalupalkin kuvakkeet vastaavat nyt pääteemaa [issue 357]{/L}{L}List-Id-otsakkeen kirjainkoon herkkyys korjattu suodatinten luonnissa «Mailing Lists» -mallista. Otsakkeiden vertailu on nyt kirjainkoolla riippumatonta. [issue 350]{/L}{L}Korjattu ongelma, jossa quickFilters Assistant ei käynnistynyt manuaalisten tunnistemuutosten jälkeen (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Huoltopäivitys $ver$. Tämä yksittäinen korjaus lisättiin edellisestä versiosta lähtien.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "message": "Tervetuloa osoitteeseen $addonName$",

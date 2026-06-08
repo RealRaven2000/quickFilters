@@ -1485,7 +1485,13 @@
   },
   "whats-new-list": {
     "description": "🇮🇹 change log",
-    "message": "{L}Compatibilità con Thunderbird 151{/L}{L}Aggiunta l’opzione “Passa alla versione gratuita” e backup / ripristino della licenza dopo la scadenza della chiave [issue 354]{/L}{L}Le icone della barra degli strumenti ora riflettono il colore principale del tema [issue 357]{/L}{L}Corretta la sensibilità alle maiuscole/minuscole nell’intestazione List-Id che causava errori nella creazione di filtri dal modello “Mailing Lists”. I confronti tra intestazioni personalizzate ora non distinguono le maiuscole. [issue 350]{/L}{L}Corretta la mancata attivazione dell’assistente quickFilters dopo modifiche manuali dei tag (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Aggiunta compatibilità con Thunderbird 152.{/L}{L}{b class=maintenance}6.12.3{/b} Risolto un problema in cui l’anteprima del messaggio non era disponibile durante lo spostamento della posta nelle cartelle locali [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Correzione: il ripristino della chiave di licenza utilizzava una chiave errata (QuickFolders invece di quickFilters){/L}{L}Aggiunta opzione «Passa alla versione gratuita» e backup / ripristino della licenza dopo la scadenza della chiave [issue 354]{/L}{L}Le icone della barra degli strumenti ora corrispondono al tema principale dei colori [issue 357]{/L}{L}Risolta la sensibilità alle maiuscole dell’intestazione List-Id nella creazione di filtri dal modello «Mailing Lists». Il confronto delle intestazioni è ora case-insensitive. [issue 350]{/L}{L}Risolto il mancato avvio di quickFilters Assistant dopo modifiche manuali dei tag (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Aggiornamento di manutenzione $ver$. Questa correzione specifica è stata aggiunta dalla versione precedente.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

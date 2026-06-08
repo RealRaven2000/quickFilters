@@ -437,7 +437,13 @@
   },
   "whats-new-list": {
     "description": "🇨🇿 change log",
-    "message": "{L}Kompatibilita s Thunderbirdem 151{/L}{L}Přidána možnost „Přepnout na bezplatnou verzi“ a záloha / obnova licence po vypršení klíče [issue 354]{/L}{L}Ikony panelu nástrojů nyní odrážejí hlavní barvu motivu [issue 357]{/L}{L}Opravena citlivost na velikost písmen v hlavičce List-Id, která způsobovala selhání při vytváření filtrů ze šablony „Mailing Lists“. Porovnání vlastních hlaviček nyní nerozlišuje velikost písmen. [issue 350]{/L}{L}Opraveno nespouštění asistenta quickFilters po ručních změnách štítků (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Přidána kompatibilita s Thunderbird 152.{/L}{L}{b class=maintenance}6.12.3{/b} Opraven problém, kdy nebyl dostupný náhled zprávy při přesunu pošty do lokálních složek [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Opraveno: Obnovení licenčního klíče používalo nesprávný klíč (QuickFolders místo quickFilters){/L}{L}Přidána možnost „Přepnout na bezplatnou verzi“ a záloha / obnova licence po vypršení klíče [issue 354]{/L}{L}Ikony nástrojové lišty nyní odpovídají hlavnímu barevnému motivu [issue 357]{/L}{L}Opraven problém s citlivostí na velikost písmen u hlavičky List-Id při vytváření filtrů ze šablony „Mailing Lists“. Porovnávání vlastních hlaviček je nyní case-insensitive. [issue 350]{/L}{L}Opraveno, že quickFilters Assistant se nespouštěl po ručních změnách štítků (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Údržbová aktualizace $ver$. Tato konkrétní oprava byla přidána od předchozí verze.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "message": "Vítejte v $addonName$",

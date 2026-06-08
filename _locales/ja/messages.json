@@ -1482,7 +1482,13 @@
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{L}Thunderbird 151との互換性{/L}{L}「無料版に切り替え」オプションを追加し、キー期限切れ後のライセンスバックアップ / 復元に対応 [issue 354]{/L}{L}ツールバーアイコンがテーマのメインカラーを反映するようになりました [issue 357]{/L}{L}List-Idヘッダーの大文字小文字の区別が原因で「Mailing Lists」テンプレートからフィルター作成時に失敗する問題を修正しました。カスタムヘッダー比較は大文字小文字を区別しません。 [issue 350]{/L}{L}タグを手動変更した後にquickFiltersアシスタントが起動しない問題を修正しました（Thunderbird 147） [issue 346]{/L}"
+    "message": "{L}Thunderbird 152 との互換性を追加しました。{/L}{L}{b class=maintenance}6.12.3{/b} ローカルフォルダーへメールを移動した際にメッセージプレビューが表示されない問題を修正しました [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} 修正: ライセンスキーの復元で誤ったキーが使用されていました（QuickFoldersではなくquickFilters）{/L}{L}「無料版に切り替える」オプションと、キー期限切れ後のライセンスバックアップ / 復元を追加しました [issue 354]{/L}{L}ツールバーアイコンがメインテーマカラーに対応するようになりました [issue 357]{/L}{L}「Mailing Lists」テンプレートからフィルター作成時のList-Idヘッダーの大文字小文字の問題を修正しました。ヘッダー比較は大文字小文字を区別しません。 [issue 350]{/L}{L}quickFilters Assistant が手動タグ変更後に起動しない問題を修正しました (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "メンテナンス更新 $ver$。この特定の修正は前回のリリース以降に追加されました。",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

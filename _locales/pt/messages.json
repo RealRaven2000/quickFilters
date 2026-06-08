@@ -1485,7 +1485,13 @@
   },
   "whats-new-list": {
     "description": "🇵🇹 change log",
-    "message": "{L}Compatibilidade com Thunderbird 151{/L}{L}Adicionada a opção “Mudar para a versão gratuita” e cópia de segurança / recuperação de licença após expiração da chave [issue 354]{/L}{L}Os ícones da barra de ferramentas agora refletem a cor principal do tema [issue 357]{/L}{L}Corrigida a sensibilidade a maiúsculas/minúsculas no cabeçalho List-Id que causava falhas ao criar filtros a partir do modelo “Mailing Lists”. As comparações de cabeçalhos personalizados agora não diferenciam maiúsculas de minúsculas. [issue 350]{/L}{L}Corrigido o não acionamento do assistente quickFilters após alterações manuais de etiquetas (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Compatibilidade com Thunderbird 152 adicionada.{/L}{L}{b class=maintenance}6.12.3{/b} Corrigido um problema em que a pré-visualização de mensagens não estava disponível ao mover emails para pastas locais [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Correção: a recuperação da chave de licença utilizava uma chave incorreta (QuickFolders em vez de quickFilters){/L}{L}Adicionada opção «Mudar para versão gratuita» e cópia de segurança / recuperação de licença após expiração da chave [issue 354]{/L}{L}Os ícones da barra de ferramentas agora correspondem ao tema principal de cores [issue 357]{/L}{L}Corrigida sensibilidade a maiúsculas/minúsculas no cabeçalho List-Id ao criar filtros a partir do modelo «Mailing Lists». A comparação de cabeçalhos é agora case-insensitive. [issue 350]{/L}{L}Corrigido o quickFilters Assistant que não era ativado após alterações manuais de tags (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Atualização de manutenção $ver$. Esta correção específica foi adicionada desde a versão anterior.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

@@ -1481,7 +1481,13 @@
   },
   "whats-new-list": {
     "description": "🇪🇸 change log",
-    "message": "{L}Compatibilidad con Thunderbird 151{/L}{L}Añadida la opción «Cambiar a versión gratuita» y copia de seguridad / recuperación de licencia tras la expiración de la clave [issue 354]{/L}{L}Los iconos de la barra de herramientas ahora reflejan el color principal del tema [issue 357]{/L}{L}Corregida la sensibilidad a mayúsculas/minúsculas en la cabecera List-Id que provocaba fallos al crear filtros desde la plantilla «Listas de correo». Las comparaciones de cabeceras personalizadas ahora no distinguen entre mayúsculas y minúsculas. [issue 350]{/L}{L}Corregido que el asistente de quickFilters no se activara tras cambios manuales de etiquetas (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Se añadió compatibilidad con Thunderbird 152.{/L}{L}{b class=maintenance}6.12.3{/b} Se corrigió un problema donde la vista previa del mensaje no estaba disponible al mover correos a carpetas locales [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Corrección: la restauración de la clave de licencia usaba una clave incorrecta (QuickFolders en lugar de quickFilters){/L}{L}Añadida la opción «Cambiar a versión gratuita» y copia/restauración de licencia tras la expiración de la clave [issue 354]{/L}{L}Los iconos de la barra de herramientas ahora coinciden con el tema principal de colores [issue 357]{/L}{L}Se corrigió la sensibilidad a mayúsculas del encabezado List-Id al crear filtros desde la plantilla «Mailing Lists». Las comparaciones de encabezados ahora no distinguen mayúsculas/minúsculas. [issue 350]{/L}{L}Se corrigió que el quickFilters Assistant no se activara tras cambios manuales de etiquetas (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Actualización de mantenimiento $ver$. Esta corrección específica se añadió desde la versión anterior.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "message": "Bienvenido a $addonName$",

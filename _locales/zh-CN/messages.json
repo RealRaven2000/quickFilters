@@ -1473,7 +1473,13 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}兼容 Thunderbird 151{/L}{L}新增“切换到免费版本”选项，并支持许可证在密钥过期后的备份 / 恢复 [issue 354]{/L}{L}工具栏图标现在会反映主题的主色调 [issue 357]{/L}{L}修复 List-Id 标头大小写敏感导致从“Mailing Lists”模板创建过滤器失败的问题。自定义标头比较现在不区分大小写。 [issue 350]{/L}{L}修复在手动更改标签后 quickFilters Assistant 未触发的问题（Thunderbird 147） [issue 346]{/L}"
+    "message": "{L}已添加对 Thunderbird 152 的兼容性。{/L}{L}{b class=maintenance}6.12.3{/b} 修复了在将邮件移动到本地文件夹时无法显示邮件预览的问题 [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} 修复：许可证密钥恢复使用了错误的密钥（QuickFolders 而不是 quickFilters）{/L}{L}新增“切换到免费版本”选项，以及密钥过期后的许可证备份/恢复功能 [issue 354]{/L}{L}工具栏图标现在与主主题颜色一致 [issue 357]{/L}{L}修复在从“Mailing Lists”模板创建过滤器时 List-Id 标头大小写敏感的问题。现在标头比较不区分大小写。 [issue 350]{/L}{L}修复 quickFilters Assistant 在手动更改标签后未触发的问题（Thunderbird 147）[issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "维护更新 $ver$。此特定修复已包含在上一版本之后的更新中。",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

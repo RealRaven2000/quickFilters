@@ -1479,7 +1479,13 @@
   },
   "whats-new-list": {
     "description": "🇵🇱 change log",
-    "message": "{L}Zgodność z Thunderbird 151{/L}{L}Dodano opcję „Przełącz na wersję darmową” oraz kopię zapasową / odzyskiwanie licencji po wygaśnięciu klucza [issue 354]{/L}{L}Ikony paska narzędzi odzwierciedlają teraz główny kolor motywu [issue 357]{/L}{L}Naprawiono wrażliwość na wielkość liter w nagłówku List-Id, która powodowała błędy podczas tworzenia filtrów z szablonu „Mailing Lists”. Porównania nagłówków niestandardowych nie uwzględniają wielkości liter. [issue 350]{/L}{L}Naprawiono brak uruchamiania asystenta quickFilters po ręcznych zmianach tagów (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Dodano zgodność z Thunderbird 152.{/L}{L}{b class=maintenance}6.12.3{/b} Naprawiono problem, w którym podgląd wiadomości był niedostępny podczas przenoszenia poczty do folderów lokalnych [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Poprawka: przywracanie klucza licencji używało nieprawidłowego klucza (QuickFolders zamiast quickFilters){/L}{L}Dodano opcję «Przełącz na wersję darmową» oraz kopię zapasową / przywracanie licencji po wygaśnięciu klucza [issue 354]{/L}{L}Ikony paska narzędzi teraz odpowiadają głównemu motywowi kolorów [issue 357]{/L}{L}Naprawiono wrażliwość na wielkość liter w nagłówku List-Id podczas tworzenia filtrów z szablonu «Mailing Lists». Porównanie nagłówków jest teraz niewrażliwe na wielkość liter. [issue 350]{/L}{L}Naprawiono brak uruchamiania quickFilters Assistant po ręcznych zmianach tagów (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Aktualizacja konserwacyjna $ver$. Ta konkretna poprawka została dodana od poprzedniej wersji.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "message": "Witamy w $addonName$",

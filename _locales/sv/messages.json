@@ -1481,7 +1481,13 @@
   },
   "whats-new-list": {
     "description": "🇸🇪 change log",
-    "message": "{L}Kompatibilitet med Thunderbird 151{/L}{L}Lagt till alternativet “Byt till gratisversion” samt säkerhetskopiering / återställning av licens efter att nyckeln har gått ut [issue 354]{/L}{L}Verktygsfältets ikoner återspeglar nu huvudtemats färg [issue 357]{/L}{L}Åtgärdat skiftlägeskänslighet i List-Id-huvudet som orsakade fel vid skapande av filter från mallen “Mailing Lists”. Anpassade huvudjämförelser är nu skiftlägesokänsliga. [issue 350]{/L}{L}Åtgärdat problem där quickFilters-assistenten inte startade efter manuella taggändringar (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Kompatibilitet med Thunderbird 152 har lagts till.{/L}{L}{b class=maintenance}6.12.3{/b} Problem åtgärdat där förhandsvisning av meddelanden inte var tillgänglig vid flytt av e-post till lokala mappar [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Fix: återställning av licensnyckel använde fel nyckel (QuickFolders istället för quickFilters){/L}{L}Alternativet «Byt till gratisversion» och säkerhetskopiering / återställning av licens efter att nyckeln gått ut har lagts till [issue 354]{/L}{L}Verktygsfältets ikoner matchar nu huvudtemats färger [issue 357]{/L}{L}Problem med skiftlägeskänslighet för List-Id vid skapande av filter från mallen «Mailing Lists» har åtgärdats. Jämförelse av rubriker är nu inte skiftlägeskänslig. [issue 350]{/L}{L}Åtgärdat att quickFilters Assistant inte utlöstes efter manuella taggändringar (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Underhållsuppdatering $ver$. Denna specifika fix har lagts till sedan föregående version.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",

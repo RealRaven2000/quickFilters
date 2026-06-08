@@ -280,7 +280,13 @@
   },
   "whats-new-list": {
     "description": "🇸🇮 change log",
-    "message": "{L}Združljivost s Thunderbird 151{/L}{L}Dodana možnost »Preklopi na brezplačno različico« ter varnostno kopiranje / obnovitev licence po poteku ključa [issue 354]{/L}{L}Ikone orodne vrstice zdaj odražajo glavno barvo teme [issue 357]{/L}{L}Odpravljena občutljivost na velike/male črke v glavi List-Id, ki je povzročala napake pri ustvarjanju filtrov iz predloge »Mailing Lists«. Primerjave glav po meri zdaj niso občutljive na velike/male črke. [issue 350]{/L}{L}Odpravljena težava, da se pomočnik quickFilters ni sprožil po ročnih spremembah oznak (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Dodana združljivost s Thunderbird 152.{/L}{L}{b class=maintenance}6.12.3{/b} Odpravljena težava, kjer predogled sporočila ni bil na voljo pri premikanju pošte v lokalne mape [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Popravek: obnovitev licenčnega ključa je uporabljala napačen ključ (QuickFolders namesto quickFilters){/L}{L}Dodana možnost «Preklopi na brezplačno različico» in varnostno kopiranje / obnovitev licence po poteku ključa [issue 354]{/L}{L}Ikone orodne vrstice zdaj ustrezajo glavni barvni temi [issue 357]{/L}{L}Odpravljena občutljivost na velike/male črke v List-Id pri ustvarjanju filtrov iz predloge «Mailing Lists». Primerjava glave zdaj ni občutljiva na velikost črk. [issue 350]{/L}{L}Odpravljena težava, da quickFilters Assistant ni bil sprožen po ročnih spremembah oznak (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Vzdrževalna posodobitev $ver$. Ta specifičen popravek je bil dodan od prejšnje izdaje.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "message": "Dobrodošli v $addonName$",

@@ -1392,7 +1392,13 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{L}相容於 Thunderbird 151{/L}{L}新增「切換至免費版本」選項，並支援金鑰過期後的授權備份 / 還原 [issue 354]{/L}{L}工具列圖示現在會反映主題的主要顏色 [issue 357]{/L}{L}修正 List-Id 標頭大小寫敏感問題，該問題會導致從「Mailing Lists」範本建立過濾器失敗。自訂標頭比較現在不再區分大小寫。 [issue 350]{/L}{L}修正手動變更標籤後 quickFilters Assistant 未觸發的問題（Thunderbird 147） [issue 346]{/L}"
+    "message": "{L}已新增對 Thunderbird 152 的相容性。{/L}{L}{b class=maintenance}6.12.3{/b} 修正將郵件移至本機資料夾時無法顯示郵件預覽的問題 [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} 修正：授權金鑰還原使用了錯誤的金鑰（QuickFolders 而非 quickFilters）{/L}{L}新增「切換至免費版本」選項，以及金鑰過期後的授權備份 / 還原功能 [issue 354]{/L}{L}工具列圖示現已符合主要主題色彩 [issue 357]{/L}{L}修正從「Mailing Lists」範本建立篩選條件時 List-Id 標頭大小寫敏感問題。標頭比較現在不區分大小寫。 [issue 350]{/L}{L}修正 quickFilters Assistant 在手動變更標籤後未觸發的問題（Thunderbird 147）[issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "維護更新 $ver$。此特定修正已包含在上一個版本之後的更新中。",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "message": "歡迎使用 $addonName$",

@@ -1483,7 +1483,13 @@
   },
   "whats-new-list": {
     "description": "🇳🇱 change log",
-    "message": "{L}Compatibiliteit met Thunderbird 151{/L}{L}Optie “Overschakelen naar gratis versie” toegevoegd en licentie-back-up / herstel na verlopen sleutel [issue 354]{/L}{L}Toolbar-pictogrammen weerspiegelen nu de hoofdkleur van het thema [issue 357]{/L}{L}Probleem met hoofdlettergevoeligheid in de List-Id-header opgelost dat fouten veroorzaakte bij het maken van filters uit de “Mailing Lists”-sjabloon. Aangepaste header-vergelijkingen zijn nu niet hoofdlettergevoelig. [issue 350]{/L}{L}Probleem opgelost waarbij de quickFilters Assistant niet werd geactiveerd na handmatige tag-wijzigingen (Thunderbird 147) [issue 346]{/L}"
+    "message": "{L}Compatibiliteit met Thunderbird 152 toegevoegd.{/L}{L}{b class=maintenance}6.12.3{/b} Probleem opgelost waarbij het berichtvoorbeeld niet beschikbaar was bij het verplaatsen van e-mail naar lokale mappen [issue 364].{/L}{L}{b class=maintenance}6.12.3{/b} Oplossing: licentiesleutelherstel gebruikte een verkeerde sleutel (QuickFolders in plaats van quickFilters){/L}{L}Optie «Overschakelen naar gratis versie» en licentie-back-up / herstel na verlopen sleutel toegevoegd [issue 354]{/L}{L}Werkbalkiconen komen nu overeen met het hoofdthema [issue 357]{/L}{L}Probleem met hoofdlettergevoeligheid van List-Id bij het maken van filters vanuit het «Mailing Lists»-sjabloon opgelost. Headervergelijking is nu niet hoofdlettergevoelig. [issue 350]{/L}{L}Opgelost dat quickFilters Assistant niet werd geactiveerd na handmatige tagwijzigingen (Thunderbird 147) [issue 346]{/L}"
+  },
+  "whats-new-maintenance": {
+    "message": "Onderhoudsupdate $ver$. Deze specifieke fix is toegevoegd sinds de vorige release.",
+    "placeholders": {
+      "ver": { "content": "$1", "example": "6.12.3" }
+    }
   },
   "window-title": {
     "description": "page title. first placeholder will be replaced with Add-on name",
