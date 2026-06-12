@@ -221,9 +221,20 @@ async function onLoad(_activatedWhileWindowOpen) {
 
 // eslint-disable-next-line no-unused-vars
 function onUnload(isAddOnShutown) {
-  let document3pane = window.document;
+  // listeners
   window.quickFilters.restoreTagListener(window);
+  window.removeEventListener(
+    "quickFilters.BackgroundUpdate.setAssistantButton",
+    setAssistantButton,
+  );
 
+  const document3pane = window?.document;
+  if (!document3pane) {
+    console.log(`quickFilters qFi-3pane.js - onUnload(${isAddOnShutown}): no document`);
+    return;
+  }
+
+  // UI
   function deleteBtn(id) {
     let btn = document3pane.getElementById(id);
     if (btn) {
@@ -236,10 +247,7 @@ function onUnload(isAddOnShutown) {
   deleteBtn("quickfilters-current-runbutton");
   deleteBtn("quickfilters-current-msg-runbutton");
   deleteBtn("quickfilters-current-searchfilterbutton");
-  window.removeEventListener(
-    "quickFilters.BackgroundUpdate.setAssistantButton",
-    setAssistantButton
-  );
+
 }
 
 // store a global reference for manual calling:
