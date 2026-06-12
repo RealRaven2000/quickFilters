@@ -1,4 +1,4 @@
-"use strict";
+("use strict");
 /* BEGIN LICENSE BLOCK
 
 quickFilters is released under the Creative Commons (CC BY-ND 4.0)
@@ -36,15 +36,12 @@ quickFilters.Options = {
 
   dispatchAboutConfig: async (filter, readOnly, _updateUI = false) => {
     // we put the notification listener into quickfolders-tablistener.js - should only happen in ONE main window!
-    messenger.Utilities.showAboutConfig(filter);
-    /*
-    messenger.runtime.sendMessage({
-      command: "showAboutConfig",
+    // messenger.Utilities.showAboutConfig(filter); // LEGACY PREFS
+    // call the background page,
+    await messenger.runtime.sendMessage({
+      command: "openStorageEditor",
       filter: filter,
-      readOnly: readOnly,
-      updateUI: updateUI,
     });
-    */
   },
 
   addConfigEvent: async (el, filterConfig) => {
@@ -88,7 +85,8 @@ quickFilters.Options = {
     btnRecover.hidden = true;
     validationKeyBackedUp.setAttribute("collapsed", true);
 
-    const lastKey = await browser.LegacyPrefs.getPref("extensions.quickfolders.LicenseKey.backup");
+    const { options } = await browser.storage.local.get({ options: {} });
+    const lastKey = options["LicenseKey.backup"];
     if (lastKey?.length > 3 && !txtLicense.value) {
       validationKeyBackedUp.removeAttribute("collapsed");
       btnRecover.hidden = false;
@@ -210,26 +208,26 @@ quickFilters.Options = {
             }
           }
           break;
-        case "Expired": {
-          let expiredMsg = messenger.i18n.getMessage("qf.licenseValidation.expired");
-          licenseDate.classList.add("valid");
-          licenseDateLabel.value = messenger.i18n.getMessage(
-            "qf.licenseValidation.expired",
-          );
-          licenseDate.value = niceDate;
+        case "Expired":
+          {
+            let expiredMsg = messenger.i18n.getMessage("qf.licenseValidation.expired");
+            licenseDate.classList.add("valid");
+            licenseDateLabel.value = messenger.i18n.getMessage("qf.licenseValidation.expired");
+            licenseDate.value = niceDate;
 
-          const expiryDate = new Date(licenseInfo.expiryDate);
-          // add 28 days
-          const graceThreshold = new Date(expiryDate.getTime() + 28 * 24 * 60 * 60 * 1000);
-          // Show Switch to Free button only if 28+ days after expiry
-          if (Date.now() >= graceThreshold.getTime()) {
-            const freeHint = messenger.i18n.getMessage("qf.licenseValidation.expired.freeHint");
-            expiredMsg += "\n" + freeHint;
-            btnSwitchToFree.hidden = false;
+            const expiryDate = new Date(licenseInfo.expiryDate);
+            // add 28 days
+            const graceThreshold = new Date(expiryDate.getTime() + 28 * 24 * 60 * 60 * 1000);
+            // Show Switch to Free button only if 28+ days after expiry
+            if (Date.now() >= graceThreshold.getTime()) {
+              const freeHint = messenger.i18n.getMessage("qf.licenseValidation.expired.freeHint");
+              expiredMsg += "\n" + freeHint;
+              btnSwitchToFree.hidden = false;
+            }
+            validationExpired.textContent = expiredMsg;
+            quickFilters.Options.showValidationMessage(validationExpired, false); // always show
           }
-          validationExpired.textContent = expiredMsg;
-          quickFilters.Options.showValidationMessage(validationExpired, false); // always show
-        } break;
+          break;
         case "MailNotConfigured":
           validationDate.setAttribute("collapsed", true);
           validationDateSpace.setAttribute("collapsed", true);
@@ -256,7 +254,6 @@ quickFilters.Options = {
       if (result == "Empty") {
         quickFilters.Options.initLicenseBackupUI();
       }
-
     } catch (ex) {
       quickFilters.Util.logException(
         "Error in quickFilters.Options.updateLicenseOptionsUI():\n",

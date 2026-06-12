@@ -7,39 +7,41 @@ For details, please refer to license.txt in the root folder of this extension
 
 END LICENSE BLOCK */
 quickFilters.Preferences = {
-  root: "extensions.quickfilters.",
-
-  getBoolPref: async function getBoolPref(p) {
-    let ans = false,
-      key = p.startsWith(quickFilters.Preferences.root) ? p : quickFilters.Preferences.root + p;
-
-    try {
-      ans = await browser.LegacyPrefs.getPref(key);
-    } catch (ex) {
-      quickFilters.Util.logException("getBoolPref(" + p + ") failed\n", ex);
-      throw ex;
+  async getBoolPref(p) {
+    if (p.startsWith("debug")) {
+      const { debug } = await browser.storage.local.get({ debug: {} });
+      if (p === "debug") {
+        return debug.debugActive;
+      }
+      return debug[p];
     }
-    return ans;
+
+    const { options } = await browser.storage.local.get({ options: {} });
+    return options[p];
   },
 
-  setBoolPref: async function setBoolPref(p, v) {
-    let key = p.startsWith(quickFilters.Preferences.root) ? p : quickFilters.Preferences.root + p;
-    return await browser.LegacyPrefs.setPref(key, v);
+  async setBoolPref(p, v) {
+    if (p === "debugActive") {
+      const { debug } = await browser.storage.local.get({ debug: {} });
+      debug.debugActive = v;
+      await browser.storage.local.set({ debug });
+      return;
+    }
+
+    const { options } = await browser.storage.local.get({ options: {} });
+    options[p] = v;
+    return browser.storage.local.set({ options });
   },
 
-  isDebug: async function () {
+  async isDebug() {
     return await this.getBoolPref("debug");
   },
 
-  isDebugOption: async function (option) {
-    // granular debugging
+  async isDebugOption(option) {
     if (!(await this.isDebug())) {
       return false;
     }
-    try {
-      return this.getBoolPref("debug." + option);
-    } catch {
-      return true; // more info is probably better in this case - this is an illegal value after all.
-    }
+
+    return await this.getBoolPref("debug." + option);
   },
 };

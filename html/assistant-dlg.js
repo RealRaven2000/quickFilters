@@ -67,15 +67,15 @@ async function formatFolderPath(folder) {
 
 const quickFiltersPrefs = {
   _map: {
-    selectedTemplate: "extensions.quickfilters.filters.currentTemplate",
-    actionsTags: "extensions.quickfilters.actions.tags",
-    actionsMoveFolder: "extensions.quickfilters.actions.moveFolder",
-    actionsStar: "extensions.quickfilters.actions.star",
-    actionsFlag: "extensions.quickfilters.actions.flag",
-    actionsPriority: "extensions.quickfilters.actions.priority",
-    showEditorAfterCreate: "extensions.quickfilters.showEditorAfterCreateFilter",
-    showListAfterCreate: "extensions.quickfilters.showListAfterCreateFilter",
-    runFilterAfterCreate: "extensions.quickfilters.runFilterAfterCreate",
+    selectedTemplate: "filters.currentTemplate",
+    actionsTags: "actions.tags",
+    actionsMoveFolder: "actions.moveFolder",
+    actionsStar: "actions.star",
+    actionsFlag: "actions.flag",
+    actionsPriority: "actions.priority",
+    showEditorAfterCreate: "showEditorAfterCreateFilter",
+    showListAfterCreate: "showListAfterCreateFilter",
+    runFilterAfterCreate: "runFilterAfterCreate",
   },
 
   async get(id) {
@@ -83,18 +83,29 @@ const quickFiltersPrefs = {
     if (!key) {
       throw new Error(`Unknown preference id: ${id}`);
     }
-    return await messenger.LegacyPrefs.getPref(key);
+
+    if (id.startsWith("debug")) {
+      const { debug } = await browser.storage.local.get({ debug: {} });
+      if(id==="debug") {
+        return debug.debugActive;
+      }
+      return debug[id];
+    }
+    const { options } = await browser.storage.local.get({ options: {} });
+    return options[key];
   },
 
-  set(id, value) {
+  async set(id, value) {
     const key = this._map[id];
     if (!key) {
       throw new Error(`Unknown preference id: ${id}`);
     }
-    messenger.LegacyPrefs.setPref(key, value);
+
+    const { options } = await browser.storage.local.get({ options: {} });
+    options[key] = value;
+    await browser.storage.local.set({ options });
   },
 };
-
 
 function expandCollapse(element, collapseElementId) {
   try {
@@ -233,13 +244,22 @@ quickFilters.Assistant = {
   },
 
   getPref: async function (id) {
-    // pass on the promise to caller
-    return messenger.LegacyPrefs.getPref("extensions.quickfilters." + id);
+    if (id.startsWith("debug")) {
+      const { debug } = await browser.storage.local.get({ debug: {} });
+      if (id === "debug") {
+        return debug.debugActive;
+      }
+      return debug[id];
+    }
+    const { options } = await browser.storage.local.get({ options: {} });
+    return options[id];
   },
 
   setPref: async function (id, value) {
     // pass on the promise to caller
-    return messenger.LegacyPrefs.setPref("extensions.quickfilters." + id, value);
+    const { options } = await browser.storage.local.get({ options: {} });
+    options[id] = value;
+    return browser.storage.local.set({ options });
   },
 
   selectTemplate: async function (element) {
@@ -591,7 +611,8 @@ quickFilters.Assistant = {
   },
 
   loadAssistant: async function () {
-    const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug.assistant");
+    const { debug } = await browser.storage.local.get({ debug: {} });
+    const isDebug = debug.debugActive && debug["debug.assistant"];
     if (isDebug) {
       console.trace("loadAssistant called");
     }

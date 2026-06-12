@@ -66,7 +66,7 @@ export class Licenser {
   constructor(LicenseKey, options = {}) {
     // the constructor ONLY sets the Licensekey, it does not set date etc.
     this.reset();    
-    this.ForceSecondaryIdentity = options.hasOwnProperty("forceSecondaryIdentity")
+    this.ForceSecondaryIdentity = Object.hasOwn(options,"forceSecondaryIdentity")
       ? options.forceSecondaryIdentity
       : false;
     this.debug = options.debug || false;
@@ -161,15 +161,14 @@ export class Licenser {
 		try {
 			graceDate = Services.prefs.getStringPref("license.gracePeriodDate");
 		}
-		catch(ex) { 
+		catch { 
 			isResetDate = true; 
 		}
 		let today = new Date().toISOString().substr(0, 10); // e.g. "2019-07-18"
 		if (!graceDate || graceDate>today) {
 			graceDate = today; // cannot be in the future
 			isResetDate = true;
-		}
-		else {
+		} else {
 			// if a license exists & is expired long ago, use the last day of expiration date.
 			if (this.ValidationStatus == LicenseStates.Expired) {
 				if (graceDate < this.getDecryptedDate()) {
@@ -180,8 +179,9 @@ export class Licenser {
 			}
 		}
 		if (isResetDate) {
-      /* TO DO!! */
-      await messenger.LegacyPrefs.setPref("extensions.quickfolders.license.gracePeriodDate", graceDate);
+      await browser.storage.local.set({
+        "license.gracePeriodDate": graceDate,
+      });
     }
 		// log("Returning Grace Period Date: " + graceDate);
 		return graceDate;
@@ -195,17 +195,17 @@ export class Licenser {
       if (this.ValidationStatus == LicenseStates.Expired) {
         // [issue 100] Trial period should restart on license expiry
         graceDate = this.DecryptedDate;
-      }
-      else {
+      } else {
         try {
-          graceDate = 
-            await messenger.LegacyPrefs.getPref("extensions.quickfilters.license.gracePeriodDate");
+          const { options } = await browser.storage.local.get({ options: {} });
+          graceDate = options["license.gracePeriodDate"];
         }
-        catch (e) {graceDate = ""}
+        catch { graceDate = ""; }
       }
-			if (!graceDate) graceDate = await this.graceDate(); // create the date
-		}
-		catch(ex) { 
+			if (!graceDate) { 
+        graceDate = await this.graceDate(); // create the date
+      }
+		} catch { 
 		  // if it's not there, set it now!
 			graceDate = await this.graceDate(); 
 		}
@@ -221,14 +221,16 @@ export class Licenser {
       switch(this.key_type) {
         case 0: // pro license
           return (idMail.toLowerCase() == licenseMail);
-        case 1: // domain matching 
+        case 1: {// domain matching 
           // only allow one *
-          if ((licenseMail.match(/\*/g)||[]).length != 1)
-              return false;
+          if ((licenseMail.match(/\*/g)||[]).length != 1) {
+            return false;
+          }
           // replace * => .*
           let r = new RegExp(licenseMail.replace("*",".*"));
           let t = r.test(idMail);
           return t;
+        }
       }
     }
     catch (ex) {

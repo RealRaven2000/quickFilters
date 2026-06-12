@@ -1,44 +1,6 @@
 export const Preferences = {
-  CURRENT_VERSION: 1,
+  CURRENT_VERSION: 1.3,
   Defaults: {
-    // === DEBUG ===
-    debug: false,
-    "debug.assistant": false,
-    "debug.assistant.ui": false,
-    "debug.assistant.msg": false,
-    "debug.buildFilter": false,
-    "debug.clipboard": false,
-    "debug.createFilter": false,
-    "debug.createFilter.refreshHeaders": false,
-    "debug.default": true,
-    "debug.dnd": false,
-    "debug.events": false,
-    "debug.events.keyboard": false,
-    "debug.filters": false,
-    "debug.filterEdit": false,
-    "debug.filterList": false,
-    "debug.filterSearch": false,
-    "debug.filterSearch.detail": false,
-    "debug.getSourceFolder": false,
-    "debug.identities": false,
-    "debug.listeners": false,
-    "debug.merge": false,
-    "debug.merge.detail": false,
-    "debug.nostalgy": false,
-    "debug.notifications": false,
-    "debug.msgMove": false,
-    "debug.msgMove.detail": false,
-    "debug.replaceReservedWords": false,
-    "debug.template.multifrom": false,
-    "debug.template.custom": false,
-    "debug.premium": false,
-    "debug.premium.licenser": false,
-    "debug.premium.rsa": false,
-    "debug.FiltersAPI": false,
-    "debug.functions": false,
-    "debug.mime": false,
-    "debug.mime.split": false,
-
     // === NAMING ===
     "naming.targetAccount": false,
     "naming.subject.blacklist": "re:, fwd:, aw:, urgent, important, wg:, antw:, the, der, die, das",
@@ -162,56 +124,131 @@ export const Preferences = {
     "mime.resolveAB.preferNick": false,
     firstLastSwap: false,
   },
+  DebugDefaults: {
+    debugActive: false /* was "debug" */,
+    "debug.assistant": false,
+    "debug.assistant.ui": false,
+    "debug.assistant.msg": false,
+    "debug.buildFilter": false,
+    "debug.clipboard": false,
+    "debug.createFilter": false,
+    "debug.createFilter.refreshHeaders": false,
+    "debug.default": true,
+    "debug.dnd": false,
+    "debug.events": false,
+    "debug.events.keyboard": false,
+    "debug.filters": false,
+    "debug.filterEdit": false,
+    "debug.filterList": false,
+    "debug.filterSearch": false,
+    "debug.filterSearch.detail": false,
+    "debug.getSourceFolder": false,
+    "debug.identities": false,
+    "debug.listeners": false,
+    "debug.merge": false,
+    "debug.merge.detail": false,
+    "debug.nostalgy": false,
+    "debug.notifications": false,
+    "debug.msgMove": false,
+    "debug.msgMove.detail": false,
+    "debug.replaceReservedWords": false,
+    "debug.template.multifrom": false,
+    "debug.template.custom": false,
+    "debug.premium": false,
+    "debug.premium.licenser": false,
+    "debug.premium.rsa": false,
+    "debug.FiltersAPI": false,
+    "debug.functions": false,
+    "debug.mime": false,
+    "debug.mime.split": false,
+  },
 
   _data: {},
+  _debugData: {},
   _ready: false,
   async init() {
     // a flat object. e.g. stored["refreshHeaders.wait"] = 150;
-    const stored = await browser.storage.local.get();
-    const version = stored.settingsVersion ?? 0;
+    let { options = {}, debug = {} } = await browser.storage.local.get({
+      options: {},
+      debug: {},
+    });
+    const version = options.settingsVersion ?? 0;
 
     if (version < Preferences.CURRENT_VERSION) {
-      const migrated = await Preferences._migrateLegacyPrefs();
+      const { options: mOptions, debug: mDebug } = await Preferences._migrateLegacyPrefs();
       // avoid overwriting newer backup with older one:
-      if (stored["LicenseKey.backup"] !== undefined) {
-        migrated["LicenseKey.backup"] = stored["LicenseKey.backup"];
+      if (options["LicenseKey.backup"] !== undefined) {
+        mOptions["LicenseKey.backup"] = options["LicenseKey.backup"];
       }
-
-      await browser.storage.local.set({
-        ...migrated,
+      options = {
+        ...mOptions,
         settingsVersion: Preferences.CURRENT_VERSION,
-      });
-
-      Preferences._data = {
-        ...Preferences.Defaults,
-        ...migrated,
       };
-    } else {
-      Preferences._data = {
-        ...Preferences.Defaults,
-        ...stored,
-      };
+      debug = { ...mDebug };
+      // store migrated data from Legacy Prefs
+      await browser.storage.local.set({ options });
+      await browser.storage.local.set({ debug });
     }
+    Preferences._data = {
+      ...Preferences.Defaults,
+      ...options,
+    };
+    Preferences._debugData = {
+      ...Preferences.DebugDefaults,
+      ...debug,
+    };
+
     Preferences._ready = true;
+
+    function applyChanges(target, changesObj, updates) {
+      // the structure is changes.options.oldValue.key  [changes.debug.oldValue.key]
+      // and              changes.options.newValue.key  [changes.debug.newValue.key]
+      const oldV = changesObj.oldValue || {};
+      const newV = changesObj.newValue || {};
+
+      for (const [key, val] of Object.entries(oldV)) {
+        if (newV[key] === undefined) {
+          delete target[key];
+          delete updates[key];
+          continue;
+        }
+
+        if (newV[key] === val) {
+          continue;
+        }
+
+        // change value and record updates
+        target[key] = newV[key];
+        updates[key] = newV[key];
+      }
+    }
 
     // live sync all changes to cache
     browser.storage.onChanged.addListener((changes, area) => {
+      console.log("Preferences onChanged - changes: ", changes);
       if (area !== "local") {
         return;
       }
-
-      for (const [key, change] of Object.entries(changes)) {
-        if (!change) {
-          continue;
-        }
-        if (change.newValue === undefined) {
-          delete Preferences._data[key];
-        } else {
-          Preferences._data[key] = change.newValue;
-        }
+      if (!changes.options && !changes.debug) {
+        return;
       }
-    });
+      const updates = {};
 
+      if (changes.options) {
+        applyChanges(Preferences._data, changes.options, updates);
+      }
+
+      if (changes.debug) {
+        applyChanges(Preferences._debugData, changes.debug, updates);
+      }
+
+      if (!Object.keys(updates).length) {
+        // no effective changes
+        return;
+      }
+      console.log("Preferences onChanged - updates: ", updates);
+      messenger.Utilities.updatePreferencesCache(updates);
+    });
   },
 
   _ensureReady(info) {
@@ -224,22 +261,48 @@ export const Preferences = {
 
   get(name) {
     Preferences._ensureReady({ reason: "get", key: name });
-
+    if (name === "debug") {
+      return Preferences._debugData.debugActive ?? false;
+    }
+    if (name.startsWith("debug")) {
+      return Preferences._debugData[name] ?? Preferences.DebugDefaults[name];
+    }
     return Preferences._data[name] ?? Preferences.Defaults[name];
+  },
+
+  isDebug(key) {
+    Preferences._ensureReady({ reason: "isDebug", key });
+    // global switch
+    if (!key) {
+      return Preferences._debugData.debugActive ?? false;
+    }
+    // specific flag
+    return (
+      Preferences._debugData[`debug.${key}`] ?? Preferences.DebugDefaults[`debug.${key}`] ?? false
+    );
   },
 
   async set(name, value) {
     Preferences._ensureReady({ reason: "set", key: name });
-    if (Preferences._data[name] === value) {
+
+    if (name.startsWith("debug")) {
+      if (Preferences._debugData[name] === value) {
+        return;
+      }
+      Preferences._debugData[name] = value;
+      const { debug } = await browser.storage.local.get({ debug: {} });
+      debug[name] = value;
+      await browser.storage.local.set({ debug });
       return;
     }
 
+    if (Preferences._data[name] === value) {
+      return;
+    }
     Preferences._data[name] = value;
-
-    // fire-and-forget persistence (important)
-    await browser.storage.local.set({
-      [name]: value,
-    });
+    const { options } = await browser.storage.local.get({ options: {} });
+    options[name] = value;
+    await browser.storage.local.set({ options });
   },
 
   getBool(name) {
@@ -251,7 +314,7 @@ export const Preferences = {
   },
 
   _normalizeType(key, value) {
-    const def = this.Defaults[key];
+    const def = this.Defaults[key] ?? this.DebugDefaults[key];
 
     if (typeof def === "boolean") {
       if (typeof value !== "boolean") {
@@ -271,10 +334,16 @@ export const Preferences = {
   async _migrateLegacyPrefs() {
     const legacy_root = "extensions.quickfilters.";
 
-    const migrated = {};
+    const migratedOptions = {};
+    const migratedDebug = {};
+    // these stored entities have no defaults:
+    const specialValues = ["LicenseKey.backup", "debug"];
 
-    // migrate all known keys from legacy storage and the unlisted LicenseKey backup
-    for (const key of [...Object.keys(this.Defaults), "LicenseKey.backup"]) {
+    for (const key of [
+      ...Object.keys(this.Defaults),
+      ...Object.keys(this.DebugDefaults),
+      ...specialValues,
+    ]) {
       const legacyKey = legacy_root + key;
 
       try {
@@ -284,13 +353,27 @@ export const Preferences = {
           continue;
         }
 
-        migrated[key] = this._normalizeType(key, value);
+        const normalized = this._normalizeType(key, value);
+
+        // ---- DEBUG SPLIT ----
+        if (key === "debug") {
+          migratedDebug.debugActive = normalized;
+          continue;
+        }
+
+        if (key.startsWith("debug.")) {
+          migratedDebug[key] = normalized;
+          continue;
+        }
+
+        // ---- EVERYTHING ELSE ----
+        migratedOptions[key] = normalized;
       } catch {
-        // ignore missing/failed keys
         console.warn(`Preference ${legacyKey} not found during migration.`);
       }
     }
-    return migrated;
+
+    return { options: migratedOptions, debug: migratedDebug };
   },
 };
 

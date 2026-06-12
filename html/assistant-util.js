@@ -51,28 +51,31 @@ quickFilters.Util = {
   },
 
   logDebug: async function (...args) {
-    const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
-    if (isDebug) {
+    const { debug } = await browser.storage.local.get({ debug: {} });
+    if (debug.debugActive) {
       this.logToConsole(...args);
     }
   },
 
   logHighlightDebug: async function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
-    const isDebug = await messenger.LegacyPrefs.getPref("extensions.quickfilters.debug");
-    if (isDebug) {
+    const { debug } = await browser.storage.local.get({ debug: {} });
+    if (debug.debugActive) {
       console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
     }
   },
 
   logDebugOptional: async function (optionString, _msg) {
     try {
+      const { debug } = await browser.storage.local.get({ debug: {} });
+      if (!debug.debugActive) {
+        return;
+      }
       const options = optionString.split(",");
       for (let i = 0; i < options.length; i++) {
         const option = options[i];
-        const isDebug = await messenger.LegacyPrefs.getPref(
-          `extensions.quickfilters.debug.${option}`
-        );
-        if (isDebug) {
+        const key = `debug.${option}`;
+        // TODO: check if works
+        if (debug[key] === true) {
           this.logWithOption(...arguments);
           break; // only log once, in case multiple log switches are on
         }

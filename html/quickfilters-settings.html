@@ -75,23 +75,23 @@
         <!-- Left column -->
         <div class="vbox">
           <label>
-            <input type="checkbox" id="chkAutoClose" data-pref-name="extensions.quickfilters.abortAfterCreate">
+            <input type="checkbox" id="chkAutoClose" data-pref-name="abortAfterCreate">
             __MSG_chkAutoClose.label__
           </label>
           <label>
-            <input type="checkbox" id="chkAutoStart" data-pref-name="extensions.quickfilters.autoStart">
+            <input type="checkbox" id="chkAutoStart" data-pref-name="autoStart">
             __MSG_chkAutoStart.label__
           </label>
           <label>
-            <input type="checkbox" id="chkToolbar" data-pref-name="extensions.quickfilters.toolbar">
+            <input type="checkbox" id="chkToolbar" data-pref-name="toolbar">
             __MSG_chkToolbar.label__
           </label>
           <label title="__MSG_chkShowList.tooltip__">
-            <input type="checkbox" id="chkShowList" data-pref-name="extensions.quickfilters.showListAfterCreateFilter">
+            <input type="checkbox" id="chkShowList" data-pref-name="showListAfterCreateFilter">
             __MSG_chkShowList.label__
           </label>
           <label>
-            <input type="checkbox" id="chkShowEditor" data-pref-name="extensions.quickfilters.showEditorAfterCreateFilter">
+            <input type="checkbox" id="chkShowEditor" data-pref-name="showEditorAfterCreateFilter">
             __MSG_chkShowEditor.label__
           </label>
           <label>
@@ -99,7 +99,7 @@
             __MSG_chkImapOnRead.label__
           </label>
           <label>
-            <input type="checkbox" data-pref-name="extensions.quickfilters.subjectDisableKeywordsExtract">
+            <input type="checkbox" data-pref-name="subjectDisableKeywordsExtract">
             __MSG_subjectCompleteExtract__
           </label>
         </div>
@@ -107,15 +107,15 @@
         <!-- Right column -->
         <div class="vbox">
           <label title="__MSG_qf.listener.tags.tooltip__">
-            <input type="checkbox" data-pref-name="extensions.quickfilters.listener.tags">
+            <input type="checkbox" data-pref-name="listener.tags">
             __MSG_qf.listener.tags__
           </label>
           <label>
-            <input type="checkbox" data-pref-name="extensions.quickfilters.listener.tags.autofilter">
+            <input type="checkbox" data-pref-name="listener.tags.autofilter">
             __MSG_qf.listener.tags.autofilter__
           </label>
           <label title="__MSG_qf.onewayaddress.tooltip__">
-            <input type="checkbox" data-pref-name="extensions.quickfilters.searchterm.addressesOneWay">
+            <input type="checkbox" data-pref-name="searchterm.addressesOneWay">
             __MSG_qf.onewayaddress.label__
           </label>
 
@@ -123,7 +123,7 @@
             Get 'Copy Sent to Current'
           </label>
 
-          <button id="assistantIgnore" class="configSettings withlabel" filter="quickfilters.assistant.exclude">
+          <button id="assistantIgnore" class="configSettings withlabel" filter="assistant.exclude">
             __MSG_qf.assistant.ignoreFolders__
           </button>
         </div>
@@ -136,19 +136,19 @@
         <fieldset class="vbox">
           <legend>__MSG_grpMerge.label__</legend>
           <label title="__MSG_chkMergeAuto.tooltip__">
-            <input type="checkbox" id="chkMergeAuto" data-pref-name="extensions.quickfilters.merge.autoSelect">
+            <input type="checkbox" id="chkMergeAuto" data-pref-name="merge.autoSelect">
             __MSG_chkMergeAuto.label__
           </label>
           <label title="__MSG_chkMergeSkip.tooltip__">
-            <input type="checkbox" id="chkMergeSkip" data-pref-name="extensions.quickfilters.merge.silent">
+            <input type="checkbox" id="chkMergeSkip" data-pref-name="merge.silent">
             __MSG_chkMergeSkip.label__
           </label>
           <label>
-            <input type="checkbox" id="chkInsertRulesAtTop" data-pref-name="extensions.quickfilters.searchterm.insertOnTop">
+            <input type="checkbox" id="chkInsertRulesAtTop" data-pref-name="searchterm.insertOnTop">
             __MSG_chkInsertRulesAtTop.label__
           </label>
           <label>
-            <input type="checkbox" id="chkFirstAction" data-pref-name="extensions.quickfilters.assistant.merge.firstActionOnly">
+            <input type="checkbox" id="chkFirstAction" data-pref-name="assistant.merge.firstActionOnly">
             __MSG_chkMerge.onlyFirstAction__
           </label>
         </fieldset>
@@ -157,15 +157,15 @@
         <fieldset class="vbox">
           <legend>__MSG_assistant.ux.title__</legend>
           <label title="__MSG_assistant.ux.assistant.html.tooltip__">
-            <input type="checkbox" data-pref-name="extensions.quickfilters.assistant.html">
+            <input type="checkbox" data-pref-name="assistant.html">
             __MSG_assistant.ux.assistant.html__
           </label>
           <label title="__MSG_news.minimal.tip__">
-            <input type="checkbox" data-pref-name="extensions.quickfilters.news.minimal">
+            <input type="checkbox" data-pref-name="news.minimal">
             __MSG_news.minimal__
           </label>
           <label>
-            <input type="checkbox" data-pref-name="extensions.quickfilters.notifications.changelog">
+            <input type="checkbox" data-pref-name="notifications.changelog">
             __MSG_updates.displayVersionTab__
           </label>
         </fieldset>
@@ -181,16 +181,16 @@
           <fieldset>
             <legend>__MSG_qf.grp.whenToRun__</legend>
             <div class="vbox">
-              <label><input type="checkbox" id="chkAutoRun" data-pref-name="extensions.quickfilters.newfilter.autorun">__MSG_chkAutoRun.label__</label>
-              <label><input type="checkbox" id="chkRunManual" data-pref-name="extensions.quickfilters.newfilter.manual">__MSG_chkRunManual.label__</label>
-              <label><input type="checkbox" id="chkAfterJunk" data-pref-name="extensions.quickfilters.newfilter.runAfterPlugins">__MSG_chkAfterJunk.label__</label>
-              <label><input type="checkbox" id="chkWhenArchiving" data-pref-name="extensions.quickfilters.newfilter.runArchiving">__MSG_chkWhenArchiving.label__</label>
-              <label><input type="checkbox" id="chkAfterSending" data-pref-name="extensions.quickfilters.newfilter.runPostOutgoing">__MSG_chkAfterSending.label__</label>
-              <label><input type="checkbox" id="chkPeriodically" data-pref-name="extensions.quickfilters.newfilter.runPeriodically" title="__MSG_chkPeriodically.tooltip__">__MSG_chkPeriodically.label__</label>
+              <label><input type="checkbox" id="chkAutoRun" data-pref-name="newfilter.autorun">__MSG_chkAutoRun.label__</label>
+              <label><input type="checkbox" id="chkRunManual" data-pref-name="newfilter.manual">__MSG_chkRunManual.label__</label>
+              <label><input type="checkbox" id="chkAfterJunk" data-pref-name="newfilter.runAfterPlugins">__MSG_chkAfterJunk.label__</label>
+              <label><input type="checkbox" id="chkWhenArchiving" data-pref-name="newfilter.runArchiving">__MSG_chkWhenArchiving.label__</label>
+              <label><input type="checkbox" id="chkAfterSending" data-pref-name="newfilter.runPostOutgoing">__MSG_chkAfterSending.label__</label>
+              <label><input type="checkbox" id="chkPeriodically" data-pref-name="newfilter.runPeriodically" title="__MSG_chkPeriodically.tooltip__">__MSG_chkPeriodically.label__</label>
             </div>
           </fieldset>
 
-          <label><input type="checkbox" id="chkAlphabetic" data-pref-name="extensions.quickfilters.newfilter.insertAlphabetical" title="__MSG_chkAlphabetic.tooltip__">__MSG_chkAlphabetic.label__</label>
+          <label><input type="checkbox" id="chkAlphabetic" data-pref-name="newfilter.insertAlphabetical" title="__MSG_chkAlphabetic.tooltip__">__MSG_chkAlphabetic.label__</label>
         </div>
 
         <div class="vbox">
@@ -198,20 +198,20 @@
             <legend>__MSG_qf.label.naming__</legend>
             <div class="vbox">
               <div class="hbox">
-                <label><input type="checkbox" id="chkNamingParentFolder" data-pref-name="extensions.quickfilters.naming.parentFolder">__MSG_qf.label.naming.parentFolder__</label>
+                <label><input type="checkbox" id="chkNamingParentFolder" data-pref-name="naming.parentFolder">__MSG_qf.label.naming.parentFolder__</label>
                 <label class="textBoxLabel" style="margin-left: 1em; margin-top: 1px;">__MSG_qf.label.naming.folderDelimiter__</label>
-                <input type="text" data-pref-name="extensions.quickfilters.naming.folderDelimiter" style="width: 3em;" title="__MSG_qf.tooltip.naming.folderDelimiter__">
+                <input type="text" data-pref-name="naming.folderDelimiter" style="width: 3em;" title="__MSG_qf.tooltip.naming.folderDelimiter__">
               </div>
               <label>
                 Maximum folder levels:
-                <input type="number" id="numParentFolderLevels" data-pref-name="extensions.quickfilters.naming.parentFolder.maxCount" style="width: 4em;" min="1">
+                <input type="number" id="numParentFolderLevels" data-pref-name="naming.parentFolder.maxCount" style="width: 4em;" min="1">
               </label>
               <label>
-                <input type="checkbox" id="chkNamingTargetAccount" data-pref-name="extensions.quickfilters.naming.targetAccount">
+                <input type="checkbox" id="chkNamingTargetAccount" data-pref-name="naming.targetAccount">
                 __MSG_qf.label.naming.targetAccount__
               </label>
 
-              <label><input type="checkbox" id="chkNamingKeyWord" data-pref-name="extensions.quickfilters.naming.keyWord">
+              <label><input type="checkbox" id="chkNamingKeyWord" data-pref-name="naming.keyWord">
                 __MSG_qf.label.naming.keyWord__
               </label>
 
@@ -220,21 +220,21 @@
                   __MSG_qf.label.naming.keyWord.blacklist__
                 </label>
                 <textarea id="txtSubjectBlacklist"
-                  data-pref-name="extensions.quickfilters.naming.subject.blacklist"
+                  data-pref-name="naming.subject.blacklist"
                   title="__MSG_qf.label.naming.keyWord.blacklist.tip__">
                 </textarea>
               </div>              
 
               <div class="hbox">
                 <label class="textBoxLabel">__MSG_qf.cloned.label__</label>
-                <input type="text" id="txtClonedName" data-pref-name="extensions.quickfilters.cloned.append" 
+                <input type="text" id="txtClonedName" data-pref-name="cloned.append" 
                 placeholder="__MSG_quickfilters.clone.label__">
               </div>
             </div>
           </fieldset>
 
           <div class="hbox">
-            <label><input type="checkbox" id="chkRemoveOwnAddress" data-pref-name="extensions.quickfilters.newfilter.removeOwnAddresses">__MSG_qf.label.removeOwnAddresses__</label>
+            <label><input type="checkbox" id="chkRemoveOwnAddress" data-pref-name="newfilter.removeOwnAddresses">__MSG_qf.label.removeOwnAddresses__</label>
             <div class="helpLink" tip-left="true" clickyTooltip="__MSG_qf.label.removeOwnAddresses.tip__"></div>
           </div>
         </div>
@@ -247,14 +247,14 @@
         <legend>__MSG_qf.templates.advanced__</legend>
         <div class="vbox">
           <div class="hbox">
-            <label><input type="checkbox" id="chkReplyTo" data-pref-name="extensions.quickfilters.templates.replyTo" title="__MSG_qf.templates.replyTo.tooltip__">__MSG_qf.templates.replyTo.label__</label>
+            <label><input type="checkbox" id="chkReplyTo" data-pref-name="templates.replyTo" title="__MSG_qf.templates.replyTo.tooltip__">__MSG_qf.templates.replyTo.label__</label>
             <label class="plain-link nowrap" 
               href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25863">[Bug 25863]</label>
           </div>
 
           <div class="hbox">
             <div class="hbox" style="flex-wrap:wrap;">
-              <label class="proFeature"><input type="checkbox" data-pref-name="extensions.quickfilters.templates.custom" title="__MSG_qf.templates.customTemplate.tooltip__">__MSG_qf.templates.customTemplate.label__</label>
+              <label class="proFeature"><input type="checkbox" data-pref-name="templates.custom" title="__MSG_qf.templates.customTemplate.tooltip__">__MSG_qf.templates.customTemplate.label__</label>
               <div class="hbox">
                 <button id="editCustomFilters">__MSG_qf.templates.customTemplate.edit__</button>
                 <button class="proFeature" id="newCustomFilter">__MSG_qf.templates.customTemplate.new__</button>
@@ -279,12 +279,12 @@
           <p id="currentFolderDescription">__MSG_qf.description.currentFolderButtons__</p>
           <div class="hbox columns">
             <div class="vbox">
-              <label class="filterlist checkbox-icon"><input type="checkbox" id="chkCurrentToolbarFiltersButton" class="currentFolderQF" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.listbutton">__MSG_chkCurrentToolbar.btn.FilterList.label__</label>
-              <label class="runfilters-folder checkbox-icon"><input type="checkbox" id="chkCurrentToolbarFolderButton" class="currentFolderQF" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.folderbutton">__MSG_chkCurrentToolbar.btn.RunOnFolder.label__</label>
+              <label class="filterlist checkbox-icon"><input type="checkbox" id="chkCurrentToolbarFiltersButton" class="currentFolderQF" data-pref-name="quickfolders.curFolderbar.listbutton">__MSG_chkCurrentToolbar.btn.FilterList.label__</label>
+              <label class="runfilters-folder checkbox-icon"><input type="checkbox" id="chkCurrentToolbarFolderButton" class="currentFolderQF" data-pref-name="quickfolders.curFolderbar.folderbutton">__MSG_chkCurrentToolbar.btn.RunOnFolder.label__</label>
             </div>
             <div class="vbox">
-              <label class="runfilters-selected checkbox-icon"><input type="checkbox" id="chkCurrentToolbarMessagesButton" class="currentFolderQF" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.messagesbutton">__MSG_chkCurrentToolbar.btn.RunOnMessages.label__</label>
-              <label class="searchfilters checkbox-icon"><input type="checkbox" id="chkCurrentFindFilterButton" class="currentFolderQF" data-pref-name="extensions.quickfilters.quickfolders.curFolderbar.findfilterbutton" title="__MSG_chkCurrentToolbar.btn.FindFilter.tooltip__">__MSG_chkCurrentToolbar.btn.FindFilter.label__</label>
+              <label class="runfilters-selected checkbox-icon"><input type="checkbox" id="chkCurrentToolbarMessagesButton" class="currentFolderQF" data-pref-name="quickfolders.curFolderbar.messagesbutton">__MSG_chkCurrentToolbar.btn.RunOnMessages.label__</label>
+              <label class="searchfilters checkbox-icon"><input type="checkbox" id="chkCurrentFindFilterButton" class="currentFolderQF" data-pref-name="quickfolders.curFolderbar.findfilterbutton" title="__MSG_chkCurrentToolbar.btn.FindFilter.tooltip__">__MSG_chkCurrentToolbar.btn.FindFilter.label__</label>
             </div>
           </div>
           <div id="quickFoldersNavLicensing" class="licenseRestriction">
@@ -297,7 +297,7 @@
         <legend>__MSG_qf.filterlist.group__</legend>
         <div class="vbox">
           <div class="hbox">
-            <label class="proFeature"><input type="checkbox" id="chkMultiPaste" data-pref-name="extensions.quickfilters.multipaste">__MSG_qf.filterlist.multipaste__</label>
+            <label class="proFeature"><input type="checkbox" id="chkMultiPaste" data-pref-name="multipaste">__MSG_qf.filterlist.multipaste__</label>
             <label class="plain-link nowrap" href="https://github.com/RealRaven2000/quickFilters/issues/20">[Issue 20]</label>
           </div>
         </div>
@@ -307,9 +307,9 @@
         <div class="flexSpacer"></div>
         <span class="hbox hasConfigEvent">
           <label>
-            <input type="checkbox" id="chkDebug" data-pref-name="extensions.quickfilters.debug" title="__MSG_chkDebug.accesskey__">__MSG_chkDebug.label__
+            <input type="checkbox" id="chkDebug" data-pref-name="debugActive" title="__MSG_chkDebug.accesskey__">__MSG_chkDebug.label__
           </label>
-          <button class="configSettings" filter="extensions.quickfilters.debug">
+          <button class="configSettings" filter="debug">
             &nbsp;
           </button> 
         </span>
@@ -412,18 +412,18 @@
             </div>
 
             <div class="hbox align-center">
-              <label class="proFeature"><input type="checkbox" id="chkFoldersShortcut" data-pref-name="extensions.quickfilters.shortcuts.folder">__MSG_qf.label.shortcut.runFolder__</label>
-              <input class="proFeature" type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.folder.key">
+              <label class="proFeature"><input type="checkbox" id="chkFoldersShortcut" data-pref-name="shortcuts.folder">__MSG_qf.label.shortcut.runFolder__</label>
+              <input class="proFeature" type="text" style="width:3em;" data-pref-name="shortcuts.folder.key">
             </div>
 
             <div class="hbox align-center">
-              <label class="proFeature"><input type="checkbox" id="chkMailsShortcut" data-pref-name="extensions.quickfilters.shortcuts.mails">__MSG_qf.label.shortcut.runMails__</label>
-              <input class="proFeature" type="text" style="width:3em;" data-pref-name="extensions.quickfilters.shortcuts.mails.key">
+              <label class="proFeature"><input type="checkbox" id="chkMailsShortcut" data-pref-name="shortcuts.mails">__MSG_qf.label.shortcut.runMails__</label>
+              <input class="proFeature" type="text" style="width:3em;" data-pref-name="shortcuts.mails.key">
             </div>
 
-            <label style="margin-left:2em;"><input type="checkbox" data-pref-name="extensions.quickfilters.shortcuts.challenge">__MSG_qf.label.shortcut.challenge__</label>
-            <label class="proFeature"><input type="checkbox" id="chkLocalFoldersAutorun" data-pref-name="extensions.quickfilters.localFoldersRun">__MSG_chkLocalFoldersAutorun.label__</label>
-            <label class="proFeature"><input type="checkbox" id="chkNotifyRunFilter" data-pref-name="extensions.quickfilters.notifications.runFilter">__MSG_chkNotify.RunFilter__</label>
+            <label style="margin-left:2em;"><input type="checkbox" data-pref-name="shortcuts.challenge">__MSG_qf.label.shortcut.challenge__</label>
+            <label class="proFeature"><input type="checkbox" id="chkLocalFoldersAutorun" data-pref-name="localFoldersRun">__MSG_chkLocalFoldersAutorun.label__</label>
+            <label class="proFeature"><input type="checkbox" id="chkNotifyRunFilter" data-pref-name="notifications.runFilter">__MSG_chkNotify.RunFilter__</label>
 
           </div>
         </fieldset>

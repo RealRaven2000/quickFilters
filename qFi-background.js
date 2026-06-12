@@ -1,6 +1,18 @@
+import { Preferences } from "./scripts/preferences.js";
 import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
 import { compareVersions } from "./scripts/mozilla-version-comparator.js";
+// very nice config editor by John B:
+import * as webExtensionStorageEditor from "./scripts/webExtensionStorageEditor.mjs";
+
+// Open a popup showing local storage, with an optional filter
+/*
+webExtensionStorageEditor.open({
+    storageArea: 'local',
+    baseFilter: 'debug.',
+    type: 'popup',
+});
+*/
 
 const QUICKFOLDERS_APPNAME = "quickfolders@curious.be";
 const RUNFILTERFROMTREE_ID = "runFiltersFolderPane";
@@ -15,29 +27,9 @@ var callbacks = [];
 // Worker.FilterMode
 var AssistantActive = false;
 
-const legacy_root = "extensions.quickfilters.";
 
 function versionGreater(v1, v2) {
   return compareVersions(v1, v2) > 0;
-}
-
-function prefKey(name) {
-  if (name.startsWith(legacy_root)) { 
-    return name;
-  }
-  return legacy_root + name;
-}
-
- // pre Thunderbird 121
-if (typeof Promise.withResolvers !== "function") {
-  Promise.withResolvers = function () {
-    let resolve, reject;
-    const promise = new Promise((res, rej) => {
-      resolve = res;
-      reject = rej;
-    });
-    return { promise, resolve, reject };
-  };
 }
 
 const startup = Promise.withResolvers();
@@ -46,7 +38,8 @@ const startup = Promise.withResolvers();
 //TODO mailWindowOverlay: was never in use??
 //debugger;
 messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
-  let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
+  await prefsReady;
+  let isDebug = Preferences.isDebug();
   // Wait until the main startup routine has finished!
   const res = await startup.promise;
   messenger.Utilities.logDebug(
@@ -77,7 +70,7 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
         // note quickfilters.installedVersion is currently set in legacy code (quickFilters.checkFirstRun())
         // set a flag which will be cleared by clicking the [quickFilters assistant] button once
         setTimeout(async function () {
-          let origVer = await messenger.LegacyPrefs.getPref(prefKey("installedVersion"), "0");
+          let origVer = Preferences.get("installedVersion") || "0";
           const manifest = await messenger.runtime.getManifest();
           let installedVersion = manifest.version.replace(/pre.*/, "").replace(/\.$/, "");
           const isUpgrade = versionGreater(installedVersion, origVer);
@@ -87,16 +80,16 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
 
           if (isUpgrade) {
             if (
-              (await messenger.LegacyPrefs.getPref(prefKey("hasNews"))) &&
+              (Preferences.get("hasNews")) &&
               installedVersion.startsWith("6.8.3")
             ) {
               if (isDebug) {
                 console.log("Setting news.minimal flag, as news flag was already set / ignored.");
               }
-              await messenger.LegacyPrefs.setPref(prefKey("news.minimal"), true);
+              await Preferences.set("news.minimal", true);
             }
             // only show news if major or minor version have changed:
-            messenger.LegacyPrefs.setPref(prefKey("hasNews"), true);
+            await Preferences.set("hasNews", true);
             // we need to move this to local Storage so that it will be removed if the Add-on is removed.
           }
           notifyWhenUIReady({ event: "updatequickFiltersLabel" });
@@ -123,7 +116,7 @@ async function addFolderPaneListener() {
     await messenger.menus.remove(FINDFILTERS_ID);
     await messenger.menus.remove(RUNFILTERFROMTREE_ID);
   } catch { ; }
-  let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
+  let isDebug = Preferences.isDebug();
   let menuLabel = messenger.i18n.getMessage("quickfilters.RunButton.label");
   if (isDebug) {
     console.log("quickFilters: addFolderPaneListener()");
@@ -272,7 +265,7 @@ async function addFolderPaneListener() {
 }
 
 async function addToolMenuListener() {
-  let isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug"));
+  let isDebug = Preferences.isDebug();
   const menuStart = messenger.i18n.getMessage("quickfilters.FilterAssistant.start"),
     // eslint-disable-next-line no-unused-vars
     _menuStop = messenger.i18n.getMessage("quickfilters.FilterAssistant.stop"); // it's a toggle, not sure how to do this.
@@ -331,7 +324,7 @@ function showSplash() {
 }
 
 async function displayAssistant(data) {
-  const isDebugMsg = await messenger.LegacyPrefs.getPref(prefKey("debug.assistant.msg"));
+  const isDebugMsg = Preferences.isDebug("assistant.msg");
   // [issue 309] open the HTML version of the assistant
   messenger.Utilities.logDebug(
     `displayAssistant()\ncontext=${data?.context}\nrequestId=${data?.requestId}`,
@@ -548,10 +541,8 @@ async function notifyWhenUIReady(...args) {
 }
 
 async function updateLicense(key) {
-  let forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
-      prefKey("licenser.forceSecondaryIdentity")
-    ),
-    isDebugLicenser = await messenger.LegacyPrefs.getPref(prefKey("debug.premium.licenser"));
+  let forceSecondaryIdentity = Preferences.get("licenser.forceSecondaryIdentity"),
+    isDebugLicenser = Preferences.isDebug("premium.licenser");
 
   // we create a new Licenser object for overwriting, this will also ensure that key_type can be changed.
   let newLicense = new Licenser(key, {
@@ -564,7 +555,7 @@ async function updateLicense(key) {
   // return false;
 
   // Update background license.
-  await messenger.LegacyPrefs.setPref(prefKey("LicenseKey"), newLicense.info.licenseKey);
+  await Preferences.set("LicenseKey", newLicense.info.licenseKey);
   currentLicense = newLicense;
   // Broadcast -without event is used for the licenser.
   notifyWhenUIReady({ licenseInfo: currentLicense.info });
@@ -579,114 +570,11 @@ function stripEllipsis(label) {
 }
 
 
-async function main() {
-  // load defaults
-  messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
 
-  let key = await messenger.LegacyPrefs.getPref(prefKey("LicenseKey")),
-    forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
-      prefKey("licenser.forceSecondaryIdentity"),
-    ),
-    isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug")),
-    isDebugLicenser = await messenger.LegacyPrefs.getPref(prefKey("debug.premium.licenser"));
 
-  currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
-  await currentLicense.validate();
-
-  // All important stuff has been done.
-  // resolve all promises on the stack
-  if (isDebug) {
-    console.log("Finished setting up license startup code");
-  }
-  callbacks.forEach((callback) => callback());
-  // unblock code that depends on licenser
-  startup.resolve("unblock startup for quickFilters in main()");
-  if (isDebug) {
-    console.log("Startup resolved");
-  }
-  
-
-  // listeners for splash pages, new settings dialog
-  messenger.runtime.onMessage.addListener(async (data, sender) => {
-    // console.log("runtime.onMessage", data, _sender);
-    if (!data.command) {
-      return;
-    }
-    switch (data.command) {
-      case "getLicenseInfo":
-        return currentLicense.info;
-      case "getFilters": {
-        const { sourceUri, targetUri, filterAction, filterActionExt } = data;
-        let filters = await messenger.FiltersAPI.getFilters(
-          sourceUri,
-          targetUri || "",
-          Number.isNaN(filterAction) ? undefined : filterAction,
-          ["string", "boolean"].includes(typeof filterActionExt)
-            ? String(filterActionExt)
-            : undefined,
-        );
-        return filters;
-      }
-      case "assistantResult":
-        {
-          const { requestId, result } = data;
-          const isDebug = await messenger.LegacyPrefs.getPref(prefKey("debug.assistant"));
-          if (isDebug) {
-            console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
-          }
-          if (requestId) {
-            const mergeFilter = data.params?.mergeFilter || null;
-            const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
-            // { index, filterName , accountId }
-            await messenger.Utilities.resolveAssistant(requestId, result, {
-              answer: data.params?.answer,
-              selectedMergedFilterIndex: resultIdx,
-              mergeFilter,
-            });
-          }
-        }
-        break;
-      case "resizeAssistant":
-        if (sender.tab) {
-          let newHeight = data.height;
-          const maxHeight = window.screen.availHeight; // or window.screen.height for full screen height
-
-          if (newHeight > maxHeight) {
-            newHeight = maxHeight;
-            console.warn(
-              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`,
-            );
-          }
-
-          const windowId = sender.tab.windowId;
-          browser.windows.update(windowId, { height: newHeight });
-        }
-        break;
-      case "splashScreen":
-        showSplash();
-        break;
-      case "showAboutConfig":
-        messenger.Utilities.showAboutConfig(data.filter); // , data.editable || false
-        break;
-      case "setupListToolbar":
-        notifyWhenUIReady({ event: "setupListToolbar" });
-        break;
-      case "updateLicense":
-        return await updateLicense(data.key);
-      case "slideAlert":
-        util.slideAlert(data?.title, data.text, data?.icon);
-        break;
-      case "updateCurrentFolderButtons":
-        notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
-        break;
-      default:
-        console.warn("Unknown command received in background:", data.command);
-        break;
-    }
-  });
-
+function registerNotifyListener() {
   messenger.NotifyTools.onNotifyBackground.addListener(async (data) => {
-    let isLog = await messenger.LegacyPrefs.getPref(prefKey("debug.notifications"));
+    let isLog = Preferences.isDebug("notifications");
     if (isLog && data.func) {
       console.log(
         "=========================\n" +
@@ -875,10 +763,144 @@ async function main() {
         } catch (ex) {
           console.error("Error in FilterAPI", ex);
         }
-
+  
         break;
       case "updateCurrentFolderBar": // updateCurrentFolderButtons
         notifyWhenUIReady({ event: "updateCurrentFolderBar" });
+        break;
+
+      case "prefs:get":
+        return Preferences.get(data.key);
+      case "prefs:set":
+        Preferences.set(data.key, data.value);
+        return true;
+      case "requestPrefCache":
+        // send cached data to quickFilters.Preferences.cache.updateFromBackend(data)
+        return Preferences._data;
+        /*
+        messenger.NotifyTools.notifyExperiment({
+          event: "updatePrefsCache",
+          data: Preferences._data,
+        });
+        */
+       case "test-storage-editor":
+        webExtensionStorageEditor.open({
+          storageArea: "local",
+          baseFilter: "debug.",
+          type: "popup",
+        });
+        break;
+    }
+  });  
+}
+
+async function main() {
+  await prefsReady;
+  // load defaults => OBSOLETE once migration is complete.
+  messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
+
+  let key = Preferences.get("LicenseKey"),
+    forceSecondaryIdentity = Preferences.get("licenser.forceSecondaryIdentity"),
+    isDebug = Preferences.isDebug(),
+    isDebugLicenser = Preferences.get("debug.premium.licenser");
+
+  currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
+  await currentLicense.validate();
+
+  // All important stuff has been done.
+  // resolve all promises on the stack
+  if (isDebug) {
+    console.log("Finished setting up license startup code");
+  }
+  callbacks.forEach((callback) => callback());
+  // unblock code that depends on licenser
+  startup.resolve("unblock startup for quickFilters in main()");
+  if (isDebug) {
+    console.log("Startup resolved");
+  }
+
+  // listeners for splash pages, new settings dialog
+  messenger.runtime.onMessage.addListener(async (data, sender) => {
+    // console.log("runtime.onMessage", data, _sender);
+    if (!data.command) {
+      return;
+    }
+    switch (data.command) {
+      case "getLicenseInfo":
+        return currentLicense.info;
+      case "getFilters": {
+        const { sourceUri, targetUri, filterAction, filterActionExt } = data;
+        let filters = await messenger.FiltersAPI.getFilters(
+          sourceUri,
+          targetUri || "",
+          Number.isNaN(filterAction) ? undefined : filterAction,
+          ["string", "boolean"].includes(typeof filterActionExt)
+            ? String(filterActionExt)
+            : undefined,
+        );
+        return filters;
+      }
+      case "assistantResult":
+        {
+          const { requestId, result } = data;
+          const isDebug = Preferences.isDebug("assistant");
+          if (isDebug) {
+            console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
+          }
+          if (requestId) {
+            const mergeFilter = data.params?.mergeFilter || null;
+            const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
+            // { index, filterName , accountId }
+            await messenger.Utilities.resolveAssistant(requestId, result, {
+              answer: data.params?.answer,
+              selectedMergedFilterIndex: resultIdx,
+              mergeFilter,
+            });
+          }
+        }
+        break;
+      case "resizeAssistant":
+        if (sender.tab) {
+          let newHeight = data.height;
+          const maxHeight = window.screen.availHeight; // or window.screen.height for full screen height
+
+          if (newHeight > maxHeight) {
+            newHeight = maxHeight;
+            console.warn(
+              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`,
+            );
+          }
+
+          const windowId = sender.tab.windowId;
+          browser.windows.update(windowId, { height: newHeight });
+        }
+        break;
+      case "splashScreen":
+        showSplash();
+        break;
+      case "showAboutConfig":
+        messenger.Utilities.showAboutConfig(data.filter); // , data.editable || false
+        break;
+      case "setupListToolbar":
+        notifyWhenUIReady({ event: "setupListToolbar" });
+        break;
+      case "updateLicense":
+        return await updateLicense(data.key);
+      case "slideAlert":
+        util.slideAlert(data?.title, data.text, data?.icon);
+        break;
+      case "updateCurrentFolderButtons":
+        notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
+        break;
+      case "openStorageEditor":
+        webExtensionStorageEditor.open({
+          storageArea: "local",
+          baseFilter: data.filter,
+          type: "popup",
+        });
+        break;
+      default:
+        console.warn("Unknown command received in background:", data.command);
         break;
     }
   });
@@ -920,7 +942,7 @@ async function main() {
           messages: selectedMails,
         };
         // trigger win.quickFilters.doCommand(menuItem);
-        if (await messenger.LegacyPrefs.getPref(prefKey("assistant.html"))) {
+        if (Preferences.get("assistant.html")) {
           // displayAssistant(data);
           // <== that won't work because we need the lgacry context of quickFIlters.Worker.createQuickFilterExec(..)
           detail.context = "fromMessageContext";
@@ -1041,7 +1063,7 @@ async function main() {
         messages: info.selectedMessages,
       };
       // trigger win.quickFilters.doCommand(menuItem);
-      if (await messenger.LegacyPrefs.getPref(prefKey("assistant.html"))) {
+      if (Preferences.get("assistant.html")) {
         // call the new thingy with context="fromMessageContext"
         // const data = { info, tab
         // displayAssistant(data);
@@ -1107,4 +1129,6 @@ async function main() {
   });
 } // end main()
 
+registerNotifyListener();
+const prefsReady = Preferences.init(); // pending
 main();

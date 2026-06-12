@@ -184,12 +184,25 @@
         "type": "function",
         "parameters": []
       },
-      
+
       {
         "name": "createCustomTemplate",
         "description": "create a new filter template (pro function)",
         "type": "function",
         "parameters": []
+      },
+
+      {
+        "type": "function",
+        "name": "updatePreferencesCache",
+        "description": "updates any data changes to the legacy pref cache",
+        "parameters": [
+          {
+            "name": "data",
+            "type": "any",
+            "description": "Key/value patch for preference updates"
+          }
+        ]
       }
     ]
   }

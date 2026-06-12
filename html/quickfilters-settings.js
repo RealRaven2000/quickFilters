@@ -6,6 +6,7 @@
 */
 
 
+
 var licenseInfo;
 
 async function configureBuyButton() {
@@ -105,7 +106,7 @@ async function initLicenseInfo() {
   });
 }
 
-const activateTab = (event) => {
+const activateTab = async (event) => {
   const tabSheets = document.querySelectorAll(".tabcontent-container section"),
     tabs = document.querySelectorAll(".tabbox button");
   let btn = event.target;
@@ -120,7 +121,8 @@ const activateTab = (event) => {
   btn.classList.add("active");
   btn.parentElement.setAttribute("aria-selected", true); // li
   // store last selected tab
-  browser.LegacyPrefs.setPref("extensions.quickfilters.lastSelectedOptionsTab", btn.value);
+  // will not be in options object but separate (remove from Defaults)
+  await browser.storage.local.set({lastSelectedOptionsTab: btn.value});
 
   // update URL hash and remove any query string params
   try {
@@ -196,7 +198,7 @@ const initEventListeners = async () => {
     quickFilters.Util.showCopySentToCurrent();
   });
   for (let btn of document.querySelectorAll(".configSettings")) {
-    const filter = btn.getAttribute("filter") || "extensions.quickfilters.debug";
+    const filter = btn.getAttribute("filter") || "debug";
     //e.g. onclick="quickFilters.Util.showAboutConfig(this, 'quickfilters.assistant.exclude', true)"
     quickFilters.Options.addConfigEvent(btn, filter);
   }
@@ -281,10 +283,9 @@ const initEventListeners = async () => {
     btnSwitchToFree.hidden = true;
 
     // 2. Backup the expired license
-    await messenger.LegacyPrefs.setPref(
-      "extensions.quickfilters.LicenseKey.backup",
-      licenseInfo.licenseKey,
-    );
+    const { options } = await browser.storage.local.get({ options: {} });
+    options["LicenseKey.backup"] = licenseInfo.licenseKey;
+    await browser.storage.local.set({ options });    
 
     document.getElementById("txtLicenseKey").value = "";
 
@@ -300,7 +301,8 @@ const initEventListeners = async () => {
 
   const btnRecover = document.getElementById("btnRecoverLicense");
   btnRecover.addEventListener("click", async () => {
-    const lastKey = await browser.LegacyPrefs.getPref("extensions.quickfilters.LicenseKey.backup");
+    const { options } = await browser.storage.local.get({ options: {} });
+    const lastKey = options["LicenseKey.backup"];
     document.getElementById("txtLicenseKey").value = lastKey;
     await quickFilters.Options.validateNewKey();
     quickFilters.Options.updateLicenseOptionsUI();
@@ -310,33 +312,71 @@ const initEventListeners = async () => {
 const initPrefs = async () => {
   // checkboxes
   const checkboxes = document.querySelectorAll("input[type=checkbox][data-pref-name]");
+  const names = [...checkboxes].map((el) => el.dataset.prefName);
+  const { options = {}, debug = {} } = await browser.storage.local.get({
+    options: {},
+    debug: {},
+  });
+  const allValues = {};
+
+  for (const key of names) {
+    if (key in debug) {
+      allValues[key] = debug[key];
+    } else if (key in options) {
+      allValues[key] = options[key];
+    }
+  }
+
   for (const el of checkboxes) {
-    const prefName = el.getAttribute("data-pref-name");
-    const value = await messenger.LegacyPrefs.getPref(prefName);
+    const prefName = el.dataset.prefName; // el.getAttribute("data-pref-name");
+    const value = allValues[prefName];
     el.checked = !!value;
 
-    el.addEventListener("change", () => {
-      messenger.LegacyPrefs.setPref(prefName, el.checked);
+    el.addEventListener("change", async () => {
+      const isChecked = el.checked;
+      if (prefName === "debugActive") {
+        const { debug } = await browser.storage.local.get({ debug: {} });
+        debug.debugActive = isChecked;
+        await browser.storage.local.set({ debug });
+        return;
+      }
+
+      const { options } = await browser.storage.local.get({ options: {} });
+      options[prefName] = isChecked;
+      await browser.storage.local.set({ options });
       if (el.classList.contains("currentFolderQF")) {
         // [issue 328] update current folder buttons if changed in options
         messenger.runtime.sendMessage({ command: "updateCurrentFolderButtons" });
       }
     });
   }
+
   // text / number inputs, any textareas outside of license key
-  const inputs = document.querySelectorAll(
-    "input[type=text][data-pref-name], input[type=number][data-pref-name], #txtSubjectBlacklist"
+  const txtInputs = document.querySelectorAll(
+    "input[type=text][data-pref-name], input[type=number][data-pref-name], #txtSubjectBlacklist",
   );
-  for (const el of inputs) {
+
+  const inputNames = [...txtInputs].map((el) => el.getAttribute("data-pref-name")).filter(Boolean);
+  const { options: inputOptions } = await browser.storage.local.get({ options: {} });
+  const inputValues = Object.fromEntries(
+    // break up into arrays[] with 2 entries.
+    Object.entries(inputOptions).filter(([key, _val]) => inputNames.includes(key)),
+  );
+
+  for (const el of txtInputs) {
     const prefName = el.getAttribute("data-pref-name");
-    const value = await messenger.LegacyPrefs.getPref(prefName);
+
+    const value = inputValues[prefName];
     el.value = value ?? "";
 
-    el.addEventListener("input", () => {
-      messenger.LegacyPrefs.setPref(prefName, el.type === "number" ? Number(el.value) : el.value);
+    el.addEventListener("input", async () => {
+      // no debug settings here.
+      const { options } = await browser.storage.local.get({ options: {} });
+      options[prefName] = el.type === "number" ? Number(el.value) : el.value;
+      await browser.storage.local.set({ options });
     });
   }
-}
+};
 
 /**** FLOATING TOOLTIPS ===> **** */
 // eslint-disable-next-line no-unused-vars
@@ -410,9 +450,7 @@ const handleNavigation = async (notAclick = false) => {
     }
   } else {
     // select last active tab
-    const lastTab = await browser.LegacyPrefs.getPref(
-      "extensions.quickfilters.lastSelectedOptionsTab"
-    );
+    const { lastSelectedOptionsTab: lastTab } = await browser.storage.local.get("lastSelectedOptionsTab");
     const button = document.querySelector(`.tabbox button[value="${lastTab}"]`);
     if (button) {
       button.click();
