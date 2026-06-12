@@ -12,198 +12,192 @@ END LICENSE BLOCK
 
 
 quickFilters.Preferences = {
-  Prefix: "extensions.quickfilters.",
-	service: Services.prefs,
+  Prefix: "extensions.quickfilters.", // obsolete for local storage
+  service: Services.prefs, // obsolete for local storage
 
-	get isDebug() {
-		return this.getBoolPref("debug");
-	},
+  isDebug() {
+    return quickFilters.Preferences.getBoolPref("debug");
+  },
 
-	isDebugOption: function(option) { // granular debugging
-		if(!this.isDebug) { 
-			return false; 
-		}
-		try {
-			return this.getBoolPref("debug." + option);
-		}
-		catch {return false;}
-	},
-	
-	getIntPref: function(p) {
-		try {
-      return this.service.getIntPref(this.Prefix + p);
-    } catch(e) {
-			quickFilters.Util.logToConsole(`getIntPref( ${this.Prefix}${p}) failed:\n` + 
-				"Err:" +e
-			);
-			throw(e);
-		}
-	},
-
-	setIntPref: function(p, v) {
-		return this.service.setIntPref(this.Prefix + p, v);
-	},
-	
-	isAbortAfterCreateFilter: function() {
-  	return this.getBoolPref("abortAfterCreate");
-	},
-
-	getBoolPrefSilent: function(p) {
-		try {
-			return this.getBoolPref(p);
-		} catch {
-			return false;
-		}
-	},
-	
-	getBoolPrefNative: function(p) {
-		try {
-			return this.service.getBoolPref(p);
-		} catch(e) {
-			let s="Err:" + e;
-			quickFilters.Util.logToConsole("getBoolPrefNative(" + p + ") failed:\n" + s);
-			return false;
-		}
-	},
-
-	getBoolPref: function(p) {
-		return quickFilters.Preferences.getBoolPrefNative(this.Prefix + p);
-	},
-
-	setBoolPref: function(p, v) {
-		return quickFilters.Preferences.setBoolPrefNative(this.Prefix + p, v);
-	},
-
-	setBoolPrefNative: function(p, v) {
-		try {
-			return this.service.setBoolPref(p, v);
-		} catch(e) {
-			console.error(`setBoolPrefNative(${p},${v}) failed:\n`, e);
-			return false;
-		}
-	} ,
-
-	setCharPref: function(p, v) {
-		return this.service.setCharPref(this.Prefix + p, v);
-	} ,
-	
-	getCharPref: function(p) {
-		return this.service.getCharPref(this.Prefix + p);
-	} ,
-
-	getStringPref: function getStringPref(p) {
-    let prefString ='',
-		    key = "extensions.quickfilters." + p;
+  isDebugOption: function (option) {
+    // granular debugging
+    if (!this.isDebug()) {
+      return false;
+    }
     try {
-			if (this.service.getStringPref) {
-				prefString = this.service.getStringPref(key);
-			} else { // Thunderbird 52.0
-				const Ci = Components.interfaces;				
-				prefString = Services.prefs.getComplexValue(key, Ci.nsISupportsString).data.toString();
-			}
+      return this.getBoolPref("debug." + option);
+    } catch {
+      return false;
     }
-    catch(ex) {
-      quickFilters.Util.logDebug("Could not find string pref: " + p + "\n" + ex.message);
+  },
+
+  getIntPref(p) {
+    return quickFilters.Preferences.cache.getValue(p);
+  },
+
+  async setIntPref(p, v) {
+    return quickFilters.Preferences.cache.setValue(p, v);
+  },
+
+  isAbortAfterCreateFilter: function () {
+    return this.getBoolPref("abortAfterCreate");
+  },
+
+  getBoolPrefSilent(p) {
+    try {
+      return this.getBoolPref(p);
+    } catch {
+      return false;
     }
-		return prefString;
-	} ,
-	
-	setStringPref: function setStringPref(p, v) {
-		let key = "extensions.quickfilters." + p;
- 		if (this.service.setStringPref) {
-			return this.service.setStringPref(key, v);
-		} else { // Tb 52.*
-		  const Cc = Components.classes,
-						Ci = Components.interfaces;
-			let str = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
-			str.data = v;
-			Services.prefs.setComplexValue(key, Ci.nsISupportsString, str);			
-		}
-	} ,	
-	
-	existsCharPref: function(pref) {
-		try {
-			if (this.service.prefHasUserValue(pref)) {
-				return true;
-			}
-			if (this.service.getCharPref(pref)) {
-				return true;
-			}
-		} catch {return false; }
-		return false;
-	},
+  },
 
-	existsBoolPref: function(pref) {
-		try {
-			if(this.service.prefHasUserValue(pref)) {
-				return true;
-			}
-			if (this.service.getBoolPrefNative(pref)) {
-				return true;
-			}
-		} catch {
-			return false; 
-		}
-		return false;
-	},
-	
-	get isStarAction() {
-	  let pref = 'actions.star';  // SeaMonkey: actions.flag
-		return this.getBoolPref(pref);
-	} ,
-	
-	get isMoveFolderAction() {
-	  return this.getBoolPref('actions.moveFolder');
-	} ,
-	
-	set isMoveFolderAction(b) {
-	  this.setBoolPref('actions.moveFolder', b);
-	} ,
+  getBoolPref(p) {
+    return quickFilters.Preferences.cache.getValue(p);
+  },
 
-	get isAssistantModeHTML() {
-		return this.getBoolPref("assistant.html");
-	}, 
-	
-  getCurrentFilterTemplate : function() {
-		let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");
-		if (current == "undefined") {
-			current = null;
-		}
+  async setBoolPref(p, v) {
+    return quickFilters.Preferences.cache.setValue(p, v);
+  },
+
+  getCharPref(p) {
+    return quickFilters.Preferences.cache.getValue(p);
+  },
+
+  async setCharPref(p, v) {
+    return quickFilters.Preferences.cache.setValue(p, v);
+  },
+
+  getStringPref(p) {
+    return quickFilters.Preferences.cache.getValue(p);
+  },
+
+  async setStringPref(p, v) {
+    return quickFilters.Preferences.cache.setValue(p, v);
+  },
+
+  isStarAction() {
+    let pref = "actions.star"; // SeaMonkey: actions.flag
+    return this.getBoolPref(pref);
+  },
+
+  isMoveFolderAction() {
+    return this.getBoolPref("actions.moveFolder");
+  },
+
+  async setMoveFolderAction(b) {
+    this.setBoolPref("actions.moveFolder", b);
+  },
+
+  isAssistantModeHTML() {
+    return this.getBoolPref("assistant.html");
+  },
+
+  getCurrentFilterTemplate: function () {
+    let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");
+    if (current == "undefined") {
+      current = null;
+    }
     return current;
-  } ,
-  
-  setCurrentFilterTemplate : function(pref) {
+  },
+
+  setCurrentFilterTemplate: async function (pref) {
     return quickFilters.Preferences.setStringPref("filters.currentTemplate", pref);
-  } ,
-  
+  },
+
   // scope: "folder" | "mails"
-  isShortcut : function(scope) {
+  isShortcut: function (scope) {
     switch (scope) {
       case "folder":
         break;
       case "mails":
         break;
-      default: 
+      default:
         return false;
     }
     try {
       return this.getBoolPref("shortcuts." + scope);
     } catch { ; }
     return false;
-  } ,
-  
-  getShortcut : function(scope) {
+  },
+
+  getShortcut: function (scope) {
     switch (scope) {
       case "folder":
         break;
       case "mails":
         break;
-      default: 
+      default:
         return null;
     }
     return this.getStringPref("shortcuts." + scope + ".key");
-  }
-  
-	
+  },
+};
 
-}
+quickFilters.Preferences.cache = (() => {
+  const cache = {
+    _data: {},
+    _resolveReady: null,
+    awaitReady: null /* init-only gate; NOT a lock for updates */,
+    getValue: (k) => cache._data[k],
+
+    setValue: async (k, v) => {
+      cache._data[k] = v;
+      let varType = "undefined";
+      switch (typeof v) {
+        case "number":
+          varType = "int";
+          break;
+        case "boolean":
+          varType = "bool";
+          break;
+        case "string":
+          varType = "string";
+          break;
+      }
+      try {
+        await quickFilters.Util.notifyTools.notifyBackground({
+          func: "prefs:set",
+          kind: varType,
+          key: k,
+          value: v,
+        });
+      } catch (ex) {
+        console.error("Pref sync failed:", k, ex);
+      }      
+    },
+
+    init: async () => {
+      // create an async blocker.
+      cache.awaitReady = new Promise((resolve) => {
+        // blocks all external callers until we're done here
+        cache._resolveReady = resolve;
+      });
+
+      try {
+        console.log("Preferences Cache - notifyTools:", quickFilters.Util?.notifyTools);
+        const data = await quickFilters.Util.notifyTools.notifyBackground({
+          func: "requestPrefCache",
+        });
+        console.log("Received preferences Cache:", data);
+        // remove all old data
+        Object.keys(cache._data).forEach((k) => delete cache._data[k]);
+        Object.assign(cache._data, data);
+        // fill cache._data from backend snapshot
+      } catch (ex) {
+        console.error("requestPrefCache failed:", ex);
+      }
+      cache._resolveReady();
+    },
+
+    updateFromBackend: (data) => {
+      // copies all enumerable own properties
+      Object.assign(cache._data, data);
+    },
+  };
+
+  return cache;
+})();
+
+// start the init process. 
+// guard with await cache.awaitReady in each window onLoad
+quickFilters.Preferences.cache.init();

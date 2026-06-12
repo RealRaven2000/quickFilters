@@ -887,16 +887,16 @@ quickFilters.Util = {
 
   logDebug: function (...args) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
-    if (qF.Preferences.isDebug) {
-      this.logToConsole(...args);
-    }
+    let p = qF.Preferences.isDebug();
+    if (!p) {return;}
+    this.logToConsole(...args);
   },
 
   // optional logging for important points in flow.
   logHighlightDebug: function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
-    if (quickFilters.Preferences.isDebug) {
-      console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
-    }
+    let p = quickFilters.Preferences.isDebug();
+    if (!p) { return;}
+    console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
   },
 
   /**
@@ -1101,7 +1101,7 @@ quickFilters.Util = {
     return versionComparator.compare(a, b) < 0;
   },
 
-  debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
+  debugMsgAndFolders: function (label1, val1, targetFolder, msg, filterAction) {
     if (!quickFilters.Preferences.isDebugOption("createFilter")) {
       return;
     }
@@ -1381,7 +1381,6 @@ quickFilters.Util = {
           }
           break;
         default: {
-          // if (!hdr.get && prefs.isDebug) debugger;
           const isStripQuote = RegExp(" " + token + " ", "i").test(
               " Bcc Cc Disposition-Notification-To Errors-To From Mail-Followup-To Mail-Reply-To Reply-To" +
                 " Resent-From Resent-Sender Resent-To Resent-cc Resent-bcc Return-Path Return-Receipt-To Sender To "
@@ -2582,6 +2581,7 @@ quickFilters.Util = {
     const FLG = quickFilters.Util.FolderFlags,
       isArchiveExcluded = quickFilters.Preferences.getBoolPref("assistant.exclude.archive");
     let excluded = FLG.Queue | FLG.Templates | FLG.SentMail | FLG.Drafts | FLG.Newsgroup;
+    // use promise later
     const isMoveDebug = quickFilters.Preferences.isDebugOption("msgMove");
     if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
       excluded = excluded | FLG.Trash;

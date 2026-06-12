@@ -216,33 +216,6 @@ quickFilters.Options = {
 		util.logDebug("loadPreferences - finished.");
 	} ,
 
-
-
-  toggleBoolPreference: function(cb, noUpdate) {
-    let prefString = cb.getAttribute("preference"),
-        pref = document.getElementById(prefString);
-    
-    if (pref) {
-      quickFilters.Preferences.setBoolPrefNative(pref.getAttribute('name'), cb.checked);
-    }
-    if (noUpdate) {
-      return true;
-    }
-    return false // this.updateMainWindow();
-  },
-  
-
-  addConfigFeature: function(filter, Default, textPrompt) {
-    // adds a new boolean option to about:config, that isn't there by default
-    if (confirm(textPrompt)) {
-      // create (non existent filter setting:
-      quickFilters.Preferences.setBoolPrefNative(filter, Default);
-
-      // last parameter is Readonly.
-      quickFilters.Util.showAboutConfig(null, filter, true); 
-    }
-  },
-  
   sendMail: function()  {
     const Ci = Components.interfaces, 
           Cc = Components.classes,

@@ -94,10 +94,11 @@ var Register = {
     let btnDomainLicense = getElement('btnDomainLicense');
     btnLicense.label = util.getBundleString("buyPersonalLicense.button","Buy Personal License!");
     if (decryptedDate) {
-			if (util.isDebug) {
-				util.logDebug('Register.updateLicenseUI()\n' + 'ValidationStatus = ' + licenseInfo.description)
-				// debugger;
-			}
+			if (quickFilters.Preferences.isDebug()) {
+        util.logDebug(
+          "Register.updateLicenseUI()\n" + "ValidationStatus = " + licenseInfo.description,
+        );
+      }
 				
       getElement('licenseDate').value = decryptedDate; // invalid ??
       if (decryptedDate) { // friendly date
@@ -266,7 +267,9 @@ var Register = {
     // select first item
     idSelector.selectedIndex = 0;
     this.selectIdentity(idSelector);
-		if (prefs.isDebugOption('premium.licenser')) {getElement('referrer').collapsed=false;}
+		if (prefs.isDebugOption('premium.licenser')) {
+      getElement('referrer').collapsed=false;
+    }
 
   } ,
   
@@ -279,7 +282,6 @@ var Register = {
           util = quickFilters.Util;
     // redirect to registration site; pass in the feature that brought user here
     // short order process
-    // if (util.isDebug) debugger;
     let featureName = document.getElementById('referrer').value; // hidden field
     // renewal / extension
     const isRenew =

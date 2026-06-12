@@ -215,10 +215,15 @@ END LICENSE BLOCK
   6.12.2 - 07/04/2026
     # [issue 360] Domain Renewal mislabelled. 
 
+  6.12.3 - 09/06/2026
+    # support for Thunderbird 152
+    # [issue 364] Fixed: HTML Assistant cannot populate preview message when moving mail to local folder
+    # Fixed: License key restore has the wrong key (QuickFolders instead of quickFilters)
+
   6.13 - WIP
     # new Github Default branch ESR140
-    # support for Thunderbird 152
     # Added Czech translation
+    # [issue 367] Convert Legacy Preferences to new local storage
     # [issue 362] Set Minimum Version to Thunderbird 140 to avoid problems with deprecated APIs
     # [issue 364] HTML Assistant cannot read API message preview when moving mail to local folder
     # [issue 365] Improve QuickFolders current folder bar integration
@@ -241,6 +246,7 @@ END LICENSE BLOCK
     # [Bug 26690] Add Extra Column In Filter Browser "Auto"
     # [Bug 25409] Extended autofill on selection: Date (sent date), Age in Days (current mail age), Tags, Priority, From/To/Cc etc., (Full) Subject
     # [Bug 25801] Assistant in Merge mode, cancel does not undo changes 
+    # use browser.messagesonMoved.addListener(listener, {reason: "user" })
     
    */
 
@@ -437,7 +443,7 @@ var quickFilters = {
     });
   },
 
-  checkFirstRun: function () {
+  checkFirstRun: async function () {
     let util = quickFilters.Util,
       prefs = quickFilters.Preferences;
     try {
@@ -454,12 +460,7 @@ var quickFilters = {
       let installedVersion = prefs.getCharPref("installedVersion"),
         firstRun = prefs.getBoolPref("firstRun");
       util.logDebug(
-        "firstRun = " +
-          firstRun +
-          "  - currentVersion = " +
-          currentVersion +
-          "  - installed = " +
-          installedVersion
+          `firstRun = ${firstRun}  - currentVersion = ${currentVersion}  - installed = ${installedVersion}`
       );
       let toolbarId = "";
       if (firstRun) {
@@ -470,7 +471,7 @@ var quickFilters = {
           "quickfilters-toolbar-listbutton",
           "quickfilters-toolbar-button"
         );
-        prefs.setBoolPref("firstRun", false);
+        await prefs.setBoolPref("firstRun", false);
         util.showHomePage();
       } else {
         // is this an update?
@@ -491,7 +492,7 @@ var quickFilters = {
           util.logDebug("currentVersion not determined: " + currentVersion);
         }
         util.logDebug("store installedVersion: " + util.getVersionSimple(currentVersion));
-        prefs.setCharPref("installedVersion", util.getVersionSimple(currentVersion));
+        await prefs.setCharPref("installedVersion", util.getVersionSimple(currentVersion));
       }
       this.firstRunChecked = true;
     } catch (ex) {
@@ -596,7 +597,7 @@ var quickFilters = {
                   checkState
                 );
               if (checkState.value == true) {
-                prefs.setBoolPref("warnInboxAssistant", false); // disable warning for the future
+                await prefs.setBoolPref("warnInboxAssistant", false); // disable warning for the future
               }
               if (!ans) {
                 return;
@@ -654,7 +655,7 @@ var quickFilters = {
               fA = Ci.nsMsgFilterAction.MarkFlagged; // ??
             }
             
-            const isAssistantModeHTML = quickFilters.Preferences.isAssistantModeHTM;
+            const isAssistantModeHTML = quickFilters.Preferences.isAssistantModeHTML();
             const isFromMsgContext =
               eventDetail && (isAssistantModeHTML ? theContext === "fromMessageContext" : true);
 
@@ -678,7 +679,7 @@ var quickFilters = {
           }
         } catch(ex) {
           util.logException("createFilterFromMsg", ex);
-          if (quickFilters.Preferences.isDebug ) {
+          if (quickFilters.Preferences.isDebug()) {
             // eslint-disable-next-line no-debugger
             debugger;
           }
@@ -1183,6 +1184,13 @@ var quickFilters = {
           return;
         }
 
+        const prefsMap = new Map(
+          buttons.map((btn) => [
+            btn.pref,
+            prefs.getBoolPref(`quickfolders.curFolderbar.${btn.pref}`),
+          ]),
+        );
+
         buttons.forEach((btn) => {
           let element = doc.getElementById(btn.id);
           if (!element) {
@@ -1200,7 +1208,7 @@ var quickFilters = {
           }
 
           // collapse according to current QuickFolders preference
-          element.collapsed = !prefs.getBoolPref(`quickfolders.curFolderbar.${btn.pref}`);
+          element.collapsed = !prefsMap.get(btn.pref);
         });
       }
     } catch (ex) {
@@ -1249,10 +1257,6 @@ var quickFilters = {
       worker = quickFilters.Worker,
       Ci = Components.interfaces;
 
-    if (quickFilters.Preferences.isDebugOption("assistant")) {
-      // eslint-disable-next-line no-debugger
-      debugger;
-    }
     // MsgMoveMessage wrapper function
     let sourceFolder,
       destMsgFolder,
@@ -1385,77 +1389,74 @@ var quickFilters = {
 
   doCommandWrapper: function (cmd, aTab) {
     try {
-      if (
-        (cmd == "cmd_delete" || cmd == "button_delete") &&
-        DefaultController.isCommandEnabled(cmd)
-      ) {
+      const isEnabled =
+        (cmd == "cmd_delete" || cmd == "button_delete") && DefaultController.isCommandEnabled(cmd);
+      if (isEnabled) {
         // determine which messages are currently selected
         // then call assistant first. Or alternatively call after original function returns true.
         // original call was gFolderDisplay.doCommand(Ci.nsMsgViewCommandType.deleteMsg);
         const Ci = Components.interfaces;
         quickFilters.Util.logDebugOptional(
           "assistant,msgMove",
-          `doCommandWrapper(${cmd}, ${aTab}):`
+          `doCommandWrapper(${cmd}, ${aTab}):`,
         );
 
-        do { // do-while (just one run through) to allow early exit
-          let isAssistant = quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode;
-          if (!isAssistant) {
-            break;
-          }
+        (async () => {
+          try {
+            // assistant logic
+            let isAssistant = quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode;
+            if (!isAssistant) {
+              return;
+            }
 
-          if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
-            quickFilters.Util.logDebugOptional(
-              "assistant,msgMove",
-              "Not invoking assistant on delete as it is excluded."
-            );
-            break;
-          } 
-          let selectedMessages = quickFilters.Util.getSelectedMessages();
-          if (!selectedMessages?.length) {
-            break; //early exit. we still want to use finally to return the original command!!
-          }
+            if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
+              quickFilters.Util.logDebugOptional(
+                "assistant,msgMove",
+                "Not invoking assistant on delete as it is excluded.",
+              );
+              return;
+            }
+            let selectedMessages = quickFilters.Util.getSelectedMessages();
+            if (!selectedMessages?.length) {
+              return; //early exit. we still want to use finally to return the original command!!
+            }
 
-          let selectedMails = [];
-          for (let i = 0; i < selectedMessages.length; i++) {
-            let msgHdr = selectedMessages[i];
-            selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr));
+            let selectedMails = [];
+            for (let i = 0; i < selectedMessages.length; i++) {
+              let msgHdr = selectedMessages[i];
+              selectedMails.push(quickFilters.Util.makeMessageListEntry(msgHdr));
+            }
+            let src = selectedMessages[0].folder;
+            // determine the target (Trash for this account)
+            if (!src.canDeleteMessages) {
+              return;
+            }
+            let targetFolder = src.server.rootFolder.getFolderWithFlags(Ci.nsMsgFolderFlags.Trash);
+            const params = {
+              sourceFolder: src,
+              targetFolder,
+              messageList: selectedMails,
+              filterAction: Components.interfaces.nsMsgFilterAction.Delete,
+              filterActionExt: null,
+              isMsgContext: false,
+              context: "doCommandWrapper",
+            };
+            quickFilters.Worker.startFilterAssistant(params);
+          } catch (ex) {
+            quickFilters.Util.logException("quickFilters.doCommandWrapper()", ex);
           }
-          let src = selectedMessages[0].folder;
-          // determine the target (Trash for this account)
-          if (!src.canDeleteMessages) {
-            break;
-          }
-          let targetFolder = src.server.rootFolder.getFolderWithFlags(
-            Ci.nsMsgFolderFlags.Trash
-          );
-          const params = {
-            sourceFolder: src,
-            targetFolder,
-            messageList: selectedMails,
-            filterAction: Components.interfaces.nsMsgFilterAction.Delete,
-            filterActionExt: null,
-            isMsgContext: false,
-            context: "doCommandWrapper"
-          };
-          quickFilters.Worker.startFilterAssistant(params);
-        // eslint-disable-next-line no-constant-condition
-        } while (false); // do-while to allow early exit
+        })();
       }
     } catch (ex) {
       quickFilters.Util.logException("quickFilters.doCommandWrapper()", ex);
     }
-    finally {
-      let result = quickFilters.doCommandOriginal.call(DefaultController, cmd, aTab); // make sure to bind "this" to DefaultController!
-      // eslint-disable-next-line no-unsafe-finally
-      return result;
-    }
+    // make sure to bind "this" to DefaultController!
+    let result = quickFilters.doCommandOriginal.call(DefaultController, cmd, aTab);
+    // eslint-disable-next-line no-unsafe-finally
+    return result;
   },
 
   windowKeyPress: function (e, dir) {
-    // var isDisableKeyListeners = true; // test
-    // if (isDisableKeyListeners) return;
-
     const util = quickFilters.Util,
       prefs = quickFilters.Preferences,
       isRunFolderKey = prefs.isShortcut("folder"),
@@ -1470,6 +1471,9 @@ var quickFilters = {
       isCtrl = e.ctrlKey,
       isShift = e.shiftKey,
       eventTarget = e.target;
+    if (e.repeat) {
+      return; // ignore auto-repeated key events
+    }
 
     // shortcuts should only work in thread tree, folder tree and email preview (exclude conversations as it might be in edit mode)
     let tag = eventTarget.tagName ? eventTarget.tagName.toLowerCase() : "";
@@ -1675,8 +1679,9 @@ var quickFilters = {
     let tags = item.getStringProperty("keywords");
     tags = tags ? tags.split(" ") : [];
     let newTags = tags.filter(MailServices.tags.isValidKey); // filter out nonsense tags
-    if (quickFilters.Preferences.isDebugOption("listeners")) {
-      console.log("listenerFlagChanged - new tags:", item, oldFlag, newFlag, newTags);
+    const isDbg = quickFilters.Preferences.isDebugOption("listeners");
+    if (isDbg) {
+      console.log("listenerFlagChanged - old tags:", item, oldFlag, newFlag, newTags);
     }
     if (!quickFilters.Preferences.getBoolPref("listener.tags")) {
       return false; // ignore tag changes categorically.
@@ -2300,6 +2305,7 @@ quickFilters.patchMailPane = () => {
               <menuitem id="quickfilters-menu-registration" label="__MSG_quickfilters.registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menu label="Test" id="qFilters-menu-test" class="menu-iconic">
                 <menupopup>
+                  <menuitem id="quickfilters-menu-test-storage-editor" label="Browser Storage editor" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-htmlAssistant" label="quickFilters Assistant - HTML version!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-news" label="Test - set has news flag!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>

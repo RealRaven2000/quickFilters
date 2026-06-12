@@ -115,7 +115,7 @@ quickFilters.List = {
         sourceFolder = filtersList.folder,
         list = this.FilterListElement;
 		const util = quickFilters.Util,
-				  prefs = quickFilters.Preferences;
+      prefs = quickFilters.Preferences;
 
     if (this.getSelectedCount(list) != 1) {
 			let wrn = util.getBundleString('quickfilters.clone.selectOne', 
@@ -222,8 +222,8 @@ quickFilters.List = {
     
   merge: async function(evt, isEvokedFromButton) {
 		const prefs = quickFilters.Preferences,
-		      util = quickFilters.Util,
-					Ci = Components.interfaces;
+      util = quickFilters.Util,
+      Ci = Components.interfaces;
     let params = { answer: null, selectedMergedFilterIndex: -1, cmd: "mergeList" },
         filtersList = this.FilterList, // Tb / SM
         sourceFolder = filtersList.folder,
@@ -345,7 +345,7 @@ quickFilters.List = {
     // **************************************************************
     // *******   SYNCHRONOUS PART: Shows Filter Assistant!    *******
     // **************************************************************
-    if (quickFilters.Preferences.isAssistantModeHTML) {
+    if (prefs.isAssistantModeHTML()) {
       // to do: add code for new window!
       const requestId = util.createUniqueId("assistant_"); // e.g. timestamp or UUID
       util.logHighlightDebug(
@@ -460,7 +460,7 @@ quickFilters.List = {
     // 1. create a new filter and copy actions of target filter
     let newName = targetFilter.filterName,
     // append " +m" to name to show that filter is merged
-        mergeToken = quickFilters.Preferences.getCharPref('naming.mergeToken');
+        mergeToken = prefs.getCharPref('naming.mergeToken');
     if (mergeToken && newName.indexOf(mergeToken) == -1) {
       newName = newName + mergeToken;
     }
@@ -681,8 +681,8 @@ quickFilters.List = {
 	
 	pasteFilters: async function (isSort) {
 		const util = quickFilters.Util,
-		      prefs = quickFilters.Preferences,
-		      Ci = Components.interfaces;
+      prefs = quickFilters.Preferences,
+      Ci = Components.interfaces;
 		let clpFilters = this.clipboardList,
         sortedFiltersList,
         isClone = false,
@@ -1622,8 +1622,7 @@ quickFilters.List = {
     qList.toggleSearchType('targetFolder');
     document.getElementById('quickFiltersSearchTargetFolder').setAttribute('checked','true');
 		
-		// if (prefs.isDebugOption('filterSearch')) debugger;
-    var { MailUtils } = ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs");
+		var { MailUtils } = ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs");
     
     // find out of we need to change server:
     let item = el.selectedItem,
@@ -1746,11 +1745,10 @@ quickFilters.List = {
         }
       }
 			
-      // if (prefs.isDebug) debugger;
 			let iAdded = 0, 
-					iReplaced = 0,
-			    iFailure = 0,
-			    filtersList = quickFilters.List.FilterList; // was this.FilterList
+        iReplaced = 0,
+        iFailure = 0,
+        filtersList = quickFilters.List.FilterList; // was this.FilterList
 			// Merge or rebuild?
 			// for account specific filter lists, see also searchFiltersFromFolder()
 			for (let i = 0; i < filterArray.length; i++) {
@@ -1801,9 +1799,9 @@ quickFilters.List = {
 			return "0" + num.toString();
 		}
 		const Cc = Components.classes,
-          Ci = Components.interfaces,
-          util = quickFilters.Util,
-					prefs = quickFilters.Preferences;
+      Ci = Components.interfaces,
+      util = quickFilters.Util,
+      prefs = quickFilters.Preferences;
 		if (!util.popupProFeature(mode + "Filters", true)) {
       // saveFilters, loadFilters
       return;
@@ -1840,7 +1838,7 @@ quickFilters.List = {
       fp.defaultString = fileName + '.json';
     }
     
-    let fpCallback = function fpCallback_FilePicker(aResult) {
+    let fpCallback = async function (aResult) {
       if (aResult == Ci.nsIFilePicker.returnOK || aResult == Ci.nsIFilePicker.returnReplace) {
         if (fp.file) {
           let path = fp.file.path;
@@ -1850,7 +1848,7 @@ quickFilters.List = {
 					if (lastSlash < 0) {lastSlash = path.lastIndexOf("\\");}
 					let lastPath = path.substr(0, lastSlash);
 					util.logDebug("Storing Path: " + lastPath);
-					prefs.setStringPref('files.path', lastPath);
+					await prefs.setStringPref('files.path', lastPath);
           
           switch (mode) {
             case 'load': {
