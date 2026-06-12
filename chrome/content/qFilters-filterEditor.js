@@ -759,18 +759,13 @@ END LICENSE BLOCK
   util.logDebug("qFilters-filterEditor.js - finished.")
 }
 
-quickFilters.Util.acceptEditFilter = function (win) {
+quickFilters.Util.acceptEditFilter = async function (win) {
   // let retVal = onAccept(); // [issue 341] Message Filters ⇒ New... ⇒ Copy... creates TWO Copies
-  if (quickFilters.Preferences.isDebugOption("filterEdit")) {
-    // eslint-disable-next-line no-debugger
-    debugger;
-  }
   quickFilters.Util.logDebug("quickFilters.Util.accept(" + win + ")");
   let op = win.opener;
   if (op && op.quickFilters && op.quickFilters.List) {
     op.quickFilters.List.refreshDuplicates(true);
   }
-  // return retVal;
 } ;
 
 window.addEventListener("load", function(e) { quickFilters.FilterEditor.onLoad(e);}, false); 
