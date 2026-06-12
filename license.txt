@@ -90,3 +90,8 @@ see http://www.everaldo.com/crystal/?action=license for details.
 CLONE ICON (sheep)
 from Pidgin 'Old' Tango Smilies Icon Pack by ebupof
 freeware license, from http://findicons.com/icon/98467/sheep?id=428077
+
+WEBEXTENSION STORAGE EDITOR
+This is from John Bieling released under Mozilla Public License Version 2.0
+Full license, see:
+https://github.com/thunderbird/webext-support/blob/master/LICENSE
