@@ -45,16 +45,16 @@ quickFilters.Util = {
   tempFolderTab: null, // likely obsolete ###
   get folderManager() {
     const { ExtensionParent } = ChromeUtils.importESModule(
-      "resource://gre/modules/ExtensionParent.sys.mjs",
+      "resource://gre/modules/ExtensionParent.sys.mjs"
     );
-    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+    const extension = ExtensionParent.GlobalManager.getExtension(this.ADDON_ID);
     return extension.folderManager;
   },
   get messageManager() {
     const { ExtensionParent } = ChromeUtils.importESModule(
       "resource://gre/modules/ExtensionParent.sys.mjs"
     );
-    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+    const extension = ExtensionParent.GlobalManager.getExtension(this.ADDON_ID);
     return extension.messageManager;
   },
   get quickFilters_ESM() {
@@ -514,7 +514,7 @@ quickFilters.Util = {
         quickFilters.Util.notifyTools.notifyBackground({
           func: "slideAlert",
           title,
-          text
+          text,
         });
         return;
       });
@@ -1451,7 +1451,7 @@ quickFilters.Util = {
         util.CurrentMessage = oReplaceTerms.msgHdr;
         util.CurrentHeader = new quickFilters.clsGetHeaders(
           oReplaceTerms.messageURI,
-          util.CurrentMessage,
+          util.CurrentMessage
         );
         await util.CurrentHeader.read();
       } else {
@@ -3234,7 +3234,7 @@ quickFilters.mimeDecoder = {
       addresses += addressField;
 		}
 		return addresses;
-	} // split
+	}, // split
 };  // quickFilters.mimeDecoder
 
 
@@ -3250,7 +3250,7 @@ if (!quickFilters.Util.Accounts) {
           aAccounts.push(ac);
         };
         return aAccounts;
-      }
+      },
     }
   );
 }
@@ -3324,7 +3324,7 @@ if (!quickFilters.Shim) {
 			return null;
 		} ,
 		
-		dummy: ", <== end Shim properties here"
+		dummy: ", <== end Shim properties here",
 	} // end of Shim definition
 };
 /*** <<<===== END Code moved from chimEcma/qFilters-shim-ecma.js  **/

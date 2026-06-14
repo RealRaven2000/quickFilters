@@ -38,7 +38,7 @@ const quickFilters_Injector = {
     }
 
     var { ExtensionParent } = ChromeUtils.importESModule(
-      "resource://gre/modules/ExtensionParent.sys.mjs",
+      "resource://gre/modules/ExtensionParent.sys.mjs"
     );
     const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
 
@@ -228,7 +228,7 @@ async function onLoad(_activatedWhileWindowOpen) {
   quickFilters_Injector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters.css?v=2");
   quickFilters_Injector.injectCSS(
     window,
-    "chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9",
+    "chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9"
   );
 
   window.setTimeout((win = window) => {

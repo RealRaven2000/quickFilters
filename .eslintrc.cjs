@@ -28,6 +28,16 @@ module.exports = {
   },
   rules: {
     // your rules here
+    "comma-dangle": [
+      "error",
+      {
+        arrays: "always-multiline",
+        objects: "always-multiline",
+        imports: "always-multiline",
+        exports: "always-multiline",
+        functions: "never",
+      },
+    ],
     "no-const-assign": "error",
     "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "no-undef": "error",

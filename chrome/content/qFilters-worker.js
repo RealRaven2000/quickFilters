@@ -315,14 +315,14 @@ quickFilters.Worker = {
         }
         util.logDebugOptional(
           "createFilter.refreshHeaders",
-          `cloning header[${i}] in ${folder.prettyName || folder.localizedName} ...`,
+          `cloning header[${i}] in ${folder.prettyName || folder.localizedName} ...`
         );
         const m1 = messageDb1.getMsgHdrForMessageID(theMsg.messageId);
         if (!m1) {
           util.logDebugOptional(
             "createFilter.refreshHeaders",
             `No matching Message Header in folder [${folder.prettyName || folder.localizedName}]` +
-              ` for id: ${theMsg.messageId}`,
+              ` for id: ${theMsg.messageId}`
           );
         }
         const msgHdr = m1; // || (messageDb2 ? messageDb2.getMsgHdrForMessageID(theMsg.messageId) : null);
