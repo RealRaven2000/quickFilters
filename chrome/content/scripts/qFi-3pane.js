@@ -1,6 +1,135 @@
 /* globals 
   WL
 */
+const quickFilters_Injector = {
+  injectCSS(win, url) {
+    const WL = win.WL;
+
+    if (WL?.injectCSS) {
+      return WL.injectCSS(url);
+    }
+
+    const doc = win.document;
+
+    const link = doc.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = url;
+
+    doc.head.appendChild(link);
+    return link;
+  },
+
+  injectElements(xulString) {
+    function localize(entity) {
+      let msg = entity.slice("__MSG_".length, -2);
+      return extension.localeData.localizeMessage(msg);
+    }
+    const prefs = window.parent?.quickFilters?.Preferences;
+    const debug = prefs?.isDebug;
+
+    if (debug) {
+      console.log("QF injector path:", {
+        hasWL: !!WL,
+        globalThis: globalThis.WL,
+        hasInject: !!WL?.injectElements,
+        url: window.location.href,
+      });
+    }
+
+    var { ExtensionParent } = ChromeUtils.importESModule(
+      "resource://gre/modules/ExtensionParent.sys.mjs",
+    );
+    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+
+    // Primary: real WL path
+    if (WL?.injectElements) {
+      if (debug) {
+        console.log("Using WindowListener:injectElements");
+      }
+      return WL.injectElements(xulString, [], debug);
+    }
+
+    // Fallback: minimal safe DOM injection
+    const doc = window.document;
+    try {
+      let localizedXulString = xulString.replace(/__MSG_(.*?)__/g, localize);
+      const frag = window.MozXULElement.parseXULToFragment(localizedXulString);
+      const root = frag.firstElementChild;
+      if (!root) {
+        console.warn("injectElements: empty XUL fragment");
+        return null;
+      }
+      const after = root.getAttribute("insertafter");
+      const before = root.getAttribute("insertbefore");
+      const children = [...root.children]; // .filter((n) => n.nodeType !== 3); // avoid Node.TEXT_NODE
+      if (debug) {
+        for (const child of children) {
+          console.log({
+            type: child?.nodeType,
+            name: child?.nodeName,
+            isNode: child?.nodeType,
+          });
+        }
+      }
+
+      if (after || before) {
+        const refId = after || before;
+        const ref = doc.getElementById(refId);
+
+        if (ref && ref.parentNode) {
+          const frag = doc.createDocumentFragment();
+          for (const c of children) {
+            if (c.id) {
+              // make sure to remove previously added because we make an update.
+              const existing = doc.getElementById(c.id);
+              if (existing) {
+                existing.remove();
+              }
+            }
+
+            frag.appendChild(c);
+          }
+
+          if (after) {
+            ref.parentNode.insertBefore(frag, ref.nextSibling);
+          } else {
+            ref.parentNode.insertBefore(frag, ref);
+          }
+
+          return target;
+        }
+      }
+
+      // find the target element to inject into (if specified by id), otherwise inject into document root
+      const target = root.id && doc.getElementById(root.id);
+      // CASE 2: insert at the end of the document
+      if (!target) {
+        doc.documentElement.appendChild(root);
+        return root;
+      }
+      // CASE 1: WL-style injection (existing node → recurse only)
+      [...children].forEach((c) => {
+        const id = c.id;
+        if (id) {
+          // make sure to remove previously added because we make an update.
+          const existing = doc.getElementById(id);
+          if (existing) {
+            existing.replaceWith(c);
+            return; // skips append for this iteration
+          }
+        }
+        target.append(c);
+      });
+
+      return root;
+    } catch (e) {
+      console.error("injectElements: XUL parse failed", e);
+      return null;
+    }
+  },
+};
+
 
 async function setAssistantButton(e) {
   window.quickFilters.Util.setAssistantButton(e.detail.active);
@@ -96,15 +225,18 @@ function injectButton(parentElement, id, options = {}) {
 
 // eslint-disable-next-line no-unused-vars
 async function onLoad(_activatedWhileWindowOpen) {
-  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css?v=2");
-  WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
+  quickFilters_Injector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters.css?v=2");
+  quickFilters_Injector.injectCSS(
+    window,
+    "chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9",
+  );
 
   window.setTimeout((win = window) => {
     console.log("qFi-3pane.js - onLoad()");
     win.quickFilters = win.parent.quickFilters;
 
     // QUICKFOLDERS NAVIGATION BAR INJECTION
-    WL.injectElements(`
+    quickFilters_Injector.injectElements(`
       <div id="threadPane">
       <hbox id="quickFilters-injected" collapsed="true"></hbox>
       </div>`);
