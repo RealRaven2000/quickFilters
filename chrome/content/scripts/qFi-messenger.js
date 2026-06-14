@@ -245,7 +245,10 @@ async function onLoad(activatedWhileWindowOpen) {
   // window.addEventListener("quickFilters.BackgroundUpdate", window.quickFilters.initLicensedUI);
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
-  listener_toggleFolder = window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters);
+  listener_toggleFolder = (e) => {
+    const reset = e?.detail?.reset === true;
+    window.quickFilters.toggleCurrentFolderButtons(reset ? 0 : undefined);
+  };
   window.addEventListener(
     "quickFilters.BackgroundUpdate.toggleCurrentFolderButtons",
     listener_toggleFolder

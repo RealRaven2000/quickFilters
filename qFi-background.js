@@ -677,7 +677,7 @@ async function main() {
         util.slideAlert(data?.title, data.text, data?.icon);
         break;
       case "updateCurrentFolderButtons":
-        notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
+        notifyWhenUIReady({ event: "toggleCurrentFolderButtons", detail: { reset: true } });
         break;
       default:
         console.warn("Unknown command received in background:", data.command);
@@ -763,8 +763,11 @@ async function main() {
         notifyWhenUIReady({ event: "setupListToolbar" });
         break;
 
-      case "toggleCurrentFolderButtons": // legacy settings
-        notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
+      case "toggleCurrentFolderButtons": 
+        notifyWhenUIReady({
+          event: "toggleCurrentFolderButtons",
+          detail: { reset: data.reset === true },
+        });
         break;
 
       case "updatequickFiltersLabel":
@@ -948,7 +951,7 @@ async function main() {
           );
         }
         if (message.command == "injectButtonsQFNavigationBar") {
-          notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
+          notifyWhenUIReady({ event: "toggleCurrentFolderButtons", detail: { reset: true } });
         }
         break;
     }
