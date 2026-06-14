@@ -43,6 +43,20 @@ quickFilters.Util = {
   lastTime: 0,
   _tabContainer: null,
   tempFolderTab: null, // likely obsolete ###
+  get folderManager() {
+    const { ExtensionParent } = ChromeUtils.importESModule(
+      "resource://gre/modules/ExtensionParent.sys.mjs",
+    );
+    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+    return extension.folderManager;
+  },
+  get messageManager() {
+    const { ExtensionParent } = ChromeUtils.importESModule(
+      "resource://gre/modules/ExtensionParent.sys.mjs"
+    );
+    const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
+    return extension.messageManager;
+  },
   get quickFilters_ESM() {
     return quickFilters_ESM;
   },
@@ -185,12 +199,7 @@ quickFilters.Util = {
     }
     const account = quickFilters.Util.Accounts.find((ac) => ac.incomingServer === folder?.server);
 
-    let WL = quickFilters?.WL;
-    if (!WL) {
-      WL = quickFilters.Util.getMail3PaneWindow().quickFilters.WL;
-    }
-
-    const apiFolder = WL.extension.folderManager.convert(folder, account?.key || null);
+    const apiFolder = quickFilters.Util.folderManager.convert(folder, account?.key || null);
 
     if (apiFolder) {
       parameters[folderRole] = {
@@ -504,10 +513,10 @@ quickFilters.Util = {
       window.setTimeout(function () {
         quickFilters.Util.notifyTools.notifyBackground({
           func: "slideAlert",
-          title, 
+          title,
           text
         });
-        return; 
+        return;
       });
     } catch {
       // prevents runtime error on platforms that don't implement nsIAlertsService
@@ -1103,7 +1112,7 @@ quickFilters.Util = {
     return versionComparator.compare(a, b) < 0;
   },
 
-  debugMsgAndFolders: function debugMsgAndFolders(label1, val1, targetFolder, msg, filterAction) {
+  debugMsgAndFolders: function (label1, val1, targetFolder, msg, filterAction) {
     if (!quickFilters.Preferences.isDebugOption("createFilter")) {
       return;
     }
@@ -1442,7 +1451,7 @@ quickFilters.Util = {
         util.CurrentMessage = oReplaceTerms.msgHdr;
         util.CurrentHeader = new quickFilters.clsGetHeaders(
           oReplaceTerms.messageURI,
-          util.CurrentMessage
+          util.CurrentMessage,
         );
         await util.CurrentHeader.read();
       } else {
@@ -1493,7 +1502,7 @@ quickFilters.Util = {
               nameTerm.customId = searchTerm.customId;
             }
             // [issue 335]
-            if (nameTerm.str) { 
+            if (nameTerm.str) {
               namedTermsList.push(nameTerm);
             };
           }
