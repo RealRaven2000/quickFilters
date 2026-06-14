@@ -268,7 +268,7 @@ quickFilters.Options = {
     setTimeout( function() {optionsWin.close();}, 200 );
   },
     
-  toggleCurrentFolderButtons_check: function toggleCurrentFolderButtons_check() {
+  toggleCurrentFolderButtons_check: function () {
     quickFilters.Util.notifyTools.notifyBackground({ func: "toggleCurrentFolderButtons" }); 
   } ,
 	
