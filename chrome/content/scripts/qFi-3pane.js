@@ -225,11 +225,23 @@ function injectButton(parentElement, id, options = {}) {
 
 // eslint-disable-next-line no-unused-vars
 async function onLoad(_activatedWhileWindowOpen) {
-  quickFilters_Injector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters.css?v=2");
-  quickFilters_Injector.injectCSS(
-    window,
-    "chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9"
-  );
+  if (typeof window.hasDOMContentLoaded === "object") {
+    await window.hasDOMContentLoaded;
+  }
+  try {
+    window.parent?.quickFilters.Util.logHighlightDebug(
+      "\n===============    3pane - onLoad()   ==============",
+      "yellow",
+      "rgb(0, 128, 50)"
+    );
+    quickFilters_Injector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters.css?v=2");
+    quickFilters_Injector.injectCSS(
+      window,
+      "chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9"
+    );
+  } catch(ex) {
+    console.error(ex);
+  }
 
   window.setTimeout((win = window) => {
     console.log("qFi-3pane.js - onLoad()");

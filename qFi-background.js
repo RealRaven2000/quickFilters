@@ -582,6 +582,7 @@ function stripEllipsis(label) {
 async function main() {
   // load defaults
   messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
+  messenger.WindowListener.registerChromeUrl([["content", "quickfilters", "chrome/content/"]]);
 
   let key = await messenger.LegacyPrefs.getPref(prefKey("LicenseKey")),
     forceSecondaryIdentity = await messenger.LegacyPrefs.getPref(
@@ -604,7 +605,6 @@ async function main() {
   if (isDebug) {
     console.log("Startup resolved");
   }
-  
 
   // listeners for splash pages, new settings dialog
   messenger.runtime.onMessage.addListener(async (data, sender) => {
@@ -763,7 +763,7 @@ async function main() {
         notifyWhenUIReady({ event: "setupListToolbar" });
         break;
 
-      case "toggleCurrentFolderButtons": 
+      case "toggleCurrentFolderButtons":
         notifyWhenUIReady({
           event: "toggleCurrentFolderButtons",
           detail: { reset: data.reset === true },
@@ -957,9 +957,10 @@ async function main() {
     }
   });
 
-  messenger.WindowListener.registerChromeUrl([["content", "quickfilters", "chrome/content/"]]);
-
   //attention: each target window (like messenger.xul) can appear only once
+  // QuickFolders navigation bar - lives in 3pane!
+  messenger.WindowListener.registerWindow("about:3pane", "chrome/content/scripts/qFi-3pane.js");
+
   // this is different from chrome.manifest
   // xhtml for Tb78
   messenger.WindowListener.registerWindow(
@@ -979,8 +980,6 @@ async function main() {
     "chrome/content/scripts/qFi-filterlist.js"
   );
 
-  // styling for QuickFolders navigation bar - lives in 3pane!
-  messenger.WindowListener.registerWindow("about:3pane", "chrome/content/scripts/qFi-3pane.js");
   // might be obsolete - but it might also style the main button in single message window?
   messenger.WindowListener.registerWindow("about:message", "chrome/content/scripts/qFi-message.js");
 

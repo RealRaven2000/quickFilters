@@ -202,7 +202,7 @@ quickFilters.Preferences = {
         return null;
     }
     return this.getStringPref("shortcuts." + scope + ".key");
-  }
+  },
   
 	
 
