@@ -336,7 +336,7 @@ var quickFilters = {
         .filter((t) => t.mode.name == "mail3PaneTab")
         .forEach((tabInfo) => {
           folderTrees.push(
-            tabInfo.chromeBrowser.contentWindow.document.getElementById("folderTree")
+            tabInfo.chromeBrowser.contentWindow.document.getElementById("folderTree"),
           );
         });
       // new drop handler, see
@@ -370,7 +370,7 @@ var quickFilters = {
             //l10n
             quickFilters.CustomTermReplyTo.name = util.getBundleString(
               "quickfilters.customfilter.replyto",
-              "Reply-To"
+              "Reply-To",
             );
             util.logDebug("Adding Custom Term: " + quickFilters.CustomTermReplyTo.name);
             filterService.addCustomTerm(quickFilters.CustomTermReplyTo);
@@ -433,7 +433,7 @@ var quickFilters = {
 
   showOptions: function () {
     quickFilters.Util.notifyTools.notifyBackground({
-      func: "quickFiltersSettings"
+      func: "quickFiltersSettings",
     });
   },
 
@@ -448,18 +448,13 @@ var quickFilters = {
       util.logDebug(
         "=================quickFilters==============\n" +
           "   checkFirstRun() - attempt " +
-          this.firstRunCount
+          this.firstRunCount,
       );
       let currentVersion = util.Version;
       let installedVersion = prefs.getCharPref("installedVersion"),
         firstRun = prefs.getBoolPref("firstRun");
       util.logDebug(
-        "firstRun = " +
-          firstRun +
-          "  - currentVersion = " +
-          currentVersion +
-          "  - installed = " +
-          installedVersion
+          `firstRun = ${firstRun}  - currentVersion = ${currentVersion}  - installed = ${installedVersion}`
       );
       let toolbarId = "";
       if (firstRun) {
@@ -468,7 +463,7 @@ var quickFilters = {
         util.installButton(
           toolbarId,
           "quickfilters-toolbar-listbutton",
-          "quickfilters-toolbar-button"
+          "quickfilters-toolbar-button",
         );
         prefs.setBoolPref("firstRun", false);
         util.showHomePage();
@@ -504,7 +499,7 @@ var quickFilters = {
       Ci = Components.interfaces,
       prefs = quickFilters.Preferences;
     let isBlockLocal = false;
-    
+
     switch (cmd) {
       case "toggle_Filters":
         // this one is now async
@@ -527,7 +522,6 @@ var quickFilters = {
             isInbox = false;
           let sourceFolder;
 
-
           if (eventDetail) {
             // this is passing info from API: the tab id + message ids.
             // tabId: currentTab.id, windowId: currentTab.windowId, messages: selectedMessages
@@ -545,7 +539,7 @@ var quickFilters = {
               });
 
               // XPCOM - nsIMsgHdr
-              let realMessage = await window.quickFilters.WL.extension.messageManager.get(m.id);
+              let realMessage = await window.quickFilters.Util.messageManager.get(m.id);
               selectedMessages.push(realMessage || m);
               selectedMessageUris.push(null); // there is no URI!
             }
@@ -620,11 +614,11 @@ var quickFilters = {
                 if (eventDetail) {
                   try {
                     util.logDebug(
-                      `calling WindowListener.extension.folderManager.get(${firstSelectedMsg.folder.accountId},${firstSelectedMsg.folder.path})`
+                      `calling extension.folderManager.get(${firstSelectedMsg.folder.accountId},${firstSelectedMsg.folder.path})`
                     );
-                    let realFolder = window.quickFilters.WL.extension.folderManager.get(
+                    let realFolder = window.quickFilters.Util.folderManager.get(
                       firstSelectedMsg.folder.accountId,
-                      firstSelectedMsg.folder.path
+                      firstSelectedMsg.folder.path,
                     );
                     currentMessageFolder = realFolder;
                   } catch (ex) {
@@ -653,7 +647,7 @@ var quickFilters = {
               // fA = Ci.nsMsgFilterAction.AddTag;
               fA = Ci.nsMsgFilterAction.MarkFlagged; // ??
             }
-            
+
             const isAssistantModeHTML = quickFilters.Preferences.isAssistantModeHTM;
             const isFromMsgContext =
               eventDetail && (isAssistantModeHTML ? theContext === "fromMessageContext" : true);
@@ -672,18 +666,21 @@ var quickFilters = {
           } else {
             let wrn = util.getBundleString(
               "quickfilters.createFromMail.selectWarning",
-              "To create a filter, please select exactly one email!"
+              "To create a filter, please select exactly one email!",
             );
             await util.popupAlert(wrn);
           }
-        } catch(ex) {
+        } catch (ex) {
           util.logException("createFilterFromMsg", ex);
-          if (quickFilters.Preferences.isDebug ) {
+          if (quickFilters.Preferences.isDebug) {
             // eslint-disable-next-line no-debugger
             debugger;
           }
         } finally {
-          util.logDebugOptional("assistant", `createFilterFromMsg- finally isBlockLocal:${isBlockLocal}`);
+          util.logDebugOptional(
+            "assistant",
+            `createFilterFromMsg- finally isBlockLocal:${isBlockLocal}`,
+          );
           if (isBlockLocal) {
             quickFilters.blocks.release("createFilterFromMsg");
             util.logDebugOptional("assistant", "released block on createFilterFromMsg");
@@ -720,11 +717,11 @@ var quickFilters = {
     if (!silent && quickFilters.Preferences.getBoolPref("notifications.runFilter")) {
       let text = quickFilters.Util.getBundleString(
         "quickfilters.runningFiltersOnFolder.notify",
-        "Running filters on folder {1}"
+        "Running filters on folder {1}",
       );
       util.slideAlert(
         text.replace("{1}", folder.prettyName || folder.localizedName),
-        "quickFilters"
+        "quickFilters",
       );
     }
 
@@ -737,7 +734,7 @@ var quickFilters = {
         console.log(
           `Attempt to run filters on account [${
             folder.prettyName || folder.localizedName
-          }]: no folder selected - trying to find related Inbox instead`
+          }]: no folder selected - trying to find related Inbox instead`,
         );
         // use inbox instead.
         folder = folder.subFolders.find((f) => f.flags & 4096);
@@ -799,7 +796,7 @@ var quickFilters = {
     if (!silent && quickFilters.Preferences.getBoolPref("notifications.runFilter")) {
       let text = quickFilters.Util.getBundleString(
         "quickfilters.runFiltersOnMails.notify",
-        "Applied filters to selected messages"
+        "Applied filters to selected messages",
       );
       quickFilters.Util.slideAlert(text, "quickFilters");
     }
@@ -842,7 +839,7 @@ var quickFilters = {
             util.logDebugOptional(
               "filterSearch",
               `checking account [${ac.prettyName}] for target folder: ${targetFolder.URI}\n` +
-                `iterating ${numFilters} filters...`
+                `iterating ${numFilters} filters...`,
             );
             for (let i = 0; i < numFilters; i++) {
               let curFilter = filterList.getFilterAt(i),
@@ -850,7 +847,7 @@ var quickFilters = {
                 acLength = actionList.length;
               for (let index = 0; index < acLength; index++) {
                 let action = actionList[index].QueryInterface(
-                  Components.interfaces.nsIMsgRuleAction
+                  Components.interfaces.nsIMsgRuleAction,
                 );
                 if (action.type == FA.MoveToFolder || action.type == FA.CopyToFolder) {
                   if (action.targetFolderUri) {
@@ -862,7 +859,7 @@ var quickFilters = {
                       util.logDebugOptional(
                         "filterSearch",
                         `FOUND FILTER MATCH at index [${i}]:\n` +
-                          `filter '${curFilter.filterName}'\n`
+                          `filter '${curFilter.filterName}'\n`,
                       );
                       matchedFilter = curFilter;
                       matchedAccount = ac;
@@ -899,7 +896,7 @@ var quickFilters = {
     if (!matchedAccount) {
       let wrn = util.getBundleString(
         "quickfilters.search.warning.noresults",
-        "No matching filters found."
+        "No matching filters found.",
       );
       util.popupAlert(wrn, "quickFilters", "fugue-clipboard-exclamation.png");
     } else {
@@ -926,7 +923,7 @@ var quickFilters = {
     }
     util.logDebugOptional(
       "events,msgMove",
-      `onFolderTreeViewDrop\ntarget = ${event.target.innerText}`
+      `onFolderTreeViewDrop\ntarget = ${event.target.innerText}`,
     );
 
     if (quickFilters.isNewAssistantMode) {
@@ -964,7 +961,7 @@ var quickFilters = {
     try {
       util.logDebugOptional(
         "dnd",
-        `onDrop: ${messageUris.length} messageUris to ${targetFolder.URI}`
+        `onDrop: ${messageUris.length} messageUris to ${targetFolder.URI}`,
       );
       if (messageUris.length > 0 && !sourceFolder) {
         // note: getCurrentFolder fails when we are in a search results window!!
@@ -990,7 +987,7 @@ var quickFilters = {
             : Ci.nsMsgFilterAction.CopyToFolder,
           filterActionExt: null,
           isMsgContext: false,
-          context: "onTreeviewDrop"
+          context: "onTreeviewDrop",
         });
       });
     } catch (e) {
@@ -1027,7 +1024,7 @@ var quickFilters = {
       theURI = prefBranch.getCharPref("last_msg_movecopy_target_uri"),
       targetFolder = util.getMsgFolderFromUri(theURI),
       trans = Components.classes["@mozilla.org/widget/transferable;1"].createInstance(
-        Components.interfaces.nsITransferable
+        Components.interfaces.nsITransferable,
       );
     //alert('trans.addDataFlavor: trans=' + trans + '\n numDropItems=' + dragSession.numDropItems);
     trans.addDataFlavor("text/x-moz-message");
@@ -1051,7 +1048,7 @@ var quickFilters = {
         }
       } catch (e) {
         quickFilters.LocalErrorLogger(
-          "Exception in onDrop item " + i + " of " + dragSession.numDropItems + "\nException: " + e
+          "Exception in onDrop item " + i + " of " + dragSession.numDropItems + "\nException: " + e,
         );
       }
     }
@@ -1059,7 +1056,7 @@ var quickFilters = {
     try {
       util.logDebugOptional(
         "dnd",
-        "onDrop: " + messageUris.length + " messageUris to " + targetFolder.URI
+        "onDrop: " + messageUris.length + " messageUris to " + targetFolder.URI,
       );
       if (messageUris.length > 0) {
         if (quickFilters.Util.AssistantActive) {
@@ -1070,7 +1067,7 @@ var quickFilters = {
           if (util.isVirtual(sourceFolder)) {
             quickFilters.logDebug(
               "onFolderTreeDrop - Retrieved message from a virtal folder:",
-              sourceFolder
+              sourceFolder,
             );
           }
         }
@@ -1096,7 +1093,7 @@ var quickFilters = {
                 : Ci.nsMsgFilterAction.CopyToFolder,
               filterActionExt: null,
               isMsgContext: false,
-              context: "onFolderTreeDrop"
+              context: "onFolderTreeDrop",
             });
           });
         }
@@ -1107,12 +1104,67 @@ var quickFilters = {
     return false;
   },
 
+  getCurrentFolderState: async function (doc) {
+    if (!doc) {
+      return {
+        state: "no-doc",
+        retry: true,
+      };
+    }
+
+    const threadPane = doc.getElementById("threadPane");
+    if (!threadPane) {
+      return {
+        state: "base-not-ready",
+        retry: true,
+      };
+    }
+
+    const toolbar = doc.getElementById("QuickFolders-CurrentFolderTools");
+    const container = doc.getElementById("quickFilters-injected");
+
+    const qfAvailable = !!window.QuickFolders;
+
+    // Case: base UI ready, but QuickFolders not loaded yet
+    if (!qfAvailable) {
+      return {
+        state: "no-quickfolders",
+        retry: false,
+      };
+    }
+
+    // Case: UI exists but your injection missing
+    if (!container) {
+      return {
+        state: "needs-injection",
+        retry: true,
+      };
+    }
+
+    // Case: everything present except toolbar
+    if (!toolbar) {
+      return {
+        state: "toolbar-missing",
+        retry: true,
+      };
+    }
+
+    return {
+      state: "ready",
+      retry: false,
+      doc,
+      threadPane,
+      toolbar,
+      container,
+    };
+  },
+
   // read QF options and hide buttons from current folder bar
-  toggleCurrentFolderButtons: function (retries = 0) {
+  toggleCurrentFolderButtons: async function (retries = 0) {
     retries = typeof retries === "number" ? retries : 0;
     const util = quickFilters.Util;
     const prefs = quickFilters.Preferences;
-    const MAX_TRIES = 2;
+    const MAX_TRIES = 3;
 
     // define all buttons once
     const buttons = [
@@ -1144,37 +1196,69 @@ var quickFilters = {
 
     util.logDebug(`toggleCurrentFolderButtons(retries=${retries})`);
 
+    let lic = await window.quickFilters.Util.notifyTools.notifyBackground({
+      func: "getQuickFolderslicense",
+    }); // replace worker.FilterMode
+    if (lic && lic.status) {
+      switch (lic.status.toLowerCase()) {
+        case "unknown":
+          util.logHighlightDebug(
+            "getQuickFolderslicense(): QuickFolders not active or not installed",
+          );
+          break;
+        case "valid":
+          break;
+        default: {
+          util.logDebug("no valid QuickFolders license = not current folder buttons");
+          return;
+        }
+      }
+    }
+    const firstTab = window.gTabmail.tabInfo[0];
+    const doc = firstTab.chromeBrowser?.contentDocument;
+    const QFcurrentFolderState = await quickFilters.getCurrentFolderState(doc);
+    util.logDebug("QuickFolders Status", { currentFolderReady: QFcurrentFolderState });
+    if (QFcurrentFolderState.retry && retries < MAX_TRIES) {
+      // wait a little longer if we need to do multiple tries for Tb get ready
+      setTimeout(
+        () => quickFilters.toggleCurrentFolderButtons(retries + 1),
+        10000 + retries * 10000,
+      );
+    }
+
+
     try {
       // iterate all 3pane documents of mail tabs.
       // .filter((t) => t.mode.name == "mail3PaneTab")
       for (let tabInfo of window.gTabmail.tabInfo) {
         const modeName = tabInfo.mode.name;
         const isThreePane = modeName === "mail3PaneTab";
-        const isSingleMessage = modeName === "mailMessageTab"; 
+        const isSingleMessage = modeName === "mailMessageTab";
         if (isSingleMessage) {
           util.setAssistantButton(util.AssistantActive);
           continue;
         }
-        if (!isThreePane) {continue;}
-        let doc = tabInfo.chromeBrowser.contentDocument;
+        if (!isThreePane) {
+          continue;
+        }
+        const browser = tabInfo.chromeBrowser;
+        const doc = browser?.contentDocument;
+        if (!doc) {
+          continue;
+        }
+        // global dependency check (QuickFolders ready or not)
+        const existsQuickFolders = !!window.QuickFolders;
         const container = doc.getElementById("quickFilters-injected");
         const toolbar = doc.getElementById("QuickFolders-CurrentFolderTools");
 
-        if (retries > MAX_TRIES && !toolbar) {
-          // no QF toolbar after 30 seconds. let's give up to avoid infinite processing
-          console.log(
-            `toggleCurrentFolderButtons() - giving up after ${retries} tries without any QF toolbar.`
-          );
-          continue; // no more retries
+        // if QuickFolders is not even initialized yet, skip tab safely
+        if (!existsQuickFolders) {
+          continue;
         }
 
+        // if your own injection is missing, skip (don’t retry here)
         if (!container) {
-          // wait a little longer if we need to do multiple tries for Tb get ready
-          setTimeout(
-            () => quickFilters.toggleCurrentFolderButtons(retries + 1),
-            10000 + retries * 10000
-          );
-          return;
+          continue;
         }
 
         buttons.forEach((btn) => {
@@ -1212,7 +1296,7 @@ var quickFilters = {
       util.logDebugOptional(
         "msgMove",
         " quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper :" +
-          (quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper)
+          (quickFilters.executeMoveMessage == quickFilters.MsgMove_Wrapper),
       );
       quickFilters.MsgMoveCopy_Wrapper(uri, false);
     } catch (ex) {
@@ -1226,7 +1310,7 @@ var quickFilters = {
       util.logDebugOptional(
         "msgMove",
         " quickFilters.executeCopyMessage == quickFilters.MsgMove_Wrapper :" +
-          (quickFilters.executeCopyMessage == quickFilters.MsgCopy_Wrapper)
+          (quickFilters.executeCopyMessage == quickFilters.MsgCopy_Wrapper),
       );
       quickFilters.MsgMoveCopy_Wrapper(uri, true);
     } catch (ex) {
@@ -1269,7 +1353,7 @@ var quickFilters = {
 
         util.logDebugOptional(
           "msgMove",
-          "MsgMoveCopy_Wrapper(): " + selectedMessages.length + " selected Messages counted."
+          "MsgMoveCopy_Wrapper(): " + selectedMessages.length + " selected Messages counted.",
         );
 
         if (
@@ -1281,7 +1365,7 @@ var quickFilters = {
           let i;
           for (i = 0; i < selectedMessages.length; i++) {
             messageList.push(
-              util.makeMessageListEntry(selectedMessages[i], selectedMessageUris[i])
+              util.makeMessageListEntry(selectedMessages[i], selectedMessageUris[i]),
             );
             // the original command in the message menu calls the helper function MsgCreateFilter()
             // we do not know the primary action on this message (yet)
@@ -1327,7 +1411,7 @@ var quickFilters = {
       util.logDebugOptional("msgMove", "calling promiseDone()...");
       promiseDone(); //was setTimeout(promiseDone, 20);
     }
-  } ,
+  },
 
   MsgArchive_Wrapper: async function (callbackFunction) {
     const util = quickFilters.Util,
@@ -1365,9 +1449,9 @@ var quickFilters = {
             filterAction: fA, // Custom action for archive
             filterActionExt: "Archive",
             isMsgContext: false, // optional, if you want to be explicit
-            context: "wrappedArchive"
-          };      
-          await quickFilters.Worker.startFilterAssistant(params);  
+            context: "wrappedArchive",
+          };
+          await quickFilters.Worker.startFilterAssistant(params);
           util.logDebugOptional("msgMove", "After calling startFilterAssistant()");
         }
       }
@@ -1389,10 +1473,11 @@ var quickFilters = {
         const Ci = Components.interfaces;
         quickFilters.Util.logDebugOptional(
           "assistant,msgMove",
-          `doCommandWrapper(${cmd}, ${aTab}):`
+          `doCommandWrapper(${cmd}, ${aTab}):`,
         );
 
-        do { // do-while (just one run through) to allow early exit
+        do {
+          // do-while (just one run through) to allow early exit
           let isAssistant = quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode;
           if (!isAssistant) {
             break;
@@ -1401,10 +1486,10 @@ var quickFilters = {
           if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
             quickFilters.Util.logDebugOptional(
               "assistant,msgMove",
-              "Not invoking assistant on delete as it is excluded."
+              "Not invoking assistant on delete as it is excluded.",
             );
             break;
-          } 
+          }
           let selectedMessages = quickFilters.Util.getSelectedMessages();
           if (!selectedMessages?.length) {
             break; //early exit. we still want to use finally to return the original command!!
@@ -1420,9 +1505,7 @@ var quickFilters = {
           if (!src.canDeleteMessages) {
             break;
           }
-          let targetFolder = src.server.rootFolder.getFolderWithFlags(
-            Ci.nsMsgFolderFlags.Trash
-          );
+          let targetFolder = src.server.rootFolder.getFolderWithFlags(Ci.nsMsgFolderFlags.Trash);
           const params = {
             sourceFolder: src,
             targetFolder,
@@ -1430,16 +1513,15 @@ var quickFilters = {
             filterAction: Components.interfaces.nsMsgFilterAction.Delete,
             filterActionExt: null,
             isMsgContext: false,
-            context: "doCommandWrapper"
+            context: "doCommandWrapper",
           };
           quickFilters.Worker.startFilterAssistant(params);
-        // eslint-disable-next-line no-constant-condition
+          // eslint-disable-next-line no-constant-condition
         } while (false); // do-while to allow early exit
       }
     } catch (ex) {
       quickFilters.Util.logException("quickFilters.doCommandWrapper()", ex);
-    }
-    finally {
+    } finally {
       let result = quickFilters.doCommandOriginal.call(DefaultController, cmd, aTab); // make sure to bind "this" to DefaultController!
       // eslint-disable-next-line no-unsafe-finally
       return result;
@@ -1519,7 +1601,7 @@ var quickFilters = {
                   let result = Services.prompt.confirm(
                     util.getMail3PaneWindow(),
                     "quickFilters",
-                    txt
+                    txt,
                   );
                   if (!result) {
                     return;
@@ -1542,7 +1624,7 @@ var quickFilters = {
                 let result = Services.prompt.confirm(
                   util.getMail3PaneWindow(),
                   "quickFilters",
-                  txt
+                  txt,
                 );
                 if (!result) {
                   return;
@@ -1590,7 +1672,7 @@ var quickFilters = {
           newLabel = util.getBundleString(
             "quickfiltersToolbarButton.renew",
             "License expires in $daysLeft$ days",
-            [util.licenseInfo.licensedDaysLeft]
+            [util.licenseInfo.licensedDaysLeft],
           );
           isDropDownMarkerStyled = true;
         } else {
@@ -1627,7 +1709,7 @@ var quickFilters = {
           newTooltip = util
             .getBundleString("quickfiltersToolbarButton.updated.tip")
             .replace("{menulabel}", newsMenuLabel);
-          
+
           isDropDownMarkerStyled = true;
         } else {
           newLabel = "quickFilters"; // let's use the standard label
