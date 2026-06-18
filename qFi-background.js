@@ -43,7 +43,7 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
   // Wait until the main startup routine has finished!
   const res = await startup.promise;
   messenger.Utilities.logDebug(
-    `runtime startup / installation listeners\nResult: ${res}\n` + `onInstalled Reason: ${reason}`,
+    `runtime startup / installation listeners\nResult: ${res}\n` + `onInstalled Reason: ${reason}`
   );
 
   if (isDebug) {
@@ -105,7 +105,7 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
 messenger.runtime.onStartup.addListener(async () => {
   const res = await startup.promise;
   messenger.Utilities.logDebug(
-    `startup listeners, ready to call updatequickFiltersLabel\n` + `startup result: ${res}`,
+    `startup listeners, ready to call updatequickFiltersLabel\n` + `startup result: ${res}`
   );
   notifyWhenUIReady({ event: "updatequickFiltersLabel" });
 });
@@ -320,14 +320,14 @@ function showSplash() {
   let url = browser.runtime.getURL("popup/update.html");
   let screenH = window.screen.height,
       windowHeight = (screenH > 870) ? 870 : screenH;  
-  browser.windows.create({ url, type: "popup", width: 1000, height: windowHeight, allowScriptsToClose: true,});
+  browser.windows.create({ url, type: "popup", width: 1000, height: windowHeight, allowScriptsToClose: true});
 }
 
 async function displayAssistant(data) {
   const isDebugMsg = Preferences.isDebug("assistant.msg");
   // [issue 309] open the HTML version of the assistant
   messenger.Utilities.logDebug(
-    `displayAssistant()\ncontext=${data?.context}\nrequestId=${data?.requestId}`,
+    `displayAssistant()\ncontext=${data?.context}\nrequestId=${data?.requestId}`
   );
   const assistantURL = browser.runtime.getURL("html/filterAssistant.html");
   messenger.Utilities.logDebug(`assistantURL=${assistantURL}`);
@@ -581,7 +581,7 @@ function registerNotifyListener() {
           "BACKGROUND LISTENER received: " +
           data.func +
           "\n" +
-          "=========================",
+          "========================="
       );
     }
     switch (data.func) {
@@ -747,9 +747,9 @@ function registerNotifyListener() {
             tab
               ? await messenger.Utilities.getFolderUri(
                   tab.displayedFolder.accountId,
-                  tab.displayedFolder.path,
+                  tab.displayedFolder.path
                 )
-              : "none",
+              : "none"
           );
         } catch (ex) {
           console.error("Error in Utilities", ex);
@@ -788,6 +788,7 @@ function registerNotifyListener() {
           storageArea: "local",
           baseFilter: "debug.",
           type: "popup",
+          showTopLevelKey: false,
         });
         break;
     }
@@ -836,7 +837,7 @@ async function main() {
           Number.isNaN(filterAction) ? undefined : filterAction,
           ["string", "boolean"].includes(typeof filterActionExt)
             ? String(filterActionExt)
-            : undefined,
+            : undefined
         );
         return filters;
       }
@@ -867,7 +868,7 @@ async function main() {
           if (newHeight > maxHeight) {
             newHeight = maxHeight;
             console.warn(
-              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`,
+              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`
             );
           }
 
@@ -897,6 +898,7 @@ async function main() {
           storageArea: "local",
           baseFilter: data.filter,
           type: "popup",
+          showTopLevelKey: false,
         });
         break;
       default:
@@ -969,7 +971,7 @@ async function main() {
             "yellow",
             "rgb(0, 128, 50)",
             message,
-            QF_license,
+            QF_license
           );
         }
         if (message.command == "injectButtonsQFNavigationBar") {
@@ -986,19 +988,19 @@ async function main() {
   // xhtml for Tb78
   messenger.WindowListener.registerWindow(
     "chrome://messenger/content/messenger.xhtml",
-    "chrome/content/scripts/qFi-messenger.js",
+    "chrome/content/scripts/qFi-messenger.js"
   );
   messenger.WindowListener.registerWindow(
     "chrome://messenger/content/customizeToolbar.xhtml",
-    "chrome/content/scripts/qFi-customizetoolbar.js",
+    "chrome/content/scripts/qFi-customizetoolbar.js"
   );
   messenger.WindowListener.registerWindow(
     "chrome://messenger/content/FilterEditor.xhtml",
-    "chrome/content/scripts/qFi-filterEditor.js",
+    "chrome/content/scripts/qFi-filterEditor.js"
   );
   messenger.WindowListener.registerWindow(
     "chrome://messenger/content/FilterListDialog.xhtml",
-    "chrome/content/scripts/qFi-filterlist.js",
+    "chrome/content/scripts/qFi-filterlist.js"
   );
 
   // styling for QuickFolders navigation bar - lives in 3pane!
@@ -1031,7 +1033,7 @@ async function main() {
       if (currentLicense.info.status != "MailNotConfigured") {
         if (isDebugLicenser) {
           console.log(
-            "notify experiment code of new license status: " + currentLicense.info.status,
+            "notify experiment code of new license status: " + currentLicense.info.status
           );
         }
         notifyWhenUIReady({ licenseInfo: currentLicense.info });

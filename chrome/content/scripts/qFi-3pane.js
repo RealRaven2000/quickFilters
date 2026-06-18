@@ -28,7 +28,7 @@ const qFInjector = {
     const WL = window.WL;
     const debug = false;
     var { ExtensionParent } = ChromeUtils.importESModule(
-      "resource://gre/modules/ExtensionParent.sys.mjs",
+      "resource://gre/modules/ExtensionParent.sys.mjs"
     );
     const extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
 
@@ -215,7 +215,7 @@ async function onLoad(_activatedWhileWindowOpen) {
   // window.quickFilters.toggleCurrentFolderButtons is running in experimental context
   window.addEventListener(
     "quickFilters.BackgroundUpdate.updateCurrentFolderBar",
-    updateCurrentFolderBar,
+    updateCurrentFolderBar
   );
 }
 
@@ -225,7 +225,7 @@ function onUnload(isAddOnShutown) {
   window.quickFilters.restoreTagListener(window);
   window.removeEventListener(
     "quickFilters.BackgroundUpdate.setAssistantButton",
-    setAssistantButton,
+    setAssistantButton
   );
 
   const document3pane = window?.document;

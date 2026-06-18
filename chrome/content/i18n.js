@@ -50,8 +50,9 @@ var i18n = {
     );
     for (let i = 0, maxi = attributes.snapshotLength; i < maxi; i++) {
       const attribute = attributes.snapshotItem(i);
-      if (attribute.value.includes(this.keyPrefix))
+      if (attribute.value.includes(this.keyPrefix)) {
         attribute.value = this.updateString(attribute.value);
+      }
     }
   },
 
