@@ -73,14 +73,17 @@ export class Licenser {
 
     this.LicenseKey = LicenseKey;
     this.key_type = crypto.getKeyType(LicenseKey);
-    
+
     if (this.key_type == 1 && this.ForceSecondaryIdentity) {
       this.ForceSecondaryIdentity = false;
-      this.logDebug("Sorry, but forcing secondary email addresses with a Domain license is not supported!");
+      this.logDebug(
+        "Sorry, but forcing secondary email addresses with a Domain license is not supported!"
+      );
     }
   }
-  
-  reset() { // initialize License Cache
+
+  reset() {
+    // initialize License Cache
     this.ValidationStatus = LicenseStates.NotValidated;
     this.RealLicense = "";
     this.ExpiredDays = -1;
@@ -88,7 +91,7 @@ export class Licenser {
     this.decryptedDate = "";
     this.decryptedMail = "";
   }
-  
+
   // public Interface - note that "description" can be consumed by the front end.
   get info() {
     return {
@@ -104,17 +107,17 @@ export class Licenser {
       // helper functions (transformed internal getters)
       isValid: this.isValid,
       isExpired: this.isExpired,
-    }
+    };
   }
-  
+
   get ValidationStatusShortDescription() {
-    switch(this.ValidationStatus) {
+    switch (this.ValidationStatus) {
       case LicenseStates.Valid:
         return "Valid";
       case LicenseStates.Expired:
         return "Expired";
       case LicenseStates.NotValidated:
-        return "NotValidated";     
+        return "NotValidated";
       case LicenseStates.Invalid:
         return "Invalid";
       case LicenseStates.MailNotConfigured:
