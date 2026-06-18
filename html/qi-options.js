@@ -85,8 +85,8 @@ quickFilters.Options = {
     btnRecover.hidden = true;
     validationKeyBackedUp.setAttribute("collapsed", true);
 
-    const { options } = await browser.storage.local.get({ options: {} });
-    const lastKey = options["LicenseKey.backup"];
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    const lastKey = settings["LicenseKey.backup"];
     if (lastKey?.length > 3 && !txtLicense.value) {
       validationKeyBackedUp.removeAttribute("collapsed");
       btnRecover.hidden = false;

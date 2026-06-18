@@ -91,8 +91,8 @@ const quickFiltersPrefs = {
       }
       return debug[id];
     }
-    const { options } = await browser.storage.local.get({ options: {} });
-    return options[key];
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    return settings[key];
   },
 
   async set(id, value) {
@@ -101,9 +101,9 @@ const quickFiltersPrefs = {
       throw new Error(`Unknown preference id: ${id}`);
     }
 
-    const { options } = await browser.storage.local.get({ options: {} });
-    options[key] = value;
-    await browser.storage.local.set({ options });
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    settings[key] = value;
+    await browser.storage.local.set({ settings });
   },
 };
 
@@ -251,15 +251,15 @@ quickFilters.Assistant = {
       }
       return debug[id];
     }
-    const { options } = await browser.storage.local.get({ options: {} });
-    return options[id];
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    return settings[id];
   },
 
   setPref: async function (id, value) {
     // pass on the promise to caller
-    const { options } = await browser.storage.local.get({ options: {} });
-    options[id] = value;
-    return browser.storage.local.set({ options });
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    settings[id] = value;
+    return browser.storage.local.set({ settings });
   },
 
   selectTemplate: async function (element) {

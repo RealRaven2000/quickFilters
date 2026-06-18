@@ -283,9 +283,9 @@ const initEventListeners = async () => {
     btnSwitchToFree.hidden = true;
 
     // 2. Backup the expired license
-    const { options } = await browser.storage.local.get({ options: {} });
-    options["LicenseKey.backup"] = licenseInfo.licenseKey;
-    await browser.storage.local.set({ options });    
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    settings["LicenseKey.backup"] = licenseInfo.licenseKey;
+    await browser.storage.local.set({ settings });    
 
     document.getElementById("txtLicenseKey").value = "";
 
@@ -301,8 +301,8 @@ const initEventListeners = async () => {
 
   const btnRecover = document.getElementById("btnRecoverLicense");
   btnRecover.addEventListener("click", async () => {
-    const { options } = await browser.storage.local.get({ options: {} });
-    const lastKey = options["LicenseKey.backup"];
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    const lastKey = settings["LicenseKey.backup"];
     document.getElementById("txtLicenseKey").value = lastKey;
     await quickFilters.Options.validateNewKey();
     quickFilters.Options.updateLicenseOptionsUI();
@@ -313,8 +313,8 @@ const initPrefs = async () => {
   // checkboxes
   const checkboxes = document.querySelectorAll("input[type=checkbox][data-pref-name]");
   const names = [...checkboxes].map((el) => el.dataset.prefName);
-  const { options = {}, debug = {} } = await browser.storage.local.get({
-    options: {},
+  const { settings = {}, debug = {} } = await browser.storage.local.get({
+    settings: {},
     debug: {},
   });
   const allValues = {};
@@ -322,8 +322,8 @@ const initPrefs = async () => {
   for (const key of names) {
     if (key in debug) {
       allValues[key] = debug[key];
-    } else if (key in options) {
-      allValues[key] = options[key];
+    } else if (key in settings) {
+      allValues[key] = settings[key];
     }
   }
 
@@ -341,9 +341,9 @@ const initPrefs = async () => {
         return;
       }
 
-      const { options } = await browser.storage.local.get({ options: {} });
-      options[prefName] = isChecked;
-      await browser.storage.local.set({ options });
+      const { settings } = await browser.storage.local.get({ settings: {} });
+      settings[prefName] = isChecked;
+      await browser.storage.local.set({ settings });
       if (el.classList.contains("currentFolderQF")) {
         // [issue 328] update current folder buttons if changed in options
         messenger.runtime.sendMessage({ command: "updateCurrentFolderButtons" });
@@ -357,7 +357,7 @@ const initPrefs = async () => {
   );
 
   const inputNames = [...txtInputs].map((el) => el.getAttribute("data-pref-name")).filter(Boolean);
-  const { options: inputOptions } = await browser.storage.local.get({ options: {} });
+  const { settings: inputOptions } = await browser.storage.local.get({ settings: {} });
   const inputValues = Object.fromEntries(
     // break up into arrays[] with 2 entries.
     Object.entries(inputOptions).filter(([key, _val]) => inputNames.includes(key)),
@@ -371,9 +371,9 @@ const initPrefs = async () => {
 
     el.addEventListener("input", async () => {
       // no debug settings here.
-      const { options } = await browser.storage.local.get({ options: {} });
-      options[prefName] = el.type === "number" ? Number(el.value) : el.value;
-      await browser.storage.local.set({ options });
+      const { settings } = await browser.storage.local.get({ settings: {} });
+      settings[prefName] = el.type === "number" ? Number(el.value) : el.value;
+      await browser.storage.local.set({ settings });
     });
   }
 };

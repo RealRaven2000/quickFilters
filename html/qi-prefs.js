@@ -16,8 +16,8 @@ quickFilters.Preferences = {
       return debug[p];
     }
 
-    const { options } = await browser.storage.local.get({ options: {} });
-    return options[p];
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    return settings[p];
   },
 
   async setBoolPref(p, v) {
@@ -28,9 +28,9 @@ quickFilters.Preferences = {
       return;
     }
 
-    const { options } = await browser.storage.local.get({ options: {} });
-    options[p] = v;
-    return browser.storage.local.set({ options });
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    settings[p] = v;
+    return browser.storage.local.set({ settings });
   },
 
   async isDebug() {
