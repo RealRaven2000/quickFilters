@@ -15,13 +15,13 @@ quickFilters.Preferences = {
   Prefix: "extensions.quickfilters.", // obsolete for local storage
   service: Services.prefs, // obsolete for local storage
 
-  isDebug() {
+  get isDebug() {
     return quickFilters.Preferences.getBoolPref("debug");
   },
 
   isDebugOption: function (option) {
     // granular debugging
-    if (!this.isDebug()) {
+    if (!this.isDebug) {
       return false;
     }
     try {
@@ -75,12 +75,12 @@ quickFilters.Preferences = {
     return quickFilters.Preferences.cache.setValue(p, v);
   },
 
-  isStarAction() {
+  get isStarAction() {
     let pref = "actions.star"; // SeaMonkey: actions.flag
     return this.getBoolPref(pref);
   },
 
-  isMoveFolderAction() {
+  get isMoveFolderAction() {
     return this.getBoolPref("actions.moveFolder");
   },
 
@@ -88,7 +88,7 @@ quickFilters.Preferences = {
     this.setBoolPref("actions.moveFolder", b);
   },
 
-  isAssistantModeHTML() {
+  get isAssistantModeHTML() {
     return this.getBoolPref("assistant.html");
   },
 

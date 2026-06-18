@@ -887,14 +887,14 @@ quickFilters.Util = {
 
   logDebug: function (...args) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
-    let p = qF.Preferences.isDebug();
+    let p = qF.Preferences.isDebug;
     if (!p) {return;}
     this.logToConsole(...args);
   },
 
   // optional logging for important points in flow.
   logHighlightDebug: function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
-    let p = quickFilters.Preferences.isDebug();
+    let p = quickFilters.Preferences.isDebug;
     if (!p) { return;}
     console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
   },

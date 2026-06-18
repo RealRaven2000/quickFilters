@@ -345,7 +345,7 @@ quickFilters.List = {
     // **************************************************************
     // *******   SYNCHRONOUS PART: Shows Filter Assistant!    *******
     // **************************************************************
-    if (prefs.isAssistantModeHTML()) {
+    if (prefs.isAssistantModeHTML) {
       // to do: add code for new window!
       const requestId = util.createUniqueId("assistant_"); // e.g. timestamp or UUID
       util.logHighlightDebug(
@@ -1222,7 +1222,7 @@ quickFilters.List = {
           if (ac.type == FA.Reply) {
             if (ac.strValue) {
               let searchSubject = quickFilters.List.retrieveSubjectFromReply(
-                ac.strValue,
+                ac.strValue
               ).toLocaleLowerCase();
               if (searchSubject.indexOf(aKeyword) >= 0) {
                 // full match for tags, but case insensitive.
@@ -1600,7 +1600,7 @@ quickFilters.List = {
       filter: selectedFilter, 
       filterList: this.FilterList, 
       filterConditionValue: termValue,           // use this to scroll to and highlight the condition needing to be removed
-      filterConditionActionType: termActionType  // use this to scroll to and highlight the action needing to be removed
+      filterConditionActionType: termActionType,  // use this to scroll to and highlight the action needing to be removed
     };
     // for this functionality, we need to overload chrome://messenger/content/FilterEditor.xul
     window.openDialog("chrome://messenger/content/FilterEditor.xhtml", "FilterEditor", "chrome,modal,titlebar,resizable,centerscreen", args);
@@ -1969,7 +1969,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 					accountName: this.ServerMenu.value,
 					rootFolderURL: currentFolder.server.rootMsgFolder.folderURL,
 					date: (new Date()).toJSON(),  
-					filters: []
+					filters: [],
 				};
 		
 		let customErrors = [];
@@ -2025,7 +2025,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
       accountName: this.ServerMenu.value,
       rootFolderURL: quickFilters.List.CurrentFolder.server.rootMsgFolder.folderURL,
       date: (new Date()).toJSON(),  
-      filters: []
+      filters: [],
     };    
 				
 		// get all selected filters and sort them by their list position
@@ -2163,7 +2163,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
                      flt:filter, 
                      type: 'mixedAnyAndAll',
                      booleanAnd: targetBoolean, 
-                     conditionCount: fixedConditions
+                     conditionCount: fixedConditions,
                    } 
           errorList.push (el);
         }
@@ -2172,7 +2172,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
                      flt:filter, 
                      type: 'missingSearchTerms',
                      booleanAnd: targetBoolean, 
-                     conditionCount: 0
+                     conditionCount: 0,
                    } 
           errorList.push (el);
         }
@@ -2419,5 +2419,5 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		 *  ================================================================
 		 *  ================================================================
 		 */
-	}  
+	},  
 }; // quickFilters.List

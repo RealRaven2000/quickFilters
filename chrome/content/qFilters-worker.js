@@ -315,14 +315,14 @@ quickFilters.Worker = {
         }
         util.logDebugOptional(
           "createFilter.refreshHeaders",
-          `cloning header[${i}] in ${folder.prettyName || folder.localizedName} ...`,
+          `cloning header[${i}] in ${folder.prettyName || folder.localizedName} ...`
         );
         const m1 = messageDb1.getMsgHdrForMessageID(theMsg.messageId);
         if (!m1) {
           util.logDebugOptional(
             "createFilter.refreshHeaders",
             `No matching Message Header in folder [${folder.prettyName || folder.localizedName}]` +
-              ` for id: ${theMsg.messageId}`,
+              ` for id: ${theMsg.messageId}`
           );
         }
         const msgHdr = m1; // || (messageDb2 ? messageDb2.getMsgHdrForMessageID(theMsg.messageId) : null);
@@ -1028,7 +1028,7 @@ quickFilters.Worker = {
 
           let isCancelled = false;
           let selectedMergedFilterIndex = -1;
-          if (quickFilters.Preferences.isAssistantModeHTML()) {
+          if (quickFilters.Preferences.isAssistantModeHTML) {
             const requestId = util.createUniqueId("assistant_"); // e.g. timestamp or UUID
             util.logHighlightDebug(
               "HTML Assistant",
@@ -2048,7 +2048,7 @@ quickFilters.Worker = {
           );
           // 1. create new filter
           let isMergeTargetFolder =
-            prefs.isMoveFolderAction() && typeof buildParams?.targetFolder === "object"; // if we move to folder, remove default folder target
+            prefs.isMoveFolderAction && typeof buildParams?.targetFolder === "object"; // if we move to folder, remove default folder target
           util.copyActions(customFilter, targetFilter, isMergeTargetFolder);
 
           // 2. copy Terms, replacing all variables
@@ -2130,7 +2130,7 @@ quickFilters.Worker = {
       let addedActions = [];
       targetFilter.filterName = filterName;
       let theAction = null;
-      if (prefs.isMoveFolderAction()) {
+      if (prefs.isMoveFolderAction) {
         if (
           buildParams.filterAction == nsMsgFilterAction.MoveToFolder ||
           buildParams.filterAction == nsMsgFilterAction.CopyToFolder
@@ -2171,7 +2171,7 @@ quickFilters.Worker = {
 
       // Additional (forced) actions
       if (
-        prefs.isMoveFolderAction()  &&
+        prefs.isMoveFolderAction  &&
         !addedActions.find(
           (e) => e == nsMsgFilterAction.MoveToFolder || e == nsMsgFilterAction.CopyToFolder
         )
@@ -2270,7 +2270,7 @@ quickFilters.Worker = {
     }
 
     // "Star" checkbox - note this will only set the star (not reset!)
-    if (prefs.isStarAction() && msg.isFlagged) {
+    if (prefs.isStarAction && msg.isFlagged) {
       let starAction = targetFilter.createAction();
       starAction.type = nsMsgFilterAction.MarkFlagged;
       targetFilter.appendAction(starAction);

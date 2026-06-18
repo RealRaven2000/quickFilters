@@ -94,7 +94,7 @@ var Register = {
     let btnDomainLicense = getElement('btnDomainLicense');
     btnLicense.label = util.getBundleString("buyPersonalLicense.button","Buy Personal License!");
     if (decryptedDate) {
-			if (quickFilters.Preferences.isDebug()) {
+			if (quickFilters.Preferences.isDebug) {
         util.logDebug(
           "Register.updateLicenseUI()\n" + "ValidationStatus = " + licenseInfo.description,
         );
