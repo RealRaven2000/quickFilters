@@ -267,7 +267,7 @@ const initEventListeners = async () => {
       const featureLink = message.querySelector(".features");
       featureLink?.addEventListener("click", () => {
         messenger.windows.openDefaultBrowser(
-          "https://quickfilters.quickfolders.org/premium.html#featureComparison",
+          "https://quickfilters.quickfolders.org/premium.html#featureComparison"
         );
       });
     }
@@ -353,14 +353,14 @@ const initPrefs = async () => {
 
   // text / number inputs, any textareas outside of license key
   const txtInputs = document.querySelectorAll(
-    "input[type=text][data-pref-name], input[type=number][data-pref-name], #txtSubjectBlacklist",
+    "input[type=text][data-pref-name], input[type=number][data-pref-name], #txtSubjectBlacklist"
   );
 
   const inputNames = [...txtInputs].map((el) => el.getAttribute("data-pref-name")).filter(Boolean);
   const { settings: inputOptions } = await browser.storage.local.get({ settings: {} });
   const inputValues = Object.fromEntries(
     // break up into arrays[] with 2 entries.
-    Object.entries(inputOptions).filter(([key, _val]) => inputNames.includes(key)),
+    Object.entries(inputOptions).filter(([key, _val]) => inputNames.includes(key))
   );
 
   for (const el of txtInputs) {

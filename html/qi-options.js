@@ -64,11 +64,11 @@ quickFilters.Options = {
     // replace all leading whitespaces and "-"
     termsList.appendChild(document.createElement("li")).textContent = termsTxt[1].replace(
       /\s*-\s*/,
-      "",
+      ""
     );
     termsList.appendChild(document.createElement("li")).textContent = termsTxt[2].replace(
       /\s*-\s*/,
-      "",
+      ""
     );
     // [issue 329]
     document
@@ -103,7 +103,7 @@ quickFilters.Options = {
   enableProFeatures: function (isEnabled) {
     // this replaces the icon with the [Pro] logo!
     for (let el of document.querySelectorAll(
-      ".proFeature, .proFeature input, .proFeature button",
+      ".proFeature, .proFeature input, .proFeature button"
     )) {
       if (isEnabled) {
         el.removeAttribute("disabled");
@@ -257,7 +257,7 @@ quickFilters.Options = {
     } catch (ex) {
       quickFilters.Util.logException(
         "Error in quickFilters.Options.updateLicenseOptionsUI():\n",
-        ex,
+        ex
       );
     }
     return result;
@@ -284,33 +284,33 @@ quickFilters.Options = {
     switch (validStatus) {
       case "extend": {
         let txtExtend = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.extendLicense",
+          "quickfilters.notification.premium.btn.extendLicense"
         );
         btnLicense.setAttribute("collapsed", false);
         btnLicense.textContent = txtExtend; // text should be extend not renew
         btnLicense.setAttribute(
           "tooltiptext",
-          messenger.i18n.getMessage("quickfilters.notification.premium.btn.extendLicense.tooltip"),
+          messenger.i18n.getMessage("quickfilters.notification.premium.btn.extendLicense.tooltip")
         );
         return txtExtend;
       }
       case "renew": {
         let txtRenew = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.renewLicense",
+          "quickfilters.notification.premium.btn.renewLicense"
         );
         btnLicense.textContent = txtRenew;
         return txtRenew;
       }
       case "buy": {
         let buyLabel = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.getLicense",
+          "quickfilters.notification.premium.btn.getLicense"
         );
         btnLicense.textContent = buyLabel;
         return buyLabel;
       }
       case "upgrade": {
         let upgradeLabel = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.upgrade",
+          "quickfilters.notification.premium.btn.upgrade"
         );
         btnLicense.textContent = upgradeLabel;
         btnLicense.classList.add("upgrade"); // stop flashing
