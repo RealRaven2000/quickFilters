@@ -17,6 +17,7 @@
 
 // FROM: https://github.com/thunderbird/webext-support/tree/master/modules/webExtensionStorageEditor
 
+
 /**
  * Open a storage editor showing entries in a browser.storage area.
  *
@@ -28,6 +29,8 @@
  *    entries.
  * @param {string} [options.footerText] - Footer text for the viewer. When
  *    omitted, a sensible default is used.
+ * @param {boolean} [options.showTopLevelKey=true] - Whether to display the
+ *    top-level storage key in entry paths.
  * @returns {Promise<void>} Resolves after the tab or popup has been created.
  */
 export async function open(options = {}) {
@@ -35,6 +38,7 @@ export async function open(options = {}) {
   const type = options?.type || "tab";
   const baseFilter = options?.baseFilter || "";
   const footerText = options?.footerText || "Click ✎ to edit values. Press ✓ to save or ESC to cancel. Boolean values can be toggled.";
+  const showTopLevelKey = options?.showTopLevelKey ?? true; 
 
   /**
    * Escape a string so caller-provided text cannot inject HTML markup.
@@ -51,7 +55,7 @@ export async function open(options = {}) {
   const safeFooter = escapeHtml(footerText);
 
   // use the same module file as the page script (?viewer=1)
-  const moduleUrlWithParams = `${import.meta.url}?viewer=1&storageArea=${encodeURIComponent(storageArea)}&baseFilter=${encodeURIComponent(baseFilter)}`;
+  const moduleUrlWithParams = `${import.meta.url}?viewer=1&storageArea=${encodeURIComponent(storageArea)}&baseFilter=${encodeURIComponent(baseFilter)}&showTopLevel=${showTopLevelKey}`;
 
   const html = `
 <!DOCTYPE html>
@@ -194,6 +198,7 @@ function init() {
   const params = new URL(import.meta.url).searchParams;
   const storageArea = params.get('storageArea') || 'local';
   const baseFilter = params.get('baseFilter') || '';
+  const showTopLevelKey = params.get("showTopLevel") === "true";
   let userFilter = (document.querySelector('.filter') && document.querySelector('.filter').value) ? document.querySelector('.filter').value.trim() : '';
 
   const storage = browser.storage[storageArea];
@@ -299,6 +304,9 @@ function init() {
    * @returns {string} The displayed dotted key.
    */
   function displayKey(topKey, subPath) {
+    if (!topKey) {
+      return subPath.join(".");
+    }
     return [topKey, ...subPath].join(".");
   }
 
@@ -340,7 +348,7 @@ function init() {
     let node = root;
     for (let i = 0; i < subPath.length - 1; i++) {
       const k = subPath[i];
-      if (!isPlainObject(node[k])) node[k] = {};
+      if (!isPlainObject(node[k])) {node[k] = {};}
       node = node[k];
     }
     node[subPath[subPath.length - 1]] = newValue;
@@ -369,7 +377,9 @@ function init() {
     tdKey.className = "key";
     tdType.className = "type";
     tdCtrl.className = "controls";
-    tdKey.textContent = key;
+    tdKey.setAttribute("data-key", key); // store the full key
+    // aesthetically nicer: hide the top key (we do not need this after migrating Legacy Prefs)
+    tdKey.textContent = showTopLevelKey ? key : displayKey(null, subPath);
     tdType.textContent = rowType;
 
     const displayArea = document.createElement("div");
@@ -435,12 +445,12 @@ function init() {
           tr.dataset.editorValue = editorValue;
 
           const displayArea = tr.querySelector(".displayArea");
-          if (displayArea) displayArea.textContent = displayValue;
+          if (displayArea) {displayArea.textContent = displayValue;}
           // Don't overwrite a value the user is currently editing. The fresh
           // value is kept in the dataset and shown if the edit is cancelled.
           if (!tr.classList.contains("row-editing")) {
             const editorEl = tr.querySelector(".editArea textarea, .editArea input");
-            if (editorEl) editorEl.value = editorValue;
+            if (editorEl) {editorEl.value = editorValue;}
           }
         }
       } else {
@@ -573,7 +583,7 @@ function init() {
           newVal = JSON.parse(editorEl.value);
         } else if (type === "number") {
           newVal = Number(editorEl.value);
-          if (!Number.isFinite(newVal)) throw new Error("Value is not a number");
+          if (!Number.isFinite(newVal)) {throw new Error("Value is not a number");}
         } else {
           newVal = editorEl.value;
         }
@@ -596,7 +606,7 @@ function init() {
   // map to many flattened rows, so re-read and re-render rather than trying to
   // match raw change keys against the (flattened) filters.
   browser.storage.onChanged.addListener((changes, areaName) => {
-    if (areaName !== storageArea) return;
+    if (areaName !== storageArea) {return;}
     loadEntries();
   });
 
