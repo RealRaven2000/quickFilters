@@ -1,5 +1,5 @@
 export const Preferences = {
-  CURRENT_VERSION: 1.3,
+  CURRENT_VERSION: 1.5,
   Defaults: {
     // === NAMING ===
     "naming.targetAccount": false,
@@ -168,30 +168,30 @@ export const Preferences = {
   _ready: false,
   async init() {
     // a flat object. e.g. stored["refreshHeaders.wait"] = 150;
-    let { options = {}, debug = {} } = await browser.storage.local.get({
-      options: {},
+    let { settings = {}, debug = {} } = await browser.storage.local.get({
+      settings: {},
       debug: {},
     });
-    const version = options.settingsVersion ?? 0;
+    const version = settings.settingsVersion ?? 0;
 
     if (version < Preferences.CURRENT_VERSION) {
-      const { options: mOptions, debug: mDebug } = await Preferences._migrateLegacyPrefs();
+      const { settings: mOptions, debug: mDebug } = await Preferences._migrateLegacyPrefs();
       // avoid overwriting newer backup with older one:
-      if (options["LicenseKey.backup"] !== undefined) {
-        mOptions["LicenseKey.backup"] = options["LicenseKey.backup"];
+      if (settings["LicenseKey.backup"] !== undefined) {
+        mOptions["LicenseKey.backup"] = settings["LicenseKey.backup"];
       }
-      options = {
+      settings = {
         ...mOptions,
         settingsVersion: Preferences.CURRENT_VERSION,
       };
       debug = { ...mDebug };
       // store migrated data from Legacy Prefs
-      await browser.storage.local.set({ options });
+      await browser.storage.local.set({ settings });
       await browser.storage.local.set({ debug });
     }
     Preferences._data = {
       ...Preferences.Defaults,
-      ...options,
+      ...settings,
     };
     Preferences._debugData = {
       ...Preferences.DebugDefaults,
@@ -201,8 +201,8 @@ export const Preferences = {
     Preferences._ready = true;
 
     function applyChanges(target, changesObj, updates) {
-      // the structure is changes.options.oldValue.key  [changes.debug.oldValue.key]
-      // and              changes.options.newValue.key  [changes.debug.newValue.key]
+      // the structure is changes.settings.oldValue.key  [changes.debug.oldValue.key]
+      // and              changes.settings.newValue.key  [changes.debug.newValue.key]
       const oldV = changesObj.oldValue || {};
       const newV = changesObj.newValue || {};
 
@@ -229,13 +229,13 @@ export const Preferences = {
       if (area !== "local") {
         return;
       }
-      if (!changes.options && !changes.debug) {
+      if (!changes.settings && !changes.debug) {
         return;
       }
       const updates = {};
 
-      if (changes.options) {
-        applyChanges(Preferences._data, changes.options, updates);
+      if (changes.settings) {
+        applyChanges(Preferences._data, changes.settings, updates);
       }
 
       if (changes.debug) {
@@ -300,9 +300,9 @@ export const Preferences = {
       return;
     }
     Preferences._data[name] = value;
-    const { options } = await browser.storage.local.get({ options: {} });
-    options[name] = value;
-    await browser.storage.local.set({ options });
+    const { settings } = await browser.storage.local.get({ settings: {} });
+    settings[name] = value;
+    await browser.storage.local.set({ settings });
   },
 
   getBool(name) {
@@ -373,7 +373,7 @@ export const Preferences = {
       }
     }
 
-    return { options: migratedOptions, debug: migratedDebug };
+    return { settings: migratedOptions, debug: migratedDebug };
   },
 };
 
