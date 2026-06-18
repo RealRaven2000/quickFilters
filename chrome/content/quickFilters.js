@@ -439,7 +439,7 @@ var quickFilters = {
 
   showOptions: function () {
     quickFilters.Util.notifyTools.notifyBackground({
-      func: "quickFiltersSettings"
+      func: "quickFiltersSettings",
     });
   },
 
@@ -546,7 +546,7 @@ var quickFilters = {
               });
 
               // XPCOM - nsIMsgHdr
-              let realMessage = await window.quickFilters.WL.extension.messageManager.get(m.id);
+              let realMessage = await window.quickFilters.Util.messageManager.get(m.id);
               selectedMessages.push(realMessage || m);
               selectedMessageUris.push(null); // there is no URI!
             }
@@ -625,7 +625,7 @@ var quickFilters = {
                     );
                     let realFolder = window.quickFilters.Util.folderManager.get(
                       firstSelectedMsg.folder.accountId,
-                      firstSelectedMsg.folder.path,
+                      firstSelectedMsg.folder.path
                     );
                     currentMessageFolder = realFolder;
                   } catch (ex) {
@@ -655,7 +655,7 @@ var quickFilters = {
               fA = Ci.nsMsgFilterAction.MarkFlagged; // ??
             }
             
-            const isAssistantModeHTML = quickFilters.Preferences.isAssistantModeHTML();
+            const isAssistantModeHTML = quickFilters.Preferences.isAssistantModeHTML;
             const isFromMsgContext =
               eventDetail && (isAssistantModeHTML ? theContext === "fromMessageContext" : true);
 
@@ -679,7 +679,7 @@ var quickFilters = {
           }
         } catch(ex) {
           util.logException("createFilterFromMsg", ex);
-          if (quickFilters.Preferences.isDebug()) {
+          if (quickFilters.Preferences.isDebug) {
             // eslint-disable-next-line no-debugger
             debugger;
           }
@@ -991,7 +991,7 @@ var quickFilters = {
             : Ci.nsMsgFilterAction.CopyToFolder,
           filterActionExt: null,
           isMsgContext: false,
-          context: "onTreeviewDrop"
+          context: "onTreeviewDrop",
         });
       });
     } catch (e) {
@@ -1097,7 +1097,7 @@ var quickFilters = {
                 : Ci.nsMsgFilterAction.CopyToFolder,
               filterActionExt: null,
               isMsgContext: false,
-              context: "onFolderTreeDrop"
+              context: "onFolderTreeDrop",
             });
           });
         }
@@ -1188,7 +1188,7 @@ var quickFilters = {
           buttons.map((btn) => [
             btn.pref,
             prefs.getBoolPref(`quickfolders.curFolderbar.${btn.pref}`),
-          ]),
+          ])
         );
 
         buttons.forEach((btn) => {
@@ -1375,7 +1375,7 @@ var quickFilters = {
             filterAction: fA, // Custom action for archive
             filterActionExt: "Archive",
             isMsgContext: false, // optional, if you want to be explicit
-            context: "wrappedArchive"
+            context: "wrappedArchive",
           };      
           await quickFilters.Worker.startFilterAssistant(params);  
           util.logDebugOptional("msgMove", "After calling startFilterAssistant()");
@@ -1398,7 +1398,7 @@ var quickFilters = {
         const Ci = Components.interfaces;
         quickFilters.Util.logDebugOptional(
           "assistant,msgMove",
-          `doCommandWrapper(${cmd}, ${aTab}):`,
+          `doCommandWrapper(${cmd}, ${aTab}):`
         );
 
         (async () => {
@@ -1412,7 +1412,7 @@ var quickFilters = {
             if (quickFilters.Preferences.getBoolPref("assistant.exclude.trash")) {
               quickFilters.Util.logDebugOptional(
                 "assistant,msgMove",
-                "Not invoking assistant on delete as it is excluded.",
+                "Not invoking assistant on delete as it is excluded."
               );
               return;
             }
@@ -2094,7 +2094,7 @@ quickFilters.CustomTermReplyTo = {
       default:
         return false;
     }
-  }
+  },
   
 }; // CustomTermReplyTo
 
@@ -2181,13 +2181,13 @@ quickFilters.addTagListener = function(win) {
   if (!currentTogglerFunction) {
     util.logToConsole(
       "getMail3PaneWindow - Could not retrieve the original ToggleMessageTage function from main window:\n" +
-        util.getMail3PaneWindow(),
+        util.getMail3PaneWindow()
     );
     return false; // let's short ciruit here
   }
   if (typeof currentTogglerFunction.fromQuickFilters !== "undefined") {
     util.logDebug(
-      "quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n",
+      "quickFilters.addTagListener: ToggleMessageTag.fromQuickFilters already is set\n"
     );
     return false;
   }
@@ -2201,7 +2201,7 @@ quickFilters.addTagListener = function(win) {
       "listeners",
       "ToggleMessageTagWrapped()" +
         `\nwin.quickFilters == quickFilters: ${win.quickFilters == quickFilters}` +
-        `\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: ${currentTogglerFunction == tmt}`,
+        `\noriginalTagToggler == contextWin.quickFilters.ToggleMessageTag: ${currentTogglerFunction == tmt}`
     );
 
     win.quickFilters_ToggleMessageTag(tag, checked);
@@ -2253,7 +2253,7 @@ quickFilters.addTagListener = function(win) {
 
   util.logDebugOptional(
     "listeners",
-    "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag + "\n adding flag...",
+    "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag + "\n adding flag..."
   );
   owningObject._toggleMessageTag.fromQuickFilters = true; // add a property flag to avoid recursion!
   util.logDebugOptional("listeners", "typeof ToggleMessageTag =" + typeof win.ToggleMessageTag);
@@ -2455,7 +2455,7 @@ quickFilters.TabListener = {
         quickFilters.Util.logDebug("new Tab patched successfully.");
       }
     }
-  } 
+  }, 
 }
 
 
