@@ -378,7 +378,7 @@ quickFilters.Assistant = {
     await quickFilters.Util.logDebug("cancelTemplate()");
     quickFilters.Assistant.initialised = false; // avoid templateSelect timer
     this.hasSentResult = true;
-    await browser.runtime.sendMessage({
+    browser.runtime.sendMessage({
       command: "assistantResult",
       requestId,
       result: "cancelled",
@@ -392,7 +392,9 @@ quickFilters.Assistant = {
       answer: false,
       mergeFilters: null,
     });
-    window.close();
+    setTimeout(() => {
+      window.close();
+    }, 50);
     return true;
   },
 
