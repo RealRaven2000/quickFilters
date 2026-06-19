@@ -35,7 +35,7 @@ async function onLoad(activatedWhileWindowOpen) {
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
   let layout3 = WL.injectCSS(
-    "chrome://quickfilters/content/skin/quickFilters-actionButton.css?v=6.9",
+    "chrome://quickfilters/content/skin/quickFilters-actionButton.css?v=6.9"
   );
   window.quickFilters.Util.logDebug("injected style sheets:", layout, layout2, layout3);
 
@@ -126,7 +126,7 @@ async function onLoad(activatedWhileWindowOpen) {
           switch (lic.status.toLowerCase()) {
             case "unknown":
               window.quickFilters.Util.logHighlightDebug(
-                "getQuickFolderslicense() - not yet supported by current version.",
+                "getQuickFolderslicense() - not yet supported by current version."
               );
               break;
             case "valid":
@@ -137,7 +137,7 @@ async function onLoad(activatedWhileWindowOpen) {
               let txt = window.quickFilters.Util.getBundleString(
                 "quickfilters.notification.QF.navigationbar",
                 txtDefault,
-                ["quickFilters"],
+                ["quickFilters"]
               );
               window.quickFilters.Util.alert(txt);
               return;
@@ -165,7 +165,7 @@ async function onLoad(activatedWhileWindowOpen) {
       case RUNFILTERFROMTREE_ID:
         window.quickFilters.onApplyFilters(
           true,
-          window.quickFilters.Util.getMsgFolderFromUri(eventDetail?.folderURI),
+          window.quickFilters.Util.getMsgFolderFromUri(eventDetail?.folderURI)
         );
         window.quickFilters._lastDoCommandTime = Date.now();
         break;
@@ -249,7 +249,7 @@ async function onLoad(activatedWhileWindowOpen) {
   Services.scriptloader.loadSubScript(
     "chrome://quickfilters/content/scripts/qFi-ui-polyfill.js",
     window,
-    "UTF-8",
+    "UTF-8"
   );
 
   // Enable the global notify notifications from background.
@@ -264,7 +264,7 @@ async function onLoad(activatedWhileWindowOpen) {
   listener_toggleFolder = window.quickFilters.toggleCurrentFolderButtons.bind(window.quickFilters);
   window.addEventListener(
     "quickFilters.BackgroundUpdate.toggleCurrentFolderButtons",
-    listener_toggleFolder,
+    listener_toggleFolder
   );
 
   listener_initKeyListener = window.quickFilters.addKeyListener.bind(window.quickFilters, window);
@@ -275,7 +275,7 @@ async function onLoad(activatedWhileWindowOpen) {
       "listener_doCommand()",
       "white",
       "magenta",
-      event.detail,
+      event.detail
     );
     if (!event.detail.windowId) {
       console.warn("listener_doCommand failed - missing detail.windowId!");
@@ -289,18 +289,18 @@ async function onLoad(activatedWhileWindowOpen) {
       window.quickFilters.doCommand.call(
         window.quickFilters,
         event.detail.commandItem,
-        event.detail,
+        event.detail
       );
     }
   };
   window.addEventListener("quickFilters.BackgroundUpdate.doCommand", listener_doCommand);
 
   listener_updatequickFiltersLabel = window.quickFilters.updatequickFiltersLabel.bind(
-    window.quickFilters,
+    window.quickFilters
   );
   window.addEventListener(
     "quickFilters.BackgroundUpdate.updatequickFiltersLabel",
-    listener_updatequickFiltersLabel,
+    listener_updatequickFiltersLabel
   );
 
   // The following will only work if we are currently in a mail pane (ATN update)
@@ -310,7 +310,7 @@ async function onLoad(activatedWhileWindowOpen) {
     `qFi-messenger onLoad triggered, selectedTab: mode.name=${selectedTab?.mode?.name}`,
     "yellow",
     "rgb(0, 128, 50)",
-    selectedTab,
+    selectedTab
   );
   if (selectedTab && window.quickFilters.Util.isTabMode(selectedTab, "mail")) {
     window.quickFilters.patchMailPane();
@@ -334,7 +334,7 @@ async function onLoad(activatedWhileWindowOpen) {
           "quickFilters Update",
           `Important - Thunderbird just updated from quickFilters 6.0 - you may have run a previous version of quickFilters which could not restore the action 'move message'. 
   Instead it will likely copy the messages right now.
-  Please restart Thunderbird to avoid duplicate messages!`,
+  Please restart Thunderbird to avoid duplicate messages!`
         );
       }
 
@@ -343,7 +343,7 @@ async function onLoad(activatedWhileWindowOpen) {
         quickFilters.MsgMoveCopy_Wrapper(
           destFolder,
           false,
-          callBackCommands.quickFilters_cmd_moveMessage,
+          callBackCommands.quickFilters_cmd_moveMessage
         );
       };
 
@@ -352,7 +352,7 @@ async function onLoad(activatedWhileWindowOpen) {
         quickFilters.MsgMoveCopy_Wrapper(
           destFolder,
           true,
-          callBackCommands.quickFilters_cmd_copyMessage,
+          callBackCommands.quickFilters_cmd_copyMessage
         );
       };
 

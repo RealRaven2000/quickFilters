@@ -199,7 +199,7 @@ quickFilters.Options = {
 				let p = { 
           id: it.getAttribute('name'), 
           name: it.getAttribute('name'),
-          type: it.getAttribute('type') 
+          type: it.getAttribute('type'), 
         };
 				prefArray.push(p);
         // manually change the shortname in the preference attribute to the actual
@@ -602,7 +602,7 @@ quickFilters.Options = {
   notifyToolbars: function() {
     // update toolbar of message list window
     quickFilters.Util.notifyTools.notifyBackground({ func: "setupListToolbar" });
-  }
+  },
 
 } // Options
 
