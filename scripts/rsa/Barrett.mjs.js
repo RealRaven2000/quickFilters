@@ -62,7 +62,7 @@ export class Barrett {
 
     BarrettMu_powMod(x, y) {
 			
-      let isLog = true; //use LegacyPrefs API messenger.LegacyPrefs.getPref(); QuickFolders.Preferences.isDebugOption('premium.rsa');
+      let isLog = true; 
       
       BigIntModule.logDebug('BarrettMu_powMod()');
       BigIntModule.init();
@@ -79,9 +79,11 @@ export class Barrett {
             + ('     ' + k.digits[0]).slice(-5)   // left pad number
             + '  a=' + a.digits + '\n';
         }
-        if ((k.digits[0] & 1) != 0) result = this.multiplyMod(result, a);
+        if ((k.digits[0] & 1) != 0) {
+          result = this.multiplyMod(result, a);
+        }
         k = BigIntModule.biShiftRight(k, 1);
-        if (k.digits[0] == 0 && BigIntModule.biHighIndex(k) == 0) break;
+        if (k.digits[0] == 0 && BigIntModule.biHighIndex(k) == 0) { break; }
         a = this.multiplyMod(a, a);
       }
       if (isLog) {
