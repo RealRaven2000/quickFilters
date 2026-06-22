@@ -63,6 +63,11 @@ label {
   display: flex;
   align-items: center;
 }
+label:has(input:focus-visible) {
+  outline: 1px dotted currentColor;
+  outline-offset: 0px;
+}
+
 
 *[collapsed=true] {
   display: none !important;

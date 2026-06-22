@@ -441,9 +441,13 @@ label.proFeature[disabled] {
 .text-link {
   cursor: pointer;
   color: var(--link-color);
+
 }
 
-
+.text-link:focus-visible {
+  outline: 1px dotted currentColor !important;
+  outline-offset: 2px;
+}
 
 .quickhelp-desc {
 	text-align:justify;
@@ -512,6 +516,11 @@ label.text-link[visited="true"] {
 	/* vertical-align: middle !important;
 	/* text-align: center; */
 	font-size: 12px;
+}
+label.text-link:focus-visible {
+  outline: 2px dotted black !important;
+  outline-offset: 3px !important;
+  text-decoration: underline !important;
 }
 
 #L1 {
@@ -607,7 +616,7 @@ label#L3:active {
 label#L4  {
 	color: #fff !important;
   background: linear-gradient(rgb(3, 128, 191) 0%, rgb(0, 110, 183) 100%);
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 label#L4:hover, label#L4:active  {
@@ -616,16 +625,16 @@ label#L4:hover, label#L4:active  {
 
 
 
-/* bugs - dark gray */
+/* bugs - bluish green */
 #L5 {
-	background-image: linear-gradient(to bottom, rgb(53, 53, 53) 0%, rgb(12, 12, 12) 100%) !important;
+	background-image: linear-gradient(180deg, #2ea043, #1a7c72);
 	background-color: rgb(27, 27, 27) !important;
 	color: #E0F0E0 !important;
 }
 
 label#L5:hover, label#L5:focus {
 	background-color: rgb(41, 9, 5) !important;
-	background-image: linear-gradient(to bottom, rgb(53, 53, 53) 0%, rgb(34, 34, 34) 100%) !important;
+	background: linear-gradient(180deg, #39b052, #1f8a7d) !important;
 	color: #fff !important;
 	border: 1px #912801 solid;
 }
@@ -688,10 +697,37 @@ button.configSettings {
   list-style-image: url("../chrome/content/skin/settings-simple.svg") !important;
 }
 .configSettings.withlabel {
+  align-items: center;
   background: url("../chrome/content/skin/settings-simple.svg") no-repeat;
   background-position: 5px center;
+  background-color: var(--button-background-color);
+  border-width: 1px !important;
+    border-color: light-dark(
+    color-mix(in srgb, black 35%, transparent),
+    color-mix(in srgb, white 35%, transparent)
+  ) !important;
+  border-style: solid !important;
+  display: inline-flex;
   padding-left: 24px;
+  outline: none !important;
+  text-align: left;
+  width: fit-content;
 }
+
+.configSettings.withlabel:focus-visible {
+  outline: 1px dotted currentColor !important;
+  outline-offset: 1px;
+}
+
+.configSettings.withlabel:hover {
+  outline: 1px solid var(--in-content-border-color, #999);
+}
+
+.configSettings.withlabel:focus-visible {
+  outline: 1px dotted currentColor;
+  outline-offset: 0;
+}
+
 
 .hasConfigEvent button.configSettings:hover {
 	fill: var(--configColor);
