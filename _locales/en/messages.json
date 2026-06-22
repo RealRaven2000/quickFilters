@@ -1489,11 +1489,11 @@
   },
   "whats-new-list": {
     "description": "🇬🇧 change log",
-    "message": "{L}Added compatibility with Thunderbird 152.{/L}{L}Added Czech translation.{/L}{L}Added option in Message Filters dialog to search filters by full folder path used in move/copy actions.{/L}{L}Improved QuickFolders current folder bar integration.{/L}{L}Fixed an issue where message preview was unavailable when moving mail to local folders.{/L}"
+    "message": "{L}Added compatibility with Thunderbird 153.{/L}{L}Added Czech translation.{/L}{L}Added option in Message Filters dialog to search filters by full folder path used in move/copy actions.{/L}{L}Improved QuickFolders current folder bar integration.{/L}{L}Fixed an issue where message preview was unavailable when moving mail to local folders.{/L}{L}Converted quickFilters settings to use local storage instead of legacy preferences. You can now reset quickFilters to its default behavior by removing the Add-on and then reinstalling it.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}This release aligns {b}{+extensionName}{/b} with recent Thunderbird platform planning changes. A previously announced restriction that would allow legacy Add-ons to only run on the ESR channel has been postponed to a later ESR cycle (currently targeted for 2027).{/P} {P}No immediate action is required. {b}{+extensionName}{/b} continues to support both Release and ESR versions of Thunderbird where compatible.{/P} {P}Users relying on advanced or experimental features may prefer the ESR channel for a more stable environment. The recommended migration point from Release to ESR is Thunderbird 153 (expected July 2026).{/P}"
+    "message": "{P}This release aligns {b}{+extensionName}{/b} with recent Thunderbird platform planning changes. A previously announced restriction that would allow legacy Add-ons to only run on the ESR channel has been postponed to a later ESR cycle (currently targeted for 2027).{/P} {P}While {b}{+extensionName}{/b} continues to support both Release and ESR versions of Thunderbird where compatible, it may be better to switch to the ESR channel to secure a more stable update path. {/P} {P}The recommended migration point from Release to ESR is Thunderbird 153 (expected July 2026).{/P}"
   },
   "whats-new-maintenance": {
     "message": "Maintenance Update $ver$. This particular fix was added since the previous release.",

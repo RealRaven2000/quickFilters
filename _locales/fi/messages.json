@@ -1484,11 +1484,11 @@
   },
   "whats-new-list": {
     "description": "🇫🇮 change log",
-    "message": "{L}Lisätty yhteensopivuus Thunderbird 152:n kanssa.{/L}{L}Lisätty tšekinkielinen käännös.{/L}{L}Lisätty vaihtoehto viestisuodattimien hallintaan suodattimien hakemiseksi koko kansiopolun perusteella siirto-/kopiointitoiminnoissa.{/L}{L}Parannettu QuickFoldersin nykyisen kansion palkin integraatiota.{/L}{L}Korjattu ongelma, jossa viestin esikatselu ei ollut käytettävissä siirrettäessä viestejä paikallisiin kansioihin.{/L}"
+    "message": "{L}Lisätty yhteensopivuus Thunderbird 153:n kanssa.{/L}{L}Lisätty tšekinkielinen käännös.{/L}{L}Lisätty vaihtoehto viestisuodattimien valintaikkunaan suodattaa sääntöjä koko kansiopolun perusteella siirto-/kopiointitoiminnoissa.{/L}{L}Parannettu QuickFoldersin nykyisen kansion palkin integrointi.{/L}{L}Korjattu ongelma, jossa viestin esikatselu ei ollut käytettävissä siirrettäessä sähköposteja paikallisiin kansioihin.{/L}{L}quickFilters-asetukset on siirretty käyttämään paikallista tallennusta vanhojen asetusten sijaan. Voit nyt palauttaa quickFiltersin oletuskäyttäytymisen poistamalla lisäosan ja asentamalla sen uudelleen.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}Tämä julkaisu linjaa {b}{+extensionName}{/b}:n Thunderbird-alustan viimeaikaisten suunnittelumuutosten kanssa. Aiemmin ilmoitettu rajoitus, jonka mukaan vanhat lisäosat toimisivat vain ESR-kanavalla, on siirretty myöhempään ESR-sykliin (tällä hetkellä suunniteltu vuodelle 2027).{/P} {P}Välittömiin toimenpiteisiin ei ole tarvetta. {b}{+extensionName}{/b} toimii edelleen Thunderbirdin Release- ja ESR-versioissa, joissa se on tuettu.{/P} {P}Käyttäjät, jotka hyödyntävät edistyneitä tai kokeellisia ominaisuuksia, voivat suosia ESR-kanavaa vakaamman ympäristön vuoksi. Suositeltu siirtymäkohta Release-versiosta ESR:ään on Thunderbird 153 (odotettu heinäkuussa 2026).{/P}"
+    "message": "{P}Tämä julkaisu sovittaa {b}{+extensionName}{/b} Thunderbirdin alustan suunnittelun uusimpiin muutoksiin. Aiemmin ilmoitettu rajoitus, jonka mukaan vanhat lisäosat toimisivat vain ESR-kanavalla, on siirretty myöhempään ESR-jaksoon (tällä hetkellä suunniteltu vuodelle 2027).{/P} {P}Vaikka {b}{+extensionName}{/b} tukee edelleen sekä Release- että ESR-versioita Thunderbirdistä silloin kun se on mahdollista, ESR-kanavaan siirtyminen voi olla parempi vaihtoehto vakaamman päivityspolun vuoksi. {/P} {P}Suositeltu siirtymäkohta Release-versiosta ESR:ään on Thunderbird 153 (arvioitu heinäkuulle 2026).{/P}"
   },
   "whats-new-maintenance": {
     "message": "Huoltopäivitys $ver$. Tämä yksittäinen korjaus lisättiin edellisestä versiosta lähtien.",

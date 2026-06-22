@@ -1462,11 +1462,11 @@
   },
   "whats-new-list": {
     "description": "🇨🇿 change log",
-    "message": "{L}Přidána kompatibilita s Thunderbirdem 152.{/L}{L}Přidán český překlad.{/L}{L}Přidána možnost ve správci filtrů vyhledávat filtry podle úplné cesty složky použité v akcích přesunu/kopírování zpráv.{/L}{L}Vylepšena integrace lišty aktuální složky v QuickFolders.{/L}{L}Opraven problém, kdy nebyl k dispozici náhled zprávy při přesouvání e-mailů do místních složek.{/L}"
+    "message": "{L}Přidána kompatibilita s Thunderbird 153.{/L}{L}Přidán český překlad.{/L}{L}Přidána možnost v dialogu Filtry zpráv vyhledávat filtry podle celé cesty složky použité v akcích přesunu/kopírování.{/L}{L}Vylepšena integrace lišty aktuální složky QuickFolders.{/L}{L}Opraven problém, kdy náhled zprávy nebyl dostupný při přesouvání pošty do lokálních složek.{/L}{L}Nastavení quickFilters bylo převedeno na lokální úložiště místo starších preferencí. Nyní lze quickFilters resetovat na výchozí chování odstraněním a opětovnou instalací doplňku.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}Toto vydání uvádí {b}{+extensionName}{/b} do souladu s aktuálními změnami v plánování platformy Thunderbird. Dříve oznámené omezení, které by umožnilo, aby starší doplňky fungovaly pouze na kanálu ESR, bylo odloženo do pozdějšího cyklu ESR (aktuálně plánováno na rok 2027).{/P} {P}Není nutná žádná okamžitá akce. {b}{+extensionName}{/b} nadále funguje na verzích Thunderbird Release i ESR, kde je to podporováno.{/P} {P}Uživatelé spoléhající na pokročilé nebo experimentální funkce mohou preferovat kanál ESR pro stabilnější prostředí. Doporučený bod migrace z Release na ESR je Thunderbird 153 (očekáváno v červenci 2026).{/P}"
+    "message": "{P}Toto vydání slaďuje {b}{+extensionName}{/b} s nedávnými změnami v plánování platformy Thunderbird. Dříve oznámené omezení, které mělo povolit starší doplňky pouze v ESR kanálu, bylo odloženo na pozdější ESR cyklus (aktuálně cíleno na rok 2027).{/P} {P}Ačkoli {b}{+extensionName}{/b} nadále podporuje jak verze Release, tak ESR Thunderbirdu tam, kde je to možné, může být vhodnější přejít na ESR kanál pro stabilnější aktualizační cestu. {/P} {P}Doporučený bod migrace z Release na ESR je Thunderbird 153 (očekáváno v červenci 2026).{/P}"
   },
   "whats-new-maintenance": {
     "message": "Údržbová aktualizace $ver$. Tato konkrétní oprava byla přidána od předchozí verze.",

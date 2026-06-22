@@ -1486,11 +1486,11 @@
   },
   "whats-new-list": {
     "description": "🇳🇱 change log",
-    "message": "{L}Compatibiliteit met Thunderbird 152 toegevoegd.{/L}{L}Tsjechische vertaling toegevoegd.{/L}{L}Optie toegevoegd in de filterbeheerder om filters te zoeken op het volledige mappad dat wordt gebruikt bij verplaats-/kopieeracties.{/L}{L}Integratie van de QuickFolders-balk voor huidige map verbeterd.{/L}{L}Probleem opgelost waarbij berichtvoorbeeld niet beschikbaar was bij het verplaatsen naar lokale mappen.{/L}"
+    "message": "{L}Compatibiliteit met Thunderbird 153 toegevoegd.{/L}{L}Tsjechische vertaling toegevoegd.{/L}{L}Optie toegevoegd in het berichtfilterdialoog om filters te zoeken op het volledige mappad dat wordt gebruikt in verplaats-/kopieeracties.{/L}{L}Integratie van de QuickFolders huidige mapbalk verbeterd.{/L}{L}Probleem opgelost waarbij berichtvoorbeeld niet beschikbaar was bij het verplaatsen naar lokale mappen.{/L}{L}quickFilters-instellingen zijn overgezet naar lokale opslag in plaats van verouderde voorkeuren. Je kunt quickFilters nu resetten naar standaardgedrag door de add-on te verwijderen en opnieuw te installeren.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}Deze release brengt {b}{+extensionName}{/b} in lijn met recente planningswijzigingen van het Thunderbird-platform. Een eerder aangekondigde beperking die legacy add-ons alleen op het ESR-kanaal zou laten werken, is uitgesteld naar een latere ESR-cyclus (momenteel gepland voor 2027).{/P} {P}Er is geen directe actie vereist. {b}{+extensionName}{/b} blijft werken op zowel Release- als ESR-versies van Thunderbird waar ondersteund.{/P} {P}Gebruikers die afhankelijk zijn van geavanceerde of experimentele functies kunnen het ESR-kanaal prefereren voor een stabielere omgeving. Het aanbevolen migratiepunt van Release naar ESR is Thunderbird 153 (verwacht in juli 2026).{/P}"
+    "message": "{P}Deze release brengt {b}{+extensionName}{/b} in lijn met recente wijzigingen in de planningsaanpak van het Thunderbird-platform. Een eerder aangekondigde beperking die oudere add-ons alleen op het ESR-kanaal zou laten werken, is uitgesteld naar een later ESR-cyclus (momenteel gepland voor 2027).{/P} {P}Hoewel {b}{+extensionName}{/b} zowel Release- als ESR-versies van Thunderbird blijft ondersteunen waar compatibel, kan het beter zijn om over te stappen naar het ESR-kanaal voor een stabieler updatepad. {/P} {P}Het aanbevolen migratiepunt van Release naar ESR is Thunderbird 153 (verwacht in juli 2026).{/P}"
   },
   "whats-new-maintenance": {
     "message": "Onderhoudsupdate $ver$. Deze specifieke fix is toegevoegd sinds de vorige release.",

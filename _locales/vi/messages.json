@@ -1484,11 +1484,11 @@
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{L}Thêm khả năng tương thích với Thunderbird 152.{/L}{L}Thêm bản dịch tiếng Séc.{/L}{L}Thêm tùy chọn trong Trình quản lý Bộ lọc để tìm kiếm bộ lọc theo toàn bộ đường dẫn thư mục được dùng trong thao tác di chuyển/sao chép.{/L}{L}Cải thiện tích hợp thanh thư mục hiện tại của QuickFolders.{/L}{L}Sửa lỗi không hiển thị bản xem trước thư khi di chuyển vào thư mục cục bộ.{/L}"
+    "message": "{L}Thêm khả năng tương thích với Thunderbird 153.{/L}{L}Thêm bản dịch tiếng Séc.{/L}{L}Thêm tùy chọn trong hộp thoại bộ lọc thư để tìm bộ lọc theo đường dẫn thư mục đầy đủ dùng trong thao tác di chuyển/sao chép.{/L}{L}Cải thiện tích hợp thanh thư mục hiện tại của QuickFolders.{/L}{L}Khắc phục sự cố khi xem trước thư không khả dụng khi di chuyển thư vào thư mục cục bộ.{/L}{L}Cài đặt quickFilters đã được chuyển sang lưu trữ cục bộ thay vì tùy chọn cũ. Bạn có thể đặt lại quickFilters về mặc định bằng cách gỡ và cài đặt lại tiện ích bổ sung.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}Bản phát hành này giúp {b}{+extensionName}{/b} phù hợp với các thay đổi gần đây trong kế hoạch nền tảng Thunderbird. Một hạn chế được công bố trước đây, theo đó các tiện ích cũ chỉ có thể chạy trên kênh ESR, đã được hoãn sang một chu kỳ ESR sau (hiện dự kiến năm 2027).{/P} {P}Không cần thực hiện hành động ngay. {b}{+extensionName}{/b} vẫn tiếp tục hỗ trợ cả phiên bản Release và ESR của Thunderbird khi tương thích.{/P} {P}Người dùng phụ thuộc vào các tính năng nâng cao hoặc thử nghiệm có thể ưu tiên kênh ESR để có môi trường ổn định hơn. Mốc chuyển đổi khuyến nghị từ Release sang ESR là Thunderbird 153 (dự kiến tháng 7 năm 2026).{/P}"
+    "message": "{P}Bản phát hành này giúp {b}{+extensionName}{/b} phù hợp với các thay đổi gần đây trong kế hoạch nền tảng của Thunderbird. Một hạn chế đã được thông báo trước đây, theo đó các tiện ích cũ chỉ được chạy trên kênh ESR, đã được hoãn sang một chu kỳ ESR sau (hiện dự kiến vào năm 2027).{/P} {P}Mặc dù {b}{+extensionName}{/b} vẫn hỗ trợ cả phiên bản Release và ESR của Thunderbird khi tương thích, việc chuyển sang kênh ESR có thể là lựa chọn tốt hơn để có lộ trình cập nhật ổn định hơn. {/P} {P}Điểm chuyển đổi khuyến nghị từ Release sang ESR là Thunderbird 153 (dự kiến tháng 7 năm 2026).{/P}"
   },
   "whats-new-maintenance": {
     "message": "Cập nhật bảo trì $ver$. Bản sửa lỗi cụ thể này đã được thêm từ bản phát hành trước.",

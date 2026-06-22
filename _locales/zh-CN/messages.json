@@ -1476,11 +1476,11 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}新增对 Thunderbird 152 的兼容支持。{/L}{L}新增捷克语翻译。{/L}{L}在过滤器管理器中新增按用于移动/复制操作的完整文件夹路径搜索过滤器的选项。{/L}{L}改进 QuickFolders 当前文件夹栏的集成。{/L}{L}修复将邮件移动到本地文件夹时无法显示邮件预览的问题。{/L}"
+    "message": "{L}新增对 Thunderbird 153 的兼容性。{/L}{L}新增捷克语翻译。{/L}{L}在邮件过滤器对话框中新增按用于移动/复制操作的完整文件夹路径搜索过滤器的选项。{/L}{L}改进 QuickFolders 当前文件夹栏的集成。{/L}{L}修复将邮件移动到本地文件夹时无法预览邮件的问题。{/L}{L}quickFilters 设置已迁移到本地存储而非旧版首选项。现在可以通过删除并重新安装附加组件来重置为默认行为。{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}本版本使 {b}{+extensionName}{/b} 与 Thunderbird 平台的最新规划调整保持一致。此前宣布的一项限制（仅允许旧版扩展在 ESR 渠道运行）已推迟到更晚的 ESR 周期（目前预计为 2027 年）。{/P} {P}无需立即操作。{b}{+extensionName}{/b} 在兼容情况下仍可在 Thunderbird Release 和 ESR 版本中运行。{/P} {P}依赖高级或实验性功能的用户可能更倾向于 ESR 渠道，以获得更稳定的环境。建议从 Release 迁移到 ESR 的时间点为 Thunderbird 153（预计 2026 年 7 月）。{/P}"
+    "message": "{P}本版本使 {b}{+extensionName}{/b} 与 Thunderbird 平台规划的最新变化保持一致。此前宣布的“旧版附加组件仅允许在 ESR 频道运行”的限制已被推迟到更后的 ESR 周期（目前预计为 2027 年）。{/P} {P}尽管 {b}{+extensionName}{/b} 在兼容情况下仍支持 Thunderbird 的 Release 和 ESR 版本，但为了更稳定的更新路径，切换到 ESR 频道可能是更好的选择。 {/P} {P}从 Release 迁移到 ESR 的推荐节点是 Thunderbird 153（预计 2026 年 7 月）。{/P}"
   },
   "whats-new-maintenance": {
     "message": "维护更新 $ver$。此特定修复已包含在上一版本之后的更新中。",
