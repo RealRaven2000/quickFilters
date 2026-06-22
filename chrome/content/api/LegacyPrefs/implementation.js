@@ -202,17 +202,14 @@ var LegacyPrefs = class extends ExtensionCommon.ExtensionAPI {
             case Services.prefs.PREF_STRING:
               Services.prefs.setStringPref(aName, aValue);
               return true;
-              break;
 
             case Services.prefs.PREF_INT:
               Services.prefs.setIntPref(aName, aValue);
               return true;
-              break;
 
             case Services.prefs.PREF_BOOL:
               Services.prefs.setBoolPref(aName, aValue);
               return true;
-              break;
 
             default:
               console.error(
