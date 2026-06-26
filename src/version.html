@@ -248,6 +248,20 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       Compatible with Thunderbird 152. 
       Minimum version requirement for new versions increased to Thunderbird 140. 
     </li>
+    <li>
+      Converted Preferences from Legacy system (about:config) to local storage.
+      This was done for future proofing - all web extensions use local storage,
+      and the not the global configuration database that the app uses for its own
+      settings.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/367">[issue 367]</a>
+      <p>
+        This change also has the advantage to resetting all settings to default 
+        when you uninstall quickFilters. Note that this does not affect message filters
+        and custom filter templates, as these are stored by Thunderbird in local files
+        called <tt>msgFilterRules.dat</tt>.
+      </p>
+      I am planning to provide a function to backup / restore settings in the future.
+    </li>
 		<li> Added Czech translation </li>
 		<li>
       <p>
@@ -256,11 +270,19 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
         <a href="https://github.com/RealRaven2000/quickFilters/issues/366">[issue 366]</a>
         <br>
       </p>
-      <img src="img/search-target-folder-uri.png" alt="Search by Folder URI">
+      <img src="img/search-target-folder-uri.png" alt="Search by Folder Path" class="screenshot">
     </li>
 		<li>
       Improve QuickFolders current folder bar integration
       <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a>
+    </li>
+    <li>
+      Improved tabbed navigation and button layouts in settings pages.
+    </li>
+    <li>
+      Converted quickFilters settings to use local storage instead of legacy preferences.
+      This also means that you now can now reset quickFilters to its 
+      default behavior by removing the Add-on and then reinstalling it. 
     </li>
   </ul>
   <h5 class="inList"> Bugfixes </h5>  
@@ -299,7 +321,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     to avoid problems with deprecated APIs.      
   </p>
 
-  <h5 class="inList">Maintenance Update 6.12.3</h5>
+  <h5 class="inList">Maintenance Update 6.12.3 - 09/06/2026</h5>
   <ul>
     <li>Compatibility with Thunderbird 152</li>
     <li>
@@ -332,7 +354,9 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <a href="https://github.com/RealRaven2000/quickFilters/issues/349">[issue 349]</a>
     </li>
     <li>
-      Fixed: List-Id header case sensitivity caused filter creation with template "Mailing Lists" to fail. From now on, all custom header comparisons are case-insensitive for higher stability. 
+      Fixed: List-Id header case sensitivity caused filter creation with template 
+      "Mailing Lists" to fail. From now on, all custom header comparisons are case-insensitive
+      for higher stability. 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/350">[issue 350]</a>
     </li>
     <li>
