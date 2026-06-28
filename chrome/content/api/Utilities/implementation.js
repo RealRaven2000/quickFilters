@@ -233,7 +233,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
         updatePreferencesCache: (data) => {
           return win.quickFilters.Preferences.cache.updateFromBackend(data);
-        }
+        },
 
       },
     };

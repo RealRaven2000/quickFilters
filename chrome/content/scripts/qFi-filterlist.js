@@ -316,12 +316,12 @@ async function onLoad(_activatedWhileWindowOpen) {
           window.quickFilters.Util.patchToolbarTheme(event, {
             win: window,
             doc: document,
-            toolbarId: "quickfilters-toolbar"
+            toolbarId: "quickfilters-toolbar",
           });
         },
         500
       );
-    }
+    },
   }
   window.addEventListener("windowlwthemeupdate", quickFilters_themeHandler);
   window.addEventListener("activate", quickFilters_themeHandler);

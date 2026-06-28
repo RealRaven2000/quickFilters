@@ -784,6 +784,7 @@ function registerNotifyListener() {
         });
         */
        case "test-storage-editor":
+      case "test-storage-editor":
         webExtensionStorageEditor.open({
           storageArea: "local",
           baseFilter: "debug.",
