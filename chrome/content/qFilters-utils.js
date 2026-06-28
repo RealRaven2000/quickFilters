@@ -504,7 +504,7 @@ quickFilters.Util = {
         quickFilters.Util.notifyTools.notifyBackground({
           func: "slideAlert",
           title, 
-          text
+          text,
         });
         return; 
       });
@@ -3223,7 +3223,7 @@ quickFilters.mimeDecoder = {
       addresses += addressField;
 		}
 		return addresses;
-	} // split
+	}, // split
 };  // quickFilters.mimeDecoder
 
 
@@ -3239,7 +3239,7 @@ if (!quickFilters.Util.Accounts) {
           aAccounts.push(ac);
         };
         return aAccounts;
-      }
+      },
     }
   );
 }
@@ -3313,7 +3313,7 @@ if (!quickFilters.Shim) {
 			return null;
 		} ,
 		
-		dummy: ", <== end Shim properties here"
+		dummy: ", <== end Shim properties here",
 	} // end of Shim definition
 };
 /*** <<<===== END Code moved from chimEcma/qFilters-shim-ecma.js  **/
