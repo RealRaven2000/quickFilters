@@ -165,7 +165,7 @@ permalink: fq-versions.html
     <h5 class="inList">Improvements</h5>
     <ul>
       <li>
-        Increased strict_max_version to 153.* We are ready for the next ESR cycle!
+        Increased strict_max_version to 153.* and made FiltaQuilla ready for the next ESR cycle.
       </li>
       <li>
         <p>
@@ -173,45 +173,59 @@ permalink: fq-versions.html
           <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/403">[issue 403]</a>.
         </p>
         <p>
-          This may lead to slow down but it is necessary for searches that may require 
-          parts of the message to be downloaded - in which case the search term needs to "know" it.
+          This may slow down performance because some searches require parts of the 
+          message body to be downloaded. In those cases, the search term needs access 
+          to the message content.
         </p>
-        This can be disabled in settings (advanced users only):<br>
-        <img class="screenshot" style="transform: scale(0.8); transform-origin: top left; margin-right:-140px;"
-        src="img/javascript-needsbody.png" alt="needsBody switch">
+        <p>
+          This feature can be disabled in Settings (advanced users only).<br>
+        </p>        
+        <img class="screenshot" 
+             style="transform: scale(0.8); transform-origin: top left; margin-right:-140px;"
+             src="img/javascript-needsbody.png" alt="needsBody switch">
       </li>
       <li>
-        Made regex options panel theme compatible
-      </li>
-      <li>
-        Added tooltip to regular expression option for case insensitive matching
-      </li>
-      <li>
-        Header regex: headers like "in-reply-to" are not exposed and do not work
+        Header regex can now access message headers that Thunderbird does not normally expose 
+        (e.g. "In-Reply-To").
         <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/395">[issue 395]</a>.
-        This can now be enabled with a switch:<br>
+        This feature is disabled by default because it requires reading the raw message 
+        contents, which can slow down filtering, especially with large mailboxes or at startup,
+        and can be enabled via the Settings button:<br>
         <img class="screenshot" style="transform: scale(0.8); transform-origin: top left; margin-right:-140px;" 
         src="img/regex-header-needsBody.png" alt="needsBody switch">
       </li>
       <li>
         <p>
-          New macros: Prepend / Append Date to subject
+           Prepend / Append Date to subject
           <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/398">[issue 398]</a>
         </p>
         <p>
-          Added <code>%date()%</code> switch for subject prefix/append. See SmartTemplates date format documentation:
-          <a href="https://smarttemplates.quickfolders.org/variables.html#customDates">custom date formats</a>
+          Added <code>%date()%</code> placeholder in subject prefixes and suffixes. 
+          See SmartTemplates date format documentation:
+          <a href="https://smarttemplates.quickfolders.org/variables.html#customDates">custom 
+            date formats</a>.
+          You can choose between the current date and the date of the email.
         </p>
         <p>
           Example:<br>
-          Prefix Subject: <code>%date("Y-m-d")% [Important]</code>
+          Prefix Subject: <code>%date("Y-m-d",current)% [Important]</code>
         </p>
+      </li>
+      <li>
+        Improved theme compatibility of the regex options panel.
+      </li>
+      <li>
+        Added tooltip for case-insensitive regular expression matching
       </li>
     </ul>
     <h5 class="inList">Bug Fixes</h5>
     <ul>
       <li>
-        Fixed regex pseudo-flag "c" which forces case-sensitive matching, overriding the global regex case-insensitive option
+        Fixed regex pseudo-flag "c" which forces case-sensitive matching and overrides the global case-insensitive option
+      </li>
+      <li> 
+        Hardened ToneQuilla against path errors 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/380">[issue 380]</a>
       </li>
     </ul>
   </li>
