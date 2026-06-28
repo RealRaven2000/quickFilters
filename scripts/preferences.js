@@ -1,5 +1,5 @@
 export const Preferences = {
-  CURRENT_VERSION: 1.5,
+  CURRENT_VERSION: 1.61,
   Defaults: {
     // === NAMING ===
     "naming.targetAccount": false,
@@ -200,7 +200,7 @@ export const Preferences = {
 
     Preferences._ready = true;
 
-    function applyChanges(target, changesObj, updates) {
+    function applyChanges(target, changesObj, updates, defaults) {
       // the structure is changes.settings.oldValue.key  [changes.debug.oldValue.key]
       // and              changes.settings.newValue.key  [changes.debug.newValue.key]
       const oldV = changesObj.oldValue || {};
@@ -209,7 +209,11 @@ export const Preferences = {
       for (const [key, val] of Object.entries(oldV)) {
         if (newV[key] === undefined) {
           delete target[key];
-          delete updates[key];
+          if (Object.prototype.hasOwnProperty.call(defaults, key)) {
+            updates[key] = defaults[key];
+          } else {
+            delete updates[key];
+          }
           continue;
         }
 
@@ -233,15 +237,12 @@ export const Preferences = {
         return;
       }
       const updates = {};
-
       if (changes.settings) {
-        applyChanges(Preferences._data, changes.settings, updates);
+        applyChanges(Preferences._data, changes.settings, updates, Preferences.Defaults);
       }
-
       if (changes.debug) {
-        applyChanges(Preferences._debugData, changes.debug, updates);
+        applyChanges(Preferences._debugData, changes.debug, updates, Preferences.DebugDefaults);
       }
-
       if (!Object.keys(updates).length) {
         // no effective changes
         return;
@@ -280,6 +281,36 @@ export const Preferences = {
     return (
       Preferences._debugData[`debug.${key}`] ?? Preferences.DebugDefaults[`debug.${key}`] ?? false
     );
+  },
+
+  async setMultiple(prefs) {
+    if (!prefs || typeof prefs !== "object") {
+      return;
+    }
+    const settingsPatch = {};
+    for (const [name, value] of Object.entries(prefs)) {
+      if (name.startsWith("debug")) {
+        console.error("setMultiple: debug key rejected", name);
+        continue;
+      }
+      if (this._data[name] === value) {
+        continue;
+      }
+      this._data[name] = value;
+      settingsPatch[name] = value;
+    }
+
+    const keys = Object.keys(settingsPatch);
+    if (!keys.length) {
+      return;
+    }
+
+    await browser.storage.local.set({
+      settings: {
+        ...this._data,
+        ...settingsPatch,
+      },
+    });
   },
 
   async set(name, value) {
@@ -339,11 +370,15 @@ export const Preferences = {
     // these stored entities have no defaults:
     const specialValues = ["LicenseKey.backup", "debug"];
 
-    for (const key of [
+    const migrationKeys = [
       ...Object.keys(this.Defaults),
       ...Object.keys(this.DebugDefaults),
       ...specialValues,
-    ]) {
+    ]
+      .filter((key, index, arr) => arr.indexOf(key) === index)
+      .sort();
+
+    for (const key of migrationKeys) {
       const legacyKey = legacy_root + key;
 
       try {
@@ -356,7 +391,9 @@ export const Preferences = {
         const normalized = this._normalizeType(key, value);
 
         // ---- DEBUG SPLIT ----
-        if (key === "debug") {
+        // Legacy pref named "debug" becomes debugActive in the new debug object.
+        // There is never a legacy "debugActive" key, but this keeps the branch explicit.
+        if (key === "debug" || key === "debugActive") {
           migratedDebug.debugActive = normalized;
           continue;
         }
