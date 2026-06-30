@@ -23,6 +23,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         },
 
         logDebug(text) {
+          let win = this.latestMainWindow();
           win.quickFilters.Util.logDebug(text);
         },
 
