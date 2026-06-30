@@ -769,21 +769,12 @@ function registerNotifyListener() {
         notifyWhenUIReady({ event: "updateCurrentFolderBar" });
         break;
 
-      case "prefs:get":
-        return Preferences.get(data.key);
       case "prefs:set":
-        Preferences.set(data.key, data.value);
+        await Preferences.set(data.key, data.value);
         return true;
       case "requestPrefCache":
         // send cached data to quickFilters.Preferences.cache.updateFromBackend(data)
         return Preferences._data;
-        /*
-        messenger.NotifyTools.notifyExperiment({
-          event: "updatePrefsCache",
-          data: Preferences._data,
-        });
-        */
-       case "test-storage-editor":
       case "test-storage-editor":
         webExtensionStorageEditor.open({
           storageArea: "local",
