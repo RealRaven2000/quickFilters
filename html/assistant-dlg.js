@@ -79,8 +79,8 @@ const quickFiltersPrefs = {
   },
 
   async get(id) {
-    const key = this._map[id];
-    if (!key) {
+    const key = this._map[id] || id;
+    if (!this._map[id] && !id.includes(".")) {
       throw new Error(`Unknown preference id: ${id}`);
     }
 
@@ -96,8 +96,8 @@ const quickFiltersPrefs = {
   },
 
   async set(id, value) {
-    const key = this._map[id];
-    if (!key) {
+    const key = this._map[id] || id;
+    if (!this._map[id] && !id.includes(".")) {
       throw new Error(`Unknown preference id: ${id}`);
     }
 
@@ -641,7 +641,25 @@ quickFilters.Assistant = {
       command: "getLicenseInfo",
     });
 
-    if (await this.getPref("templates.custom")) {
+    let hasCustomTemplates = await quickFiltersPrefs.get("templates.custom");
+    if (typeof hasCustomTemplates !== "undefined") {
+      quickFilters.Util.logHighlightDebug(
+        " loadAssistant() ",
+        "rgba(250, 235, 119, 1)",
+        "#9d4201ff",
+        `hasCustomTemplates ${hasCustomTemplates}`
+      );
+    } else {
+      quickFilters.Util.logHighlightDebug(
+        " loadAssistant() ",
+        "rgba(250, 235, 119, 1)",
+        "#9d4201ff",
+        `hasCustomTemplates is undefined!`
+      );
+    }
+
+
+    if (hasCustomTemplates) {
       // add custom template(s)
       // from local folders account
       // Uses background to call experimental API
@@ -649,6 +667,14 @@ quickFilters.Assistant = {
         command: "getFilters",
         sourceUri: "local",
       });
+      await quickFilters.Util.logHighlightDebug(
+        " loadAssistant() ",
+        "rgba(250, 235, 119, 1)",
+        "#9d4201ff",
+        "getFilters",
+        {filterItems}
+      );    
+
       const firstItem = templateList.firstElementChild;
 
       for (let i = 0; i < filterItems.length; i++) {
