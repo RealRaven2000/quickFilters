@@ -195,7 +195,7 @@
       {
         "type": "function",
         "name": "updatePreferencesCache",
-        "description": "updates any data changes to the legacy pref cache",
+        "description": "updates any data changes to the experimental pref cache",
         "parameters": [
           {
             "name": "data",
