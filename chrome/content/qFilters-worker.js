@@ -23,6 +23,33 @@ quickFilters.Worker = {
   reRunCount: 0, // avoid endless loop
   promiseCreateFilter: false, // quickmove semaphor
 
+  waitForCoreReady: async function () {
+    // Cross-add-on calls can arrive before quickFilters finished startup in this window.
+    const currentWindow = window;
+    const getWindowContext = () => {
+      const doc = currentWindow?.document;
+      const docUri = doc?.documentURI || currentWindow?.location?.href || "(unknown-uri)";
+      const winType = doc?.documentElement?.getAttribute("windowtype") || "(unknown-type)";
+      return `${docUri} [${winType}]`;
+    };
+
+    if (quickFilters?.Preferences?.isDebugOption?.("assistant")) {
+      quickFilters?.Util?.logDebug(`waitForCoreReady() context: ${getWindowContext()}`);
+    }
+
+    for (let attempt = 0; attempt < 20; attempt++) {
+      const hasNotify = !!quickFilters?.Util?.notifyTools?.notifyBackground;
+      const cacheGate = quickFilters?.Preferences?.cache?.awaitReady;
+      if (hasNotify && cacheGate) {
+        await cacheGate;
+        return true;
+      }
+      await new Promise((resolve) => currentWindow.setTimeout(resolve, 50));
+    }
+    quickFilters?.Util?.logDebug(`waitForCoreReady() timeout in context: ${getWindowContext()}`);
+    return false;
+  },
+
   // FILTER WIZARD FUNCTIONS ...
   showMessage: function showMessage(show) {
     quickFilters.Preferences.setBoolPref("filters.showMessage", show);
@@ -2414,6 +2441,7 @@ quickFilters.Worker = {
     isSlow,
     retry
   ) {
+    await this.waitForCoreReady();
     // not used anymore
     if (quickFilters.isNewAssistantMode) {
       console.warn("EARLY EXIT createFilterAsync: isNewAssistantMode is deprecated!");
@@ -2537,6 +2565,7 @@ quickFilters.Worker = {
    * @param {boolean} [params.isMsgContext=false] - Whether invoked form mail context menu.
    */
   startFilterAssistant: async function (params) {
+    await this.waitForCoreReady();
     // old params: (sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isMsgContext=false)
     const Ci = Components.interfaces;
     if (quickFilters.Preferences.isDebugOption("assistant")) {
