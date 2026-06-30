@@ -569,6 +569,39 @@ function stripEllipsis(label) {
   return label;
 }
 
+function makeAssistantRequestId() {
+  return `assistant_external_${Date.now()}`;
+}
+
+function isFolderDescriptor(folder) {
+  return !!folder && typeof folder.accountId === "string" && typeof folder.path === "string";
+}
+
+function isApiMessageDescriptor(message) {
+  return !!message && !!message.messageId && isFolderDescriptor(message.folder);
+}
+
+function normalizeExternalAssistantPayload(message) {
+  // Future protocol note:
+  // current "context" is overloaded and may later be split into
+  // - mode: behavioral assistant path
+  // - reason: origin / trigger, e.g. QuickFolders.quickMove
+  const selectedApiMessages = Array.isArray(message.selectedApiMessages)
+    ? message.selectedApiMessages.filter(isApiMessageDescriptor)
+    : [];
+
+  return {
+    context: message.context || "fromMessageContext",
+    requestId: message.requestId || makeAssistantRequestId(),
+    sourceFolder: isFolderDescriptor(message.sourceFolder) ? message.sourceFolder : null,
+    targetFolder: isFolderDescriptor(message.targetFolder) ? message.targetFolder : null,
+    selectedApiMessages,
+    filterAction: message.filterAction,
+    filterActionExt: message.filterActionExt,
+    selectedFilters: Array.isArray(message.selectedFilters) ? message.selectedFilters : [],
+  };
+}
+
 
 
 
@@ -952,6 +985,31 @@ async function main() {
 
   messenger.runtime.onMessageExternal.addListener(async (message, _sender) => {
     switch (message.command) {
+      case "startQuickFiltersAssistant": {
+        const payload = normalizeExternalAssistantPayload(message);
+        if (!payload.selectedApiMessages.length && !payload.sourceFolder) {
+          return {
+            ok: false,
+            error: "startQuickFiltersAssistant requires selectedApiMessages or sourceFolder",
+          };
+        }
+
+        try {
+          await displayAssistant(payload);
+          return {
+            ok: true,
+            requestId: payload.requestId,
+          };
+        } catch (ex) {
+          console.error("startQuickFiltersAssistant failed", ex);
+          return {
+            ok: false,
+            requestId: payload.requestId,
+            error: ex.message,
+          };
+        }
+      }
+
       case "updateQuickFoldersLicense": // fall-through
       case "injectButtonsQFNavigationBar":
         // call the code for injecting the toolbar buttons that integrate with QF current folder bar
