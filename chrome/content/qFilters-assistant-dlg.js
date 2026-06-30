@@ -168,9 +168,15 @@ quickFilters.Assistant = {
 
     const templateList = this.TemplateList,
       util = quickFilters.Util,
-      prefs = quickFilters.Preferences;
+    prefs = quickFilters.Preferences;
 
     await quickFilters.Util.init();
+    if (prefs?.cache?.awaitReady) {
+      await prefs.cache.awaitReady;
+    } else {
+      console.warn("Preferences cache not ready yet, but continuing anyway.");
+    }
+    console.log(`loadAssistant: custom templates enabled: ${prefs.getBoolPref("templates.custom")}`);
 
     // wire up dialog buttons manually in Thunderbird 68 (something going wrong there with the click events)
     let dlgButtons = document.getElementsByTagName("dialog")[0]._buttons;
@@ -395,7 +401,13 @@ quickFilters.Assistant = {
         for (let i = 0; i < listbox.itemCount; i++) {
           let item = listbox.getItemAtIndex(i);
           if (item.value == "replyto") {
-            listbox.removeItemAt(i);
+            if (typeof listbox.removeItemAt === "function") {
+              listbox.removeItemAt(i);
+            } else if (item && typeof item.remove === "function") {
+              item.remove();
+            } else if (item && item.parentNode) {
+              item.parentNode.removeChild(item);
+            }
             break;
           }
         }
