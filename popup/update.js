@@ -61,10 +61,16 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     const manifest = await messenger.runtime.getManifest(),
       browserInfo = await messenger.runtime.getBrowserInfo(),
       addonName = manifest.name,
-      userName = await messenger.Utilities.getUserName(),
       addonVer = manifest.version,
       appVer = browserInfo.version,
       remindInDays = 10;
+
+    let userName = "user";
+    try {
+      userName = (await messenger.Utilities.getUserName()) || "user";
+    } catch (ex) {
+      console.warn("Could not retrieve user name for update screen:", ex);
+    }
 
     // internal functions
     function hideSelectorItems(cId) {
