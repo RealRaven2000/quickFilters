@@ -125,6 +125,8 @@ async function onLoad(activatedWhileWindowOpen) {
     
     `);
 
+  await window.quickFilters.Preferences.cache.awaitReady;
+
 	const dlg = document.querySelector("dialog");
 	dlg.setAttribute(
     "title",
