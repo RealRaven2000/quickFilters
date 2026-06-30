@@ -27,18 +27,21 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         },
 
         getUserName: function () {
-          const util = win.quickFilters.Util;
-          let Accounts = util.Accounts;
-          for (let a = 0; a < Accounts.length; a++) {
-            let account = Accounts[a];
-            if (account.defaultIdentity) {
-              let name = account.defaultIdentity.fullName;
-              if (name) {
-                return name;
+          try {
+            const Accounts = MailServices.accounts;
+            for (let a = 0; a < Accounts.length; a++) {
+              let account = Accounts[a];
+              if (account.defaultIdentity) {
+                let name = account.defaultIdentity.fullName;
+                if (name) {
+                  return name;
+                }
               }
             }
+          } catch (ex) {
+            console.warn("Utilities.getUserName() failed:", ex);
           }
-          return "user"; // anonymous
+          return "User"; // anonymous
         },
 
         showVersionHistory: function () {
