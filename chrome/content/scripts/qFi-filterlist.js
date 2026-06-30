@@ -13,9 +13,9 @@ async function configureToolbar() {
 
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/quickFilters.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-utils.js", window, "UTF-8");
+Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-list.js", window, "UTF-8");
-Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 
 /*  execute quickFilters.List.onLoadFilterList() when loading window   */
 /* Services.scriptloader.loadSubScript("chrome://quickfilters/content/overlayFilterList.js", window, "UTF-8"); */
@@ -24,6 +24,7 @@ var quickFilters_themeHandler;
 
 // eslint-disable-next-line no-unused-vars
 async function onLoad(_activatedWhileWindowOpen) {
+  await window.quickFilters.Preferences.cache.awaitReady;
   WL.injectCSS("chrome://quickfilters/content/filterList.css");
   WL.injectCSS("chrome://quickfilters/content/filterWidgets.css");
 
