@@ -137,6 +137,7 @@ export const Preferences = {
     "debug.dnd": false,
     "debug.events": false,
     "debug.events.keyboard": false,
+    "debug.externalMsgApi": false,
     "debug.filters": false,
     "debug.filterEdit": false,
     "debug.filterList": false,
@@ -166,6 +167,44 @@ export const Preferences = {
   _data: {},
   _debugData: {},
   _ready: false,
+
+  async _seedMissingDefaultsToStorage(settings, debug) {
+    let hasSettingsSeed = false;
+    let hasDebugSeed = false;
+
+    for (const [key, value] of Object.entries(Preferences.Defaults)) {
+      if (typeof settings[key] === "undefined") {
+        settings[key] = value;
+        hasSettingsSeed = true;
+      }
+    }
+
+    for (const [key, value] of Object.entries(Preferences.DebugDefaults)) {
+      if (typeof debug[key] === "undefined") {
+        debug[key] = value;
+        hasDebugSeed = true;
+      }
+    }
+
+    if (hasSettingsSeed || hasDebugSeed) {
+      const sortedSettings = Object.fromEntries(
+        Object.entries(settings).sort(([a], [b]) => a.localeCompare(b))
+      );
+      const sortedDebug = Object.fromEntries(
+        Object.entries(debug).sort(([a], [b]) => a.localeCompare(b))
+      );
+
+      await browser.storage.local.set({
+        settings: sortedSettings,
+        debug: sortedDebug,
+      });
+
+      // Keep in-memory objects aligned with persisted sorted order.
+      Object.assign(settings, sortedSettings);
+      Object.assign(debug, sortedDebug);
+    }
+  },
+
   async init() {
     // a flat object. e.g. stored["refreshHeaders.wait"] = 150;
     let { settings = {}, debug = {} } = await browser.storage.local.get({
@@ -189,6 +228,11 @@ export const Preferences = {
       await browser.storage.local.set({ settings });
       await browser.storage.local.set({ debug });
     }
+
+    // Seed missing defaults into persisted storage even when no legacy migration runs.
+    // This ensures new keys appear in storage editors and can be toggled directly.
+    await Preferences._seedMissingDefaultsToStorage(settings, debug);
+
     Preferences._data = {
       ...Preferences.Defaults,
       ...settings,
