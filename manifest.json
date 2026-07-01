@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.13pre1",
+  "version": "6.13pre89",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -13,20 +13,13 @@
     "gecko": {
       "id": "quickFilters@axelg.com",
       "strict_min_version": "140.0",
-      "strict_max_version": "151.*"
+      "strict_max_version": "154.*"
     }
   },
   "background": {
     "page": "qFi-background.html"
   },
-  "permissions": [
-    "accountsRead",
-    "notifications",
-    "menus",
-    "messagesRead",
-    "clipboardRead",
-    "tabs"
-  ],
+  "permissions": ["accountsRead", "clipboardRead", "notifications", "menus", "messagesRead", "storage", "tabs"],
   "browser_action": {
     "default_icon": {
       "19": "chrome/content/skin/QuickFilters.svg"

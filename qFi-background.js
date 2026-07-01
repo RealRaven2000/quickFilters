@@ -571,6 +571,8 @@ function stripEllipsis(label) {
 
 // [issue 373] Background-global singleton for external quickFilters command bridge.
 const ExternalMessageApi = {
+  _quickFoldersCapabilities: null,
+
   // ===================
   // HELPER FUNCTIONS
   _makeAssistantRequestId() {
@@ -581,6 +583,77 @@ const ExternalMessageApi = {
   },
   _isApiMessageDescriptor(message) {
     return !!message && !!message.messageId && this._isFolderDescriptor(message.folder);
+  },
+  async _queryQuickFoldersCapabilities() {
+    try {
+      const result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME, {
+        command: "listExternalCommands",
+      });
+      const commands = Array.isArray(result?.commands)
+        ? result.commands
+            .map((entry) => entry?.functionName)
+            .filter((name) => typeof name === "string" && name.trim())
+        : [];
+
+      this._quickFoldersCapabilities = {
+        ok: true,
+        commands,
+        timestamp: Date.now(),
+      };
+      return this._quickFoldersCapabilities;
+    } catch {
+      this._quickFoldersCapabilities = {
+        ok: false,
+        commands: [],
+        timestamp: Date.now(),
+      };
+      return this._quickFoldersCapabilities;
+    }
+  },
+  async _hasQuickFoldersCommand(commandName) {
+    if (!this._quickFoldersCapabilities) {
+      await this._queryQuickFoldersCapabilities();
+    }
+
+    if (!this._quickFoldersCapabilities?.ok) {
+      return false;
+    }
+
+    return this._quickFoldersCapabilities.commands.includes(commandName);
+  },
+  async sendToQuickFolders(command, payload = {}, options = {}) {
+    const requireCapability = options?.requireCapability !== false;
+    if (requireCapability) {
+      const supported = await this._hasQuickFoldersCommand(command);
+      if (!supported) {
+        return {
+          ok: false,
+          unavailable: true,
+          error: `${command} is not supported by QuickFolders`,
+        };
+      }
+    }
+
+    try {
+      const result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME, {
+        command,
+        ...payload,
+      });
+
+      if (typeof result === "object" && result) {
+        return result;
+      }
+
+      return {
+        ok: true,
+      };
+    } catch (ex) {
+      return {
+        ok: false,
+        unavailable: true,
+        error: ex?.message || `Failed to call QuickFolders command: ${command}`,
+      };
+    }
   },
   // Future protocol note:
   // current "context" is overloaded and may later be split into
@@ -808,6 +881,20 @@ function registerNotifyListener() {
           detail: { active: data.active },
         });
         break;
+
+      case "setQuickFoldersAssistantMode":
+        return await ExternalMessageApi.sendToQuickFolders(
+          "setAssistantMode",
+          { active: !!data.active },
+          { requireCapability: true }
+        );
+
+      case "setQuickFoldersCurrentFolderFilterActive":
+        return await ExternalMessageApi.sendToQuickFolders(
+          "setCurrentFolderFilterButton",
+          { active: !!data.active },
+          { requireCapability: true }
+        );
 
       case "setupListToolbar":
         notifyWhenUIReady({ event: "setupListToolbar" });

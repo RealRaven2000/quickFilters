@@ -2480,7 +2480,8 @@ quickFilters.Util = {
     if (mnuToggle) {
       mnuToggle.label = theLabel;
     }
-    if (window.QuickFolders) {
+
+    const updateQuickFoldersCurrentFolderButton = function () {
       // update assistant buttons in all current folder toolbars
       for (let tabInfo of gTabmail.tabInfo.filter(
         (t) => t.mode.name === "mail3PaneTab" || t.mode.name === "mailMessageTab"
@@ -2494,7 +2495,32 @@ quickFilters.Util = {
           btnFilterToggle.setAttribute("mode", isActive ? "filter" : "");
         }
       }
+    };
+
+    if (!quickFilters.Util.notifyTools?.notifyBackground) {
+      if (window.QuickFolders) {
+        updateQuickFoldersCurrentFolderButton();
+      }
+      return;
     }
+
+    quickFilters.Util.notifyTools
+      .notifyBackground({
+        func: "setQuickFoldersCurrentFolderFilterActive",
+        active: !!isActive,
+      })
+      .then((result) => {
+        // Temporary fallback for older QuickFolders builds without external command support.
+        if (!result?.ok && window.QuickFolders) {
+          updateQuickFoldersCurrentFolderButton();
+        }
+      })
+      .catch(() => {
+        if (window.QuickFolders) {
+          updateQuickFoldersCurrentFolderButton();
+        }
+      });
+
   },
 
   showLicenseDialog: function (featureName) {
