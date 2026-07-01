@@ -228,6 +228,9 @@ END LICENSE BLOCK
     # [issue 364] HTML Assistant cannot read API message preview when moving mail to local folder
     # [issue 365] Improve QuickFolders current folder bar integration
     # [issue 366] Search filters by folder URI (parts of target folder path)
+    # [issue 372] Fixed: Console error thrown by getUserName
+    # [issue 373] Modernize calling assistant: use external Message list
+    # [issue 374] External API discovery function: add and document listExternalCommands
 
 
   ============================================================================================================
