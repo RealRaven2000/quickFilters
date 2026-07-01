@@ -671,6 +671,68 @@ const ExternalMessageApi = {
     };
   },
 
+  // [issue 373] External command discovery for add-on handshake and transition logic.
+  getCatalog() {
+    return [
+      {
+        functionName: "isAssistantActive",
+        description: "Returns whether assistant mode is currently active.",
+        parameters: [],
+      },
+      {
+        functionName: "setAssistantMode",
+        description: "Sets assistant mode active state and updates assistant buttons.",
+        parameters: [{ name: "active", description: "Boolean target state for assistant mode." }],
+      },
+      {
+        functionName: "getPref",
+        description: "Reads a cached quickFilters preference value by key.",
+        parameters: [{ name: "key", description: "Preference key, for example assistant.html." }],
+      },
+      {
+        functionName: "createFilter",
+        description:
+          "Replacement for legacy quickFilters.Worker.createFilterAsync; currently routed through assistant flow.",
+        parameters: [
+          { name: "context", description: "The context in which the assistant is started." },
+          { name: "requestId", description: "A unique identifier for the assistant request." },
+          { name: "sourceFolder", description: "The source folder for the assistant." },
+          { name: "targetFolder", description: "The target folder for the assistant." },
+          { name: "selectedApiMessages", description: "TODO: add description" },
+          { name: "filterAction", description: "TODO: add description" },
+          { name: "filterActionExt", description: "TODO: add description" },
+          { name: "selectedFilters", description: "TODO: add description" },
+        ],
+      },
+      {
+        functionName: "startAssistant",
+        description: "Opens a new Filter assistant process based on passed mail data and context.",
+        parameters: [
+          { name: "context", description: "The context in which the assistant is started." },
+          { name: "requestId", description: "A unique identifier for the assistant request." },
+          { name: "sourceFolder", description: "The source folder for the assistant." },
+          { name: "targetFolder", description: "The target folder for the assistant." },
+          { name: "selectedApiMessages", description: "TODO: add description" },
+          { name: "filterAction", description: "TODO: add description" },
+          { name: "filterActionExt", description: "TODO: add description" },
+          { name: "selectedFilters", description: "TODO: add description" },
+        ],
+      },
+      {
+        functionName: "updateQuickFoldersLicense",
+        description: "Reads updated state data from QuickFolders license information.",
+        parameters: [{ name: "license", description: "The license information to update." }],
+      },
+      {
+        functionName: "injectButtonsQFNavigationBar",
+        description: "inject / display quickFilters action buttons in QuickFolders navigation bar",
+        parameters: [
+          { name: "license", description: "Current license status information of QuickFolders" },
+        ],
+      },
+    ];
+  },
+};
 
 function registerNotifyListener() {
   messenger.NotifyTools.onNotifyBackground.addListener(async (data) => {
@@ -1093,18 +1155,29 @@ async function main() {
         // replaces direct access to quickFilters legacy prefs from QuickFolders:
         // uses cache for speed. can also be used to retrieve current debug settings
         return ExternalMessageApi.readPreference(message);
+
+      // [issue 373] External command discovery for add-on handshake and transition logic.
+      case "listExternalCommands": {
+        const commands = ExternalMessageApi.getCatalog();
+        const functionName =
+          typeof message.functionName === "string" && message.functionName.trim()
+            ? message.functionName.trim()
+            : null;
+
+        if (functionName) {
+          const command = commands.find((entry) => entry.functionName === functionName) || null;
           return {
             ok: true,
-            requestId: payload.requestId,
-          };
-        } catch (ex) {
-          console.error("startQuickFiltersAssistant failed", ex);
-          return {
-            ok: false,
-            requestId: payload.requestId,
-            error: ex.message,
+            functionName,
+            exists: !!command,
+            command,
           };
         }
+
+        return {
+          ok: true,
+          commands,
+        };
       }
 
       // [issue 373] replacement for legacy quickFilters.Worker.createFilterAsync()
