@@ -288,7 +288,9 @@ var quickFilters = {
   firstRunChecked: false,
   firstRunCount: 0,
   quickFilters_originalDrop: null,
-  isNewAssistantMode: false /* restore monkey patch */,
+  // was esNewAssistantMode, now optimised out
+  // Keep property for legacy QuickFolders reads.
+  isNewAssistantMode: false,
   isLoading: false,
   get notificationService() {
     return MailServices.mfn; //nsIMsgFolderNotificationService
@@ -933,12 +935,6 @@ var quickFilters = {
       `onFolderTreeViewDrop\ntarget = ${event.target.innerText}`
     );
 
-    if (quickFilters.isNewAssistantMode) {
-      // test code with deprecated folder listener!
-      console.warn("EARLY EXIT onFolderTreeViewDrop: isNewAssistantMode is deprecated!");
-      return;
-    }
-
     let row = event.target.closest("li");
     let targetFolder = MailServices.folderLookup.getFolderForURL(row.uri);
 
@@ -1017,12 +1013,6 @@ var quickFilters = {
       dataTransfer = evt.dataTransfer ? evt.dataTransfer : treeView._currentTransfer,
       types = dataTransfer.mozTypesAt(0); // one flavor
     if (!types.contains("text/x-moz-message") || !quickFilters.Util.AssistantActive) {
-      return false;
-    }
-
-    if (quickFilters.isNewAssistantMode) {
-      // will be handled by folder listener!
-      console.warn("EARLY EXIT onFolderTreeDrop: isNewAssistantMode is deprecated!");
       return false;
     }
 
@@ -1407,7 +1397,7 @@ var quickFilters = {
         (async () => {
           try {
             // assistant logic
-            let isAssistant = quickFilters.Util.AssistantActive && !quickFilters.isNewAssistantMode;
+            let isAssistant = quickFilters.Util.AssistantActive;
             if (!isAssistant) {
               return;
             }
@@ -1778,12 +1768,10 @@ quickFilters.MsgFolderListener = {
     }
 
     if (qF.Util.AssistantActive) {
-      if (!quickFilters.isNewAssistantMode) {
-        if (isMoveDebug) {
-          qF.Util.logDebug("New assistant mode disabled, msgsMoveCopyCompleted does not invoke filter assistant.");
-        }
-        return; // early exit
+      if (isMoveDebug) {
+        qF.Util.logDebug("Legacy msgsMoveCopyCompleted assistant path is optimized out.");
       }
+      return; // early exit (kept for current ESR140 behavior)
 
       if (qF.Util.checkAssistantTargetExclusion(targetFolder)) {
         // Avoid triggering assistant for certain folders

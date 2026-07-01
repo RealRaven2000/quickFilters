@@ -30,7 +30,7 @@ var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServi
 quickFilters.Util = {
   ADDON_ID: "quickFilters@axelg.com",
   ADDON_SUPPORT_MAIL: "axel.grude@gmail.com",
-  AssistantActive: null, // replace worker.FilterMode
+  AssistantActive: null, // UI cache only. Canonical source lives in background script.
   mAppver: null,
   mAppName: null,
   mHost: null,
@@ -83,8 +83,12 @@ quickFilters.Util = {
           );
           let event;
           if (data.event == "setAssistantMode") {
-            if (data.detail) {
-              quickFilters.Util.AssistantActive = data.detail.active;
+            if (data.detail && typeof data.detail.active !== "undefined") {
+              const nextActive = !!data.detail.active;
+              if (quickFilters.Util.AssistantActive === nextActive) {
+                return;
+              }
+              quickFilters.Util.AssistantActive = nextActive;
               quickFilters.Util.logHighlightDebug(
                 " setAssistantMode() ",
                 "#ffffe0",
@@ -108,9 +112,7 @@ quickFilters.Util = {
     };
     quickFilters.Util.notifyTools.addListener(onBackgroundUpdates);
 
-    quickFilters.Util.AssistantActive = await quickFilters.Util.notifyTools.notifyBackground({
-      func: "getAssistantMode",
-    }); // replace worker.FilterMode
+    await quickFilters.Util.getAssistantMode(); // replace worker.FilterMode
     quickFilters.Util.licenseInfo = await quickFilters.Util.notifyTools.notifyBackground({
       func: "getLicenseInfo",
     });
@@ -141,6 +143,45 @@ quickFilters.Util = {
         info
       );
     }
+  },
+
+  async getAssistantMode() {
+    if (!(quickFilters.Util?.notifyTools?.notifyBackground)) {
+      throw new Error("notifyTools?.notifyBackground is not available in Util");
+    }
+
+    const active = await quickFilters.Util.notifyTools.notifyBackground({
+      func: "getAssistantMode",
+    });
+    quickFilters.Util.AssistantActive = !!active;
+    return quickFilters.Util.AssistantActive;
+  },
+
+  async setAssistantMode(active, options = {}) {
+    if (!(quickFilters.Util?.notifyTools?.notifyBackground)) {
+      throw new Error("notifyTools?.notifyBackground is not available in Util");
+    }
+
+    const shouldUpdateButton = options.updateButton !== false;
+    const normalizedActive = !!active;
+
+    await quickFilters.Util.notifyTools.notifyBackground({
+      func: "setAssistantMode",
+      active: normalizedActive,
+    });
+
+    if (shouldUpdateButton) {
+      await quickFilters.Util.notifyTools.notifyBackground({
+        func: "setAssistantButton",
+        active: normalizedActive,
+      });
+    }
+
+    // Update local cache immediately; background event will fan out to all windows.
+    if (quickFilters.Util.AssistantActive !== normalizedActive) {
+      quickFilters.Util.AssistantActive = normalizedActive;
+    }
+    return normalizedActive;
   },
 
   // special function for displaying the popup on the quickFilters toolbar button

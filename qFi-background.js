@@ -863,7 +863,13 @@ function registerNotifyListener() {
         return QF_license;
 
       case "setAssistantMode": // toggle "FilterMode"
-        AssistantActive = data.active;
+        {
+          const active = !!data.active;
+          if (AssistantActive === active) {
+            break;
+          }
+          AssistantActive = active;
+        }
         notifyWhenUIReady({
           event: "setAssistantMode",
           detail: { active: AssistantActive },
@@ -1219,6 +1225,14 @@ async function main() {
           return {
             ok: false,
             error: "setAssistantMode requires boolean active",
+          };
+        }
+
+        if (AssistantActive === active) {
+          return {
+            ok: true,
+            active: AssistantActive,
+            unchanged: true,
           };
         }
 

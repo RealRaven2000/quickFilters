@@ -19,7 +19,15 @@ END LICENSE BLOCK
 // note: in QuickFolder_s, this object is simply called "Filter"!
 quickFilters.Worker = {
   bundle: null,
-  FilterMode: false, // replace with Util.AssistantActive
+  // Legacy compatibility alias for older QuickFolders code paths.
+  get FilterMode() {
+    const result = !!quickFilters.Util.AssistantActive;
+    console.log(`deprecated FilterMode getter called. Returns ${result}`);
+    return result;
+  },
+  set FilterMode(active) {
+    quickFilters.Util.AssistantActive = !!active;
+  },
   reRunCount: 0, // avoid endless loop
   promiseCreateFilter: false, // quickmove semaphor
 
@@ -202,10 +210,8 @@ quickFilters.Worker = {
     // (to be replaced with the correct event in future)
     // internally, we will now use Util.AssistantActive
 
-    // remove use of getMail3PaneWindow via background notifications!
-    // replace setting FilterMode = active
-    quickFilters.Util.notifyTools.notifyBackground({ func: "setAssistantMode", active }); // set Util.AssistantActive - stores assistant mode for all windows - only main windows need to listen to this one!
-    quickFilters.Util.notifyTools.notifyBackground({ func: "setAssistantButton", active }); // reflect in UI of all Assistant buttons
+    // Canonical state is maintained in background. Local Util.AssistantActive is a synced cache.
+    await quickFilters.Util.setAssistantMode(active);
 
     if (!silent) {
       removeOldNotification(notifyBox, active, "quickfilters-filter");
