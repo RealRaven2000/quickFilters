@@ -22,9 +22,13 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           win.quickFilters.Util.showToolbarPopup();
         },
 
-        logDebug(text) {
+        logDebug(...args) {
           let win = this.latestMainWindow();
-          win.quickFilters.Util.logDebug(text);
+          if (win?.quickFilters?.Util?.logDebug) {
+            win.quickFilters.Util.logDebug(...args);
+            return;
+          }
+          console.log("quickFilters logDebug (early):", ...args);
         },
 
         getUserName: function () {
