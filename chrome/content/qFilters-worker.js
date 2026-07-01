@@ -101,9 +101,7 @@ quickFilters.Worker = {
       // do a tidy up in case this is already open!
       if (notifyBox) {
         try {
-          if (window.QuickFolders) {
-            removeOldNotification(notifyBox, false, "quickfolders-filter");
-          }
+          removeOldNotification(notifyBox, false, "quickfolders-filter");
         } catch {;}
 
         let item = notifyBox.getNotificationWithValue(notificationKey);
@@ -213,21 +211,25 @@ quickFilters.Worker = {
       removeOldNotification(notifyBox, active, "quickfilters-filter");
     }
 
-    // If QuickFolders is installed, we should also invoke its filter mode
-    if (window.QuickFolders) {
+    // Bridge-first integration: use external messaging instead of direct QuickFolders globals.
+    const syncQuickFoldersAssistant = await quickFilters.Util.notifyTools.notifyBackground({
+      func: "setQuickFoldersAssistantMode",
+      active,
+    });
+
+    // Temporary fallback for older QuickFolders builds without external command support.
+    if (!syncQuickFoldersAssistant?.ok && window.QuickFolders) { 
+      // legacy side-effects!
       let QF = window.QuickFolders,
         QFwork = QF.FilterWorker ? QF.FilterWorker : QF.Filter;
-      // we cannot supress the notification from QuickFolders
-      // without adding code in it!
       if (QFwork.FilterMode != active) {
-        // prevent recursion!
-        quickFilters.Util.logDebug("Toggle filter assistant mode in QuickFolders!");
-        await QFwork.toggle_FilterMode(active); // (active, silent) !!!
+        quickFilters.Util.logDebug("Toggle filter assistant mode in QuickFolders (legacy fallback)!");
+        await QFwork.toggle_FilterMode(active);
       }
+    }
 
-      if (!silent) {
-        removeOldNotification(notifyBox, active, "quickfolders-filter");
-      }
+    if (!silent) {
+      removeOldNotification(notifyBox, active, "quickfolders-filter");
     }
   },
 

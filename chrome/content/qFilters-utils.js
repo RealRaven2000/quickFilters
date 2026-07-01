@@ -2466,7 +2466,7 @@ quickFilters.Util = {
     }
   },
 
-  setAssistantButton: function (isActive) {
+  setAssistantButton: async function (isActive) {
     const doc = document,
       button = doc.getElementById("quickfilters-toolbar-button");
     if (button) {
@@ -2490,6 +2490,7 @@ quickFilters.Util = {
         if (!doc) {
           continue;
         }
+        // this is actually a side effect
         const btnFilterToggle = doc.getElementById("QuickFolders-currentFolderFilterActive");
         if (btnFilterToggle) {
           btnFilterToggle.setAttribute("mode", isActive ? "filter" : "");
@@ -2497,29 +2498,25 @@ quickFilters.Util = {
       }
     };
 
-    if (!quickFilters.Util.notifyTools?.notifyBackground) {
+    if (!(quickFilters.Util?.notifyTools?.notifyBackground)) {
+      throw new Error("notifyTools?.notifyBackground is not available in Util");
+    }
+
+    try {
+      const result = await quickFilters.Util.notifyTools.notifyBackground({
+        func: "setQuickFoldersCurrentFolderFilterActive",
+        active: !!isActive,
+      });
+
+      // Temporary fallback for older QuickFolders builds without external command support.
+      if (!result?.ok && window.QuickFolders) {
+        updateQuickFoldersCurrentFolderButton();
+      }
+    } catch {
       if (window.QuickFolders) {
         updateQuickFoldersCurrentFolderButton();
       }
-      return;
     }
-
-    quickFilters.Util.notifyTools
-      .notifyBackground({
-        func: "setQuickFoldersCurrentFolderFilterActive",
-        active: !!isActive,
-      })
-      .then((result) => {
-        // Temporary fallback for older QuickFolders builds without external command support.
-        if (!result?.ok && window.QuickFolders) {
-          updateQuickFoldersCurrentFolderButton();
-        }
-      })
-      .catch(() => {
-        if (window.QuickFolders) {
-          updateQuickFoldersCurrentFolderButton();
-        }
-      });
 
   },
 
