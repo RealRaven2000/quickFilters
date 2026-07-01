@@ -93,6 +93,8 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
           });
         },
 
+        // Uses quickFilters' custom experiment bridge: context.extension.folderManager.get(accountId, path).
+        // This is not a stock MailExtension API and intentionally maps accountId/path to nsIMsgFolder.URI.
         getFolderUri: async function (accountId, path = null) {
           const win = Services.wm.getMostRecentWindow("mail:3pane");
           try {
