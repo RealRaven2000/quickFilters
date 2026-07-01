@@ -569,40 +569,107 @@ function stripEllipsis(label) {
   return label;
 }
 
-function makeAssistantRequestId() {
-  return `assistant_external_${Date.now()}`;
-}
-
-function isFolderDescriptor(folder) {
-  return !!folder && typeof folder.accountId === "string" && typeof folder.path === "string";
-}
-
-function isApiMessageDescriptor(message) {
-  return !!message && !!message.messageId && isFolderDescriptor(message.folder);
-}
-
-function normalizeExternalAssistantPayload(message) {
+// [issue 373] Background-global singleton for external quickFilters command bridge.
+const ExternalMessageApi = {
+  // ===================
+  // HELPER FUNCTIONS
+  _makeAssistantRequestId() {
+    return `assistant_external_${Date.now()}`;
+  },
+  _isFolderDescriptor(folder) {
+    return !!folder && typeof folder.accountId === "string" && typeof folder.path === "string";
+  },
+  _isApiMessageDescriptor(message) {
+    return !!message && !!message.messageId && this._isFolderDescriptor(message.folder);
+  },
   // Future protocol note:
   // current "context" is overloaded and may later be split into
   // - mode: behavioral assistant path
   // - reason: origin / trigger, e.g. QuickFolders.quickMove
-  const selectedApiMessages = Array.isArray(message.selectedApiMessages)
-    ? message.selectedApiMessages.filter(isApiMessageDescriptor)
-    : [];
+  _normalizeParams(message) {
+    const selectedApiMessages = Array.isArray(message.selectedApiMessages)
+      ? message.selectedApiMessages.filter((entry) => this._isApiMessageDescriptor(entry))
+      : [];
 
-  return {
-    context: message.context || "fromMessageContext",
-    requestId: message.requestId || makeAssistantRequestId(),
-    sourceFolder: isFolderDescriptor(message.sourceFolder) ? message.sourceFolder : null,
-    targetFolder: isFolderDescriptor(message.targetFolder) ? message.targetFolder : null,
-    selectedApiMessages,
-    filterAction: message.filterAction,
-    filterActionExt: message.filterActionExt,
-    selectedFilters: Array.isArray(message.selectedFilters) ? message.selectedFilters : [],
-  };
-}
+    return {
+      context: message.context || "fromMessageContext",
+      requestId: message.requestId || this._makeAssistantRequestId(),
+      sourceFolder: this._isFolderDescriptor(message.sourceFolder) ? message.sourceFolder : null,
+      targetFolder: this._isFolderDescriptor(message.targetFolder) ? message.targetFolder : null,
+      selectedApiMessages,
+      filterAction: message.filterAction,
+      filterActionExt: message.filterActionExt,
+      selectedFilters: Array.isArray(message.selectedFilters) ? message.selectedFilters : [],
+    };
+  },
 
+  // ===================
+  // EXTERNAL INTERFACE METHODS - these are called from other add-ons via messenger.runtime.sendMessage(
+  // [issue 373] Validate external assistant launch requests and run the shared assistant entry path.
+  async launchAssistant(message, commandName) {
+    const payload = this._normalizeParams(message);
+    if (!payload.selectedApiMessages.length && !payload.sourceFolder) {
+      return {
+        ok: false,
+        error: `${commandName} requires selectedApiMessages or sourceFolder`,
+      };
+    }
 
+    try {
+      await displayAssistant(payload);
+      return {
+        ok: true,
+        requestId: payload.requestId,
+      };
+    } catch (ex) {
+      console.error(`${commandName} failed`, ex);
+      return {
+        ok: false,
+        requestId: payload.requestId,
+        error: ex.message,
+      };
+    }
+  },
+
+  // [issue 373] External replacement for quickFilters.Worker.createFilterAsync().
+  // Current implementation routes through displayAssistant() until a full filter API is available.
+  async createFilter(message) {
+    return this.launchAssistant(message, "createFilter");
+  },
+
+  // [issue 373] allow reading cached preference values from external add-ons query.
+  readPreference(message) {
+    const key =
+      typeof message?.key === "string"
+        ? message.key
+        : typeof message?.prefName === "string"
+          ? message.prefName
+          : "";
+
+    if (!key.trim()) {
+      return {
+        ok: false,
+        error: "getPref requires a non-empty key",
+      };
+    }
+
+    const value = Preferences.get(key);
+    const primitiveTypes = ["boolean", "string", "number"];
+    if (value === null || primitiveTypes.includes(typeof value)) {
+      return {
+        ok: true,
+        key,
+        value,
+        cached: true,
+      };
+    }
+
+    return {
+      ok: false,
+      key,
+      error: `Unsupported preference type: ${typeof value}`,
+    };
+  },
 
 
 function registerNotifyListener() {
@@ -767,6 +834,12 @@ function registerNotifyListener() {
         displaySettings(data);
         break;
 
+      /*
+       * Developer-only diagnostics entry point for quick one-off Utilities API checks.
+       * Originally added to test nsIMsgHeader => API message identifier conversion.
+       * Triggered through NotifyTools background messages (data.func), not onMessageExternal.
+       * This is intentionally isolated from the public external command surface.
+       */
       case "API-test-Utilities":
         console.log("quickFilters - API-test-Utilities");
         try {
@@ -985,17 +1058,41 @@ async function main() {
 
   messenger.runtime.onMessageExternal.addListener(async (message, _sender) => {
     switch (message.command) {
-      case "startQuickFiltersAssistant": {
-        const payload = normalizeExternalAssistantPayload(message);
-        if (!payload.selectedApiMessages.length && !payload.sourceFolder) {
+      case "isAssistantActive":
+        return {
+          ok: true,
+          active: !!AssistantActive,
+        };
+
+      case "setAssistantMode": {
+        const active = message?.active;
+        if (typeof active !== "boolean") {
           return {
             ok: false,
-            error: "startQuickFiltersAssistant requires selectedApiMessages or sourceFolder",
+            error: "setAssistantMode requires boolean active",
           };
         }
 
-        try {
-          await displayAssistant(payload);
+        AssistantActive = active;
+        notifyWhenUIReady({
+          event: "setAssistantMode",
+          detail: { active: AssistantActive },
+        });
+        notifyWhenUIReady({
+          event: "setAssistantButton",
+          detail: { active: AssistantActive },
+        });
+        return {
+          ok: true,
+          active: AssistantActive,
+        };
+      }
+
+      // [issue 373] allows reading cached preference values from external add-ons
+      case "getPref":
+        // replaces direct access to quickFilters legacy prefs from QuickFolders:
+        // uses cache for speed. can also be used to retrieve current debug settings
+        return ExternalMessageApi.readPreference(message);
           return {
             ok: true,
             requestId: payload.requestId,
@@ -1009,6 +1106,14 @@ async function main() {
           };
         }
       }
+
+      // [issue 373] replacement for legacy quickFilters.Worker.createFilterAsync()
+      case "createFilter":
+        return ExternalMessageApi.createFilter(message);
+
+      // [issue 373] External command entry point for assistant startup.
+      case "startAssistant":
+        return ExternalMessageApi.launchAssistant(message, "startAssistant");
 
       case "updateQuickFoldersLicense": // fall-through
       case "injectButtonsQFNavigationBar":
