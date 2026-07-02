@@ -272,27 +272,31 @@ export const Preferences = {
     }
 
     // live sync all changes to cache
-    browser.storage.onChanged.addListener((changes, area) => {
-      console.log("Preferences onChanged - changes: ", changes);
-      if (area !== "local") {
-        return;
+    messenger.storage.onChanged.addListener((changes, area) => {
+      try {
+        console.log("Preferences onChanged:", changes);
+        if (area !== "local") {
+          return;
+        }
+        if (!changes.settings && !changes.debug) {
+          return;
+        }
+        const updates = {};
+        if (changes.settings) {
+          applyChanges(Preferences._data, changes.settings, updates, Preferences.Defaults);
+        }
+        if (changes.debug) {
+          applyChanges(Preferences._debugData, changes.debug, updates, Preferences.DebugDefaults);
+        }
+        if (!Object.keys(updates).length) {
+          return;
+        }
+
+        console.log("Preferences updates:", updates);
+        messenger.Utilities.updatePreferencesCache(updates);
+      } catch (e) {
+        console.error("storage.onChanged crashed:", e);
       }
-      if (!changes.settings && !changes.debug) {
-        return;
-      }
-      const updates = {};
-      if (changes.settings) {
-        applyChanges(Preferences._data, changes.settings, updates, Preferences.Defaults);
-      }
-      if (changes.debug) {
-        applyChanges(Preferences._debugData, changes.debug, updates, Preferences.DebugDefaults);
-      }
-      if (!Object.keys(updates).length) {
-        // no effective changes
-        return;
-      }
-      console.log("Preferences onChanged - updates: ", updates);
-      messenger.Utilities.updatePreferencesCache(updates);
     });
   },
 
@@ -392,15 +396,27 @@ export const Preferences = {
     const def = this.Defaults[key] ?? this.DebugDefaults[key];
 
     if (typeof def === "boolean") {
-      if (typeof value !== "boolean") {
-        return def;
+      if (typeof value === "boolean") {
+        return value;
       }
+      if (typeof value === "string") {
+        const normalized = value.trim().toLowerCase();
+        if (normalized === "true" || normalized === "1") {
+          return true;
+        }
+        if (normalized === "false" || normalized === "0") {
+          return false;
+        }
+      }
+      return def;
     }
 
     if (typeof def === "number") {
-      if (isNaN(value)) {
+      const numeric = Number(value);
+      if (!Number.isFinite(numeric)) {
         return def;
       }
+      return numeric;
     }
 
     return value; // string fallback
