@@ -531,9 +531,17 @@ async function notifyWhenUIReady(...args) {
   try {
     // Wait until st-messenger signals that all listeners are ready
     await uiReadyPromise;
-
-    // Pass all args to notifyExperiment and return its promise
     return messenger.NotifyTools.notifyExperiment(...args);
+
+    // Defer notifyExperiment to avoid re-entrant Extension callContext collisions
+    // when notifyWhenUIReady() is triggered from onNotifyBackground observer callbacks.
+    /*
+    return await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        Promise.resolve(messenger.NotifyTools.notifyExperiment(...args)).then(resolve, reject);
+      }, 0);
+    });
+    */
   } catch (err) {
     console.error("Error in notifyWhenUIReady:", err);
     throw err; // propagate to caller
@@ -572,6 +580,18 @@ function stripEllipsis(label) {
 // [issue 373] Background-global singleton for external quickFilters command bridge.
 const ExternalMessageApi = {
   _quickFoldersCapabilities: null,
+  _isDebugEnabled() {
+    try {
+      return !!(Preferences?._ready && Preferences.isDebug("externalMsgApi"));
+    } catch {
+      return true;
+    }
+  },
+  _log(...args) {
+    if (this._isDebugEnabled()) {
+      console.log("[ExternalMessageApi]", ...args);
+    }
+  },
 
   // ===================
   // HELPER FUNCTIONS
@@ -585,6 +605,7 @@ const ExternalMessageApi = {
     return !!message && !!message.messageId && this._isFolderDescriptor(message.folder);
   },
   async _queryQuickFoldersCapabilities() {
+    this._log("_queryQuickFoldersCapabilities:start");
     try {
       const result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME, {
         command: "listExternalCommands",
@@ -600,13 +621,15 @@ const ExternalMessageApi = {
         commands,
         timestamp: Date.now(),
       };
+      this._log("_queryQuickFoldersCapabilities:ok", this._quickFoldersCapabilities);
       return this._quickFoldersCapabilities;
-    } catch {
+    } catch (ex) {
       this._quickFoldersCapabilities = {
         ok: false,
         commands: [],
         timestamp: Date.now(),
       };
+      this._log("_queryQuickFoldersCapabilities:failed", ex?.message || ex);
       return this._quickFoldersCapabilities;
     }
   },
@@ -622,10 +645,77 @@ const ExternalMessageApi = {
     return this._quickFoldersCapabilities.commands.includes(commandName);
   },
   async sendToQuickFolders(command, payload = {}, options = {}) {
+    this._log("sendToQuickFolders:start", {
+      command,
+      payload,
+      options,
+    });
+    const sendCommand = async () => {
+      try {
+        this._log("sendToQuickFolders:sendMessage", { command, payload });
+        const result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME, {
+          command,
+          ...payload,
+        });
+
+        this._log("sendToQuickFolders:sendMessage - Result", result);
+
+        if (typeof result === "object" && result) {
+          return result;
+        }
+
+        return {
+          ok: true,
+        };
+      } catch (ex) {
+        this._log("sendToQuickFolders:sendMessageError", ex?.message || ex);
+        return {
+          ok: false,
+          unavailable: true,
+          error: ex?.message || `Failed to call QuickFolders command: ${command}`,
+        };
+      }
+    };
+
     const requireCapability = options?.requireCapability !== false;
     if (requireCapability) {
-      const supported = await this._hasQuickFoldersCommand(command);
+      let supported = await this._hasQuickFoldersCommand(command);
+      this._log("sendToQuickFolders:capabilityCheck", {
+        command,
+        supported,
+        capabilities: this._quickFoldersCapabilities,
+      });
+      // Capability cache may be stale or based on an early startup miss.
+      // Refresh once before rejecting.
       if (!supported) {
+        await this._queryQuickFoldersCapabilities();
+        supported = this._quickFoldersCapabilities?.ok
+          ? this._quickFoldersCapabilities.commands.includes(command)
+          : false;
+        this._log("sendToQuickFolders:capabilityRecheck", {
+          command,
+          supported,
+          capabilities: this._quickFoldersCapabilities,
+        });
+      }
+
+      if (!supported) {
+        if (this._quickFoldersCapabilities?.ok) {
+          console.warn(
+            `[QuickFolders] QuickFolders does not expose external command "${command}".`,
+            this._quickFoldersCapabilities.commands
+          );
+        }
+        // Optimistic fallback: older/partial QuickFolders builds may execute
+        // commands even when capability discovery is unavailable.
+        const directResult = await sendCommand();
+        this._log("sendToQuickFolders:directFallbackResult", directResult);
+        if (directResult?.ok) {
+          return directResult;
+        }
+        if (!this._quickFoldersCapabilities?.ok) {
+          return directResult;
+        }
         return {
           ok: false,
           unavailable: true,
@@ -634,26 +724,9 @@ const ExternalMessageApi = {
       }
     }
 
-    try {
-      const result = await messenger.runtime.sendMessage(QUICKFOLDERS_APPNAME, {
-        command,
-        ...payload,
-      });
-
-      if (typeof result === "object" && result) {
-        return result;
-      }
-
-      return {
-        ok: true,
-      };
-    } catch (ex) {
-      return {
-        ok: false,
-        unavailable: true,
-        error: ex?.message || `Failed to call QuickFolders command: ${command}`,
-      };
-    }
+    const finalResult = await sendCommand();
+    this._log("sendToQuickFolders:finalResult", finalResult);
+    return finalResult;
   },
   // Future protocol note:
   // current "context" is overloaded and may later be split into
@@ -809,7 +882,14 @@ const ExternalMessageApi = {
 
 function registerNotifyListener() {
   messenger.NotifyTools.onNotifyBackground.addListener(async (data) => {
-    let isLog = Preferences.isDebug("notifications");
+    let isLog = false;
+    try {
+      // for some reason Preferences.isDebug() was blocking further flow until later
+      // so I shortcircuit it and set to true
+      isLog = !!(Preferences?._ready && Preferences.isDebug("notifications"));
+    } catch {
+      isLog = true;
+    }
     if (isLog && data.func) {
       console.log(
         "=========================\n" +
