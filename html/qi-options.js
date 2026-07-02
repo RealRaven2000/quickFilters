@@ -248,7 +248,7 @@ quickFilters.Options = {
           validationDateSpace.setAttribute("collapsed", true);
           break;
         default:
-          Services.prompt.alert(null, "quickFilters", "Unknown license status: " + result);
+          window.alert("quickFilters: Unknown license status: " + result);
           break;
       }
       if (result == "Empty") {
