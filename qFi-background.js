@@ -1153,91 +1153,90 @@ async function main() {
     console.log("Startup resolved");
   }
 
-  // listeners for splash pages, new settings dialog
-  messenger.runtime.onMessage.addListener(async (data, sender) => {
-    // console.log("runtime.onMessage", data, _sender);
-    if (!data.command) {
-      return;
-    }
-    switch (data.command) {
-      case "getLicenseInfo":
-        return currentLicense.info;
-      case "getFilters": {
-        const { sourceUri, targetUri, filterAction, filterActionExt } = data;
-        let filters = await messenger.FiltersAPI.getFilters(
-          sourceUri,
-          targetUri || "",
-          Number.isNaN(filterAction) ? undefined : filterAction,
-          ["string", "boolean"].includes(typeof filterActionExt)
-            ? String(filterActionExt)
-            : undefined
-        );
-        return filters;
+
+  const messageHandlers = {
+    getLicenseInfo: () => {
+      return currentLicense.info;
+    },
+    getFilters: async (data, sender) => {
+      const { sourceUri, targetUri, filterAction, filterActionExt } = data;
+      let filters = await messenger.FiltersAPI.getFilters(
+        sourceUri,
+        targetUri || "",
+        Number.isNaN(filterAction) ? undefined : filterAction,
+        ["string", "boolean"].includes(typeof filterActionExt) ? String(filterActionExt) : undefined
+      );
+      return filters;
+    },
+    assistantResult: async (data, sender) => {
+      const { requestId, result } = data;
+      const isDebug = Preferences.isDebug("assistant");
+      if (isDebug) {
+        console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
       }
-      case "assistantResult":
-        {
-          const { requestId, result } = data;
-          const isDebug = Preferences.isDebug("assistant");
-          if (isDebug) {
-            console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
-          }
-          if (requestId) {
-            const mergeFilter = data.params?.mergeFilter || null;
-            const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
-            // { index, filterName , accountId }
-            await messenger.Utilities.resolveAssistant(requestId, result, {
-              answer: data.params?.answer,
-              selectedMergedFilterIndex: resultIdx,
-              mergeFilter,
-            });
-          }
-        }
-        break;
-      case "resizeAssistant":
-        if (sender.tab) {
-          let newHeight = data.height;
-          const maxHeight = window.screen.availHeight; // or window.screen.height for full screen height
-
-          if (newHeight > maxHeight) {
-            newHeight = maxHeight;
-            console.warn(
-              `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`
-            );
-          }
-
-          const windowId = sender.tab.windowId;
-          browser.windows.update(windowId, { height: newHeight });
-        }
-        break;
-      case "splashScreen":
-        showSplash();
-        break;
-      case "showAboutConfig":
-        messenger.Utilities.showAboutConfig(data.filter); // , data.editable || false
-        break;
-      case "setupListToolbar":
-        notifyWhenUIReady({ event: "setupListToolbar" });
-        break;
-      case "updateLicense":
-        return await updateLicense(data.key);
-      case "slideAlert":
-        util.slideAlert(data?.title, data.text, data?.icon);
-        break;
-      case "updateCurrentFolderButtons":
-        notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
-        break;
-      case "openStorageEditor":
-        webExtensionStorageEditor.open({
-          storageArea: "local",
-          baseFilter: data.filter,
-          type: "popup",
-          showTopLevelKey: false,
+      if (requestId) {
+        const mergeFilter = data.params?.mergeFilter || null;
+        const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
+        // { index, filterName , accountId }
+        await messenger.Utilities.resolveAssistant(requestId, result, {
+          answer: data.params?.answer,
+          selectedMergedFilterIndex: resultIdx,
+          mergeFilter,
         });
-        break;
-      default:
-        console.warn("Unknown command received in background:", data.command);
-        break;
+      }
+    },
+    resizeAssistant: async (data, sender) => {
+      if (sender.tab) {
+        let newHeight = data.height;
+        const maxHeight = window.screen.availHeight; // or window.screen.height for full screen height
+
+        if (newHeight > maxHeight) {
+          newHeight = maxHeight;
+          console.warn(
+            `resizeAssistant: requested height ${data.height} exceeds screen height, capped to ${maxHeight}`
+          );
+        }
+
+        const windowId = sender.tab.windowId;
+        browser.windows.update(windowId, { height: newHeight });
+      }
+    },
+    splashScreen: (data, sender) => {
+      showSplash();
+    },
+    showAboutConfig: (data, sender) => {
+      messenger.Utilities.showAboutConfig(data.filter); // , data.editable || false
+    },
+    setupListToolbar: (data, sender) => {
+      notifyWhenUIReady({ event: "setupListToolbar" });
+    },
+    updateLicense: async (data, sender) => {
+      return await updateLicense(data.key);
+    },
+    slideAlert: (data, sender) => {
+      util.slideAlert(data?.title, data.text, data?.icon);
+    },
+    updateCurrentFolderButtons: (data, sender) => {
+      notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
+    },
+    openStorageEditor: (data, sender) => {
+      webExtensionStorageEditor.open({
+        storageArea: "local",
+        baseFilter: data.filter,
+        type: "popup",
+        showTopLevelKey: false,
+      });
+    },
+  };
+
+  // listeners for splash pages, new settings dialog
+  messenger.runtime.onMessage.addListener((data, sender) => {
+    if (!data.command || !Object.hasOwn(messageHandlers, data.command)) {
+      // listener not active for this command, let other listeners handle it
+      return false;
     }
+    // we need to return a Promise for async handlers, otherwise the response will be lost.
+    return Promise.resolve(messageHandlers[data.command](data, sender));
   });
 
   messenger.commands.update({
