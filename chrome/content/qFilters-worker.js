@@ -90,6 +90,8 @@ quickFilters.Worker = {
   toggle_FilterMode: async function (active, silent) {
     const util = quickFilters.Util,
       worker = quickFilters.Worker;
+    await this.waitForCoreReady();
+
     function removeOldNotification(box, active, id) {
       if (!active && box) {
         let item = box.getNotificationWithValue(id);
@@ -211,27 +213,66 @@ quickFilters.Worker = {
     // internally, we will now use Util.AssistantActive
 
     // Canonical state is maintained in background. Local Util.AssistantActive is a synced cache.
-    await quickFilters.Util.setAssistantMode(active);
+    // Do not await UI button fan-out here to keep bridge flow deterministic.
+    await quickFilters.Util.setAssistantMode(active, { updateButton: false });
+
+    // UI-only button sync runs async and must never block assistant bridging.
+    quickFilters.Util.notifyTools
+      .notifyBackground({
+        func: "setAssistantButton",
+        active,
+      })
+      .catch((ex) => {
+        util.logDebugOptional("assistant", "setAssistantButton async error:", ex);
+      });
 
     if (!silent) {
       removeOldNotification(notifyBox, active, "quickfilters-filter");
     }
 
     // Bridge-first integration: use external messaging instead of direct QuickFolders globals.
-    const syncQuickFoldersAssistant = await quickFilters.Util.notifyTools.notifyBackground({
+    let syncQuickFoldersAssistant = await quickFilters.Util.notifyTools.notifyBackground({
       func: "setQuickFoldersAssistantMode",
       active,
     });
+    if (typeof syncQuickFoldersAssistant === "undefined") {
+      util.logDebugOptional(
+        "assistant",
+        "setQuickFoldersAssistantMode returned undefined - retrying once after startup race."
+      );
+      await new Promise((resolve) => window.setTimeout(resolve, 60));
+      syncQuickFoldersAssistant = await quickFilters.Util.notifyTools.notifyBackground({
+        func: "setQuickFoldersAssistantMode",
+        active,
+      });
+    }
+    util.logDebugOptional(
+      "assistant",
+      "setQuickFoldersAssistantMode response:",
+      syncQuickFoldersAssistant
+    );
 
     // Temporary fallback for older QuickFolders builds without external command support.
-    if (!syncQuickFoldersAssistant?.ok && window.QuickFolders) { 
+    const shouldUseLegacyFallback =
+      !!window.QuickFolders &&
+      (!syncQuickFoldersAssistant || syncQuickFoldersAssistant.unavailable === true);
+    if (shouldUseLegacyFallback) {
       // legacy side-effects!
       let QF = window.QuickFolders,
         QFwork = QF.FilterWorker ? QF.FilterWorker : QF.Filter;
-      if (QFwork.FilterMode != active) {
+      const hasAssistantActive = typeof QFwork?.AssistantActive !== "undefined";
+      const qfAssistantActive = hasAssistantActive ? !!QFwork.AssistantActive : null;
+      const shouldToggle = hasAssistantActive ? qfAssistantActive != active : true;
+      if (shouldToggle) {
         quickFilters.Util.logDebug("Toggle filter assistant mode in QuickFolders (legacy fallback)!");
         await QFwork.toggle_FilterMode(active);
       }
+    } else if (syncQuickFoldersAssistant && syncQuickFoldersAssistant.ok === false) {
+      util.logDebugOptional(
+        "assistant",
+        "QuickFolders bridge returned an error; skipping legacy fallback to avoid deprecated FilterMode access.",
+        syncQuickFoldersAssistant
+      );
     }
 
     if (!silent) {
@@ -332,11 +373,13 @@ quickFilters.Worker = {
       }
       const messageDb1 = folder.msgDatabase;
       let messageDb2 = null;
-      try {
-        messageDb2 = folder2.msgDatabase;
-      } catch (ex) {
-        // Component can throw 0x80550005
-        quickFilters.Util.logException("refreshHeaders()", ex);
+      if (folder2) {
+        try {
+          messageDb2 = folder2.msgDatabase;
+        } catch (ex) {
+          // Component can throw 0x80550005
+          quickFilters.Util.logException("refreshHeaders()", ex);
+        }
       }
 
       for (let i = 0; i < messageList.length; i++) {
@@ -353,14 +396,17 @@ quickFilters.Worker = {
           `cloning header[${i}] in ${folder.prettyName || folder.localizedName} ...`
         );
         const m1 = messageDb1.getMsgHdrForMessageID(theMsg.messageId);
-        if (!m1) {
+        let msgHdr = m1;
+        if (!msgHdr && messageDb2) {
+          msgHdr = messageDb2.getMsgHdrForMessageID(theMsg.messageId);
+        }
+        if (!msgHdr) {
           util.logDebugOptional(
             "createFilter.refreshHeaders",
             `No matching Message Header in folder [${folder.prettyName || folder.localizedName}]` +
               ` for id: ${theMsg.messageId}`
           );
         }
-        const msgHdr = m1; // || (messageDb2 ? messageDb2.getMsgHdrForMessageID(theMsg.messageId) : null);
         if (!msgHdr) {
           util.logDebugOptional(
             "createFilter.refreshHeaders",
