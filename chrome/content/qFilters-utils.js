@@ -37,6 +37,28 @@ quickFilters.Util = {
   mPlatformVer: null,
   ConsoleService: null,
   lastTime: 0,
+  get safeHeaderProps() {
+    return [
+      "messageId",
+      "messageKey",
+      "accountKey",
+      "author",
+      "subject",
+      "recipients",
+      "ccList",
+      "bccList",
+      "mime2DecodedAuthor",
+      "mime2DecodedSubject",
+      "mime2DecodedRecipients",
+      "date",
+      "dateInSeconds",
+      "lineCount",
+      "priority",
+      "label",
+      "isFlagged",
+      "Charset",
+    ];
+  },
   _tabContainer: null,
   tempFolderTab: null, // likely obsolete ###
   get folderManager() { 
@@ -75,7 +97,7 @@ quickFilters.Util = {
               : "";
         } catch {;}
         // eslint-disable-next-line no-prototype-builtins
-        if (!data.hasOwnProperty("window") || data.window.includes(loc)) {
+          if (!Object.hasOwn(data, "window") || data.window.includes(loc)) {
           window.quickFilters.Util.logDebugOptional(
             "notifications",
             `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
@@ -2032,8 +2054,7 @@ quickFilters.Util = {
                   action.customAction.name = cA.name;
                   action.customAction.allowDuplicates = cA.allowDuplicates;
                 }
-                // eslint-disable-next-line no-prototype-builtins
-                if (act.hasOwnProperty("strValue")) {
+                if (Object.hasOwn(act, "strValue")) {
                   action.strValue = act.strValue;
                 }
               }
@@ -3338,30 +3359,28 @@ if (!quickFilters.Shim) {
 		} ,
 
 		cloneHeaders: function (msgHdr, messageClone, dbg, appendProperty) {
-			// Object.entries does not exist before Platform==47
-			for (let [propertyName, prop] of Object.entries(msgHdr)) {
-				// propertyName is what you want
-				// you can get the value like this: myObject[propertyName]
-				try {
-					// eslint-disable-next-line no-prototype-builtins
-					let hasOwn = msgHdr.hasOwnProperty(propertyName),
-							isCopied = false;  // replace msgHdr[propertyName] with prop
-					if (hasOwn && typeof prop != "function" && typeof prop != "object") {
-						messageClone[propertyName] = msgHdr[propertyName]; // copy to the clone!
-						if (messageClone[propertyName]) {  // make sure we have some data! (e.g. author, subject, recipient, date, charset, messageId)
-							dbg.countInit ++;
+      // Avoid enumerating live nsIMsgDBHdr objects after a move; some getters
+      // (for example isKilled) can throw when the backing DB state is stale.
+      const safeProps = quickFilters.Util.safeHeaderProps;
+      for (let propertyName of safeProps) {
+        try {
+          const prop = msgHdr[propertyName];
+          let isCopied = false;
+          if (typeof prop != "function" && typeof prop != "object" && typeof prop != "undefined") {
+            messageClone[propertyName] = prop;
+            if (messageClone[propertyName] || messageClone[propertyName] === 0 || messageClone[propertyName] === false) {
+              dbg.countInit ++;
             }
-						isCopied = true;
-					}
-					if (isCopied) {
-						dbg.test = appendProperty(dbg.test, msgHdr, propertyName);
-					}
-					else {
-						dbg.test2 = appendProperty(dbg.test2, msgHdr, propertyName);
-					}
-				}
-				catch { ; }
-			}
+            isCopied = true;
+          }
+          if (isCopied) {
+            dbg.test = appendProperty(dbg.test, messageClone, propertyName);
+          } else {
+            dbg.test2 = appendProperty(dbg.test2, messageClone, propertyName);
+          }
+        }
+        catch { ; }
+      }
 		} ,
 		
 		findInboxFromRoot: function (root, fflags) {
