@@ -2560,26 +2560,9 @@ quickFilters.Util = {
       }
     };
 
-    if (!(quickFilters.Util?.notifyTools?.notifyBackground)) {
-      throw new Error("notifyTools?.notifyBackground is not available in Util");
-    }
-
-    try {
-      const result = await quickFilters.Util.notifyTools.notifyBackground({
-        func: "setQuickFoldersCurrentFolderFilterActive",
-        active: !!isActive,
-      });
-
-      // Temporary fallback for older QuickFolders builds without external command support.
-      if (!result?.ok && window.QuickFolders) {
-        updateQuickFoldersCurrentFolderButton();
-      }
-    } catch {
-      if (window.QuickFolders) {
-        updateQuickFoldersCurrentFolderButton();
-      }
-    }
-
+    // Background is the single writer for the external QuickFolders bridge.
+    // Window code only updates local UI state.
+    updateQuickFoldersCurrentFolderButton();
   },
 
   showLicenseDialog: function (featureName) {
