@@ -27,7 +27,7 @@ const insertHtmlSafely = (container, html, clearFirst = false) => {
     const dangerousAttrs = [
       "onclick", "onchange", "oninput", "onmouseover",
       "onload", "onerror", "onfocus", "onblur", "onmousedown",
-      "onmouseup", "onmouseenter", "onmouseleave"
+      "onmouseup", "onmouseenter", "onmouseleave",
     ];
 
     [...node.attributes].forEach(attr => {
@@ -299,7 +299,7 @@ function formatAll(txt) {
     .replace(/\{\/P\}/g, "</p>")
     .replace(
       /\{createFilterFromMessage\}/g,
-      messenger.i18n.getMessage("quickfilters.FromMessage.label"),
+      messenger.i18n.getMessage("quickfilters.FromMessage.label")
     )
     .replace(/\{autoMerge\}/g, messenger.i18n.getMessage("chkMergeAuto.label"));
 
