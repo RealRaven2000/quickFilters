@@ -166,7 +166,8 @@ export class Licenser {
     let graceDate = "",
       isResetDate = false;
     try {
-      graceDate = Services.prefs.getStringPref("license.gracePeriodDate");
+      const result = await browser.storage.local.get("license.gracePeriodDate");
+      graceDate = result["license.gracePeriodDate"];
     } catch {
       isResetDate = true;
     }
@@ -189,8 +190,10 @@ export class Licenser {
       }
     }
     if (isResetDate) {
+      const { settings } = await browser.storage.local.get({ settings: {} });
+      settings["license.gracePeriodDate"] = graceDate;
       await browser.storage.local.set({
-        "license.gracePeriodDate": graceDate,
+        settings,
       });
     }
     // log("Returning Grace Period Date: " + graceDate);
