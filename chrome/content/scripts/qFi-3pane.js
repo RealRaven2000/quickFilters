@@ -77,7 +77,7 @@ async function updateCurrentFolderBar() {
     window.document.getElementById("quickFilters-injected");
   logDebug("updateCurrentFolderBar() - container:", container);
   if (!container) {
-    injectQFelements(window);
+    injectQuickFoldersNavigationBarElements(window);
   }
 }
 
@@ -166,8 +166,16 @@ function injectButton(parentElement, id, options = {}) {
   return btn;
 }
 
-async function injectQFelements(win) {
-  // QUICKFOLDERS NAVIGATION BAR INJECTION
+async function injectQuickFoldersNavigationBarElements(win) {
+  // QUICKFOLDERS NAVIGATION BAR INJECTION: Remove the previous container!
+  const previousContainer = win.document.getElementById("quickFilters-injected");
+  if (previousContainer) {
+    if (win?.quickFilters?.Util) {
+      win.quickFilters.Util.logDebug("injectQuickFoldersNavigationBarElements() - removing previous container");
+    }
+    previousContainer.remove();
+  }
+
   qFInjector.injectElements(`
       <div id="threadPane">
       <hbox id="quickFilters-injected" collapsed="true"></hbox>
@@ -193,8 +201,6 @@ async function injectQFelements(win) {
   });
 }
 
-
-
 // eslint-disable-next-line no-unused-vars
 async function onLoad(_activatedWhileWindowOpen) {
   // see https://github.com/thunderbird/webext-examples/blob/master/manifest_v2/experiment.activityManager/api/ActivityManager/implementation.js
@@ -208,7 +214,7 @@ async function onLoad(_activatedWhileWindowOpen) {
     console.log("qFi-3pane.js - onLoad()");
     win.quickFilters = win.parent.quickFilters;
 
-    injectQFelements(win);
+    injectQuickFoldersNavigationBarElements(win);
   });
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
@@ -235,18 +241,20 @@ function onUnload(isAddOnShutown) {
   }
 
   // UI
-  function deleteBtn(id) {
+  function deleteElement(id) {
     let btn = document3pane.getElementById(id);
     if (btn) {
-      btn.parentNode.removeChild(btn);
+      btn.remove();
     }
   }
 
   // clean up current folder bar (if QuickFolders is installed)
-  deleteBtn("quickfilters-current-listbutton");
-  deleteBtn("quickfilters-current-runbutton");
-  deleteBtn("quickfilters-current-msg-runbutton");
-  deleteBtn("quickfilters-current-searchfilterbutton");
+  deleteElement("quickfilters-current-listbutton");
+  deleteElement("quickfilters-current-runbutton");
+  deleteElement("quickfilters-current-msg-runbutton");
+  deleteElement("quickfilters-current-searchfilterbutton");
+  // remove container!
+  deleteElement("quickFilters-injected");
 
 }
 
