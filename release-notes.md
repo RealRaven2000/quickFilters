@@ -12,7 +12,7 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 
 **Improvements**
 
-* Compatibility updates for Thunderbird 153
+* Compatibility updates for Thunderbird 154
 * Added Czech translation
 * Search filters can now be found by target folder URI (folder path) [issue #366]
 * Improved integration of QuickFolders current folder bar [issue #365]
