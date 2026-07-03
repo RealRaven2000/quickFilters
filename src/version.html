@@ -239,28 +239,14 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
   <h4>
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.13" 
 		 onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
-     quickFilters 6.13 - WIP</a>
+     quickFilters 6.13 - 03/07/2026</a>
 	</h4>
   
   <h5 class="inList"> Improvements </h5>
   <ul>
 		<li> 
-      Compatible with Thunderbird 152. 
+      Compatible with Thunderbird 153. 
       Minimum version requirement for new versions increased to Thunderbird 140. 
-    </li>
-    <li>
-      Converted Preferences from Legacy system (about:config) to local storage.
-      This was done for future proofing - all web extensions use local storage,
-      and the not the global configuration database that the app uses for its own
-      settings.
-      <a href="https://github.com/RealRaven2000/quickFilters/issues/367">[issue 367]</a>
-      <p>
-        This change also has the advantage to resetting all settings to default 
-        when you uninstall quickFilters. Note that this does not affect message filters
-        and custom filter templates, as these are stored by Thunderbird in local files
-        called <tt>msgFilterRules.dat</tt>.
-      </p>
-      I am planning to provide a function to backup / restore settings in the future.
     </li>
 		<li> Added Czech translation </li>
 		<li>
@@ -271,19 +257,33 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
         <br>
       </p>
       <img src="img/search-target-folder-uri.png" alt="Search by Folder Path" class="screenshot">
+    </li> 
+    <li>
+      Converted quickFilters settings to use local storage instead of legacy preferences 
+      (about:config). This was done for future proofing - all web extensions use local storage,
+      and the not the global configuration database that the app uses for its own
+      settings.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/367">[issue 367]</a>
+      <p>
+        This change also has the advantage to resetting all settings to default 
+        when you uninstall quickFilters. Note that this does not affect message filters
+        and custom filter templates, as these are stored by Thunderbird in local files
+        called <tt>msgFilterRules.dat</tt>.
+      </p>
+      I am planning to provide a function to backup / restore quickFilters settings in a future version.
     </li>
 		<li>
-      Improve QuickFolders current folder bar integration
+      Improved integration of buttons in QuickFolders Current Folder toolbar
       <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a>
+    </li>
+    <li>
+      Improved communication between quickFilters and QuickFolders.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/373">[issue 373]</a>
     </li>
     <li>
       Improved tabbed navigation and button layouts in settings pages.
     </li>
-    <li>
-      Converted quickFilters settings to use local storage instead of legacy preferences.
-      This also means that you now can now reset quickFilters to its 
-      default behavior by removing the Add-on and then reinstalling it. 
-    </li>
+
   </ul>
   <h5 class="inList"> Bugfixes </h5>  
   <ul>
@@ -301,7 +301,6 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     </li>
   </ul>
 </li>
- 
 
 
 
@@ -3583,6 +3582,7 @@ document.write('Mail To Axel Grude</a>');
     }    
     
   </script>  
+
 
 
 
