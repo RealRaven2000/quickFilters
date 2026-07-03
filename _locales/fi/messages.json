@@ -1484,7 +1484,7 @@
   },
   "whats-new-list": {
     "description": "🇫🇮 change log",
-    "message": "{L}Lisätty yhteensopivuus Thunderbird 153:n kanssa.{/L}{L}Lisätty tšekinkielinen käännös.{/L}{L}Lisätty vaihtoehto viestisuodattimien valintaikkunaan suodattaa sääntöjä koko kansiopolun perusteella siirto-/kopiointitoiminnoissa.{/L}{L}Parannettu QuickFoldersin nykyisen kansion palkin integrointi.{/L}{L}Korjattu ongelma, jossa viestin esikatselu ei ollut käytettävissä siirrettäessä sähköposteja paikallisiin kansioihin.{/L}{L}quickFilters-asetukset on siirretty käyttämään paikallista tallennusta vanhojen asetusten sijaan. Voit nyt palauttaa quickFiltersin oletuskäyttäytymisen poistamalla lisäosan ja asentamalla sen uudelleen.{/L}"
+    "message": "{L}Lisätty yhteensopivuus Thunderbird 153:n kanssa.{/L}{L}Lisätty tšekinkielinen käännös.{/L}{L}Lisätty uusi hakuvaihtoehto Viestisuodattimet-valintaikkunaan, jolla suodattimia voi etsiä siirto-/kopiointitoimintojen kansiopolun perusteella.{/L}{L}Parannettu QuickFoldersin nykyisen kansion palkin integraatiota. [issue 365]{/L}{L}Korjattu ongelma, jossa viestin esikatselu ei ollut käytettävissä siirrettäessä postia paikallisiin kansioihin.{/L}{L}quickFilters-asetukset on muutettu käyttämään paikallista tallennusta Thunderbirdin yleisten asetusten sijaan. Voit nyt palauttaa quickFiltersin oletuskäyttäytymiseen poistamalla lisäosan ja asentamalla sen uudelleen.{/L}{L}Parannettu quickFiltersin ja QuickFoldersin välistä viestintää. [issue 373]{/L}{L}Jatkossa Thunderbirdin vähimmäisversio on v140. Tämä parantaa tulevaa kehitystä ja välttää vanhentuneen koodin aiheuttamia ongelmia.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

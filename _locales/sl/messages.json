@@ -280,7 +280,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇮 change log",
-    "message": "{L}Dodana združljivost s Thunderbird 153.{/L}{L}Dodano češko prevajanje.{/L}{L}Dodana možnost v pogovornem oknu filtrov sporočil za iskanje filtrov po celotni poti mape, uporabljeni pri dejanjih premikanja/kopiranja.{/L}{L}Izboljšana integracija vrstice trenutne mape QuickFolders.{/L}{L}Odpravljena težava, kjer predogled sporočil ni bil na voljo pri premikanju pošte v lokalne mape.{/L}{L}Nastavitve quickFilters so bile prenesene v lokalno shranjevanje namesto starejših nastavitev. quickFilters lahko ponastavite na privzeto delovanje tako, da odstranite in znova namestite dodatek.{/L}"
+    "message": "{L}Dodana združljivost s Thunderbird 153.{/L}{L}Dodan češki prevod.{/L}{L}Dodana nova možnost iskanja v pogovornem oknu Filtrov sporočil za iskanje filtrov po poti mape pri dejanjih premikanja/kopiranja.{/L}{L}Izboljšana integracija vrstice trenutne mape QuickFolders. [issue 365]{/L}{L}Odpravljena je težava, zaradi katere predogled sporočil ni bil na voljo pri premikanju pošte v lokalne mape.{/L}{L}Nastavitve quickFilters so bile pretvorjene na lokalno shrambo namesto globalnih nastavitev Thunderbird. quickFilters lahko zdaj ponastavite na privzeto delovanje tako, da odstranite dodatek in ga nato znova namestite.{/L}{L}Izboljšana komunikacija med quickFilters in QuickFolders. [issue 373]{/L}{L}V prihodnje je najmanjša različica Thunderbird v140. To bo izboljšalo nadaljnji razvoj in preprečilo težave, ki jih povzroča zastarela koda.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

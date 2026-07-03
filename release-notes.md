@@ -12,10 +12,15 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 
 **Improvements**
 
-* Compatibility updates for Thunderbird 152
+* Compatibility updates for Thunderbird 153
 * Added Czech translation
 * Search filters can now be found by target folder URI (folder path) [issue #366]
 * Improved integration of QuickFolders current folder bar [issue #365]
+
+**Settings & Storage**
+
+* Converted quickFilters settings to use local storage instead of Thunderbird's global preferences [issue #367]
+* Improved communication between quickFilters and QuickFolders [issue #373]
 
 
 **Bug Fixes**

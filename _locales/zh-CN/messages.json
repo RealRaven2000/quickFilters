@@ -1476,7 +1476,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}新增对 Thunderbird 153 的兼容性。{/L}{L}新增捷克语翻译。{/L}{L}在邮件过滤器对话框中新增按用于移动/复制操作的完整文件夹路径搜索过滤器的选项。{/L}{L}改进 QuickFolders 当前文件夹栏的集成。{/L}{L}修复将邮件移动到本地文件夹时无法预览邮件的问题。{/L}{L}quickFilters 设置已迁移到本地存储而非旧版首选项。现在可以通过删除并重新安装附加组件来重置为默认行为。{/L}"
+    "message": "{L}已添加对 Thunderbird 153 的兼容性。{/L}{L}已添加捷克语翻译。{/L}{L}在“消息过滤器”对话框中新增了搜索选项，可按移动/复制操作的文件夹路径查找过滤器。{/L}{L}改进了 QuickFolders 当前文件夹栏的集成。[issue 365]{/L}{L}修复了将邮件移动到本地文件夹时无法显示邮件预览的问题。{/L}{L}quickFilters 设置已改为使用本地存储，而不是 Thunderbird 的全局首选项。现在，您可以通过移除该附加组件并重新安装，将 quickFilters 重置为默认行为。{/L}{L}改进了 quickFilters 与 QuickFolders 之间的通信。[issue 373]{/L}{L}从现在起，Thunderbird 的最低版本为 v140。这将改进后续开发，并避免由弃用代码导致的问题。{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

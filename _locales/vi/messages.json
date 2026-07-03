@@ -1484,7 +1484,7 @@
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{L}Thêm khả năng tương thích với Thunderbird 153.{/L}{L}Thêm bản dịch tiếng Séc.{/L}{L}Thêm tùy chọn trong hộp thoại bộ lọc thư để tìm bộ lọc theo đường dẫn thư mục đầy đủ dùng trong thao tác di chuyển/sao chép.{/L}{L}Cải thiện tích hợp thanh thư mục hiện tại của QuickFolders.{/L}{L}Khắc phục sự cố khi xem trước thư không khả dụng khi di chuyển thư vào thư mục cục bộ.{/L}{L}Cài đặt quickFilters đã được chuyển sang lưu trữ cục bộ thay vì tùy chọn cũ. Bạn có thể đặt lại quickFilters về mặc định bằng cách gỡ và cài đặt lại tiện ích bổ sung.{/L}"
+    "message": "{L}Đã thêm khả năng tương thích với Thunderbird 153.{/L}{L}Đã thêm bản dịch tiếng Séc.{/L}{L}Đã thêm tùy chọn tìm kiếm mới trong hộp thoại Bộ lọc thư để tìm bộ lọc theo đường dẫn thư mục của các thao tác di chuyển/sao chép.{/L}{L}Đã cải thiện tích hợp thanh thư mục hiện tại của QuickFolders. [issue 365]{/L}{L}Đã sửa lỗi khiến phần xem trước thư không khả dụng khi chuyển thư vào thư mục cục bộ.{/L}{L}Cài đặt quickFilters đã được chuyển sang dùng bộ nhớ cục bộ thay cho tùy chọn toàn cục của Thunderbird. Giờ đây bạn có thể đặt lại quickFilters về hành vi mặc định bằng cách gỡ tiện ích rồi cài đặt lại.{/L}{L}Đã cải thiện giao tiếp giữa quickFilters và QuickFolders. [issue 373]{/L}{L}Từ nay, phiên bản tối thiểu của Thunderbird là v140. Điều này sẽ cải thiện quá trình phát triển sau này và tránh các vấn đề do mã đã lỗi thời.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

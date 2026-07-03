@@ -1488,7 +1488,7 @@
   },
   "whats-new-list": {
     "description": "🇵🇹 change log",
-    "message": "{L}Adicionada compatibilidade com Thunderbird 153.{/L}{L}Adicionada tradução checa.{/L}{L}Adicionada opção na caixa de diálogo de filtros de mensagens para pesquisar filtros pelo caminho completo da pasta usado em ações de mover/copiar.{/L}{L}Melhorada a integração da barra de pasta atual do QuickFolders.{/L}{L}Corrigido um problema em que a pré-visualização de mensagens não estava disponível ao mover correio para pastas locais.{/L}{L}As definições do quickFilters foram convertidas para armazenamento local em vez de preferências legadas. Agora pode repor o comportamento padrão do quickFilters removendo e reinstalando o complemento.{/L}"
+    "message": "{L}Adicionada compatibilidade com Thunderbird 153.{/L}{L}Adicionada tradução para checo.{/L}{L}Adicionada nova opção de pesquisa no diálogo Filtros de mensagens para localizar filtros pelo caminho da pasta das ações de mover/copiar.{/L}{L}Melhorada a integração da barra da pasta atual do QuickFolders. [issue 365]{/L}{L}Corrigido um problema em que a pré-visualização de mensagens não estava disponível ao mover correio para pastas locais.{/L}{L}As definições do quickFilters foram convertidas para usar armazenamento local em vez das preferências globais do Thunderbird. Agora pode repor o quickFilters para o comportamento predefinido removendo o extra e instalando-o novamente.{/L}{L}Melhorada a comunicação entre quickFilters e QuickFolders. [issue 373]{/L}{L}Daqui em diante, a versão mínima do Thunderbird é a v140. Isto irá melhorar os desenvolvimentos futuros e evitar problemas causados por código obsoleto.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

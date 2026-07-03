@@ -1489,7 +1489,7 @@
   },
   "whats-new-list": {
     "description": "🇬🇧 change log",
-    "message": "{L}Added compatibility with Thunderbird 153.{/L}{L}Added Czech translation.{/L}{L}Added option in Message Filters dialog to search filters by full folder path used in move/copy actions.{/L}{L}Improved QuickFolders current folder bar integration.{/L}{L}Fixed an issue where message preview was unavailable when moving mail to local folders.{/L}{L}Converted quickFilters settings to use local storage instead of legacy preferences. You can now reset quickFilters to its default behavior by removing the Add-on and then reinstalling it.{/L}"
+    "message": "{L}Added compatibility with Thunderbird 153.{/L}{L}Added Czech translation.{/L}{L}Added new search option in Message Filters dialog to find filters by folder path of move/copy actions.{/L}{L}Improved QuickFolders current folder bar integration. [issue 365]{/L}{L}Fixed an issue where message preview was unavailable when moving mail to local folders.{/L}{L}Converted quickFilters settings to use local storage instead of Thunderbird's global preferences. You can now reset quickFilters to its default behavior by removing the Add-on and then reinstalling it.{/L}{L}Improved communication between quickFilters and QuickFolders. [issue 373]{/L}{L}Going forward, minimum version of Thunderbird is v140. This will improve future developments and avoid problems caused by deprecated code.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

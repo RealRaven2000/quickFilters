@@ -1486,7 +1486,7 @@
   },
   "whats-new-list": {
     "description": "🇳🇱 change log",
-    "message": "{L}Compatibiliteit met Thunderbird 153 toegevoegd.{/L}{L}Tsjechische vertaling toegevoegd.{/L}{L}Optie toegevoegd in het berichtfilterdialoog om filters te zoeken op het volledige mappad dat wordt gebruikt in verplaats-/kopieeracties.{/L}{L}Integratie van de QuickFolders huidige mapbalk verbeterd.{/L}{L}Probleem opgelost waarbij berichtvoorbeeld niet beschikbaar was bij het verplaatsen naar lokale mappen.{/L}{L}quickFilters-instellingen zijn overgezet naar lokale opslag in plaats van verouderde voorkeuren. Je kunt quickFilters nu resetten naar standaardgedrag door de add-on te verwijderen en opnieuw te installeren.{/L}"
+    "message": "{L}Compatibiliteit met Thunderbird 153 toegevoegd.{/L}{L}Tsjechische vertaling toegevoegd.{/L}{L}Nieuwe zoekoptie toegevoegd in het dialoogvenster Berichtfilters om filters te vinden op map-pad van verplaats-/kopieeracties.{/L}{L}Integratie van de huidige mapbalk van QuickFolders verbeterd. [issue 365]{/L}{L}Een probleem opgelost waarbij het berichtvoorbeeld niet beschikbaar was bij het verplaatsen van e-mail naar lokale mappen.{/L}{L}Instellingen van quickFilters zijn omgezet naar lokale opslag in plaats van de globale voorkeuren van Thunderbird. U kunt quickFilters nu terugzetten naar het standaardgedrag door de add-on te verwijderen en vervolgens opnieuw te installeren.{/L}{L}Communicatie tussen quickFilters en QuickFolders verbeterd. [issue 373]{/L}{L}Voortaan is de minimale versie van Thunderbird v140. Dit zal toekomstige ontwikkeling verbeteren en problemen door verouderde code voorkomen.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

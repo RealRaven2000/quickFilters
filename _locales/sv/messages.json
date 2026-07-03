@@ -1484,7 +1484,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇪 change log",
-    "message": "{L}Kompatibilitet med Thunderbird 153 tillagd.{/L}{L}Tjeckisk översättning tillagd.{/L}{L}Alternativ tillagt i dialogrutan för meddelandefilter för att söka filter efter fullständig mappsökväg som används i flytta/kopiera-åtgärder.{/L}{L}Förbättrad integration av QuickFolders aktuella mappfält.{/L}{L}Åtgärdat problem där meddelandeförhandsvisning inte var tillgänglig vid flytt till lokala mappar.{/L}{L}quickFilters-inställningar har flyttats till lokal lagring istället för äldre inställningar. Du kan nu återställa quickFilters till standardbeteende genom att ta bort och installera tillägget igen.{/L}"
+    "message": "{L}Lade till kompatibilitet med Thunderbird 153.{/L}{L}Lade till tjeckisk översättning.{/L}{L}Lade till ett nytt sökalternativ i dialogen Meddelandefilter för att hitta filter efter mappsökväg för flytt-/kopieringsåtgärder.{/L}{L}Förbättrade integrationen av QuickFolders fält för aktuell mapp. [issue 365]{/L}{L}Åtgärdade ett problem där förhandsvisning av meddelanden inte var tillgänglig vid flytt av e-post till lokala mappar.{/L}{L}quickFilters-inställningar har ändrats till att använda lokal lagring i stället för Thunderbirds globala inställningar. Du kan nu återställa quickFilters till standardbeteende genom att ta bort tillägget och sedan installera om det.{/L}{L}Förbättrade kommunikationen mellan quickFilters och QuickFolders. [issue 373]{/L}{L}Framöver är minsta version av Thunderbird v140. Detta kommer att förbättra framtida utveckling och undvika problem som orsakas av föråldrad kod.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

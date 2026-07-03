@@ -1482,7 +1482,7 @@
   },
   "whats-new-list": {
     "description": "🇵🇱 change log",
-    "message": "{L}Dodano zgodność z Thunderbird 153.{/L}{L}Dodano tłumaczenie czeskie.{/L}{L}Dodano opcję w oknie filtrów wiadomości do wyszukiwania filtrów po pełnej ścieżce folderu użytej w akcjach przenoszenia/kopiowania.{/L}{L}Ulepszono integrację paska bieżącego folderu QuickFolders.{/L}{L}Naprawiono problem, w którym podgląd wiadomości był niedostępny podczas przenoszenia poczty do folderów lokalnych.{/L}{L}Ustawienia quickFilters zostały przeniesione do lokalnej pamięci zamiast starszych preferencji. Możesz teraz zresetować quickFilters do domyślnego działania, usuwając i ponownie instalując dodatek.{/L}"
+    "message": "{L}Dodano zgodność z Thunderbird 153.{/L}{L}Dodano tłumaczenie czeskie.{/L}{L}Dodano nową opcję wyszukiwania w oknie dialogowym Filtrów wiadomości, aby znajdować filtry według ścieżki folderu dla akcji przenoszenia/kopiowania.{/L}{L}Ulepszono integrację paska bieżącego folderu QuickFolders. [issue 365]{/L}{L}Naprawiono problem, przez który podgląd wiadomości był niedostępny podczas przenoszenia poczty do folderów lokalnych.{/L}{L}Ustawienia quickFilters zostały przeniesione do pamięci lokalnej zamiast globalnych preferencji Thunderbird. Teraz możesz przywrócić quickFilters do ustawień domyślnych, usuwając dodatek i instalując go ponownie.{/L}{L}Ulepszono komunikację między quickFilters a QuickFolders. [issue 373]{/L}{L}Od teraz minimalna wersja Thunderbird to v140. Usprawni to dalszy rozwój i pozwoli uniknąć problemów spowodowanych przestarzałym kodem.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

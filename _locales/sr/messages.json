@@ -280,7 +280,7 @@
   },
   "whats-new-list": {
     "description": "🇷🇸 change log",
-    "message": "{L}Додата компатибилност са Thunderbird 153.{/L}{L}Додат чешки превод.{/L}{L}Додата опција у дијалогу филтера порука за претрагу филтера по пуној путањи фасцикле која се користи у радњама премештања/копирања.{/L}{L}Побољшана интеграција траке тренутне фасцикле QuickFolders.{/L}{L}Исправљен проблем где преглед поруке није био доступан приликом премештања поште у локалне фасцикле.{/L}{L}Подешавања quickFilters су пребачена на локално складиште уместо старих подешавања. Сада можете ресетовати quickFilters на подразумевано уклањањем и поновном инсталацијом додатка.{/L}"
+    "message": "{L}Dodata kompatibilnost sa Thunderbird 153.{/L}{L}Dodat je češki prevod.{/L}{L}Dodata je nova opcija pretrage u dijalogu Filteri poruka za pronalaženje filtera po putanji fascikle za radnje premeštanja/kopiranja.{/L}{L}Poboljšana je integracija trake trenutne fascikle u QuickFolders. [issue 365]{/L}{L}Ispravljen je problem zbog kog pregled poruke nije bio dostupan pri premeštanju pošte u lokalne fascikle.{/L}{L}Podešavanja quickFilters su prebačena na lokalno skladište umesto globalnih podešavanja Thunderbird. Sada možete da vratite quickFilters na podrazumevano ponašanje tako što ćete ukloniti dodatak, a zatim ga ponovo instalirati.{/L}{L}Poboljšana je komunikacija između quickFilters i QuickFolders. [issue 373]{/L}{L}Ubuduće je minimalna verzija Thunderbird v140. Ovo će poboljšati budući razvoj i izbeći probleme izazvane zastarelim kodom.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

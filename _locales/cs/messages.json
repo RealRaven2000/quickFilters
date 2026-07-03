@@ -1462,7 +1462,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇿 change log",
-    "message": "{L}Přidána kompatibilita s Thunderbird 153.{/L}{L}Přidán český překlad.{/L}{L}Přidána možnost v dialogu Filtry zpráv vyhledávat filtry podle celé cesty složky použité v akcích přesunu/kopírování.{/L}{L}Vylepšena integrace lišty aktuální složky QuickFolders.{/L}{L}Opraven problém, kdy náhled zprávy nebyl dostupný při přesouvání pošty do lokálních složek.{/L}{L}Nastavení quickFilters bylo převedeno na lokální úložiště místo starších preferencí. Nyní lze quickFilters resetovat na výchozí chování odstraněním a opětovnou instalací doplňku.{/L}"
+    "message": "{L}Přidána kompatibilita s Thunderbird 153.{/L}{L}Přidán český překlad.{/L}{L}Přidána nová možnost vyhledávání v dialogu Filtry zpráv pro nalezení filtrů podle cesty složky u akcí přesunutí/kopírování.{/L}{L}Vylepšena integrace lišty aktuální složky QuickFolders. [issue 365]{/L}{L}Opraven problém, kdy při přesunu pošty do místních složek nebyl dostupný náhled zprávy.{/L}{L}Nastavení quickFilters bylo převedeno na místní úložiště místo globálních předvoleb Thunderbird. Nyní můžete quickFilters obnovit na výchozí chování tak, že doplněk odeberete a znovu nainstalujete.{/L}{L}Vylepšena komunikace mezi quickFilters a QuickFolders. [issue 373]{/L}{L}Do budoucna je minimální verzí Thunderbird v140. To zlepší další vývoj a zabrání problémům způsobeným zastaralým kódem.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
