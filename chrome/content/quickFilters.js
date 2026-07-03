@@ -226,7 +226,7 @@ END LICENSE BLOCK
     # [issue 367] Convert Legacy Preferences to new local storage
     # [issue 362] Set Minimum Version to Thunderbird 140 to avoid problems with deprecated APIs
     # [issue 364] HTML Assistant cannot read API message preview when moving mail to local folder
-    # [issue 365] Improve QuickFolders current folder bar integration
+    # [issue 365] Improved integration of buttons in QuickFolders Current Folder toolbar
     # [issue 366] Search filters by folder URI (parts of target folder path)
     # [issue 372] Fixed: Console error thrown by getUserName
     # [issue 373] Modernize calling assistant: use external Message list
