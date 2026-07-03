@@ -5,7 +5,7 @@ The full log with screenshots is available at: [quickFilters Change Log](https:/
 
 This release updates quickFilters to reflect recent changes in Thunderbird’s add-on platform planning. A previously announced restriction that would allow legacy Add-ons on the Release channel only has been postponed to a later ESR cycle (currently targeted for 2027).
 
-No immediate action is required. quickFilters continues to work on both Release and ESR versions of Thunderbird where supported.
+While quickFilters continues to support both Release and ESR versions of Thunderbird where compatible, it may be better to switch to the ESR channel to secure a more stable update path. 
 
 Users who rely on advanced or experimental functionality may prefer the ESR channel for a more stable environment with fewer platform changes. The recommended migration point from Release to ESR is Thunderbird 153, expected in July 2026.
 
