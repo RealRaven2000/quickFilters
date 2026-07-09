@@ -74,6 +74,12 @@ quickFilters.Options = {
     document
       .getElementById("licenseDate")
       .addEventListener("click", quickFilters.Options.showExtensionButton);
+
+    const supportLabel = document.getElementById("contactLabel");
+    const supportString = messenger.i18n.getMessage("qf.description.contactMe", [
+      quickFilters.Util.ADDON_SUPPORT_MAIL,
+    ]);
+    supportLabel.textContent = supportString;
   },
 
   initLicenseBackupUI: async function () {
