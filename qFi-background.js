@@ -78,7 +78,7 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
           let installedVersion = manifest.version.replace(/pre.*/, "").replace(/\.$/, "");
           const isUpgrade = versionGreater(installedVersion, origVer);
           if (isDebug) {
-            console.log(`SmartTemplates Update:  old=${origVer}  new=${installedVersion}`);
+            console.log(`quickFilters Update:  old=${origVer}  new=${installedVersion}`);
           }
 
           if (isUpgrade) {
