@@ -28,6 +28,7 @@ var callbacks = [];
 var AssistantActive = false;
 var assistantWindowId = null; // [issue 380] track assistant window for focus restore
 var assistantCallerWindowId = null; // [issue 380] the window that launched the assistant
+const ASSISTANT_BOUNDS_KEY = "assistant.window.bounds"; // persisted {left, top, width, height}
 
 
 function versionGreater(v1, v2) {
@@ -475,13 +476,24 @@ async function displayAssistant(data) {
     const callerWin = await browser.windows.getLastFocused({ windowTypes: ["normal"] });
     assistantCallerWindowId = callerWin?.id ?? null;
   } catch { assistantCallerWindowId = null; }
-  const win = await browser.windows.create({
+  // restore last saved bounds if available
+  let savedBounds = null;
+  try {
+    const stored = await browser.storage.local.get(ASSISTANT_BOUNDS_KEY);
+    savedBounds = stored?.[ASSISTANT_BOUNDS_KEY] ?? null;
+  } catch { /* ignore */ }
+  const createParams = {
     url: url.toString(),
     type: "popup",
-    width: 780,
-    height: windowHeight,
+    width: savedBounds?.width ?? 780,
+    height: savedBounds?.height ?? windowHeight,
     allowScriptsToClose: true,
-  });
+  };
+  if (savedBounds) {
+    createParams.left = savedBounds.left;
+    createParams.top = savedBounds.top;
+  }
+  const win = await browser.windows.create(createParams);
   assistantWindowId = win?.id ?? null; // [issue 380] track for focusAssistant handler
   // [issue 380] explicitly raise the assistant to front after creation
   if (assistantWindowId) {
