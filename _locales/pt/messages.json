@@ -34,6 +34,12 @@
   "assistant.ux.assistant.html.tooltip": {
     "message": "Abre uma nova versão do Assistente usando HTML preparado para o futuro. O XUL será descontinuado pela Mozilla no futuro."
   },
+  "assistant.ux.stayFocused": {
+    "message": "Manter janela do Assistente acima do Thunderbird"
+  },
+  "assistant.ux.stayFocused.tooltip": {
+    "message": "Certifique-se de que o assistente permanece acima quando ativado."
+  },
   "btn-extend-license": {
     "message": "Eu quero estender minha licença por um ano"
   },

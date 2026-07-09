@@ -34,6 +34,12 @@
   "assistant.ux.assistant.html.tooltip": {
     "message": "Otwiera nową wersję asystenta przy użyciu nowoczesnego HTML. XUL zostanie w przyszłości wycofany przez Mozillę."
   },
+  "assistant.ux.stayFocused": {
+    "message": "Utrzymuj okno Asystenta nad Thunderbirdem"
+  },
+  "assistant.ux.stayFocused.tooltip": {
+    "message": "Upewni się, że asystent pozostaje na wierzchu po jego aktywacji."
+  },
   "btn-extend-license": {
     "message": "Chcę przedłużyć moją licencję o rok"
   },

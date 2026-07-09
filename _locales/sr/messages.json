@@ -28,6 +28,12 @@
   "assistant.ux.assistant.html.tooltip": {
     "message": "Отвара нову верзију асистента користећи HTML отпоран на промене у будућности. XUL ће бити укинут од стране Мозиле у будућности."
   },
+  "assistant.ux.stayFocused": {
+    "message": "Zadrži prozor Asistenta iznad Thunderbirda"
+  },
+  "assistant.ux.stayFocused.tooltip": {
+    "message": "Obezbeditе da асistent ostane na vrhu kada je aktiviran."
+  },
   "btn-extend-license": {
     "message": "Желим да продужим лиценцу за годину дана"
   },

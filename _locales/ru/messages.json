@@ -34,6 +34,12 @@
   "assistant.ux.assistant.html.tooltip": {
     "message": "Открывает новую версию помощника с использованием перспективного HTML. В будущем XUL будет удалён Mozilla."
   },
+  "assistant.ux.stayFocused": {
+    "message": "Держать окно Помощника над Thunderbird"
+  },
+  "assistant.ux.stayFocused.tooltip": {
+    "message": "Убедитесь, что помощник остается в верхней части после активации."
+  },
   "btn-extend-license": {
     "message": "Я хочу продлить лицензию на один год"
   },

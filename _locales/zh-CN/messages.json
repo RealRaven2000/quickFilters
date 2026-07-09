@@ -34,6 +34,12 @@
   "assistant.ux.assistant.html.tooltip": {
     "message": "使用面向未来的 HTML 打开助手的新版本。XUL 将在未来被 Mozilla 废弃。"
   },
+  "assistant.ux.stayFocused": {
+    "message": "将助手窗口保持在Thunderbird上方"
+  },
+  "assistant.ux.stayFocused.tooltip": {
+    "message": "确保助手在激活后保持在顶部。"
+  },
   "btn-extend-license": {
     "message": "我想将我的执照延长一年"
   },

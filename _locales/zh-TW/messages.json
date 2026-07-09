@@ -34,6 +34,12 @@
   "assistant.ux.assistant.html.tooltip": {
     "message": "使用面向未來的 HTML 開啟助理的新版本。XUL 將在未來被 Mozilla 棄用。"
   },
+  "assistant.ux.stayFocused": {
+    "message": "將助手視窗保持在Thunderbird上方"
+  },
+  "assistant.ux.stayFocused.tooltip": {
+    "message": "確保助手在啟用後保持在頂部。"
+  },
   "btn-extend-license": {
     "message": "我想將我的執照延長一年"
   },

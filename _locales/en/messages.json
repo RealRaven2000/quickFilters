@@ -38,7 +38,7 @@
     "message": "Keep Assistant window on top of Thunderbird"
   },
   "assistant.ux.stayFocused.tooltip": {
-    "message": "This makes sure that the assistant stays on top once it is activated."
+    "message": "Make sure that the assistant stays on top once it is activated."
   },
   "btn-extend-license": {
     "message": "I want to extend my license by one year"
