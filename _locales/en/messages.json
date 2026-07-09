@@ -34,6 +34,12 @@
   "assistant.ux.assistant.html.tooltip": {
     "message": "Opens a new version of the assistant using future proof HTML. XUL will be deprecated by Mozilla in the future."
   },
+  "assistant.ux.stayFocused": {
+    "message": "Keep Assistant window on top of Thunderbird"
+  },
+  "assistant.ux.stayFocused.tooltip": {
+    "message": "This makes sure that the assistant stays on top once it is activated."
+  },
   "btn-extend-license": {
     "message": "I want to extend my license by one year"
   },

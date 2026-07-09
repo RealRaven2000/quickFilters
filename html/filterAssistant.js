@@ -52,6 +52,23 @@ const startup = async () => {
     }
   });
 
+  // [issue 380] ensure assistant comes to front on load (guard against context menu / async open)
+  setTimeout(() => window.focus(), 250);
+
+  // [issue 380] restore focus to assistant if it loses focus (floating palette behaviour)
+  const { settings } = await browser.storage.local.get({ settings: {} });
+  const stayFocused = settings["assistant.ui.stayFocused"] ?? false;
+  const maxFocusRestore = settings["assistant.ui.focus.maxRestores"] ?? 3;
+  if (stayFocused && maxFocusRestore > 0) {
+    let focusRestoreCount = 0;
+    window.addEventListener("blur", () => {
+      if (focusRestoreCount < maxFocusRestore) {
+        focusRestoreCount++;
+        browser.runtime.sendMessage({ command: "focusAssistant" });
+      }
+    });
+  }
+
   // default dialog key handlers [Enter] = Next [Cancel] = close dialog
   document.body.addEventListener("keydown", (ev) => {
     // Ignore Enter on elements where it has its own default behavior

@@ -26,6 +26,8 @@ var QF_license = {status:"unknown", type: 0}
 var callbacks = [];
 // Worker.FilterMode
 var AssistantActive = false;
+var assistantWindowId = null; // [issue 380] track assistant window for focus restore
+var assistantCallerWindowId = null; // [issue 380] the window that launched the assistant
 
 
 function versionGreater(v1, v2) {
@@ -468,13 +470,23 @@ async function displayAssistant(data) {
 
   let screenH = window.screen.height,
     windowHeight = screenH > 650 ? 650 : screenH;
-  browser.windows.create({
+  // [issue 380] remember which window launched the assistant (for focus-restore sanity check)
+  try {
+    const callerWin = await browser.windows.getLastFocused({ windowTypes: ["normal"] });
+    assistantCallerWindowId = callerWin?.id ?? null;
+  } catch { assistantCallerWindowId = null; }
+  const win = await browser.windows.create({
     url: url.toString(),
     type: "popup",
     width: 780,
     height: windowHeight,
     allowScriptsToClose: true,
   });
+  assistantWindowId = win?.id ?? null; // [issue 380] track for focusAssistant handler
+  // [issue 380] explicitly raise the assistant to front after creation
+  if (assistantWindowId) {
+    browser.windows.update(assistantWindowId, { focused: true }).catch(() => {});
+  }
 }
 
 async function displaySettings(data) {
@@ -1184,6 +1196,19 @@ async function main() {
           mergeFilter,
         });
       }
+    },
+    focusAssistant: async (_data, _sender) => {
+      // [issue 380] only steal focus back if the currently focused window is the known caller
+      // (avoids hijacking a composer or other window the user intentionally opened)
+      if (!assistantWindowId)  {
+        return;
+      }
+      try {
+        const focused = await browser.windows.getLastFocused();
+        if (focused?.id === assistantCallerWindowId) {
+          browser.windows.update(assistantWindowId, { focused: true }).catch(() => {});
+        }
+      } catch { /* ignore */ }
     },
     resizeAssistant: async (data, sender) => {
       if (sender.tab) {

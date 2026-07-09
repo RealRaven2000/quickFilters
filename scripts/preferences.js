@@ -53,6 +53,8 @@ export const Preferences = {
     "assistant.exclude.trash": false,
     "assistant.exclude.junk": false,
     "assistant.exclude.archive": true,
+    "assistant.ui.stayFocused": false,
+    "assistant.ui.focus.maxRestores": 3,
     "assistant.merge.firstActionOnly": true,
 
     // === MERGE ===
