@@ -29,7 +29,7 @@ async function onLoad(activatedWhileWindowOpen) {
   await window.quickFilters.Preferences.cache.awaitReady;
   console.log("quickFilters: pref cache ready");
   // TEMP DEBUG TEST
-  await new Promise((resolve) => window.setTimeout(resolve, 1000));
+  // await new Promise((resolve) => window.setTimeout(resolve, 1000));
 
   // console.log ("quickFilters Background Script, running in TB ", await Services.appinfo.version);
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
