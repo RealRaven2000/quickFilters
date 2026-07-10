@@ -1169,11 +1169,36 @@ var quickFilters = {
         }
 
         if (!container) {
-          // wait a little longer if we need to do multiple tries for Tb get ready
-          setTimeout(
-            () => quickFilters.toggleCurrentFolderButtons(retries + 1),
-            10000 + retries * 10000
-          );
+          if (toolbar) {
+            // QuickFolders toolbar exists but our container is gone (e.g. after a QF update).
+            // Buttons are almost certainly still in the DOM but stranded — move them directly.
+            const refNode = doc.getElementById("QuickFolders-Options");
+            const prefsMap = new Map(
+              buttons.map((btn) => [btn.pref, prefs.getBoolPref(`quickfolders.curFolderbar.${btn.pref}`)])
+            );
+            const foundButtons = buttons.filter((btn) => doc.getElementById(btn.id));
+            if (foundButtons.length) {
+              util.logDebug(`toggleCurrentFolderButtons: moving ${foundButtons.length} stranded buttons directly into toolbar`);
+              foundButtons.forEach((btn) => {
+                const element = doc.getElementById(btn.id);
+                toolbar.insertBefore(element, refNode);
+                element.collapsed = !prefsMap.get(btn.pref);
+              });
+              continue; // buttons restored — process next tab
+            }
+            // Buttons gone entirely — trigger re-injection and retry
+            util.logDebug(`toggleCurrentFolderButtons: toolbar present but no buttons found (retry ${retries}) — triggering bar update`);
+            await window.quickFilters.Util.notifyTools.notifyBackground({
+              func: "updateCurrentFolderBar",
+            });
+            setTimeout(() => quickFilters.toggleCurrentFolderButtons(retries + 1), 2000);
+          } else {
+            // No toolbar yet — wait progressively longer for Tb / QF to finish loading
+            setTimeout(
+              () => quickFilters.toggleCurrentFolderButtons(retries + 1),
+              10000 + retries * 10000
+            );
+          }
           return;
         }
 
