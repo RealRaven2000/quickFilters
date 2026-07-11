@@ -1,3 +1,7 @@
+Version 1.64
+------------
+- removed backwards compatibility for Thunderbird < 140
+
 Version: 1.62
 -------------
 - fix bug in fullyLoaded()
