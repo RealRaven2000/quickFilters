@@ -93,6 +93,7 @@ quickFilters.Util = {
       let tabs = await messenger.tabs.query({});
 
       // Check if a FiltaQuilla help tab is already open
+      // here I am reading tab.url which requirest the "tabs" permission in manifest.json
       let existingTab = tabs.find((t) => t.url && quickFilters.Util.getBaseURI(t.url) === baseURI);
 
       if (existingTab) {
