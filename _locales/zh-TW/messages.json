@@ -1401,7 +1401,7 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{L}已新增與 Thunderbird 153 的相容性。{/L}{L}已新增捷克文翻譯。{/L}{L}在「訊息篩選器」對話框中新增搜尋選項，可依移動/複製動作的資料夾路徑尋找篩選器。{/L}{L}改善了 QuickFolders 目前資料夾列的整合。[issue 365]{/L}{L}修正了將郵件移動到本機資料夾時無法使用郵件預覽的問題。{/L}{L}quickFilters 設定已改為使用本機儲存，而非 Thunderbird 的全域偏好設定。現在您可以先移除附加元件再重新安裝，將 quickFilters 重設為預設行為。{/L}{L}改善了 quickFilters 與 QuickFolders 之間的通訊。[issue 373]{/L}{L}自此之後，Thunderbird 的最低版本為 v140。這將改善後續開發，並避免由已淘汰程式碼造成的問題。{/L}"
+    "message": "{L}{b class=maintenance}6.13.1{/b} 篩選助手視窗現在會記住其位置。我們也新增了讓視窗始終保持可見的選項。[issue 380]{/L}{L}{b class=maintenance}6.13.1{/b} 修正了篩選助手使用不正確的內建範本(domain 而非 from)的問題。[issue 376]{/L}{L}{b class=maintenance}6.13.1{/b} 修正了本機儲存遷移後無法讀取快取偵錯設定的問題。[issue 367]{/L}{L}{b class=maintenance}6.13.1{/b} 改善了 QuickFolders 目前資料夾列的整合。[issue 365]{/L}{P class=heading}自初始版本 {b}6.13{/b} 以來的變更：{/P}{L}quickFilters 設定已改為使用本機儲存，而非 Thunderbird 的全域偏好設定。現在您可以先移除附加元件再重新安裝，將 quickFilters 重設為預設行為。{/L}{L}已新增捷克文翻譯。{/L}{L}在「訊息篩選器」對話框中新增搜尋選項，可依移動/複製動作的資料夾路徑尋找篩選器。{/L}{L}修正了將郵件移動到本機資料夾時無法使用郵件預覽的問題。{/L}{L}改善了 quickFilters 與 QuickFolders 之間的通訊。[issue 373]{/L}{L}自此之後，Thunderbird 的最低版本為 v140。這將改善後續開發，並避免由已淘汰程式碼造成的問題。{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

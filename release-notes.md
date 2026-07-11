@@ -1,4 +1,4 @@
-**Release 6.13**
+**Release 6.13.1**
 
 The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13)
 
@@ -12,26 +12,19 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 
 **Improvements**
 
-* Compatibility updates for Thunderbird 154
-* Added Czech translation
-* Search filters can now be found by target folder URI (folder path) [issue #366]
-* Improved integration of QuickFolders current folder bar [issue #365]
+*     Remember position of Filter Assistant window. New option to force assistant to the top. [issue 380]
+*     Improved QuickFolders current folder bar integration stability [issue 365]
 
-**Settings & Storage**
+*     Note for reviewers: we still require the "tabs" permission in manifest.json to 
+*          read the URL of iterated tabs for the reopening settings on qi-utils.js:97
 
-* Converted quickFilters settings to use local storage instead of Thunderbird's global preferences [issue #367]
-* Improved communication between quickFilters and QuickFolders [issue #373]
 
 
 **Bug Fixes**
 
-* Fixed HTML Assistant issue where message preview API was not available when moving mail to local folders [issue #364]
-* Set minimum supported Thunderbird version to 140 to avoid deprecated API issues [issue #362]
+*     Fixed an issue where cached debug settings were not read after the migration to local storage. [issue 367]
+*     Filter assistant not using correct built in template (domain instead from) [issue 376] 
 
-
-**Compatibility**
-
-* Updated default GitHub branch alignment to ESR140
 
 
 All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features](https://quickfilters.quickfolders.org/premium.html#featureList).
