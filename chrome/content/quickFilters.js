@@ -220,7 +220,7 @@ END LICENSE BLOCK
     # [issue 364] Fixed: HTML Assistant cannot populate preview message when moving mail to local folder
     # Fixed: License key restore has the wrong key (QuickFolders instead of quickFilters)
 
-  6.13 - WIP
+  6.13 - 03/07/2026
     # new Github Default branch ESR140
     # Added Czech translation
     # [issue 367] Convert Legacy Preferences to new local storage
@@ -231,6 +231,15 @@ END LICENSE BLOCK
     # [issue 372] Fixed: Console error thrown by getUserName
     # [issue 373] Modernize calling assistant: use external Message list
     # [issue 374] External API discovery function: add and document listExternalCommands
+
+  6.13.1 - WIP
+    # [issue 376] Filter assistant not using correct built in template (domain instead from)
+    # [issue 380] Remember position of Filter Assistant window. New option to force assistant to the top.
+    # [issue 365] Improved QuickFolders current folder bar integration stability
+    # [issue 367] Support reading debug settings in legacy code
+    # Note for reviewers: we still require the "tabs" permission in manifest.json to 
+    #      read the URL of iterated tabs for the reopening settings on qi-utils.js:97
+ 
 
 
   ============================================================================================================
