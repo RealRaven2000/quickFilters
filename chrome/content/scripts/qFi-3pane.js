@@ -1,9 +1,37 @@
 /* globals  
+     WL
 */
 
 const qFInjector = {
+  _WL: null,
+  getWL: function(win = window) {
+    if (this._WL) {
+      return this._WL;
+    } 
+    if (typeof WL !== "undefined") {
+      this._WL = WL;
+      return this._WL;
+    }
+    console.debug("qFInjector.getWL: no global WL - searching for AddOnNS* props in window...");
+    for (const k of Object.getOwnPropertyNames(win).filter((k) => k.startsWith("AddOnNS"))) {
+      try {
+        const ns = win[k];
+        if (ns?.WL?.extension?.addonData?.id==="quickFilters@axelg.com") {
+          console.debug("qFInjector.WL: found WindowListener", ns?.WL?.extension?.addonData);
+          this._WL = ns.WL;
+          return this._WL;
+        };
+      } catch (e) {
+        console.error("qFInjector.WL: failed to access", k, e);
+        continue;
+      }
+    }
+    return null;
+  },
+
+
   injectCSS(win, url) {
-    const WL = win.WL;
+    const WL = qFInjector.getWL(win);
 
     if (WL?.injectCSS) {
       return WL.injectCSS(url);
@@ -25,7 +53,7 @@ const qFInjector = {
       let msg = entity.slice("__MSG_".length, -2);
       return extension.localeData.localizeMessage(msg);
     }
-    const WL = window.WL;
+    const WL = qFInjector.getWL(window);
     const debug = false;
     var { ExtensionParent } = ChromeUtils.importESModule(
       "resource://gre/modules/ExtensionParent.sys.mjs"
@@ -60,6 +88,7 @@ const qFInjector = {
   async waitForElement(doc, selector, timeout = 10000, log = console.log) {
     const existing = doc.querySelector(selector);
     if (existing) {
+      log(`waitForElement: found ${selector} immediately`);
       return existing;
     }
     let time = new Date().getTime();
