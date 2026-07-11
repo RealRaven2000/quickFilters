@@ -2346,8 +2346,7 @@ quickFilters.patchMailPane = () => {
     const selectedTab = quickFilters.Util?.tabContainer?.selectedItem;
     console.log(
       "quickFilters - mainButton not found!\n" +
-        "Maybe you have configured your toolbar so that the quickFilters button is not shown?\n" +
-        `The selected tab "${selectedTab?.label}" should be a mail tab`,
+        `The selected tab "${selectedTab?.label}" appears to be a mail tab, but the toolbar button is not available yet.`,
       selectedTab
     );
   }

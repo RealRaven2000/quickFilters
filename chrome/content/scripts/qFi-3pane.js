@@ -56,6 +56,42 @@ const qFInjector = {
       return null;
     }
   },
+
+  async waitForElement(doc, selector, timeout = 10000, log = console.log) {
+    const existing = doc.querySelector(selector);
+    if (existing) {
+      return existing;
+    }
+    let time = new Date().getTime();
+    log(`waitForElement: waiting for ${selector}...`);
+
+    return new Promise((resolve, reject) => {
+      let timer;
+
+      const observer = new doc.defaultView.MutationObserver(() => {
+        const element = doc.querySelector(selector);
+        if (element) {
+          log(`waitForElement: found ${selector} after ${new Date().getTime() - time}ms`);
+          observer.disconnect();
+          clearTimeout(timer);
+          resolve(element);
+        }
+      });
+
+      observer.observe(doc.documentElement, {
+        childList: true,
+        subtree: true,
+      });
+
+      if (timeout) {
+        timer = setTimeout(() => {
+          observer.disconnect();
+          log(`waitForElement: timeout waiting for ${selector} after ${new Date().getTime() - time}ms`);
+          reject(new Error(`Timeout waiting for ${selector}`));
+        }, timeout);
+      }
+    });
+  },
 };
 
 async function setAssistantButton(e) {
@@ -169,12 +205,34 @@ function injectButton(parentElement, id, options = {}) {
 async function injectQuickFoldersNavigationBarElements(win) {
   // QUICKFOLDERS NAVIGATION BAR INJECTION: Remove the previous container!
   const previousContainer = win.document.getElementById("quickFilters-injected");
+  const prefs = win?.quickFilters?.Preferences;
+  if (!prefs) {
+    console.error("injectQuickFoldersNavigationBarElements() - Preferences not available!");
+    return;
+  }
+  await prefs.ensureReady();
+  const isDebug = prefs.isDebugOption("3pane") || false;
   if (previousContainer) {
     if (win?.quickFilters?.Util) {
       win.quickFilters.Util.logDebug("injectQuickFoldersNavigationBarElements() - removing previous container");
     }
     previousContainer.remove();
   }
+  const log3pane = (...args) => {
+    if (!isDebug) { 
+      return;
+    }
+    win.quickFilters.Util.logHighlightDebug("[quickFilters 3pane]", "white", "green", ...args);
+  }
+
+  log3pane("injectQuickFoldersNavigationBarElements() - waiting for threadPane");
+  try {
+    await qFInjector.waitForElement(win.document, "#threadPane", 10000, log3pane);
+  } catch (e) {
+    win.quickFilters.Util.logException(e, "quickFilters injection failed");
+  }
+
+  log3pane("inject Elements container...");
 
   qFInjector.injectElements(`
       <div id="threadPane">
@@ -183,6 +241,7 @@ async function injectQuickFoldersNavigationBarElements(win) {
   const container = win.document.getElementById("quickFilters-injected");
   const localize = win.quickFilters.Util.getBundleString;
 
+  log3pane("inject buttons...");
   injectButton(container, "quickfilters-current-runbutton", {
     insertAfter: "QuickFolders-currentFolderFilterActive",
     tooltip: localize("quickfilters.RunButton.tooltip"),
