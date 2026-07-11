@@ -56,6 +56,9 @@
   cursor: pointer;
 }
 
+a.issue {
+  white-space: nowrap;
+}
 
 .actionlinks div {
   background-color: darkred;
