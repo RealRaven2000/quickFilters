@@ -131,6 +131,9 @@ quickFilters.Preferences = {
     }
     return this.getStringPref("shortcuts." + scope + ".key");
   },
+  ensureReady: async function () {
+    await quickFilters.Preferences.cache.awaitReady;
+  },
 };
 
 quickFilters.Preferences.cache = (() => {
@@ -194,13 +197,13 @@ quickFilters.Preferences.cache = (() => {
           }
           try {
             console.log("Preferences Cache - notifyTools:", notifyTools);
-            const data = await notifyTools.notifyBackground({
+            const {prefs} = await notifyTools.notifyBackground({
               func: "requestPrefCache",
             });
-            console.log("Received preferences Cache:", data);
+            console.log("Received preferences Cache:", prefs);
             // remove all old data
             Object.keys(cache._data).forEach((k) => delete cache._data[k]);
-            Object.assign(cache._data, data);
+            Object.assign(cache._data, prefs);
             loaded = true;
             break;
           } catch (ex) {

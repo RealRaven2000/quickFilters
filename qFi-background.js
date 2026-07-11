@@ -1138,8 +1138,20 @@ function registerNotifyListener() {
         await Preferences.set(data.key, data.value);
         return true;
       case "requestPrefCache":
-        // send cached data to quickFilters.Preferences.cache.updateFromBackend(data)
-        return Preferences._data;
+        {
+          // send cached data to quickFilters.Preferences.cache.updateFromBackend(data)
+          // merge debug settings into prefs, mapping debugActive → "debug" for frontend compatibility
+          const debugDataForCache = {};
+          for (const [k, v] of Object.entries(Preferences._debugData || {})) {
+            debugDataForCache[k === "debugActive" ? "debug" : k] = v;
+          }
+          return {
+            prefs: {
+              ...Preferences._data,
+              ...debugDataForCache,
+            },
+          };          
+        }
       case "test-storage-editor":
         webExtensionStorageEditor.open({
           storageArea: "local",

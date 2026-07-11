@@ -128,6 +128,7 @@ export const Preferences = {
   },
   DebugDefaults: {
     debugActive: false /* was "debug" */,
+    "debug.3pane": false,
     "debug.assistant": false,
     "debug.assistant.ui": false,
     "debug.assistant.msg": false,
