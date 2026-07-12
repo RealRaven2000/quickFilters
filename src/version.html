@@ -228,7 +228,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
  
 -->
 
-<a name="6.13"> &nbsp; </a>
+<a name="6.13"> &nbsp; </a><a name="6.13.1"> &nbsp; </a>
 <li>
   <h4>
 	<a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.13" >
@@ -252,6 +252,39 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     migrate your existing profile from Release to ESR is when Thunderbird 153 will be 
     published in July 2026.
   </p>
+
+  <h5 class="inList"> 6.13.1 Maintenance Update - 12/07/2026 (awaiting review) </h5>
+  <ul>
+    <li>
+      Compatibility with Thunderbird 154. 
+    </li>
+    <li>
+      Fixed a bug where the main Thunderbird window content was moved up and caused truncation
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/382">[issue 382]</a>.
+      If you are seeing this behavior, please restart Thunderbird to make sure the changes
+      come into effect.
+    </li>
+    <li>
+      Remember position of Filter Assistant window. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/380">[issue 380]</a>
+      <p>
+        This includes a new option to force the assistant to the top, if it accidentally loses focus. 
+        Activate this behavior on the <i>Actions</i> page of the quickFilters Options dialog.
+        An additional option defines how many times focus is restored (default = 3 times):
+      </p>
+      <img src="img/assistant-on-top.png" alt="Assistant on Top" class="screenshot">
+    </li>
+    <li>
+      Improved QuickFolders current folder bar integration stability 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a>
+    </li>
+    <li>
+      Fixed an issue where cached debug settings were not read after the migration to local 
+      storage. <a href="https://github.com/RealRaven2000/quickFilters/issues/367">[issue 367]</a></li>
+    <li>
+      Fixed an issue where the Filter Assistant used an incorrect built-in template 
+      (domain instead of from) <a href="https://github.com/RealRaven2000/quickFilters/issues/376">[issue 376]</a></li>      
+  </ul>
   
   
   <h5 class="inList"> Improvements </h5>
