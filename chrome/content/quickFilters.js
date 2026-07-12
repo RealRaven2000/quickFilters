@@ -243,7 +243,6 @@ END LICENSE BLOCK
     #      read the URL of iterated tabs for the reopening settings on qi-utils.js:97
  
 
-
   ============================================================================================================
   6.* - WIP
     # [issue ]   
