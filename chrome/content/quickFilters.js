@@ -232,11 +232,13 @@ END LICENSE BLOCK
     # [issue 373] Modernize calling assistant: use external Message list
     # [issue 374] External API discovery function: add and document listExternalCommands
 
-  6.13.1 - WIP
+  6.13.1 - 12/07/2026
+    # [issue 382] 3pane window content truncated at top. Originally reported on QuickFolders Github issue 673
     # [issue 376] Filter assistant not using correct built in template (domain instead from)
     # [issue 380] Remember position of Filter Assistant window. New option to force assistant to the top.
     # [issue 365] Improved QuickFolders current folder bar integration stability
     # [issue 367] Support reading debug settings in legacy code
+    # -----------------
     # Note for reviewers: we still require the "tabs" permission in manifest.json to 
     #      read the URL of iterated tabs for the reopening settings on qi-utils.js:97
  

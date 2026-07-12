@@ -15,9 +15,6 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 *     Remember position of Filter Assistant window. New option to force assistant to the top. [issue #380]
 *     Improved QuickFolders current folder bar integration stability [issue #365]
 
-*     Note for reviewers: we still require the "tabs" permission in manifest.json to 
-*          read the URL of iterated tabs for the reopening settings on qi-utils.js:97
-
 
 
 **Bug Fixes**
