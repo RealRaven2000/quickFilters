@@ -11,9 +11,9 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 
 
 **Improvements**
-
-*     Remember position of Filter Assistant window. New option to force assistant to the top. [issue 380]
-*     Improved QuickFolders current folder bar integration stability [issue 365]
+*     Fixed a bug where the main Thunderbird window content was moved up and caused truncation [issue #382]. If you are seeing this behavior, please restart Thunderbird to make sure the changes come into effect. 
+*     Remember position of Filter Assistant window. New option to force assistant to the top. [issue #380]
+*     Improved QuickFolders current folder bar integration stability [issue #365]
 
 *     Note for reviewers: we still require the "tabs" permission in manifest.json to 
 *          read the URL of iterated tabs for the reopening settings on qi-utils.js:97
@@ -22,8 +22,8 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 
 **Bug Fixes**
 
-*     Fixed an issue where cached debug settings were not read after the migration to local storage. [issue 367]
-*     Filter assistant not using correct built in template (domain instead from) [issue 376] 
+*     Fixed an issue where cached debug settings were not read after the migration to local storage. [issue #367]
+*     Filter assistant not using correct built in template (domain instead from) [issue #376] 
 
 
 

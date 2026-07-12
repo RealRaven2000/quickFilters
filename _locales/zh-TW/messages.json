@@ -1405,7 +1405,7 @@
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}本版本使 {b}{+extensionName}{/b} 與 Thunderbird 平台規劃的最新變更保持一致。此前宣布的「舊版附加元件僅允許在 ESR 頻道執行」限制已被推遲到更後的 ESR 週期（目前預計為 2027 年）。{/P} {P}儘管 {b}{+extensionName}{/b} 在相容情況下仍支援 Thunderbird 的 Release 和 ESR 版本，但為了更穩定的更新路徑，切換到 ESR 頻道可能是更好的選擇。 {/P} {P}從 Release 遷移到 ESR 的建議節點是 Thunderbird 153（預計 2026 年 7 月）。{/P}"
+    "message": "{L}{b class=maintenance}6.13.1{/b} 修正了 Thunderbird 主視窗內容向上移動並造成顯示被截斷的問題。[issue 382]{br}{b} 如果您仍然看到此問題，請重新啟動 Thunderbird 以確保變更生效。{/b}{/L}{P}本版本使 {b}{+extensionName}{/b} 與 Thunderbird 平台規劃的最新變更保持一致。此前宣布的「舊版附加元件僅允許在 ESR 頻道執行」限制已被推遲到更後的 ESR 週期（目前預計為 2027 年）。{/P} {P}儘管 {b}{+extensionName}{/b} 在相容情況下仍支援 Thunderbird 的 Release 和 ESR 版本，但為了更穩定的更新路徑，切換到 ESR 頻道可能是更好的選擇。 {/P} {P}從 Release 遷移到 ESR 的建議節點是 Thunderbird 153（預計 2026 年 7 月）。{/P}"
   },
   "whats-new-maintenance": {
     "message": "維護更新 $ver$。此特定修正已包含在上一個版本之後的更新中。",

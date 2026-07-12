@@ -11,15 +11,16 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 
 <h3>Improvements</h3>
 <ul>
-  <li>Remember position of Filter Assistant window. New option to force assistant to the top. [issue 380]</li>
-  <li>Improved QuickFolders current folder bar integration stability [issue 365]</li>
+  <li> Remember position of Filter Assistant window. New option to force assistant to the top. <a href="https://github.com/RealRaven2000/quickFilters/issues/380">[issue 380]</a></li>
+  <li> Improved QuickFolders current folder bar integration stability <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a></li>
   <li><strong>Note for reviewers:</strong> We still require the tabs permission in manifest.json to read the URL of iterated tabs for the reopening settings in qi-utils.js:97.</li>
 </ul>
 
 <h3>Bug Fixes</h3>
 <ul>
-  <li>Fixed an issue where cached debug settings were not read after the migration to local storage. [issue 367]</li>
-  <li>Fixed an issue where the Filter Assistant used an incorrect built-in template (domain instead of from) [issue 376]</li>
+  <li> Fixed a bug where the main Thunderbird window content was moved up and caused truncation <a href="https://github.com/RealRaven2000/quickFilters/issues/382">[issue 382]</a>. If you are seeing this behavior, please restart Thunderbird to make sure the changes come into effect. Originally this was falsely reported as QuickFolders issue 673. </li>
+  <li> Fixed an issue where cached debug settings were not read after the migration to local storage. <a href="https://github.com/RealRaven2000/quickFilters/issues/367">[issue 367]</a></li>
+  <li> Fixed an issue where the Filter Assistant used an incorrect built-in template (domain instead of from) <a href="https://github.com/RealRaven2000/quickFilters/issues/376">[issue 376]</a></li>
 </ul>
 
 
