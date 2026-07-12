@@ -4,10 +4,10 @@
 
 const qFInjector = {
   _WL: null,
-  getWL: function(win = window) {
+  getWL: function (win = window) {
     if (this._WL) {
       return this._WL;
-    } 
+    }
     if (typeof WL !== "undefined") {
       this._WL = WL;
       return this._WL;
@@ -16,11 +16,11 @@ const qFInjector = {
     for (const k of Object.getOwnPropertyNames(win).filter((k) => k.startsWith("AddOnNS"))) {
       try {
         const ns = win[k];
-        if (ns?.WL?.extension?.addonData?.id==="quickFilters@axelg.com") {
+        if (ns?.WL?.extension?.addonData?.id === "quickFilters@axelg.com") {
           console.debug("qFInjector.WL: found WindowListener", ns?.WL?.extension?.addonData);
           this._WL = ns.WL;
           return this._WL;
-        };
+        }
       } catch (e) {
         console.error("qFInjector.WL: failed to access", k, e);
         continue;
@@ -28,7 +28,6 @@ const qFInjector = {
     }
     return null;
   },
-
 
   injectCSS(win, url) {
     const WL = qFInjector.getWL(win);
@@ -54,7 +53,35 @@ const qFInjector = {
       return extension.localeData.localizeMessage(msg);
     }
     const WL = qFInjector.getWL(window);
-    const debug = false;
+    const prefs = window.parent?.quickFilters?.Preferences;
+    const util = window.parent?.quickFilters?.Util;
+    const debug = prefs?.isDebug;
+    const debug3pane = prefs?.isDebugOption?.("3pane");
+
+    const logDebug = (...args) => {
+      if (!debug3pane) {
+        return;
+      }
+      if (!debug) {
+        return;
+      }
+      const format = {
+        color: "white",
+        background: "#069a0f",
+        fontWeight: "bold",
+      };
+      util.logHighlightDebug("[quickFilters 3pane]", format, ...args);
+    };
+
+    if (debug) {
+      console.log("quickFilters injector path:", {
+        hasWL: !!WL,
+        globalThis: globalThis.WL,
+        hasInject: !!WL?.injectElements,
+        url: window.location.href,
+      });
+    }
+
     var { ExtensionParent } = ChromeUtils.importESModule(
       "resource://gre/modules/ExtensionParent.sys.mjs"
     );
@@ -62,26 +89,120 @@ const qFInjector = {
 
     // Primary: real WL path
     if (WL?.injectElements) {
-      return WL.injectElements(xulString, [], debug);
+      if (debug) {
+        console.log("Using WindowListener:injectElements");
+      }
+      if (debug || debug3pane) {
+        logDebug("Injection path: WindowListener (WL)");
+      }
+      WL.injectElements(xulString, [], debug); // always returns undefined by design
+      if (debug) {
+        const panel = window.document.getElementById("QuickFolders-PreviewToolbarPanel");
+        logDebug(
+          `WL.injectElements done - panel in DOM: ${!!panel}, panel parent: ${panel?.parentElement?.id || "(none)"}`
+        );
+      }
+
+      return true; // WL path does not return the injected element, so we return true to indicate success
     }
 
     // Fallback: minimal safe DOM injection
+    logDebug("Injection path: QFInjector fallback (no WL)");
+
     const doc = window.document;
     try {
       let localizedXulString = xulString.replace(/__MSG_(.*?)__/g, localize);
       const frag = window.MozXULElement.parseXULToFragment(localizedXulString);
-
-      const node = frag.firstElementChild;
-      if (!node) {
+      const root = frag.firstElementChild;
+      if (!root) {
         console.warn("injectElements: empty XUL fragment");
-        return null;
+        return false;
+      }
+      logDebug(
+        `qFInjector.injectElements (fallback): root id=${root.id}, children=${root.childElementCount}`
+      );
+      const after = root.getAttribute("insertafter");
+      const before = root.getAttribute("insertbefore");
+      const children = [...root.children]; // .filter((n) => n.nodeType !== 3); // avoid Node.TEXT_NODE
+      if (debug) {
+        for (const child of children) {
+          console.log({
+            type: child?.nodeType,
+            name: child?.nodeName,
+            isNode: child?.nodeType,
+          });
+        }
       }
 
-      doc.documentElement.appendChild(node);
-      return node;
+      if (after || before) {
+        const refId = after || before;
+        const ref = doc.getElementById(refId);
+
+        if (ref && ref.parentNode) {
+          const frag = doc.createDocumentFragment();
+          for (const c of children) {
+            if (c.id) {
+              // make sure to remove previously added because we make an update.
+              const existing = doc.getElementById(c.id);
+              if (existing) {
+                existing.remove();
+              }
+            }
+
+            frag.appendChild(c);
+          }
+
+          if (after) {
+            ref.parentNode.insertBefore(frag, ref.nextSibling);
+          } else {
+            ref.parentNode.insertBefore(frag, ref);
+          }
+
+          return true;
+        }
+      }
+
+      // find the target element to inject into (if specified by id), otherwise inject into document root
+      const target = root.id && doc.getElementById(root.id);
+      logDebug(
+        `qFInjector.injectElements: target lookup id="${root.id}" → ${target ? `FOUND (${target.tagName}, childCount=${target.childElementCount})` : "NOT FOUND → will create new element"}`
+      );
+
+      // CASE 2: insert at the end of the document
+      if (!target) {
+        logDebug(
+          `qFInjector.injectElements: CASE 2 - appending new <${root.tagName} id="${root.id}"> to documentElement`
+        );
+        doc.documentElement.appendChild(root);
+        return true;
+      }
+      // CASE 1: WL-style injection (existing node → recurse only)
+      logDebug(
+        `qFInjector.injectElements: CASE 1 - merging ${children.length} child(ren) into existing #${target.id}`
+      );
+
+      [...children].forEach((c) => {
+        const id = c.id;
+        if (id) {
+          // make sure to remove previously added because we make an update.
+          const existing = doc.getElementById(id);
+          if (existing) {
+            logDebug(`qFInjector.injectElements: replacing existing #${id} inside #${target.id}`);
+            existing.replaceWith(c);
+            return; // skips append for this iteration
+          }
+        }
+
+        logDebug(
+          `qFInjector.injectElements: appending <${c.tagName} id="${c.id || "(no id)"}"> to #${target.id}`
+        );
+        target.append(c);
+      });
+
+      return true;
     } catch (e) {
       console.error("injectElements: XUL parse failed", e);
-      return null;
+      return false;
     }
   },
 
@@ -115,7 +236,9 @@ const qFInjector = {
       if (timeout) {
         timer = setTimeout(() => {
           observer.disconnect();
-          log(`waitForElement: timeout waiting for ${selector} after ${new Date().getTime() - time}ms`);
+          log(
+            `waitForElement: timeout waiting for ${selector} after ${new Date().getTime() - time}ms`
+          );
           reject(new Error(`Timeout waiting for ${selector}`));
         }, timeout);
       }
