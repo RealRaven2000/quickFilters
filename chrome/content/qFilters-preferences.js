@@ -94,13 +94,14 @@ quickFilters.Preferences = {
 
   getCurrentFilterTemplate: function () {
     let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");
-    if (current == "undefined") {
-      current = null;
+    if (current == "undefined" || current == "null" || typeof current == "undefined" || current == null) {
+      current = ""; // issue 383
     }
     return current;
   },
 
   setCurrentFilterTemplate: async function (pref) {
+    quickFilters?.Util?.logDebugOptional("buildFilter", `setCurrentFilterTemplate: ${pref}`);
     return quickFilters.Preferences.setStringPref("filters.currentTemplate", pref);
   },
 
@@ -167,6 +168,9 @@ quickFilters.Preferences.cache = (() => {
         case "string":
           varType = "string";
           break;
+        case "undefined":
+          console.warn("quickFilters.Preferences.cache.setValue- ignoring undefined preference value:", k);
+          return;
       }
       try {
         await quickFilters.Util.notifyTools.notifyBackground({

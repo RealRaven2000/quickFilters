@@ -45,18 +45,18 @@ quickFilters.Assistant = {
     return parseInt(this.AssistantDeck.selectedIndex);
   },
 
-  selectTemplate: function (element) {
+  selectTemplate: async function (element) {
     if (!element) {
       element = this.TemplateList;
     }
     if (element.selectedItem) {
-      quickFilters.Preferences.setCurrentFilterTemplate(element.selectedItem.value);
+      await quickFilters.Preferences.setCurrentFilterTemplate(element.selectedItem.value);
       return false;
     }
     return true;
   },
 
-  next: function () {
+  next: async function () {
     const prefs = quickFilters.Preferences,
       showEditor = prefs.getBoolPref("showEditorAfterCreateFilter"),
       showList = prefs.getBoolPref("showListAfterCreateFilter");
@@ -93,7 +93,7 @@ quickFilters.Assistant = {
         this.NextButton.label = AcceptLabel;
         break;
       case this.TEMPLATEPAGE: // we are in template selection, either go on to create new filter or edit the selected one from first step
-        quickFilters.Assistant.selectTemplate();
+        await quickFilters.Assistant.selectTemplate();
         params.answer = true;
         params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
         setTimeout(function () {

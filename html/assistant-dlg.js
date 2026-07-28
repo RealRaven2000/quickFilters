@@ -118,7 +118,8 @@ function expandCollapse(element, collapseElementId) {
       element.setAttribute("containercollapsed", "true");
       colElement.classList.add("minimized");
     }
-    window.resizeWindowToContent();
+    // deprecated!
+    // window.resizeWindowToContent();
   } catch (ex) {
     console.error("expandCollapse()\nError toggling collapse state:", ex);
   }
@@ -259,6 +260,8 @@ quickFilters.Assistant = {
     // pass on the promise to caller
     const { settings } = await browser.storage.local.get({ settings: {} });
     settings[id] = value;
+    // [issue 383] question: will this spawn an onChange event so that the legacy caches will be updated?
+    // this is important for the "filters.currentTemplate" preference
     return browser.storage.local.set({ settings });
   },
 
@@ -267,9 +270,14 @@ quickFilters.Assistant = {
       element = this.TemplateList;
     }
     const selectedOption = element.options[element.selectedIndex];
-    if (selectedOption) {
+    if (selectedOption?.value) {
       await this.setPref("filters.currentTemplate", selectedOption.value);
       return false;
+    } else {
+      console.warn("selectTemplate() No template selected, value is empty or null.", {
+        selectedOption,
+        value: selectedOption?.value,
+      });
     }
     return true;
   },
@@ -857,6 +865,10 @@ quickFilters.Assistant = {
     // resizeWindowToContent();
   },
 
+  unloadAssistant: function () {
+    // clean up any event listeners or resources? maybe not needed in this case
+  },
+
   loadPreferences: async function () {
     const bindCheckbox = async (id, prefKey) => {
       const el = document.getElementById(id);
@@ -913,14 +925,10 @@ quickFilters.Assistant = {
     // async
     quickFilters.Util.logDebug("selectTemplateItemTimer()");
     quickFilters.Assistant.enableCreate(false);
+
+    // window.setTimeout(() => { quickFilters.Assistant.selectTemplateFromList(el); }, 500);
     window.setTimeout(() => {
       quickFilters.Assistant.selectTemplateFromList(el);
-    }, 500);
-    window.setTimeout(() => {
-      quickFilters.Assistant.selectTemplateFromList(el);
-      if (isResize) {
-        window.resizeWindowToContent();
-      }
     }, 50);
   },
 
@@ -934,24 +942,26 @@ quickFilters.Assistant = {
     quickFilters.Assistant.selectTemplate(element); // set worker value and store in prefs. something bad happens on next!
     quickFilters.Assistant.enableCreate(true);
     let templateType = element.value;
-    if (templateType) {
-      if (templateType.indexOf("quickFilterCustomTemplate") == 0) {
-        templateType = "custom";
-      }
-      let descriptionId = "qf.filters.template." + templateType + ".description",
-        desc = document.getElementById("templateDescription");
-      if (desc) {
-        desc.textContent = messenger.i18n.getMessage(descriptionId);
-        // window.sizeToContent();
-        let rect = desc.getBoundingClientRect ? desc.getBoundingClientRect() : desc.boxObject;
-        if (rect && rect.height && window.height) {
-          window.height += rect.height;
-        } else if (window.height) {
-          // say 1 line of 20px per 50 characters
-          window.height += (desc.textContent.length * 20) / 50;
-        }
+    if (!templateType) {
+      return;
+    }
+    if (templateType.startsWith("quickFilterCustomTemplate")) {
+      templateType = "custom";
+    }
+    let descriptionId = "qf.filters.template." + templateType + ".description",
+      desc = document.getElementById("templateDescription");
+    if (desc) {
+      desc.textContent = messenger.i18n.getMessage(descriptionId);
+      // window.sizeToContent();
+      let rect = desc.getBoundingClientRect ? desc.getBoundingClientRect() : desc.boxObject;
+      if (rect && rect.height && window.height) {
+        window.height += rect.height;
+      } else if (window.height) {
+        // say 1 line of 20px per 50 characters
+        window.height += (desc.textContent.length * 20) / 50;
       }
     }
+    resizeWindowToContent();
   },
 
   help: function () {
