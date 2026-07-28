@@ -1,0 +1,95 @@
+:root {
+  /* broken theming colors in Tb 150+ */
+  --color-gray-05: #fafafa;
+  --color-gray-10: #f4f4f5;
+  --color-gray-20: #e4e4e7;
+  --color-gray-40: #a1a1aa;
+  --color-gray-50: #71717a;
+  --color-gray-60: #52525b;
+  --color-gray-90: #18181b;
+
+  --layout-background-1: light-dark(var(--color-gray-05), var(--color-gray-80));
+  --layout-background-2: light-dark(var(--color-gray-10), var(--color-gray-70));
+  --layout-background-3: light-dark(var(--color-gray-20), var(--color-gray-60));
+  --layout-background-4: light-dark(var(--color-gray-30), var(--color-gray-50));
+  --tab-hover-background: light-dark(var(--color-gray-30), var(--color-gray-50));
+
+  --button-hover-background-color:  var(--layout-background-4);
+  --button-hover-border: 1px solid  var(--layout-background-4);
+  --button-active-background-color: light-dark(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.5));
+  --button-active-color: light-dark(rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.9));
+  --button-border-size: 1px; 
+
+  --button-border-color: light-dark(var(--layout-border-1), var(--layout-border-2));
+  --button-border: var(--button-border-size) solid var(--button-border-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hovercolor: #113e6a;
+    --hoverbackground: #ffffffcb;
+    --selectedbackground:#1d3e7dad;
+    --clickedbackground:var(--selectedbackground);
+    --selectedcolor: #FFFFFF;
+    --activecolor: #a5f7fcd9;
+    --configColor: rgba(250,40,80, 0.85);
+    --focus-ring-color: #ffaa00aa;  
+    --validation-passed-color: rgb(110,210,120);
+    --validation-fail-background: #A50B3E;
+    --validation-fail-color: #FFF;
+
+    /* tooltips */
+    --QFI_tooltipbackground: rgb(30, 30, 30);
+		--QFI_tooltiptext: rgb(244, 244, 244);
+    --QFI_tooltipactive: #075189;
+    --QFI_tooltipborder:  #3799e3;    
+  }  
+  
+  .tabs button:hover, .tabs button:focus-within {
+     color-scheme: light; /* force bright icon on active tab */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --hovercolor: #ffffffcb;
+    --hoverbackground: #113e6a;
+    --selectedbackground: #1d3e7dad;
+    --clickedbackground:var(--selectedbackground);
+    --activecolor: #FFFFFF;
+    --configColor: rgb(140,0,0);
+    --focus-ring-color: #0044aaaa;
+    --validation-passed-color: rgb(0,120,0);
+    --validation-fail-background: #A50B1E;
+    --validation-fail-color: #FFF;
+
+    /* tooltips */
+		--QFI_tooltipbackground: rgb(244, 244, 244);
+		--QFI_tooltiptext: rgb(30, 30, 30);
+    --QFI_tooltipactive: #3799e3;
+    --QFI_tooltipborder:#075189;    
+  }
+  
+  .tabs button:hover, .tabs button:focus-within {
+     color-scheme: dark; /* force bright icon on active tab */
+  }
+}
+
+
+
+/* GENERIC UI CONTROLS */
+
+button {
+  border: var(--button-border);
+}
+
+button:hover {
+  border: var(--button-hover-border) !important;
+  background-color: var(--button-hover-background-color) !important;
+}
+
+button:active {
+  background-color: var(--button-active-background-color) !important;
+  color: var(--button-active-color) !important;
+  border: var(--button-hover-border);
+}

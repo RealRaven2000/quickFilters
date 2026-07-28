@@ -23,7 +23,7 @@ select, #previewContent * {
 }
 
 html, body {
-  height: 100%;
+  height: fit-content;
   margin: 0;
   font-family: sans-serif;
 }
@@ -53,6 +53,10 @@ html, body {
   padding: 1em;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+}
+
+body {
+  background: var(--dialogbackground);
 }
 
 footer, #main {
@@ -199,6 +203,12 @@ footer, #main {
   background-color: #0a84ff; /* Tb primary blue */
   color: white;
   border: none;
+}
+
+#btnNext:hover {
+  background-color: var(--button-hover-background-color,red) !important;
+  color: var(--button-active-color,blue) !important;
+  border: var(--button-hover-border) !important;
 }
 
 #btnNext, #btnCancel {

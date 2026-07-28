@@ -1,53 +1,5 @@
-@media (prefers-color-scheme: dark) {
-  :root {
-    --hovercolor: #113e6a;
-    --hoverbackground: #ffffffcb;
-    --selectedbackground:#1d3e7dad;
-    --clickedbackground:var(--selectedbackground);
-    --selectedcolor: #FFFFFF;
-    --activecolor: #a5f7fcd9;
-    --configColor: rgba(250,40,80, 0.85);
-    --focus-ring-color: #ffaa00aa;  
-    --validation-passed-color: rgb(110,210,120);
-    --validation-fail-background: #A50B3E;
-    --validation-fail-color: #FFF;
+/* include quickfilters-themes.css for theme variables */
 
-    /* tooltips */
-    --QFI_tooltipbackground: rgb(30, 30, 30);
-		--QFI_tooltiptext: rgb(244, 244, 244);
-    --QFI_tooltipactive: #075189;
-    --QFI_tooltipborder:  #3799e3;    
-  }  
-  
-  .tabs button:hover, .tabs button:focus-within {
-     color-scheme: light; /* force bright icon on active tab */
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --hovercolor: #ffffffcb;
-    --hoverbackground: #113e6a;
-    --selectedbackground: #1d3e7dad;
-    --clickedbackground:var(--selectedbackground);
-    --activecolor: #FFFFFF;
-    --configColor: rgb(140,0,0);
-    --focus-ring-color: #0044aaaa;
-    --validation-passed-color: rgb(0,120,0);
-    --validation-fail-background: #A50B1E;
-    --validation-fail-color: #FFF;
-
-    /* tooltips */
-		--QFI_tooltipbackground: rgb(244, 244, 244);
-		--QFI_tooltiptext: rgb(30, 30, 30);
-    --QFI_tooltipactive: #3799e3;
-    --QFI_tooltipborder:#075189;    
-  }
-  
-  .tabs button:hover, .tabs button:focus-within {
-     color-scheme: dark; /* force bright icon on active tab */
-  }
-}
 
 /* disabled features  without pro */
 label.proFeature[disabled] {
@@ -209,6 +161,10 @@ label.proFeature[disabled] {
   background-repeat: no-repeat;
   background-position: 4px center;
   padding-left: 26px;
+}
+
+.tabbox li[role="tab"] button:hover {
+  background-color: var(--tab-hover-background) !important;
 }
 
 /* Pro tab states */
