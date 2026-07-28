@@ -1809,16 +1809,29 @@ quickFilters.List = {
 		let dPath = prefs.getStringPref('files.path');
 		if (dPath) {
 			let defaultPath = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsIFile);
-			defaultPath.initWithPath(dPath);
-			if (defaultPath.exists()) { // avoid crashes if the folder has been deleted
-				fp.displayDirectory = defaultPath; // nsILocalFile
-				util.logDebug("Setting default path for filepicker: " + dPath);
-			}
-			else {
-				util.logDebug("fileFilters()\nPath does not exist: " + dPath);
-			}
+      util.logHighlightDebug(
+        `fileFilters()\nDefault Path: ${dPath}`,
+        util.debugStyle,
+        "calling initWithPath()..."
+      );
+      try {
+        defaultPath.initWithPath(dPath);
+        if (defaultPath.exists()) { // avoid crashes if the folder has been deleted
+          fp.displayDirectory = defaultPath; // nsILocalFile
+          util.logDebug(`Setting default path for filepicker: \n${dPath}`);
+        } else {
+          util.logDebug(`fileFilters - Path does not exist: \n${dPath}`);
+        }
+      } catch (ex) {
+        util.logHighlightDebug(
+          "fileFilters()\nFailed to initialize default path: " + ex,
+          util.debugStyleWarning,
+          ex
+        );
+      }
 		}
 
+    util.logDebug("calling filepicker.init()...");
 		fp.init(util.getFileInitArg(window), "", fileOpenMode); // second parameter: prompt
     filterText = util.getBundleString("quickfilters.fpJsonFile","JSON File");
     fp.appendFilter(filterText, "*.json");
