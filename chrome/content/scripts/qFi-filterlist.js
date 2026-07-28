@@ -358,5 +358,6 @@ function onUnload(isAddOnShutDown) {
   window.removeEventListener("quickFilters.BackgroundUpdate.setupListToolbar", configureToolbar);
   window.removeEventListener("windowlwthemeupdate", quickFilters_themeHandler);
   window.removeEventListener("activate", quickFilters_themeHandler);
+  window.quickFilters.Util.dispose(); // clean up any event listeners or resources
 
 }

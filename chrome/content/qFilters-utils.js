@@ -169,6 +169,13 @@ quickFilters.Util = {
     }
   },
 
+  dispose: function () {
+    if (quickFilters.Util.notifyToolsListenerId) {
+      quickFilters.Util.notifyTools.removeListener(quickFilters.Util.notifyToolsListenerId);
+      quickFilters.Util.notifyToolsListenerId = null;
+    }
+  },
+
   async getAssistantMode() {
     if (!quickFilters.Util?.notifyTools?.notifyBackground) {
       throw new Error("notifyTools?.notifyBackground is not available in Util");

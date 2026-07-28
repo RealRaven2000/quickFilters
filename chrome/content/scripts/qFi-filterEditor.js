@@ -193,6 +193,9 @@ async function onLoad(activatedWhileWindowOpen) {
   if (!activatedWhileWindowOpen) {
     window.quickFilters.FilterEditor.onLoad();
   }
-  
- 
 }
+
+// eslint-disable-next-line no-unused-vars
+function onUnload() {
+	window.quickFilters.Util.dispose(); // clean up any event listeners or resources
+};

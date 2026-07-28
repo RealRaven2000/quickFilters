@@ -24,7 +24,9 @@ var Register = {
     this.addEventListeners();
 
   },
-
+  unload: function() {
+    quickFilters.Util.dispose(); // clean up any event listeners or resources
+  },
 
   addEventListeners: function() {
     window.addEventListener("quickFilters.BackgroundUpdate", this.updateLicenseUI.bind(this));

@@ -129,4 +129,13 @@ window.addEventListener(
   },
   { once: true }
 );
+
+window.addEventListener(
+  "unload",
+  (e) => {
+    quickFilters.Assistant.unloadAssistant.bind(quickFilters.Assistant)(e);
+  },
+  { once: true }
+);
+
   
