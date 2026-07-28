@@ -640,10 +640,10 @@ quickFilters.Assistant = {
     this.selectedApiMessages = urlApiMessages ? JSON.parse(urlApiMessages) : [];
     const templateList = this.TemplateList;
     const context = urlParams.get("context");
-    await quickFilters.Util.logHighlightDebug(
+    const util = quickFilters.Util;
+    await util.logHighlightDebug(
       " loadAssistant() ",
-      "rgba(250, 235, 119, 1)",
-      "#9d4201ff",
+      util.debugStyleImportant,
       `\nContext: ${context}` + `\nApiMessages: ${urlApiMessages}`
     );
     quickFilters.Assistant.licenseInfo = await messenger.runtime.sendMessage({
@@ -652,17 +652,15 @@ quickFilters.Assistant = {
 
     let hasCustomTemplates = await quickFiltersPrefs.get("templates.custom");
     if (typeof hasCustomTemplates !== "undefined") {
-      quickFilters.Util.logHighlightDebug(
+      util.logHighlightDebug(
         " loadAssistant() ",
-        "rgba(250, 235, 119, 1)",
-        "#9d4201ff",
+        util.debugStyleImportant,
         `hasCustomTemplates ${hasCustomTemplates}`
       );
     } else {
-      quickFilters.Util.logHighlightDebug(
+      util.logHighlightDebug(
         " loadAssistant() ",
-        "rgba(250, 235, 119, 1)",
-        "#9d4201ff",
+        util.debugStyleImportant,
         `hasCustomTemplates is undefined!`
       );
     }
@@ -676,10 +674,9 @@ quickFilters.Assistant = {
         command: "getFilters",
         sourceUri: "local",
       });
-      await quickFilters.Util.logHighlightDebug(
+      await util.logHighlightDebug(
         " loadAssistant() ",
-        "rgba(250, 235, 119, 1)",
-        "#9d4201ff",
+        util.debugStyleImportant,
         "getFilters",
         { filterItems }
       );
@@ -727,8 +724,7 @@ quickFilters.Assistant = {
           if (!jsonMsg) {
             await quickFilters.Util.logHighlightDebug(
               " loadAssistant() ",
-              "rgba(250, 235, 119, 1)",
-              "#9d4201ff",
+              quickFilters.Util.debugStyleImportant,
               "Missing messageIds parameter!"
             );
             break;

@@ -984,17 +984,18 @@ quickFilters.Util = {
     if (!p) {
       return;
     }
+    const defaultBackground = "#008000"; // dark green
 
     // backwards compatibility:
     // logHighlightDebug(txt, "white", "rgb(80,0,0)", ...args)
     if (typeof format === "string") {
       format = {
         color: format,
-        background: args.shift() ?? "rgb(0, 119, 12)",
+        background: args.shift() ?? defaultBackground,
       };
     }
 
-    let { color = "white", background = "rgb(0, 119, 12)" } = format;
+    let { color = "white", background = defaultBackground } = format;
 
     console.log(`%c${txt}`, `color: ${color}; background: ${background}`, ...args);
   },
