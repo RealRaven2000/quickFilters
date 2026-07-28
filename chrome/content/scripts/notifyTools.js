@@ -66,7 +66,7 @@ var notifyTools = {
         let results = [];
         for (let observerTrackerPromise of observerTrackerPromises) {
           let rv = await observerTrackerPromise;
-          if (rv != null) results.push(rv);
+          if (rv != null) {results.push(rv);}
         }
         if (results.length == 0) {
           payload.resolve();
@@ -160,7 +160,7 @@ var notifyTools = {
 if (typeof window != "undefined" && window) {
   window.addEventListener(
     "unload",
-    function (event) {
+    function (_event) {
       notifyTools.removeAllListeners();
     },
     false

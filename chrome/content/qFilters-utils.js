@@ -61,7 +61,7 @@ quickFilters.Util = {
   },
   _tabContainer: null,
   tempFolderTab: null, // likely obsolete ###
-  get folderManager() { 
+  get folderManager() {
     const { ExtensionParent } = ChromeUtils.importESModule(
       "resource://gre/modules/ExtensionParent.sys.mjs"
     );
@@ -97,7 +97,7 @@ quickFilters.Util = {
               : "";
         } catch {;}
         // eslint-disable-next-line no-prototype-builtins
-          if (!Object.hasOwn(data, "window") || data.window.includes(loc)) {
+        if (!Object.hasOwn(data, "window") || data.window.includes(loc)) {
           window.quickFilters.Util.logDebugOptional(
             "notifications",
             `onBackgroundUpdates - dispatching custom event quickFilters.BackgroundUpdate.${data.event}\n` +
@@ -132,7 +132,8 @@ quickFilters.Util = {
         }
       }
     };
-    quickFilters.Util.notifyTools.addListener(onBackgroundUpdates);
+    quickFilters.Util.notifyToolsListenerId =
+      quickFilters.Util.notifyTools.addListener(onBackgroundUpdates);
 
     await quickFilters.Util.getAssistantMode(); // replace worker.FilterMode
     quickFilters.Util.licenseInfo = await quickFilters.Util.notifyTools.notifyBackground({
@@ -168,7 +169,7 @@ quickFilters.Util = {
   },
 
   async getAssistantMode() {
-    if (!(quickFilters.Util?.notifyTools?.notifyBackground)) {
+    if (!quickFilters.Util?.notifyTools?.notifyBackground) {
       throw new Error("notifyTools?.notifyBackground is not available in Util");
     }
 
@@ -180,7 +181,7 @@ quickFilters.Util = {
   },
 
   async setAssistantMode(active, options = {}) {
-    if (!(quickFilters.Util?.notifyTools?.notifyBackground)) {
+    if (!quickFilters.Util?.notifyTools?.notifyBackground) {
       throw new Error("notifyTools?.notifyBackground is not available in Util");
     }
 
@@ -566,10 +567,10 @@ quickFilters.Util = {
       window.setTimeout(function () {
         quickFilters.Util.notifyTools.notifyBackground({
           func: "slideAlert",
-          title, 
+          title,
           text,
         });
-        return; 
+        return;
       });
     } catch {
       // prevents runtime error on platforms that don't implement nsIAlertsService
@@ -951,7 +952,9 @@ quickFilters.Util = {
   logDebug: function (...args) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
     let p = qF.Preferences.isDebug;
-    if (!p) {return;}
+    if (!p) {
+      return;
+    }
     this.logToConsole(...args);
   },
 
@@ -1553,9 +1556,9 @@ quickFilters.Util = {
               nameTerm.customId = searchTerm.customId;
             }
             // [issue 335]
-            if (nameTerm.str) { 
+            if (nameTerm.str) {
               namedTermsList.push(nameTerm);
-            };
+            }
           }
           if (
             !replaceVal &&

@@ -137,26 +137,26 @@ function resizeWindowToContent() {
     return Math.ceil(rect.height) + marginTop + marginBottom;
   };
 
-  const visibleStep = document.querySelector(".step:not(.hidden)");
+  const activeStep = document.querySelector(".step:not(.hidden)");
   const main = document.getElementById("main"); 
   const header = document.getElementById("header");
   const footer = document.getElementById("assistant-buttons");
 
-  if (!visibleStep) {
+  if (!activeStep) {
     return;
   }
 
-  const stepHeight = getTotalHeight(visibleStep);
+  const stepHeight = getTotalHeight(activeStep);
   const footerHeight = getTotalHeight(footer);
   const headerHeight = getTotalHeight(header);
   const style = window.getComputedStyle(main);
   const captionHeight = window.outerHeight - window.innerHeight;
   const mainPaddingTop = parseInt(style.paddingTop, 10);
   // Add extra margin for safety
-  const SAFETY_Y = 20;
+  const EXTRA_PADDING = 20;
 
   const desiredHeight =
-    captionHeight + stepHeight + footerHeight + headerHeight + mainPaddingTop + SAFETY_Y;
+    captionHeight + stepHeight + footerHeight + headerHeight + mainPaddingTop + EXTRA_PADDING ;
 
   const currentHeight = captionHeight + window.innerHeight;
 
@@ -170,7 +170,7 @@ function resizeWindowToContent() {
       `footerHeight = ${footerHeight}\n` +
       `headerHeight = ${headerHeight}\n` +
       `padding main (top) = ${mainPaddingTop}\n` +
-      `Safety Y = ${SAFETY_Y}`
+      `Extra Y padding = ${EXTRA_PADDING}`
   );
 
   messenger.runtime.sendMessage({
@@ -334,6 +334,7 @@ quickFilters.Assistant = {
             return;
           }
           this.toggleMergePane(false);
+          // html version:
           resizeWindowToContent();
           break;
         case "stepDetail": // we are in template selection, either go on to create new filter or edit the selected one from first step
@@ -672,8 +673,8 @@ quickFilters.Assistant = {
         "rgba(250, 235, 119, 1)",
         "#9d4201ff",
         "getFilters",
-        {filterItems}
-      );    
+        { filterItems }
+      );
 
       const firstItem = templateList.firstElementChild;
 
@@ -696,7 +697,7 @@ quickFilters.Assistant = {
     }
 
     document.getElementById("qf-filter-templates").addEventListener("change", (event) => {
-      quickFilters.Assistant.selectTemplateFromListTmr(event.target, true); // force resize.
+      quickFilters.Assistant.selectTemplateItemTimer(event.target, true); // force resize.
     });
 
     // find any filters that match and add them to the MatchedFilters listbox
@@ -852,8 +853,8 @@ quickFilters.Assistant = {
     // TO DO: find and remove "replyto" feature!" still experimental until 2.8 release
 
     quickFilters.Assistant.initialised = true;
-    this.selectTemplateFromListTmr(templateList); // make sure Description is displayed initially.
-    resizeWindowToContent();
+    this.selectTemplateItemTimer(templateList); // make sure Description is displayed initially.
+    // resizeWindowToContent();
   },
 
   loadPreferences: async function () {
@@ -905,12 +906,12 @@ quickFilters.Assistant = {
     }
   },
 
-  selectTemplateFromListTmr: function (el, isResize = false) {
+  selectTemplateItemTimer: function (el, isResize = false) {
     if (!quickFilters.Assistant.initialised) {
       return;
     }
     // async
-    quickFilters.Util.logDebug("selectTemplateFromListTimer()");
+    quickFilters.Util.logDebug("selectTemplateItemTimer()");
     quickFilters.Assistant.enableCreate(false);
     window.setTimeout(() => {
       quickFilters.Assistant.selectTemplateFromList(el);

@@ -751,7 +751,7 @@ END LICENSE BLOCK
   const qi_observerOptions = {
     childList: true,
     attributes: true,
-    subtree: true // Omit (or set to false) to observe only changes to the parent node
+    subtree: true, // Omit (or set to false) to observe only changes to the parent node
   }
   
   let termList = window.document.querySelector("#searchTermList")
@@ -769,5 +769,12 @@ quickFilters.Util.acceptEditFilter = async function (win) {
 } ;
 
 window.addEventListener("load", function(e) { quickFilters.FilterEditor.onLoad(e);}, false); 
+window.addEventListener(
+  "unload",
+  function (e) {
+    quickFilters.FilterEditor.onUnload(e);
+  },
+  false
+); 
 window.addEventListener("DOMContentLoaded", function(e) { quickFilters.FilterEditor.onDomLoaded(e);}, false); 
 

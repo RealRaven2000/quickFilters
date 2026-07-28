@@ -40,7 +40,7 @@ quickFilters.Assistant = {
   get MatchedFilters() {
     return document.getElementById("filterMatches");
   },
-  
+
   get currentPage() {
     return parseInt(this.AssistantDeck.selectedIndex);
   },
@@ -168,7 +168,7 @@ quickFilters.Assistant = {
 
     const templateList = this.TemplateList,
       util = quickFilters.Util,
-    prefs = quickFilters.Preferences;
+      prefs = quickFilters.Preferences;
 
     await quickFilters.Util.init();
     if (prefs?.cache?.awaitReady) {
@@ -176,7 +176,9 @@ quickFilters.Assistant = {
     } else {
       console.warn("Preferences cache not ready yet, but continuing anyway.");
     }
-    console.log(`loadAssistant: custom templates enabled: ${prefs.getBoolPref("templates.custom")}`);
+    console.log(
+      `loadAssistant: custom templates enabled: ${prefs.getBoolPref("templates.custom")}`
+    );
 
     // wire up dialog buttons manually in Thunderbird 68 (something going wrong there with the click events)
     let dlgButtons = document.getElementsByTagName("dialog")[0]._buttons;
@@ -414,9 +416,8 @@ quickFilters.Assistant = {
       }
     } finally {
       quickFilters.Assistant.initialised = true;
-      this.selectTemplateFromListTmr(templateList); // make sure Deescription is displayed initially.
+      this.selectTemplateFromListTmr(templateList); // make sure Description is displayed initially.
     }
-    // this.selectTemplateFromListTmr(templateList);
   },
 
   loadPreferences: function () {

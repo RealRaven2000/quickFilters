@@ -611,9 +611,10 @@ window.document.addEventListener('DOMContentLoaded',
   quickFilters.Options.l10n.bind(quickFilters.Options) , 
   { once: true });
   
-window.addEventListener('load', 
+window.addEventListener("load", 
   quickFilters.Options.load.bind(quickFilters.Options) , 
-  { once: true });
+  { once: true }
+);
   
 
 

@@ -96,7 +96,7 @@ var Register = {
     if (decryptedDate) {
 			if (quickFilters.Preferences.isDebug) {
         util.logDebug(
-          "Register.updateLicenseUI()\n" + "ValidationStatus = " + licenseInfo.description,
+          "Register.updateLicenseUI()\n" + "ValidationStatus = " + licenseInfo.description
         );
       }
 				
@@ -111,7 +111,7 @@ var Register = {
 				if(licenseInfo.status == "Expired") {
           const renewalText = util.getBundleString(
             "quickfilters.notification.premium.btn.renewLicense",
-            "Renew License!",
+            "Renew License!"
           );
           if (licenseInfo.keyType == 1) {
             // domain license
@@ -122,7 +122,7 @@ var Register = {
         } else {
           const extendText = util.getBundleString(
             "quickfilters.notification.premium.btn.extendLicense",
-            "Extend License!",
+            "Extend License!"
           );
           if (licenseInfo.keyType == 1) { 
             // domain license
@@ -134,8 +134,8 @@ var Register = {
               "tooltiptext",
               util.getBundleString(
                 "quickfilters.notification.premium.btn.extendLicense.tooltip",
-                "This will extend the current license date by 1 year. It's typically cheaper than a new license.",
-              ),
+                "This will extend the current license date by 1 year. It's typically cheaper than a new license."
+              )
             );
           }
 				}
@@ -177,7 +177,7 @@ var Register = {
         let txt = "License Status: " + licenseInfo.description;
         licenseDate.textContent = txt;
         util.logToConsole(
-          "Registration Problem\n" + txt + "\nDecrypted part: " + licenseInfo.decryptedPart,
+          "Registration Problem\n" + txt + "\nDecrypted part: " + licenseInfo.decryptedPart
         );
       }
 		}
@@ -344,7 +344,7 @@ var Register = {
     document.getElementById('firstName').value = names[0];
     document.getElementById('lastName').value = names.length > 1 ? names[names.length-1] : "";
     document.getElementById('email').value = email;
-  } 
+  }, 
   
 }
 

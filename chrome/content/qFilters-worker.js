@@ -724,11 +724,13 @@ quickFilters.Worker = {
 
     /************* SOURCE FOLDER VALIDATION  ********/
     if (sourceFolder) {
+      const srcName = sourceFolder.prettyName || sourceFolder.localizedName;
+      const templateName = quickFilters.Preferences.getCurrentFilterTemplate();
       util.logDebugOptional(
         "createFilter",
-        ` Starting source folder validation for ${sourceFolder}`
+        ` Starting source folder validation for ${srcName}\n` +
+          ` current template: "${templateName}"\n`
       );
-      const srcName = sourceFolder.prettyName || sourceFolder.localizedName;
 
       if (sourceFolder.server) {
         if (!sourceFolder.server.canHaveFilters) {
@@ -1308,7 +1310,7 @@ quickFilters.Worker = {
       prefs = quickFilters.Preferences;
 
     var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
-    
+
     util.logDebugOptional("buildFilter", "buildFilter() called with params: ", buildParams);
 
     function addTerm(target, term) {
@@ -1558,7 +1560,8 @@ quickFilters.Worker = {
       let prefix = [];
       let i = 0;
 
-      while (i<200) { // or until we run out of words
+      while (i < 200) {
+        // or until we run out of words
         const currentWords = wordArrays.map((words) => words[i]);
 
         if (currentWords.includes(undefined)) {
@@ -1614,7 +1617,7 @@ quickFilters.Worker = {
       let parts = words.map((t) => trimWithEllipsis(t, MAX_ITEM_LEN));
       let result = parts.join(" ");
       return trimWithEllipsis(result, MAX_SUBJECT_LEN);
-    }    
+    }
 
     /** buildFilter: declarations **/
     const nsMsgFilterType = Ci.nsMsgFilterType,
@@ -1623,7 +1626,6 @@ quickFilters.Worker = {
       tagArray = getAllTags(),
       TypeAttrib = Ci.nsMsgSearchAttrib,
       TypeOperator = Ci.nsMsgSearchOp;
-      
 
     let isMerge = false,
       filterName = "{1}",
@@ -1655,10 +1657,7 @@ quickFilters.Worker = {
           break;
         }
       }
-      util.logDebugOptional(
-        "buildFilter",
-        `${filterCount} custom Template Filters found`
-      );
+      util.logDebugOptional("buildFilter", `${filterCount} custom Template Filters found`);
     }
 
     // create new filter or load existing filter?
@@ -1707,7 +1706,10 @@ quickFilters.Worker = {
       myMailAddresses = util.getIdentityMailAddresses(),
       excludedAddresses = [];
 
-    util.logDebugOptional("buildFilter", `build name for filter action: ${buildParams.filterAction}`);
+    util.logDebugOptional(
+      "buildFilter",
+      `build name for filter action: ${buildParams.filterAction}`
+    );
     switch (buildParams.filterAction) {
       case nsMsgFilterAction.MoveToFolder:
       case nsMsgFilterAction.CopyToFolder:
@@ -1926,7 +1928,7 @@ quickFilters.Worker = {
           } else {
             let msgHdr = buildParams.messageDb.getMsgHdrForMessageID(msg.messageId);
             listIdValue = msgHdr.getStringProperty(hdrListId);
-            
+
             // [issue 323] "currentHeaderData is not defined"
             // listIdValue = currentHeaderData[hdrListId].headerValue;
             if (!listIdValue) {
@@ -1967,7 +1969,7 @@ quickFilters.Worker = {
             searchTerm.value = val; // copy object back into
             addTerm(targetFilter, searchTerm);
           } else {
-            addressArray =  util.extractEmails(buildParams.emailAddress);
+            addressArray = util.extractEmails(buildParams.emailAddress);
             createTermList(
               addressArray,
               targetFilter,
@@ -2037,7 +2039,6 @@ quickFilters.Worker = {
             !(squareBracketPrefix.test(commonStart) || curlyBracePrefix.test(commonStart));
 
           if (needsConfirmation) {
-            
             const preview = trimWithEllipsis(commonStart, 60);
             const txt =
               'Found subjects starting with the same text: "$prefix$"\nUse this as subject search condition?'.replace(
@@ -2182,10 +2183,10 @@ quickFilters.Worker = {
       filterName = `${fName} ${folderDelim} ${filterName}`;
       maxCount--;
       return getParentFolderName(folder, maxCount, filterName);
-    }
+    };
 
     // ACTIONS: target folder, add tags
-    if (prefs.getBoolPref("naming.parentFolder") && folderNamesAdded>0) {
+    if (prefs.getBoolPref("naming.parentFolder") && folderNamesAdded > 0) {
       // count: include the name(s) already added to the filter name.
       const maxCount = prefs.getIntPref("naming.parentFolder.maxCount") - folderNamesAdded;
       filterName = getParentFolderName(buildParams?.targetFolder, maxCount, filterName);
@@ -2252,7 +2253,7 @@ quickFilters.Worker = {
 
       // Additional (forced) actions
       if (
-        prefs.isMoveFolderAction  &&
+        prefs.isMoveFolderAction &&
         !addedActions.find(
           (e) => e == nsMsgFilterAction.MoveToFolder || e == nsMsgFilterAction.CopyToFolder
         )
@@ -2622,18 +2623,12 @@ quickFilters.Worker = {
     await this.waitForCoreReady();
     // old params: (sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isMsgContext=false)
     const Ci = Components.interfaces;
-    if (quickFilters.Preferences.isDebugOption("assistant")) {
-      // eslint-disable-next-line no-debugger
-      debugger;
-    }
+    const util = quickFilters.Util;
     if (this.createQuickFilterLock) {
       for (let win of Services.wm.getEnumerator(null)) {
         // if I can find the window, bring it to front.
         if (win?.browser?.documentURI?.filePath.endsWith("filterAssistant.html")) {
-          quickFilters.Util.slideAlert(
-            "A previous filter creation is already in progress.",
-            "quickFilters"
-          );
+          util.slideAlert("A previous filter creation is already in progress.", "quickFilters");
           win.focus();
           break;
         };
@@ -2655,13 +2650,13 @@ quickFilters.Worker = {
     try {
       let filtered = await quickFilters.Worker.createQuickFilter(params);
       // remember message ids!
-      quickFilters.Util.logDebugOptional(
+      util.logDebugOptional(
         "createFilter",
-        "startFilterAssistant() - createQuickFilter returned: ",
+        `startFilterAssistant() - [2] current template after createQuickFilter(): "${getCurrentTemplate()}"`,
         filtered
       );
     } catch (ex) {
-      quickFilters.Util.logException("startFilterAssistant() failed: ", ex);
+      util.logException("startFilterAssistant() failed: ", ex);
     }
   },
 };

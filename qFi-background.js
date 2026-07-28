@@ -1130,9 +1130,22 @@ function registerNotifyListener() {
         }
   
         break;
-      case "updateCurrentFolderBar": // updateCurrentFolderButtons
-        notifyWhenUIReady({ event: "updateCurrentFolderBar" });
+      case "updateCurrentFolderBar": { // updateCurrentFolderButtons
+        const tabId = data?.tabId ?? null;
+        if (tabId !== null) {
+          try {
+            const tab = await messenger.tabs.get(tabId);
+            if (tab.type !== "mail") {
+              break; // quickFilters buttons are only injected in 3pane tabs
+            }
+          } catch { /* tab may no longer exist, proceed */ }
+        }
+        notifyWhenUIReady({
+          event: "updateCurrentFolderBar",
+          detail: { tabId },
+        });
         break;
+      }
 
       case "prefs:set":
         await Preferences.set(data.key, data.value);
