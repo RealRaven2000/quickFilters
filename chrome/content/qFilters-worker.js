@@ -678,7 +678,7 @@ quickFilters.Worker = {
           let filtered = await quickFilters.Worker.createQuickFilter(params);
           quickFilters.Util.logDebug("createQuickFilter returned: " + filtered);
         } catch (e) {
-          quickFilters.Util.logDebugHighlight("Rerun call failed:", "rgba(255,0,0,0.8)", "#000", e);
+          quickFilters.Util.logHighlightDebug("Rerun call failed:", "rgba(255,0,0,0.8)", "#000", e);
         }
       }, 400);
       return 0;
