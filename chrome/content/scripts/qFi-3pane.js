@@ -251,16 +251,26 @@ async function addTagListener(win, e) {
   window.quickFilters.Util.addTagListener(win);
 }
 
-async function updateCurrentFolderBar() {
+async function updateCurrentFolderBar(e) {
+  const tabId = e?.detail?.tabId ?? null;
   function logDebug(...args) {
     if (window?.quickFilters?.Util) {
       window.quickFilters.Util.logDebug(...args);
     }
   }
-  logDebug("updateCurrentFolderBar() called");
-  const container =
-    window.document.getElementById("quickFilters-injected");
-  logDebug("updateCurrentFolderBar() - container:", container);
+  // if a specific tabId was given, check it belongs to this 3pane instance
+  if (tabId !== null) {
+    const tabmail = window.parent?.document?.getElementById("tabmail");
+    const myTab = tabmail?.tabInfo?.find((t) => t.chromeBrowser?.contentWindow === window);
+    const myTabId = myTab?.tabId ?? null;
+    if (myTabId !== null && myTabId !== tabId) {
+      logDebug(`3pane: updateCurrentFolderBar() - skipping, tabId ${tabId} !== my TabId ${myTabId}`);
+      return;
+    }
+  }
+
+  const container = window.document.getElementById("quickFilters-injected");
+  logDebug(`updateCurrentFolderBar(tabId: ${tabId}) - container:`, container);
   if (!container) {
     injectQuickFoldersNavigationBarElements(window);
   }

@@ -1115,7 +1115,7 @@ var quickFilters = {
     retries = typeof retries === "number" ? retries : 0;
     const util = quickFilters.Util;
     const prefs = quickFilters.Preferences;
-    const MAX_TRIES = 2;
+    const MAX_TRIES = 4;
 
     // define all buttons once
     const buttons = [
@@ -1163,13 +1163,15 @@ var quickFilters = {
         const container = doc.getElementById("quickFilters-injected");
         const toolbar = doc.getElementById("QuickFolders-CurrentFolderTools");
 
+        if (retries == MAX_TRIES && !toolbar) {
+          // try recreating the container
+          await window.quickFilters.Util.notifyTools.notifyBackground({
+            func: "updateCurrentFolderBar",
+            tabId: tabInfo.tabId,
+          });
+        }        
+
         if (retries > MAX_TRIES && !toolbar) {
-          if (retries==1) {
-            // try recreating the container
-            await window.quickFilters.Util.notifyTools.notifyBackground({
-              func: "updateCurrentFolderBar",
-            });
-          }
           // no QF toolbar after 30 seconds. let's give up to avoid infinite processing
           console.log(
             `toggleCurrentFolderButtons() - giving up after ${retries} tries without any QF toolbar.`
@@ -1196,9 +1198,14 @@ var quickFilters = {
               continue; // buttons restored — process next tab
             }
             // Buttons gone entirely — trigger re-injection and retry
+            if (retries >= MAX_TRIES) {
+              util.logDebug(`toggleCurrentFolderButtons: giving up re-injection after ${retries} retries — toolbar present but buttons never appeared`);
+              continue;
+            }
             util.logDebug(`toggleCurrentFolderButtons: toolbar present but no buttons found (retry ${retries}) — triggering bar update`);
             await window.quickFilters.Util.notifyTools.notifyBackground({
               func: "updateCurrentFolderBar",
+              tabId: tabInfo?.tabId ?? null,
             });
             setTimeout(() => quickFilters.toggleCurrentFolderButtons(retries + 1), 2000);
           } else {
