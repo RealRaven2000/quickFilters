@@ -11,10 +11,6 @@ export function log(msg, data, mode = "log") { // log, info, warn, error
 	console[mode](msg, data);
 }
 
-export async function logDebugHighlight(txt, color="white", background="rgb(80,0,0)", ...args) {
-	const { debug } = await browser.storage.local.get({ debug: {} });
-	if (!debug.debugActive) {
-    return;
-  }
+export async function logHighlight(txt, color="white", background="rgb(80,0,0)", ...args) {
 	console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
 }

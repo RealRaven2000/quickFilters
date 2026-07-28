@@ -1436,7 +1436,7 @@ async function main() {
         // this is called from onLoad in qFi-messenger.js
         QF_license = message.license; // restrict buttons - we need either (any) QF license or a quickFilters Pro.
         if (isDebug) {
-          await util.logDebugHighlight(
+          await util.logHighlight(
             "received external message 'injectButtonsQFNavigationBar'",
             "yellow",
             "rgb(0, 128, 50)",
