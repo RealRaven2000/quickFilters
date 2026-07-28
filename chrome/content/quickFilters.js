@@ -649,9 +649,8 @@ var quickFilters = {
                       ex
                     );
                     util.logHighlightDebug(
-                      "Fallback to using the  virtual folder\n- this may lead to problems determining where to create the filters",
-                      "white",
-                      "darkred",
+                      "Fallback to using the virtual folder\n- this may lead to problems determining where to create the filters",
+                      util.debugStyleImportant,
                       { folder: firstSelectedMsg.folder }
                     );
                     currentMessageFolder = firstSelectedMsg.folder;

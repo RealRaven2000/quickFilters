@@ -10,6 +10,7 @@ var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServi
 // eslint-disable-next-line no-unused-vars
 var Utilities = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {   
+    const highlightStyle = { color: "#ffff0bff", background: "rgba(112, 15, 161, 1)" };
     console.log("quickFilters exp API: Utilities.getAPI() called"); 
     return {
       Utilities: {
@@ -198,8 +199,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         resolveAssistant: async (requestId, result, params) => {
           win.quickFilters.Util.logHighlightDebug(
             "quickFilters API",
-            "#ffff0bff",
-            "rgba(112, 15, 161, 1)",
+            highlightStyle,
             `resolveAssistant(${requestId}) called with result: ${result}, params: ${params}`
           );
 
@@ -216,8 +216,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
 
             win.quickFilters.Util.logHighlightDebug(
               "quickFilters API",
-              "#ffff0bff",
-              "rgba(112, 15, 161, 1)",
+              highlightStyle,
               `Resolving ${requestId} with Result:`,
               results
             );

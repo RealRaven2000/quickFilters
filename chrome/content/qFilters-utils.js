@@ -37,6 +37,9 @@ quickFilters.Util = {
   mPlatformVer: null,
   ConsoleService: null,
   lastTime: 0,
+  debugStyle: { color: "#ffffe0", background: "#008000" },
+  debugStyleImportant: { color: "rgba(250, 235, 119, 1)", background: "#9d4201ff" },
+  debugStyleWarning: { color: "rgba(250, 235, 119, 1)", background: "#930f08ff" },
   get safeHeaderProps() {
     return [
       "messageId",
@@ -113,8 +116,7 @@ quickFilters.Util = {
               quickFilters.Util.AssistantActive = nextActive;
               quickFilters.Util.logHighlightDebug(
                 " setAssistantMode() ",
-                "#ffffe0",
-                "rgb(0,120,30)",
+                quickFilters.Util.debugStyle,
                 `AssistantActive: ${quickFilters.Util.AssistantActive}`
               );
             }
@@ -155,14 +157,13 @@ quickFilters.Util = {
     });
     {
       const util = quickFilters.Util;
-      let info = `
-        Assistant active: ${util.AssistantActive}
-        BrowserInfo: ${util.browserInfo}
-      `;
+      let info = {
+        assistantActive: util.AssistantActive,
+        browserInfo: util.browserInfo,
+      };
       quickFilters.Util.logHighlightDebug(
         " quickFilters.Init() ",
-        "#ffffe0",
-        "rgb(0,120,30)",
+        quickFilters.Util.debugStyle,
         info
       );
     }
@@ -958,11 +959,44 @@ quickFilters.Util = {
     this.logToConsole(...args);
   },
 
-  // optional logging for important points in flow.
-  logHighlightDebug: function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
+  /**
+   * Optional logging for important points in flow.
+   *
+   * Supports two calling styles:
+   *
+   * Preferred:
+   *   logHighlightDebug("Message", { color: "yellow", background: "black"}, ...args);
+   *
+   * The style object defaults to:
+   *   { color: "white", background: "rgb(0, 119, 12)" }
+   *
+   * Backwards compatible:
+   *   logHighlightDebug("Message", "yellow", "black", ...args);
+   *
+   * @param {string} txt               Message text to highlight.
+   * @param {object|string} style      Formatting options or legacy color string.
+   * @param {string} style.color       [legacy calling style] CSS text color.
+   * @param {string} style.background  [legacy calling style] CSS background color.
+   * @param {...any} args              Additional values passed to console.log().
+   */
+  logHighlightDebug: function (txt, format = {}, ...args) {
     let p = quickFilters.Preferences.isDebug;
-    if (!p) { return;}
-    console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
+    if (!p) {
+      return;
+    }
+
+    // backwards compatibility:
+    // logHighlightDebug(txt, "white", "rgb(80,0,0)", ...args)
+    if (typeof format === "string") {
+      format = {
+        color: format,
+        background: args.shift() ?? "rgb(0, 119, 12)",
+      };
+    }
+
+    let { color = "white", background = "rgb(0, 119, 12)" } = format;
+
+    console.log(`%c${txt}`, `color: ${color}; background: ${background}`, ...args);
   },
 
   /**

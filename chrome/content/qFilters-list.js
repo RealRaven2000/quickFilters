@@ -348,12 +348,7 @@ quickFilters.List = {
     if (prefs.isAssistantModeHTML) {
       // to do: add code for new window!
       const requestId = util.createUniqueId("assistant_"); // e.g. timestamp or UUID
-      util.logHighlightDebug(
-        "HTML Assistant",
-        "rgba(250, 235, 119, 1)",
-        "#9d4201ff",
-        `Request Id: ${requestId}`
-      );
+      util.logHighlightDebug("HTML Assistant", util.debugStyleImportant, `Request Id: ${requestId}`);
       const selFilters = [];
       // list is reversed
       const filterCandidates = matchingFilters.reverse();

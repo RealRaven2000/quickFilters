@@ -8,6 +8,9 @@ END LICENSE BLOCK */
 
 quickFilters.Util = {
   lastTime: 0,
+  debugStyle: { color: "#ffffe0", background: "#008000" },
+  debugStyleImportant: { color: "rgba(250, 235, 119, 1)", background: "#9d4201ff" },
+  debugStyleWarning: { color: "rgba(250, 235, 119, 1)", background: "#930f08ff" },
   logTime: function () {
     let timePassed = "",
       end = new Date(),
@@ -57,11 +60,44 @@ quickFilters.Util = {
     }
   },
 
-  logHighlightDebug: async function (txt, color = "white", background = "rgb(80,0,0)", ...args) {
-    const { debug } = await browser.storage.local.get({ debug: {} });
-    if (debug.debugActive) {
-      console.log(`quickFilters %c${txt}`, `color: ${color}; background: ${background}`, ...args);
+  /**
+   * Optional logging for important points in flow.
+   *
+   * Supports two calling styles:
+   *
+   * Preferred:
+   *   logHighlightDebug("Message", { color: "yellow", background: "black"}, ...args);
+   *
+   * The style object defaults to:
+   *   { color: "white", background: "rgb(80,0,0)" }
+   *
+   * Backwards compatible:
+   *   logHighlightDebug("Message", "yellow", "black", ...args);
+   *
+   * @param {string} txt               Message text to highlight.
+   * @param {object|string} style      Formatting options or legacy color string.
+   * @param {string} style.color       [legacy calling style] CSS text color.
+   * @param {string} style.background  [legacy calling style] CSS background color.
+   * @param {...any} args              Additional values passed to console.log().
+   */
+  logHighlightDebug: function (txt, format = {}, ...args) {
+    let p = quickFilters.Preferences.isDebug;
+    if (!p) {
+      return;
     }
+
+    // backwards compatibility:
+    // logHighlightDebug(txt, "white", "rgb(80,0,0)", ...args)
+    if (typeof format === "string") {
+      format = {
+        color: format,
+        background: args.shift() ?? "rgb(80,0,0)",
+      };
+    }
+
+    let { color = "white", background = "rgb(80,0,0)" } = format;
+
+    console.log(`%c${txt}`, `color: ${color}; background: ${background}`, ...args);
   },
 
   logDebugOptional: async function (optionString, _msg) {

@@ -962,8 +962,7 @@ quickFilters.Worker = {
           // exception
           util.logHighlightDebug(
             "createQuickFilterExec() Problem:",
-            "rgba(250, 235, 119, 1)",
-            "#930f08ff",
+            util.debugStyleWarning,
             "MISSING or incomplete MailServices.headerParser:\nEarly Exit!",
             hdrParser
           );          
@@ -1115,8 +1114,7 @@ quickFilters.Worker = {
             const requestId = util.createUniqueId("assistant_"); // e.g. timestamp or UUID
             util.logHighlightDebug(
               "HTML Assistant",
-              "rgba(250, 235, 119, 1)",
-              "#9d4201ff",
+              util.debugStyleImportant,
               `Request Id: ${requestId}`
             );
             let theContext = params.context || "createQuickFilterExec (Generic)";
@@ -1189,6 +1187,14 @@ quickFilters.Worker = {
               quickFilters._pendingAssistantRequests[requestId] = resolve;
             });
 
+            quickFilters.Util.logDebugOptional(
+              "buildFilter",
+              `Calling background with function: ${backgroundCallObject.func}\n` +
+                `Current template: "${quickFilters.Preferences.getCurrentFilterTemplate()}"`,
+              backgroundCallObject
+            );
+
+
             quickFilters.Util.notifyTools.notifyBackground(backgroundCallObject);
             // we need to block for the background call to return
 
@@ -1208,6 +1214,12 @@ quickFilters.Worker = {
               mergedFilter.index < matchingFilters.length
             ) {
               quickFilters.Util.logDebug("Filter assistant returned these params: ", params);
+              quickFilters.Util.logDebugOptional(
+                "buildFilter",
+                `Returned from background:\n` +
+                  `Current template: "${quickFilters.Preferences.getCurrentFilterTemplate()}"`,
+                  resultData
+              );
               selectedMergedFilterIndex = params.mergeFilter.index;
               const fName = params.mergeFilter.filterName;
               // sanity check filter name
@@ -1638,6 +1650,8 @@ quickFilters.Worker = {
     // this can be one of the following values:
     //
     // quickFilterCustomTemplate:XXX  (unique filter name)
+    // [issue 383] what error can lead to template being null? (e.g. if the user has deleted the template filter)
+    // and should this fall back to the default "from" template?
     let template = prefs.getCurrentFilterTemplate();
     util.logDebugOptional("buildFilter", `Using template: ${template}`);
     let customTemplate = null,
@@ -2648,6 +2662,12 @@ quickFilters.Worker = {
         break;
     }
     try {
+      const getCurrentTemplate = quickFilters.Preferences.getCurrentFilterTemplate;
+      util.logDebugOptional(
+        "createFilter",
+        `startFilterAssistant() - [1] current template - before assistant: "${getCurrentTemplate()}"`
+      );
+
       let filtered = await quickFilters.Worker.createQuickFilter(params);
       // remember message ids!
       util.logDebugOptional(

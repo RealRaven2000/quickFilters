@@ -271,10 +271,10 @@ async function onLoad(activatedWhileWindowOpen) {
   window.addEventListener("quickFilters.BackgroundUpdate.addKeyListener", listener_initKeyListener);
 
   listener_doCommand = (event) => {
+    const style = { color: "white", background: "#800280" };
     window.quickFilters.Util.logHighlightDebug(
       "listener_doCommand()",
-      "white",
-      "magenta",
+      style,
       event.detail
     );
     if (!event.detail.windowId) {
@@ -306,14 +306,19 @@ async function onLoad(activatedWhileWindowOpen) {
   // The following will only work if we are currently in a mail pane (ATN update)
   // otherwise, we need to call this again in a tab listener
   const selectedTab = window.gTabmail.selectedTab;
+  const style = { color: "yellow", background: "rgb(0, 128, 50)" };
   window.quickFilters.Util.logHighlightDebug(
-    `qFi-messenger onLoad triggered, selectedTab: mode.name=${selectedTab?.mode?.name}`,
-    "yellow",
-    "rgb(0, 128, 50)",
+    ` qFi-messenger onLoad triggered, selected tab mode: ${selectedTab?.mode?.name} `,
+    style,
     selectedTab
   );
   if (selectedTab && window.quickFilters.Util.isTabMode(selectedTab, "mail")) {
     window.quickFilters.patchMailPane();
+      window.quickFilters.Util.logHighlightDebug(
+        "qFi-messenger after patchMailPane",
+        style,
+        selectedTab
+      );
   }
 
   // iterate all mail tabs!

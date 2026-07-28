@@ -65,11 +65,8 @@ const qFInjector = {
       if (!debug) {
         return;
       }
-      const format = {
-        color: "white",
-        background: "#069a0f",
-        fontWeight: "bold",
-      };
+      // added to the default white on green style
+      const format = { fontWeight: "bold" };
       util.logHighlightDebug("[quickFilters 3pane]", format, ...args);
     };
 
@@ -374,7 +371,8 @@ async function injectQuickFoldersNavigationBarElements(win) {
     if (!isDebug) { 
       return;
     }
-    win.quickFilters.Util.logHighlightDebug("[quickFilters 3pane]", "white", "green", ...args);
+    const util = win?.quickFilters?.Util;
+    util.logHighlightDebug("[quickFilters 3pane]", util.debugStyle, ...args);
   }
 
   log3pane("injectQuickFoldersNavigationBarElements() - waiting for threadPane");

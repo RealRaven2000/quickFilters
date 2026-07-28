@@ -22,8 +22,7 @@
   if (!willy) {
     Util.logHighlightDebug(
       "Can't polyfill menu items, no WindowListener in:",
-      "pink",
-      "rgb(40,0,0)",
+      Util.debugStyleWarning,
       `window location= ${window.location.href}`
     );
     return;
