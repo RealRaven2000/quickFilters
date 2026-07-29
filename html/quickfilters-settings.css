@@ -85,8 +85,9 @@ label.proFeature[disabled] {
   color: var(--hovercolor) !important;  
 }
 .tabbox li button:active:hover {
-  fill: var(--activecolor);
-  color: var(--activecolor) !important;
+  fill: var(--button-active-color) !important;
+  color: var(--button-active-color) !important;
+  background-color: var(--button-active-background-color) !important;
 }
 
 
