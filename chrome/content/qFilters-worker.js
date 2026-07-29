@@ -638,6 +638,7 @@ quickFilters.Worker = {
       prefs = quickFilters.Preferences;
 
     var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
+    util.logDebugOptional("createFilter.exec", "createFilterQuickFilterExec() start", params);
 
     // do an async repeat if it fails for the first time
     function rerun(reason) {
@@ -715,6 +716,11 @@ quickFilters.Worker = {
 
     if (!isMsgContext) {
       if (!this.refreshHeaders(messageList, targetFolder, sourceFolder)) {
+        util.logDebugOptional(
+          "createFilter.exec",
+          "createFilterQuickFilterExec() refreshHeaders failed. calling rerun()",
+          messageList
+        );
         return rerun("targetFolder Database not ready");
       }
     }
@@ -745,6 +751,11 @@ quickFilters.Worker = {
           );
           await util.popupAlert(wrn.replace("{1}", serverName));
           this.promiseCreateFilter = false;
+          util.logDebugOptional(
+            "createFilter.exec",
+            "createFilterQuickFilterExec() early return - sourceFolder.server cannot have filters",
+            sourceFolder
+          );
           return false;
         }
       } else {
@@ -758,6 +769,11 @@ quickFilters.Worker = {
           );
           await util.popupAlert(wrn.replace("{1}", srcName));
         }
+        util.logDebugOptional(
+          "createFilter.exec",
+          "createFilterQuickFilterExec() early return - sourceFolder has no server",
+          sourceFolder
+        );        
         this.promiseCreateFilter = false;
         return false;
       }
@@ -1290,9 +1306,15 @@ quickFilters.Worker = {
       } else {
         util.logDebugOptional("createFilter", "no message found to set up filter");
       }
+
+      util.logDebugOptional("createFilter.exec", "createFilterQuickFilterExec() returns 1 (success)");
       this.promiseCreateFilter = false;
       return 1; // success
     } catch (e) {
+      util.logException(
+        "createFilterQuickFilterExec() threw an exception - returning -1",
+        e
+      );        
       alert("Exception in quickFilters.Worker.createFilter: " + e.message);
       this.promiseCreateFilter = false;
       return -1;
@@ -2634,10 +2656,10 @@ quickFilters.Worker = {
    * @param {boolean} [params.isMsgContext=false] - Whether invoked form mail context menu.
    */
   startFilterAssistant: async function (params) {
+    const util = quickFilters.Util;
     await this.waitForCoreReady();
     // old params: (sourceFolder, targetFolder, messageList, filterAction, filterActionExt, isMsgContext=false)
     const Ci = Components.interfaces;
-    const util = quickFilters.Util;
     if (this.createQuickFilterLock) {
       for (let win of Services.wm.getEnumerator(null)) {
         // if I can find the window, bring it to front.

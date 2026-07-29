@@ -11,6 +11,14 @@ quickFilters.Util = {
   debugStyle: { color: "#ffffe0", background: "#008000" },
   debugStyleImportant: { color: "rgba(250, 235, 119, 1)", background: "#9d4201ff" },
   debugStyleWarning: { color: "rgba(250, 235, 119, 1)", background: "#930f08ff" },
+  _isDebug: false,
+  get isDebug() {
+    return this._isDebug;
+  },
+  setDebugFromStorage: async function () {
+    const { debug } = await browser.storage.local.get({ debug: {} });
+    this._isDebug = debug.debugActive && debug["debug.assistant"];
+  },
   logTime: function () {
     let timePassed = "",
       end = new Date(),
@@ -81,8 +89,7 @@ quickFilters.Util = {
    * @param {...any} args              Additional values passed to console.log().
    */
   logHighlightDebug: function (txt, format = {}, ...args) {
-    let p = quickFilters.Preferences.isDebug;
-    if (!p) {
+    if (!quickFilters.Util.isDebug)  {
       return;
     }
     const defaultBackground = "#008000"; // dark green

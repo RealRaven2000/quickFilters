@@ -135,6 +135,7 @@ export const Preferences = {
     "debug.buildFilter": false,
     "debug.clipboard": false,
     "debug.createFilter": false,
+    "debug.createFilter.exec": false,
     "debug.createFilter.refreshHeaders": false,
     "debug.default": true,
     "debug.dnd": false,

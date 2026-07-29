@@ -622,8 +622,9 @@ quickFilters.Assistant = {
   },
 
   loadAssistant: async function () {
-    const { debug } = await browser.storage.local.get({ debug: {} });
-    const isDebug = debug.debugActive && debug["debug.assistant"];
+    const util = quickFilters.Util;
+    await util.setDebugFromStorage();
+    const isDebug = util.isDebug;
     if (isDebug) {
       console.trace("loadAssistant called");
     }
@@ -640,7 +641,6 @@ quickFilters.Assistant = {
     this.selectedApiMessages = urlApiMessages ? JSON.parse(urlApiMessages) : [];
     const templateList = this.TemplateList;
     const context = urlParams.get("context");
-    const util = quickFilters.Util;
     await util.logHighlightDebug(
       " loadAssistant() ",
       util.debugStyleImportant,
