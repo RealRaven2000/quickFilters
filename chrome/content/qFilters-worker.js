@@ -1297,6 +1297,7 @@ quickFilters.Worker = {
             bccAddress: bccAddress,
             filterActionExt: filterActionExt,
             isMsgContext: isMsgContext,
+            template: typeof params?.template === "string" && params.template.trim() ? params.template : null,
           };
           await this.buildFilter(theBuild);
         } else {
@@ -1672,9 +1673,22 @@ quickFilters.Worker = {
     // this can be one of the following values:
     //
     // quickFilterCustomTemplate:XXX  (unique filter name)
-    // [issue 383] what error can lead to template being null? (e.g. if the user has deleted the template filter)
-    // and should this fall back to the default "from" template?
-    let template = prefs.getCurrentFilterTemplate();
+    // [issue 383] prefer the assistant-selected value when it is supplied directly,
+    // and only fall back to the cached preference if no explicit template was passed.
+    const explicitTemplate = buildParams?.template;
+    let template =
+      typeof explicitTemplate === "string" && explicitTemplate.trim()
+        ? explicitTemplate
+        : prefs.getCurrentFilterTemplate();
+    if (typeof template !== "string" || template.trim() === "") {
+      util.logHighlightDebug(
+        "buildFilter",
+        util.debugStyleWarning,
+        "Template preference is empty or invalid; leaving it unset for diagnosis.",
+        template
+      );
+      template = "";
+    }
     util.logDebugOptional("buildFilter", `Using template: ${template}`);
     let customTemplate = null,
       customFilter = null;

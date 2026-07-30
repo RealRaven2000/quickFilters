@@ -183,6 +183,18 @@ export const Preferences = {
       }
     }
 
+    const currentTemplate = settings["filters.currentTemplate"];
+    if (
+      typeof currentTemplate !== "string" ||
+      currentTemplate === "" ||
+      currentTemplate === "undefined" ||
+      currentTemplate === "null" ||
+      currentTemplate.trim() === ""
+    ) {
+      settings["filters.currentTemplate"] = "";
+      hasSettingsSeed = true;
+    }
+
     for (const [key, value] of Object.entries(Preferences.DebugDefaults)) {
       if (typeof debug[key] === "undefined") {
         debug[key] = value;

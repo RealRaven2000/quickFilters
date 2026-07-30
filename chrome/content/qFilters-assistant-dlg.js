@@ -93,12 +93,18 @@ quickFilters.Assistant = {
         this.NextButton.label = AcceptLabel;
         break;
       case this.TEMPLATEPAGE: // we are in template selection, either go on to create new filter or edit the selected one from first step
-        await quickFilters.Assistant.selectTemplate();
-        params.answer = true;
-        params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
-        setTimeout(function () {
-          window.close();
-        });
+        {
+          const selectedTemplate = this.TemplateList?.selectedItem?.value || null;
+          await quickFilters.Assistant.selectTemplate();
+          params.answer = true;
+          params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
+          if (typeof selectedTemplate === "string" && selectedTemplate) {
+            params.template = selectedTemplate;
+          }
+          setTimeout(function () {
+            window.close();
+          });
+        }
         break;
     }
 

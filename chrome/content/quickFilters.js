@@ -242,7 +242,12 @@ END LICENSE BLOCK
     # Note for reviewers: we still require the "tabs" permission in manifest.json to 
     #      read the URL of iterated tabs for the reopening settings on qi-utils.js:97
  
+  6.13.2 - WIP
+    # [issue 365] Further Improved QuickFolders current folder bar integration stability
+    # [issue 383] exception in quickFilters.Worker.Create.Filter: can't access property "startswith," template is null
+    # [issue 245] Backup failing - clicking on button doesn't do anything (Betterbird, OpenSuse)
 
+    
   ============================================================================================================
   6.* - WIP
     # [issue ]   

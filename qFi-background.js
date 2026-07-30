@@ -1226,11 +1226,13 @@ async function main() {
       if (requestId) {
         const mergeFilter = data.params?.mergeFilter || null;
         const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
+        const template = data.params?.template || null;
         // { index, filterName , accountId }
         await messenger.Utilities.resolveAssistant(requestId, result, {
           answer: data.params?.answer,
           selectedMergedFilterIndex: resultIdx,
           mergeFilter,
+          template,
         });
       }
     },

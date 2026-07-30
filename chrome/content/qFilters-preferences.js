@@ -94,8 +94,19 @@ quickFilters.Preferences = {
 
   getCurrentFilterTemplate: function () {
     let current = quickFilters.Preferences.getStringPref("filters.currentTemplate");
-    if (current == "undefined" || current == "null" || typeof current == "undefined" || current == null) {
-      current = ""; // issue 383
+    if (
+      typeof current !== "string" ||
+      current === "" ||
+      current === "undefined" ||
+      current === "null" ||
+      current.trim() === ""
+    ) {
+      quickFilters?.Util?.logDebugOptional(
+        "buildFilter",
+        "Current filter template preference is invalid or empty:",
+        current
+      );
+      return "";
     }
     return current;
   },

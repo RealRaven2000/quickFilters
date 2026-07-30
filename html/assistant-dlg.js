@@ -347,11 +347,15 @@ quickFilters.Assistant = {
           break;
         case "stepDetail": // we are in template selection, either go on to create new filter or edit the selected one from first step
           {
+            const selectedTemplate = document.getElementById("qf-filter-templates")?.value || null;
             await quickFilters.Assistant.selectTemplate();
             this.hasSentResult = true;
             let resultParams = {
               answer: true,
             };
+            if (typeof selectedTemplate === "string" && selectedTemplate) {
+              resultParams.template = selectedTemplate;
+            }
             if (document.getElementById("chkMerge").checked) {
               this.selectedMergedFilterIndex = this.MatchedFilters.selectedIndex;
               const selectedFilter = this.mergeCandidates[this.selectedMergedFilterIndex];
