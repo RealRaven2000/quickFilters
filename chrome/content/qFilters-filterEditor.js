@@ -37,7 +37,7 @@ END LICENSE BLOCK
     },
     isBetterBird: false,
     isDisabled: false,
-    onLoad: function loadEditor(_event) {
+    onLoad: function (_event) {
       const txtAbort = "Abandoning quickFilters processing.";
       const theFilter = quickFilters.FilterEditor.currentFilter;
       if (!theFilter) {
@@ -250,6 +250,11 @@ END LICENSE BLOCK
       }
 
       refreshItems();
+    },
+
+    onUnload: function (_event) {
+      const util = quickFilters.Util;
+      util.logDebug("quickFilters.unloadEditor()");
     },
 
     // this function deals with showing a special titel for custom filter template editor
