@@ -1,6 +1,6 @@
-**Release 6.13.1**
+**Release 6.13.2**
 
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13)
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13.2)
 
 
 This release updates quickFilters to reflect recent changes in Thunderbird’s add-on platform planning. A previously announced restriction that would allow legacy Add-ons on the Release channel only has been postponed to a later ESR cycle (currently targeted for 2027).
@@ -8,6 +8,14 @@ This release updates quickFilters to reflect recent changes in Thunderbird’s a
 While quickFilters continues to support both Release and ESR versions of Thunderbird where compatible, it may be better to switch to the ESR channel to secure a more stable update path. 
 
 Users who rely on advanced or experimental functionality may prefer the ESR channel for a more stable environment with fewer platform changes. The recommended migration point from Release to ESR is Thunderbird 153, expected in July 2026.
+
+
+**Maintenance version 6.13.2**
+
+*     Fixed Filter Assistant malfunctions from a regression caused by a preferences migration related to using `.startsWith()` on a missing preference. [issue #383]
+*     Fixed backup feature not working on some Linux distributions (Betterbird, OpenSuse). [issue #245]
+*     Further Improved QuickFolders current folder bar integration stability [issue #365]
+*     Fixed incorrect languages in some Polish locale translation.
 
 
 **Improvements**
