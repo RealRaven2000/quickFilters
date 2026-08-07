@@ -301,7 +301,8 @@ function formatAll(txt) {
       /\{createFilterFromMessage\}/g,
       messenger.i18n.getMessage("quickfilters.FromMessage.label")
     )
-    .replace(/\{autoMerge\}/g, messenger.i18n.getMessage("chkMergeAuto.label"));
+    .replace(/\{autoMerge\}/g, messenger.i18n.getMessage("chkMergeAuto.label"))
+    .replace(/\{code\}(.*?)\{\/code\}/g, "<code>$1</code>");
 
   return localizedMsg;
 }
