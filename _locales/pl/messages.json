@@ -3,10 +3,10 @@
     "message": "SPLASH+UI"
   },
   "about": {
-    "message": "Suhteen"
+    "message": "O programie"
   },
   "account.label": {
-    "message": "Valitse tili:"
+    "message": "Wybierz konto:"
   },
   "active-version-info": {
     "message": "Używasz teraz {bold} wersji $addonVer$ {/bold}  na Thunderbird $appVer$.",
@@ -615,7 +615,7 @@
     "message": "Zasady nazewnictwa"
   },
   "qf.label.naming.folderDelimiter": {
-    "message": "Separator:"
+    "message": "Ogranicznik:"
   },
   "qf.label.naming.keyWord": {
     "message": "Dodaj słowo kluczowe związane z regułą"
@@ -624,19 +624,19 @@
     "message": "k"
   },
   "qf.label.naming.keyWord.blacklist": {
-    "message": "Verwijder de volgende woorden uit de naam:"
+    "message": "Usuń którekolwiek z następujących słów z nazwy:"
   },
   "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "Door komma's gescheiden lijst van woorden die uit de voorgestelde filternaam moeten worden verwijderd, bijv. 'Fwd:, Re:, Mail' - hoofdlettergebruik wordt genegeerd"
+    "message": "Lista słów oddzielonych przecinkami, które powinny zostać usunięte z sugerowanej nazwy filtra, np. 'Fwd:, Re:, Mail' - wielkość liter nie ma znaczenia"
   },
   "qf.label.naming.parentFolder": {
-    "message": "Voeg naam van bovenliggende map toe"
+    "message": "Dodaj nazwy folderów nadrzędnych"
   },
   "qf.label.naming.parentFolder.maxCount": {
-    "message": "Maximaal aantal bovenliggende mappen om toe te voegen:"
+    "message": "Maksymalna liczba folderów nadrzędnych do dodania:"
   },
   "qf.label.naming.targetAccount": {
-    "message": "Voeg naam van doelaccount toe (voor filters die e-mail naar een ander account verplaatsen)"
+    "message": "Dodaj nazwę konta docelowego (dla filtrów, które przenoszą pocztę na inne konto)"
   },
   "qf.label.naming.parentFolder.accesskey": {
     "message": "p"
@@ -712,7 +712,7 @@
     "message": "Po aktywacji asystent filtru będzie również uruchamiany po oznaczeniu wiadomości tagiem."
   },
   "qf.newFilterProps.intro": {
-    "message": "Следећа подешавања ће се применити на све нове филтере који су направљени помоћу помоћника за филтере."
+    "message": "Następujące ustawienia będą stosowane do wszystkich nowych filtrów tworzonych za pomocą asystenta filtrów."
   },
   "qf.notify.filterCreated": {
     "message": "Pomyślnie utworzono nowy filtr „{0}”."
@@ -1488,7 +1488,7 @@
   },
   "whats-new-list": {
     "description": "🇵🇱 change log",
-    "message": "{L}{b class=maintenance}6.13.1{/b} Naprawiono błąd, który powodował przesunięcie zawartości głównego okna Thunderbirda w górę i jej ucięcie. [issue 382]{br}{b} Jeśli nadal występuje ten problem, uruchom ponownie Thunderbird, aby zmiany zaczęły obowiązywać.{/b}{/L}{L}{b class=maintenance}6.13.1{/b} Okno Asystenta filtru teraz pamięta jego pozycję. Dodaliśmy również opcję, aby okno zawsze pozostawało widoczne. [issue 380]{/L}{L}{b class=maintenance}6.13.1{/b} Rozwiązano problem, w którym Asystent filtru używał niepoprawnego wbudowanego szablonu (domain zamiast from). [issue 376]{/L}{L}{b class=maintenance}6.13.1{/b} Rozwiązano problem, w którym buforowane ustawienia debugowania nie były odczytywane po migracji do pamięci lokalnej. [issue 367]{/L}{L}{b class=maintenance}6.13.1{/b} Ulepszona integracja paska bieżącego folderu QuickFolders. [issue 365]{/L}{P class=heading}Zmiany od wersji początkowej {b}6.13{/b}:{/P}{L}Ustawienia quickFilters zostały przeniesione do pamięci lokalnej zamiast globalnych preferencji Thunderbird. Teraz możesz przywrócić quickFilters do ustawień domyślnych, usuwając dodatek i instalując go ponownie.{/L}{L}Dodano tłumaczenie czeskie.{/L}{L}Dodano nową opcję wyszukiwania w oknie dialogowym Filtrów wiadomości, aby znajdować filtry według ścieżki folderu dla akcji przenoszenia/kopiowania.{/L}{L}Naprawiono problem, przez który podgląd wiadomości był niedostępny podczas przenoszenia poczty do folderów lokalnych.{/L}{L}Ulepszona komunikacja między quickFilters a QuickFolders. [issue 373]{/L}{L}Od teraz minimalna wersja Thunderbird to v140. Usprawni to dalszy rozwój i pozwoli uniknąć problemów spowodowanych przestarzałym kodem.{/L}"
+    "message": "{L}{b class=maintenance}6.13.2{/b} Naprawiono nieprawidłowe działanie Asystenta filtru spowodowane regresją migracji preferencji związaną z użyciem {code}.startsWith(){/code} dla brakującej preferencji. [issue 383]{/L}{L}{b class=maintenance}6.13.2{/b} Naprawiono funkcję kopii zapasowej, która nie działała na niektórych dystrybucjach Linuksa (Betterbird, OpenSuse). [issue 245]{/L}{L}{b class=maintenance}6.13.2{/b} Dodatkowo ulepszono stabilność integracji paska bieżącego folderu QuickFolders. [issue 365]{/L}{L}{b class=maintenance}6.13.2{/b} Naprawiono niepoprawne tłumaczenia w polskim pliku lokalizacji.{/L}{P class=heading}Zmiany od wersji początkowej {b}6.13{/b}:{/P}{L}Ustawienia quickFilters zostały przeniesione do pamięci lokalnej zamiast globalnych preferencji Thunderbird. Teraz możesz przywrócić quickFilters do ustawień domyślnych, usuwając dodatek i instalując go ponownie.{/L}{L}Dodano tłumaczenie czeskie.{/L}{L}Dodano nową opcję wyszukiwania w oknie dialogowym Filtrów wiadomości, aby znajdować filtry według ścieżki folderu dla akcji przenoszenia/kopiowania.{/L}{L}Naprawiono problem, przez który podgląd wiadomości był niedostępny podczas przenoszenia poczty do folderów lokalnych.{/L}{L}Ulepszona komunikacja między quickFilters a QuickFolders. [issue 373]{/L}{L}Od teraz minimalna wersja Thunderbird to v140. Usprawni to dalszy rozwój i pozwoli uniknąć problemów spowodowanych przestarzałym kodem.{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

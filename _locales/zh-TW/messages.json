@@ -1401,11 +1401,11 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{L}{b class=maintenance}6.13.1{/b} 篩選助手視窗現在會記住其位置。我們也新增了讓視窗始終保持可見的選項。[issue 380]{/L}{L}{b class=maintenance}6.13.1{/b} 修正了篩選助手使用不正確的內建範本(domain 而非 from)的問題。[issue 376]{/L}{L}{b class=maintenance}6.13.1{/b} 修正了本機儲存遷移後無法讀取快取偵錯設定的問題。[issue 367]{/L}{L}{b class=maintenance}6.13.1{/b} 改善了 QuickFolders 目前資料夾列的整合。[issue 365]{/L}{P class=heading}自初始版本 {b}6.13{/b} 以來的變更：{/P}{L}quickFilters 設定已改為使用本機儲存，而非 Thunderbird 的全域偏好設定。現在您可以先移除附加元件再重新安裝，將 quickFilters 重設為預設行為。{/L}{L}已新增捷克文翻譯。{/L}{L}在「訊息篩選器」對話框中新增搜尋選項，可依移動/複製動作的資料夾路徑尋找篩選器。{/L}{L}修正了將郵件移動到本機資料夾時無法使用郵件預覽的問題。{/L}{L}改善了 quickFilters 與 QuickFolders 之間的通訊。[issue 373]{/L}{L}自此之後，Thunderbird 的最低版本為 v140。這將改善後續開發，並避免由已淘汰程式碼造成的問題。{/L}"
+    "message": "{L}{b class=maintenance}6.13.2{/b} 修正了由於偏好設定遷移迴歸導致的篩選助手故障，該迴歸與在缺少的偏好設定上使用{code}.startsWith(){/code}有關。[issue 383]{/L}{L}{b class=maintenance}6.13.2{/b} 修正了備份功能在某些 Linux 發行版（Betterbird、OpenSuse）上無法正常運作的問題。[issue 245]{/L}{L}{b class=maintenance}6.13.2{/b} 進一步改善了 QuickFolders 目前資料夾列整合的穩定性。[issue 365]{/L}{L}{b class=maintenance}6.13.2{/b} 修正了波蘭文語言環境檔案中的錯誤翻譯。{/L}{P class=heading}自初始版本 {b}6.13{/b} 以來的變更：{/P}{L}quickFilters 設定已改為使用本機儲存，而非 Thunderbird 的全域偏好設定。現在您可以先移除附加元件再重新安裝，將 quickFilters 重設為預設行為。{/L}{L}已新增捷克文翻譯。{/L}{L}在{italic}訊息篩選器{/italic}對話框中新增搜尋選項，可依移動/複製動作的資料夾路徑尋找篩選器。{/L}{L}修正了將郵件移動到本機資料夾時無法使用郵件預覽的問題。{/L}{L}改善了 quickFilters 與 QuickFolders 之間的通訊。[issue 373]{/L}{L}自此之後，Thunderbird 的最低版本為 v140。這將改善後續開發，並避免由已淘汰程式碼造成的問題。{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{L}{b class=maintenance}6.13.1{/b} 修正了 Thunderbird 主視窗內容向上移動並造成顯示被截斷的問題。[issue 382]{br}{b} 如果您仍然看到此問題，請重新啟動 Thunderbird 以確保變更生效。{/b}{/L}{P}本版本使 {b}{+extensionName}{/b} 與 Thunderbird 平台規劃的最新變更保持一致。此前宣布的「舊版附加元件僅允許在 ESR 頻道執行」限制已被推遲到更後的 ESR 週期（目前預計為 2027 年）。{/P} {P}儘管 {b}{+extensionName}{/b} 在相容情況下仍支援 Thunderbird 的 Release 和 ESR 版本，但為了更穩定的更新路徑，切換到 ESR 頻道可能是更好的選擇。 {/P} {P}從 Release 遷移到 ESR 的建議節點是 Thunderbird 153（預計 2026 年 7 月）。{/P}"
+    "message": "{P}本版本使 {b}{+extensionName}{/b} 與 Thunderbird 平台規劃的最新變更保持一致。此前宣布的「舊版附加元件僅允許在 ESR 頻道執行」限制已被推遲到更後的 ESR 週期（目前預計為 2027 年）。{/P} {P}儘管 {b}{+extensionName}{/b} 在相容情況下仍支援 Thunderbird 的 Release 和 ESR 版本，但為了更穩定的更新路徑，切換到 ESR 頻道可能是更好的選擇。 {/P} {P}從 Release 遷移到 ESR 的建議節點是 Thunderbird 153（預計 2026 年 7 月）。{/P}"
   },
   "whats-new-maintenance": {
     "message": "維護更新 $ver$。此特定修正已包含在上一個版本之後的更新中。",

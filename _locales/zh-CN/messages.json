@@ -1482,7 +1482,7 @@
   },
     "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}{b class=maintenance}6.13.1{/b} 修复了 Thunderbird 主窗口内容向上移动并导致显示被截断的问题。[issue 382]{br}{b} 如果您仍然遇到此问题，请重新启动 Thunderbird 以确保更改生效。{/b}{/L}{L}{b class=maintenance}6.13.1{/b} 过滤助手窗口现在会记住其位置。我们还添加了让窗口始终保持可见的选项。[issue 380]{/L}{L}{b class=maintenance}6.13.1{/b} 修复了过滤助手使用不正确的内置模板(domain 而不是 from)的问题。[issue 376]{/L}{L}{b class=maintenance}6.13.1{/b} 修复了本地存储迁移后无法读取缓存调试设置的问题。[issue 367]{/L}{L}{b class=maintenance}6.13.1{/b} 改进了 QuickFolders 当前文件夹栏的集成。[issue 365]{/L}{P class=heading}自初始版本 {b}6.13{/b} 以来的更改：{/P}{L}quickFilters 设置已改为使用本地存储，而不是 Thunderbird 的全局首选项。现在，您可以通过移除该附加组件并重新安装，将 quickFilters 重置为默认行为。{/L}{L}已添加捷克语翻译。{/L}{L}在\"消息过滤器\"对话框中新增了搜索选项，可按移动/复制操作的文件夹路径查找过滤器。{/L}{L}修复了将邮件移动到本地文件夹时无法显示邮件预览的问题。{/L}{L}改进了 quickFilters 与 QuickFolders 之间的通信。[issue 373]{/L}{L}从现在起，Thunderbird 的最低版本为 v140。这将改进后续开发，并避免由弃用代码导致的问题。{/L}"
+    "message": "{L}{b class=maintenance}6.13.2{/b} 修复了由于首选项迁移回归导致的过滤助手故障，该回归与在缺少的首选项上使用{code}.startsWith(){/code}有关。[issue 383]{/L}{L}{b class=maintenance}6.13.2{/b} 修复了备份功能在某些 Linux 发行版（Betterbird、OpenSuse）上无法正常工作的问题。[issue 245]{/L}{L}{b class=maintenance}6.13.2{/b} 进一步改进了 QuickFolders 当前文件夹栏集成的稳定性。[issue 365]{/L}{L}{b class=maintenance}6.13.2{/b} 修复了波兰语语言环境文件中的错误翻译。{/L}{P class=heading}自初始版本 {b}6.13{/b} 以来的更改：{/P}{L}quickFilters 设置已改为使用本地存储，而不是 Thunderbird 的全局首选项。现在，您可以通过移除该附加组件并重新安装，将 quickFilters 重置为默认行为。{/L}{L}已添加捷克语翻译。{/L}{L}在{italic}消息过滤器{/italic}对话框中新增了搜索选项，可按移动/复制操作的文件夹路径查找过滤器。{/L}{L}修复了将邮件移动到本地文件夹时无法显示邮件预览的问题。{/L}{L}改进了 quickFilters 与 QuickFolders 之间的通信。[issue 373]{/L}{L}从现在起，Thunderbird 的最低版本为 v140。这将改进后续开发，并避免由弃用代码导致的问题。{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
