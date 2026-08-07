@@ -1535,8 +1535,8 @@ quickFilters.Worker = {
         return topic;
       }
 
-      let blacklist = prefs
-        .getStringPref("naming.subject.blacklist")
+      let blacklistStr = prefs.getStringPref("naming.subject.blacklist") || "";
+      let blacklist = blacklistStr
         .toLowerCase()
         .split(",")
         .map((s) => s.trim())

@@ -68,7 +68,13 @@ quickFilters.Preferences = {
   },
 
   getStringPref(p) {
-    return quickFilters.Preferences.cache.getValue(p);
+    const value = quickFilters.Preferences.cache.getValue(p);
+    if (value === null || value === undefined) {
+      console.warn(
+        `quickFilters Preferences Cache Failure: getStringPref("${p}") returned ${value === null ? "null" : "undefined"} - preference missing from cache`
+      );
+    }
+    return value;
   },
 
   async setStringPref(p, v) {

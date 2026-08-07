@@ -369,7 +369,11 @@ const initPrefs = async () => {
     const value = inputValues[prefName];
     el.value = value ?? "";
 
-    el.addEventListener("input", async () => {
+    // numeric inputs: immediate feedback on every change (input event)
+    // text inputs: save on blur/Enter only (change event)
+    const eventType = el.type === "number" ? "input" : "change";
+    
+    el.addEventListener(eventType, async () => {
       // no debug settings here.
       const { settings } = await browser.storage.local.get({ settings: {} });
       settings[prefName] = el.type === "number" ? Number(el.value) : el.value;

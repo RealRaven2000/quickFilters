@@ -435,7 +435,8 @@ export const Preferences = {
       return numeric;
     }
 
-    return value; // string fallback
+    // string fallback - return value as-is (null/undefined/empty already filtered in migration loop)
+    return value;
   },
 
   async _migrateLegacyPrefs() {
@@ -460,7 +461,8 @@ export const Preferences = {
       try {
         const value = await messenger.LegacyPrefs.getPref(legacyKey);
 
-        if (value === undefined) {
+        // skip only null/undefined (preference never set), but migrate empty strings (deliberate user choice)
+        if (value === undefined || value === null) {
           continue;
         }
 

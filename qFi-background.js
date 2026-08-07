@@ -1153,6 +1153,7 @@ function registerNotifyListener() {
       case "requestPrefCache":
         {
           // send cached data to quickFilters.Preferences.cache.updateFromBackend(data)
+          // merge defaults first, then _data, ensuring all preferences have values
           // merge debug settings into prefs, mapping debugActive → "debug" for frontend compatibility
           const debugDataForCache = {};
           for (const [k, v] of Object.entries(Preferences._debugData || {})) {
@@ -1160,6 +1161,7 @@ function registerNotifyListener() {
           }
           return {
             prefs: {
+              ...Preferences.Defaults,
               ...Preferences._data,
               ...debugDataForCache,
             },
