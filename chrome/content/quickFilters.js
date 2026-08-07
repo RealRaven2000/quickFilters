@@ -246,6 +246,7 @@ END LICENSE BLOCK
     # [issue 365] Further Improved QuickFolders current folder bar integration stability
     # [issue 383] exception in quickFilters.Worker.Create.Filter: can't access property "startswith," template is null
     # [issue 245] Backup failing - clicking on button doesn't do anything (Betterbird, OpenSuse)
+    # Some fixes in Polish locale file that showed wrong language in settings
 
     
   ============================================================================================================
