@@ -307,10 +307,12 @@ quickFilters.Util = {
   },
 
   localize: function (window, buttons = null) {
-    Services.scriptloader.loadSubScript(
+    Services.scriptloader.loadSubScriptWithOptions(
       quickFilters.Util.extension.rootURI.resolve("chrome/content/i18n.js"),
-      window,
-      "UTF-8"
+      {
+        target: window,
+        allowUnsafeURL: true,
+      }
     );
     window.i18n.updateDocument({ extension: quickFilters.Util.extension });
     if (buttons) {
@@ -959,6 +961,13 @@ quickFilters.Util = {
 
   logDebug: function (...args) {
     let qF = quickFilters ? quickFilters : this.mainInstance;
+    // During startup, a WindowListener-injected window can exist before its
+    // qFilters-preferences.js subscript has finished loading. We cannot yet
+    // consult the debug preference, so preserve the diagnostic unconditionally.
+    if (!qF?.Preferences) {
+      this.logToConsole("quickFilters [preferences not initialized]", ...args);
+      return;
+    }
     let p = qF.Preferences.isDebug;
     if (!p) {
       return;
@@ -3436,8 +3445,10 @@ var { ExtensionParent } = ChromeUtils.importESModule(
   "resource://gre/modules/ExtensionParent.sys.mjs"
 );
 quickFilters.Util.extension = ExtensionParent.GlobalManager.getExtension("quickFilters@axelg.com");
-Services.scriptloader.loadSubScript(
+Services.scriptloader.loadSubScriptWithOptions(
   quickFilters.Util.extension.rootURI.resolve("chrome/content/scripts/notifyTools.js"),
-  quickFilters.Util,
-  "UTF-8"
+  {
+    target: quickFilters.Util,
+    allowUnsafeURL: true,
+  }
 );
