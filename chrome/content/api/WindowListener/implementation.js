@@ -35,10 +35,24 @@ function getThunderbirdVersion() {
     minor: parseInt(parts[1]),
   }
 }
-
 var WindowListener = class extends ExtensionCommon.ExtensionAPI {
   log(msg) {
     if (this.debug) console.log("WindowListener API: " + msg);
+  }
+
+  /**
+   * Load a WindowListener-owned script from the extension package.
+   *
+   * Thunderbird 155 rejects jar: and file: URLs passed to loadSubScript() unless
+   * the caller explicitly opts in. loadSubScriptWithOptions() and the target
+   * option are available on Thunderbird 140; older versions ignore the new
+   * allowUnsafeURL option.
+   */
+  loadSubScript(url, target) {
+    return Services.scriptloader.loadSubScriptWithOptions(url, {
+      target,
+      allowUnsafeURL: true,
+    });
   }
 
   getCards(e) {
@@ -334,7 +348,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
                 );
             }
           };
-          Services.scriptloader.loadSubScript(url, prefsObj, "UTF-8");
+          self.loadSubScript(url, prefsObj);
         },
 
         registerChromeUrl(data) {
@@ -419,7 +433,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
             startupJS.WL.messenger = self.getMessenger(self.context);
             try {
               if (self.pathToStartupScript) {
-                Services.scriptloader.loadSubScript(self.pathToStartupScript, startupJS, "UTF-8");
+                self.loadSubScript(self.pathToStartupScript, startupJS);
                 // delay startup until startup has been finished
                 self.log(
                   "Waiting for async startup() in <" + self.pathToStartupScript + "> to finish."
@@ -719,10 +733,9 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         // Add messenger object to WLDATA object
         window[this.uniqueRandomID].WL.messenger = this.getMessenger(this.context);
         // Load script into add-on scope
-        Services.scriptloader.loadSubScript(
+        this.loadSubScript(
           this.registeredWindows[window.location.href],
-          window[this.uniqueRandomID],
-          "UTF-8"
+          window[this.uniqueRandomID]
         );
         window[this.uniqueRandomID].onLoad(isAddonActivation);
       } catch (e) {
@@ -843,7 +856,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
     shutdownJS.extension = this.extension;
     try {
       if (this.pathToShutdownScript)
-        Services.scriptloader.loadSubScript(this.pathToShutdownScript, shutdownJS, "UTF-8");
+        this.loadSubScript(this.pathToShutdownScript, shutdownJS);
     } catch (e) {
       Components.utils.reportError(e);
     }
