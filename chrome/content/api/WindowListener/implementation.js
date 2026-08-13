@@ -2,7 +2,7 @@
  * This file is provided by the addon-developer-support repository at
  * https://github.com/thundernest/addon-developer-support
  *
- * Version 1.64
+ * Version 1.65
  *
  * Authors (in alphabetical order by surname):
  *   John Bieling (john@thunderbird.net)
@@ -15,6 +15,7 @@
 
 
 /*
+  1.65 force unsafe URL loading to enable compatibility after TB155 
   1.64 removed dependencies on anything before Thunderbird 140
 */
 
