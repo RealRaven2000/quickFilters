@@ -158,6 +158,7 @@ quickFilters.Preferences.cache = (() => {
   const cache = {
     _data: {},
     _resolveReady: null,
+    _rejectReady: null,
     awaitReady: null /* init-only gate; NOT a lock for updates */,
     getValue: (k) => cache._data[k],
 
@@ -180,10 +181,10 @@ quickFilters.Preferences.cache = (() => {
 
     init: async () => {
       // create an async blocker.
-      cache.awaitReady = new Promise((resolve) => {
-        // blocks all external callers until we're done here
-        cache._resolveReady = resolve;
-      });
+      const ready = Promise.withResolvers();
+      cache.awaitReady = ready.promise;
+      cache._resolveReady = ready.resolve;
+      cache._rejectReady = ready.reject;
 
       try {
         const data = await quickFilters.Storage.getWithRetry({ settings: {}, debug: {} });
@@ -195,6 +196,8 @@ quickFilters.Preferences.cache = (() => {
         Object.assign(cache._data, prefs);
       } catch (ex) {
         console.error("Preferences Cache init failed:", ex);
+        cache._rejectReady(ex);
+        return;
       }
       cache._resolveReady();
     },
