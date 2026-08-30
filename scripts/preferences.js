@@ -317,7 +317,6 @@ export const Preferences = {
     // live sync all changes to cache
     messenger.storage.onChanged.addListener((changes, area) => {
       try {
-        console.debug("quickFilters Preferences onChanged:", changes);
         if (area !== "local") {
           return;
         }
@@ -330,12 +329,16 @@ export const Preferences = {
         }
         if (changes.debug) {
           applyChanges(Preferences._debugData, changes.debug, updates, Preferences.DebugDefaults);
+          // Legacy window caches expose the global switch as "debug".
+          if ("debugActive" in updates) {
+            updates.debug = updates.debugActive;
+            delete updates.debugActive;
+          }
         }
         if (!Object.keys(updates).length) {
           return;
         }
 
-        console.log("Preferences updates:", updates);
         // global update of legacy pref cache, only call once!
         messenger.Utilities.updatePreferencesCache(updates);
       } catch (e) {
@@ -408,13 +411,24 @@ export const Preferences = {
   async set(name, value) {
     Preferences._ensureReady({ reason: "set", key: name });
 
+    if (value === undefined) {
+      const defaultValue = Preferences.Defaults[name] ?? Preferences.DebugDefaults[name];
+      if (defaultValue !== undefined) {
+        console.warn(`Preferences.set("${name}", undefined) - using default value.`);
+        value = defaultValue;
+      } else {
+        throw new Error(`Cannot set preference "${name}" to undefined`);
+      }
+    }
+
     if (name.startsWith("debug")) {
-      if (Preferences._debugData[name] === value) {
+      const storageKey = name === "debug" ? "debugActive" : name;
+      if (Preferences._debugData[storageKey] === value) {
         return;
       }
-      Preferences._debugData[name] = value;
+      Preferences._debugData[storageKey] = value;
       const { debug } = await browser.storage.local.get({ debug: {} });
-      debug[name] = value;
+      debug[storageKey] = value;
       await browser.storage.local.set({ debug });
       return;
     }

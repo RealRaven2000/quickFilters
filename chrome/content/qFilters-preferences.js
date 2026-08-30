@@ -179,7 +179,6 @@ quickFilters.Preferences.cache = (() => {
     },
 
     init: async () => {
-      console.log("quickFilters.Preferences", "Preferences Cache - init()");
       // create an async blocker.
       cache.awaitReady = new Promise((resolve) => {
         // blocks all external callers until we're done here
