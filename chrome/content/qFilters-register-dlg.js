@@ -17,7 +17,8 @@ var Register = {
   l10n: function() {
     quickFilters.Util.localize(window);
   },
-  load: async function load() {
+  load: async function () {
+    await quickFilters.Preferences.cache.awaitReady;
     await quickFilters.Util.init();
     this.updateUI();
     this.updateLicenseUI();
@@ -364,4 +365,3 @@ window.addEventListener('load',
 window.addEventListener('dialogcancel', 
   function () { Register.cancel(); }
 );
-

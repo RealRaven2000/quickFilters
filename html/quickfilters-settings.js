@@ -415,6 +415,9 @@ function toggleTooltip(button) {
 }
 
 const startup = async () => {
+  const util = await import("../scripts/qi-util.mjs.js");
+  await util.waitForSessionReady();
+
   i18n.updateDocument();
   await initEventListeners();
   await initPrefs();

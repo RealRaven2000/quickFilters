@@ -906,14 +906,9 @@ const ExternalMessageApi = {
 
 function registerNotifyListener() {
   messenger.NotifyTools.onNotifyBackground.addListener(async (data) => {
-    let isLog = false;
-    try {
-      // for some reason Preferences.isDebug() was blocking further flow until later
-      // so I shortcircuit it and set to true
-      isLog = !!(Preferences?._ready && Preferences.isDebug("notifications"));
-    } catch {
-      isLog = true;
-    }
+    await prefsReady;
+    const isLog = Preferences.isDebug("notifications");
+
     if (isLog && data.func) {
       console.log(
         "=========================\n" +
@@ -1603,6 +1598,9 @@ async function main() {
     // Must call menus.refresh after update to show changes
     await messenger.menus.refresh();
   });
+
+  // Unblock restored settings tabs only after background startup is complete.
+  await browser.storage.session.set({ "quickfilters.sessionReady": true });
 } // end main()
 
 registerNotifyListener();

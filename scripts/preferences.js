@@ -222,11 +222,38 @@ export const Preferences = {
   },
 
   async init() {
-    // a flat object. e.g. stored["refreshHeaders.wait"] = 150;
-    let { settings = {}, debug = {} } = await browser.storage.local.get({
-      settings: {},
-      debug: {},
-    });
+    // [issue 697] Retry logic for IndexedDB startup failures
+    const maxRetries = 6;
+    const delays = [100, 500, 1000, 2000, 4000, 10000]; // exponential backoff
+    let settings = {};
+    let debug = {};
+
+    for (let attempt = 0; attempt < maxRetries; attempt++) {
+      try {
+        // a flat object. e.g. stored["refreshHeaders.wait"] = 150;
+        const result = await browser.storage.local.get({
+          settings: {},
+          debug: {},
+        });
+        settings = result.settings || {};
+        debug = result.debug || {};
+
+        if (attempt > 0) {
+          console.log(`[Preferences.init] Storage ready after ${attempt + 1} attempts`);
+        }
+        break; // Success - exit retry loop
+      } catch (ex) {
+        if (attempt < maxRetries - 1) {
+          const delay = delays[attempt];
+          console.warn(`[Preferences.init] Storage not ready (attempt ${attempt + 1}/${maxRetries}): ${ex.message}. Retrying in ${delay}ms...`);
+          await new Promise(resolve => setTimeout(resolve, delay));
+        } else {
+          console.error(`[Preferences.init] Failed after ${maxRetries} attempts:`, ex);
+          throw ex; // Final attempt failed
+        }
+      }
+    }
+
     const version = settings.settingsVersion ?? 0;
 
     if (version < Preferences.CURRENT_VERSION) {
@@ -290,7 +317,7 @@ export const Preferences = {
     // live sync all changes to cache
     messenger.storage.onChanged.addListener((changes, area) => {
       try {
-        console.log("Preferences onChanged:", changes);
+        console.debug("quickFilters Preferences onChanged:", changes);
         if (area !== "local") {
           return;
         }
@@ -309,6 +336,7 @@ export const Preferences = {
         }
 
         console.log("Preferences updates:", updates);
+        // global update of legacy pref cache, only call once!
         messenger.Utilities.updatePreferencesCache(updates);
       } catch (e) {
         console.error("storage.onChanged crashed:", e);

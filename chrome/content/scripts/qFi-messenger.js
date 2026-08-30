@@ -4,6 +4,7 @@
 */
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/quickFilters.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-utils.js", window, "UTF-8");
+Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-storage.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-preferences.js", window, "UTF-8");
 Services.scriptloader.loadSubScript("chrome://quickfilters/content/qFilters-worker.js", window, "UTF-8");
 
@@ -457,4 +458,3 @@ function onUnload(isAddOnShutown) {
 
 
 }
-

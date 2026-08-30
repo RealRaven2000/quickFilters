@@ -1,3 +1,25 @@
+export async function waitForSessionReady() {
+	const task = Promise.withResolvers();
+	const readyListener = (changes, area) => {
+		if (area !== "session") {
+			return;
+		}
+		if (typeof changes["quickfilters.sessionReady"] !== "undefined") {
+			task.resolve();
+			browser.storage.onChanged.removeListener(readyListener);
+		}
+	};
+	browser.storage.onChanged.addListener(readyListener);
+	const readyStatus = await browser.storage.session
+		.get("quickfilters.sessionReady")
+		.then((result) => result["quickfilters.sessionReady"] || false);
+	if (!readyStatus) {
+		await task.promise;
+	} else {
+		browser.storage.onChanged.removeListener(readyListener);
+	}
+}
+
 export function slideAlert(title, text, icon) {
 	messenger.notifications.create({
 		type: "basic",

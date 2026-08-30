@@ -241,11 +241,20 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         },
 
         updatePreferencesCache: (data) => {
-          return win.quickFilters.Preferences.cache.updateFromBackend(data);
+          const windowTypes = ["mail:3pane", "mail:messageWindow"]; // "msgcompose",
+          for (const type of windowTypes) {
+            const enumerator = Services.wm.getEnumerator(type);
+            while (enumerator.hasMoreElements()) {
+              const targetWindow = enumerator.getNext();
+              if (targetWindow.quickFilters?.Preferences?.cache?.updateFromBackend) {
+                targetWindow.quickFilters.Preferences.cache.updateFromBackend(data);
+              }
+            }
+          }
+          return true;
         },
 
       },
     };
   };
 }
-

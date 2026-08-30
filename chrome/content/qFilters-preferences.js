@@ -161,41 +161,18 @@ quickFilters.Preferences.cache = (() => {
     awaitReady: null /* init-only gate; NOT a lock for updates */,
     getValue: (k) => cache._data[k],
 
-    waitForNotifyTools: async (maxAttempts = 20, delayMs = 50) => {
-      for (let attempt = 0; attempt < maxAttempts; attempt++) {
-        const notifyTools = quickFilters?.Util?.notifyTools;
-        if (notifyTools?.notifyBackground) {
-          return notifyTools;
-        }
-        await new Promise((resolve) => setTimeout(resolve, delayMs));
-      }
-      return null;
-    },
-
     setValue: async (k, v) => {
-      cache._data[k] = v;
-      let varType = "undefined";
-      switch (typeof v) {
-        case "number":
-          varType = "int";
-          break;
-        case "boolean":
-          varType = "bool";
-          break;
-        case "string":
-          varType = "string";
-          break;
-        case "undefined":
-          console.warn("quickFilters.Preferences.cache.setValue- ignoring undefined preference value:", k);
-          return;
+      if (v === undefined) {
+        throw new Error(`Cannot set preference "${k}" to undefined`);
       }
+      cache._data[k] = v;
       try {
-        await quickFilters.Util.notifyTools.notifyBackground({
-          func: "prefs:set",
-          kind: varType,
-          key: k,
-          value: v,
-        });
+        const isDebug = k === "debug" || k.startsWith("debug.");
+        const storageKey = isDebug ? "debug" : "settings";
+        const dataKey = k === "debug" ? "debugActive" : k;
+        const current = await quickFilters.Storage.get({ [storageKey]: {} });
+        current[storageKey][dataKey] = v;
+        await quickFilters.Storage.set(current);
       } catch (ex) {
         console.error("Pref sync failed:", k, ex);
       }      
@@ -209,33 +186,16 @@ quickFilters.Preferences.cache = (() => {
         cache._resolveReady = resolve;
       });
 
-      let loaded = false;
       try {
-        for (let attempt = 0; attempt < 40; attempt++) {
-          const notifyTools = await cache.waitForNotifyTools(1, 100);
-          if (!notifyTools) {
-            continue;
-          }
-          try {
-            console.log("Preferences Cache - notifyTools:", notifyTools);
-            const {prefs} = await notifyTools.notifyBackground({
-              func: "requestPrefCache",
-            });
-            console.log("Received preferences Cache:", prefs);
-            // remove all old data
-            Object.keys(cache._data).forEach((k) => delete cache._data[k]);
-            Object.assign(cache._data, prefs);
-            loaded = true;
-            break;
-          } catch (ex) {
-            console.warn("requestPrefCache retry failed:", attempt + 1, ex);
-          }
+        const data = await quickFilters.Storage.getWithRetry({ settings: {}, debug: {} });
+        const prefs = { ...data.settings };
+        for (const [k, v] of Object.entries(data.debug)) {
+          prefs[k === "debugActive" ? "debug" : k] = v;
         }
+        Object.keys(cache._data).forEach((k) => delete cache._data[k]);
+        Object.assign(cache._data, prefs);
       } catch (ex) {
-        console.error("requestPrefCache failed:", ex);
-      }
-      if (!loaded) {
-        console.error("Preferences Cache init incomplete: no backend snapshot available yet.");
+        console.error("Preferences Cache init failed:", ex);
       }
       cache._resolveReady();
     },
