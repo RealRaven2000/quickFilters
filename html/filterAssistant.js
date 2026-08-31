@@ -83,10 +83,11 @@ const startup = async () => {
   if (stayFocused && maxFocusRestore > 0) {
     let focusRestoreCount = 0;
     window.addEventListener("blur", () => {
-      if (focusRestoreCount < maxFocusRestore) {
+        if (quickFilters.Assistant.hasSentResult || focusRestoreCount >= maxFocusRestore) {
+          return;
+        }
         focusRestoreCount++;
         browser.runtime.sendMessage({ command: "focusAssistant" });
-      }
     });
   }
 

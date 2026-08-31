@@ -91,7 +91,7 @@ quickFilters.Preferences = {
   },
 
   async setMoveFolderAction(b) {
-    this.setBoolPref("actions.moveFolder", b);
+    return this.setBoolPref("actions.moveFolder", b);
   },
 
   get isAssistantModeHTML() {
@@ -213,4 +213,10 @@ quickFilters.Preferences.cache = (() => {
 
 // start the init process. 
 // guard with await cache.awaitReady in each window onLoad
-quickFilters.Preferences.cache.init();
+const openerCache = window.opener?.quickFilters?.Preferences?.cache;
+if (openerCache?.awaitReady) {
+  // Standalone modal dialogs reuse the initialized cache from their opener.
+  quickFilters.Preferences.cache = openerCache;
+} else {
+  quickFilters.Preferences.cache.init();
+}

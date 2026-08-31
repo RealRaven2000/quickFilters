@@ -49,11 +49,12 @@ quickFilters.Assistant = {
     if (!element) {
       element = this.TemplateList;
     }
-    if (element.selectedItem) {
-      await quickFilters.Preferences.setCurrentFilterTemplate(element.selectedItem.value);
-      return false;
+    const selectedTemplate = element.selectedItem?.value;
+    if (!selectedTemplate) {
+      return true;
     }
-    return true;
+    window.arguments[0].template = selectedTemplate;
+    return false;
   },
 
   next: async function () {
@@ -95,12 +96,14 @@ quickFilters.Assistant = {
       case this.TEMPLATEPAGE: // we are in template selection, either go on to create new filter or edit the selected one from first step
         {
           const selectedTemplate = this.TemplateList?.selectedItem?.value || null;
-          await quickFilters.Assistant.selectTemplate();
+          const invalidTemplate = await quickFilters.Assistant.selectTemplate();
+          if (invalidTemplate) {
+            console.warn("quickFilters legacy Assistant: no template selected");
+            return;
+          }
           params.answer = true;
           params.selectedMergedFilterIndex = this.selectedMergedFilterIndex;
-          if (typeof selectedTemplate === "string" && selectedTemplate) {
-            params.template = selectedTemplate;
-          }
+          params.template = selectedTemplate;
           setTimeout(function () {
             window.close();
           });

@@ -347,15 +347,22 @@ quickFilters.Assistant = {
           break;
         case "stepDetail": // we are in template selection, either go on to create new filter or edit the selected one from first step
           {
-            const selectedTemplate = document.getElementById("qf-filter-templates")?.value || null;
-            await quickFilters.Assistant.selectTemplate();
-            this.hasSentResult = true;
+            const templateList = document.getElementById("qf-filter-templates");
+            const selectedTemplate = templateList?.value || null;
+            if (!selectedTemplate) {
+              console.warn("quickFilters Assistant: no template selected", {
+                selectedIndex: templateList?.selectedIndex,
+                value: selectedTemplate,
+              });
+              alert("Please select a template before proceeding.");
+              return; // keep the assistant open
+            }
+
+            await quickFilters.Assistant.selectTemplate(templateList);
             let resultParams = {
               answer: true,
+              template: selectedTemplate,
             };
-            if (typeof selectedTemplate === "string" && selectedTemplate) {
-              resultParams.template = selectedTemplate;
-            }
             if (document.getElementById("chkMerge").checked) {
               this.selectedMergedFilterIndex = this.MatchedFilters.selectedIndex;
               const selectedFilter = this.mergeCandidates[this.selectedMergedFilterIndex];
@@ -367,6 +374,13 @@ quickFilters.Assistant = {
                 };
               }
             }
+
+            await quickFilters.Util.logDebugOptional(
+              "assistant",
+              "Returning selected template to background:",
+              selectedTemplate
+            );
+            this.hasSentResult = true;
             await browser.runtime.sendMessage({
               command: "assistantResult",
               requestId,

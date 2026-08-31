@@ -1184,7 +1184,7 @@ async function main() {
     getLicenseInfo: () => {
       return currentLicense.info;
     },
-    getFilters: async (data, sender) => {
+    getFilters: async (data, _sender) => {
       const { sourceUri, targetUri, filterAction, filterActionExt } = data;
       let filters = await messenger.FiltersAPI.getFilters(
         sourceUri,
@@ -1194,7 +1194,7 @@ async function main() {
       );
       return filters;
     },
-    assistantResult: async (data, sender) => {
+    assistantResult: async (data, _sender) => {
       const { requestId, result } = data;
       const isDebug = Preferences.isDebug("assistant");
       if (isDebug) {
@@ -1204,6 +1204,13 @@ async function main() {
         const mergeFilter = data.params?.mergeFilter || null;
         const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
         const template = data.params?.template || null;
+
+        if (data.params?.answer && !data.params.template) {
+          console.warn("quickFilters: assistant returned without a template", {
+            template: data.params.template,
+            resultIdx,
+          });
+        }
         // { index, filterName , accountId }
         await messenger.Utilities.resolveAssistant(requestId, result, {
           answer: data.params?.answer,

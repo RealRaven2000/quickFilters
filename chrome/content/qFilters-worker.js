@@ -1269,8 +1269,16 @@ quickFilters.Worker = {
               win: win,
               p: paramsForWindow,
             });
-            isCancelled = !paramsForWindow.answer;
-            selectedMergedFilterIndex = paramsForWindow.selectedMergedFilterIndex;
+            params = paramsForWindow;
+            isCancelled = !params.answer;
+            selectedMergedFilterIndex = params.selectedMergedFilterIndex;
+            if (
+              !isCancelled &&
+              typeof params.template === "string" &&
+              params.template.trim()
+            ) {
+              await prefs.setCurrentFilterTemplate(params.template);
+            }
           }
 
           // user cancels:
