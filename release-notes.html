@@ -1,13 +1,14 @@
 The full log with screenshots is available at:
-<a href="https://quickfilters.quickfolders.org/version.html#6.13">quickFilters Change Log</a>
+<a href="https://quickfilters.quickfolders.org/version.html#6.13.3">quickFilters Change Log</a>
 
-<b>6.13.2</b>
+Important for Release channel users (154 and later): With Thunderbird's new 2-week release cycle, there is an elevated risk of unexpected breakages like <a href="https://github.com/RealRaven2000/quickFilters/issues/383">[issue 383]</a>. While I regularly test quickFilters against daily builds, timely fixes depend on early reporting from Release users. Please follow the issue tracker and report any regressions promptly to help maintain compatibility.
 
-This release updates quickFilters to reflect recent changes in Thunderbird’s add-on platform planning. A previously announced restriction that would allow legacy Add-ons on the Release channel only has been postponed to a later ESR cycle (currently targeted for 2027).
+<h3>Maintenance version 6.13.3</h3>
+<ul>
+  <li> quickFilters is now compatible with Thunderbird 157.</li>
+  <li> Fixed more Filter Assistant malfunctions relating to local storage and problems with the legacy xhtml filter assistant. <a href="https://github.com/RealRaven2000/quickFilters/issues/383">[issue 383]</a></li>
+</ul>
 
-No action is required at this time. quickFilters continues to work on both Release and ESR versions of Thunderbird where supported.
-
-Users who rely on advanced or experimental functionality may prefer the ESR channel for a more stable environment with fewer platform changes. The best point in time to migrate your existing profile from Release to ESR is when Thunderbird 153 will be published in July 2026
 
 <h3>Maintenance version 6.13.2</h3>
 <ul>
@@ -15,17 +16,17 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
   <li> Fixed backup feature not working on some Linux distributions (Betterbird, OpenSuse).
     <a href="https://github.com/RealRaven2000/quickFilters/issues/245">[issue 245]</a></li>
   <li> Further Improved QuickFolders current folder bar integration stability <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a></li>
-  <li> Fixed incorrect languages in some Polish locale translation.</li>
+  <li> Fixed incorrect translations in Polish locale file.</li>
 </ul>
 
 
-<h3>Improvements</h3>
+<h3>Improvements  6.13</h3>
 <ul>
   <li> Remember position of Filter Assistant window. New option to force assistant to the top. <a href="https://github.com/RealRaven2000/quickFilters/issues/380">[issue 380]</a></li>
   <li> Improved QuickFolders current folder bar integration stability <a href="https://github.com/RealRaven2000/quickFilters/issues/365">[issue 365]</a></li>
 </ul>
 
-<h3>Bug Fixes</h3>
+<h3>Bug Fixes  6.13</h3>
 <ul>
   <li> Fixed a bug where the main Thunderbird window content was moved up and caused truncation <a href="https://github.com/RealRaven2000/quickFilters/issues/382">[issue 382]</a>. If you are seeing this behavior, please restart Thunderbird to make sure the changes come into effect. Originally this was falsely reported as QuickFolders issue 673. </li>
   <li> Fixed an issue where cached debug settings were not read after the migration to local storage. <a href="https://github.com/RealRaven2000/quickFilters/issues/367">[issue 367]</a></li>

@@ -1491,11 +1491,11 @@
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{L}{b class=maintenance}6.13.2{/b} 欠落した環境設定に{code}.startsWith(){/code}を使用したことに関連する環境設定の移行によるリグレッションが原因で、フィルターアシスタントの不具合を修正しました。[issue 383]{/L}{L}{b class=maintenance}6.13.2{/b} 一部のLinuxディストリビューション（Betterbird、OpenSuse）でバックアップ機能が機能しなかった問題を修正しました。[issue 245]{/L}{L}{b class=maintenance}6.13.2{/b} QuickFoldersの現在のフォルダーバーの統合の安定性をさらに改善しました。[issue 365]{/L}{L}{b class=maintenance}6.13.2{/b} ポーランド語ロケールファイルの誤った翻訳を修正しました。{/L}{P class=heading}初版 {b}6.13{/b} からの変更:{/P}{L}quickFiltersの設定をThunderbirdのグローバル設定ではなくローカルストレージを使用するように変換しました。アドオンを削除して再度インストールすることで、quickFiltersをデフォルト動作に復元できます。{/L}{L}チェコ語翻訳を追加しました。{/L}{L}メッセージフィルターダイアログに新しい検索オプションを追加して、移動/コピーアクションのフォルダーパスでフィルターを検索できるようにしました。{/L}{L}ローカルフォルダーへのメール移動時にメッセージプレビューが利用できない問題を修正しました。{/L}{L}quickFiltersとQuickFolders間の通信を改善しました。[issue 373]{/L}{L}これからはThunderbirdの最小バージョンはv140になります。これにより今後の開発が改善され、廃止されたコードによる問題が防止されます。{/L}"
+    "message": "{L} {+extensionName} は Thunderbird 157 に対応しました。{/L}{L}{b class=maintenance}6.13.3{/b} ローカルストレージに関連するフィルターアシスタントのさらなる不具合と、従来の XHTML フィルターアシスタントの問題を修正しました。[issue 383]{/L}{hr}{P class=heading}メンテナンスリリース {b}6.13.2{/b} からの変更：{/P}{L} 一部の Linux ディストリビューション（Betterbird、OpenSuse）でバックアップ機能が動作しない問題を修正しました。[issue 245]{/L}{L} QuickFolders の現在のフォルダーバー統合の安定性をさらに改善しました。[issue 365]{/L}{L} ポーランド語ロケールファイルの誤訳を修正しました。{/L}{P class=heading}初回リリース {b}6.13{/b} からの主なハイライト：{/P}{L}quickFilters の設定を Thunderbird のグローバル設定ではなくローカルストレージを使用するように変更しました。アドオンを削除して再インストールすると、quickFilters を既定の動作に戻せます。{/L}{L}メッセージフィルターダイアログに、移動/コピーアクションのフォルダーパスでフィルターを検索する新しいオプションを追加しました。{/L}{L}quickFilters と QuickFolders 間の通信を改善しました。[issue 373]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}このリリースは {b}{+extensionName}{/b} を Thunderbird プラットフォームの最近の計画変更に合わせるものです。従来発表されていた、レガシーアドオンを ESR チャンネルのみで動作させる制限は、後の ESR サイクル（現在は2027年予定）に延期されました。{/P} {P}{b}{+extensionName}{/b} は引き続き可能な範囲で Thunderbird の Release および ESR 両方をサポートしますが、より安定した更新経路のため ESR チャンネルへの移行が推奨される場合があります。 {/P} {P}Release から ESR への推奨移行ポイントは Thunderbird 153（2026年7月予定）です。{/P}"
+    "message": "{P}Release チャンネルのユーザー（{emph}154 以降{/emph}）への重要なお知らせ：Thunderbird の新しい2週間ごとのリリースサイクルにより、[issue 383] のような予期しない不具合のリスクが高まっています。{+extensionName} は Daily ビルドで定期的にテストしていますが、迅速な修正には Release ユーザーからの{b}早期報告{/b}が欠かせません。互換性を維持するため、{a href='https://github.com/RealRaven2000/quickFilters/issues'}課題トラッカー{/a}を確認し、リグレッションを速やかに報告してください。{/P}"
   },
   "whats-new-maintenance": {
     "message": "メンテナンス更新 $ver$。この特定の修正は前回のリリース以降に追加されました。",

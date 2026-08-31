@@ -282,6 +282,7 @@ function formatAll(txt) {
       const attrStr = attrs ? specialAttributes(attrs, content) : "";
       return attrStr ? `<b ${attrStr}>${content}</b>` : `<b>${content}</b>`;
     })
+    .replace(/\{hr\}/g, "<hr>")
     .replace(/\{italic\}/g, "<i>")
     .replace(/\{\/italic\}/g, "</i>")
     .replace(/\{U\}/g, "<ul>")

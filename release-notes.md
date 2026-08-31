@@ -1,13 +1,13 @@
-**Release 6.13.2**
+**Release 6.13.3**
 
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13.2)
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13.3)
 
 
-This release updates quickFilters to reflect recent changes in Thunderbird’s add-on platform planning. A previously announced restriction that would allow legacy Add-ons on the Release channel only has been postponed to a later ESR cycle (currently targeted for 2027).
+Important for Release channel users (154 and later): With Thunderbird's new 2-week release cycle, there is an elevated risk of unexpected breakages like [issue #383]. While I regularly test quickFilters against daily builds, timely fixes depend on early reporting from Release users. Please follow the issue tracker and report any regressions promptly to help maintain compatibility.
 
-While quickFilters continues to support both Release and ESR versions of Thunderbird where compatible, it may be better to switch to the ESR channel to secure a more stable update path. 
-
-Users who rely on advanced or experimental functionality may prefer the ESR channel for a more stable environment with fewer platform changes. The recommended migration point from Release to ESR is Thunderbird 153, expected in July 2026.
+**Maintenance version 6.13.3**
+*      quickFilters is now compatible with Thunderbird 157.
+*      Fixed more Filter Assistant malfunctions relating to local storage and problems with the legacy xhtml filter assistant. [issue #383]
 
 
 **Maintenance version 6.13.2**
@@ -15,20 +15,20 @@ Users who rely on advanced or experimental functionality may prefer the ESR chan
 *     Fixed Filter Assistant malfunctions from a regression caused by a preferences migration related to using `.startsWith()` on a missing preference. [issue #383]
 *     Fixed backup feature not working on some Linux distributions (Betterbird, OpenSuse). [issue #245]
 *     Further Improved QuickFolders current folder bar integration stability [issue #365]
-*     Fixed incorrect languages in some Polish locale translation.
+*     Fixed incorrect translations in Polish locale file.
 
 
-**Improvements**
+**Improvements 6.13**
 *     Fixed a bug where the main Thunderbird window content was moved up and caused truncation [issue #382]. If you are seeing this behavior, please restart Thunderbird to make sure the changes come into effect. 
 *     Remember position of Filter Assistant window. New option to force assistant to the top. [issue #380]
 *     Improved QuickFolders current folder bar integration stability [issue #365]
 
 
 
-**Bug Fixes**
+**Bug Fixes 6.13**
 
 *     Fixed an issue where cached debug settings were not read after the migration to local storage. [issue #367]
-*     Filter assistant not using correct built in template (domain instead from) [issue #376] 
+*     Filter assistant not using correct built in template (domain instead of from) [issue #376] 
 
 
 

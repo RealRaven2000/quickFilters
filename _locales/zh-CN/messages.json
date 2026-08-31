@@ -1482,11 +1482,11 @@
   },
     "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}{b class=maintenance}6.13.2{/b} 修复了由于首选项迁移回归导致的过滤助手故障，该回归与在缺少的首选项上使用{code}.startsWith(){/code}有关。[issue 383]{/L}{L}{b class=maintenance}6.13.2{/b} 修复了备份功能在某些 Linux 发行版（Betterbird、OpenSuse）上无法正常工作的问题。[issue 245]{/L}{L}{b class=maintenance}6.13.2{/b} 进一步改进了 QuickFolders 当前文件夹栏集成的稳定性。[issue 365]{/L}{L}{b class=maintenance}6.13.2{/b} 修复了波兰语语言环境文件中的错误翻译。{/L}{P class=heading}自初始版本 {b}6.13{/b} 以来的更改：{/P}{L}quickFilters 设置已改为使用本地存储，而不是 Thunderbird 的全局首选项。现在，您可以通过移除该附加组件并重新安装，将 quickFilters 重置为默认行为。{/L}{L}已添加捷克语翻译。{/L}{L}在{italic}消息过滤器{/italic}对话框中新增了搜索选项，可按移动/复制操作的文件夹路径查找过滤器。{/L}{L}修复了将邮件移动到本地文件夹时无法显示邮件预览的问题。{/L}{L}改进了 quickFilters 与 QuickFolders 之间的通信。[issue 373]{/L}{L}从现在起，Thunderbird 的最低版本为 v140。这将改进后续开发，并避免由弃用代码导致的问题。{/L}"
+    "message": "{L} {+extensionName} 现已兼容 Thunderbird 157。{/L}{L}{b class=maintenance}6.13.3{/b} 修复了更多与本地存储相关的过滤器助手故障，以及旧版 XHTML 过滤器助手的问题。[issue 383]{/L}{hr}{P class=heading}自维护版本 {b}6.13.2{/b} 以来的更改：{/P}{L} 修复了备份功能在某些 Linux 发行版（Betterbird、OpenSuse）上无法工作的问题。[issue 245]{/L}{L} 进一步提高了 QuickFolders 当前文件夹栏集成的稳定性。[issue 365]{/L}{L} 修复了波兰语语言文件中的错误翻译。{/L}{P class=heading}初始版本 {b}6.13{/b} 的精选亮点：{/P}{L}quickFilters 设置已改为使用本地存储，而不是 Thunderbird 的全局首选项。现在可通过移除并重新安装附加组件，将 quickFilters 恢复为默认行为。{/L}{L}消息过滤器对话框中新增了搜索选项，可按移动/复制操作的文件夹路径查找过滤器。{/L}{L}改进了 quickFilters 与 QuickFolders 之间的通信。[issue 373]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}本版本使 {b}{+extensionName}{/b} 与 Thunderbird 平台规划的最新变化保持一致。此前宣布的“旧版附加组件仅允许在 ESR 频道运行”的限制已被推迟到更后的 ESR 周期（目前预计为 2027 年）。{/P} {P}尽管 {b}{+extensionName}{/b} 在兼容情况下仍支持 Thunderbird 的 Release 和 ESR 版本，但为了更稳定的更新路径，切换到 ESR 频道可能是更好的选择。 {/P} {P}从 Release 迁移到 ESR 的推荐节点是 Thunderbird 153（预计 2026 年 7 月）。{/P}"
+    "message": "{P}Release 渠道用户（{emph}154 及更高版本{/emph}）请注意：随着 Thunderbird 采用新的两周发布周期，出现 [issue 383] 之类意外故障的风险有所增加。虽然我会定期使用每日构建测试 {+extensionName}，但及时修复仍依赖 Release 用户的{b}尽早报告{/b}。请关注{a href='https://github.com/RealRaven2000/quickFilters/issues'}问题跟踪器{/a}，并及时报告任何回归问题，以帮助维持兼容性。{/P}"
   },
   "whats-new-maintenance": {
     "message": "维护更新 $ver$。此特定修复已包含在上一版本之后的更新中。",

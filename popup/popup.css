@@ -144,7 +144,8 @@ b.maintenance {
 
 .importantInfo p, 
 .importantInfo ul, 
-.importantInfo li {
+.importantInfo li, 
+.importantInfo hr {
   color: white;
 }
 
