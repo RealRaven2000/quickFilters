@@ -213,10 +213,9 @@ quickFilters.Preferences.cache = (() => {
 
 // start the init process. 
 // guard with await cache.awaitReady in each window onLoad
-const openerCache = window.opener?.quickFilters?.Preferences?.cache;
-if (openerCache?.awaitReady) {
+if (window.opener?.quickFilters?.Preferences?.cache?.awaitReady) {
   // Standalone modal dialogs reuse the initialized cache from their opener.
-  quickFilters.Preferences.cache = openerCache;
+  quickFilters.Preferences.cache = window.opener.quickFilters.Preferences.cache;
 } else {
   quickFilters.Preferences.cache.init();
 }
