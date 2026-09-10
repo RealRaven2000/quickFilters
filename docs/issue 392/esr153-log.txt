@@ -1,0 +1,16 @@
+sendRemoveListener on closed conduit quickFilters@axelg.com.274877906955 ConduitsChild.sys.mjs:122:13
+Error: sendRemoveListener on closed conduit quickFilters@axelg.com.274877906955 ConduitsChild.sys.mjs:122:13
+WebExtensions: quickFilters exp API: Utilities.getAPI() called implementation.js:14
+Laden fehlgeschlagen für das Modul mit der Quelle "jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/scripts/preferences.js". messenger.xhtml
+WebExtensions: quickFilters: messenger.onLoad() qFi-messenger.js:29
+Preferences Cache init failed: TypeError: error loading dynamically imported module: jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/scripts/preferences.js
+    init chrome://quickfilters/content/qFilters-preferences.js:191
+    <anonymous> chrome://quickfilters/content/qFilters-preferences.js:229
+    <anonymous> jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/chrome/content/scripts/qFi-messenger.js:8
+    loadSubScript jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/chrome/content/api/WindowListener/implementation.js:54
+    _loadIntoWindow jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/chrome/content/api/WindowListener/implementation.js:745
+qFilters-preferences.js:205:17
+Content-Security-Policy: Die Einstellungen der Seite haben die Anwendung eines Scripts (script-src-elem) auf jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/scripts/preferences.js blockiert, da es gegen folgende Direktive verstößt: "script-src chrome: resource: 'unsafe-inline' moz-src:" qFilters-preferences.js:191:82
+TypeError: error loading dynamically imported module: jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/scripts/preferences.js qFilters-preferences.js:191:82
+WebExtensions: qFi-3pane.js - onLoad() qFi-3pane.js:433
+TypeError: error loading dynamically imported module: jar:file:///C:/Users/axelg/AppData/Roaming/Thunderbird/Profiles/9n5sagfw.esr140/extensions/quickFilters@axelg.com.xpi!/scripts/preferences.js qFilters-preferences.js:191:82
