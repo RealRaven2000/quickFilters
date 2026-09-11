@@ -1,0 +1,1401 @@
+<!doctype html>
+<html>
+  <head>
+    <title>quickFilters - Filtaquilla Versions</title>
+    <link rel="stylesheet" href="/css/project.css?v36" type="text/css" />
+    <!-- <link rel="alternate" type="application/rss+xml" title="News" href="/drupal/rss.xml" /> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="google-site-verification" content="LTKICtodcLDl0nhBl2mUiXWMJbOtmEJmhYXVAqm_mJM" />
+    <meta content="text/css" http-equiv="Content-Style-Type" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/footer.css" type="text/css">
+    <link rel="icon" href="img/QuickFilters_16.png" type="image/png"> 
+
+    <script src="script/ga.js"> </script>
+
+
+    <script src="script/premium.js?v=6.9.1"> </script>
+  </head>
+  <body>
+    <div id="main-content-no-nav">
+      <h1 class="project-name" id="content">quickfilters</h1>
+
+      <table id="project-navigation">
+
+        <!--
+        <tbody id="sub-projects" class="project-navigations">
+          <tr>
+            <th scope="row">subprojects:</th>
+            <td class="navigation-list">  
+              <a class="first-item" href="/subprojectdir/index.html">subproject name</a>
+              <a href="/subprojectpage.html">subproject name</a>
+            </td>
+          </tr>
+        </tbody>
+        -->
+
+        <tbody id="resources" class="project-navigations">
+          <tr>
+            <th scope="row"></th>
+            <td class="navigation-list">
+              <a href="/index.html" class="first-item">Home</a>
+              <a href="/installation.html">Installation + Source Code</a>
+              <a href="/version.html#latest">Version&nbsp;History</a>
+              <a href="/donate.html">Support&nbsp;quickFilters!</a>
+              <a href="/premium.html">Premium Features</a>
+              <a href="/bugs.html">Bugs</a>
+              <a href="/screenshots.html">Screenshots</a>
+              <a href="/filtaquilla.html">FiltaQuilla</a>
+              <a href="/fq-versions.html">FiltaQuilla History</a>
+              <a href="/gdpr.html">Privacy Statement + Impressum</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+<link rel="stylesheet" href="/css/myProjects.css?v=13" type="text/css">
+<link rel="stylesheet" href="/css/version.css?v=8" type="text/css" />
+<link rel="stylesheet" href="/css/survey.css?v=2" type="text/css">
+<link rel="stylesheet" href="/css/xmas.css?v=1" type="text/css">
+<link rel="stylesheet" href="/css/filtaquilla.css?v=4" type="text/css">
+
+<style>
+
+  ul li *.inList,
+	.inList h5 {
+		color: #930060 !important;
+		font-size: 1em;
+		font-weight: bold;
+	}
+  
+  ul li .inList h5 {
+    font-size: 1.15em;
+    margin-left: 2em;
+  }
+
+  td.navigation-list a[href$="fq-versions.html"] {
+    background-color: rgb(203,96,179);
+    background-image: linear-gradient(to bottom, rgba(203,96,179,1) 0%,rgba(173,18,131,1) 50%,rgba(222,71,172,1) 100%);
+    border-bottom-color: #93105A !important;
+    color: #FFF !important;
+  } 
+  
+  /* improve the look of psa objects */
+  li > .psa {
+    margin-left: 3em;
+    padding: 6px;
+    background-color: rgb(60,70,80) !important;
+  }
+  span.callout {
+    background-color: rgb(60,70,80) !important;
+  }
+  span.callout a {
+    color: rgb(230,210,210) !important;
+  }  
+  
+  key {
+    background-color: rgb(50,50,50,0.85);
+    border-radius: 3px !important;
+    color: white;
+    padding: 0 4px 1px !important;
+    margin: 2px 0 !important;
+  }
+  
+</style>
+
+<h2 class="page-header fq">FiltaQuilla - Change Log</h2><br>
+
+
+<a name="about"> </a>
+
+
+<div class="entry-content">
+  <h3>Official Versions</h3>
+  <p>
+    FiltaQuilla is officially distributed on <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/">addons.thunderbird.net.</a>
+    In case we are still under review there, you can also download the latest tagged versions here on Github.
+    <a href="https://github.com/RealRaven2000/FiltaQuilla/releases/">FiltaQuilla Releases on Github</a>.
+  </p>
+  <p>
+    Please go to the github 
+    <a href="https://github.com/RealRaven2000/FiltaQuilla/issues">FiltaQuilla Issue Tracker</a> on github
+    for reporting bugs!
+  </p>
+  
+  <h3>Version History</h3>
+  
+<!-- Start Version History -->
+
+
+  <div id="infoTabs">
+    <div class="infoTab" id="whats-new">
+      <h5 class="infoHeader">Support FiltaQuilla</h5>
+      <p>05/04/2025</p>
+      <p> This Add-on was adopted from its previous author and creator R. Kent James who 
+        had to retire from Add-on development. It has been largely rewritten for 
+        Thunderbird 68 in December 2019, with substantial help from 
+        <a href="https://github.com/ptomulik" target="_blank">Paweł Tomulik</a>.
+        It had to be rewritten again in November / December 2020 for 
+        Thunderbird 78, with more benevolent assistance from Thunderbird employees 
+        Standard8 and John Bieling. Many thanks to John for helping with the ongoing
+        work since then as we meet weekly in the Add-on developers meetings.
+      </p>  
+      <p>
+        Changes in Extension architecture have not been standing still since then,
+        a lot of APIs (program functionality) has been implemented for 
+        web extensions and "native" mail extensions, which are premissions driven.
+        FiltaQuilla has started to adopt such technologies, but at it's core 
+        it is not possible to completely work without the "experimental" part
+        which interacts with the core files of Thunderbird.
+      </p>  
+      <p>
+        this was somewhat alleviated by the annual ESR release cycle which only 
+        implemented larger, fundamental changes once a year in various versions (102, 115, 128).
+        But since March 2025 the new default is a monthly release model that can break 
+        such functionality - this means I have to constantly test and supervise such
+        changes in the current beta versions. For previewing betas, you can subscribe to
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/262" target="_blank">
+          issue 262
+        </a>.
+      </p>
+      <h5 class="callout">You can support My Work!</h5>
+      <p>As I am often asked about added features 
+        for filter conditions and actions for my Add-on 
+        <a href="https://addons.thunderbird.net/addon/quickfilters/">quickFilters</a> this is a good 
+        location for extending Filter behavior. 
+        If you want to <b>support the FiltaQuilla project</b>, please install quickFilters and 
+        <br>
+        <span class="callout">
+        purchase a 
+        <a href="https://quickfilters.quickfolders.org/donate.html">quickFilters Pro</a> license.
+        </span>
+      </p>
+      <p>
+        You can now also donate directly to filtaquilla <a href="filtaquilla.html#donate">here</a>.
+      </p>
+      <p>
+        I am keeping the license for FiltaQuilla as GPL 3.0 for the time being.
+      </p>
+    </div>
+  </div>
+
+
+<!--
+  <a name="6.x"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
+       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+       FiltaQuilla 6.x - WIP</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </li>
+  
+--> 
+
+
+<ul id="version-history">
+  <a name="latest"></a>
+
+  <a name="6.3"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/">
+       FiltaQuilla 6.3 - 03/09/2026</a>
+    </h4>
+    <p>
+      This release may still await review on addons.thunderbird.net. 
+      You can also get the <a href="https://github.com/RealRaven2000/FiltaQuilla/releases/tag/6.3">latest 
+      version here</a>. 
+    </p>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        Made FiltaQuilla compatible with Thunderbird 157.*.
+      </li>
+      <li>
+        Updated the Swedish translation, many thanks to <a href="https://github.com/NickWick13">Jonatan Nyberg 
+        (@NickWick13)</a>. <a href="https://github.com/RealRaven2000/FiltaQuilla/pull/410">[PR 410]</a>
+      </li>
+      <li>
+        Replaced the legacy ToneQuilla sound-playing code with WebExtension 
+        methods. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/404">[issue 404]</a></li>
+      <li>
+        Preview: Added a notification alert filter action. Clicking the desktop 
+        notification opens the original message. This first version shows one notification 
+        for the filter result; collated message lists with individual links are 
+        planned for a future version. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/240">[issue 240]</a>
+      </li>
+      <li>
+        Updated script loading where required for Thunderbird 155 compatibility. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/411">[issue 411]</a>
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>
+        Fixed printing with current Thunderbird versions. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/406">[issue 406]</a>, <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/340">[issue 340]</a>
+      </li>
+    </ul>
+  </li>
+    
+
+  <a name="6.2"> &nbsp; </a>
+  <a name="6.2.1"> &nbsp; </a>
+  <a name="6.2.2"> &nbsp; </a>
+  <li>
+    <h4>
+      <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/">
+        FiltaQuilla 6.2.2 - 29/06/2026</a>
+    </h4>
+    <h5 class="inList">Maintenance Version 6.2.2</h5>
+    <ul>
+      <li>
+        Hardened file picker in "Play Sound" against path errors - added specific 
+        issues fixes for MacOS <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/380">[issue 380]</a>
+      </li>
+    </ul>
+     
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        Increased strict_max_version to 153.* and made FiltaQuilla ready for the next ESR cycle.
+      </li>
+      <li>
+        <p>
+          JavaScript search term now forces <code>needsBody = true</code> for stability
+          <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/403">[issue 403]</a>.
+        </p>
+        <p>
+          This may slow down performance because some searches require parts of the 
+          message body to be downloaded. In those cases, the search term needs access 
+          to the message content.
+        </p>
+        <p>
+          This feature can be disabled in Settings (advanced users only).<br>
+        </p>        
+        <img class="screenshot" 
+             style="transform: scale(0.8); transform-origin: top left; margin-right:-140px;"
+             src="img/javascript-needsbody.png" alt="needsBody switch">
+      </li>
+      <li>
+        Header regex can now access message headers that Thunderbird does not normally expose 
+        (e.g. "In-Reply-To").
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/395">[issue 395]</a>.
+        This feature is disabled by default because it requires reading the raw message 
+        contents, which can slow down filtering, especially with large mailboxes or at startup,
+        and can be enabled via the Settings button:<br>
+        <img class="screenshot" style="transform: scale(0.8); transform-origin: top left; margin-right:-140px;" 
+        src="img/regex-header-needsBody.png" alt="needsBody switch">
+      </li>
+      <li>
+        <p>
+           Prepend / Append Date to subject
+          <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/398">[issue 398]</a>
+        </p>
+        <p>
+          Added <code>%date()%</code> placeholder in subject prefixes and suffixes. 
+          See SmartTemplates date format documentation:
+          <a href="https://smarttemplates.quickfolders.org/variables.html#customDates">custom 
+            date formats</a>.
+          You can choose between the current date and the date of the email.
+        </p>
+        <p>
+          Example:<br>
+          Prefix Subject: <code>%date("Y-m-d",current)% [Important]</code>
+        </p>
+      </li>
+      <li>
+        Improved theme compatibility of the regex options panel.
+      </li>
+      <li>
+        Added tooltip for case-insensitive regular expression matching
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>
+        Fixed regex pseudo-flag "c" which forces case-sensitive matching and overrides the global case-insensitive option
+      </li>
+      <li> 
+        Hardened ToneQuilla against path errors 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/380">[issue 380]</a>
+      </li>
+    </ul>
+  </li>
+
+
+  <a name="6.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" >
+       FiltaQuilla 6.1 - 20/01/2026 </a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> Made FiltaQuilla compatible with Thunderbird 149.*.  <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/385">[issue 385]</a></li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li> "Play sound" file picker - doesn't work when path textbox is empty [issue #380]</li>
+      <li> incompatible with Tb147 - bumped strict_max_ver to 149.* </li>
+    </ul>
+  </li>
+
+
+  <a name="6.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
+       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">
+       FiltaQuilla 6.0 - 02/12/2025</a>
+    </h4>
+    <p>
+      We decided to concentrate on the latest versions from FIltaQuilla v140 onward 
+      because the code base was getting pretty unmanageable  due to the substantial changes 
+      in Thunderbird Core and additional features added by the extended mail extension APIs. 
+      Being able to support this and legacy ways of doing the same thing within the 
+      same Add-on proved to be very difficult and produce unmanageable code.
+    </p>
+    <p>
+      Even just supporting both ESR140 and the current release versions (currently 145), 
+      is already a difficult thing leading to substantially branching code paths within 
+      the same Add-on. This cut-off point will also be used to prepare for a number of 
+      long desired feature additions around saving attachments, which will be 
+      delivered next.      
+    </p>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        Made FiltaQuilla compatible with Thunderbird 146.*.
+      </li>
+      <li> 
+        Signatures are now excluded when saving or detaching attachments to avoid 
+        useless files. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/372">[issue 372]</a>
+      </li>
+      <li>
+        Removed legacy options screen and tightened UX in the modern html version 
+        for added clarity. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/379">[issue 379]</a>
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li> 
+        Some attachments were not saved correctly – fixed 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/376">[issue 376]</a>.
+      </li>
+      <li> 
+        Reimplemented attachment detaching after Tb142 removed the original API. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/369">[issue 369]</a>
+      </li>
+      <li> 
+        Fixed double-saving of PDF and TXT files from the same filter action.
+         <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/367">[issue 367]</a>, 
+         <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/370">[issue 370]</a>
+      </li>
+    </ul>
+    <h3 class="inList">Planned Next</h3>
+    <ul>
+      <li> 
+        Notification after filter actions. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/240">[issue 240]</a>
+      </li>
+      <li> 
+        Custom filenames when saving attachments. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/219">[issue 219]</a>
+      </li>
+      <li> 
+        Review of <code>attachRegEx_match</code> for current Thunderbird versions.
+      </li>
+    </ul>
+  </li>
+
+
+  <a name="5.5"> &nbsp; </a>
+  <a name="5.5.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/" 
+       onclick="alert('This version is still awaiting review!\nPlease mail me if you want a preview version for testing.')">
+       FiltaQuilla 5.5.1 - 17/10/2025</a>
+    </h4>
+    <h5 class="inList">Improvements (5.5 13/10/2025)</h5>
+    <ul>
+      <li> 
+        Made FiltaQuilla compatible with Thunderbird 145.*.  
+      </li>
+      <li> 
+        Added localisations for French, Japanese, Italian and Spanish users.
+      </li>
+      <li> 
+        Converted settings dialog to html. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/366">[issue 366]</a>
+        <p>
+          Settings are shown in a responsive tab, which is ideal for all screen sizes.
+          This is a big positive step in modernizing the code base and making it future compatible.
+        </p>
+      </li>
+      <li> 
+        <p>
+          Added a toolbar button for convenient access to settings. If it's not needed, you can remove 
+          the button via View » Toolbars » Toolbar Layout.
+        </p>
+        <img src="img/filtaquilla-menu.png" alt="FiltaQuilla Toolbar Button" class="screenshot"/>
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes v5.5.1</h5>
+    <ul>
+      <li> Fixed: Attachments aren't saved anymore in Thunderbird 128 since v5.5. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/367">[issue 367]</a>, 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/368">[issue 368]</a>. 
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li> 
+        In some cases, attachments can be saved under wrong name and wrong format. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/364">[issue 364]</a>. 
+        I added some manual correction to fix the problem. This is a bug in the messages API, 
+        that returns an incorrectly encoded file name (it should decode the file name and return
+        it correctly), so I raised <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1992976">Bug 1992976</a> 
+        in this matter.
+      </li>
+    </ul>
+  </li>
+
+  <a name="5.4"> &nbsp; </a>
+  <a name="5.4.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/5.4">
+       FiltaQuilla 5.4 - 29/09/2025</a>
+    </h4>
+    <h5 class="inList">Latest News</h5>
+    <p>
+      The Thunderbird monthly release cycle will deliver new features and interface updates 
+      as they’re developed. Please check whether your current add-ons support this release model. 
+      To help with this, you can install the 
+      <a href="https://addons.thunderbird.net/thunderbird/addon/addon-compatibility-check/" class="native">Add-on 
+        Compatibility Check</a>.
+    </p>
+    <p>
+      Some users may have seen a false incompatibility warning after updating from Thunderbird to v142 or 
+      higher. This was caused by cached compatibility information in Thunderbird, which sometimes fails 
+      to refresh correctly. The previous version of FiltaQuilla was already fully compatible with 143. 
+    </p>
+    <p>
+      To get this fixed I raised a bug with Thunderbird: 
+      <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1986027">[Bugzilla 1986027]</a>.
+    </p>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> 
+        Made compatible with Thunderbird 144.*.  
+      </li>
+      <li> 
+        Rewrote the Tonequilla portion (play sound) to use current window 
+        as a parameter or the last 3pane window. 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/258">[issue 258]</a>
+      </li>
+    </ul>
+  </li>
+
+
+  <a name="5.3.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/5.3.1">
+       FiltaQuilla 5.3.1 - 24/07/2025</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> Made compatible with Thunderbird 141.*.  </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li> Thunderbird 141 removed <tt>nsIMsgFolder.prettyName</tt> </li>
+    </ul>
+  </li>  
+
+  <a name="5.3"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/5.3">
+       FiltaQuilla 5.3 - 25/06/2025</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li> 
+        Made compatible with Thunderbird 140.*. Minimum version going forward will now be 
+        <b>Thunderbird 128</b>. </li>
+      <li> 
+        Improvement in asynchronous Save Attachments, leading to slow down of Thunderbird 
+        when filtering POP3 mail (no copy listener) 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/349">[issue 349]</a>. 
+        We are now allowed to use <tt>nsIThreadManager.processNextEvent()</tt> in order to 
+        return processing cycles to the system while the attachments are processed. 
+      </li>
+      <li>
+        Play sound improvements: Fixed open sound file button, extracting the supplied sounds 
+        to the default folder <tt>profile/extensions/filtaquilla</tt> and added a play sound 
+        button to filter editor. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/350">[issue 350]</a>
+      </li>
+    </ul>
+    <h5 class="inList">Miscellaneus</h5>
+    <ul>
+      <li> 
+        Refactored internal action logic for better maintainability and consistency.
+      </li> 
+      <li>
+        Rewrote <tt>saveMessageAsFile</tt> to support concurrency and cleaner path handling.
+      </li>
+    </ul>
+  </li>    
+
+  <a name="5.2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/">
+       FiltaQuilla 5.2 - 13/05/2024</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        Made compatible with Thunderbird 139.*. 
+      </li>
+      <li> 
+        Make Save Attachments Asynchronous, to future Proof for Thunderbird 128, 
+        140 and release channel 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/347">[issue 347]</a>.
+        Please restart Thunderbird to force changes to come into effect.
+        It is highly recommended to run filter after junk detection as 
+        this will not potentially lock up the user interface when Thunderbird 
+        starts up.
+      </li>
+      <li>
+        Fixed: save message as file (with custom extension) - 
+        does not work anymore <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/343">[issue 343]</a>
+      </li>
+    </ul>
+    <h5 class="inList">Planned work</h5>   
+    <ul>
+      <li>
+        Work in progress: Allow automatic running of filters outside of 
+        Inbox (IMAP only) 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/318">[issue #318]</a>.
+        As adding the checkbox in folder properties didn't meet policy restrictions, 
+        we are planning to add a web extension compatible interface for this at a later 
+        stage, possible through the folder tree context menu.
+      </li>
+      <li>
+        Test attachRegEx_match and see if it needs updates for Tb128 / Release    
+      </li>
+    </ul>
+  </li>  
+
+  <a name="5.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/5.1">
+       FiltaQuilla 5.1 - 12/04/2025</a>
+    </h4>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>
+        Error when using Javascript for a Saved Search (Tb 137) 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/338">[issue 338]</a>. 
+        The existing xhtml window for editing javascript stopped working in Thunderbird 136, 
+        therefore I rewrote the feature using a standard HTML window and more modern back-end code.
+        <p>
+          Also, in later versions of Thunderbird 128, the use of eval() triggers a 
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy">
+            CSP exception
+          </a> and thus stopped to work - this means neither Javascript actions nor Javascript 
+          search terms function anymore. I reimplemented the scripting using 
+          the more restricted (and safer) evalInSandbox, which only gives a limited, 
+          controlled scope to the environment that is accessible from the script.
+        </p>
+        <p>
+          I regard Thunderbird as a database fat client, with limited tools. Add-ons make the data 
+          access much more accessible. The mail store, address books and the Global Database are 
+          data the users own. I want to empower my users to access this data in the way they choose, 
+          therefore local scripts running in a sandbox environment should be allowed. 
+          However we will not suport remote script to be executed as it opens up big security problems.
+        </p>
+        <p>
+          There may be corporate users of Thunderbird who have a different view on data access, 
+          but they can (and usually do) enforce company policies by controlling which apps or 
+          Add-ons are allowed to be installed.
+        </p>
+      </li>
+      <li>
+        Fixed: Save Attachments To no longer working in Thunderbird 128 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/339">[issue 339]</a>.
+        This was a regression caused by modernizing the code which worked well with the 
+        current web extension API of the release version Thunderbird 137. I had to add 
+        some missing data to the attachments array in order to be able to filter the correct 
+        attachments (excluding inline images and other such data).
+      </li>
+    </ul>
+    <h5 class="inList">Planned work</h5>
+    <ul>
+      <li> 
+        Allow automatic running of filters outside of Inbox (IMAP only) 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/318">[issue 318]</a>. 
+        As adding a checkbox in Thunderbird's built in folder properties didn't meet 
+        policy restrictions, we plan to add a web extension compatible interface for this 
+        at a later stage, possible through the folder tree context menu.
+      </li>
+    </ul>
+  </li>
+
+
+
+  <a name="5.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/">
+       FiltaQuilla 5.0 - 07/05/2025 </a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        Made compatible with Thunderbird 138.*. 
+        Minimum version going forward will now be <b>Thunderbird 128</b>.
+      </li>
+      <li>
+        The helper function saveAllAttachments() was removed and had to be reimplemented going through
+        web extension layer. The save attachments action is now set to being asynchronous.
+        This might potentially improve overall performance in Thunderbird.
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/319">[issue 319]</a>.
+      </li>
+      <li>
+        Detaching Attachments will now also work again, but you have to enter it as the <i>last</i>
+        action of the filter. This is because a new message id is created that makes all
+        subsequent operations fail in the same filter - this behavior is by Thunderbird 
+        design.
+      </li>
+      <li>
+        Save Messages: Made file operations asynchronous. This should avoid significant slowdowns
+        when Thunderbird starts and tries to execute filters that potentially save many files 
+        or attachments.
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/335">[issue 335]</a>.
+      </li>    
+      <li>
+        Header Regex match: Support using anchor tokens ^ and $ for address lists 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/329">[issue 329]</a>.
+      </li>
+      <li>
+        Allow automatic running of filters ouside of Inbox (IMAP only)
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/318">[issue 318]</a>.
+      </li>
+      <li>
+        Thunderbird 136 retires <tt>ChromeUtils.import</tt> - replace with <tt>importESModule</tt>.
+        Also converted all jsm modules to ESM modules.
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/331">[issue 331]</a>.
+      </li>
+    </ul>
+    <h5 class="inList">Miscellaneus</h5>
+    <ul>
+      <li>
+        Replace deprecated <tt>nsILocalFile</tt> with <tt>nsIFile</tt> 
+      </li>
+    </ul>
+  </li>
+  
+
+
+  <a name="4.3"> &nbsp; </a>
+  <a name="4.3.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/4.3.1">
+       FiltaQuilla 4.3.1 - 20/11/2024</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        Add switches (such as content / html) to the regex body search
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/313">[issue 313]</a>.
+        See <a href="https://quickfilters.quickfolders.org/filtaquilla.html#regex_link">documentation 
+        here</a>.
+        <p>
+          A panel helps setting these options and testing the regular expression:
+        </p>
+        <img src="img/regex-panel.png" alt="regex panel" class="screenshot"/>
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>
+        Fixed a recursion error, when streaming the message in order to
+        read the body:
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/302">[issue 302]</a>.
+      </li>
+      <li>
+        Fixed: Body RegExp Match -Filter doesn't work
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/269">[issue 269]</a>.
+      </li>
+      <li>
+        Fixed: Header Regex Match: BASE64 in From and Subject Fields doesn't match
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/308">[issue 308]</a>.       
+      </li>      
+      <li>
+        4.3.1: Make sure MailUtils is loaded in Betterbird 115.
+      </li>
+      <li>
+        Fixed: Thunderbird 115.* freeze with FiltaQuilla 4.1 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/271">[issue 271]</a>.       
+      </li>
+    </ul>
+  </li>
+  
+
+  <a name="4.2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/4.2"
+    >FiltaQuilla 4.2 - 18/10/2024</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>Made compatible with Thunderbird 133.</li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>
+        Filter with "Save message as File" action fails to run - 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/270">[issue 270]</a>
+      </li>
+      <li>
+        Body RegExp Match doesn't work.
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/269">[issue 269]</a>
+      </li>
+      <li>
+        "Save Message As File" no longer works as of 4.1 (TB 128.3) 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/306">[issue 306]</a>
+      </li>
+      <li>
+        "Train as Junk" in action list twice #277
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/277">[issue 277]</a>
+      </li>
+    </ul>
+  </li>
+  
+
+<a name="4.1"> &nbsp; </a>
+<li>
+  <h4>
+  <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/4.1" 
+  >FiltaQuilla 4.1 - 16/07/2024</a>
+  </h4>
+  <h5 class="inList">Improvements</h5>
+  <ul>
+    <li>Made FiltaQuilla compatible with Thunderbird 128. 
+      <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/265">[issue 262]</a></li>
+    <li>Some improvements during bodyMimeMatch.</li>
+    <li>Added German UI for SmartTemplates.</li>
+  </ul>
+  <h5 class="inList">Bug Fixes</h5>
+  <ul>
+    <li>Fixed file picker which was broken in Thunderbird 125 - <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/265">[issue 265]</a></li>
+    <li>Fixed an issue during play sound - Init window during tone playing if it is not set.<a href="https://github.com/RealRaven2000/FiltaQuilla/issues/258">[issue 258]</a></li>
+  </ul>
+  <h5 class="inList">Miscellaneus / Code Modernisation</h5>
+  <ul>
+    <li>Added debug info for bodyRegEx_match, subjectRegEx_match and headerRegEx_match</li>
+    <li>Added troubleshooting info for NetUtil.readInputStreamToString</li>
+    <li>Added debug switch "mimeBody" for issues related to reading body of the emnail</li>
+  </ul>  
+</li>
+
+
+  <a name="4.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/4.0">FiltaQuilla 4.0 - 28/03/2024</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>Added @FOLDERNAME@  parameter to run program action
+         <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/234">[issue 234]</a></li>
+      <li>Increased max version to 124.* for beta users</li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>Archiving action is working again.<a href="https://github.com/RealRaven2000/FiltaQuilla/issues/241">[issue 241]</a></li>
+        <li>Repaired tag by thread (Thunderbird renamed function GetThreadContainingMsgHdr)</li>
+        <li>replace deprecated  Components.utils.import with ChromeUtils.import. Future work should switch it to an ES module and use ChromeUtils.importESModule. </li>
+        <li>Reading files (beta 122): replace deprecated FileUtils.getFile with IOUtils. See [Bug 920187]</li>
+    </ul>
+    <h5 class="inList">Miscellaneus / Code Modernisation</h5>
+    <ul>
+      <li>Replaced deprecated Components.utils.import with ChromeUtils.import</li>
+      <li>Use globalThis.Services where it is present</li>
+    </ul>    
+  </li>
+
+
+  <a name="4.0b1"> &nbsp; </a>
+  <a name="4.0b2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/4.0b2">FiltaQuilla 4.0b2 - 20/06/2023</a>
+    </h4>
+    <p>
+      First official Beta release for Thunderbird 115. FiltaQuilla had to have some necessary changes for Thunderbird 115, 
+      especially custom search terms and actions could not be edited anymore. If you find any new problems, 
+      related to the update to ESR115, please report them at 
+      <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/223">FiltaQuilla issue 223</a>.
+    </p>
+    <p>
+      All new development for Thunderbird 115 will be published in Github <a href="https://github.com/RealRaven2000/FiltaQuilla/tree/ESR115">as new branch</a> of FiltaQuilla code, 
+      starting with a new major version number 4.*.
+    </p>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li><a href="https://github.com/RealRaven2000/FiltaQuilla/issues/223">[issue 223]</a> Make FiltaQuilla compatible with Thunderbird 115.</li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>
+        Fixed ToneQuilla.jsm component (playback of sounds) by adding a background page. tested wav, ogg and mp3 playback.
+      </li>
+      <li>Fixed updating version display in top panel of options screen (remove old version Proxy code)</li>
+   </ul>
+
+  <a name="3.7.2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.7.2" 
+       onclick="alert('This is still Work in Progress!\nPlease mail me if you want a preview version for testing.')">FiltaQuilla 3.7.2 - 19/06/2023</a>
+    </h4>
+    <p>
+      FiltaQuilla is now compatible with Thunderbird 112.
+      If you find any new problems, related to the update to ESR102, please report 
+      them at <a href="https://github.com/RealRaven2000/FiltaQuilla/issues"> the FiltaQuilla issue tracker</a>
+    </p>
+    <p>
+      All new development for Thunderbird 115 will be published in as new branch of 
+      FiltaQuilla code, starting with a new major version number 4.*. 
+      See <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/223">[issue 223]</a> 
+      (Make FiltaQuilla compatible with Thunderbird 115).      
+    </p>
+    <ul>
+      <li><a href="https://github.com/RealRaven2000/FiltaQuilla/issues/217">[issue 217]</a> 
+      Fixed a regression in 3.7 that broke the printing action - FQ now reads Print Delay correctly.</li>
+    </ul>
+  </li>
+
+
+  <a name="3.7"> &nbsp; </a>
+  <a name="3.7.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.7.1">FiltaQuilla 3.7.1 - 23/03/2023</a>
+    </h4>
+    <h5 class="inList">Improvements</h5>
+    <ul>
+      <li>
+        <p>
+          <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/216">[issue 216]</a> 
+          Allow special characters in file name, e.g. German Umlauts. So far most special 
+          characters in saved messages and attachments were automatially converted to phonetically similar 
+          ASCII characters to avoid file errors. You can now re-add letters that you want to preserve 
+          and you know that they work on your file system.
+        </p>
+        <p>
+          This is achieved via a whitelist, which you can now enter on the actions tab:<br><br>
+          <img src="img/quickfilters-prefs-filename-whitelist.png" alt="replacement setting for spaces" class="screenshot"/>
+        </p>
+      </li>
+    </ul>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/180">[issue 180]</a> Repair 
+        Archiving with Thunderbird 102 - using <tt>MessageArchiver</tt> instead of 
+        <tt>BatchMessageMover</tt>.
+      </li> 
+      <li>
+        3.7.1. Fixed a regression in v3.7 that broke the printing action. <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/217">[issue 217]</a> 
+      </li>      
+    </ul>
+  </li>
+
+  <a name="3.5.1"> &nbsp; </a>
+  <a name="3.6"> &nbsp; </a>
+  <a name="3.6.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.6.1" 
+       >FiltaQuilla 3.6 - 26/10/2022</a>
+    </h4>
+    
+    <h5 class="inList">Maintenance 3.6.1</h5>
+    <ul> 
+      <li>
+        <p>
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/183">[issue 183]</a> 
+        "Save Attachments To" alters attachment filename - this is in sync with naming conventions of the save attachment, in order to avoid invalid characters.
+        </p>
+        The following characters were added to whitelist:<br>
+        
+        <p>
+        <key>(</key> <key>)</key> <key>_</key> <key>-</key> <key>+</key> <key>'</key> <key>!</key> <key>%</key> and <key>space</key>
+        </p>
+        
+        <p>
+          Also added an optional replacement character for spaces:<br>
+          <img src="img/fq-replace-spaces.png" alt="replacement setting for spaces" class="screenshot"/>
+        </p>
+      </li>
+    </ul>    
+    
+    <h5 class="inList">Release 3.6 - 17/10/2022</h5> 
+    <ul>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/165">[issue 165]</a> 
+        Support printing the same email multiple times 
+      </li>
+      <li>
+        Fixed <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/177">[issue 177]</a> 
+        Attachments with illegal filenames are not saved correctly
+      </li>
+      <li>
+        Fixed <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/135">[issue 135]</a> 
+        Action of "Detach Attachments To" doesn't detach from message (only saves attachments)
+      </li>
+
+      <li>
+        Fixed <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/178">[issue 178]</a> 
+        Subject or Body (Regular expression) - missing Textbox. 
+      </li>
+    </ul>
+  </li>
+
+
+  <a name="3.5"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/">FiltaQuilla 3.5 - 13/07/2022</a>
+    </h4>
+    <ul>
+      <li>
+        FiltaQuilla is now compatible with Thunderbird 102. FiltaQuilla had to have some necessary changes for Thunderbird 102, especially custom search terms and actions could not be edited anymore. As part of this work, I had to raise the minimum version to 91.0.
+      </li>
+      <li> 
+        Added help topics for "reply with SmartTemplates" / "forward with SmartTemplates".
+      </li>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/167">[issue 167]</a> 
+        Fixed: Playback of sounds not working in Thunderbird - Replaced sounds with ogg format.
+        For licensing reasons, Thunderbird cannot play back mp3 files natively, please use the 
+        provided ogg files instead. You can convert your own sound files to ogg with the Software 
+        <a href="https://www.freac.org/">freac (Free Audio Converter)</a>
+      </li>
+      <li>
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/164">[issue 164]</a> 
+        Fixed: Edit fields for search terms / actions not displayed in Thunderbird 102 when dialog loads
+      </li>
+      <li>
+        Improved Icon coloring for file pickers in filter editor - these now support dark themes in Thunderbird 102.
+      </li>
+      
+    </ul>
+  </li>
+
+  <a name="3.3.1"> &nbsp; </a>
+  <a name="3.4"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.4">FiltaQuilla 3.4 - 18/03/2022</a>
+    </h4>
+    <ul>
+      <li>
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/125">[issue 125]</a> 
+        Add ability to archive messages from filters.
+      </li>
+      <li>
+        <p>
+          <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/152">[issue 152]</a> 
+          Support printing via PrintingTools NG by Christopher Leidigh. See also 
+          <a href="https://github.com/cleidigh/printing-tools-ng/issues/94">[issue 94]</a>
+          on the PrintingTools github. Use the "Print" action of FiltaQuilla and also enable
+          the option for PrintingTools NG in FiltaQuilla settings:
+        </p>
+        <img src="img/settings-ptng.png" alt="settings for printing tools ng" class="screenshot"/><br>
+        The action to select in the filter dialog is simply "Print".
+      </li>
+      <li>
+        <p>
+          <a href="https://github.com/RealRaven2000/SmartTemplates/issues/153">[issue 153]</a> 
+          Auto-Forward / Auto-Reply with template -  implement triggering template from filter (using FiltaQuilla)
+          this requires the Add-on <a href="https://addons.thunderbird.net/thunderbird/addon/smarttemplate4/" target="_blank">SmartTemplates Pro</a> version 3.11 or later. SmartTemplates adds a plethora of 
+          Composing functionality, such as replacing  text or quote headers from the quoted email and 
+          also adding / removing recipients and cleaning subject lines.<br>
+          Planned to work from SmartTemplates 3.11 forward.
+        </p>
+        <img src="img/forward-st-action-in-editor.png" alt="forward with smarttemplates action" class="screenshot"/>
+        <p>
+          The template is an external HTML file that must also set the recipient (list) when forwarding mail.
+          See also SmartTemplates 
+          <a href="https://smarttemplates.quickfolders.org/premium.html#filterForward">pro feature documentation</a>
+          for detailed instructions. 
+        </p>
+      </li>
+      <li><a href="https://github.com/RealRaven2000/FiltaQuilla/issues/102">[issue 102]</a> 
+        Run Program: New option to transmit parameters as UTF-16 format in order to correctly submit non-latin characters 
+        such as cyrillic: To enable the new option, check the new option <i>"Transmit Parameters as UTF-16"</i><br>
+        <img src="img/runProgram-utf16.png" alt="UTF-16 option" class="screenshot"/>
+      </li>
+    </ul>
+  </li>
+
+
+  <a name="3.3"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.3">FiltaQuilla 3.3 - 21/01/2022</a>
+    </h4>
+    <h5 class="inList"> Bugs Fixed </h5> 
+    <ul>
+      <li><a href="https://github.com/RealRaven2000/FiltaQuilla/issues/130">[issue 130]</a> 
+      Fixed: print automation is not working with Thunderbird Version 91.2.1 - this was due to 
+      internal changes in Thunderbird</li>
+      <li><a href="https://github.com/RealRaven2000/FiltaQuilla/issues/142">[issue 142]</a> 
+      Fixed: Add sender to list shows no results in the List / Account dropdown.</li>
+      <li><a href="https://github.com/RealRaven2000/FiltaQuilla/issues/144">[issue 144]</a>,
+      <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/131">[issue 131]</a> 
+      Fixed: Save Message as File doesn't work with illegal filename characters in subject as "\", ":", "*", "|" or "?".
+      these are now replaced with "-". Diacritics and special characters are replaced with phonetical
+      equvialents. Case is now preserved, I assume that most file systems nowadays support this.</li>    
+    </ul>
+    <h5 class="inList"> Improvements </h5> 
+    <ul>
+      <li><a href="https://github.com/RealRaven2000/qFiltaQuilla/issues/145">[issue 145]</a>
+        Filter value / "text area" is narrow and won't expand #145
+      </li>
+    </ul>
+  </li>
+
+
+  <a name="3.2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.2">FiltaQuilla 3.2 - 23/08/2021</a>
+    </h4>
+    <p class="psa">
+      If you would like to directly support FiltaQuilla with donation you can now 
+      <a href="https://quickfilters.quickfolders.org/filtaquilla.html#donate">do so here</a>
+    </p>
+    <ul>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/111">[issue 111]</a> Make FiltaQuilla compatible with Thunderbird 91 - WIP.
+        You can download test versions for Thunderbird 91.0 there as well.
+      </li>
+      <li> 
+        Please check the <a href="https://github.com/RealRaven2000/FiltaQuilla/issues">Issue Tracker</a> for open problems and to add feature requests.
+      </li>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/115">[issue 115]</a> Added body regexp match.
+        This will search all text and html portions of the multipart messages for the pattern. Note that you may experience slower
+        processing of large amounts of incoming mail due to having to download and stream full messages.
+      </li> 
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/75">[issue 75]</a> 
+        Added combined Body+Subject Regexp match for convenience (contributed by diabolusss @ github)
+      </li> 
+      <li> Added option to set regexp for case insensitive match by default </li>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/53">[issue 53]</a> Support saving files with 
+        Mime encoded subjects and file names with cyrillic / other characters.
+      </li>
+      <li> Options are now accessible via wrench symbol in Add-ons Manager </li>
+      <li> Added Russian locale by ashed @ github </li>
+    </ul>
+  </li>
+
+
+  <a name="3.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.1" >FiltaQuilla 3.1 - 09/03/2021</a>
+    </h4>
+    <p class="psa">
+      If you would like to directly support FiltaQuilla with donation you can now 
+      <a href="https://quickfilters.quickfolders.org/filtaquilla.html#donate">do so here</a>
+    </p>
+    <ul>
+      <li> 
+        Check the new <a href="https://github.com/RealRaven2000/FiltaQuilla/issues">Issue Tracker</a> 
+        for open problems and to add feature requests.
+      </li>
+      <li>
+        Settings have now been moved into the Add-ons screen. Open Add-ons Manager, click "..." on the FiltaQuilla
+        entry and select "Options":
+        <img src="img/filtaquilla-addons-settings.png" alt="filtaquilla add-ons options" class="screenshot"/>
+        
+      </li>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/94">[issue 94]</a> 
+        Added ToneQuilla (sound notifications) functionality to FiltaQuilla. Removed some of the larger sounds and added the 
+        following sounds from <a href="https://notificationsounds.com/">notificationsounds.com</a> (CC license):<br>
+        maybe-one-day-584, hold-your-horses-468, scratch-389, your-turn-491, knob-458, worthwhile-438, scissors-423.
+        <p>
+          The default location which the provided sounds are unpacked into is in profile/extensions/filtaquilla. 
+          You can either add your own sounds there for convenience or point to sounds in other locations.
+        </p>
+      </li>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/95">[issue 95]</a> 
+        Support instant apply for changes in Options Window.
+      </li>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/89">[issue 89]</a> Fixed: Options missing 
+        in Add-ons Manager. The settings for FiltaQuilla have been moved to the ... menu 
+        on the Add-ons Manager and removed from the tools menu going forward. 
+      </li>
+      <li> Completed strings in Swedish locale </li>
+      <li> Fixed a problem with the German translation for "do not notify"</li>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/97">[issue 97]</a> Printing in 
+        background should not enable global setting 'print.always_print_silent' permanently.
+      </li>
+    </ul>
+  </li>
+  
+
+  <a name="3.0"> &nbsp; </a>
+  <a name="3.0.1"> &nbsp; </a>
+  <a name="3.0.2"> &nbsp; </a>
+  <a name="3.0.3"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/3.0.3">FiltaQuilla 3.0.3 - 10/12/2020</a>
+    </h4>
+    <ul>
+      <li>New version compatible with Thunderbird 78. Due to its "free as in beer" nature, this took a little longer than expected. 
+        The work was laborious and complex, see details below:
+      </li>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/64">[issue 64]</a> Make FiltaQuilla compatible 
+      with Thunderbird 78 ESR. The gruelling detail on all the necessary work can be read there.</li>
+      <li> All bindings were replaced with pure JavaScript. This affected editing <i>all</i> conditions 
+      that FiltaQuilla adds to the Filter Editor.</li>
+      <li> Printing didn't work anymore, that is fixed now. </p>
+      <li> 
+        <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/45">[issue 45]</a> Fixed "Move later" / "Copy as Read" For Thunderbird versions > 64 
+      </li>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/76">[issue 76]</a> Fixed detach attachments - if the attachment was already removed then no empty file is generated, but a message is shown 
+        in error console showing the "last seen location" where the attachment was originally detached to.
+      </li>
+      <li> Fixed behavior of opening FiltaQuilla page jumping to in-page links when a tab with the same basic URL is already shown</li>
+      <li> 3.0.1 - version bump because I had to rerelease 2.1.2 fixing a syntax error in manifest.json of 2.1.1. </li>
+      <li> 3.0.3 - fixed firstRun code so that support site is loaded on install / update. </li>
+    </ul>
+  </li>
+
+  <a name="2.1"> &nbsp; </a>
+  <a name="2.1.1"> &nbsp; </a>
+  <a name="2.1.2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/2.1.2">FiltaQuilla 2.1.2 - 08/12/2020</a>
+    </h4>
+    <ul>
+      <li> Currently working on a version for Thunderbird 78  - you can already <a href="https://github.com/RealRaven2000/FiltaQuilla/releases/">get prereleases on my github</a>. 
+        The detailed conversion process is discussed at <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/64">[issue 64]</a></li>
+      <li> 2.1.2 fixed a problem in manifest file (stric_max_verseion) that wouldn't allow it to update existing versions.</li>
+      <li>2.1.1 added <tt>strict_max_version</tt> to avoid this Add-on being installed in Tb78 - where it would be incompatible</li>
+      <li>Fixed <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/34">issue #34</a> 
+				Action "add sender to Address list" not working.
+			</li>
+      <li> Added Icons and fixed look on Address book picker in Filter Editor</li>
+      <li> Corrected a string in german locale from "Nicht ändern" to "Nicht benachrichtigen"</li>
+      <li> <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/67">[issue 67]</a> Help links 
+        in options dialog were misdirected to the wrong page</li>
+    </ul>
+  </li>
+  
+
+
+  <a name="2.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/2.0/">FiltaQuilla 2.0 - 13/12/2019</a>
+    </h4>
+    <ul>
+      <li>Made Compatible with THunderbird 68. FiltaQuilla had to be largely rewritten for 
+        Thunderbird 68, with substantial help from 
+        <a href="https://github.com/ptomulik" target="_blank">Paweł Tomulik</a>.
+        Going forward most bugfixes / new features will be exclusively available 
+        for Thunderbird 68. The reason for this is that through architectural changes 
+        on the Mozilla code platform the code for Thunderbird 60 and earlier 
+        is substantially different.
+      </li>
+      <li> Check the new <a href="https://github.com/RealRaven2000/FiltaQuilla/issues">Issue Tracker</a>
+        for open problems.
+      </li>
+      <li> Added links to the quickFilters page for supporting the development team. </li>
+    </ul>
+  </li>
+  
+  <a name="1.5"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.5">FiltaQuilla 1.5 - June 28, 2019</a>
+    </h4>
+    <ul>
+      <li>Completed Dutch translation - thanks to Markh van BabelZilla.org</li>
+      <li>Completed Swedish translation - thanks to A. Regnander - Phoenix</li>
+      <li>Fixed <a href="https://github.com/RealRaven2000/FiltaQuilla/issues/9">issue #9</a> Error in Console - Services.prefs.getStringPref is not a function - affecting older versions of Thunderbird.</li>
+      <li>Added debug option for future trouble shooting.</li>
+      <li>Added support icons for filter actions and search terms: these open dedicated topics on the support pages.</li>
+      <li>Added back inheritpane service module.</li>
+      <li>Raised minimum version to Thunderbird 52. It is likely that the next version will be minimum 60, once it starts to support Thunderbird 68 to be future proof for 2020.</li>
+    </ul>
+  </li>
+  
+  <a name="1.4.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.4.1">FiltaQuilla 1.4.1 - Nov. 15, 2018</a>
+    </h4>
+    <ul>
+      <li>Fixed a problem with minver. Still compatible with Thunderbird 60.3 / ESR </li>
+    </ul>
+  </li>
+  
+  
+  <a name="1.4"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.4">FiltaQuilla 1.4 - Nov. 10, 2018</a>
+    </h4>
+    <ul>
+      <li>Made compatible with Thunderbird 60</li>
+      <li>Added localisation (German locale)</li>
+      <li>If you want to help with translation into your language, check on: 
+        <a href="https://www.babelzilla.org/index.php?option=com_wts&Itemid=0&type=show&extension=5774">Babelzilla.</a>
+        (you will need a Babelzilla Login for this) </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.3.2"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.3.2">FiltaQuilla 1.3.2 - May 24, 2016 </a>
+    </h4>
+    <ul>
+      <li> This version fixes broken filter actions MoveLater and CopyAsSend caused by changes in recent versions of Thunderbird </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.3.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.3.1">FiltaQuilla 1.3.1 - May 22, 2015</a>
+    </h4>
+    <ul>
+      <li> Version 1.3.1 fixes an error that prevented filter actions that train the junk filter.  </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.3.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.3.0">FiltaQuilla 1.3.0 -  Oct. 18, 2014</a>
+    </h4>
+    <ul>
+      <li>Fixes issues in printing</li>
+      <li>Adds optional file type when saving message </li>
+    </ul>
+  </li>
+
+ 
+  
+  <a name="1.2.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.2.0">FiltaQuilla 1.2.0 - June 6, 2011 </a>
+    </h4>
+    <p>Provides compatibility with Thunderbird 5.0</p>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>bug 313 Non-ascii characters don’t work in subjectRegEx</li>
+      <li>bug 843 Remove lower case from headerRegEx (which prevented certain headers from being properly processed)</li>
+    </ul>
+    <h5 class="inList">New Features</h5>
+    <ul>
+      <li>Search term: Folder Name</li>
+      <li>Custom action: Save Message to Folder</li>
+      <li>Custom Action: Move Later </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.1.0"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.1.0">FiltaQuilla 1.1.0 - April 30, 2010</a>
+    </h4>
+    <h5 class="inList">Bug Fixes</h5>
+    <ul>
+      <li>A core bug that prevented custom searches from working in non-filter contexts 
+        was fixed in Thunderbird 3.0.5/3.1 beta 2.</li>
+      <li>A core feature was added, beginning with Thunderbird 3.1 beta 2, 
+         that allows IMAP filter actions that need the message body to work. This FiltaQuilla 
+         version adds support for that term.</li>
+      <li>Enabling of filter actions and search terms was divided into separate pages to prevent 
+        issues with view overflow.</li>
+    </ul>
+    <h5 class="inList">New Features</h5>
+    <ul>
+      <li>Custom action: javascript and javascript (needs body)</li>
+      <li>Custom action: detach attachments from message (requires Thunderbird 3.1 beta 2 or later)</li>
+      <li>Custom action: Suffix to subject. Previous action "append to subject", 
+        which was misnamed, was renamed to "prepend to subject" 
+        though existing defined actions will still work. </li>
+    </ul>
+  </li>
+
+  
+  
+  <a name="1.0.1"> &nbsp; </a>
+  <li>
+    <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/filtaquilla/versions/1.0.1">FiltaQuilla 1.0.1 -  Jan. 18, 2010</a>
+    </h4>
+    <p>This revision fixes three bugs:</p>
+    <ul>
+      <li>Fixed: M164 Filter action “Run” fails with second after-the-fact action</li>
+      <li>Fixed: M165 RegEx search term has no method to add flags like case insensitive</li>
+      <li>Fixed: M166 Custom search term values are not appearing in customize view </li>
+    </ul>
+  </li>
+
+
+</ul>  
+      
+</div>
+
+    </div>
+  </body>
+</html>
