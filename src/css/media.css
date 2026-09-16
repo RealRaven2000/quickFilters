@@ -108,6 +108,11 @@
   }
 }
 
+#infoTabs {
+  max-width: 40% !important;
+  transition: margin 0.5s;
+}
+
 @media (min-width: 1200px) {
   #main-content-no-nav {
     padding-left: 3em;

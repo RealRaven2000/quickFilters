@@ -1,4 +1,4 @@
-@import "media.css"; /* responsive layout rules */
+@import "media.css?v=2"; /* responsive layout rules */
 
 h1#mozdev-logo { background-color: rgb(147, 0, 102) !important; }
 h1#mozdev-logo a { background-image: url(https://quickfilters.quickfolders.org/img/mozdev-purple.png) !important; }
@@ -454,7 +454,7 @@ h1.project-name {
 .attribution { border: dotted #bbb 1px; font-size:small; font-color: #666; border-radius: 1em; padding: 1em; margin-top: 2em; }
 
 .entry-content {
-  display: flow-root;
+  display: block;
 }
 
 #infoTabs {
