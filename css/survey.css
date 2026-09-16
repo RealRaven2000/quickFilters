@@ -1,0 +1,23 @@
+.surveyContainer {
+	text-align:center;
+}
+
+a[href].survey {
+	margin-left:auto;
+	margin-right:auto;
+	background: rgb(203,96,179);
+	background: linear-gradient(to bottom, rgba(203,96,179,1) 0%,rgba(193,70,161,1) 43%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%);
+	color: #ffffff !important;
+	border-radius: 0.5em;
+	padding-left: 2em;
+	padding-right: 2em;
+	font-weight: 400;
+}
+a[href].survey:focus {
+	font-weight: 400;
+}
+
+.gopro {
+	background: rgb(250,152,153); 
+	background: linear-gradient(to bottom, rgba(250,152,153,1) 0%,rgba(151,5,8,1) 25%,rgba(118,0,2,1) 44%,rgba(166,18,62,1) 100%);
+}
