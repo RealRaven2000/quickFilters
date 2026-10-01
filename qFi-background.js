@@ -41,7 +41,7 @@ const startup = Promise.withResolvers();
 //TODO mailWindowOverlay: was never in use??
 //debugger;
 messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
-  await prefsReady;
+  if (!(await prefsReady).ok) { return; }
   let isDebug = Preferences.isDebug();
   // Wait until the main startup routine has finished!
   const res = await startup.promise;
@@ -106,6 +106,7 @@ messenger.runtime.onInstalled.addListener(async ({ reason, _temporary }) => {
 });
 
 messenger.runtime.onStartup.addListener(async () => {
+  if (!(await prefsReady).ok) { return; }
   const res = await startup.promise;
   messenger.Utilities.logDebug(
     `startup listeners, ready to call updatequickFiltersLabel\n` + `startup result: ${res}`
@@ -914,7 +915,8 @@ const ExternalMessageApi = {
 
 function registerNotifyListener() {
   messenger.NotifyTools.onNotifyBackground.addListener(async (data) => {
-    await prefsReady;
+    const readiness = await prefsReady;
+    if (!readiness.ok) { return readiness; }
     const isLog = Preferences.isDebug("notifications");
 
     if (isLog && data.func) {
@@ -1163,7 +1165,16 @@ function registerNotifyListener() {
 }
 
 async function main() {
-  await prefsReady;
+  const readiness = await prefsReady;
+  if (!readiness.ok) {
+    startup.resolve(readiness);
+    await messenger.notifications.create("quickfilters-storage-failure", {
+      type: "basic", title: "quickFilters could not load its settings",
+      message: "Restart Thunderbird. If this persists, open Error Console and report the quickFilters and IndexedDB/quota errors. On Thunderbird 154+ enable [Browser] and [Content].",
+      iconUrl: "/chrome/content/skin/QuickFilters_32.svg",
+    });
+    return;
+  }
   // load defaults => OBSOLETE once migration is complete.
   messenger.WindowListener.registerDefaultPrefs("chrome/content/scripts/quickFilter-prefs.js");
 
@@ -1605,5 +1616,9 @@ async function main() {
 } // end main()
 
 registerNotifyListener();
+messenger.runtime.onMessage.addListener((data) => {
+  if (data.command === "getStorageReadiness") { return prefsReady; }
+  return false;
+});
 const prefsReady = Preferences.init(); // pending
-main();
+main().catch(error => console.error("quickFilters startup failed:", error));

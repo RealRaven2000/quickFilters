@@ -10,6 +10,14 @@ quickFilters.Storage = new (class LocalStorage {
     if (!extension) {
       throw new Error(`quickFilters extension context not found: ${extensionId}`);
     }
+    // Keep shared declarations off the surviving Thunderbird window global.
+    const defaultsScope = { quickFilters: {} };
+    Services.scriptloader.loadSubScriptWithOptions(
+      extension.rootURI.resolve("scripts/preference-defaults.js"),
+      { target: defaultsScope, charset: "UTF-8", allowUnsafeURL: true }
+    );
+    this.Defaults = defaultsScope.quickFilters._preferenceDefaults.Defaults;
+    this.DebugDefaults = defaultsScope.quickFilters._preferenceDefaults.DebugDefaults;
     this.uniqueRandomID = "AddOnNS" + extension.instanceId;
 
     // Standalone chrome dialogs are not WindowListener-injected.
@@ -21,6 +29,16 @@ quickFilters.Storage = new (class LocalStorage {
     this._context = WL.context;
   }
 
+  _logStorage(message) {
+    try {
+      if (Services.prefs.getBoolPref("extensions.quickfilters.debug.storage", false)) {
+        console.log(`quickFilters storage (chrome): ${message}`);
+      }
+    } catch {
+      // Diagnostics must not prevent storage access.
+    }
+  }
+
   async _init() {
     if (this._storage) {
       return;
@@ -28,6 +46,7 @@ quickFilters.Storage = new (class LocalStorage {
 
     const delays = [100, 500, 1000, 2000, 4000, 10000];
     for (let attempt = 0; attempt < delays.length; attempt++) {
+      this._logStorage(`connection attempt ${attempt + 1}/${delays.length}`);
       try {
         this._storage = this._context.apiCan.findAPIPath("storage");
         this._call =
@@ -35,13 +54,16 @@ quickFilters.Storage = new (class LocalStorage {
           (...args) =>
             this._storage.local.callMethodInParentProcess(method, args);
         await this._call("get")("dummy");
+        this._logStorage("connection ready");
         return;
       } catch (ex) {
+        this._logStorage(`connection failed (${ex.name})`);
         this._storage = null;
         this._call = null;
         if (attempt === delays.length - 1) {
           throw ex;
         }
+        this._logStorage(`retrying connection in ${delays[attempt]}ms`);
         await new Promise((resolve) => setTimeout(resolve, delays[attempt]));
       }
     }
@@ -56,8 +78,9 @@ quickFilters.Storage = new (class LocalStorage {
     const delays = [250, 1000, 5000, 8000];
     for (let attempt = 0; ; attempt++) {
       let timeoutId;
+      this._logStorage(`read attempt ${attempt + 1}/${delays.length + 1}, timeout ${timeout}ms`);
       try {
-        return await Promise.race([
+        const result = await Promise.race([
           this.get(keys),
           new Promise((_, reject) => {
             timeoutId = setTimeout(
@@ -66,12 +89,16 @@ quickFilters.Storage = new (class LocalStorage {
             );
           }),
         ]);
+        this._logStorage("read completed");
+        return result;
       } catch (ex) {
+        this._logStorage(`read failed (${ex.name})`);
         if (attempt >= delays.length) {
           throw ex;
         }
         this._storage = null;
         this._call = null;
+        this._logStorage(`retrying read in ${delays[attempt]}ms`);
         await new Promise((resolve) => setTimeout(resolve, delays[attempt]));
       } finally {
         clearTimeout(timeoutId);

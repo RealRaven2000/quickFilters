@@ -1,10 +1,16 @@
-// Default preference values. These are accessible via the preferences system
-// or via the optional chrome/content/options.xul preferences dialog.
+// Storage diagnostics stay in Thunderbird preferences so they work before storage is ready.
+// Other defaults live in scripts/preference-defaults.js; legacy values below are reference only.
 /*
   globals
     pref
 */
+
 pref("extensions.quickfilters.debug", false);
+pref("extensions.quickfilters.debug.storage", false);
+pref("extensions.quickfilters.debug.storage.forceFailure", false);
+
+
+/*
 pref("extensions.quickfilters.debug.assistant", false);
 pref("extensions.quickfilters.debug.assistant.ui", false);
 pref("extensions.quickfilters.debug.assistant.msg", false);
@@ -77,7 +83,7 @@ pref("extensions.quickfilters.subjectDisableKeywordsExtract", false);
 
 pref("extensions.quickfilters.filters.currentTemplate", "from");
 pref("extensions.quickfilters.listener.tags", true);
-pref("extensions.quickfilters.listener.tags.autofilter", false); // Bug 26457 
+pref("extensions.quickfilters.listener.tags.autofilter", false); // Bug 26457
 pref("extensions.quickfilters.searchterm.addressesOneWay", false); // Bug 25714
 pref("extensions.quickfilters.searchterm.insertOnTop", false); // Bug 26664
 
@@ -98,7 +104,7 @@ pref("extensions.quickfilters.actions.moveFolder", true);
 pref("extensions.quickfilters.filters.showMessage", true);
 pref("extensions.quickfilters.firstRun", true);
 pref("extensions.quickfilters.installedVersion", "0");
-pref("extensions.quickfilters.hasNews", false); /* splash screen status after update */
+pref("extensions.quickfilters.hasNews", false); // splash screen status after update
 pref("extensions.quickfilters.news.minimal", false);
 
 pref("extensions.quickfilters.quickfolders.curFolderbar.listbutton", true);
@@ -152,5 +158,4 @@ pref("extensions.quickfilters.shortcuts.challenge", true);
 pref("extensions.quickfilters.mime.resolveAB", false);
 pref("extensions.quickfilters.mime.resolveAB.preferNick", false);
 pref("extensions.quickfilters.firstLastSwap", false);
-
-
+*/

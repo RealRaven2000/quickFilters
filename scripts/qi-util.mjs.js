@@ -1,4 +1,8 @@
 export async function waitForSessionReady() {
+  const storageStatus = await browser.runtime.sendMessage({ command: "getStorageReadiness" });
+  if (!storageStatus?.ok) {
+    throw new Error("quickFilters settings storage failed to initialize. Restart Thunderbird and check Error Console (enable [Browser] and [Content] on Thunderbird 154+).");
+  }
 	const task = Promise.withResolvers();
 	const readyListener = (changes, area) => {
 		if (area !== "session") {

@@ -79,6 +79,7 @@ const quickFiltersPrefs = {
   },
 
   async get(id) {
+    const Preferences = globalThis.quickFilters._preferenceDefaults;
     const key = this._map[id] || id;
     if (!this._map[id] && !id.includes(".")) {
       throw new Error(`Unknown preference id: ${id}`);
@@ -87,12 +88,12 @@ const quickFiltersPrefs = {
     if (id.startsWith("debug")) {
       const { debug } = await browser.storage.local.get({ debug: {} });
       if(id==="debug") {
-        return debug.debugActive;
+        return debug?.debugActive ?? Preferences.DebugDefaults.debugActive;
       }
-      return debug[id];
+      return debug?.[id] ?? Preferences.DebugDefaults[id];
     }
     const { settings } = await browser.storage.local.get({ settings: {} });
-    return settings[key];
+    return settings?.[key] ?? Preferences.Defaults[key];
   },
 
   async set(id, value) {
@@ -245,15 +246,16 @@ quickFilters.Assistant = {
   },
 
   getPref: async function (id) {
+    const Preferences = globalThis.quickFilters._preferenceDefaults;
     if (id.startsWith("debug")) {
       const { debug } = await browser.storage.local.get({ debug: {} });
       if (id === "debug") {
-        return debug.debugActive;
+        return debug?.debugActive ?? Preferences.DebugDefaults.debugActive;
       }
-      return debug[id];
+      return debug?.[id] ?? Preferences.DebugDefaults[id];
     }
     const { settings } = await browser.storage.local.get({ settings: {} });
-    return settings[id];
+    return settings?.[id] ?? Preferences.Defaults[id];
   },
 
   setPref: async function (id, value) {

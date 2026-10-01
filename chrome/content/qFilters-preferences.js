@@ -157,13 +157,14 @@ quickFilters.Preferences = {
 quickFilters.Preferences.cache = (() => {
   const cache = {
     _data: {},
+    _defaults: {},
     _resolveReady: null,
     _rejectReady: null,
     awaitReady: null /* init-only gate; NOT a lock for updates */,
     getValue: (k) => cache._data[k],
 
     setValue: async (k, v) => {
-      if (v === undefined) {
+      if (v === undefined || v === null) {
         throw new Error(`Cannot set preference "${k}" to undefined`);
       }
       cache._data[k] = v;
@@ -187,9 +188,15 @@ quickFilters.Preferences.cache = (() => {
       cache._rejectReady = ready.reject;
 
       try {
+        const Preferences = quickFilters.Storage;
+        cache._defaults = { ...Preferences.Defaults, ...Preferences.DebugDefaults,
+          debug: Preferences.DebugDefaults.debugActive };
         const data = await quickFilters.Storage.getWithRetry({ settings: {}, debug: {} });
-        const prefs = { ...data.settings };
-        for (const [k, v] of Object.entries(data.debug)) {
+        const prefs = { ...cache._defaults, ...Object.fromEntries(
+          Object.entries(data.settings ?? {}).filter(([, v]) => v !== null && v !== undefined)
+        ) };
+        for (const [k, v] of Object.entries(data.debug ?? {})) {
+          if (v === null || v === undefined) { continue; }
           prefs[k === "debugActive" ? "debug" : k] = v;
         }
         Object.keys(cache._data).forEach((k) => delete cache._data[k]);
@@ -204,7 +211,9 @@ quickFilters.Preferences.cache = (() => {
 
     updateFromBackend: (data) => {
       // copies all enumerable own properties
-      Object.assign(cache._data, data);
+      for (const [key, value] of Object.entries(data)) {
+        cache._data[key] = value ?? cache._defaults[key];
+      }
     },
   };
 

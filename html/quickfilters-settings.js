@@ -494,7 +494,10 @@ const handleNavigation = async (notAclick = false) => {
   }
 };
 
-startup();
+startup().catch(error => {
+  console.error("quickFilters settings startup:", error);
+  document.body.textContent = error.message;
+});
 // make sure to trugger startup again if a different page is requested
 let lastURI = window.location.href;
 browser.runtime.onMessage.addListener((data) => {
