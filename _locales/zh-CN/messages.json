@@ -1482,14 +1482,14 @@
   },
     "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L} {+extensionName} 现已兼容 Thunderbird 157。{/L}{L}{b class=maintenance}6.13.3{/b} 修复了更多与本地存储相关的过滤器助手故障，以及旧版 XHTML 过滤器助手的问题。[issue 383]{/L}{hr}{P class=heading}自维护版本 {b}6.13.2{/b} 以来的更改：{/P}{L} 修复了备份功能在某些 Linux 发行版（Betterbird、OpenSuse）上无法工作的问题。[issue 245]{/L}{L} 进一步提高了 QuickFolders 当前文件夹栏集成的稳定性。[issue 365]{/L}{L} 修复了波兰语语言文件中的错误翻译。{/L}{P class=heading}初始版本 {b}6.13{/b} 的精选亮点：{/P}{L}quickFilters 设置已改为使用本地存储，而不是 Thunderbird 的全局首选项。现在可通过移除并重新安装附加组件，将 quickFilters 恢复为默认行为。{/L}{L}消息过滤器对话框中新增了搜索选项，可按移动/复制操作的文件夹路径查找过滤器。{/L}{L}改进了 quickFilters 与 QuickFolders 之间的通信。[issue 373]{/L}"
+    "message": "{L}{+extensionName} 现已兼容 Thunderbird 159。{/L}{L}保留现有设置，仅迁移明确设置过的旧首选项。为缺失或值为 null 的设置恢复当前默认值，并修复首选项缓存的实时更新，包括过滤器助手中选定的模板。 [issue 392]{/L}{L}存储启动发生临时故障时重试，无法加载设置时显示通知。在 Thunderbird 154 及更高版本中进行诊断时，请在错误控制台启用 [Browser] 和 [Content]。 [issue 392]{/L}{L}修复在启动初始化完成前打开主工具栏菜单时，菜单停留在“让我改为加载菜单...”的问题。 [issue 391]{/L}{L}在 Thunderbird 启动缓慢后，恢复 QuickFolders 当前文件夹工具栏中缺失的 quickFilters 按钮。 [issue 396]{/L}{L}让过滤器助手的“下一步”按钮在鼠标悬停时保持可见。改进对话框控件的尺寸、间距和对齐，并修复 Thunderbird 157 及更高版本中的工具栏悬停样式。 [issue 393]{/L}{hr}{P class=heading}重要更新，版本 {b}6.13{/b}:{/P}{L}quickFilters 设置已从 Thunderbird 的全局首选项改为使用本地存储。您现在可以通过卸载并重新安装附加组件来恢复默认设置。{/L}{L}在消息过滤器对话框中新增搜索选项，可按移动或复制操作的文件夹路径查找过滤器。{/L}{L}改进 quickFilters 与 QuickFolders 之间的通信。 [issue 373]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}Release 渠道用户（{emph}154 及更高版本{/emph}）请注意：随着 Thunderbird 采用新的两周发布周期，出现 [issue 383] 之类意外故障的风险有所增加。虽然我会定期使用每日构建测试 {+extensionName}，但及时修复仍依赖 Release 用户的{b}尽早报告{/b}。请关注{a href='https://github.com/RealRaven2000/quickFilters/issues'}问题跟踪器{/a}，并及时报告任何回归问题，以帮助维持兼容性。{/P}"
+    "message": "{P}版本 {b}6.13{/b} 将设置从 Thunderbird 的全局首选项迁移到本地存储。{b}6.13.4{/b} 延续此前维护版本的改进并修复回归问题，让设置迁移、默认值和启动故障处理更加可靠。 [issue 367] [issue 383] [issue 392]{/P}{P}{a href='https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/'}QuickFolders{/a} 的当前文件夹工具栏提供导航和文件夹操作，并集成 quickFilters 按钮，用于运行过滤器、打开过滤器列表和查找当前文件夹的过滤器。版本 6.13 改进了此集成的稳定性以及两个附加组件之间的通信。版本 {b}6.13.4{/b} 还可在 Thunderbird 启动缓慢后恢复缺失的 quickFilters 按钮。 [issue 365] [issue 373] [issue 396]{/P}"
   },
   "whats-new-maintenance": {
-    "message": "维护更新 $ver$。此特定修复已包含在上一版本之后的更新中。",
+    "message": "维护更新 $ver$。次要版本发布后的重要修复和兼容性更新，包括需要紧急修复的回归问题。",
     "placeholders": {
       "ver": { "content": "$1", "example": "6.12.3" }
     }

@@ -1401,14 +1401,14 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{L} {+extensionName} 現已相容於 Thunderbird 157。{/L}{L}{b class=maintenance}6.13.3{/b} 修正了更多與本機儲存相關的篩選器助手故障，以及舊版 XHTML 篩選器助手的問題。[issue 383]{/L}{hr}{P class=heading}自維護版本 {b}6.13.2{/b} 以來的變更：{/P}{L} 修正了備份功能在某些 Linux 發行版（Betterbird、OpenSuse）上無法運作的問題。[issue 245]{/L}{L} 進一步改善了 QuickFolders 目前資料夾列整合的穩定性。[issue 365]{/L}{L} 修正了波蘭文語言檔案中的錯誤翻譯。{/L}{P class=heading}初始版本 {b}6.13{/b} 的精選亮點：{/P}{L}quickFilters 設定已改為使用本機儲存，而非 Thunderbird 的全域偏好設定。現在可透過移除並重新安裝附加元件，將 quickFilters 恢復為預設行為。{/L}{L}訊息篩選器對話框中新增了搜尋選項，可依移動/複製動作的資料夾路徑尋找篩選器。{/L}{L}改善了 quickFilters 與 QuickFolders 之間的通訊。[issue 373]{/L}"
+    "message": "{L}{+extensionName} 現已相容於 Thunderbird 159。{/L}{L}保留現有設定，只移轉明確設定過的舊偏好設定。為缺少或值為 null 的設定還原目前的預設值，並修正偏好設定快取的即時更新，包括篩選器助手中選取的範本。 [issue 392]{/L}{L}儲存空間啟動發生暫時性錯誤時重試，無法載入設定時顯示通知。在 Thunderbird 154 及更新版本進行診斷時，請在錯誤主控台啟用 [Browser] 和 [Content]。 [issue 392]{/L}{L}修正在啟動初始化完成前開啟主工具列選單時，選單停留在「讓我改為載入選單...」的問題。 [issue 391]{/L}{L}在 Thunderbird 啟動緩慢後，還原 QuickFolders 目前資料夾工具列中缺少的 quickFilters 按鈕。 [issue 396]{/L}{L}讓篩選器助手的「下一步」按鈕在滑鼠移至其上時保持可見。改善對話框控制項的尺寸、間距與對齊，並修正 Thunderbird 157 及更新版本中的工具列滑鼠懸停樣式。 [issue 393]{/L}{hr}{P class=heading}重要更新，版本 {b}6.13{/b}:{/P}{L}quickFilters 設定已從 Thunderbird 的全域偏好設定改為使用本機儲存空間。您現在可以透過移除並重新安裝附加元件來還原預設設定。{/L}{L}在郵件篩選器對話框中新增搜尋選項，可依移動或複製動作的資料夾路徑尋找篩選器。{/L}{L}改善 quickFilters 與 QuickFolders 之間的通訊。 [issue 373]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}Release 頻道使用者（{emph}154 及更新版本{/emph}）請注意：隨著 Thunderbird 採用新的兩週發佈週期，出現 [issue 383] 之類非預期故障的風險有所增加。雖然我會定期使用每日建置測試 {+extensionName}，但及時修正仍有賴 Release 使用者的{b}及早回報{/b}。請關注{a href='https://github.com/RealRaven2000/quickFilters/issues'}問題追蹤器{/a}，並儘速報告任何迴歸問題，以協助維持相容性。{/P}"
+    "message": "{P}版本 {b}6.13{/b} 將設定從 Thunderbird 的全域偏好設定移轉至本機儲存空間。{b}6.13.4{/b} 延續先前維護版本的改進並修正迴歸問題，使設定移轉、預設值及啟動錯誤處理更可靠。 [issue 367] [issue 383] [issue 392]{/P}{P}{a href='https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/'}QuickFolders{/a} 的目前資料夾工具列提供導覽與資料夾操作，並整合 quickFilters 按鈕，用於執行篩選器、開啟篩選器清單及尋找目前資料夾的篩選器。版本 6.13 改善了此整合的穩定性及兩個附加元件之間的通訊。版本 {b}6.13.4{/b} 也能在 Thunderbird 啟動緩慢後還原缺少的 quickFilters 按鈕。 [issue 365] [issue 373] [issue 396]{/P}"
   },
   "whats-new-maintenance": {
-    "message": "維護更新 $ver$。此特定修正已包含在上一個版本之後的更新中。",
+    "message": "維護更新 $ver$。次要版本發布後的重要修正與相容性更新，包括需要緊急修正的迴歸問題。",
     "placeholders": {
       "ver": { "content": "$1", "example": "6.12.3" }
     }

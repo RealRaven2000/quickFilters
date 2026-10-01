@@ -248,8 +248,16 @@ END LICENSE BLOCK
     # [issue 245] Backup failing - clicking on button doesn't do anything (Betterbird, OpenSuse)
     # Some fixes in Polish locale file that showed wrong language in settings
 
-   6.13.3 - 31/08/2026
+  6.13.3 - 31/08/2026
     # [issue 383] Fixes against empty filter template after selecting one from the assistant dialog
+    # [issue 392] Harden preference migration and handle settings storage startup failures
+
+  6.13.4 - WIP
+    # [issue 391] Main button popup menu only shows "Let me load the menu instead..."
+    # [issue 392] Added More storage logging and make sure defaults are pulled from cache._defaults
+                  also removed obsolete legacy defaults
+    # [issue 393] Fix Filter Assistant button hover and improve dialog layout 
+    # [issue 396] Fixed: quickFilters buttons missing from QuickFolders toolbar after slow startup
 
     
   ============================================================================================================

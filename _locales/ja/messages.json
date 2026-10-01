@@ -1491,14 +1491,14 @@
   },
   "whats-new-list": {
     "description": "🇯🇵 change log",
-    "message": "{L} {+extensionName} は Thunderbird 157 に対応しました。{/L}{L}{b class=maintenance}6.13.3{/b} ローカルストレージに関連するフィルターアシスタントのさらなる不具合と、従来の XHTML フィルターアシスタントの問題を修正しました。[issue 383]{/L}{hr}{P class=heading}メンテナンスリリース {b}6.13.2{/b} からの変更：{/P}{L} 一部の Linux ディストリビューション（Betterbird、OpenSuse）でバックアップ機能が動作しない問題を修正しました。[issue 245]{/L}{L} QuickFolders の現在のフォルダーバー統合の安定性をさらに改善しました。[issue 365]{/L}{L} ポーランド語ロケールファイルの誤訳を修正しました。{/L}{P class=heading}初回リリース {b}6.13{/b} からの主なハイライト：{/P}{L}quickFilters の設定を Thunderbird のグローバル設定ではなくローカルストレージを使用するように変更しました。アドオンを削除して再インストールすると、quickFilters を既定の動作に戻せます。{/L}{L}メッセージフィルターダイアログに、移動/コピーアクションのフォルダーパスでフィルターを検索する新しいオプションを追加しました。{/L}{L}quickFilters と QuickFolders 間の通信を改善しました。[issue 373]{/L}"
+    "message": "{L}{+extensionName} が Thunderbird 159 に対応しました。{/L}{L}既存の設定を保持し、明示的に設定された旧設定のみを移行します。未設定または null の設定には現在の既定値を復元し、フィルターアシスタントで選択したテンプレートを含む設定キャッシュの即時更新を修正しました。 [issue 392]{/L}{L}起動時の一時的なストレージ障害を再試行し、設定を読み込めない場合は通知を表示します。Thunderbird 154 以降で診断するには、エラーコンソールの [Browser] と [Content] を有効にしてください。 [issue 392]{/L}{L}起動時の初期化が完了する前にメインツールバーのメニューを開くと、「代わりにメニューを読み込ませてください...」のままになる問題を修正しました。 [issue 391]{/L}{L}Thunderbird の起動に時間がかかった場合に、QuickFolders の現在のフォルダーツールバーから消えていた quickFilters ボタンを復元します。 [issue 396]{/L}{L}フィルターアシスタントの「次へ」ボタンがマウスポインターを重ねても表示されるようにしました。ダイアログのコントロールのサイズ、間隔、配置を改善し、Thunderbird 157 以降のツールバーのホバー表示を修正しました。 [issue 393]{/L}{hr}{P class=heading}主な変更点：バージョン {b}6.13{/b}:{/P}{L}quickFilters の設定を Thunderbird のグローバル設定からローカルストレージに移しました。アドオンを削除して再インストールすると、既定の設定に戻せます。{/L}{L}メッセージフィルターダイアログに、移動・コピーの操作先フォルダーのパスでフィルターを検索するオプションを追加しました。{/L}{L}quickFilters と QuickFolders の連携を改善しました。 [issue 373]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}Release チャンネルのユーザー（{emph}154 以降{/emph}）への重要なお知らせ：Thunderbird の新しい2週間ごとのリリースサイクルにより、[issue 383] のような予期しない不具合のリスクが高まっています。{+extensionName} は Daily ビルドで定期的にテストしていますが、迅速な修正には Release ユーザーからの{b}早期報告{/b}が欠かせません。互換性を維持するため、{a href='https://github.com/RealRaven2000/quickFilters/issues'}課題トラッカー{/a}を確認し、リグレッションを速やかに報告してください。{/P}"
+    "message": "{P}バージョン {b}6.13{/b} で設定を Thunderbird のグローバル設定からローカルストレージに移しました。{b}6.13.4{/b} は以前のメンテナンスリリースの改善を引き継ぎ、リグレッションを修正することで、設定の移行、既定値、起動時の障害処理の信頼性を高めます。 [issue 367] [issue 383] [issue 392]{/P}{P}{a href='https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/'}QuickFolders{/a} の現在のフォルダーツールバーでは、フォルダーの移動や操作に加え、統合された quickFilters ボタンを使ってフィルターの実行、フィルター一覧の表示、現在のフォルダーのフィルター検索ができます。バージョン 6.13 ではこの統合の安定性と両アドオンの連携を改善しました。バージョン {b}6.13.4{/b} では、Thunderbird の起動に時間がかかった際に消えた quickFilters ボタンも復元します。 [issue 365] [issue 373] [issue 396]{/P}"
   },
   "whats-new-maintenance": {
-    "message": "メンテナンス更新 $ver$。この特定の修正は前回のリリース以降に追加されました。",
+    "message": "メンテナンス更新 $ver$。マイナーリリース後の重要な修正と互換性更新です。緊急のリグレッション修正も含みます。",
     "placeholders": {
       "ver": { "content": "$1", "example": "6.12.3" }
     }

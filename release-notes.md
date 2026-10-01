@@ -1,35 +1,19 @@
-**Release 6.13.3**
 
-The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13.3)
+The full log with screenshots is available at: [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13.4)
 
+**Release 6.13.4**
 
-Important for Release channel users (154 and later): With Thunderbird's new 2-week release cycle, there is an elevated risk of unexpected breakages like [issue #383]. While I regularly test quickFilters against daily builds, timely fixes depend on early reporting from Release users. Please follow the issue tracker and report any regressions promptly to help maintain compatibility.
+This maintenance release improves startup reliability, settings handling, and dialog layout following the migration to local storage.
 
-**Maintenance version 6.13.3**
-- quickFilters is now compatible with Thunderbird 157.
-- Fixed more Filter Assistant malfunctions relating to local storage and problems with the legacy xhtml filter assistant. [issue #383]
+- **Compatibility:** quickFilters is now compatible with Thunderbird 159.
+- **Settings and storage:** Preserve existing settings and migrate only explicitly set legacy preferences. Restore current defaults for missing or null settings and fix live updates to the preference cache, including the selected Filter Assistant template. #392
+- **Storage startup:** Retry temporary storage failures and report when settings cannot be loaded. A notification now asks users to restart Thunderbird instead of leaving quickFilters waiting indefinitely. For diagnostics on Thunderbird 154+, enable [Browser] and [Content] in Error Console. #392
+- **Main toolbar menu:** Fix the popup remaining on “Let me load the menu instead...” when opened before startup initialization has finished. #391
+- **QuickFolders integration:** Restore missing quickFilters buttons in the Current Folder toolbar after a slow Thunderbird startup. #396
+- **Dialogs and appearance:** Keep the Filter Assistant's Next button visible on hover, improve control sizing, spacing, and alignment, and correct toolbar hover styling for Thunderbird 157+. #393
 
+Version 6.13 moved settings from Thunderbird's global preferences to local storage. Earlier maintenance releases addressed related Filter Assistant regressions and compatibility problems, but missing preference values and delayed storage startup required further changes. Version 6.13.4 builds on those fixes to make settings migration, default values, and startup failure handling more reliable. #367 #383 #392
 
-**Maintenance version 6.13.2**
+The full history with screenshots is available in the [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html).
 
-- Fixed Filter Assistant malfunctions from a regression caused by a preferences migration related to using `.startsWith()` on a missing preference. [issue #383]
-- Fixed backup feature not working on some Linux distributions (Betterbird, OpenSuse). [issue #245]
-- Further Improved QuickFolders current folder bar integration stability [issue #365]
-- Fixed incorrect translations in Polish locale file.
-
-
-**Improvements 6.13**
-- Fixed a bug where the main Thunderbird window content was moved up and caused truncation [issue #382]. If you are seeing this behavior, please restart Thunderbird to make sure the changes come into effect. 
-- Remember position of Filter Assistant window. New option to force assistant to the top. [issue #380]
-- Improved QuickFolders current folder bar integration stability [issue #365]
-
-
-
-**Bug Fixes 6.13**
-
-- Fixed an issue where cached debug settings were not read after the migration to local storage. [issue #367]
-- Filter assistant not using correct built in template (domain instead of from) [issue #376] 
-
-
-
-All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN) which also adds some [additional features](https://quickfilters.quickfolders.org/premium.html#featureList).
+All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN), which also adds [additional features](https://quickfilters.quickfolders.org/premium.html#featureList).
