@@ -231,7 +231,7 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 <a name="6.13"> &nbsp; </a><a name="6.13.1"> &nbsp; </a><a name="6.13.2"> &nbsp; </a><a name="6.13.3"> &nbsp; </a>
 <li>
   <h4> <a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.13">
-     quickFilters 6.13.2 - 21/08/2026</a>
+     quickFilters 6.13.4</a>
 	</h4>
 
   <p>
@@ -246,6 +246,24 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     migrate your existing profile from Release to ESR is when Thunderbird 153 will be 
     published in July 2026.
   </p>
+  <a name="6.13.4"> &nbsp; </a>
+  <h5 class="inList"> 6.13.4 Maintenance Update</h5>
+  <p>
+    This maintenance release improves startup reliability, settings handling, 
+    and dialog layout following the migration to local storage.
+  </p>
+  
+  <ul>
+    <li><strong>Compatibility:</strong> quickFilters is now compatible with Thunderbird 159.</li>
+    <li><strong>Settings and storage:</strong> Preserve existing settings and migrate only explicitly set legacy preferences. Restore current defaults for missing or null settings and fix live updates to the preference cache, including the selected Filter Assistant template. <a href="https://github.com/RealRaven2000/quickFilters/issues/392">#392</a></li>
+    <li><strong>Storage startup:</strong> Retry temporary storage failures and report when settings cannot be loaded. A notification now asks users to restart Thunderbird instead of leaving quickFilters waiting indefinitely. For diagnostics on Thunderbird 154+, enable [Browser] and [Content] in Error Console. <a href="https://github.com/RealRaven2000/quickFilters/issues/392">#392</a></li>
+    <li><strong>Main toolbar menu:</strong> Fix the popup remaining on “Let me load the menu instead...” when opened before startup initialization has finished. <a href="https://github.com/RealRaven2000/quickFilters/issues/391">#391</a></li>
+    <li><strong>QuickFolders integration:</strong> Restore missing quickFilters buttons in the Current Folder toolbar after a slow Thunderbird startup. <a href="https://github.com/RealRaven2000/quickFilters/issues/396">#396</a></li>
+    <li><strong>Dialogs and appearance:</strong> Keep the Filter Assistant's Next button visible on hover, improve control sizing, spacing, and alignment, and correct toolbar hover styling for Thunderbird 157+. <a href="https://github.com/RealRaven2000/quickFilters/issues/393">#393</a></li>
+  </ul>
+  
+  <p>Version 6.13 moved settings from Thunderbird's global preferences to local storage. Earlier maintenance releases addressed related Filter Assistant regressions and compatibility problems, but missing preference values and delayed storage startup required further changes. Version 6.13.4 builds on those fixes to make settings migration, default values, and startup failure handling more reliable. <a href="https://github.com/RealRaven2000/quickFilters/issues/367">#367</a> <a href="https://github.com/RealRaven2000/quickFilters/issues/383">#383</a> <a href="https://github.com/RealRaven2000/quickFilters/issues/392">#392</a></p>
+
   <h5 class="inList"> 6.13.3 Maintenance Update - 31/08/2026</h5>
   <ul>
     <li>
@@ -3657,6 +3675,5 @@ document.write('Mail To Axel Grude</a>');
     }    
     
   </script>  
-
 
 
