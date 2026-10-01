@@ -550,6 +550,14 @@ const uiReadyPromise = new Promise((resolve) => {
   uiResolve = resolve; // save the resolver
 });
 
+async function isAddonActive(addonId) {
+  try {
+    return (await messenger.management.get(addonId)).enabled;
+  } catch {
+    return false; // An uninstalled add-on cannot be queried.
+  }
+}
+
 // Wrapper that supports multiple args
 async function notifyWhenUIReady(...args) {
   try {
@@ -1431,7 +1439,13 @@ async function main() {
           );
         }
         if (message.command == "injectButtonsQFNavigationBar") {
-          notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
+          if (!(await isAddonActive(QUICKFOLDERS_APPNAME))) {
+            return { ok: false, skipped: "QuickFolders is not active",
+              initializedTabs: 0, integratedTabs: 0 };
+          }
+          await uiReadyPromise;
+          await messenger.WindowListener.ensureRegisteredWindows("about:3pane");
+          return messenger.Utilities.ensureQuickFoldersButtons();
         }
         break;
     }

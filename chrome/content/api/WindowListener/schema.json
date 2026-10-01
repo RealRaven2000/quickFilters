@@ -3,6 +3,13 @@
     "namespace": "WindowListener",
     "functions": [
       {
+        "name": "ensureRegisteredWindows",
+        "type": "function",
+        "async": true,
+        "description": "Ensure open documents matching a registered URL have completed their initialization.",
+        "parameters": [{ "name": "windowHref", "type": "string" }]
+      },
+      {
         "name": "registerDefaultPrefs",
         "type": "function",
         "parameters": [

@@ -14,13 +14,76 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
     console.log("quickFilters exp API: Utilities.getAPI() called"); 
     return {
       Utilities: {
+        async ensureQuickFoldersButtons() {
+          // #396: a notification cannot recover a document whose listener was never injected.
+          let initializedTabs = 0;
+          let integratedTabs = 0;
+          for (const mainWindow of Services.wm.getEnumerator("mail:3pane")) {
+            const documents = [];
+            for (const tab of mainWindow.document.getElementById("tabmail")?.tabInfo || []) {
+              if (tab.mode.name !== "mail3PaneTab") {
+                continue;
+              }
+              const target = tab.chromeBrowser?.contentWindow;
+              if (!target || target.closed || target.location.href !== "about:3pane") {
+                continue;
+              }
+              const scope = target["AddOnNS" + context.extension.instanceId];
+              if (!scope?.injectQuickFoldersNavigationBarElements) {
+                continue;
+              }
+              await scope.injectQuickFoldersNavigationBarElements(target);
+              initializedTabs++;
+              documents.push(target.document);
+            }
+            if (mainWindow.quickFilters) {
+              await mainWindow.quickFilters.toggleCurrentFolderButtons();
+            }
+            for (const document of documents) {
+              const toolbar = document.getElementById("QuickFolders-CurrentFolderTools");
+              if (toolbar && [
+                "quickfilters-current-runbutton",
+                "quickfilters-current-msg-runbutton",
+                "quickfilters-current-listbutton",
+                "quickfilters-current-searchfilterbutton",
+              ].every(id => document.getElementById(id)?.parentNode === toolbar)) {
+                integratedTabs++;
+              }
+            }
+          }
+          return {
+            ok: initializedTabs > 0 && integratedTabs === initializedTabs,
+            initializedTabs,
+            integratedTabs,
+          };
+        },
+
+
         latestMainWindow: function () {
           return Services.wm.getMostRecentWindow("mail:3pane");
         },
 
-        showToolbarPopup: function () {
-          let win = this.latestMainWindow();
-          win.quickFilters.Util.showToolbarPopup();
+        showToolbarPopup: async function () {
+          // The toolbar can be clicked before WindowListener finishes injection.
+          // Use an API-owned timer: the main window may close while we wait.
+          const { setTimeout } = ChromeUtils.importESModule("resource://gre/modules/Timer.sys.mjs");
+          const TIMEOUTSECONDS = 25;
+          const deadline = Date.now() + TIMEOUTSECONDS * 1000;
+          while (true) {
+            const win = Services.wm.getMostRecentWindow("mail:3pane");
+            if (
+              win && !win.closed &&
+              typeof win.quickFilters?.Util?.showToolbarPopup === "function" &&
+              win.document.getElementById("quickFiltersMainPopup")
+            ) {
+              win.quickFilters.Util.showToolbarPopup();
+              return;
+            }
+            if (Date.now() >= deadline) {
+              throw new Error(`Utilities.showToolbarPopup(): quickFilters object not ready within ${TIMEOUTSECONDS} seconds.`);
+            }
+            await new Promise(resolve => setTimeout(resolve, 100));
+          }
         },
 
         logDebug(...args) {

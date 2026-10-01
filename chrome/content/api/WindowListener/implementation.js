@@ -174,7 +174,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
         localstorage.local.clear = (...args) =>
           localstorage.local.callMethodInParentProcess("clear", args);
       } catch (e) {
-        console.info("Storage permission is missing");
+        console.warn("Storage permission is missing");
       }
       return localstorage;
     }
@@ -289,6 +289,33 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
     return {
       WindowListener: {
+        async ensureRegisteredWindows(windowHref) {
+          if (!Object.hasOwn(self.registeredWindows, windowHref)) {
+            throw new Error("Window URL is not registered: " + windowHref);
+          }
+          const targets = new Set();
+          const collect = window => {
+            if (!window || window.closed || targets.has(window)) { return; }
+            targets.add(window);
+            for (const element of [
+              ...window.document.getElementsByTagName("browser"),
+              ...window.document.getElementsByTagName("xul:browser"),
+            ]) {
+              collect(element.contentWindow);
+            }
+            for (const tab of self.getTabMail(window)?.tabInfo || []) {
+              collect(tab.chromeBrowser?.contentWindow);
+              collect(tab.browser?.contentWindow);
+            }
+          };
+          for (const window of Services.wm.getEnumerator(null)) { collect(window); }
+          for (const window of targets) {
+            if (window.location.href === windowHref) {
+              await self._loadIntoWindow(window, false);
+            }
+          }
+        },
+
         async waitForMasterPassword() {
           // Wait until master password has been entered (if needed)
           while (!Services.logins.isLoggedIn) {
@@ -502,10 +529,15 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
 
   async _loadIntoWindow(window, isAddonActivation) {
     const fullyLoaded = async (window) => {
-      for (let i = 0; i < 20; i++) {
-        await this.sleep(250); // was 50
-        // To do: build a listener for window.document.readyState == "complete"
-        // so we don't need this loop
+      const started = Date.now();
+      const intervals = [250, 500, 1000, 1500, 2000];
+      let checks = 0;
+      while (Date.now() - started < 60000) {
+        const remainingMs = 60000 - (Date.now() - started);
+        await this.sleep(Math.max(1, Math.min(
+          intervals[Math.min(checks++, intervals.length - 1)], remainingMs
+        )));
+        // Check readiness even when a busy main thread delivers the timer late.
         if (
           window &&
           window.location.href != "about:blank" &&
@@ -525,6 +557,7 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
     }
 
     if (!window || window.hasOwnProperty(this.uniqueRandomID)) {
+      await window?.[this.uniqueRandomID]?.onLoadPromise;
       // console.log("WL._loadIntoWindow already processed:", window?.location.href)
       return;
     }
@@ -746,7 +779,9 @@ var WindowListener = class extends ExtensionCommon.ExtensionAPI {
           this.registeredWindows[window.location.href],
           window[this.uniqueRandomID]
         );
-        window[this.uniqueRandomID].onLoad(isAddonActivation);
+        window[this.uniqueRandomID].onLoadPromise =
+          window[this.uniqueRandomID].onLoad(isAddonActivation);
+        await window[this.uniqueRandomID].onLoadPromise;
       } catch (e) {
         Components.utils.reportError(e);
       }

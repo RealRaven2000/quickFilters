@@ -2,9 +2,11 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 const defaultsSource = await readFile(new URL("../../scripts/preference-defaults.js", import.meta.url), "utf8");
-const defaultsScope = vm.createContext({});
+const defaultsScope = vm.createContext({ quickFilters: { existingMember: true } });
 vm.runInContext(defaultsSource, defaultsScope);
-globalThis.quickFiltersPreferenceDefaults = defaultsScope.quickFiltersPreferenceDefaults;
+assert.equal(defaultsScope.quickFilters.existingMember, true);
+assert.deepEqual(Object.keys(defaultsScope), ['quickFilters']);
+globalThis.quickFilters = defaultsScope.quickFilters;
 const source = await readFile(new URL("../../scripts/preferences.js", import.meta.url), "utf8");
 
 // Exercise the legacy loader contract and reinjection without window globals.
@@ -28,8 +30,8 @@ legacyScope.quickFilters.Storage.Defaults["filters.currentTemplate"] = "custom";
 vm.runInContext(storageSource, legacyScope);
 assert.equal(defaultLoads, 2);
 assert.equal(legacyScope.quickFilters.Storage.Defaults["filters.currentTemplate"], "from");
-assert.equal(legacyScope.quickFiltersPreferenceDefaults, undefined);
-assert.equal(globalThis.quickFiltersPreferenceDefaults.Defaults["filters.currentTemplate"], "from");
+assert.equal(legacyScope.quickFilters._preferenceDefaults, undefined);
+assert.equal(globalThis.quickFilters._preferenceDefaults.Defaults["filters.currentTemplate"], "from");
 let instance = 0;
 async function setup(stored, legacy = {}, failures = {}) {
   const { Preferences: p } = await import(`data:text/javascript,${encodeURIComponent(source)}#${instance++}`);

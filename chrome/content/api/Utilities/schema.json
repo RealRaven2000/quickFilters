@@ -3,6 +3,10 @@
     "namespace": "Utilities",
     "functions": [
       {
+        "name": "ensureQuickFoldersButtons", "type": "function", "async": true,
+        "parameters": []
+      },
+      {
         "name": "logDebug",
         "type": "function",
         "async": true,
@@ -62,6 +66,7 @@
       {
         "name": "showToolbarPopup",
         "type": "function",
+        "async": true,
         "parameters": []
       },
 

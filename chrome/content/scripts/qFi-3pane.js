@@ -288,6 +288,7 @@ async function updateCurrentFolderBar(e) {
  * @param {string} [options.insertAfter] - ID of a sibling element to insert this button after.
  * @param {string} [options.insertBefore] - ID of a sibling element to insert this button before.
  * @param {string} [options.tooltip] - Tooltip text for the button (use l10n string if needed).
+ * @param {boolean} [options.preserveExisting=false] - Keep an existing button in its current parent.
  * @returns {Element} The injected or relocated toolbarbutton element.
  *
  * Notes:
@@ -296,12 +297,15 @@ async function updateCurrentFolderBar(e) {
  * - Event handler is attached via addEventListener to avoid inline script magic.
  */
 function injectButton(parentElement, id, options = {}) {
-  const { insertAfter, insertBefore, tooltip } = options;
+  const { insertAfter, insertBefore, tooltip, preserveExisting = false } = options;
   let doc = parentElement.ownerDocument;
 
   // Check if element already exists
   let existingElem = doc.getElementById(id);
   if (existingElem) {
+    if (preserveExisting) {
+      return existingElem;
+    }
     // Move to parentElement if it's not already there
     if (existingElem.parentNode !== parentElement) {
       if (insertAfter) {
@@ -362,8 +366,7 @@ function injectButton(parentElement, id, options = {}) {
 }
 
 async function injectQuickFoldersNavigationBarElements(win) {
-  // QUICKFOLDERS NAVIGATION BAR INJECTION: Remove the previous container!
-  const previousContainer = win.document.getElementById("quickFilters-injected");
+  // #396: recovery may run repeatedly; retain existing buttons and their handlers.
   const prefs = win?.quickFilters?.Preferences;
   if (!prefs) {
     console.error("injectQuickFoldersNavigationBarElements() - Preferences not available!");
@@ -371,12 +374,6 @@ async function injectQuickFoldersNavigationBarElements(win) {
   }
   await prefs.ensureReady();
   const isDebug = prefs.isDebugOption("3pane") || false;
-  if (previousContainer) {
-    if (win?.quickFilters?.Util) {
-      win.quickFilters.Util.logDebug("injectQuickFoldersNavigationBarElements() - removing previous container");
-    }
-    previousContainer.remove();
-  }
   const log3pane = (...args) => {
     if (!isDebug) { 
       return;
@@ -390,31 +387,41 @@ async function injectQuickFoldersNavigationBarElements(win) {
     await qFInjector.waitForElement(win.document, "#threadPane", 10000, log3pane);
   } catch (e) {
     win.quickFilters.Util.logException(e, "quickFilters injection failed");
+    throw e;
   }
 
   log3pane("inject Elements container...");
 
-  qFInjector.injectElements(`
+  if (!win.document.getElementById("quickFilters-injected")) {
+    qFInjector.injectElements(`
       <div id="threadPane">
       <hbox id="quickFilters-injected" collapsed="true"></hbox>
       </div>`);
+  }
   const container = win.document.getElementById("quickFilters-injected");
+  if (!container) {
+    throw new Error("quickFilters navigation button container was not injected");
+  }
   const localize = win.quickFilters.Util.getBundleString;
 
   log3pane("inject buttons...");
   injectButton(container, "quickfilters-current-runbutton", {
+    preserveExisting: true,
     insertAfter: "QuickFolders-currentFolderFilterActive",
     tooltip: localize("quickfilters.RunButton.tooltip"),
   });
   injectButton(container, "quickfilters-current-msg-runbutton", {
+    preserveExisting: true,
     insertAfter: "quickfilters-current-runbutton",
     tooltip: localize("quickfilters.RunButtonMsg.tooltip"),
   });
   injectButton(container, "quickfilters-current-listbutton", {
+    preserveExisting: true,
     insertAfter: "quickfilters-current-msg-runbutton",
     tooltip: localize("quickfilters.ListButton.tooltip"),
   });
   injectButton(container, "quickfilters-current-searchfilterbutton", {
+    preserveExisting: true,
     insertAfter: "quickfilters-current-listbutton",
     tooltip: localize("quickfilters.findFiltersForFolder.menu"),
   });
@@ -429,12 +436,7 @@ async function onLoad(_activatedWhileWindowOpen) {
   qFInjector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters.css?v=2");
   qFInjector.injectCSS(window, "chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
 
-  window.setTimeout((win = window) => {
-    console.log("qFi-3pane.js - onLoad()");
-    win.quickFilters = win.parent.quickFilters;
-
-    injectQuickFoldersNavigationBarElements(win);
-  });
+  window.quickFilters = window.parent.quickFilters;
 
   window.addEventListener("quickFilters.BackgroundUpdate.setAssistantButton", setAssistantButton);
   // window.quickFilters.toggleCurrentFolderButtons is running in experimental context
@@ -442,6 +444,7 @@ async function onLoad(_activatedWhileWindowOpen) {
     "quickFilters.BackgroundUpdate.updateCurrentFolderBar",
     updateCurrentFolderBar
   );
+  await injectQuickFoldersNavigationBarElements(window);
 }
 
 // eslint-disable-next-line no-unused-vars
