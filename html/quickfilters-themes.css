@@ -3,9 +3,12 @@
   --color-gray-05: #fafafa;
   --color-gray-10: #f4f4f5;
   --color-gray-20: #e4e4e7;
+  --color-gray-30: #d4d4d8;
   --color-gray-40: #a1a1aa;
   --color-gray-50: #71717a;
   --color-gray-60: #52525b;
+  --color-gray-70: #3f3f46;
+  --color-gray-80: #27272a;
   --color-gray-90: #18181b;
 
   --layout-background-1: light-dark(var(--color-gray-05), var(--color-gray-80));
@@ -23,6 +26,13 @@
 
   --button-border-color: light-dark(var(--layout-border-1), var(--layout-border-2));
   --button-border: var(--button-border-size) solid var(--button-border-color);
+
+  /* Thunderbird 157+ */
+  --input-text-min-height: 26px;
+  --qi-min-block-height: 26px;  
+	--qi-button-hover-background-color: var(--button-hover-background-color, light-dark(#e2e6ea, #45454d));
+
+
 }
 
 @media (prefers-color-scheme: dark) {

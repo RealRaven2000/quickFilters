@@ -8,7 +8,7 @@
 .vbox {
   flex-direction: column;
 }
-.align-center {
+.align-center, .hbox[align=center] {
   align-items: center;
 }
 
@@ -62,6 +62,7 @@
 label {
   display: flex;
   align-items: center;
+  margin-inline: 6px;
 }
 label:has(input:focus-visible) {
   outline: 1px dotted currentColor;
@@ -105,4 +106,48 @@ label:has(input:focus-visible) {
 }
 
 
+input[type="number"] {
+  text-align: start;
+  min-height: 24px;
+  border-radius: 3px;
+  padding-block: 0;
+  padding-inline-end: 0;
+}
 
+select:not([multiple]):not([size]),
+select[size="1"]:not([multiple]),
+.navigateable button,
+button.configSettings,
+button.category-icon {
+  min-block-size: var(--qi-min-block-height) !important;
+  min-height: var(--qi-min-block-height) !important;
+  padding-block: 0;
+  align-self: center;
+}
+
+input:where([type="email"], [type="tel"], [type="text"], [type="password"], [type="url"], [type="number"]),
+.qf-options-prefpane textarea {
+  border-radius: 3px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+input[type="text"] {
+  min-block-size: var(--qi-min-block-height) !important;
+  min-height: var(--qi-min-block-height) !important;
+  padding-block: 0;
+  align-self: center;
+}
+
+fieldset {
+  margin: 0.5em;
+  padding: 0 0.2em 0.5em;
+}
+
+fieldset legend {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding-inline: 4px;
+}

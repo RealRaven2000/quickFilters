@@ -206,8 +206,8 @@ footer, #main {
 }
 
 #btnNext:hover {
-  background-color: var(--button-hover-background-color,red) !important;
-  color: var(--button-active-color,blue) !important;
+  background-color: #0060df !important;
+  color: #fff !important;
   border: var(--button-hover-border) !important;
 }
 

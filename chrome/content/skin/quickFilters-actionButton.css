@@ -158,9 +158,15 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.expired:hover {
 }
 
 li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash:hover {
-	background-color: #6d0202 !important; 
+	background-color: #02409f !important; 
   background-image: linear-gradient(to bottom, #02409f 0%,#004e97 100%) !important;
 }
+
+/* Tb 157 regression */
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash button:hover  {
+	background-color: #02409f !important; 
+}
+
 
 /* main icon */
 #quickfilters-toolbar-button:not([checked="true"]):where(.expired,.renew,.newsflash) > .button-icon {
