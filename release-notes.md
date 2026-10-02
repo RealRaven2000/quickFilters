@@ -14,6 +14,6 @@ This maintenance release improves startup reliability, settings handling, and di
 
 Version 6.13 moved settings from Thunderbird's global preferences to local storage. Earlier maintenance releases addressed related Filter Assistant regressions and compatibility problems, but missing preference values and delayed storage startup required further changes. Version 6.13.4 builds on those fixes to make settings migration, default values, and startup failure handling more reliable. #367 #383 #392
 
-The full history with screenshots is available in the [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html).
+The full history with screenshots is available in the [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.13.4).
 
 All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN), which also adds [additional features](https://quickfilters.quickfolders.org/premium.html#featureList).
