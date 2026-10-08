@@ -1526,5 +1526,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Impossible de démarrer la réparation du dossier. Une fois les opérations en cours sur le dossier terminées, essayez Propriétés → Réparer le dossier."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters n’a pas pu récupérer les informations nécessaires pour créer ou mettre à jour un filtre.\n\nLe dossier de destination « {0} » doit peut-être être réparé.\n\nEssayer de réparer le dossier maintenant ?\n\nAttendez la fin de la réparation, puis essayez à nouveau de créer le filtre."
   }
 }

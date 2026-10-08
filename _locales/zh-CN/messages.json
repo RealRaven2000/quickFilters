@@ -1518,5 +1518,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "无法开始修复文件夹。请等待当前文件夹操作完成，然后尝试“属性 → 修复文件夹”。"
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters 无法获取创建或更新过滤器所需的信息。\n\n目标文件夹“{0}”可能需要修复。\n\n现在尝试修复文件夹吗？\n\n请等待修复完成，然后重新尝试创建过滤器。"
   }
 }

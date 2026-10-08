@@ -307,5 +307,11 @@
         "example": "quickFilters"
       }
     }
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Popravila mape ni bilo mogoče začeti. Ko se trenutna opravila z mapo končajo, poskusite Lastnosti → Popravi mapo."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters ni mogel pridobiti podatkov, potrebnih za ustvarjanje ali posodobitev filtra.\n\nCiljno mapo »{0}« bo morda treba popraviti.\n\nŽelite zdaj poskusiti popraviti mapo?\n\nPočakajte, da se popravilo konča, nato poskusite znova ustvariti filter."
   }
 }

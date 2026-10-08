@@ -1437,5 +1437,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "任何其他電子郵件地址都沒有問題 - 它們不需要單獨的許可證。如有疑問，您可以通過支持選項卡與我聯繫。"
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "無法開始修復資料夾。請等待目前的資料夾操作完成，再嘗試「內容 → 修復資料夾」。"
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters 無法取得建立或更新篩選器所需的資訊。\n\n目的地資料夾「{0}」可能需要修復。\n\n現在嘗試修復資料夾嗎？\n\n請等待修復完成，再重新嘗試建立篩選器。"
   }
 }

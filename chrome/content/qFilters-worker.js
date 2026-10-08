@@ -920,7 +920,7 @@ quickFilters.Worker = {
                 "quickfilters.createFilter.warning.noMessageDb",
                 "Cannot access message database for folder {1}"
               );
-              const fName = targetFolder.prettyName || targetFolder.localizedName;
+              const fName = targetFolder?.prettyName || targetFolder?.localizedName || "unknown";
               await util.popupAlert(wrn.replace("{1}", fName) + "\n" + e);
               this.promiseCreateFilter = false;
               return null;
@@ -2543,6 +2543,57 @@ quickFilters.Worker = {
     }
   }, // buildFilter
 
+  // Start Thunderbird's summary rebuild without changing the displayed folder.
+  rebuildFolderSummary: async function (folder) {
+    const util = quickFilters.Util;
+    const msgWindow = util.getMail3PaneWindow()?.msgWindow || window.msgWindow;
+    try {
+      if (folder.locked) {
+        folder.throwAlertMsg("operationFailedFolderBusy", msgWindow);
+        return false;
+      }
+      if (folder.supportsOffline) {
+        await IOUtils.remove(folder.filePath.path, { recursive: true, ignoreAbsent: true });
+      }
+      const { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
+      MailServices.mfn.notifyFolderReindexTriggered(folder);
+      try {
+        // A stale or missing summary can throw here; still proceed with rebuilding.
+        const database = folder.msgDatabase;
+        if (database) {
+          database.summaryValid = false;
+        }
+      } catch (ex) {
+        util.logException(
+          `rebuildFolderSummary(): could not invalidate summary for ${folder.URI}`, ex
+        );
+      }
+      try {
+        folder.closeAndBackupFolderDB("");
+      } catch {
+        folder.ForceDBClosed();
+      }
+      folder.updateFolder(msgWindow);
+      const parentFolder = folder.parent;
+      const folderLocation = [
+        folder.server?.prettyName,
+        parentFolder && !parentFolder.isServer
+          ? parentFolder.prettyName || parentFolder.localizedName
+          : null,
+        folder.prettyName || folder.localizedName || folder.URI,
+      ].filter(Boolean).join(" » ");
+      util.logWithOption("createFilter", `Repair requested for ${folderLocation}`);
+      return true; // Rebuild requested; updateFolder completes asynchronously.
+    } catch (ex) {
+      util.logException(`rebuildFolderSummary(): failed for ${folder.URI}`, ex);
+      Services.prompt.alert(window, "quickFilters", util.getBundleString(
+        "quickfilters.warning.folderRepairFailed",
+        "Could not start the folder repair. Please try Properties → Repair Folder after any current folder operation has finished."
+      ));
+      return false;
+    }
+  },
+
   /** legacy function (used from legacy QuickFolders) **/
   // THIS INTERFACE IS FROZEN!!
   createFilterAsync: async function (
@@ -2571,57 +2622,85 @@ quickFilters.Worker = {
     // to be backwards compatible with [old versions of] QuickFolders
     // we need to re-package the messageList elements in the format  { messageId, msgHeader}
     // to do: merge these changes into QuickFolders filter implementation
-    let targetServer = targetFolder ? targetFolder.server : null;
     for (let i = 0; i < messageIdList.length; i++) {
       let messageId = messageIdList[i],
         messageDb,
+        messageDbFolder,
         msgHeader;
-      try {
-        var { MailUtils } =  ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs");
-        msgHeader = MailUtils.getMsgHdrForMsgId(messageId, targetServer); // [issue 215] narrow down to increase speed
-        messageDb = targetFolder.msgDatabase; // msgDatabase
-      } catch {;}
-      if ((!messageDb || !messageDb.getMsgHdrForMessageID(messageId)) && sourceFolder) {
-        try {
-          messageDb = sourceFolder.msgDatabase; // msgDatabase
-        } catch {;}
-      }
-      if (!msgHeader && messageDb) {
-        msgHeader = messageDb.getMsgHdrForMessageID(messageId);
-        // this might take a while!
-        if (!msgHeader) {
-          retry++;
-          if (retry <= 20) {
-            // let's try for 20*250 = 5 seconds
-            await new Promise((resolve) => {
-              window.setTimeout(resolve, 250);
-            });
-            // returns a promise, can be awaited from outside to resolve inner promise
-            return quickFilters.Worker.createFilterAsync(
-              sourceFolder,
-              targetFolder,
-              messageIdList,
-              filterAction,
-              filterActionExt,
-              isSlow,
-              retry
-            );
-          } else {
-            // no joy! we need an error in console (and possibly an alert!)
-            const fName = targetFolder.prettyName || targetFolder.localizedName;
-            util.logWithOption(
-              "createFilter",
-              "legacy createFilterAsync()\n" +
-                `I am giving up, can't get msgHeader from ${fName},\n` +
-                `messageId = ${messageId}`
-            );
-          }
-          return null;
+      // quickMove already supplies the relevant folders. Avoid a recursive
+      // account-wide Message-ID search on every attempt.
+      for (const folder of new Set([targetFolder, sourceFolder])) {
+        if (!folder) {
+          continue;
         }
-        entry = util.makeMessageListEntry(msgHeader);
-      } else {
-        entry = { messageId: msgHeader.messageId, msgHeader: msgHeader };
+        try {
+          messageDb = folder.msgDatabase;
+          messageDbFolder = folder;
+          msgHeader = messageDb?.getMsgHdrForMessageID(messageId);
+          if (msgHeader) {
+            break;
+          }
+        } catch (ex) {
+          util.logException(
+            `legacy createFilterAsync(): message lookup failed in folder ${folder.URI}`,
+            ex
+          );
+        }
       }
+      // this might take a while!
+      if (!msgHeader) {
+        retry++;
+        if (retry <= 20) {
+          // let's try for 20*250 = 5 seconds
+          await new Promise((resolve) => {
+            window.setTimeout(resolve, 250);
+          });
+          // returns a promise, can be awaited from outside to resolve inner promise
+          return quickFilters.Worker.createFilterAsync(
+            sourceFolder,
+            targetFolder,
+            messageIdList,
+            filterAction,
+            filterActionExt,
+            isSlow,
+            retry
+          );
+        } else {
+          // Report the exhausted retries and suggest repairing the target folder.
+          const fName = targetFolder?.prettyName || targetFolder?.localizedName || "unknown";
+          const parentFolder = targetFolder?.parent;
+          const folderLocation = [
+            targetFolder?.server?.prettyName,
+            parentFolder && !parentFolder.isServer
+              ? parentFolder.prettyName || parentFolder.localizedName
+              : null,
+            fName,
+          ].filter(Boolean).join(" » ");
+          util.logWithOption(
+            "createFilter",
+            "legacy createFilterAsync()\n" +
+              `I am giving up, can't get msgHeader from ${fName},\n` +
+              `messageId = ${messageId}\n` +
+              `messageDb folder URI = ${messageDbFolder?.URI ?? "unknown"}\n` +
+              `target folder URI = ${targetFolder?.URI ?? "unknown"}\n` +
+              `source folder URI = ${sourceFolder?.URI ?? "unknown"}`
+          );
+          const timeoutMessage = util.getBundleString(
+            "quickfilters.warning.messageLookupTimeout",
+            "quickFilters could not retrieve the necessary details to create or update a filter.\n\nThe destination folder \"{0}\" may need repair.\n\nTry to repair the folder now?\n\nWait for the repair to finish, then try creating the filter again."
+          );
+          const repairFolder = Services.prompt.confirm(
+            window,
+            "quickFilters",
+            timeoutMessage.replace("{0}", () => folderLocation)
+          );
+          if (repairFolder && targetFolder) {
+            await quickFilters.Worker.rebuildFolderSummary(targetFolder);
+          }
+        }
+        return null;
+      }
+      entry = util.makeMessageListEntry(msgHeader);
 
       messageList.push(entry); // ### [Bug 25688] Creating Filter on IMAP fails after 7 attempts ###
     }

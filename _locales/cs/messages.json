@@ -1504,5 +1504,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Jakékoliv další e-mailové adresy nejsou problém - nevyžadují samostatnou licenci. V případě dotazů mě můžete kontaktovat na záložce Podpora."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Opravu složky se nepodařilo spustit. Po dokončení všech probíhajících operací se složkou zkuste Vlastnosti → Opravit složku."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters nemohl získat údaje potřebné k vytvoření nebo aktualizaci filtru.\n\nCílová složka „{0}“ může vyžadovat opravu.\n\nPokusit se složku opravit nyní?\n\nPočkejte na dokončení opravy a poté zkuste filtr vytvořit znovu."
   }
 }

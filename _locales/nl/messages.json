@@ -1528,5 +1528,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Extra e-mailadressen zijn geen probleem - er is geen aparte licentie voor nodig. Bij vragen kunt u me via het tabblad Ondersteuning bereiken."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "De mapreparatie kon niet worden gestart. Wacht tot lopende mapbewerkingen zijn voltooid en probeer vervolgens Eigenschappen → Map repareren."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters kon de benodigde gegevens niet ophalen om een filter te maken of bij te werken.\n\nDe doelmap ‘{0}’ moet mogelijk worden gerepareerd.\n\nNu proberen de map te repareren?\n\nWacht tot de reparatie is voltooid en probeer het filter vervolgens opnieuw te maken."
   }
 }

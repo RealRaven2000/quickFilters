@@ -1530,5 +1530,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Eventuali indirizzi di posta elettronica aggiuntivi non rappresentano un problema: essi non richiedono una licenza separata. Per qualsiasi problema potete contattarmi tramite la scheda di supporto."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Impossibile avviare la riparazione della cartella. Al termine delle operazioni in corso sulla cartella, provare Proprietà → Ripara cartella."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters non è riuscito a recuperare le informazioni necessarie per creare o aggiornare un filtro.\n\nPotrebbe essere necessario riparare la cartella di destinazione «{0}».\n\nProvare a riparare la cartella adesso?\n\nAttendere il completamento della riparazione, quindi provare nuovamente a creare il filtro."
   }
 }

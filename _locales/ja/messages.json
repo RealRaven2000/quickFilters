@@ -1527,5 +1527,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "メールアドレスを追加しても問題ありません。別のライセンスは不要です。ご質問がありましたらサポートタブからお問い合わせください。"
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "フォルダーの修復を開始できませんでした。実行中のフォルダー操作が完了してから、プロパティ → フォルダーを修復をお試しください。"
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters はフィルターの作成または更新に必要な情報を取得できませんでした。\n\n移動先フォルダー「{0}」の修復が必要な可能性があります。\n\n今すぐフォルダーの修復を試みますか？\n\n修復が完了するまで待ってから、フィルターの作成をもう一度お試しください。"
   }
 }

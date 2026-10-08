@@ -1526,5 +1526,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Några ytterligare e-postadresser är inget problem - de kräver inte en separat licens. Om du har frågor kan du nå mig via supportfliken."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Det gick inte att starta reparationen av mappen. När pågående mappåtgärder är klara, prova Egenskaper → Reparera mapp."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters kunde inte hämta de uppgifter som behövs för att skapa eller uppdatera ett filter.\n\nMålmappen ”{0}” kan behöva repareras.\n\nFörsöka reparera mappen nu?\n\nVänta tills reparationen är klar och försök sedan skapa filtret igen."
   }
 }

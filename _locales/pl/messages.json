@@ -1524,5 +1524,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Wszelkie dodatkowe adresy e-mail nie stanowią problemu - nie wymagają osobnej licencji. W przypadku pytań możesz skontaktować się ze mną za pośrednictwem karty wsparcia."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Nie udało się rozpocząć naprawy folderu. Po zakończeniu bieżących operacji na folderze spróbuj wybrać Właściwości → Napraw folder."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters nie mógł pobrać informacji potrzebnych do utworzenia lub aktualizacji filtra.\n\nFolder docelowy „{0}” może wymagać naprawy.\n\nSpróbować naprawić folder teraz?\n\nPoczekaj na zakończenie naprawy, a następnie spróbuj ponownie utworzyć filtr."
   }
 }

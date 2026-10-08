@@ -1530,5 +1530,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Sem problemas em ter emails adicionais - não necessita de licença separada. Em caso de dúvidas, entre em contato através da aba de suporte."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Não foi possível iniciar a reparação da pasta. Quando as operações em curso na pasta terminarem, tente Propriedades → Reparar pasta."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "O quickFilters não conseguiu obter as informações necessárias para criar ou atualizar um filtro.\n\nA pasta de destino «{0}» pode precisar de reparação.\n\nTentar reparar a pasta agora?\n\nAguarde até a reparação terminar e tente criar o filtro novamente."
   }
 }

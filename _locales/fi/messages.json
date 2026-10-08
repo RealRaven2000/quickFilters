@@ -1526,5 +1526,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Kaikki muut sähköpostiosoitteet eivät ole ongelma - ne eivät vaadi erillistä lisenssiä. Jos sinulla on kysymyksiä, pääset minut tukisivun kautta."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Kansion korjausta ei voitu aloittaa. Kun käynnissä olevat kansiotoiminnot ovat päättyneet, kokeile Ominaisuudet → Korjaa kansio."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters ei voinut hakea suodattimen luomiseen tai päivittämiseen tarvittavia tietoja.\n\nKohdekansio ”{0}” saattaa tarvita korjausta.\n\nYritetäänkö korjata kansio nyt?\n\nOdota korjauksen valmistumista ja yritä sitten luoda suodatin uudelleen."
   }
 }

@@ -1320,6 +1320,12 @@
   "quickfilters.stopExecution.label": {
     "message": "Stop Filter Execution"
   },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Could not start the folder repair. Please try Properties → Repair Folder after any current folder operation has finished."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters could not retrieve the necessary details to create or update a filter.\n\nThe destination folder \"{0}\" may need repair.\n\nTry to repair the folder now?\n\nWait for the repair to finish, then try creating the filter again."
+  },
   "quickfilters.warning.emptyFilter": {
     "message": "Could not create filter: without valid search terms the filter can not be edited."
   },

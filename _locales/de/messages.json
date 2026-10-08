@@ -1527,5 +1527,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Zusätzliche Email Adressen sind kein Problem - diese benötigen keine separate Lizenz. Bei Fragen kontaktieren Sie mich gerne über den Support Reiter."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Die Ordnerreparatur konnte nicht gestartet werden. Warten Sie, bis laufende Ordnervorgänge abgeschlossen sind, und versuchen Sie dann Eigenschaften → Ordner reparieren."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters konnte die zum Erstellen oder Aktualisieren eines Filters erforderlichen Informationen nicht abrufen.\n\nDer Zielordner „{0}“ muss möglicherweise repariert werden.\n\nJetzt versuchen, den Ordner zu reparieren?\n\nWarten Sie, bis die Reparatur abgeschlossen ist, und versuchen Sie dann erneut, den Filter zu erstellen."
   }
 }

@@ -1526,5 +1526,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Bất kỳ địa chỉ email bổ sung nào cũng không thành vấn đề - chúng không yêu cầu giấy phép riêng biệt. Trong trường hợp có thắc mắc, bạn có thể liên hệ với tôi qua tab hỗ trợ."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Không thể bắt đầu sửa chữa thư mục. Sau khi các thao tác đang chạy trên thư mục hoàn tất, hãy thử Thuộc tính → Sửa chữa thư mục."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters không thể lấy thông tin cần thiết để tạo hoặc cập nhật bộ lọc.\n\nThư mục đích “{0}” có thể cần được sửa chữa.\n\nThử sửa chữa thư mục ngay bây giờ?\n\nHãy chờ quá trình sửa chữa hoàn tất, rồi thử tạo lại bộ lọc."
   }
 }

@@ -1525,5 +1525,11 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Las direcciones de correo electrónico adicionales no son un problema, no requieren una licencia por separado. En caso de preguntas, puede comunicarse conmigo a través de la pestaña de soporte."
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "No se pudo iniciar la reparación de la carpeta. Cuando finalicen las operaciones en curso en la carpeta, probá Propiedades → Reparar carpeta."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters no pudo obtener la información necesaria para crear o actualizar un filtro.\n\nEs posible que sea necesario reparar la carpeta de destino «{0}».\n\n¿Intentar reparar la carpeta ahora?\n\nEsperá a que termine la reparación y volvé a intentar crear el filtro."
   }
 }
