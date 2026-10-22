@@ -1357,29 +1357,29 @@ async function main() {
     }
   });
 
-  messenger.runtime.onMessageExternal.addListener(async (message, _sender) => {
-    switch (message.command) {
+  messenger.runtime.onMessageExternal.addListener((message, _sender) => {
+    switch (message?.command) {
       case "isAssistantActive":
-        return {
+        return Promise.resolve({
           ok: true,
           active: !!AssistantActive,
-        };
+        });
 
       case "setAssistantMode": {
         const active = message?.active;
         if (typeof active !== "boolean") {
-          return {
+          return Promise.resolve({
             ok: false,
             error: "setAssistantMode requires boolean active",
-          };
+          });
         }
 
         if (AssistantActive === active) {
-          return {
+          return Promise.resolve({
             ok: true,
             active: AssistantActive,
             unchanged: true,
-          };
+          });
         }
 
         AssistantActive = active;
@@ -1391,17 +1391,17 @@ async function main() {
           event: "setAssistantButton",
           detail: { active: AssistantActive },
         });
-        return {
+        return Promise.resolve({
           ok: true,
           active: AssistantActive,
-        };
+        });
       }
 
       // [issue 373] allows reading cached preference values from external add-ons
       case "getPref":
         // replaces direct access to quickFilters legacy prefs from QuickFolders:
         // uses cache for speed. can also be used to retrieve current debug settings
-        return ExternalMessageApi.readPreference(message);
+        return Promise.resolve(ExternalMessageApi.readPreference(message));
 
       // [issue 373] External command discovery for add-on handshake and transition logic.
       case "listExternalCommands": {
@@ -1413,18 +1413,18 @@ async function main() {
 
         if (functionName) {
           const command = commands.find((entry) => entry.functionName === functionName) || null;
-          return {
+          return Promise.resolve({
             ok: true,
             functionName,
             exists: !!command,
             command,
-          };
+          });
         }
 
-        return {
+        return Promise.resolve({
           ok: true,
           commands,
-        };
+        });
       }
 
       // [issue 373] replacement for legacy quickFilters.Worker.createFilterAsync()
@@ -1437,28 +1437,29 @@ async function main() {
 
       case "updateQuickFoldersLicense": // fall-through
       case "injectButtonsQFNavigationBar":
-        // call the code for injecting the toolbar buttons that integrate with QF current folder bar
-        // this is called from onLoad in qFi-messenger.js
-        QF_license = message.license; // restrict buttons - we need either (any) QF license or a quickFilters Pro.
-        if (isDebug) {
-          await util.logHighlight(
-            "received external message 'injectButtonsQFNavigationBar'",
-            "yellow",
-            "rgb(0, 128, 50)",
-            message,
-            QF_license
-          );
-        }
-        if (message.command == "injectButtonsQFNavigationBar") {
-          if (!(await isAddonActive(QUICKFOLDERS_APPNAME))) {
-            return { ok: false, skipped: "QuickFolders is not active",
-              initializedTabs: 0, integratedTabs: 0 };
+        return (async () => {
+          // call the code for injecting the toolbar buttons that integrate with QF current folder bar
+          // this is called from onLoad in qFi-messenger.js
+          QF_license = message.license; // restrict buttons - we need either (any) QF license or a quickFilters Pro.
+          if (isDebug) {
+            await util.logHighlight(
+              "received external message 'injectButtonsQFNavigationBar'",
+              "yellow",
+              "rgb(0, 128, 50)",
+              message,
+              QF_license
+            );
           }
-          await uiReadyPromise;
-          await messenger.WindowListener.ensureRegisteredWindows("about:3pane");
-          return messenger.Utilities.ensureQuickFoldersButtons();
-        }
-        break;
+          if (message.command == "injectButtonsQFNavigationBar") {
+            if (!(await isAddonActive(QUICKFOLDERS_APPNAME))) {
+              return { ok: false, skipped: "QuickFolders is not active",
+                initializedTabs: 0, integratedTabs: 0 };
+            }
+            await uiReadyPromise;
+            await messenger.WindowListener.ensureRegisteredWindows("about:3pane");
+            return messenger.Utilities.ensureQuickFoldersButtons();
+          }
+        })();
     }
   });
 
