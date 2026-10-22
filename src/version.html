@@ -228,6 +228,27 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
  
 -->
 
+
+<a name="6.14"> &nbsp; </a>
+<li>
+  <h4>
+    <a href="https://addons.thunderbird.net/thunderbird/addon/quickfilters/versions/6.14"
+       onclick="alert('Currently awaiting review.')">quickFilters 6.14 - 22/10/2026</a>
+  </h4>
+  <h5 class="inList">Improvements</h5>
+  <ul>
+    <li><strong>Compatibility:</strong> quickFilters is now compatible with Thunderbird 160.</li>
+    <li><strong>Filter Assistant performance:</strong> Avoid repeated recursive searches across accounts when a moved message cannot be found. Check the destination and source folder databases directly, with bounded retries. If lookup still fails, offer to repair the destination folder so filter creation can be tried again after repair. <a href="https://github.com/RealRaven2000/quickFilters/issues/397">[issue 397]</a></li>
+    <li><strong>License renewal:</strong> Show a colored countdown beside the license expiry date on the quickFilters Pro settings tab whenever the existing 30-day extension condition shows the Extend License button. The countdown remains visible after the toolbar renewal indicator has been dismissed for the session. The expired-license message now refers directly to the Renew License button, using its localized label.</li>
+  </ul>
+  <h5 class="inList">Bugfixes</h5>
+  <ul>
+    <li><strong>Thunderbird 159 message drag-and-drop:</strong> Replace the removed <code>messenger.msgHdrFromURI()</code> API with <code>MailServices.messageServiceFromURI(messageUri).messageURIToMsgHdr(messageUri)</code>, so dragging messages to folders can still open the Filter Assistant. <a href="https://github.com/RealRaven2000/quickFilters/issues/399">[issue 399]</a></li>
+    <li><strong>Add-on integration:</strong> Remove <code>async</code> from the <code>runtime.onMessageExternal</code> listener. An async handler implicitly returns a Promise even for unrecognized commands, claiming the response and preventing other listeners from responding. Return Promises explicitly for recognized commands and <code>undefined</code> for unrecognized commands, as requested during ATN review of 6.13.4.</li>
+  </ul>
+</li>
+
+
 <a name="6.13"> &nbsp; </a>
 <a name="6.13.1"> &nbsp; </a>
 <a name="6.13.2"> &nbsp; </a>
