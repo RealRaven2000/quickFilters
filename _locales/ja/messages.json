@@ -681,7 +681,13 @@
     "message": "ベーシック版に切り替え"
   },
   "qf.licenseValidation.expired": {
-    "message": "入力されたライセンスキーは期限切れです。下のボタンを押してライセンスを更新してください。"
+    "message": "quickFilters Pro のライセンスの有効期限が切れました。更新するには、下の「$renewButton$」をクリックしてください。",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "または、当面はベーシック版を使用できます — 後でライセンスを復元できます。"

@@ -216,9 +216,11 @@ quickFilters.Options = {
           break;
         case "Expired":
           {
-            let expiredMsg = messenger.i18n.getMessage("qf.licenseValidation.expired");
+            let expiredMsg = messenger.i18n.getMessage("qf.licenseValidation.expired", [
+              messenger.i18n.getMessage("quickfilters.notification.premium.btn.renewLicense"),
+            ]);
             licenseDate.classList.add("valid");
-            licenseDateLabel.value = messenger.i18n.getMessage("qf.licenseValidation.expired");
+            licenseDateLabel.value = expiredMsg;
             licenseDate.value = niceDate;
 
             const expiryDate = new Date(licenseInfo.expiryDate);

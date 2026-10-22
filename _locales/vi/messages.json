@@ -681,7 +681,13 @@
     "message": "Chuyển sang Phiên bản Cơ bản"
   },
   "qf.licenseValidation.expired": {
-    "message": "Khóa giấy phép bạn nhập đã hết hạn. Vui lòng nhấn nút bên dưới để gia hạn giấy phép."
+    "message": "Giấy phép quickFilters Pro của bạn đã hết hạn. Nhấp vào “$renewButton$” bên dưới để gia hạn.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Ngoài ra, bạn có thể tạm thời sử dụng Phiên bản Cơ bản — bạn vẫn có thể khôi phục giấy phép sau."

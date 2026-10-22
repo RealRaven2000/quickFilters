@@ -728,6 +728,19 @@ button.configSettings {
   margin-left: 1.5em;
 }
 
+#validationDate {
+  flex-wrap: wrap;
+}
+
+#licenseExpiryWarning {
+  margin-inline-start: 1em;
+  border-radius: var(--button-border-radius, 4px);
+  padding: 5px 8px;
+  background-color: #d23b00;
+  color: white;
+  font-weight: bold;
+}
+
 #licenseDate.valid {
   cursor: pointer;
 }

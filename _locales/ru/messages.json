@@ -681,7 +681,13 @@
     "message": "Переключиться на Базовую версию"
   },
   "qf.licenseValidation.expired": {
-    "message": "Введённый лицензионный ключ истёк. Нажмите кнопку ниже, чтобы продлить лицензию."
+    "message": "Срок действия вашей лицензии quickFilters Pro истёк. Чтобы продлить её, нажмите «$renewButton$» ниже.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Также вы можете временно использовать Базовую версию — лицензию можно восстановить позже."

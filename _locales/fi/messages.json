@@ -681,7 +681,13 @@
     "message": "Vaihda Perusversioon"
   },
   "qf.licenseValidation.expired": {
-    "message": "Syöttämäsi lisenssiavain on vanhentunut. Uusi lisenssisi painamalla alla olevaa painiketta."
+    "message": "quickFilters Pro -lisenssisi on vanhentunut. Uusi se napsauttamalla alla olevaa $renewButton$ -painiketta.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Vaihtoehtoisesti voit toistaiseksi käyttää Perusversiota — voit palauttaa lisenssisi myöhemmin."

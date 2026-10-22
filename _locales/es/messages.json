@@ -681,7 +681,13 @@
     "message": "Cambiar a la versión Básica"
   },
   "qf.licenseValidation.expired": {
-    "message": "La clave de licencia que has introducido ha caducado. Pulsa el botón de abajo para renovar tu licencia."
+    "message": "Tu licencia de quickFilters Pro ha caducado. Haz clic en «$renewButton$» abajo para renovarla.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternativamente, puedes usar la versión Básica por ahora — aún podrás restaurar tu licencia más adelante."

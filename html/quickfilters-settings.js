@@ -29,8 +29,11 @@ async function configureBuyButton() {
   let wd = window.document,
     getElement = wd.getElementById.bind(wd),
     btnLicense = getElement("btnLicense"),
+    licenseExpiryWarning = getElement("licenseExpiryWarning"),
     proTab = getElement("quickFilters-Pro");
   let result = licenseInfo.status;
+  licenseExpiryWarning.hidden = true;
+  licenseExpiryWarning.textContent = "";
 
   switch (result) {
     case "Valid": {
@@ -40,6 +43,11 @@ async function configureBuyButton() {
       // if we were a month ahead would this be expired?
       if (licenseInfo.expiryDate < dateString) {
         quickFilters.Options.labelLicenseBtn(btnLicense, "extend");
+        licenseExpiryWarning.textContent = messenger.i18n.getMessage(
+          "quickfiltersToolbarButton.renew",
+          [String(licenseInfo.licensedDaysLeft)]
+        );
+        licenseExpiryWarning.hidden = false;
       } else {
         if (licenseInfo.keyType == 2) {
           // standard license

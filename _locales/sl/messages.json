@@ -314,4 +314,15 @@
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters ni mogel pridobiti podatkov, potrebnih za ustvarjanje ali posodobitev filtra.\n\nCiljno mapo »{0}« bo morda treba popraviti.\n\nŽelite zdaj poskusiti popraviti mapo?\n\nPočakajte, da se popravilo konča, nato poskusite znova ustvariti filter."
   }
+,
+  "qf.licenseValidation.expired": {
+    "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "quickfilters.notification.premium.btn.renewLicense": { "message": "Podaljšaj licenco" }
 }

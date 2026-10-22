@@ -685,7 +685,13 @@
   },
   "qf.licenseBackup.switch": { "message": "Switch to Basic version" },
   "qf.licenseValidation.expired": {
-    "message": "The license key you entered is expired. Please press the button below to renew your license."
+    "message": "Your quickFilters Pro license has expired. Click $renewButton$ below to renew it.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternatively, you can use the Basic version for now — you can still restore your license later."

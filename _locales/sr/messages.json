@@ -314,4 +314,15 @@
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters није могао да преузме податке потребне за прављење или ажурирање филтера.\n\nОдредишну фасциклу „{0}“ је можда потребно поправити.\n\nПокушати поправку фасцикле сада?\n\nСачекајте да се поправка заврши, па покушајте поново да направите филтер."
   }
+,
+  "qf.licenseValidation.expired": {
+    "message": "Ваша quickFilters Pro лиценца је истекла. Да бисте је обновили, кликните испод на „$renewButton$“.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "quickfilters.notification.premium.btn.renewLicense": { "message": "Обнови лиценцу" }
 }

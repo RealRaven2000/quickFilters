@@ -681,7 +681,13 @@
     "message": "Byt till Grundversion"
   },
   "qf.licenseValidation.expired": {
-    "message": "Den licensnyckel du angav har gått ut. Tryck på knappen nedan för att förnya licensen."
+    "message": "Din quickFilters Pro-licens har gått ut. Klicka på ”$renewButton$” nedan för att förnya den.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternativt kan du använda Grundversionen tills vidare — du kan fortfarande återställa din licens senare."

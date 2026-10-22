@@ -681,7 +681,13 @@
     "message": "Auf Basisversion umschalten"
   },
   "qf.licenseValidation.expired": {
-    "message": "Der eingegebene Lizenzschlüssel ist abgelaufen. Bitte drücken Sie die Schaltfläche unten, um Ihre Lizenz zu erneuern."
+    "message": "Ihre quickFilters Pro-Lizenz ist abgelaufen. Klicken Sie unten auf „$renewButton$“, um sie zu erneuern.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternativ können Sie vorerst die Basisversion nutzen — Ihre Lizenz lässt sich jederzeit wiederherstellen."

@@ -681,7 +681,13 @@
     "message": "Overschakelen naar de Basisversie"
   },
   "qf.licenseValidation.expired": {
-    "message": "De ingevoerde licentiesleutel is verlopen. Druk op de knop hieronder om je licentie te verlengen."
+    "message": "Je quickFilters Pro-licentie is verlopen. Klik hieronder op ‘$renewButton$’ om deze te vernieuwen.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Je kunt ook voorlopig de Basisversie gebruiken — je kunt je licentie later herstellen."

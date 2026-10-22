@@ -664,7 +664,13 @@
   },
   "qf.licenseBackup.switch": { "message": "Canviar a la versió bàsica" },
   "qf.licenseValidation.expired": {
-    "message": "La clau de llicència que heu introduït ha caducat. Premeu el botó següent per renovar la llicència."
+    "message": "Platnost vaší licence quickFilters Pro vypršela. Chcete-li ji obnovit, klikněte níže na tlačítko „$renewButton$“.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternativament, podeu utilitzar la versió bàsica de moment — encara podreu restaurar la llicència més endavant."

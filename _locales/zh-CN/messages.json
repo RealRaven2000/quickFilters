@@ -676,7 +676,13 @@
     "message": "切换到基础版本"
   },
   "qf.licenseValidation.expired": {
-    "message": "您输入的许可证密钥已过期。请按下面的按钮续订许可证。"
+    "message": "您的 quickFilters Pro 许可证已过期。请点击下方的“$renewButton$”以续订。",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "或者，您现在可以使用基础版本 — 之后仍可恢复许可证。"

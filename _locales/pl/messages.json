@@ -681,7 +681,13 @@
     "message": "Przełącz na Wersję Podstawową"
   },
   "qf.licenseValidation.expired": {
-    "message": "Wprowadzony klucz licencyjny wygasł. Naciśnij przycisk poniżej, aby odnowić licencję."
+    "message": "Twoja licencja quickFilters Pro wygasła. Aby ją odnowić, kliknij poniżej „$renewButton$”.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
   },
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternatywnie możesz tymczasowo korzystać z Wersji Podstawowej — licencję można przywrócić później."
