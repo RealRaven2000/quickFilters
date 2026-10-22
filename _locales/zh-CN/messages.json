@@ -1488,11 +1488,11 @@
   },
     "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L}{+extensionName} 现已兼容 Thunderbird 159。{/L}{L}保留现有设置，仅迁移明确设置过的旧首选项。为缺失或值为 null 的设置恢复当前默认值，并修复首选项缓存的实时更新，包括过滤器助手中选定的模板。 [issue 392]{/L}{L}存储启动发生临时故障时重试，无法加载设置时显示通知。在 Thunderbird 154 及更高版本中进行诊断时，请在错误控制台启用 [Browser] 和 [Content]。 [issue 392]{/L}{L}修复在启动初始化完成前打开主工具栏菜单时，菜单停留在“让我改为加载菜单...”的问题。 [issue 391]{/L}{L}在 Thunderbird 启动缓慢后，恢复 QuickFolders 当前文件夹工具栏中缺失的 quickFilters 按钮。 [issue 396]{/L}{L}让过滤器助手的“下一步”按钮在鼠标悬停时保持可见。改进对话框控件的尺寸、间距和对齐，并修复 Thunderbird 157 及更高版本中的工具栏悬停样式。 [issue 393]{/L}{hr}{P class=heading}重要更新，版本 {b}6.13{/b}:{/P}{L}quickFilters 设置已从 Thunderbird 的全局首选项改为使用本地存储。您现在可以通过卸载并重新安装附加组件来恢复默认设置。{/L}{L}在消息过滤器对话框中新增搜索选项，可按移动或复制操作的文件夹路径查找过滤器。{/L}{L}改进 quickFilters 与 QuickFolders 之间的通信。 [issue 373]{/L}"
+    "message": "{L} {b}{+extensionName}{/b} 现已兼容 Thunderbird 160。{/L}{L} 当文件夹数据库无法访问时，过滤器助手运行更快；如果查找邮件失败，还可选择修复目标文件夹。 [issue 397]{/L}{L}修复了 Thunderbird 159 中通过将邮件拖入文件夹来创建过滤器的问题。 [issue 399]{/L}{L} 修复了异步消息处理程序占用其未处理命令的响应的问题，改善了与其他附加组件的通信。{/L}{L} 当可以续订时，在 quickFilters Pro 选项卡的许可证到期日期旁显示彩色倒计时，并提供更清晰的到期后说明。{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}版本 {b}6.13{/b} 将设置从 Thunderbird 的全局首选项迁移到本地存储。{b}6.13.4{/b} 延续此前维护版本的改进并修复回归问题，让设置迁移、默认值和启动故障处理更加可靠。 [issue 367] [issue 383] [issue 392]{/P}{P}{a href='https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/'}QuickFolders{/a} 的当前文件夹工具栏提供导航和文件夹操作，并集成 quickFilters 按钮，用于运行过滤器、打开过滤器列表和查找当前文件夹的过滤器。版本 6.13 改进了此集成的稳定性以及两个附加组件之间的通信。版本 {b}6.13.4{/b} 还可在 Thunderbird 启动缓慢后恢复缺失的 quickFilters 按钮。 [issue 365] [issue 373] [issue 396]{/P}"
+    "message": ""
   },
   "whats-new-maintenance": {
     "message": "维护更新 $ver$。次要版本发布后的重要修复和兼容性更新，包括需要紧急修复的回归问题。",

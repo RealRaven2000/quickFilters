@@ -1,19 +1,11 @@
-The full log with screenshots is available at: <a href="https://quickfilters.quickfolders.org/version.html#6.13.4">quickFilters Change Log</a>
-
-<strong>Release 6.13.4</strong>
-
-This maintenance release improves startup reliability, settings handling, and dialog layout following the migration to local storage.
+This release improves Filter Assistant performance when folder databases are inaccessible and updates compatibility with Thunderbird 159.
 
 <ul>
-  <li><strong>Compatibility:</strong> quickFilters is now compatible with Thunderbird 159.</li>
-  <li><strong>Settings and storage:</strong> Preserve existing settings and migrate only explicitly set legacy preferences. Restore current defaults for missing or null settings and fix live updates to the preference cache, including the selected Filter Assistant template. <a href="https://github.com/RealRaven2000/quickFilters/issues/392">#392</a></li>
-  <li><strong>Storage startup:</strong> Retry temporary storage failures and report when settings cannot be loaded. A notification now asks users to restart Thunderbird instead of leaving quickFilters waiting indefinitely. For diagnostics on Thunderbird 154+, enable [Browser] and [Content] in Error Console. <a href="https://github.com/RealRaven2000/quickFilters/issues/392">#392</a></li>
-  <li><strong>Main toolbar menu:</strong> Fix the popup remaining on “Let me load the menu instead...” when opened before startup initialization has finished. <a href="https://github.com/RealRaven2000/quickFilters/issues/391">#391</a></li>
-  <li><strong>QuickFolders integration:</strong> Restore missing quickFilters buttons in the Current Folder toolbar after a slow Thunderbird startup. <a href="https://github.com/RealRaven2000/quickFilters/issues/396">#396</a></li>
-  <li><strong>Dialogs and appearance:</strong> Keep the Filter Assistant's Next button visible on hover, improve control sizing, spacing, and alignment, and correct toolbar hover styling for Thunderbird 157+. <a href="https://github.com/RealRaven2000/quickFilters/issues/393">#393</a></li>
+  <li><strong>IMproved Filter Assistant Performance:</strong> Avoid repeated searches across accounts when a moved message cannot be found. Check the destination and source folders directly, and offer to repair the destination folder after lookup fails. <a href="https://github.com/RealRaven2000/quickFilters/issues/397">#397</a></li>
+  <li><strong>Thunderbird 159 compatibility:</strong> Replace the removed <tt>messenger.msgHdrFromURI</tt> API with the <tt>MailServices</tt> message-header lookup so dragging messages to folders can still open the Filter Assistant. <a href="https://github.com/RealRaven2000/quickFilters/issues/399">#399</a></li>
+  <li><strong>Add-on integration:</strong> Remove async from the runtime.onMessageExternal listener: an async handler implicitly returns a Promise even for unrecognized commands, claiming the response and preventing other listeners from responding. Return Promises explicitly for recognized commands and undefined for unrecognized commands, as requested during ATN review of 6.13.4.</li>
+  <li><strong>License renewal:</strong> Show a colored license-expiry countdown beside the valid-until date on the quickFilters Pro settings tab when the existing 30-day extension condition shows the Extend License button, including after the toolbar renewal indicator has been dismissed for the session.</li>
 </ul>
-
-Version 6.13 moved settings from Thunderbird's global preferences to local storage. Earlier maintenance releases addressed related Filter Assistant regressions and compatibility problems, but missing preference values and delayed storage startup required further changes. Version 6.13.4 builds on those fixes to make settings migration, default values, and startup failure handling more reliable. <a href="https://github.com/RealRaven2000/quickFilters/issues/367">#367</a> <a href="https://github.com/RealRaven2000/quickFilters/issues/383">#383</a> <a href="https://github.com/RealRaven2000/quickFilters/issues/392">#392</a>
 
 The full history with screenshots is available in the <a href="https://quickfilters.quickfolders.org/version.html">quickFilters Change Log</a>.
 

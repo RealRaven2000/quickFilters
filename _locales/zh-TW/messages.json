@@ -1407,11 +1407,11 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{L}{+extensionName} 現已相容於 Thunderbird 159。{/L}{L}保留現有設定，只移轉明確設定過的舊偏好設定。為缺少或值為 null 的設定還原目前的預設值，並修正偏好設定快取的即時更新，包括篩選器助手中選取的範本。 [issue 392]{/L}{L}儲存空間啟動發生暫時性錯誤時重試，無法載入設定時顯示通知。在 Thunderbird 154 及更新版本進行診斷時，請在錯誤主控台啟用 [Browser] 和 [Content]。 [issue 392]{/L}{L}修正在啟動初始化完成前開啟主工具列選單時，選單停留在「讓我改為載入選單...」的問題。 [issue 391]{/L}{L}在 Thunderbird 啟動緩慢後，還原 QuickFolders 目前資料夾工具列中缺少的 quickFilters 按鈕。 [issue 396]{/L}{L}讓篩選器助手的「下一步」按鈕在滑鼠移至其上時保持可見。改善對話框控制項的尺寸、間距與對齊，並修正 Thunderbird 157 及更新版本中的工具列滑鼠懸停樣式。 [issue 393]{/L}{hr}{P class=heading}重要更新，版本 {b}6.13{/b}:{/P}{L}quickFilters 設定已從 Thunderbird 的全域偏好設定改為使用本機儲存空間。您現在可以透過移除並重新安裝附加元件來還原預設設定。{/L}{L}在郵件篩選器對話框中新增搜尋選項，可依移動或複製動作的資料夾路徑尋找篩選器。{/L}{L}改善 quickFilters 與 QuickFolders 之間的通訊。 [issue 373]{/L}"
+    "message": "{L} {b}{+extensionName}{/b} 現已相容於 Thunderbird 160。{/L}{L} 當資料夾資料庫無法存取時，篩選器助手執行得更快；若尋找郵件失敗，還可選擇修復目標資料夾。 [issue 397]{/L}{L}修正了 Thunderbird 159 中透過將郵件拖曳至資料夾來建立篩選器的問題。 [issue 399]{/L}{L} 修正了非同步訊息處理程式占用其未處理指令的回應的問題，改善了與其他附加元件的通訊。{/L}{L} 當可以續訂時，在 quickFilters Pro 分頁的授權到期日期旁顯示彩色倒數計時，並提供更清楚的到期後說明。{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}版本 {b}6.13{/b} 將設定從 Thunderbird 的全域偏好設定移轉至本機儲存空間。{b}6.13.4{/b} 延續先前維護版本的改進並修正迴歸問題，使設定移轉、預設值及啟動錯誤處理更可靠。 [issue 367] [issue 383] [issue 392]{/P}{P}{a href='https://addons.thunderbird.net/thunderbird/addon/quickfolders-tabbed-folders/'}QuickFolders{/a} 的目前資料夾工具列提供導覽與資料夾操作，並整合 quickFilters 按鈕，用於執行篩選器、開啟篩選器清單及尋找目前資料夾的篩選器。版本 6.13 改善了此整合的穩定性及兩個附加元件之間的通訊。版本 {b}6.13.4{/b} 也能在 Thunderbird 啟動緩慢後還原缺少的 quickFilters 按鈕。 [issue 365] [issue 373] [issue 396]{/P}"
+    "message": ""
   },
   "whats-new-maintenance": {
     "message": "維護更新 $ver$。次要版本發布後的重要修正與相容性更新，包括需要緊急修正的迴歸問題。",

@@ -252,12 +252,18 @@ END LICENSE BLOCK
     # [issue 383] Fixes against empty filter template after selecting one from the assistant dialog
     # [issue 392] Harden preference migration and handle settings storage startup failures
 
-  6.13.4 - WIP
+  6.13.4 - 02/10/2026
     # [issue 391] Main button popup menu only shows "Let me load the menu instead..."
     # [issue 392] Added More storage logging and make sure defaults are pulled from cache._defaults
                   also removed obsolete legacy defaults
     # [issue 393] Fix Filter Assistant button hover and improve dialog layout 
     # [issue 396] Fixed: quickFilters buttons missing from QuickFolders toolbar after slow startup
+
+  6.14 - 22/10/2026
+    # Converted async message listener ["injectButtonsQFNavigationBar"] to synchronous in background:1360
+    # [issue 397] Improve assistant performance when encountering broken folder databases
+    # [issue 399] Remove deprecated messenger.msgHdrFromURI - Thunderbird 159 will fail without it.
+    # Added license-expiry countdown when Extend License button is shown
 
     
   ============================================================================================================
