@@ -967,14 +967,13 @@ var quickFilters = {
     // OLD CODE ...
     // let targetFolder = treeView._rowMap[aRow]._folder.QueryInterface(Ci.nsIMsgFolder);
     let sourceFolder,
-      messenger = Cc["@mozilla.org/messenger;1"].createInstance(Ci.nsIMessenger),
       messageUris = [];
 
     for (let i = 0; i < dataTransfer.mozItemCount; i++) {
       let messageUri = dataTransfer.mozGetDataAt("text/x-moz-message", i);
 
       if (!i) {
-        let msgHdr = messenger.msgHdrFromURI(messageUri);
+        let msgHdr = MailServices.messageServiceFromURI(messageUri).messageURIToMsgHdr(messageUri);
         sourceFolder = msgHdr.folder;
       }
       messageUris.push(messageUri);
