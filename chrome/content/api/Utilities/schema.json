@@ -3,7 +3,156 @@
     "namespace": "Utilities",
     "functions": [
       {
-        "name": "ensureQuickFoldersButtons", "type": "function", "async": true,
+        "name": "restoreFilters",
+        "parameters": [
+          {
+            "name": "request",
+            "type": "any"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "editImportedFilter",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "deleteImportedFilter",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "saveRestoreReport",
+        "parameters": [
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "directory",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "getBackupInfo",
+        "parameters": [
+          {
+            "name": "accountIds",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "exportBackupAccounts",
+        "parameters": [
+          {
+            "name": "accountIds",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "saveBackupFile",
+        "parameters": [
+          {
+            "name": "filename",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "directory",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "readBackupFile",
+        "parameters": [
+          {
+            "name": "directory",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "returnToFilterList",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "ensureQuickFoldersButtons",
+        "type": "function",
+        "async": true,
         "parameters": []
       },
       {
@@ -18,7 +167,6 @@
           }
         ]
       },
-
       {
         "name": "showXhtmlPage",
         "type": "function",
@@ -30,7 +178,6 @@
           }
         ]
       },
-
       {
         "name": "showLicenseDialog",
         "type": "function",
@@ -42,7 +189,6 @@
           }
         ]
       },
-
       {
         "name": "showAboutConfig",
         "type": "function",
@@ -56,27 +202,23 @@
           }
         ]
       },
-
       {
         "name": "showVersionHistory",
         "type": "function",
         "parameters": []
       },
-
       {
         "name": "showToolbarPopup",
         "type": "function",
         "async": true,
         "parameters": []
       },
-
       {
         "name": "getUserName",
         "type": "function",
         "async": true,
         "parameters": []
       },
-
       {
         "name": "getFolderUri",
         "type": "function",
@@ -96,7 +238,6 @@
           }
         ]
       },
-
       {
         "name": "setApplyIncomingFilters",
         "type": "function",
@@ -114,7 +255,6 @@
           }
         ]
       },
-
       {
         "name": "getApplyIncomingFilters",
         "type": "function",
@@ -127,7 +267,6 @@
           }
         ]
       },
-
       {
         "name": "getApiMessageId",
         "type": "function",
@@ -150,7 +289,6 @@
           "description": "The API messageId or null if not found"
         }
       },
-
       {
         "name": "resolveAssistant",
         "type": "function",
@@ -164,16 +302,26 @@
           {
             "name": "result",
             "type": "string",
-            "enum": ["merge", "success", "cancelled"]
+            "enum": [
+              "merge",
+              "success",
+              "cancelled"
+            ]
           },
           {
             "name": "params",
             "type": "object",
             "properties": {
-              "answer": { "type": "boolean" },
-              "selectedMergedFilterIndex": { "type": "integer" }
+              "answer": {
+                "type": "boolean"
+              },
+              "selectedMergedFilterIndex": {
+                "type": "integer"
+              }
             },
-            "required": ["answer"],
+            "required": [
+              "answer"
+            ],
             "additionalProperties": true
           }
         ],
@@ -182,21 +330,18 @@
           "description": "whether promise was found + resolved"
         }
       },
-
       {
         "name": "editCustomTemplates",
         "description": "edit custom filter templates",
         "type": "function",
         "parameters": []
       },
-
       {
         "name": "createCustomTemplate",
         "description": "create a new filter template (pro function)",
         "type": "function",
         "parameters": []
       },
-
       {
         "type": "function",
         "name": "updatePreferencesCache",

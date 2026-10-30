@@ -12,8 +12,32 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
   getAPI(context) {   
     const highlightStyle = { color: "#ffff0bff", background: "rgba(112, 15, 161, 1)" };
     console.log("quickFilters exp API: Utilities.getAPI() called"); 
+    // Private per-API scope: extension reloads must not reuse a cached system module.
+    const backupAPI = { Services, IOUtils, Components, ChromeUtils, console };
+    Services.scriptloader.loadSubScript("chrome://quickfilters/content/api/Utilities/backup.js", backupAPI, "UTF-8");
+    const restoreAPI = { Services, Components, ChromeUtils, console };
+    Services.scriptloader.loadSubScript("chrome://quickfilters/content/api/Utilities/restore.js", restoreAPI, "UTF-8");
     return {
       Utilities: {
+        restoreFilters: async (request) => restoreAPI.restoreFilters(request),
+        editImportedFilter: async (token) => restoreAPI.editImportedFilter(token),
+        deleteImportedFilter: async (token) => restoreAPI.deleteImportedFilter(token),
+        saveRestoreReport: async (text, directory) => backupAPI.saveRestoreReport(text, directory),
+        getBackupInfo: async (accountIds) => {
+          return backupAPI.getBackupInfo(accountIds);
+        },
+        exportBackupAccounts: async (accountIds) => {
+          return backupAPI.exportBackupAccounts(accountIds);
+        },
+        saveBackupFile: async (filename, text, directory) => {
+          return backupAPI.saveBackupFile(filename, text, directory);
+        },
+        readBackupFile: async (directory) => {
+          return backupAPI.readBackupFile(directory);
+        },
+        returnToFilterList: async (token) => {
+          return backupAPI.returnToFilterList(token);
+        },
         async ensureQuickFoldersButtons() {
           // #396: a notification cannot recover a document whose listener was never injected.
           let initializedTabs = 0;

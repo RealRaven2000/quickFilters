@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restore filters — quickFilters prototype</title>
+  <link rel="stylesheet" href="filter-backup.css">
+  <script src="filter-backup.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><div class="eyebrow">quickFilters · UX prototype</div><h1>Restore filters</h1><p>Select source accounts and assign their destinations in this profile.</p></header>
+    <section class="file-info" aria-label="Backup information"><strong>MainProfile_2026-10-30_14-35.json</strong><span>Example backup · 4 accounts · 42 filters</span></section>
+    <p id="instructions">Drag a target into a destination slot to select its source. Drag it back to Accounts left unchanged to deselect it. Alternatively, you can use the ▶ button beside a source to choose a destination without dragging.</p>
+    <section aria-label="Account mapping" aria-describedby="instructions">
+      <div class="grid-heading"><label><input type="checkbox" id="all"> All source accounts</label><strong>Destination accounts · This profile</strong></div>
+      <div id="rows"></div>
+      <div class="unmatched-layout"><div class="legend">Unchecked sources keep their mappings.<br>Each destination can be used once.</div><section id="pool" aria-label="Accounts left unchanged"><h2>Accounts left unchanged <span id="pool-count"></span></h2><p class="pool-help">The filters here stay as they are.</p><div id="unmatched"></div></section></div>
+    </section>
+    <footer><div><strong id="summary"></strong><p id="validation"></p></div><div class="actions"><button id="reset">Reset example</button><button id="restore" class="primary">Restore filters (demo)</button></div></footer>
+    <p id="notice" role="status" aria-live="polite">Prototype only. No filters are read or changed, and choices are not saved.</p>
+    <details><summary>How this fits into Thunderbird</summary><p>Open this screen in a dedicated Thunderbird tab. The filter-list dialog remains open and unchanged while the tab is used. On completion or cancellation, return focus to the original dialog; refresh it after a real restore. This prototype does not open tabs or control Thunderbird windows.</p></details>
+  </main>
+  <template id="backup-view">
+  <main>
+    <header>
+      <div class="eyebrow">quickFilters · UX prototype</div>
+      <h1>Back up filters</h1>
+      <p>Select the accounts whose filters you want to save in one file.</p>
+    </header>
+    <section class="file-info" aria-label="Profile information">
+      <strong>MainProfile</strong>
+      <span>Example profile · 4 accounts · 42 filters</span>
+    </section>
+    <section aria-label="Accounts to back up">
+      <div class="grid-heading"><label><input type="checkbox" id="all"> All accounts</label></div>
+      <div id="rows"></div>
+    </section>
+    <div class="filename-field">
+      <label for="filename">Backup file:</label>
+      <input type="text" id="filename" spellcheck="false" required title="You can edit this name before opening the Save As dialog.">
+    </div>
+    <footer>
+      <div><strong id="summary"></strong><p id="validation"></p></div>
+      <div class="actions"><button id="reset">Reset example</button><button id="save" class="primary">Save backup… (demo)</button></div>
+    </footer>
+    <p id="notice" role="status" aria-live="polite">Prototype only. No filters are read and no file is saved.</p>
+  </main>
+  </template>
+</body>
+</html>

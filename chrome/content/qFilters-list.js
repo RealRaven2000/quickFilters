@@ -1946,6 +1946,34 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 }
  */		
 	
+  openBackupTab: function (mode = "backup") {
+    // The toolbar lives in a legacy chrome window. Keep this launch bridge here;
+    // the new page and its controls run in the extension context.
+    const mainWindow = Services.wm.getMostRecentWindow("mail:3pane");
+    const tabmail = mainWindow?.document.getElementById("tabmail");
+    if (!tabmail) {
+      quickFilters.Util.logToConsole("Cannot open filter backup: no mail tab window is available.");
+      return;
+    }
+    const token = Services.uuid.generateUUID().toString();
+    if (!mainWindow.quickFilters.backupOrigins) {
+      mainWindow.quickFilters.backupOrigins = new Map();
+    }
+    for (const [key, reference] of mainWindow.quickFilters.backupOrigins) {
+      if (!reference.deref() || reference.deref().closed) {
+        mainWindow.quickFilters.backupOrigins.delete(key);
+      }
+    }
+    mainWindow.quickFilters.backupOrigins.set(token, new WeakRef(window));
+    // baseURI is the moz-extension origin; rootURI points at the physical
+    // installation (file/jar), where the page cannot use WebExtension APIs.
+    const url = quickFilters.Util.extension.baseURI.resolve(
+      `html/filter-backup.html?mode=${mode === "restore" ? "restore" : "backup"}&origin=${encodeURIComponent(token)}`
+    );
+    tabmail.openTab("contentTab", { url, background: false });
+    mainWindow.focus();
+  },
+
   store: async function store(event) {
 		// see nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		// https://dxr.mozilla.org/comm-central/source/mailnews/base/search/src/nsMsgFilterList.cpp#867

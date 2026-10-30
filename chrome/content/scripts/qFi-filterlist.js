@@ -236,12 +236,12 @@ async function onLoad(_activatedWhileWindowOpen) {
     <toolbarbutton id="btnSaveFilters"
                    class="toolbarbutton-1"
                    tooltiptext_qI="__MSG_quickfilters.button.saveFilters.tooltip__"
-                   onclick="quickFilters.List.store(event);"/>
+                   oncommand="quickFilters.List.openBackupTab();"/>
                    <toolbarbutton id="btnLoadFilters"
                    class="toolbarbutton-1"
                    tooltiptext_qI="__MSG_quickfilters.button.loadFilters.tooltip__"
                    tooltip="quickFiltersToolTip"
-                   onclick="quickFilters.List.load();"/>
+                   oncommand="quickFilters.List.openBackupTab('restore');"/>
       
       <toolbarspring />
     <toolbarbutton id="quickFiltersBtnSettings"
