@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Back up filters — quickFilters prototype</title>
+  <link rel="stylesheet" href="../../html/filter-backup.css">
+  <script src="../../html/filter-backup.js" defer></script>
+</head>
+<body data-mode="backup">
+  <main>
+    <header>
+      <div class="eyebrow">quickFilters · UX prototype</div>
+      <h1>Back up filters</h1>
+      <p>Select the accounts whose filters you want to save in one file.</p>
+    </header>
+    <section class="file-info" aria-label="Profile information">
+      <strong>MainProfile</strong>
+      <span>Example profile · 4 accounts · 42 filters</span>
+    </section>
+    <section aria-label="Accounts to back up">
+      <div class="grid-heading"><label><input type="checkbox" id="all"> All accounts</label></div>
+      <div id="rows"></div>
+    </section>
+    <div class="filename-field">
+      <label for="filename">Backup file:</label>
+      <input type="text" id="filename" spellcheck="false" required title="You can edit this name before opening the Save As dialog.">
+    </div>
+    <footer>
+      <div><strong id="summary"></strong><p id="validation"></p></div>
+      <div class="actions"><button id="reset">Reset example</button><button id="save" class="primary">Save backup… (demo)</button></div>
+    </footer>
+    <p id="notice" role="status" aria-live="polite">Prototype only. No filters are read and no file is saved.</p>
+  </main>
+</body>
+</html>
