@@ -117,7 +117,7 @@ async function nativeRestore() {
   lists.set("target-a", list([keep, replace])); lists.set("target-b", list([]));
   rootA.getEditableFilterList = () => lists.get("target-a"); rootB.getEditableFilterList = () => lists.get("target-b");
   const accounts = new Map([["target-a", { incomingServer: { canHaveFilters: true, rootMsgFolder: rootA } }], ["target-b", { incomingServer: { canHaveFilters: true, rootMsgFolder: rootB } }]]);
-  const win = { quickFilters: { Util: { popupProFeature: () => true, getMsgFolderFromUri: uri => folders.get(uri) || null } },
+  const win = { quickFilters: { Util: { popupProFeature: async () => true, getMsgFolderFromUri: uri => folders.get(uri) || null } },
     openDialog(_url, _name, _options, args) { edited = args.filter; args.refresh = true; },
   };
   const dialog = { quickFilters: { List: { rebuildFilterList: () => refreshed++ } } };
@@ -131,7 +131,7 @@ async function nativeRestore() {
     } }) }, console,
   });
   vm.runInContext(script, context);
-  return { api: context, lists, customActions, customTerms, original: [keep, replace], get refreshed() { return refreshed; }, get edited() { return edited; } };
+  return { api: context, setLicenseGate: gate => { win.quickFilters.Util.popupProFeature = gate; }, lists, customActions, customTerms, original: [keep, replace], get refreshed() { return refreshed; }, get edited() { return edited; } };
 }
 
 function request(filters) {
@@ -141,7 +141,7 @@ function request(filters) {
 test("restore replaces in place, adds new filters, preserves others and skips only later duplicate names", async () => {
   const env = await nativeRestore();
   const first = rule("New"), duplicate = rule("New", [{ type: 17, strValue: "different" }]);
-  const result = env.api.restoreFilters(request([rule("Replace"), first, duplicate]));
+  const result = await env.api.restoreFilters(request([rule("Replace"), first, duplicate]));
   assert.equal(result.added, 1); assert.equal(result.replaced, 1); assert.equal(result.skipped, 1);
   const list = env.lists.get("target-a");
   assert.deepEqual(list.filters.map(filter => filter.filterName), ["New", "Untouched", "Replace"]);
@@ -159,7 +159,7 @@ test("cross-account folder mapping resolves real folders and decodes each path s
   const action = { type: 1, targetFolderUri: reference.rootUri + "/Archive/Caf%C3%A9" };
   const input = request([rule("Cross account", [action])]);
   const before = JSON.stringify(input);
-  const result = env.api.restoreFilters(input);
+  const result = await env.api.restoreFilters(input);
   assert.equal(result.warnings.length, 0);
   assert.equal(env.lists.get("target-a").filters[0].actionList[0].targetFolderUri, "imap://new-archive@new.example/Archive/Caf%C3%A9");
   assert.equal(JSON.stringify(input), before);
@@ -170,7 +170,7 @@ test("missing folders and unmapped target accounts import original actions with 
   const env = await nativeRestore();
   const missing = reference.rootUri + "/Missing";
   const unknown = "imap://removed@old.example/Archive";
-  const result = env.api.restoreFilters(request([rule("Replace", [{ type: 1, targetFolderUri: missing }, { type: 16, targetFolderUri: unknown }])]));
+  const result = await env.api.restoreFilters(request([rule("Replace", [{ type: 1, targetFolderUri: missing }, { type: 16, targetFolderUri: unknown }])]));
   assert.equal(result.replaced, 1); assert.equal(result.skipped, 0);
   assert.equal(result.warnings.length, 2);
   assert.equal(result.warnings[0].reason, "invalid-target-folder");
@@ -187,7 +187,7 @@ test("missing custom action and term retain IDs, values, enabled state and dupli
   const env = await nativeRestore();
   const term = { attrib: 99, op: 0, customId: "missing-term", value: { attrib: 99, str: "original value" }, booleanAnd: false, beginsGrouping: 2, endsGrouping: 0 };
   const saved = rule("Custom", [{ type: 20, customId: "missing-action", strValue: "payload" }], [term, { ...term, beginsGrouping: 0, endsGrouping: 2 }]);
-  const result = env.api.restoreFilters(request([saved]));
+  const result = await env.api.restoreFilters(request([saved]));
   assert.equal(result.added, 1); assert.equal(result.skipped, 0);
   const imported = env.lists.get("target-a").filters[0];
   assert.equal(imported.actionList[0].customId, "missing-action"); assert.equal(imported.actionList[0].strValue, "payload");
@@ -205,10 +205,10 @@ test("missing custom action and term retain IDs, values, enabled state and dupli
 test("bad mappings do not write; failed save restores the original list and reports failure", async () => {
   const env = await nativeRestore();
   const invalid = request([rule("New")]); invalid.mappings[1][1] = "target-a";
-  assert.throws(() => env.api.restoreFilters(invalid), /distinct destination/);
+  await assert.rejects(() => env.api.restoreFilters(invalid), /distinct destination/);
   assert.equal(env.lists.get("target-a").saves, 0);
   env.lists.get("target-a").failSaves = 1;
-  const result = env.api.restoreFilters(request([rule("Replace"), rule("New")]));
+  const result = await env.api.restoreFilters(request([rule("Replace"), rule("New")]));
   assert.equal(result.success, false); assert.equal(result.failed, 1); assert.equal(result.added, 0); assert.equal(result.replaced, 0);
   assert.deepEqual(env.lists.get("target-a").filters, env.original);
   assert.deepEqual(env.lists.get("target-a").saved, env.original);
@@ -218,7 +218,7 @@ test("bad mappings do not write; failed save restores the original list and repo
 test("an unserializable filter is skipped without replacing its existing namesake", async () => {
   const env = await nativeRestore();
   const invalid = { ...rule("Replace"), unparseable: true };
-  const result = env.api.restoreFilters(request([invalid]));
+  const result = await env.api.restoreFilters(request([invalid]));
   assert.equal(result.skipped, 1); assert.equal(result.replaced, 0);
   assert.equal(env.lists.get("target-a").filters[1], env.original[1]);
   assert.equal(env.lists.get("target-a").saves, 0);
@@ -227,7 +227,7 @@ test("an unserializable filter is skipped without replacing its existing namesak
 test("new match-all metadata is preserved without changing operator zero", async () => {
   const env = await nativeRestore();
   const term = { attrib: 0, op: 0, value: { attrib: 0, str: "" }, matchAll: true, booleanAnd: true };
-  const result = env.api.restoreFilters(request([rule("All mail", [], [term])]));
+  const result = await env.api.restoreFilters(request([rule("All mail", [], [term])]));
   assert.equal(result.added, 1);
   assert.equal(env.lists.get("target-a").filters[0].searchTerms[0].matchAll, true);
 });
@@ -236,7 +236,7 @@ test("Local Folders URI remains mappable despite its non-DNS hostname", async ()
   const env = await nativeRestore();
   const input = request([rule("Local destination", [{ type: 1, targetFolderUri: "mailbox://nobody@Local%20Folders/Archive" }])]);
   input.backup.referencedAccounts[0] = { ...reference, rootUri: "mailbox://nobody@Local%20Folders" };
-  const result = env.api.restoreFilters(input);
+  const result = await env.api.restoreFilters(input);
   assert.equal(result.warnings.length, 0);
   assert.equal(env.lists.get("target-a").filters[0].actionList[0].targetFolderUri, "imap://new-archive@new.example/Archive");
 });
@@ -244,7 +244,7 @@ test("Local Folders URI remains mappable despite its non-DNS hostname", async ()
 test("installed custom features produce no missing-feature warnings", async () => {
   const env = await nativeRestore();
   env.customActions.add("installed-action"); env.customTerms.add("installed-term");
-  const result = env.api.restoreFilters(request([rule("Installed", [{ type: 20, customId: "installed-action", strValue: "value" }], [{ attrib: 99, customId: "installed-term", value: { attrib: 99, str: "condition" } }])]));
+  const result = await env.api.restoreFilters(request([rule("Installed", [{ type: 20, customId: "installed-action", strValue: "value" }], [{ attrib: 99, customId: "installed-term", value: { attrib: 99, str: "condition" } }])]));
   assert.equal(result.added, 1);
   assert.equal(result.warnings.length, 0);
 });
@@ -256,7 +256,7 @@ test("multi-account save failure reports partial completion without losing anoth
   input.backup.referencedAccounts = [];
   input.selected.push(reference.id);
   env.lists.get("target-b").failSaves = 1;
-  const result = env.api.restoreFilters(input);
+  const result = await env.api.restoreFilters(input);
   assert.equal(result.success, false); assert.equal(result.failed, 1); assert.equal(result.added, 1);
   assert.equal(env.lists.get("target-a").saved[0].filterName, "Personal addition");
   assert.equal(env.lists.get("target-b").saved.length, 0);
@@ -267,7 +267,7 @@ test("missing folder under mapped Local Folders is a folder warning, not an acco
   const uri = "mailbox://nobody@Local%20Folders/testLocal";
   const input = request([rule("Missing local folder", [{ type: 1, targetFolderUri: uri }])]);
   input.backup.referencedAccounts[0] = { ...reference, rootUri: "mailbox://nobody@Local%20Folders" };
-  const result = env.api.restoreFilters(input);
+  const result = await env.api.restoreFilters(input);
   assert.equal(result.warnings.length, 1);
   assert.equal(result.warnings[0].reason, "invalid-target-folder");
   assert.match(result.warnings[0].details, /testLocal/);
@@ -276,7 +276,7 @@ test("missing folder under mapped Local Folders is a folder warning, not an acco
 
 test("delete removes only the exact imported filter and invalidates its review token", async () => {
   const env = await nativeRestore();
-  const result = env.api.restoreFilters(request([rule("Custom", [{ type: 20, customId: "missing" }])]));
+  const result = await env.api.restoreFilters(request([rule("Custom", [{ type: 20, customId: "missing" }])]));
   const token = result.warnings[0].importedToken;
   assert.equal(env.api.deleteImportedFilter(token), true);
   assert.deepEqual(env.lists.get("target-a").filters, env.original);
@@ -286,7 +286,7 @@ test("delete removes only the exact imported filter and invalidates its review t
 
 test("delete refuses a stale filter and restores the list if saving fails", async () => {
   const env = await nativeRestore();
-  const result = env.api.restoreFilters(request([rule("Custom", [{ type: 20, customId: "missing" }])]));
+  const result = await env.api.restoreFilters(request([rule("Custom", [{ type: 20, customId: "missing" }])]));
   const token = result.warnings[0].importedToken;
   const list = env.lists.get("target-a");
   const original = [...list.filters];
@@ -303,7 +303,7 @@ test("overwrite off keeps existing native filters and imports only new names", a
   const env = await nativeRestore();
   const input = request([rule("Replace", [{ type: 20, customId: "missing" }]), rule("New")]);
   input.overwriteExisting = false;
-  const result = env.api.restoreFilters(input);
+  const result = await env.api.restoreFilters(input);
   assert.equal(result.kept, 1);
   assert.equal(result.accounts[0].kept, 1);
   assert.equal(result.added, 1);
@@ -320,4 +320,24 @@ test("backup review can register an existing filter for the same exact-object ed
   assert.equal(env.api.deleteImportedFilter(token), true);
   assert.equal(env.lists.get("target-a").filters.length, 1);
   assert.equal(env.lists.get("target-a").filters[0], env.original[1]);
+});
+
+test("restore waits for the async Pro gate and cannot change filters when denied", async () => {
+  const env = await nativeRestore();
+  let resolveGate;
+  env.setLicenseGate(feature => {
+    assert.equal(feature, "loadFilters");
+    return new Promise(resolve => { resolveGate = resolve; });
+  });
+  const pending = env.api.restoreFilters(request([rule("New")]));
+  assert.equal(env.lists.get("target-a").saves, 0);
+  resolveGate(false);
+  assert.equal(await pending, null);
+  assert.deepEqual(env.lists.get("target-a").filters, env.original);
+  assert.equal(env.lists.get("target-a").saves, 0);
+  env.setLicenseGate(async () => { throw new Error("License check failed"); });
+  await assert.rejects(env.api.restoreFilters(request([rule("New")])), /License check failed/);
+  assert.equal(env.lists.get("target-a").saves, 0);
+  env.setLicenseGate(async () => true);
+  assert.equal((await env.api.restoreFilters(request([rule("New")]))).added, 1);
 });

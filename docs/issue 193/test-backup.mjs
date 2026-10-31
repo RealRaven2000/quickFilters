@@ -245,7 +245,7 @@ async function privileged() {
   ];
   const nativeWindow = {
     quickFilters: { Util: {
-      popupProFeature: () => allowed,
+      popupProFeature: async () => allowed,
       getMsgFolderFromUri: uri => uri.endsWith("/Missing") ? null : { canFileMessages: true },
       serializeFilter: filter => { if (filter.fail) throw new Error("Serialization failed"); return structuredClone(filter); },
     }, backupOrigins: new Map() },
@@ -281,25 +281,25 @@ test("privileged exporter captures referenced accounts without exporting their f
   const env = await privileged();
   assert.equal(env.api.getBackupInfo(["a", "b"]).profileName, "Main");
   assert.equal(env.api.getBackupInfo(["a"]).accounts[0].hostname, "a");
-  const exported = env.api.exportBackupAccounts(["a"]);
+  const exported = await env.api.exportBackupAccounts(["a"]);
   assert.equal(exported.accounts.length, 1);
   assert.equal(exported.accounts[0].filters.length, 1);
   assert.equal(exported.referencedAccounts[0].id, "b");
   assert.equal(exported.referencedAccounts[0].filters, undefined);
-  assert.equal(env.api.exportBackupAccounts(["a", "b"]).referencedAccounts.length, 0);
-  assert.equal(env.api.exportBackupAccounts(["c"]).warnings[0].reason, "unknown-target-account");
+  assert.equal((await env.api.exportBackupAccounts(["a", "b"])).referencedAccounts.length, 0);
+  assert.equal((await env.api.exportBackupAccounts(["c"])).warnings[0].reason, "unknown-target-account");
   const original = env.accounts[0].incomingServer.getFilterList().getFilterAt(0);
   original.actionList.push({ type: 1, targetFolderUri: "imap://alice@b/Missing" }, { type: 16, targetFolderUri: "target imap folder" });
-  const warnings = env.api.exportBackupAccounts(["a"]).warnings;
+  const warnings = (await env.api.exportBackupAccounts(["a"])).warnings;
   assert.equal(warnings.length, 2);
   assert(warnings.every(warning => warning.reason === "invalid-target-folder"));
-  assert.throws(() => env.api.exportBackupAccounts(["a", "a"]), /distinct/);
-  assert.throws(() => env.api.exportBackupAccounts(["missing"]), /unavailable/);
+  await assert.rejects(() => env.api.exportBackupAccounts(["a", "a"]), /distinct/);
+  await assert.rejects(() => env.api.exportBackupAccounts(["missing"]), /unavailable/);
   env.accounts[0].incomingServer.getFilterList().getFilterAt(0).fail = true;
-  assert.throws(() => env.api.exportBackupAccounts(["a"]), /Serialization failed/);
+  await assert.rejects(() => env.api.exportBackupAccounts(["a"]), /Serialization failed/);
   assert.equal(env.writes.length, 0);
   env.setAllowed(false);
-  assert.equal(env.api.exportBackupAccounts(["a"]), null);
+  assert.equal(await env.api.exportBackupAccounts(["a"]), null);
 });
 
 test("native save cancellation and failure never remove the destination", async () => {
@@ -477,40 +477,91 @@ test("selected backup exports exact captured objects in list order, never the en
   env.nativeWindow.quickFilters.backupSelections = new Map([["selected", { serverKey: "server-a", filters: [second] }]]);
   assert.equal(env.api.getBackupSelection("selected").accountId, "a");
   assert.equal(env.api.getBackupSelection("selected").names.length, 1);
-  const exported = env.api.exportBackupAccounts(["a"], undefined, "selected");
+  const exported = await env.api.exportBackupAccounts(["a"], undefined, "selected");
   assert.equal(exported.accounts[0].filters.length, 1);
   assert.equal(exported.accounts[0].filters[0].actionList.length, 1);
   assert.equal(exported.referencedAccounts[0].id, "b");
-  assert.throws(() => env.api.exportBackupAccounts(["b"], undefined, "selected"), /original account/);
+  await assert.rejects(() => env.api.exportBackupAccounts(["b"], undefined, "selected"), /original account/);
   filters.pop();
   assert.equal(env.api.getBackupSelection("selected").names.length, 0);
-  assert.throws(() => env.api.exportBackupAccounts(["a"], undefined, "selected"), /remaining selected filter/);
+  await assert.rejects(() => env.api.exportBackupAccounts(["a"], undefined, "selected"), /remaining selected filter/);
   assert.throws(() => env.api.getBackupSelection("missing"), /no longer available/);
 });
 
 test("Utilities loads package scripts without chrome registrations into fresh private scopes", async () => {
   const source = await readFile(new URL("../../chrome/content/api/Utilities/implementation.js", import.meta.url), "utf8");
   const loads = [];
+  const premiumSources = Object.fromEntries(await Promise.all(["usage-policy.js", "usage-store.js"].map(async name => [name, await readFile(new URL(`../../scripts/premium/${name}`, import.meta.url), "utf8")])));
+  const values = new Map();
+  const prefs = {
+    prefHasUserValue: key => values.has(key), getIntPref: key => values.get(key),
+    setIntPref(key, value) { values.set(key, value); },
+    getBoolPref: (key, fallback) => values.get(key) ?? fallback,
+    setBoolPref(key, value) { values.set(key, value); },
+  };
   const context = vm.createContext({
-    Services: { wm: { getMostRecentWindow: () => ({}) }, scriptloader: {
-      loadSubScriptWithOptions(url, options) { loads.push({ url, options }); },
+    Services: { prefs, wm: { getMostRecentWindow: () => ({}) }, scriptloader: {
+      loadSubScriptWithOptions(url, options) {
+        loads.push({ url, options });
+        const name = url.split("/").at(-1);
+        if (premiumSources[name]) {
+          // Subscript target and globalThis need not be the same object in Gecko.
+          vm.runInNewContext(premiumSources[name], {
+            quickFiltersPremium: options.target.quickFiltersPremium, globalThis: {},
+          });
+        }
+      },
     } },
-    ChromeUtils: { importESModule: () => ({ ExtensionCommon: { ExtensionAPI: class {} }, MailServices: {} }) },
+    ChromeUtils: { importESModule: uri => {
+      assert(uri.startsWith("resource:"), "system modules require a trusted scheme");
+      return { ExtensionCommon: { ExtensionAPI: class {} }, MailServices: {} };
+    } },
     Components: {}, IOUtils: {}, console: { log() {} },
   });
   vm.runInContext(source, context);
   const api = new context.Utilities();
+  const apis = [];
   for (const root of ["file:///temporary-addon/", "jar:file:///profile/quickFilters.xpi!/"]) {
-    api.getAPI({ extension: { rootURI: { resolve: path => root + path }, localeData: { localizeMessage: getMessage } } });
+    apis.push(api.getAPI({ extension: { rootURI: { resolve: path => root + path }, localeData: { localizeMessage: getMessage } } }));
   }
-  assert.equal(loads.length, 4);
+  assert.equal(loads.length, 8);
+  await apis[0].Utilities.initializeProFeatureUsage({ loadFilters: 1 });
+  const [last, exhausted] = await Promise.all([
+    apis[0].Utilities.consumeProFeatureUsage("loadFilters"),
+    apis[1].Utilities.consumeProFeatureUsage("loadFilters"),
+  ]);
+  assert.equal(last.allowed, true);
+  assert.equal(exhausted.allowed, false);
+  assert.equal(exhausted.used, 3);
   for (const [index, load] of loads.entries()) {
-    assert(load.url.startsWith(index < 2 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
-    assert(load.url.endsWith(index % 2 ? "Utilities/restore.js" : "Utilities/backup.js"));
+    assert(load.url.startsWith(index < 4 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
+    assert(load.url.endsWith(["Utilities/backup.js", "Utilities/restore.js", "premium/usage-policy.js", "premium/usage-store.js"][index % 4]));
     assert.equal(load.options.charset, "UTF-8");
     assert.equal(load.options.ignoreCache, true);
     assert.equal(load.options.allowUnsafeURL, true);
-    assert.equal(load.options.target.t("backup.backup.title"), "Backup Filters");
-    assert.notEqual(load.options.target, loads[(index + 1) % loads.length].options.target);
+    if (index % 4 < 2) assert.equal(load.options.target.t("backup.backup.title"), "Backup Filters");
+    if (index % 4 === 2) assert.equal(load.options.target, loads[index + 1].options.target);
   }
+});
+
+test("backup waits for the async Pro gate and neither exports nor writes when denied", async () => {
+  const env = await privileged();
+  let resolveGate, serializations = 0;
+  env.nativeWindow.quickFilters.Util.serializeFilter = filter => { serializations++; return structuredClone(filter); };
+  env.nativeWindow.quickFilters.Util.popupProFeature = feature => {
+    assert.equal(feature, "saveFilters");
+    return new Promise(resolve => { resolveGate = resolve; });
+  };
+  const pending = env.api.exportBackupAccounts(["a"]);
+  assert.equal(serializations, 0);
+  resolveGate(false);
+  assert.equal(await pending, null);
+  assert.equal(serializations, 0);
+  assert.equal(env.writes.length, 0);
+  env.nativeWindow.quickFilters.Util.popupProFeature = async () => true;
+  assert.equal((await env.api.exportBackupAccounts(["a"])).accounts.length, 1);
+  assert.equal(serializations, 1);
+  env.nativeWindow.quickFilters.Util.popupProFeature = async () => { throw new Error("License check failed"); };
+  await assert.rejects(env.api.exportBackupAccounts(["a"]), /License check failed/);
+  assert.equal(serializations, 1);
 });
