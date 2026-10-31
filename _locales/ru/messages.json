@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Убедитесь, что помощник остается в верхней части после активации."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ аккаунтов · $filterCount$ фильтров",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Аккаунты для резервного копирования"
+  },
+  "backup.backup.allAccounts": {
+    "message": "Все аккаунты"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Сохранить фильтры учётной записи $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Резервное копирование выбранных фильтров"
+  },
+  "backup.backup.backup": {
+    "message": "Резервное копирование"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Кнопка «Резервное копирование» в фильтрах сообщений."
+  },
+  "backup.backup.backupFailed": {
+    "message": "Не удалось выполнить резервное копирование: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Резервная копия сохранена, но завершить операцию не удалось: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Резервная копия сохранена под номером $filePath$, но настройки сохранить не удалось: $error$.",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Резервная копия не сохранена."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Невозможно загрузить аккаунты: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Невозможно прочитать фильтры"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Выберите учетные записи и имя файла, затем сохраните резервную копию."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Не удалось удалить фильтр: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Не удалось изменить фильтр: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Не удалось вернуться к списку фильтров: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "Текущий профиль"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Удален фильтр «$filterName$». Создайте резервную копию еще раз, если хотите сохранить изменения.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "Выберите учетные записи, фильтры которых вы хотите сохранить в одном файле."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Введите имя файла резервной копии."
+  },
+  "backup.backup.filename": {
+    "message": "Файл резервной копии:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "Вы можете отредактировать это имя перед открытием диалогового окна «Сохранить как»."
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ фильтры",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Фильтры изменены. Создайте резервную копию еще раз, если хотите сохранить изменения."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "фильтры сохранены"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Выделить $warningCount$ предупреждений для $accountName$",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Выделить предупреждения для $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Загрузка аккаунтов и счетчиков фильтров…"
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "Не найдено ни одной учетной записи, поддерживающей фильтры."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$ из $accountCount$ выбрано аккаунтов · $filterCount$ фильтров",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "Выбрано $selectedFilterCount$ из $filterCount$ фильтров",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Будут сохранены только фильтры, перечисленные ниже. Чтобы выбрать другие фильтры, вернитесь в раздел «Фильтры сообщений» и снова нажмите «Резервное копирование», удерживая клавишу Ctrl."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Подготовка резервного фильтра…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "Информация о профиле"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Возврат к фильтрам сообщений"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Сохранить резервную копию…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Сохранение отменено. Бэкап не записывался."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "Сохранено $filterCount$ фильтров из учетных записей $accountCount$ в $filePath$. Для возврата используйте «Вернуться к фильтрам сообщений».",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "Сохранено в номер $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Выберите хотя бы одну учетную запись."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Выбранные учетные записи будут сохранены вместе в одном файле."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - выбранные фильтры",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(Чтобы сохранить только выбранные фильтры, удерживайте Ctrl и нажимайте $icon$ в разделе «Фильтры сообщений».)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Резервное копирование фильтров"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Снимите флажки с учетных записей, чьи фильтры не удалось прочитать, или повторно откройте эту страницу и повторите попытку."
+  },
+  "backup.common.loading": {
+    "message": "Загрузка…"
+  },
+  "backup.common.unnamed": {
+    "message": "(безымянный)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ предупреждения",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ предупреждение",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Фильтры были отредактированы. Хотите сначала сделать резервную копию изменений? Нажмите «Да», если вы хотите сначала сделать резервную копию изменений."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Удалить фильтр «$name$»?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Больше не спрашивай"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Выберите пункт назначения"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Пункт назначения отсутствует"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Дублирующиеся идентификаторы учетных записей в резервной копии."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Неверные метаданные учетной записи."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Недопустимое действие или условие в $filterName$.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Неверные данные фильтра в $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Неверный указанный каталог учетной записи."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Устаревшая учетная запись"
+  },
+  "backup.format.localFolders": {
+    "message": "Локальные папки"
+  },
+  "backup.format.matched": {
+    "message": "Соответствует"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Отсутствуют фильтры для $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (по ссылке)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "Сохранённое сопоставление"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Исходный аккаунт"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "Резервная копия не содержит исходных учетных записей."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Неподдерживаемый формат или версия резервной копии фильтра."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "Все учетные записи назначены."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Назначено номеру $accountName$ — перейдите сюда",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Поместите сюда цель"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ Фильтры$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "Фильтры восстановлены"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "фильтры не восстановлены"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Связанный аккаунт · фильтры не импортированы"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Удаление назначения"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "восстановление не удалось"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Восстановление фильтров от $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Выберите аккаунт для $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Выбор учетной записи (вы также можете перетащить учетные записи в слот)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ предупреждения",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Аккаунт $accountId$ недоступен или не поддерживает фильтры.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Невозможно восстановить значение поиска сериализованной папки."
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Не удалось экспортировать фильтр «$filterName$». Бэкап не записывался.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Целевой счет $accountId$ недоступен.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Для каждой исходной учетной записи требуется отдельный пункт назначения."
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Введите допустимое имя файла без пути к папке."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Папка «$folderName$» не существует в целевой учетной записи.",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Неверное сопоставление учетной записи."
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Неверный пустой сегмент пути к папке."
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Недопустимое действие фильтра"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Неверный отчет о восстановлении"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Неверный запрос на восстановление."
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Неверное условие поиска"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Неверный сериализованный фильтр."
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Неверные идентификаторы исходной учетной записи."
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Неверный набор исходных фильтров."
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "Неверный URI целевой папки."
+  },
+  "backup.native.jSONFiles": {
+    "message": "Файлы JSON"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Отсутствует идентификатор специального действия."
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Отсутствует идентификатор пользовательского поискового запроса."
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Отсутствует URI сериализованной целевой папки."
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "Более одной исходной учетной записи соответствует учетной записи папки."
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "Для учетной записи «$accountName$» не выбран пункт назначения.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Откройте окно почты перед восстановлением фильтров."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Откройте окно почты Thunderbird перед резервным копированием фильтров."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Открыть резервный фильтр"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Сохранить резервную копию фильтра"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Не удалось сохранить ($saveError$); восстановить исходный файл также не удалось ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Выберите по меньшей мере одну отдельную учетную запись."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Перед восстановлением выберите сопоставленные исходные учетные записи."
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Выберите исходную учетную запись, по крайней мере, с одним оставшимся выбранным фильтром."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Целевая папка отсутствует или не может получать сообщения"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "Учетная запись папки не может быть идентифицирована в резервной копии."
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "Импортированный фильтр был удален или заменен. Снова откройте фильтры сообщений, чтобы проверить их."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "Выбранная учетная запись больше не доступна."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "Выбранные фильтры больше не доступны. Вернитесь к фильтрам сообщений и выберите их снова."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "Этот импортированный фильтр больше не доступен."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "Этот импортированный фильтр больше недоступен. Восстановите еще раз, чтобы обновить список отзывов."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Неразбираемый фильтр не имеет восстанавливаемого собственного буфера."
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Неподдерживаемые резервные данные."
+  },
+  "backup.restore.allSources": {
+    "message": "Все исходные аккаунты"
+  },
+  "backup.restore.assigned": {
+    "message": "Назначено"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Невозможно загрузить целевые учетные записи: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Невозможно открыть резервную копию: $error$$previousBackupNotice$.",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Проверьте сопоставления мест назначения, затем восстановите выбранные учетные записи. Связанные учетные записи можно сопоставить без импорта их фильтров."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Не удалось сохранить отчет: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Удален фильтр «$filterName$».",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "Выберите исходные учетные записи и назначьте их адресаты в этом профиле."
+  },
+  "backup.restore.destinations": {
+    "message": "Целевые аккаунты · Этот профиль"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Существующие фильтры сохраняются; добавляются только фильтры с новыми именами."
+  },
+  "backup.restore.information": {
+    "message": "Резервная информация"
+  },
+  "backup.restore.instructions": {
+    "message": "Перетащите целевую учётную запись в поле назначения, чтобы выбрать соответствующую исходную учётную запись. Чтобы снять выбор, верните её в раздел «Учётные записи без изменений». Также можно выбрать целевую учётную запись кнопкой ▶ рядом с исходной, без перетаскивания."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Старое резервное копирование"
+  },
+  "backup.restore.legend": {
+    "message": "Неотмеченные исходные учётные записи сохраняют свои сопоставления. Каждую целевую учётную запись можно использовать только один раз."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Сопоставление учетных записей"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "Резервная копия не выбрана"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Для начала откройте файл резервной копии. Никакие фильтры не будут изменены, пока вы не нажмете «Восстановить фильтры»."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Откройте резервную копию JSON, чтобы выбрать учетные записи."
+  },
+  "backup.restore.openBackup": {
+    "message": "Открыть резервную копию…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "Открытие отменено."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Открытие отменено. Предыдущая резервная копия остается загруженной."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Перезаписать фильтры с тем же именем."
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Восстановление завершено, но сопоставления не удалось запомнить: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Не удалось восстановить: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Восстановление фильтров"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Отчет о восстановлении сохранен по номеру $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Обзор восстановления · $warningCount$ предупреждений и пропущенных элементов",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Восстановление не было выполнено."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Восстановление фильтров…"
+  },
+  "backup.restore.resultComplete": {
+    "message": "Восстановление завершено: $added$ добавлено, $replaced$ заменено, $kept$ существующих фильтров сохранено, $skipped$ пропущено.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Восстановление завершено с ошибками: $added$ добавлено, $replaced$ заменено, $kept$ существующих фильтров сохранено, $skipped$ пропущено, $failed$ учетных записей не удалось.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Заменены одноименные фильтры; добавлены новые фильтры; остальные фильтры остаются."
+  },
+  "backup.restore.saveReport": {
+    "message": "Сохранить отчет…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Выберите целевые счета для: $accountNames$.",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ исходных аккаунтов · $referencedAccountCount$ ссылочных аккаунтов",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " Предыдущая резервная копия остается загруженной."
+  },
+  "backup.restore.title": {
+    "message": "Восстановление фильтров"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Учётные записи без изменений"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "Фильтры здесь остаются такими, какие они есть."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Пожалуйста, выберите хотя бы один фильтр!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Невозможно открыть резервную копию: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Невозможно открыть восстановление: $error$.",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Неподдерживаемое серверное хранилище резервных копий: $backend$.",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "Аккаунт"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Не удалось восстановить учетную запись."
+  },
+  "backup.warnings.action": {
+    "message": "Действие"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "Отображаются все предупреждения."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Резервная копия сохранена с предупреждениями $warningCount$.",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Снять выделение"
+  },
+  "backup.warnings.customActionID": {
+    "message": "Идентификатор специального действия:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Специальное действие недоступно"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "Идентификатор пользовательского поискового запроса:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Пользовательский поисковый запрос недоступен."
+  },
+  "backup.warnings.delete": {
+    "message": "Удалить"
+  },
+  "backup.warnings.details": {
+    "message": "Подробности"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Повторяющееся имя — пропускается"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Редактировать фильтр"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Отредактировано пользователем"
+  },
+  "backup.warnings.filter": {
+    "message": "Фильтр"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Фильтр удален"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Фильтр пропущен"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Неверный целевой аккаунт"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Неверная целевая папка"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Элемент удален"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "Это предупреждение было записано до редактирования фильтра и больше не проверялось."
+  },
+  "backup.warnings.warning": {
+    "message": "Предупреждение"
+  },
+  "backup.warnings.warnings": {
+    "message": "Предупреждения"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Предупреждения для номера $accountName$ выделены. Все предупреждения остаются видимыми.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "Вы изменили текущие фильтры. Не забудьте снова создать резервную копию, если хотите сохранить это изменение."
+  },
   "btn-extend-license": {
     "message": "Я хочу продлить лицензию на один год"
   },

@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Se till att assistenten förblir överst när den är aktiverad."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ konton · $filterCount$ filter",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Konton att säkerhetskopiera"
+  },
+  "backup.backup.allAccounts": {
+    "message": "Alla konton"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Säkerhetskopiera filter från $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Säkerhetskopiera valda filter"
+  },
+  "backup.backup.backup": {
+    "message": "Säkerhetskopiering"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Backup-knapp i meddelandefilter"
+  },
+  "backup.backup.backupFailed": {
+    "message": "Säkerhetskopiering misslyckades: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Säkerhetskopieringen har sparats, men avslutandet misslyckades: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Säkerhetskopieringen sparades till $filePath$, men inställningarna kunde inte sparas: $error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Säkerhetskopieringen sparades inte."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Kan inte ladda konton: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Kan inte läsa filter"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Välj konton och ett filnamn och spara sedan din säkerhetskopia."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Kunde inte ta bort filter: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Kunde inte redigera filter: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Kunde inte återgå till filterlistan: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "Aktuell profil"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Borttaget filter \"$filterName$\". Säkerhetskopiera igen om du vill spara denna ändring.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "Välj de konton vars filter du vill spara i en fil."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Ange ett backupfilnamn."
+  },
+  "backup.backup.filename": {
+    "message": "Säkerhetskopieringsfil:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "Du kan redigera detta namn innan du öppnar dialogrutan Spara som."
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ filter",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Filter ändrade. Säkerhetskopiera igen om du vill spara denna ändring."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "filter sparade"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Markera $warningCount$ varningar för $accountName$",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Markera varningar för $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Laddar konton och filterantal..."
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "Inga konton som stöder filter hittades."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$ av $accountCount$ konton valda · $filterCount$ filter",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "$selectedFilterCount$ av $filterCount$ filter valda",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Endast de nedan listade filtren kommer att sparas. För att välja olika filter, gå tillbaka till Meddelandefilter och Ctrl-klicka på Säkerhetskopiera igen."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Förbereder filterbackup..."
+  },
+  "backup.backup.profileInformation": {
+    "message": "Profilinformation"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Återgå till meddelandefilter"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Spara säkerhetskopia..."
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Spara avbröts. Ingen säkerhetskopia skrevs."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "Sparade $filterCount$ filter från $accountCount$ konton till $filePath$. Använd Return to Message Filters för att återvända.",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "Sparad till $filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Välj minst ett konto."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Valda konton kommer att sparas tillsammans i en fil."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - valda filter",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(För att bara spara ett urval av filter, håll ned Ctrl medan du klickar på $icon$ i meddelandefilter.)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Säkerhetskopiera filter"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Avmarkera konton vars filter inte kunde läsas, eller öppna den här sidan igen för att försöka igen."
+  },
+  "backup.common.loading": {
+    "message": "Laddar..."
+  },
+  "backup.common.unnamed": {
+    "message": "(onamn)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ varningar",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ varning",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Filter redigerades. Vill du säkerhetskopiera ändringarna först? Klicka på Ja om du vill säkerhetskopiera ändringarna först."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Ta bort filtret \"$name$\"?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Fråga inte igen"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Välj destination"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Destination saknas"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Duplicera kontoidentifierare i backup."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Ogiltig kontometadata."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Ogiltig åtgärd eller villkor i $filterName$.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Ogiltig filterdata i $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Ogiltig refererad kontokatalog."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Äldre konto"
+  },
+  "backup.format.localFolders": {
+    "message": "Lokala mappar"
+  },
+  "backup.format.matched": {
+    "message": "Matchat"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Filter saknas för $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (referens)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "Sparad tilldelning"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Källkonto"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "Säkerhetskopieringen innehåller inga källkonton."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Ej stödd filterbackupformat eller version."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "Alla konton är tilldelade."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Tilldelad $accountName$ - flytta hit",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Släpp ett mål här"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ filter$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "filter återställda"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "inga filter återställda"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Refererat konto · inga filter importerade"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Ta bort uppdraget"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "återställning misslyckades"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Återställ filter från $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Välj konto för $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Välj konto (du kan också dra konton till en plats)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ varningar",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Konto $accountId$ är inte tillgängligt eller stöder inte filter.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Det går inte att återställa det serialiserade mappsökningsvärdet"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Kunde inte exportera filtret \"$filterName$\". Ingen säkerhetskopia skrevs.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Destinationskonto $accountId$ är inte tillgängligt.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Varje källkonto kräver en distinkt destination"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Ange ett giltigt filnamn utan en mappsökväg."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Mappen \"$folderName$\" finns inte i målkontot",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Ogiltig kontomappning"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Ogiltigt tomt mappsökvägssegment"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Ogiltig filteråtgärd"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Ogiltig återställningsrapport"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Ogiltig återställningsbegäran"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Ogiltigt sökvillkor"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Ogiltigt serialiserat filter"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Ogiltiga källkontoidentifierare"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Ogiltig källfiltersamling"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "Ogiltig målmapp-URI"
+  },
+  "backup.native.jSONFiles": {
+    "message": "JSON-filer"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Anpassad åtgärdsidentifierare saknas"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Anpassad söktermidentifierare saknas"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Serialiserad målmapps-URI saknas"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "Mer än ett källkonto matchar mappens konto"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "Ingen destination har valts för kontot \"$accountName$\"",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Öppna ett e-postfönster innan du återställer filter."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Öppna ett Thunderbird-e-postfönster innan du säkerhetskopierar filter."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Öppna filterbackup"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Spara filterbackup"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Sparning misslyckades ($saveError$); återställning av originalfilen misslyckades också ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Välj minst ett distinkt konto."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Välj mappade källkonton innan du återställer"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Välj det ursprungliga kontot med minst ett återstående valt filter."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Målmappen saknas eller kan inte ta emot meddelanden"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "Mappens konto kunde inte identifieras i säkerhetskopian"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "Det importerade filtret togs bort eller byttes ut. Öppna meddelandefiltren igen för att inspektera det."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "Det valda kontot är inte längre tillgängligt."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "De valda filtren är inte längre tillgängliga. Gå tillbaka till meddelandefilter och välj dem igen."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "Detta importerade filter är inte längre tillgängligt."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "Detta importerade filter är inte längre tillgängligt. Återställ igen för att uppdatera granskningslistan."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Oparsebart filter har ingen återställbar inbyggd buffert"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Backupdata som inte stöds."
+  },
+  "backup.restore.allSources": {
+    "message": "Alla källkonton"
+  },
+  "backup.restore.assigned": {
+    "message": "Tilldelad"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Kan inte ladda destinationskonton: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Kan inte öppna säkerhetskopian: $error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Kontrollera destinationsmappningar och återställ sedan de valda kontona. Refererade konton kan mappas utan att importera deras filter."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Kunde inte spara rapporten: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Borttaget filter \"$filterName$\".",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "Välj källkonton och tilldela deras destinationer i den här profilen."
+  },
+  "backup.restore.destinations": {
+    "message": "Destinationskonton · Denna profil"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Befintliga filter behålls; endast filter med nya namn läggs till."
+  },
+  "backup.restore.information": {
+    "message": "Säkerhetskopieringsinformation"
+  },
+  "backup.restore.instructions": {
+    "message": "Dra ett målkonto till en målplats för att välja motsvarande källkonto. Dra tillbaka det till ”Oförändrade konton” för att avmarkera det. Du kan också välja ett målkonto utan att dra genom att använda knappen ▶ bredvid ett källkonto."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Säkerhetskopia i äldre format"
+  },
+  "backup.restore.legend": {
+    "message": "Omarkerade källkonton behåller sina tilldelningar. Varje målkonto kan bara användas en gång."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Kontomappning"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "Ingen säkerhetskopia har valts"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Öppna en säkerhetskopia för att börja. Inga filter ändras förrän du klickar på Återställ filter."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Öppna en JSON-säkerhetskopia för att välja konton."
+  },
+  "backup.restore.openBackup": {
+    "message": "Öppna säkerhetskopian..."
+  },
+  "backup.restore.openCancelled": {
+    "message": "Öppet avbröts."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Öppet avbröts. Den tidigare säkerhetskopian förblir laddad."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Skriv över filter med samma namn"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Återställning slutförd, men mappningar kunde inte kommas ihåg: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Återställning misslyckades: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Återställ filter"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Återställningsrapport sparad till $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Återställ recension · $warningCount$ varningar och överhoppade objekt",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Återställning utfördes inte."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Återställer filter..."
+  },
+  "backup.restore.resultComplete": {
+    "message": "Återställning slutförd: $added$ tillagd, $replaced$ ersatt, $kept$ befintliga filter bevarade, $skipped$ överhoppade.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Återställningen avslutad med fel: $added$ tillagd, $replaced$ ersatt, $kept$ befintliga filter bevarade, $skipped$ hoppade över, $failed$ konton misslyckades.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Filter med samma namn byts ut; nya filter läggs till; andra filter finns kvar."
+  },
+  "backup.restore.saveReport": {
+    "message": "Spara rapport..."
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Välj destinationskonton för: $accountNames$.",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ källkonton · $referencedAccountCount$ refererade konton",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " Den tidigare säkerhetskopian förblir laddad."
+  },
+  "backup.restore.title": {
+    "message": "Återställ filter"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Oförändrade konton"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "Filtren här förblir som de är."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Välj minst ett filter!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Kan inte öppna backup: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Kan inte öppna återställning: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Backend för backuplagring som inte stöds: $backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "Konto"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Kontoåterställning misslyckades"
+  },
+  "backup.warnings.action": {
+    "message": "Åtgärd"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "Alla varningar visas."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Backup sparad med $warningCount$ varningar",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Ta bort markering"
+  },
+  "backup.warnings.customActionID": {
+    "message": "ID för anpassad åtgärd:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Anpassad åtgärd är inte tillgänglig"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "ID för anpassad sökterm:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Anpassad sökterm är inte tillgänglig"
+  },
+  "backup.warnings.delete": {
+    "message": "Ta bort"
+  },
+  "backup.warnings.details": {
+    "message": "Detaljer"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Dubblettnamn – hoppat över"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Redigera filter"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Redigerat av användare"
+  },
+  "backup.warnings.filter": {
+    "message": "Filter"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Filter raderat"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Filter hoppat över"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Ogiltigt målkonto"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Ogiltig målmapp"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Objekt raderat"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "Denna varning registrerades innan filtret redigerades och har inte kontrollerats igen."
+  },
+  "backup.warnings.warning": {
+    "message": "Varning"
+  },
+  "backup.warnings.warnings": {
+    "message": "Varningar"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Varningar för $accountName$ markerade. Alla varningar förblir synliga.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "Du har ändrat dina nuvarande filter - kom ihåg att säkerhetskopiera igen om du vill spara denna ändring"
+  },
   "btn-extend-license": {
     "message": "Jag vill förlänga min licens med ett år"
   },

@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Đảm bảo rằng trợ lý ở phía trên sau khi được kích hoạt."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ tài khoản · $filterCount$ bộ lọc",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Tài khoản cần sao lưu"
+  },
+  "backup.backup.allAccounts": {
+    "message": "Tất cả tài khoản"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Sao lưu bộ lọc từ $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Sao lưu các bộ lọc đã chọn"
+  },
+  "backup.backup.backup": {
+    "message": "Sao lưu"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Nút sao lưu trong Bộ lọc tin nhắn"
+  },
+  "backup.backup.backupFailed": {
+    "message": "Sao lưu không thành công: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Đã lưu bản sao lưu nhưng việc hoàn tất thao tác không thành công: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Đã lưu bản sao lưu vào $filePath$, nhưng không thể lưu tùy chọn: $error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Bản sao lưu chưa được lưu."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Không nạp được tài khoản: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Không thể đọc bộ lọc"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Chọn tài khoản và tên tệp, sau đó lưu bản sao lưu của bạn."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Không thể xóa bộ lọc: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Không thể chỉnh sửa bộ lọc: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Không thể quay lại danh sách bộ lọc: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "Hồ sơ hiện tại"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Đã xóa bộ lọc “$filterName$”. Sao lưu lại nếu bạn muốn lưu thay đổi này.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "Chọn các tài khoản có bộ lọc bạn muốn lưu vào một tệp."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Nhập tên tệp sao lưu."
+  },
+  "backup.backup.filename": {
+    "message": "Tệp sao lưu:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "Bạn có thể chỉnh sửa tên này trước khi mở hộp thoại Lưu dưới dạng."
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ bộ lọc",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Bộ lọc đã thay đổi. Sao lưu lại nếu bạn muốn lưu thay đổi này."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "đã lưu bộ lọc"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Đánh dấu cảnh báo $warningCount$ cho $accountName$",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Đánh dấu cảnh báo cho $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Đang tải tài khoản và đếm bộ lọc…"
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "Không tìm thấy tài khoản nào hỗ trợ bộ lọc."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$ trong số $accountCount$ tài khoản đã chọn · $filterCount$ bộ lọc",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "$selectedFilterCount$ trong số $filterCount$ bộ lọc đã chọn",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Chỉ các bộ lọc được liệt kê bên dưới mới được lưu. Để chọn các bộ lọc khác nhau, hãy quay lại Bộ lọc tin nhắn rồi bấm Ctrl và nhấp lại vào Sao lưu."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Đang chuẩn bị sao lưu bộ lọc…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "Thông tin hồ sơ"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Quay lại Bộ lọc Tin nhắn"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Lưu bản sao lưu…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Đã hủy lưu. Không có bản sao lưu nào được viết."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "Đã lưu $filterCount$ bộ lọc từ $accountCount$ tài khoản đến $filePath$. Sử dụng Return to Message Filters để quay lại.",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "Đã lưu vào $filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Chọn ít nhất một tài khoản."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Các tài khoản đã chọn sẽ được lưu cùng nhau trong một tệp."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - bộ lọc đã chọn",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(Để chỉ lưu một lựa chọn bộ lọc, giữ Ctrl trong khi nhấp vào $icon$ trong Bộ lọc Thư.)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Sao lưu bộ lọc"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Bỏ chọn các tài khoản có bộ lọc không thể đọc được hoặc mở lại trang này để thử lại."
+  },
+  "backup.common.loading": {
+    "message": "Đang tải…"
+  },
+  "backup.common.unnamed": {
+    "message": "(không có tên)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ cảnh báo",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ cảnh báo",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Bộ lọc đã được chỉnh sửa. Bạn có muốn sao lưu các thay đổi trước không? Bấm Có nếu bạn muốn sao lưu các thay đổi trước."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Xóa bộ lọc “$name$”?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Đừng hỏi lại"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Chọn điểm đến"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Thiếu đích đến"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Số nhận dạng tài khoản trùng lặp trong bản sao lưu."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Siêu dữ liệu tài khoản không hợp lệ."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Hành động hoặc điều kiện không hợp lệ trong $filterName$.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Dữ liệu bộ lọc không hợp lệ trong $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Thư mục tài khoản được tham chiếu không hợp lệ."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Tài khoản kế thừa"
+  },
+  "backup.format.localFolders": {
+    "message": "Thư mục cục bộ"
+  },
+  "backup.format.matched": {
+    "message": "Đã khớp"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Thiếu bộ lọc cho $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (tham khảo)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "Ánh xạ đã lưu"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Tài khoản nguồn"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "Bản sao lưu không chứa tài khoản nguồn."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Định dạng hoặc phiên bản sao lưu bộ lọc không được hỗ trợ."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "Tất cả các tài khoản đều được chỉ định."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Đã gán cho $accountName$ — di chuyển vào đây",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Thả mục tiêu vào đây"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ bộ lọc$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "bộ lọc được khôi phục"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "không có bộ lọc nào được khôi phục"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Tài khoản được tham chiếu · không nhập bộ lọc"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Xóa bài tập"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "khôi phục không thành công"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Khôi phục bộ lọc từ $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Chọn tài khoản cho $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Chọn tài khoản (bạn cũng có thể kéo tài khoản vào một vị trí)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ cảnh báo",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Tài khoản $accountId$ không khả dụng hoặc không hỗ trợ bộ lọc.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Không thể khôi phục giá trị tìm kiếm thư mục được tuần tự hóa"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Không thể xuất bộ lọc “$filterName$”. Không có bản sao lưu nào được viết.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Tài khoản đích $accountId$ không khả dụng.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Mỗi tài khoản nguồn yêu cầu một đích riêng biệt"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Nhập tên tệp hợp lệ không có đường dẫn thư mục."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Thư mục “$folderName$” không tồn tại trong tài khoản đích",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Ánh xạ tài khoản không hợp lệ"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Đoạn đường dẫn thư mục trống không hợp lệ"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Hành động lọc không hợp lệ"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Báo cáo khôi phục không hợp lệ"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Yêu cầu khôi phục không hợp lệ"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Điều kiện tìm kiếm không hợp lệ"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Bộ lọc tuần tự không hợp lệ"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Mã định danh tài khoản nguồn không hợp lệ"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Bộ sưu tập bộ lọc nguồn không hợp lệ"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "URI thư mục đích không hợp lệ"
+  },
+  "backup.native.jSONFiles": {
+    "message": "tệp JSON"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Thiếu mã định danh hành động tùy chỉnh"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Thiếu mã định danh thuật ngữ tìm kiếm tùy chỉnh"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Thiếu URI thư mục đích được tuần tự hóa"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "Nhiều tài khoản nguồn khớp với tài khoản của thư mục"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "Chưa chọn đích đến cho tài khoản “$accountName$”",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Mở cửa sổ thư trước khi khôi phục bộ lọc."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Mở cửa sổ thư Thunderbird trước khi sao lưu bộ lọc."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Mở bản sao lưu bộ lọc"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Lưu bản sao lưu bộ lọc"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Lưu không thành công ($saveError$); khôi phục tập tin gốc cũng không thành công ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Chọn ít nhất một tài khoản riêng biệt."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Chọn các tài khoản nguồn được ánh xạ trước khi khôi phục"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Chọn tài khoản gốc có ít nhất một bộ lọc được chọn còn lại."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Thư mục đích bị thiếu hoặc không thể nhận tin nhắn"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "Không thể xác định được tài khoản của thư mục trong bản sao lưu"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "Bộ lọc nhập đã bị xóa hoặc thay thế. Mở lại Bộ lọc tin nhắn để kiểm tra nó."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "Tài khoản đã chọn không còn tồn tại."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "Các bộ lọc đã chọn không còn khả dụng nữa. Quay lại Bộ lọc tin nhắn và chọn lại chúng."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "Bộ lọc đã nhập này không còn khả dụng nữa."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "Bộ lọc đã nhập này không còn khả dụng nữa. Khôi phục lại để làm mới danh sách đánh giá."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Bộ lọc không thể phân tích cú pháp không có bộ đệm gốc có thể phục hồi"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Dữ liệu sao lưu không được hỗ trợ."
+  },
+  "backup.restore.allSources": {
+    "message": "Tất cả các tài khoản nguồn"
+  },
+  "backup.restore.assigned": {
+    "message": "Đã được giao"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Không thể tải tài khoản đích: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Không mở được bản sao lưu: $error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Kiểm tra ánh xạ đích, sau đó khôi phục các tài khoản đã chọn. Các tài khoản được tham chiếu có thể được ánh xạ mà không cần nhập bộ lọc của chúng."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Không lưu được báo cáo: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Đã xóa bộ lọc “$filterName$”.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "Chọn tài khoản nguồn và chỉ định đích đến của chúng trong hồ sơ này."
+  },
+  "backup.restore.destinations": {
+    "message": "Tài khoản đích · Hồ sơ này"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Các bộ lọc hiện có được giữ lại; chỉ các bộ lọc có tên mới mới được thêm vào."
+  },
+  "backup.restore.information": {
+    "message": "Thông tin sao lưu"
+  },
+  "backup.restore.instructions": {
+    "message": "Kéo tài khoản đích vào ô đích để chọn tài khoản nguồn tương ứng. Kéo tài khoản đó trở lại mục “Tài khoản giữ nguyên” để bỏ chọn. Bạn cũng có thể dùng nút ▶ bên cạnh tài khoản nguồn để chọn tài khoản đích mà không cần kéo thả."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Sao lưu kế thừa"
+  },
+  "backup.restore.legend": {
+    "message": "Các tài khoản nguồn không được chọn vẫn giữ nguyên ánh xạ. Mỗi tài khoản đích chỉ có thể được dùng một lần."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Sơ đồ tài khoản"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "Không có bản sao lưu nào được chọn"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Mở tập tin sao lưu để bắt đầu. Không có bộ lọc nào được thay đổi cho đến khi bạn nhấp vào Khôi phục bộ lọc."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Mở bản sao lưu JSON để chọn tài khoản."
+  },
+  "backup.restore.openBackup": {
+    "message": "Mở bản sao lưu…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "Đã hủy mở."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Đã hủy mở. Bản sao lưu trước đó vẫn được tải."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Ghi đè các bộ lọc có cùng tên"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Khôi phục đã hoàn tất, nhưng không thể nhớ ánh xạ: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Khôi phục không thành công: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Khôi phục bộ lọc"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Khôi phục báo cáo đã lưu về $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Khôi phục đánh giá · $warningCount$ cảnh báo và mục bị bỏ qua",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Khôi phục không được thực hiện."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Đang khôi phục bộ lọc…"
+  },
+  "backup.restore.resultComplete": {
+    "message": "Khôi phục hoàn tất: $added$ được thêm, $replaced$ được thay thế, $kept$ bộ lọc hiện có được giữ lại, $skipped$ bị bỏ qua.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Khôi phục xong nhưng có lỗi: $added$ được thêm, $replaced$ được thay thế, $kept$ bộ lọc hiện có được giữ lại, $skipped$ bị bỏ qua, $failed$ tài khoản không thành công.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Bộ lọc cùng tên được thay thế; bộ lọc mới được thêm vào; các bộ lọc khác vẫn còn."
+  },
+  "backup.restore.saveReport": {
+    "message": "Lưu báo cáo…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Chọn tài khoản đích cho: $accountNames$.",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ tài khoản nguồn · $referencedAccountCount$ tài khoản tham chiếu",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " Bản sao lưu trước đó vẫn được tải."
+  },
+  "backup.restore.title": {
+    "message": "Khôi phục bộ lọc"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Tài khoản giữ nguyên"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "Các bộ lọc ở đây vẫn giữ nguyên như cũ."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Vui lòng chọn ít nhất một bộ lọc!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Không mở được bản sao lưu: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Không thể mở khôi phục: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Phần phụ trợ lưu trữ sao lưu không được hỗ trợ: $backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "Tài khoản"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Khôi phục tài khoản không thành công"
+  },
+  "backup.warnings.action": {
+    "message": "Hành Động"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "Tất cả các cảnh báo được hiển thị."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Đã lưu bản sao lưu kèm theo cảnh báo $warningCount$",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Bỏ tô sáng"
+  },
+  "backup.warnings.customActionID": {
+    "message": "ID hành động tùy chỉnh:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Hành động tùy chỉnh không khả dụng"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "ID thuật ngữ tìm kiếm tùy chỉnh:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Thuật ngữ tìm kiếm tùy chỉnh không có sẵn"
+  },
+  "backup.warnings.delete": {
+    "message": "Xóa"
+  },
+  "backup.warnings.details": {
+    "message": "Chi tiết"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Tên trùng lặp — bị bỏ qua"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Chỉnh sửa bộ lọc"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Được chỉnh sửa bởi người dùng"
+  },
+  "backup.warnings.filter": {
+    "message": "Bộ lọc"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Đã xóa bộ lọc"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Bộ lọc bị bỏ qua"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Tài khoản mục tiêu không hợp lệ"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Thư mục đích không hợp lệ"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Mục đã bị xóa"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "Cảnh báo này được ghi lại trước khi bộ lọc được chỉnh sửa và chưa được kiểm tra lại."
+  },
+  "backup.warnings.warning": {
+    "message": "Cảnh báo"
+  },
+  "backup.warnings.warnings": {
+    "message": "Cảnh báo"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Cảnh báo cho $accountName$ được tô sáng. Tất cả các cảnh báo vẫn hiển thị.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "Bạn đã thay đổi bộ lọc hiện tại của mình - hãy nhớ sao lưu lại nếu bạn muốn lưu thay đổi này"
+  },
   "btn-extend-license": {
     "message": "Tôi muốn gia hạn giấy phép của mình thêm một năm"
   },

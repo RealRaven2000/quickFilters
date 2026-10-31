@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Assistantが有効になったら常に上に表示されるようにします。"
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ アカウント · $filterCount$ フィルター",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "バックアップするアカウント"
+  },
+  "backup.backup.allAccounts": {
+    "message": "全アカウント"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "$accountName$ のフィルターをバックアップ",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "選択したフィルターをバックアップする"
+  },
+  "backup.backup.backup": {
+    "message": "バックアップ"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "メッセージフィルターのバックアップボタン"
+  },
+  "backup.backup.backupFailed": {
+    "message": "バックアップに失敗しました: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "バックアップは保存されましたが、操作の終了に失敗しました: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "バックアップは $filePath$ に保存されましたが、設定は保存できませんでした: $error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "バックアップが保存されませんでした。"
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "アカウントを読み込めません: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "フィルターを読み取れません"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "アカウントとファイル名を選択し、バックアップを保存します。"
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "フィルタを削除できませんでした: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "フィルターを編集できませんでした: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "フィルタ リストに戻れませんでした: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "現在のプロフィール"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "フィルタ「$filterName$」を削除しました。この変更を保存したい場合は、再度バックアップしてください。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "フィルターを 1 つのファイルに保存したいアカウントを選択します。"
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "バックアップファイル名を入力します。"
+  },
+  "backup.backup.filename": {
+    "message": "バックアップファイル:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "「名前を付けて保存」ダイアログを開く前に、この名前を編集できます。"
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ フィルター",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "フィルターが変更されました。この変更を保存したい場合は、再度バックアップしてください。"
+  },
+  "backup.backup.filtersSaved": {
+    "message": "フィルターが保存されました"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "$accountName$ に対する $warningCount$ の警告を強調表示します。",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "$accountName$ の警告を強調表示する",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "アカウントとフィルター数を読み込み中…"
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "フィルターをサポートするアカウントは見つかりませんでした。"
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$accountCount$ アカウント中 $selectedAccountCount$ が選択されました · $filterCount$ フィルター",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "$filterCount$ 個のフィルター中 $selectedFilterCount$ 個が選択されました",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "以下にリストされているフィルターのみが保存されます。別のフィルターを選択するには、「メッセージ フィルター」に戻り、Ctrl キーを押しながら再度「バックアップ」をクリックします。"
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "フィルタのバックアップを準備しています…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "プロフィール情報"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "メッセージフィルターに戻る"
+  },
+  "backup.backup.saveBackup": {
+    "message": "バックアップを保存…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "保存がキャンセルされました。バックアップは書き込まれませんでした。"
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "$filterCount$ フィルターを $accountCount$ アカウントから $filePath$ に保存しました。戻るには、「メッセージ フィルターに戻る」を使用してください。",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "$filePath$に保存されました",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "少なくとも 1 つのアカウントを選択してください。"
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "選択したアカウントが 1 つのファイルにまとめて保存されます。"
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - 選択されたフィルター",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(選択したフィルターのみを保存するには、Ctrl キーを押しながらメッセージ フィルターの $icon$ をクリックします。)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "フィルターのバックアップ"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "フィルタを読み取れなかったアカウントのチェックを外すか、このページを再度開いて再試行してください。"
+  },
+  "backup.common.loading": {
+    "message": "読み込み中…"
+  },
+  "backup.common.unnamed": {
+    "message": "(名前なし)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ 警告",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ 警告",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "フィルターが編集されました。まず変更をバックアップしますか?最初に変更をバックアップする場合は、「はい」をクリックします。"
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "フィルタ「$name$」を削除しますか?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "二度と質問しないでください"
+  },
+  "backup.format.chooseDestination": {
+    "message": "目的地を選択してください"
+  },
+  "backup.format.destinationMissing": {
+    "message": "目的地がありません"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "バックアップ内のアカウント識別子が重複しています。"
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "アカウントのメタデータが無効です。"
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "$filterName$ のアクションまたは条件が無効です。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "$accountName$ のフィルター データが無効です。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "参照されたアカウント ディレクトリが無効です。"
+  },
+  "backup.format.legacyAccount": {
+    "message": "レガシーアカウント"
+  },
+  "backup.format.localFolders": {
+    "message": "ローカルフォルダー"
+  },
+  "backup.format.matched": {
+    "message": "マッチ"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "$accountName$ のフィルターがありません。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (参照)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "保存済みの割り当て"
+  },
+  "backup.format.sourceAccount": {
+    "message": "ソースアカウント"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "バックアップにはソース アカウントが含まれていません。"
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "サポートされていないフィルタ バックアップの形式またはバージョンです。"
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "すべてのアカウントが割り当てられています。"
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "$accountName$ に割り当て — ここに移動",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "ここにターゲットをドロップします"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ フィルター$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "フィルターが復元されました"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "フィルタは復元されませんでした"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "参照されたアカウント · フィルターはインポートされていません"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "割り当てを削除する"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "復元に失敗しました"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "$accountName$ からフィルターを復元します",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "$accountName$ のアカウントを選択してください",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "アカウントの選択 (アカウントをスロットにドラッグすることもできます)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ 警告",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "アカウント $accountId$ は利用できないか、フィルターをサポートしていません。",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "シリアル化されたフォルダー検索値を復元できません"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "フィルタ「$filterName$」をエクスポートできませんでした。バックアップは書き込まれませんでした。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "宛先アカウント $accountId$ は利用できません。",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "各ソースアカウントには個別の宛先が必要です"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "フォルダー パスを含まない有効なファイル名を入力してください。"
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "宛先アカウントにフォルダー「$folderName$」が存在しません",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "無効なアカウント マッピング"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "無効な空のフォルダー パス セグメントです"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "無効なフィルターアクションです"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "無効な復元レポート"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "無効なリストア要求"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "検索条件が不正です"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "シリアル化されたフィルターが無効です"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "無効なソースアカウント識別子"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "無効なソースフィルターコレクション"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "ターゲットフォルダー URI が無効です"
+  },
+  "backup.native.jSONFiles": {
+    "message": "JSON ファイル"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "カスタムアクション識別子がありません"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "カスタム検索用語識別子がありません"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "シリアル化されたターゲットフォルダー URI がありません"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "複数のソース アカウントがフォルダーのアカウントに一致します"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "アカウント「$accountName$」の宛先が選択されていません",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "フィルタを復元する前にメールウィンドウを開いてください。"
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "フィルタをバックアップする前に、Thunderbird メール ウィンドウを開きます。"
+  },
+  "backup.native.openFilterBackup": {
+    "message": "オープンフィルターバックアップ"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "フィルターバックアップの保存"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "保存に失敗しました ($saveError$)。元のファイルの復元も失敗しました ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "少なくとも 1 つの個別のアカウントを選択します。"
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "復元前にマッピングされたソース アカウントを選択してください"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "少なくとも 1 つの選択されたフィルタが残っている元のアカウントを選択します。"
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "対象のフォルダーが見つからない、またはメッセージを受信できません"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "バックアップ内でフォルダーのアカウントを識別できませんでした"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "輸入されたフィルタが削除または交換されました。メッセージ フィルターを再度開いて検査します。"
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "選択されたアカウントは利用できなくなりました。"
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "選択されたフィルターは使用できなくなりました。 「メッセージ フィルタ」に戻り、再度選択します。"
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "このインポートされたフィルターはもう入手できません。"
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "このインポートされたフィルターはもう入手できません。もう一度復元してレビュー リストを更新します。"
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "解析不可能なフィルターには復元可能なネイティブ バッファーがありません"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "サポートされていないバックアップ データです。"
+  },
+  "backup.restore.allSources": {
+    "message": "すべてのソースアカウント"
+  },
+  "backup.restore.assigned": {
+    "message": "割り当てられた"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "宛先アカウントを読み込めません: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "バックアップを開けません: $error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "宛先マッピングを確認し、選択したアカウントを復元します。参照されたアカウントは、フィルターをインポートせずにマッピングできます。"
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "レポートを保存できませんでした: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "フィルタ「$filterName$」を削除しました。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "送信元アカウントを選択し、このプロファイルで送信先を割り当てます。"
+  },
+  "backup.restore.destinations": {
+    "message": "宛先アカウント · このプロフィール"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "既存のフィルタは維持されます。新しい名前のフィルターのみが追加されます。"
+  },
+  "backup.restore.information": {
+    "message": "バックアップ情報"
+  },
+  "backup.restore.instructions": {
+    "message": "復元先アカウントを割り当て欄にドラッグすると、対応する元のアカウントが選択されます。選択を解除するには「変更しないアカウント」の一覧に戻します。元のアカウントの横にある ▶ ボタンでも、ドラッグせずに復元先を選択できます。"
+  },
+  "backup.restore.legacyBackup": {
+    "message": "レガシーバックアップ"
+  },
+  "backup.restore.legend": {
+    "message": "チェックを外した元のアカウントも割り当ては保持されます。各復元先アカウントは一度だけ割り当てられます。"
+  },
+  "backup.restore.mappingLabel": {
+    "message": "アカウントのマッピング"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "バックアップが選択されていません"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "まず、バックアップ ファイルを開いてください。 [フィルターを復元] をクリックするまで、フィルターは変更されません。"
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "JSON バックアップを開いてアカウントを選択します。"
+  },
+  "backup.restore.openBackup": {
+    "message": "バックアップを開いています…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "オープンがキャンセルされました。"
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "オープン中止。以前のバックアップはロードされたままになります。"
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "同名のフィルタを上書きする"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "復元は完了しましたが、マッピングを記憶できませんでした: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "復元に失敗しました: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "フィルターを復元する"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "$filePath$ に保存されたレポートを復元します。",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "レビューの復元 · $warningCount$ の警告とスキップされたアイテム",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "リストアは行われませんでした。"
+  },
+  "backup.restore.restoringFilters": {
+    "message": "フィルターを復元中…"
+  },
+  "backup.restore.resultComplete": {
+    "message": "復元完了: $added$ 追加、$replaced$ 交換、$kept$ 既存フィルタ維持、$skipped$ スキップ。",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "復元はエラーで終了しました: $added$ 追加、$replaced$ 置換、$kept$ 既存フィルタ保持、$skipped$ スキップ、$failed$ アカウント失敗。",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "同名のフィルタは置き換えられます。新しいフィルターが追加されました。他のフィルターは残ります。"
+  },
+  "backup.restore.saveReport": {
+    "message": "レポートを保存…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "宛先アカウントを選択してください: $accountNames$。",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ ソースアカウント · $referencedAccountCount$ 参照アカウント",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " 以前のバックアップはロードされたままです。"
+  },
+  "backup.restore.title": {
+    "message": "フィルターを復元する"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "変更しないアカウント"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "ここのフィルターはそのままです。"
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "フィルターを少なくとも 1 つ選択してください。"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "バックアップを開けません: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "復元を開けません: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "サポートされていないバックアップ ストレージ バックエンド: $backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "アカウント"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "アカウントの復元に失敗しました"
+  },
+  "backup.warnings.action": {
+    "message": "アクション"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "すべての警告が表示されます。"
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "バックアップは $warningCount$ の警告とともに保存されました",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "強調表示を解除"
+  },
+  "backup.warnings.customActionID": {
+    "message": "カスタムアクションID:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "カスタムアクションは使用できません"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "カスタム検索語 ID:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "カスタム検索語は使用できません"
+  },
+  "backup.warnings.delete": {
+    "message": "削除"
+  },
+  "backup.warnings.details": {
+    "message": "詳細"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "名前が重複しています - スキップされました"
+  },
+  "backup.warnings.editFilter": {
+    "message": "フィルター編集"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "ユーザーによって編集されました"
+  },
+  "backup.warnings.filter": {
+    "message": "フィルター"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "フィルターを削除しました"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "フィルタースキップ"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "ターゲットアカウントが無効です"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "ターゲットフォルダーが無効です"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "アイテムを削除しました"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "この警告はフィルタが編集される前に記録されており、再度チェックされていません。"
+  },
+  "backup.warnings.warning": {
+    "message": "警告"
+  },
+  "backup.warnings.warnings": {
+    "message": "警告"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "$accountName$ の警告が強調表示されます。すべての警告は表示されたままになります。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "現在のフィルタを変更しました - この変更を保存したい場合は、忘れずに再度バックアップしてください"
+  },
   "btn-extend-license": {
     "message": "ライセンスを 1 年延長します"
   },
@@ -692,7 +1457,6 @@
   "qf.licenseValidation.expired.freeHint": {
     "message": "または、当面はベーシック版を使用できます — 後でライセンスを復元できます。"
   },
-
   "qf.licenseValidation.failed": {
     "message": "入力されたライセンスキーが正しくありません。FastSpring からのメールに書かれた手順を確認してください。何か問題がある場合は、サポートタブからお問い合わせください。"
   },

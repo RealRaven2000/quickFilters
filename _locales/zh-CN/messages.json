@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "确保助手在激活后保持在顶部。"
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$账户·$filterCount$过滤器",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "要备份的帐户"
+  },
+  "backup.backup.allAccounts": {
+    "message": "所有账户"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "备份 $accountName$ 的过滤器",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "备份选定的过滤器"
+  },
+  "backup.backup.backup": {
+    "message": "备份"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "消息过滤器中的备份按钮"
+  },
+  "backup.backup.backupFailed": {
+    "message": "备份失败：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "备份已保存，但完成操作失败：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "备份已保存到 $filePath$，但无法保存首选项：$error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "未保存备份。"
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "无法加载帐户：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "无法读取过滤器"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "选择帐户和文件名，然后保存备份。"
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "无法删除过滤器：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "无法编辑过滤器：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "无法返回过滤器列表：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "当前配置文件"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "删除了过滤器“$filterName$”。如果您想保存此更改，请再次备份。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "选择您想要将其过滤器保存在一个文件中的帐户。"
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "输入备份文件名。"
+  },
+  "backup.backup.filename": {
+    "message": "备份文件："
+  },
+  "backup.backup.filenameHint": {
+    "message": "您可以在打开“另存为”对话框之前编辑该名称。"
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ 过滤器",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "过滤器已改变。如果您想保存此更改，请再次备份。"
+  },
+  "backup.backup.filtersSaved": {
+    "message": "过滤器已保存"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "突出显示 $warningCount$ 对 $accountName$ 的警告",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "突出显示 $accountName$ 的警告",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "正在加载帐户和过滤器计数..."
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "未找到支持过滤器的帐户。"
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$ 已选择 $accountCount$ 个帐户 · $filterCount$ 筛选器",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "已选择 $selectedFilterCount$ 或 $filterCount$ 个筛选器",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "仅保存下面列出的过滤器。要选择不同的过滤器，请返回“邮件过滤器”，然后再次按住 Ctrl 键单击“备份”。"
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "准备过滤器备份..."
+  },
+  "backup.backup.profileInformation": {
+    "message": "简介信息"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "返回消息过滤器"
+  },
+  "backup.backup.saveBackup": {
+    "message": "保存备份..."
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "保存已取消。没有写入备份。"
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "已保存从$accountCount$帐户到$filePath$的$filterCount$过滤器。使用返回消息过滤器返回。",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "已保存至$filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "至少选择一个帐户。"
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "选定的帐户将一起保存在一个文件中。"
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - 选定的过滤器",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "（要仅保存选定的过滤器，请在按住 Ctrl 的同时单击消息过滤器中的 $icon$。）",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "备份过滤器"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "取消选中无法读取过滤器的帐户，或重新打开此页面以重试。"
+  },
+  "backup.common.loading": {
+    "message": "加载中…"
+  },
+  "backup.common.unnamed": {
+    "message": "（未命名）"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ 警告",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ 警告",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "过滤器已编辑。您想先备份更改吗？如果您想先备份更改，请单击“是”。"
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "删除过滤器“$name$”？",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "不要再问"
+  },
+  "backup.format.chooseDestination": {
+    "message": "选择目的地"
+  },
+  "backup.format.destinationMissing": {
+    "message": "目的地缺失"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "备份中存在重复的帐户标识符。"
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "帐户元数据无效。"
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "$filterName$ 中的操作或条件无效。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "$accountName$ 中的过滤器数据无效。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "引用的帐户目录无效。"
+  },
+  "backup.format.legacyAccount": {
+    "message": "旧帐户"
+  },
+  "backup.format.localFolders": {
+    "message": "本地文件夹"
+  },
+  "backup.format.matched": {
+    "message": "匹配的"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "缺少 $accountName$ 的过滤器。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$（参考）",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "已保存的映射"
+  },
+  "backup.format.sourceAccount": {
+    "message": "来源账户"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "备份不包含源帐户。"
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "不支持的过滤器备份格式或版本。"
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "所有帐户均已分配。"
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "分配给 $accountName$ — 移至此处",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "在这里放置一个目标"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ 过滤器$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "过滤器已恢复"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "没有恢复过滤器"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "引用帐户 · 未导入过滤器"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "删除分配"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "恢复失败"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "恢复 $accountName$ 的过滤器",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "选择帐号 $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "选择账户（也可以将账户拖至槽位）"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$警告",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "帐号$accountId$不可用或不支持过滤。",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "无法恢复序列化文件夹搜索值"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "无法导出过滤器“$filterName$”。没有写入备份。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "目标账户$accountId$不可用。",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "每个源帐户需要不同的目的地"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "输入不带文件夹路径的有效文件名。"
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "目标帐户中不存在文件夹“$folderName$”",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "帐户映射无效"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "空文件夹路径段无效"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "过滤器操作无效"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "恢复报告无效"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "无效的恢复请求"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "搜索条件无效"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "序列化过滤器无效"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "源帐户标识符无效"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "无效的源过滤器集合"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "目标文件夹 URI 无效"
+  },
+  "backup.native.jSONFiles": {
+    "message": "JSON 文件"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "缺少自定义操作标识符"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "缺少自定义搜索词标识符"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "缺少序列化目标文件夹 URI"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "多个源帐户与该文件夹的帐户相匹配"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "没有为帐户“$accountName$”选择目的地",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "在恢复过滤器之前打开邮件窗口。"
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "在备份过滤器之前打开Thunderbird邮件窗口。"
+  },
+  "backup.native.openFilterBackup": {
+    "message": "打开过滤器备份"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "保存过滤器备份"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "保存失败（$saveError$）；恢复原始文件也失败（$restoreError$）",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "选择至少一个不同的帐户。"
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "恢复前选择映射的源帐户"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "选择具有至少一个剩余选定过滤器的原始帐户。"
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "目标文件夹丢失或无法接收消息"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "无法在备份中识别文件夹的帐户"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "进口过滤器被拆除或更换。重新打开消息过滤器来检查它。"
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "所选帐户不再可用。"
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "所选过滤器不再可用。返回到消息过滤器并再次选择它们。"
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "该进口过滤器不再可用。"
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "该进口过滤器不再可用。再次恢复即可刷新评论列表。"
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "不可解析的过滤器没有可恢复的本机缓冲区"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "不支持的备份数据。"
+  },
+  "backup.restore.allSources": {
+    "message": "所有源账户"
+  },
+  "backup.restore.assigned": {
+    "message": "已分配"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "无法加载目标帐户：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "无法打开备份：$error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "检查目标映射，然后恢复所选帐户。无需导入过滤器即可映射引用的帐户。"
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "无法保存报告：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "删除了过滤器“$filterName$”。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "选择源帐户并在此配置文件中分配其目的地。"
+  },
+  "backup.restore.destinations": {
+    "message": "目标帐户·此个人资料"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "保留现有过滤器；仅添加具有新名称的过滤器。"
+  },
+  "backup.restore.information": {
+    "message": "备份信息"
+  },
+  "backup.restore.instructions": {
+    "message": "将目标账户拖入目标栏位，即可选中对应的源账户。将其拖回“保持不变的账户”列表即可取消选择。也可以点击源账户旁的 ▶ 按钮选择目标账户，无需拖动。"
+  },
+  "backup.restore.legacyBackup": {
+    "message": "旧版备份"
+  },
+  "backup.restore.legend": {
+    "message": "未勾选的源账户保留其映射。每个目标账户只能使用一次。"
+  },
+  "backup.restore.mappingLabel": {
+    "message": "账户映射"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "未选择备份"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "打开备份文件开始。在您单击“恢复过滤器”之前，不会更改任何过滤器。"
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "打开 JSON 备份以选择帐户。"
+  },
+  "backup.restore.openBackup": {
+    "message": "打开备份..."
+  },
+  "backup.restore.openCancelled": {
+    "message": "开放已取消。"
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "开放已取消。先前的备份仍保持加载状态。"
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "覆盖同名过滤器"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "恢复完成，但无法记住映射：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "恢复失败：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "恢复过滤器"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "恢复保存到$filePath$的报告。",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "恢复审核·$warningCount$警告和跳过的项目",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "未执行恢复。"
+  },
+  "backup.restore.restoringFilters": {
+    "message": "正在恢复过滤器..."
+  },
+  "backup.restore.resultComplete": {
+    "message": "恢复完成：添加$added$，替换$replaced$，保留$kept$现有过滤器，跳过$skipped$。",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "恢复完成，但出现错误：添加了 $added$、替换了 $replaced$、保留了 $kept$ 现有过滤器、跳过了 $skipped$、$failed$ 帐户失败。",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "同名过滤器被替换；添加了新的过滤器；其他过滤器仍然存在。"
+  },
+  "backup.restore.saveReport": {
+    "message": "保存报告..."
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "选择目标帐户：$accountNames$。",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ 来源账户 · $referencedAccountCount$ 参考账户",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " 先前的备份仍然被加载。"
+  },
+  "backup.restore.title": {
+    "message": "恢复过滤器"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "保持不变的账户"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "这里的过滤器保持原样。"
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "请至少选择一个过滤器！"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "无法打开备份：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "无法打开恢复：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "不支持的备份存储后端：$backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "帐户"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "帐户恢复失败"
+  },
+  "backup.warnings.action": {
+    "message": "行动"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "显示所有警告。"
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "备份保存时带有 $warningCount$ 警告",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "取消高亮"
+  },
+  "backup.warnings.customActionID": {
+    "message": "自定义操作 ID："
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "自定义操作不可用"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "自定义搜索词 ID："
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "自定义搜索词不可用"
+  },
+  "backup.warnings.delete": {
+    "message": "删除"
+  },
+  "backup.warnings.details": {
+    "message": "细节"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "名称重复 — 已跳过"
+  },
+  "backup.warnings.editFilter": {
+    "message": "编辑过滤器"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "由用户编辑"
+  },
+  "backup.warnings.filter": {
+    "message": "筛选"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "过滤器已删除"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "过滤器已跳过"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "目标账户无效"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "目标文件夹无效"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "项目已删除"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "该警告是在编辑过滤器之前记录的，并且没有再次检查。"
+  },
+  "backup.warnings.warning": {
+    "message": "警告"
+  },
+  "backup.warnings.warnings": {
+    "message": "警告"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "$accountName$ 的警告突出显示。所有警告仍然可见。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "您已更改当前的过滤器 - 如果您想保存此更改，请记住再次备份"
+  },
   "btn-extend-license": {
     "message": "我想将我的执照延长一年"
   },

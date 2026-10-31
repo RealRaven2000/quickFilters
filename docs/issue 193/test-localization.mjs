@@ -4,6 +4,36 @@ import test from "node:test";
 import { getMessage, messages } from "./test-i18n.mjs";
 import { t, localizeDocument } from "../../scripts/backup/i18n.mjs";
 
+test("all backup translations preserve UTF-8, placeholders and substitution definitions", async () => {
+  const root = new URL("../../_locales/", import.meta.url);
+  const entries = Object.entries(messages).filter(([key]) => key.startsWith("backup."));
+  const tokens = text => [...text.matchAll(/\$[\w]+\$/g)].map(match => match[0]).sort();
+  for (const locale of await readdir(root)) {
+    const bytes = await readFile(new URL(`${locale}/messages.json`, root));
+    const catalog = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes));
+    if (catalog._l10nstatus?.message === "SPLASH") {
+      assert(!Object.keys(catalog).some(key => key.startsWith("backup.")), `${locale}: backup UI should use English fallback`);
+      continue;
+    }
+    const orderedKeys = Object.keys(catalog);
+    assert(orderedKeys.indexOf("backup.backup.title") < orderedKeys.indexOf("btn-extend-license"), `${locale}: backup block order`);
+    for (const [key, source] of entries) {
+      const entry = catalog[key];
+      assert(entry?.message?.trim(), `${locale}: missing ${key}`);
+      assert(!entry.message.includes("\uFFFD"), `${locale}/${key}: replacement character`);
+      assert(!Object.keys(entry.placeholders || {}).some(name => /^value\d+$/.test(name)), `${locale}/${key}: generic placeholder`);
+      if (locale !== "en") {
+        assert(!("description" in entry), `${locale}/${key}: unnecessary description`);
+        assert(!Object.values(entry.placeholders || {}).some(value => "example" in value), `${locale}/${key}: unnecessary example`);
+      }
+      assert.deepEqual(tokens(entry.message), tokens(source.message), `${locale}/${key}: placeholders`);
+      const definitions = placeholders => Object.fromEntries(Object.entries(placeholders || {}).map(([name, value]) => [name, value.content]));
+      assert.deepEqual(definitions(entry.placeholders), definitions(source.placeholders), `${locale}/${key}: substitution definitions`);
+      if (source.message.includes("▶")) assert(entry.message.includes("▶"), `${locale}/${key}: menu icon`);
+    }
+  }
+});
+
 test("backup UI references exist in the English catalog and placeholders are declared", async () => {
   const directory = new URL("../../scripts/backup/", import.meta.url);
   const files = (await readdir(directory)).filter(name => name.endsWith(".mjs")).map(name => new URL(name, directory));

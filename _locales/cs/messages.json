@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Ujistěte se, že asistent zůstane v popředí po aktivaci."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ účtů · $filterCount$ filtrů",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Účty k zálohování"
+  },
+  "backup.backup.allAccounts": {
+    "message": "Všechny účty"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Zálohovat filtry z účtu $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Zálohovat vybrané filtry"
+  },
+  "backup.backup.backup": {
+    "message": "Zálohování"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Tlačítko Zálohovat ve Filtrech zpráv"
+  },
+  "backup.backup.backupFailed": {
+    "message": "Zálohování se nezdařilo: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Záloha byla uložena, ale dokončení operace se nezdařilo: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Záloha byla uložena na $filePath$, ale předvolby se nepodařilo uložit: $error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Záloha nebyla uložena."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Nelze načíst účty: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Nelze číst filtry"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Vyberte účty a název souboru a poté zálohu uložte."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Nelze smazat filtr: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Nelze upravit filtr: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Nelze se vrátit na seznam filtrů: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "Aktuální profil"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Smazán filtr „$filterName$“. Chcete-li tuto změnu uložit, znovu zálohujte.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "Vyberte účty, jejichž filtry chcete uložit do jednoho souboru."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Zadejte název souboru zálohy."
+  },
+  "backup.backup.filename": {
+    "message": "Záložní soubor:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "Tento název můžete upravit před otevřením dialogu Uložit jako."
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ filtrů",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Filtry změněny. Chcete-li tuto změnu uložit, znovu zálohujte."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "filtry uloženy"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Zvýrazněte varování $warningCount$ pro $accountName$",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Zvýrazněte varování pro číslo $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Načítání účtů a počtů filtrů…"
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "Nebyly nalezeny žádné účty podporující filtry."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$ z $accountCount$ vybraných účtů · $filterCount$ filtrů",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "$selectedFilterCount$ z $filterCount$ vybraných filtrů",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Uloží se pouze filtry uvedené níže. Chcete-li vybrat jiné filtry, vraťte se do Filtry zpráv a poté znovu klikněte na Zálohovat se stisknutou klávesou Ctrl."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Příprava zálohy filtru…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "Informace o profilu"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Návrat k Filtrům zpráv"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Uložit zálohu…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Uložit zrušeno. Nebyla zapsána žádná záloha."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "Uloženo $filterCount$ filtrů z $accountCount$ účtů na $filePath$. Pro návrat použijte Return to Message Filters.",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "Uloženo na $filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Vyberte alespoň jeden účet."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Vybrané účty budou uloženy společně do jednoho souboru."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - vybrané filtry",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(Chcete-li uložit pouze výběr filtrů, podržte Ctrl a klikněte na $icon$ ve Filtrech zpráv.)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Zálohovat filtry"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Zrušte zaškrtnutí účtů, jejichž filtry nelze přečíst, nebo znovu otevřete tuto stránku a zkuste to znovu."
+  },
+  "backup.common.loading": {
+    "message": "Načítání…"
+  },
+  "backup.common.unnamed": {
+    "message": "(bez názvu)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ varování",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ varování",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Filtry byly upraveny. Chcete nejprve zálohovat změny? Pokud chcete změny nejprve zálohovat, klikněte na Ano."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Smazat filtr „$name$“?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Neptejte se znovu"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Vyberte destinaci"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Cíl chybí"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Duplicitní identifikátory účtu v záloze."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Neplatná metadata účtu."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Neplatná akce nebo podmínka v $filterName$.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Neplatná data filtru v $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Neplatný odkazovaný adresář účtu."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Starší účet"
+  },
+  "backup.format.localFolders": {
+    "message": "Místní složky"
+  },
+  "backup.format.matched": {
+    "message": "Shoda"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Chybějící filtry pro $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (odkaz)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "Uložené přiřazení"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Zdrojový účet"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "Záloha neobsahuje žádné zdrojové účty."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Nepodporovaný formát nebo verze zálohy filtru."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "Všechny účty jsou přiřazeny."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Přiděleno $accountName$ – přesuňte se sem",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Zde zahoďte cíl"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ filtry$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "filtry obnoveny"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "nebyly obnoveny žádné filtry"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Odkazovaný účet · nebyly importovány žádné filtry"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Odebrat přiřazení"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "obnovení se nezdařilo"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Obnovte filtry z $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Vyberte účet pro $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Vyberte účet (můžete také přetáhnout účty do slotu)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ varování",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Účet $accountId$ je nedostupný nebo nepodporuje filtry.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Nelze obnovit hodnotu vyhledávání serializované složky"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Nelze exportovat filtr „$filterName$“. Nebyla zapsána žádná záloha.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Cílový účet $accountId$ není dostupný.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Každý zdrojový účet vyžaduje odlišný cíl"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Zadejte platný název souboru bez cesty ke složce."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Složka „$folderName$“ v cílovém účtu neexistuje",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Neplatné mapování účtu"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Neplatný prázdný segment cesty ke složce"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Neplatná akce filtru"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Neplatná zpráva o obnovení"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Neplatný požadavek na obnovu"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Neplatná podmínka vyhledávání"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Neplatný serializovaný filtr"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Neplatné identifikátory zdrojového účtu"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Neplatná kolekce filtru zdroje"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "Neplatné URI cílové složky"
+  },
+  "backup.native.jSONFiles": {
+    "message": "soubory JSON"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Chybí identifikátor vlastní akce"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Chybí identifikátor vlastního vyhledávacího dotazu"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Chybí identifikátor URI serializované cílové složky"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "Více než jeden zdrojový účet odpovídá účtu složky"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "Pro účet „$accountName$“ není vybrán žádný cíl",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Před obnovením filtrů otevřete okno pošty."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Před zálohováním filtrů otevřete poštovní okno Thunderbirdu."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Otevřete zálohu filtru"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Uložit zálohu filtru"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Ukládání se nezdařilo ($saveError$); obnovení původního souboru se také nezdařilo ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Vyberte alespoň jeden odlišný účet."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Před obnovením vyberte namapované zdrojové účty"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Vyberte původní účet s alespoň jedním zbývajícím vybraným filtrem."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Cílová složka chybí nebo nemůže přijímat zprávy"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "V záloze nebylo možné identifikovat účet složky"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "Importovaný filtr byl odstraněn nebo vyměněn. Znovu otevřete Filtry zpráv a zkontrolujte je."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "Vybraný účet již není dostupný."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "Vybrané filtry již nejsou k dispozici. Vraťte se na Filtry zpráv a znovu je vyberte."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "Tento importovaný filtr již není dostupný."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "Tento importovaný filtr již není dostupný. Obnovit znovu pro obnovení seznamu recenzí."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Neanalyzovatelný filtr nemá žádnou obnovitelnou nativní vyrovnávací paměť"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Nepodporovaná záložní data."
+  },
+  "backup.restore.allSources": {
+    "message": "Všechny zdrojové účty"
+  },
+  "backup.restore.assigned": {
+    "message": "Přiřazeno"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Nelze načíst cílové účty: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Nelze otevřít zálohu: $error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Zkontrolujte mapování cíle a poté obnovte vybrané účty. Odkazované účty lze mapovat bez importu jejich filtrů."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Nelze uložit zprávu: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Smazán filtr „$filterName$“.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "Vyberte zdrojové účty a přiřaďte jejich cíle v tomto profilu."
+  },
+  "backup.restore.destinations": {
+    "message": "Cílové účty · Tento profil"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Stávající filtry jsou zachovány; jsou přidány pouze filtry s novými názvy."
+  },
+  "backup.restore.information": {
+    "message": "Záložní informace"
+  },
+  "backup.restore.instructions": {
+    "message": "Přetažením cílového účtu do cílového pole vyberete příslušný zdrojový účet. Přetažením zpět do části „Účty beze změn“ výběr zrušíte. Cílový účet můžete také vybrat bez přetahování pomocí tlačítka ▶ vedle zdrojového účtu."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Starší záloha"
+  },
+  "backup.restore.legend": {
+    "message": "Nezaškrtnuté zdrojové účty si zachovají svá přiřazení. Každý cílový účet lze použít pouze jednou."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Mapování účtu"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "Není vybrána žádná záloha"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Začněte otevřením záložního souboru. Dokud nekliknete na Obnovit filtry, nezmění se žádné filtry."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Otevřete zálohu JSON a vyberte účty."
+  },
+  "backup.restore.openBackup": {
+    "message": "Otevřít zálohu…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "Otevřeno zrušeno."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Otevřeno zrušeno. Předchozí záloha zůstane načtena."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Přepsat filtry se stejným názvem"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Obnovení dokončeno, ale mapování si nebylo možné zapamatovat: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Obnovení se nezdařilo: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Obnovit filtry"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Zpráva o obnovení byla uložena na $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Obnovit přehled · $warningCount$ varování a přeskočené položky",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Obnovení nebylo provedeno."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Obnovení filtrů…"
+  },
+  "backup.restore.resultComplete": {
+    "message": "Obnova dokončena: $added$ přidáno, $replaced$ nahrazeno, $kept$ stávajících filtrů zachováno, $skipped$ přeskočeno.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Obnovení dokončeno s chybami: $added$ přidáno, $replaced$ nahrazeno, $kept$ stávajících filtrů zachováno, $skipped$ přeskočeno, $failed$ účtů selhalo.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Filtry se stejným názvem jsou nahrazeny; jsou přidány nové filtry; ostatní filtry zůstávají."
+  },
+  "backup.restore.saveReport": {
+    "message": "Uložit zprávu…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Vyberte cílové účty pro: $accountNames$.",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ zdrojové účty · $referencedAccountCount$ odkazované účty",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " Předchozí záloha zůstane načtena."
+  },
+  "backup.restore.title": {
+    "message": "Obnovit filtry"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Účty beze změn"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "Filtry zde zůstávají tak, jak jsou."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Vyberte prosím alespoň jeden filtr!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Nelze otevřít zálohu: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Nelze otevřít obnovení: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Nepodporovaný backend úložiště záloh: $backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "Účet"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Obnovení účtu se nezdařilo"
+  },
+  "backup.warnings.action": {
+    "message": "Akce"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "Jsou zobrazena všechna varování."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Záloha uložena s $warningCount$ varováními",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Zrušit zvýraznění"
+  },
+  "backup.warnings.customActionID": {
+    "message": "ID vlastní akce:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Vlastní akce není k dispozici"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "ID vlastního vyhledávacího dotazu:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Vlastní hledaný výraz není dostupný"
+  },
+  "backup.warnings.delete": {
+    "message": "Smazat"
+  },
+  "backup.warnings.details": {
+    "message": "Podrobnosti"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Duplicitní název – přeskočeno"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Upravit filtr"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Editováno uživatelem"
+  },
+  "backup.warnings.filter": {
+    "message": "Filtr"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Filtr odstraněn"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Filtr přeskočen"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Neplatný cílový účet"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Neplatná cílová složka"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Položka smazána"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "Toto varování bylo zaznamenáno před úpravou filtru a nebylo znovu zkontrolováno."
+  },
+  "backup.warnings.warning": {
+    "message": "Varování"
+  },
+  "backup.warnings.warnings": {
+    "message": "Varování"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Varování pro $accountName$ zvýrazněno. Všechna varování zůstanou viditelná.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "Změnili jste své aktuální filtry – nezapomeňte zálohovat znovu, pokud chcete tuto změnu uložit"
+  },
   "btn-extend-license": {
     "message": "Chci prodloužit licenci o jeden rok"
   },

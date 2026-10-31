@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Upewni się, że asystent pozostaje na wierzchu po jego aktywacji."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ kont · $filterCount$ filtrów",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Konta do utworzenia kopii zapasowej"
+  },
+  "backup.backup.allAccounts": {
+    "message": "Wszystkie konta"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Utwórz kopię filtrów konta $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Utwórz kopię zapasową wybranych filtrów"
+  },
+  "backup.backup.backup": {
+    "message": "Rezerwa"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Przycisk kopii zapasowej w Filtrach wiadomości"
+  },
+  "backup.backup.backupFailed": {
+    "message": "Tworzenie kopii zapasowej nie powiodło się: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Kopia zapasowa została zapisana, ale zakończenie operacji nie powiodło się: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Kopia zapasowa została zapisana pod numerem $filePath$, ale nie można zapisać preferencji: $error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Kopia zapasowa nie została zapisana."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Nie można wczytać kont: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Nie można odczytać filtrów"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Wybierz konta i nazwę pliku, a następnie zapisz kopię zapasową."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Nie można usunąć filtra: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Nie można edytować filtra: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Nie można było wrócić do listy filtrów: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "Aktualny profil"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Usunięto filtr „$filterName$”. Utwórz kopię zapasową ponownie, jeśli chcesz zapisać tę zmianę.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "Wybierz konta, których filtry chcesz zapisać w jednym pliku."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Wprowadź nazwę pliku kopii zapasowej."
+  },
+  "backup.backup.filename": {
+    "message": "Plik kopii zapasowej:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "Możesz edytować tę nazwę przed otwarciem okna dialogowego Zapisz jako."
+  },
+  "backup.backup.filters": {
+    "message": "Filtry $filterCount$",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Filtry zmienione. Utwórz kopię zapasową ponownie, jeśli chcesz zapisać tę zmianę."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "Zapisano filtry"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Podświetl ostrzeżenia $warningCount$ dla $accountName$",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Zaznacz ostrzeżenia dla $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Ładowanie kont i liczników filtrów…"
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "Nie znaleziono kont obsługujących filtry."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "Wybrano $selectedAccountCount$ z $accountCount$ kont · $filterCount$ filtrów",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "Wybrano $selectedFilterCount$ z $filterCount$ filtrów",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Zapisane zostaną tylko filtry wymienione poniżej. Aby wybrać inne filtry, wróć do Filtrów wiadomości, a następnie ponownie kliknij Kopia zapasowa, przytrzymując klawisz Ctrl."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Przygotowanie kopii zapasowej filtra…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "Informacje o profilu"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Wróć do Filtrów wiadomości"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Zapisz kopię zapasową…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Zapis anulowany. Nie zapisano żadnej kopii zapasowej."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "Zapisano filtry $filterCount$ z kont $accountCount$ na $filePath$. Aby wrócić, użyj opcji Wróć do filtrów wiadomości.",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "Zapisano pod numerem $filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Wybierz przynajmniej jedno konto."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Wybrane konta zostaną zapisane razem w jednym pliku."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - wybrane filtry",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(Aby zapisać tylko wybrane filtry, przytrzymaj klawisz Ctrl podczas klikania $icon$ w Filtrach wiadomości.)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Utwórz kopię filtrów"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Odznacz konta, których filtrów nie udało się odczytać, lub otwórz ponownie tę stronę, aby spróbować jeszcze raz."
+  },
+  "backup.common.loading": {
+    "message": "Ładowanie…"
+  },
+  "backup.common.unnamed": {
+    "message": "(bez nazwy)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ ostrzeżeń",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ ostrzeżenie",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Edytowano filtry. Czy chcesz najpierw wykonać kopię zapasową zmian? Kliknij Tak, jeśli chcesz najpierw wykonać kopię zapasową zmian."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Usunąć filtr „$name$”?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Nie pytaj ponownie"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Wybierz miejsce docelowe"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Brak miejsca docelowego"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Zduplikowane identyfikatory kont w kopii zapasowej."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Nieprawidłowe metadane konta."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Nieprawidłowa akcja lub stan w $filterName$.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Nieprawidłowe dane filtra w $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Nieprawidłowy katalog konta, do którego istnieje odwołanie."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Starsze konto"
+  },
+  "backup.format.localFolders": {
+    "message": "Foldery lokalne"
+  },
+  "backup.format.matched": {
+    "message": "Dopasowane"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Brakujące filtry dla $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (odniesienie)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "Zapisane przypisanie"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Konto źródłowe"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "Kopia zapasowa nie zawiera kont źródłowych."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Nieobsługiwany format lub wersja kopii zapasowej filtra."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "Wszystkie konta są przypisane."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Przypisane do $accountName$ — przenieś tutaj",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Upuść tutaj cel"
+  },
+  "backup.mapping.filters": {
+    "message": "Filtry $filterCount$$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "Przywrócono filtry"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "Nie przywrócono żadnych filtrów"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Konto odniesienia · brak importowanych filtrów"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Usuń przypisanie"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "przywracanie nie powiodło się"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Przywróć filtry z numeru $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Wybierz konto dla $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Wybierz konto (możesz także przeciągnąć konta do slotu)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ ostrzeżeń",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Konto $accountId$ jest niedostępne lub nie obsługuje filtrów.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Nie można przywrócić serializowanej wartości wyszukiwania folderu"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Nie można wyeksportować filtra „$filterName$”. Nie zapisano żadnej kopii zapasowej.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Konto docelowe $accountId$ jest niedostępne.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Każde konto źródłowe wymaga odrębnego miejsca docelowego"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Wprowadź prawidłową nazwę pliku bez ścieżki folderu."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Folder „$folderName$” nie istnieje na koncie docelowym",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Nieprawidłowe mapowanie konta"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Nieprawidłowy pusty segment ścieżki folderu"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Nieprawidłowe działanie filtra"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Nieprawidłowy raport przywracania"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Nieprawidłowe żądanie przywrócenia"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Nieprawidłowy warunek wyszukiwania"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Nieprawidłowy filtr serializowany"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Nieprawidłowe identyfikatory konta źródłowego"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Nieprawidłowy zbiór filtrów źródłowych"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "Nieprawidłowy identyfikator URI folderu docelowego"
+  },
+  "backup.native.jSONFiles": {
+    "message": "Pliki JSON"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Brak identyfikatora akcji niestandardowej"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Brak identyfikatora niestandardowego wyszukiwanego hasła"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Brak serializowanego identyfikatora URI folderu docelowego"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "Więcej niż jedno konto źródłowe odpowiada kontu folderu"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "Nie wybrano miejsca docelowego dla konta „$accountName$”",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Otwórz okno poczty przed przywróceniem filtrów."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Otwórz okno poczty Thunderbirda przed utworzeniem kopii zapasowej filtrów."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Otwórz kopię zapasową filtra"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Zapisz kopię zapasową filtra"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Zapisywanie nie powiodło się ($saveError$); przywrócenie oryginalnego pliku również nie powiodło się ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Wybierz co najmniej jedno odrębne konto."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Przed przywróceniem wybierz zmapowane konta źródłowe"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Wybierz oryginalne konto z co najmniej jednym pozostałym wybranym filtrem."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Brak folderu docelowego lub nie można odbierać wiadomości"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "W kopii zapasowej nie udało się zidentyfikować konta folderu"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "Zaimportowany filtr został usunięty lub wymieniony. Otwórz ponownie filtry wiadomości, aby je sprawdzić."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "Wybrane konto nie jest już dostępne."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "Wybrane filtry nie są już dostępne. Wróć do Filtrów wiadomości i wybierz je ponownie."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "Ten zaimportowany filtr nie jest już dostępny."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "Ten zaimportowany filtr nie jest już dostępny. Przywróć ponownie, aby odświeżyć listę recenzji."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Filtr, którego nie można analizować, nie ma natywnego bufora, który można odtwarzać"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Nieobsługiwane dane kopii zapasowej."
+  },
+  "backup.restore.allSources": {
+    "message": "Wszystkie konta źródłowe"
+  },
+  "backup.restore.assigned": {
+    "message": "Przypisany"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Nie można załadować kont docelowych: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Nie można otworzyć kopii zapasowej: $error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Sprawdź mapowania miejsc docelowych, a następnie przywróć wybrane konta. Konta odniesienia można mapować bez importowania ich filtrów."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Nie można zapisać raportu: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Usunięto filtr „$filterName$”.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "Wybierz konta źródłowe i przypisz ich miejsca docelowe w tym profilu."
+  },
+  "backup.restore.destinations": {
+    "message": "Konta docelowe · Ten profil"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Istniejące filtry zostają zachowane; dodawane są tylko filtry z nowymi nazwami."
+  },
+  "backup.restore.information": {
+    "message": "Informacje zapasowe"
+  },
+  "backup.restore.instructions": {
+    "message": "Przeciągnij konto docelowe do pola docelowego, aby zaznaczyć odpowiadające mu konto źródłowe. Przeciągnij je z powrotem do sekcji „Konta bez zmian”, aby usunąć zaznaczenie. Możesz też wybrać konto docelowe bez przeciągania, używając przycisku ▶ obok konta źródłowego."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Starsza kopia zapasowa"
+  },
+  "backup.restore.legend": {
+    "message": "Niezaznaczone konta źródłowe zachowują swoje przypisania. Każdego konta docelowego można użyć tylko raz."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Mapowanie konta"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "Nie wybrano kopii zapasowej"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Aby rozpocząć, otwórz plik kopii zapasowej. Żadne filtry nie zostaną zmienione, dopóki nie klikniesz Przywróć filtry."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Otwórz kopię zapasową JSON, aby wybrać konta."
+  },
+  "backup.restore.openBackup": {
+    "message": "Otwórz kopię zapasową…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "Otwarcie anulowane."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Otwarcie anulowane. Poprzednia kopia zapasowa pozostaje załadowana."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Zastąp filtry o tej samej nazwie"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Przywracanie zakończone, ale nie można zapamiętać mapowań: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Przywracanie nie powiodło się: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Przywróć filtry"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Raport przywracania zapisany pod numerem $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Przywróć recenzję · $warningCount$ ostrzeżeń i pominiętych elementów",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Przywracanie nie zostało wykonane."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Przywracanie filtrów…"
+  },
+  "backup.restore.resultComplete": {
+    "message": "Przywracanie zakończone: dodano $added$, wymieniono $replaced$, $kept$ zachowano istniejące filtry, $skipped$ pominięto.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Przywracanie zakończone z błędami: $added$ dodano, $replaced$ zastąpiono, $kept$ zachowano istniejące filtry, $skipped$ pominięto, $failed$ konta nie powiodły się.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Filtry o tej samej nazwie zostały wymienione; dodano nowe filtry; inne filtry pozostają."
+  },
+  "backup.restore.saveReport": {
+    "message": "Zapisz raport…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Wybierz konta docelowe dla: $accountNames$.",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ konta źródłowe · $referencedAccountCount$ konta odniesienia",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " Poprzednia kopia zapasowa pozostaje załadowana."
+  },
+  "backup.restore.title": {
+    "message": "Przywróć filtry"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Konta bez zmian"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "Filtry pozostają bez zmian."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Proszę wybrać przynajmniej jeden filtr!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Nie można otworzyć kopii zapasowej: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Nie można otworzyć przywracania: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Nieobsługiwany backend magazynu kopii zapasowych: $backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "Konto"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Przywrócenie konta nie powiodło się"
+  },
+  "backup.warnings.action": {
+    "message": "Działanie"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "Pokazano wszystkie ostrzeżenia."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Kopia zapasowa zapisana z ostrzeżeniami $warningCount$",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Usuń wyróżnienie"
+  },
+  "backup.warnings.customActionID": {
+    "message": "Identyfikator akcji niestandardowej:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Akcja niestandardowa niedostępna"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "Identyfikator niestandardowego wyszukiwanego hasła:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Niestandardowe wyszukiwane hasło jest niedostępne"
+  },
+  "backup.warnings.delete": {
+    "message": "Usuń"
+  },
+  "backup.warnings.details": {
+    "message": "Szczegóły"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Zduplikowana nazwa — pominięta"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Edytuj filtr"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Edytowane przez użytkownika"
+  },
+  "backup.warnings.filter": {
+    "message": "Filtr"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Filtr usunięty"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Filtr został pominięty"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Nieprawidłowe konto docelowe"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Nieprawidłowy folder docelowy"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Pozycja usunięta"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "To ostrzeżenie zostało zarejestrowane przed edycją filtra i nie zostało ponownie sprawdzone."
+  },
+  "backup.warnings.warning": {
+    "message": "Ostrzeżenie"
+  },
+  "backup.warnings.warnings": {
+    "message": "Ostrzeżenia"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Podświetlono ostrzeżenia dla numeru $accountName$. Wszystkie ostrzeżenia pozostają widoczne.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "Zmieniłeś swoje obecne filtry - pamiętaj o ponownym utworzeniu kopii zapasowej, jeśli chcesz zapisać tę zmianę"
+  },
   "btn-extend-license": {
     "message": "Chcę przedłużyć moją licencję o rok"
   },
@@ -692,7 +1457,6 @@
   "qf.licenseValidation.expired.freeHint": {
     "message": "Alternatywnie możesz tymczasowo korzystać z Wersji Podstawowej — licencję można przywrócić później."
   },
-
   "qf.licenseValidation.failed": {
     "message": "Wprowadzony klucz licencyjny jest nieprawidłowy. Sprawdź e-mail od FastSpring, aby uzyskać instrukcje. Jeśli nadal masz problemy, skontaktuj się ze mną z zakładki Wsparcie."
   },

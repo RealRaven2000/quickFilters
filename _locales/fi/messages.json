@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Varmista, että avustaja pysyy etualalla sen aktivoimisen jälkeen."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ tiliä · $filterCount$ suodatinta",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Varmuuskopioitavat tilit"
+  },
+  "backup.backup.allAccounts": {
+    "message": "Kaikki tilit"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Varmuuskopioi tilin $accountName$ suodattimet",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Varmuuskopioi valitut suodattimet"
+  },
+  "backup.backup.backup": {
+    "message": "Varmuuskopio"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Varmuuskopioi-painike viestisuodattimissa"
+  },
+  "backup.backup.backupFailed": {
+    "message": "Varmuuskopiointi epäonnistui: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Varmuuskopio tallennettu, mutta toiminnon viimeistely epäonnistui: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Varmuuskopio tallennettu numeroon $filePath$, mutta asetuksia ei voitu tallentaa: $error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Varmuuskopiota ei tallennettu."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Tilejä ei voi ladata: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Suodattimia ei voi lukea"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Valitse tilit ja tiedostonimi ja tallenna sitten varmuuskopio."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Suodatinta ei voitu poistaa: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Suodatinta ei voitu muokata: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Ei voitu palata suodatinluetteloon: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "Nykyinen profiili"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Poistettu suodatin \"$filterName$\". Varmuuskopioi uudelleen, jos haluat tallentaa tämän muutoksen.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "Valitse tilit, joiden suodattimet haluat tallentaa yhteen tiedostoon."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Anna varmuuskopiotiedoston nimi."
+  },
+  "backup.backup.filename": {
+    "message": "Varmuuskopiotiedosto:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "Voit muokata tätä nimeä ennen kuin avaat Tallenna nimellä -valintaikkunan."
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ suodattimet",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Suodattimet vaihdettu. Varmuuskopioi uudelleen, jos haluat tallentaa tämän muutoksen."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "suodattimet tallennettu"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Korosta $warningCount$ varoitukset numerolle $accountName$",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Korosta varoitukset numerolle $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Ladataan tilejä ja suodatinmääriä…"
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "Suodattimia tukevia tilejä ei löytynyt."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$/$accountCount$ tiliä valittu · $filterCount$ suodatinta",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "$selectedFilterCount$/$filterCount$ suodatinta valittu",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Vain alla luetellut suodattimet tallennetaan. Voit valita eri suodattimia palaamalla Viestisuodattimiin ja sitten Ctrl-osoita Varmuuskopioi uudelleen."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Valmistellaan suodattimen varmuuskopiointia…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "Profiilitiedot"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Palaa viestisuodattimiin"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Tallenna varmuuskopio…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Tallennus peruutettu. Varmuuskopiota ei kirjoitettu."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "Tallennettiin $filterCount$ suodatinta $accountCount$ tilistä numeroon $filePath$. Käytä Palaa viestisuodattimiin palataksesi.",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "Tallennettu numeroon $filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Valitse vähintään yksi tili."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Valitut tilit tallennetaan yhteen tiedostoon."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - valitut suodattimet",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(Jos haluat tallentaa vain osan suodattimista, pidä Ctrl-näppäintä painettuna ja napsauta $icon$ viestisuodattimissa.)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Varmuuskopioi suodattimet"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Poista niiden tilien valinnat, joiden suodattimia ei voitu lukea, tai yritä uudelleen avaamalla tämä sivu."
+  },
+  "backup.common.loading": {
+    "message": "Ladataan…"
+  },
+  "backup.common.unnamed": {
+    "message": "(nimetön)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ varoitukset",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ varoitus",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Suodattimia on muokattu. Haluatko varmuuskopioida muutokset ensin? Napsauta Kyllä, jos haluat varmuuskopioida muutokset ensin."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Poistetaanko suodatin \"$name$\"?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Älä kysy uudelleen"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Valitse määränpää"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Määränpää puuttuu"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Varmuuskopiossa olevat tilitunnisteet."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Virheelliset tilin metatiedot."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Virheellinen toimenpide tai ehto numerossa $filterName$.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Virheelliset suodatintiedot numerossa $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Virheellinen viitattu tilihakemisto."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Vanha tili"
+  },
+  "backup.format.localFolders": {
+    "message": "Paikalliset kansiot"
+  },
+  "backup.format.matched": {
+    "message": "Sovittu"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Suodattimet puuttuvat numerosta $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (viitattu)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "Tallennettu kohdemääritys"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Lähdetili"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "Varmuuskopio ei sisällä lähdetilejä."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Suodattimen varmuuskopiomuotoa tai -versiota ei tueta."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "Kaikki tilit on määritetty."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Osoitettu numeroon $accountName$ – siirry tänne",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Pudota kohde tähän"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ suodattimet$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "suodattimet palautettu"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "suodattimia ei palautettu"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Viitattu tili · ei suodattimia tuotu"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Poista tehtävä"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "palautus epäonnistui"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Palauta suodattimet numerosta $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Valitse tili numerolle $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Valitse tili (voit myös vetää tilejä paikkaan)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ varoitukset",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Tili $accountId$ ei ole käytettävissä tai se ei tue suodattimia.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Sarjamuotoisen kansion hakuarvoa ei voida palauttaa"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Suodatinta \"$filterName$\" ei voitu viedä. Varmuuskopiota ei kirjoitettu.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Kohdetili $accountId$ ei ole käytettävissä.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Jokainen lähdetili vaatii erillisen kohteen"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Anna kelvollinen tiedostonimi ilman kansiopolkua."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Kansiota \"$folderName$\" ei ole kohdetilillä",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Virheellinen tilikartoitus"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Virheellinen tyhjä kansiopolun segmentti"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Virheellinen suodatintoiminto"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Virheellinen palautusraportti"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Virheellinen palautuspyyntö"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Virheellinen hakuehto"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Virheellinen sarjoitettu suodatin"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Virheelliset lähdetilin tunnisteet"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Virheellinen lähdesuodatinkokoelma"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "Virheellinen kohdekansion URI"
+  },
+  "backup.native.jSONFiles": {
+    "message": "JSON-tiedostoa"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Mukautettu toimintotunniste puuttuu"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Muokattu hakutermin tunniste puuttuu"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Puuttuu sarjoitettu kohdekansion URI"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "Useampi kuin yksi lähdetili vastaa kansion tiliä"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "Tilille \"$accountName$\" ei valittu kohdetta",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Avaa sähköpostiikkuna ennen suodattimien palauttamista."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Avaa Thunderbird-postiikkuna ennen suodattimien varmuuskopiointia."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Avaa suodattimen varmuuskopio"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Tallenna suodattimen varmuuskopio"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Tallennus epäonnistui ($saveError$); myös alkuperäisen tiedoston palauttaminen epäonnistui ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Valitse vähintään yksi erillinen tili."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Valitse yhdistetyt lähdetilit ennen palauttamista"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Valitse alkuperäinen tili, jossa on vähintään yksi jäljellä oleva valittu suodatin."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Kohdekansio puuttuu tai ei voi vastaanottaa viestejä"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "Kansion tiliä ei voitu tunnistaa varmuuskopiosta"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "Tuotu suodatin poistettiin tai vaihdettiin. Tarkista se avaamalla viestisuodattimet uudelleen."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "Valittu tili ei ole enää käytettävissä."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "Valitut suodattimet eivät ole enää saatavilla. Palaa viestisuodattimiin ja valitse ne uudelleen."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "Tämä tuotu suodatin ei ole enää saatavilla."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "Tämä tuotu suodatin ei ole enää saatavilla. Palauta uudelleen päivittääksesi arvosteluluettelon."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Jäsentämättömässä suodattimessa ei ole palautettavaa alkuperäistä puskuria"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Varmuuskopiodataa ei tueta."
+  },
+  "backup.restore.allSources": {
+    "message": "Kaikki lähdetilit"
+  },
+  "backup.restore.assigned": {
+    "message": "Tehty"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Kohdetilejä ei voi ladata: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Varmuuskopiota ei voi avata: $error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Tarkista kohdekartoitukset ja palauta sitten valitut tilit. Viitatut tilit voidaan kartoittaa ilman niiden suodattimien tuontia."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Raporttia ei voitu tallentaa: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Poistettu suodatin \"$filterName$\".",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "Valitse lähdetilit ja määritä niiden kohteet tässä profiilissa."
+  },
+  "backup.restore.destinations": {
+    "message": "Kohdetilit · Tämä profiili"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Olemassa olevat suodattimet säilytetään; vain suodattimet uusilla nimillä lisätään."
+  },
+  "backup.restore.information": {
+    "message": "Varmuuskopiotiedot"
+  },
+  "backup.restore.instructions": {
+    "message": "Valitse lähdetili vetämällä kohdetili sen viereiseen kohdepaikkaan. Poista valinta vetämällä kohdetili takaisin muuttumattomien tilien luetteloon. Voit myös valita kohdetilin ilman vetämistä lähdetilin vieressä olevalla ▶-painikkeella."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Vanha varmuuskopio"
+  },
+  "backup.restore.legend": {
+    "message": "Valitsemattomien lähdetilien kohdemääritykset säilyvät. Kutakin kohdetiliä voi käyttää vain kerran."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Tilikartoitus"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "Varmuuskopiota ei ole valittu"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Aloita avaamalla varmuuskopiotiedosto. Suodattimia ei vaihdeta, ennen kuin napsautat Palauta suodattimet."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Avaa JSON-varmuuskopio ja valitse tilit."
+  },
+  "backup.restore.openBackup": {
+    "message": "Avaa varmuuskopio…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "Avoinna peruutettu."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Avoinna peruutettu. Edellinen varmuuskopio säilyy ladattuna."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Korvaa samannimiset suodattimet"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Palautus valmis, mutta kartoituksia ei voitu muistaa: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Palautus epäonnistui: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Palauta suodattimet"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Palautusraportti tallennettu numeroon $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Palauta arvostelu · $warningCount$ varoitukset ja ohitetut kohteet",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Palautusta ei suoritettu."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Palautetaan suodattimia…"
+  },
+  "backup.restore.resultComplete": {
+    "message": "Palautus valmis: $added$ lisätty, $replaced$ vaihdettu, $kept$ olemassa olevaa suodatinta säilytetty, $skipped$ ohitettu.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Palautus päättyi virheillä: $added$ lisätty, $replaced$ vaihdettu, $kept$ olemassa olevaa suodatinta säilytetty, $skipped$ ohitettu, $failed$ tiliä epäonnistui.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Samannimiset suodattimet vaihdetaan; uusia suodattimia lisätään; muut suodattimet jäävät."
+  },
+  "backup.restore.saveReport": {
+    "message": "Tallenna raportti…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Valitse kohdetilit: $accountNames$.",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ lähdetiliä · $referencedAccountCount$ viitattua tiliä",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " Edellinen varmuuskopio säilyy ladattuna."
+  },
+  "backup.restore.title": {
+    "message": "Palauta suodattimet"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Muuttumattomat tilit"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "Tässä olevat suodattimet pysyvät ennallaan."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Valitse vähintään yksi suodatin!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Varmuuskopiota ei voi avata: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Palautusta ei voi avata: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Varamuistin taustaosa, jota ei tueta: $backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "Tili"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Tilin palautus epäonnistui"
+  },
+  "backup.warnings.action": {
+    "message": "Toiminta"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "Kaikki varoitukset näytetään."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Varmuuskopio tallennettu $warningCount$ varoituksella",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Poista korostus"
+  },
+  "backup.warnings.customActionID": {
+    "message": "Mukautetun toiminnon tunnus:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Mukautettu toiminto ei ole käytettävissä"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "Mukautetun hakutermin tunnus:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Mukautettu hakutermi ei ole saatavilla"
+  },
+  "backup.warnings.delete": {
+    "message": "Poista"
+  },
+  "backup.warnings.details": {
+    "message": "Yksityiskohdat"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Kaksoisnimi – ohitettu"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Muokkaa suodatinta"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Käyttäjän muokkaama"
+  },
+  "backup.warnings.filter": {
+    "message": "Suodatin"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Suodatin poistettu"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Suodatin ohitettu"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Virheellinen kohdetili"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Virheellinen kohdekansio"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Kohta poistettu"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "Tämä varoitus tallennettiin ennen suodattimen muokkausta, eikä sitä ole tarkistettu uudelleen."
+  },
+  "backup.warnings.warning": {
+    "message": "Varoitus"
+  },
+  "backup.warnings.warnings": {
+    "message": "Varoitukset"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Varoitukset numerosta $accountName$ korostettuna. Kaikki varoitukset jäävät näkyviin.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "Olet vaihtanut nykyiset suodattimet - muista varmuuskopioida uudelleen, jos haluat tallentaa tämän muutoksen"
+  },
   "btn-extend-license": {
     "message": "Haluan jatkaa lisenssini vuodella"
   },

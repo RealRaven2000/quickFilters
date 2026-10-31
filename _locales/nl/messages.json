@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Zorg ervoor dat de assistent bovenaan blijft als deze is geactiveerd."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$ accounts · $filterCount$ filters",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Accounts waarvan een back-up moet worden gemaakt"
+  },
+  "backup.backup.allAccounts": {
+    "message": "Alle rekeningen"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Filters van $accountName$ opslaan",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Maak een back-up van geselecteerde filters"
+  },
+  "backup.backup.backup": {
+    "message": "Back-up"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Back-upknop in Berichtfilters"
+  },
+  "backup.backup.backupFailed": {
+    "message": "Back-up mislukt: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Back-up opgeslagen, maar voltooiing van de bewerking mislukt: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Back-up opgeslagen op $filePath$, maar voorkeuren konden niet worden opgeslagen: $error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Back-up is niet opgeslagen."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Kan accounts niet laden: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Kan filters niet lezen"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Kies accounts en een bestandsnaam en sla vervolgens uw back-up op."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Kan filter $error$ niet verwijderen",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Kan filter niet bewerken: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Kan niet terugkeren naar de filterlijst: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "Huidig profiel"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Filter “$filterName$” verwijderd. Maak opnieuw een back-up als u deze wijziging wilt opslaan.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "Selecteer de accounts waarvan u de filters in één bestand wilt opslaan."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Voer een back-upbestandsnaam in."
+  },
+  "backup.backup.filename": {
+    "message": "Back-upbestand:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "U kunt deze naam bewerken voordat u het dialoogvenster Opslaan als opent."
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ filters",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Filters gewijzigd. Maak opnieuw een back-up als u deze wijziging wilt opslaan."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "filters opgeslagen"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Markeer $warningCount$-waarschuwingen voor $accountName$",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Markeer waarschuwingen voor $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Accounts en filtertellingen laden..."
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "Er zijn geen accounts gevonden die filters ondersteunen."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$ van $accountCount$ geselecteerde accounts · $filterCount$ filters",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "$selectedFilterCount$ van $filterCount$ filters geselecteerd",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Alleen de onderstaande filters worden opgeslagen. Om andere filters te selecteren, keert u terug naar Berichtfilters en houdt u vervolgens Ctrl ingedrukt en klikt u nogmaals op Back-up."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Filterback-up voorbereiden…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "Profielinformatie"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Terug naar berichtfilters"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Back-up opslaan…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Opslaan geannuleerd. Er is geen back-up geschreven."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "$filterCount$-filters van $accountCount$-accounts opgeslagen in $filePath$. Gebruik Terug naar berichtfilters om terug te keren.",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "Opgeslagen op $filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Selecteer minimaal één account."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Geselecteerde accounts worden samen in één bestand opgeslagen."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - geselecteerde filters",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "(Om slechts een selectie van filters op te slaan, houdt u Ctrl ingedrukt terwijl u op $icon$ klikt in Berichtfilters.)",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Filters opslaan"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Schakel de accounts uit waarvan de filters niet konden worden gelezen, of open deze pagina opnieuw om het opnieuw te proberen."
+  },
+  "backup.common.loading": {
+    "message": "Laden..."
+  },
+  "backup.common.unnamed": {
+    "message": "(naamloos)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ waarschuwingen",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ waarschuwing",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Filters zijn bewerkt. Wilt u eerst een back-up maken van de wijzigingen? Klik op Ja als u eerst een back-up van de wijzigingen wilt maken."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Filter “$name$” verwijderen?",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Vraag het niet nog een keer"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Kies bestemming"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Bestemming ontbreekt"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Dubbele account-ID's in back-up."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Ongeldige accountmetagegevens."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Ongeldige actie of voorwaarde in $filterName$.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Ongeldige filtergegevens in $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Ongeldige accountmap waarnaar wordt verwezen."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Verouderd account"
+  },
+  "backup.format.localFolders": {
+    "message": "Lokale mappen"
+  },
+  "backup.format.matched": {
+    "message": "Komt overeen"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Ontbrekende filters voor $accountName$.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$ (referentie)",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "Opgeslagen toewijzing"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Bronaccount"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "De back-up bevat geen bronaccounts."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Niet-ondersteund filterback-upformaat of -versie."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "Alle accounts zijn toegewezen."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Toegewezen aan $accountName$ — verplaats hierheen",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Zet hier een doelwit neer"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ filters$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "filters hersteld"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "geen filters hersteld"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Account waarnaar wordt verwezen · geen filters geïmporteerd"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Toewijzing verwijderen"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "herstellen mislukt"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Herstel filters uit $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Selecteer account voor $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Selecteer account (je kunt ook accounts naar een slot slepen)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$ waarschuwingen",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Account $accountId$ is niet beschikbaar of ondersteunt geen filters.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Kan de zoekwaarde van de geserialiseerde map niet herstellen"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Kan filter “$filterName$” niet exporteren. Er is geen back-up geschreven.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Bestemmingsaccount $accountId$ is niet beschikbaar.",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Elke bronaccount vereist een afzonderlijke bestemming"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Voer een geldige bestandsnaam in zonder mappad."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Map “$folderName$” bestaat niet in het doelaccount",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Ongeldige accounttoewijzing"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Ongeldig leeg mappadsegment"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Ongeldige filteractie"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Ongeldig herstelrapport"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Ongeldig herstelverzoek"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Ongeldige zoekvoorwaarde"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Ongeldig geserialiseerd filter"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Ongeldige bronaccount-ID's"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Ongeldige bronfilterverzameling"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "Ongeldige doelmap-URI"
+  },
+  "backup.native.jSONFiles": {
+    "message": "JSON-bestanden"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Aangepaste actie-ID ontbreekt"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Aangepaste zoekterm-ID ontbreekt"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Geserialiseerde doelmap-URI ontbreekt"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "Meer dan één bronaccount komt overeen met het account van de map"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "Geen bestemming geselecteerd voor account “$accountName$”",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Open een e-mailvenster voordat u de filters herstelt."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Open een Thunderbird-mailvenster voordat u een back-up van filters maakt."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Filterback-up openen"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Filterback-up opslaan"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Opslaan mislukt ($saveError$); het herstellen van het originele bestand mislukte ook ($restoreError$)",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Selecteer ten minste één afzonderlijk account."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Selecteer toegewezen bronaccounts voordat u deze herstelt"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Selecteer het oorspronkelijke account met ten minste één overgebleven geselecteerd filter."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Doelmap ontbreekt of kan geen berichten ontvangen"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "Het account van de map kon niet worden geïdentificeerd in de back-up"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "Het geïmporteerde filter is verwijderd of vervangen. Open de berichtfilters opnieuw om deze te inspecteren."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "Het geselecteerde account is niet langer beschikbaar."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "De geselecteerde filters zijn niet langer beschikbaar. Keer terug naar Berichtfilters en selecteer ze opnieuw."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "Dit geïmporteerde filter is niet langer beschikbaar."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "Dit geïmporteerde filter is niet langer beschikbaar. Herstel opnieuw om de beoordelingslijst te vernieuwen."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Een niet-parseerbaar filter heeft geen herstelbare eigen buffer"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Niet-ondersteunde back-upgegevens."
+  },
+  "backup.restore.allSources": {
+    "message": "Alle bronaccounts"
+  },
+  "backup.restore.assigned": {
+    "message": "Toegewezen"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Kan bestemmingsaccounts niet laden: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Kan back-up niet openen: $error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Controleer de bestemmingstoewijzingen en herstel vervolgens de geselecteerde accounts. Accounts waarnaar wordt verwezen, kunnen in kaart worden gebracht zonder hun filters te importeren."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Kan rapport niet opslaan: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Filter “$filterName$” verwijderd.",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "Selecteer bronaccounts en wijs hun bestemmingen toe in dit profiel."
+  },
+  "backup.restore.destinations": {
+    "message": "Bestemmingsaccounts · Dit profiel"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Bestaande filters blijven behouden; alleen filters met nieuwe namen worden toegevoegd."
+  },
+  "backup.restore.information": {
+    "message": "Back-upinformatie"
+  },
+  "backup.restore.instructions": {
+    "message": "Sleep een doelaccount naar een doelvak om het bijbehorende bronaccount te selecteren. Sleep het terug naar ‘Ongewijzigde accounts’ om de selectie op te heffen. U kunt ook met de knop ▶ naast een bronaccount een doelaccount kiezen zonder te slepen."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Oudere back-up"
+  },
+  "backup.restore.legend": {
+    "message": "Niet-aangevinkte bronaccounts behouden hun toewijzingen. Elk doelaccount kan slechts één keer worden gebruikt."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Accounttoewijzing"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "Geen back-up geselecteerd"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Open een back-upbestand om te beginnen. Er worden geen filters gewijzigd totdat u op Filters herstellen klikt."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Open een JSON-back-up om accounts te kiezen."
+  },
+  "backup.restore.openBackup": {
+    "message": "Back-up openen…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "Openen geannuleerd."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Openen geannuleerd. De vorige back-up blijft geladen."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Filters met dezelfde naam overschrijven"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Herstel voltooid, maar toewijzingen kunnen niet worden onthouden: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Herstellen mislukt: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Filters herstellen"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Herstel rapport opgeslagen op $filePath$.",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Beoordeling herstellen · $warningCount$ waarschuwingen en overgeslagen items",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Herstel is niet uitgevoerd."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Filters herstellen..."
+  },
+  "backup.restore.resultComplete": {
+    "message": "Herstel voltooid: $added$ toegevoegd, $replaced$ vervangen, $kept$ bestaande filters behouden, $skipped$ overgeslagen.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Herstel voltooid met fouten: $added$ toegevoegd, $replaced$ vervangen, $kept$ bestaande filters behouden, $skipped$ overgeslagen, $failed$ accounts mislukt.",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Filters met dezelfde naam zijn vervangen; er zijn nieuwe filters toegevoegd; andere filters blijven bestaan."
+  },
+  "backup.restore.saveReport": {
+    "message": "Rapport opslaan…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Selecteer bestemmingsaccounts voor: $accountNames$.",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ bronaccounts · $referencedAccountCount$ gerefereerde accounts",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " De vorige back-up blijft geladen."
+  },
+  "backup.restore.title": {
+    "message": "Filters herstellen"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Ongewijzigde accounts"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "De filters blijven hier zoals ze zijn."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Selecteer minimaal één filter!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Kan back-up niet openen: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Kan herstel niet openen: $error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Niet-ondersteunde back-upopslag-backend: $backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "Rekening"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Accountherstel mislukt"
+  },
+  "backup.warnings.action": {
+    "message": "Actie"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "Alle waarschuwingen worden weergegeven."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Back-up opgeslagen met $warningCount$-waarschuwingen",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Markering opheffen"
+  },
+  "backup.warnings.customActionID": {
+    "message": "Aangepaste actie-ID:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Aangepaste actie niet beschikbaar"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "ID van aangepaste zoekterm:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Aangepaste zoekterm niet beschikbaar"
+  },
+  "backup.warnings.delete": {
+    "message": "Verwijderen"
+  },
+  "backup.warnings.details": {
+    "message": "Details"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Dubbele naam — overgeslagen"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Filter bewerken"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Bewerkt door gebruiker"
+  },
+  "backup.warnings.filter": {
+    "message": "Filteren"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Filter verwijderd"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Filter overgeslagen"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Ongeldig doelaccount"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Ongeldige doelmap"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Item verwijderd"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "Deze waarschuwing werd geregistreerd voordat het filter werd bewerkt en is niet opnieuw gecontroleerd."
+  },
+  "backup.warnings.warning": {
+    "message": "Waarschuwing"
+  },
+  "backup.warnings.warnings": {
+    "message": "Waarschuwingen"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Waarschuwingen voor $accountName$ gemarkeerd. Alle waarschuwingen blijven zichtbaar.",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "U heeft uw huidige filters gewijzigd. Vergeet niet opnieuw een back-up te maken als u deze wijziging wilt opslaan"
+  },
   "btn-extend-license": {
     "message": "Ik wil mijn licentie met een jaar verlengen"
   },
@@ -692,7 +1457,6 @@
   "qf.licenseValidation.expired.freeHint": {
     "message": "Je kunt ook voorlopig de Basisversie gebruiken — je kunt je licentie later herstellen."
   },
-
   "qf.licenseValidation.failed": {
     "message": "De ingevoerde licentiesleutel is ongeldig. Lees uw e-mailbericht van FastSpring voor instructies. Als de problemen aanhouden, neem dan contact met me op via het tabblad Ondersteuning."
   },
@@ -1273,7 +2037,6 @@
   "quickfilters.prompt.fixDuplicates": {
     "message": "We hebben dubbele filters gevonden voor de onderstaande items.\nWilt u dit oplossen en toch importeren?"
   },
-
   "quickfilters.promptDontRepeat": {
     "message": "Deze waarschuwing niet meer weergeven."
   },

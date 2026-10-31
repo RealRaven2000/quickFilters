@@ -40,6 +40,771 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "確保助手在啟用後保持在頂部。"
   },
+  "backup.backup.accountsFilters": {
+    "message": "$accountCount$帳戶·$filterCount$過濾器",
+    "placeholders": {
+      "accountCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.accountsLabel": {
+    "message": "要備份的帳戶"
+  },
+  "backup.backup.allAccounts": {
+    "message": "所有帳戶"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "備份 $accountName$ 的篩選器",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "備份選定的過濾器"
+  },
+  "backup.backup.backup": {
+    "message": "備份"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "訊息過濾器中的備份按鈕"
+  },
+  "backup.backup.backupFailed": {
+    "message": "備份失敗：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "備份已儲存，但完成作業失敗：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "備份已儲存至 $filePath$，但無法儲存首選項：$error$",
+    "placeholders": {
+      "filePath": { "content": "$1" },
+      "error": { "content": "$2" }
+    }
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "未儲存備份。"
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "無法載入帳號：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "無法讀取過濾器"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "選擇帳戶和檔案名，然後儲存備份。"
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "無法刪除過濾器：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "無法編輯過濾器：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "無法返回過濾器清單：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.backup.currentProfile": {
+    "message": "目前設定檔"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "刪除了過濾器「$filterName$」。如果您想儲存此更改，請再次備份。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.backup.description": {
+    "message": "選擇您想要將其篩選器儲存在一個檔案中的帳戶。"
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "輸入備份檔名。"
+  },
+  "backup.backup.filename": {
+    "message": "備份檔："
+  },
+  "backup.backup.filenameHint": {
+    "message": "您可以在開啟「另存為」對話方塊之前編輯該名稱。"
+  },
+  "backup.backup.filters": {
+    "message": "$filterCount$ 過濾器",
+    "placeholders": {
+      "filterCount": { "content": "$1" }
+    }
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "過濾器已改變。如果您想儲存此更改，請再次備份。"
+  },
+  "backup.backup.filtersSaved": {
+    "message": "過濾器已儲存"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "突顯 $warningCount$ 對 $accountName$ 的警告",
+    "placeholders": {
+      "warningCount": { "content": "$1" },
+      "accountName": { "content": "$2" }
+    }
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "突顯 $accountName$ 的警告",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "正在載入帳戶和過濾器計數..."
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "未找到支援過濾器的帳戶。"
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$selectedAccountCount$ 已選擇 $accountCount$ 個帳戶 · $filterCount$ 篩選器",
+    "placeholders": {
+      "selectedAccountCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filterCount": { "content": "$3" }
+    }
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "已選擇 $selectedFilterCount$ 或 $filterCount$ 個篩選器",
+    "placeholders": {
+      "selectedFilterCount": { "content": "$1" },
+      "filterCount": { "content": "$2" }
+    }
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "僅保存下面列出的過濾器。若要選擇不同的篩選器，請返回“郵件過濾器”，然後再次按住 Ctrl 鍵按一下“備份”。"
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "準備過濾器備份..."
+  },
+  "backup.backup.profileInformation": {
+    "message": "簡介訊息"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "返回訊息過濾器"
+  },
+  "backup.backup.saveBackup": {
+    "message": "儲存備份..."
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "已取消。沒有寫入備份。"
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "已儲存從$accountCount$帳戶到$filePath$的$filterCount$過濾器。使用返回訊息過濾器返回。",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "accountCount": { "content": "$2" },
+      "filePath": { "content": "$3" }
+    }
+  },
+  "backup.backup.savedTo": {
+    "message": "已保存至$filePath$",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "至少選擇一個帳戶。"
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "選定的帳戶將一起保存在一個文件中。"
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$accountName$ - 選定的過濾器",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.backup.selectionHint": {
+    "message": "（若要僅儲存選定的過濾器，請在按住 Ctrl 的同時按一下訊息過濾器中的 $icon$。）",
+    "placeholders": {
+      "icon": { "content": "$1" }
+    }
+  },
+  "backup.backup.title": {
+    "message": "備份篩選器"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "取消選取無法讀取過濾器的帳戶，或重新開啟此頁面以重試。"
+  },
+  "backup.common.loading": {
+    "message": "載入中…"
+  },
+  "backup.common.unnamed": {
+    "message": "（未命名）"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ 警告",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ 警告",
+    "placeholders": {
+      "count": { "content": "$1" }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "過濾器已編輯。您想先備份變更嗎？如果您想先備份更改，請按一下「是」。"
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "刪除過濾器“$name$”？",
+    "placeholders": {
+      "name": { "content": "$1" }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "不要再問"
+  },
+  "backup.format.chooseDestination": {
+    "message": "選擇目的地"
+  },
+  "backup.format.destinationMissing": {
+    "message": "目的地缺失"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "備份中存在重複的帳戶識別碼。"
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "帳號元資料無效。"
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "$filterName$ 中的操作或條件無效。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "$accountName$ 中的過濾器資料無效。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "引用的帳號目錄無效。"
+  },
+  "backup.format.legacyAccount": {
+    "message": "舊帳戶"
+  },
+  "backup.format.localFolders": {
+    "message": "本地資料夾"
+  },
+  "backup.format.matched": {
+    "message": "匹配的"
+  },
+  "backup.format.message": {
+    "message": "$year$-$month$-$day$ $hour$-$minute$",
+    "placeholders": {
+      "year": { "content": "$1" },
+      "month": { "content": "$2" },
+      "day": { "content": "$3" },
+      "hour": { "content": "$4" },
+      "minute": { "content": "$5" }
+    }
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "缺少 $accountName$ 的過濾器。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.format.referenced": {
+    "message": "$accountIdentity$（參考）",
+    "placeholders": {
+      "accountIdentity": { "content": "$1" }
+    }
+  },
+  "backup.format.remembered": {
+    "message": "已儲存的對應關係"
+  },
+  "backup.format.sourceAccount": {
+    "message": "來源帳戶"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "備份不包含來源帳戶。"
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "不支援的過濾器備份格式或版本。"
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "所有帳戶均已分配。"
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "分配給 $accountName$ — 移至此處",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "在這裡放置一個目標"
+  },
+  "backup.mapping.filters": {
+    "message": "$filterCount$ 過濾器$statusSuffix$",
+    "placeholders": {
+      "filterCount": { "content": "$1" },
+      "statusSuffix": { "content": "$2" }
+    }
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "過濾器已恢復"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "沒有恢復過濾器"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "引用帳戶 · 未匯入過濾器"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "刪除分配"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "恢復失敗"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "恢復 $accountName$ 的過濾器",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "選擇帳號 $accountName$",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "選擇帳戶（也可以將帳戶拖曳至插槽）"
+  },
+  "backup.mapping.warnings": {
+    "message": "$warningCount$警告",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "帳號$accountId$不可用或不支援過濾。",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "無法恢復序列化資料夾搜尋值"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "無法匯出過濾器「$filterName$」。沒有寫入備份。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "目標帳戶$accountId$不可用。",
+    "placeholders": {
+      "accountId": { "content": "$1" }
+    }
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "每個來源帳戶需要不同的目的地"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "輸入不含資料夾路徑的有效檔名。"
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "目標帳戶中不存在資料夾“$folderName$”",
+    "placeholders": {
+      "folderName": { "content": "$1" }
+    }
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "帳號對應無效"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "空資料夾路徑段無效"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "過濾器操作無效"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "恢復報告無效"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "無效的恢復請求"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "搜尋條件無效"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "序列化濾波器無效"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "來源帳戶識別碼無效"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "無效的來源過濾器集合"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "目標資料夾 URI 無效"
+  },
+  "backup.native.jSONFiles": {
+    "message": "JSON 文件"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "缺少自訂操作標識符"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "缺少自訂搜尋詞標識符"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "缺少序列化目標資料夾 URI"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "多個來源帳戶與該資料夾的帳戶相符"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "沒有為帳戶「$accountName$」選擇目的地",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "在恢復過濾器之前打開郵件視窗。"
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "在備份過濾器之前開啟Thunderbird郵件視窗。"
+  },
+  "backup.native.openFilterBackup": {
+    "message": "開啟過濾器備份"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "保存過濾器備份"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "保存失敗（$saveError$）；恢復原始文件也失敗（$restoreError$）",
+    "placeholders": {
+      "saveError": { "content": "$1" },
+      "restoreError": { "content": "$2" }
+    }
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "選擇至少一個不同的帳戶。"
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "恢復前選擇已對應的來源帳戶"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "選擇具有至少一個剩餘選定過濾器的原始帳戶。"
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "目標資料夾遺失或無法接收訊息"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "無法在備份中辨識資料夾的帳戶"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "進口過濾器被拆除或更換。重新打開訊息過濾器來檢查它。"
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "所選帳戶不再可用。"
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "所選過濾器不再可用。返回訊息過濾器並再次選擇它們。"
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "此進口過濾器不再可用。"
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "此進口過濾器不再可用。再次恢復即可刷新評論清單。"
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "不可解析的過濾器沒有可恢復的本機緩衝區"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "不支援的備份資料。"
+  },
+  "backup.restore.allSources": {
+    "message": "所有來源帳戶"
+  },
+  "backup.restore.assigned": {
+    "message": "已分配"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "無法載入目標帳號：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "無法開啟備份：$error$$previousBackupNotice$",
+    "placeholders": {
+      "error": { "content": "$1" },
+      "previousBackupNotice": { "content": "$2" }
+    }
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "檢查目標映射，然後恢復所選帳戶。無需匯入篩選器即可對應引用的帳戶。"
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "無法儲存報告：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.deletedFilter": {
+    "message": "刪除了過濾器「$filterName$」。",
+    "placeholders": {
+      "filterName": { "content": "$1" }
+    }
+  },
+  "backup.restore.description": {
+    "message": "選擇來源帳戶並在此設定檔中指派其目的地。"
+  },
+  "backup.restore.destinations": {
+    "message": "目標帳號·此個人資料"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "保留現有過濾器；僅新增具有新名稱的過濾器。"
+  },
+  "backup.restore.information": {
+    "message": "備份訊息"
+  },
+  "backup.restore.instructions": {
+    "message": "將目標帳號拖入目標欄位，即可勾選對應的來源帳號。將其拖回「保持不變的帳號」清單即可取消勾選。也可以使用來源帳號旁的 ▶ 按鈕選擇目標帳號，不必拖曳。"
+  },
+  "backup.restore.legacyBackup": {
+    "message": "舊版備份"
+  },
+  "backup.restore.legend": {
+    "message": "未勾選的來源帳號會保留其對應關係。每個目標帳號只能使用一次。"
+  },
+  "backup.restore.mappingLabel": {
+    "message": "帳戶映射"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "未選擇備份"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "開啟備份檔案開始。在您按一下「恢復篩選器」之前，不會變更任何篩選器。"
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "開啟 JSON 備份以選擇帳戶。"
+  },
+  "backup.restore.openBackup": {
+    "message": "開啟備份..."
+  },
+  "backup.restore.openCancelled": {
+    "message": "開放已取消。"
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "開放已取消。先前的備份仍保持載入狀態。"
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "覆蓋同名過濾器"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "恢復完成，但無法記住映射：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFailed": {
+    "message": "恢復失敗：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreFilters": {
+    "message": "恢復過濾器"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "恢復已儲存到$filePath$的報告。",
+    "placeholders": {
+      "filePath": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "恢復審核·$warningCount$警告和跳過的項目",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "未執行恢復。"
+  },
+  "backup.restore.restoringFilters": {
+    "message": "正在恢復過濾器..."
+  },
+  "backup.restore.resultComplete": {
+    "message": "恢復完成：新增$added$，取代$replaced$，保留$kept$現有過濾器，跳過$skipped$。",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "恢復完成，但出現錯誤：新增了 $added$、取代了 $replaced$、保留了 $kept$ 現有過濾器、跳過了 $skipped$、$failed$ 帳戶失敗。",
+    "placeholders": {
+      "added": { "content": "$1" },
+      "replaced": { "content": "$2" },
+      "kept": { "content": "$3" },
+      "skipped": { "content": "$4" },
+      "failed": { "content": "$5" }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "同名過濾器被取代；添加了新的過濾器；其他過濾器仍然存在。"
+  },
+  "backup.restore.saveReport": {
+    "message": "儲存報告..."
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "選擇目標帳號：$accountNames$。",
+    "placeholders": {
+      "accountNames": { "content": "$1" }
+    }
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$backupType$ · $sourceAccountCount$ 來源帳戶 · $referencedAccountCount$ 參考帳戶",
+    "placeholders": {
+      "backupType": { "content": "$1" },
+      "sourceAccountCount": { "content": "$2" },
+      "referencedAccountCount": { "content": "$3" }
+    }
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " 先前的備份仍然被載入。"
+  },
+  "backup.restore.title": {
+    "message": "恢復過濾器"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "保持不變的帳號"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "這裡的過濾器保持原樣。"
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "請至少選擇一個過濾器！"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "無法開啟備份：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "無法開啟恢復：$error$",
+    "placeholders": {
+      "error": { "content": "$1" }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "不支援的備份儲存後端：$backend$",
+    "placeholders": {
+      "backend": { "content": "$1" }
+    }
+  },
+  "backup.warnings.account": {
+    "message": "帳戶"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "帳戶恢復失敗"
+  },
+  "backup.warnings.action": {
+    "message": "行動"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "顯示所有警告。"
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "備份保存時附有 $warningCount$ 警告",
+    "placeholders": {
+      "warningCount": { "content": "$1" }
+    }
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "取消醒目提示"
+  },
+  "backup.warnings.customActionID": {
+    "message": "自訂操作 ID："
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "自訂操作不可用"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "自訂搜尋字詞 ID："
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "自訂搜尋字詞不可用"
+  },
+  "backup.warnings.delete": {
+    "message": "刪除"
+  },
+  "backup.warnings.details": {
+    "message": "細節"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "名稱重複 — 已跳過"
+  },
+  "backup.warnings.editFilter": {
+    "message": "編輯過濾器"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "由使用者編輯"
+  },
+  "backup.warnings.filter": {
+    "message": "篩選"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "過濾器已刪除"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "過濾器已跳過"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "目標帳號無效"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "目標資料夾無效"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "項目已刪除"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "該警告是在編輯過濾器之前記錄的，並且沒有再次檢查。"
+  },
+  "backup.warnings.warning": {
+    "message": "警告"
+  },
+  "backup.warnings.warnings": {
+    "message": "警告"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "$accountName$ 的警告突出顯示。所有警告仍然可見。",
+    "placeholders": {
+      "accountName": { "content": "$1" }
+    }
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "您已更改目前的篩選器 - 如果您想儲存此更改，請記住再次備份"
+  },
   "btn-extend-license": {
     "message": "我想將我的執照延長一年"
   },
@@ -139,7 +904,6 @@
   "chkShowEditor.label": {
     "message": "創建過濾器後打開編輯器"
   },
-
   "chkShowList.label": {
     "message": "創建過濾器後顯示過濾器列表"
   },
@@ -214,7 +978,6 @@
   "grpMerge.label": {
     "message": "合併規則"
   },
-
   "heading-installed": {
     "message": "$addonName$ 已成功安裝",
     "description": "page heading. first placeholder will be replaced with Add-on name",
@@ -1395,7 +2158,6 @@
   "version": {
     "message": "版本："
   },
-
   "whats-new-btn": {
     "message": "什麼是新的？"
   },
