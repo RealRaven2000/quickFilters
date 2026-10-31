@@ -1,3 +1,4 @@
+/* global t */
 /* Loaded into a private API-owned scope, never a legacy window global. */
 (function () {
   "use strict";
@@ -8,7 +9,7 @@
   function mainWindow() {
     const win = Services.wm.getMostRecentWindow("mail:3pane");
     if (!win?.quickFilters?.Util) {
-      throw new Error("Open a Thunderbird mail window before backing up filters.");
+      throw new Error(t("backup.native.openAThunderbirdMailWindowBeforeBackingUp"));
     }
     return win;
   }
@@ -47,7 +48,7 @@
   function nativeAccount(id) {
     const account = MailServices.accounts.getAccount(id);
     if (!account?.incomingServer?.canHaveFilters) {
-      throw new Error(`Account ${id} is unavailable or does not support filters.`);
+      throw new Error(t("backup.native.accountIsUnavailableOrDoesNotSupportFilters", [id]));
     }
     return account;
   }
@@ -71,13 +72,38 @@
     return { profileName: profileName(), accounts };
   }
 
-  function exportBackupAccounts(accountIds) {
+  function selectionFor(token) {
+    for (const win of Services.wm.getEnumerator("mail:3pane")) {
+      const selection = win.quickFilters?.backupSelections?.get(token);
+      if (selection) { return selection; }
+    }
+    throw new Error(t("backup.native.theSelectedFiltersAreNoLongerAvailableReturn"));
+  }
+
+  function getBackupSelection(token) {
+    const selection = selectionFor(token);
+    const account = [...MailServices.accounts.accounts].find(item => item.incomingServer?.key === selection.serverKey);
+    if (!account) { throw new Error(t("backup.native.theSelectedAccountIsNoLongerAvailable")); }
+    const list = account.incomingServer.getFilterList(null);
+    const filters = Array.from({ length: list.filterCount }, (_, index) => list.getFilterAt(index))
+      .filter(filter => selection.filters.includes(filter));
+    return { accountId: account.key, names: filters.map(filter => filter.filterName) };
+  }
+
+  function exportBackupAccounts(accountIds, registerReviewFilter, selectionToken) {
     const util = mainWindow().quickFilters.Util;
     if (!util.popupProFeature("saveFilters", true)) {
       return null;
     }
     if (!accountIds.length || new Set(accountIds).size !== accountIds.length) {
-      throw new Error("Select at least one distinct account.");
+      throw new Error(t("backup.native.selectAtLeastOneDistinctAccount"));
+    }
+    const selection = selectionToken ? selectionFor(selectionToken) : null;
+    if (selection) {
+      const info = getBackupSelection(selectionToken);
+      if (accountIds.length !== 1 || accountIds[0] !== info.accountId || !info.names.length) {
+        throw new Error(t("backup.native.selectTheOriginalAccountWithAtLeastOne"));
+      }
     }
     const warnings = [];
     const directory = [...MailServices.accounts.accounts].filter(account => account.incomingServer).map(describeAccount);
@@ -88,10 +114,12 @@
       const filters = [];
       for (let index = 0; index < list.filterCount; index++) {
         const filter = list.getFilterAt(index);
+        if (selection && !selection.filters.includes(filter)) { continue; }
+        const warningStart = warnings.length;
         const customErrors = [];
         const serialized = util.serializeFilter(filter, customErrors);
         if (!serialized) {
-          throw new Error(`Could not export filter “${filter.filterName}”. No backup was written.`);
+          throw new Error(t("backup.native.couldNotExportFilterNoBackupWasWritten", [filter.filterName]));
         }
         // Preserve matchAll in new exports without changing the legacy serializer.
         filter.searchTerms?.forEach((term, termIndex) => {
@@ -134,6 +162,10 @@
             warnings.push({ accountId: id, filterName: filter.filterName, reason: "unknown-target-account", targetFolderUri: uri || "" });
           }
         }
+        if (registerReviewFilter && warnings.length > warningStart) {
+          const token = registerReviewFilter(filter, id);
+          for (const warning of warnings.slice(warningStart)) { warning.reviewToken = token; }
+        }
         filters.push(serialized);
       }
       return { ...describeAccount(account), filters };
@@ -148,8 +180,8 @@
   async function picker(mode, filename = "", directory = "") {
     const win = mainWindow();
     const fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-    fp.init(win.browsingContext, mode === "save" ? "Save filter backup" : "Open filter backup", mode === "save" ? fp.modeSave : fp.modeOpen);
-    fp.appendFilter("JSON files", "*.json");
+    fp.init(win.browsingContext, mode === "save" ? t("backup.native.saveFilterBackup") : t("backup.native.openFilterBackup"), mode === "save" ? fp.modeSave : fp.modeOpen);
+    fp.appendFilter(t("backup.native.jSONFiles"), "*.json");
     fp.defaultExtension = "json";
     if (filename) {
       fp.defaultString = filename;
@@ -173,11 +205,11 @@
     // Reject control characters as well as path separators in the leaf filename.
     // eslint-disable-next-line no-control-regex
     if (!filename.trim() || /[<>:"/\\|?*\u0000-\u001f]/.test(filename)) {
-      throw new Error("Enter a valid filename without a folder path.");
+      throw new Error(t("backup.native.enterAValidFilenameWithoutAFolderPath"));
     }
     const data = JSON.parse(text);
     if (data.format !== "quickFilters-backup" || data.formatVersion !== 1 || !Array.isArray(data.accounts)) {
-      throw new Error("Unsupported backup data.");
+      throw new Error(t("backup.native.unsupportedBackupData"));
     }
     return writePickedFile(filename, text, directory);
   }
@@ -185,7 +217,7 @@
   async function saveRestoreReport(text, directory) {
     const report = JSON.parse(text);
     if (report.format !== "quickFilters-restore-report" || !Array.isArray(report.warnings)) {
-      throw new Error("Invalid restore report");
+      throw new Error(t("backup.native.invalidRestoreReport"));
     }
     return writePickedFile("quickFilters-restore-report.json", text, directory);
   }
@@ -232,5 +264,5 @@
     return true;
   }
 
-  Object.assign(this, { getBackupInfo, exportBackupAccounts, saveBackupFile, readBackupFile, returnToFilterList, saveRestoreReport });
+  Object.assign(this, { getBackupInfo, getBackupSelection, exportBackupAccounts, saveBackupFile, readBackupFile, returnToFilterList, saveRestoreReport });
 }).call(this);

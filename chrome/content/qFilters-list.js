@@ -1667,7 +1667,7 @@ quickFilters.List = {
     );
   } ,
 	
-  get currentAccountName() {
+  get currentAccountName_obsolete() {
     let theMenu = this.ServerMenu, // document.getElementById("serverMenu"),
         menuEntry = theMenu.label,
         end = menuEntry.indexOf(' <');
@@ -1688,7 +1688,7 @@ quickFilters.List = {
    * @returns {string} when loading: jsonData (async)
    * 
    */
-  fileFilters: async function (mode, jsonData, fname, isDateStamp) {
+  fileFilters_obsolete: async function (mode, jsonData, fname, isDateStamp) {
     // readData: this function does the actual work of interpreting the read data
     async function readData(data) {
 			let filterArray = [],
@@ -1956,25 +1956,37 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
       return;
     }
     const token = Services.uuid.generateUUID().toString();
+    const selectionOnly = mode === "backup-selected";
+    if (selectionOnly) {
+      const filters = Array.from({ length: this.getSelectedCount(this.FilterListElement) },
+        (_, index) => this.getSelectedFilterAt(this.FilterListElement, index)).filter(Boolean);
+      if (!filters.length) {
+        quickFilters.Util.popupAlert(quickFilters.Util.getBundleString("backup.selection.selectAtLeastOneFilter"));
+        return;
+      }
+      if (!mainWindow.quickFilters.backupSelections) { mainWindow.quickFilters.backupSelections = new Map(); }
+      mainWindow.quickFilters.backupSelections.set(token, { serverKey: this.FilterList.folder.server.key, filters });
+    }
     if (!mainWindow.quickFilters.backupOrigins) {
       mainWindow.quickFilters.backupOrigins = new Map();
     }
     for (const [key, reference] of mainWindow.quickFilters.backupOrigins) {
       if (!reference.deref() || reference.deref().closed) {
         mainWindow.quickFilters.backupOrigins.delete(key);
+        mainWindow.quickFilters.backupSelections?.delete(key);
       }
     }
     mainWindow.quickFilters.backupOrigins.set(token, new WeakRef(window));
     // baseURI is the moz-extension origin; rootURI points at the physical
     // installation (file/jar), where the page cannot use WebExtension APIs.
     const url = quickFilters.Util.extension.baseURI.resolve(
-      `html/filter-backup.html?mode=${mode === "restore" ? "restore" : "backup"}&origin=${encodeURIComponent(token)}`
+      `html/filter-backup.html?mode=${mode === "restore" ? "restore" : "backup"}&origin=${encodeURIComponent(token)}${selectionOnly ? "&selection=1" : ""}`
     );
     tabmail.openTab("contentTab", { url, background: false });
     mainWindow.focus();
   },
 
-  store: async function store(event) {
+  store_obsolete: async function store(event) {
 		// see nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 		// https://dxr.mozilla.org/comm-central/source/mailnews/base/search/src/nsMsgFilterList.cpp#867
 		
@@ -1984,7 +1996,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
       qfList = quickFilters.List; // this object
 			
     if (event.ctrlKey) {
-      this.storeSelected();
+      this.storeSelected_obsolete();
       return;
     }
     let uri = this.ServerMenu.value,
@@ -2044,13 +2056,13 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 			msg += "\n" + msgFailed.replace('{1}', iFail);
 		}
 		util.slideAlert(msg, 'quickFilters');
-    await this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
+    await this.fileFilters_obsolete('save', json, this.currentAccountName_obsolete, true); // filename defaults to label of server
 		if (iFail) {
 			util.alert(msg);
     }
   } ,
   
-  storeSelected: async function() {
+  storeSelected_obsolete: async function() {
 		let count = this.getSelectedCount(this.FilterListElement);
 		if (count < 1) {
 			let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
@@ -2097,12 +2109,12 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 
 
     let json = JSON.stringify(filtersJSON, null, '  ');
-    await this.fileFilters('save', json, this.currentAccountName, true); // filename defaults to label of server
+    await this.fileFilters_obsolete('save', json, this.currentAccountName_obsolete, true); // filename defaults to label of server
 
   } ,
 
-  load: async function () {
-    return this.fileFilters('load');  // , {key: this.currentId} - do we need to transmit selected account info?
+  load_obsolete: async function () {
+    return this.fileFilters_obsolete('load');  // , {key: this.currentId} - do we need to transmit selected account info?
   } ,
 	
   // troubleshooter - generates error list(s)

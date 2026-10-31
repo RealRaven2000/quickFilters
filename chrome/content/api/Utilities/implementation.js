@@ -13,12 +13,35 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
     const highlightStyle = { color: "#ffff0bff", background: "rgba(112, 15, 161, 1)" };
     console.log("quickFilters exp API: Utilities.getAPI() called"); 
     // Private per-API scope: extension reloads must not reuse a cached system module.
-    const backupAPI = { Services, IOUtils, Components, ChromeUtils, console };
-    Services.scriptloader.loadSubScript("chrome://quickfilters/content/api/Utilities/backup.js", backupAPI, "UTF-8");
-    const restoreAPI = { Services, Components, ChromeUtils, console };
-    Services.scriptloader.loadSubScript("chrome://quickfilters/content/api/Utilities/restore.js", restoreAPI, "UTF-8");
+    const loadPackageScript = (path, target) => {
+      Services.scriptloader.loadSubScriptWithOptions(context.extension.rootURI.resolve(path), {
+        target,
+        charset: "UTF-8",
+        ignoreCache: true,
+        // Match WindowListener: opt in to our package's file:/jar: URLs.
+        allowUnsafeURL: true,
+      });
+    };
+    const t = (key, substitutions = []) => context.extension.localeData.localizeMessage(key, substitutions.map(String));
+    const backupAPI = { Services, IOUtils, Components, ChromeUtils, console, t };
+    loadPackageScript("chrome/content/api/Utilities/backup.js", backupAPI);
+    const restoreAPI = { Services, Components, ChromeUtils, console, t };
+    loadPackageScript("chrome/content/api/Utilities/restore.js", restoreAPI);
     return {
       Utilities: {
+        confirmFilterDeletion: async (name) => {
+          const checked = { value: false };
+          const confirmed = Services.prompt.confirmCheck(Services.wm.getMostRecentWindow("mail:3pane"),
+            "quickFilters", t("backup.confirm.deleteFilter", [name]), t("backup.confirm.doNotAskAgain"), checked);
+          return { confirmed, doNotAskAgain: checked.value };
+        },
+        confirmBackupChanges: async () => {
+          const prompt = Services.prompt;
+          const flags = prompt.BUTTON_POS_0 * prompt.BUTTON_TITLE_YES + prompt.BUTTON_POS_1 * prompt.BUTTON_TITLE_NO;
+          return prompt.confirmEx(Services.wm.getMostRecentWindow("mail:3pane"), "quickFilters",
+            t("backup.confirm.backupChanges"),
+            flags, null, null, null, null, {}) === 0;
+        },
         restoreFilters: async (request) => restoreAPI.restoreFilters(request),
         editImportedFilter: async (token) => restoreAPI.editImportedFilter(token),
         deleteImportedFilter: async (token) => restoreAPI.deleteImportedFilter(token),
@@ -26,8 +49,9 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         getBackupInfo: async (accountIds) => {
           return backupAPI.getBackupInfo(accountIds);
         },
-        exportBackupAccounts: async (accountIds) => {
-          return backupAPI.exportBackupAccounts(accountIds);
+        getBackupSelection: async (token) => backupAPI.getBackupSelection(token),
+        exportBackupAccounts: async (accountIds, selectionToken) => {
+          return backupAPI.exportBackupAccounts(accountIds, restoreAPI.registerReviewFilter, selectionToken);
         },
         saveBackupFile: async (filename, text, directory) => {
           return backupAPI.saveBackupFile(filename, text, directory);

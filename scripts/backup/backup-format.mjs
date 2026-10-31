@@ -1,9 +1,10 @@
+import { t } from "./i18n.mjs";
 export const FORMAT = "quickFilters-backup";
 export const FORMAT_VERSION = 1;
 
 export function timestamp(date = new Date()) {
   const pad = value => String(value).padStart(2, "0");
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}_${pad(date.getHours())}-${pad(date.getMinutes())}`;
+  return t("backup.format.message", [date.getFullYear(), pad(date.getMonth() + 1), pad(date.getDate()), pad(date.getHours()), pad(date.getMinutes())]);
 }
 
 export function sanitizeFilename(name) {
@@ -15,7 +16,7 @@ export function sanitizeFilename(name) {
 
 export function suggestedFilename(accounts, profileName, date = new Date()) {
   const prefix = sanitizeFilename(accounts.length === 1 ? accounts[0].name : profileName || "");
-  return prefix ? `${prefix}_${timestamp(date)}.json` : "";
+  return prefix ? `${prefix} - ${timestamp(date)}.json` : "";
 }
 
 export function createBackup(exported, profileName, version, date = new Date()) {
@@ -27,7 +28,11 @@ export function createBackup(exported, profileName, version, date = new Date()) 
     sourceProfile: { name: profileName || "" },
     accounts: exported.accounts,
     referencedAccounts: exported.referencedAccounts,
-    warnings: exported.warnings,
+    warnings: exported.warnings.map(warning => {
+      const saved = { ...warning };
+      delete saved.reviewToken;
+      return saved;
+    }),
   };
 }
 
@@ -38,5 +43,5 @@ export function classifyBackup(data) {
   if (data && Array.isArray(data.filters) && !data.format) {
     return "legacy-single-account";
   }
-  throw new Error("Unsupported filter backup format or version.");
+  throw new Error(t("backup.format.unsupportedFilterBackupFormatOrVersion"));
 }

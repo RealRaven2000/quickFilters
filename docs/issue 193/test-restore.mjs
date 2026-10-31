@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { getMessage } from "./test-i18n.mjs";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 import test from "node:test";
@@ -121,6 +122,7 @@ async function nativeRestore() {
   };
   const dialog = { quickFilters: { List: { rebuildFilterList: () => refreshed++ } } };
   const context = vm.createContext({
+    t: getMessage,
     Services: { wm: { getMostRecentWindow: () => win, getEnumerator: type => type === "mailnews:filterlist" ? [dialog] : [win] }, uuid: { generateUUID: () => String(++serial) }, io: { newURI: value => ({ asciiHost: new URL(value).hostname }) } },
     Components: { interfaces: { nsMsgFilterAction: { MoveToFolder: 1, CopyToFolder: 16, Custom: 20 }, nsMsgSearchAttrib: { Custom: 99 } } },
     ChromeUtils: { importESModule: () => ({ MailServices: {
@@ -308,4 +310,14 @@ test("overwrite off keeps existing native filters and imports only new names", a
   assert.equal(result.replaced, 0);
   assert.equal(result.warnings.length, 0);
   assert.equal(env.lists.get("target-a").filters[2], env.original[1]);
+});
+
+test("backup review can register an existing filter for the same exact-object edit/delete helpers", async () => {
+  const env = await nativeRestore();
+  const token = env.api.registerReviewFilter(env.original[0], "target-a");
+  assert.equal(env.api.editImportedFilter(token), true);
+  assert.equal(env.edited, env.original[0]);
+  assert.equal(env.api.deleteImportedFilter(token), true);
+  assert.equal(env.lists.get("target-a").filters.length, 1);
+  assert.equal(env.lists.get("target-a").filters[0], env.original[1]);
 });

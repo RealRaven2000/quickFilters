@@ -1,3 +1,4 @@
+import { t } from "./i18n.mjs";
 import { localStorageAdapter } from "./storage-local.mjs";
 
 // A future VFS adapter implements the same write/read contract; UI and format
@@ -6,7 +7,7 @@ const adapters = new Map([["local", localStorageAdapter]]);
 export function getBackupStorage(backend = "local") {
   const adapter = adapters.get(backend);
   if (!adapter) {
-    throw new Error(`Unsupported backup storage backend: ${backend}`);
+    throw new Error(t("backup.storage.unsupportedBackupStorageBackend", [backend]));
   }
   return adapter;
 }

@@ -1,3 +1,4 @@
+/* global t */
 /* Loaded only into the Utilities API's private scope. */
 (function () {
   "use strict";
@@ -7,13 +8,13 @@
 
   function mainWindow() {
     const win = Services.wm.getMostRecentWindow("mail:3pane");
-    if (!win?.quickFilters?.Util) { throw new Error("Open a mail window before restoring filters."); }
+    if (!win?.quickFilters?.Util) { throw new Error(t("backup.native.openAMailWindowBeforeRestoringFilters")); }
     return win;
   }
 
   function account(id) {
     const found = MailServices.accounts.getAccount(id);
-    if (!found?.incomingServer?.canHaveFilters) { throw new Error(`Destination account ${id} is unavailable.`); }
+    if (!found?.incomingServer?.canHaveFilters) { throw new Error(t("backup.native.destinationAccountIsUnavailable", [id])); }
     return found;
   }
 
@@ -36,28 +37,28 @@
 
   function remapFolder(uri, directory, mapping, util) {
     const parts = uriParts(uri);
-    if (!parts) { throw new Error("Invalid target folder URI"); }
+    if (!parts) { throw new Error(t("backup.native.invalidTargetFolderURI")); }
     const owners = directory.filter(source => uriParts(source.rootUri)?.server === parts.server);
     if (!owners.length) {
-      throw Object.assign(new Error("The folder's account could not be identified in the backup"), { reason: "unknown-target-account" });
+      throw Object.assign(new Error(t("backup.native.theFolderSAccountCouldNotBeIdentified")), { reason: "unknown-target-account" });
     }
     if (owners.length > 1) {
-      throw Object.assign(new Error("More than one source account matches the folder's account"), { reason: "unknown-target-account" });
+      throw Object.assign(new Error(t("backup.native.moreThanOneSourceAccountMatchesTheFolder")), { reason: "unknown-target-account" });
     }
     if (!mapping.has(owners[0].id)) {
-      throw Object.assign(new Error(`No destination selected for account “${owners[0].name || owners[0].id}”`), { reason: "unknown-target-account" });
+      throw Object.assign(new Error(t("backup.native.noDestinationSelectedForAccount", [owners[0].name || owners[0].id])), { reason: "unknown-target-account" });
     }
     const targetAccount = account(mapping.get(owners[0].id));
     let folder = targetAccount.incomingServer.rootMsgFolder;
     for (const segment of parts.path.split("/").slice(1)) {
-      if (!segment) { throw new Error("Invalid empty folder path segment"); }
+      if (!segment) { throw new Error(t("backup.native.invalidEmptyFolderPathSegment")); }
       const name = decodeURIComponent(segment);
       try { folder = folder.getChildNamed(name); }
-      catch { throw new Error(`Folder “${name}” does not exist in the destination account`); }
-      if (!folder) { throw new Error(`Folder “${name}” does not exist in the destination account`); }
+      catch { throw new Error(t("backup.native.folderDoesNotExistInTheDestinationAccount", [name])); }
+      if (!folder) { throw new Error(t("backup.native.folderDoesNotExistInTheDestinationAccount", [name])); }
     }
     if (!folder.canFileMessages || !util.getMsgFolderFromUri(folder.URI, true)) {
-      throw new Error("Target folder is missing or cannot receive messages");
+      throw new Error(t("backup.native.targetFolderIsMissingOrCannotReceiveMessages"));
     }
     return folder.URI;
   }
@@ -68,27 +69,27 @@
 
   function deserialize(saved, list, directory, mapping, util, warnings) {
     if (!saved || typeof saved.filterName !== "string" || !saved.filterName || !Array.isArray(saved.actionList) || !Array.isArray(saved.searchTerms)) {
-      throw new Error("Invalid serialized filter");
+      throw new Error(t("backup.native.invalidSerializedFilter"));
     }
-    if (saved.unparseable) { throw new Error("Unparseable filter has no restorable native buffer"); }
+    if (saved.unparseable) { throw new Error(t("backup.native.unparseableFilterHasNoRestorableNativeBuffer")); }
     const filter = list.createFilter(saved.filterName);
     filter.filterDesc = saved.filterDesc || "";
     if (saved.filterType !== undefined) { filter.filterType = saved.filterType; }
     filter.temporary = saved.temporary === true;
     filter.enabled = saved.enabled === true;
     for (const savedAction of saved.actionList) {
-      if (!savedAction || !Number.isInteger(savedAction.type)) { throw new Error("Invalid filter action"); }
+      if (!savedAction || !Number.isInteger(savedAction.type)) { throw new Error(t("backup.native.invalidFilterAction")); }
       const action = filter.createAction();
       action.type = savedAction.type;
       if ([Ci.nsMsgFilterAction.MoveToFolder, Ci.nsMsgFilterAction.CopyToFolder].includes(action.type)) {
-        if (typeof savedAction.targetFolderUri !== "string") { throw new Error("Missing serialized target folder URI"); }
+        if (typeof savedAction.targetFolderUri !== "string") { throw new Error(t("backup.native.missingSerializedTargetFolderURI")); }
         try { action.targetFolderUri = remapFolder(savedAction.targetFolderUri, directory, mapping, util); }
         catch (error) {
           action.targetFolderUri = savedAction.targetFolderUri;
           warnings.push({ reason: error.reason || "invalid-target-folder", targetFolderUri: savedAction.targetFolderUri, details: error.message });
         }
       } else if (action.type === Ci.nsMsgFilterAction.Custom) {
-        if (typeof savedAction.customId !== "string" || !savedAction.customId) { throw new Error("Missing custom action identifier"); }
+        if (typeof savedAction.customId !== "string" || !savedAction.customId) { throw new Error(t("backup.native.missingCustomActionIdentifier")); }
         action.customId = savedAction.customId;
         if (!available("getCustomAction", savedAction.customId)) {
           warnings.push({ reason: "custom-action-unavailable", customId: savedAction.customId,
@@ -103,7 +104,7 @@
       filter.appendAction(action);
     }
     for (const savedTerm of saved.searchTerms) {
-      if (!savedTerm || !Number.isInteger(savedTerm.attrib)) { throw new Error("Invalid search condition"); }
+      if (!savedTerm || !Number.isInteger(savedTerm.attrib)) { throw new Error(t("backup.native.invalidSearchCondition")); }
       const term = filter.createTerm();
       term.attrib = savedTerm.attrib;
       if (savedTerm.matchAll === true) { term.matchAll = true; }
@@ -112,7 +113,7 @@
         if (Object.hasOwn(savedTerm, field)) { term[field] = savedTerm[field]; }
       }
       if (savedTerm.attrib === Ci.nsMsgSearchAttrib.Custom) {
-        if (!savedTerm.customId) { throw new Error("Missing custom search term identifier"); }
+        if (!savedTerm.customId) { throw new Error(t("backup.native.missingCustomSearchTermIdentifier")); }
         if (!available("getCustomTerm", savedTerm.customId)) {
           warnings.push({ reason: "custom-term-unavailable", customId: savedTerm.customId,
             customName: typeof savedTerm.customTermName === "string" ? savedTerm.customTermName : "" });
@@ -126,7 +127,7 @@
         }
         if (Object.hasOwn(savedTerm.value, "folder")) {
           const folder = typeof savedTerm.value.folder === "string" ? util.getMsgFolderFromUri(savedTerm.value.folder, true) : null;
-          if (!folder) { throw new Error("Cannot restore the serialized folder search value"); }
+          if (!folder) { throw new Error(t("backup.native.cannotRestoreTheSerializedFolderSearchValue")); }
           value.folder = folder;
         }
         term.value = value;
@@ -158,24 +159,24 @@
     if (!util.popupProFeature("loadFilters", true)) { return null; }
     const backup = request?.backup;
     if (!Array.isArray(backup?.accounts) || !Array.isArray(backup.referencedAccounts) || !Array.isArray(request.mappings) || !Array.isArray(request.selected)) {
-      throw new Error("Invalid restore request");
+      throw new Error(t("backup.native.invalidRestoreRequest"));
     }
     const directory = [...backup.accounts, ...backup.referencedAccounts];
     const ids = directory.map(source => source.id);
-    if (ids.some(id => typeof id !== "string" || !id) || new Set(ids).size !== ids.length) { throw new Error("Invalid source account identifiers"); }
+    if (ids.some(id => typeof id !== "string" || !id) || new Set(ids).size !== ids.length) { throw new Error(t("backup.native.invalidSourceAccountIdentifiers")); }
     const mapping = new Map();
     for (const pair of request.mappings) {
-      if (!Array.isArray(pair) || pair.length !== 2 || !ids.includes(pair[0]) || typeof pair[1] !== "string" || mapping.has(pair[0])) { throw new Error("Invalid account mapping"); }
+      if (!Array.isArray(pair) || pair.length !== 2 || !ids.includes(pair[0]) || typeof pair[1] !== "string" || mapping.has(pair[0])) { throw new Error(t("backup.native.invalidAccountMapping")); }
       account(pair[1]);
       mapping.set(pair[0], pair[1]);
     }
-    if (new Set(mapping.values()).size !== mapping.size) { throw new Error("Each source account requires a distinct destination"); }
+    if (new Set(mapping.values()).size !== mapping.size) { throw new Error(t("backup.native.eachSourceAccountRequiresADistinctDestination")); }
     if (!request.selected.length || new Set(request.selected).size !== request.selected.length || request.selected.some(id => !backup.accounts.some(source => source.id === id) || !mapping.has(id))) {
-      throw new Error("Select mapped source accounts before restoring");
+      throw new Error(t("backup.native.selectMappedSourceAccountsBeforeRestoring"));
     }
     // Validate all selected source collections before making any change.
     for (const source of backup.accounts.filter(item => request.selected.includes(item.id))) {
-      if (!Array.isArray(source.filters)) { throw new Error("Invalid source filter collection"); }
+      if (!Array.isArray(source.filters)) { throw new Error(t("backup.native.invalidSourceFilterCollection")); }
     }
     const result = { success: true, added: 0, replaced: 0, kept: 0, skipped: 0, failed: 0, accounts: [], warnings: [] };
     importedFilters.clear();
@@ -191,7 +192,7 @@
         original = Array.from({ length: list.filterCount }, (_, index) => list.getFilterAt(index));
         const temporary = MailServices.filters.getTempFilterList(root);
         for (const saved of source.filters) {
-          const filterName = typeof saved?.filterName === "string" ? saved.filterName : "(unnamed)";
+          const filterName = typeof saved?.filterName === "string" ? saved.filterName : t("backup.common.unnamed");
           const base = { accountId: source.id, targetId, filterName };
           if (seen.has(filterName)) {
             report.skipped++;
@@ -224,7 +225,7 @@
           catch (error) {
             replaceContents(list, original);
             try { list.saveToDefaultFile(); }
-            catch (rollback) { throw new Error(`Saving failed (${error.message}); restoring the original file also failed (${rollback.message})`); }
+            catch (rollback) { throw new Error(t("backup.native.savingFailedRestoringTheOriginalFileAlsoFailed", [error.message, rollback.message])); }
             throw error;
           }
           for (const entry of staged) {
@@ -253,10 +254,10 @@
 
   function editImportedFilter(token) {
     const entry = importedFilters.get(token);
-    if (!entry) { throw new Error("This imported filter is no longer available. Restore again to refresh the review list."); }
+    if (!entry) { throw new Error(t("backup.native.thisImportedFilterIsNoLongerAvailableRestore")); }
     const list = account(entry.targetId).incomingServer.rootMsgFolder.getEditableFilterList(null);
     if (!Array.from({ length: list.filterCount }, (_, index) => list.getFilterAt(index)).includes(entry.filter)) {
-      throw new Error("The imported filter was removed or replaced. Reopen Message Filters to inspect it.");
+      throw new Error(t("backup.native.theImportedFilterWasRemovedOrReplacedReopen"));
     }
     const args = { filter: entry.filter, filterList: list };
     mainWindow().openDialog("chrome://messenger/content/FilterEditor.xhtml", "", "chrome,modal,resizable,centerscreen,dialog=yes", args);
@@ -266,11 +267,11 @@
 
   function deleteImportedFilter(token) {
     const entry = importedFilters.get(token);
-    if (!entry) { throw new Error("This imported filter is no longer available."); }
+    if (!entry) { throw new Error(t("backup.native.thisImportedFilterIsNoLongerAvailable")); }
     const list = account(entry.targetId).incomingServer.rootMsgFolder.getEditableFilterList(null);
     const original = Array.from({ length: list.filterCount }, (_, index) => list.getFilterAt(index));
     if (!original.includes(entry.filter)) {
-      throw new Error("The imported filter was removed or replaced. Reopen Message Filters to inspect it.");
+      throw new Error(t("backup.native.theImportedFilterWasRemovedOrReplacedReopen"));
     }
     replaceContents(list, original.filter(filter => filter !== entry.filter));
     try { list.saveToDefaultFile(); }
@@ -283,5 +284,11 @@
     return true;
   }
 
-  Object.assign(this, { restoreFilters, editImportedFilter, deleteImportedFilter });
+  function registerReviewFilter(filter, targetId) {
+    const token = Services.uuid.generateUUID().toString();
+    importedFilters.set(token, { filter, targetId });
+    return token;
+  }
+
+  Object.assign(this, { restoreFilters, editImportedFilter, deleteImportedFilter, registerReviewFilter });
 }).call(this);

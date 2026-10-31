@@ -1,5 +1,6 @@
 // Run with: node --test "docs/issue 193/test-backup.mjs"
 import assert from "node:assert/strict";
+import { getMessage } from "./test-i18n.mjs";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 import test from "node:test";
@@ -66,11 +67,13 @@ test("live backup controller preserves edits, handles cancellation, and remember
   let cancel = true;
   let savePreferencesFails = false;
   let returned = false;
+  let expectedFilename = "Custom.json";
   const accounts = [
     { id: "a", name: "Personal", count: 1, username: "alice", hostname: "imap.example", type: "imap" },
     { id: "b", name: "Work", count: 2, username: "alice", hostname: "work.example", type: "imap" },
   ];
   globalThis.browser = {
+    tabs: { getCurrent: async () => ({ id: 7 }), remove: async id => { assert.equal(id, 7); } },
     accounts: { list: async include => { assert.equal(include, false); return accounts; } },
     runtime: { getManifest: () => ({ version: "6.14.1pre0" }) },
     storage: { local: {
@@ -81,9 +84,9 @@ test("live backup controller preserves edits, handles cancellation, and remember
       getBackupInfo: async () => ({ profileName: "Main", accounts }),
       exportBackupAccounts: async ids => ({ accounts: ids.map(id => ({ id, filters: [{}] })), referencedAccounts: [], warnings: [] }),
       saveBackupFile: async (filename, text) => {
-        assert.equal(filename, "Custom.json");
+        assert.equal(filename, expectedFilename);
         assert.equal(JSON.parse(text).accounts.length, 1);
-        return cancel ? null : { backend: "local", path: "/backups/Custom.json", name: "Custom.json" };
+        return cancel ? null : { backend: "local", path: "/backups/Renamed.json", name: "Renamed.json" };
       },
       returnToFilterList: async token => { assert.equal(token, "origin"); returned = true; },
     },
@@ -92,7 +95,8 @@ test("live backup controller preserves edits, handles cancellation, and remember
   try {
     await initBackupPage({ el, accountText: () => new Node() });
     assert(nodes["#all"].checked);
-    assert.match(nodes["#filename"].value, /^Main_\d{4}-\d{2}-\d{2}_\d{2}-\d{2}\.json$/);
+    assert(nodes["#rows"].querySelectorAll("span").filter(node => node.className === "backup-selection-hint").every(node => node.hidden));
+    assert.match(nodes["#filename"].value, /^Main - \d{4}-\d{2}-\d{2} \d{2}-\d{2}\.json$/);
     nodes["#all"].checked = false;
     nodes["#all"].events.change();
     assert(nodes["#save"].disabled);
@@ -100,6 +104,26 @@ test("live backup controller preserves edits, handles cancellation, and remember
     checkbox.checked = true;
     checkbox.events.change();
     assert(nodes["#all"].indeterminate);
+    assert.equal(nodes["#rows"].querySelectorAll("span").filter(node => node.className === "backup-selection-hint" && !node.hidden).length, 1);
+    const saveBackupFile = browser.Utilities.saveBackupFile;
+    browser.Utilities.saveBackupFile = async filename => ({ backend: "local", path: `/different-folder/${filename}`, name: filename });
+    const personalName = nodes["#filename"].value;
+    await nodes["#save"].events.click();
+    assert.equal(nodes["#filename"].value, personalName);
+    let boxes = nodes["#rows"].querySelectorAll("input");
+    boxes[0].checked = false; boxes[0].events.change();
+    boxes = nodes["#rows"].querySelectorAll("input");
+    boxes[1].checked = true; boxes[1].events.change();
+    assert.match(nodes["#filename"].value, /^Work - /);
+    await nodes["#save"].events.click();
+    nodes["#all"].checked = true; nodes["#all"].events.change();
+    assert.match(nodes["#filename"].value, /^Main - /);
+    nodes["#all"].checked = false; nodes["#all"].events.change();
+    boxes = nodes["#rows"].querySelectorAll("input");
+    boxes[0].checked = true; boxes[0].events.change();
+    assert.equal(nodes["#filename"].value, personalName);
+    browser.Utilities.saveBackupFile = saveBackupFile;
+    delete settings["backup.selectedAccountIds"];
     nodes["#filename"].value = "Custom.json";
     nodes["#filename"].events.input();
     await nodes["#save"].events.click();
@@ -110,16 +134,44 @@ test("live backup controller preserves edits, handles cancellation, and remember
     cancel = false;
     await nodes["#save"].events.click();
     assert.match(nodes["#notice"].textContent, /Saved 1 filters/);
+    assert.equal(nodes["#filename"].value, "Renamed.json");
+    expectedFilename = "Renamed.json";
     const badges = nodes["#rows"].querySelectorAll("span").filter(node => node.className?.includes("status-success"));
     assert.equal(badges.length, 1);
     assert.equal(badges[0].textContent, "filters saved");
     assert.deepEqual(settings["backup.selectedAccountIds"], ["a"]);
-    assert.equal(settings["backup.recentFiles"][0].path, "/backups/Custom.json");
+    assert.equal(settings["backup.recentFiles"][0].path, "/backups/Renamed.json");
     savePreferencesFails = true;
     await nodes["#save"].events.click();
     assert.match(nodes["#notice"].textContent, /Backup saved.*preferences could not be saved/);
     await nodes[".actions"].children[0].events.click();
     assert(returned);
+    window.location.search = "?mode=backup&origin=selected&selection=1";
+    nodes.h1 = new Node(); nodes["header p"] = new Node();
+    nodes[".grid-heading"] = new Node();
+    browser.Utilities.getBackupSelection = async token => {
+      assert.equal(token, "selected");
+      return { accountId: "b", names: ["Only selected filter"] };
+    };
+    browser.Utilities.exportBackupAccounts = async (ids, token) => {
+      assert.deepEqual(ids, ["b"]); assert.equal(token, "selected");
+      return { accounts: [{ id: "b", filters: [{}] }], referencedAccounts: [], warnings: [] };
+    };
+    browser.Utilities.saveBackupFile = async filename => ({ backend: "local", path: `/backup/${filename}`, name: filename });
+    savePreferencesFails = false;
+    await initBackupPage({ el, accountText: () => new Node() });
+    assert.equal(nodes.h1.textContent, "Back up selected filters");
+    assert(nodes[".grid-heading"].hidden);
+    const selectedAccount = nodes["#rows"].querySelectorAll("input")[0];
+    assert(selectedAccount.checked);
+    assert(selectedAccount.disabled);
+    assert.match(nodes["#filename"].value, /^Work - selected filters - /);
+    assert.match(nodes["#summary"].textContent, /1 of 1 accounts selected · 1 filters/);
+    assert.equal(nodes["#rows"].querySelectorAll("li")[0].textContent, "Only selected filter");
+    assert(nodes["#rows"].querySelectorAll("span").some(node => node.textContent === "1 of 2 filters selected"));
+    await nodes["#save"].events.click();
+    assert(nodes["#rows"].querySelectorAll("input")[0].disabled);
+    assert.deepEqual(settings["backup.selectedAccountIds"], ["a"]);
   } finally {
     delete globalThis.browser; delete globalThis.document; delete globalThis.window;
   }
@@ -127,8 +179,8 @@ test("live backup controller preserves edits, handles cancellation, and remember
 
 test("portable filename defaults follow selection and local timestamp", () => {
   const date = new Date(2026, 9, 30, 9, 5);
-  assert.equal(suggestedFilename([{ name: "Personal" }], "Main", date), "Personal_2026-10-30_09-05.json");
-  assert.equal(suggestedFilename([{}, {}], "Main", date), "Main_2026-10-30_09-05.json");
+  assert.equal(suggestedFilename([{ name: "Personal" }], "Main", date), "Personal - 2026-10-30 09-05.json");
+  assert.equal(suggestedFilename([{}, {}], "Axel New", date), "Axel New - 2026-10-30 09-05.json");
   assert.equal(suggestedFilename([{}, {}], "", date), "");
   assert.equal(sanitizeFilename('A/B:C?\u0001. '), "A_B_C__");
   assert.equal(sanitizeFilename("CON"), "_CON");
@@ -204,6 +256,7 @@ async function privileged() {
     file: { path: "/backups/filters.json", leafName: "filters.json" },
   };
   const context = vm.createContext({
+    t: getMessage,
     Components: {
       classes: { "@mozilla.org/filepicker;1": { createInstance: () => fp }, "@mozilla.org/toolkit/profile-service;1": { getService: () => ({ profiles: [{ name: "Main", rootDir: { equals: () => true } }] }) } },
       interfaces: { nsMsgFilterAction: { MoveToFolder: 1, CopyToFolder: 16 } },
@@ -331,5 +384,133 @@ test("backup directory persists across picker calls and cancellation leaves it u
     assert.equal(values["backup.lastDirectory"], "E:/Restores");
   } finally {
     globalThis.browser = previous;
+  }
+});
+
+test("backup review retains rows with edited/deleted badges and strikes deleted names", () => {
+  const nodes = [];
+  function el(tag, className = "", textContent = "") {
+    const classes = new Set(className.split(" "));
+    const node = { tag, className, textContent, children: [], events: {},
+      append(...items) { for (const item of items) { item.parent = this; this.children.push(item); } },
+      replaceChildren(...items) { this.children = []; this.append(...items); },
+      remove() { this.parent.children = this.parent.children.filter(item => item !== this); },
+      querySelector(selector) { return this.children.find(item => item.className.split(" ").includes(selector.slice(1))) || this.children.map(item => item.querySelector(selector)).find(Boolean); },
+      setAttribute() {}, addEventListener(type, fn) { this.events[type] = fn; },
+      classList: { add(value) { classes.add(value); }, remove(value) { classes.delete(value); }, toggle() {} }, classes,
+    };
+    nodes.push(node); return node;
+  }
+  const warnings = ["first", "second"].map(filterName => ({ accountId: "a", filterName, reason: "invalid-target-folder", reviewToken: "same-filter" }));
+  const view = createWarningPanel({ el, accounts: [{ id: "a", name: "Account" }], warnings, backupReview: true, onEdit() {}, onDelete() {} });
+  const rows = nodes.find(node => node.tag === "tbody").children;
+  assert.equal(rows[0].children[4].children.length, 2);
+  view.markEdited("same-filter");
+  assert.equal(rows[0].children[3].children.length, 1);
+  assert.equal(rows[0].children[3].children[0].textContent, "Edited by User");
+  assert(rows[0].children[2].classes.has("warning-outdated"));
+  assert.match(rows[0].children[2].title, /has not been checked again/);
+  assert.equal(rows[0].children[1].children.length, 0);
+  view.markDeleted("same-filter");
+  assert.equal(rows.length, 2);
+  for (const row of rows) {
+    assert(row.children[1].classes.has("filter-deleted-name"));
+    assert.equal(row.children[4].children[0].textContent, "Item deleted");
+    assert.match(row.children[4].children[0].title, /remember to backup again/);
+    assert.equal(row.children[1].children.length, 0);
+  }
+});
+
+test("return prompts for backup changes; Yes stays, No returns then closes only the current tab", async () => {
+  const { returnToMessageFilters } = await import("../../scripts/backup/return-to-filters.mjs");
+  const previous = { browser: globalThis.browser, window: globalThis.window };
+  const calls = [];
+  let yes = true, fail = false;
+  globalThis.window = { location: { search: "?origin=test-origin" } };
+  globalThis.browser = {
+    tabs: { getCurrent: async () => ({ id: 42 }), remove: async id => calls.push(["close", id]) },
+    Utilities: {
+      confirmBackupChanges: async () => { calls.push(["prompt"]); return yes; },
+      returnToFilterList: async token => { if (fail) throw new Error("Cannot open"); calls.push(["return", token]); },
+    },
+  };
+  try {
+    assert.equal(await returnToMessageFilters(true), false);
+    assert.deepEqual(calls, [["prompt"]]);
+    calls.length = 0; yes = false;
+    assert.equal(await returnToMessageFilters(true), true);
+    assert.deepEqual(calls, [["prompt"], ["return", "test-origin"], ["close", 42]]);
+    calls.length = 0;
+    await returnToMessageFilters(false);
+    assert.deepEqual(calls, [["return", "test-origin"], ["close", 42]]);
+    calls.length = 0; fail = true;
+    await assert.rejects(returnToMessageFilters(false), /Cannot open/);
+    assert.deepEqual(calls, []);
+  } finally { globalThis.browser = previous.browser; globalThis.window = previous.window; }
+});
+
+test("delete confirmation suppression lasts only for its controller and requires an accepted deletion", async () => {
+  const { createDeleteConfirmation } = await import("../../scripts/backup/delete-confirmation.mjs");
+  const previous = globalThis.browser;
+  let confirmed = false, calls = 0;
+  globalThis.browser = { Utilities: { confirmFilterDeletion: async () => { calls++; return { confirmed, doNotAskAgain: true }; } } };
+  try {
+    const confirm = createDeleteConfirmation();
+    assert.equal(await confirm("First"), false);
+    confirmed = true;
+    assert.equal(await confirm("First"), true);
+    assert.equal(calls, 2);
+    assert.equal(await confirm("Second"), true);
+    assert.equal(calls, 2);
+    await createDeleteConfirmation()("New session");
+    assert.equal(calls, 3);
+  } finally { globalThis.browser = previous; }
+});
+
+test("selected backup exports exact captured objects in list order, never the entire account", async () => {
+  const env = await privileged();
+  const first = { filterName: "Same name", actionList: [] };
+  const second = { filterName: "Same name", actionList: [{ type: 1, targetFolderUri: "imap://alice@b/Archive" }] };
+  const filters = [first, second];
+  env.accounts[0].incomingServer.key = "server-a";
+  env.accounts[0].incomingServer.getFilterList = () => ({ filterCount: filters.length, getFilterAt: index => filters[index] });
+  env.nativeWindow.quickFilters.backupSelections = new Map([["selected", { serverKey: "server-a", filters: [second] }]]);
+  assert.equal(env.api.getBackupSelection("selected").accountId, "a");
+  assert.equal(env.api.getBackupSelection("selected").names.length, 1);
+  const exported = env.api.exportBackupAccounts(["a"], undefined, "selected");
+  assert.equal(exported.accounts[0].filters.length, 1);
+  assert.equal(exported.accounts[0].filters[0].actionList.length, 1);
+  assert.equal(exported.referencedAccounts[0].id, "b");
+  assert.throws(() => env.api.exportBackupAccounts(["b"], undefined, "selected"), /original account/);
+  filters.pop();
+  assert.equal(env.api.getBackupSelection("selected").names.length, 0);
+  assert.throws(() => env.api.exportBackupAccounts(["a"], undefined, "selected"), /remaining selected filter/);
+  assert.throws(() => env.api.getBackupSelection("missing"), /no longer available/);
+});
+
+test("Utilities loads package scripts without chrome registrations into fresh private scopes", async () => {
+  const source = await readFile(new URL("../../chrome/content/api/Utilities/implementation.js", import.meta.url), "utf8");
+  const loads = [];
+  const context = vm.createContext({
+    Services: { wm: { getMostRecentWindow: () => ({}) }, scriptloader: {
+      loadSubScriptWithOptions(url, options) { loads.push({ url, options }); },
+    } },
+    ChromeUtils: { importESModule: () => ({ ExtensionCommon: { ExtensionAPI: class {} }, MailServices: {} }) },
+    Components: {}, IOUtils: {}, console: { log() {} },
+  });
+  vm.runInContext(source, context);
+  const api = new context.Utilities();
+  for (const root of ["file:///temporary-addon/", "jar:file:///profile/quickFilters.xpi!/"]) {
+    api.getAPI({ extension: { rootURI: { resolve: path => root + path }, localeData: { localizeMessage: getMessage } } });
+  }
+  assert.equal(loads.length, 4);
+  for (const [index, load] of loads.entries()) {
+    assert(load.url.startsWith(index < 2 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
+    assert(load.url.endsWith(index % 2 ? "Utilities/restore.js" : "Utilities/backup.js"));
+    assert.equal(load.options.charset, "UTF-8");
+    assert.equal(load.options.ignoreCache, true);
+    assert.equal(load.options.allowUnsafeURL, true);
+    assert.equal(load.options.target.t("backup.backup.title"), "Backup Filters");
+    assert.notEqual(load.options.target, loads[(index + 1) % loads.length].options.target);
   }
 });

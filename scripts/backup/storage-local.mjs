@@ -16,10 +16,14 @@ export async function withBackupDirectory(pick) {
 // Native picker and disk I/O stay behind explicit experimental API methods.
 export const localStorageAdapter = {
   async write({ filename, data }) {
-    return withBackupDirectory(directory => browser.Utilities.saveBackupFile(filename, JSON.stringify(data, null, 2), directory));
+    return withBackupDirectory((directory) =>
+      browser.Utilities.saveBackupFile(filename, JSON.stringify(data, null, 2), directory)
+    );
   },
   async read() {
-    const result = await withBackupDirectory(directory => browser.Utilities.readBackupFile(directory));
+    const result = await withBackupDirectory((directory) =>
+      browser.Utilities.readBackupFile(directory)
+    );
     return result ? { ...result, data: JSON.parse(result.text) } : null;
   },
 };

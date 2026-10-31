@@ -1,0 +1,122 @@
+/* Shared filter review styles. Host pages supply theme variables. */
+
+.warning-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.warning-table-container {
+  overflow-x: auto;
+}
+
+.warning-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.warning-table caption {
+  text-align: start;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.warning-table th,
+.warning-table td {
+  text-align: start;
+  vertical-align: top;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+
+.warning-table th {
+  background: var(--soft);
+}
+
+.warning-table th:nth-child(4) {
+  width: 40%;
+}
+
+.warning-table th:nth-child(5) {
+  width: 190px;
+}
+
+.warning-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+.warning-table td:nth-child(5) button {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.warning-highlight {
+  color: #785000;
+  background: #fff0c2;
+  box-shadow: inset 3px 0 #b88000;
+}
+
+
+.custom-feature-name {
+  font-weight: 600;
+}
+
+.custom-feature-label {
+  font-size: 0.9em;
+}
+
+.custom-feature-id {
+  display: block;
+  font-family: monospace;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+
+.filter-deleted-name,
+.warning-outdated {
+  text-decoration: line-through;
+}
+
+.warning-table .review-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px solid #b88000;
+  border-radius: 999px;
+  line-height: 1.4;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #785000;
+  background: #fff0c2;
+}
+
+
+.warning-table td:last-child button + button {
+  margin-inline-start: 6px;
+}
+
+.filter-warning-panel > summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  .warning-table .review-status {
+    color: #ffe095;
+    background: #56451e;
+  }
+  .warning-highlight {
+    color: #ffe095;
+    background: #56451e;
+  }
+}

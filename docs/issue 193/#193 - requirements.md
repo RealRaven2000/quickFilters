@@ -203,3 +203,5 @@ Continue to support importing existing single-account backups. They contain less
 - Existing single-account backups remain importable.
 
 Restore offers ?Overwrite filters with the same name?, checked by default. When unchecked, existing destination filters are retained unchanged and only filters with new names are imported. Results count ?existing filters kept? separately from skipped filters. More sophisticated merge rules are deferred.
+
+Ctrl-clicking Backup opens selected-filter mode: only the current account and exact filters selected at launch are included. List selected filter names below the account, show the selected count, and suggest ?Account name - selected filters - YYYY-MM-DD HH-MM.json?. Explain that Return to Message Filters allows a different selection, followed by Ctrl-clicking Backup again. Normal full-account export remains unchanged. Missing/deleted selection objects must never cause fallback to exporting the whole account.

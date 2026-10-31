@@ -29,11 +29,11 @@ Not implemented: VFS dependencies/connections, scheduling, recent-file UI, moved
 
 ## Maintenance releases and legacy paths
 
-Legacy `quickFilters.List.store(event)`, `storeSelected()`, `fileFilters()` and `load()` remain intact. The existing toolbar changes are limited to the Backup and Restore handlers; their IDs, element types, classes and surrounding toolbar stay the same.
+Legacy `quickFilters.List.store_obsolete(event)`, `storeSelected_obsolete()`, `fileFilters_obsolete()` and `load_obsolete()` remain intact. The existing toolbar changes are limited to the Backup and Restore handlers; their IDs, element types, classes and surrounding toolbar stay the same.
 
-To ship a maintenance build using the old workflow, change only the Backup handler in `chrome/content/scripts/qFi-filterlist.js` back from `oncommand="quickFilters.List.openBackupTab();"` to `onclick="quickFilters.List.store(event);"`. This also restores the legacy Ctrl+click selected-filter behavior. No legacy serializer or importer migration is required. A user-facing switch is deferred.
+To ship a maintenance build using the old workflow, change only the Backup handler in `chrome/content/scripts/qFi-filterlist.js` back from the current `openBackupTab` handler to `onclick="quickFilters.List.store_obsolete(event);"`. This also restores the legacy Ctrl+click selected-filter behavior. No legacy serializer or importer migration is required. A user-facing switch is deferred.
 
-Also change the Restore handler from `oncommand="quickFilters.List.openBackupTab('restore');"` back to `onclick="quickFilters.List.load();"`.
+Also change the Restore handler from `oncommand="quickFilters.List.openBackupTab('restore');"` back to `onclick="quickFilters.List.load_obsolete();"`.
 
 The legacy importer cannot read the new versioned envelope. The new restore interface supports both formats. Keep the new wiring experimental until live testing is complete; use the two legacy handlers for a maintenance release. Existing legacy backups and the legacy restore code are unchanged.
 
@@ -102,3 +102,17 @@ If one account cannot be saved, the operation reports partial completion; inspec
 The native backup, restore, and report pickers share `backup.lastDirectory` in `browser.storage.local`. Successful file operations remember the selected parent folder across Thunderbird restarts. Cancellation leaves it unchanged; missing or inaccessible folders fall back to the native picker default.
 
 Restore review offers Delete beside Edit filter for imported filters. Deletion asks for confirmation, checks the exact native filter object, saves the account filter list, and refreshes open Message Filters windows. All review rows for that filter show ?Filter deleted?; saved reports record their status as deleted. Skipped filters have no Delete action.
+
+Backup warning review now offers Edit filter and Delete against exact native filter objects. Accepted edits show ?Edited by User?; deletions retain all warning rows, strike through the filter name, and show ?Item deleted?. Both badges remind users to back up again. Runtime review tokens are omitted from saved backup data. Canceling the editor does not mark the filter edited.
+
+Return to Message Filters now focuses/reopens the list and closes the current backup/restore tab using the tabs API. Backup review tracks edited/deleted accounts until those accounts are successfully backed up again. Returning with outstanding changes shows a Yes/No prompt: Yes stays on the backup page, No returns and closes the tab. Canceled or failed backups do not clear the reminder.
+
+Ctrl+Backup opens the same assistant in selected-filter mode. The minimal launch bridge captures native selected filter references under quickFilters.backupSelections; an explicit Utilities method supplies the account and selected names. Export intersects that snapshot with the current native list in filter order, rejects an empty selection or different account, and retains referenced-account metadata. Partial exports do not replace remembered full-account checkbox selections. Smoke test: select two filters, Ctrl-click Backup, verify one account/two names/count and selected-filters filename; save and inspect that exactly those filters exist in JSON. Test no selection and deletion of selected items; normal Backup must still list all accounts.
+
+Localization: live backup/restore headings, labels, counts, selection hints, mapping statuses, warning tables, badges, tooltips, confirmations, native picker text and user-visible errors use the backup.* namespace in _locales/en/messages.json. The two initial title keys are retained. scripts/backup/i18n.mjs uses the standard MX i18n API; the Utilities experiment receives a private localizer from extension.localeData for native dialogs/errors. Numeric/path/name values use catalog placeholders, and the Ctrl+Backup hint has an icon placeholder that translators can reposition. User account/filter names, custom IDs, folder URIs and machine-readable report reason codes are not translated. Existing legacy message keys and standalone demo fixtures are not renamed. No translations beyond English have been added yet; Thunderbird uses its normal default-locale fallback.
+
+Localization checks: node --test "docs/issue 193/test-localization.mjs" validates message references/placeholders and tests safe text/attribute translation, reordered substitutions and RTL document direction. The regular backup/restore tests now load the actual English catalog rather than hard-coded mock translations.
+
+Shared review presentation is extracted to scripts/filter-review/warning-panel.mjs and warning-panel.css. The existing backup warning-table module is now an adapter providing localization, native-token normalization and backup-specific reminders. A future HTML troubleshooter can supply its own diagnoses and callbacks without importing backup code. See scripts/filter-review/README.md for the interface. The current build already packages scripts recursively.
+
+Utilities now loads its private backup.js and restore.js helpers through a local loadPackageScript closure in getAPI(context). It resolves fixed package-relative paths using context.extension.rootURI and uses loadSubScriptWithOptions with target, UTF-8, ignoreCache and allowUnsafeURL, matching the WindowListener package-loader approach. No chrome/resource URL registration is needed for these two helpers. The native loader still requires live Thunderbird verification; automated tests cover unpacked and XPI URL resolution and fresh private scopes.

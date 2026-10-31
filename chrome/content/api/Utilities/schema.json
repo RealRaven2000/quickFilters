@@ -3,6 +3,43 @@
     "namespace": "Utilities",
     "functions": [
       {
+        "name": "getBackupSelection",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "confirmFilterDeletion",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "confirmBackupChanges",
+        "type": "function",
+        "async": true,
+        "parameters": [],
+        "returns": {
+          "type": "boolean"
+        }
+      },
+      {
         "name": "restoreFilters",
         "parameters": [
           {
@@ -89,6 +126,11 @@
             "items": {
               "type": "string"
             }
+          },
+          {
+            "name": "selectionToken",
+            "type": "string",
+            "optional": true
           }
         ],
         "type": "function",

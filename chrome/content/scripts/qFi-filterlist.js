@@ -236,7 +236,7 @@ async function onLoad(_activatedWhileWindowOpen) {
     <toolbarbutton id="btnSaveFilters"
                    class="toolbarbutton-1"
                    tooltiptext_qI="__MSG_quickfilters.button.saveFilters.tooltip__"
-                   oncommand="quickFilters.List.openBackupTab();"/>
+                   oncommand="quickFilters.List.openBackupTab(event.ctrlKey ? 'backup-selected' : 'backup');"/>
                    <toolbarbutton id="btnLoadFilters"
                    class="toolbarbutton-1"
                    tooltiptext_qI="__MSG_quickfilters.button.loadFilters.tooltip__"

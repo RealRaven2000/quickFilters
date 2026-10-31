@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import "./test-i18n.mjs";
 import test from "node:test";
 import { initRestorePage } from "../../scripts/backup/restore-page.mjs";
 

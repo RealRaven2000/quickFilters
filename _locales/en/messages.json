@@ -40,6 +40,1055 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Make sure that the assistant stays on top once it is activated."
   },
+  "backup.backup.accountsFilters": {
+    "message": "$value1$ accounts · $value2$ filters",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "accounts.length"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "accounts.reduce((sum, account) => sum + account.count, 0)"
+      }
+    },
+    "description": "Values: $value1$ = accounts.length; $value2$ = accounts.reduce((sum, account) => sum + account.count, 0)"
+  },
+  "backup.backup.accountsLabel": {
+    "message": "Accounts to back up"
+  },
+  "backup.backup.allAccounts": {
+    "message": "All accounts"
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Back up filters from $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "account.name"
+      }
+    },
+    "description": "Values: $value1$ = account.name"
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Back up selected filters"
+  },
+  "backup.backup.backup": {
+    "message": "Backup"
+  },
+  "backup.backup.backupButtonInMessageFilters": {
+    "message": "Backup button in Message Filters"
+  },
+  "backup.backup.backupFailed": {
+    "message": "Backup failed: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "message": "Backup saved, but finishing the operation failed: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "message": "Backup saved to $value1$, but preferences could not be saved: $value2$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "location.path"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = location.path; $value2$ = error.message"
+  },
+  "backup.backup.backupWasNotSaved": {
+    "message": "Backup was not saved."
+  },
+  "backup.backup.cannotLoadAccounts": {
+    "message": "Cannot load accounts: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.backup.cannotReadFilters": {
+    "message": "Cannot read filters"
+  },
+  "backup.backup.chooseAccountsAndAFilenameThenSaveYour": {
+    "message": "Choose accounts and a filename, then save your backup."
+  },
+  "backup.backup.couldNotDeleteFilter": {
+    "message": "Could not delete filter: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.backup.couldNotEditFilter": {
+    "message": "Could not edit filter: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.backup.couldNotReturnToTheFilterList": {
+    "message": "Could not return to the filter list: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.backup.currentProfile": {
+    "message": "Current profile"
+  },
+  "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "message": "Deleted filter “$value1$”. Back up again if you want to save this change.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "filterName"
+      }
+    },
+    "description": "Values: $value1$ = filterName"
+  },
+  "backup.backup.description": {
+    "message": "Select the accounts whose filters you want to save in one file."
+  },
+  "backup.backup.enterABackupFilename": {
+    "message": "Enter a backup filename."
+  },
+  "backup.backup.filename": {
+    "message": "Backup file:"
+  },
+  "backup.backup.filenameHint": {
+    "message": "You can edit this name before opening the Save As dialog."
+  },
+  "backup.backup.filters": {
+    "message": "$value1$ filters",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "account.count"
+      }
+    },
+    "description": "Values: $value1$ = account.count"
+  },
+  "backup.backup.filtersChangedBackUpAgainIfYouWant": {
+    "message": "Filters changed. Back up again if you want to save this change."
+  },
+  "backup.backup.filtersSaved": {
+    "message": "filters saved"
+  },
+  "backup.backup.highlightWarningsFor": {
+    "message": "Highlight $value1$ warnings for $value2$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "saved.warnings"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "account.name"
+      }
+    },
+    "description": "Values: $value1$ = saved.warnings; $value2$ = account.name"
+  },
+  "backup.backup.highlightWarningsFor2": {
+    "message": "Highlight warnings for $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "account.name"
+      }
+    },
+    "description": "Values: $value1$ = account.name"
+  },
+  "backup.backup.loadingAccountsAndFilterCounts": {
+    "message": "Loading accounts and filter counts…"
+  },
+  "backup.backup.noAccountsSupportingFiltersWereFound": {
+    "message": "No accounts supporting filters were found."
+  },
+  "backup.backup.ofAccountsSelectedFilters": {
+    "message": "$value1$ of $value2$ accounts selected · $value3$ filters",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "checked.length"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "accounts.length"
+      },
+      "value3": {
+        "content": "$3",
+        "example": "checked.reduce((sum, account) => sum + account.count, 0)"
+      }
+    },
+    "description": "Values: $value1$ = checked.length; $value2$ = accounts.length; $value3$ = checked.reduce((sum, account) => sum + account.count, 0)"
+  },
+  "backup.backup.ofFiltersSelected": {
+    "message": "$value1$ of $value2$ filters selected",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "account.count"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "account.totalCount"
+      }
+    },
+    "description": "Values: $value1$ = account.count; $value2$ = account.totalCount"
+  },
+  "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
+    "message": "Only the filters listed below will be saved. To select different filters, return to Message Filters and then Ctrl-click Backup again."
+  },
+  "backup.backup.preparingFilterBackup": {
+    "message": "Preparing filter backup…"
+  },
+  "backup.backup.profileInformation": {
+    "message": "Profile information"
+  },
+  "backup.backup.returnToMessageFilters": {
+    "message": "Return to Message Filters"
+  },
+  "backup.backup.saveBackup": {
+    "message": "Save backup…"
+  },
+  "backup.backup.saveCancelledNoBackupWasWritten": {
+    "message": "Save cancelled. No backup was written."
+  },
+  "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "message": "Saved $value1$ filters from $value2$ accounts to $value3$. Use Return to Message Filters to return.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "count"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "checked.length"
+      },
+      "value3": {
+        "content": "$3",
+        "example": "location.path"
+      }
+    },
+    "description": "Values: $value1$ = count; $value2$ = checked.length; $value3$ = location.path"
+  },
+  "backup.backup.savedTo": {
+    "message": "Saved to $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "saved.path"
+      }
+    },
+    "description": "Values: $value1$ = saved.path"
+  },
+  "backup.backup.selectAtLeastOneAccount": {
+    "message": "Select at least one account."
+  },
+  "backup.backup.selectedAccountsWillBeSavedTogetherInOne": {
+    "message": "Selected accounts will be saved together in one file."
+  },
+  "backup.backup.selectedFilters": {
+    "message": "$value1$ - selected filters",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "account.name"
+      }
+    },
+    "description": "Values: $value1$ = account.name"
+  },
+  "backup.backup.selectionHint": {
+    "message": "(To save only a selection of filters, hold Ctrl while clicking $icon$ in Message Filters.)",
+    "placeholders": {
+      "icon": {
+        "content": "$1",
+        "example": "[Backup icon]"
+      }
+    }
+  },
+  "backup.backup.title": {
+    "message": "Backup Filters"
+  },
+  "backup.backup.uncheckAccountsWhoseFiltersCouldNotBeRead": {
+    "message": "Uncheck accounts whose filters could not be read, or reopen this page to retry."
+  },
+  "backup.common.loading": {
+    "message": "Loading…"
+  },
+  "backup.common.unnamed": {
+    "message": "(unnamed)"
+  },
+  "backup.common.warningCount": {
+    "message": "$count$ warnings",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "backup.common.warningCountOne": {
+    "message": "$count$ warning",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "1"
+      }
+    }
+  },
+  "backup.confirm.backupChanges": {
+    "message": "Filters were edited. Do you want to backup the changes first? Click Yes if you want to backup the changes first."
+  },
+  "backup.confirm.deleteFilter": {
+    "message": "Delete filter “$name$”?",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "Newsletter"
+      }
+    }
+  },
+  "backup.confirm.doNotAskAgain": {
+    "message": "Do not ask again"
+  },
+  "backup.format.chooseDestination": {
+    "message": "Choose destination"
+  },
+  "backup.format.destinationMissing": {
+    "message": "Destination missing"
+  },
+  "backup.format.duplicateAccountIdentifiersInBackup": {
+    "message": "Duplicate account identifiers in backup."
+  },
+  "backup.format.invalidAccountMetadata": {
+    "message": "Invalid account metadata."
+  },
+  "backup.format.invalidActionOrConditionIn": {
+    "message": "Invalid action or condition in $value1$.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "filter.filterName"
+      }
+    },
+    "description": "Values: $value1$ = filter.filterName"
+  },
+  "backup.format.invalidFilterDataIn": {
+    "message": "Invalid filter data in $value1$.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "account.name"
+      }
+    },
+    "description": "Values: $value1$ = account.name"
+  },
+  "backup.format.invalidReferencedAccountDirectory": {
+    "message": "Invalid referenced account directory."
+  },
+  "backup.format.legacyAccount": {
+    "message": "Legacy account"
+  },
+  "backup.format.localFolders": {
+    "message": "Local Folders"
+  },
+  "backup.format.matched": {
+    "message": "Matched"
+  },
+  "backup.format.message": {
+    "message": "$value1$-$value2$-$value3$ $value4$-$value5$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "date.getFullYear()"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "pad(date.getMonth() + 1)"
+      },
+      "value3": {
+        "content": "$3",
+        "example": "pad(date.getDate())"
+      },
+      "value4": {
+        "content": "$4",
+        "example": "pad(date.getHours())"
+      },
+      "value5": {
+        "content": "$5",
+        "example": "pad(date.getMinutes())"
+      }
+    },
+    "description": "Values: $value1$ = date.getFullYear(); $value2$ = pad(date.getMonth() + 1); $value3$ = pad(date.getDate()); $value4$ = pad(date.getHours()); $value5$ = pad(date.getMinutes())"
+  },
+  "backup.format.missingFiltersFor": {
+    "message": "Missing filters for $value1$.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "account.name"
+      }
+    },
+    "description": "Values: $value1$ = account.name"
+  },
+  "backup.format.referenced": {
+    "message": "$value1$ (referenced)",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "parsed.username || parsed.hostname"
+      }
+    },
+    "description": "Values: $value1$ = parsed.username || parsed.hostname"
+  },
+  "backup.format.remembered": {
+    "message": "Remembered"
+  },
+  "backup.format.sourceAccount": {
+    "message": "Source account"
+  },
+  "backup.format.theBackupContainsNoSourceAccounts": {
+    "message": "The backup contains no source accounts."
+  },
+  "backup.format.unsupportedFilterBackupFormatOrVersion": {
+    "message": "Unsupported filter backup format or version."
+  },
+  "backup.mapping.allAccountsAreAssigned": {
+    "message": "All accounts are assigned."
+  },
+  "backup.mapping.assignedToMoveHere": {
+    "message": "Assigned to $value1$ — move here",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "owner.name"
+      }
+    },
+    "description": "Values: $value1$ = owner.name"
+  },
+  "backup.mapping.dropATargetHere": {
+    "message": "Drop a target here"
+  },
+  "backup.mapping.filters": {
+    "message": "$value1$ filters$value2$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "source.filters.length"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "statuses.get(source.id) ? ` · ${statuses.get(source.id)}` : \"\""
+      }
+    },
+    "description": "Values: $value1$ = source.filters.length; $value2$ = statuses.get(source.id) ? ` · ${statuses.get(source.id)}` : \"\""
+  },
+  "backup.mapping.filtersRestored": {
+    "message": "filters restored"
+  },
+  "backup.mapping.noFiltersRestored": {
+    "message": "no filters restored"
+  },
+  "backup.mapping.referencedAccountNoFiltersImported": {
+    "message": "Referenced account · no filters imported"
+  },
+  "backup.mapping.removeAssignment": {
+    "message": "Remove assignment"
+  },
+  "backup.mapping.restoreFailed": {
+    "message": "restore failed"
+  },
+  "backup.mapping.restoreFiltersFrom": {
+    "message": "Restore filters from $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "source.name"
+      }
+    },
+    "description": "Values: $value1$ = source.name"
+  },
+  "backup.mapping.selectAccountFor": {
+    "message": "Select account for $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "source.name"
+      }
+    },
+    "description": "Values: $value1$ = source.name"
+  },
+  "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
+    "message": "Select account (you can also drag accounts to a slot)"
+  },
+  "backup.mapping.warnings": {
+    "message": "$value1$ warnings",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "count"
+      }
+    },
+    "description": "Values: $value1$ = count"
+  },
+  "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "message": "Account $value1$ is unavailable or does not support filters.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "id"
+      }
+    },
+    "description": "Values: $value1$ = id"
+  },
+  "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
+    "message": "Cannot restore the serialized folder search value"
+  },
+  "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "message": "Could not export filter “$value1$”. No backup was written.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "filter.filterName"
+      }
+    },
+    "description": "Values: $value1$ = filter.filterName"
+  },
+  "backup.native.destinationAccountIsUnavailable": {
+    "message": "Destination account $value1$ is unavailable.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "id"
+      }
+    },
+    "description": "Values: $value1$ = id"
+  },
+  "backup.native.eachSourceAccountRequiresADistinctDestination": {
+    "message": "Each source account requires a distinct destination"
+  },
+  "backup.native.enterAValidFilenameWithoutAFolderPath": {
+    "message": "Enter a valid filename without a folder path."
+  },
+  "backup.native.folderDoesNotExistInTheDestinationAccount": {
+    "message": "Folder “$value1$” does not exist in the destination account",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "name"
+      }
+    },
+    "description": "Values: $value1$ = name"
+  },
+  "backup.native.invalidAccountMapping": {
+    "message": "Invalid account mapping"
+  },
+  "backup.native.invalidEmptyFolderPathSegment": {
+    "message": "Invalid empty folder path segment"
+  },
+  "backup.native.invalidFilterAction": {
+    "message": "Invalid filter action"
+  },
+  "backup.native.invalidRestoreReport": {
+    "message": "Invalid restore report"
+  },
+  "backup.native.invalidRestoreRequest": {
+    "message": "Invalid restore request"
+  },
+  "backup.native.invalidSearchCondition": {
+    "message": "Invalid search condition"
+  },
+  "backup.native.invalidSerializedFilter": {
+    "message": "Invalid serialized filter"
+  },
+  "backup.native.invalidSourceAccountIdentifiers": {
+    "message": "Invalid source account identifiers"
+  },
+  "backup.native.invalidSourceFilterCollection": {
+    "message": "Invalid source filter collection"
+  },
+  "backup.native.invalidTargetFolderURI": {
+    "message": "Invalid target folder URI"
+  },
+  "backup.native.jSONFiles": {
+    "message": "JSON files"
+  },
+  "backup.native.missingCustomActionIdentifier": {
+    "message": "Missing custom action identifier"
+  },
+  "backup.native.missingCustomSearchTermIdentifier": {
+    "message": "Missing custom search term identifier"
+  },
+  "backup.native.missingSerializedTargetFolderURI": {
+    "message": "Missing serialized target folder URI"
+  },
+  "backup.native.moreThanOneSourceAccountMatchesTheFolder": {
+    "message": "More than one source account matches the folder's account"
+  },
+  "backup.native.noDestinationSelectedForAccount": {
+    "message": "No destination selected for account “$value1$”",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "owners[0].name || owners[0].id"
+      }
+    },
+    "description": "Values: $value1$ = owners[0].name || owners[0].id"
+  },
+  "backup.native.openAMailWindowBeforeRestoringFilters": {
+    "message": "Open a mail window before restoring filters."
+  },
+  "backup.native.openAThunderbirdMailWindowBeforeBackingUp": {
+    "message": "Open a Thunderbird mail window before backing up filters."
+  },
+  "backup.native.openFilterBackup": {
+    "message": "Open filter backup"
+  },
+  "backup.native.saveFilterBackup": {
+    "message": "Save filter backup"
+  },
+  "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "message": "Saving failed ($value1$); restoring the original file also failed ($value2$)",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "rollback.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message; $value2$ = rollback.message"
+  },
+  "backup.native.selectAtLeastOneDistinctAccount": {
+    "message": "Select at least one distinct account."
+  },
+  "backup.native.selectMappedSourceAccountsBeforeRestoring": {
+    "message": "Select mapped source accounts before restoring"
+  },
+  "backup.native.selectTheOriginalAccountWithAtLeastOne": {
+    "message": "Select the original account with at least one remaining selected filter."
+  },
+  "backup.native.targetFolderIsMissingOrCannotReceiveMessages": {
+    "message": "Target folder is missing or cannot receive messages"
+  },
+  "backup.native.theFolderSAccountCouldNotBeIdentified": {
+    "message": "The folder's account could not be identified in the backup"
+  },
+  "backup.native.theImportedFilterWasRemovedOrReplacedReopen": {
+    "message": "The imported filter was removed or replaced. Reopen Message Filters to inspect it."
+  },
+  "backup.native.theSelectedAccountIsNoLongerAvailable": {
+    "message": "The selected account is no longer available."
+  },
+  "backup.native.theSelectedFiltersAreNoLongerAvailableReturn": {
+    "message": "The selected filters are no longer available. Return to Message Filters and select them again."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailable": {
+    "message": "This imported filter is no longer available."
+  },
+  "backup.native.thisImportedFilterIsNoLongerAvailableRestore": {
+    "message": "This imported filter is no longer available. Restore again to refresh the review list."
+  },
+  "backup.native.unparseableFilterHasNoRestorableNativeBuffer": {
+    "message": "Unparseable filter has no restorable native buffer"
+  },
+  "backup.native.unsupportedBackupData": {
+    "message": "Unsupported backup data."
+  },
+  "backup.restore.allSources": {
+    "message": "All source accounts"
+  },
+  "backup.restore.assigned": {
+    "message": "Assigned"
+  },
+  "backup.restore.cannotLoadDestinationAccounts": {
+    "message": "Cannot load destination accounts: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.restore.cannotOpenBackup": {
+    "message": "Cannot open backup: $value1$$value2$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      },
+      "value2": {
+        "content": "$2",
+        "example": "backup ? \" The previous backup remains loaded.\" : \"\""
+      }
+    },
+    "description": "Values: $value1$ = error.message; $value2$ = backup ? \" The previous backup remains loaded.\" : \"\""
+  },
+  "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
+    "message": "Check destination mappings, then restore the selected accounts. Referenced accounts can be mapped without importing their filters."
+  },
+  "backup.restore.couldNotSaveReport": {
+    "message": "Could not save report: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.restore.deletedFilter": {
+    "message": "Deleted filter “$value1$”.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "name"
+      }
+    },
+    "description": "Values: $value1$ = name"
+  },
+  "backup.restore.description": {
+    "message": "Select source accounts and assign their destinations in this profile."
+  },
+  "backup.restore.destinations": {
+    "message": "Destination accounts · This profile"
+  },
+  "backup.restore.existingFiltersAreKeptOnlyFiltersWithNew": {
+    "message": "Existing filters are kept; only filters with new names are added."
+  },
+  "backup.restore.information": {
+    "message": "Backup information"
+  },
+  "backup.restore.instructions": {
+    "message": "Drag a target into a destination slot to select its source. Drag it back to Accounts left unchanged to deselect it. Alternatively, you can use the ▶ button beside a source to choose a destination without dragging."
+  },
+  "backup.restore.legacyBackup": {
+    "message": "Legacy backup"
+  },
+  "backup.restore.legend": {
+    "message": "Unchecked sources keep their mappings. Each destination can be used once."
+  },
+  "backup.restore.mappingLabel": {
+    "message": "Account mapping"
+  },
+  "backup.restore.noBackupSelected": {
+    "message": "No backup selected"
+  },
+  "backup.restore.openABackupFileToBeginNoFilters": {
+    "message": "Open a backup file to begin. No filters are changed until you click Restore filters."
+  },
+  "backup.restore.openAJSONBackupToChooseAccounts": {
+    "message": "Open a JSON backup to choose accounts."
+  },
+  "backup.restore.openBackup": {
+    "message": "Open backup…"
+  },
+  "backup.restore.openCancelled": {
+    "message": "Open cancelled."
+  },
+  "backup.restore.openCancelledThePreviousBackupRemainsLoaded": {
+    "message": "Open cancelled. The previous backup remains loaded."
+  },
+  "backup.restore.overwriteFiltersWithTheSameName": {
+    "message": "Overwrite filters with the same name"
+  },
+  "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "message": "Restore completed, but mappings could not be remembered: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.restore.restoreFailed": {
+    "message": "Restore failed: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "error.message"
+      }
+    },
+    "description": "Values: $value1$ = error.message"
+  },
+  "backup.restore.restoreFilters": {
+    "message": "Restore filters"
+  },
+  "backup.restore.restoreReportSavedTo": {
+    "message": "Restore report saved to $value1$.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "saved.path"
+      }
+    },
+    "description": "Values: $value1$ = saved.path"
+  },
+  "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "message": "Restore review · $value1$ warnings and skipped items",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "result.warnings.length"
+      }
+    },
+    "description": "Values: $value1$ = result.warnings.length"
+  },
+  "backup.restore.restoreWasNotPerformed": {
+    "message": "Restore was not performed."
+  },
+  "backup.restore.restoringFilters": {
+    "message": "Restoring filters…"
+  },
+  "backup.restore.resultComplete": {
+    "message": "Restore complete: $added$ added, $replaced$ replaced, $kept$ existing filters kept, $skipped$ skipped.",
+    "placeholders": {
+      "added": {
+        "content": "$1",
+        "example": "3"
+      },
+      "replaced": {
+        "content": "$2",
+        "example": "2"
+      },
+      "kept": {
+        "content": "$3",
+        "example": "1"
+      },
+      "skipped": {
+        "content": "$4",
+        "example": "0"
+      }
+    }
+  },
+  "backup.restore.resultErrors": {
+    "message": "Restore finished with errors: $added$ added, $replaced$ replaced, $kept$ existing filters kept, $skipped$ skipped, $failed$ accounts failed.",
+    "placeholders": {
+      "added": {
+        "content": "$1",
+        "example": "3"
+      },
+      "replaced": {
+        "content": "$2",
+        "example": "2"
+      },
+      "kept": {
+        "content": "$3",
+        "example": "1"
+      },
+      "skipped": {
+        "content": "$4",
+        "example": "0"
+      },
+      "failed": {
+        "content": "$5",
+        "example": "1"
+      }
+    }
+  },
+  "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
+    "message": "Same-name filters are replaced; new filters are added; other filters remain."
+  },
+  "backup.restore.saveReport": {
+    "message": "Save report…"
+  },
+  "backup.restore.selectDestinationAccountsFor": {
+    "message": "Select destination accounts for: $value1$.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "missing.map(source => source.name).join(\", \")"
+      }
+    },
+    "description": "Values: $value1$ = missing.map(source => source.name).join(\", \")"
+  },
+  "backup.restore.sourceAccountsReferencedAccounts": {
+    "message": "$value1$ · $value2$ source accounts · $value3$ referenced accounts",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "backup.kind === \"legacy-single-account\" ? \"Legacy backup\" : \"Backup\""
+      },
+      "value2": {
+        "content": "$2",
+        "example": "backup.accounts.length"
+      },
+      "value3": {
+        "content": "$3",
+        "example": "backup.referencedAccounts.length"
+      }
+    },
+    "description": "Values: $value1$ = backup.kind === \"legacy-single-account\" ? \"Legacy backup\" : \"Backup\"; $value2$ = backup.accounts.length; $value3$ = backup.referencedAccounts.length"
+  },
+  "backup.restore.thePreviousBackupRemainsLoaded": {
+    "message": " The previous backup remains loaded."
+  },
+  "backup.restore.title": {
+    "message": "Restore Filters"
+  },
+  "backup.restore.unchangedAccounts": {
+    "message": "Accounts left unchanged"
+  },
+  "backup.restore.unchangedHelp": {
+    "message": "The filters here stay as they are."
+  },
+  "backup.selection.selectAtLeastOneFilter": {
+    "message": "Please select at least one filter!"
+  },
+  "backup.startup.cannotOpenBackup": {
+    "message": "Cannot open backup: $error$",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "File not found"
+      }
+    }
+  },
+  "backup.startup.cannotOpenRestore": {
+    "message": "Cannot open restore: $error$",
+    "placeholders": {
+      "error": {
+        "content": "$1",
+        "example": "File not found"
+      }
+    }
+  },
+  "backup.storage.unsupportedBackupStorageBackend": {
+    "message": "Unsupported backup storage backend: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "backend"
+      }
+    },
+    "description": "Values: $value1$ = backend"
+  },
+  "backup.warnings.account": {
+    "message": "Account"
+  },
+  "backup.warnings.accountRestoreFailed": {
+    "message": "Account restore failed"
+  },
+  "backup.warnings.action": {
+    "message": "Action"
+  },
+  "backup.warnings.allWarningsShown": {
+    "message": "All warnings shown."
+  },
+  "backup.warnings.backupSavedWithWarnings": {
+    "message": "Backup saved with $value1$ warnings",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "warnings.length"
+      }
+    },
+    "description": "Values: $value1$ = warnings.length"
+  },
+  "backup.warnings.clearHighlight": {
+    "message": "Clear highlight"
+  },
+  "backup.warnings.customActionID": {
+    "message": "Custom action ID:"
+  },
+  "backup.warnings.customActionUnavailable": {
+    "message": "Custom action unavailable"
+  },
+  "backup.warnings.customSearchTermID": {
+    "message": "Custom search term ID:"
+  },
+  "backup.warnings.customSearchTermUnavailable": {
+    "message": "Custom search term unavailable"
+  },
+  "backup.warnings.delete": {
+    "message": "Delete"
+  },
+  "backup.warnings.details": {
+    "message": "Details"
+  },
+  "backup.warnings.duplicateNameSkipped": {
+    "message": "Duplicate name — skipped"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Edit filter"
+  },
+  "backup.warnings.editedByUser": {
+    "message": "Edited by User"
+  },
+  "backup.warnings.filter": {
+    "message": "Filter"
+  },
+  "backup.warnings.filterDeleted": {
+    "message": "Filter deleted"
+  },
+  "backup.warnings.filterSkipped": {
+    "message": "Filter skipped"
+  },
+  "backup.warnings.invalidTargetAccount": {
+    "message": "Invalid target account"
+  },
+  "backup.warnings.invalidTargetFolder": {
+    "message": "Invalid target folder"
+  },
+  "backup.warnings.itemDeleted": {
+    "message": "Item deleted"
+  },
+  "backup.warnings.thisWarningWasRecordedBeforeTheFilterWas": {
+    "message": "This warning was recorded before the filter was edited and has not been checked again."
+  },
+  "backup.warnings.warning": {
+    "message": "Warning"
+  },
+  "backup.warnings.warnings": {
+    "message": "Warnings"
+  },
+  "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "message": "Warnings for $value1$ highlighted. All warnings remain visible.",
+    "placeholders": {
+      "value1": {
+        "content": "$1",
+        "example": "names.get(accountId) || accountId"
+      }
+    },
+    "description": "Values: $value1$ = names.get(accountId) || accountId"
+  },
+  "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
+    "message": "You have changed your current filters - remember to backup again if you want to save this change"
+  },
   "btn-extend-license": {
     "message": "I want to extend my license by one year"
   },
