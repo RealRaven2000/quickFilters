@@ -3,6 +3,45 @@
     "namespace": "Utilities",
     "functions": [
       {
+        "name": "initializeProFeatureUsage",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "legacyCounts",
+            "type": "any"
+          }
+        ]
+      },
+      {
+        "name": "consumeProFeatureUsage",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "feature",
+            "type": "string"
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "updateProFeatureUsageLicenseState",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "valid",
+            "type": "boolean"
+          }
+        ],
+        "returns": {
+          "type": "boolean"
+        }
+      },
+      {
         "name": "getBackupSelection",
         "type": "function",
         "async": true,

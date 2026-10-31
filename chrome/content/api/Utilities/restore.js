@@ -154,9 +154,9 @@
     }
   }
 
-  function restoreFilters(request) {
+  async function restoreFilters(request) {
     const util = mainWindow().quickFilters.Util;
-    if (!util.popupProFeature("loadFilters", true)) { return null; }
+    if (!await util.popupProFeature("loadFilters", true)) { return null; }
     const backup = request?.backup;
     if (!Array.isArray(backup?.accounts) || !Array.isArray(backup.referencedAccounts) || !Array.isArray(request.mappings) || !Array.isArray(request.selected)) {
       throw new Error(t("backup.native.invalidRestoreRequest"));

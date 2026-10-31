@@ -1170,19 +1170,19 @@
     "message": "Это продлит текущую лицензию на 1 год. Обычно дешевле, чем новая лицензия."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Купить лицензию!"
+    "message": "Купить Pro"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "л"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Обновить лицензию"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "Вы можете использовать эту функцию еще {1} раз бесплатно."
+    "message": "· Осталось бесплатных использований: {1}."
   },
   "quickfilters.notification.premium.text": {
-    "message": "Зарегистрируйте quickFilters для постоянного пользования премиум-функцией {1}."
+    "message": "{1} — функция Pro"
   },
   "quickfilters.notification.premium.title": {
     "message": "Премиум-функция"

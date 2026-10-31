@@ -324,5 +324,17 @@
       }
     }
   },
-  "quickfilters.notification.premium.btn.renewLicense": { "message": "Обнови лиценцу" }
+  "quickfilters.notification.premium.btn.renewLicense": { "message": "Обнови лиценцу" },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} је Pro функција"
+  },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "· Преостало бесплатних коришћења: {1}."
+  },
+  "quickfilters.notification.premium.btn.getLicense": {
+    "message": "Купи Pro"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
+  }
 }

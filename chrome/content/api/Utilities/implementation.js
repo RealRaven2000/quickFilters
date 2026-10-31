@@ -27,8 +27,15 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
     loadPackageScript("chrome/content/api/Utilities/backup.js", backupAPI);
     const restoreAPI = { Services, Components, ChromeUtils, console, t };
     loadPackageScript("chrome/content/api/Utilities/restore.js", restoreAPI);
+    const usageScope = { quickFiltersPremium: {} };
+    loadPackageScript("scripts/premium/usage-policy.js", usageScope);
+    loadPackageScript("scripts/premium/usage-store.js", usageScope);
+    const usage = usageScope.quickFiltersPremium.createUsageStore(Services.prefs);
     return {
       Utilities: {
+        initializeProFeatureUsage: async (legacyCounts) => usage.initialize(legacyCounts),
+        consumeProFeatureUsage: async (feature) => usage.consume(feature),
+        updateProFeatureUsageLicenseState: async (valid) => usage.updateLicenseState(valid),
         confirmFilterDeletion: async (name) => {
           const checked = { value: false };
           const confirmed = Services.prompt.confirmCheck(Services.wm.getMostRecentWindow("mail:3pane"),

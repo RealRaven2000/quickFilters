@@ -1174,19 +1174,19 @@
     "message": "Isso estenderá a data da licença atual em 1 ano. Normalmente é mais barato do que uma nova licença."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Licença de compra"
+    "message": "Obter Pro"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Renovar Licença"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "Você pode usar esse recurso {1} mais vezes gratuitamente."
+    "message": "· Restam {1} utilizações gratuitas."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} é um recurso Premium, obtenha uma licença quickFilters Pro para usá-lo permanentemente."
+    "message": "{1} é um recurso Pro"
   },
   "quickfilters.notification.premium.title": {
     "message": "Recurso Premium"

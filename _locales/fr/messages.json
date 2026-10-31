@@ -1170,19 +1170,19 @@
     "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Obtenir la licence !"
+    "message": "Obtenir Pro"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "l"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Renouveler la licence"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "Vous pouvez utiliser cette fonctionnalité {1} plus de fois gratuitement."
+    "message": "· {1} utilisations gratuites restantes."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} est une fonctionnalité Premium, veuillez vous abonner à quickFilters pour l'utiliser de manière permanente."
+    "message": "{1} est une fonctionnalité Pro"
   },
   "quickfilters.notification.premium.title": {
     "message": "Fonctionnalité premium"

@@ -1171,19 +1171,19 @@
     "message": "これは、現在のライセンスを 1 年延長します。ライセンスを新規購入するよりも安くなっています。"
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "ライセンス購入"
+    "message": "Pro を購入"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "ライセンスを更新"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "この機能を{1}回無料で使用できます。"
+    "message": "· あと {1} 回無料で使用できます。"
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} は有料の機能です。この機能を永続的に使用するには quickFilters Pro ライセンスを購入してください。"
+    "message": "{1} は Pro 機能です"
   },
   "quickfilters.notification.premium.title": {
     "message": "有料機能"

@@ -669,13 +669,23 @@ quickFilters.Util = {
   },
 
   /* quickFilters Pro / licensing features */
+  // Use the explicit experiment API through the existing WindowListener context.
+  consumeProFeatureUsage: async function (featureName) {
+    const storage = quickFilters.Storage || quickFilters.Util.getMail3PaneWindow()?.quickFilters?.Storage;
+    if (!storage?._context) {
+      throw new Error("quickFilters extension context is unavailable for usage tracking");
+    }
+    const consume = await storage._context.apiCan.asyncFindAPIPath("Utilities.consumeProFeatureUsage");
+    return consume(featureName);
+  },
+
   // default to isRegister from now = show button for buying a license.
-  // featureName: namne of the feature used (will be transmitted to shop when purchasing)
+  // featureName: name of the feature used (will be transmitted to shop when purchasing)
   // isRegister: show registration button
   popupProFeature: async function (featureName, isRegister, additionalText) {
     let util = quickFilters.Util,
-      prefs = quickFilters.Preferences,
-      countDown = null;
+      remainingUses = 0,
+      featureAllowed = false;
 
     if (util.hasPremiumLicense()) {
       return true;
@@ -704,31 +714,27 @@ quickFilters.Util = {
       hotKey = util.getBundleString("quickfilters.notification.premium.btn.hotKey", "L"),
       nbox_buttons = [];
 
+    try {
+      if (featureName.indexOf("Advanced search") === 0) {
+        featureName = "advancedSearchType";
+      }
+      const usage = await util.consumeProFeatureUsage(featureName);
+      remainingUses = usage.remaining;
+      featureAllowed = usage.allowed;
+      if (remainingUses > 0) {
+        let countText = util.getBundleString(
+          "quickfilters.notification.premium.freeUses",
+          "You can use this feature for free {1} more times."
+        );
+        theText += " " + countText.replace("{1}", remainingUses);
+      }
+    } catch (error) {
+      util.logException("Could not update premium feature usage", error);
+    }
+
     if (notifyBox) {
       let notificationKey = "quickfilters-proFeature";
-      try {
-        if (featureName.indexOf("Advanced search") == 0) {
-          featureName = "advancedSearchType";
-        }
-        try {
-          countDown = prefs.getIntPref("restrictions." + featureName + ".countDown");
-        } catch {
-          countDown = 5;
-        }
-        countDown--;
-        if (countDown > 0) {
-          let countText = util.getBundleString(
-            "quickfilters.notification.premium.freeUses",
-            "You can use this feature for free {1} more times."
-          );
-          countText = countText.replace("{1}", countDown);
-          theText = theText + " " + countText;
-        }
-        prefs.setIntPref("restrictions." + featureName + ".countDown", countDown);
-        util.logDebug(
-          "Showing notifyBox for [" + notificationKey + "]...\n" + "Countdown is " + countDown
-        );
-      } catch {;}
+      util.logDebug("Showing premium feature notification. Remaining uses: " + remainingUses);
 
       if (!hotKey) {
         hotKey = "L";
@@ -804,13 +810,14 @@ quickFilters.Util = {
           container.insertBefore(im, newNotification.shadowRoot.querySelector(".icon"));
         }
       }
-      return countDown >= 0;
+      return featureAllowed;
     } else {
       // fallback for systems that do not support notification (currently: SeaMonkey)
       Services.prompt.alert(null, title, theText);
-      return true;
+      return featureAllowed;
     }
   },
+
 
   showStatusMessage: function showStatusMessage(s, isTimeout) {
     try {

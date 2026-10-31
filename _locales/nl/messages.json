@@ -1171,19 +1171,19 @@
     "message": "Hierdoor wordt de huidige licentiedatum met 1 jaar verlengd. Dit is doorgaans goedkoper dan een nieuwe licentie."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Licentie verkrijgen!"
+    "message": "Pro aanschaffen"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Licentie vernieuwen"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "U kunt deze functie nog {1} keer gratis gebruiken."
+    "message": "· Nog {1} keer gratis te gebruiken."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} is een Premium-functie; registreer quickFilters om deze permanent te gebruiken."
+    "message": "{1} is een Pro-functie"
   },
   "quickfilters.notification.premium.title": {
     "message": "Premium-functie"

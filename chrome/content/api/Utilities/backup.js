@@ -90,9 +90,9 @@
     return { accountId: account.key, names: filters.map(filter => filter.filterName) };
   }
 
-  function exportBackupAccounts(accountIds, registerReviewFilter, selectionToken) {
+  async function exportBackupAccounts(accountIds, registerReviewFilter, selectionToken) {
     const util = mainWindow().quickFilters.Util;
-    if (!util.popupProFeature("saveFilters", true)) {
+    if (!await util.popupProFeature("saveFilters", true)) {
       return null;
     }
     if (!accountIds.length || new Set(accountIds).size !== accountIds.length) {

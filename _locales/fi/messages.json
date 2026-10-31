@@ -1170,19 +1170,19 @@
     "message": "Tämä pidentää nykyistä lisenssipäivää vuodella. Se on tyypillisesti halvempi kuin uusi lisenssi."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Osta lisenssi"
+    "message": "Hanki Pro"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Uusi käyttöoikeus"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "Voit käyttää tätä ominaisuutta vielä {1} kertaa ilmaiseksi."
+    "message": "· {1} ilmaista käyttökertaa jäljellä."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} on premium-ominaisuus. Hanki quickFilters Pro -lisenssi, jos haluat käyttää sitä pysyvästi."
+    "message": "{1} on Pro-ominaisuus"
   },
   "quickfilters.notification.premium.title": {
     "message": "Premium-ominaisuus"

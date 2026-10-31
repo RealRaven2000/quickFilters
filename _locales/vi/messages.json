@@ -1170,19 +1170,19 @@
     "message": "Điều này sẽ kéo dài ngày cấp phép hiện tại thêm 1 năm. Nó thường rẻ hơn giấy phép mới."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Mua giấy phép"
+    "message": "Mua Pro"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Gia hạn giấy phép"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "Bạn có thể sử dụng tính năng này {1} lần nữa miễn phí."
+    "message": "· Còn {1} lượt sử dụng miễn phí."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it permanently."
+    "message": "{1} là tính năng Pro"
   },
   "quickfilters.notification.premium.title": {
     "message": "Premium Feature"

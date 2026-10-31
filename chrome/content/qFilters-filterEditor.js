@@ -429,7 +429,7 @@ END LICENSE BLOCK
       gSearchTermList.ensureIndexIsVisible(rowIndex);
     },
 
-    sortConditions: function (theFilter) {
+    sortConditions: async function (theFilter) {
       function compareTerms(a, b) {
         try {
           // Ci.nsMsgSearchAttrib - long
@@ -545,7 +545,7 @@ END LICENSE BLOCK
       }
 
       if (!util.hasPremiumLicense()) {
-        if (!util.popupProFeature("sortSearchTerms", true)) {
+        if (!await util.popupProFeature("sortSearchTerms", true)) {
           return;
         }
       }

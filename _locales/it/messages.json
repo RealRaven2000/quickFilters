@@ -1173,19 +1173,19 @@
     "message": "Questa modalità estende di un anno la scadenza dell'attuale licenza, il che risulta economicamente più conveniente rispetto alla sottoscrizione di una nuova licenza."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Acquista la licenza"
+    "message": "Ottieni Pro"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Rinnova la licenza"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "È possibile utilizzare questa caratteristica {1} più volte gratuitamente."
+    "message": "· {1} utilizzi gratuiti rimanenti."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} è una caratteristica Premium. Acquistare una licenza quickFilters Pro per poterla usare."
+    "message": "{1} è una funzionalità Pro"
   },
   "quickfilters.notification.premium.title": {
     "message": "Caratteristica Premium"

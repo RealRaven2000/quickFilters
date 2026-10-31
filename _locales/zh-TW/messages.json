@@ -1088,16 +1088,16 @@
     "message": "這會將當前許可證日期延長 1 年。通常比新許可證便宜。"
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "購買許可證"
+    "message": "購買 Pro"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "更新許可證"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "您還可以免費使用此功能 {1} 次。"
+    "message": "· 還可免費使用 {1} 次。"
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} 是一項高級功能，請獲得 quickFilters Pro 許可證才能使用它。"
+    "message": "{1} 是 Pro 功能"
   },
   "quickfilters.notification.premium.title": {
     "message": "高級功能"
@@ -1449,5 +1449,8 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters 無法取得建立或更新篩選器所需的資訊。\n\n目的地資料夾「{0}」可能需要修復。\n\n現在嘗試修復資料夾嗎？\n\n請等待修復完成，再重新嘗試建立篩選器。"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
   }
 }

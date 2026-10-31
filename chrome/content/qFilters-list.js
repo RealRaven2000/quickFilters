@@ -202,7 +202,7 @@ quickFilters.List = {
     }
   } ,
   
-  sort: function (_evt) {
+  sort: async function (_evt) {
 		const util = quickFilters.Util;
     let list = this.FilterListElement,
         count = this.getSelectedCount(list);
@@ -212,7 +212,7 @@ quickFilters.List = {
       util.popupAlert(wrn);
       return;
     } 
-    if (util.popupProFeature("sortFilters", true)) {
+    if (await util.popupProFeature("sortFilters", true)) {
       if (this.pushSelectedToClipboard('sort')) {
         this.clipboardPending='sort';
         this.pasteFilters(true);
@@ -1097,21 +1097,22 @@ quickFilters.List = {
   
   searchType: 'name', // standard filter search. looks only at filter names
   
-  toggleSearchType: function (type, interActive=false) {
+  toggleSearchType: async function (type, interActive=false) {
 		const util = quickFilters.Util;
     if (this.searchType == type) {
       return;
     }
-    this.searchType = type;
+    let nextType = type;
 		
 		if(type != "name" && interActive) {
-			if (!util.popupProFeature("Advanced search (type=" + type + ")", true)) {
-        this.searchType = "name";
+			if (!await util.popupProFeature("Advanced search (type=" + type + ")", true)) {
+        nextType = "name";
         let mp = document.getElementById("quickFiltersSearchContext");
         mp.firstChild.setAttribute("checked",true);
         util.logDebug("toggleSearchType - Switching back to search for name because no pro license.");
       }
 		}
+    this.searchType = nextType;
     this.rebuildFilterList(); // used the global rebuildFilterList!
   } ,
   
@@ -1393,8 +1394,9 @@ quickFilters.List = {
     return this.clearResultsPopup(show, 'quickFiltersDuplicateList');
   } ,
   
-  findDuplicates: function () {
+  findDuplicates: async function () {
 		const util = quickFilters.Util;
+    if (!await util.popupProFeature("duplicatesFinder", true)) {return;}
     // make an Array of
     // {attribType, 
     // 1. type of term  'sub
@@ -1405,7 +1407,6 @@ quickFilters.List = {
     let Terms = [],
         Actions = [];
     
-    if (!util.popupProFeature("duplicatesFinder", true)) {return;}
     let filtersList = this.FilterList,
         FA = Components.interfaces.nsMsgFilterAction;
     // build a dictionary of terms; this might take some time!
@@ -1797,7 +1798,7 @@ quickFilters.List = {
       Ci = Components.interfaces,
       util = quickFilters.Util,
       prefs = quickFilters.Preferences;
-		if (!util.popupProFeature(mode + "Filters", true)) {
+		if (!await util.popupProFeature(mode + "Filters", true)) {
       // saveFilters, loadFilters
       return;
     }

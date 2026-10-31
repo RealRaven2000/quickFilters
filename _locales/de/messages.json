@@ -1170,19 +1170,19 @@
     "message": "Verlängert das Ablaufdatum Ihrer Lizenz um 1 Jahr. Dies ist typischerweise billiger als eine neue Lizenz."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Lizenz erwerben!"
+    "message": "Pro erwerben"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "L"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Lizenz erneuern!"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "Sie können diese Funktion noch {1} mal kostenlos nutzen."
+    "message": "· Noch {1} kostenlose Nutzungen."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} ist eine Premium Funktion, bitte registrieren Sie quickFilters um diese permanent zu benutzen."
+    "message": "{1} ist eine Pro-Funktion"
   },
   "quickfilters.notification.premium.title": {
     "message": "Premium Funktion"

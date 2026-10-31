@@ -324,5 +324,17 @@
       }
     }
   },
-  "quickfilters.notification.premium.btn.renewLicense": { "message": "Podaljšaj licenco" }
+  "quickfilters.notification.premium.btn.renewLicense": { "message": "Podaljšaj licenco" },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} je funkcija Pro"
+  },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "· Preostalo brezplačnih uporab: {1}."
+  },
+  "quickfilters.notification.premium.btn.getLicense": {
+    "message": "Pridobi Pro"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
+  }
 }

@@ -1,4 +1,4 @@
-// Storage diagnostics stay in Thunderbird preferences so they work before storage is ready.
+// Storage diagnostics and profile usage stay in Thunderbird preferences.
 // Other defaults live in scripts/preference-defaults.js; legacy values below are reference only.
 /*
   globals
@@ -8,6 +8,18 @@
 pref("extensions.quickfilters.debug", false);
 pref("extensions.quickfilters.debug.storage", false);
 pref("extensions.quickfilters.debug.storage.forceFailure", false);
+
+// Profile-owned use counts. Maximum allowances live in scripts/premium/usage-limits.mjs.
+pref("extensions.quickFilters.usage.advancedSearchType", 0);
+pref("extensions.quickFilters.usage.duplicatesFinder", 0);
+pref("extensions.quickFilters.usage.searchFolder", 0);
+pref("extensions.quickFilters.usage.sortSearchTerms", 0);
+pref("extensions.quickFilters.usage.sortFilters", 0);
+pref("extensions.quickFilters.usage.customTemplate", 0);
+pref("extensions.quickFilters.usage.saveFilters", 0);
+pref("extensions.quickFilters.usage.loadFilters", 0);
+pref("extensions.quickFilters.usage.localFolderFilters", 0);
+pref("extensions.quickFilters.usage.wasLicensed", false);
 
 
 /*
@@ -131,7 +143,7 @@ pref("extensions.quickfilters.notifications.runFilter", true);
 pref("extensions.quickfilters.notifications.changelog", true);
 
 
-// Premium features
+// Legacy storage counters: retained only to seed profile usage on first use.
 pref("extensions.quickfilters.restrictions.advancedSearchType.countDown", 15);
 pref("extensions.quickfilters.restrictions.duplicatesFinder.countDown", 10);
 pref("extensions.quickfilters.restrictions.searchFolder.countDown", 15);

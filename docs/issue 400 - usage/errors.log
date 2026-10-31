@@ -1,0 +1,164 @@
+QuickFolders {INTERFACE} 14:48:8.448  [3976 ms]   
+ patchToolbarTheme(activate) for tab -1 - Add-ons Manager - Mozilla Thunderbird Beta 
+Object { win: ChromeWindow chrome://messenger/content/messenger.xhtml, doc: HTMLDocument chrome://messenger/content/messenger.xhtml, toolbarId: "QuickFolders-Toolbar" }
+ 
+activate { target: ChromeWindow chrome://messenger/content/messenger.xhtml, isTrusted: true, srcElement: ChromeWindow chrome://messenger/content/messenger.xhtml, currentTarget: ChromeWindow chrome://messenger/content/messenger.xhtml, eventPhase: 2, bubbles: true, cancelable: true, returnValue: true, defaultPrevented: false, composed: false, … }
+quickfolders-util.js:1427:13
+QuickFolders {INTERFACE} 14:48:8.453  [5 ms]   
+ patchToolbarTheme(activate) for tab -1 - Add-ons Manager - Mozilla Thunderbird Beta 
+Object { win: ChromeWindow chrome://messenger/content/messenger.xhtml, doc: HTMLDocument chrome://messenger/content/messenger.xhtml, toolbarId: "QuickFolders-Toolbar" }
+ 
+activate { target: ChromeWindow chrome://messenger/content/messenger.xhtml, isTrusted: true, srcElement: ChromeWindow chrome://messenger/content/messenger.xhtml, currentTarget: ChromeWindow chrome://messenger/content/messenger.xhtml, eventPhase: 2, bubbles: true, cancelable: true, returnValue: true, defaultPrevented: false, composed: false, … }
+quickfolders-util.js:1427:13
+QuickFolders {INTERFACE} 14:48:8.951  [498 ms]   
+ patching toolbar QuickFolders-Toolbar to bright mode.
+quickfolders-util.js:1427:13
+QuickFolders {INTERFACE} 14:48:8.956  [5 ms]   
+ patching toolbar QuickFolders-Toolbar to bright mode.
+quickfolders-util.js:1427:13
+1793458093477	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing locales: An unexpected property was found in the WebExtension manifest.
+1793458093477	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing chrome_injectors: An unexpected property was found in the WebExtension manifest.
+1793458093493	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093496	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093500	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093503	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093509	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093516	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093517	addons.webextension.{61A64500-335C-418D-8FCB-E072A9ABF3DA}	WARN	Loading extension '{61A64500-335C-418D-8FCB-E072A9ABF3DA}': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093573	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093580	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1793458093633	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+quickFilters storage: initialization attempt 1/6 preferences.js:15:17
+quickFilters storage: startup get: starting preferences.js:15:17
+quickFilters storage: startup get: completed preferences.js:15:17
+quickFilters storage startup: 
+Object { ok: true, status: "ready", attempts: 1 }
+preferences.js:96:17
+WebExtensions: quickFilters exp API: Utilities.getAPI() called implementation.js:14
+Finished setting up license startup code qFi-background.js:1212:13
+Startup resolved qFi-background.js:1218:13
+quickFilters adding the message context menu item Create Filter from Message… ... 
+Object { contexts: (1) […], onclick: onclick(), icons: {…}, enabled: true, id: "createFromMailContext", title: "Create Filter from Message…" }
+qFi-background.js:1593:13
+Startup has finished qFi-background.js:54:13
+quickFilters - currentLicense 
+Object { ValidationStatus: 6, RealLicense: "", ExpiredDays: -1, LicensedDaysLeft: 0, decryptedDate: "", decryptedMail: "", ForceSecondaryIdentity: true, debug: false, LicenseKey: "", key_type: 0 }
+qFi-background.js:55:13
+quickFilters 14:48:14.819  [127366 ms]   
+ runtime startup / installation listeners
+Result: unblock startup for quickFilters in main()
+onInstalled Reason: update qFilters-utils.js:928:13
+quickFilters Update:  old=6.14.1  new=6.14.1 qFi-background.js:82:21
+quickFilters storage (chrome): read attempt 1/5, timeout 5000ms qFilters-storage.js:35:17
+quickFilters storage (chrome): connection attempt 1/6 qFilters-storage.js:35:17
+WebExtensions: quickFilters: messenger.onLoad() qFi-messenger.js:29
+quickFilters storage (chrome): connection ready qFilters-storage.js:35:17
+WebExtensions: quickFilters: pref cache ready qFi-messenger.js:31
+quickFilters storage (chrome): read completed qFilters-storage.js:35:17
+quickFilters [logTime init]
+ injected style sheets: 
+<link wlapi_autoinjected="AddOnNS69" rel="stylesheet" href="chrome://quickfilters/co…nt/skin/quickFilters.css">
+ 
+<link wlapi_autoinjected="AddOnNS69" rel="stylesheet" href="chrome://quickfilters/co…ilters-toolbar.css?v=6.9">
+ 
+<link wlapi_autoinjected="AddOnNS69" rel="stylesheet" href="chrome://quickfilters/co…s-actionButton.css?v=6.9">
+qFilters-utils.js:928:13
+quickFilters 14:48:15.151  [4 ms]   
+ Polyfills loading in window: chrome://messenger/content/messenger.xhtml qFilters-utils.js:928:13
+Manually calling notifyTools.enable() is no longer needed. notifyTools.js:145:13
+quickFilters: addToolMenuListener() qFi-background.js:279:13
+quickFilters adding the tools menu item Start Filter Assistant ... 
+Object { contexts: (1) […], checked: false, onclick: onclick(), icons: {…}, enabled: true, id: "toggleFilterTools", title: "Start Filter Assistant" }
+qFi-background.js:305:13
+quickFilters: addFolderPaneListener() qFi-background.js:127:13
+quickFilters adding the folder tree context menu item Run filters ... 
+Object { contexts: (1) […], onclick: onclick(), icons: {…}, enabled: true, id: "runFiltersFolderPane", title: "Run filters" }
+qFi-background.js:175:13
+quickFilters adding the other folder tree context menu item Find Filters… ... 
+Object { contexts: (1) […], onclick: onclick(), icons: {…}, enabled: true, id: "findFiltersFolder", title: "Find Filters…" }
+qFi-background.js:232:13
+ quickFilters.Init()  
+Object { assistantActive: false, browserInfo: {…} }
+qFilters-utils.js:1023:13
+ qFi-messenger onLoad triggered, selected tab mode: contentTab  
+Object { first: false, mode: {…}, busy: false, canClose: true, thinking: false, favIconUrl: "chrome://mozapps/skin/extensions/extension.svg", _ext: {…}, selected: Getter, tabId: 2, tabNode: tab.tabmail-tab, … }
+qFilters-utils.js:1023:13
+quickFilters 14:48:15.260  [109 ms]   
+ patchFolderTree 
+Object { first: true, mode: {…}, busy: false, canClose: false, thinking: false, favIconUrl: "chrome://messenger/skin/icons/new/compact/inbox.svg", _ext: {…}, selected: Getter, tabId: 0, tabNode: tab.tabmail-tab, … }
+qFilters-utils.js:928:13
+quickFilters 14:48:15.261  [1 ms]   
+ Version() getter. addonInfo: 
+Object { id: "quickFilters@axelg.com", name: "quickFilters", description: "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.", version: "6.14.1pre26", mayDisable: true, enabled: true, optionsUrl: "moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/quickfilters-settings.html", installType: "normal", type: "extension", permissions: (8) […], … }
+qFilters-utils.js:928:13
+quickFilters 14:48:15.261  [0 ms]   
+ Custom Filter Term exists: quickFilters@axelg.com#replyTo qFilters-utils.js:928:13
+quickFilters 14:48:15.267  [6 ms]   
+ toggleCurrentFolderButtons(retries=0) qFilters-utils.js:928:13
+quickFilters 14:48:15.267  [0 ms]   
+ toggleCurrentFolderButtons: toolbar present but no buttons found (retry 0) — triggering bar update qFilters-utils.js:928:13
+quickFilters 14:48:15.268  [1 ms]   
+ toggleCurrentFolderButtons(retries=0) qFilters-utils.js:928:13
+quickFilters 14:48:15.268  [0 ms]   
+ toggleCurrentFolderButtons: toolbar present but no buttons found (retry 0) — triggering bar update qFilters-utils.js:928:13
+quickFilters 14:48:15.269  [1 ms]   
+ toggleCurrentFolderButtons(retries=0) qFilters-utils.js:928:13
+quickFilters 14:48:15.269  [0 ms]   
+ toggleCurrentFolderButtons: toolbar present but no buttons found (retry 0) — triggering bar update qFilters-utils.js:928:13
+quickFilters 14:48:15.269  [0 ms]   
+ toggleCurrentFolderButtons(retries=0) qFilters-utils.js:928:13
+quickFilters 14:48:15.270  [1 ms]   
+ toggleCurrentFolderButtons: toolbar present but no buttons found (retry 0) — triggering bar update qFilters-utils.js:928:13
+quickFilters 14:48:15.270  [0 ms]   
+ toggleCurrentFolderButtons(retries=0) qFilters-utils.js:928:13
+quickFilters 14:48:15.270  [0 ms]   
+ toggleCurrentFolderButtons: toolbar present but no buttons found (retry 0) — triggering bar update qFilters-utils.js:928:13
+quickFilters 14:48:15.270  [0 ms]   
+ toggleCurrentFolderButtons(retries=0) qFilters-utils.js:928:13
+quickFilters 14:48:15.271  [1 ms]   
+ toggleCurrentFolderButtons: toolbar present but no buttons found (retry 0) — triggering bar update qFilters-utils.js:928:13
+WebExtensions: quickFilters injector path: 
+Object { hasWL: true, globalThis: undefined, hasInject: true, url: "about:3pane" }
+qFi-3pane.js:74
+WebExtensions: Using WindowListener:injectElements qFi-3pane.js:90
+WebExtensions: Injecting into root document: implementation.js:753
+WebExtensions: 
+Array [ div#threadPane ]
+implementation.js:633
+WebExtensions: div#threadPane is an existing container, injecting into threadPane implementation.js:704
+WebExtensions: 
+Array [ hbox#quickFilters-injected ]
+implementation.js:633
+WebExtensions: hbox#quickFilters-injected: append to threadPane implementation.js:744
+quickFilters 14:48:16.262  [991 ms]   
+ =================quickFilters==============
+   checkFirstRun() - attempt 1 qFilters-utils.js:928:13
+quickFilters 14:48:16.263  [1 ms]   
+ Version() getter. addonInfo: 
+Object { id: "quickFilters@axelg.com", name: "quickFilters", description: "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.", version: "6.14.1pre26", mayDisable: true, enabled: true, optionsUrl: "moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/quickfilters-settings.html", installType: "normal", type: "extension", permissions: (8) […], … }
+qFilters-utils.js:928:13
+quickFilters 14:48:16.263  [0 ms]   
+ firstRun = false  - currentVersion = 6.14.1pre26  - installed = 6.14.1 qFilters-utils.js:928:13
+quickFilters 14:48:16.263  [0 ms]   
+ store installedVersion: 6.14.1 qFilters-utils.js:928:13
+quickFilters 14:48:17.408  [1145 ms]   
+ toggleCurrentFolderButtons(retries=1) qFilters-utils.js:928:13
+quickFilters 14:48:17.409  [1 ms]   
+ toggleCurrentFolderButtons(retries=1) qFilters-utils.js:928:13
+quickFilters 14:48:17.409  [0 ms]   
+ toggleCurrentFolderButtons(retries=1) qFilters-utils.js:928:13
+quickFilters 14:48:17.410  [1 ms]   
+ toggleCurrentFolderButtons(retries=1) qFilters-utils.js:928:13
+quickFilters 14:48:17.410  [0 ms]   
+ toggleCurrentFolderButtons(retries=1) qFilters-utils.js:928:13
+quickFilters 14:48:17.410  [0 ms]   
+ toggleCurrentFolderButtons(retries=1) qFilters-utils.js:928:13
+QuickFolders {INTERFACE} 14:48:43.906  [34950 ms]   
+ patchToolbarTheme(activate) for tab -1 - Add-ons Manager - Mozilla Thunderbird Beta 
+Object { win: ChromeWindow chrome://messenger/content/messenger.xhtml, doc: HTMLDocument chrome://messenger/content/messenger.xhtml, toolbarId: "QuickFolders-Toolbar" }
+ 
+activate { target: ChromeWindow chrome://messenger/content/messenger.xhtml, isTrusted: true, srcElement: ChromeWindow chrome://messenger/content/messenger.xhtml, currentTarget: ChromeWindow chrome://messenger/content/messenger.xhtml, eventPhase: 2, bubbles: true, cancelable: true, returnValue: true, defaultPrevented: false, composed: false, … }
+quickfolders-util.js:1427:13
+QuickFolders {INTERFACE} 14:48:44.430  [524 ms]   
+ patching toolbar QuickFolders-Toolbar to bright mode.
+quickfolders-util.js:1427:13

@@ -2,6 +2,7 @@ import { Preferences } from "./scripts/preferences.js";
 import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
 import { compareVersions } from "./scripts/mozilla-version-comparator.js";
+import { USAGE_LIMITS } from "./scripts/premium/usage-limits.mjs";
 // very nice config editor by John B:
 import * as webExtensionStorageEditor from "./scripts/webExtensionStorageEditor.mjs";
 
@@ -581,6 +582,14 @@ async function notifyWhenUIReady(...args) {
   }
 }
 
+async function syncProFeatureUsageLicenseState() {
+  try {
+    await messenger.Utilities.updateProFeatureUsageLicenseState(currentLicense.info.status === "Valid");
+  } catch (error) {
+    console.error("quickFilters: could not update profile usage after license validation", error);
+  }
+}
+
 async function updateLicense(key) {
   let forceSecondaryIdentity = Preferences.get("licenser.forceSecondaryIdentity"),
     isDebugLicenser = Preferences.isDebug("premium.licenser");
@@ -598,6 +607,7 @@ async function updateLicense(key) {
   // Update background license.
   await Preferences.set("LicenseKey", newLicense.info.licenseKey);
   currentLicense = newLicense;
+  await syncProFeatureUsageLicenseState();
   // Broadcast -without event is used for the licenser.
   notifyWhenUIReady({ licenseInfo: currentLicense.info });
   notifyWhenUIReady({ event: "updatequickFiltersLabel" });
@@ -1026,6 +1036,7 @@ function registerNotifyListener() {
       // refresh license info (at midnight) and update label afterwards.
       case "updateLicenseTimer":
         await currentLicense.updateLicenseDates();
+        await syncProFeatureUsageLicenseState();
 
         notifyWhenUIReady({ licenseInfo: currentLicense.info });
         notifyWhenUIReady({ event: "updatequickFiltersLabel" });
@@ -1184,7 +1195,16 @@ async function main() {
     isDebugLicenser = Preferences.get("debug.premium.licenser");
 
   currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
+  try {
+    await messenger.Utilities.initializeProFeatureUsage(Object.fromEntries(
+      Object.keys(USAGE_LIMITS).map(feature => [feature, Preferences.get(`restrictions.${feature}.countDown`)])
+        .filter(([, remaining]) => Number.isInteger(remaining))
+    ));
+  } catch (error) {
+    console.error("quickFilters: could not initialize profile usage counters", error);
+  }
   await currentLicense.validate();
+  await syncProFeatureUsageLicenseState();
 
   // All important stuff has been done.
   // resolve all promises on the stack
@@ -1512,6 +1532,7 @@ async function main() {
       } // test
       currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
       await currentLicense.validate();
+      await syncProFeatureUsageLicenseState();
       if (currentLicense.info.status != "MailNotConfigured") {
         if (isDebugLicenser) {
           console.log(

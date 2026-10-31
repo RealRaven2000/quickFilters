@@ -1165,16 +1165,16 @@
     "message": "这会将当前的许可日期延长一年。 它通常比新许可证便宜。"
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "购买许可证"
+    "message": "购买 Pro"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "更新许可证"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "您可以免费使用此功能 {1} 次。"
+    "message": "· 剩余 {1} 次免费使用机会。"
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} 是一项高级功能，请获取 quickFilters Pro 许可证才能永久使用它。"
+    "message": "{1} 是 Pro 功能"
   },
   "quickfilters.notification.premium.title": {
     "message": "高级功能"
@@ -1530,5 +1530,8 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters 无法获取创建或更新过滤器所需的信息。\n\n目标文件夹“{0}”可能需要修复。\n\n现在尝试修复文件夹吗？\n\n请等待修复完成，然后重新尝试创建过滤器。"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
   }
 }

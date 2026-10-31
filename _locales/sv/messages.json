@@ -1170,19 +1170,19 @@
     "message": "Detta förlänger datumet för den nuvarande licensen med 1 år. Det är vanligtvis billigare än en ny licens."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Skaffa en licens!"
+    "message": "Skaffa Pro"
   },
   "quickfilters.notification.premium.btn.hotKey": {
-    "message": "l"
+    "message": "P"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Förnya licens"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "Du kan använda den här funktionen {1} gånger till gratis."
+    "message": "· {1} kostnadsfria användningar återstår."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} är en funktion kopplad till quickFilters Pro. Registrera quickFilters för att använda den permanent."
+    "message": "{1} är en Pro-funktion"
   },
   "quickfilters.notification.premium.title": {
     "message": "Licensbelagd funktion"

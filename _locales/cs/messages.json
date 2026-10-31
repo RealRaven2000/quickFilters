@@ -1153,16 +1153,16 @@
     "message": "Tím se prodlouží aktuální licenční datum o 1 rok. Je to obvykle levnější než nová licence."
   },
   "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Koupit licenci"
+    "message": "Získat Pro"
   },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "Obnovit licenci"
   },
   "quickfilters.notification.premium.freeUses": {
-    "message": "You can use this feature {1} more times for free."
+    "message": "· Zbývá {1} použití zdarma."
   },
   "quickfilters.notification.premium.text": {
-    "message": "{1} is a Premium feature, please get a quickFilters Pro License for using it."
+    "message": "{1} je funkce Pro"
   },
   "quickfilters.notification.premium.title": {
     "message": "Premium Feature"
@@ -1516,5 +1516,8 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters nemohl získat údaje potřebné k vytvoření nebo aktualizaci filtru.\n\nCílová složka „{0}“ může vyžadovat opravu.\n\nPokusit se složku opravit nyní?\n\nPočkejte na dokončení opravy a poté zkuste filtr vytvořit znovu."
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
   }
 }
