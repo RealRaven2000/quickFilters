@@ -80,7 +80,7 @@ test("live backup controller preserves edits, handles cancellation, and remember
       get: async key => typeof key === "string" ? { [key]: settings[key] } : { ...key, ...settings },
       set: async patch => { if (savePreferencesFails) throw new Error("Settings error"); Object.assign(settings, patch); },
     } },
-    Utilities: {
+    FiltersAPI: {
       getBackupInfo: async () => ({ profileName: "Main", accounts }),
       exportBackupAccounts: async ids => ({ accounts: ids.map(id => ({ id, filters: [{}] })), referencedAccounts: [], warnings: [] }),
       saveBackupFile: async (filename, text) => {
@@ -105,8 +105,8 @@ test("live backup controller preserves edits, handles cancellation, and remember
     checkbox.events.change();
     assert(nodes["#all"].indeterminate);
     assert.equal(nodes["#rows"].querySelectorAll("span").filter(node => node.className === "backup-selection-hint" && !node.hidden).length, 1);
-    const saveBackupFile = browser.Utilities.saveBackupFile;
-    browser.Utilities.saveBackupFile = async filename => ({ backend: "local", path: `/different-folder/${filename}`, name: filename });
+    const saveBackupFile = browser.FiltersAPI.saveBackupFile;
+    browser.FiltersAPI.saveBackupFile = async filename => ({ backend: "local", path: `/different-folder/${filename}`, name: filename });
     const personalName = nodes["#filename"].value;
     await nodes["#save"].events.click();
     assert.equal(nodes["#filename"].value, personalName);
@@ -122,7 +122,7 @@ test("live backup controller preserves edits, handles cancellation, and remember
     boxes = nodes["#rows"].querySelectorAll("input");
     boxes[0].checked = true; boxes[0].events.change();
     assert.equal(nodes["#filename"].value, personalName);
-    browser.Utilities.saveBackupFile = saveBackupFile;
+    browser.FiltersAPI.saveBackupFile = saveBackupFile;
     delete settings["backup.selectedAccountIds"];
     nodes["#filename"].value = "Custom.json";
     nodes["#filename"].events.input();
@@ -149,15 +149,15 @@ test("live backup controller preserves edits, handles cancellation, and remember
     window.location.search = "?mode=backup&origin=selected&selection=1";
     nodes.h1 = new Node(); nodes["header p"] = new Node();
     nodes[".grid-heading"] = new Node();
-    browser.Utilities.getBackupSelection = async token => {
+    browser.FiltersAPI.getBackupSelection = async token => {
       assert.equal(token, "selected");
       return { accountId: "b", names: ["Only selected filter"] };
     };
-    browser.Utilities.exportBackupAccounts = async (ids, token) => {
+    browser.FiltersAPI.exportBackupAccounts = async (ids, token) => {
       assert.deepEqual(ids, ["b"]); assert.equal(token, "selected");
       return { accounts: [{ id: "b", filters: [{}] }], referencedAccounts: [], warnings: [] };
     };
-    browser.Utilities.saveBackupFile = async filename => ({ backend: "local", path: `/backup/${filename}`, name: filename });
+    browser.FiltersAPI.saveBackupFile = async filename => ({ backend: "local", path: `/backup/${filename}`, name: filename });
     savePreferencesFails = false;
     await initBackupPage({ el, accountText: () => new Node() });
     assert.equal(nodes.h1.textContent, "Back up selected filters");
@@ -203,7 +203,7 @@ test("storage writes, cancellation, bounded recent history and remembered select
       get: async key => typeof key === "string" ? { [key]: values[key] } : { ...key, ...values },
       set: async patch => Object.assign(values, patch),
     } },
-    Utilities: { saveBackupFile: async (filename, text) => {
+    FiltersAPI: { saveBackupFile: async (filename, text) => {
       assert.equal(filename, "backup.json");
       assert.equal(JSON.parse(text).formatVersion, 1);
       return null;
@@ -225,7 +225,7 @@ test("storage writes, cancellation, bounded recent history and remembered select
 });
 
 async function privileged() {
-  const source = await readFile(new URL("../../chrome/content/api/Utilities/backup.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../chrome/content/api/filtersAPI/backup.js", import.meta.url), "utf8");
   let allowed = true;
   let result = 1;
   let failWrite = false;
@@ -429,7 +429,7 @@ test("return prompts for backup changes; Yes stays, No returns then closes only 
   globalThis.window = { location: { search: "?origin=test-origin" } };
   globalThis.browser = {
     tabs: { getCurrent: async () => ({ id: 42 }), remove: async id => calls.push(["close", id]) },
-    Utilities: {
+    FiltersAPI: {
       confirmBackupChanges: async () => { calls.push(["prompt"]); return yes; },
       returnToFilterList: async token => { if (fail) throw new Error("Cannot open"); calls.push(["return", token]); },
     },
@@ -453,7 +453,7 @@ test("delete confirmation suppression lasts only for its controller and requires
   const { createDeleteConfirmation } = await import("../../scripts/backup/delete-confirmation.mjs");
   const previous = globalThis.browser;
   let confirmed = false, calls = 0;
-  globalThis.browser = { Utilities: { confirmFilterDeletion: async () => { calls++; return { confirmed, doNotAskAgain: true }; } } };
+  globalThis.browser = { FiltersAPI: { confirmFilterDeletion: async () => { calls++; return { confirmed, doNotAskAgain: true }; } } };
   try {
     const confirm = createDeleteConfirmation();
     assert.equal(await confirm("First"), false);
@@ -524,7 +524,7 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
   for (const root of ["file:///temporary-addon/", "jar:file:///profile/quickFilters.xpi!/"]) {
     apis.push(api.getAPI({ extension: { rootURI: { resolve: path => root + path }, localeData: { localizeMessage: getMessage } } }));
   }
-  assert.equal(loads.length, 8);
+  assert.equal(loads.length, 4);
   await apis[0].Utilities.initializeProFeatureUsage({ loadFilters: 1 });
   const [last, exhausted] = await Promise.all([
     apis[0].Utilities.consumeProFeatureUsage("loadFilters"),
@@ -534,13 +534,12 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
   assert.equal(exhausted.allowed, false);
   assert.equal(exhausted.used, 3);
   for (const [index, load] of loads.entries()) {
-    assert(load.url.startsWith(index < 4 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
-    assert(load.url.endsWith(["Utilities/backup.js", "Utilities/restore.js", "premium/usage-policy.js", "premium/usage-store.js"][index % 4]));
+    assert(load.url.startsWith(index < 2 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
+    assert(load.url.endsWith(["premium/usage-policy.js", "premium/usage-store.js"][index % 2]));
     assert.equal(load.options.charset, "UTF-8");
     assert.equal(load.options.ignoreCache, true);
     assert.equal(load.options.allowUnsafeURL, true);
-    if (index % 4 < 2) assert.equal(load.options.target.t("backup.backup.title"), "Backup Filters");
-    if (index % 4 === 2) assert.equal(load.options.target, loads[index + 1].options.target);
+    if (index % 2 === 0) assert.equal(load.options.target, loads[index + 1].options.target);
   }
 });
 

@@ -37,7 +37,7 @@ test("all backup translations preserve UTF-8, placeholders and substitution defi
 test("backup UI references exist in the English catalog and placeholders are declared", async () => {
   const directory = new URL("../../scripts/backup/", import.meta.url);
   const files = (await readdir(directory)).filter(name => name.endsWith(".mjs")).map(name => new URL(name, directory));
-  files.push(...["html/filter-backup.html", "html/filter-backup.js", "chrome/content/api/Utilities/backup.js", "chrome/content/api/Utilities/restore.js", "chrome/content/api/Utilities/implementation.js"].map(path => new URL(`../../${path}`, import.meta.url)));
+  files.push(...["html/filter-backup.html", "html/filter-backup.js", "chrome/content/api/filtersAPI/backup.js", "chrome/content/api/filtersAPI/restore.js", "chrome/content/api/Utilities/implementation.js", "chrome/content/api/filtersAPI/implementation.js"].map(path => new URL(`../../${path}`, import.meta.url)));
   for (const file of files) {
     const source = await readFile(file, "utf8");
     for (const match of source.matchAll(/["'](backup\.[\w.]+)["']/g)) {

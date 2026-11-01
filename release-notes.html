@@ -1,8 +1,9 @@
 This release improves Filter Assistant performance when folder databases are inaccessible and updates compatibility with Thunderbird 159.
 
 <ul>
+  <li><strong>Internal cleanup:</strong> Move backup/restore and filter-review operations into the experimental FiltersAPI as preparation for the new troubleshooter.</li>
   <li><strong>IMproved Filter Assistant Performance:</strong> Avoid repeated searches across accounts when a moved message cannot be found. Check the destination and source folders directly, and offer to repair the destination folder after lookup fails. <a href="https://github.com/RealRaven2000/quickFilters/issues/397">#397</a></li>
-  <li><strong>Thunderbird 159 compatibility:</strong> Replace the removed <tt>messenger.msgHdrFromURI</tt> API with the <tt>MailServices</tt> message-header lookup so dragging messages to folders can still open the Filter Assistant. <a href="https://github.com/RealRaven2000/quickFilters/issues/399">#399</a></li>
+  <li><strong>Thunderbird 159 compatibility:</strong> Replace the removed <code>messenger.msgHdrFromURI</code> API with the <code>MailServices</code> message-header lookup so dragging messages to folders can still open the Filter Assistant. <a href="https://github.com/RealRaven2000/quickFilters/issues/399">#399</a></li>
   <li><strong>Add-on integration:</strong> Remove async from the runtime.onMessageExternal listener: an async handler implicitly returns a Promise even for unrecognized commands, claiming the response and preventing other listeners from responding. Return Promises explicitly for recognized commands and undefined for unrecognized commands, as requested during ATN review of 6.13.4.</li>
   <li><strong>License renewal:</strong> Show a colored license-expiry countdown beside the valid-until date on the quickFilters Pro settings tab when the existing 30-day extension condition shows the Extend License button, including after the toolbar renewal indicator has been dismissed for the session.</li>
 </ul>

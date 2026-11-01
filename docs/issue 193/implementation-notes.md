@@ -6,12 +6,12 @@ The filter-list Backup and Restore toolbar buttons open `html/filter-backup.html
 
 Implemented:
 
-- Account order/names from the standard accounts API, with native filter counts and account details supplied by Utilities.
+- Account order/names from the standard accounts API, with native filter counts and account details supplied by FiltersAPI.
 - Shared page assets and account presentation, with a one-column backup layout.
 - Remembered successful backup selections in `browser.storage.local` under `backup.selectedAccountIds`.
 - Actual profile/account filename defaults and local date/time, editable before Save As. If no profile display name can be determined, multiple-account backup requires a filename supplied by the user.
 - Versioned JSON export using the existing filter serializer without rewriting it.
-- Explicit Utilities methods for privileged operations; no new notification bridge.
+- Explicit FiltersAPI methods for privileged operations; no new notification bridge.
 - Native JSON file picker and a temporary-file write, preserving the destination until replacement succeeds. Cancellation does not remember a new selection or history entry.
 - Storage adapter boundary and recent successful file history under `backup.recentFiles` (most recent first, deduplicated by location, capped at 20).
 - Return to Message Filters, available before and after backup/restore. It focuses the originating filter-list window, or reopens the filter list if that window has closed. The tab stays open so the result remains visible. Restore refreshes existing filter-list windows; export does not modify filters.
@@ -120,3 +120,7 @@ Utilities now loads its private backup.js and restore.js helpers through a local
 Backup export and restore now await popupProFeature before proceeding. The existing 10-backup/3-restore allowance and counter timing are unchanged. The retained obsolete file handler also awaits its existing gate. Tests use asynchronous license mocks and verify pending/denied/rejected gates cannot serialize or mutate filters; allowed gates continue normally. Other premium features are outside this change.
 
 Pro trial usage tracking is now tracked separately in #400. See docs/issue 400 - usage/#400-premium-usage.md for count-up preferences, JavaScript limits, migration, license transitions and focused tests.
+
+## API ownership cleanup before #401
+
+Backup/restore, file operations, confirmations and review-token state now belong to `browser.FiltersAPI`. Their implementation scripts live under `chrome/content/api/filtersAPI/`. Callers use the new namespace directly; method names, behavior and backup format are unchanged. Utilities retains general helpers and premium-usage accounting.

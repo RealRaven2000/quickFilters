@@ -7,7 +7,7 @@ export function createDeleteConfirmation() {
     if (skip) { return true; }
     pending = true;
     try {
-      const result = await browser.Utilities.confirmFilterDeletion(name);
+      const result = await browser.FiltersAPI.confirmFilterDeletion(name);
       if (result.confirmed && result.doNotAskAgain) { skip = true; }
       return result.confirmed;
     } finally { pending = false; }

@@ -17,12 +17,12 @@ export async function withBackupDirectory(pick) {
 export const localStorageAdapter = {
   async write({ filename, data }) {
     return withBackupDirectory((directory) =>
-      browser.Utilities.saveBackupFile(filename, JSON.stringify(data, null, 2), directory)
+      browser.FiltersAPI.saveBackupFile(filename, JSON.stringify(data, null, 2), directory)
     );
   },
   async read() {
     const result = await withBackupDirectory((directory) =>
-      browser.Utilities.readBackupFile(directory)
+      browser.FiltersAPI.readBackupFile(directory)
     );
     return result ? { ...result, data: JSON.parse(result.text) } : null;
   },

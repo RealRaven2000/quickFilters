@@ -58,7 +58,7 @@ test("restore page loads a real file, supports drag/menu selection, restores and
       get: async key => typeof key === "string" ? { [key]: settings[key] } : { ...key, ...settings },
       set: async patch => Object.assign(settings, patch),
     } },
-    Utilities: {
+    FiltersAPI: {
       getBackupInfo: async () => ({ accounts: targets }),
       readBackupFile: async () => cancelled ? null : { backend: "local", path: "/backup.json", name: "backup.json", text: JSON.stringify({ format: "quickFilters-backup", formatVersion: 1, accounts: [source], referencedAccounts: [reference] }) },
       restoreFilters: async request => {

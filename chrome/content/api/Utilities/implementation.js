@@ -22,11 +22,6 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         allowUnsafeURL: true,
       });
     };
-    const t = (key, substitutions = []) => context.extension.localeData.localizeMessage(key, substitutions.map(String));
-    const backupAPI = { Services, IOUtils, Components, ChromeUtils, console, t };
-    loadPackageScript("chrome/content/api/Utilities/backup.js", backupAPI);
-    const restoreAPI = { Services, Components, ChromeUtils, console, t };
-    loadPackageScript("chrome/content/api/Utilities/restore.js", restoreAPI);
     const usageScope = { quickFiltersPremium: {} };
     loadPackageScript("scripts/premium/usage-policy.js", usageScope);
     loadPackageScript("scripts/premium/usage-store.js", usageScope);
@@ -36,39 +31,6 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         initializeProFeatureUsage: async (legacyCounts) => usage.initialize(legacyCounts),
         consumeProFeatureUsage: async (feature) => usage.consume(feature),
         updateProFeatureUsageLicenseState: async (valid) => usage.updateLicenseState(valid),
-        confirmFilterDeletion: async (name) => {
-          const checked = { value: false };
-          const confirmed = Services.prompt.confirmCheck(Services.wm.getMostRecentWindow("mail:3pane"),
-            "quickFilters", t("backup.confirm.deleteFilter", [name]), t("backup.confirm.doNotAskAgain"), checked);
-          return { confirmed, doNotAskAgain: checked.value };
-        },
-        confirmBackupChanges: async () => {
-          const prompt = Services.prompt;
-          const flags = prompt.BUTTON_POS_0 * prompt.BUTTON_TITLE_YES + prompt.BUTTON_POS_1 * prompt.BUTTON_TITLE_NO;
-          return prompt.confirmEx(Services.wm.getMostRecentWindow("mail:3pane"), "quickFilters",
-            t("backup.confirm.backupChanges"),
-            flags, null, null, null, null, {}) === 0;
-        },
-        restoreFilters: async (request) => restoreAPI.restoreFilters(request),
-        editImportedFilter: async (token) => restoreAPI.editImportedFilter(token),
-        deleteImportedFilter: async (token) => restoreAPI.deleteImportedFilter(token),
-        saveRestoreReport: async (text, directory) => backupAPI.saveRestoreReport(text, directory),
-        getBackupInfo: async (accountIds) => {
-          return backupAPI.getBackupInfo(accountIds);
-        },
-        getBackupSelection: async (token) => backupAPI.getBackupSelection(token),
-        exportBackupAccounts: async (accountIds, selectionToken) => {
-          return backupAPI.exportBackupAccounts(accountIds, restoreAPI.registerReviewFilter, selectionToken);
-        },
-        saveBackupFile: async (filename, text, directory) => {
-          return backupAPI.saveBackupFile(filename, text, directory);
-        },
-        readBackupFile: async (directory) => {
-          return backupAPI.readBackupFile(directory);
-        },
-        returnToFilterList: async (token) => {
-          return backupAPI.returnToFilterList(token);
-        },
         async ensureQuickFoldersButtons() {
           // #396: a notification cannot recover a document whose listener was never injected.
           let initializedTabs = 0;

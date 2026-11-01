@@ -218,7 +218,7 @@ export async function initBackupPage({ el, accountText }) {
     try {
       announce(t("backup.backup.preparingFilterBackup"));
       const checked = chosen();
-      const exported = await browser.Utilities.exportBackupAccounts(
+      const exported = await browser.FiltersAPI.exportBackupAccounts(
         checked.map((account) => account.id),
         selectionToken
       );
@@ -273,12 +273,12 @@ export async function initBackupPage({ el, accountText }) {
             busy = true;
             update();
             try {
-              if (await browser.Utilities.editImportedFilter(token)) {
+              if (await browser.FiltersAPI.editImportedFilter(token)) {
                 changedAccounts.add(
                   exported.warnings.find((warning) => warning.reviewToken === token).accountId
                 );
                 if (selectionToken) {
-                  selectionInfo = await browser.Utilities.getBackupSelection(selectionToken);
+                  selectionInfo = await browser.FiltersAPI.getBackupSelection(selectionToken);
                 }
                 warningView.markEdited(token);
                 announce(t("backup.backup.filtersChangedBackUpAgainIfYouWant"));
@@ -297,7 +297,7 @@ export async function initBackupPage({ el, accountText }) {
             busy = true;
             update();
             try {
-              await browser.Utilities.deleteImportedFilter(token);
+              await browser.FiltersAPI.deleteImportedFilter(token);
               changedAccounts.add(
                 exported.warnings.find((warning) => warning.reviewToken === token).accountId
               );
@@ -311,7 +311,7 @@ export async function initBackupPage({ el, accountText }) {
                 account.totalCount = Math.max(0, account.totalCount - 1);
               }
               if (selectionToken) {
-                selectionInfo = await browser.Utilities.getBackupSelection(selectionToken);
+                selectionInfo = await browser.FiltersAPI.getBackupSelection(selectionToken);
               }
               announce(t("backup.backup.deletedFilterBackUpAgainIfYouWant", [filterName]));
             } catch (error) {
@@ -350,14 +350,14 @@ export async function initBackupPage({ el, accountText }) {
     // MX supplies the account order; the experiment adds details absent from MX.
     let mxAccounts = await browser.accounts.list(false);
     if (selectionToken) {
-      selectionInfo = await browser.Utilities.getBackupSelection(selectionToken);
+      selectionInfo = await browser.FiltersAPI.getBackupSelection(selectionToken);
       mxAccounts = mxAccounts.filter((account) => account.id === selectionInfo.accountId);
       document.querySelector("h1").textContent = t("backup.backup.backUpSelectedFilters");
       document.querySelector("header p").textContent = t(
         "backup.backup.onlyTheFiltersListedBelowWillBeSaved"
       );
     }
-    const info = await browser.Utilities.getBackupInfo(mxAccounts.map((account) => account.id));
+    const info = await browser.FiltersAPI.getBackupInfo(mxAccounts.map((account) => account.id));
     profileName = info.profileName;
     const byId = new Map(info.accounts.map((account) => [account.id, account]));
     accounts = mxAccounts

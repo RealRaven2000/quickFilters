@@ -1,5 +1,5 @@
 /* global t */
-/* Loaded only into the Utilities API's private scope. */
+/* Loaded only into the FiltersAPI's private scope. */
 (function () {
   "use strict";
   const { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");

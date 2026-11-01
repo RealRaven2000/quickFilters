@@ -9,8 +9,57 @@ var { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServi
 var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
   // eslint-disable-next-line no-unused-vars
   getAPI(context) {
+    // Private per-API scope: extension reloads must not reuse a cached system module.
+    const loadPackageScript = (path, target) => {
+      Services.scriptloader.loadSubScriptWithOptions(context.extension.rootURI.resolve(path), {
+        target,
+        charset: "UTF-8",
+        ignoreCache: true,
+        // Match WindowListener: opt in to our package's file:/jar: URLs.
+        allowUnsafeURL: true,
+      });
+    };
+    const t = (key, substitutions = []) => context.extension.localeData.localizeMessage(key, substitutions.map(String));
+    const backupAPI = { Services, IOUtils, Components, ChromeUtils, console, t };
+    loadPackageScript("chrome/content/api/filtersAPI/backup.js", backupAPI);
+    const restoreAPI = { Services, Components, ChromeUtils, console, t };
+    loadPackageScript("chrome/content/api/filtersAPI/restore.js", restoreAPI);
     return {
       FiltersAPI: {
+        confirmFilterDeletion: async (name) => {
+          const checked = { value: false };
+          const confirmed = Services.prompt.confirmCheck(Services.wm.getMostRecentWindow("mail:3pane"),
+            "quickFilters", t("backup.confirm.deleteFilter", [name]), t("backup.confirm.doNotAskAgain"), checked);
+          return { confirmed, doNotAskAgain: checked.value };
+        },
+        confirmBackupChanges: async () => {
+          const prompt = Services.prompt;
+          const flags = prompt.BUTTON_POS_0 * prompt.BUTTON_TITLE_YES + prompt.BUTTON_POS_1 * prompt.BUTTON_TITLE_NO;
+          return prompt.confirmEx(Services.wm.getMostRecentWindow("mail:3pane"), "quickFilters",
+            t("backup.confirm.backupChanges"),
+            flags, null, null, null, null, {}) === 0;
+        },
+        restoreFilters: async (request) => restoreAPI.restoreFilters(request),
+        editImportedFilter: async (token) => restoreAPI.editImportedFilter(token),
+        deleteImportedFilter: async (token) => restoreAPI.deleteImportedFilter(token),
+        saveRestoreReport: async (text, directory) => backupAPI.saveRestoreReport(text, directory),
+        getBackupInfo: async (accountIds) => {
+          return backupAPI.getBackupInfo(accountIds);
+        },
+        getBackupSelection: async (token) => backupAPI.getBackupSelection(token),
+        exportBackupAccounts: async (accountIds, selectionToken) => {
+          return backupAPI.exportBackupAccounts(accountIds, restoreAPI.registerReviewFilter, selectionToken);
+        },
+        saveBackupFile: async (filename, text, directory) => {
+          return backupAPI.saveBackupFile(filename, text, directory);
+        },
+        readBackupFile: async (directory) => {
+          return backupAPI.readBackupFile(directory);
+        },
+        returnToFilterList: async (token) => {
+          return backupAPI.returnToFilterList(token);
+        },
+
         /**
          * Convert nsIMsgFilter to a simple { accountId, filterName } object.
          * @param {nsIMsgFilter} filter

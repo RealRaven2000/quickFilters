@@ -1,7 +1,7 @@
 [
   {
     "namespace": "FiltersAPI",
-    "description": "Experimental API to convert Thunderbird filters to/from lightweight identifiers.",
+    "description": "Experimental API for filter discovery, backup, restore and review.",
     "functions": [
       {
         "name": "convertFilterToApi",
@@ -17,8 +17,12 @@
         "returns": {
           "type": "object",
           "properties": {
-            "accountId": { "type": "string" },
-            "filterName": { "type": "string" }
+            "accountId": {
+              "type": "string"
+            },
+            "filterName": {
+              "type": "string"
+            }
           }
         }
       },
@@ -31,10 +35,17 @@
             "name": "filterTuple",
             "type": "object",
             "properties": {
-              "accountId": { "type": "string" },
-              "filterName": { "type": "string" }
+              "accountId": {
+                "type": "string"
+              },
+              "filterName": {
+                "type": "string"
+              }
             },
-            "required": ["accountId", "filterName"]
+            "required": [
+              "accountId",
+              "filterName"
+            ]
           }
         ],
         "returns": {
@@ -75,6 +86,195 @@
         "returns": {
           "type": "any",
           "description": "Array of filter objects, each containing filterName, accountId, type, templateName (if applicable), description, enabled, matchedActionType, and matchedActionExt"
+        }
+      },
+      {
+        "name": "getBackupSelection",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "confirmFilterDeletion",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "name",
+            "type": "string"
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "confirmBackupChanges",
+        "type": "function",
+        "async": true,
+        "parameters": [],
+        "returns": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "restoreFilters",
+        "parameters": [
+          {
+            "name": "request",
+            "type": "any"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "editImportedFilter",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "deleteImportedFilter",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "saveRestoreReport",
+        "parameters": [
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "directory",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "getBackupInfo",
+        "parameters": [
+          {
+            "name": "accountIds",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "exportBackupAccounts",
+        "parameters": [
+          {
+            "name": "accountIds",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "selectionToken",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "saveBackupFile",
+        "parameters": [
+          {
+            "name": "filename",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "type": "string"
+          },
+          {
+            "name": "directory",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "readBackupFile",
+        "parameters": [
+          {
+            "name": "directory",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "returnToFilterList",
+        "parameters": [
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "type": "function",
+        "async": true,
+        "returns": {
+          "type": "any"
         }
       }
     ]

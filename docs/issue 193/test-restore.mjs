@@ -78,7 +78,7 @@ test("remembered mappings have priority over automatic matches; Local Folders ma
 });
 
 async function nativeRestore() {
-  const script = await readFile(new URL("../../chrome/content/api/Utilities/restore.js", import.meta.url), "utf8");
+  const script = await readFile(new URL("../../chrome/content/api/filtersAPI/restore.js", import.meta.url), "utf8");
   const folders = new Map(), lists = new Map();
   const customActions = new Set(), customTerms = new Set();
   let serial = 0, refreshed = 0, edited;

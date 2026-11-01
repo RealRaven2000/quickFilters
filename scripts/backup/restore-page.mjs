@@ -222,7 +222,7 @@ export async function initRestorePage({ el, accountText }) {
     let result;
     try {
       announce(t("backup.restore.restoringFilters"));
-      result = await browser.Utilities.restoreFilters({
+      result = await browser.FiltersAPI.restoreFilters({
         backup,
         mappings: [...mappings],
         selected: [...selected],
@@ -255,7 +255,7 @@ export async function initRestorePage({ el, accountText }) {
             busy = true;
             update();
             try {
-              await browser.Utilities.editImportedFilter(token);
+              await browser.FiltersAPI.editImportedFilter(token);
             } catch (error) {
               announce(t("backup.backup.couldNotEditFilter", [error.message]));
             } finally {
@@ -270,7 +270,7 @@ export async function initRestorePage({ el, accountText }) {
             busy = true;
             update();
             try {
-              await browser.Utilities.deleteImportedFilter(token);
+              await browser.FiltersAPI.deleteImportedFilter(token);
               for (const warning of result.warnings.filter(
                 (item) => item.importedToken === token
               )) {
@@ -293,7 +293,7 @@ export async function initRestorePage({ el, accountText }) {
           report.disabled = true;
           try {
             const saved = await withBackupDirectory((directory) =>
-              browser.Utilities.saveRestoreReport(
+              browser.FiltersAPI.saveRestoreReport(
                 JSON.stringify(
                   {
                     format: "quickFilters-restore-report",
@@ -350,7 +350,7 @@ export async function initRestorePage({ el, accountText }) {
   render();
   try {
     const mx = await browser.accounts.list(false);
-    const info = await browser.Utilities.getBackupInfo(mx.map((account) => account.id));
+    const info = await browser.FiltersAPI.getBackupInfo(mx.map((account) => account.id));
     const byId = new Map(info.accounts.map((account) => [account.id, account]));
     targets = mx
       .filter((account) => byId.has(account.id))
