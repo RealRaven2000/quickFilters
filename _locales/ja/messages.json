@@ -728,7 +728,7 @@
     "message": "アカウントの復元に失敗しました"
   },
   "backup.warnings.action": {
-    "message": "アクション"
+    "message": "操作"
   },
   "backup.warnings.allWarningsShown": {
     "message": "すべての警告が表示されます。"
@@ -764,7 +764,7 @@
     "message": "名前が重複しています - スキップされました"
   },
   "backup.warnings.editFilter": {
-    "message": "フィルター編集"
+    "message": "編集"
   },
   "backup.warnings.editedByUser": {
     "message": "ユーザーによって編集されました"
@@ -2303,5 +2303,334 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters はフィルターの作成または更新に必要な情報を取得できませんでした。\n\n移動先フォルダー「{0}」の修復が必要な可能性があります。\n\n今すぐフォルダーの修復を試みますか？\n\n修復が完了するまで待ってから、フィルターの作成をもう一度お試しください。"
+  }
+,
+  "troubleshooter.title": {
+    "message": "quickFilters · トラブルシューティング"
+  },
+  "troubleshooter.open": {
+    "message": "フィルターの診断を開く…"
+  },
+  "troubleshooter.intro": {
+    "message": "検査を実行し、問題を確認して変更を選択します。"
+  },
+  "troubleshooter.openLog": {
+    "message": "フィルターログを開く…"
+  },
+  "troubleshooter.logHint": {
+    "message": "選択したアカウントの最近のフィルター動作を調べます。"
+  },
+  "troubleshooter.checks": {
+    "message": "利用できる検査"
+  },
+  "troubleshooter.runAll": {
+    "message": "すべての検査を実行"
+  },
+  "troubleshooter.readOnly": {
+    "message": "すべての種類の問題を検査します。フィルターの変更には必ず明示的な選択が必要です。"
+  },
+  "troubleshooter.review": {
+    "message": "フィルターの確認"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "確認が必要"
+  },
+  "troubleshooter.resolved": {
+    "message": "解決済み"
+  },
+  "troubleshooter.allResults": {
+    "message": "すべての結果"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "結果の状態"
+  },
+  "troubleshooter.find": {
+    "message": "フィルターを検索…"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "条件を表示…"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "以下のテキストは個々の条件を示します。グループ化は表に別途表示します。"
+  },
+  "troubleshooter.copy": {
+    "message": "コピー"
+  },
+  "troubleshooter.close": {
+    "message": "閉じる"
+  },
+  "troubleshooter.copyManually": {
+    "message": "テキストを選択し、手動でコピーしてください。"
+  },
+  "troubleshooter.copied": {
+    "message": "条件のテキストをコピーしました。"
+  },
+  "troubleshooter.operator": {
+    "message": "演算子"
+  },
+  "troubleshooter.term": {
+    "message": "検索条件"
+  },
+  "troubleshooter.groupStart": {
+    "message": "グループ開始"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "グループ終了"
+  },
+  "troubleshooter.check": {
+    "message": "検査"
+  },
+  "troubleshooter.problem": {
+    "message": "問題"
+  },
+  "troubleshooter.tableHint": {
+    "message": "問題ごとに1行表示します。「詳細」を開くと説明を確認できます。"
+  },
+  "troubleshooter.summary": {
+    "message": "確認が必要なフィルター: $filters$ · 解決した問題: $resolved$ · 実行済み: $checks$/4 検査",
+    "placeholders": {
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      },
+      "checks": {
+        "content": "$3"
+      }
+    }
+  },
+  "troubleshooter.filterCount": {
+    "message": "フィルター数: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.notRun": {
+    "message": "未検査"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "確認するフィルター数: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noProblems": {
+    "message": "残っている問題はありません"
+  },
+  "troubleshooter.empty": {
+    "message": "この表示に結果はありません。"
+  },
+  "troubleshooter.start": {
+    "message": "検査を実行して、このアカウントのフィルターを確認してください。"
+  },
+  "troubleshooter.changed": {
+    "message": "変更を保存しました。実行済みの検査を更新しました。"
+  },
+  "troubleshooter.completed": {
+    "message": "検査が完了しました。フィルターは変更していません。"
+  },
+  "troubleshooter.noAccounts": {
+    "message": "フィルターを利用できるアカウントがありません。"
+  },
+  "troubleshooter.help": {
+    "message": "説明: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.openAddons": {
+    "message": "アドオンマネージャーを開く"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "受信時の実行を有効にする…"
+  },
+  "troubleshooter.disable": {
+    "message": "フィルターを無効にする…"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "確認が必要"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "無効 · 確認が必要"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "解決済み"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "削除済み"
+  },
+  "troubleshooter.check.runs": {
+    "message": "自動実行を検査"
+  },
+  "troubleshooter.check.folders": {
+    "message": "対象フォルダーを検査"
+  },
+  "troubleshooter.check.addons": {
+    "message": "不足しているアクションと条件を検査"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "検索条件を検査"
+  },
+  "troubleshooter.description.runs": {
+    "message": "有効なフィルターをメール受信時、定期的、または手動で実行できるか確認します。"
+  },
+  "troubleshooter.description.folders": {
+    "message": "移動先とコピー先のフォルダーは存在しますか？"
+  },
+  "troubleshooter.description.addons": {
+    "message": "カスタムアクションと検索条件は利用できますか？"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "ALL/ANY の混在、グループ化、検索条件の欠落を調べます。"
+  },
+  "troubleshooter.help.runs": {
+    "message": "自動実行する設定でもフィルターが動作しないことがあります。Thunderbird のプロファイルの破損が原因の場合もあります。この検査は実行設定の欠落を調べるもので、プロファイルの破損は診断できません。"
+  },
+  "troubleshooter.help.folders": {
+    "message": "フォルダーが移動、削除されたり、IMAP サーバーから削除されると、フィルターの移動先が無効になる場合があります。同一アカウント内でフォルダー名を変更または移動した場合、Thunderbird は通常フィルターのルールを更新します。"
+  },
+  "troubleshooter.help.addons": {
+    "message": "他のアドオンがカスタムアクションや検索条件を提供する場合があります。アドオンの設定で有効にする必要があるかもしれません。アドオンが無効になっている場合や、Thunderbird のバージョンに対応していない場合も利用できなくなります。"
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Thunderbird のフィルターエディターは現在、すべての条件 (ALL) またはいずれかの条件 (ANY) の一致に対応しています。両方をグループで組み合わせる機能が開発中です。お使いのメールソフトやバージョンでは既に対応している場合があります。"
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "フィルターの実行方法が未設定"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "無効なフォルダーパス"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "カスタムアクションが利用できません"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "カスタム検索条件が利用できません"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "検索条件がありません"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "ALL/ANY の混在またはグループ化された条件"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "フィルターを解析できません"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "検査を完了できません"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "このフィルターは有効ですが、自動実行も手動実行も設定されていません。受信時の実行を有効にするかどうかは任意であり、自動修復ではありません。"
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "移動またはコピーのアクションが、存在しないかメッセージを受け取れないフォルダーを指定しています。フィルターエディターで既存の移動先を選んでください。"
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "アクションを提供するアドオンが存在しない、無効、または非対応の可能性があります。アドオンマネージャーと、提供元の設定でアクションが有効かを確認してください。"
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "検索条件を提供するアドオンが存在しない、無効、または非対応の可能性があります。アドオンマネージャーと、提供元の設定で条件が有効かを確認してください。"
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "このフィルターには検索条件がありません。条件を追加するか、無効にするか、不要であれば削除してください。"
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "この論理構造は意図的なものかもしれません。Thunderbird のエディターで開くだけで条件を誤って解釈する可能性があります。読み取り専用テキストを確認するか、条件を変えずにフィルターを無効にしてください。無効化しても論理構造は修復されません。"
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird はこのフィルターを解析できませんでした。エディターを開かずに保存されたテキストを確認してください。"
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "このフィルターを完全には検査できませんでした。エラーの詳細を確認し、検査に合格したと判断しないでください。"
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "診断を使用する前に Thunderbird のメールウィンドウを開いてください。"
+  },
+  "troubleshooter.accountUnavailable": {
+    "message": "このアカウントは利用できないか、フィルターに対応していません。"
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "この確認セッションは期限切れです。診断を開き直してください。"
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "不明な診断項目です。"
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "このフィルターはもう利用できません。検査を再実行してください。"
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "このフィルターは削除または置換されました。検査を再実行してください。"
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "不明または未対応のフィルター変更です。"
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "このフィルターをエディターで開くのは安全ではありません。条件を表示するか無効にしてください。"
+  },
+  "troubleshooter.filterChanged": {
+    "message": "確認中にフィルターが変更されました。検査を再実行してください。"
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "「$filter$」を削除しますか？フィルターは完全に削除されます。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "「$filter$」を無効にしますか？実行を停止し、条件はそのまま保持します。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "新しいメールの到着時に「$filter$」を自動実行しますか？これはフィルターの実行タイミングを変更します。確認するだけなら必要ありません。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  }
+,
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "このアプリは既に混合条件に対応しているため、その部分の検査は省略します。条件の欠落は引き続き検査します。"
+  }
+,
+  "troubleshooter.searchTermId": {
+    "message": "検索条件 ID"
+  }
+,
+  "troubleshooter.actionId": {
+    "message": "アクション ID"
+  }
+,
+  "troubleshooter.missingIdentifier": {
+    "message": "識別子がありません"
+  }
+,
+  "troubleshooter.mixedEditWarning": {
+    "message": "このフィルターには混合条件またはグループ化された条件があります。フィルターエディターが正しく対応していない場合、開くだけで条件が変わる可能性があります。続行しますか？"
+  }
+,
+  "troubleshooter.openEditorAnyway": {
+    "message": "それでもエディターを開く…"
+  }
+,
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Thunderbird を再起動するまで警告しない"
+  }
+,
+  "troubleshooter.customId": {
+    "message": "カスタム ID"
   }
 }

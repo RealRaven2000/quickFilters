@@ -728,7 +728,7 @@
     "message": "Accountherstel mislukt"
   },
   "backup.warnings.action": {
-    "message": "Actie"
+    "message": "Acties"
   },
   "backup.warnings.allWarningsShown": {
     "message": "Alle waarschuwingen worden weergegeven."
@@ -764,7 +764,7 @@
     "message": "Dubbele naam — overgeslagen"
   },
   "backup.warnings.editFilter": {
-    "message": "Filter bewerken"
+    "message": "Bewerken"
   },
   "backup.warnings.editedByUser": {
     "message": "Bewerkt door gebruiker"
@@ -2303,5 +2303,334 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters kon de benodigde gegevens niet ophalen om een filter te maken of bij te werken.\n\nDe doelmap ‘{0}’ moet mogelijk worden gerepareerd.\n\nNu proberen de map te repareren?\n\nWacht tot de reparatie is voltooid en probeer het filter vervolgens opnieuw te maken."
+  }
+,
+  "troubleshooter.title": {
+    "message": "quickFilters · Probleemoplosser"
+  },
+  "troubleshooter.open": {
+    "message": "Probleemoplosser voor filters openen…"
+  },
+  "troubleshooter.intro": {
+    "message": "Voer controles uit, bekijk problemen en kies wat u wilt wijzigen."
+  },
+  "troubleshooter.openLog": {
+    "message": "Filterlogboek openen…"
+  },
+  "troubleshooter.logHint": {
+    "message": "Onderzoek recente filteractiviteit voor het geselecteerde account."
+  },
+  "troubleshooter.checks": {
+    "message": "Beschikbare controles"
+  },
+  "troubleshooter.runAll": {
+    "message": "Alle controles uitvoeren"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Controleert alle soorten problemen. Filters worden uitsluitend met uw uitdrukkelijke toestemming gewijzigd."
+  },
+  "troubleshooter.review": {
+    "message": "Filters controleren"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Aandacht nodig"
+  },
+  "troubleshooter.resolved": {
+    "message": "Opgelost"
+  },
+  "troubleshooter.allResults": {
+    "message": "Alle resultaten"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Resultaatstatus"
+  },
+  "troubleshooter.find": {
+    "message": "Filter zoeken…"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Voorwaarden weergeven…"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "De onderstaande tekst toont afzonderlijke voorwaarden. Groepering wordt apart weergegeven in de tabel."
+  },
+  "troubleshooter.copy": {
+    "message": "Kopiëren"
+  },
+  "troubleshooter.close": {
+    "message": "Sluiten"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Selecteer de tekst en kopieer deze handmatig."
+  },
+  "troubleshooter.copied": {
+    "message": "Voorwaardentekst gekopieerd."
+  },
+  "troubleshooter.operator": {
+    "message": "Operator"
+  },
+  "troubleshooter.term": {
+    "message": "Zoekvoorwaarde"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Groepsbegin"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Groepseinde"
+  },
+  "troubleshooter.check": {
+    "message": "Controle"
+  },
+  "troubleshooter.problem": {
+    "message": "Probleem"
+  },
+  "troubleshooter.tableHint": {
+    "message": "Eén rij per probleem. Klap Details uit voor uitleg."
+  },
+  "troubleshooter.summary": {
+    "message": "$filters$ filters te controleren · $resolved$ problemen opgelost · $checks$ van 4 controles uitgevoerd",
+    "placeholders": {
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      },
+      "checks": {
+        "content": "$3"
+      }
+    }
+  },
+  "troubleshooter.filterCount": {
+    "message": "Filters: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.notRun": {
+    "message": "Niet gecontroleerd"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Filters te controleren: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noProblems": {
+    "message": "Geen resterende problemen"
+  },
+  "troubleshooter.empty": {
+    "message": "Geen resultaten in deze weergave."
+  },
+  "troubleshooter.start": {
+    "message": "Voer een controle uit voor de filters van dit account."
+  },
+  "troubleshooter.changed": {
+    "message": "Wijziging opgeslagen. Eerdere controles zijn vernieuwd."
+  },
+  "troubleshooter.completed": {
+    "message": "Controles voltooid. Er zijn geen filters gewijzigd."
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Geen accounts met filters beschikbaar."
+  },
+  "troubleshooter.help": {
+    "message": "Over: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.openAddons": {
+    "message": "Add-onbeheer openen"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Inschakelen voor inkomende post…"
+  },
+  "troubleshooter.disable": {
+    "message": "Filter uitschakelen…"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Controle nodig"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Uitgeschakeld · Controle nodig"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Opgelost"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Verwijderd"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Automatisch uitvoeren controleren"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Doelmappen controleren"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Ontbrekende acties en voorwaarden zoeken"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Zoekvoorwaarden controleren"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Controleer of ingeschakelde filters bij ontvangst van post, periodiek of handmatig kunnen worden uitgevoerd."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Bestaan de doelen voor verplaatsen en kopiëren nog?"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Zijn aangepaste acties en zoekvoorwaarden beschikbaar?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Zoek gemengde ALL/ANY-voorwaarden, groepen of ontbrekende voorwaarden."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Soms worden filters niet automatisch uitgevoerd, ook als dit wel is ingesteld. Een beschadigd Thunderbird-profiel kan de oorzaak zijn. Deze controle zoekt ontbrekende uitvoeringsinstellingen; profielbeschadiging wordt niet vastgesteld."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Mappen kunnen worden verplaatst, verwijderd of op een IMAP-server verdwijnen, waardoor een filter geen geldig doel meer heeft. Thunderbird werkt regels meestal bij wanneer u een map binnen hetzelfde account hernoemt of verplaatst."
+  },
+  "troubleshooter.help.addons": {
+    "message": "Andere add-ons kunnen aangepaste acties en zoekvoorwaarden leveren. Mogelijk moet u deze in de instellingen van de add-on inschakelen. Ze kunnen ook ontbreken als de add-on uitgeschakeld of niet compatibel met uw Thunderbird-versie is."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "De filtereditor van Thunderbird ondersteunt momenteel alle voorwaarden (ALL) of een willekeurige voorwaarde (ANY). Er wordt gewerkt aan het combineren van beide in groepen. Uw e-mailprogramma of versie ondersteunt dit mogelijk al."
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Geen uitvoeringswijze ingesteld"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Ongeldig mappad"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Aangepaste actie niet beschikbaar"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Aangepaste zoekvoorwaarde niet beschikbaar"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Geen zoekvoorwaarden"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Gemengde ALL/ANY-voorwaarden of groepen"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Filter kon niet worden verwerkt"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Controle kon niet worden voltooid"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Dit filter is ingeschakeld, maar niet ingesteld voor automatische of handmatige uitvoering. Inschakelen voor inkomende post is een optionele wijziging, geen automatische reparatie."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "Een verplaats- of kopieeractie verwijst naar een ontbrekende map of een map die geen berichten kan ontvangen. Kies een bestaand doel in de filtereditor."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "De add-on die de actie levert kan ontbreken, uitgeschakeld of niet compatibel zijn. Controleer het add-onbeheer en of de actie in de add-oninstellingen is ingeschakeld."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "De add-on die de voorwaarde levert kan ontbreken, uitgeschakeld of niet compatibel zijn. Controleer het add-onbeheer en of de voorwaarde in de add-oninstellingen is ingeschakeld."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "Dit filter heeft geen zoekvoorwaarden. Voeg voorwaarden toe, schakel het uit of verwijder het als het niet meer nodig is."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Deze logica kan bedoeld zijn. Het openen van dit filter in de Thunderbird-editor kan de voorwaarden verkeerd interpreteren. Bekijk de alleen-lezen tekst of schakel het filter uit zonder de voorwaarden te wijzigen. Uitschakelen herstelt de logica niet."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird kon dit filter niet verwerken. Bekijk de opgeslagen tekst zonder de filtereditor te openen."
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Dit filter kon niet volledig worden gecontroleerd. Bekijk de foutdetails; ga er niet van uit dat de controle is geslaagd."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Open een Thunderbird-mailvenster voordat u de probleemoplosser gebruikt."
+  },
+  "troubleshooter.accountUnavailable": {
+    "message": "Dit account is niet beschikbaar of ondersteunt geen filters."
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Deze controlesessie is verlopen. Open de probleemoplosser opnieuw."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Onbekende controle."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Dit filter is niet meer beschikbaar. Voer de controles opnieuw uit."
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Dit filter is verwijderd of vervangen. Voer de controles opnieuw uit."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Onbekende of niet-ondersteunde filterwijziging."
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Dit filter openen in de editor is onveilig. Bekijk de voorwaarden of schakel het uit."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Dit filter is tijdens de controle gewijzigd. Voer de controles opnieuw uit."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "‘$filter$’ verwijderen? Het filter wordt permanent verwijderd.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "‘$filter$’ uitschakelen? Het wordt niet meer uitgevoerd en de voorwaarden blijven ongewijzigd.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "‘$filter$’ automatisch laten uitvoeren bij nieuwe post? Dit wijzigt wanneer het filter wordt uitgevoerd en is niet nodig om het alleen te bekijken.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  }
+,
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "Uw toepassing ondersteunt al gemengde voorwaarden, dus dat deel van deze controle wordt overgeslagen. Ontbrekende voorwaarden worden wel gecontroleerd."
+  }
+,
+  "troubleshooter.searchTermId": {
+    "message": "Zoekvoorwaarde-ID"
+  }
+,
+  "troubleshooter.actionId": {
+    "message": "Actie-ID"
+  }
+,
+  "troubleshooter.missingIdentifier": {
+    "message": "Identificatie ontbreekt"
+  }
+,
+  "troubleshooter.mixedEditWarning": {
+    "message": "Dit filter bevat gemengde of gegroepeerde voorwaarden. Uw filtereditor ondersteunt die mogelijk niet correct. Het openen kan ze wijzigen. Doorgaan?"
+  }
+,
+  "troubleshooter.openEditorAnyway": {
+    "message": "Editor toch openen…"
+  }
+,
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Niet meer waarschuwen tot Thunderbird opnieuw start"
+  }
+,
+  "troubleshooter.customId": {
+    "message": "Aangepaste ID"
   }
 }

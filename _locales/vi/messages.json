@@ -728,7 +728,7 @@
     "message": "Khôi phục tài khoản không thành công"
   },
   "backup.warnings.action": {
-    "message": "Hành Động"
+    "message": "Hành động"
   },
   "backup.warnings.allWarningsShown": {
     "message": "Tất cả các cảnh báo được hiển thị."
@@ -764,7 +764,7 @@
     "message": "Tên trùng lặp — bị bỏ qua"
   },
   "backup.warnings.editFilter": {
-    "message": "Chỉnh sửa bộ lọc"
+    "message": "Sửa"
   },
   "backup.warnings.editedByUser": {
     "message": "Được chỉnh sửa bởi người dùng"
@@ -2303,5 +2303,334 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters không thể lấy thông tin cần thiết để tạo hoặc cập nhật bộ lọc.\n\nThư mục đích “{0}” có thể cần được sửa chữa.\n\nThử sửa chữa thư mục ngay bây giờ?\n\nHãy chờ quá trình sửa chữa hoàn tất, rồi thử tạo lại bộ lọc."
+  }
+,
+  "troubleshooter.title": {
+    "message": "quickFilters · Khắc phục sự cố"
+  },
+  "troubleshooter.open": {
+    "message": "Mở công cụ kiểm tra bộ lọc…"
+  },
+  "troubleshooter.intro": {
+    "message": "Chạy kiểm tra, xem vấn đề và chọn nội dung cần thay đổi."
+  },
+  "troubleshooter.openLog": {
+    "message": "Mở nhật ký bộ lọc…"
+  },
+  "troubleshooter.logHint": {
+    "message": "Xem hoạt động bộ lọc gần đây của tài khoản đã chọn."
+  },
+  "troubleshooter.checks": {
+    "message": "Các mục kiểm tra"
+  },
+  "troubleshooter.runAll": {
+    "message": "Chạy tất cả kiểm tra"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Kiểm tra mọi loại vấn đề. Mọi thay đổi bộ lọc đều cần lựa chọn rõ ràng của bạn."
+  },
+  "troubleshooter.review": {
+    "message": "Xem xét bộ lọc"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Cần chú ý"
+  },
+  "troubleshooter.resolved": {
+    "message": "Đã giải quyết"
+  },
+  "troubleshooter.allResults": {
+    "message": "Tất cả kết quả"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Trạng thái kết quả"
+  },
+  "troubleshooter.find": {
+    "message": "Tìm bộ lọc…"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Hiển thị điều kiện…"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "Văn bản bên dưới liệt kê từng điều kiện. Nhóm được hiển thị riêng trong bảng."
+  },
+  "troubleshooter.copy": {
+    "message": "Sao chép"
+  },
+  "troubleshooter.close": {
+    "message": "Đóng"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Chọn văn bản rồi sao chép thủ công."
+  },
+  "troubleshooter.copied": {
+    "message": "Đã sao chép văn bản điều kiện."
+  },
+  "troubleshooter.operator": {
+    "message": "Toán tử"
+  },
+  "troubleshooter.term": {
+    "message": "Điều kiện tìm kiếm"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Bắt đầu nhóm"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Kết thúc nhóm"
+  },
+  "troubleshooter.check": {
+    "message": "Kiểm tra"
+  },
+  "troubleshooter.problem": {
+    "message": "Vấn đề"
+  },
+  "troubleshooter.tableHint": {
+    "message": "Mỗi vấn đề một hàng. Mở Chi tiết để xem giải thích."
+  },
+  "troubleshooter.summary": {
+    "message": "$filters$ bộ lọc cần xem xét · $resolved$ vấn đề đã giải quyết · Đã chạy $checks$/4 kiểm tra",
+    "placeholders": {
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      },
+      "checks": {
+        "content": "$3"
+      }
+    }
+  },
+  "troubleshooter.filterCount": {
+    "message": "Bộ lọc: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.notRun": {
+    "message": "Chưa kiểm tra"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Bộ lọc cần xem xét: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noProblems": {
+    "message": "Không còn vấn đề"
+  },
+  "troubleshooter.empty": {
+    "message": "Không có kết quả trong chế độ xem này."
+  },
+  "troubleshooter.start": {
+    "message": "Chạy kiểm tra để xem xét bộ lọc của tài khoản này."
+  },
+  "troubleshooter.changed": {
+    "message": "Đã lưu thay đổi. Các kiểm tra trước đó đã được cập nhật."
+  },
+  "troubleshooter.completed": {
+    "message": "Đã kiểm tra xong. Không thay đổi bộ lọc nào."
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Không có tài khoản nào có bộ lọc khả dụng."
+  },
+  "troubleshooter.help": {
+    "message": "Giới thiệu: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.openAddons": {
+    "message": "Mở trình quản lý tiện ích"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Bật cho thư đến…"
+  },
+  "troubleshooter.disable": {
+    "message": "Tắt bộ lọc…"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Cần xem xét"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Đã tắt · Cần xem xét"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Đã giải quyết"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Đã xóa"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Kiểm tra việc chạy tự động"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Kiểm tra thư mục đích"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Tìm hành động và điều kiện bị thiếu"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Kiểm tra điều kiện tìm kiếm"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Kiểm tra xem bộ lọc đã bật có thể chạy khi nhận thư, định kỳ hoặc thủ công hay không."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Đích di chuyển và sao chép có còn tồn tại không?"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Hành động và điều kiện tùy chỉnh có khả dụng không?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Tìm điều kiện ALL/ANY hỗn hợp, nhóm hoặc điều kiện bị thiếu."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Đôi khi bộ lọc không tự chạy dù đã được cấu hình. Hồ sơ Thunderbird bị hỏng có thể là một nguyên nhân. Kiểm tra này tìm thiết lập chạy bị thiếu; không chẩn đoán hỏng hồ sơ."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Thư mục có thể bị di chuyển, xóa hoặc gỡ bỏ trên máy chủ IMAP, khiến bộ lọc mất đích hợp lệ. Thunderbird thường cập nhật quy tắc khi bạn đổi tên hoặc di chuyển thư mục trong cùng tài khoản."
+  },
+  "troubleshooter.help.addons": {
+    "message": "Tiện ích khác có thể cung cấp hành động và điều kiện tùy chỉnh. Có thể cần bật chúng trong thiết lập tiện ích. Chúng cũng có thể không khả dụng nếu tiện ích bị tắt hoặc không tương thích với phiên bản Thunderbird."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Trình sửa bộ lọc Thunderbird hiện hỗ trợ khớp tất cả điều kiện (ALL) hoặc bất kỳ điều kiện nào (ANY). Tính năng kết hợp cả hai trong nhóm đang được phát triển. Ứng dụng thư hoặc phiên bản của bạn có thể đã hỗ trợ tính năng này."
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Chưa cấu hình cách chạy bộ lọc"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Đường dẫn thư mục không hợp lệ"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Hành động tùy chỉnh không khả dụng"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Điều kiện tùy chỉnh không khả dụng"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Không có điều kiện tìm kiếm"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Điều kiện ALL/ANY hỗn hợp hoặc có nhóm"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Không thể phân tích bộ lọc"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Không thể hoàn tất kiểm tra"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Bộ lọc đã bật nhưng chưa được cấu hình để chạy tự động hoặc thủ công. Bật cho thư đến là thay đổi tùy chọn, không phải sửa tự động."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "Hành động di chuyển hoặc sao chép trỏ đến thư mục bị thiếu hoặc không nhận được thư. Chọn đích hiện có trong trình sửa bộ lọc."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "Tiện ích cung cấp hành động có thể bị thiếu, bị tắt hoặc không tương thích. Kiểm tra trình quản lý tiện ích và xem hành động đã bật trong thiết lập tiện ích hay chưa."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "Tiện ích cung cấp điều kiện có thể bị thiếu, bị tắt hoặc không tương thích. Kiểm tra trình quản lý tiện ích và xem điều kiện đã bật trong thiết lập tiện ích hay chưa."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "Bộ lọc này không có điều kiện tìm kiếm. Thêm điều kiện, tắt bộ lọc hoặc xóa nếu không còn cần."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Logic này có thể là có chủ ý. Mở bộ lọc trong trình sửa Thunderbird có thể diễn giải sai điều kiện. Xem văn bản chỉ đọc hoặc tắt bộ lọc mà không thay đổi điều kiện. Tắt không sửa logic."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird không thể phân tích bộ lọc này. Xem văn bản đã lưu mà không mở trình sửa bộ lọc."
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Không thể kiểm tra toàn bộ bộ lọc này. Xem chi tiết lỗi; đừng coi là đã vượt qua kiểm tra."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Mở cửa sổ thư Thunderbird trước khi dùng công cụ kiểm tra."
+  },
+  "troubleshooter.accountUnavailable": {
+    "message": "Tài khoản không khả dụng hoặc không hỗ trợ bộ lọc."
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Phiên xem xét đã hết hạn. Mở lại công cụ kiểm tra."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Mục kiểm tra không xác định."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Bộ lọc không còn khả dụng. Chạy lại kiểm tra."
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Bộ lọc đã bị xóa hoặc thay thế. Chạy lại kiểm tra."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Thay đổi bộ lọc không xác định hoặc không được hỗ trợ."
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Không an toàn khi mở bộ lọc này trong trình sửa. Xem điều kiện hoặc tắt bộ lọc."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Bộ lọc đã thay đổi trong lúc xem xét. Chạy lại kiểm tra."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Xóa “$filter$”? Bộ lọc sẽ bị xóa vĩnh viễn.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Tắt “$filter$”? Bộ lọc sẽ ngừng chạy và giữ nguyên các điều kiện.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Cho phép “$filter$” tự chạy khi có thư mới? Điều này thay đổi thời điểm chạy và không cần thiết nếu chỉ xem xét bộ lọc.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  }
+,
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "Ứng dụng của bạn đã hỗ trợ điều kiện hỗn hợp nên phần kiểm tra đó được bỏ qua. Điều kiện bị thiếu vẫn được kiểm tra."
+  }
+,
+  "troubleshooter.searchTermId": {
+    "message": "ID điều kiện tìm kiếm"
+  }
+,
+  "troubleshooter.actionId": {
+    "message": "ID hành động"
+  }
+,
+  "troubleshooter.missingIdentifier": {
+    "message": "Thiếu mã định danh"
+  }
+,
+  "troubleshooter.mixedEditWarning": {
+    "message": "Bộ lọc này chứa điều kiện hỗn hợp hoặc được nhóm. Trình sửa có thể không hỗ trợ chính xác. Chỉ mở bộ lọc cũng có thể thay đổi điều kiện. Tiếp tục?"
+  }
+,
+  "troubleshooter.openEditorAnyway": {
+    "message": "Vẫn mở trình sửa…"
+  }
+,
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Không cảnh báo lại cho đến khi khởi động lại Thunderbird"
+  }
+,
+  "troubleshooter.customId": {
+    "message": "ID tùy chỉnh"
   }
 }

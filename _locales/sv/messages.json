@@ -728,7 +728,7 @@
     "message": "Kontoåterställning misslyckades"
   },
   "backup.warnings.action": {
-    "message": "Åtgärd"
+    "message": "Åtgärder"
   },
   "backup.warnings.allWarningsShown": {
     "message": "Alla varningar visas."
@@ -764,7 +764,7 @@
     "message": "Dubblettnamn – hoppat över"
   },
   "backup.warnings.editFilter": {
-    "message": "Redigera filter"
+    "message": "Redigera"
   },
   "backup.warnings.editedByUser": {
     "message": "Redigerat av användare"
@@ -2303,5 +2303,334 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters kunde inte hämta de uppgifter som behövs för att skapa eller uppdatera ett filter.\n\nMålmappen ”{0}” kan behöva repareras.\n\nFörsöka reparera mappen nu?\n\nVänta tills reparationen är klar och försök sedan skapa filtret igen."
+  }
+,
+  "troubleshooter.title": {
+    "message": "quickFilters · Felsökning"
+  },
+  "troubleshooter.open": {
+    "message": "Öppna filterfelsökaren…"
+  },
+  "troubleshooter.intro": {
+    "message": "Kör kontroller, granska problem och välj vad som ska ändras."
+  },
+  "troubleshooter.openLog": {
+    "message": "Öppna filterloggen…"
+  },
+  "troubleshooter.logHint": {
+    "message": "Undersök senaste filteraktiviteten för det valda kontot."
+  },
+  "troubleshooter.checks": {
+    "message": "Tillgängliga kontroller"
+  },
+  "troubleshooter.runAll": {
+    "message": "Kör alla kontroller"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Kontrollerar alla problemtyper. Filter ändras alltid först efter ditt uttryckliga val."
+  },
+  "troubleshooter.review": {
+    "message": "Filtergranskning"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Behöver åtgärdas"
+  },
+  "troubleshooter.resolved": {
+    "message": "Löst"
+  },
+  "troubleshooter.allResults": {
+    "message": "Alla resultat"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Resultatstatus"
+  },
+  "troubleshooter.find": {
+    "message": "Sök efter filter…"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Visa villkor…"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "Texten nedan visar enskilda villkor. Grupperingen visas separat i tabellen."
+  },
+  "troubleshooter.copy": {
+    "message": "Kopiera"
+  },
+  "troubleshooter.close": {
+    "message": "Stäng"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Markera texten och kopiera den manuellt."
+  },
+  "troubleshooter.copied": {
+    "message": "Villkorstexten har kopierats."
+  },
+  "troubleshooter.operator": {
+    "message": "Operator"
+  },
+  "troubleshooter.term": {
+    "message": "Sökvillkor"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Gruppstarter"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Gruppslut"
+  },
+  "troubleshooter.check": {
+    "message": "Kontroll"
+  },
+  "troubleshooter.problem": {
+    "message": "Problem"
+  },
+  "troubleshooter.tableHint": {
+    "message": "En rad per problem. Öppna Detaljer för en förklaring."
+  },
+  "troubleshooter.summary": {
+    "message": "$filters$ filter behöver granskas · $resolved$ problem lösta · $checks$ av 4 kontroller körda",
+    "placeholders": {
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      },
+      "checks": {
+        "content": "$3"
+      }
+    }
+  },
+  "troubleshooter.filterCount": {
+    "message": "Filter: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.notRun": {
+    "message": "Inte kontrollerat"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Filter att granska: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noProblems": {
+    "message": "Inga kvarvarande problem"
+  },
+  "troubleshooter.empty": {
+    "message": "Inga resultat i denna vy."
+  },
+  "troubleshooter.start": {
+    "message": "Kör en kontroll av kontots filter."
+  },
+  "troubleshooter.changed": {
+    "message": "Ändringen sparades. Tidigare kontroller har uppdaterats."
+  },
+  "troubleshooter.completed": {
+    "message": "Kontrollerna är klara. Inga filter ändrades."
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Inga konton med filter är tillgängliga."
+  },
+  "troubleshooter.help": {
+    "message": "Om: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.openAddons": {
+    "message": "Öppna tilläggshanteraren"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Aktivera för inkommande e-post…"
+  },
+  "troubleshooter.disable": {
+    "message": "Inaktivera filter…"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Behöver granskas"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Inaktiverat · Behöver granskas"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Löst"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Borttaget"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Kontrollera automatisk filterkörning"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Kontrollera målmappar"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Sök efter saknade åtgärder och villkor"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Kontrollera sökvillkor"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Kontrollera om aktiverade filter kan köras när e-post kommer, periodiskt eller manuellt."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Finns målen för flytt och kopiering fortfarande?"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Är anpassade åtgärder och sökvillkor tillgängliga?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Sök efter blandade ALL/ANY-villkor, grupper eller saknade villkor."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Ibland körs filter inte automatiskt trots att de är inställda för det. En skadad Thunderbird-profil kan vara orsaken. Denna kontroll söker efter saknade körinställningar; den kan inte diagnostisera profilskador."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Mappar kan flyttas, raderas eller tas bort på en IMAP-server, så att ett filter saknar giltigt mål. Thunderbird uppdaterar vanligtvis regler när du byter namn på eller flyttar en mapp inom samma konto."
+  },
+  "troubleshooter.help.addons": {
+    "message": "Andra tillägg kan tillhandahålla anpassade åtgärder och sökvillkor. De kan behöva aktiveras i tilläggets inställningar. De kan också bli otillgängliga om tillägget är inaktiverat eller inkompatibelt med din Thunderbird-version."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Thunderbirds filterredigerare stöder för närvarande alla villkor (ALL) eller något villkor (ANY). Arbete pågår för att kombinera båda i grupper. Din e-postklient eller version kan redan stödja funktionen."
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Inget körsätt har ställts in"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Ogiltig mappsökväg"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Anpassad åtgärd är otillgänglig"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Anpassat sökvillkor är otillgängligt"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Inga sökvillkor"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Blandade ALL/ANY-villkor eller grupper"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Filtret kunde inte tolkas"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Kontrollen kunde inte slutföras"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Filtret är aktiverat men inte inställt för automatisk eller manuell körning. Aktivering för inkommande e-post är en valfri ändring, ingen automatisk reparation."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "En flytt- eller kopieringsåtgärd pekar på en saknad mapp eller en mapp som inte kan ta emot meddelanden. Välj ett befintligt mål i filterredigeraren."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "Tillägget som tillhandahåller åtgärden kan saknas, vara inaktiverat eller inkompatibelt. Kontrollera tilläggshanteraren och om åtgärden är aktiverad i tilläggets inställningar."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "Tillägget som tillhandahåller villkoret kan saknas, vara inaktiverat eller inkompatibelt. Kontrollera tilläggshanteraren och om villkoret är aktiverat i tilläggets inställningar."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "Filtret har inga sökvillkor. Lägg till villkor, inaktivera filtret eller ta bort det om det inte längre behövs."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Logiken kan vara avsiktlig. Att öppna filtret i Thunderbirds redigerare kan feltolka villkoren. Granska den skrivskyddade texten eller inaktivera filtret utan att ändra villkoren. Inaktivering reparerar inte logiken."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird kunde inte tolka filtret. Granska den sparade texten utan att öppna filterredigeraren."
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Filtret kunde inte granskas helt. Läs feldetaljerna; anta inte att kontrollen lyckades."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Öppna ett Thunderbird-fönster för e-post innan du använder felsökaren."
+  },
+  "troubleshooter.accountUnavailable": {
+    "message": "Kontot är otillgängligt eller stöder inte filter."
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Granskningssessionen har gått ut. Öppna felsökaren igen."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Okänd felsökningskontroll."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Filtret är inte längre tillgängligt. Kör kontrollerna igen."
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Filtret har tagits bort eller ersatts. Kör kontrollerna igen."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Okänd filterändring eller ändring som inte stöds."
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Det är osäkert att öppna filtret i redigeraren. Visa villkoren eller inaktivera det."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Filtret ändrades under granskningen. Kör kontrollerna igen."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Ta bort ”$filter$”? Filtret tas bort permanent.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Inaktivera ”$filter$”? Detta stoppar körningen och behåller villkoren oförändrade.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Tillåt att ”$filter$” körs automatiskt när ny e-post kommer? Detta ändrar när filtret körs och behövs inte för att bara granska det.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  }
+,
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "Din app stöder redan blandade villkor, så den delen av kontrollen hoppas över. Saknade villkor kontrolleras fortfarande."
+  }
+,
+  "troubleshooter.searchTermId": {
+    "message": "Sökvillkors-ID"
+  }
+,
+  "troubleshooter.actionId": {
+    "message": "Åtgärds-ID"
+  }
+,
+  "troubleshooter.missingIdentifier": {
+    "message": "Identifierare saknas"
+  }
+,
+  "troubleshooter.mixedEditWarning": {
+    "message": "Filtret innehåller blandade eller grupperade villkor. Din filterredigerare kanske inte stöder dem korrekt. Att öppna filtret kan ändra villkoren. Fortsätta?"
+  }
+,
+  "troubleshooter.openEditorAnyway": {
+    "message": "Öppna redigeraren ändå…"
+  }
+,
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Varna inte igen förrän Thunderbird startas om"
+  }
+,
+  "troubleshooter.customId": {
+    "message": "Anpassat ID"
   }
 }

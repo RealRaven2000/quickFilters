@@ -1003,7 +1003,7 @@
     "message": "Account restore failed"
   },
   "backup.warnings.action": {
-    "message": "Action"
+    "message": "Actions"
   },
   "backup.warnings.allWarningsShown": {
     "message": "All warnings shown."
@@ -1043,7 +1043,7 @@
     "message": "Duplicate name — skipped"
   },
   "backup.warnings.editFilter": {
-    "message": "Edit filter"
+    "message": "Edit"
   },
   "backup.warnings.editedByUser": {
     "message": "Edited by User"
@@ -2615,7 +2615,7 @@
     "message": "Run all checks"
   },
   "troubleshooter.readOnly": {
-    "message": "Checks only report problems. Changes to filters always require your explicit choice."
+    "message": "Checks all problem types. Changes to filters always require your explicit choice."
   },
   "troubleshooter.review": {
     "message": "Filter review"
@@ -2636,7 +2636,7 @@
     "message": "Find a filter…"
   },
   "troubleshooter.viewConditions": {
-    "message": "View conditions…"
+    "message": "Display conditions…"
   },
   "troubleshooter.conditionHint": {
     "message": "The text below lists individual conditions. Grouping is shown separately in the table."

@@ -37,6 +37,8 @@ button:disabled { opacity: .55; cursor: default; }
 .help-text { position: absolute; inset-inline-start: 0; top: calc(100% + 8px); width: min(380px, calc(100vw - 100px)); padding: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 24px #182a4426; z-index: 5; color: var(--muted); font-size: 14px; }
 a { color: var(--accent); }
 .check-status { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.check-status.check-success { color: #237343; }
+@media (prefers-color-scheme: dark) { .check-status.check-success { color: #83dba2; } }
 .host-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
 .run { padding: 16px; border-top: 1px solid var(--line); }
 .run button { display: block; margin-bottom: 6px; }

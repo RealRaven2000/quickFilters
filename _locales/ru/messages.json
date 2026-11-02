@@ -728,7 +728,7 @@
     "message": "Не удалось восстановить учетную запись."
   },
   "backup.warnings.action": {
-    "message": "Действие"
+    "message": "Действия"
   },
   "backup.warnings.allWarningsShown": {
     "message": "Отображаются все предупреждения."
@@ -764,7 +764,7 @@
     "message": "Повторяющееся имя — пропускается"
   },
   "backup.warnings.editFilter": {
-    "message": "Редактировать фильтр"
+    "message": "Изменить"
   },
   "backup.warnings.editedByUser": {
     "message": "Отредактировано пользователем"
@@ -2300,5 +2300,334 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters не удалось получить сведения, необходимые для создания или обновления фильтра.\n\nВозможно, папку назначения «{0}» необходимо восстановить.\n\nПопробовать восстановить папку сейчас?\n\nДождитесь завершения восстановления, затем попробуйте создать фильтр снова."
+  }
+,
+  "troubleshooter.title": {
+    "message": "quickFilters · Устранение неполадок"
+  },
+  "troubleshooter.open": {
+    "message": "Открыть проверку фильтров…"
+  },
+  "troubleshooter.intro": {
+    "message": "Запустите проверки, изучите проблемы и выберите изменения."
+  },
+  "troubleshooter.openLog": {
+    "message": "Открыть журнал фильтров…"
+  },
+  "troubleshooter.logHint": {
+    "message": "Изучите недавние действия фильтров выбранной учётной записи."
+  },
+  "troubleshooter.checks": {
+    "message": "Доступные проверки"
+  },
+  "troubleshooter.runAll": {
+    "message": "Выполнить все проверки"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Проверяет все типы проблем. Изменения фильтров всегда требуют вашего явного решения."
+  },
+  "troubleshooter.review": {
+    "message": "Проверка фильтров"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Требует внимания"
+  },
+  "troubleshooter.resolved": {
+    "message": "Решено"
+  },
+  "troubleshooter.allResults": {
+    "message": "Все результаты"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Состояние результата"
+  },
+  "troubleshooter.find": {
+    "message": "Найти фильтр…"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Показать условия…"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "Ниже перечислены отдельные условия. Группировка показана отдельно в таблице."
+  },
+  "troubleshooter.copy": {
+    "message": "Копировать"
+  },
+  "troubleshooter.close": {
+    "message": "Закрыть"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Выделите текст и скопируйте его вручную."
+  },
+  "troubleshooter.copied": {
+    "message": "Текст условий скопирован."
+  },
+  "troubleshooter.operator": {
+    "message": "Оператор"
+  },
+  "troubleshooter.term": {
+    "message": "Условие поиска"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Начала групп"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Концы групп"
+  },
+  "troubleshooter.check": {
+    "message": "Проверка"
+  },
+  "troubleshooter.problem": {
+    "message": "Проблема"
+  },
+  "troubleshooter.tableHint": {
+    "message": "Одна строка на проблему. Раскройте подробности для пояснения."
+  },
+  "troubleshooter.summary": {
+    "message": "Фильтры для проверки: $filters$ · Решено проблем: $resolved$ · Выполнено проверок: $checks$ из 4",
+    "placeholders": {
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      },
+      "checks": {
+        "content": "$3"
+      }
+    }
+  },
+  "troubleshooter.filterCount": {
+    "message": "Фильтров: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.notRun": {
+    "message": "Не проверено"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Фильтры для проверки: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noProblems": {
+    "message": "Нерешённых проблем нет"
+  },
+  "troubleshooter.empty": {
+    "message": "В этом представлении нет результатов."
+  },
+  "troubleshooter.start": {
+    "message": "Запустите проверку фильтров этой учётной записи."
+  },
+  "troubleshooter.changed": {
+    "message": "Изменение сохранено. Ранее выполненные проверки обновлены."
+  },
+  "troubleshooter.completed": {
+    "message": "Проверки завершены. Фильтры не изменены."
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Нет доступных учётных записей с фильтрами."
+  },
+  "troubleshooter.help": {
+    "message": "О проверке: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.openAddons": {
+    "message": "Открыть управление дополнениями"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Включить для входящей почты…"
+  },
+  "troubleshooter.disable": {
+    "message": "Отключить фильтр…"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Требует проверки"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Отключён · Требует проверки"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Решено"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Удалён"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Проверить автоматический запуск"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Проверить целевые папки"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Найти отсутствующие действия и условия"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Проверить условия поиска"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Проверьте, могут ли включённые фильтры запускаться при получении почты, периодически или вручную."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Существуют ли ещё папки для перемещения и копирования?"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Доступны ли пользовательские действия и условия поиска?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Найдите смешанные условия ALL/ANY, группы или отсутствующие условия."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Иногда фильтры не запускаются автоматически, хотя настроены на это. Причиной может быть повреждённый профиль Thunderbird. Эта проверка ищет отсутствующие настройки запуска, но не диагностирует повреждение профиля."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Папки могут быть перемещены, удалены или исчезнуть на сервере IMAP, оставив фильтр без допустимой цели. Thunderbird обычно обновляет правила при переименовании или перемещении папки в пределах одной учётной записи."
+  },
+  "troubleshooter.help.addons": {
+    "message": "Другие дополнения могут предоставлять пользовательские действия и условия. Возможно, их нужно включить в настройках дополнения. Они также могут стать недоступны, если дополнение отключено или несовместимо с вашей версией Thunderbird."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Редактор фильтров Thunderbird сейчас поддерживает совпадение всех условий (ALL) или любого из них (ANY). Ведётся работа над объединением обоих способов в группах. Ваш почтовый клиент или версия уже может поддерживать эту возможность."
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Не настроен способ запуска фильтра"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Недопустимый путь к папке"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Пользовательское действие недоступно"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Пользовательское условие недоступно"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Нет условий поиска"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Смешанные условия ALL/ANY или группы"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Не удалось разобрать фильтр"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Не удалось завершить проверку"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Фильтр включён, но автоматический или ручной запуск не настроен. Включение для входящей почты — необязательное изменение, а не автоматическое исправление."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "Действие перемещения или копирования указывает на отсутствующую папку или папку, которая не может принимать сообщения. Выберите существующую цель в редакторе фильтров."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "Дополнение, предоставляющее действие, может отсутствовать, быть отключено или несовместимо. Проверьте управление дополнениями и включение действия в настройках дополнения."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "Дополнение, предоставляющее условие, может отсутствовать, быть отключено или несовместимо. Проверьте управление дополнениями и включение условия в настройках дополнения."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "У этого фильтра нет условий поиска. Добавьте их, отключите фильтр или удалите его, если он больше не нужен."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Такая логика может быть намеренной. Открытие фильтра в редакторе Thunderbird может привести к неверной интерпретации условий. Изучите текст только для чтения или отключите фильтр без изменения условий. Отключение не исправляет логику."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird не смог разобрать фильтр. Изучите сохранённый текст, не открывая редактор фильтров."
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Не удалось полностью проверить фильтр. Изучите сведения об ошибке; не считайте проверку успешной."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Откройте почтовое окно Thunderbird перед использованием проверки."
+  },
+  "troubleshooter.accountUnavailable": {
+    "message": "Учётная запись недоступна или не поддерживает фильтры."
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Срок действия сеанса истёк. Откройте проверку заново."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Неизвестная проверка неполадок."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Фильтр больше недоступен. Повторите проверки."
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Фильтр удалён или заменён. Повторите проверки."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Неизвестное или неподдерживаемое изменение фильтра."
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Открывать этот фильтр в редакторе небезопасно. Просмотрите условия или отключите его."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Фильтр изменился во время проверки. Повторите проверки."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Удалить «$filter$»? Фильтр будет удалён безвозвратно.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Отключить «$filter$»? Это остановит его запуск и сохранит условия без изменений.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Разрешить автоматический запуск «$filter$» при поступлении почты? Это меняет время запуска фильтра и не требуется для простого просмотра.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  }
+,
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "Ваше приложение уже поддерживает смешанные условия, поэтому эта часть проверки пропускается. Отсутствующие условия по-прежнему проверяются."
+  }
+,
+  "troubleshooter.searchTermId": {
+    "message": "ID условия поиска"
+  }
+,
+  "troubleshooter.actionId": {
+    "message": "ID действия"
+  }
+,
+  "troubleshooter.missingIdentifier": {
+    "message": "Идентификатор отсутствует"
+  }
+,
+  "troubleshooter.mixedEditWarning": {
+    "message": "Этот фильтр содержит смешанные или сгруппированные условия. Редактор может поддерживать их некорректно. Открытие может изменить условия. Продолжить?"
+  }
+,
+  "troubleshooter.openEditorAnyway": {
+    "message": "Всё равно открыть редактор…"
+  }
+,
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Не предупреждать до перезапуска Thunderbird"
+  }
+,
+  "troubleshooter.customId": {
+    "message": "Пользовательский ID"
   }
 }

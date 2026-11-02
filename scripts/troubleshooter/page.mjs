@@ -93,7 +93,9 @@ function render() {
   $("#account-summary").textContent = t("filterCount", [accounts.find(item => item.id === $("#account").value)?.count || 0]);
   for (const category of checks) {
     const count = new Set(unresolved.filter(item => item.category === category).map(item => item.token)).size;
-    $(`[data-status="${category}"]`).textContent = !review.checks.has(category) ? t("notRun") : count ? t("needsReviewCount", [count]) : t("noProblems");
+    const status = $(`[data-status="${category}"]`);
+    status.textContent = !review.checks.has(category) ? t("notRun") : count ? t("needsReviewCount", [count]) : t("noProblems");
+    status.classList.toggle("check-success", review.checks.has(category) && count === 0);
   }
   const visible = review.visible($("#search").value, $("#view").value);
   $("#results").replaceChildren(visible.length ? createFilterProblemTable({

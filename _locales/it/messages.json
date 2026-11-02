@@ -728,7 +728,7 @@
     "message": "Ripristino dell'account non riuscito"
   },
   "backup.warnings.action": {
-    "message": "Azione"
+    "message": "Azioni"
   },
   "backup.warnings.allWarningsShown": {
     "message": "Tutti gli avvisi visualizzati."
@@ -764,7 +764,7 @@
     "message": "Nome duplicato: saltato"
   },
   "backup.warnings.editFilter": {
-    "message": "Modifica filtro"
+    "message": "Modifica"
   },
   "backup.warnings.editedByUser": {
     "message": "Modificato dall'utente"
@@ -2307,5 +2307,334 @@
   },
   "quickfilters.warning.messageLookupTimeout": {
     "message": "quickFilters non è riuscito a recuperare le informazioni necessarie per creare o aggiornare un filtro.\n\nPotrebbe essere necessario riparare la cartella di destinazione «{0}».\n\nProvare a riparare la cartella adesso?\n\nAttendere il completamento della riparazione, quindi provare nuovamente a creare il filtro."
+  }
+,
+  "troubleshooter.title": {
+    "message": "quickFilters · Risoluzione problemi"
+  },
+  "troubleshooter.open": {
+    "message": "Apri risoluzione problemi dei filtri…"
+  },
+  "troubleshooter.intro": {
+    "message": "Esegui i controlli, esamina i problemi e decidi cosa cambiare."
+  },
+  "troubleshooter.openLog": {
+    "message": "Apri registro filtri…"
+  },
+  "troubleshooter.logHint": {
+    "message": "Esamina l’attività recente dei filtri dell’account selezionato."
+  },
+  "troubleshooter.checks": {
+    "message": "Controlli disponibili"
+  },
+  "troubleshooter.runAll": {
+    "message": "Esegui tutti i controlli"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Controlla tutti i tipi di problemi. Le modifiche ai filtri richiedono sempre una tua scelta esplicita."
+  },
+  "troubleshooter.review": {
+    "message": "Revisione filtri"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Richiede attenzione"
+  },
+  "troubleshooter.resolved": {
+    "message": "Risolto"
+  },
+  "troubleshooter.allResults": {
+    "message": "Tutti i risultati"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Stato del risultato"
+  },
+  "troubleshooter.find": {
+    "message": "Cerca un filtro…"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Visualizza condizioni…"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "Il testo seguente elenca le singole condizioni. I raggruppamenti sono mostrati separatamente nella tabella."
+  },
+  "troubleshooter.copy": {
+    "message": "Copia"
+  },
+  "troubleshooter.close": {
+    "message": "Chiudi"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Seleziona il testo e copialo manualmente."
+  },
+  "troubleshooter.copied": {
+    "message": "Testo delle condizioni copiato."
+  },
+  "troubleshooter.operator": {
+    "message": "Operatore"
+  },
+  "troubleshooter.term": {
+    "message": "Condizione di ricerca"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Inizi gruppo"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Fini gruppo"
+  },
+  "troubleshooter.check": {
+    "message": "Controllo"
+  },
+  "troubleshooter.problem": {
+    "message": "Problema"
+  },
+  "troubleshooter.tableHint": {
+    "message": "Una riga per problema. Espandi Dettagli per una spiegazione."
+  },
+  "troubleshooter.summary": {
+    "message": "$filters$ filtri da esaminare · $resolved$ problemi risolti · $checks$ controlli eseguiti su 4",
+    "placeholders": {
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      },
+      "checks": {
+        "content": "$3"
+      }
+    }
+  },
+  "troubleshooter.filterCount": {
+    "message": "Filtri: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.notRun": {
+    "message": "Non controllato"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Filtri da esaminare: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noProblems": {
+    "message": "Nessun problema rimanente"
+  },
+  "troubleshooter.empty": {
+    "message": "Nessun risultato in questa vista."
+  },
+  "troubleshooter.start": {
+    "message": "Esegui un controllo per esaminare i filtri di questo account."
+  },
+  "troubleshooter.changed": {
+    "message": "Modifica salvata. I controlli già eseguiti sono stati aggiornati."
+  },
+  "troubleshooter.completed": {
+    "message": "Controlli completati. Nessun filtro è stato modificato."
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Nessun account con filtri disponibile."
+  },
+  "troubleshooter.help": {
+    "message": "Informazioni: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.openAddons": {
+    "message": "Apri gestione componenti aggiuntivi"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Attiva per la posta in arrivo…"
+  },
+  "troubleshooter.disable": {
+    "message": "Disattiva filtro…"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Da esaminare"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Disattivato · Da esaminare"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Risolto"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Eliminato"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Controlla esecuzione automatica"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Controlla cartelle di destinazione"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Cerca azioni e condizioni mancanti"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Controlla condizioni di ricerca"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Verifica se i filtri attivi possono essere eseguiti all’arrivo della posta, periodicamente o manualmente."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Le destinazioni per spostamento e copia esistono ancora?"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Le azioni e le condizioni personalizzate sono disponibili?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Cerca condizioni ALL/ANY miste, gruppi o condizioni mancanti."
+  },
+  "troubleshooter.help.runs": {
+    "message": "A volte i filtri non vengono eseguiti automaticamente anche se configurati per farlo. Un profilo Thunderbird danneggiato può esserne la causa. Questo controllo cerca impostazioni di esecuzione mancanti; non può diagnosticare danni al profilo."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Le cartelle possono essere spostate, eliminate o rimosse da un server IMAP, lasciando un filtro senza destinazione valida. Thunderbird di solito aggiorna le regole quando rinomini o sposti una cartella nello stesso account."
+  },
+  "troubleshooter.help.addons": {
+    "message": "Altri componenti aggiuntivi possono fornire azioni e condizioni personalizzate. Potrebbe essere necessario attivarle nelle loro impostazioni. Possono anche diventare indisponibili se il componente è disattivato o incompatibile con la tua versione di Thunderbird."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "L’editor dei filtri di Thunderbird permette attualmente di soddisfare tutte le condizioni (ALL) o una qualsiasi (ANY). Si sta lavorando per combinare entrambe in gruppi. Il tuo programma di posta o la tua versione potrebbe già supportare questa funzione."
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Nessun metodo di esecuzione configurato"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Percorso cartella non valido"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Azione personalizzata non disponibile"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Condizione personalizzata non disponibile"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Nessuna condizione di ricerca"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Condizioni ALL/ANY miste o raggruppate"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Impossibile interpretare il filtro"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Impossibile completare il controllo"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Questo filtro è attivo ma non è configurato per l’esecuzione automatica o manuale. Attivarlo per la posta in arrivo è una modifica facoltativa, non una riparazione automatica."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "Un’azione di spostamento o copia punta a una cartella mancante o che non può ricevere messaggi. Scegli una destinazione esistente nell’editor dei filtri."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "Il fornitore dell’azione potrebbe mancare, essere disattivato o incompatibile. Controlla la gestione componenti aggiuntivi e se l’azione è attiva nelle impostazioni del fornitore."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "Il fornitore della condizione potrebbe mancare, essere disattivato o incompatibile. Controlla la gestione componenti aggiuntivi e se la condizione è attiva nelle impostazioni del fornitore."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "Questo filtro non ha condizioni di ricerca. Aggiungile, disattiva il filtro o eliminalo se non serve più."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Questa logica può essere intenzionale. Aprire il filtro nell’editor di Thunderbird può interpretarne male le condizioni. Esamina il testo di sola lettura o disattiva il filtro senza modificarne le condizioni. La disattivazione non ripara la logica."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird non ha potuto interpretare questo filtro. Esamina il testo salvato senza aprire l’editor dei filtri."
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Non è stato possibile esaminare completamente questo filtro. Controlla i dettagli dell’errore; non presumere che il controllo sia riuscito."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Apri una finestra di posta Thunderbird prima di usare la risoluzione problemi."
+  },
+  "troubleshooter.accountUnavailable": {
+    "message": "Questo account non è disponibile o non supporta i filtri."
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Questa sessione di revisione è scaduta. Riapri la risoluzione problemi."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Controllo sconosciuto."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Questo filtro non è più disponibile. Esegui nuovamente i controlli."
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Questo filtro è stato rimosso o sostituito. Esegui nuovamente i controlli."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Modifica del filtro sconosciuta o non supportata."
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Aprire questo filtro nell’editor non è sicuro. Visualizza le condizioni o disattivalo."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Questo filtro è cambiato durante la revisione. Esegui nuovamente i controlli."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Eliminare “$filter$”? Il filtro verrà rimosso definitivamente.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Disattivare “$filter$”? L’esecuzione verrà interrotta e le condizioni rimarranno invariate.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Consentire a “$filter$” di essere eseguito automaticamente all’arrivo di nuovi messaggi? Questo modifica quando viene eseguito il filtro e non è necessario per esaminarlo.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  }
+,
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "La tua applicazione supporta già le condizioni miste, quindi questa parte del controllo viene omessa. Le condizioni mancanti vengono comunque controllate."
+  }
+,
+  "troubleshooter.searchTermId": {
+    "message": "ID condizione"
+  }
+,
+  "troubleshooter.actionId": {
+    "message": "ID azione"
+  }
+,
+  "troubleshooter.missingIdentifier": {
+    "message": "Identificatore mancante"
+  }
+,
+  "troubleshooter.mixedEditWarning": {
+    "message": "Questo filtro contiene condizioni miste o raggruppate. Il tuo editor potrebbe non supportarle correttamente. Aprirlo potrebbe modificarle. Continuare?"
+  }
+,
+  "troubleshooter.openEditorAnyway": {
+    "message": "Apri comunque l’editor…"
+  }
+,
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Non avvisare fino al riavvio di Thunderbird"
+  }
+,
+  "troubleshooter.customId": {
+    "message": "ID personalizzato"
   }
 }
