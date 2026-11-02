@@ -32,16 +32,16 @@ test("FiltersAPI owns backup/restore methods and loads fresh scopes for unpacked
   }
   for (const method of schema.functions) assert.equal(typeof results[0][method.name], "function", method.name);
   assert.equal(utilities.functions.some(method => method.name === "restoreFilters"), false);
-  assert.equal(loads.length, 4);
+  assert.equal(loads.length, 6);
   for (const [index, { url, options }] of loads.entries()) {
-    assert(url.startsWith(index < 2 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
-    assert(url.endsWith(`filtersAPI/${index % 2 ? "restore" : "backup"}.js`));
+    assert(url.startsWith(index < 3 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
+    assert(url.endsWith(`filtersAPI/${["backup", "restore", "troubleshooter"][index % 3]}.js`));
     assert.equal(options.charset, "UTF-8");
     assert.equal(options.ignoreCache, true);
     assert.equal(options.allowUnsafeURL, true);
     assert.equal(options.target.t("example"), "example");
   }
-  assert.notEqual(loads[0].options.target, loads[2].options.target);
-  assert.notEqual(loads[1].options.target, loads[3].options.target);
+  assert.notEqual(loads[0].options.target, loads[3].options.target);
+  assert.notEqual(loads[1].options.target, loads[4].options.target);
   assert.deepEqual(await results[0].exportBackupAccounts(["a"], "selection"), { ids: ["a"], token: "selection" });
 });

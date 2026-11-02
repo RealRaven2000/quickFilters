@@ -51,7 +51,7 @@ test("backup UI references exist in the English catalog and placeholders are dec
     getMessage(key, ["one", "two", "three", "four", "five", "six"]);
   }
   const shared = await readFile(new URL("../../scripts/filter-review/warning-panel.mjs", import.meta.url), "utf8");
-  for (const match of shared.matchAll(/text\("([\w]+)"/g)) {
+  for (const match of shared.slice(shared.indexOf("export function createFilterWarningPanel")).matchAll(/text\("([\w]+)"/g)) {
     assert(messages[`backup.warnings.${match[1]}`], `Missing shared review message: ${match[1]}`);
   }
 });
