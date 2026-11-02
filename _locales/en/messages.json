@@ -2592,4 +2592,333 @@
   "yearlyLicense.usageTerm1": {
     "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
   }
+,
+  "troubleshooter.title": {
+    "message": "quickFilters · Troubleshooter"
+  },
+  "troubleshooter.open": {
+    "message": "Open filter troubleshooter…"
+  },
+  "troubleshooter.intro": {
+    "message": "Run checks, review problems and decide what to change."
+  },
+  "troubleshooter.openLog": {
+    "message": "Open filter log…"
+  },
+  "troubleshooter.logHint": {
+    "message": "Investigate recent filter activity for the selected account."
+  },
+  "troubleshooter.checks": {
+    "message": "Checks to run"
+  },
+  "troubleshooter.runAll": {
+    "message": "Run all checks"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Checks only report problems. Changes to filters always require your explicit choice."
+  },
+  "troubleshooter.review": {
+    "message": "Filter review"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Needs attention"
+  },
+  "troubleshooter.resolved": {
+    "message": "Resolved"
+  },
+  "troubleshooter.allResults": {
+    "message": "All results"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Result status"
+  },
+  "troubleshooter.find": {
+    "message": "Find a filter…"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "View conditions…"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "The text below lists individual conditions. Grouping is shown separately in the table."
+  },
+  "troubleshooter.copy": {
+    "message": "Copy"
+  },
+  "troubleshooter.close": {
+    "message": "Close"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Select the text and copy it manually."
+  },
+  "troubleshooter.copied": {
+    "message": "Condition text copied."
+  },
+  "troubleshooter.operator": {
+    "message": "Operator"
+  },
+  "troubleshooter.term": {
+    "message": "Search term"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Group starts"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Group ends"
+  },
+  "troubleshooter.check": {
+    "message": "Check"
+  },
+  "troubleshooter.problem": {
+    "message": "Problem"
+  },
+  "troubleshooter.tableHint": {
+    "message": "One row per problem. Expand Details for an explanation."
+  },
+  "troubleshooter.summary": {
+    "message": "Filters needing review: $filters$ · $resolved$ problems resolved · $checks$ of 4 checks run",
+    "placeholders": {
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      },
+      "checks": {
+        "content": "$3"
+      }
+    }
+  },
+  "troubleshooter.filterCount": {
+    "message": "Filters: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.notRun": {
+    "message": "Not checked"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Filters to review: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noProblems": {
+    "message": "No remaining problems"
+  },
+  "troubleshooter.empty": {
+    "message": "No results in this view."
+  },
+  "troubleshooter.start": {
+    "message": "Run a check to inspect this account’s filters."
+  },
+  "troubleshooter.changed": {
+    "message": "Change saved. Previously run checks have been refreshed."
+  },
+  "troubleshooter.completed": {
+    "message": "Checks completed. No filters were changed."
+  },
+  "troubleshooter.noAccounts": {
+    "message": "No accounts with filters are available."
+  },
+  "troubleshooter.help": {
+    "message": "About: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.openAddons": {
+    "message": "Open Add-ons Manager"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Enable for incoming mail…"
+  },
+  "troubleshooter.disable": {
+    "message": "Disable filter…"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Needs review"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Disabled · Review needed"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Resolved"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Deleted"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Check automatic filter runs"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Check target folders"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Check for missing actions & terms"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Check search conditions"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Check whether enabled filters can run automatically on incoming mail, periodically or manually."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Do move and copy destinations still exist?"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Are custom actions and search terms available?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Look for mixed ALL/ANY conditions, grouping or missing search terms."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Sometimes filters do not run automatically even when configured to do so. A damaged Thunderbird profile can be one cause. This check looks for missing run settings; it cannot diagnose profile corruption."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Folders may be moved, deleted or removed on an IMAP server, leaving a filter without a valid destination. Thunderbird usually updates filter rules when you rename or move a folder within the same account."
+  },
+  "troubleshooter.help.addons": {
+    "message": "Other add-ons can provide custom actions and search terms. You may need to enable them in the add-on’s settings. They can also become unavailable if the add-on is disabled or incompatible with your Thunderbird version."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Thunderbird’s filter editor currently supports matching ALL conditions or ANY condition. Work is underway to support combining both in groups. Your mail client or version may already support this feature."
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "No way to run this filter configured"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Invalid folder path"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Custom action unavailable"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Custom search term unavailable"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "No search conditions"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Mixed ALL/ANY or grouped conditions"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Filter could not be parsed"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Check could not be completed"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "This filter is enabled, but is not configured to run automatically or manually. Enabling it for incoming mail is an optional change, not an automatic repair."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "A move or copy action points to a folder that is missing or cannot receive messages. Select an existing destination in the filter editor."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "The action’s provider may be missing, disabled or incompatible. Check the Add-ons Manager and whether the action is enabled in the provider’s settings."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "The search term’s provider may be missing, disabled or incompatible. Check the Add-ons Manager and whether the term is enabled in the provider’s settings."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "This filter has no search conditions. Add conditions, disable it or delete it if it is no longer needed."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "This logic may be intentional. Opening this filter in Thunderbird’s editor may misinterpret its conditions. Inspect the read-only text or disable the filter without changing its conditions. Disabling does not repair the logic."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird could not parse this filter. Inspect its stored text without opening the filter editor."
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "The check could not inspect this filter completely. Review the error details; do not assume that it passed."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Open a Thunderbird mail window before using the troubleshooter."
+  },
+  "troubleshooter.accountUnavailable": {
+    "message": "This account is unavailable or does not support filters."
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "This review session has expired. Reopen the troubleshooter."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Unknown troubleshooting check."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "This filter is no longer available. Rerun the checks."
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "This filter was removed or replaced. Rerun the checks."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Unknown or unsupported filter change."
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Opening this filter in the editor is unsafe. View its conditions or disable it instead."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "This filter changed during review. Rerun the checks."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Delete “$filter$”? This permanently removes the filter.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Disable “$filter$”? This stops it from running and preserves its conditions unchanged.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Allow “$filter$” to run automatically when new mail arrives? This changes when the filter runs; it is not required merely to inspect it.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  }
+,
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "Your app already supports mixed conditions, so that part of this check is omitted. Missing conditions are still checked."
+  }
+,
+  "troubleshooter.searchTermId": {
+    "message": "Search term ID"
+  }
+,
+  "troubleshooter.actionId": {
+    "message": "Action ID"
+  }
+,
+  "troubleshooter.missingIdentifier": {
+    "message": "Missing identifier"
+  }
+,
+  "troubleshooter.mixedEditWarning": {
+    "message": "This filter contains mixed or grouped conditions. Your filter editor may not support them correctly. Opening it could alter them. Continue?"
+  }
+,
+  "troubleshooter.openEditorAnyway": {
+    "message": "Open editor anyway…"
+  }
+,
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Don’t warn again until Thunderbird restarts"
+  }
+,
+  "troubleshooter.customId": {
+    "message": "Custom ID"
+  }
 }

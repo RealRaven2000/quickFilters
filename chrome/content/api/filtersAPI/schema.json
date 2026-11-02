@@ -276,6 +276,129 @@
         "returns": {
           "type": "any"
         }
+      },
+      {
+        "name": "beginTroubleshooting",
+        "type": "function",
+        "async": true,
+        "parameters": [],
+        "returns": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "endTroubleshooting",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "session",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "scanFilters",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "session",
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "name": "checks",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "runs",
+                "folders",
+                "addons",
+                "conditions"
+              ]
+            }
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "getFilterConditionText",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "session",
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "remedyFilter",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "session",
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "type": "string"
+          },
+          {
+            "name": "remedy",
+            "type": "string",
+            "enum": [
+              "edit",
+              "delete",
+              "disable",
+              "enableIncoming"
+            ]
+          }
+        ],
+        "returns": {
+          "type": "any"
+        }
+      },
+      {
+        "name": "openFilterLog",
+        "type": "function",
+        "async": true,
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "openFilterAddons",
+        "type": "function",
+        "async": true,
+        "parameters": []
+      },
+      {
+        "name": "getTroubleshooterInfo",
+        "type": "function",
+        "async": true,
+        "parameters": [],
+        "returns": {
+          "type": "any"
+        }
       }
     ]
   }

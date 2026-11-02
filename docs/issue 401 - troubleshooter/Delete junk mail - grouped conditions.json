@@ -1,0 +1,97 @@
+{
+  "format": "quickFilters-backup",
+  "formatVersion": 1,
+  "addonVersion": "6.14.1pre37",
+  "createdAt": "2026-11-02T15:47:56.322Z",
+  "sourceProfile": {
+    "name": "Beta 140"
+  },
+  "accounts": [
+    {
+      "id": "account1",
+      "name": "thunderbirddaily 67",
+      "type": "imap",
+      "username": "thunderbirddaily67@gmail.com",
+      "hostname": "imap.gmail.com",
+      "rootUri": "imap://thunderbirddaily67%40gmail.com@imap.gmail.com",
+      "localFolders": false,
+      "filters": [
+        {
+          "filterName": "Delete junk mail",
+          "filterDesc": "",
+          "filterType": 273,
+          "temporary": false,
+          "actionCount": 1,
+          "enabled": false,
+          "actionList": [
+            {
+              "type": 3
+            }
+          ],
+          "searchTerms": [
+            {
+              "attrib": -2,
+              "op": 2,
+              "value": {
+                "attrib": -2,
+                "str": "Junk"
+              },
+              "booleanAnd": true,
+              "customId": "filtaquilla@mesquilla.com#folderName",
+              "beginsGrouping": false,
+              "endsGrouping": false,
+              "customTermName": "Folder Name"
+            },
+            {
+              "attrib": 1,
+              "op": 19,
+              "value": {
+                "attrib": 1,
+                "str": "^(?=(?:[^A-Z@]*[A-Z]){3,})(?=(?:[^a-z@]*[a-z]){3,})[A-Za-z]+@[^@]*\\.[^@]*\\.[^@]*$"
+              },
+              "booleanAnd": true,
+              "beginsGrouping": true,
+              "endsGrouping": false
+            },
+            {
+              "attrib": 2,
+              "op": 19,
+              "value": {
+                "attrib": 2,
+                "str": "This is an advertisement"
+              },
+              "booleanAnd": false,
+              "beginsGrouping": false,
+              "endsGrouping": false
+            },
+            {
+              "attrib": 2,
+              "op": 19,
+              "value": {
+                "attrib": 2,
+                "str": "This is a Paid Advertisement"
+              },
+              "booleanAnd": false,
+              "beginsGrouping": false,
+              "endsGrouping": false
+            },
+            {
+              "attrib": 53,
+              "op": 19,
+              "value": {
+                "attrib": 53,
+                "str": "[a-z]{3}\\d{8}\\.onmicrosoft\\.com"
+              },
+              "booleanAnd": false,
+              "arbitraryHeader": "received",
+              "beginsGrouping": false,
+              "endsGrouping": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "referencedAccounts": [],
+  "warnings": []
+}

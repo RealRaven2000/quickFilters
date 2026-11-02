@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>quickFilters</title>
+  <link rel="stylesheet" href="filter-troubleshooter.css">
+  <link rel="stylesheet" href="../scripts/filter-review/warning-panel.css">
+  <script type="module" src="../scripts/troubleshooter/page.mjs"></script>
+</head>
+<body>
+  <main>
+    <header><img src="../chrome/content/skin/QuickFilters.svg" alt="" width="56" height="56"><div><h1 data-i18n="title"></h1><p data-i18n="intro"></p></div></header>
+    <div class="context">
+      <label><span data-i18n="account"></span> <select id="account"></select></label>
+      <span id="account-summary"></span>
+      <div class="log-tool"><button id="open-log" data-i18n="openLog" disabled></button><small data-i18n="logHint"></small></div>
+    </div>
+    <div class="layout">
+      <section class="checks" aria-labelledby="checks-heading"><h2 id="checks-heading" data-i18n="checks"></h2><div id="checks"></div><div class="run"><button class="primary" id="run-all" data-i18n="runAll" disabled></button><small data-i18n="readOnly"></small></div></section>
+      <section class="review" aria-labelledby="review-heading"><h2 id="review-heading" data-i18n="review"></h2><p id="summary" role="status"></p>
+        <div class="tools"><input type="search" id="search"><select id="view"><option value="remaining" data-i18n="needsAttention"></option><option value="resolved" data-i18n="resolved"></option><option value="all" data-i18n="allResults"></option></select></div>
+        <div id="results"></div>
+      </section>
+    </div>
+    <p id="notice" role="status" aria-live="polite"></p>
+  </main>
+  <dialog id="conditions" aria-labelledby="conditions-heading"><h2 id="conditions-heading" data-i18n="viewConditions"></h2><p id="conditions-name"></p><p data-i18n="conditionHint"></p><div class="condition-source"><pre id="condition-text" tabindex="0"></pre><button id="copy-conditions" data-i18n="copy"></button></div><div id="term-structure"></div><div class="dialog-actions"><button id="edit-conditions" data-i18n="edit" hidden></button><button id="close-conditions" data-i18n="close"></button></div></dialog>
+</body>
+</html>

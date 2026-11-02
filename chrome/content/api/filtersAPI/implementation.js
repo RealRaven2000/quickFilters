@@ -24,8 +24,19 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
     loadPackageScript("chrome/content/api/filtersAPI/backup.js", backupAPI);
     const restoreAPI = { Services, Components, ChromeUtils, console, t };
     loadPackageScript("chrome/content/api/filtersAPI/restore.js", restoreAPI);
+    const troubleshooterAPI = { Services, Components, ChromeUtils, console, t,
+      getSessionStorage: () => context.apiCan.findAPIPath("storage").session };
+    loadPackageScript("chrome/content/api/filtersAPI/troubleshooter.js", troubleshooterAPI);
     return {
       FiltersAPI: {
+        getTroubleshooterInfo: async () => troubleshooterAPI.getTroubleshooterInfo(),
+        beginTroubleshooting: async () => troubleshooterAPI.beginTroubleshooting(),
+        endTroubleshooting: async (session) => troubleshooterAPI.endTroubleshooting(session),
+        scanFilters: async (session, accountId, checks) => troubleshooterAPI.scanFilters(session, accountId, checks),
+        getFilterConditionText: async (session, token) => troubleshooterAPI.getFilterConditionText(session, token),
+        remedyFilter: async (session, token, remedy) => troubleshooterAPI.remedyFilter(session, token, remedy),
+        openFilterLog: async (accountId) => troubleshooterAPI.openFilterLog(accountId),
+        openFilterAddons: async () => troubleshooterAPI.openFilterAddons(),
         confirmFilterDeletion: async (name) => {
           const checked = { value: false };
           const confirmed = Services.prompt.confirmCheck(Services.wm.getMostRecentWindow("mail:3pane"),

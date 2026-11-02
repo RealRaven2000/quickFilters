@@ -1,0 +1,723 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Filter troubleshooter · quickFilters prototype</title>
+  <style>
+    :root {
+      font:
+        15px/1.5 system-ui,
+        sans-serif;
+      color: #202938;
+      background: #f4f6f9;
+      --line: #dce2eb;
+      --muted: #596778;
+      --accent: #245eae;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+    }
+    main {
+      max-width: 1180px;
+      margin: 32px auto;
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    header img {
+      width: 56px;
+      height: 56px;
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0;
+      color: var(--accent);
+    }
+    h2 {
+      font-size: 19px;
+      margin: 0;
+    }
+    h3 {
+      font-size: 16px;
+      margin: 0;
+    }
+    p {
+      margin: 6px 0;
+    }
+    .muted,
+    small {
+      color: var(--muted);
+    }
+    .context {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #eef4fc;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 24px 0;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: max-content minmax(0, 1fr);
+      gap: 28px;
+    }
+    .log-tool {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .log-tool small {
+      max-width: 300px;
+    }
+    .checks {
+      width: min-content;
+      min-width: 300px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: visible;
+      align-self: start;
+    }
+    .checks > h2 {
+      padding: 16px;
+    }
+    .check {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      padding: 15px;
+      border-top: 1px solid var(--line);
+    }
+    .check-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: max-content;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      color: white;
+      background: var(--accent);
+      border: 1px solid #194b90;
+      padding: 6px 9px;
+      margin-bottom: 6px;
+      box-shadow: 0 2px 3px #182a4426;
+    }
+    .check-button:hover { background: #194b90; }
+    .check-button:active { background: #123b73; box-shadow: inset 0 2px 3px #0003; }
+    .step-icon { width: 24px; height: 24px; object-fit: contain; flex: none; }
+    /* Embedded SVG media queries inherit this scheme, regardless of the page theme. */
+    .check-button .step-icon { color-scheme: dark; width: 22px; height: 22px; }
+    /* context-fill is unavailable in ordinary browser images; brighten these fallbacks. */
+    .check-button[data-check="folders"] .step-icon,
+    .check-button[data-check="addons"] .step-icon { filter: brightness(0) invert(1); }
+    .results-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .results-table caption { text-align: left; color: var(--muted); padding-bottom: 10px; }
+    .results-table th { text-align: left; background: #eef4fc; font-size: 13px; }
+    .results-table th, .results-table td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .results-table tbody tr:hover { background: #fafbfd; }
+    .results-table .actions { min-width: 130px; }
+    .results-table button { font-size: 13px; padding: 5px 8px; }
+    .problem-detail { margin-top: 6px; }
+    .problem-detail summary { color: var(--accent); cursor: pointer; }
+    .problem-detail p { color: var(--muted); margin: 8px 0; }
+    #results { overflow-x: auto; }
+    .check strong {
+      display: block;
+    }
+    .check-item { position: relative; }
+    .check-description { display: flex; align-items: flex-end; gap: 8px; position: relative; }
+    .check-description small { flex: 1; }
+    .check-help { flex: none; }
+    .check-help summary { cursor: pointer; list-style: none; border-radius: 50%; width: 24px; height: 24px; }
+    .check-help summary::-webkit-details-marker { display: none; }
+    .check-help summary:focus-visible { outline: 3px solid #80b5ff; outline-offset: 2px; }
+    .check-help img { width: 24px; height: 24px; display: block; }
+    .check-help[open] summary { background: #dceaff; }
+    .help-text { position: absolute; left: 0; top: calc(100% + 8px); width: min(380px, calc(100vw - 110px)); padding: 16px; background: #fff; border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 24px #182a4426; z-index: 5; color: var(--muted); font-size: 14px; cursor: auto; text-align: left; }
+    .help-text a { color: var(--accent); }
+    .check small {
+      display: block;
+      margin-top: 4px;
+    }
+    .check input {
+      margin-top: 5px;
+      accent-color: var(--accent);
+    }
+    .check-status {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .run {
+      padding: 16px;
+      border-top: 1px solid var(--line);
+    }
+    button,
+    select,
+    input[type="search"] {
+      font: inherit;
+      border: 1px solid #b6c2d2;
+      border-radius: 5px;
+      background: white;
+      color: inherit;
+      padding: 7px 12px;
+    }
+    button {
+      cursor: pointer;
+    }
+    button:hover {
+      background: #eef4fc;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+    .primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+    .primary:hover {
+      background: #194b90;
+    }
+    .run button {
+      width: 100%;
+    }
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid #80b5ff;
+      outline-offset: 2px;
+    }
+    .results-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+    }
+    .summary {
+      margin: 6px 0 16px;
+      color: var(--muted);
+    }
+    .tools {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .tools input {
+      flex: 1;
+      min-width: 160px;
+    }
+    .filter {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .filter summary {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #fafbfd;
+      list-style: none;
+    }
+    .filter summary::-webkit-details-marker {
+      display: none;
+    }
+    .filter summary:before {
+      content: "▸";
+      color: var(--muted);
+    }
+    .filter[open] summary:before {
+      content: "▾";
+    }
+    .filter-title {
+      flex: 1;
+    }
+    .filter-title small {
+      display: block;
+      font-weight: 400;
+    }
+    .badge {
+      border-radius: 20px;
+      padding: 3px 9px;
+      background: #fff0da;
+      color: #805000;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .badge.good {
+      background: #e8f5ed;
+      color: #23623d;
+    }
+    .issue {
+      padding: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .issue p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .danger {
+      color: #a52a32;
+    }
+    .empty {
+      padding: 32px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      color: var(--muted);
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 24px;
+      padding-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    #notice {
+      min-height: 24px;
+      color: var(--accent);
+      margin-top: 16px;
+    }
+    dialog {
+      max-width: 500px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      color: #202938;
+    }
+    dialog::backdrop {
+      background: #182a4455;
+    }
+    dialog p {
+      margin: 12px 0 20px;
+    }
+    dialog .actions {
+      justify-content: end;
+    }
+    @media (max-width: 800px) {
+      main {
+        margin: 12px;
+        padding: 18px;
+      }
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .context,
+      footer {
+        align-items: start;
+        flex-direction: column;
+      }
+      .filter summary {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+  <main>
+    <header>
+      <img src="../../chrome/content/skin/QuickFilters.svg" alt="" />
+      <div>
+        <h1>quickFilters · Troubleshooter</h1>
+        <p class="muted">Choose checks, review problems and decide what to fix.</p>
+      </div>
+    </header>
+    <div class="context">
+      <label
+        >Account
+        <select id="account">
+          <option>Personal · alex@example.com</option>
+          <option>Work · alex@company.example</option>
+        </select></label
+      ><span class="muted">24 filters · Example data</span>
+      <div class="log-tool">
+        <button id="open-log">Open filter log…</button>
+        <small>Find out which filters recently moved or deleted messages. Includes all accounts.</small>
+      </div>
+    </div>
+    <div class="layout">
+      <section class="checks" aria-labelledby="checks-heading">
+        <h2 id="checks-heading">Checks to run</h2>
+        <label class="check"
+          ><input type="checkbox" value="flags" checked /><span
+            ><strong>When filters run automatically</strong
+            ><small>Check whether enabled filters run automatically on incoming mail or periodically, or require a manual run.</small>
+            <div class="check-status" data-status="flags"></div></span
+        ></label>
+        <label class="check"
+          ><input type="checkbox" value="folders" checked /><span
+            ><strong>Target folders</strong
+            ><small>Do move and copy destinations still exist?</small>
+            <div class="check-status" data-status="folders"></div></span
+        ></label>
+        <label class="check"
+          ><input type="checkbox" value="addons" checked /><span
+            ><strong>Add-on actions &amp; terms</strong
+            ><small>Are custom actions and search terms available?</small>
+            <div class="check-status" data-status="addons"></div></span
+        ></label>
+        <label class="check"
+          ><input type="checkbox" value="conditions" checked /><span
+            ><strong>Search conditions</strong
+            ><small>Look for mixed Any/All conditions or missing search terms.</small>
+            <div class="check-status" data-status="conditions"></div></span
+        ></label>
+        <div class="run">
+          <button class="primary" id="run">Run all checks</button
+          ><small>Checks only report problems. Changes to filters always require your explicit choice.</small>
+        </div>
+      </section>
+      <section aria-labelledby="results-heading">
+        <div class="results-head">
+          <div>
+            <h2 id="results-heading">Filter review</h2>
+            <p id="summary" class="summary" aria-live="polite"></p>
+          </div>
+          <span class="badge" id="sample">Example results</span>
+        </div>
+        <div class="tools">
+          <input
+            type="search"
+            id="search"
+            placeholder="Find a filter…"
+            aria-label="Find a filter"
+          /><select id="view" aria-label="Result status">
+            <option value="remaining">Needs attention</option>
+            <option value="resolved">Resolved</option>
+            <option value="all">All results</option>
+          </select>
+        </div>
+        <div id="results"></div>
+      </section>
+    </div>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <footer>
+      <span
+        >UX prototype · All data and remedies are simulated. No Thunderbird filters are
+        accessed.</span
+      ><button id="reset">Reset demo</button>
+    </footer>
+  </main>
+  <dialog id="confirmation" aria-labelledby="dialog-title">
+    <h2 id="dialog-title"></h2>
+    <p id="dialog-text"></p>
+    <div class="actions">
+      <button id="cancel">Cancel</button><button id="confirm" class="primary">Confirm</button>
+    </div>
+  </dialog>
+  <script>
+    (() => {
+      const seed = [
+        {
+          id: 1,
+          name: "Newsletters → Reading",
+          category: "flags",
+          title: "No way to run this filter configured",
+          description:
+            "This filter is enabled, but is not configured to run automatically or manually.",
+          action: "Enable for incoming mail",
+          kind: "fix",
+        },
+        {
+          id: 2,
+          name: "Archive invoices",
+          category: "folders",
+          title: "Invalid folder path",
+          description:
+            "The move action points to “Local Folders / Finance / 2024”. Choose an existing destination in the filter editor.",
+          action: "Edit filter…",
+          kind: "edit",
+        },
+        {
+          id: 3,
+          name: "Save attachments",
+          category: "addons",
+          title: "Custom action unavailable",
+          description:
+            "“Save Attachments” is provided by FiltaQuilla. Check whether the add-on is installed, enabled and compatible, then whether this action is enabled in its settings.",
+          action: "Open Add-ons Manager",
+          kind: "addons",
+        },
+        {
+          id: 4,
+          name: "Project reminders",
+          category: "addons",
+          title: "Custom search term unavailable",
+          description:
+            "This filter uses a FiltaQuilla search term. Check the add-on and its enabled search terms, or edit the filter to use another condition.",
+          action: "Open Add-ons Manager",
+          kind: "addons",
+        },
+        {
+          id: 5,
+          name: "Priority customers",
+          category: "conditions",
+          title: "Mixed Any/All conditions",
+          description:
+            "These conditions mix “Match any” and “Match all”. Review the intended logic before changing them.",
+          action: "Review in filter editor…",
+          kind: "edit",
+        },
+        {
+          id: 6,
+          name: "Old test filter",
+          category: "conditions",
+          title: "No search conditions",
+          description:
+            "This filter has no search terms. Edit it to define its conditions, or delete it if it is no longer needed.",
+          action: "Edit filter…",
+          kind: "edit",
+        },
+      ];
+      let items, ran, pending;
+      const $ = (s) => document.querySelector(s);
+      // Puzzle icon copied from Thunderbird omni.ja:
+      // chrome/toolkit/skin/classic/mozapps/extensions/extension.svg (MPL 2.0).
+      const stepIcons = {
+        flags: '../../chrome/content/skin/runFilters-selected.svg',
+        folders: '../../chrome/content/skin/folder-error.svg',
+        addons: 'extension.svg',
+        conditions: '../../chrome/content/mixed-conditions.svg'
+      };
+      const stepNames = { flags: 'Automatic filter runs', folders: 'Target folders', addons: 'Add-on actions & terms', conditions: 'Search conditions' };
+      function stepIcon(category, decorative = false) {
+        const image = document.createElement('img');
+        image.className = 'step-icon';
+        image.src = stepIcons[category];
+        image.alt = decorative ? '' : stepNames[category];
+        if (!decorative) image.title = stepNames[category];
+        return image;
+      }
+      const helpTexts = [
+        "Sometimes filters do not run automatically even when configured to do so. A damaged Thunderbird profile can be one cause. This check looks for missing run settings; it cannot diagnose profile corruption.",
+        "Folders may be moved, deleted or removed on an IMAP server, leaving a filter without a valid destination. Thunderbird usually updates filter rules when you rename or move a folder within the same account.",
+        "Other add-ons can provide custom actions and search terms. You may need to enable them in the add-on’s settings. They can also become unavailable if the add-on is disabled or incompatible with your Thunderbird version.",
+        "Thunderbird’s filter editor currently supports matching ALL conditions or ANY condition. Work is underway to support combining both in groups. Your mail client or version may already support this feature. See "
+      ];
+      document.querySelectorAll('.check').forEach((original, index) => {
+        const label = document.createElement('div');
+        label.className = original.className;
+        label.append(...original.childNodes);
+        original.replaceWith(label);
+        const input = label.querySelector('input');
+        const category = input.value;
+        input.remove();
+        const title = label.querySelector('strong');
+        const checkButton = document.createElement('button');
+        checkButton.className = 'check-button';
+        checkButton.dataset.check = category;
+        checkButton.textContent = {
+          flags: 'Check automatic filter runs',
+          folders: 'Check target folders',
+          addons: 'Check for missing actions & terms',
+          conditions: 'Check for invalid search conditions'
+        }[category];
+        checkButton.prepend(stepIcon(category, true));
+        title.replaceWith(checkButton);
+        checkButton.onclick = () => runChecks([category]);
+        const wrapper = document.createElement('div');
+        wrapper.className = 'check-item';
+        label.before(wrapper);
+        wrapper.append(label);
+        const help = document.createElement('details');
+        help.className = 'check-help';
+        const toggle = document.createElement('summary');
+        toggle.setAttribute('aria-label', `About ${checkButton.textContent}`);
+        const icon = document.createElement('img');
+        icon.src = '../../chrome/content/skin/help.svg';
+        icon.alt = '';
+        toggle.append(icon);
+        const text = document.createElement('div');
+        text.className = 'help-text';
+        text.textContent = helpTexts[index];
+        if (index === 3) {
+          const link = document.createElement('a');
+          link.href = 'https://bugzilla.mozilla.org/show_bug.cgi?id=297852';
+          link.textContent = 'Bug 297852';
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          text.append(link, '.');
+        }
+        help.append(toggle, text);
+        const description = label.querySelector('small');
+        const descriptionRow = document.createElement('div');
+        descriptionRow.className = 'check-description';
+        description.before(descriptionRow);
+        descriptionRow.append(description, help);
+        help.addEventListener('toggle', () => {
+          if (help.open) document.querySelectorAll('.check-help').forEach(other => {
+            if (other !== help) other.open = false;
+          });
+        });
+      });
+      document.addEventListener('click', event => {
+        document.querySelectorAll('.check-help[open]').forEach(help => {
+          if (!help.contains(event.target)) help.open = false;
+        });
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') document.querySelectorAll('.check-help[open]').forEach(help => {
+          help.open = false;
+          help.querySelector('summary').focus();
+        });
+      });
+      function render() {
+        const active = items.filter((i) => ran.includes(i.category)),
+          remaining = active.filter((i) => !i.resolved);
+        $("#summary").textContent =
+          `${remaining.length} filters need attention · ${active.filter((i) => i.resolved).length} resolved · ${ran.length} of 4 checks run`;
+        document.querySelectorAll("[data-status]").forEach((el) => {
+          const cat = el.dataset.status,
+            count = remaining.filter((i) => i.category === cat).length;
+          el.textContent = !ran.includes(cat)
+            ? "Not run"
+            : count
+              ? `${count} filters need attention`
+              : "No remaining problems";
+        });
+        const visible = active.filter(
+          (i) =>
+            i.name.toLowerCase().includes($("#search").value.toLowerCase()) &&
+            ($("#view").value === "all" ||
+              ($("#view").value === "resolved" ? i.resolved : !i.resolved))
+        );
+        $("#results").replaceChildren();
+        if (!visible.length) {
+          const el = document.createElement("p");
+          el.className = "empty";
+          el.textContent =
+            "No filters in this view. Change the result filter or run another check.";
+          $("#results").append(el);
+        }
+        const table = document.createElement('table');
+        table.className = 'results-table';
+        table.innerHTML = '<caption>One row per problem. Expand Details for an explanation.</caption><thead><tr><th scope="col" aria-label="Check"></th><th scope="col">Filter</th><th scope="col">Problem</th><th scope="col">Actions</th></tr></thead><tbody></tbody>';
+        if (visible.length) $('#results').append(table);
+        visible.forEach((i) => {
+          const card = document.createElement("tr");
+          card.dataset.result = i.id;
+          card.innerHTML = `<td class="check-cell"></td><th scope="row"><strong></strong></th><td><span class="problem-title"></span> ${i.resolved ? '<span class="badge good">Resolved</span>' : ''}<details class="problem-detail"><summary>Details</summary><p></p></details></td><td><div class="actions"></div></td>`;
+          card.querySelector('.check-cell').append(stepIcon(i.category));
+          card.querySelector("strong").textContent = i.name;
+          card.querySelector('.problem-title').textContent = i.title;
+          card.querySelector("p").textContent = i.resolved
+            ? "Resolved in this demo. Rerun checks to refresh the overview."
+            : i.description;
+          if (!i.resolved) {
+            const buttons = card.querySelector(".actions");
+            function button(label, handler, cls = "") {
+              const b = document.createElement("button");
+              b.textContent = label;
+              b.className = cls;
+              b.onclick = handler;
+              buttons.append(b);
+            }
+            button(i.action, () => remedy(i, i.kind));
+            if (i.kind === "addons") button("Edit filter…", () => remedy(i, "edit"));
+            button("Delete filter…", () => remedy(i, "delete"), "danger");
+          }
+          table.querySelector('tbody').append(card);
+        });
+      }
+      function remedy(i, kind) {
+        if (kind === "addons") {
+          $("#notice").textContent =
+            "In Thunderbird, this opens the Add-ons Manager. Check FiltaQuilla and its settings, then return here and rerun the checks. This demo leaves the problem unresolved.";
+          return;
+        }
+        $("#dialog-title").textContent =
+          kind === "delete"
+            ? `Delete “${i.name}”?`
+            : kind === "fix"
+              ? "Enable incoming mail execution?"
+              : `Edit “${i.name}”`;
+        $("#dialog-text").textContent =
+          kind === "delete"
+            ? "In Thunderbird, this permanently deletes the filter after confirmation. This demo only removes the example from the results."
+            : kind === "fix"
+              ? "The filter will run when new mail arrives. Its other settings will stay as they are. This demo simulates the change."
+              : "In Thunderbird, this opens the existing filter editor. For this discussion, simulate saving a correction; the example will be marked resolved.";
+        $("#confirm").textContent =
+          kind === "delete"
+            ? "Delete example"
+            : kind === "fix"
+              ? "Enable (demo)"
+              : "Simulate correction";
+        pending = () => {
+          if (kind === "delete") items = items.filter((x) => x.id !== i.id);
+          else i.resolved = true;
+          render();
+          $("#notice").textContent =
+            kind === "delete"
+              ? "Example filter deleted."
+              : `“${i.name}” marked resolved in the demo.`;
+        };
+        $("#confirmation").showModal();
+      }
+      $("#cancel").onclick = () => $("#confirmation").close();
+      $("#confirm").onclick = () => {
+        pending();
+        $("#confirmation").close();
+      };
+      function runChecks(categories) {
+        ran = [...new Set([...ran, ...categories])];
+        $("#sample").textContent = "Demo check complete";
+        $("#search").value = '';
+        $("#view").value = 'remaining';
+        render();
+        $("#notice").textContent =
+          `${categories.length === 4 ? 'All checks' : document.querySelector(`[data-check="${categories[0]}"]`).textContent} completed using example data. Earlier results are retained. No filters were changed.`;
+        const first = items.find(i => categories.includes(i.category) && !i.resolved);
+        if (first) document.querySelector(`[data-result="${first.id}"]`)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+      $("#run").onclick = () => runChecks(['flags', 'folders', 'addons', 'conditions']);
+      $("#search").oninput = render;
+      $("#view").onchange = render;
+      $("#open-log").onclick = () => {
+        $("#notice").textContent =
+          "In Thunderbird, this opens the filter log to investigate recent filter activity, including moved or deleted messages. The log covers all accounts and is separate from the selected checks. This prototype does not read a real log.";
+      };
+      $("#account").onchange = () => {
+        $("#account").selectedIndex = 0;
+        $("#notice").textContent =
+          "This prototype contains example results for the Personal account only.";
+      };
+      function reset() {
+        items = seed.map((i) => ({ ...i, resolved: false }));
+        ran = ["flags", "folders", "addons", "conditions"];
+        $("#search").value = "";
+        $("#view").value = "remaining";
+        $("#sample").textContent = "Example results";
+        $("#notice").textContent =
+          "Example results are preloaded so you can explore the remedies. Run any check individually, or run all checks. Checks never enable, disable or otherwise change filters.";
+        render();
+      }
+      $("#reset").onclick = reset;
+      reset();
+    })();
+  </script>
+</html>

@@ -218,7 +218,7 @@ async function onLoad(_activatedWhileWindowOpen) {
     <toolbarbutton id="quickFiltersTroubleshoot"
       class="toolbarbutton-1" 
       label="__MSG_quickfilters.button.bug__"
-      tooltiptext_qI="__MSG_quickfilters.button.bug.tooltiptext1__ __MSG_quickfilters.button.bug.tooltiptext2__"
+      tooltiptext_qI="__MSG_troubleshooter.intro__"
       oncommand="quickFilters.List.troubleshoot();"
       oncontextmenu="quickFilters.List.configureTroubleshooter(this);"
       context="dummy"

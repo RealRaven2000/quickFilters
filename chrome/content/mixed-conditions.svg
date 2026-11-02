@@ -1,0 +1,20 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="64" height="64"
+     viewBox="0 0 64 64">
+
+  <!-- OR -->
+  <rect x="3" y="3" width="29" height="29" rx="6"
+        fill="#2796c5"/>
+
+  <!-- AND -->
+  <rect x="32" y="32" width="29" height="29" rx="6"
+        fill="#e59b34"/>
+
+  <!-- White symbols -->
+  <g fill="none" stroke="#fff"
+     stroke-width="4" stroke-linecap="round">
+    <path d="M17.5 10 V25 M10 17.5 H25"/>
+    <path d="M40 40 L53 53 M53 40 L40 53"/>
+  </g>
+</svg>

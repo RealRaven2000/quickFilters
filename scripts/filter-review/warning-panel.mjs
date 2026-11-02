@@ -1,6 +1,49 @@
 /** Presentation only. Callers supply text, warning data and action callbacks.
  * No file, storage or Thunderbird API access belongs in this component.
  */
+// Compact review for diagnostics. The caller owns state and decides which
+// remedies are safe for each finding; this renderer never opens an editor.
+export function createFilterProblemTable({ el, problems, text, renderCheck, renderDetails, getActions }) {
+  const panel = el("div", "warning-table-container");
+  const table = el("table", "warning-table problem-table");
+  table.append(el("caption", "", text("tableHint")));
+  const head = el("thead"), headings = el("tr"), body = el("tbody");
+  for (const key of ["check", "filter", "problem", "actions"]) {
+    const cell = el("th", "", key === "check" ? "" : text(key));
+    if (key === "check") cell.append(el("span", "visually-hidden", text(key)));
+    cell.setAttribute("scope", "col");
+    headings.append(cell);
+  }
+  head.append(headings);
+  for (const problem of problems) {
+    const row = el("tr");
+    row.dataset.result = problem.id;
+    const check = el("td");
+    check.append(renderCheck(problem));
+    const name = el("th", "", problem.filterName);
+    name.setAttribute("scope", "row");
+    const issue = el("td");
+    issue.append(el("div", "problem-title", text(`reason.${problem.reason}`)));
+    if (problem.state !== "remaining") issue.append(el("span", `status-badge state-${problem.state}`, text(`state.${problem.state}`)));
+    const detail = el("details", "problem-detail");
+    detail.append(el("summary", "", text("details")), renderDetails(problem));
+    issue.append(detail);
+    const actions = el("td"), buttons = el("div", "problem-actions");
+    for (const action of getActions(problem)) {
+      const button = el("button", action.danger ? "danger" : "", action.label);
+      button.type = "button";
+      button.addEventListener("click", action.run);
+      buttons.append(button);
+    }
+    actions.append(buttons);
+    row.append(check, name, issue, actions);
+    body.append(row);
+  }
+  table.append(head, body);
+  panel.append(table);
+  return panel;
+}
+
 export function createFilterWarningPanel({
   el,
   accounts,

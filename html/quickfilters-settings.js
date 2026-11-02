@@ -196,6 +196,9 @@ const initEventListeners = async () => {
     });
   }
   const chkToolbar = document.getElementById("chkToolbar");
+  document.getElementById("btnTroubleshooter").addEventListener("click", () => {
+    browser.tabs.create({ url: browser.runtime.getURL("html/filter-troubleshooter.html") });
+  });
   chkToolbar.addEventListener("change", () => {
     messenger.runtime.sendMessage({
       command: "setupListToolbar",

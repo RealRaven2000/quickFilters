@@ -1,0 +1,75 @@
+:root { color-scheme: light dark; font: 15px/1.5 system-ui, sans-serif; --bg: #f4f6f9; --panel: #fff; --text: #202938; --muted: #596778; --line: #dce2eb; --accent: #245eae; --soft: #eef4fc; }
+* { box-sizing: border-box; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+body { margin: 0; background: var(--bg); color: var(--text); }
+main { max-width: 1320px; margin: 30px auto; padding: 30px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+header { display: flex; align-items: center; gap: 18px; }
+h1 { font-size: 28px; margin: 0; color: var(--accent); }
+h2 { font-size: 19px; margin: 0; }
+p { margin: 6px 0; }
+header p, small, #summary, #account-summary, .empty { color: var(--muted); }
+.context { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; background: var(--soft); padding: 14px 18px; border-radius: 6px; margin: 24px 0; }
+.log-tool { display: flex; align-items: center; gap: 12px; }
+.log-tool small { max-width: 290px; }
+.layout { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 28px; }
+.checks { width: min-content; min-width: 300px; border: 1px solid var(--line); border-radius: 8px; align-self: start; }
+.checks h2 { padding: 16px; }
+.check { padding: 15px; border-top: 1px solid var(--line); }
+button, select, input { font: inherit; color: inherit; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); padding: 7px 12px; }
+button { cursor: pointer; }
+button:hover { background: var(--soft); }
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 3px solid #80b5ff; outline-offset: 2px; }
+.primary, .check-button { color: #fff; background: #245eae; border-color: #194b90; }
+.primary:hover, .check-button:hover { background: #194b90; }
+.check-button { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; width: max-content; font-size: 14px; font-weight: 500; padding: 6px 9px; margin-bottom: 6px; box-shadow: 0 2px 3px #182a4426; }
+.check-button:active { background: #123b73; box-shadow: inset 0 2px 3px #0003; }
+.step-icon { width: 24px; height: 24px; object-fit: contain; flex: none; }
+.check-button .step-icon { color-scheme: dark; width: 22px; height: 22px; }
+.check-button[data-check="folders"] .step-icon, .check-button[data-check="addons"] .step-icon { filter: brightness(0) invert(1); }
+.check-description { display: flex; align-items: flex-end; gap: 8px; position: relative; }
+.check-description small { flex: 1; }
+.check-help { flex: none; }
+.check-help summary { cursor: pointer; list-style: none; border-radius: 50%; width: 24px; height: 24px; }
+.check-help summary::-webkit-details-marker { display: none; }
+.check-help img { display: block; width: 24px; height: 24px; }
+.check-help[open] summary { background: var(--soft); }
+.help-text { position: absolute; inset-inline-start: 0; top: calc(100% + 8px); width: min(380px, calc(100vw - 100px)); padding: 16px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 24px #182a4426; z-index: 5; color: var(--muted); font-size: 14px; }
+a { color: var(--accent); }
+.check-status { font-size: 12px; color: var(--muted); margin-top: 8px; }
+.host-note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.run { padding: 16px; border-top: 1px solid var(--line); }
+.run button { display: block; margin-bottom: 6px; }
+.review { min-width: 0; }
+.tools { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+.tools input { flex: 1; min-width: 140px; }
+.problem-table { table-layout: auto; }
+.problem-table th { font-weight: 600; }
+.problem-table tbody th { background: transparent; }
+.problem-table th:nth-child(4) { width: auto; }
+.problem-table th:first-child { width: 42px; }
+.problem-table td, .problem-table th { padding: 12px 10px; }
+.problem-actions { display: flex; flex-wrap: wrap; gap: 6px; min-width: 110px; }
+.problem-actions button { font-size: 13px; padding: 5px 8px; }
+.problem-detail summary { color: var(--accent); cursor: pointer; margin-top: 5px; }
+.problem-detail p { color: var(--muted); }
+.problem-detail code { overflow-wrap: anywhere; white-space: pre-wrap; }
+.danger { color: #b12835; }
+.status-badge { display: inline-block; font-size: 12px; border-radius: 20px; padding: 2px 8px; margin: 5px 0; background: var(--soft); }
+.state-disabled { color: #805000; background: #fff0da; }
+.empty { padding: 24px; border: 1px dashed var(--line); border-radius: 8px; }
+#notice { margin-top: 20px; min-height: 24px; color: var(--accent); }
+#notice.error { color: #b12835; }
+dialog { color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 24px; width: min(850px, calc(100vw - 40px)); max-height: 85vh; overflow: auto; }
+dialog::backdrop { background: #182a4455; }
+pre { background: var(--soft); padding: 16px; white-space: pre-wrap; overflow-wrap: anywhere; user-select: text; }
+.condition-source { display: flex; align-items: flex-start; gap: 10px; margin: 16px 0; }
+.condition-source pre { flex: 1; min-width: 0; margin: 0; }
+.condition-source button { flex: none; }
+.invalid-custom-term { color: #b12835; }
+@media (prefers-color-scheme: dark) { .invalid-custom-term { color: #ffadb4; } }
+.dialog-actions { display: flex; justify-content: end; gap: 8px; margin-top: 20px; }
+.term-table { border-collapse: collapse; width: 100%; font-size: 13px; }
+.term-table td, .term-table th { border-bottom: 1px solid var(--line); padding: 8px; text-align: start; overflow-wrap: anywhere; }
+@media (prefers-color-scheme: dark) { :root { --bg: #181a20; --panel: #23262f; --text: #e5e8ef; --muted: #b6c1d2; --line: #414854; --accent: #8bbaff; --soft: #2d3543; } .danger, #notice.error { color: #ffadb4; } .check-help img, .problem-table .step-icon[data-check="folders"], .problem-table .step-icon[data-check="addons"] { filter: brightness(0) invert(1); } }
+@media (max-width: 900px) { main { margin: 12px; padding: 18px; } .layout { grid-template-columns: 1fr; } .checks { width: 100%; min-width: 0; } .check-button { max-width: 100%; overflow-x: auto; } .log-tool { flex-wrap: wrap; } }
