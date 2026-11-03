@@ -2308,8 +2308,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Vianmääritys"
   },
+  "troubleshooter.menu": {
+    "message": "Vianmääritys…"
+  },
   "troubleshooter.open": {
     "message": "Avaa suodattimien vianmääritys…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Kokeiluversio: $1 käyttökertaa jäljellä"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Ilmaiset vianmäärityskerrat on käytetty. Hanki quickFilters Pro suorittaaksesi lisää tarkistuksia."
   },
   "troubleshooter.intro": {
     "message": "Suorita tarkistuksia, tutki ongelmia ja valitse muutokset."

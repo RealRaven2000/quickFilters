@@ -2308,8 +2308,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Probleemoplosser"
   },
+  "troubleshooter.menu": {
+    "message": "Probleemoplosser…"
+  },
   "troubleshooter.open": {
     "message": "Probleemoplosser voor filters openen…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Proefversie: nog $1 keer te gebruiken"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Uw gratis gebruiksbeurten voor de filterdiagnose zijn opgebruikt. Neem quickFilters Pro om meer controles uit te voeren."
   },
   "troubleshooter.intro": {
     "message": "Voer controles uit, bekijk problemen en kies wat u wilt wijzigen."

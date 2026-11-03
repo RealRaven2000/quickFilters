@@ -2289,8 +2289,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Řešení potíží"
   },
+  "troubleshooter.menu": {
+    "message": "Diagnostika filtrů…"
+  },
   "troubleshooter.open": {
     "message": "Otevřít řešení potíží s filtry…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Zkušební verze: zbývá $1 použití"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Bezplatná použití diagnostiky filtrů byla vyčerpána. Pro další kontroly si pořiďte quickFilters Pro."
   },
   "troubleshooter.intro": {
     "message": "Spusťte kontroly, prohlédněte problémy a vyberte změny."

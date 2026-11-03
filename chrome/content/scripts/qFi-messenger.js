@@ -200,6 +200,9 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.searchFiltersFromFolder(eventDetail);
         window.quickFilters._lastDoCommandTime = Date.now();
         break;
+      case "quickfilters-menu-troubleshooter":
+        window.quickFilters.Util.openTroubleshooter().catch(error => window.quickFilters.Util.logException("Opening filter troubleshooter", error));
+        break;
       case "quickfilters-menu-test-storage-editor":
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "test-storage-editor" });
         break;

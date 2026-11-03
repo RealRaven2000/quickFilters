@@ -2355,6 +2355,7 @@ quickFilters.patchMailPane = () => {
             <menupopup>
               <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
               <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickfilters-menu-troubleshooter" label="__MSG_troubleshooter.menu__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuseparator />
               <menuitem id="quickfilters-menu-registration" label="__MSG_quickfilters.registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menu label="Test" id="qFilters-menu-test" class="menu-iconic">
@@ -2375,6 +2376,29 @@ quickFilters.patchMailPane = () => {
         </menupopup>
       </button>
     `);
+
+    // XUL menu tooltips can inherit from their HTML toolbar button even when
+    // the popup has an empty title. Suppress the source while this menu is open.
+    const mainPopup = document.getElementById("quickFiltersMainPopup");
+    const buttonTooltips = new Map();
+    mainPopup.addEventListener("popupshowing", event => {
+      if (event.target !== mainPopup) { return; }
+      buttonTooltips.clear();
+      for (const name of ["title", "tooltiptext", "tooltip"]) {
+        if (mainButton.hasAttribute(name)) {
+          buttonTooltips.set(name, mainButton.getAttribute(name));
+          mainButton.removeAttribute(name);
+        }
+      }
+    });
+    mainPopup.addEventListener("popuphidden", event => {
+      if (event.target !== mainPopup) { return; }
+      for (const [name, value] of buttonTooltips) {
+        // Preserve any newer tooltip set by a license/news update while open.
+        if (!mainButton.hasAttribute(name)) { mainButton.setAttribute(name, value); }
+      }
+      buttonTooltips.clear();
+    });
 
     let mnuToolsCreateFromMsg = document.getElementById("quickFilters-menu-filterFromMsg");
     if (mnuToolsCreateFromMsg) {

@@ -51,6 +51,11 @@ async function scan(categories, { refresh = false } = {}) {
     render();
   }
   const result = await api.scanFilters(session, $("#account").value, categories);
+  const heading = $('[data-i18n="intro"]');
+  heading.textContent = result.trial ? t("trialRemaining", [result.trial.remaining]) : t("intro");
+  heading.classList.toggle("trial-heading", !!result.trial);
+  $("#get-pro").hidden = !result.trial;
+  if (result.allowed === false) throw new Error(t("trialExhausted"));
   if (refresh) review.merge(result);
   else review.replace(result);
   const account = accounts.find(item => item.id === result.accountId);
@@ -180,12 +185,14 @@ async function init() {
   $("#account").setAttribute("aria-label", t("account"));
   $("#view").setAttribute("aria-label", t("resultStatus"));
   $("#search").placeholder = t("find"); $("#search").setAttribute("aria-label", t("find"));
+  $("#get-pro").textContent = browser.i18n.getMessage("getquickFilters");
+  $("#get-pro").onclick = () => browser.Utilities.showLicenseDialog("troubleshooter");
   buildChecks(); render();
   $("#run-all").onclick = () => attempt(async () => { await scan(checks); notice(t("completed")); });
   $("#open-log").onclick = () => attempt(() => api.openFilterLog($("#account").value));
   $("#search").oninput = render; $("#view").onchange = render;
   $("#account").onchange = () => attempt(async () => {
-    await api.endTroubleshooting(session); session = await api.beginTroubleshooting();
+    // Preserve the tab trial allowance when switching accounts.
     review = createReviewState(); $("#search").value = ""; $("#view").value = "remaining"; render(); notice("");
   });
   $("#close-conditions").onclick = () => $("#conditions").close();
@@ -202,6 +209,7 @@ async function init() {
   document.addEventListener("keydown", event => { if (event.key === "Escape") document.querySelectorAll(".check-help[open]").forEach(help => { help.open = false; help.querySelector("summary").focus(); }); });
   await attempt(async () => {
     const host = await api.getTroubleshooterInfo();
+    $("#get-pro").hidden = host.licensed;
     if (host.supportsMixedConditions) {
       const note = el("p", "host-note");
       note.append(el("em", "", t("mixedConditionsSupported")));

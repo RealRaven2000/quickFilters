@@ -2309,8 +2309,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Fehlerbehebung"
   },
+  "troubleshooter.menu": {
+    "message": "Filterdiagnose…"
+  },
   "troubleshooter.open": {
     "message": "Filter-Fehlerbehebung öffnen…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Testversion: noch $1 Nutzungen"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Ihre kostenlosen Nutzungen der Filterdiagnose sind aufgebraucht. Holen Sie sich quickFilters Pro für weitere Prüfungen."
   },
   "troubleshooter.intro": {
     "message": "Prüfungen ausführen, Probleme ansehen und Änderungen auswählen."

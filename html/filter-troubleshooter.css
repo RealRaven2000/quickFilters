@@ -75,3 +75,10 @@ pre { background: var(--soft); padding: 16px; white-space: pre-wrap; overflow-wr
 .term-table td, .term-table th { border-bottom: 1px solid var(--line); padding: 8px; text-align: start; overflow-wrap: anywhere; }
 @media (prefers-color-scheme: dark) { :root { --bg: #181a20; --panel: #23262f; --text: #e5e8ef; --muted: #b6c1d2; --line: #414854; --accent: #8bbaff; --soft: #2d3543; } .danger, #notice.error { color: #ffadb4; } .check-help img, .problem-table .step-icon[data-check="folders"], .problem-table .step-icon[data-check="addons"] { filter: brightness(0) invert(1); } }
 @media (max-width: 900px) { main { margin: 12px; padding: 18px; } .layout { grid-template-columns: 1fr; } .checks { width: 100%; min-width: 0; } .check-button { max-width: 100%; overflow-x: auto; } .log-tool { flex-wrap: wrap; } }
+
+header p.trial-heading { font-weight: normal; font-size: 1.15rem; color: var(--accent); }
+.trial-line { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-top: 6px; }
+.trial-line p { margin: 0; }
+#get-pro { flex-shrink: 0; padding: 4px 10px; font-size: 13px; font-weight: 600; color: #fff; background: #8526ad; border-color: #702091; }
+#get-pro:hover { background: #6c1d8e; }
+#get-pro:active { background: #551670; }

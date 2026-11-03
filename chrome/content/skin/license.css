@@ -80,6 +80,7 @@ button.attention:hover {
     background: linear-gradient(to bottom, rgba(220,200,50,1) 0%, rgba(180,150,20,1) 50%, rgba(140,110,10,1) 51%, rgba(190,160,30,1) 100%
   ) !important;
 	margin-left: 2em !important;
+  color: white;
 }
 
 #btnSwitchToFree:hover, #btnRecoverLicense:hover {

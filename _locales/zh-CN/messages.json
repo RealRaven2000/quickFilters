@@ -2303,8 +2303,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · 故障排查"
   },
+  "troubleshooter.menu": {
+    "message": "故障排查…"
+  },
   "troubleshooter.open": {
     "message": "打开过滤器故障排查…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "试用版：剩余 $1 次使用机会"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "筛选器故障排查的免费使用次数已用完。请获取 quickFilters Pro 以运行更多检查。"
   },
   "troubleshooter.intro": {
     "message": "运行检查，查看问题，然后选择要做的更改。"

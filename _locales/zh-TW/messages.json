@@ -2219,8 +2219,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · 疑難排解"
   },
+  "troubleshooter.menu": {
+    "message": "疑難排解…"
+  },
   "troubleshooter.open": {
     "message": "開啟篩選器疑難排解…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "試用版：剩餘 $1 次使用機會"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "篩選器疑難排解的免費使用次數已用完。請取得 quickFilters Pro 以執行更多檢查。"
   },
   "troubleshooter.intro": {
     "message": "執行檢查、檢視問題，並選擇要做的變更。"

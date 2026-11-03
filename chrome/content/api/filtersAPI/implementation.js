@@ -24,7 +24,14 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
     loadPackageScript("chrome/content/api/filtersAPI/backup.js", backupAPI);
     const restoreAPI = { Services, Components, ChromeUtils, console, t };
     loadPackageScript("chrome/content/api/filtersAPI/restore.js", restoreAPI);
+    const usageScope = { quickFiltersPremium: {} };
+    loadPackageScript("scripts/premium/usage-policy.js", usageScope);
+    loadPackageScript("scripts/premium/usage-store.js", usageScope);
+    const usage = usageScope.quickFiltersPremium.createUsageStore(Services.prefs);
     const troubleshooterAPI = { Services, Components, ChromeUtils, console, t,
+      // Background synchronizes this flag after startup and every license validation.
+      isTroubleshooterLicensed: () => Services.prefs.getBoolPref("extensions.quickFilters.usage.wasLicensed", false),
+      consumeTroubleshooterUsage: () => usage.consume("troubleshooter"),
       getSessionStorage: () => context.apiCan.findAPIPath("storage").session };
     loadPackageScript("chrome/content/api/filtersAPI/troubleshooter.js", troubleshooterAPI);
     return {

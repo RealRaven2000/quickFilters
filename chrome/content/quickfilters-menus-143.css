@@ -62,3 +62,7 @@
 #quickfilters-menu-searchfilters {
   --menuitem-icon: url("chrome://quickfilters/content/skin/searchFilters.svg") !important;
 }
+#quickfilters-menu-troubleshooter {
+  --menuitem-icon: url("chrome://quickfilters/content/skin/bug.svg") !important;
+  -moz-context-properties: fill, fill-opacity, stroke;
+}

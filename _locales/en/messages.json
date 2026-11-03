@@ -2596,8 +2596,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Troubleshooter"
   },
+  "troubleshooter.menu": {
+    "message": "Troubleshooter…"
+  },
   "troubleshooter.open": {
     "message": "Open filter troubleshooter…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Trial version: $1 uses left"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Your free troubleshooter uses are exhausted. Get quickFilters Pro to run more checks."
   },
   "troubleshooter.intro": {
     "message": "Run checks, review problems and decide what to change."

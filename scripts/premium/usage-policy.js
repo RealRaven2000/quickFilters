@@ -16,7 +16,7 @@
     localFolderFilters: 5,
   });
 
-  const USAGE_LIMITS = Object.freeze({ ...LEGACY_COUNTDOWN_LIMITS });
+  const USAGE_LIMITS = Object.freeze({ ...LEGACY_COUNTDOWN_LIMITS, troubleshooter: 8 });
 
   Object.assign(premium, { USAGE_LIMITS, LEGACY_COUNTDOWN_LIMITS });
 })(typeof quickFiltersPremium === "undefined"

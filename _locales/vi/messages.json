@@ -2308,8 +2308,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Khắc phục sự cố"
   },
+  "troubleshooter.menu": {
+    "message": "Chẩn đoán bộ lọc…"
+  },
   "troubleshooter.open": {
     "message": "Mở công cụ kiểm tra bộ lọc…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Phiên bản dùng thử: còn $1 lượt sử dụng"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Bạn đã dùng hết số lượt chẩn đoán bộ lọc miễn phí. Hãy mua quickFilters Pro để chạy thêm các bước kiểm tra."
   },
   "troubleshooter.intro": {
     "message": "Chạy kiểm tra, xem vấn đề và chọn nội dung cần thay đổi."

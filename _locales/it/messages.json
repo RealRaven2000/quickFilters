@@ -2312,8 +2312,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Risoluzione problemi"
   },
+  "troubleshooter.menu": {
+    "message": "Diagnostica filtri…"
+  },
   "troubleshooter.open": {
     "message": "Apri risoluzione problemi dei filtri…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Versione di prova: $1 utilizzi rimasti"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Gli utilizzi gratuiti della diagnostica dei filtri sono esauriti. Acquista quickFilters Pro per eseguire altri controlli."
   },
   "troubleshooter.intro": {
     "message": "Esegui i controlli, esamina i problemi e decidi cosa cambiare."

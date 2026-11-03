@@ -2308,8 +2308,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · トラブルシューティング"
   },
+  "troubleshooter.menu": {
+    "message": "トラブルシューティング…"
+  },
   "troubleshooter.open": {
     "message": "フィルターの診断を開く…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "試用版: 残り $1 回"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "フィルター診断の無料試用回数を使い切りました。さらにチェックを実行するには quickFilters Pro を入手してください。"
   },
   "troubleshooter.intro": {
     "message": "検査を実行し、問題を確認して変更を選択します。"

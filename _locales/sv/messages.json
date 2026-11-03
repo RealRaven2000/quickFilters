@@ -2308,8 +2308,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Felsökning"
   },
+  "troubleshooter.menu": {
+    "message": "Felsökare…"
+  },
   "troubleshooter.open": {
     "message": "Öppna filterfelsökaren…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Testversion: $1 användningar kvar"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Dina kostnadsfria användningar av filterfelsökaren är slut. Skaffa quickFilters Pro för att köra fler kontroller."
   },
   "troubleshooter.intro": {
     "message": "Kör kontroller, granska problem och välj vad som ska ändras."

@@ -2305,8 +2305,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Rozwiązywanie problemów"
   },
+  "troubleshooter.menu": {
+    "message": "Diagnostyka filtrów…"
+  },
   "troubleshooter.open": {
     "message": "Otwórz rozwiązywanie problemów z filtrami…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Wersja próbna: pozostało $1 użyć"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Wykorzystano bezpłatne użycia diagnostyki filtrów. Kup quickFilters Pro, aby uruchamiać kolejne kontrole."
   },
   "troubleshooter.intro": {
     "message": "Uruchom kontrole, przejrzyj problemy i zdecyduj, co zmienić."

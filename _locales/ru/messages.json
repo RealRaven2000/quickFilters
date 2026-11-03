@@ -2305,8 +2305,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Устранение неполадок"
   },
+  "troubleshooter.menu": {
+    "message": "Диагностика фильтров…"
+  },
   "troubleshooter.open": {
     "message": "Открыть проверку фильтров…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Пробная версия: осталось использований — $1"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Бесплатные использования диагностики фильтров исчерпаны. Приобретите quickFilters Pro для дальнейших проверок."
   },
   "troubleshooter.intro": {
     "message": "Запустите проверки, изучите проблемы и выберите изменения."

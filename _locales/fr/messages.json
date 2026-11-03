@@ -2308,8 +2308,17 @@
   "troubleshooter.title": {
     "message": "quickFilters · Dépannage"
   },
+  "troubleshooter.menu": {
+    "message": "Diagnostic des filtres…"
+  },
   "troubleshooter.open": {
     "message": "Ouvrir le dépannage des filtres…"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Version d’essai : $1 utilisations restantes"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Vos utilisations gratuites du diagnostic des filtres sont épuisées. Obtenez quickFilters Pro pour effectuer davantage de vérifications."
   },
   "troubleshooter.intro": {
     "message": "Lancez des vérifications, examinez les problèmes et choisissez les modifications."

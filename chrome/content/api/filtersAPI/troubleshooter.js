@@ -1,7 +1,7 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-/* global t, getSessionStorage */
+/* global t, getSessionStorage, consumeTroubleshooterUsage, isTroubleshooterLicensed */
 /* Private FiltersAPI scope; never injected into a surviving chrome window. */
 (function () {
   "use strict";
@@ -10,7 +10,7 @@
   const sessions = new Map();
   const categories = ["runs", "folders", "addons", "conditions"];
   function getTroubleshooterInfo() {
-    return { appName: Services.appinfo.name, supportsMixedConditions: Services.appinfo.name === "Betterbird" };
+    return { licensed: isTroubleshooterLicensed(), appName: Services.appinfo.name, supportsMixedConditions: Services.appinfo.name === "Betterbird" };
   }
   const uuid = () => Services.uuid.generateUUID().toString();
   function runnableTypes() {
@@ -70,6 +70,11 @@
     if (!Array.isArray(checks) || !checks.length || checks.some(check => !categories.includes(check))) fail("invalidCheck");
     const win = mailWindow(), util = win.quickFilters.Util;
     const list = listFor(accountId), server = account(accountId).incomingServer;
+    // Consumption is synchronous and atomic across tabs. Keep the session across account switches.
+    const licensed = isTroubleshooterLicensed();
+    if (!licensed && !session.trial?.allowed) session.trial = consumeTroubleshooterUsage();
+    const trial = licensed ? null : session.trial;
+    if (trial && !trial.allowed) return { allowed: false, trial };
     const findings = [];
     for (let index = 0; index < list.filterCount; index++) {
       const filter = list.getFilterAt(index);
@@ -130,7 +135,7 @@
     for (const [token, entry] of session.entries) {
       if (entry.accountId === accountId && !current.has(entry.filter)) session.entries.delete(token);
     }
-    return { accountId, count: list.filterCount, checks: [...new Set(checks)], findings };
+    return { accountId, count: list.filterCount, checks: [...new Set(checks)], findings, trial };
   }
   function getFilterConditionText(sessionId, token) {
     const { filter } = entryFor(sessionId, token);

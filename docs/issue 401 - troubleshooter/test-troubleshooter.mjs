@@ -6,7 +6,8 @@ import { createReviewState } from "../../scripts/troubleshooter/state.mjs";
 import { createFilterProblemTable } from "../../scripts/filter-review/warning-panel.mjs";
 
 const source = await readFile(new URL("../../chrome/content/api/filtersAPI/troubleshooter.js", import.meta.url), "utf8");
-function setup(appName = "Thunderbird", sessionValues = {}) {
+function setup(appName = "Thunderbird", sessionValues = {}, licensed = true) {
+  let used = 0;
   const types = { Incoming: 3, Periodic: 4, Manual: 8, InboxRule: 1, NewsRule: 2, PostOutgoing: 16, Archive: 32, PostPlugin: 64 };
   const actions = { MoveToFolder: 1, CopyToFolder: 2, Custom: 3 };
   const terms = [{ termAsString: "subject,contains,invoice", booleanAnd: true, beginsGrouping: false, endsGrouping: false }];
@@ -30,7 +31,7 @@ function setup(appName = "Thunderbird", sessionValues = {}) {
     saveToDefaultFile() { writes++; if (failWrite) { failWrite = false; throw Error("write failed"); } },
   };
   const account = { incomingServer: { type: "imap", canHaveFilters: true, rootMsgFolder: { getEditableFilterList: () => list } } };
-  const main = { quickFilters: { Util: { getMsgFolderFromUri: () => null } }, openDialog() { dialogs++; } };
+  const main = { quickFilters: { Util: { getMsgFolderFromUri: () => null, hasPremiumLicense: () => true } }, openDialog() { dialogs++; } };
   const context = vm.createContext({
     ChromeUtils: { importESModule: () => ({ MailServices: { accounts: { getAccount: id => id === "a" ? account : null }, filters: { getCustomAction() { throw Error("missing"); }, getCustomTerm() { return null; } } } }) },
     Components: { interfaces: { nsMsgFilterType: types, nsMsgFilterAction: actions, nsMsgSearchAttrib: { Custom: -2 } } },
@@ -46,6 +47,12 @@ function setup(appName = "Thunderbird", sessionValues = {}) {
       get: async key => ({ [key]: sessionValues[key] }),
       set: async values => Object.assign(sessionValues, values),
     }),
+    isTroubleshooterLicensed: () => licensed,
+    consumeTroubleshooterUsage: () => {
+      const allowed = used < 8;
+      if (allowed) used++;
+      return { allowed, used, remaining: 8 - used, maximum: 8 };
+    },
     t: key => key, console,
   });
   vm.runInContext(source, context);
@@ -252,5 +259,31 @@ test("troubleshooter localization respects locale scope and preserves placeholde
       assert.deepEqual(catalog[key].placeholders, entry.placeholders, `${locale}: ${key}`);
       assert.deepEqual([...catalog[key].message.matchAll(/\$\w+\$/g)].map(m => m[0]).sort(), [...entry.message.matchAll(/\$\w+\$/g)].map(m => m[0]).sort(), `${locale}: ${key}`);
     }
+  }
+});
+
+
+test("eight trials count first check per tab; repeat checks remain allowed at zero", () => {
+  const env = setup("Thunderbird", {}, false);
+  assert.equal(env.api.getTroubleshooterInfo().licensed, false, "stale legacy license cache cannot bypass trials");
+  env.api.endTroubleshooting(env.api.beginTroubleshooting());
+  for (let index = 0; index < 8; index++) {
+    const tab = env.api.beginTroubleshooting();
+    assert.equal(env.api.scanFilters(tab, "a", ["runs"]).trial.remaining, 7 - index);
+    for (const check of checks) {
+      const result = env.api.scanFilters(tab, "a", [check]);
+      assert.equal(result.trial.used, index + 1);
+      assert.notEqual(result.allowed, false);
+    }
+    env.api.endTroubleshooting(tab);
+  }
+  assert.equal(env.api.scanFilters(env.session, "a", checks).allowed, false);
+  assert.equal(env.api.scanFilters(env.session, "a", checks).trial.used, 8);
+});
+
+test("valid Pro license bypasses trial consumption", () => {
+  const env = setup();
+  for (let index = 0; index < 10; index++) {
+    assert.equal(env.api.scanFilters(env.api.beginTroubleshooting(), "a", checks).trial, null);
   }
 });

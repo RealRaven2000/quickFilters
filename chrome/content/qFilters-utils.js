@@ -668,6 +668,15 @@ quickFilters.Util = {
     Services.prompt.alert(null, caption, msg);
   },
 
+  openTroubleshooter: async function () {
+    const storage = quickFilters.Storage || quickFilters.Util.getMail3PaneWindow()?.quickFilters?.Storage;
+    if (!storage?._context) {
+      throw new Error("quickFilters extension context is unavailable for opening the troubleshooter");
+    }
+    const createTab = await storage._context.apiCan.asyncFindAPIPath("tabs.create");
+    return createTab({ url: quickFilters.Util.extension.baseURI.resolve("html/filter-troubleshooter.html"), active: true });
+  },
+
   /* quickFilters Pro / licensing features */
   // Use the explicit experiment API through the existing WindowListener context.
   consumeProFeatureUsage: async function (featureName) {
