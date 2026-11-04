@@ -138,8 +138,10 @@ permalink: premium.html
 				<br>
 				[Available from <a href="version.html#3.5">version 3.5</a>] - you can now save your filters 
 				for each mailbox to a file and  load them later or transfer to a different Thunderbird profile. 
-				For technical reasons, currently old filters will not be overwritten - therefore unwanted filters should be 
-				removed manually after restoring to avoid duplication.
+				When restoring, filters with the same name are overwritten by the filters from the backup.
+				Filters with new names are added, and all other existing filters remain unchanged.
+				To replace the entire filter list with a backup, first delete the existing filters in the destination account,
+				then restore the backup. Restore does not automatically delete filters that are absent from the backup.
 				<p class="smaller">
 				  When transferring to a different profile, Custom filter actions (e.g. create with FilteQuilla) will only work 
 					if they are set up exactly the same on both 

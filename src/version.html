@@ -229,6 +229,70 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
 -->
 
 
+<a name="6.15"> &nbsp; </a>
+<li>
+  <h4>quickFilters 6.15 - WIP</h4>
+  <p>This release adds multi-account filter backup and restore and a dedicated filter troubleshooter.</p>
+  <h5 class="inList">Improvements</h5>
+  <ul>
+    <li>
+      <strong>Backup and restore:</strong> 
+      Save and restore filters for multiple accounts or selected accounts. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/193">[issue 193]</a>
+      <p>
+        The restore process guides you through these steps:
+      </p>
+      <ol>
+        <li>
+          <strong>Open a backup:</strong> Load a multi-account backup or an older 
+          single-account backup and select the accounts whose filters you want to restore.
+        </li>
+        <li><strong>Match accounts:</strong> Review suggested destination accounts 
+          and adjust them using drag and drop or the account picker. You can also map 
+          accounts referenced by move/copy actions, so folder targets follow the chosen 
+          destinations. Successful mappings are remembered for future restores.
+        </li>
+        <img src="img/restore-accounts-assignment.png" class="screenshot" alt="Account assignments" />
+        <li>
+          <strong>Choose how to combine filters:</strong> 
+          Replace existing filters with the same name, or keep them and add only filters 
+          with new names. Accounts you leave unselected keep their existing filters.
+        </li>
+        <img src="img/restore-accounts-overwrite.png" class="screenshot" alt="Overwrite behavior" />
+        <li>
+          <strong>Restore and review:</strong> See how many filters were added, replaced, 
+          kept or skipped, along with any failures. Review warnings such as missing destination 
+          folders, open affected imported filters for editing, delete unwanted 
+          imports, or save a restore report.
+        </li>
+        <p>
+          <img src="img/restore-summary.png" class="screenshot" alt="Summary" />
+        </p>
+        <img src="img/restore-actions.png" class="screenshot" alt="Filter actions" />
+      </ol>
+    </li>
+    <li>
+      <strong>Filter troubleshooter:</strong> 
+      A dedicated page which can be openedf from the quickFilters tools menu and the 
+      message list toolbar. Run individual checks or all checks, inspect per-filter problems and 
+      read-only conditions, and choose confirmed remedies. Mixed/grouped conditions are 
+      preserved and can be disabled without opening the filter editor. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/401">[issue 401]</a>
+    </li>
+    <li>
+      <strong>Internal cleanup:</strong> 
+      Move backup/restore and filter-review operations into the experimental FiltersAPI.
+    </li>
+  </ul>
+
+  <h5 class="inList">Bugfixes</h5>
+  <ul>
+    <li>
+      Fixed blocking warnings for filter sorting and advanced filter search. 
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/400">[issue 400]</a></li>
+  </ul>
+</li>
+
 <a name="6.14"> &nbsp; </a>
 <li>
   <h4>
