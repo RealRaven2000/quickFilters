@@ -2070,6 +2070,12 @@
   "quickfilters.warning.emptyFilter": {
     "message": "Nelze vytvořit filtr: bez platných vyhledávacích výrazů jej nelze upravit."
   },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Opravu složky se nepodařilo spustit. Po dokončení všech probíhajících operací se složkou zkuste Vlastnosti → Opravit složku."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters nemohl získat údaje potřebné k vytvoření nebo aktualizaci filtru.\n\nCílová složka „{0}“ může vyžadovat opravu.\n\nPokusit se složku opravit nyní?\n\nPočkejte na dokončení opravy a poté zkuste filtr vytvořit znovu."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Šablona s tímto názvem již existuje! Název musí být jedinečný."
   },
@@ -2219,6 +2225,329 @@
     "description": "disclaimer.",
     "message": "Překlady byly vytvořeny pomocí AI a nemusí být přesné."
   },
+  "troubleshooter.accountUnavailable": {
+    "message": "Účet není dostupný nebo nepodporuje filtry."
+  },
+  "troubleshooter.actionId": {
+    "message": "ID akce"
+  },
+  "troubleshooter.allResults": {
+    "message": "Všechny výsledky"
+  },
+  "troubleshooter.changed": {
+    "message": "Změna uložena. Dříve provedené kontroly byly aktualizovány."
+  },
+  "troubleshooter.check": {
+    "message": "Kontrola"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Vyhledat chybějící akce a podmínky"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Zkontrolovat podmínky hledání"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Zkontrolovat cílové složky"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Zkontrolovat automatické spouštění"
+  },
+  "troubleshooter.checks": {
+    "message": "Dostupné kontroly"
+  },
+  "troubleshooter.close": {
+    "message": "Zavřít"
+  },
+  "troubleshooter.completed": {
+    "message": "Kontroly dokončeny. Žádné filtry nebyly změněny."
+  },
+  "troubleshooter.conditionHint": {
+    "message": "Níže jsou uvedeny jednotlivé podmínky. Seskupení je zobrazeno zvlášť v tabulce."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Smazat „$filter$“? Filtr bude trvale odstraněn.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Zakázat „$filter$“? Přestane se spouštět a jeho podmínky zůstanou nezměněné.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Povolit automatické spouštění „$filter$“ při příjmu nové pošty? Změní se tím spouštění filtru; pro pouhou kontrolu to není nutné.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.copied": {
+    "message": "Text podmínek zkopírován."
+  },
+  "troubleshooter.copy": {
+    "message": "Kopírovat"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Vyberte text a zkopírujte jej ručně."
+  },
+  "troubleshooter.customId": {
+    "message": "Vlastní ID"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Jsou dostupné vlastní akce a podmínky hledání?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Vyhledejte smíšené podmínky ALL/ANY, skupiny nebo chybějící podmínky."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Existují ještě cíle přesunu a kopírování?"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Zjistěte, zda se povolené filtry mohou spouštět při příjmu pošty, pravidelně nebo ručně."
+  },
+  "troubleshooter.disable": {
+    "message": "Zakázat filtr…"
+  },
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Neupozorňovat do restartu Thunderbirdu"
+  },
+  "troubleshooter.empty": {
+    "message": "V tomto zobrazení nejsou žádné výsledky."
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Povolit pro příchozí poštu…"
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Filtr se nepodařilo plně zkontrolovat. Prohlédněte podrobnosti chyby; nepředpokládejte úspěšnou kontrolu."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "Poskytující doplněk může chybět, být zakázaný nebo nekompatibilní. Zkontrolujte správce doplňků a povolení akce v nastavení doplňku."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "Filtr nemá žádné podmínky hledání. Přidejte je, zakažte filtr nebo jej smažte, pokud jej už nepotřebujete."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "Akce přesunu nebo kopírování odkazuje na chybějící složku nebo složku, která nemůže přijímat zprávy. Vyberte existující cíl v editoru filtrů."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "Poskytující doplněk může chybět, být zakázaný nebo nekompatibilní. Zkontrolujte správce doplňků a povolení podmínky v nastavení doplňku."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Tato logika může být záměrná. Otevření filtru v editoru Thunderbirdu může jeho podmínky chybně vyložit. Prohlédněte text pouze pro čtení nebo filtr zakažte beze změny podmínek. Zakázání logiku neopravuje."
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Filtr je povolený, ale není nastaven pro automatické ani ruční spouštění. Povolení pro příchozí poštu je volitelná změna, nikoli automatická oprava."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird nedokázal filtr zpracovat. Prohlédněte uložený text bez otevření editoru filtrů."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Filtr se během kontroly změnil. Spusťte kontroly znovu."
+  },
+  "troubleshooter.filterCount": {
+    "message": "Filtry: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Filtr byl odstraněn nebo nahrazen. Spusťte kontroly znovu."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Filtr už není dostupný. Spusťte kontroly znovu."
+  },
+  "troubleshooter.find": {
+    "message": "Najít filtr…"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Konce skupin"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Začátky skupin"
+  },
+  "troubleshooter.help": {
+    "message": "Informace: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.help.addons": {
+    "message": "Jiné doplňky mohou poskytovat vlastní akce a podmínky. Možná je nutné je povolit v nastavení doplňku. Mohou také přestat být dostupné, pokud je doplněk zakázaný nebo nekompatibilní s vaší verzí Thunderbirdu."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Editor filtrů Thunderbirdu nyní podporuje splnění všech podmínek (ALL) nebo libovolné podmínky (ANY). Pracuje se na jejich kombinování ve skupinách. Váš poštovní klient nebo verze již tuto funkci možná podporuje."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Složky lze přesunout, smazat nebo odstranit na serveru IMAP, takže filtr ztratí platný cíl. Thunderbird obvykle aktualizuje pravidla při přejmenování nebo přesunu složky v rámci stejného účtu."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Někdy se filtry nespouštějí automaticky, přestože jsou tak nastavené. Příčinou může být poškozený profil Thunderbirdu. Tato kontrola hledá chybějící nastavení spouštění; poškození profilu nezjišťuje."
+  },
+  "troubleshooter.intro": {
+    "message": "Spusťte kontroly, prohlédněte problémy a vyberte změny."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Neznámá kontrola potíží."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Neznámá nebo nepodporovaná změna filtru."
+  },
+  "troubleshooter.logHint": {
+    "message": "Prozkoumejte nedávnou činnost filtrů vybraného účtu."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Před použitím řešení potíží otevřete poštovní okno Thunderbirdu."
+  },
+  "troubleshooter.menu": {
+    "message": "Diagnostika filtrů…"
+  },
+  "troubleshooter.missingIdentifier": {
+    "message": "Chybějící identifikátor"
+  },
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "Vaše aplikace již podporuje smíšené podmínky, proto se tato část kontroly vynechává. Chybějící podmínky se kontrolují nadále."
+  },
+  "troubleshooter.mixedEditWarning": {
+    "message": "Tento filtr obsahuje smíšené nebo seskupené podmínky. Editor je nemusí správně podporovat. Jejich otevření je může změnit. Pokračovat?"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Vyžaduje pozornost"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Filtry ke kontrole: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Nejsou k dispozici žádné účty s filtry."
+  },
+  "troubleshooter.noProblems": {
+    "message": "Žádné zbývající problémy"
+  },
+  "troubleshooter.notRun": {
+    "message": "Nezkontrolováno"
+  },
+  "troubleshooter.open": {
+    "message": "Otevřít řešení potíží s filtry…"
+  },
+  "troubleshooter.openAddons": {
+    "message": "Otevřít správce doplňků"
+  },
+  "troubleshooter.openEditorAnyway": {
+    "message": "Přesto otevřít editor…"
+  },
+  "troubleshooter.openLog": {
+    "message": "Otevřít protokol filtrů…"
+  },
+  "troubleshooter.operator": {
+    "message": "Operátor"
+  },
+  "troubleshooter.problem": {
+    "message": "Problém"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Zkontroluje všechny typy problémů. Změny filtrů vždy vyžadují vaše výslovné rozhodnutí."
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Kontrolu nelze dokončit"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Vlastní akce není dostupná"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Žádné podmínky hledání"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Neplatná cesta ke složce"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Vlastní podmínka není dostupná"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Smíšené podmínky ALL/ANY nebo skupiny"
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Není nastaven způsob spouštění filtru"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Filtr nelze zpracovat"
+  },
+  "troubleshooter.resolved": {
+    "message": "Vyřešeno"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Stav výsledku"
+  },
+  "troubleshooter.review": {
+    "message": "Kontrola filtrů"
+  },
+  "troubleshooter.runAll": {
+    "message": "Spustit všechny kontroly"
+  },
+  "troubleshooter.searchTermId": {
+    "message": "ID podmínky hledání"
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Platnost této kontroly vypršela. Znovu otevřete řešení potíží."
+  },
+  "troubleshooter.start": {
+    "message": "Spusťte kontrolu filtrů tohoto účtu."
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Smazáno"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Zakázáno · Vyžaduje kontrolu"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Vyžaduje kontrolu"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Vyřešeno"
+  },
+  "troubleshooter.summary": {
+    "message": "Filtry ke kontrole: $filters$ · Vyřešené problémy: $resolved$ · Provedeno $checks$ ze 4 kontrol",
+    "placeholders": {
+      "filters": { "content": "$1" },
+      "resolved": { "content": "$2" },
+      "checks": { "content": "$3" }
+    }
+  },
+  "troubleshooter.tableHint": {
+    "message": "Jeden řádek pro každý problém. Rozbalte Podrobnosti pro vysvětlení."
+  },
+  "troubleshooter.term": {
+    "message": "Podmínka hledání"
+  },
+  "troubleshooter.title": {
+    "message": "quickFilters · Řešení potíží"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Bezplatná použití diagnostiky filtrů byla vyčerpána. Pro další kontroly si pořiďte quickFilters Pro."
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Zkušební verze: zbývá $1 použití"
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Otevření filtru v editoru není bezpečné. Zobrazte podmínky nebo jej zakažte."
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Zobrazit podmínky…"
+  },
   "updates.displayVersionTab": {
     "message": "Zobrazit kartu s historií verzí po aktualizaci"
   },
@@ -2276,351 +2605,7 @@
   "yearlyLicense.usageTerm1": {
     "message": "Jakékoliv další e-mailové adresy nejsou problém - nevyžadují samostatnou licenci. V případě dotazů mě můžete kontaktovat na záložce Podpora."
   },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Opravu složky se nepodařilo spustit. Po dokončení všech probíhajících operací se složkou zkuste Vlastnosti → Opravit složku."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters nemohl získat údaje potřebné k vytvoření nebo aktualizaci filtru.\n\nCílová složka „{0}“ může vyžadovat opravu.\n\nPokusit se složku opravit nyní?\n\nPočkejte na dokončení opravy a poté zkuste filtr vytvořit znovu."
-  },
   "quickfilters.notification.premium.btn.hotKey": {
     "message": "P"
-  }
-,
-  "troubleshooter.title": {
-    "message": "quickFilters · Řešení potíží"
-  },
-  "troubleshooter.menu": {
-    "message": "Diagnostika filtrů…"
-  },
-  "troubleshooter.open": {
-    "message": "Otevřít řešení potíží s filtry…"
-  },
-  "troubleshooter.trialRemaining": {
-    "message": "Zkušební verze: zbývá $1 použití"
-  },
-  "troubleshooter.trialExhausted": {
-    "message": "Bezplatná použití diagnostiky filtrů byla vyčerpána. Pro další kontroly si pořiďte quickFilters Pro."
-  },
-  "troubleshooter.intro": {
-    "message": "Spusťte kontroly, prohlédněte problémy a vyberte změny."
-  },
-  "troubleshooter.openLog": {
-    "message": "Otevřít protokol filtrů…"
-  },
-  "troubleshooter.logHint": {
-    "message": "Prozkoumejte nedávnou činnost filtrů vybraného účtu."
-  },
-  "troubleshooter.checks": {
-    "message": "Dostupné kontroly"
-  },
-  "troubleshooter.runAll": {
-    "message": "Spustit všechny kontroly"
-  },
-  "troubleshooter.readOnly": {
-    "message": "Zkontroluje všechny typy problémů. Změny filtrů vždy vyžadují vaše výslovné rozhodnutí."
-  },
-  "troubleshooter.review": {
-    "message": "Kontrola filtrů"
-  },
-  "troubleshooter.needsAttention": {
-    "message": "Vyžaduje pozornost"
-  },
-  "troubleshooter.resolved": {
-    "message": "Vyřešeno"
-  },
-  "troubleshooter.allResults": {
-    "message": "Všechny výsledky"
-  },
-  "troubleshooter.resultStatus": {
-    "message": "Stav výsledku"
-  },
-  "troubleshooter.find": {
-    "message": "Najít filtr…"
-  },
-  "troubleshooter.viewConditions": {
-    "message": "Zobrazit podmínky…"
-  },
-  "troubleshooter.conditionHint": {
-    "message": "Níže jsou uvedeny jednotlivé podmínky. Seskupení je zobrazeno zvlášť v tabulce."
-  },
-  "troubleshooter.copy": {
-    "message": "Kopírovat"
-  },
-  "troubleshooter.close": {
-    "message": "Zavřít"
-  },
-  "troubleshooter.copyManually": {
-    "message": "Vyberte text a zkopírujte jej ručně."
-  },
-  "troubleshooter.copied": {
-    "message": "Text podmínek zkopírován."
-  },
-  "troubleshooter.operator": {
-    "message": "Operátor"
-  },
-  "troubleshooter.term": {
-    "message": "Podmínka hledání"
-  },
-  "troubleshooter.groupStart": {
-    "message": "Začátky skupin"
-  },
-  "troubleshooter.groupEnd": {
-    "message": "Konce skupin"
-  },
-  "troubleshooter.check": {
-    "message": "Kontrola"
-  },
-  "troubleshooter.problem": {
-    "message": "Problém"
-  },
-  "troubleshooter.tableHint": {
-    "message": "Jeden řádek pro každý problém. Rozbalte Podrobnosti pro vysvětlení."
-  },
-  "troubleshooter.summary": {
-    "message": "Filtry ke kontrole: $filters$ · Vyřešené problémy: $resolved$ · Provedeno $checks$ ze 4 kontrol",
-    "placeholders": {
-      "filters": {
-        "content": "$1"
-      },
-      "resolved": {
-        "content": "$2"
-      },
-      "checks": {
-        "content": "$3"
-      }
-    }
-  },
-  "troubleshooter.filterCount": {
-    "message": "Filtry: $count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.notRun": {
-    "message": "Nezkontrolováno"
-  },
-  "troubleshooter.needsReviewCount": {
-    "message": "Filtry ke kontrole: $count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.noProblems": {
-    "message": "Žádné zbývající problémy"
-  },
-  "troubleshooter.empty": {
-    "message": "V tomto zobrazení nejsou žádné výsledky."
-  },
-  "troubleshooter.start": {
-    "message": "Spusťte kontrolu filtrů tohoto účtu."
-  },
-  "troubleshooter.changed": {
-    "message": "Změna uložena. Dříve provedené kontroly byly aktualizovány."
-  },
-  "troubleshooter.completed": {
-    "message": "Kontroly dokončeny. Žádné filtry nebyly změněny."
-  },
-  "troubleshooter.noAccounts": {
-    "message": "Nejsou k dispozici žádné účty s filtry."
-  },
-  "troubleshooter.help": {
-    "message": "Informace: $check$",
-    "placeholders": {
-      "check": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.openAddons": {
-    "message": "Otevřít správce doplňků"
-  },
-  "troubleshooter.enableIncoming": {
-    "message": "Povolit pro příchozí poštu…"
-  },
-  "troubleshooter.disable": {
-    "message": "Zakázat filtr…"
-  },
-  "troubleshooter.state.remaining": {
-    "message": "Vyžaduje kontrolu"
-  },
-  "troubleshooter.state.disabled": {
-    "message": "Zakázáno · Vyžaduje kontrolu"
-  },
-  "troubleshooter.state.resolved": {
-    "message": "Vyřešeno"
-  },
-  "troubleshooter.state.deleted": {
-    "message": "Smazáno"
-  },
-  "troubleshooter.check.runs": {
-    "message": "Zkontrolovat automatické spouštění"
-  },
-  "troubleshooter.check.folders": {
-    "message": "Zkontrolovat cílové složky"
-  },
-  "troubleshooter.check.addons": {
-    "message": "Vyhledat chybějící akce a podmínky"
-  },
-  "troubleshooter.check.conditions": {
-    "message": "Zkontrolovat podmínky hledání"
-  },
-  "troubleshooter.description.runs": {
-    "message": "Zjistěte, zda se povolené filtry mohou spouštět při příjmu pošty, pravidelně nebo ručně."
-  },
-  "troubleshooter.description.folders": {
-    "message": "Existují ještě cíle přesunu a kopírování?"
-  },
-  "troubleshooter.description.addons": {
-    "message": "Jsou dostupné vlastní akce a podmínky hledání?"
-  },
-  "troubleshooter.description.conditions": {
-    "message": "Vyhledejte smíšené podmínky ALL/ANY, skupiny nebo chybějící podmínky."
-  },
-  "troubleshooter.help.runs": {
-    "message": "Někdy se filtry nespouštějí automaticky, přestože jsou tak nastavené. Příčinou může být poškozený profil Thunderbirdu. Tato kontrola hledá chybějící nastavení spouštění; poškození profilu nezjišťuje."
-  },
-  "troubleshooter.help.folders": {
-    "message": "Složky lze přesunout, smazat nebo odstranit na serveru IMAP, takže filtr ztratí platný cíl. Thunderbird obvykle aktualizuje pravidla při přejmenování nebo přesunu složky v rámci stejného účtu."
-  },
-  "troubleshooter.help.addons": {
-    "message": "Jiné doplňky mohou poskytovat vlastní akce a podmínky. Možná je nutné je povolit v nastavení doplňku. Mohou také přestat být dostupné, pokud je doplněk zakázaný nebo nekompatibilní s vaší verzí Thunderbirdu."
-  },
-  "troubleshooter.help.conditions": {
-    "message": "Editor filtrů Thunderbirdu nyní podporuje splnění všech podmínek (ALL) nebo libovolné podmínky (ANY). Pracuje se na jejich kombinování ve skupinách. Váš poštovní klient nebo verze již tuto funkci možná podporuje."
-  },
-  "troubleshooter.reason.no-run-method": {
-    "message": "Není nastaven způsob spouštění filtru"
-  },
-  "troubleshooter.reason.missing-folder": {
-    "message": "Neplatná cesta ke složce"
-  },
-  "troubleshooter.reason.missing-action": {
-    "message": "Vlastní akce není dostupná"
-  },
-  "troubleshooter.reason.missing-term": {
-    "message": "Vlastní podmínka není dostupná"
-  },
-  "troubleshooter.reason.missing-conditions": {
-    "message": "Žádné podmínky hledání"
-  },
-  "troubleshooter.reason.mixed-conditions": {
-    "message": "Smíšené podmínky ALL/ANY nebo skupiny"
-  },
-  "troubleshooter.reason.unparseable": {
-    "message": "Filtr nelze zpracovat"
-  },
-  "troubleshooter.reason.inspection-failed": {
-    "message": "Kontrolu nelze dokončit"
-  },
-  "troubleshooter.explain.no-run-method": {
-    "message": "Filtr je povolený, ale není nastaven pro automatické ani ruční spouštění. Povolení pro příchozí poštu je volitelná změna, nikoli automatická oprava."
-  },
-  "troubleshooter.explain.missing-folder": {
-    "message": "Akce přesunu nebo kopírování odkazuje na chybějící složku nebo složku, která nemůže přijímat zprávy. Vyberte existující cíl v editoru filtrů."
-  },
-  "troubleshooter.explain.missing-action": {
-    "message": "Poskytující doplněk může chybět, být zakázaný nebo nekompatibilní. Zkontrolujte správce doplňků a povolení akce v nastavení doplňku."
-  },
-  "troubleshooter.explain.missing-term": {
-    "message": "Poskytující doplněk může chybět, být zakázaný nebo nekompatibilní. Zkontrolujte správce doplňků a povolení podmínky v nastavení doplňku."
-  },
-  "troubleshooter.explain.missing-conditions": {
-    "message": "Filtr nemá žádné podmínky hledání. Přidejte je, zakažte filtr nebo jej smažte, pokud jej už nepotřebujete."
-  },
-  "troubleshooter.explain.mixed-conditions": {
-    "message": "Tato logika může být záměrná. Otevření filtru v editoru Thunderbirdu může jeho podmínky chybně vyložit. Prohlédněte text pouze pro čtení nebo filtr zakažte beze změny podmínek. Zakázání logiku neopravuje."
-  },
-  "troubleshooter.explain.unparseable": {
-    "message": "Thunderbird nedokázal filtr zpracovat. Prohlédněte uložený text bez otevření editoru filtrů."
-  },
-  "troubleshooter.explain.inspection-failed": {
-    "message": "Filtr se nepodařilo plně zkontrolovat. Prohlédněte podrobnosti chyby; nepředpokládejte úspěšnou kontrolu."
-  },
-  "troubleshooter.mailWindowRequired": {
-    "message": "Před použitím řešení potíží otevřete poštovní okno Thunderbirdu."
-  },
-  "troubleshooter.accountUnavailable": {
-    "message": "Účet není dostupný nebo nepodporuje filtry."
-  },
-  "troubleshooter.sessionExpired": {
-    "message": "Platnost této kontroly vypršela. Znovu otevřete řešení potíží."
-  },
-  "troubleshooter.invalidCheck": {
-    "message": "Neznámá kontrola potíží."
-  },
-  "troubleshooter.filterUnavailable": {
-    "message": "Filtr už není dostupný. Spusťte kontroly znovu."
-  },
-  "troubleshooter.filterReplaced": {
-    "message": "Filtr byl odstraněn nebo nahrazen. Spusťte kontroly znovu."
-  },
-  "troubleshooter.invalidRemedy": {
-    "message": "Neznámá nebo nepodporovaná změna filtru."
-  },
-  "troubleshooter.unsafeEditor": {
-    "message": "Otevření filtru v editoru není bezpečné. Zobrazte podmínky nebo jej zakažte."
-  },
-  "troubleshooter.filterChanged": {
-    "message": "Filtr se během kontroly změnil. Spusťte kontroly znovu."
-  },
-  "troubleshooter.confirmDelete": {
-    "message": "Smazat „$filter$“? Filtr bude trvale odstraněn.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmDisable": {
-    "message": "Zakázat „$filter$“? Přestane se spouštět a jeho podmínky zůstanou nezměněné.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmIncoming": {
-    "message": "Povolit automatické spouštění „$filter$“ při příjmu nové pošty? Změní se tím spouštění filtru; pro pouhou kontrolu to není nutné.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  }
-,
-  "troubleshooter.mixedConditionsSupported": {
-    "message": "Vaše aplikace již podporuje smíšené podmínky, proto se tato část kontroly vynechává. Chybějící podmínky se kontrolují nadále."
-  }
-,
-  "troubleshooter.searchTermId": {
-    "message": "ID podmínky hledání"
-  }
-,
-  "troubleshooter.actionId": {
-    "message": "ID akce"
-  }
-,
-  "troubleshooter.missingIdentifier": {
-    "message": "Chybějící identifikátor"
-  }
-,
-  "troubleshooter.mixedEditWarning": {
-    "message": "Tento filtr obsahuje smíšené nebo seskupené podmínky. Editor je nemusí správně podporovat. Jejich otevření je může změnit. Pokračovat?"
-  }
-,
-  "troubleshooter.openEditorAnyway": {
-    "message": "Přesto otevřít editor…"
-  }
-,
-  "troubleshooter.dontWarnUntilRestart": {
-    "message": "Neupozorňovat do restartu Thunderbirdu"
-  }
-,
-  "troubleshooter.customId": {
-    "message": "Vlastní ID"
   }
 }

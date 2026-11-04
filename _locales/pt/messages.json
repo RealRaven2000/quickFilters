@@ -2093,6 +2093,12 @@
   "quickfilters.warning.emptyFilter": {
     "message": "Não foi possível criar o filtro: sem termos de pesquisa válidos, o filtro não pode ser editado."
   },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Não foi possível iniciar a reparação da pasta. Quando as operações em curso na pasta terminarem, tente Propriedades → Reparar pasta."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "O quickFilters não conseguiu obter as informações necessárias para criar ou atualizar um filtro.\n\nA pasta de destino «{0}» pode precisar de reparação.\n\nTentar reparar a pasta agora?\n\nAguarde até a reparação terminar e tente criar o filtro novamente."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Já existe um modelo com este nome! O nome deve ser único."
   },
@@ -2241,6 +2247,329 @@
     "description": "disclaimer.",
     "message": "As traduções foram fornecidas por IA e podem não ser precisas."
   },
+  "troubleshooter.accountUnavailable": {
+    "message": "Esta conta está indisponível ou não suporta filtros."
+  },
+  "troubleshooter.actionId": {
+    "message": "ID da ação"
+  },
+  "troubleshooter.allResults": {
+    "message": "Todos os resultados"
+  },
+  "troubleshooter.changed": {
+    "message": "Alteração guardada. As verificações anteriores foram atualizadas."
+  },
+  "troubleshooter.check": {
+    "message": "Verificação"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Procurar ações e condições em falta"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Verificar condições de pesquisa"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Verificar pastas de destino"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Verificar execução automática"
+  },
+  "troubleshooter.checks": {
+    "message": "Verificações disponíveis"
+  },
+  "troubleshooter.close": {
+    "message": "Fechar"
+  },
+  "troubleshooter.completed": {
+    "message": "Verificações concluídas. Nenhum filtro foi alterado."
+  },
+  "troubleshooter.conditionHint": {
+    "message": "O texto abaixo lista condições individuais. O agrupamento é apresentado separadamente na tabela."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Eliminar «$filter$»? O filtro será removido permanentemente.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Desativar «$filter$»? Isto interrompe a execução e mantém as condições inalteradas.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Permitir que «$filter$» seja executado automaticamente ao receber mensagens novas? Isto altera quando o filtro é executado e não é necessário para o inspecionar.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.copied": {
+    "message": "Texto das condições copiado."
+  },
+  "troubleshooter.copy": {
+    "message": "Copiar"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Selecione o texto e copie-o manualmente."
+  },
+  "troubleshooter.customId": {
+    "message": "ID personalizado"
+  },
+  "troubleshooter.description.addons": {
+    "message": "As ações e condições personalizadas estão disponíveis?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Procure condições ALL/ANY mistas, grupos ou condições em falta."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Os destinos de mover e copiar ainda existem?"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Verifique se os filtros ativos podem ser executados ao receber correio, periodicamente ou manualmente."
+  },
+  "troubleshooter.disable": {
+    "message": "Desativar filtro…"
+  },
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Não avisar até reiniciar o Thunderbird"
+  },
+  "troubleshooter.empty": {
+    "message": "Sem resultados nesta vista."
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Ativar para correio recebido…"
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Não foi possível inspecionar este filtro por completo. Reveja os detalhes do erro; não presuma que a verificação passou."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "O fornecedor da ação pode estar em falta, desativado ou ser incompatível. Verifique o gestor de extras e se a ação está ativa nas definições do fornecedor."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "Este filtro não tem condições de pesquisa. Adicione condições, desative o filtro ou elimine-o se já não for necessário."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "Uma ação de mover ou copiar aponta para uma pasta em falta ou que não pode receber mensagens. Escolha um destino existente no editor de filtros."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "O fornecedor da condição pode estar em falta, desativado ou ser incompatível. Verifique o gestor de extras e se a condição está ativa nas definições do fornecedor."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Esta lógica pode ser intencional. Abrir o filtro no editor do Thunderbird pode interpretar mal as condições. Consulte o texto só de leitura ou desative o filtro sem alterar as condições. Desativar não repara a lógica."
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Este filtro está ativo, mas não está configurado para execução automática ou manual. Ativá-lo para correio recebido é uma alteração opcional, não uma reparação automática."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "O Thunderbird não conseguiu interpretar este filtro. Consulte o texto guardado sem abrir o editor de filtros."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Este filtro mudou durante a revisão. Execute novamente as verificações."
+  },
+  "troubleshooter.filterCount": {
+    "message": "Filtros: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Este filtro foi removido ou substituído. Execute novamente as verificações."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Este filtro já não está disponível. Execute novamente as verificações."
+  },
+  "troubleshooter.find": {
+    "message": "Procurar filtro…"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Fins de grupo"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Inícios de grupo"
+  },
+  "troubleshooter.help": {
+    "message": "Sobre: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.help.addons": {
+    "message": "Outros extras podem fornecer ações e condições personalizadas. Pode ser necessário ativá-las nas definições do extra. Também podem ficar indisponíveis se o extra estiver desativado ou for incompatível com a sua versão do Thunderbird."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "O editor de filtros do Thunderbird permite atualmente corresponder a todas as condições (ALL) ou a qualquer uma (ANY). Está em desenvolvimento a combinação das duas formas em grupos. O seu programa de correio ou versão pode já suportar esta função."
+  },
+  "troubleshooter.help.folders": {
+    "message": "As pastas podem ser movidas, eliminadas ou removidas num servidor IMAP, deixando um filtro sem destino válido. O Thunderbird normalmente atualiza as regras ao mudar o nome ou mover uma pasta na mesma conta."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Por vezes os filtros não são executados automaticamente, mesmo estando configurados para isso. Um perfil do Thunderbird danificado pode ser uma causa. Esta verificação procura definições de execução em falta; não diagnostica danos no perfil."
+  },
+  "troubleshooter.intro": {
+    "message": "Execute verificações, reveja problemas e escolha o que alterar."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Verificação de problemas desconhecida."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Alteração de filtro desconhecida ou não suportada."
+  },
+  "troubleshooter.logHint": {
+    "message": "Investigue a atividade recente dos filtros da conta selecionada."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Abra uma janela de correio do Thunderbird antes de usar a resolução de problemas."
+  },
+  "troubleshooter.menu": {
+    "message": "Diagnóstico de filtros…"
+  },
+  "troubleshooter.missingIdentifier": {
+    "message": "Identificador em falta"
+  },
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "A sua aplicação já suporta condições mistas, pelo que essa parte da verificação é omitida. As condições em falta continuam a ser verificadas."
+  },
+  "troubleshooter.mixedEditWarning": {
+    "message": "Este filtro contém condições mistas ou agrupadas. O editor pode não as suportar corretamente. Abri-lo pode alterá-las. Continuar?"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Requer atenção"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Filtros a rever: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Não há contas com filtros disponíveis."
+  },
+  "troubleshooter.noProblems": {
+    "message": "Sem problemas restantes"
+  },
+  "troubleshooter.notRun": {
+    "message": "Não verificado"
+  },
+  "troubleshooter.open": {
+    "message": "Abrir resolução de problemas dos filtros…"
+  },
+  "troubleshooter.openAddons": {
+    "message": "Abrir gestor de extras"
+  },
+  "troubleshooter.openEditorAnyway": {
+    "message": "Abrir o editor mesmo assim…"
+  },
+  "troubleshooter.openLog": {
+    "message": "Abrir registo dos filtros…"
+  },
+  "troubleshooter.operator": {
+    "message": "Operador"
+  },
+  "troubleshooter.problem": {
+    "message": "Problema"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Verifica todos os tipos de problemas. As alterações aos filtros exigem sempre a sua escolha explícita."
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Não foi possível concluir a verificação"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Ação personalizada indisponível"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Sem condições de pesquisa"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Caminho de pasta inválido"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Condição personalizada indisponível"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Condições ALL/ANY mistas ou agrupadas"
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Sem método de execução configurado"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Não foi possível interpretar o filtro"
+  },
+  "troubleshooter.resolved": {
+    "message": "Resolvido"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Estado do resultado"
+  },
+  "troubleshooter.review": {
+    "message": "Revisão de filtros"
+  },
+  "troubleshooter.runAll": {
+    "message": "Executar todas as verificações"
+  },
+  "troubleshooter.searchTermId": {
+    "message": "ID da condição"
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Esta sessão de revisão expirou. Reabra a resolução de problemas."
+  },
+  "troubleshooter.start": {
+    "message": "Execute uma verificação dos filtros desta conta."
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Eliminado"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Desativado · Requer revisão"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Requer revisão"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Resolvido"
+  },
+  "troubleshooter.summary": {
+    "message": "$filters$ filtros a rever · $resolved$ problemas resolvidos · $checks$ de 4 verificações executadas",
+    "placeholders": {
+      "filters": { "content": "$1" },
+      "resolved": { "content": "$2" },
+      "checks": { "content": "$3" }
+    }
+  },
+  "troubleshooter.tableHint": {
+    "message": "Uma linha por problema. Expanda Detalhes para uma explicação."
+  },
+  "troubleshooter.term": {
+    "message": "Condição de pesquisa"
+  },
+  "troubleshooter.title": {
+    "message": "quickFilters · Resolução de problemas"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "As utilizações gratuitas do diagnóstico de filtros esgotaram-se. Obtenha o quickFilters Pro para executar mais verificações."
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Versão de avaliação: restam $1 utilizações"
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Não é seguro abrir este filtro no editor. Consulte as condições ou desative-o."
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Mostrar condições…"
+  },
   "updates.displayVersionTab": {
     "message": "Exibir aba com histórico de versões após a atualização"
   },
@@ -2300,349 +2629,5 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Sem problemas em ter emails adicionais - não necessita de licença separada. Em caso de dúvidas, entre em contato através da aba de suporte."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Não foi possível iniciar a reparação da pasta. Quando as operações em curso na pasta terminarem, tente Propriedades → Reparar pasta."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "O quickFilters não conseguiu obter as informações necessárias para criar ou atualizar um filtro.\n\nA pasta de destino «{0}» pode precisar de reparação.\n\nTentar reparar a pasta agora?\n\nAguarde até a reparação terminar e tente criar o filtro novamente."
-  }
-,
-  "troubleshooter.title": {
-    "message": "quickFilters · Resolução de problemas"
-  },
-  "troubleshooter.menu": {
-    "message": "Diagnóstico de filtros…"
-  },
-  "troubleshooter.open": {
-    "message": "Abrir resolução de problemas dos filtros…"
-  },
-  "troubleshooter.trialRemaining": {
-    "message": "Versão de avaliação: restam $1 utilizações"
-  },
-  "troubleshooter.trialExhausted": {
-    "message": "As utilizações gratuitas do diagnóstico de filtros esgotaram-se. Obtenha o quickFilters Pro para executar mais verificações."
-  },
-  "troubleshooter.intro": {
-    "message": "Execute verificações, reveja problemas e escolha o que alterar."
-  },
-  "troubleshooter.openLog": {
-    "message": "Abrir registo dos filtros…"
-  },
-  "troubleshooter.logHint": {
-    "message": "Investigue a atividade recente dos filtros da conta selecionada."
-  },
-  "troubleshooter.checks": {
-    "message": "Verificações disponíveis"
-  },
-  "troubleshooter.runAll": {
-    "message": "Executar todas as verificações"
-  },
-  "troubleshooter.readOnly": {
-    "message": "Verifica todos os tipos de problemas. As alterações aos filtros exigem sempre a sua escolha explícita."
-  },
-  "troubleshooter.review": {
-    "message": "Revisão de filtros"
-  },
-  "troubleshooter.needsAttention": {
-    "message": "Requer atenção"
-  },
-  "troubleshooter.resolved": {
-    "message": "Resolvido"
-  },
-  "troubleshooter.allResults": {
-    "message": "Todos os resultados"
-  },
-  "troubleshooter.resultStatus": {
-    "message": "Estado do resultado"
-  },
-  "troubleshooter.find": {
-    "message": "Procurar filtro…"
-  },
-  "troubleshooter.viewConditions": {
-    "message": "Mostrar condições…"
-  },
-  "troubleshooter.conditionHint": {
-    "message": "O texto abaixo lista condições individuais. O agrupamento é apresentado separadamente na tabela."
-  },
-  "troubleshooter.copy": {
-    "message": "Copiar"
-  },
-  "troubleshooter.close": {
-    "message": "Fechar"
-  },
-  "troubleshooter.copyManually": {
-    "message": "Selecione o texto e copie-o manualmente."
-  },
-  "troubleshooter.copied": {
-    "message": "Texto das condições copiado."
-  },
-  "troubleshooter.operator": {
-    "message": "Operador"
-  },
-  "troubleshooter.term": {
-    "message": "Condição de pesquisa"
-  },
-  "troubleshooter.groupStart": {
-    "message": "Inícios de grupo"
-  },
-  "troubleshooter.groupEnd": {
-    "message": "Fins de grupo"
-  },
-  "troubleshooter.check": {
-    "message": "Verificação"
-  },
-  "troubleshooter.problem": {
-    "message": "Problema"
-  },
-  "troubleshooter.tableHint": {
-    "message": "Uma linha por problema. Expanda Detalhes para uma explicação."
-  },
-  "troubleshooter.summary": {
-    "message": "$filters$ filtros a rever · $resolved$ problemas resolvidos · $checks$ de 4 verificações executadas",
-    "placeholders": {
-      "filters": {
-        "content": "$1"
-      },
-      "resolved": {
-        "content": "$2"
-      },
-      "checks": {
-        "content": "$3"
-      }
-    }
-  },
-  "troubleshooter.filterCount": {
-    "message": "Filtros: $count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.notRun": {
-    "message": "Não verificado"
-  },
-  "troubleshooter.needsReviewCount": {
-    "message": "Filtros a rever: $count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.noProblems": {
-    "message": "Sem problemas restantes"
-  },
-  "troubleshooter.empty": {
-    "message": "Sem resultados nesta vista."
-  },
-  "troubleshooter.start": {
-    "message": "Execute uma verificação dos filtros desta conta."
-  },
-  "troubleshooter.changed": {
-    "message": "Alteração guardada. As verificações anteriores foram atualizadas."
-  },
-  "troubleshooter.completed": {
-    "message": "Verificações concluídas. Nenhum filtro foi alterado."
-  },
-  "troubleshooter.noAccounts": {
-    "message": "Não há contas com filtros disponíveis."
-  },
-  "troubleshooter.help": {
-    "message": "Sobre: $check$",
-    "placeholders": {
-      "check": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.openAddons": {
-    "message": "Abrir gestor de extras"
-  },
-  "troubleshooter.enableIncoming": {
-    "message": "Ativar para correio recebido…"
-  },
-  "troubleshooter.disable": {
-    "message": "Desativar filtro…"
-  },
-  "troubleshooter.state.remaining": {
-    "message": "Requer revisão"
-  },
-  "troubleshooter.state.disabled": {
-    "message": "Desativado · Requer revisão"
-  },
-  "troubleshooter.state.resolved": {
-    "message": "Resolvido"
-  },
-  "troubleshooter.state.deleted": {
-    "message": "Eliminado"
-  },
-  "troubleshooter.check.runs": {
-    "message": "Verificar execução automática"
-  },
-  "troubleshooter.check.folders": {
-    "message": "Verificar pastas de destino"
-  },
-  "troubleshooter.check.addons": {
-    "message": "Procurar ações e condições em falta"
-  },
-  "troubleshooter.check.conditions": {
-    "message": "Verificar condições de pesquisa"
-  },
-  "troubleshooter.description.runs": {
-    "message": "Verifique se os filtros ativos podem ser executados ao receber correio, periodicamente ou manualmente."
-  },
-  "troubleshooter.description.folders": {
-    "message": "Os destinos de mover e copiar ainda existem?"
-  },
-  "troubleshooter.description.addons": {
-    "message": "As ações e condições personalizadas estão disponíveis?"
-  },
-  "troubleshooter.description.conditions": {
-    "message": "Procure condições ALL/ANY mistas, grupos ou condições em falta."
-  },
-  "troubleshooter.help.runs": {
-    "message": "Por vezes os filtros não são executados automaticamente, mesmo estando configurados para isso. Um perfil do Thunderbird danificado pode ser uma causa. Esta verificação procura definições de execução em falta; não diagnostica danos no perfil."
-  },
-  "troubleshooter.help.folders": {
-    "message": "As pastas podem ser movidas, eliminadas ou removidas num servidor IMAP, deixando um filtro sem destino válido. O Thunderbird normalmente atualiza as regras ao mudar o nome ou mover uma pasta na mesma conta."
-  },
-  "troubleshooter.help.addons": {
-    "message": "Outros extras podem fornecer ações e condições personalizadas. Pode ser necessário ativá-las nas definições do extra. Também podem ficar indisponíveis se o extra estiver desativado ou for incompatível com a sua versão do Thunderbird."
-  },
-  "troubleshooter.help.conditions": {
-    "message": "O editor de filtros do Thunderbird permite atualmente corresponder a todas as condições (ALL) ou a qualquer uma (ANY). Está em desenvolvimento a combinação das duas formas em grupos. O seu programa de correio ou versão pode já suportar esta função."
-  },
-  "troubleshooter.reason.no-run-method": {
-    "message": "Sem método de execução configurado"
-  },
-  "troubleshooter.reason.missing-folder": {
-    "message": "Caminho de pasta inválido"
-  },
-  "troubleshooter.reason.missing-action": {
-    "message": "Ação personalizada indisponível"
-  },
-  "troubleshooter.reason.missing-term": {
-    "message": "Condição personalizada indisponível"
-  },
-  "troubleshooter.reason.missing-conditions": {
-    "message": "Sem condições de pesquisa"
-  },
-  "troubleshooter.reason.mixed-conditions": {
-    "message": "Condições ALL/ANY mistas ou agrupadas"
-  },
-  "troubleshooter.reason.unparseable": {
-    "message": "Não foi possível interpretar o filtro"
-  },
-  "troubleshooter.reason.inspection-failed": {
-    "message": "Não foi possível concluir a verificação"
-  },
-  "troubleshooter.explain.no-run-method": {
-    "message": "Este filtro está ativo, mas não está configurado para execução automática ou manual. Ativá-lo para correio recebido é uma alteração opcional, não uma reparação automática."
-  },
-  "troubleshooter.explain.missing-folder": {
-    "message": "Uma ação de mover ou copiar aponta para uma pasta em falta ou que não pode receber mensagens. Escolha um destino existente no editor de filtros."
-  },
-  "troubleshooter.explain.missing-action": {
-    "message": "O fornecedor da ação pode estar em falta, desativado ou ser incompatível. Verifique o gestor de extras e se a ação está ativa nas definições do fornecedor."
-  },
-  "troubleshooter.explain.missing-term": {
-    "message": "O fornecedor da condição pode estar em falta, desativado ou ser incompatível. Verifique o gestor de extras e se a condição está ativa nas definições do fornecedor."
-  },
-  "troubleshooter.explain.missing-conditions": {
-    "message": "Este filtro não tem condições de pesquisa. Adicione condições, desative o filtro ou elimine-o se já não for necessário."
-  },
-  "troubleshooter.explain.mixed-conditions": {
-    "message": "Esta lógica pode ser intencional. Abrir o filtro no editor do Thunderbird pode interpretar mal as condições. Consulte o texto só de leitura ou desative o filtro sem alterar as condições. Desativar não repara a lógica."
-  },
-  "troubleshooter.explain.unparseable": {
-    "message": "O Thunderbird não conseguiu interpretar este filtro. Consulte o texto guardado sem abrir o editor de filtros."
-  },
-  "troubleshooter.explain.inspection-failed": {
-    "message": "Não foi possível inspecionar este filtro por completo. Reveja os detalhes do erro; não presuma que a verificação passou."
-  },
-  "troubleshooter.mailWindowRequired": {
-    "message": "Abra uma janela de correio do Thunderbird antes de usar a resolução de problemas."
-  },
-  "troubleshooter.accountUnavailable": {
-    "message": "Esta conta está indisponível ou não suporta filtros."
-  },
-  "troubleshooter.sessionExpired": {
-    "message": "Esta sessão de revisão expirou. Reabra a resolução de problemas."
-  },
-  "troubleshooter.invalidCheck": {
-    "message": "Verificação de problemas desconhecida."
-  },
-  "troubleshooter.filterUnavailable": {
-    "message": "Este filtro já não está disponível. Execute novamente as verificações."
-  },
-  "troubleshooter.filterReplaced": {
-    "message": "Este filtro foi removido ou substituído. Execute novamente as verificações."
-  },
-  "troubleshooter.invalidRemedy": {
-    "message": "Alteração de filtro desconhecida ou não suportada."
-  },
-  "troubleshooter.unsafeEditor": {
-    "message": "Não é seguro abrir este filtro no editor. Consulte as condições ou desative-o."
-  },
-  "troubleshooter.filterChanged": {
-    "message": "Este filtro mudou durante a revisão. Execute novamente as verificações."
-  },
-  "troubleshooter.confirmDelete": {
-    "message": "Eliminar «$filter$»? O filtro será removido permanentemente.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmDisable": {
-    "message": "Desativar «$filter$»? Isto interrompe a execução e mantém as condições inalteradas.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmIncoming": {
-    "message": "Permitir que «$filter$» seja executado automaticamente ao receber mensagens novas? Isto altera quando o filtro é executado e não é necessário para o inspecionar.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  }
-,
-  "troubleshooter.mixedConditionsSupported": {
-    "message": "A sua aplicação já suporta condições mistas, pelo que essa parte da verificação é omitida. As condições em falta continuam a ser verificadas."
-  }
-,
-  "troubleshooter.searchTermId": {
-    "message": "ID da condição"
-  }
-,
-  "troubleshooter.actionId": {
-    "message": "ID da ação"
-  }
-,
-  "troubleshooter.missingIdentifier": {
-    "message": "Identificador em falta"
-  }
-,
-  "troubleshooter.mixedEditWarning": {
-    "message": "Este filtro contém condições mistas ou agrupadas. O editor pode não as suportar corretamente. Abri-lo pode alterá-las. Continuar?"
-  }
-,
-  "troubleshooter.openEditorAnyway": {
-    "message": "Abrir o editor mesmo assim…"
-  }
-,
-  "troubleshooter.dontWarnUntilRestart": {
-    "message": "Não avisar até reiniciar o Thunderbird"
-  }
-,
-  "troubleshooter.customId": {
-    "message": "ID personalizado"
   }
 }

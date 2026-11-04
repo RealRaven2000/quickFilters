@@ -1853,6 +1853,9 @@
   "quickfilters.notification.premium.btn.getLicense": {
     "message": "購買 Pro"
   },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
+  },
   "quickfilters.notification.premium.btn.renewLicense": {
     "message": "更新許可證"
   },
@@ -2003,6 +2006,12 @@
   "quickfilters.warning.emptyFilter": {
     "message": "無法建立過濾器：沒有有效的搜尋條件，無法編輯過濾器。"
   },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "無法開始修復資料夾。請等待目前的資料夾操作完成，再嘗試「內容 → 修復資料夾」。"
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters 無法取得建立或更新篩選器所需的資訊。\n\n目的地資料夾「{0}」可能需要修復。\n\n現在嘗試修復資料夾嗎？\n\n請等待修復完成，再重新嘗試建立篩選器。"
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "該名稱的模板已存在！ 該名稱必須是唯一的。"
   },
@@ -2146,6 +2155,329 @@
     "description": "disclaimer.",
     "message": "翻譯由 AI 提供，可能不準確。"
   },
+  "troubleshooter.accountUnavailable": {
+    "message": "此帳號無法使用或不支援篩選器。"
+  },
+  "troubleshooter.actionId": {
+    "message": "動作 ID"
+  },
+  "troubleshooter.allResults": {
+    "message": "所有結果"
+  },
+  "troubleshooter.changed": {
+    "message": "已儲存變更。已更新先前執行的檢查。"
+  },
+  "troubleshooter.check": {
+    "message": "檢查"
+  },
+  "troubleshooter.check.addons": {
+    "message": "檢查缺少的動作與條件"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "檢查搜尋條件"
+  },
+  "troubleshooter.check.folders": {
+    "message": "檢查目標資料夾"
+  },
+  "troubleshooter.check.runs": {
+    "message": "檢查自動執行"
+  },
+  "troubleshooter.checks": {
+    "message": "可用的檢查"
+  },
+  "troubleshooter.close": {
+    "message": "關閉"
+  },
+  "troubleshooter.completed": {
+    "message": "檢查完成。未變更任何篩選器。"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "下方文字列出個別條件。群組會在表格中另行顯示。"
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "刪除「$filter$」？這會永久移除此篩選器。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "停用「$filter$」？這會停止執行，並保持條件不變。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "允許「$filter$」在收到新郵件時自動執行？這會變更篩選器的執行時機，僅檢視時不需要這樣做。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.copied": {
+    "message": "已複製條件文字。"
+  },
+  "troubleshooter.copy": {
+    "message": "複製"
+  },
+  "troubleshooter.copyManually": {
+    "message": "請選取文字並手動複製。"
+  },
+  "troubleshooter.customId": {
+    "message": "自訂 ID"
+  },
+  "troubleshooter.description.addons": {
+    "message": "自訂動作與搜尋條件是否可用？"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "尋找混合 ALL/ANY 條件、群組或缺少的搜尋條件。"
+  },
+  "troubleshooter.description.folders": {
+    "message": "移動與複製的目標是否仍存在？"
+  },
+  "troubleshooter.description.runs": {
+    "message": "檢查已啟用的篩選器能否在收信時、定期或手動執行。"
+  },
+  "troubleshooter.disable": {
+    "message": "停用篩選器…"
+  },
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "在 Thunderbird 重新啟動前不再警告"
+  },
+  "troubleshooter.empty": {
+    "message": "此檢視中沒有結果。"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "啟用收信時執行…"
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "無法完整檢查此篩選器。請檢視錯誤詳細資訊，不要假定它已通過檢查。"
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "提供該動作的附加元件可能不存在、已停用或不相容。請檢查附加元件管理員，以及是否已在提供者設定中啟用該動作。"
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "此篩選器沒有搜尋條件。請新增條件、停用篩選器，或在不再需要時刪除它。"
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "移動或複製動作指向不存在或無法接收郵件的資料夾。請在篩選器編輯器中選擇現有目標。"
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "提供該條件的附加元件可能不存在、已停用或不相容。請檢查附加元件管理員，以及是否已在提供者設定中啟用該條件。"
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "此邏輯可能是刻意設定的。在 Thunderbird 編輯器中開啟此篩選器就可能錯誤解讀其條件。請檢視唯讀文字，或停用篩選器而不變更條件。停用不會修復邏輯。"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "此篩選器已啟用，但未設定自動或手動執行。啟用收信時執行是選用變更，不是自動修復。"
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird 無法剖析此篩選器。請檢視已儲存的文字，不要開啟篩選器編輯器。"
+  },
+  "troubleshooter.filterChanged": {
+    "message": "此篩選器在檢閱期間已變更。請重新執行檢查。"
+  },
+  "troubleshooter.filterCount": {
+    "message": "篩選器：$count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "此篩選器已被刪除或取代。請重新執行檢查。"
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "此篩選器已無法使用。請重新執行檢查。"
+  },
+  "troubleshooter.find": {
+    "message": "尋找篩選器…"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "群組結束"
+  },
+  "troubleshooter.groupStart": {
+    "message": "群組開始"
+  },
+  "troubleshooter.help": {
+    "message": "說明：$check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.help.addons": {
+    "message": "其他附加元件可提供自訂動作與搜尋條件。您可能需要在其設定中啟用它們。若附加元件遭停用或與 Thunderbird 版本不相容，它們也可能無法使用。"
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Thunderbird 的篩選器編輯器目前支援符合全部條件 (ALL) 或任一條件 (ANY)。將兩者組合成群組的功能正在開發中。您的郵件程式或版本可能已支援此功能。"
+  },
+  "troubleshooter.help.folders": {
+    "message": "資料夾可能被移動、刪除，或從 IMAP 伺服器移除，使篩選器失去有效目標。在同一帳號內重新命名或移動資料夾時，Thunderbird 通常會更新篩選器規則。"
+  },
+  "troubleshooter.help.runs": {
+    "message": "有時篩選器即使設為自動執行也不會執行。Thunderbird 設定檔損壞可能是原因之一。此檢查會尋找缺少的執行設定，無法診斷設定檔損壞。"
+  },
+  "troubleshooter.intro": {
+    "message": "執行檢查、檢視問題，並選擇要做的變更。"
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "未知的疑難排解檢查。"
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "未知或不支援的篩選器變更。"
+  },
+  "troubleshooter.logHint": {
+    "message": "檢視所選帳號最近的篩選器活動。"
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "請先開啟 Thunderbird 郵件視窗，再使用疑難排解。"
+  },
+  "troubleshooter.menu": {
+    "message": "疑難排解…"
+  },
+  "troubleshooter.missingIdentifier": {
+    "message": "缺少識別碼"
+  },
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "您的應用程式已支援混合條件，因此略過這部分檢查。仍會檢查缺少的條件。"
+  },
+  "troubleshooter.mixedEditWarning": {
+    "message": "此篩選器包含混合或群組條件。您的篩選器編輯器可能無法正確支援這些條件。僅開啟就可能變更它們。是否繼續？"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "需要注意"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "待檢閱篩選器：$count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noAccounts": {
+    "message": "沒有可使用篩選器的帳號。"
+  },
+  "troubleshooter.noProblems": {
+    "message": "沒有剩餘問題"
+  },
+  "troubleshooter.notRun": {
+    "message": "尚未檢查"
+  },
+  "troubleshooter.open": {
+    "message": "開啟篩選器疑難排解…"
+  },
+  "troubleshooter.openAddons": {
+    "message": "開啟附加元件管理員"
+  },
+  "troubleshooter.openEditorAnyway": {
+    "message": "仍要開啟編輯器…"
+  },
+  "troubleshooter.openLog": {
+    "message": "開啟篩選器紀錄…"
+  },
+  "troubleshooter.operator": {
+    "message": "運算子"
+  },
+  "troubleshooter.problem": {
+    "message": "問題"
+  },
+  "troubleshooter.readOnly": {
+    "message": "檢查所有類型的問題。變更篩選器一律需要您的明確選擇。"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "無法完成檢查"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "自訂動作無法使用"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "沒有搜尋條件"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "資料夾路徑無效"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "自訂搜尋條件無法使用"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "混合 ALL/ANY 或群組條件"
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "未設定此篩選器的執行方式"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "無法剖析篩選器"
+  },
+  "troubleshooter.resolved": {
+    "message": "已解決"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "結果狀態"
+  },
+  "troubleshooter.review": {
+    "message": "篩選器檢閱"
+  },
+  "troubleshooter.runAll": {
+    "message": "執行所有檢查"
+  },
+  "troubleshooter.searchTermId": {
+    "message": "搜尋條件 ID"
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "此檢閱工作階段已過期。請重新開啟疑難排解。"
+  },
+  "troubleshooter.start": {
+    "message": "執行檢查以檢視此帳號的篩選器。"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "已刪除"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "已停用 · 需要檢閱"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "需要檢閱"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "已解決"
+  },
+  "troubleshooter.summary": {
+    "message": "$filters$ 個篩選器需要檢閱 · $resolved$ 個問題已解決 · 已執行 $checks$/4 項檢查",
+    "placeholders": {
+      "filters": { "content": "$1" },
+      "resolved": { "content": "$2" },
+      "checks": { "content": "$3" }
+    }
+  },
+  "troubleshooter.tableHint": {
+    "message": "每個問題顯示一列。展開「詳細資訊」以查看說明。"
+  },
+  "troubleshooter.term": {
+    "message": "搜尋條件"
+  },
+  "troubleshooter.title": {
+    "message": "quickFilters · 疑難排解"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "篩選器疑難排解的免費使用次數已用完。請取得 quickFilters Pro 以執行更多檢查。"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "試用版：剩餘 $1 次使用機會"
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "在編輯器中開啟此篩選器不安全。請檢視其條件或停用它。"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "顯示條件…"
+  },
   "updates.displayVersionTab": {
     "message": "更新後顯示版本歷史分頁"
   },
@@ -2205,352 +2537,5 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "任何其他電子郵件地址都沒有問題 - 它們不需要單獨的許可證。如有疑問，您可以通過支持選項卡與我聯繫。"
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "無法開始修復資料夾。請等待目前的資料夾操作完成，再嘗試「內容 → 修復資料夾」。"
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters 無法取得建立或更新篩選器所需的資訊。\n\n目的地資料夾「{0}」可能需要修復。\n\n現在嘗試修復資料夾嗎？\n\n請等待修復完成，再重新嘗試建立篩選器。"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  }
-,
-  "troubleshooter.title": {
-    "message": "quickFilters · 疑難排解"
-  },
-  "troubleshooter.menu": {
-    "message": "疑難排解…"
-  },
-  "troubleshooter.open": {
-    "message": "開啟篩選器疑難排解…"
-  },
-  "troubleshooter.trialRemaining": {
-    "message": "試用版：剩餘 $1 次使用機會"
-  },
-  "troubleshooter.trialExhausted": {
-    "message": "篩選器疑難排解的免費使用次數已用完。請取得 quickFilters Pro 以執行更多檢查。"
-  },
-  "troubleshooter.intro": {
-    "message": "執行檢查、檢視問題，並選擇要做的變更。"
-  },
-  "troubleshooter.openLog": {
-    "message": "開啟篩選器紀錄…"
-  },
-  "troubleshooter.logHint": {
-    "message": "檢視所選帳號最近的篩選器活動。"
-  },
-  "troubleshooter.checks": {
-    "message": "可用的檢查"
-  },
-  "troubleshooter.runAll": {
-    "message": "執行所有檢查"
-  },
-  "troubleshooter.readOnly": {
-    "message": "檢查所有類型的問題。變更篩選器一律需要您的明確選擇。"
-  },
-  "troubleshooter.review": {
-    "message": "篩選器檢閱"
-  },
-  "troubleshooter.needsAttention": {
-    "message": "需要注意"
-  },
-  "troubleshooter.resolved": {
-    "message": "已解決"
-  },
-  "troubleshooter.allResults": {
-    "message": "所有結果"
-  },
-  "troubleshooter.resultStatus": {
-    "message": "結果狀態"
-  },
-  "troubleshooter.find": {
-    "message": "尋找篩選器…"
-  },
-  "troubleshooter.viewConditions": {
-    "message": "顯示條件…"
-  },
-  "troubleshooter.conditionHint": {
-    "message": "下方文字列出個別條件。群組會在表格中另行顯示。"
-  },
-  "troubleshooter.copy": {
-    "message": "複製"
-  },
-  "troubleshooter.close": {
-    "message": "關閉"
-  },
-  "troubleshooter.copyManually": {
-    "message": "請選取文字並手動複製。"
-  },
-  "troubleshooter.copied": {
-    "message": "已複製條件文字。"
-  },
-  "troubleshooter.operator": {
-    "message": "運算子"
-  },
-  "troubleshooter.term": {
-    "message": "搜尋條件"
-  },
-  "troubleshooter.groupStart": {
-    "message": "群組開始"
-  },
-  "troubleshooter.groupEnd": {
-    "message": "群組結束"
-  },
-  "troubleshooter.check": {
-    "message": "檢查"
-  },
-  "troubleshooter.problem": {
-    "message": "問題"
-  },
-  "troubleshooter.tableHint": {
-    "message": "每個問題顯示一列。展開「詳細資訊」以查看說明。"
-  },
-  "troubleshooter.summary": {
-    "message": "$filters$ 個篩選器需要檢閱 · $resolved$ 個問題已解決 · 已執行 $checks$/4 項檢查",
-    "placeholders": {
-      "filters": {
-        "content": "$1"
-      },
-      "resolved": {
-        "content": "$2"
-      },
-      "checks": {
-        "content": "$3"
-      }
-    }
-  },
-  "troubleshooter.filterCount": {
-    "message": "篩選器：$count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.notRun": {
-    "message": "尚未檢查"
-  },
-  "troubleshooter.needsReviewCount": {
-    "message": "待檢閱篩選器：$count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.noProblems": {
-    "message": "沒有剩餘問題"
-  },
-  "troubleshooter.empty": {
-    "message": "此檢視中沒有結果。"
-  },
-  "troubleshooter.start": {
-    "message": "執行檢查以檢視此帳號的篩選器。"
-  },
-  "troubleshooter.changed": {
-    "message": "已儲存變更。已更新先前執行的檢查。"
-  },
-  "troubleshooter.completed": {
-    "message": "檢查完成。未變更任何篩選器。"
-  },
-  "troubleshooter.noAccounts": {
-    "message": "沒有可使用篩選器的帳號。"
-  },
-  "troubleshooter.help": {
-    "message": "說明：$check$",
-    "placeholders": {
-      "check": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.openAddons": {
-    "message": "開啟附加元件管理員"
-  },
-  "troubleshooter.enableIncoming": {
-    "message": "啟用收信時執行…"
-  },
-  "troubleshooter.disable": {
-    "message": "停用篩選器…"
-  },
-  "troubleshooter.state.remaining": {
-    "message": "需要檢閱"
-  },
-  "troubleshooter.state.disabled": {
-    "message": "已停用 · 需要檢閱"
-  },
-  "troubleshooter.state.resolved": {
-    "message": "已解決"
-  },
-  "troubleshooter.state.deleted": {
-    "message": "已刪除"
-  },
-  "troubleshooter.check.runs": {
-    "message": "檢查自動執行"
-  },
-  "troubleshooter.check.folders": {
-    "message": "檢查目標資料夾"
-  },
-  "troubleshooter.check.addons": {
-    "message": "檢查缺少的動作與條件"
-  },
-  "troubleshooter.check.conditions": {
-    "message": "檢查搜尋條件"
-  },
-  "troubleshooter.description.runs": {
-    "message": "檢查已啟用的篩選器能否在收信時、定期或手動執行。"
-  },
-  "troubleshooter.description.folders": {
-    "message": "移動與複製的目標是否仍存在？"
-  },
-  "troubleshooter.description.addons": {
-    "message": "自訂動作與搜尋條件是否可用？"
-  },
-  "troubleshooter.description.conditions": {
-    "message": "尋找混合 ALL/ANY 條件、群組或缺少的搜尋條件。"
-  },
-  "troubleshooter.help.runs": {
-    "message": "有時篩選器即使設為自動執行也不會執行。Thunderbird 設定檔損壞可能是原因之一。此檢查會尋找缺少的執行設定，無法診斷設定檔損壞。"
-  },
-  "troubleshooter.help.folders": {
-    "message": "資料夾可能被移動、刪除，或從 IMAP 伺服器移除，使篩選器失去有效目標。在同一帳號內重新命名或移動資料夾時，Thunderbird 通常會更新篩選器規則。"
-  },
-  "troubleshooter.help.addons": {
-    "message": "其他附加元件可提供自訂動作與搜尋條件。您可能需要在其設定中啟用它們。若附加元件遭停用或與 Thunderbird 版本不相容，它們也可能無法使用。"
-  },
-  "troubleshooter.help.conditions": {
-    "message": "Thunderbird 的篩選器編輯器目前支援符合全部條件 (ALL) 或任一條件 (ANY)。將兩者組合成群組的功能正在開發中。您的郵件程式或版本可能已支援此功能。"
-  },
-  "troubleshooter.reason.no-run-method": {
-    "message": "未設定此篩選器的執行方式"
-  },
-  "troubleshooter.reason.missing-folder": {
-    "message": "資料夾路徑無效"
-  },
-  "troubleshooter.reason.missing-action": {
-    "message": "自訂動作無法使用"
-  },
-  "troubleshooter.reason.missing-term": {
-    "message": "自訂搜尋條件無法使用"
-  },
-  "troubleshooter.reason.missing-conditions": {
-    "message": "沒有搜尋條件"
-  },
-  "troubleshooter.reason.mixed-conditions": {
-    "message": "混合 ALL/ANY 或群組條件"
-  },
-  "troubleshooter.reason.unparseable": {
-    "message": "無法剖析篩選器"
-  },
-  "troubleshooter.reason.inspection-failed": {
-    "message": "無法完成檢查"
-  },
-  "troubleshooter.explain.no-run-method": {
-    "message": "此篩選器已啟用，但未設定自動或手動執行。啟用收信時執行是選用變更，不是自動修復。"
-  },
-  "troubleshooter.explain.missing-folder": {
-    "message": "移動或複製動作指向不存在或無法接收郵件的資料夾。請在篩選器編輯器中選擇現有目標。"
-  },
-  "troubleshooter.explain.missing-action": {
-    "message": "提供該動作的附加元件可能不存在、已停用或不相容。請檢查附加元件管理員，以及是否已在提供者設定中啟用該動作。"
-  },
-  "troubleshooter.explain.missing-term": {
-    "message": "提供該條件的附加元件可能不存在、已停用或不相容。請檢查附加元件管理員，以及是否已在提供者設定中啟用該條件。"
-  },
-  "troubleshooter.explain.missing-conditions": {
-    "message": "此篩選器沒有搜尋條件。請新增條件、停用篩選器，或在不再需要時刪除它。"
-  },
-  "troubleshooter.explain.mixed-conditions": {
-    "message": "此邏輯可能是刻意設定的。在 Thunderbird 編輯器中開啟此篩選器就可能錯誤解讀其條件。請檢視唯讀文字，或停用篩選器而不變更條件。停用不會修復邏輯。"
-  },
-  "troubleshooter.explain.unparseable": {
-    "message": "Thunderbird 無法剖析此篩選器。請檢視已儲存的文字，不要開啟篩選器編輯器。"
-  },
-  "troubleshooter.explain.inspection-failed": {
-    "message": "無法完整檢查此篩選器。請檢視錯誤詳細資訊，不要假定它已通過檢查。"
-  },
-  "troubleshooter.mailWindowRequired": {
-    "message": "請先開啟 Thunderbird 郵件視窗，再使用疑難排解。"
-  },
-  "troubleshooter.accountUnavailable": {
-    "message": "此帳號無法使用或不支援篩選器。"
-  },
-  "troubleshooter.sessionExpired": {
-    "message": "此檢閱工作階段已過期。請重新開啟疑難排解。"
-  },
-  "troubleshooter.invalidCheck": {
-    "message": "未知的疑難排解檢查。"
-  },
-  "troubleshooter.filterUnavailable": {
-    "message": "此篩選器已無法使用。請重新執行檢查。"
-  },
-  "troubleshooter.filterReplaced": {
-    "message": "此篩選器已被刪除或取代。請重新執行檢查。"
-  },
-  "troubleshooter.invalidRemedy": {
-    "message": "未知或不支援的篩選器變更。"
-  },
-  "troubleshooter.unsafeEditor": {
-    "message": "在編輯器中開啟此篩選器不安全。請檢視其條件或停用它。"
-  },
-  "troubleshooter.filterChanged": {
-    "message": "此篩選器在檢閱期間已變更。請重新執行檢查。"
-  },
-  "troubleshooter.confirmDelete": {
-    "message": "刪除「$filter$」？這會永久移除此篩選器。",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmDisable": {
-    "message": "停用「$filter$」？這會停止執行，並保持條件不變。",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmIncoming": {
-    "message": "允許「$filter$」在收到新郵件時自動執行？這會變更篩選器的執行時機，僅檢視時不需要這樣做。",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  }
-,
-  "troubleshooter.mixedConditionsSupported": {
-    "message": "您的應用程式已支援混合條件，因此略過這部分檢查。仍會檢查缺少的條件。"
-  }
-,
-  "troubleshooter.searchTermId": {
-    "message": "搜尋條件 ID"
-  }
-,
-  "troubleshooter.actionId": {
-    "message": "動作 ID"
-  }
-,
-  "troubleshooter.missingIdentifier": {
-    "message": "缺少識別碼"
-  }
-,
-  "troubleshooter.mixedEditWarning": {
-    "message": "此篩選器包含混合或群組條件。您的篩選器編輯器可能無法正確支援這些條件。僅開啟就可能變更它們。是否繼續？"
-  }
-,
-  "troubleshooter.openEditorAnyway": {
-    "message": "仍要開啟編輯器…"
-  }
-,
-  "troubleshooter.dontWarnUntilRestart": {
-    "message": "在 Thunderbird 重新啟動前不再警告"
-  }
-,
-  "troubleshooter.customId": {
-    "message": "自訂 ID"
   }
 }

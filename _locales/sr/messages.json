@@ -144,17 +144,41 @@
   "purchase-heading": {
     "message": "Подршка путем лиценце"
   },
+  "qf.licenseValidation.expired": {
+    "message": "Ваша quickFilters Pro лиценца је истекла. Да бисте је обновили, кликните испод на „$renewButton$“.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "quickfilters.notification.premium.btn.getLicense": {
+    "message": "Купи Pro"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "quickfilters.notification.premium.btn.renewLicense": {
+    "message": "Обнови лиценцу"
+  },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "· Преостало бесплатних коришћења: {1}."
+  },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} је Pro функција"
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Није могуће покренути поправку фасцикле. Када се текуће радње над фасциклом заврше, покушајте Својства → Поправи фасциклу."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters није могао да преузме податке потребне за прављење или ажурирање филтера.\n\nОдредишну фасциклу „{0}“ је можда потребно поправити.\n\nПокушати поправку фасцикле сада?\n\nСачекајте да се поправка заврши, па покушајте поново да направите филтер."
+  },
   "quickfiltersToolbarButton.expired": {
     "message": "Дозвола истекла!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Кликните да бисте отворили quickFilters панел лиценце. Кликните десним тастером миша за друге опције."
-  },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters је ажуриран!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Отворите мени '{menulabel}' испод да бисте видели шта је ново. То такође уклања 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Лиценца истиче за $daysLeft$ дана",
@@ -165,7 +189,12 @@
       }
     }
   },
-  "renew-your-license": {
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters је ажуриран!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Отворите мени '{menulabel}' испод да бисте видели шта је ново. То такође уклања 🟠."
+  },  "renew-your-license": {
     "message": "Обновите лиценцу."
   },
   "restart-app": {
@@ -307,34 +336,5 @@
         "example": "quickFilters"
       }
     }
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Није могуће покренути поправку фасцикле. Када се текуће радње над фасциклом заврше, покушајте Својства → Поправи фасциклу."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters није могао да преузме податке потребне за прављење или ажурирање филтера.\n\nОдредишну фасциклу „{0}“ је можда потребно поправити.\n\nПокушати поправку фасцикле сада?\n\nСачекајте да се поправка заврши, па покушајте поново да направите филтер."
-  }
-,
-  "qf.licenseValidation.expired": {
-    "message": "Ваша quickFilters Pro лиценца је истекла. Да бисте је обновили, кликните испод на „$renewButton$“.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "quickfilters.notification.premium.btn.renewLicense": { "message": "Обнови лиценцу" },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} је Pro функција"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· Преостало бесплатних коришћења: {1}."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Купи Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
   }
 }

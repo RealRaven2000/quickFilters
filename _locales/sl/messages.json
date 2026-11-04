@@ -165,6 +165,36 @@
       }
     }
   },
+  "qf.licenseValidation.expired": {
+    "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "quickfilters.notification.premium.btn.getLicense": {
+    "message": "Pridobi Pro"
+  },
+  "quickfilters.notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "quickfilters.notification.premium.btn.renewLicense": {
+    "message": "Podaljšaj licenco"
+  },
+  "quickfilters.notification.premium.freeUses": {
+    "message": "· Preostalo brezplačnih uporab: {1}."
+  },
+  "quickfilters.notification.premium.text": {
+    "message": "{1} je funkcija Pro"
+  },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Popravila mape ni bilo mogoče začeti. Ko se trenutna opravila z mapo končajo, poskusite Lastnosti → Popravi mapo."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters ni mogel pridobiti podatkov, potrebnih za ustvarjanje ali posodobitev filtra.\n\nCiljno mapo »{0}« bo morda treba popraviti.\n\nŽelite zdaj poskusiti popraviti mapo?\n\nPočakajte, da se popravilo konča, nato poskusite znova ustvariti filter."
+  },
   "renew-your-license": {
     "message": "Obnovite licenco."
   },
@@ -307,34 +337,5 @@
         "example": "quickFilters"
       }
     }
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Popravila mape ni bilo mogoče začeti. Ko se trenutna opravila z mapo končajo, poskusite Lastnosti → Popravi mapo."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters ni mogel pridobiti podatkov, potrebnih za ustvarjanje ali posodobitev filtra.\n\nCiljno mapo »{0}« bo morda treba popraviti.\n\nŽelite zdaj poskusiti popraviti mapo?\n\nPočakajte, da se popravilo konča, nato poskusite znova ustvariti filter."
-  }
-,
-  "qf.licenseValidation.expired": {
-    "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "quickfilters.notification.premium.btn.renewLicense": { "message": "Podaljšaj licenco" },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} je funkcija Pro"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· Preostalo brezplačnih uporab: {1}."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Pridobi Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
   }
 }

@@ -2082,6 +2082,12 @@
   "quickfilters.warning.emptyFilter": {
     "message": "无法创建过滤器：没有有效的搜索条件，无法编辑过滤器。"
   },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "无法开始修复文件夹。请等待当前文件夹操作完成，然后尝试“属性 → 修复文件夹”。"
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters 无法获取创建或更新过滤器所需的信息。\n\n目标文件夹“{0}”可能需要修复。\n\n现在尝试修复文件夹吗？\n\n请等待修复完成，然后重新尝试创建过滤器。"
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "此名称的模板已存在！名称必须是唯一的."
   },
@@ -2230,6 +2236,329 @@
     "description": "disclaimer.",
     "message": "翻译由AI提供，可能不准确。"
   },
+  "troubleshooter.accountUnavailable": {
+    "message": "此账户不可用或不支持过滤器。"
+  },
+  "troubleshooter.actionId": {
+    "message": "操作 ID"
+  },
+  "troubleshooter.allResults": {
+    "message": "所有结果"
+  },
+  "troubleshooter.changed": {
+    "message": "已保存更改。已刷新先前运行的检查。"
+  },
+  "troubleshooter.check": {
+    "message": "检查"
+  },
+  "troubleshooter.check.addons": {
+    "message": "检查缺失的操作和条件"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "检查搜索条件"
+  },
+  "troubleshooter.check.folders": {
+    "message": "检查目标文件夹"
+  },
+  "troubleshooter.check.runs": {
+    "message": "检查自动运行"
+  },
+  "troubleshooter.checks": {
+    "message": "可用检查"
+  },
+  "troubleshooter.close": {
+    "message": "关闭"
+  },
+  "troubleshooter.completed": {
+    "message": "检查完成。未更改任何过滤器。"
+  },
+  "troubleshooter.conditionHint": {
+    "message": "下方文本列出各个条件。分组在表格中单独显示。"
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "删除“$filter$”？这将永久移除此过滤器。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "禁用“$filter$”？这会停止其运行，并保持条件不变。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "允许“$filter$”在收到新邮件时自动运行？这会更改过滤器的运行时机，仅查看时不需要这样做。",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.copied": {
+    "message": "已复制条件文本。"
+  },
+  "troubleshooter.copy": {
+    "message": "复制"
+  },
+  "troubleshooter.copyManually": {
+    "message": "请选择文本并手动复制。"
+  },
+  "troubleshooter.customId": {
+    "message": "自定义 ID"
+  },
+  "troubleshooter.description.addons": {
+    "message": "自定义操作和搜索条件是否可用？"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "查找混合 ALL/ANY 条件、分组或缺失的搜索条件。"
+  },
+  "troubleshooter.description.folders": {
+    "message": "移动和复制的目标是否仍然存在？"
+  },
+  "troubleshooter.description.runs": {
+    "message": "检查已启用的过滤器能否在收信时、定期或手动运行。"
+  },
+  "troubleshooter.disable": {
+    "message": "禁用过滤器…"
+  },
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "在 Thunderbird 重启前不再警告"
+  },
+  "troubleshooter.empty": {
+    "message": "此视图中没有结果。"
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "启用收信时运行…"
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "无法完整检查此过滤器。请查看错误详情，不要认定其通过了检查。"
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "提供该操作的附加组件可能缺失、被禁用或不兼容。请检查附加组件管理器，以及是否已在提供方设置中启用该操作。"
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "此过滤器没有搜索条件。请添加条件、禁用过滤器，或在不再需要时删除它。"
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "移动或复制操作指向缺失或无法接收邮件的文件夹。请在过滤器编辑器中选择现有目标。"
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "提供该条件的附加组件可能缺失、被禁用或不兼容。请检查附加组件管理器，以及是否已在提供方设置中启用该条件。"
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "此逻辑可能是有意设置的。在 Thunderbird 编辑器中打开此过滤器就可能错误解释其条件。请查看只读文本，或禁用过滤器而不更改条件。禁用不会修复逻辑。"
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "此过滤器已启用，但未配置自动或手动运行。启用收信时运行是一项可选更改，并非自动修复。"
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird 无法解析此过滤器。请查看已存储的文本，不要打开过滤器编辑器。"
+  },
+  "troubleshooter.filterChanged": {
+    "message": "此过滤器在审查期间发生了更改。请重新运行检查。"
+  },
+  "troubleshooter.filterCount": {
+    "message": "过滤器：$count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "此过滤器已被删除或替换。请重新运行检查。"
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "此过滤器已不可用。请重新运行检查。"
+  },
+  "troubleshooter.find": {
+    "message": "查找过滤器…"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "组结束"
+  },
+  "troubleshooter.groupStart": {
+    "message": "组开始"
+  },
+  "troubleshooter.help": {
+    "message": "说明：$check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.help.addons": {
+    "message": "其他附加组件可以提供自定义操作和搜索条件。您可能需要在其设置中启用它们。如果附加组件被禁用或与 Thunderbird 版本不兼容，它们也可能无法使用。"
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Thunderbird 的过滤器编辑器目前支持匹配全部条件 (ALL) 或任一条件 (ANY)。将两者结合为分组的功能正在开发中。您的邮件客户端或版本可能已经支持此功能。"
+  },
+  "troubleshooter.help.folders": {
+    "message": "文件夹可能被移动、删除，或从 IMAP 服务器移除，导致过滤器失去有效目标。在同一账户内重命名或移动文件夹时，Thunderbird 通常会更新过滤器规则。"
+  },
+  "troubleshooter.help.runs": {
+    "message": "有时过滤器即使设为自动运行也不会运行。Thunderbird 配置文件损坏可能是原因之一。此检查查找缺失的运行设置，无法诊断配置文件损坏。"
+  },
+  "troubleshooter.intro": {
+    "message": "运行检查，查看问题，然后选择要做的更改。"
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "未知的故障排查项目。"
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "未知或不支持的过滤器更改。"
+  },
+  "troubleshooter.logHint": {
+    "message": "查看所选账户最近的过滤器活动。"
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "请先打开 Thunderbird 邮件窗口，再使用故障排查。"
+  },
+  "troubleshooter.menu": {
+    "message": "故障排查…"
+  },
+  "troubleshooter.missingIdentifier": {
+    "message": "缺少标识符"
+  },
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "您的应用已支持混合条件，因此省略此部分检查。仍会检查缺失的条件。"
+  },
+  "troubleshooter.mixedEditWarning": {
+    "message": "此过滤器包含混合或分组条件。您的过滤器编辑器可能无法正确支持这些条件。仅打开就可能更改它们。是否继续？"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "需要注意"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "待审查过滤器：$count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noAccounts": {
+    "message": "没有可使用过滤器的账户。"
+  },
+  "troubleshooter.noProblems": {
+    "message": "没有剩余问题"
+  },
+  "troubleshooter.notRun": {
+    "message": "尚未检查"
+  },
+  "troubleshooter.open": {
+    "message": "打开过滤器故障排查…"
+  },
+  "troubleshooter.openAddons": {
+    "message": "打开附加组件管理器"
+  },
+  "troubleshooter.openEditorAnyway": {
+    "message": "仍然打开编辑器…"
+  },
+  "troubleshooter.openLog": {
+    "message": "打开过滤器日志…"
+  },
+  "troubleshooter.operator": {
+    "message": "运算符"
+  },
+  "troubleshooter.problem": {
+    "message": "问题"
+  },
+  "troubleshooter.readOnly": {
+    "message": "检查所有类型的问题。更改过滤器始终需要您明确选择。"
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "无法完成检查"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "自定义操作不可用"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "没有搜索条件"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "文件夹路径无效"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "自定义搜索条件不可用"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "混合 ALL/ANY 或分组条件"
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "未配置此过滤器的运行方式"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "无法解析过滤器"
+  },
+  "troubleshooter.resolved": {
+    "message": "已解决"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "结果状态"
+  },
+  "troubleshooter.review": {
+    "message": "过滤器审查"
+  },
+  "troubleshooter.runAll": {
+    "message": "运行所有检查"
+  },
+  "troubleshooter.searchTermId": {
+    "message": "搜索条件 ID"
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "此审查会话已过期。请重新打开故障排查。"
+  },
+  "troubleshooter.start": {
+    "message": "运行检查以查看此账户的过滤器。"
+  },
+  "troubleshooter.state.deleted": {
+    "message": "已删除"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "已禁用 · 需要审查"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "需要审查"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "已解决"
+  },
+  "troubleshooter.summary": {
+    "message": "$filters$ 个过滤器需要审查 · $resolved$ 个问题已解决 · 已运行 $checks$/4 项检查",
+    "placeholders": {
+      "filters": { "content": "$1" },
+      "resolved": { "content": "$2" },
+      "checks": { "content": "$3" }
+    }
+  },
+  "troubleshooter.tableHint": {
+    "message": "每个问题显示一行。展开“详情”查看说明。"
+  },
+  "troubleshooter.term": {
+    "message": "搜索条件"
+  },
+  "troubleshooter.title": {
+    "message": "quickFilters · 故障排查"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "筛选器故障排查的免费使用次数已用完。请获取 quickFilters Pro 以运行更多检查。"
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "试用版：剩余 $1 次使用机会"
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "在编辑器中打开此过滤器不安全。请查看其条件或禁用它。"
+  },
+  "troubleshooter.viewConditions": {
+    "message": "显示条件…"
+  },
   "updates.displayVersionTab": {
     "message": "更新后显示版本历史标签页"
   },
@@ -2251,7 +2580,7 @@
   "whats-new-link": {
     "message": "在此处阅读详细的更改日志（仅英语）："
   },
-    "whats-new-list": {
+  "whats-new-list": {
     "description": "🇨🇳 change log",
     "message": "{L} {b}{+extensionName}{/b} 现已兼容 Thunderbird 160。{/L}{L} 当文件夹数据库无法访问时，过滤器助手运行更快；如果查找邮件失败，还可选择修复目标文件夹。 [issue 397]{/L}{L}修复了 Thunderbird 159 中通过将邮件拖入文件夹来创建过滤器的问题。 [issue 399]{/L}{L} 修复了异步消息处理程序占用其未处理命令的响应的问题，改善了与其他附加组件的通信。{/L}{L} 当可以续订时，在 quickFilters Pro 选项卡的许可证到期日期旁显示彩色倒计时，并提供更清晰的到期后说明。{/L}"
   },
@@ -2289,352 +2618,5 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "无法开始修复文件夹。请等待当前文件夹操作完成，然后尝试“属性 → 修复文件夹”。"
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters 无法获取创建或更新过滤器所需的信息。\n\n目标文件夹“{0}”可能需要修复。\n\n现在尝试修复文件夹吗？\n\n请等待修复完成，然后重新尝试创建过滤器。"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  }
-,
-  "troubleshooter.title": {
-    "message": "quickFilters · 故障排查"
-  },
-  "troubleshooter.menu": {
-    "message": "故障排查…"
-  },
-  "troubleshooter.open": {
-    "message": "打开过滤器故障排查…"
-  },
-  "troubleshooter.trialRemaining": {
-    "message": "试用版：剩余 $1 次使用机会"
-  },
-  "troubleshooter.trialExhausted": {
-    "message": "筛选器故障排查的免费使用次数已用完。请获取 quickFilters Pro 以运行更多检查。"
-  },
-  "troubleshooter.intro": {
-    "message": "运行检查，查看问题，然后选择要做的更改。"
-  },
-  "troubleshooter.openLog": {
-    "message": "打开过滤器日志…"
-  },
-  "troubleshooter.logHint": {
-    "message": "查看所选账户最近的过滤器活动。"
-  },
-  "troubleshooter.checks": {
-    "message": "可用检查"
-  },
-  "troubleshooter.runAll": {
-    "message": "运行所有检查"
-  },
-  "troubleshooter.readOnly": {
-    "message": "检查所有类型的问题。更改过滤器始终需要您明确选择。"
-  },
-  "troubleshooter.review": {
-    "message": "过滤器审查"
-  },
-  "troubleshooter.needsAttention": {
-    "message": "需要注意"
-  },
-  "troubleshooter.resolved": {
-    "message": "已解决"
-  },
-  "troubleshooter.allResults": {
-    "message": "所有结果"
-  },
-  "troubleshooter.resultStatus": {
-    "message": "结果状态"
-  },
-  "troubleshooter.find": {
-    "message": "查找过滤器…"
-  },
-  "troubleshooter.viewConditions": {
-    "message": "显示条件…"
-  },
-  "troubleshooter.conditionHint": {
-    "message": "下方文本列出各个条件。分组在表格中单独显示。"
-  },
-  "troubleshooter.copy": {
-    "message": "复制"
-  },
-  "troubleshooter.close": {
-    "message": "关闭"
-  },
-  "troubleshooter.copyManually": {
-    "message": "请选择文本并手动复制。"
-  },
-  "troubleshooter.copied": {
-    "message": "已复制条件文本。"
-  },
-  "troubleshooter.operator": {
-    "message": "运算符"
-  },
-  "troubleshooter.term": {
-    "message": "搜索条件"
-  },
-  "troubleshooter.groupStart": {
-    "message": "组开始"
-  },
-  "troubleshooter.groupEnd": {
-    "message": "组结束"
-  },
-  "troubleshooter.check": {
-    "message": "检查"
-  },
-  "troubleshooter.problem": {
-    "message": "问题"
-  },
-  "troubleshooter.tableHint": {
-    "message": "每个问题显示一行。展开“详情”查看说明。"
-  },
-  "troubleshooter.summary": {
-    "message": "$filters$ 个过滤器需要审查 · $resolved$ 个问题已解决 · 已运行 $checks$/4 项检查",
-    "placeholders": {
-      "filters": {
-        "content": "$1"
-      },
-      "resolved": {
-        "content": "$2"
-      },
-      "checks": {
-        "content": "$3"
-      }
-    }
-  },
-  "troubleshooter.filterCount": {
-    "message": "过滤器：$count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.notRun": {
-    "message": "尚未检查"
-  },
-  "troubleshooter.needsReviewCount": {
-    "message": "待审查过滤器：$count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.noProblems": {
-    "message": "没有剩余问题"
-  },
-  "troubleshooter.empty": {
-    "message": "此视图中没有结果。"
-  },
-  "troubleshooter.start": {
-    "message": "运行检查以查看此账户的过滤器。"
-  },
-  "troubleshooter.changed": {
-    "message": "已保存更改。已刷新先前运行的检查。"
-  },
-  "troubleshooter.completed": {
-    "message": "检查完成。未更改任何过滤器。"
-  },
-  "troubleshooter.noAccounts": {
-    "message": "没有可使用过滤器的账户。"
-  },
-  "troubleshooter.help": {
-    "message": "说明：$check$",
-    "placeholders": {
-      "check": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.openAddons": {
-    "message": "打开附加组件管理器"
-  },
-  "troubleshooter.enableIncoming": {
-    "message": "启用收信时运行…"
-  },
-  "troubleshooter.disable": {
-    "message": "禁用过滤器…"
-  },
-  "troubleshooter.state.remaining": {
-    "message": "需要审查"
-  },
-  "troubleshooter.state.disabled": {
-    "message": "已禁用 · 需要审查"
-  },
-  "troubleshooter.state.resolved": {
-    "message": "已解决"
-  },
-  "troubleshooter.state.deleted": {
-    "message": "已删除"
-  },
-  "troubleshooter.check.runs": {
-    "message": "检查自动运行"
-  },
-  "troubleshooter.check.folders": {
-    "message": "检查目标文件夹"
-  },
-  "troubleshooter.check.addons": {
-    "message": "检查缺失的操作和条件"
-  },
-  "troubleshooter.check.conditions": {
-    "message": "检查搜索条件"
-  },
-  "troubleshooter.description.runs": {
-    "message": "检查已启用的过滤器能否在收信时、定期或手动运行。"
-  },
-  "troubleshooter.description.folders": {
-    "message": "移动和复制的目标是否仍然存在？"
-  },
-  "troubleshooter.description.addons": {
-    "message": "自定义操作和搜索条件是否可用？"
-  },
-  "troubleshooter.description.conditions": {
-    "message": "查找混合 ALL/ANY 条件、分组或缺失的搜索条件。"
-  },
-  "troubleshooter.help.runs": {
-    "message": "有时过滤器即使设为自动运行也不会运行。Thunderbird 配置文件损坏可能是原因之一。此检查查找缺失的运行设置，无法诊断配置文件损坏。"
-  },
-  "troubleshooter.help.folders": {
-    "message": "文件夹可能被移动、删除，或从 IMAP 服务器移除，导致过滤器失去有效目标。在同一账户内重命名或移动文件夹时，Thunderbird 通常会更新过滤器规则。"
-  },
-  "troubleshooter.help.addons": {
-    "message": "其他附加组件可以提供自定义操作和搜索条件。您可能需要在其设置中启用它们。如果附加组件被禁用或与 Thunderbird 版本不兼容，它们也可能无法使用。"
-  },
-  "troubleshooter.help.conditions": {
-    "message": "Thunderbird 的过滤器编辑器目前支持匹配全部条件 (ALL) 或任一条件 (ANY)。将两者结合为分组的功能正在开发中。您的邮件客户端或版本可能已经支持此功能。"
-  },
-  "troubleshooter.reason.no-run-method": {
-    "message": "未配置此过滤器的运行方式"
-  },
-  "troubleshooter.reason.missing-folder": {
-    "message": "文件夹路径无效"
-  },
-  "troubleshooter.reason.missing-action": {
-    "message": "自定义操作不可用"
-  },
-  "troubleshooter.reason.missing-term": {
-    "message": "自定义搜索条件不可用"
-  },
-  "troubleshooter.reason.missing-conditions": {
-    "message": "没有搜索条件"
-  },
-  "troubleshooter.reason.mixed-conditions": {
-    "message": "混合 ALL/ANY 或分组条件"
-  },
-  "troubleshooter.reason.unparseable": {
-    "message": "无法解析过滤器"
-  },
-  "troubleshooter.reason.inspection-failed": {
-    "message": "无法完成检查"
-  },
-  "troubleshooter.explain.no-run-method": {
-    "message": "此过滤器已启用，但未配置自动或手动运行。启用收信时运行是一项可选更改，并非自动修复。"
-  },
-  "troubleshooter.explain.missing-folder": {
-    "message": "移动或复制操作指向缺失或无法接收邮件的文件夹。请在过滤器编辑器中选择现有目标。"
-  },
-  "troubleshooter.explain.missing-action": {
-    "message": "提供该操作的附加组件可能缺失、被禁用或不兼容。请检查附加组件管理器，以及是否已在提供方设置中启用该操作。"
-  },
-  "troubleshooter.explain.missing-term": {
-    "message": "提供该条件的附加组件可能缺失、被禁用或不兼容。请检查附加组件管理器，以及是否已在提供方设置中启用该条件。"
-  },
-  "troubleshooter.explain.missing-conditions": {
-    "message": "此过滤器没有搜索条件。请添加条件、禁用过滤器，或在不再需要时删除它。"
-  },
-  "troubleshooter.explain.mixed-conditions": {
-    "message": "此逻辑可能是有意设置的。在 Thunderbird 编辑器中打开此过滤器就可能错误解释其条件。请查看只读文本，或禁用过滤器而不更改条件。禁用不会修复逻辑。"
-  },
-  "troubleshooter.explain.unparseable": {
-    "message": "Thunderbird 无法解析此过滤器。请查看已存储的文本，不要打开过滤器编辑器。"
-  },
-  "troubleshooter.explain.inspection-failed": {
-    "message": "无法完整检查此过滤器。请查看错误详情，不要认定其通过了检查。"
-  },
-  "troubleshooter.mailWindowRequired": {
-    "message": "请先打开 Thunderbird 邮件窗口，再使用故障排查。"
-  },
-  "troubleshooter.accountUnavailable": {
-    "message": "此账户不可用或不支持过滤器。"
-  },
-  "troubleshooter.sessionExpired": {
-    "message": "此审查会话已过期。请重新打开故障排查。"
-  },
-  "troubleshooter.invalidCheck": {
-    "message": "未知的故障排查项目。"
-  },
-  "troubleshooter.filterUnavailable": {
-    "message": "此过滤器已不可用。请重新运行检查。"
-  },
-  "troubleshooter.filterReplaced": {
-    "message": "此过滤器已被删除或替换。请重新运行检查。"
-  },
-  "troubleshooter.invalidRemedy": {
-    "message": "未知或不支持的过滤器更改。"
-  },
-  "troubleshooter.unsafeEditor": {
-    "message": "在编辑器中打开此过滤器不安全。请查看其条件或禁用它。"
-  },
-  "troubleshooter.filterChanged": {
-    "message": "此过滤器在审查期间发生了更改。请重新运行检查。"
-  },
-  "troubleshooter.confirmDelete": {
-    "message": "删除“$filter$”？这将永久移除此过滤器。",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmDisable": {
-    "message": "禁用“$filter$”？这会停止其运行，并保持条件不变。",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmIncoming": {
-    "message": "允许“$filter$”在收到新邮件时自动运行？这会更改过滤器的运行时机，仅查看时不需要这样做。",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  }
-,
-  "troubleshooter.mixedConditionsSupported": {
-    "message": "您的应用已支持混合条件，因此省略此部分检查。仍会检查缺失的条件。"
-  }
-,
-  "troubleshooter.searchTermId": {
-    "message": "搜索条件 ID"
-  }
-,
-  "troubleshooter.actionId": {
-    "message": "操作 ID"
-  }
-,
-  "troubleshooter.missingIdentifier": {
-    "message": "缺少标识符"
-  }
-,
-  "troubleshooter.mixedEditWarning": {
-    "message": "此过滤器包含混合或分组条件。您的过滤器编辑器可能无法正确支持这些条件。仅打开就可能更改它们。是否继续？"
-  }
-,
-  "troubleshooter.openEditorAnyway": {
-    "message": "仍然打开编辑器…"
-  }
-,
-  "troubleshooter.dontWarnUntilRestart": {
-    "message": "在 Thunderbird 重启前不再警告"
-  }
-,
-  "troubleshooter.customId": {
-    "message": "自定义 ID"
   }
 }

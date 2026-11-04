@@ -2090,6 +2090,12 @@
   "quickfilters.warning.emptyFilter": {
     "message": "Suodatinta ei voitu luoda: ilman kelvollisia hakuehtoja suodatinta ei voi muokata."
   },
+  "quickfilters.warning.folderRepairFailed": {
+    "message": "Kansion korjausta ei voitu aloittaa. Kun käynnissä olevat kansiotoiminnot ovat päättyneet, kokeile Ominaisuudet → Korjaa kansio."
+  },
+  "quickfilters.warning.messageLookupTimeout": {
+    "message": "quickFilters ei voinut hakea suodattimen luomiseen tai päivittämiseen tarvittavia tietoja.\n\nKohdekansio ”{0}” saattaa tarvita korjausta.\n\nYritetäänkö korjata kansio nyt?\n\nOdota korjauksen valmistumista ja yritä sitten luoda suodatin uudelleen."
+  },
   "quickfilters.warning.templateNameNotUnique": {
     "message": "Tämän niminen malli on jo olemassa! Nimen on oltava yksilöllinen."
   },
@@ -2238,6 +2244,329 @@
     "description": "disclaimer.",
     "message": "Käännökset on tuotettu tekoälyn avulla, eivätkä ne välttämättä ole tarkkoja."
   },
+  "troubleshooter.accountUnavailable": {
+    "message": "Tili ei ole käytettävissä tai ei tue suodattimia."
+  },
+  "troubleshooter.actionId": {
+    "message": "Toiminnon tunniste"
+  },
+  "troubleshooter.allResults": {
+    "message": "Kaikki tulokset"
+  },
+  "troubleshooter.changed": {
+    "message": "Muutos tallennettu. Aiemmin suoritetut tarkistukset on päivitetty."
+  },
+  "troubleshooter.check": {
+    "message": "Tarkistus"
+  },
+  "troubleshooter.check.addons": {
+    "message": "Etsi puuttuvia toimintoja ja ehtoja"
+  },
+  "troubleshooter.check.conditions": {
+    "message": "Tarkista hakuehdot"
+  },
+  "troubleshooter.check.folders": {
+    "message": "Tarkista kohdekansiot"
+  },
+  "troubleshooter.check.runs": {
+    "message": "Tarkista automaattinen suoritus"
+  },
+  "troubleshooter.checks": {
+    "message": "Käytettävissä olevat tarkistukset"
+  },
+  "troubleshooter.close": {
+    "message": "Sulje"
+  },
+  "troubleshooter.completed": {
+    "message": "Tarkistukset valmiit. Suodattimia ei muutettu."
+  },
+  "troubleshooter.conditionHint": {
+    "message": "Alla oleva teksti luettelee yksittäiset ehdot. Ryhmittely näkyy erikseen taulukossa."
+  },
+  "troubleshooter.confirmDelete": {
+    "message": "Poistetaanko ”$filter$”? Suodatin poistetaan pysyvästi.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmDisable": {
+    "message": "Poistetaanko ”$filter$” käytöstä? Sen suoritus pysähtyy ja ehdot säilyvät muuttumattomina.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.confirmIncoming": {
+    "message": "Sallitaanko suodattimen ”$filter$” automaattinen suoritus uuden postin saapuessa? Tämä muuttaa suodattimen suoritusaikaa eikä ole tarpeen pelkkää tarkastelua varten.",
+    "placeholders": {
+      "filter": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.copied": {
+    "message": "Ehtojen teksti kopioitu."
+  },
+  "troubleshooter.copy": {
+    "message": "Kopioi"
+  },
+  "troubleshooter.copyManually": {
+    "message": "Valitse teksti ja kopioi se käsin."
+  },
+  "troubleshooter.customId": {
+    "message": "Mukautettu tunniste"
+  },
+  "troubleshooter.description.addons": {
+    "message": "Ovatko mukautetut toiminnot ja hakuehdot käytettävissä?"
+  },
+  "troubleshooter.description.conditions": {
+    "message": "Etsi sekoitettuja ALL/ANY-ehtoja, ryhmiä tai puuttuvia ehtoja."
+  },
+  "troubleshooter.description.folders": {
+    "message": "Ovatko siirron ja kopioinnin kohteet vielä olemassa?"
+  },
+  "troubleshooter.description.runs": {
+    "message": "Tarkista, voivatko käytössä olevat suodattimet toimia postin saapuessa, määräajoin tai käsin."
+  },
+  "troubleshooter.disable": {
+    "message": "Poista suodatin käytöstä…"
+  },
+  "troubleshooter.dontWarnUntilRestart": {
+    "message": "Älä varoita ennen Thunderbirdin uudelleenkäynnistystä"
+  },
+  "troubleshooter.empty": {
+    "message": "Tässä näkymässä ei ole tuloksia."
+  },
+  "troubleshooter.enableIncoming": {
+    "message": "Ota käyttöön saapuvalle postille…"
+  },
+  "troubleshooter.explain.inspection-failed": {
+    "message": "Suodatinta ei voitu tarkistaa kokonaan. Tutki virheen tietoja; älä oleta tarkistuksen onnistuneen."
+  },
+  "troubleshooter.explain.missing-action": {
+    "message": "Toiminnon tarjoava lisäosa saattaa puuttua, olla poissa käytöstä tai epäyhteensopiva. Tarkista lisäosien hallinta ja toiminnon käyttöönotto lisäosan asetuksissa."
+  },
+  "troubleshooter.explain.missing-conditions": {
+    "message": "Suodattimella ei ole hakuehtoja. Lisää ehdot, poista suodatin käytöstä tai poista se, jos et enää tarvitse sitä."
+  },
+  "troubleshooter.explain.missing-folder": {
+    "message": "Siirto- tai kopiointitoiminto osoittaa puuttuvaan kansioon tai kansioon, joka ei voi vastaanottaa viestejä. Valitse olemassa oleva kohde suodatinmuokkaimessa."
+  },
+  "troubleshooter.explain.missing-term": {
+    "message": "Hakuehdon tarjoava lisäosa saattaa puuttua, olla poissa käytöstä tai epäyhteensopiva. Tarkista lisäosien hallinta ja ehdon käyttöönotto lisäosan asetuksissa."
+  },
+  "troubleshooter.explain.mixed-conditions": {
+    "message": "Tämä logiikka voi olla tarkoituksellinen. Suodattimen avaaminen Thunderbirdin muokkaimessa voi tulkita ehdot väärin. Tutki vain luku -tekstiä tai poista suodatin käytöstä muuttamatta ehtoja. Käytöstä poistaminen ei korjaa logiikkaa."
+  },
+  "troubleshooter.explain.no-run-method": {
+    "message": "Suodatin on käytössä, mutta automaattista tai käsin tehtävää suoritusta ei ole asetettu. Käyttöönotto saapuvalle postille on valinnainen muutos, ei automaattinen korjaus."
+  },
+  "troubleshooter.explain.unparseable": {
+    "message": "Thunderbird ei voinut jäsentää tätä suodatinta. Tutki tallennettua tekstiä avaamatta suodatinmuokkainta."
+  },
+  "troubleshooter.filterChanged": {
+    "message": "Suodatin muuttui tarkistuksen aikana. Suorita tarkistukset uudelleen."
+  },
+  "troubleshooter.filterCount": {
+    "message": "Suodattimia: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.filterReplaced": {
+    "message": "Suodatin on poistettu tai korvattu. Suorita tarkistukset uudelleen."
+  },
+  "troubleshooter.filterUnavailable": {
+    "message": "Suodatin ei ole enää käytettävissä. Suorita tarkistukset uudelleen."
+  },
+  "troubleshooter.find": {
+    "message": "Etsi suodatinta…"
+  },
+  "troubleshooter.groupEnd": {
+    "message": "Ryhmien loput"
+  },
+  "troubleshooter.groupStart": {
+    "message": "Ryhmien alut"
+  },
+  "troubleshooter.help": {
+    "message": "Tietoja: $check$",
+    "placeholders": {
+      "check": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.help.addons": {
+    "message": "Muut lisäosat voivat tarjota mukautettuja toimintoja ja hakuehtoja. Ne on ehkä otettava käyttöön lisäosan asetuksissa. Ne voivat myös kadota käytöstä, jos lisäosa on poistettu käytöstä tai ei ole yhteensopiva Thunderbird-versiosi kanssa."
+  },
+  "troubleshooter.help.conditions": {
+    "message": "Thunderbirdin suodatinmuokkain tukee nyt kaikkien ehtojen (ALL) tai minkä tahansa ehdon (ANY) täyttymistä. Molempien yhdistämistä ryhmissä kehitetään. Sähköpostiohjelmasi tai versiosi voi jo tukea toimintoa."
+  },
+  "troubleshooter.help.folders": {
+    "message": "Kansioita voidaan siirtää tai poistaa, myös IMAP-palvelimelta, jolloin suodatin jää ilman kelvollista kohdetta. Thunderbird päivittää säännöt yleensä, kun nimeät kansion uudelleen tai siirrät sen saman tilin sisällä."
+  },
+  "troubleshooter.help.runs": {
+    "message": "Joskus suodattimet eivät toimi automaattisesti asetuksista huolimatta. Syynä voi olla vaurioitunut Thunderbird-profiili. Tämä tarkistus etsii puuttuvia suoritusasetuksia; se ei voi diagnosoida profiilin vaurioita."
+  },
+  "troubleshooter.intro": {
+    "message": "Suorita tarkistuksia, tutki ongelmia ja valitse muutokset."
+  },
+  "troubleshooter.invalidCheck": {
+    "message": "Tuntematon vianmääritystarkistus."
+  },
+  "troubleshooter.invalidRemedy": {
+    "message": "Tuntematon tai tukematon suodatinmuutos."
+  },
+  "troubleshooter.logHint": {
+    "message": "Tutki valitun tilin suodattimien viimeaikaista toimintaa."
+  },
+  "troubleshooter.mailWindowRequired": {
+    "message": "Avaa Thunderbirdin sähköposti-ikkuna ennen vianmääritystä."
+  },
+  "troubleshooter.menu": {
+    "message": "Vianmääritys…"
+  },
+  "troubleshooter.missingIdentifier": {
+    "message": "Tunniste puuttuu"
+  },
+  "troubleshooter.mixedConditionsSupported": {
+    "message": "Sovelluksesi tukee jo sekoitettuja ehtoja, joten tämä osa tarkistuksesta ohitetaan. Puuttuvat ehdot tarkistetaan edelleen."
+  },
+  "troubleshooter.mixedEditWarning": {
+    "message": "Tämä suodatin sisältää sekoitettuja tai ryhmiteltyjä ehtoja. Suodatinmuokkain ei ehkä tue niitä oikein. Avaaminen voi muuttaa ehtoja. Jatketaanko?"
+  },
+  "troubleshooter.needsAttention": {
+    "message": "Vaatii huomiota"
+  },
+  "troubleshooter.needsReviewCount": {
+    "message": "Tarkistettavia suodattimia: $count$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "troubleshooter.noAccounts": {
+    "message": "Suodattimia sisältäviä tilejä ei ole käytettävissä."
+  },
+  "troubleshooter.noProblems": {
+    "message": "Ei jäljellä olevia ongelmia"
+  },
+  "troubleshooter.notRun": {
+    "message": "Ei tarkistettu"
+  },
+  "troubleshooter.open": {
+    "message": "Avaa suodattimien vianmääritys…"
+  },
+  "troubleshooter.openAddons": {
+    "message": "Avaa lisäosien hallinta"
+  },
+  "troubleshooter.openEditorAnyway": {
+    "message": "Avaa muokkain silti…"
+  },
+  "troubleshooter.openLog": {
+    "message": "Avaa suodatinloki…"
+  },
+  "troubleshooter.operator": {
+    "message": "Operaattori"
+  },
+  "troubleshooter.problem": {
+    "message": "Ongelma"
+  },
+  "troubleshooter.readOnly": {
+    "message": "Tarkistaa kaikki ongelmatyypit. Suodattimia muutetaan vain nimenomaisesta valinnastasi."
+  },
+  "troubleshooter.reason.inspection-failed": {
+    "message": "Tarkistusta ei voitu suorittaa loppuun"
+  },
+  "troubleshooter.reason.missing-action": {
+    "message": "Mukautettu toiminto ei ole käytettävissä"
+  },
+  "troubleshooter.reason.missing-conditions": {
+    "message": "Ei hakuehtoja"
+  },
+  "troubleshooter.reason.missing-folder": {
+    "message": "Virheellinen kansiopolku"
+  },
+  "troubleshooter.reason.missing-term": {
+    "message": "Mukautettu hakuehto ei ole käytettävissä"
+  },
+  "troubleshooter.reason.mixed-conditions": {
+    "message": "Sekoitetut ALL/ANY-ehdot tai ryhmät"
+  },
+  "troubleshooter.reason.no-run-method": {
+    "message": "Suodattimen suoritustapaa ei ole asetettu"
+  },
+  "troubleshooter.reason.unparseable": {
+    "message": "Suodatinta ei voitu jäsentää"
+  },
+  "troubleshooter.resolved": {
+    "message": "Ratkaistu"
+  },
+  "troubleshooter.resultStatus": {
+    "message": "Tuloksen tila"
+  },
+  "troubleshooter.review": {
+    "message": "Suodattimien tarkistus"
+  },
+  "troubleshooter.runAll": {
+    "message": "Suorita kaikki tarkistukset"
+  },
+  "troubleshooter.searchTermId": {
+    "message": "Hakuehdon tunniste"
+  },
+  "troubleshooter.sessionExpired": {
+    "message": "Tarkistusistunto on vanhentunut. Avaa vianmääritys uudelleen."
+  },
+  "troubleshooter.start": {
+    "message": "Suorita tämän tilin suodattimien tarkistus."
+  },
+  "troubleshooter.state.deleted": {
+    "message": "Poistettu"
+  },
+  "troubleshooter.state.disabled": {
+    "message": "Poissa käytöstä · Vaatii tarkistusta"
+  },
+  "troubleshooter.state.remaining": {
+    "message": "Vaatii tarkistusta"
+  },
+  "troubleshooter.state.resolved": {
+    "message": "Ratkaistu"
+  },
+  "troubleshooter.summary": {
+    "message": "Tarkistettavia suodattimia: $filters$ · Ratkaistuja ongelmia: $resolved$ · Suoritettu $checks$/4 tarkistusta",
+    "placeholders": {
+      "filters": { "content": "$1" },
+      "resolved": { "content": "$2" },
+      "checks": { "content": "$3" }
+    }
+  },
+  "troubleshooter.tableHint": {
+    "message": "Yksi rivi kutakin ongelmaa kohti. Avaa Tiedot nähdäksesi selityksen."
+  },
+  "troubleshooter.term": {
+    "message": "Hakuehto"
+  },
+  "troubleshooter.title": {
+    "message": "quickFilters · Vianmääritys"
+  },
+  "troubleshooter.trialExhausted": {
+    "message": "Ilmaiset vianmäärityskerrat on käytetty. Hanki quickFilters Pro suorittaaksesi lisää tarkistuksia."
+  },
+  "troubleshooter.trialRemaining": {
+    "message": "Kokeiluversio: $1 käyttökertaa jäljellä"
+  },
+  "troubleshooter.unsafeEditor": {
+    "message": "Suodattimen avaaminen muokkaimessa ei ole turvallista. Näytä ehdot tai poista se käytöstä."
+  },
+  "troubleshooter.viewConditions": {
+    "message": "Näytä ehdot…"
+  },
   "updates.displayVersionTab": {
     "message": "Näytä päivityksen jälkeen version historia -välilehti"
   },
@@ -2297,349 +2626,5 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Kaikki muut sähköpostiosoitteet eivät ole ongelma - ne eivät vaadi erillistä lisenssiä. Jos sinulla on kysymyksiä, pääset minut tukisivun kautta."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Kansion korjausta ei voitu aloittaa. Kun käynnissä olevat kansiotoiminnot ovat päättyneet, kokeile Ominaisuudet → Korjaa kansio."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters ei voinut hakea suodattimen luomiseen tai päivittämiseen tarvittavia tietoja.\n\nKohdekansio ”{0}” saattaa tarvita korjausta.\n\nYritetäänkö korjata kansio nyt?\n\nOdota korjauksen valmistumista ja yritä sitten luoda suodatin uudelleen."
-  }
-,
-  "troubleshooter.title": {
-    "message": "quickFilters · Vianmääritys"
-  },
-  "troubleshooter.menu": {
-    "message": "Vianmääritys…"
-  },
-  "troubleshooter.open": {
-    "message": "Avaa suodattimien vianmääritys…"
-  },
-  "troubleshooter.trialRemaining": {
-    "message": "Kokeiluversio: $1 käyttökertaa jäljellä"
-  },
-  "troubleshooter.trialExhausted": {
-    "message": "Ilmaiset vianmäärityskerrat on käytetty. Hanki quickFilters Pro suorittaaksesi lisää tarkistuksia."
-  },
-  "troubleshooter.intro": {
-    "message": "Suorita tarkistuksia, tutki ongelmia ja valitse muutokset."
-  },
-  "troubleshooter.openLog": {
-    "message": "Avaa suodatinloki…"
-  },
-  "troubleshooter.logHint": {
-    "message": "Tutki valitun tilin suodattimien viimeaikaista toimintaa."
-  },
-  "troubleshooter.checks": {
-    "message": "Käytettävissä olevat tarkistukset"
-  },
-  "troubleshooter.runAll": {
-    "message": "Suorita kaikki tarkistukset"
-  },
-  "troubleshooter.readOnly": {
-    "message": "Tarkistaa kaikki ongelmatyypit. Suodattimia muutetaan vain nimenomaisesta valinnastasi."
-  },
-  "troubleshooter.review": {
-    "message": "Suodattimien tarkistus"
-  },
-  "troubleshooter.needsAttention": {
-    "message": "Vaatii huomiota"
-  },
-  "troubleshooter.resolved": {
-    "message": "Ratkaistu"
-  },
-  "troubleshooter.allResults": {
-    "message": "Kaikki tulokset"
-  },
-  "troubleshooter.resultStatus": {
-    "message": "Tuloksen tila"
-  },
-  "troubleshooter.find": {
-    "message": "Etsi suodatinta…"
-  },
-  "troubleshooter.viewConditions": {
-    "message": "Näytä ehdot…"
-  },
-  "troubleshooter.conditionHint": {
-    "message": "Alla oleva teksti luettelee yksittäiset ehdot. Ryhmittely näkyy erikseen taulukossa."
-  },
-  "troubleshooter.copy": {
-    "message": "Kopioi"
-  },
-  "troubleshooter.close": {
-    "message": "Sulje"
-  },
-  "troubleshooter.copyManually": {
-    "message": "Valitse teksti ja kopioi se käsin."
-  },
-  "troubleshooter.copied": {
-    "message": "Ehtojen teksti kopioitu."
-  },
-  "troubleshooter.operator": {
-    "message": "Operaattori"
-  },
-  "troubleshooter.term": {
-    "message": "Hakuehto"
-  },
-  "troubleshooter.groupStart": {
-    "message": "Ryhmien alut"
-  },
-  "troubleshooter.groupEnd": {
-    "message": "Ryhmien loput"
-  },
-  "troubleshooter.check": {
-    "message": "Tarkistus"
-  },
-  "troubleshooter.problem": {
-    "message": "Ongelma"
-  },
-  "troubleshooter.tableHint": {
-    "message": "Yksi rivi kutakin ongelmaa kohti. Avaa Tiedot nähdäksesi selityksen."
-  },
-  "troubleshooter.summary": {
-    "message": "Tarkistettavia suodattimia: $filters$ · Ratkaistuja ongelmia: $resolved$ · Suoritettu $checks$/4 tarkistusta",
-    "placeholders": {
-      "filters": {
-        "content": "$1"
-      },
-      "resolved": {
-        "content": "$2"
-      },
-      "checks": {
-        "content": "$3"
-      }
-    }
-  },
-  "troubleshooter.filterCount": {
-    "message": "Suodattimia: $count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.notRun": {
-    "message": "Ei tarkistettu"
-  },
-  "troubleshooter.needsReviewCount": {
-    "message": "Tarkistettavia suodattimia: $count$",
-    "placeholders": {
-      "count": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.noProblems": {
-    "message": "Ei jäljellä olevia ongelmia"
-  },
-  "troubleshooter.empty": {
-    "message": "Tässä näkymässä ei ole tuloksia."
-  },
-  "troubleshooter.start": {
-    "message": "Suorita tämän tilin suodattimien tarkistus."
-  },
-  "troubleshooter.changed": {
-    "message": "Muutos tallennettu. Aiemmin suoritetut tarkistukset on päivitetty."
-  },
-  "troubleshooter.completed": {
-    "message": "Tarkistukset valmiit. Suodattimia ei muutettu."
-  },
-  "troubleshooter.noAccounts": {
-    "message": "Suodattimia sisältäviä tilejä ei ole käytettävissä."
-  },
-  "troubleshooter.help": {
-    "message": "Tietoja: $check$",
-    "placeholders": {
-      "check": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.openAddons": {
-    "message": "Avaa lisäosien hallinta"
-  },
-  "troubleshooter.enableIncoming": {
-    "message": "Ota käyttöön saapuvalle postille…"
-  },
-  "troubleshooter.disable": {
-    "message": "Poista suodatin käytöstä…"
-  },
-  "troubleshooter.state.remaining": {
-    "message": "Vaatii tarkistusta"
-  },
-  "troubleshooter.state.disabled": {
-    "message": "Poissa käytöstä · Vaatii tarkistusta"
-  },
-  "troubleshooter.state.resolved": {
-    "message": "Ratkaistu"
-  },
-  "troubleshooter.state.deleted": {
-    "message": "Poistettu"
-  },
-  "troubleshooter.check.runs": {
-    "message": "Tarkista automaattinen suoritus"
-  },
-  "troubleshooter.check.folders": {
-    "message": "Tarkista kohdekansiot"
-  },
-  "troubleshooter.check.addons": {
-    "message": "Etsi puuttuvia toimintoja ja ehtoja"
-  },
-  "troubleshooter.check.conditions": {
-    "message": "Tarkista hakuehdot"
-  },
-  "troubleshooter.description.runs": {
-    "message": "Tarkista, voivatko käytössä olevat suodattimet toimia postin saapuessa, määräajoin tai käsin."
-  },
-  "troubleshooter.description.folders": {
-    "message": "Ovatko siirron ja kopioinnin kohteet vielä olemassa?"
-  },
-  "troubleshooter.description.addons": {
-    "message": "Ovatko mukautetut toiminnot ja hakuehdot käytettävissä?"
-  },
-  "troubleshooter.description.conditions": {
-    "message": "Etsi sekoitettuja ALL/ANY-ehtoja, ryhmiä tai puuttuvia ehtoja."
-  },
-  "troubleshooter.help.runs": {
-    "message": "Joskus suodattimet eivät toimi automaattisesti asetuksista huolimatta. Syynä voi olla vaurioitunut Thunderbird-profiili. Tämä tarkistus etsii puuttuvia suoritusasetuksia; se ei voi diagnosoida profiilin vaurioita."
-  },
-  "troubleshooter.help.folders": {
-    "message": "Kansioita voidaan siirtää tai poistaa, myös IMAP-palvelimelta, jolloin suodatin jää ilman kelvollista kohdetta. Thunderbird päivittää säännöt yleensä, kun nimeät kansion uudelleen tai siirrät sen saman tilin sisällä."
-  },
-  "troubleshooter.help.addons": {
-    "message": "Muut lisäosat voivat tarjota mukautettuja toimintoja ja hakuehtoja. Ne on ehkä otettava käyttöön lisäosan asetuksissa. Ne voivat myös kadota käytöstä, jos lisäosa on poistettu käytöstä tai ei ole yhteensopiva Thunderbird-versiosi kanssa."
-  },
-  "troubleshooter.help.conditions": {
-    "message": "Thunderbirdin suodatinmuokkain tukee nyt kaikkien ehtojen (ALL) tai minkä tahansa ehdon (ANY) täyttymistä. Molempien yhdistämistä ryhmissä kehitetään. Sähköpostiohjelmasi tai versiosi voi jo tukea toimintoa."
-  },
-  "troubleshooter.reason.no-run-method": {
-    "message": "Suodattimen suoritustapaa ei ole asetettu"
-  },
-  "troubleshooter.reason.missing-folder": {
-    "message": "Virheellinen kansiopolku"
-  },
-  "troubleshooter.reason.missing-action": {
-    "message": "Mukautettu toiminto ei ole käytettävissä"
-  },
-  "troubleshooter.reason.missing-term": {
-    "message": "Mukautettu hakuehto ei ole käytettävissä"
-  },
-  "troubleshooter.reason.missing-conditions": {
-    "message": "Ei hakuehtoja"
-  },
-  "troubleshooter.reason.mixed-conditions": {
-    "message": "Sekoitetut ALL/ANY-ehdot tai ryhmät"
-  },
-  "troubleshooter.reason.unparseable": {
-    "message": "Suodatinta ei voitu jäsentää"
-  },
-  "troubleshooter.reason.inspection-failed": {
-    "message": "Tarkistusta ei voitu suorittaa loppuun"
-  },
-  "troubleshooter.explain.no-run-method": {
-    "message": "Suodatin on käytössä, mutta automaattista tai käsin tehtävää suoritusta ei ole asetettu. Käyttöönotto saapuvalle postille on valinnainen muutos, ei automaattinen korjaus."
-  },
-  "troubleshooter.explain.missing-folder": {
-    "message": "Siirto- tai kopiointitoiminto osoittaa puuttuvaan kansioon tai kansioon, joka ei voi vastaanottaa viestejä. Valitse olemassa oleva kohde suodatinmuokkaimessa."
-  },
-  "troubleshooter.explain.missing-action": {
-    "message": "Toiminnon tarjoava lisäosa saattaa puuttua, olla poissa käytöstä tai epäyhteensopiva. Tarkista lisäosien hallinta ja toiminnon käyttöönotto lisäosan asetuksissa."
-  },
-  "troubleshooter.explain.missing-term": {
-    "message": "Hakuehdon tarjoava lisäosa saattaa puuttua, olla poissa käytöstä tai epäyhteensopiva. Tarkista lisäosien hallinta ja ehdon käyttöönotto lisäosan asetuksissa."
-  },
-  "troubleshooter.explain.missing-conditions": {
-    "message": "Suodattimella ei ole hakuehtoja. Lisää ehdot, poista suodatin käytöstä tai poista se, jos et enää tarvitse sitä."
-  },
-  "troubleshooter.explain.mixed-conditions": {
-    "message": "Tämä logiikka voi olla tarkoituksellinen. Suodattimen avaaminen Thunderbirdin muokkaimessa voi tulkita ehdot väärin. Tutki vain luku -tekstiä tai poista suodatin käytöstä muuttamatta ehtoja. Käytöstä poistaminen ei korjaa logiikkaa."
-  },
-  "troubleshooter.explain.unparseable": {
-    "message": "Thunderbird ei voinut jäsentää tätä suodatinta. Tutki tallennettua tekstiä avaamatta suodatinmuokkainta."
-  },
-  "troubleshooter.explain.inspection-failed": {
-    "message": "Suodatinta ei voitu tarkistaa kokonaan. Tutki virheen tietoja; älä oleta tarkistuksen onnistuneen."
-  },
-  "troubleshooter.mailWindowRequired": {
-    "message": "Avaa Thunderbirdin sähköposti-ikkuna ennen vianmääritystä."
-  },
-  "troubleshooter.accountUnavailable": {
-    "message": "Tili ei ole käytettävissä tai ei tue suodattimia."
-  },
-  "troubleshooter.sessionExpired": {
-    "message": "Tarkistusistunto on vanhentunut. Avaa vianmääritys uudelleen."
-  },
-  "troubleshooter.invalidCheck": {
-    "message": "Tuntematon vianmääritystarkistus."
-  },
-  "troubleshooter.filterUnavailable": {
-    "message": "Suodatin ei ole enää käytettävissä. Suorita tarkistukset uudelleen."
-  },
-  "troubleshooter.filterReplaced": {
-    "message": "Suodatin on poistettu tai korvattu. Suorita tarkistukset uudelleen."
-  },
-  "troubleshooter.invalidRemedy": {
-    "message": "Tuntematon tai tukematon suodatinmuutos."
-  },
-  "troubleshooter.unsafeEditor": {
-    "message": "Suodattimen avaaminen muokkaimessa ei ole turvallista. Näytä ehdot tai poista se käytöstä."
-  },
-  "troubleshooter.filterChanged": {
-    "message": "Suodatin muuttui tarkistuksen aikana. Suorita tarkistukset uudelleen."
-  },
-  "troubleshooter.confirmDelete": {
-    "message": "Poistetaanko ”$filter$”? Suodatin poistetaan pysyvästi.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmDisable": {
-    "message": "Poistetaanko ”$filter$” käytöstä? Sen suoritus pysähtyy ja ehdot säilyvät muuttumattomina.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  },
-  "troubleshooter.confirmIncoming": {
-    "message": "Sallitaanko suodattimen ”$filter$” automaattinen suoritus uuden postin saapuessa? Tämä muuttaa suodattimen suoritusaikaa eikä ole tarpeen pelkkää tarkastelua varten.",
-    "placeholders": {
-      "filter": {
-        "content": "$1"
-      }
-    }
-  }
-,
-  "troubleshooter.mixedConditionsSupported": {
-    "message": "Sovelluksesi tukee jo sekoitettuja ehtoja, joten tämä osa tarkistuksesta ohitetaan. Puuttuvat ehdot tarkistetaan edelleen."
-  }
-,
-  "troubleshooter.searchTermId": {
-    "message": "Hakuehdon tunniste"
-  }
-,
-  "troubleshooter.actionId": {
-    "message": "Toiminnon tunniste"
-  }
-,
-  "troubleshooter.missingIdentifier": {
-    "message": "Tunniste puuttuu"
-  }
-,
-  "troubleshooter.mixedEditWarning": {
-    "message": "Tämä suodatin sisältää sekoitettuja tai ryhmiteltyjä ehtoja. Suodatinmuokkain ei ehkä tue niitä oikein. Avaaminen voi muuttaa ehtoja. Jatketaanko?"
-  }
-,
-  "troubleshooter.openEditorAnyway": {
-    "message": "Avaa muokkain silti…"
-  }
-,
-  "troubleshooter.dontWarnUntilRestart": {
-    "message": "Älä varoita ennen Thunderbirdin uudelleenkäynnistystä"
-  }
-,
-  "troubleshooter.customId": {
-    "message": "Mukautettu tunniste"
   }
 }
