@@ -118,7 +118,7 @@ quickFilters.List = {
       prefs = quickFilters.Preferences;
 
     if (this.getSelectedCount(list) != 1) {
-			let wrn = util.getBundleString('quickfilters.clone.selectOne', 
+			let wrn = util.getBundleString('clone.selectOne', 
                                    'To clone, select exactly one filter.');
       await util.popupAlert(wrn);
       return;
@@ -126,7 +126,7 @@ quickFilters.List = {
 	
 		let selectedFilter = this.getSelectedFilterAt(list, 0);
 		if (!selectedFilter) {
-      let wrn = util.getBundleString('quickfilters.clone.undetermined', 
+      let wrn = util.getBundleString('clone.undetermined', 
                                    'Could not determine which filter is selected');
 			await util.popupAlert(wrn);
 			return;
@@ -138,7 +138,7 @@ quickFilters.List = {
 		  newName += clonedLabel;
 		} else {
 		 // get default localized clone label
-			newName += util.getBundleString('quickfilters.clone.label', '(copy)');		
+			newName += util.getBundleString('clone.label', '(copy)');		
 		}
 		
 		try {
@@ -207,7 +207,7 @@ quickFilters.List = {
     let list = this.FilterListElement,
         count = this.getSelectedCount(list);
     if (count < 2) {
-			let wrn = util.getBundleString("quickfilters.sort.warning.selectMultiple", 
+			let wrn = util.getBundleString("sort.warning.selectMultiple", 
                                               "To sort, select at least 2 filters");
       util.popupAlert(wrn);
       return;
@@ -233,7 +233,7 @@ quickFilters.List = {
       + count + " filters selected.\n"
       + "evoked from button:" + isEvokedFromButton);
     if (count < 2) {
-			let wrn = util.getBundleString('quickfilters.merge.warning.selectMultiple', 
+			let wrn = util.getBundleString('merge.warning.selectMultiple', 
                                               'To merge, select at least 2 filters');
       await util.popupAlert(wrn);
       return;
@@ -246,7 +246,7 @@ quickFilters.List = {
         filterMatch,
 		    firstSelectedFilter = this.getSelectedFilterAt(list, 0);
 		if (!firstSelectedFilter) {
-			let wrn = util.getBundleString('quickfilters.merge.warning.selectMultiple2',
+			let wrn = util.getBundleString('merge.warning.selectMultiple2',
 				          'Cannot determine first selected filter - to merge, you must select at least 2 filters!');
 			await util.popupAlert(wrn);
 			return;
@@ -257,7 +257,7 @@ quickFilters.List = {
 			primaryAction = firstSelectedFilter.getActionAt(0);
 		}
 		catch(ex) {
-			let wrn = util.getBundleString('quickfilters.merge.warning.missingAction',
+			let wrn = util.getBundleString('merge.warning.missingAction',
 				          'Could not get the main action of the filter: {1}');
 		  wrn.replace ('{1}', primaryName);
 			await util.popupAlert(wrn + '\n' + ex.toString());
@@ -314,10 +314,10 @@ quickFilters.List = {
         }
       }
       if (!filterMatch && !deselectUnmatched) {
-        let question = util.getBundleString('quickfilters.merge.warning.selectMismatch',
+        let question = util.getBundleString('merge.warning.selectMismatch',
                                             'Cannot merge all selected filters: action mismatch with filter {1}!')
                       + '\n'
-                      + util.getBundleString('quickfilters.merge.warning.selectMismatchContinue',
+                      + util.getBundleString('merge.warning.selectMismatchContinue',
                                              'Deselect filters that do not match and continue?');
         question = question.replace('{1}', '\'' + primaryName + '\'' );          
         if (confirm(question)) {
@@ -446,7 +446,7 @@ quickFilters.List = {
     if (mergeFilterIndex >= 0) {
       targetFilter = matchingFilters[mergeFilterIndex];
     } else {
-			let wrn = util.getBundleString('quickfilters.merge.warning.selectTarget',
+			let wrn = util.getBundleString('merge.warning.selectTarget',
                                      'A target filter must be selected for merging!')
       await util.popupAlert(wrn);
 			return;
@@ -627,7 +627,7 @@ quickFilters.List = {
 		}
 		let count = this.getSelectedCount(list);
 		if (count < 1) {
-			let wrn = util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
+			let wrn = util.getBundleString('copy.warning.selectFilter', 'Please select at least one filter!');
 			util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
 			return false;
 		}
@@ -687,7 +687,7 @@ quickFilters.List = {
         sortIndex = 0;
 		try {
 			if (clpFilters.length < 1) {
-				let wrn = util.getBundleString('quickfilters.copy.warning.emptyClipboard',
+				let wrn = util.getBundleString('copy.warning.emptyClipboard',
 				  'No filters in clipboard!');
 				util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
 				return;
@@ -695,7 +695,7 @@ quickFilters.List = {
 			if (this.clipboardServer == this.CurrentFolder) {
         isMove = true; // copy / paste from same server = move
         if (this.clipboardPending == 'copy')  { // not supported; use clone instead!
-          let wrn = util.getBundleString('quickfilters.copy.warning.selectOtherAccount',
+          let wrn = util.getBundleString('copy.warning.selectOtherAccount',
             'Select a different account for pasting items!');
           util.popupAlert(wrn, 'quickFilters', 'fugue-clipboard-exclamation.png');
           return;
@@ -707,7 +707,7 @@ quickFilters.List = {
         }
       }
 			if (!this.clipboardServer.server.canHaveFilters) {
-				let msg = util.getBundleString('quickfilters.createFilter.warning.canNotHaveFilters',
+				let msg = util.getBundleString('createFilter.warning.canNotHaveFilters',
 					'The account {1} does not support filters!');
 				util.popupAlert(msg.replace('{1}', this.clipboardServer.prettyName), 
 				                             'quickFilters', 'fugue-clipboard-exclamation.png');
@@ -1359,15 +1359,15 @@ quickFilters.List = {
     // l10n at http://hg.mozilla.org/l10n-central
 		let getString = quickFilters.Util.getBundleString.bind(quickFilters.Util);
     switch(actionType) {
-      case  1: return getString('quickfilters.moveMessage.label', 'Move Message to');
-      case  2: return getString('quickfilters.setPriority.label', 'Set Priority to');
-      case  4: return getString('quickfilters.markMessageRead.label', 'Mark As Read');
+      case  1: return getString('moveMessage.label', 'Move Message to');
+      case  2: return getString('setPriority.label', 'Set Priority to');
+      case  4: return getString('markMessageRead.label', 'Mark As Read');
     //case  8: return getString('quickfilters.xx.label', 'Add label'); // ??
-      case  9: return getString('quickfilters.replyWithTemplate.label', 'Reply with template');
-      case 10: return getString('quickfilters.forwardTo.label', 'Forward Message to');
-      case 16: return getString('quickfilters.copyMessage.label', 'Copy Message to');
-      case 17: return getString('quickfilters.addTag.label', 'Tag Message');
-      case 19: return getString('quickfilters.markMessageUnread.label', 'Mark As Unread');
+      case  9: return getString('replyWithTemplate.label', 'Reply with template');
+      case 10: return getString('forwardTo.label', 'Forward Message to');
+      case 16: return getString('copyMessage.label', 'Copy Message to');
+      case 17: return getString('addTag.label', 'Tag Message');
+      case 19: return getString('markMessageUnread.label', 'Mark As Unread');
       default: return 'Action (' + actionType + ')';
     }
   } ,
@@ -1547,7 +1547,7 @@ quickFilters.List = {
     contextMenu.collapsed = false;
     let actionType = el.selectedItem.getAttribute('actionType');
     if (actionType) {
-      let men = util.getBundleString('quickfilters.menu.removeDupeAction', 'Remove duplicate action'),
+      let men = util.getBundleString('menu.removeDupeAction', 'Remove duplicate action'),
       // remove the count e.g. (2) from label
           pos = el.label.lastIndexOf('('),
           displayAction = pos ? el.label.substring(0, pos) :  el.label;
@@ -1572,7 +1572,7 @@ quickFilters.List = {
       }
     }
     else {
-      let men = util.getBundleString('quickfilters.menu.removeDupeCondition', 'Remove duplicate condition');
+      let men = util.getBundleString('menu.removeDupeCondition', 'Remove duplicate condition');
       contextMenu.label = men + ": " + el.label + "...";
       contextMenu.value = el.value;
       quickFilters.List.toggleSearchType('condition');
@@ -1727,7 +1727,7 @@ quickFilters.List = {
 
         // if duplicates needed to be fixed insert message and here confirmation
         if (duplicateFilters.length) {
-          const prompt = quickFilters.Util.getBundleString("quickfilters.prompt.fixDuplicates");
+          const prompt = quickFilters.Util.getBundleString("prompt.fixDuplicates");
           const result = Services.prompt.confirm(
             window || null,
             "quickFilters",
@@ -1834,7 +1834,7 @@ quickFilters.List = {
 
     util.logDebug("calling filepicker.init()...");
 		fp.init(util.getFileInitArg(window), "", fileOpenMode); // second parameter: prompt
-    filterText = util.getBundleString("quickfilters.fpJsonFile","JSON File");
+    filterText = util.getBundleString("fpJsonFile","JSON File");
     fp.appendFilter(filterText, "*.json");
     fp.defaultExtension = 'json';
     if (mode == 'save') {
@@ -2044,13 +2044,13 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
 				errList += "[" + customErrors[e].name +"] " + customErrors[e].customId + "\n";
 			}
 			let txtAlert = 
-			  util.getBundleString('quickfilters.backup.customErrors',
+			  util.getBundleString('backup.customErrors',
 			    "The following filters had custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:");
 			util.alert (txtAlert + "\n" + errList);
 		}
 		
-    const msgArchive = util.getBundleString('quickfilters.backup.archivingFilters', "Archiving {1} Filters" + String.fromCharCode(0x2026) ),
-		      msgFailed = util.getBundleString('quickfilters.backup.failedFilters', "{1} filters could not be encoded! Please check the error log for detail.");
+    const msgArchive = util.getBundleString('backup.archivingFilters', "Archiving {1} Filters" + String.fromCharCode(0x2026) ),
+		      msgFailed = util.getBundleString('backup.failedFilters', "{1} filters could not be encoded! Please check the error log for detail.");
     let json = JSON.stringify(filtersJSON, null, '  '), // prettified with indentation
 		    msg = msgArchive.replace('{1}', iSuccess);
 		if (iFail) {
@@ -2066,7 +2066,7 @@ nsresult nsMsgFilterList::SaveTextFilters(nsIOutputStream *aStream)
   storeSelected_obsolete: async function() {
 		let count = this.getSelectedCount(this.FilterListElement);
 		if (count < 1) {
-			let wrn = quickFilters.Util.getBundleString('quickfilters.copy.warning.selectFilter', 'Please select at least one filter!');
+			let wrn = quickFilters.Util.getBundleString('copy.warning.selectFilter', 'Please select at least one filter!');
 			await quickFilters.Util.popupAlert(wrn, "quickFilters", 'fugue-clipboard-exclamation.png');
 			return false;
 		}

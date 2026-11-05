@@ -408,22 +408,22 @@ async function injectQuickFoldersNavigationBarElements(win) {
   injectButton(container, "quickfilters-current-runbutton", {
     preserveExisting: true,
     insertAfter: "QuickFolders-currentFolderFilterActive",
-    tooltip: localize("quickfilters.RunButton.tooltip"),
+    tooltip: localize("RunButton.tooltip"),
   });
   injectButton(container, "quickfilters-current-msg-runbutton", {
     preserveExisting: true,
     insertAfter: "quickfilters-current-runbutton",
-    tooltip: localize("quickfilters.RunButtonMsg.tooltip"),
+    tooltip: localize("RunButtonMsg.tooltip"),
   });
   injectButton(container, "quickfilters-current-listbutton", {
     preserveExisting: true,
     insertAfter: "quickfilters-current-msg-runbutton",
-    tooltip: localize("quickfilters.ListButton.tooltip"),
+    tooltip: localize("ListButton.tooltip"),
   });
   injectButton(container, "quickfilters-current-searchfilterbutton", {
     preserveExisting: true,
     insertAfter: "quickfilters-current-listbutton",
-    tooltip: localize("quickfilters.findFiltersForFolder.menu"),
+    tooltip: localize("findFiltersForFolder.menu"),
   });
 }
 

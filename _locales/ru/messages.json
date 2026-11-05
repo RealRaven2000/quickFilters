@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "Чтобы и дальше оставаться полезными, нам, разработчикам дополнений, теперь необходимо финансировать исправления, для того чтобы наши пользователи могли продолжать пользоваться предоставляемыми нами функциями."
   },
-  "assistant.ux.title": {
-    "message": "Пользовательский интерфейс"
+  "addTag.label": {
+    "message": "Присвоить сообщению метку"
   },
   "assistant.ux.assistant.html": {
     "message": "Показать помощника в новом HTML-интерфейсе"
@@ -40,11 +40,21 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Убедитесь, что помощник остается в верхней части после активации."
   },
+  "assistant.ux.title": {
+    "message": "Пользовательский интерфейс"
+  },
+  "backup.archivingFilters": {
+    "message": "Архивирую {1} фильтров"
+  },
   "backup.backup.accountsFilters": {
     "message": "$accountCount$ аккаунтов · $filterCount$ фильтров",
     "placeholders": {
-      "accountCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "accountCount": {
+        "content": "$1"
+      },
+      "filterCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.backup.accountsLabel": {
@@ -52,15 +62,6 @@
   },
   "backup.backup.allAccounts": {
     "message": "Все аккаунты"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "Сохранить фильтры учётной записи $accountName$",
-    "placeholders": {
-      "accountName": { "content": "$1" }
-    }
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "Резервное копирование выбранных фильтров"
   },
   "backup.backup.backup": {
     "message": "Резервное копирование"
@@ -71,21 +72,40 @@
   "backup.backup.backupFailed": {
     "message": "Не удалось выполнить резервное копирование: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Сохранить фильтры учётной записи $accountName$",
+    "placeholders": {
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
     "message": "Резервная копия сохранена, но завершить операцию не удалось: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
     "message": "Резервная копия сохранена под номером $filePath$, но настройки сохранить не удалось: $error$.",
     "placeholders": {
-      "filePath": { "content": "$1" },
-      "error": { "content": "$2" }
+      "error": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$1"
+      }
     }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Резервное копирование выбранных фильтров"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "Резервная копия не сохранена."
@@ -93,7 +113,9 @@
   "backup.backup.cannotLoadAccounts": {
     "message": "Невозможно загрузить аккаунты: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.cannotReadFilters": {
@@ -105,19 +127,25 @@
   "backup.backup.couldNotDeleteFilter": {
     "message": "Не удалось удалить фильтр: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotEditFilter": {
     "message": "Не удалось изменить фильтр: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
     "message": "Не удалось вернуться к списку фильтров: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.currentProfile": {
@@ -126,7 +154,9 @@
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
     "message": "Удален фильтр «$filterName$». Создайте резервную копию еще раз, если хотите сохранить изменения.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.description": {
@@ -144,7 +174,9 @@
   "backup.backup.filters": {
     "message": "$filterCount$ фильтры",
     "placeholders": {
-      "filterCount": { "content": "$1" }
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
@@ -156,14 +188,20 @@
   "backup.backup.highlightWarningsFor": {
     "message": "Выделить $warningCount$ предупреждений для $accountName$",
     "placeholders": {
-      "warningCount": { "content": "$1" },
-      "accountName": { "content": "$2" }
+      "accountName": {
+        "content": "$2"
+      },
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.highlightWarningsFor2": {
     "message": "Выделить предупреждения для $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
@@ -175,16 +213,26 @@
   "backup.backup.ofAccountsSelectedFilters": {
     "message": "$selectedAccountCount$ из $accountCount$ выбрано аккаунтов · $filterCount$ фильтров",
     "placeholders": {
-      "selectedAccountCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filterCount": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filterCount": {
+        "content": "$3"
+      },
+      "selectedAccountCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.ofFiltersSelected": {
     "message": "Выбрано $selectedFilterCount$ из $filterCount$ фильтров",
     "placeholders": {
-      "selectedFilterCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "filterCount": {
+        "content": "$2"
+      },
+      "selectedFilterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
@@ -208,15 +256,23 @@
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
     "message": "Сохранено $filterCount$ фильтров из учетных записей $accountCount$ в $filePath$. Для возврата используйте «Вернуться к фильтрам сообщений».",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filePath": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$3"
+      },
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.savedTo": {
     "message": "Сохранено в номер $filePath$.",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectAtLeastOneAccount": {
@@ -228,13 +284,17 @@
   "backup.backup.selectedFilters": {
     "message": "$accountName$ - выбранные фильтры",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectionHint": {
     "message": "(Чтобы сохранить только выбранные фильтры, удерживайте Ctrl и нажимайте $icon$ в разделе «Фильтры сообщений».)",
     "placeholders": {
-      "icon": { "content": "$1" }
+      "icon": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.title": {
@@ -252,13 +312,17 @@
   "backup.common.warningCount": {
     "message": "$count$ предупреждения",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.common.warningCountOne": {
     "message": "$count$ предупреждение",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.backupChanges": {
@@ -267,11 +331,19 @@
   "backup.confirm.deleteFilter": {
     "message": "Удалить фильтр «$name$»?",
     "placeholders": {
-      "name": { "content": "$1" }
+      "name": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.doNotAskAgain": {
     "message": "Больше не спрашивай"
+  },
+  "backup.customErrors": {
+    "message": "Следующие фильтры имеют пользовательские действия, которые не могут быть полностью сохранены - сторонннее дополнение возможно отсутствует:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} фильтров не были закодированы. Детали в журнале ошибок."
   },
   "backup.format.chooseDestination": {
     "message": "Выберите пункт назначения"
@@ -288,13 +360,17 @@
   "backup.format.invalidActionOrConditionIn": {
     "message": "Недопустимое действие или условие в $filterName$.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidFilterDataIn": {
     "message": "Неверные данные фильтра в $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidReferencedAccountDirectory": {
@@ -312,23 +388,37 @@
   "backup.format.message": {
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": { "content": "$1" },
-      "month": { "content": "$2" },
-      "day": { "content": "$3" },
-      "hour": { "content": "$4" },
-      "minute": { "content": "$5" }
+      "day": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "year": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.missingFiltersFor": {
     "message": "Отсутствуют фильтры для $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.referenced": {
     "message": "$accountIdentity$ (по ссылке)",
     "placeholders": {
-      "accountIdentity": { "content": "$1" }
+      "accountIdentity": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.remembered": {
@@ -349,7 +439,9 @@
   "backup.mapping.assignedToMoveHere": {
     "message": "Назначено номеру $accountName$ — перейдите сюда",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.dropATargetHere": {
@@ -358,8 +450,12 @@
   "backup.mapping.filters": {
     "message": "$filterCount$ Фильтры$statusSuffix$",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "statusSuffix": { "content": "$2" }
+      "filterCount": {
+        "content": "$1"
+      },
+      "statusSuffix": {
+        "content": "$2"
+      }
     }
   },
   "backup.mapping.filtersRestored": {
@@ -380,13 +476,17 @@
   "backup.mapping.restoreFiltersFrom": {
     "message": "Восстановление фильтров от $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountFor": {
     "message": "Выберите аккаунт для $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
@@ -395,13 +495,17 @@
   "backup.mapping.warnings": {
     "message": "$warningCount$ предупреждения",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
     "message": "Аккаунт $accountId$ недоступен или не поддерживает фильтры.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
@@ -410,13 +514,17 @@
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
     "message": "Не удалось экспортировать фильтр «$filterName$». Бэкап не записывался.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.destinationAccountIsUnavailable": {
     "message": "Целевой счет $accountId$ недоступен.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
@@ -428,7 +536,9 @@
   "backup.native.folderDoesNotExistInTheDestinationAccount": {
     "message": "Папка «$folderName$» не существует в целевой учетной записи.",
     "placeholders": {
-      "folderName": { "content": "$1" }
+      "folderName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.invalidAccountMapping": {
@@ -479,7 +589,9 @@
   "backup.native.noDestinationSelectedForAccount": {
     "message": "Для учетной записи «$accountName$» не выбран пункт назначения.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
@@ -497,8 +609,12 @@
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
     "message": "Не удалось сохранить ($saveError$); восстановить исходный файл также не удалось ($restoreError$)",
     "placeholders": {
-      "saveError": { "content": "$1" },
-      "restoreError": { "content": "$2" }
+      "restoreError": {
+        "content": "$2"
+      },
+      "saveError": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
@@ -546,14 +662,20 @@
   "backup.restore.cannotLoadDestinationAccounts": {
     "message": "Невозможно загрузить целевые учетные записи: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.cannotOpenBackup": {
     "message": "Невозможно открыть резервную копию: $error$$previousBackupNotice$.",
     "placeholders": {
-      "error": { "content": "$1" },
-      "previousBackupNotice": { "content": "$2" }
+      "error": {
+        "content": "$1"
+      },
+      "previousBackupNotice": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
@@ -562,13 +684,17 @@
   "backup.restore.couldNotSaveReport": {
     "message": "Не удалось сохранить отчет: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.deletedFilter": {
     "message": "Удален фильтр «$filterName$».",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.description": {
@@ -619,13 +745,17 @@
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
     "message": "Восстановление завершено, но сопоставления не удалось запомнить: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFailed": {
     "message": "Не удалось восстановить: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFilters": {
@@ -634,13 +764,17 @@
   "backup.restore.restoreReportSavedTo": {
     "message": "Отчет о восстановлении сохранен по номеру $filePath$.",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
     "message": "Обзор восстановления · $warningCount$ предупреждений и пропущенных элементов",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreWasNotPerformed": {
@@ -652,20 +786,38 @@
   "backup.restore.resultComplete": {
     "message": "Восстановление завершено: $added$ добавлено, $replaced$ заменено, $kept$ существующих фильтров сохранено, $skipped$ пропущено.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" }
+      "added": {
+        "content": "$1"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.resultErrors": {
     "message": "Восстановление завершено с ошибками: $added$ добавлено, $replaced$ заменено, $kept$ существующих фильтров сохранено, $skipped$ пропущено, $failed$ учетных записей не удалось.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" },
-      "failed": { "content": "$5" }
+      "added": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$5"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
@@ -677,15 +829,23 @@
   "backup.restore.selectDestinationAccountsFor": {
     "message": "Выберите целевые счета для: $accountNames$.",
     "placeholders": {
-      "accountNames": { "content": "$1" }
+      "accountNames": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
     "message": "$backupType$ · $sourceAccountCount$ исходных аккаунтов · $referencedAccountCount$ ссылочных аккаунтов",
     "placeholders": {
-      "backupType": { "content": "$1" },
-      "sourceAccountCount": { "content": "$2" },
-      "referencedAccountCount": { "content": "$3" }
+      "backupType": {
+        "content": "$1"
+      },
+      "referencedAccountCount": {
+        "content": "$3"
+      },
+      "sourceAccountCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
@@ -706,19 +866,25 @@
   "backup.startup.cannotOpenBackup": {
     "message": "Невозможно открыть резервную копию: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.startup.cannotOpenRestore": {
     "message": "Невозможно открыть восстановление: $error$.",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
     "message": "Неподдерживаемое серверное хранилище резервных копий: $backend$.",
     "placeholders": {
-      "backend": { "content": "$1" }
+      "backend": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.account": {
@@ -736,7 +902,9 @@
   "backup.warnings.backupSavedWithWarnings": {
     "message": "Резервная копия сохранена с предупреждениями $warningCount$.",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.clearHighlight": {
@@ -763,11 +931,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "Повторяющееся имя — пропускается"
   },
-  "backup.warnings.editFilter": {
-    "message": "Изменить"
-  },
   "backup.warnings.editedByUser": {
     "message": "Отредактировано пользователем"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Изменить"
   },
   "backup.warnings.filter": {
     "message": "Фильтр"
@@ -799,7 +967,9 @@
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
     "message": "Предупреждения для номера $accountName$ выделены. Все предупреждения остаются видимыми.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
@@ -816,6 +986,81 @@
   },
   "btn-want-to-donate": {
     "message": "Я хочу помочь разовым пожертвованием."
+  },
+  "button.assistant": {
+    "message": "Включить ассистент..."
+  },
+  "button.assistant.tooltiptext": {
+    "message": "Включить ассистент по созданию фильтров путем перетаскивания сообщений."
+  },
+  "button.bug": {
+    "message": "Устранение неисправностей"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Устранение неисправностей: 1. Фильтры, которые не работают автоматически 2. Неверные целевые папки 3. Проверить пользовательские действия"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. Смешанные «любые»/«все» условия. Щелкните правой кнопкой мыши, чтобы настроить шаги."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "Закончить поиск"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "Закончить поиск повторений"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "Прервать поиск"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "Прервать поиск по папке"
+  },
+  "button.clone": {
+    "message": "Клонировать"
+  },
+  "button.clone.accesskey": {
+    "message": "К"
+  },
+  "button.clone.tooltiptext": {
+    "message": "Клонировать фильтр"
+  },
+  "button.findDuplicates.label": {
+    "message": "Найти повторения"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "Найти повторяющиеся атрибуты"
+  },
+  "button.getOtherAddon": {
+    "message": "Скачать {1}"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "Восстанавливаю фильтры…"
+  },
+  "button.merge": {
+    "message": "Объединить"
+  },
+  "button.merge.accesskey": {
+    "message": "О"
+  },
+  "button.merge.tooltiptext": {
+    "message": "Объединить несколько фильтров с одинаковым действием"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "Архивирую фильтры…"
+  },
+  "button.searchProperties": {
+    "message": "Свойство для поиска фильтра…"
+  },
+  "button.settings": {
+    "message": "Настройки quickFilters..."
+  },
+  "button.sort": {
+    "message": "Сортировка"
+  },
+  "button.sort.tooltiptext": {
+    "message": "Сортировка по алфавиту"
+  },
+  "button.support": {
+    "message": "Страница поддержки quickFilters"
   },
   "buyDomainLicense.button": {
     "message": "Купить групповую лицензию"
@@ -931,11 +1176,158 @@
   "chkWhenArchiving.label": {
     "message": "При архивации"
   },
+  "clone.label": {
+    "message": "(копия)"
+  },
+  "clone.selectOne": {
+    "message": "Для клонирования выберите только один фильтр."
+  },
+  "clone.undetermined": {
+    "message": "Непонятно какой фильтр выбран"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "Нет фильтров в буфере обмена!"
+  },
+  "copy.warning.selectFilter": {
+    "message": "Выберите пожалуйста как минимум один фильтр!"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "Для вставки выберите другую учетную запись!"
+  },
+  "copyMessage.label": {
+    "message": "Копировать сообщение в"
+  },
   "cost-of-independence": {
     "message": "Разработка программного обеспечения требует времени и денег - в отличие от многих приложений на платформе, надстройки не разрабатываются крупными корпорациями и никоим образом не спонсируются Mozilla."
   },
   "createdBy": {
     "message": "Создан:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "Учётная запись ({1}) не может иметь фильтров."
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "Для этого шаблона нужно выбрать минимум 2 сообщения."
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "Учётная запись-источник [{1}] не может иметь фильтров!\nВместо использую текущую папку «Входящие»."
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "К сожалению, в этой версии {1}, невозможно создавать фильтры, так как она не поддерживает чтение адресов из заголовка сообщения."
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "Не могу прочесть сообщения папки {1}"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "Не могу создать фильтр - не могу прочесть идентификатор первого сообщения в их списке!\nМожет быть нужно запустить команду"
+  },
+  "createFilter.warning.noServer": {
+    "message": "Папке ({1}) не назначен сервер."
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "Обновитесь до более новой версии, чтобы это заработало."
+  },
+  "createFromMail.inboxWarning": {
+    "message": "Создать фильтр из сообщения гораздо полезнее, если вы уже переместили почту в другую папку или добавить тег к нему, так как quickFilters затем выберет соответствующее действие для вас.\nСоздать фильтр из этого сообщения?"
+  },
+  "createFromMail.selectWarning": {
+    "message": "Для создания фильтра выберите одно единственное сообщение!"
+  },
+  "customfilter.replyto": {
+    "message": "Обратный адрес"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Скрытая копия (BCC)"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Копия (CC)"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "Помощник quickFilters автоматически добавит действие. Пожалуйста, оставьте действие по умолчанию «Установить нормальный приоритет» в качестве заполнителя."
+  },
+  "customHeader.Domain": {
+    "message": "Домен адреса"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "Pасширение домена"
+  },
+  "customHeader.Domain.Root": {
+    "message": "корневой домен"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "субдомен"
+  },
+  "customHeader.Email": {
+    "message": "Адрес"
+  },
+  "customHeader.FirstName": {
+    "message": "Имя"
+  },
+  "customHeader.From": {
+    "message": "От кого"
+  },
+  "customHeader.LastName": {
+    "message": "Фамилия"
+  },
+  "customHeader.ListId": {
+    "message": "Идентификатор списка"
+  },
+  "customHeader.ListPost": {
+    "message": "Сообщение списка"
+  },
+  "customHeader.NamePart": {
+    "message": "ФИО"
+  },
+  "customHeader.Newsgroups": {
+    "message": "Группа новостей"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Обратный адрес"
+  },
+  "customHeader.Subject": {
+    "message": "Тема"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "Регулярное выражение для темы"
+  },
+  "customHeader.To": {
+    "message": "Кому"
+  },
+  "customTemplate.name": {
+    "message": "Имя шаблона:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters настраиваемый шаблон"
+  },
+  "customVariable.label": {
+    "message": "Переменные"
+  },
+  "customVariable.tooltip": {
+    "message": "При создании фильтра эти переменные будут заменены на их значения из текущего сообщения."
+  },
+  "debug.fixFilters": {
+    "message": "Обнаружены включенные фильтры {0}, для которых не задан метод запуска (ручной, входящий или автоматический). Должны ли они быть изменены для автоматического выполнения при получении новой почты?"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Нашли условия, смешивающие «любой»/«все» - возможна некорректная работа. Исправить?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "Найдено фильтров {0} с нерешенными пользовательскими действиями. Возможно отсутствует дополнение или требуется настроить его для поддержки пользовательских действий?"
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "Найдено {0} фильтров с неверными целевыми папками. Возможно некорректный импорт из профиля? Или целевая папка перемещена либо больше не существует."
+  },
+  "debug.fixFilters.none": {
+    "message": "Нет неисправных фильтров."
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} фильтров исправлено."
+  },
+  "deleteFromPOP.label": {
+    "message": "Удалить с сервера POP"
+  },
+  "deleteMessage.label": {
+    "message": "Удалить сообщение"
   },
   "domainLicense.email": {
     "message": "Мы свяжемся с вами в течении 2 рабочих дней по указанному адресу электронной почты для генерирования групповой лицензии. Укажите имя домена для лицензии на следующей странице."
@@ -978,14 +1370,47 @@
   "extensions.quickfilters.description": {
     "message": "Создавайте фильтры сообщений на лету, перетаскивая сообщения и анализируя их атрибуты."
   },
+  "fetchFromPOP.label": {
+    "message": "Загрузить с сервера POP"
+  },
+  "FilterAssistant.start": {
+    "message": "Начать создание фильтров"
+  },
+  "FilterAssistant.stop": {
+    "message": "Закончить создание фильтров"
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "Более не показывать."
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "Включен режим создания фильтров. Перенос сообщений в другую папку запускает ассистент для создания фильтров. #1 перемещает сообщения с помощью фильтров на основе критериев"
+  },
+  "filters.toggleMessage.title": {
+    "message": "Режим создания фильтров"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "Найти фильтры…"
+  },
   "firstName.label": {
     "message": "Имя:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Применять фильтры автоматически к входящей почте"
   },
+  "forwardTo.label": {
+    "message": "Переслать сообщение на"
+  },
+  "fpJsonFile": {
+    "message": "JSON файл"
+  },
   "freeLicense": {
     "message": "Если вы недавно поддержали проект или помогли переводом или исправлением, возможно вам положен бесплатный лицензионный ключ.  Свяжитесь со мной, контактные данные можно найти в настройках."
+  },
+  "FromMessage.accesskey": {
+    "message": "з"
+  },
+  "FromMessage.label": {
+    "message": "Создать фильтр по сообщению…"
   },
   "getquickFilters": {
     "message": "Получить quickFilters Pro"
@@ -1016,6 +1441,12 @@
   "homepage": {
     "message": "Домашняя страница:"
   },
+  "ignoreSubthread.label": {
+    "message": "Пропустить ветку обсуждения"
+  },
+  "ignoreThread.label": {
+    "message": "Пропустить обсуждение"
+  },
   "intro": {
     "message": "Годовая лицензия позволяет использовать премиум-функции один год. У нас же появляется возможность поддерживать и расширять продукт, делая его более значимым."
   },
@@ -1044,8 +1475,80 @@
   "licenseTerms.show": {
     "message": "Показать условия лицензии"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(Введённый ключ может быть для {2})."
+  },
   "licenseWindow.title": {
     "message": "Лицензия quickFilters Pro"
+  },
+  "ListButton.label": {
+    "message": "Фильтры..."
+  },
+  "ListButton.tooltip": {
+    "message": "Показать список фильтров сообщений"
+  },
+  "markMessageRead.label": {
+    "message": "Отметить как прочитанное"
+  },
+  "markMessageStarred.label": {
+    "message": "Отметить звёздочкой"
+  },
+  "markMessageUnread.label": {
+    "message": "Отметить как непрочитанное"
+  },
+  "menu.changelog": {
+    "message": "Журнал изменений…"
+  },
+  "menu.copy": {
+    "message": "Копировать"
+  },
+  "menu.cut": {
+    "message": "Вырезать"
+  },
+  "menu.license": {
+    "message": "Проверить статус лицензии…"
+  },
+  "menu.news": {
+    "message": "Новости / Журнал изменений…"
+  },
+  "menu.paste": {
+    "message": "Вставить"
+  },
+  "menu.removeDupeAction": {
+    "message": "Удалить повторяющееся действие"
+  },
+  "menu.removeDupeCondition": {
+    "message": "Удалить повторяющийся критерий"
+  },
+  "menu.tools": {
+    "message": "Инструменты"
+  },
+  "merge.addressesOmitted": {
+    "message": "Адреса сообщения были исключены из критериев - невозможны фильтры с собственным адресом:"
+  },
+  "merge.warning.missingAction": {
+    "message": "Не могу определить основное действие фильтра: {1}"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "Не могу объединить все выбранные фильтры: действе не совпадает с фильтром {1}!"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "Снять выделение с несоответствующих фильтров и продолжить?"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "Для объединения выберите как минимум 2 фильтра."
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "Не могу определить первый выбранный фильтр - для объединения выберите как минимум 2 фильтра!"
+  },
+  "merge.warning.selectTarget": {
+    "message": "Выберите целевой фильтр для объединения!"
+  },
+  "move.selectOne": {
+    "message": "Выберите только один фильтр!"
+  },
+  "moveMessage.label": {
+    "message": "Переместить сообщение в"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla предоставляет только базовую платформу для доставки нашего программного обеспечения вам, конечным пользователям. Если нам нужно запросить у наших пользователей оплату или поддержку, мы не сможем сделать это через addons.thunderbird.net - это не «магазин приложений» со встроенными платными доступом или управлением лицензиями, такими как iTunes или Google Play."
@@ -1077,6 +1580,57 @@
   "news.minimal.tip": {
     "message": "Если включено, quickFilters не будет изменять подпись кнопки. Появится только маленькая оранжевая точка 🟠."
   },
+  "notification.donate": {
+    "message": "Пожертвовать"
+  },
+  "notification.dontShowAgain": {
+    "message": "Более не показывать."
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "Extend License"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "Это продлит текущую лицензию на 1 год. Обычно дешевле, чем новая лицензия."
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "Купить Pro"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Обновить лицензию"
+  },
+  "notification.premium.freeUses": {
+    "message": "· Осталось бесплатных использований: {1}."
+  },
+  "notification.premium.text": {
+    "message": "{1} — функция Pro"
+  },
+  "notification.premium.title": {
+    "message": "Премиум-функция"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "Вы использовали все бесплатные пробные попытки для этой функции."
+  },
+  "notification.proFeature.notificationText": {
+    "message": "Функция {1} - профессиональная, если Вы часто ей пользуетесь - подумайте о пожертвовании на разработку quickFilters в этом году."
+  },
+  "notification.proFeature.title": {
+    "message": "Профессиональная функция"
+  },
+  "notification.QF.navigationbar": {
+    "message": "Чтобы использовать функции фильтра из панели навигации QuickFolders в Thunderbird 115:\n — вам либо нужна действующая лицензия QuickFolders\n — либо вы можете получить лицензию $addonName$ Pro для поддержки этой функции.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "Зарегистрировать {1}"
+  },
   "ongoing-work": {
     "message": "Приобретение лицензии совершенно добровольно. Чтобы облегчить пользователям работу, текущая версия остается совместимой с Thunderbird 115, пока это технически возможно. Однако Thunderbird теперь следует ежемесячному циклу выпуска, что увеличивает нашу нагрузку на тестирование и разработку. Ваша поддержка помогает нам справляться с этими изменениями!",
     "placeholders": {
@@ -1086,11 +1640,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "Добавить метку"
+  },
+  "option.searchProperty.name": {
+    "message": "Имя"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "Ответить по шаблону"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "Условия поиска (текст)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "Actions that modify Strings"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "Имя целевой папки"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "Путь к целевой папке"
+  },
   "pane1.title": {
     "message": "настройки quickFilters"
   },
   "prefwindow.title": {
     "message": "настройки quickFilters"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "Ваша лицензия истекла {1} дней назад"
+  },
+  "premium.title.customTemplate": {
+    "message": "Настраиваемые шаблоны"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "Поиск повторений"
+  },
+  "premium.title.loadFilters": {
+    "message": "Восстановить фильтры"
+  },
+  "premium.title.saveFilters": {
+    "message": "Резервные фильтры"
+  },
+  "premium.title.searchFolder": {
+    "message": "Найти фильтры для папки"
+  },
+  "premium.title.sortFilters": {
+    "message": "Сортировка по алфавиту"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "Сортировка условий поиска"
   },
   "pricing.section": {
     "message": "Чтобы узнать цену, сначала выберите один из следующих вариантов. Откроется отдельное окно браузера, в котором вы сможете совершить покупку в интернет-магазине."
@@ -1100,6 +1699,35 @@
   },
   "pricing.title": {
     "message": "Цены"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "Найдены темы, начинающиеся с одного и того же текста: \"$prefix$\".\nИспользовать этот текст в качестве условия поиска по теме?",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "Введите тему сообщения:"
+  },
+  "prompt.contact.title": {
+    "message": "Связаться с поддержкой quickFilters"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "Переменная {1} скопирована в буфер обмена, можете вставить ее в поисковый запрос."
+  },
+  "prompt.createCustomHeader": {
+    "message": "Добавьте термин '{1}' дополнительным заголовком для использования этого фильтра."
+  },
+  "prompt.customTemplateName": {
+    "message": "Имя настраиваемого шаблона:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "Vi hittade duplicerade filter för följande objekt.\nVill du åtgärda detta och ändå importera?"
+  },
+  "promptDontRepeat": {
+    "message": "Не показывать это предупреждение снова."
   },
   "purchase-a-license": {
     "message": "Купите лицензию."
@@ -1125,7 +1753,9 @@
   "qf.button.mergeFilterRules": {
     "message": "Объединить «$filterName$» с новыми правилами…",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "qf.button.next": {
@@ -1397,14 +2027,14 @@
   "qf.label.naming.parentFolder": {
     "message": "Добавить имена родительских папок"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "о"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "Максимальное количество родительских папок для добавления:"
   },
   "qf.label.naming.targetAccount": {
     "message": "Добавить имя целевого аккаунта (для фильтров, которые перемещают письма в другой аккаунт)"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "о"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "Узнать больше о премиум-функциях на нашей странице"
@@ -1562,560 +2192,14 @@
   "qf.youtube.tbdaily": {
     "message": "Посетите Thunderbird Daily - канал на YouTube с советами по использованию quickFilters"
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "Начать создание фильтров"
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "Закончить создание фильтров"
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "з"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "Создать фильтр по сообщению…"
-  },
-  "quickfilters.menu.changelog": {
-    "message": "Журнал изменений…"
-  },
-  "quickfilters.menu.license": {
-    "message": "Проверить статус лицензии…"
-  },
-  "quickfilters.menu.news": {
-    "message": "Новости / Журнал изменений…"
-  },
-  "quickfilters.menu.tools": {
-    "message": "Инструменты"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "Фильтры..."
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "Показать список фильтров сообщений"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "Фильтровать"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "Применить фильтры к текущей папке"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "Фильтровать выбранные сообщения"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "Применить фильтры к текущему сообщению"
-  },
-  "quickfilters.Start.label": {
-    "message": "Начать создание фильтров…"
-  },
-  "quickfilters.addTag.label": {
-    "message": "Присвоить сообщению метку"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "Архивирую {1} фильтров"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "Следующие фильтры имеют пользовательские действия, которые не могут быть полностью сохранены - сторонннее дополнение возможно отсутствует:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} фильтров не были закодированы. Детали в журнале ошибок."
-  },
-  "quickfilters.button.assistant": {
-    "message": "Включить ассистент..."
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "Включить ассистент по созданию фильтров путем перетаскивания сообщений."
-  },
-  "quickfilters.button.bug": {
-    "message": "Устранение неисправностей"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Устранение неисправностей: 1. Фильтры, которые не работают автоматически 2. Неверные целевые папки 3. Проверить пользовательские действия"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. Смешанные «любые»/«все» условия. Щелкните правой кнопкой мыши, чтобы настроить шаги."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "Закончить поиск"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "Закончить поиск повторений"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "Прервать поиск"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "Прервать поиск по папке"
-  },
-  "quickfilters.button.clone": {
-    "message": "Клонировать"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "К"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "Клонировать фильтр"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "Найти повторения"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "Найти повторяющиеся атрибуты"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "Скачать {1}"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "Восстанавливаю фильтры…"
-  },
-  "quickfilters.button.merge": {
-    "message": "Объединить"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "О"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "Объединить несколько фильтров с одинаковым действием"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "Архивирую фильтры…"
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "Свойство для поиска фильтра…"
-  },
-  "quickfilters.button.settings": {
-    "message": "Настройки quickFilters..."
-  },
-  "quickfilters.button.sort": {
-    "message": "Сортировка"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "Сортировка по алфавиту"
-  },
-  "quickfilters.button.support": {
-    "message": "Страница поддержки quickFilters"
-  },
-  "quickfilters.clone.label": {
-    "message": "(копия)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "Для клонирования выберите только один фильтр."
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "Непонятно какой фильтр выбран"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "Нет фильтров в буфере обмена!"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "Выберите пожалуйста как минимум один фильтр!"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "Для вставки выберите другую учетную запись!"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "Копировать сообщение в"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "Учётная запись ({1}) не может иметь фильтров."
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "Для этого шаблона нужно выбрать минимум 2 сообщения."
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "Учётная запись-источник [{1}] не может иметь фильтров!\nВместо использую текущую папку «Входящие»."
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "К сожалению, в этой версии {1}, невозможно создавать фильтры, так как она не поддерживает чтение адресов из заголовка сообщения."
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "Не могу прочесть сообщения папки {1}"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "Не могу создать фильтр - не могу прочесть идентификатор первого сообщения в их списке!\nМожет быть нужно запустить команду"
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "Папке ({1}) не назначен сервер."
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "Обновитесь до более новой версии, чтобы это заработало."
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "Создать фильтр из сообщения гораздо полезнее, если вы уже переместили почту в другую папку или добавить тег к нему, так как quickFilters затем выберет соответствующее действие для вас.\nСоздать фильтр из этого сообщения?"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "Для создания фильтра выберите одно единственное сообщение!"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Скрытая копия (BCC)"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Копия (CC)"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "Помощник quickFilters автоматически добавит действие. Пожалуйста, оставьте действие по умолчанию «Установить нормальный приоритет» в качестве заполнителя."
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "Домен адреса"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "Pасширение домена"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "корневой домен"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "субдомен"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "Адрес"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "Имя"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "От кого"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "Фамилия"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "Идентификатор списка"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "Сообщение списка"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "ФИО"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "Группа новостей"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Обратный адрес"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "Тема"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "Регулярное выражение для темы"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "Кому"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "Имя шаблона:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters настраиваемый шаблон"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "Переменные"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "При создании фильтра эти переменные будут заменены на их значения из текущего сообщения."
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "Обратный адрес"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "Обнаружены включенные фильтры {0}, для которых не задан метод запуска (ручной, входящий или автоматический). Должны ли они быть изменены для автоматического выполнения при получении новой почты?"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Нашли условия, смешивающие «любой»/«все» - возможна некорректная работа. Исправить?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "Найдено фильтров {0} с нерешенными пользовательскими действиями. Возможно отсутствует дополнение или требуется настроить его для поддержки пользовательских действий?"
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "Найдено {0} фильтров с неверными целевыми папками. Возможно некорректный импорт из профиля? Или целевая папка перемещена либо больше не существует."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "Нет неисправных фильтров."
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} фильтров исправлено."
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "Удалить с сервера POP"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "Удалить сообщение"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "Загрузить с сервера POP"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "Более не показывать."
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "Включен режим создания фильтров. Перенос сообщений в другую папку запускает ассистент для создания фильтров. #1 перемещает сообщения с помощью фильтров на основе критериев"
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "Режим создания фильтров"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "Найти фильтры…"
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "Переслать сообщение на"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "JSON файл"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "Пропустить ветку обсуждения"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "Пропустить обсуждение"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(Введённый ключ может быть для {2})."
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "Отметить как прочитанное"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "Отметить звёздочкой"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "Отметить как непрочитанное"
-  },
-  "quickfilters.menu.copy": {
-    "message": "Копировать"
-  },
-  "quickfilters.menu.cut": {
-    "message": "Вырезать"
-  },
-  "quickfilters.menu.paste": {
-    "message": "Вставить"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "Удалить повторяющееся действие"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "Удалить повторяющийся критерий"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "Адреса сообщения были исключены из критериев - невозможны фильтры с собственным адресом:"
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "Не могу определить основное действие фильтра: {1}"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "Не могу объединить все выбранные фильтры: действе не совпадает с фильтром {1}!"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "Снять выделение с несоответствующих фильтров и продолжить?"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "Для объединения выберите как минимум 2 фильтра."
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "Не могу определить первый выбранный фильтр - для объединения выберите как минимум 2 фильтра!"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "Выберите целевой фильтр для объединения!"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "Выберите только один фильтр!"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "Переместить сообщение в"
-  },
-  "quickfilters.notification.donate": {
-    "message": "Пожертвовать"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "Более не показывать."
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Extend License"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "Это продлит текущую лицензию на 1 год. Обычно дешевле, чем новая лицензия."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Купить Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Обновить лицензию"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· Осталось бесплатных использований: {1}."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} — функция Pro"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "Премиум-функция"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "Функция {1} - профессиональная, если Вы часто ей пользуетесь - подумайте о пожертвовании на разработку quickFilters в этом году."
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "Профессиональная функция"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "Чтобы использовать функции фильтра из панели навигации QuickFolders в Thunderbird 115:\n — вам либо нужна действующая лицензия QuickFolders\n — либо вы можете получить лицензию $addonName$ Pro для поддержки этой функции.",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "Зарегистрировать {1}"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "Добавить метку"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "Имя"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "Ответить по шаблону"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "Условия поиска (текст)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "Actions that modify Strings"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Имя целевой папки"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "Путь к целевой папке"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "Ваша лицензия истекла {1} дней назад"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "Настраиваемые шаблоны"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "Поиск повторений"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "Восстановить фильтры"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "Резервные фильтры"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "Найти фильтры для папки"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "Сортировка по алфавиту"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "Сортировка условий поиска"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "Найдены темы, начинающиеся с одного и того же текста: \"$prefix$\".\nИспользовать этот текст в качестве условия поиска по теме?",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "Введите тему сообщения:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "Связаться с поддержкой quickFilters"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "Переменная {1} скопирована в буфер обмена, можете вставить ее в поисковый запрос."
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "Добавьте термин '{1}' дополнительным заголовком для использования этого фильтра."
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "Имя настраиваемого шаблона:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "Vi hittade duplicerade filter för följande objekt.\nVill du åtgärda detta och ändå importera?"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "Не показывать это предупреждение снова."
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "Ваша лицензия истекает:"
-  },
-  "quickfilters.registration.menu": {
-    "message": "$licenseName$ Лицензия…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "Ответить по шаблону"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "Применить фильтры к выбранным сообщениям…"
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "Запустить {0} фильтры в папке {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Запустить фильтр '{0}' в папке {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Запустить фильтры в папке '{1}'…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "Не нашлось фильтров для этой папки."
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "Установить метку спама"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "Изменить важность на"
-  },
-  "quickfilters.sort": {
-    "message": "Сортировать"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "Сортировать поисковые запросы"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "Для сортировки по алфавиту выберите как минимум 2 фильтра"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "Остановить выполнение фильтра"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "Не удалось создать фильтр: без действительных условий поиска фильтр нельзя отредактировать."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Не удалось начать восстановление папки. После завершения текущих операций с папкой выберите Свойства → Восстановить папку."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters не удалось получить сведения, необходимые для создания или обновления фильтра.\n\nВозможно, папку назначения «{0}» необходимо восстановить.\n\nПопробовать восстановить папку сейчас?\n\nДождитесь завершения восстановления, затем попробуйте создать фильтр снова."
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "Шаблон с таким именем уже существует! Имя должно быть уникальным."
-  },
-  "quickfilters.watchThread.label": {
-    "message": "Отслеживать обсуждение"
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "ассистент quickFilters"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Срок действия лицензии истек!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Нажмите, чтобы открыть панель лицензий quickFilters. Щелкните правой кнопкой мыши для других параметров."
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters обновлен!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Откройте меню '{menulabel}' ниже, чтобы увидеть новые функции. Это также удаляет 🟠."
+  "quickfiltersToolbarButton.label": {
+    "message": "ассистент quickFilters"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Срок действия лицензии истекает через $daysLeft$ дн.",
@@ -2128,8 +2212,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "Помощник по созданию фильтров; инструменты для фильтров"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters обновлен!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Откройте меню '{menulabel}' ниже, чтобы увидеть новые функции. Это также удаляет 🟠."
+  },
+  "register.licenseValid.expired": {
+    "message": "Ваша лицензия истекает:"
+  },
+  "registration.menu": {
+    "message": "$licenseName$ Лицензия…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "Обновите лицензию."
+  },
+  "replyWithTemplate.label": {
+    "message": "Ответить по шаблону"
   },
   "restart-app": {
     "message": "Перезапустите $application$, чтобы активировать эту опцию.",
@@ -2139,6 +2243,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "Фильтровать"
+  },
+  "RunButton.tooltip": {
+    "message": "Применить фильтры к текущей папке"
+  },
+  "RunButtonMsg.label": {
+    "message": "Фильтровать выбранные сообщения"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "Применить фильтры к текущему сообщению"
   },
   "runFilters.folder.confirm": {
     "message": "Запустить фильтры в папке $folderName$?",
@@ -2150,6 +2266,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "Запускать фильтры для выбранных писем?"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "Применить фильтры к выбранным сообщениям…"
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "Запустить {0} фильтры в папке {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Запустить фильтры в папке '{1}'…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Запустить фильтр '{0}' в папке {1}."
+  },
+  "search.warning.noresults": {
+    "message": "Не нашлось фильтров для этой папки."
+  },
+  "setJunkScore.label": {
+    "message": "Установить метку спама"
+  },
+  "setPriority.label": {
+    "message": "Изменить важность на"
+  },
+  "sort": {
+    "message": "Сортировать"
+  },
+  "sort.tooltip": {
+    "message": "Сортировать поисковые запросы"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "Для сортировки по алфавиту выберите как минимум 2 фильтра"
   },
   "special-offer-content": {
     "message": "Сейчас это лучшая возможность получить лицензию, поскольку существует {bold} $reduction$ скидка {/bold}  на цену лицензии quickFilters Pro в честь 9-летия quickFilters! Это специальное предложение будет доступно до {bold} $expirydate$ {/bold} .",
@@ -2188,6 +2334,12 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "Начать создание фильтров…"
+  },
+  "stopExecution.label": {
+    "message": "Остановить выполнение фильтра"
   },
   "subjectCompleteExtract": {
     "message": "Всегда вводите полную строку темы."
@@ -2541,9 +2693,15 @@
   "troubleshooter.summary": {
     "message": "Фильтры для проверки: $filters$ · Решено проблем: $resolved$ · Выполнено проверок: $checks$ из 4",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2579,6 +2737,21 @@
   "version": {
     "message": "Версия:"
   },
+  "warning.emptyFilter": {
+    "message": "Не удалось создать фильтр: без действительных условий поиска фильтр нельзя отредактировать."
+  },
+  "warning.folderRepairFailed": {
+    "message": "Не удалось начать восстановление папки. После завершения текущих операций с папкой выберите Свойства → Восстановить папку."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters не удалось получить сведения, необходимые для создания или обновления фильтра.\n\nВозможно, папку назначения «{0}» необходимо восстановить.\n\nПопробовать восстановить папку сейчас?\n\nДождитесь завершения восстановления, затем попробуйте создать фильтр снова."
+  },
+  "warning.templateNameNotUnique": {
+    "message": "Шаблон с таким именем уже существует! Имя должно быть уникальным."
+  },
+  "watchThread.label": {
+    "message": "Отслеживать обсуждение"
+  },
   "whats-new-btn": {
     "message": "Какие новости?"
   },
@@ -2596,7 +2769,10 @@
   "whats-new-maintenance": {
     "message": "Исправительное обновление $ver$. Важные исправления и обновления совместимости после промежуточного выпуска, включая срочные регрессии.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

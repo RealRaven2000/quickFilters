@@ -78,21 +78,21 @@ async function onLoad(activatedWhileWindowOpen) {
 
     <toolbarbutton id="quickfilters-toolbar-listbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="__MSG_quickfilters.ListButton.label__"
-                   tooltiptext="__MSG_quickfilters.ListButton.tooltip__"
+                   label="__MSG_ListButton.label__"
+                   tooltiptext="__MSG_ListButton.tooltip__"
                    oncommand="window.quickFilters.doCommand(this);"
                    />
 
     <toolbarbutton id="quickfilters-toolbar-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="__MSG_quickfilters.RunButton.label__"
-                   tooltiptext="__MSG_quickfilters.RunButton.tooltip__"
+                   label="__MSG_RunButton.label__"
+                   tooltiptext="__MSG_RunButton.tooltip__"
                    oncommand="window.quickFilters.doCommand(this);"
                    />
     <toolbarbutton id="quickfilters-toolbar-msg-runbutton"
                    class="toolbarbutton-1 chromeclass-toolbar-additional"
-                   label="__MSG_quickfilters.RunButtonMsg.label__"
-                   tooltiptext="__MSG_quickfilters.RunButtonMsg.tooltip__"
+                   label="__MSG_RunButtonMsg.label__"
+                   tooltiptext="__MSG_RunButtonMsg.tooltip__"
                    oncommand="window.quickFilters.doCommand(this);"
                    />
   </toolbarpalette>
@@ -136,7 +136,7 @@ async function onLoad(activatedWhileWindowOpen) {
               let txtDefault =
                 "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.";
               let txt = window.quickFilters.Util.getBundleString(
-                "quickfilters.notification.QF.navigationbar",
+                "notification.QF.navigationbar",
                 txtDefault,
                 ["quickFilters"]
               );

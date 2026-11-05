@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "引き続き有用であるために、アドオン開発者は、ユーザーが提供する機能の恩恵を受け続けることができるように、修正と書き換えに必要なリソースに資金を提供する必要があります。"
   },
-  "assistant.ux.title": {
-    "message": "ユーザーインターフェース"
+  "addTag.label": {
+    "message": "メッセージにタグを付ける"
   },
   "assistant.ux.assistant.html": {
     "message": "新しい HTML ユーザーインターフェースでアシスタントを表示"
@@ -40,11 +40,21 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Assistantが有効になったら常に上に表示されるようにします。"
   },
+  "assistant.ux.title": {
+    "message": "ユーザーインターフェース"
+  },
+  "backup.archivingFilters": {
+    "message": "{1} 個のフィルターをアーカイブ"
+  },
   "backup.backup.accountsFilters": {
     "message": "$accountCount$ アカウント · $filterCount$ フィルター",
     "placeholders": {
-      "accountCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "accountCount": {
+        "content": "$1"
+      },
+      "filterCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.backup.accountsLabel": {
@@ -52,15 +62,6 @@
   },
   "backup.backup.allAccounts": {
     "message": "全アカウント"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "$accountName$ のフィルターをバックアップ",
-    "placeholders": {
-      "accountName": { "content": "$1" }
-    }
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "選択したフィルターをバックアップする"
   },
   "backup.backup.backup": {
     "message": "バックアップ"
@@ -71,21 +72,40 @@
   "backup.backup.backupFailed": {
     "message": "バックアップに失敗しました: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "$accountName$ のフィルターをバックアップ",
+    "placeholders": {
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
     "message": "バックアップは保存されましたが、操作の終了に失敗しました: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
     "message": "バックアップは $filePath$ に保存されましたが、設定は保存できませんでした: $error$",
     "placeholders": {
-      "filePath": { "content": "$1" },
-      "error": { "content": "$2" }
+      "error": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$1"
+      }
     }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "選択したフィルターをバックアップする"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "バックアップが保存されませんでした。"
@@ -93,7 +113,9 @@
   "backup.backup.cannotLoadAccounts": {
     "message": "アカウントを読み込めません: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.cannotReadFilters": {
@@ -105,19 +127,25 @@
   "backup.backup.couldNotDeleteFilter": {
     "message": "フィルタを削除できませんでした: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotEditFilter": {
     "message": "フィルターを編集できませんでした: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
     "message": "フィルタ リストに戻れませんでした: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.currentProfile": {
@@ -126,7 +154,9 @@
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
     "message": "フィルタ「$filterName$」を削除しました。この変更を保存したい場合は、再度バックアップしてください。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.description": {
@@ -144,7 +174,9 @@
   "backup.backup.filters": {
     "message": "$filterCount$ フィルター",
     "placeholders": {
-      "filterCount": { "content": "$1" }
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
@@ -156,14 +188,20 @@
   "backup.backup.highlightWarningsFor": {
     "message": "$accountName$ に対する $warningCount$ の警告を強調表示します。",
     "placeholders": {
-      "warningCount": { "content": "$1" },
-      "accountName": { "content": "$2" }
+      "accountName": {
+        "content": "$2"
+      },
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.highlightWarningsFor2": {
     "message": "$accountName$ の警告を強調表示する",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
@@ -175,16 +213,26 @@
   "backup.backup.ofAccountsSelectedFilters": {
     "message": "$accountCount$ アカウント中 $selectedAccountCount$ が選択されました · $filterCount$ フィルター",
     "placeholders": {
-      "selectedAccountCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filterCount": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filterCount": {
+        "content": "$3"
+      },
+      "selectedAccountCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.ofFiltersSelected": {
     "message": "$filterCount$ 個のフィルター中 $selectedFilterCount$ 個が選択されました",
     "placeholders": {
-      "selectedFilterCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "filterCount": {
+        "content": "$2"
+      },
+      "selectedFilterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
@@ -208,15 +256,23 @@
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
     "message": "$filterCount$ フィルターを $accountCount$ アカウントから $filePath$ に保存しました。戻るには、「メッセージ フィルターに戻る」を使用してください。",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filePath": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$3"
+      },
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.savedTo": {
     "message": "$filePath$に保存されました",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectAtLeastOneAccount": {
@@ -228,13 +284,17 @@
   "backup.backup.selectedFilters": {
     "message": "$accountName$ - 選択されたフィルター",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectionHint": {
     "message": "(選択したフィルターのみを保存するには、Ctrl キーを押しながらメッセージ フィルターの $icon$ をクリックします。)",
     "placeholders": {
-      "icon": { "content": "$1" }
+      "icon": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.title": {
@@ -252,13 +312,17 @@
   "backup.common.warningCount": {
     "message": "$count$ 警告",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.common.warningCountOne": {
     "message": "$count$ 警告",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.backupChanges": {
@@ -267,11 +331,19 @@
   "backup.confirm.deleteFilter": {
     "message": "フィルタ「$name$」を削除しますか?",
     "placeholders": {
-      "name": { "content": "$1" }
+      "name": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.doNotAskAgain": {
     "message": "二度と質問しないでください"
+  },
+  "backup.customErrors": {
+    "message": "次のフィルタには保存できないカスタム動作が含まれています。サードパーティのアドオンが足りません:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} 個のフィルターがエンコードできませんでした。詳細はエラーログを確認してください。"
   },
   "backup.format.chooseDestination": {
     "message": "目的地を選択してください"
@@ -288,13 +360,17 @@
   "backup.format.invalidActionOrConditionIn": {
     "message": "$filterName$ のアクションまたは条件が無効です。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidFilterDataIn": {
     "message": "$accountName$ のフィルター データが無効です。",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidReferencedAccountDirectory": {
@@ -312,23 +388,37 @@
   "backup.format.message": {
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": { "content": "$1" },
-      "month": { "content": "$2" },
-      "day": { "content": "$3" },
-      "hour": { "content": "$4" },
-      "minute": { "content": "$5" }
+      "day": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "year": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.missingFiltersFor": {
     "message": "$accountName$ のフィルターがありません。",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.referenced": {
     "message": "$accountIdentity$ (参照)",
     "placeholders": {
-      "accountIdentity": { "content": "$1" }
+      "accountIdentity": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.remembered": {
@@ -349,7 +439,9 @@
   "backup.mapping.assignedToMoveHere": {
     "message": "$accountName$ に割り当て — ここに移動",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.dropATargetHere": {
@@ -358,8 +450,12 @@
   "backup.mapping.filters": {
     "message": "$filterCount$ フィルター$statusSuffix$",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "statusSuffix": { "content": "$2" }
+      "filterCount": {
+        "content": "$1"
+      },
+      "statusSuffix": {
+        "content": "$2"
+      }
     }
   },
   "backup.mapping.filtersRestored": {
@@ -380,13 +476,17 @@
   "backup.mapping.restoreFiltersFrom": {
     "message": "$accountName$ からフィルターを復元します",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountFor": {
     "message": "$accountName$ のアカウントを選択してください",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
@@ -395,13 +495,17 @@
   "backup.mapping.warnings": {
     "message": "$warningCount$ 警告",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
     "message": "アカウント $accountId$ は利用できないか、フィルターをサポートしていません。",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
@@ -410,13 +514,17 @@
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
     "message": "フィルタ「$filterName$」をエクスポートできませんでした。バックアップは書き込まれませんでした。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.destinationAccountIsUnavailable": {
     "message": "宛先アカウント $accountId$ は利用できません。",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
@@ -428,7 +536,9 @@
   "backup.native.folderDoesNotExistInTheDestinationAccount": {
     "message": "宛先アカウントにフォルダー「$folderName$」が存在しません",
     "placeholders": {
-      "folderName": { "content": "$1" }
+      "folderName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.invalidAccountMapping": {
@@ -479,7 +589,9 @@
   "backup.native.noDestinationSelectedForAccount": {
     "message": "アカウント「$accountName$」の宛先が選択されていません",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
@@ -497,8 +609,12 @@
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
     "message": "保存に失敗しました ($saveError$)。元のファイルの復元も失敗しました ($restoreError$)",
     "placeholders": {
-      "saveError": { "content": "$1" },
-      "restoreError": { "content": "$2" }
+      "restoreError": {
+        "content": "$2"
+      },
+      "saveError": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
@@ -546,14 +662,20 @@
   "backup.restore.cannotLoadDestinationAccounts": {
     "message": "宛先アカウントを読み込めません: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.cannotOpenBackup": {
     "message": "バックアップを開けません: $error$$previousBackupNotice$",
     "placeholders": {
-      "error": { "content": "$1" },
-      "previousBackupNotice": { "content": "$2" }
+      "error": {
+        "content": "$1"
+      },
+      "previousBackupNotice": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
@@ -562,13 +684,17 @@
   "backup.restore.couldNotSaveReport": {
     "message": "レポートを保存できませんでした: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.deletedFilter": {
     "message": "フィルタ「$filterName$」を削除しました。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.description": {
@@ -619,13 +745,17 @@
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
     "message": "復元は完了しましたが、マッピングを記憶できませんでした: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFailed": {
     "message": "復元に失敗しました: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFilters": {
@@ -634,13 +764,17 @@
   "backup.restore.restoreReportSavedTo": {
     "message": "$filePath$ に保存されたレポートを復元します。",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
     "message": "レビューの復元 · $warningCount$ の警告とスキップされたアイテム",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreWasNotPerformed": {
@@ -652,20 +786,38 @@
   "backup.restore.resultComplete": {
     "message": "復元完了: $added$ 追加、$replaced$ 交換、$kept$ 既存フィルタ維持、$skipped$ スキップ。",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" }
+      "added": {
+        "content": "$1"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.resultErrors": {
     "message": "復元はエラーで終了しました: $added$ 追加、$replaced$ 置換、$kept$ 既存フィルタ保持、$skipped$ スキップ、$failed$ アカウント失敗。",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" },
-      "failed": { "content": "$5" }
+      "added": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$5"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
@@ -677,15 +829,23 @@
   "backup.restore.selectDestinationAccountsFor": {
     "message": "宛先アカウントを選択してください: $accountNames$。",
     "placeholders": {
-      "accountNames": { "content": "$1" }
+      "accountNames": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
     "message": "$backupType$ · $sourceAccountCount$ ソースアカウント · $referencedAccountCount$ 参照アカウント",
     "placeholders": {
-      "backupType": { "content": "$1" },
-      "sourceAccountCount": { "content": "$2" },
-      "referencedAccountCount": { "content": "$3" }
+      "backupType": {
+        "content": "$1"
+      },
+      "referencedAccountCount": {
+        "content": "$3"
+      },
+      "sourceAccountCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
@@ -706,19 +866,25 @@
   "backup.startup.cannotOpenBackup": {
     "message": "バックアップを開けません: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.startup.cannotOpenRestore": {
     "message": "復元を開けません: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
     "message": "サポートされていないバックアップ ストレージ バックエンド: $backend$",
     "placeholders": {
-      "backend": { "content": "$1" }
+      "backend": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.account": {
@@ -736,7 +902,9 @@
   "backup.warnings.backupSavedWithWarnings": {
     "message": "バックアップは $warningCount$ の警告とともに保存されました",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.clearHighlight": {
@@ -763,11 +931,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "名前が重複しています - スキップされました"
   },
-  "backup.warnings.editFilter": {
-    "message": "編集"
-  },
   "backup.warnings.editedByUser": {
     "message": "ユーザーによって編集されました"
+  },
+  "backup.warnings.editFilter": {
+    "message": "編集"
   },
   "backup.warnings.filter": {
     "message": "フィルター"
@@ -799,7 +967,9 @@
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
     "message": "$accountName$ の警告が強調表示されます。すべての警告は表示されたままになります。",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
@@ -816,6 +986,81 @@
   },
   "btn-want-to-donate": {
     "message": "1 回限りの寄付を行います"
+  },
+  "button.assistant": {
+    "message": "アシスタントを切り替え..."
+  },
+  "button.assistant.tooltiptext": {
+    "message": "フィルタアシスタントモードを切り替えます。有効にした場合、メールをドラッグ＆ドロップしてフィルタを作成できます。"
+  },
+  "button.bug": {
+    "message": "デバッグ"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "重複をキャンセル"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "重複した検索をリセットします"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "検索中止"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "フォルダの検索をキャンセルします"
+  },
+  "button.clone": {
+    "message": "複製"
+  },
+  "button.clone.accesskey": {
+    "message": "C"
+  },
+  "button.clone.tooltiptext": {
+    "message": "フィルタを複製します"
+  },
+  "button.findDuplicates.label": {
+    "message": "重複を見つける"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "重複した属性を見つけます"
+  },
+  "button.getOtherAddon": {
+    "message": "{1} を入手"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "フィルターを復元します..."
+  },
+  "button.merge": {
+    "message": "マージ"
+  },
+  "button.merge.accesskey": {
+    "message": "M"
+  },
+  "button.merge.tooltiptext": {
+    "message": "同じ動作をする複数のフィルタを併合します"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "フィルターを保存します..."
+  },
+  "button.searchProperties": {
+    "message": "検索プロパティを変更..."
+  },
+  "button.settings": {
+    "message": "quickFilters 設定..."
+  },
+  "button.sort": {
+    "message": "並べ替え"
+  },
+  "button.sort.tooltiptext": {
+    "message": "アルファベット順に並べ替えます"
+  },
+  "button.support": {
+    "message": "quickFilters サポートサイト"
   },
   "buyDomainLicense.button": {
     "message": "ドメインライセンスを購入"
@@ -886,11 +1131,11 @@
   "chkLocalFoldersAutorun.label": {
     "message": "フィルタをローカルフォルダの受信トレイに自動的に適用する"
   },
-  "chkMergeAuto.label": {
-    "message": "自動的に統合モードを選択する"
-  },
   "chkMerge.onlyFirstAction": {
     "message": "一致するフィルターを見つけるには最初のアクションのみ使用"
+  },
+  "chkMergeAuto.label": {
+    "message": "自動的に統合モードを選択する"
   },
   "chkMergeAuto.tooltip": {
     "message": "フィルタが既に存在する場合、自動的に統合モードを選択して最初に一致するフィルタを統合します。"
@@ -931,11 +1176,158 @@
   "chkWhenArchiving.label": {
     "message": "アーカイブ時"
   },
+  "clone.label": {
+    "message": "(コピー)"
+  },
+  "clone.selectOne": {
+    "message": "複製するには、フィルタを 1 個だけ選択してください。"
+  },
+  "clone.undetermined": {
+    "message": "選択されたフィルタを決定できませんでした"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "クリップボードにフィルタがありません！"
+  },
+  "copy.warning.selectFilter": {
+    "message": "少なくとも 1 個のフィルタを選択してください！"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "異なるアカウントを選択してアイテムを貼り付けてください！"
+  },
+  "copyMessage.label": {
+    "message": "メッセージをコピーする"
+  },
   "cost-of-independence": {
     "message": "ソフトウェア開発には時間とお金がかかります - 多くのプラットフォームアプリとは異なり、アドオンは大企業によって作成されているわけではなく、Mozilla による支援もありません。"
   },
   "createdBy": {
     "message": "作者:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "アカウント {{1}} にはフィルタがありません。"
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "このテンプレートは少なくとも 2 通のメールが必要です。"
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "アカウント [{1}] のメールフォルダにフィルタを設定できません！\n代わりに現在の受信トレイを使用してください。"
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "申し訳ありませんが、{1} のこのバージョンでは、メッセージヘッダからアドレスを抽出できないため、フィルタを作成できません。"
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "フォルダ {1} のメッセージデータベースにアクセスできません"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "フィルタ作成に失敗しました - メッセージリストの最初の要素のメッセージ ID を取得できません！\nフォルダの修復を行ってください。"
+  },
+  "createFilter.warning.noServer": {
+    "message": "{{1}} フォルダはサーバが指定されていません。"
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "この機能を利用するには、新しいバージョンに更新してください。"
+  },
+  "createFromMail.inboxWarning": {
+    "message": "メールを別のフォルダへ移動したりタグを付けたりしている場合、'メッセージからフィルタを作成' が役立ちます。quickFilters が適切な操作を選択します。\nこのメッセージからフィルタを作成しますか？"
+  },
+  "createFromMail.selectWarning": {
+    "message": "フィルタを作成するときはメールを 1 通だけ選択してください！"
+  },
+  "customfilter.replyto": {
+    "message": "Reply-To"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Bcc"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Cc"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "quickFiltersアシスタントは、アクションを自動的に追加します。 プレースホルダーとして、デフォルトのアクション「優先度を通常に設定」のままにしてください。"
+  },
+  "customHeader.Domain": {
+    "message": "メールアドレスのドメイン"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "ドメイン拡張"
+  },
+  "customHeader.Domain.Root": {
+    "message": "ルートドメイン"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "サブドメイン"
+  },
+  "customHeader.Email": {
+    "message": "メールアドレス"
+  },
+  "customHeader.FirstName": {
+    "message": "名"
+  },
+  "customHeader.From": {
+    "message": "差出人"
+  },
+  "customHeader.LastName": {
+    "message": "姓"
+  },
+  "customHeader.ListId": {
+    "message": "リスト ID"
+  },
+  "customHeader.ListPost": {
+    "message": "リストポスト"
+  },
+  "customHeader.NamePart": {
+    "message": "氏名"
+  },
+  "customHeader.Newsgroups": {
+    "message": "ニュースグループ"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Reply To"
+  },
+  "customHeader.Subject": {
+    "message": "件名"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "件名の正規表現"
+  },
+  "customHeader.To": {
+    "message": "宛先"
+  },
+  "customTemplate.name": {
+    "message": "テンプレート名:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters カスタムテンプレート"
+  },
+  "customVariable.label": {
+    "message": "カスタム変数"
+  },
+  "customVariable.tooltip": {
+    "message": "フィルタ作成時に、これらの変数は現在のメールの対応するメールヘッダと置き換えられます。"
+  },
+  "debug.fixFilters": {
+    "message": "実行方法 (手動、受信、または自動) のない有効なフィルターが {0} 個見つかりました。 新しいメールを受信したときに自動的に実行するように変更する必要がありますか?"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
+  },
+  "debug.fixFilters.none": {
+    "message": "問題のあるフィルタは見つかりませんでした。"
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} 個のフィルタが修正されました。"
+  },
+  "deleteFromPOP.label": {
+    "message": "メッセージを POP サーバから削除する"
+  },
+  "deleteMessage.label": {
+    "message": "メッセージを削除する"
   },
   "domainLicense.email": {
     "message": "あなたのドメインライセンスを生成するため、このメールアドレスに問い合わせます (2 営業日以内に確認のメールが送信されます)。次のページでライセンスのドメイン名を入力してください。"
@@ -978,14 +1370,47 @@
   "extensions.quickfilters.description": {
     "message": "メールをドラッグ＆ドロップすることにより、そのメールを解析してフィルタを作成します。"
   },
+  "fetchFromPOP.label": {
+    "message": "POP サーバから本文を取得する"
+  },
+  "FilterAssistant.start": {
+    "message": "フィルタ作成支援を開始..."
+  },
+  "FilterAssistant.stop": {
+    "message": "フィルタ作成支援を終了..."
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "このメッセージを再び表示しない"
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "フィルタ作成支援モードを開始しました。メールを他のメールフォルダに移動すると「フィルタルール作成」アシスタントが開始されます。#1 は、「メールの差出人」と「件名に含まれる特定のキーワード」を基に自動的に移動するメッセージフィルタを使用します。フィルタ作成支援モードを終了するには、フィルタボタンをもう一度押してください。"
+  },
+  "filters.toggleMessage.title": {
+    "message": "フィルタ作成支援モード"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "フィルタを検索..."
+  },
   "firstName.label": {
     "message": "名:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "受信メールに自動的にフィルターを適用"
   },
+  "forwardTo.label": {
+    "message": "メッセージを転送する"
+  },
+  "fpJsonFile": {
+    "message": "JSON ファイル"
+  },
   "freeLicense": {
     "message": "quickFilters プロジェクトに最近ご寄付いただいた方や開発に貢献 (翻訳やパッチ提供) していただいている方は、無料ライセンスキーの取得資格があります。quickFilters オプションのサポートタブからお問い合わせください。"
+  },
+  "FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "FromMessage.label": {
+    "message": "メッセージからフィルタを作成..."
   },
   "getquickFilters": {
     "message": "quickFilters Pro の入手"
@@ -1016,6 +1441,12 @@
   "homepage": {
     "message": "ホームページ:"
   },
+  "ignoreSubthread.label": {
+    "message": "サブスレッドを無視する"
+  },
+  "ignoreThread.label": {
+    "message": "スレッドを無視する"
+  },
   "intro": {
     "message": "quickFilters Pro の年間ライセンスは、すべての有料機能を 1 年間使用できるようにします。これは、製品開発のサポートと改善の助けになります。"
   },
@@ -1044,8 +1475,80 @@
   "licenseTerms.show": {
     "message": "ライセンス条項を表示"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(入力されたキーは {2} のものである可能性があります)"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro ライセンス"
+  },
+  "ListButton.label": {
+    "message": "メッセージフィルタ..."
+  },
+  "ListButton.tooltip": {
+    "message": "メッセージフィルタの一覧を表示します"
+  },
+  "markMessageRead.label": {
+    "message": "メッセージを既読にする"
+  },
+  "markMessageStarred.label": {
+    "message": "メッセージにスターを付ける"
+  },
+  "markMessageUnread.label": {
+    "message": "メッセージを未読にする"
+  },
+  "menu.changelog": {
+    "message": "変更ログ…"
+  },
+  "menu.copy": {
+    "message": "コピー"
+  },
+  "menu.cut": {
+    "message": "切り取り"
+  },
+  "menu.license": {
+    "message": "ライセンスのステータスを確認…"
+  },
+  "menu.news": {
+    "message": "ニュース / 変更ログ…"
+  },
+  "menu.paste": {
+    "message": "貼り付け"
+  },
+  "menu.removeDupeAction": {
+    "message": "重複する操作を削除"
+  },
+  "menu.removeDupeCondition": {
+    "message": "重複する条件を削除"
+  },
+  "menu.tools": {
+    "message": "ツール"
+  },
+  "merge.addressesOmitted": {
+    "message": "メールアドレスが条件から省略されました - quickFilters はあなた自身のメールアドレスのフィルタリングを無効にします:"
+  },
+  "merge.warning.missingAction": {
+    "message": "次のフィルタのメイン操作を行えませんでした: {1}"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "選択されたすべてのフィルタをマージできません: フィルタ動作が {1} と一致しません！"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "一致しないフィルタの選択を解除して続行しますか？"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "マージするには複数のフィルタを選択してください"
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "最初に選択されたフィルタを特定できません - マージするには 2 個以上のフィルタを選択する必要があります！"
+  },
+  "merge.warning.selectTarget": {
+    "message": "マージ対象のフィルタが選択されていません！"
+  },
+  "move.selectOne": {
+    "message": "1 個のフィルタ項目だけを選択してください！"
+  },
+  "moveMessage.label": {
+    "message": "メッセージを移動する"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla は、エンドユーザーであるあなたにソフトウェアを提供するための基本的なプラットフォームのみを提供します。ユーザーに支払いやサポートを依頼する必要がある場合、addons.thunderbird.net からこれを行うことはできません。これは、アプリ内決済機能や、iTunes や Google Play のようなライセンス管理が組み込まれた「アプリストア」ではありません。"
@@ -1077,6 +1580,57 @@
   "news.minimal.tip": {
     "message": "チェックすると、quickFilters はボタンのラベルを変更しません。小さなオレンジ色の点 🟠 のみが表示されます。"
   },
+  "notification.donate": {
+    "message": "寄付"
+  },
+  "notification.dontShowAgain": {
+    "message": "このメッセージを再び表示しない。"
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "ライセンスを延長"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "これは、現在のライセンスを 1 年延長します。ライセンスを新規購入するよりも安くなっています。"
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "Pro を購入"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "ライセンスを更新"
+  },
+  "notification.premium.freeUses": {
+    "message": "· あと {1} 回無料で使用できます。"
+  },
+  "notification.premium.text": {
+    "message": "{1} は Pro 機能です"
+  },
+  "notification.premium.title": {
+    "message": "有料機能"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "この機能の無料試用回数をすべて使い切りました。"
+  },
+  "notification.proFeature.notificationText": {
+    "message": "{1} の機能は有料版の機能です。この機能を常用したい場合は、quickFilters の開発への寄付をお願いします。"
+  },
+  "notification.proFeature.title": {
+    "message": "プレミアム機能"
+  },
+  "notification.QF.navigationbar": {
+    "message": "Thunderbird 115 の QuickFolders ナビゲーション バーからフィルター機能を使用するには:\n - 有効な QuickFolders ライセンスが必要です\n - または、この機能をサポートする $addonName$ Pro ライセンスを取得できます。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "{1} の登録"
+  },
   "ongoing-work": {
     "message": "ライセンスの購入は完全に任意です。ユーザーのために、現在のバージョンは技術的に可能な限りThunderbird 115と後方互換性があります。しかし、Thunderbirdは現在月次リリースサイクルを採用しており、これによりテストと開発の作業負荷が増加します。ご支援いただければ、これらの変更に追いつくことができます！",
     "placeholders": {
@@ -1086,11 +1640,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "タグを追加 (ラベル)"
+  },
+  "option.searchProperty.name": {
+    "message": "プロパティ名"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "テンプレートを使用して返信する"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "検索条件 (テキスト)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "文字列を変更する操作"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "対象フォルダー名"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "対象フォルダーのパス"
+  },
   "pane1.title": {
     "message": "quickFilters 設定"
   },
   "prefwindow.title": {
     "message": "quickFilters 設定"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "ライセンスの有効期限が {1} 日前に切れています"
+  },
+  "premium.title.customTemplate": {
+    "message": "カスタムテンプレート"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "重複ファインダ"
+  },
+  "premium.title.loadFilters": {
+    "message": "フィルタを復元する"
+  },
+  "premium.title.saveFilters": {
+    "message": "フィルタをバックアップする"
+  },
+  "premium.title.searchFolder": {
+    "message": "フォルダに対するフィルタの検索"
+  },
+  "premium.title.sortFilters": {
+    "message": "フィルタの並べ替え"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "検索用語を並べ替える"
   },
   "pricing.section": {
     "message": "価格を確認するには、まず次のオプションのいずれかを選択してください。 これにより、別のブラウザ ウィンドウが開き、ウェブ ショップでの購入を完了することができます。"
@@ -1100,6 +1699,35 @@
   },
   "pricing.title": {
     "message": "価格"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "同じテキストで始まる件名が見つかりました: \"$prefix$\"。\nこのテキストを件名検索条件として使用しますか？",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "件名を短く入力してください:"
+  },
+  "prompt.contact.title": {
+    "message": "quickFilters サポートへの問い合わせ"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "変数 {1} をクリップボードにコピーしました。検索語に貼り付けてください。"
+  },
+  "prompt.createCustomHeader": {
+    "message": "これをフィルタで使用するには '{1}' をカスタムヘッダとして追加してください。"
+  },
+  "prompt.customTemplateName": {
+    "message": "カスタムテンプレートの名前:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "以下のフィルターに重複が見つかりました。\nこれを修正して、とにかくインポートしますか？"
+  },
+  "promptDontRepeat": {
+    "message": "今後はこの警告を表示しない"
   },
   "purchase-a-license": {
     "message": "ライセンスを購入する。"
@@ -1125,7 +1753,9 @@
   "qf.button.mergeFilterRules": {
     "message": "「$filterName$」を新しいルールと統合…",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "qf.button.next": {
@@ -1397,14 +2027,14 @@
   "qf.label.naming.parentFolder": {
     "message": "親フォルダ名を追加"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "p"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "追加する親フォルダの最大数："
   },
   "qf.label.naming.targetAccount": {
     "message": "宛先アカウント名を追加（別のアカウントにメールを移動するフィルター用）"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "p"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "有料機能についての詳細はウェブサイトをご覧ください"
@@ -1562,560 +2192,14 @@
   "qf.youtube.tbdaily": {
     "message": "Thunderbird Daily をご視聴ください - quickFilters とデスクトップのメールを使うためのヒントとチュートリアルを紹介する YouTube チャンネルです"
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "フィルタ作成支援を開始..."
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "フィルタ作成支援を終了..."
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "Q"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "メッセージからフィルタを作成..."
-  },
-  "quickfilters.menu.changelog": {
-    "message": "変更ログ…"
-  },
-  "quickfilters.menu.license": {
-    "message": "ライセンスのステータスを確認…"
-  },
-  "quickfilters.menu.news": {
-    "message": "ニュース / 変更ログ…"
-  },
-  "quickfilters.menu.tools": {
-    "message": "ツール"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "メッセージフィルタ..."
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "メッセージフィルタの一覧を表示します"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "フィルタ実行"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "現在のフォルダにセットアップしたフィルタを適用します"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "選択したメールにフィルタを適用"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "現在のメールにフィルタを適用します"
-  },
-  "quickfilters.Start.label": {
-    "message": "フィルタ作成アシスタントを開始..."
-  },
-  "quickfilters.addTag.label": {
-    "message": "メッセージにタグを付ける"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "{1} 個のフィルターをアーカイブ"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "次のフィルタには保存できないカスタム動作が含まれています。サードパーティのアドオンが足りません:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} 個のフィルターがエンコードできませんでした。詳細はエラーログを確認してください。"
-  },
-  "quickfilters.button.assistant": {
-    "message": "アシスタントを切り替え..."
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "フィルタアシスタントモードを切り替えます。有効にした場合、メールをドラッグ＆ドロップしてフィルタを作成できます。"
-  },
-  "quickfilters.button.bug": {
-    "message": "デバッグ"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "重複をキャンセル"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "重複した検索をリセットします"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "検索中止"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "フォルダの検索をキャンセルします"
-  },
-  "quickfilters.button.clone": {
-    "message": "複製"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "C"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "フィルタを複製します"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "重複を見つける"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "重複した属性を見つけます"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "{1} を入手"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "フィルターを復元します..."
-  },
-  "quickfilters.button.merge": {
-    "message": "マージ"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "M"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "同じ動作をする複数のフィルタを併合します"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "フィルターを保存します..."
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "検索プロパティを変更..."
-  },
-  "quickfilters.button.settings": {
-    "message": "quickFilters 設定..."
-  },
-  "quickfilters.button.sort": {
-    "message": "並べ替え"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "アルファベット順に並べ替えます"
-  },
-  "quickfilters.button.support": {
-    "message": "quickFilters サポートサイト"
-  },
-  "quickfilters.clone.label": {
-    "message": "(コピー)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "複製するには、フィルタを 1 個だけ選択してください。"
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "選択されたフィルタを決定できませんでした"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "クリップボードにフィルタがありません！"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "少なくとも 1 個のフィルタを選択してください！"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "異なるアカウントを選択してアイテムを貼り付けてください！"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "メッセージをコピーする"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "アカウント {{1}} にはフィルタがありません。"
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "このテンプレートは少なくとも 2 通のメールが必要です。"
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "アカウント [{1}] のメールフォルダにフィルタを設定できません！\n代わりに現在の受信トレイを使用してください。"
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "申し訳ありませんが、{1} のこのバージョンでは、メッセージヘッダからアドレスを抽出できないため、フィルタを作成できません。"
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "フォルダ {1} のメッセージデータベースにアクセスできません"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "フィルタ作成に失敗しました - メッセージリストの最初の要素のメッセージ ID を取得できません！\nフォルダの修復を行ってください。"
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "{{1}} フォルダはサーバが指定されていません。"
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "この機能を利用するには、新しいバージョンに更新してください。"
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "メールを別のフォルダへ移動したりタグを付けたりしている場合、'メッセージからフィルタを作成' が役立ちます。quickFilters が適切な操作を選択します。\nこのメッセージからフィルタを作成しますか？"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "フィルタを作成するときはメールを 1 通だけ選択してください！"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Bcc"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Cc"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "quickFiltersアシスタントは、アクションを自動的に追加します。 プレースホルダーとして、デフォルトのアクション「優先度を通常に設定」のままにしてください。"
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "メールアドレスのドメイン"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "ドメイン拡張"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "ルートドメイン"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "サブドメイン"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "メールアドレス"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "名"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "差出人"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "姓"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "リスト ID"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "リストポスト"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "氏名"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "ニュースグループ"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Reply To"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "件名"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "件名の正規表現"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "宛先"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "テンプレート名:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters カスタムテンプレート"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "カスタム変数"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "フィルタ作成時に、これらの変数は現在のメールの対応するメールヘッダと置き換えられます。"
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "Reply-To"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "実行方法 (手動、受信、または自動) のない有効なフィルターが {0} 個見つかりました。 新しいメールを受信したときに自動的に実行するように変更する必要がありますか?"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "問題のあるフィルタは見つかりませんでした。"
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} 個のフィルタが修正されました。"
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "メッセージを POP サーバから削除する"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "メッセージを削除する"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "POP サーバから本文を取得する"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "このメッセージを再び表示しない"
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "フィルタ作成支援モードを開始しました。メールを他のメールフォルダに移動すると「フィルタルール作成」アシスタントが開始されます。#1 は、「メールの差出人」と「件名に含まれる特定のキーワード」を基に自動的に移動するメッセージフィルタを使用します。フィルタ作成支援モードを終了するには、フィルタボタンをもう一度押してください。"
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "フィルタ作成支援モード"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "フィルタを検索..."
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "メッセージを転送する"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "JSON ファイル"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "サブスレッドを無視する"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "スレッドを無視する"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(入力されたキーは {2} のものである可能性があります)"
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "メッセージを既読にする"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "メッセージにスターを付ける"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "メッセージを未読にする"
-  },
-  "quickfilters.menu.copy": {
-    "message": "コピー"
-  },
-  "quickfilters.menu.cut": {
-    "message": "切り取り"
-  },
-  "quickfilters.menu.paste": {
-    "message": "貼り付け"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "重複する操作を削除"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "重複する条件を削除"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "メールアドレスが条件から省略されました - quickFilters はあなた自身のメールアドレスのフィルタリングを無効にします:"
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "次のフィルタのメイン操作を行えませんでした: {1}"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "選択されたすべてのフィルタをマージできません: フィルタ動作が {1} と一致しません！"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "一致しないフィルタの選択を解除して続行しますか？"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "マージするには複数のフィルタを選択してください"
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "最初に選択されたフィルタを特定できません - マージするには 2 個以上のフィルタを選択する必要があります！"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "マージ対象のフィルタが選択されていません！"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "1 個のフィルタ項目だけを選択してください！"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "メッセージを移動する"
-  },
-  "quickfilters.notification.donate": {
-    "message": "寄付"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "このメッセージを再び表示しない。"
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "ライセンスを延長"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "これは、現在のライセンスを 1 年延長します。ライセンスを新規購入するよりも安くなっています。"
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Pro を購入"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "ライセンスを更新"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· あと {1} 回無料で使用できます。"
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} は Pro 機能です"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "有料機能"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "{1} の機能は有料版の機能です。この機能を常用したい場合は、quickFilters の開発への寄付をお願いします。"
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "プレミアム機能"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "Thunderbird 115 の QuickFolders ナビゲーション バーからフィルター機能を使用するには:\n - 有効な QuickFolders ライセンスが必要です\n - または、この機能をサポートする $addonName$ Pro ライセンスを取得できます。",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "{1} の登録"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "タグを追加 (ラベル)"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "プロパティ名"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "テンプレートを使用して返信する"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "検索条件 (テキスト)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "文字列を変更する操作"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "対象フォルダー名"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "対象フォルダーのパス"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "ライセンスの有効期限が {1} 日前に切れています"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "カスタムテンプレート"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "重複ファインダ"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "フィルタを復元する"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "フィルタをバックアップする"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "フォルダに対するフィルタの検索"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "フィルタの並べ替え"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "検索用語を並べ替える"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "同じテキストで始まる件名が見つかりました: \"$prefix$\"。\nこのテキストを件名検索条件として使用しますか？",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "件名を短く入力してください:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "quickFilters サポートへの問い合わせ"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "変数 {1} をクリップボードにコピーしました。検索語に貼り付けてください。"
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "これをフィルタで使用するには '{1}' をカスタムヘッダとして追加してください。"
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "カスタムテンプレートの名前:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "以下のフィルターに重複が見つかりました。\nこれを修正して、とにかくインポートしますか？"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "今後はこの警告を表示しない"
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "ライセンスの有効期限:"
-  },
-  "quickfilters.registration.menu": {
-    "message": "$licenseName$ ライセンス…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "テンプレートを使用して返信する"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "選択したメッセージにフィルタを適用..."
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "Running {0} Filters in folder {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Running Filter '{0}' in folder {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Run filters on folder '{1}'…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "このフォルダを対象とするフィルタはありません。"
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "迷惑メールかどうか設定する"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "重要度を設定する"
-  },
-  "quickfilters.sort": {
-    "message": "ソート"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "検索語を並べ替える"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "アルファベット順に並べ替えるには、2 個以上のフィルタを選択してください"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "フィルタの実行を中止する"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "フィルターを作成できませんでした：有効な検索語句がないため、フィルターを編集できません。"
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "フォルダーの修復を開始できませんでした。実行中のフォルダー操作が完了してから、プロパティ → フォルダーを修復をお試しください。"
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters はフィルターの作成または更新に必要な情報を取得できませんでした。\n\n移動先フォルダー「{0}」の修復が必要な可能性があります。\n\n今すぐフォルダーの修復を試みますか？\n\n修復が完了するまで待ってから、フィルターの作成をもう一度お試しください。"
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "この名前のテンプレートはすでに存在します。別の名前を付けてください。"
-  },
-  "quickfilters.watchThread.label": {
-    "message": "注目スレッドに設定する"
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "quickFilters アシスタント"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "ライセンスが失効しています！"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "クリックしてquickFiltersライセンスパネルを開きます。 他のオプションを右クリックします。"
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFiltersが更新されました！"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "下の '{menulabel}' メニューを開いて新しい情報を確認してください。これにより 🟠 も消えます。"
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters アシスタント"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "ライセンスは $daysLeft$ 日後に期限切れになります",
@@ -2128,8 +2212,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "フィルター作成アシスタント; フィルター用ツール"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFiltersが更新されました！"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "下の '{menulabel}' メニューを開いて新しい情報を確認してください。これにより 🟠 も消えます。"
+  },
+  "register.licenseValid.expired": {
+    "message": "ライセンスの有効期限:"
+  },
+  "registration.menu": {
+    "message": "$licenseName$ ライセンス…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "ライセンスを更新する。"
+  },
+  "replyWithTemplate.label": {
+    "message": "テンプレートを使用して返信する"
   },
   "restart-app": {
     "message": "$application$ を再起動して、このオプションをアクティブにします。",
@@ -2139,6 +2243,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "フィルタ実行"
+  },
+  "RunButton.tooltip": {
+    "message": "現在のフォルダにセットアップしたフィルタを適用します"
+  },
+  "RunButtonMsg.label": {
+    "message": "選択したメールにフィルタを適用"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "現在のメールにフィルタを適用します"
   },
   "runFilters.folder.confirm": {
     "message": "フォルダ $folderName$ でフィルタを実行しますか?",
@@ -2150,6 +2266,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "選択したメールにフィルターを実行しますか?"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "選択したメッセージにフィルタを適用..."
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "Running {0} Filters in folder {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Run filters on folder '{1}'…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Running Filter '{0}' in folder {1}."
+  },
+  "search.warning.noresults": {
+    "message": "このフォルダを対象とするフィルタはありません。"
+  },
+  "setJunkScore.label": {
+    "message": "迷惑メールかどうか設定する"
+  },
+  "setPriority.label": {
+    "message": "重要度を設定する"
+  },
+  "sort": {
+    "message": "ソート"
+  },
+  "sort.tooltip": {
+    "message": "検索語を並べ替える"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "アルファベット順に並べ替えるには、2 個以上のフィルタを選択してください"
   },
   "special-offer-content": {
     "message": "quickFiltersの9周年を祝うために、quickFilters Proライセンスの価格が {bold} $reduction$割引{/bold}  されているため、今がライセンスを取得する最高の機会です。 この特別オファーは、{bold$expirydate${/bold}  までご利用いただけます。",
@@ -2188,6 +2334,12 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "フィルタ作成アシスタントを開始..."
+  },
+  "stopExecution.label": {
+    "message": "フィルタの実行を中止する"
   },
   "subjectCompleteExtract": {
     "message": "常に完全な件名を挿入してください。"
@@ -2541,9 +2693,15 @@
   "troubleshooter.summary": {
     "message": "確認が必要なフィルター: $filters$ · 解決した問題: $resolved$ · 実行済み: $checks$/4 検査",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2579,6 +2737,21 @@
   "version": {
     "message": "バージョン:"
   },
+  "warning.emptyFilter": {
+    "message": "フィルターを作成できませんでした：有効な検索語句がないため、フィルターを編集できません。"
+  },
+  "warning.folderRepairFailed": {
+    "message": "フォルダーの修復を開始できませんでした。実行中のフォルダー操作が完了してから、プロパティ → フォルダーを修復をお試しください。"
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters はフィルターの作成または更新に必要な情報を取得できませんでした。\n\n移動先フォルダー「{0}」の修復が必要な可能性があります。\n\n今すぐフォルダーの修復を試みますか？\n\n修復が完了するまで待ってから、フィルターの作成をもう一度お試しください。"
+  },
+  "warning.templateNameNotUnique": {
+    "message": "この名前のテンプレートはすでに存在します。別の名前を付けてください。"
+  },
+  "watchThread.label": {
+    "message": "注目スレッドに設定する"
+  },
   "whats-new-btn": {
     "message": "新着情報？"
   },
@@ -2599,7 +2772,10 @@
   "whats-new-maintenance": {
     "message": "メンテナンス更新 $ver$。マイナーリリース後の重要な修正と互換性更新です。緊急のリグレッション修正も含みます。",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

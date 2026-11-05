@@ -3,8 +3,8 @@
     "message": "SPLASH"
   },
   "active-version-info": {
-    "message": "Сада покрећете {bold} верзију $addonVer$ {/bold}  на Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "Сада покрећете {bold} верзију $addonVer$ {/bold}  на Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -19,9 +19,6 @@
   "addon-authors-struggle": {
     "message": "Да би и даље били корисни, програмери додатака сада морамо да финансирамо ресурсе потребне за поправљање и преписивање како би наши корисници могли и даље имати користи од функционалности коју пружамо."
   },
-  "assistant.ux.title": {
-    "message": "Кориснички интерфејс"
-  },
   "assistant.ux.assistant.html": {
     "message": "Прикажи асистента у новом HTML корисничком интерфејсу"
   },
@@ -33,6 +30,9 @@
   },
   "assistant.ux.stayFocused.tooltip": {
     "message": "Obezbeditе da асistent ostane na vrhu kada je aktiviran."
+  },
+  "assistant.ux.title": {
+    "message": "Кориснички интерфејс"
   },
   "btn-extend-license": {
     "message": "Желим да продужим лиценцу за годину дана"
@@ -46,26 +46,26 @@
   "btn-want-to-donate": {
     "message": "Желим да помогнем једнократном донацијом."
   },
-  "donate-heading": {
-    "message": "Помозите једнократном донацијом."
-  },
   "cost-of-independence": {
     "message": "Развој софтвера кошта време и новац - за разлику од многих апликација на платформи, додатке не пишу велике корпорације, нити их Мозилла спонзорише на било који начин."
+  },
+  "donate-heading": {
+    "message": "Помозите једнократном донацијом."
   },
   "extend-your-license": {
     "message": "Размислите о продужењу лиценце за годину дана."
   },
   "extensionDescription": {
-    "message": "Брзо генеришите правила филтрирања поште у лету, повлачењем и испуштањем поште и анализом њихових атрибута.",
-    "description": "Description of the extension."
+    "description": "Description of the extension.",
+    "message": "Брзо генеришите правила филтрирања поште у лету, повлачењем и испуштањем поште и анализом њихових атрибута."
   },
   "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
+    "description": "Name of the extension.",
+    "message": "quickFilters"
   },
   "heading-installed": {
-    "message": "Успешно инсталиран $addonName$",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "Успешно инсталиран $addonName$",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -74,8 +74,8 @@
     }
   },
   "heading-updated": {
-    "message": "$addonName$ је успешно ажурирано",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ је успешно ажурирано",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -96,8 +96,8 @@
     "message": "Legacy"
   },
   "license-is-extended": {
-    "message": "Хвала вам што сте недавно продужили лиценцу или ако сте донирали. Као што сте помогли у будућем доказивању овог додатка, можете једноставно затворити овај прозор.",
-    "description": "Shown if license expires more than a year from now"
+    "description": "Shown if license expires more than a year from now",
+    "message": "Хвала вам што сте недавно продужили лиценцу или ако сте донирали. Као што сте помогли у будућем доказивању овог додатка, можете једноставно затворити овај прозор."
   },
   "mozillas-basic-platform": {
     "message": "Мозилла пружа само основну платформу за испоруку нашег софтвера вама, крајњим корисницима. Ако треба да затражимо од наших корисника плаћање или подршку, не можемо то да урадимо са аддонс.Thunderbird.нет - то није „продавница апликација“ са уграђеним платним зидовима или управљањем лиценцама као што су иТунес или гоогле плаи."
@@ -129,6 +129,21 @@
   "news.minimal.tip": {
     "message": "Ако је означено, quickFilters неће мењати натпис дугмета. Приказаће се само мала наранџаста тачка 🟠."
   },
+  "notification.premium.btn.getLicense": {
+    "message": "Купи Pro"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Обнови лиценцу"
+  },
+  "notification.premium.freeUses": {
+    "message": "· Преостало бесплатних коришћења: {1}."
+  },
+  "notification.premium.text": {
+    "message": "{1} је Pro функција"
+  },
   "ongoing-work": {
     "message": "Куповина лиценце је потпуно добровољна. Да бисмо олакшали корисницима, тренутна верзија остаје компатибилна са Thunderbird 115 све док је то технички могуће. Међутим, Thunderbird сада прати месечни циклус издања, што повећава наш тестирајући и развојни рад. Ваша подршка нам помаже да пратимо ове промене!",
     "placeholders": {
@@ -153,27 +168,6 @@
       }
     }
   },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Купи Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Обнови лиценцу"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· Преостало бесплатних коришћења: {1}."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} је Pro функција"
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Није могуће покренути поправку фасцикле. Када се текуће радње над фасциклом заврше, покушајте Својства → Поправи фасциклу."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters није могао да преузме податке потребне за прављење или ажурирање филтера.\n\nОдредишну фасциклу „{0}“ је можда потребно поправити.\n\nПокушати поправку фасцикле сада?\n\nСачекајте да се поправка заврши, па покушајте поново да направите филтер."
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Дозвола истекла!"
   },
@@ -194,7 +188,8 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Отворите мени '{menulabel}' испод да бисте видели шта је ново. То такође уклања 🟠."
-  },  "renew-your-license": {
+  },
+  "renew-your-license": {
     "message": "Обновите лиценцу."
   },
   "restart-app": {
@@ -282,8 +277,8 @@
       }
     }
   },
-  "time-and-effort": {
-    "message": "$addonName$ захтева сталне промене како би остао компатибилан са Мозилла платформом. Стално радим на томе да задржим што више функционалности за будуће верзије Thunderbirdа.",
+  "thanks-for-updating-intro": {
+    "message": "Хвала вам што сте ажурирали $addonName$.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -291,8 +286,8 @@
       }
     }
   },
-  "thanks-for-updating-intro": {
-    "message": "Хвала вам што сте ажурирали $addonName$.",
+  "time-and-effort": {
+    "message": "$addonName$ захтева сталне промене како би остао компатибилан са Мозилла платформом. Стално радим на томе да задржим што више функционалности за будуће верзије Thunderbirdа.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -303,6 +298,12 @@
   "translated-by-AI": {
     "description": "disclaimer.",
     "message": "Преводе је обезбедила вештачка интелигенција и можда нису тачни."
+  },
+  "warning.folderRepairFailed": {
+    "message": "Није могуће покренути поправку фасцикле. Када се текуће радње над фасциклом заврше, покушајте Својства → Поправи фасциклу."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters није могао да преузме податке потребне за прављење или ажурирање филтера.\n\nОдредишну фасциклу „{0}“ је можда потребно поправити.\n\nПокушати поправку фасцикле сада?\n\nСачекајте да се поправка заврши, па покушајте поново да направите филтер."
   },
   "whats-new-btn": {
     "message": "Шта је ново?"
@@ -324,12 +325,15 @@
   "whats-new-maintenance": {
     "message": "Ажурирање за одржавање $ver$. Важне исправке и ажурирања компатибилности након мањег издања, укључујући хитне регресије.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {
-    "message": "Добродошли у $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",
+    "message": "Добродошли у $addonName$",
     "placeholders": {
       "addonName": {
         "content": "$1",

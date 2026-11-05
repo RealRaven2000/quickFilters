@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "Om nuttig te blijven, moeten wij add-on-ontwikkelaars nu de middelen financieren die nodig zijn om te repareren en te herschrijven, zodat onze gebruikers kunnen blijven profiteren van de functionaliteit die we bieden."
   },
-  "assistant.ux.title": {
-    "message": "Gebruikersinterface"
+  "addTag.label": {
+    "message": "Bericht markeren"
   },
   "assistant.ux.assistant.html": {
     "message": "Assistent weergeven in nieuwe HTML-gebruikersinterface"
@@ -40,11 +40,21 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Zorg ervoor dat de assistent bovenaan blijft als deze is geactiveerd."
   },
+  "assistant.ux.title": {
+    "message": "Gebruikersinterface"
+  },
+  "backup.archivingFilters": {
+    "message": "Archiveren {1} filters"
+  },
   "backup.backup.accountsFilters": {
     "message": "$accountCount$ accounts · $filterCount$ filters",
     "placeholders": {
-      "accountCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "accountCount": {
+        "content": "$1"
+      },
+      "filterCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.backup.accountsLabel": {
@@ -52,15 +62,6 @@
   },
   "backup.backup.allAccounts": {
     "message": "Alle rekeningen"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "Filters van $accountName$ opslaan",
-    "placeholders": {
-      "accountName": { "content": "$1" }
-    }
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "Maak een back-up van geselecteerde filters"
   },
   "backup.backup.backup": {
     "message": "Back-up"
@@ -71,21 +72,40 @@
   "backup.backup.backupFailed": {
     "message": "Back-up mislukt: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Filters van $accountName$ opslaan",
+    "placeholders": {
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
     "message": "Back-up opgeslagen, maar voltooiing van de bewerking mislukt: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
     "message": "Back-up opgeslagen op $filePath$, maar voorkeuren konden niet worden opgeslagen: $error$",
     "placeholders": {
-      "filePath": { "content": "$1" },
-      "error": { "content": "$2" }
+      "error": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$1"
+      }
     }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Maak een back-up van geselecteerde filters"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "Back-up is niet opgeslagen."
@@ -93,7 +113,9 @@
   "backup.backup.cannotLoadAccounts": {
     "message": "Kan accounts niet laden: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.cannotReadFilters": {
@@ -105,19 +127,25 @@
   "backup.backup.couldNotDeleteFilter": {
     "message": "Kan filter $error$ niet verwijderen",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotEditFilter": {
     "message": "Kan filter niet bewerken: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
     "message": "Kan niet terugkeren naar de filterlijst: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.currentProfile": {
@@ -126,7 +154,9 @@
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
     "message": "Filter “$filterName$” verwijderd. Maak opnieuw een back-up als u deze wijziging wilt opslaan.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.description": {
@@ -144,7 +174,9 @@
   "backup.backup.filters": {
     "message": "$filterCount$ filters",
     "placeholders": {
-      "filterCount": { "content": "$1" }
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
@@ -156,14 +188,20 @@
   "backup.backup.highlightWarningsFor": {
     "message": "Markeer $warningCount$-waarschuwingen voor $accountName$",
     "placeholders": {
-      "warningCount": { "content": "$1" },
-      "accountName": { "content": "$2" }
+      "accountName": {
+        "content": "$2"
+      },
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.highlightWarningsFor2": {
     "message": "Markeer waarschuwingen voor $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
@@ -175,16 +213,26 @@
   "backup.backup.ofAccountsSelectedFilters": {
     "message": "$selectedAccountCount$ van $accountCount$ geselecteerde accounts · $filterCount$ filters",
     "placeholders": {
-      "selectedAccountCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filterCount": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filterCount": {
+        "content": "$3"
+      },
+      "selectedAccountCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.ofFiltersSelected": {
     "message": "$selectedFilterCount$ van $filterCount$ filters geselecteerd",
     "placeholders": {
-      "selectedFilterCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "filterCount": {
+        "content": "$2"
+      },
+      "selectedFilterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
@@ -208,15 +256,23 @@
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
     "message": "$filterCount$-filters van $accountCount$-accounts opgeslagen in $filePath$. Gebruik Terug naar berichtfilters om terug te keren.",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filePath": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$3"
+      },
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.savedTo": {
     "message": "Opgeslagen op $filePath$",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectAtLeastOneAccount": {
@@ -228,13 +284,17 @@
   "backup.backup.selectedFilters": {
     "message": "$accountName$ - geselecteerde filters",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectionHint": {
     "message": "(Om slechts een selectie van filters op te slaan, houdt u Ctrl ingedrukt terwijl u op $icon$ klikt in Berichtfilters.)",
     "placeholders": {
-      "icon": { "content": "$1" }
+      "icon": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.title": {
@@ -252,13 +312,17 @@
   "backup.common.warningCount": {
     "message": "$count$ waarschuwingen",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.common.warningCountOne": {
     "message": "$count$ waarschuwing",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.backupChanges": {
@@ -267,11 +331,19 @@
   "backup.confirm.deleteFilter": {
     "message": "Filter “$name$” verwijderen?",
     "placeholders": {
-      "name": { "content": "$1" }
+      "name": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.doNotAskAgain": {
     "message": "Vraag het niet nog een keer"
+  },
+  "backup.customErrors": {
+    "message": "De volgende filters hebben aangepaste acties die niet volledig kunnen worden opgeslagen - mogelijk ontbreekt een add-on van een derde:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} filters kunnen niet worden versleuteld! Lees het foutenlogboek voor details."
   },
   "backup.format.chooseDestination": {
     "message": "Kies bestemming"
@@ -288,13 +360,17 @@
   "backup.format.invalidActionOrConditionIn": {
     "message": "Ongeldige actie of voorwaarde in $filterName$.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidFilterDataIn": {
     "message": "Ongeldige filtergegevens in $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidReferencedAccountDirectory": {
@@ -312,23 +388,37 @@
   "backup.format.message": {
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": { "content": "$1" },
-      "month": { "content": "$2" },
-      "day": { "content": "$3" },
-      "hour": { "content": "$4" },
-      "minute": { "content": "$5" }
+      "day": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "year": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.missingFiltersFor": {
     "message": "Ontbrekende filters voor $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.referenced": {
     "message": "$accountIdentity$ (referentie)",
     "placeholders": {
-      "accountIdentity": { "content": "$1" }
+      "accountIdentity": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.remembered": {
@@ -349,7 +439,9 @@
   "backup.mapping.assignedToMoveHere": {
     "message": "Toegewezen aan $accountName$ — verplaats hierheen",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.dropATargetHere": {
@@ -358,8 +450,12 @@
   "backup.mapping.filters": {
     "message": "$filterCount$ filters$statusSuffix$",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "statusSuffix": { "content": "$2" }
+      "filterCount": {
+        "content": "$1"
+      },
+      "statusSuffix": {
+        "content": "$2"
+      }
     }
   },
   "backup.mapping.filtersRestored": {
@@ -380,13 +476,17 @@
   "backup.mapping.restoreFiltersFrom": {
     "message": "Herstel filters uit $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountFor": {
     "message": "Selecteer account voor $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
@@ -395,13 +495,17 @@
   "backup.mapping.warnings": {
     "message": "$warningCount$ waarschuwingen",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
     "message": "Account $accountId$ is niet beschikbaar of ondersteunt geen filters.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
@@ -410,13 +514,17 @@
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
     "message": "Kan filter “$filterName$” niet exporteren. Er is geen back-up geschreven.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.destinationAccountIsUnavailable": {
     "message": "Bestemmingsaccount $accountId$ is niet beschikbaar.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
@@ -428,7 +536,9 @@
   "backup.native.folderDoesNotExistInTheDestinationAccount": {
     "message": "Map “$folderName$” bestaat niet in het doelaccount",
     "placeholders": {
-      "folderName": { "content": "$1" }
+      "folderName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.invalidAccountMapping": {
@@ -479,7 +589,9 @@
   "backup.native.noDestinationSelectedForAccount": {
     "message": "Geen bestemming geselecteerd voor account “$accountName$”",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
@@ -497,8 +609,12 @@
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
     "message": "Opslaan mislukt ($saveError$); het herstellen van het originele bestand mislukte ook ($restoreError$)",
     "placeholders": {
-      "saveError": { "content": "$1" },
-      "restoreError": { "content": "$2" }
+      "restoreError": {
+        "content": "$2"
+      },
+      "saveError": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
@@ -546,14 +662,20 @@
   "backup.restore.cannotLoadDestinationAccounts": {
     "message": "Kan bestemmingsaccounts niet laden: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.cannotOpenBackup": {
     "message": "Kan back-up niet openen: $error$$previousBackupNotice$",
     "placeholders": {
-      "error": { "content": "$1" },
-      "previousBackupNotice": { "content": "$2" }
+      "error": {
+        "content": "$1"
+      },
+      "previousBackupNotice": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
@@ -562,13 +684,17 @@
   "backup.restore.couldNotSaveReport": {
     "message": "Kan rapport niet opslaan: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.deletedFilter": {
     "message": "Filter “$filterName$” verwijderd.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.description": {
@@ -619,13 +745,17 @@
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
     "message": "Herstel voltooid, maar toewijzingen kunnen niet worden onthouden: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFailed": {
     "message": "Herstellen mislukt: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFilters": {
@@ -634,13 +764,17 @@
   "backup.restore.restoreReportSavedTo": {
     "message": "Herstel rapport opgeslagen op $filePath$.",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
     "message": "Beoordeling herstellen · $warningCount$ waarschuwingen en overgeslagen items",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreWasNotPerformed": {
@@ -652,20 +786,38 @@
   "backup.restore.resultComplete": {
     "message": "Herstel voltooid: $added$ toegevoegd, $replaced$ vervangen, $kept$ bestaande filters behouden, $skipped$ overgeslagen.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" }
+      "added": {
+        "content": "$1"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.resultErrors": {
     "message": "Herstel voltooid met fouten: $added$ toegevoegd, $replaced$ vervangen, $kept$ bestaande filters behouden, $skipped$ overgeslagen, $failed$ accounts mislukt.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" },
-      "failed": { "content": "$5" }
+      "added": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$5"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
@@ -677,15 +829,23 @@
   "backup.restore.selectDestinationAccountsFor": {
     "message": "Selecteer bestemmingsaccounts voor: $accountNames$.",
     "placeholders": {
-      "accountNames": { "content": "$1" }
+      "accountNames": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
     "message": "$backupType$ · $sourceAccountCount$ bronaccounts · $referencedAccountCount$ gerefereerde accounts",
     "placeholders": {
-      "backupType": { "content": "$1" },
-      "sourceAccountCount": { "content": "$2" },
-      "referencedAccountCount": { "content": "$3" }
+      "backupType": {
+        "content": "$1"
+      },
+      "referencedAccountCount": {
+        "content": "$3"
+      },
+      "sourceAccountCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
@@ -706,19 +866,25 @@
   "backup.startup.cannotOpenBackup": {
     "message": "Kan back-up niet openen: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.startup.cannotOpenRestore": {
     "message": "Kan herstel niet openen: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
     "message": "Niet-ondersteunde back-upopslag-backend: $backend$",
     "placeholders": {
-      "backend": { "content": "$1" }
+      "backend": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.account": {
@@ -736,7 +902,9 @@
   "backup.warnings.backupSavedWithWarnings": {
     "message": "Back-up opgeslagen met $warningCount$-waarschuwingen",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.clearHighlight": {
@@ -763,11 +931,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "Dubbele naam — overgeslagen"
   },
-  "backup.warnings.editFilter": {
-    "message": "Bewerken"
-  },
   "backup.warnings.editedByUser": {
     "message": "Bewerkt door gebruiker"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Bewerken"
   },
   "backup.warnings.filter": {
     "message": "Filteren"
@@ -799,7 +967,9 @@
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
     "message": "Waarschuwingen voor $accountName$ gemarkeerd. Alle waarschuwingen blijven zichtbaar.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
@@ -816,6 +986,81 @@
   },
   "btn-want-to-donate": {
     "message": "Ik wil helpen met een eenmalige donatie."
+  },
+  "button.assistant": {
+    "message": "Assistent wisselen…"
+  },
+  "button.assistant.tooltiptext": {
+    "message": "Wisselt de modus filterassistent. Versleep indien actief e-mailberichten om filters te maken."
+  },
+  "button.bug": {
+    "message": "Foutopsporing"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Probleemoplossing: 1. filters die niet automatisch worden uitgevoerd 2. ongeldige doelmappen 3. valideert aangepaste acties"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "Duplicaten annuleren"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "Duplicaatzoekopdracht resetten"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "Zoekopdracht annuleren"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "Zoeken per map annuleren"
+  },
+  "button.clone": {
+    "message": "Klonen"
+  },
+  "button.clone.accesskey": {
+    "message": "K"
+  },
+  "button.clone.tooltiptext": {
+    "message": "Een filter klonen"
+  },
+  "button.findDuplicates.label": {
+    "message": "Duplicaten zoeken"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "Dubbele attributen zoeken"
+  },
+  "button.getOtherAddon": {
+    "message": "Download {1}"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "Filters herstellen…"
+  },
+  "button.merge": {
+    "message": "Samenvoegen"
+  },
+  "button.merge.accesskey": {
+    "message": "S"
+  },
+  "button.merge.tooltiptext": {
+    "message": "Meerdere filters met dezelfde actie samenvoegen"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "Back-up van filters…"
+  },
+  "button.searchProperties": {
+    "message": "Zoekeigenschappen wijzigen…"
+  },
+  "button.settings": {
+    "message": "quickFilters-instellingen…"
+  },
+  "button.sort": {
+    "message": "Sorteren"
+  },
+  "button.sort.tooltiptext": {
+    "message": "Alfabetisch sorteren"
+  },
+  "button.support": {
+    "message": "quickFilters-ondersteuningswebsite"
   },
   "buyDomainLicense.button": {
     "message": "Een domeinlicentie kopen"
@@ -931,11 +1176,158 @@
   "chkWhenArchiving.label": {
     "message": "Archiviereen"
   },
+  "clone.label": {
+    "message": "(kopiëren)"
+  },
+  "clone.selectOne": {
+    "message": "Selecteer exact één filter om te klonen."
+  },
+  "clone.undetermined": {
+    "message": "Kan geselecteerd filter niet vaststellen"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "Geen filters op het klembord!"
+  },
+  "copy.warning.selectFilter": {
+    "message": "Selecteer ten minste één filter!"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "Selecteer een andere account voor het plakken van onderdelen!"
+  },
+  "copyMessage.label": {
+    "message": "Bericht kopiëren naar"
+  },
   "cost-of-independence": {
     "message": "Softwareontwikkeling kost tijd en geld - in tegenstelling tot veel platform-apps worden add-ons niet geschreven door grote bedrijven en worden ze op geen enkele manier gesponsord door Mozilla."
   },
   "createdBy": {
     "message": "Geschreven door:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "De account ({1}) kan geen filters bevatten."
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "Dit sjabloon vereist ten minste 2 e-mailberichten."
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "Account [{1}] met e-mailoorsprong kan geen filters hebben!\nPostvak IN wordt gebruikt."
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "Sorry, maar in deze versie van {1} kunnen we geen filters maken, aangezien het programma het uit de berichtkoptekst halen van adressen niet ondersteunt."
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "Kan berichtendatabase voor map {1} niet benaderen"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "Kan filter niet aanmaken - kan geen berichtkenmerk voor het eerste element van de berichtenlijst ophalen!\nOverweeg de opdracht Map repareren uit te voeren."
+  },
+  "createFilter.warning.noServer": {
+    "message": "Map ({1}) heeft geen server."
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "Overweeg bij te werken naar een nieuwere versie om van deze functie gebruik te maken."
+  },
+  "createFromMail.inboxWarning": {
+    "message": "‘Filter van bericht maken’ is veel nuttiger als u het e-mailbericht al naar een andere map hebt verplaatst of er een label aan hebt gekoppeld, omdat quickFilters dan de passende actie voor u selecteert.\nToch een filter van dit bericht maken?"
+  },
+  "createFromMail.selectWarning": {
+    "message": "Selecteer precies één e-mailbericht om een filter te maken!"
+  },
+  "customfilter.replyto": {
+    "message": "Antwoorden-Aan"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Blinde kopie (BCC)"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Kopie (CC)"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "De quickFilters-assistent voegt automatisch een actie toe. Laat de standaardactie 'Prioriteit instellen op normaal' als tijdelijke aanduiding."
+  },
+  "customHeader.Domain": {
+    "message": "Adresdomein"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "Domeinextensie"
+  },
+  "customHeader.Domain.Root": {
+    "message": "Root Domein"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "Subdomein"
+  },
+  "customHeader.Email": {
+    "message": "E-mailadres"
+  },
+  "customHeader.FirstName": {
+    "message": "Voornaam"
+  },
+  "customHeader.From": {
+    "message": "Van"
+  },
+  "customHeader.LastName": {
+    "message": "Achternaam"
+  },
+  "customHeader.ListId": {
+    "message": "Lijstkenmerk"
+  },
+  "customHeader.ListPost": {
+    "message": "Lijstbericht"
+  },
+  "customHeader.NamePart": {
+    "message": "Volledige naam"
+  },
+  "customHeader.Newsgroups": {
+    "message": "Nieuwsgroepen"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Antwoorden aan"
+  },
+  "customHeader.Subject": {
+    "message": "Onderwerp"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "Onderwerp reguliere expressie"
+  },
+  "customHeader.To": {
+    "message": "Aan"
+  },
+  "customTemplate.name": {
+    "message": "Sjabloonnaam:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters - Aangepast sjabloon"
+  },
+  "customVariable.label": {
+    "message": "Aangepaste variabelen"
+  },
+  "customVariable.tooltip": {
+    "message": "Bij aanmaken van het filter worden deze variabelen vervangen door de overeenkomstige headers van het huidige e-mailbericht."
+  },
+  "debug.fixFilters": {
+    "message": "{0} ingeschakelde filters gevonden die niet kunnen worden uitgevoerd (handmatig, binnenkomend of automatisch). Moeten ze worden gewijzigd om automatisch te worden uitgevoerd bij het ontvangen van nieuwe e-mail?"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "{0} filters met niet-opgeloste aangepaste acties gevonden. Mogelijk ontbreekt een externe add-on of moet deze worden ingesteld om aangepaste acties te ondersteunen?"
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "{0} filters met ongeldige doelmappen gevonden. Mogelijk zijn deze geïmporteerd vanuit een niet-overeenkomend profiel? Of de doelmap bestaat niet meer of deze is verplaatst."
+  },
+  "debug.fixFilters.none": {
+    "message": "Geen foutieve filters gevonden."
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} filters gerepareerd."
+  },
+  "deleteFromPOP.label": {
+    "message": "Van POP-server verwijderen"
+  },
+  "deleteMessage.label": {
+    "message": "Bericht verwijderen"
   },
   "domainLicense.email": {
     "message": "We nemen via dit e-mailadres binnen twee werkdagen contact met u op om uw domeinlicentie te genereren. Geef de domeinnaam voor de licentie in op de volgende pagina."
@@ -978,14 +1370,47 @@
   "extensions.quickfilters.description": {
     "message": "Maak snel e-mailfilters door berichten te slepen en hun eigenschappen te analyseren."
   },
+  "fetchFromPOP.label": {
+    "message": "Van POP-server ophalen"
+  },
+  "FilterAssistant.start": {
+    "message": "Filterassistent starten"
+  },
+  "FilterAssistant.stop": {
+    "message": "Filterassistent stoppen"
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "Dit bericht niet meer weergeven."
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "Filterhulpmodus gestart. Wanneer u een e-mailbericht naar een andere e-mailmap verplaatst wordt een assistent ‘Filterregel aanmaken’ gestart. #1 gebruikt berichtenfilters voor het automatisch verplaatsen van berichten op basis van regels als ‘wie is de afzender?’ of ‘staat er een bepaald trefwoord in de onderwerpregel?’. Druk om de filterhulpmodus te stoppen opnieuw op de filterknop."
+  },
+  "filters.toggleMessage.title": {
+    "message": "Filterhulpmodus"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "Filters zoeken…"
+  },
   "firstName.label": {
     "message": "Voornaam:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Filters automatisch toepassen op binnenkomende mail"
   },
+  "forwardTo.label": {
+    "message": "Bericht doorsturen naar"
+  },
+  "fpJsonFile": {
+    "message": "JSON-bestand"
+  },
   "freeLicense": {
     "message": "Als u onlangs hebt gedoneerd aan het quickFilters-project of een bijdrage hebt geleverd, zoals vertalen of foutreparaties schrijven, dan komt u mogelijk in aanmerking voor een gratis licentiesleutel. Neem contact met me op via het ondersteuningstabblad in de quickFilters-opties."
+  },
+  "FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "FromMessage.label": {
+    "message": "Filter van bericht maken…"
   },
   "getquickFilters": {
     "message": "quickFilters Pro kopen"
@@ -1016,6 +1441,12 @@
   "homepage": {
     "message": "Startpagina:"
   },
+  "ignoreSubthread.label": {
+    "message": "Subconversatie negeren"
+  },
+  "ignoreThread.label": {
+    "message": "Conversatie negeren"
+  },
   "intro": {
     "message": "Een jaarlicentie voor quickFilters Pro geeft u een jaar lang alle premiumfuncties. U stelt ons er ook mee in staat het product verder te ondersteunen en laten groeien en het te veranderen in iets dat nog geweldiger is."
   },
@@ -1044,8 +1475,80 @@
   "licenseTerms.show": {
     "message": "Licentievoorwaarden weergeven"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(De ingevoerde sleutel is mogelijk voor {2})."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro-licentie"
+  },
+  "ListButton.label": {
+    "message": "Berichtenfilters…"
+  },
+  "ListButton.tooltip": {
+    "message": "Geef een lijst met berichtenfilters weer"
+  },
+  "markMessageRead.label": {
+    "message": "Als gelezen markeren"
+  },
+  "markMessageStarred.label": {
+    "message": "Ster toevoegen"
+  },
+  "markMessageUnread.label": {
+    "message": "Als ongelezen markeren"
+  },
+  "menu.changelog": {
+    "message": "Logboek wijzigen…"
+  },
+  "menu.copy": {
+    "message": "Kopiëren"
+  },
+  "menu.cut": {
+    "message": "Knippen"
+  },
+  "menu.license": {
+    "message": "Licentiestatus controleren…"
+  },
+  "menu.news": {
+    "message": "News / Change Log…"
+  },
+  "menu.paste": {
+    "message": "Plakken"
+  },
+  "menu.removeDupeAction": {
+    "message": "Dubbele actie verwijderen"
+  },
+  "menu.removeDupeCondition": {
+    "message": "Dubbele conditie verwijderen"
+  },
+  "menu.tools": {
+    "message": "Hulpmiddelen"
+  },
+  "merge.addressesOmitted": {
+    "message": "E-mailadres zijn weggelaten uit de voorwaarden - quickFilters schakelt filteren op uw eigen e-mailadres uit:"
+  },
+  "merge.warning.missingAction": {
+    "message": "Kan de hoofdactie van het filter {1} niet ophalen"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "Kan niet alle geselecteerde filters samenvoegen: actie-mismatch met filter {1}!"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "Filters die niet overeenkomen deselecteren en doorgaan?"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "Selecteer ten minste twee samen te voegen filters"
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "Kan eerst geselecteerde filter niet vaststellen - u dient ten minste twee filters te selecteren om samen te voegen!"
+  },
+  "merge.warning.selectTarget": {
+    "message": "Er dient een doelfilter te zijn geselecteerd voor samenvoegen!"
+  },
+  "move.selectOne": {
+    "message": "Er dient precies één filter te worden geselecteerd!"
+  },
+  "moveMessage.label": {
+    "message": "Bericht verplaatsen naar"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla biedt alleen een basisplatform om onze software aan u, de eindgebruikers, te leveren. Als we onze gebruikers om betaling of ondersteuning moeten vragen, kunnen we dit niet doen vanaf addons.thunderbird.net - het is geen 'app store' met ingebouwde paywalls of licentiebeheer zoals iTunes of Google Play."
@@ -1077,6 +1580,57 @@
   "news.minimal.tip": {
     "message": "Als ingeschakeld, wijzigt quickFilters het knoplabel niet. Er verschijnt alleen een klein oranje punt 🟠."
   },
+  "notification.donate": {
+    "message": "Doneren"
+  },
+  "notification.dontShowAgain": {
+    "message": "Dit bericht niet meer weergeven."
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "Licentie verlengen"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "Hierdoor wordt de huidige licentiedatum met 1 jaar verlengd. Dit is doorgaans goedkoper dan een nieuwe licentie."
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "Pro aanschaffen"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Licentie vernieuwen"
+  },
+  "notification.premium.freeUses": {
+    "message": "· Nog {1} keer gratis te gebruiken."
+  },
+  "notification.premium.text": {
+    "message": "{1} is een Pro-functie"
+  },
+  "notification.premium.title": {
+    "message": "Premium-functie"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "U hebt alle gratis proefpogingen voor deze functie gebruikt."
+  },
+  "notification.proFeature.notificationText": {
+    "message": "De functie {1} is een Premium-functie. Als u dit regelmatig gebruikt, overweeg dan om dit jaar een donatie voor de ontwikkeling van quickFilters te doen."
+  },
+  "notification.proFeature.title": {
+    "message": "Premium-functie"
+  },
+  "notification.QF.navigationbar": {
+    "message": "Om filterfuncties van de QuickFolders-navigatiebalk in Thunderbird 115 te gebruiken:\n - u hebt een geldige QuickFolders-licentie nodig\n - of u kunt een $addonName$ Pro-licentie krijgen om deze functie te ondersteunen.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "Registreren {1}"
+  },
   "ongoing-work": {
     "message": "Het kopen van een licentie is volledig vrijwillig. Om het gebruikers gemakkelijker te maken, blijft de huidige versie achterwaarts compatibel met Thunderbird 115 zolang dit technisch mogelijk is. Thunderbird volgt nu een maandelijks release-cyclus, waardoor onze test- en ontwikkelingswerkbelasting toeneemt. Uw steun helpt ons om deze veranderingen bij te houden!",
     "placeholders": {
@@ -1086,11 +1640,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "Markering toevoegen (label)"
+  },
+  "option.searchProperty.name": {
+    "message": "Naam"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "Met sjabloon antwoorden"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "Zoekvoorwaarde (tekst)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "(Aangepast) stringactie instellen"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "Naam van doelmap"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "Pad van doelmap"
+  },
   "pane1.title": {
     "message": "quickFilters-voorkeuren"
   },
   "prefwindow.title": {
     "message": "quickFilters-voorkeuren"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "Uw licentie is {1} dag(en) geleden verlopen"
+  },
+  "premium.title.customTemplate": {
+    "message": "Aangepaste sjablonen"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "Dubbelingen vinden"
+  },
+  "premium.title.loadFilters": {
+    "message": "Filters herstellen"
+  },
+  "premium.title.saveFilters": {
+    "message": "Back-up filters"
+  },
+  "premium.title.searchFolder": {
+    "message": "Zoekfilter per map"
+  },
+  "premium.title.sortFilters": {
+    "message": "Filters sorteren"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "Zoektermen sorteren"
   },
   "pricing.section": {
     "message": "Selecteer eerst een van de volgende opties om uw prijs te weten te komen. Hierdoor wordt een apart browservenster geopend waar u de aankoop in de webshop kunt afronden."
@@ -1100,6 +1699,35 @@
   },
   "pricing.title": {
     "message": "Prijzen"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "Onderwerpen gevonden die beginnen met dezelfde tekst: \"$prefix$\".\nDeze tekst als zoekvoorwaarde voor het onderwerp gebruiken?",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "Voer een korte onderwerpregel in:"
+  },
+  "prompt.contact.title": {
+    "message": "Contact met quickFilters-ondersteuning"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "Variabele {1} naar klembord gekopieerd, plak deze in een zoekopdracht."
+  },
+  "prompt.createCustomHeader": {
+    "message": "Voeg de term ‘{1}’ toe als een aangepaste koptekst om deze in een filter te gebruiken."
+  },
+  "prompt.customTemplateName": {
+    "message": "Naam van aangepast sjabloon:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "We hebben dubbele filters gevonden voor de onderstaande items.\nWilt u dit oplossen en toch importeren?"
+  },
+  "promptDontRepeat": {
+    "message": "Deze waarschuwing niet meer weergeven."
   },
   "purchase-a-license": {
     "message": "Koop een licentie."
@@ -1125,7 +1753,9 @@
   "qf.button.mergeFilterRules": {
     "message": "“$filterName$” combineren met nieuwe regels…",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "qf.button.next": {
@@ -1397,14 +2027,14 @@
   "qf.label.naming.parentFolder": {
     "message": "Hoofdmapnamen toevoegen"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "N"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "Maximaal aantal bovenliggende mappen om toe te voegen:"
   },
   "qf.label.naming.targetAccount": {
     "message": "Voeg naam van doelaccount toe (voor filters die e-mail naar een ander account verplaatsen)"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "N"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "Lees meer over Premium-functies op onze website"
@@ -1562,560 +2192,14 @@
   "qf.youtube.tbdaily": {
     "message": "Bezoek het Thunderbird Daily - YouTubekanaal voor tips en handleidingen rond het gebruik van quickFilters en desktop-e-mail"
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "Filterassistent starten"
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "Filterassistent stoppen"
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "Q"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "Filter van bericht maken…"
-  },
-  "quickfilters.menu.changelog": {
-    "message": "Logboek wijzigen…"
-  },
-  "quickfilters.menu.license": {
-    "message": "Licentiestatus controleren…"
-  },
-  "quickfilters.menu.news": {
-    "message": "News / Change Log…"
-  },
-  "quickfilters.menu.tools": {
-    "message": "Hulpmiddelen"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "Berichtenfilters…"
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "Geef een lijst met berichtenfilters weer"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "Filters uitvoeren"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "Voor de huidige map ingestelde filters uitvoeren"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "Geselecteerde e-mailberichten filteren"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "Past de filters op de huidige berichten toe"
-  },
-  "quickfilters.Start.label": {
-    "message": "Filterassistent starten…"
-  },
-  "quickfilters.addTag.label": {
-    "message": "Bericht markeren"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "Archiveren {1} filters"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "De volgende filters hebben aangepaste acties die niet volledig kunnen worden opgeslagen - mogelijk ontbreekt een add-on van een derde:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} filters kunnen niet worden versleuteld! Lees het foutenlogboek voor details."
-  },
-  "quickfilters.button.assistant": {
-    "message": "Assistent wisselen…"
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "Wisselt de modus filterassistent. Versleep indien actief e-mailberichten om filters te maken."
-  },
-  "quickfilters.button.bug": {
-    "message": "Foutopsporing"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Probleemoplossing: 1. filters die niet automatisch worden uitgevoerd 2. ongeldige doelmappen 3. valideert aangepaste acties"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "Duplicaten annuleren"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "Duplicaatzoekopdracht resetten"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "Zoekopdracht annuleren"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "Zoeken per map annuleren"
-  },
-  "quickfilters.button.clone": {
-    "message": "Klonen"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "K"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "Een filter klonen"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "Duplicaten zoeken"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "Dubbele attributen zoeken"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "Download {1}"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "Filters herstellen…"
-  },
-  "quickfilters.button.merge": {
-    "message": "Samenvoegen"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "S"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "Meerdere filters met dezelfde actie samenvoegen"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "Back-up van filters…"
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "Zoekeigenschappen wijzigen…"
-  },
-  "quickfilters.button.settings": {
-    "message": "quickFilters-instellingen…"
-  },
-  "quickfilters.button.sort": {
-    "message": "Sorteren"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "Alfabetisch sorteren"
-  },
-  "quickfilters.button.support": {
-    "message": "quickFilters-ondersteuningswebsite"
-  },
-  "quickfilters.clone.label": {
-    "message": "(kopiëren)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "Selecteer exact één filter om te klonen."
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "Kan geselecteerd filter niet vaststellen"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "Geen filters op het klembord!"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "Selecteer ten minste één filter!"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "Selecteer een andere account voor het plakken van onderdelen!"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "Bericht kopiëren naar"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "De account ({1}) kan geen filters bevatten."
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "Dit sjabloon vereist ten minste 2 e-mailberichten."
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "Account [{1}] met e-mailoorsprong kan geen filters hebben!\nPostvak IN wordt gebruikt."
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "Sorry, maar in deze versie van {1} kunnen we geen filters maken, aangezien het programma het uit de berichtkoptekst halen van adressen niet ondersteunt."
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "Kan berichtendatabase voor map {1} niet benaderen"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "Kan filter niet aanmaken - kan geen berichtkenmerk voor het eerste element van de berichtenlijst ophalen!\nOverweeg de opdracht Map repareren uit te voeren."
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "Map ({1}) heeft geen server."
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "Overweeg bij te werken naar een nieuwere versie om van deze functie gebruik te maken."
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "‘Filter van bericht maken’ is veel nuttiger als u het e-mailbericht al naar een andere map hebt verplaatst of er een label aan hebt gekoppeld, omdat quickFilters dan de passende actie voor u selecteert.\nToch een filter van dit bericht maken?"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "Selecteer precies één e-mailbericht om een filter te maken!"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Blinde kopie (BCC)"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Kopie (CC)"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "De quickFilters-assistent voegt automatisch een actie toe. Laat de standaardactie 'Prioriteit instellen op normaal' als tijdelijke aanduiding."
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "Adresdomein"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "Domeinextensie"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "Root Domein"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "Subdomein"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "E-mailadres"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "Voornaam"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "Van"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "Achternaam"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "Lijstkenmerk"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "Lijstbericht"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "Volledige naam"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "Nieuwsgroepen"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Antwoorden aan"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "Onderwerp"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "Onderwerp reguliere expressie"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "Aan"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "Sjabloonnaam:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters - Aangepast sjabloon"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "Aangepaste variabelen"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "Bij aanmaken van het filter worden deze variabelen vervangen door de overeenkomstige headers van het huidige e-mailbericht."
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "Antwoorden-Aan"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "{0} ingeschakelde filters gevonden die niet kunnen worden uitgevoerd (handmatig, binnenkomend of automatisch). Moeten ze worden gewijzigd om automatisch te worden uitgevoerd bij het ontvangen van nieuwe e-mail?"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "{0} filters met niet-opgeloste aangepaste acties gevonden. Mogelijk ontbreekt een externe add-on of moet deze worden ingesteld om aangepaste acties te ondersteunen?"
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "{0} filters met ongeldige doelmappen gevonden. Mogelijk zijn deze geïmporteerd vanuit een niet-overeenkomend profiel? Of de doelmap bestaat niet meer of deze is verplaatst."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "Geen foutieve filters gevonden."
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} filters gerepareerd."
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "Van POP-server verwijderen"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "Bericht verwijderen"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "Van POP-server ophalen"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "Dit bericht niet meer weergeven."
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "Filterhulpmodus gestart. Wanneer u een e-mailbericht naar een andere e-mailmap verplaatst wordt een assistent ‘Filterregel aanmaken’ gestart. #1 gebruikt berichtenfilters voor het automatisch verplaatsen van berichten op basis van regels als ‘wie is de afzender?’ of ‘staat er een bepaald trefwoord in de onderwerpregel?’. Druk om de filterhulpmodus te stoppen opnieuw op de filterknop."
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "Filterhulpmodus"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "Filters zoeken…"
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "Bericht doorsturen naar"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "JSON-bestand"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "Subconversatie negeren"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "Conversatie negeren"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(De ingevoerde sleutel is mogelijk voor {2})."
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "Als gelezen markeren"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "Ster toevoegen"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "Als ongelezen markeren"
-  },
-  "quickfilters.menu.copy": {
-    "message": "Kopiëren"
-  },
-  "quickfilters.menu.cut": {
-    "message": "Knippen"
-  },
-  "quickfilters.menu.paste": {
-    "message": "Plakken"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "Dubbele actie verwijderen"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "Dubbele conditie verwijderen"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "E-mailadres zijn weggelaten uit de voorwaarden - quickFilters schakelt filteren op uw eigen e-mailadres uit:"
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "Kan de hoofdactie van het filter {1} niet ophalen"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "Kan niet alle geselecteerde filters samenvoegen: actie-mismatch met filter {1}!"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "Filters die niet overeenkomen deselecteren en doorgaan?"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "Selecteer ten minste twee samen te voegen filters"
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "Kan eerst geselecteerde filter niet vaststellen - u dient ten minste twee filters te selecteren om samen te voegen!"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "Er dient een doelfilter te zijn geselecteerd voor samenvoegen!"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "Er dient precies één filter te worden geselecteerd!"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "Bericht verplaatsen naar"
-  },
-  "quickfilters.notification.donate": {
-    "message": "Doneren"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "Dit bericht niet meer weergeven."
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Licentie verlengen"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "Hierdoor wordt de huidige licentiedatum met 1 jaar verlengd. Dit is doorgaans goedkoper dan een nieuwe licentie."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Pro aanschaffen"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Licentie vernieuwen"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· Nog {1} keer gratis te gebruiken."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} is een Pro-functie"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "Premium-functie"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "De functie {1} is een Premium-functie. Als u dit regelmatig gebruikt, overweeg dan om dit jaar een donatie voor de ontwikkeling van quickFilters te doen."
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "Premium-functie"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "Om filterfuncties van de QuickFolders-navigatiebalk in Thunderbird 115 te gebruiken:\n - u hebt een geldige QuickFolders-licentie nodig\n - of u kunt een $addonName$ Pro-licentie krijgen om deze functie te ondersteunen.",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "Registreren {1}"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "Markering toevoegen (label)"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "Naam"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "Met sjabloon antwoorden"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "Zoekvoorwaarde (tekst)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "(Aangepast) stringactie instellen"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Naam van doelmap"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "Pad van doelmap"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "Uw licentie is {1} dag(en) geleden verlopen"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "Aangepaste sjablonen"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "Dubbelingen vinden"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "Filters herstellen"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "Back-up filters"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "Zoekfilter per map"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "Filters sorteren"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "Zoektermen sorteren"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "Onderwerpen gevonden die beginnen met dezelfde tekst: \"$prefix$\".\nDeze tekst als zoekvoorwaarde voor het onderwerp gebruiken?",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "Voer een korte onderwerpregel in:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "Contact met quickFilters-ondersteuning"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "Variabele {1} naar klembord gekopieerd, plak deze in een zoekopdracht."
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "Voeg de term ‘{1}’ toe als een aangepaste koptekst om deze in een filter te gebruiken."
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "Naam van aangepast sjabloon:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "We hebben dubbele filters gevonden voor de onderstaande items.\nWilt u dit oplossen en toch importeren?"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "Deze waarschuwing niet meer weergeven."
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "Uw licentie is verlopen op:"
-  },
-  "quickfilters.registration.menu": {
-    "message": "$licenseName$ Licentie…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "Met sjabloon antwoorden"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "Filters op geselecteerde berichten toepassen…"
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "{0} filters worden uitgevoerd in map {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Filter ‘{0}’ wordt uitgevoerd in map {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Filters op map ‘{1}’ uitvoeren…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "Er zijn geen filters voor deze map gevonden."
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "Ongewenstberichtstatus instellen op"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "Prioriteit wijzigen in"
-  },
-  "quickfilters.sort": {
-    "message": "Soort"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "Sorteer zoektermen"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "Selecteer ten minste twee filters om alfabetisch te sorteren"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "Uitvoeren van filter stoppen"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "Filter kon niet worden gemaakt: zonder geldige zoektermen kan het filter niet worden bewerkt."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "De mapreparatie kon niet worden gestart. Wacht tot lopende mapbewerkingen zijn voltooid en probeer vervolgens Eigenschappen → Map repareren."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters kon de benodigde gegevens niet ophalen om een filter te maken of bij te werken.\n\nDe doelmap ‘{0}’ moet mogelijk worden gerepareerd.\n\nNu proberen de map te repareren?\n\nWacht tot de reparatie is voltooid en probeer het filter vervolgens opnieuw te maken."
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "Er bestaat al een sjabloon met deze naam! De naam dient uniek te zijn."
-  },
-  "quickfilters.watchThread.label": {
-    "message": "Conversatie volgen"
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "quickFilters-assistent"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licentie verlopen!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Klik om het quickFilters-licentiepaneel te openen. Klik met de rechtermuisknop voor andere opties."
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters is bijgewerkt!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Open het '{menulabel}'-menu hieronder om te zien wat nieuw is. Hiermee wordt ook de 🟠 verwijderd."
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters-assistent"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Licentie verloopt over $daysLeft$ dagen",
@@ -2128,8 +2212,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "Assistent voor het maken van filters; gereedschap voor filters"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters is bijgewerkt!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Open het '{menulabel}'-menu hieronder om te zien wat nieuw is. Hiermee wordt ook de 🟠 verwijderd."
+  },
+  "register.licenseValid.expired": {
+    "message": "Uw licentie is verlopen op:"
+  },
+  "registration.menu": {
+    "message": "$licenseName$ Licentie…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "Verleng uw licentie."
+  },
+  "replyWithTemplate.label": {
+    "message": "Met sjabloon antwoorden"
   },
   "restart-app": {
     "message": "Start $application$ opnieuw om deze optie te activeren.",
@@ -2139,6 +2243,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "Filters uitvoeren"
+  },
+  "RunButton.tooltip": {
+    "message": "Voor de huidige map ingestelde filters uitvoeren"
+  },
+  "RunButtonMsg.label": {
+    "message": "Geselecteerde e-mailberichten filteren"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "Past de filters op de huidige berichten toe"
   },
   "runFilters.folder.confirm": {
     "message": "Filters uitvoeren in map $folderName$?",
@@ -2150,6 +2266,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "Filters uitvoeren op geselecteerde e-mails?"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "Filters op geselecteerde berichten toepassen…"
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "{0} filters worden uitgevoerd in map {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Filters op map ‘{1}’ uitvoeren…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Filter ‘{0}’ wordt uitgevoerd in map {1}."
+  },
+  "search.warning.noresults": {
+    "message": "Er zijn geen filters voor deze map gevonden."
+  },
+  "setJunkScore.label": {
+    "message": "Ongewenstberichtstatus instellen op"
+  },
+  "setPriority.label": {
+    "message": "Prioriteit wijzigen in"
+  },
+  "sort": {
+    "message": "Soort"
+  },
+  "sort.tooltip": {
+    "message": "Sorteer zoektermen"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "Selecteer ten minste twee filters om alfabetisch te sorteren"
   },
   "special-offer-content": {
     "message": "Dit is de beste kans om een licentie te krijgen, want er is een {bold} $reduction$ korting {/bold}  op de prijs van een quickFilters Pro-licentie om 9 jaar quickFilters te vieren! Deze speciale aanbieding is beschikbaar tot {bold$expirydate${/bold} .",
@@ -2188,6 +2334,12 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "Filterassistent starten…"
+  },
+  "stopExecution.label": {
+    "message": "Uitvoeren van filter stoppen"
   },
   "subjectCompleteExtract": {
     "message": "Vul altijd de volledige onderwerpregel in."
@@ -2541,9 +2693,15 @@
   "troubleshooter.summary": {
     "message": "$filters$ filters te controleren · $resolved$ problemen opgelost · $checks$ van 4 controles uitgevoerd",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2579,6 +2737,21 @@
   "version": {
     "message": "Versie:"
   },
+  "warning.emptyFilter": {
+    "message": "Filter kon niet worden gemaakt: zonder geldige zoektermen kan het filter niet worden bewerkt."
+  },
+  "warning.folderRepairFailed": {
+    "message": "De mapreparatie kon niet worden gestart. Wacht tot lopende mapbewerkingen zijn voltooid en probeer vervolgens Eigenschappen → Map repareren."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters kon de benodigde gegevens niet ophalen om een filter te maken of bij te werken.\n\nDe doelmap ‘{0}’ moet mogelijk worden gerepareerd.\n\nNu proberen de map te repareren?\n\nWacht tot de reparatie is voltooid en probeer het filter vervolgens opnieuw te maken."
+  },
+  "warning.templateNameNotUnique": {
+    "message": "Er bestaat al een sjabloon met deze naam! De naam dient uniek te zijn."
+  },
+  "watchThread.label": {
+    "message": "Conversatie volgen"
+  },
   "whats-new-btn": {
     "message": "Wat is er nieuw?"
   },
@@ -2599,7 +2772,10 @@
   "whats-new-maintenance": {
     "message": "Onderhoudsupdate $ver$. Belangrijke oplossingen en compatibiliteitsupdates na de kleine versie-update, waaronder dringende regressies.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

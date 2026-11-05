@@ -2,7 +2,6 @@ import { Preferences } from "./scripts/preferences.js";
 import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
 import { compareVersions } from "./scripts/mozilla-version-comparator.js";
-import { USAGE_LIMITS } from "./scripts/premium/usage-limits.mjs";
 // very nice config editor by John B:
 import * as webExtensionStorageEditor from "./scripts/webExtensionStorageEditor.mjs";
 
@@ -122,7 +121,7 @@ async function addFolderPaneListener() {
     await messenger.menus.remove(RUNFILTERFROMTREE_ID);
   } catch { ; }
   let isDebug = Preferences.isDebug();
-  let menuLabel = messenger.i18n.getMessage("quickfilters.RunButton.label");
+  let menuLabel = messenger.i18n.getMessage("RunButton.label");
   if (isDebug) {
     console.log("quickFilters: addFolderPaneListener()");
   }
@@ -182,7 +181,7 @@ async function addFolderPaneListener() {
   // Find filters
 
 
-  menuLabel = messenger.i18n.getMessage("quickfilters.findFiltersForFolder.menu");
+  menuLabel = messenger.i18n.getMessage("findFiltersForFolder.menu");
   menuProps = {
     contexts: ["folder_pane"],
     onclick: async (event) => {
@@ -271,9 +270,9 @@ async function addFolderPaneListener() {
 
 async function addToolMenuListener() {
   let isDebug = Preferences.isDebug();
-  const menuStart = messenger.i18n.getMessage("quickfilters.FilterAssistant.start"),
+  const menuStart = messenger.i18n.getMessage("FilterAssistant.start"),
     // eslint-disable-next-line no-unused-vars
-    _menuStop = messenger.i18n.getMessage("quickfilters.FilterAssistant.stop"); // it's a toggle, not sure how to do this.
+    _menuStop = messenger.i18n.getMessage("FilterAssistant.stop"); // it's a toggle, not sure how to do this.
 
   if (isDebug) {
     console.log("quickFilters: addToolMenuListener()");
@@ -1196,10 +1195,7 @@ async function main() {
 
   currentLicense = new Licenser(key, { forceSecondaryIdentity, debug: isDebugLicenser });
   try {
-    await messenger.Utilities.initializeProFeatureUsage(Object.fromEntries(
-      Object.keys(USAGE_LIMITS).map(feature => [feature, Preferences.get(`restrictions.${feature}.countDown`)])
-        .filter(([, remaining]) => Number.isInteger(remaining))
-    ));
+    await messenger.Utilities.initializeProFeatureUsage();
   } catch (error) {
     console.error("quickFilters: could not initialize profile usage counters", error);
   }
@@ -1328,7 +1324,7 @@ async function main() {
 
   messenger.commands.update({
     name: "create-filter-from-message",
-    description: stripEllipsis(messenger.i18n.getMessage("quickfilters.FromMessage.label")),
+    description: stripEllipsis(messenger.i18n.getMessage("FromMessage.label")),
   });
 
   browser.commands.onCommand.addListener(async (command) => {
@@ -1353,7 +1349,7 @@ async function main() {
           messenger.notifications.create({
             type: "basic",
             title: "quickFilters",
-            message: messenger.i18n.getMessage("quickfilters.createFromMail.selectWarning"),
+            message: messenger.i18n.getMessage("createFromMail.selectWarning"),
           });
         }
         const detail = {
@@ -1552,8 +1548,8 @@ async function main() {
   });
 
   /* Add message thread context menu item */
-  let menuLabel = messenger.i18n.getMessage("quickfilters.FromMessage.label");
-  // let menuAccel = messenger.i18n.getMessage("quickfilters.FromMessage.accesskey");
+  let menuLabel = messenger.i18n.getMessage("FromMessage.label");
+  // let menuAccel = messenger.i18n.getMessage("FromMessage.accesskey");
   let menuProps = {
     contexts: ["message_list"],
     onclick: async (info, tab) => {

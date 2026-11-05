@@ -9,8 +9,8 @@
     "message": "Select account:"
   },
   "active-version-info": {
-    "message": "You are now running {bold} version $addonVer$ {/bold}  on Thunderbird $appVer$.",
     "description": "The bold and /bold parts will be replaced with html tags",
+    "message": "You are now running {bold} version $addonVer$ {/bold}  on Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "To continue to be useful, Add-on developers now need to fund the resources needed to fix and rewrite so that our users can keep benefiting from the functionality we bring to the table."
   },
-  "assistant.ux.title": {
-    "message": "User Interface"
+  "addTag.label": {
+    "message": "Tag Message"
   },
   "assistant.ux.assistant.html": {
     "message": "Display Assistant in new HTML user interface"
@@ -40,7 +40,14 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Make sure that the assistant stays on top once it is activated."
   },
+  "assistant.ux.title": {
+    "message": "User Interface"
+  },
+  "backup.archivingFilters": {
+    "message": "Archiving {1} Filters"
+  },
   "backup.backup.accountsFilters": {
+    "description": "Values: $accountCount$ = accounts.length; $filterCount$ = accounts.reduce((sum, account) => sum + account.count, 0)",
     "message": "$accountCount$ accounts · $filterCount$ filters",
     "placeholders": {
       "accountCount": {
@@ -51,27 +58,13 @@
         "content": "$2",
         "example": "accounts.reduce((sum, account) => sum + account.count, 0)"
       }
-    },
-    "description": "Values: $accountCount$ = accounts.length; $filterCount$ = accounts.reduce((sum, account) => sum + account.count, 0)"
+    }
   },
   "backup.backup.accountsLabel": {
     "message": "Accounts to back up"
   },
   "backup.backup.allAccounts": {
     "message": "All accounts"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "Back up filters from $accountName$",
-    "placeholders": {
-      "accountName": {
-        "content": "$1",
-        "example": "account.name"
-      }
-    },
-    "description": "Values: $accountName$ = account.name"
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "Back up selected filters"
   },
   "backup.backup.backup": {
     "message": "Backup"
@@ -80,51 +73,64 @@
     "message": "Backup button in Message Filters"
   },
   "backup.backup.backupFailed": {
+    "description": "Values: $error$ = error.message",
     "message": "Backup failed: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "description": "Values: $accountName$ = account.name",
+    "message": "Back up filters from $accountName$",
+    "placeholders": {
+      "accountName": {
+        "content": "$1",
+        "example": "account.name"
+      }
+    }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
+    "description": "Values: $error$ = error.message",
     "message": "Backup saved, but finishing the operation failed: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
+    "description": "Values: $filePath$ = location.path; $error$ = error.message",
     "message": "Backup saved to $filePath$, but preferences could not be saved: $error$",
     "placeholders": {
-      "filePath": {
-        "content": "$1",
-        "example": "location.path"
-      },
       "error": {
         "content": "$2",
         "example": "error.message"
+      },
+      "filePath": {
+        "content": "$1",
+        "example": "location.path"
       }
-    },
-    "description": "Values: $filePath$ = location.path; $error$ = error.message"
+    }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Back up selected filters"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "Backup was not saved."
   },
   "backup.backup.cannotLoadAccounts": {
+    "description": "Values: $error$ = error.message",
     "message": "Cannot load accounts: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.backup.cannotReadFilters": {
     "message": "Cannot read filters"
@@ -133,47 +139,47 @@
     "message": "Choose accounts and a filename, then save your backup."
   },
   "backup.backup.couldNotDeleteFilter": {
+    "description": "Values: $error$ = error.message",
     "message": "Could not delete filter: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.backup.couldNotEditFilter": {
+    "description": "Values: $error$ = error.message",
     "message": "Could not edit filter: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
+    "description": "Values: $error$ = error.message",
     "message": "Could not return to the filter list: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.backup.currentProfile": {
     "message": "Current profile"
   },
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
+    "description": "Values: $filterName$ = filterName",
     "message": "Deleted filter “$filterName$”. Back up again if you want to save this change.",
     "placeholders": {
       "filterName": {
         "content": "$1",
         "example": "filterName"
       }
-    },
-    "description": "Values: $filterName$ = filterName"
+    }
   },
   "backup.backup.description": {
     "message": "Select the accounts whose filters you want to save in one file."
@@ -188,14 +194,14 @@
     "message": "You can edit this name before opening the Save As dialog."
   },
   "backup.backup.filters": {
+    "description": "Values: $filterCount$ = account.count",
     "message": "$filterCount$ filters",
     "placeholders": {
       "filterCount": {
         "content": "$1",
         "example": "account.count"
       }
-    },
-    "description": "Values: $filterCount$ = account.count"
+    }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
     "message": "Filters changed. Back up again if you want to save this change."
@@ -204,28 +210,28 @@
     "message": "filters saved"
   },
   "backup.backup.highlightWarningsFor": {
+    "description": "Values: $warningCount$ = saved.warnings; $accountName$ = account.name",
     "message": "Highlight $warningCount$ warnings for $accountName$",
     "placeholders": {
-      "warningCount": {
-        "content": "$1",
-        "example": "saved.warnings"
-      },
       "accountName": {
         "content": "$2",
         "example": "account.name"
+      },
+      "warningCount": {
+        "content": "$1",
+        "example": "saved.warnings"
       }
-    },
-    "description": "Values: $warningCount$ = saved.warnings; $accountName$ = account.name"
+    }
   },
   "backup.backup.highlightWarningsFor2": {
+    "description": "Values: $accountName$ = account.name",
     "message": "Highlight warnings for $accountName$",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "account.name"
       }
-    },
-    "description": "Values: $accountName$ = account.name"
+    }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
     "message": "Loading accounts and filter counts…"
@@ -234,12 +240,9 @@
     "message": "No accounts supporting filters were found."
   },
   "backup.backup.ofAccountsSelectedFilters": {
+    "description": "Values: $selectedAccountCount$ = checked.length; $accountCount$ = accounts.length; $filterCount$ = checked.reduce((sum, account) => sum + account.count, 0)",
     "message": "$selectedAccountCount$ of $accountCount$ accounts selected · $filterCount$ filters",
     "placeholders": {
-      "selectedAccountCount": {
-        "content": "$1",
-        "example": "checked.length"
-      },
       "accountCount": {
         "content": "$2",
         "example": "accounts.length"
@@ -247,23 +250,26 @@
       "filterCount": {
         "content": "$3",
         "example": "checked.reduce((sum, account) => sum + account.count, 0)"
+      },
+      "selectedAccountCount": {
+        "content": "$1",
+        "example": "checked.length"
       }
-    },
-    "description": "Values: $selectedAccountCount$ = checked.length; $accountCount$ = accounts.length; $filterCount$ = checked.reduce((sum, account) => sum + account.count, 0)"
+    }
   },
   "backup.backup.ofFiltersSelected": {
+    "description": "Values: $selectedFilterCount$ = account.count; $filterCount$ = account.totalCount",
     "message": "$selectedFilterCount$ of $filterCount$ filters selected",
     "placeholders": {
-      "selectedFilterCount": {
-        "content": "$1",
-        "example": "account.count"
-      },
       "filterCount": {
         "content": "$2",
         "example": "account.totalCount"
+      },
+      "selectedFilterCount": {
+        "content": "$1",
+        "example": "account.count"
       }
-    },
-    "description": "Values: $selectedFilterCount$ = account.count; $filterCount$ = account.totalCount"
+    }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
     "message": "Only the filters listed below will be saved. To select different filters, return to Message Filters and then Ctrl-click Backup again."
@@ -284,12 +290,9 @@
     "message": "Save cancelled. No backup was written."
   },
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
+    "description": "Values: $filterCount$ = count; $accountCount$ = checked.length; $filePath$ = location.path",
     "message": "Saved $filterCount$ filters from $accountCount$ accounts to $filePath$. Use Return to Message Filters to return.",
     "placeholders": {
-      "filterCount": {
-        "content": "$1",
-        "example": "count"
-      },
       "accountCount": {
         "content": "$2",
         "example": "checked.length"
@@ -297,19 +300,22 @@
       "filePath": {
         "content": "$3",
         "example": "location.path"
+      },
+      "filterCount": {
+        "content": "$1",
+        "example": "count"
       }
-    },
-    "description": "Values: $filterCount$ = count; $accountCount$ = checked.length; $filePath$ = location.path"
+    }
   },
   "backup.backup.savedTo": {
+    "description": "Values: $filePath$ = saved.path",
     "message": "Saved to $filePath$",
     "placeholders": {
       "filePath": {
         "content": "$1",
         "example": "saved.path"
       }
-    },
-    "description": "Values: $filePath$ = saved.path"
+    }
   },
   "backup.backup.selectAtLeastOneAccount": {
     "message": "Select at least one account."
@@ -318,14 +324,14 @@
     "message": "Selected accounts will be saved together in one file."
   },
   "backup.backup.selectedFilters": {
+    "description": "Values: $accountName$ = account.name",
     "message": "$accountName$ - selected filters",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "account.name"
       }
-    },
-    "description": "Values: $accountName$ = account.name"
+    }
   },
   "backup.backup.selectionHint": {
     "message": "(To save only a selection of filters, hold Ctrl while clicking $icon$ in Message Filters.)",
@@ -381,6 +387,12 @@
   "backup.confirm.doNotAskAgain": {
     "message": "Do not ask again"
   },
+  "backup.customErrors": {
+    "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} filters could not be encoded! Please check the error log for detail."
+  },
   "backup.format.chooseDestination": {
     "message": "Choose destination"
   },
@@ -394,24 +406,24 @@
     "message": "Invalid account metadata."
   },
   "backup.format.invalidActionOrConditionIn": {
+    "description": "Values: $filterName$ = filter.filterName",
     "message": "Invalid action or condition in $filterName$.",
     "placeholders": {
       "filterName": {
         "content": "$1",
         "example": "filter.filterName"
       }
-    },
-    "description": "Values: $filterName$ = filter.filterName"
+    }
   },
   "backup.format.invalidFilterDataIn": {
+    "description": "Values: $accountName$ = account.name",
     "message": "Invalid filter data in $accountName$.",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "account.name"
       }
-    },
-    "description": "Values: $accountName$ = account.name"
+    }
   },
   "backup.format.invalidReferencedAccountDirectory": {
     "message": "Invalid referenced account directory."
@@ -426,16 +438,9 @@
     "message": "Matched"
   },
   "backup.format.message": {
+    "description": "Values: $year$ = date.getFullYear(); $month$ = pad(date.getMonth() + 1); $day$ = pad(date.getDate()); $hour$ = pad(date.getHours()); $minute$ = pad(date.getMinutes())",
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": {
-        "content": "$1",
-        "example": "date.getFullYear()"
-      },
-      "month": {
-        "content": "$2",
-        "example": "pad(date.getMonth() + 1)"
-      },
       "day": {
         "content": "$3",
         "example": "pad(date.getDate())"
@@ -447,29 +452,36 @@
       "minute": {
         "content": "$5",
         "example": "pad(date.getMinutes())"
+      },
+      "month": {
+        "content": "$2",
+        "example": "pad(date.getMonth() + 1)"
+      },
+      "year": {
+        "content": "$1",
+        "example": "date.getFullYear()"
       }
-    },
-    "description": "Values: $year$ = date.getFullYear(); $month$ = pad(date.getMonth() + 1); $day$ = pad(date.getDate()); $hour$ = pad(date.getHours()); $minute$ = pad(date.getMinutes())"
+    }
   },
   "backup.format.missingFiltersFor": {
+    "description": "Values: $accountName$ = account.name",
     "message": "Missing filters for $accountName$.",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "account.name"
       }
-    },
-    "description": "Values: $accountName$ = account.name"
+    }
   },
   "backup.format.referenced": {
+    "description": "Values: $accountIdentity$ = parsed.username || parsed.hostname",
     "message": "$accountIdentity$ (referenced)",
     "placeholders": {
       "accountIdentity": {
         "content": "$1",
         "example": "parsed.username || parsed.hostname"
       }
-    },
-    "description": "Values: $accountIdentity$ = parsed.username || parsed.hostname"
+    }
   },
   "backup.format.remembered": {
     "message": "Remembered"
@@ -487,19 +499,20 @@
     "message": "All accounts are assigned."
   },
   "backup.mapping.assignedToMoveHere": {
+    "description": "Values: $accountName$ = owner.name",
     "message": "Assigned to $accountName$ — move here",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "owner.name"
       }
-    },
-    "description": "Values: $accountName$ = owner.name"
+    }
   },
   "backup.mapping.dropATargetHere": {
     "message": "Drop a target here"
   },
   "backup.mapping.filters": {
+    "description": "Values: $filterCount$ = source.filters.length; $statusSuffix$ = statuses.get(source.id) ? ` · ${statuses.get(source.id)}` : \"\"",
     "message": "$filterCount$ filters$statusSuffix$",
     "placeholders": {
       "filterCount": {
@@ -510,8 +523,7 @@
         "content": "$2",
         "example": "statuses.get(source.id) ? ` · ${statuses.get(source.id)}` : \"\""
       }
-    },
-    "description": "Values: $filterCount$ = source.filters.length; $statusSuffix$ = statuses.get(source.id) ? ` · ${statuses.get(source.id)}` : \"\""
+    }
   },
   "backup.mapping.filtersRestored": {
     "message": "filters restored"
@@ -529,70 +541,70 @@
     "message": "restore failed"
   },
   "backup.mapping.restoreFiltersFrom": {
+    "description": "Values: $accountName$ = source.name",
     "message": "Restore filters from $accountName$",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "source.name"
       }
-    },
-    "description": "Values: $accountName$ = source.name"
+    }
   },
   "backup.mapping.selectAccountFor": {
+    "description": "Values: $accountName$ = source.name",
     "message": "Select account for $accountName$",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "source.name"
       }
-    },
-    "description": "Values: $accountName$ = source.name"
+    }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
     "message": "Select account (you can also drag accounts to a slot)"
   },
   "backup.mapping.warnings": {
+    "description": "Values: $warningCount$ = count",
     "message": "$warningCount$ warnings",
     "placeholders": {
       "warningCount": {
         "content": "$1",
         "example": "count"
       }
-    },
-    "description": "Values: $warningCount$ = count"
+    }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
+    "description": "Values: $accountId$ = id",
     "message": "Account $accountId$ is unavailable or does not support filters.",
     "placeholders": {
       "accountId": {
         "content": "$1",
         "example": "id"
       }
-    },
-    "description": "Values: $accountId$ = id"
+    }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
     "message": "Cannot restore the serialized folder search value"
   },
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
+    "description": "Values: $filterName$ = filter.filterName",
     "message": "Could not export filter “$filterName$”. No backup was written.",
     "placeholders": {
       "filterName": {
         "content": "$1",
         "example": "filter.filterName"
       }
-    },
-    "description": "Values: $filterName$ = filter.filterName"
+    }
   },
   "backup.native.destinationAccountIsUnavailable": {
+    "description": "Values: $accountId$ = id",
     "message": "Destination account $accountId$ is unavailable.",
     "placeholders": {
       "accountId": {
         "content": "$1",
         "example": "id"
       }
-    },
-    "description": "Values: $accountId$ = id"
+    }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
     "message": "Each source account requires a distinct destination"
@@ -655,14 +667,14 @@
     "message": "More than one source account matches the folder's account"
   },
   "backup.native.noDestinationSelectedForAccount": {
+    "description": "Values: $accountName$ = owners[0].name || owners[0].id",
     "message": "No destination selected for account “$accountName$”",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "owners[0].name || owners[0].id"
       }
-    },
-    "description": "Values: $accountName$ = owners[0].name || owners[0].id"
+    }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
     "message": "Open a mail window before restoring filters."
@@ -677,18 +689,18 @@
     "message": "Save filter backup"
   },
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
+    "description": "Values: $saveError$ = error.message; $restoreError$ = rollback.message",
     "message": "Saving failed ($saveError$); restoring the original file also failed ($restoreError$)",
     "placeholders": {
-      "saveError": {
-        "content": "$1",
-        "example": "error.message"
-      },
       "restoreError": {
         "content": "$2",
         "example": "rollback.message"
+      },
+      "saveError": {
+        "content": "$1",
+        "example": "error.message"
       }
-    },
-    "description": "Values: $saveError$ = error.message; $restoreError$ = rollback.message"
+    }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
     "message": "Select at least one distinct account."
@@ -733,16 +745,17 @@
     "message": "Assigned"
   },
   "backup.restore.cannotLoadDestinationAccounts": {
+    "description": "Values: $error$ = error.message",
     "message": "Cannot load destination accounts: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.restore.cannotOpenBackup": {
+    "description": "Values: $error$ = error.message; $previousBackupNotice$ = backup ? \" The previous backup remains loaded.\" : \"\"",
     "message": "Cannot open backup: $error$$previousBackupNotice$",
     "placeholders": {
       "error": {
@@ -753,31 +766,30 @@
         "content": "$2",
         "example": "backup ? \" The previous backup remains loaded.\" : \"\""
       }
-    },
-    "description": "Values: $error$ = error.message; $previousBackupNotice$ = backup ? \" The previous backup remains loaded.\" : \"\""
+    }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
     "message": "Check destination mappings, then restore the selected accounts. Referenced accounts can be mapped without importing their filters."
   },
   "backup.restore.couldNotSaveReport": {
+    "description": "Values: $error$ = error.message",
     "message": "Could not save report: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.restore.deletedFilter": {
+    "description": "Values: $filterName$ = name",
     "message": "Deleted filter “$filterName$”.",
     "placeholders": {
       "filterName": {
         "content": "$1",
         "example": "name"
       }
-    },
-    "description": "Values: $filterName$ = name"
+    }
   },
   "backup.restore.description": {
     "message": "Select source accounts and assign their destinations in this profile."
@@ -825,47 +837,47 @@
     "message": "Overwrite filters with the same name"
   },
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
+    "description": "Values: $error$ = error.message",
     "message": "Restore completed, but mappings could not be remembered: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.restore.restoreFailed": {
+    "description": "Values: $error$ = error.message",
     "message": "Restore failed: $error$",
     "placeholders": {
       "error": {
         "content": "$1",
         "example": "error.message"
       }
-    },
-    "description": "Values: $error$ = error.message"
+    }
   },
   "backup.restore.restoreFilters": {
     "message": "Restore filters"
   },
   "backup.restore.restoreReportSavedTo": {
+    "description": "Values: $filePath$ = saved.path",
     "message": "Restore report saved to $filePath$.",
     "placeholders": {
       "filePath": {
         "content": "$1",
         "example": "saved.path"
       }
-    },
-    "description": "Values: $filePath$ = saved.path"
+    }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
+    "description": "Values: $warningCount$ = result.warnings.length",
     "message": "Restore review · $warningCount$ warnings and skipped items",
     "placeholders": {
       "warningCount": {
         "content": "$1",
         "example": "result.warnings.length"
       }
-    },
-    "description": "Values: $warningCount$ = result.warnings.length"
+    }
   },
   "backup.restore.restoreWasNotPerformed": {
     "message": "Restore was not performed."
@@ -880,13 +892,13 @@
         "content": "$1",
         "example": "3"
       },
-      "replaced": {
-        "content": "$2",
-        "example": "2"
-      },
       "kept": {
         "content": "$3",
         "example": "1"
+      },
+      "replaced": {
+        "content": "$2",
+        "example": "2"
       },
       "skipped": {
         "content": "$4",
@@ -901,21 +913,21 @@
         "content": "$1",
         "example": "3"
       },
-      "replaced": {
-        "content": "$2",
-        "example": "2"
+      "failed": {
+        "content": "$5",
+        "example": "1"
       },
       "kept": {
         "content": "$3",
         "example": "1"
       },
+      "replaced": {
+        "content": "$2",
+        "example": "2"
+      },
       "skipped": {
         "content": "$4",
         "example": "0"
-      },
-      "failed": {
-        "content": "$5",
-        "example": "1"
       }
     }
   },
@@ -926,32 +938,32 @@
     "message": "Save report…"
   },
   "backup.restore.selectDestinationAccountsFor": {
+    "description": "Values: $accountNames$ = missing.map(source => source.name).join(\", \")",
     "message": "Select destination accounts for: $accountNames$.",
     "placeholders": {
       "accountNames": {
         "content": "$1",
         "example": "missing.map(source => source.name).join(\", \")"
       }
-    },
-    "description": "Values: $accountNames$ = missing.map(source => source.name).join(\", \")"
+    }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
+    "description": "Values: $backupType$ = backup.kind === \"legacy-single-account\" ? \"Legacy backup\" : \"Backup\"; $sourceAccountCount$ = backup.accounts.length; $referencedAccountCount$ = backup.referencedAccounts.length",
     "message": "$backupType$ · $sourceAccountCount$ source accounts · $referencedAccountCount$ referenced accounts",
     "placeholders": {
       "backupType": {
         "content": "$1",
         "example": "backup.kind === \"legacy-single-account\" ? \"Legacy backup\" : \"Backup\""
       },
-      "sourceAccountCount": {
-        "content": "$2",
-        "example": "backup.accounts.length"
-      },
       "referencedAccountCount": {
         "content": "$3",
         "example": "backup.referencedAccounts.length"
+      },
+      "sourceAccountCount": {
+        "content": "$2",
+        "example": "backup.accounts.length"
       }
-    },
-    "description": "Values: $backupType$ = backup.kind === \"legacy-single-account\" ? \"Legacy backup\" : \"Backup\"; $sourceAccountCount$ = backup.accounts.length; $referencedAccountCount$ = backup.referencedAccounts.length"
+    }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
     "message": " The previous backup remains loaded."
@@ -987,14 +999,14 @@
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
+    "description": "Values: $backend$ = backend",
     "message": "Unsupported backup storage backend: $backend$",
     "placeholders": {
       "backend": {
         "content": "$1",
         "example": "backend"
       }
-    },
-    "description": "Values: $backend$ = backend"
+    }
   },
   "backup.warnings.account": {
     "message": "Account"
@@ -1009,14 +1021,14 @@
     "message": "All warnings shown."
   },
   "backup.warnings.backupSavedWithWarnings": {
+    "description": "Values: $warningCount$ = warnings.length",
     "message": "Backup saved with $warningCount$ warnings",
     "placeholders": {
       "warningCount": {
         "content": "$1",
         "example": "warnings.length"
       }
-    },
-    "description": "Values: $warningCount$ = warnings.length"
+    }
   },
   "backup.warnings.clearHighlight": {
     "message": "Clear highlight"
@@ -1042,11 +1054,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "Duplicate name — skipped"
   },
-  "backup.warnings.editFilter": {
-    "message": "Edit"
-  },
   "backup.warnings.editedByUser": {
     "message": "Edited by User"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Edit"
   },
   "backup.warnings.filter": {
     "message": "Filter"
@@ -1076,14 +1088,14 @@
     "message": "Warnings"
   },
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
+    "description": "Values: $accountName$ = names.get(accountId) || accountId",
     "message": "Warnings for $accountName$ highlighted. All warnings remain visible.",
     "placeholders": {
       "accountName": {
         "content": "$1",
         "example": "names.get(accountId) || accountId"
       }
-    },
-    "description": "Values: $accountName$ = names.get(accountId) || accountId"
+    }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
     "message": "You have changed your current filters - remember to backup again if you want to save this change"
@@ -1099,6 +1111,81 @@
   },
   "btn-want-to-donate": {
     "message": "I want to help with a one time donation."
+  },
+  "button.assistant": {
+    "message": "Toggle assistant…"
+  },
+  "button.assistant.tooltiptext": {
+    "message": "Toggles filter assistant mode. When active, drag and drop emails to create filters."
+  },
+  "button.bug": {
+    "message": "Troubleshoot"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "Cancel duplicates"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "Reset duplicate search"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "Cancel search"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "Cancel search by folder"
+  },
+  "button.clone": {
+    "message": "Clone"
+  },
+  "button.clone.accesskey": {
+    "message": "C"
+  },
+  "button.clone.tooltiptext": {
+    "message": "Clone a filter"
+  },
+  "button.findDuplicates.label": {
+    "message": "Find duplicates"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "Find duplicate attributes"
+  },
+  "button.getOtherAddon": {
+    "message": "Get {1}"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "Restore Filters…"
+  },
+  "button.merge": {
+    "message": "Merge"
+  },
+  "button.merge.accesskey": {
+    "message": "M"
+  },
+  "button.merge.tooltiptext": {
+    "message": "Merge multiple filters with the same action"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "Backup Filters…"
+  },
+  "button.searchProperties": {
+    "message": "Change search properties…"
+  },
+  "button.settings": {
+    "message": "quickFilters Settings…"
+  },
+  "button.sort": {
+    "message": "Sort"
+  },
+  "button.sort.tooltiptext": {
+    "message": "Sort Alphabetically"
+  },
+  "button.support": {
+    "message": "quickFilters Support Site"
   },
   "buyDomainLicense.button": {
     "message": "Buy Domain License"
@@ -1214,11 +1301,158 @@
   "chkWhenArchiving.label": {
     "message": "When Archiving"
   },
+  "clone.label": {
+    "message": "(copy)"
+  },
+  "clone.selectOne": {
+    "message": "To clone, select exactly one filter."
+  },
+  "clone.undetermined": {
+    "message": "Could not determine which filter is selected"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "No filters in clipboard!"
+  },
+  "copy.warning.selectFilter": {
+    "message": "Please select at least one filter!"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "Select a different account for pasting items!"
+  },
+  "copyMessage.label": {
+    "message": "Copy Message to"
+  },
   "cost-of-independence": {
     "message": "Software development costs time and money - unlike many platform apps, Add-ons are not written by large corporations, nor are they sponsored in any way by Mozilla."
   },
   "createdBy": {
     "message": "Created By:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "The account ({1}) cannot have filters."
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "This template requires at least 2 mails."
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header."
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "Cannot access message database for folder {1}"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\nConsider running the Repair Folder command."
+  },
+  "createFilter.warning.noServer": {
+    "message": "Folder ({1}) does not have a server."
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "Consider updating to a newer version to get this feature."
+  },
+  "createFromMail.inboxWarning": {
+    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nDo you want to create a filter from this message anyway?"
+  },
+  "createFromMail.selectWarning": {
+    "message": "To create a filter, please select exactly one email!"
+  },
+  "customfilter.replyto": {
+    "message": "Reply-To"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Blind Carbon Copy (BCC)"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Carbon Copy (CC)"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "The quickFilters assistant will add an action automatically. Please leave the default action 'set Priority to normal' as a placeholder."
+  },
+  "customHeader.Domain": {
+    "message": "Domain of Email"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "domain extension"
+  },
+  "customHeader.Domain.Root": {
+    "message": "Root Domain"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "Subdomain"
+  },
+  "customHeader.Email": {
+    "message": "Email Address"
+  },
+  "customHeader.FirstName": {
+    "message": "First Name"
+  },
+  "customHeader.From": {
+    "message": "From"
+  },
+  "customHeader.LastName": {
+    "message": "Last Name"
+  },
+  "customHeader.ListId": {
+    "message": "List Id"
+  },
+  "customHeader.ListPost": {
+    "message": "List Post"
+  },
+  "customHeader.NamePart": {
+    "message": "Full Name"
+  },
+  "customHeader.Newsgroups": {
+    "message": "Newsgroups"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Reply To"
+  },
+  "customHeader.Subject": {
+    "message": "Subject"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "Subject Regular Expression"
+  },
+  "customHeader.To": {
+    "message": "To"
+  },
+  "customTemplate.name": {
+    "message": "Template Name:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters Custom Template"
+  },
+  "customVariable.label": {
+    "message": "Custom Variables"
+  },
+  "customVariable.tooltip": {
+    "message": "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail."
+  },
+  "debug.fixFilters": {
+    "message": "Found {0} enabled filters that have no method of running (either Manual, Incoming or Automatic). Should they be changed to execute automatically when receiving new mail?"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
+  },
+  "debug.fixFilters.none": {
+    "message": "No faulty filters found."
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} filters were fixed."
+  },
+  "deleteFromPOP.label": {
+    "message": "Delete From POP Server"
+  },
+  "deleteMessage.label": {
+    "message": "Delete Message"
   },
   "domainLicense.email": {
     "message": "We will contact you using this email address to generate your domain license; please allow two business days for us to get in touch. Enter the domain name for the license on the next page."
@@ -1251,15 +1485,36 @@
     "message": "Consider extending your license by a year."
   },
   "extensionDescription": {
-    "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.",
-    "description": "Description of the extension."
+    "description": "Description of the extension.",
+    "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes."
   },
   "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
+    "description": "Name of the extension.",
+    "message": "quickFilters"
   },
   "extensions.quickfilters.description": {
     "message": "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes."
+  },
+  "fetchFromPOP.label": {
+    "message": "Fetch From POP Server"
+  },
+  "FilterAssistant.start": {
+    "message": "Start Filter Assistant"
+  },
+  "FilterAssistant.stop": {
+    "message": "End Filter Assistant"
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "Do not show this message again."
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "Assisted filter mode started. Whenever you move an email into another mail folder a 'Create Filter Rule' assistant will start. #1 uses message filters for automatically moving emails based on rules such as 'who is the sender?', 'is a certain keyword in the subject line?'. To stop filter assisted mode, press the [filter assistant] button again."
+  },
+  "filters.toggleMessage.title": {
+    "message": "Filter Assist Mode"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "Find Filters…"
   },
   "firstName.label": {
     "message": "First Name:"
@@ -1267,8 +1522,20 @@
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Apply filters automatically to incoming mail"
   },
+  "forwardTo.label": {
+    "message": "Forward Message to"
+  },
+  "fpJsonFile": {
+    "message": "JSON File"
+  },
   "freeLicense": {
     "message": "If you have recently donated to the quickFilters project or have done contributory work, such as translating or writing patches, you may be eligible for a free license key. Contact me from the support tab in quickFilters Options."
+  },
+  "FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "FromMessage.label": {
+    "message": "Create Filter from Message…"
   },
   "getquickFilters": {
     "message": "Get quickFilters Pro"
@@ -1277,8 +1544,8 @@
     "message": "Merge Rules"
   },
   "heading-installed": {
-    "message": "Successfully installed $addonName$",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "Successfully installed $addonName$",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1287,8 +1554,8 @@
     }
   },
   "heading-updated": {
-    "message": "$addonName$ Updated Successfully",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ Updated Successfully",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1298,6 +1565,12 @@
   },
   "homepage": {
     "message": "Home Page:"
+  },
+  "ignoreSubthread.label": {
+    "message": "Ignore Subthread"
+  },
+  "ignoreThread.label": {
+    "message": "Ignore Thread"
   },
   "intro": {
     "message": "A license for quickFilters Pro let's you access all premium features for a year. It also enables us to support and grow the product further and turn it into something even more awesome."
@@ -1327,8 +1600,80 @@
   "licenseTerms.show": {
     "message": "Show license terms"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(The key entered may be for {2})."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro License"
+  },
+  "ListButton.label": {
+    "message": "Message Filters…"
+  },
+  "ListButton.tooltip": {
+    "message": "Show a list of message filters"
+  },
+  "markMessageRead.label": {
+    "message": "Mark As Read"
+  },
+  "markMessageStarred.label": {
+    "message": "Add Star"
+  },
+  "markMessageUnread.label": {
+    "message": "Mark As Unread"
+  },
+  "menu.changelog": {
+    "message": "Change Log…"
+  },
+  "menu.copy": {
+    "message": "Copy"
+  },
+  "menu.cut": {
+    "message": "Cut"
+  },
+  "menu.license": {
+    "message": "Check license status…"
+  },
+  "menu.news": {
+    "message": "News / Change Log…"
+  },
+  "menu.paste": {
+    "message": "Paste"
+  },
+  "menu.removeDupeAction": {
+    "message": "Remove duplicate action"
+  },
+  "menu.removeDupeCondition": {
+    "message": "Remove duplicate condition"
+  },
+  "menu.tools": {
+    "message": "Tools"
+  },
+  "merge.addressesOmitted": {
+    "message": "Email addresses were omitted from the conditions - quickFilters avoids filtering for your own mail address:"
+  },
+  "merge.warning.missingAction": {
+    "message": "Could not get the main action of the filter: {1}"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "Cannot merge all selected filters: action mismatch with filter {1}!"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "Deselect filters that do not match and continue?"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "To merge, select at least 2 filters"
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "Cannot determine first selected filter - to merge, you must select at least 2 filters!"
+  },
+  "merge.warning.selectTarget": {
+    "message": "A target filter must be selected for merging!"
+  },
+  "move.selectOne": {
+    "message": "Exactly one filter entry must be selected!"
+  },
+  "moveMessage.label": {
+    "message": "Move Message to"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla only provides a basic platform for delivering our software to you, the end users. If we need to ask our users for payment or support we cannot do this from addons.thunderbird.net - it is not an 'app store' with built in paywalls or license management like iTunes or google play."
@@ -1360,6 +1705,57 @@
   "news.minimal.tip": {
     "message": "If checked, quickFilters will not modify the button label. Only a small orange badge 🟠 will appear instead."
   },
+  "notification.donate": {
+    "message": "Donate"
+  },
+  "notification.dontShowAgain": {
+    "message": "Do not show this message again."
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "Extend License"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "Get Pro"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Renew License"
+  },
+  "notification.premium.freeUses": {
+    "message": "· {1} free uses remaining."
+  },
+  "notification.premium.text": {
+    "message": "{1} is a Pro feature"
+  },
+  "notification.premium.title": {
+    "message": "Premium Feature"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "You have used all free trial attempts for this feature."
+  },
+  "notification.proFeature.notificationText": {
+    "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
+  },
+  "notification.proFeature.title": {
+    "message": "Premium Feature"
+  },
+  "notification.QF.navigationbar": {
+    "message": "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "Register {1}"
+  },
   "ongoing-work": {
     "message": "Buying a license is completely voluntary. To make things easier for users, the current version remains backwards compatible with Thunderbird 115 for as long as technically feasible. However, Thunderbird now follows a monthly release cycle, increasing our testing and development workload. Your support helps us keep up with these changes!",
     "placeholders": {
@@ -1369,11 +1765,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "Add Tag (label)"
+  },
+  "option.searchProperty.name": {
+    "message": "Name"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "Reply with Template"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "Search Condition (Text)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "Actions that modify Strings"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "Target Folder Name"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "Target Folder Path"
+  },
   "pane1.title": {
     "message": "quickFilters preferences"
   },
   "prefwindow.title": {
     "message": "quickFilters preferences"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "Your license expired {1} days ago"
+  },
+  "premium.title.customTemplate": {
+    "message": "Custom Templates"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "Duplicates Finder"
+  },
+  "premium.title.loadFilters": {
+    "message": "Restore filters"
+  },
+  "premium.title.saveFilters": {
+    "message": "Backup filters"
+  },
+  "premium.title.searchFolder": {
+    "message": "Search Filter for Folder"
+  },
+  "premium.title.sortFilters": {
+    "message": "Sort Filters"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "Sort Search Terms"
   },
   "pricing.section": {
     "message": "To find out your price, please select one of the following options first. This opens a separate browser window where you may complete the purchase in the web shop."
@@ -1383,6 +1824,35 @@
   },
   "pricing.title": {
     "message": "Pricing"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "Found subjects starting with the same text: \"$prefix$\".\nUse this as the subject search condition?",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "Please enter a short subject line:"
+  },
+  "prompt.contact.title": {
+    "message": "Contact quickFilters Support"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "Copied variable {1} to clipboard, please insert into a search term."
+  },
+  "prompt.createCustomHeader": {
+    "message": "Please add the term '{1}' as a custom header to use this in a filter."
+  },
+  "prompt.customTemplateName": {
+    "message": "Name of Custom Template:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "We found duplicates for the following filters below.\nFix this and import anyway?"
+  },
+  "promptDontRepeat": {
+    "message": "Do not show this warning again."
   },
   "purchase-a-license": {
     "message": "Purchase a license."
@@ -1685,14 +2155,14 @@
   "qf.label.naming.parentFolder": {
     "message": "Add parent folder names"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "p"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "Maximum number of parent folders to add:"
   },
   "qf.label.naming.targetAccount": {
     "message": "Add destination account name (for filters that move mail to a different account)"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "p"
   },
   "qf.label.ok": {
     "message": "Ok"
@@ -1724,14 +2194,18 @@
   "qf.licenseBackup.confirmation": {
     "message": "{P}Switch to Basic version?{br}Your license key will be kept on this computer so you can renew it later at the discounted {b}renewal price{/b}.{/P}{P}Thank you for having supported quickFilters — licenses make independent software development possible and help keep the project going. Even when expired, you can renew your license or upgrade from a Standard license anytime to use the {a class=features}Pro Features{/a} for a full year.{/P}"
   },
-  "qf.licenseBackup.recover": { "message": "Recover license key" },
+  "qf.licenseBackup.recover": {
+    "message": "Recover license key"
+  },
   "qf.licenseBackup.recoverable": {
     "message": "You can restore your previous license to get cheaper renewal conditions."
   },
   "qf.licenseBackup.restored": {
     "message": "Your key was safely restored. Even though it expired, you can get a fresh key for a discount."
   },
-  "qf.licenseBackup.switch": { "message": "Switch to Basic version" },
+  "qf.licenseBackup.switch": {
+    "message": "Switch to Basic version"
+  },
   "qf.licenseValidation.expired": {
     "message": "Your quickFilters Pro license has expired. Click $renewButton$ below to renew it.",
     "placeholders": {
@@ -1849,560 +2323,14 @@
   "qf.youtube.tbdaily": {
     "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "Start Filter Assistant"
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "End Filter Assistant"
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "Q"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "Create Filter from Message…"
-  },
-  "quickfilters.menu.changelog": {
-    "message": "Change Log…"
-  },
-  "quickfilters.menu.license": {
-    "message": "Check license status…"
-  },
-  "quickfilters.menu.news": {
-    "message": "News / Change Log…"
-  },
-  "quickfilters.menu.tools": {
-    "message": "Tools"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "Message Filters…"
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "Show a list of message filters"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "Run filters"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "Run the filters set up for the current folder"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "Filter selected mails"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "Run the filters on the selected mails"
-  },
-  "quickfilters.Start.label": {
-    "message": "Start Filter Assistant…"
-  },
-  "quickfilters.addTag.label": {
-    "message": "Tag Message"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "Archiving {1} Filters"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} filters could not be encoded! Please check the error log for detail."
-  },
-  "quickfilters.button.assistant": {
-    "message": "Toggle assistant…"
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "Toggles filter assistant mode. When active, drag and drop emails to create filters."
-  },
-  "quickfilters.button.bug": {
-    "message": "Troubleshoot"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "Cancel duplicates"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "Reset duplicate search"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "Cancel search"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "Cancel search by folder"
-  },
-  "quickfilters.button.clone": {
-    "message": "Clone"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "C"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "Clone a filter"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "Find duplicates"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "Find duplicate attributes"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "Get {1}"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "Restore Filters…"
-  },
-  "quickfilters.button.merge": {
-    "message": "Merge"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "M"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "Merge multiple filters with the same action"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "Backup Filters…"
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "Change search properties…"
-  },
-  "quickfilters.button.settings": {
-    "message": "quickFilters Settings…"
-  },
-  "quickfilters.button.sort": {
-    "message": "Sort"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "Sort Alphabetically"
-  },
-  "quickfilters.button.support": {
-    "message": "quickFilters Support Site"
-  },
-  "quickfilters.clone.label": {
-    "message": "(copy)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "To clone, select exactly one filter."
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "Could not determine which filter is selected"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "No filters in clipboard!"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "Please select at least one filter!"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "Select a different account for pasting items!"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "Copy Message to"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "The account ({1}) cannot have filters."
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "This template requires at least 2 mails."
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header."
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "Cannot access message database for folder {1}"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\nConsider running the Repair Folder command."
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "Folder ({1}) does not have a server."
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "Consider updating to a newer version to get this feature."
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nDo you want to create a filter from this message anyway?"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "To create a filter, please select exactly one email!"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Blind Carbon Copy (BCC)"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Carbon Copy (CC)"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "The quickFilters assistant will add an action automatically. Please leave the default action 'set Priority to normal' as a placeholder."
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "Domain of Email"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "domain extension"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "Root Domain"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "Subdomain"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "Email Address"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "First Name"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "From"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "Last Name"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "List Id"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "List Post"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "Full Name"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "Newsgroups"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Reply To"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "Subject"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "Subject Regular Expression"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "To"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "Template Name:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters Custom Template"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "Custom Variables"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "On Filter Creation, these variables are replaced with the corresponding mail headers of the current mail."
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "Reply-To"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "Found {0} enabled filters that have no method of running (either Manual, Incoming or Automatic). Should they be changed to execute automatically when receiving new mail?"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "No faulty filters found."
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} filters were fixed."
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "Delete From POP Server"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "Delete Message"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "Fetch From POP Server"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "Do not show this message again."
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "Assisted filter mode started. Whenever you move an email into another mail folder a 'Create Filter Rule' assistant will start. #1 uses message filters for automatically moving emails based on rules such as 'who is the sender?', 'is a certain keyword in the subject line?'. To stop filter assisted mode, press the [filter assistant] button again."
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "Filter Assist Mode"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "Find Filters…"
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "Forward Message to"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "JSON File"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "Ignore Subthread"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "Ignore Thread"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(The key entered may be for {2})."
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "Mark As Read"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "Add Star"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "Mark As Unread"
-  },
-  "quickfilters.menu.copy": {
-    "message": "Copy"
-  },
-  "quickfilters.menu.cut": {
-    "message": "Cut"
-  },
-  "quickfilters.menu.paste": {
-    "message": "Paste"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "Remove duplicate action"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "Remove duplicate condition"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "Email addresses were omitted from the conditions - quickFilters avoids filtering for your own mail address:"
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "Could not get the main action of the filter: {1}"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "Cannot merge all selected filters: action mismatch with filter {1}!"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "Deselect filters that do not match and continue?"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "To merge, select at least 2 filters"
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "Cannot determine first selected filter - to merge, you must select at least 2 filters!"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "A target filter must be selected for merging!"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "Exactly one filter entry must be selected!"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "Move Message to"
-  },
-  "quickfilters.notification.donate": {
-    "message": "Donate"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "Do not show this message again."
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Extend License"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "This will extend the current license date by 1 year. It's typically cheaper than a new license."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Get Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Renew License"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· {1} free uses remaining."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} is a Pro feature"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "Premium Feature"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "Premium Feature"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "To use filter functions from the QuickFolders navigation bar in Thunderbird 115:\n - you either need a valid QuickFolders license\n - or you can get a $addonName$ Pro license to support this feature.",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "Register {1}"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "Add Tag (label)"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "Name"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "Reply with Template"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "Search Condition (Text)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "Actions that modify Strings"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Target Folder Name"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "Target Folder Path"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "Your license expired {1} days ago"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "Custom Templates"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "Duplicates Finder"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "Restore filters"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "Backup filters"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "Search Filter for Folder"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "Sort Filters"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "Sort Search Terms"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "Found subjects starting with the same text: \"$prefix$\".\nUse this as the subject search condition?",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "Please enter a short subject line:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "Contact quickFilters Support"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "Copied variable {1} to clipboard, please insert into a search term."
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "Please add the term '{1}' as a custom header to use this in a filter."
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "Name of Custom Template:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "We found duplicates for the following filters below.\nFix this and import anyway?"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "Do not show this warning again."
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "Your license expired on:"
-  },
-  "quickfilters.registration.menu": {
-    "message": "$licenseName$ License…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "Reply with Template"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "Apply filters to selected messages…"
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "Running {0} Filters in folder {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Running Filter '{0}' in folder {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Run filters on folder '{1}'…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "No filters targeting this folder found."
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "Set Junk Status to"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "Set Priority to"
-  },
-  "quickfilters.sort": {
-    "message": "Sort"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "Sort search terms"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "To sort alphabetically, select at least 2 filters"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "Stop Filter Execution"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "Could not create filter: without valid search terms the filter can not be edited."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Could not start the folder repair. Please try Properties → Repair Folder after any current folder operation has finished."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters could not retrieve the necessary details to create or update a filter.\n\nThe destination folder \"{0}\" may need repair.\n\nTry to repair the folder now?\n\nWait for the repair to finish, then try creating the filter again."
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "A template of this name already exists! The name must be unique."
-  },
-  "quickfilters.watchThread.label": {
-    "message": "Watch Thread"
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "quickFilters Assistant"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "License expired!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Click to open quickFilters license panel. Right-click for other options."
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters was updated!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Open the '{menulabel}' menu below to see what's new. Doing so also removes the 🟠."
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters Assistant"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "License expires in $daysLeft$ days",
@@ -2416,8 +2344,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "Filter creation assistant; tools for filters"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters was updated!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Open the '{menulabel}' menu below to see what's new. Doing so also removes the 🟠."
+  },
+  "register.licenseValid.expired": {
+    "message": "Your license expired on:"
+  },
+  "registration.menu": {
+    "message": "$licenseName$ License…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "Renew your license."
+  },
+  "replyWithTemplate.label": {
+    "message": "Reply with Template"
   },
   "restart-app": {
     "message": "Restart $application$ to activate this option.",
@@ -2427,6 +2375,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "Run filters"
+  },
+  "RunButton.tooltip": {
+    "message": "Run the filters set up for the current folder"
+  },
+  "RunButtonMsg.label": {
+    "message": "Filter selected mails"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "Run the filters on the selected mails"
   },
   "runFilters.folder.confirm": {
     "message": "Run filters on folder $folderName$?",
@@ -2438,6 +2398,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "Run filters on selected mails?"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "Apply filters to selected messages…"
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "Running {0} Filters in folder {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Run filters on folder '{1}'…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Running Filter '{0}' in folder {1}."
+  },
+  "search.warning.noresults": {
+    "message": "No filters targeting this folder found."
+  },
+  "setJunkScore.label": {
+    "message": "Set Junk Status to"
+  },
+  "setPriority.label": {
+    "message": "Set Priority to"
+  },
+  "sort": {
+    "message": "Sort"
+  },
+  "sort.tooltip": {
+    "message": "Sort search terms"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "To sort alphabetically, select at least 2 filters"
   },
   "special-offer-content": {
     "message": "Now is the best opportunity to get a License as there is a {bold$reduction$ reduction{/bold}  on the price of a quickFilters Pro license to celebrate 9 years of quickFilters! This special offer will be available until {bold$expirydate${/bold} .",
@@ -2476,6 +2466,12 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "Start Filter Assistant…"
+  },
+  "stopExecution.label": {
+    "message": "Stop Filter Execution"
   },
   "subjectCompleteExtract": {
     "message": "Always insert the complete subject line."
@@ -2829,9 +2825,15 @@
   "troubleshooter.summary": {
     "message": "Filters needing review: $filters$ · $resolved$ problems resolved · $checks$ of 4 checks run",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2867,6 +2869,21 @@
   "version": {
     "message": "Version:"
   },
+  "warning.emptyFilter": {
+    "message": "Could not create filter: without valid search terms the filter can not be edited."
+  },
+  "warning.folderRepairFailed": {
+    "message": "Could not start the folder repair. Please try Properties → Repair Folder after any current folder operation has finished."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters could not retrieve the necessary details to create or update a filter.\n\nThe destination folder \"{0}\" may need repair.\n\nTry to repair the folder now?\n\nWait for the repair to finish, then try creating the filter again."
+  },
+  "warning.templateNameNotUnique": {
+    "message": "A template of this name already exists! The name must be unique."
+  },
+  "watchThread.label": {
+    "message": "Watch Thread"
+  },
   "whats-new-btn": {
     "message": "What's new?"
   },
@@ -2887,7 +2904,10 @@
   "whats-new-maintenance": {
     "message": "Maintenance Update $ver$. Important fixes and compatibility updates following the minor release, including urgent regressions.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

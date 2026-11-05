@@ -300,7 +300,7 @@ function formatAll(txt) {
     .replace(/\{\/P\}/g, "</p>")
     .replace(
       /\{createFilterFromMessage\}/g,
-      messenger.i18n.getMessage("quickfilters.FromMessage.label")
+      messenger.i18n.getMessage("FromMessage.label")
     )
     .replace(/\{autoMerge\}/g, messenger.i18n.getMessage("chkMergeAuto.label"))
     .replace(/\{code\}(.*?)\{\/code\}/g, "<code>$1</code>");

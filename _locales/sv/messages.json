@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "För att fortsätta vara användbar måste vi tilläggsutvecklare nu finansiera de resurser som behövs för att fixa och skriva om så att våra användare kan dra nytta av den funktionalitet vi tillhandahåller."
   },
-  "assistant.ux.title": {
-    "message": "Användargränssnitt"
+  "addTag.label": {
+    "message": "Sätt en etikett på meddelandet"
   },
   "assistant.ux.assistant.html": {
     "message": "Visa assistenten i det nya HTML-användargränssnittet"
@@ -40,11 +40,21 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Se till att assistenten förblir överst när den är aktiverad."
   },
+  "assistant.ux.title": {
+    "message": "Användargränssnitt"
+  },
+  "backup.archivingFilters": {
+    "message": "Arkiverar {1} filter"
+  },
   "backup.backup.accountsFilters": {
     "message": "$accountCount$ konton · $filterCount$ filter",
     "placeholders": {
-      "accountCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "accountCount": {
+        "content": "$1"
+      },
+      "filterCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.backup.accountsLabel": {
@@ -52,15 +62,6 @@
   },
   "backup.backup.allAccounts": {
     "message": "Alla konton"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "Säkerhetskopiera filter från $accountName$",
-    "placeholders": {
-      "accountName": { "content": "$1" }
-    }
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "Säkerhetskopiera valda filter"
   },
   "backup.backup.backup": {
     "message": "Säkerhetskopiering"
@@ -71,21 +72,40 @@
   "backup.backup.backupFailed": {
     "message": "Säkerhetskopiering misslyckades: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Säkerhetskopiera filter från $accountName$",
+    "placeholders": {
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
     "message": "Säkerhetskopieringen har sparats, men avslutandet misslyckades: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
     "message": "Säkerhetskopieringen sparades till $filePath$, men inställningarna kunde inte sparas: $error$",
     "placeholders": {
-      "filePath": { "content": "$1" },
-      "error": { "content": "$2" }
+      "error": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$1"
+      }
     }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Säkerhetskopiera valda filter"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "Säkerhetskopieringen sparades inte."
@@ -93,7 +113,9 @@
   "backup.backup.cannotLoadAccounts": {
     "message": "Kan inte ladda konton: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.cannotReadFilters": {
@@ -105,19 +127,25 @@
   "backup.backup.couldNotDeleteFilter": {
     "message": "Kunde inte ta bort filter: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotEditFilter": {
     "message": "Kunde inte redigera filter: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
     "message": "Kunde inte återgå till filterlistan: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.currentProfile": {
@@ -126,7 +154,9 @@
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
     "message": "Borttaget filter \"$filterName$\". Säkerhetskopiera igen om du vill spara denna ändring.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.description": {
@@ -144,7 +174,9 @@
   "backup.backup.filters": {
     "message": "$filterCount$ filter",
     "placeholders": {
-      "filterCount": { "content": "$1" }
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
@@ -156,14 +188,20 @@
   "backup.backup.highlightWarningsFor": {
     "message": "Markera $warningCount$ varningar för $accountName$",
     "placeholders": {
-      "warningCount": { "content": "$1" },
-      "accountName": { "content": "$2" }
+      "accountName": {
+        "content": "$2"
+      },
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.highlightWarningsFor2": {
     "message": "Markera varningar för $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
@@ -175,16 +213,26 @@
   "backup.backup.ofAccountsSelectedFilters": {
     "message": "$selectedAccountCount$ av $accountCount$ konton valda · $filterCount$ filter",
     "placeholders": {
-      "selectedAccountCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filterCount": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filterCount": {
+        "content": "$3"
+      },
+      "selectedAccountCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.ofFiltersSelected": {
     "message": "$selectedFilterCount$ av $filterCount$ filter valda",
     "placeholders": {
-      "selectedFilterCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "filterCount": {
+        "content": "$2"
+      },
+      "selectedFilterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
@@ -208,15 +256,23 @@
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
     "message": "Sparade $filterCount$ filter från $accountCount$ konton till $filePath$. Använd Return to Message Filters för att återvända.",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filePath": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$3"
+      },
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.savedTo": {
     "message": "Sparad till $filePath$",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectAtLeastOneAccount": {
@@ -228,13 +284,17 @@
   "backup.backup.selectedFilters": {
     "message": "$accountName$ - valda filter",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectionHint": {
     "message": "(För att bara spara ett urval av filter, håll ned Ctrl medan du klickar på $icon$ i meddelandefilter.)",
     "placeholders": {
-      "icon": { "content": "$1" }
+      "icon": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.title": {
@@ -252,13 +312,17 @@
   "backup.common.warningCount": {
     "message": "$count$ varningar",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.common.warningCountOne": {
     "message": "$count$ varning",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.backupChanges": {
@@ -267,11 +331,19 @@
   "backup.confirm.deleteFilter": {
     "message": "Ta bort filtret \"$name$\"?",
     "placeholders": {
-      "name": { "content": "$1" }
+      "name": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.doNotAskAgain": {
     "message": "Fråga inte igen"
+  },
+  "backup.customErrors": {
+    "message": "Följande filter har anpassade handlingar som inte kan sparas helt och hållet - ett tredjepartstillägg kanske saknas:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} filter kunde inte avkodas! Kolla felloggen för detaljer."
   },
   "backup.format.chooseDestination": {
     "message": "Välj destination"
@@ -288,13 +360,17 @@
   "backup.format.invalidActionOrConditionIn": {
     "message": "Ogiltig åtgärd eller villkor i $filterName$.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidFilterDataIn": {
     "message": "Ogiltig filterdata i $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidReferencedAccountDirectory": {
@@ -312,23 +388,37 @@
   "backup.format.message": {
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": { "content": "$1" },
-      "month": { "content": "$2" },
-      "day": { "content": "$3" },
-      "hour": { "content": "$4" },
-      "minute": { "content": "$5" }
+      "day": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "year": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.missingFiltersFor": {
     "message": "Filter saknas för $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.referenced": {
     "message": "$accountIdentity$ (referens)",
     "placeholders": {
-      "accountIdentity": { "content": "$1" }
+      "accountIdentity": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.remembered": {
@@ -349,7 +439,9 @@
   "backup.mapping.assignedToMoveHere": {
     "message": "Tilldelad $accountName$ - flytta hit",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.dropATargetHere": {
@@ -358,8 +450,12 @@
   "backup.mapping.filters": {
     "message": "$filterCount$ filter$statusSuffix$",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "statusSuffix": { "content": "$2" }
+      "filterCount": {
+        "content": "$1"
+      },
+      "statusSuffix": {
+        "content": "$2"
+      }
     }
   },
   "backup.mapping.filtersRestored": {
@@ -380,13 +476,17 @@
   "backup.mapping.restoreFiltersFrom": {
     "message": "Återställ filter från $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountFor": {
     "message": "Välj konto för $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
@@ -395,13 +495,17 @@
   "backup.mapping.warnings": {
     "message": "$warningCount$ varningar",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
     "message": "Konto $accountId$ är inte tillgängligt eller stöder inte filter.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
@@ -410,13 +514,17 @@
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
     "message": "Kunde inte exportera filtret \"$filterName$\". Ingen säkerhetskopia skrevs.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.destinationAccountIsUnavailable": {
     "message": "Destinationskonto $accountId$ är inte tillgängligt.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
@@ -428,7 +536,9 @@
   "backup.native.folderDoesNotExistInTheDestinationAccount": {
     "message": "Mappen \"$folderName$\" finns inte i målkontot",
     "placeholders": {
-      "folderName": { "content": "$1" }
+      "folderName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.invalidAccountMapping": {
@@ -479,7 +589,9 @@
   "backup.native.noDestinationSelectedForAccount": {
     "message": "Ingen destination har valts för kontot \"$accountName$\"",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
@@ -497,8 +609,12 @@
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
     "message": "Sparning misslyckades ($saveError$); återställning av originalfilen misslyckades också ($restoreError$)",
     "placeholders": {
-      "saveError": { "content": "$1" },
-      "restoreError": { "content": "$2" }
+      "restoreError": {
+        "content": "$2"
+      },
+      "saveError": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
@@ -546,14 +662,20 @@
   "backup.restore.cannotLoadDestinationAccounts": {
     "message": "Kan inte ladda destinationskonton: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.cannotOpenBackup": {
     "message": "Kan inte öppna säkerhetskopian: $error$$previousBackupNotice$",
     "placeholders": {
-      "error": { "content": "$1" },
-      "previousBackupNotice": { "content": "$2" }
+      "error": {
+        "content": "$1"
+      },
+      "previousBackupNotice": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
@@ -562,13 +684,17 @@
   "backup.restore.couldNotSaveReport": {
     "message": "Kunde inte spara rapporten: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.deletedFilter": {
     "message": "Borttaget filter \"$filterName$\".",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.description": {
@@ -619,13 +745,17 @@
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
     "message": "Återställning slutförd, men mappningar kunde inte kommas ihåg: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFailed": {
     "message": "Återställning misslyckades: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFilters": {
@@ -634,13 +764,17 @@
   "backup.restore.restoreReportSavedTo": {
     "message": "Återställningsrapport sparad till $filePath$.",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
     "message": "Återställ recension · $warningCount$ varningar och överhoppade objekt",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreWasNotPerformed": {
@@ -652,20 +786,38 @@
   "backup.restore.resultComplete": {
     "message": "Återställning slutförd: $added$ tillagd, $replaced$ ersatt, $kept$ befintliga filter bevarade, $skipped$ överhoppade.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" }
+      "added": {
+        "content": "$1"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.resultErrors": {
     "message": "Återställningen avslutad med fel: $added$ tillagd, $replaced$ ersatt, $kept$ befintliga filter bevarade, $skipped$ hoppade över, $failed$ konton misslyckades.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" },
-      "failed": { "content": "$5" }
+      "added": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$5"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
@@ -677,15 +829,23 @@
   "backup.restore.selectDestinationAccountsFor": {
     "message": "Välj destinationskonton för: $accountNames$.",
     "placeholders": {
-      "accountNames": { "content": "$1" }
+      "accountNames": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
     "message": "$backupType$ · $sourceAccountCount$ källkonton · $referencedAccountCount$ refererade konton",
     "placeholders": {
-      "backupType": { "content": "$1" },
-      "sourceAccountCount": { "content": "$2" },
-      "referencedAccountCount": { "content": "$3" }
+      "backupType": {
+        "content": "$1"
+      },
+      "referencedAccountCount": {
+        "content": "$3"
+      },
+      "sourceAccountCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
@@ -706,19 +866,25 @@
   "backup.startup.cannotOpenBackup": {
     "message": "Kan inte öppna backup: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.startup.cannotOpenRestore": {
     "message": "Kan inte öppna återställning: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
     "message": "Backend för backuplagring som inte stöds: $backend$",
     "placeholders": {
-      "backend": { "content": "$1" }
+      "backend": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.account": {
@@ -736,7 +902,9 @@
   "backup.warnings.backupSavedWithWarnings": {
     "message": "Backup sparad med $warningCount$ varningar",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.clearHighlight": {
@@ -763,11 +931,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "Dubblettnamn – hoppat över"
   },
-  "backup.warnings.editFilter": {
-    "message": "Redigera"
-  },
   "backup.warnings.editedByUser": {
     "message": "Redigerat av användare"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Redigera"
   },
   "backup.warnings.filter": {
     "message": "Filter"
@@ -799,7 +967,9 @@
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
     "message": "Varningar för $accountName$ markerade. Alla varningar förblir synliga.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
@@ -816,6 +986,81 @@
   },
   "btn-want-to-donate": {
     "message": "Jag vill hjälpa till med en engångs donation."
+  },
+  "button.assistant": {
+    "message": "Växla assistentläge …"
+  },
+  "button.assistant.tooltiptext": {
+    "message": "Växlar filterassistentläget av/på. När det är aktiverat, dra och släpp e-brev för att skapa filter."
+  },
+  "button.bug": {
+    "message": "Felsökning"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Felsökning: 1. filter som inte körs automatiskt 2. ogiltiga målmappar 3. validera anpassade åtgärder"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. Blandade villkor &quot;Alla&quot; / &quot;Någon av följande&quot;. Högerklicka för att konfigurera steg."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "Avbryt dubbletthanteringen"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "Återställ dubblettsökvärden"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "Avbryt sökning"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "Avbryt sökning efter mapp"
+  },
+  "button.clone": {
+    "message": "Duplicera"
+  },
+  "button.clone.accesskey": {
+    "message": "D"
+  },
+  "button.clone.tooltiptext": {
+    "message": "Duplicera ett filter"
+  },
+  "button.findDuplicates.label": {
+    "message": "Sök efter dubbletter"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "Sök efter dubblettattributer"
+  },
+  "button.getOtherAddon": {
+    "message": "Hämta {1}"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "Återställ filter..."
+  },
+  "button.merge": {
+    "message": "Slå samman"
+  },
+  "button.merge.accesskey": {
+    "message": "m"
+  },
+  "button.merge.tooltiptext": {
+    "message": "Slå samman filter som utför samma åtgärd"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "Säkerhetskopiera filter..."
+  },
+  "button.searchProperties": {
+    "message": "Ändra sökegenskaper…"
+  },
+  "button.settings": {
+    "message": "Inställningar för quickFilters…"
+  },
+  "button.sort": {
+    "message": "Sortera"
+  },
+  "button.sort.tooltiptext": {
+    "message": "Sortera i bokstavsordning"
+  },
+  "button.support": {
+    "message": "quickFilters supportwebbplats"
   },
   "buyDomainLicense.button": {
     "message": "Köp domänlicens"
@@ -931,11 +1176,158 @@
   "chkWhenArchiving.label": {
     "message": "Under arkivering"
   },
+  "clone.label": {
+    "message": "(kopia)"
+  },
+  "clone.selectOne": {
+    "message": "För att duplicera, välj exakt ett (1) filter."
+  },
+  "clone.undetermined": {
+    "message": "Det gick inte att slå fast vilket filter som har valts"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "Det finns inga filter i Urklipp!"
+  },
+  "copy.warning.selectFilter": {
+    "message": "Välj åtminstone ett filter!"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "Välj ett annat konto för inklistring av objekt!"
+  },
+  "copyMessage.label": {
+    "message": "Kopiera meddelande till"
+  },
   "cost-of-independence": {
     "message": "Mjukvaruutveckling kostar tid och pengar - till skillnad från många plattformsappar är tillägg inte skrivna av stora företag och de sponsras inte heller på något sätt av Mozilla."
   },
   "createdBy": {
     "message": "Skapat av:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "Kontot {{1}} kan inte ha filter."
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "Denna mall kräver åtminstone två (2) e-brev."
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "Kontot [{1}], som baseras på ett e-postkonto, kan inte ha filter!\nAnvänd aktuell inkorg istället."
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "Ledsen, men i denna version av {1} kan vi inte skapa filter, eftersom programmet saknar stöd för extraktion av adresser ur meddelandehuvudet."
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "Det gick inte att få åtkomst till meddelandedatabasen för mappen {1}"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "Det gick inte att skapa filtret: meddelande-ID:t för det första elementet i meddelandet kunde inte hämtas!\nÖverväg att att köra kommandot"
+  },
+  "createFilter.warning.noServer": {
+    "message": "Mappen {{1}} har ingen server."
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "Överväg att uppdatera till en senare version för att få tillgång till denna funktion."
+  },
+  "createFromMail.inboxWarning": {
+    "message": "\"Skapa filter från meddelande\" är mycket mer användbart om du redan har flyttat e-postmeddelandet till en annan mapp eller lade till en tagg på den, då quickFilters kommer välja lämplig åtgärd åt dig.\nVill du fortfarnade skapa ett filter från detta meddelande?"
+  },
+  "createFromMail.selectWarning": {
+    "message": "Vill du skapa ett filter måste du markera exakt ett e-brev!"
+  },
+  "customfilter.replyto": {
+    "message": "Svar-till"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Dold kopia (BCC)"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Kopia (CC)"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "quickFilters-assistenten lägger till en åtgärd automatiskt. Lämna standardåtgärden 'ställ prioritet till normal' som platshållare."
+  },
+  "customHeader.Domain": {
+    "message": "E-postdomän"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "Domänförlängning"
+  },
+  "customHeader.Domain.Root": {
+    "message": "Korenska Domena"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "Underdomän"
+  },
+  "customHeader.Email": {
+    "message": "E-postadress"
+  },
+  "customHeader.FirstName": {
+    "message": "Förnamn"
+  },
+  "customHeader.From": {
+    "message": "Från"
+  },
+  "customHeader.LastName": {
+    "message": "Efternamn"
+  },
+  "customHeader.ListId": {
+    "message": "List-ID"
+  },
+  "customHeader.ListPost": {
+    "message": "Listelement"
+  },
+  "customHeader.NamePart": {
+    "message": "Fullständigt namn"
+  },
+  "customHeader.Newsgroups": {
+    "message": "Nyhetsgrupper"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Svara till"
+  },
+  "customHeader.Subject": {
+    "message": "Ämne"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "Reguljärt uttryck för ämne"
+  },
+  "customHeader.To": {
+    "message": "Till"
+  },
+  "customTemplate.name": {
+    "message": "Mallnamn:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters anpassad mall"
+  },
+  "customVariable.label": {
+    "message": "Anpassade variabler"
+  },
+  "customVariable.tooltip": {
+    "message": "När filter skapas ersätts dessa variabler med motsvarande e-postsidhuvuden i det aktuella e-postmeddelandet."
+  },
+  "debug.fixFilters": {
+    "message": "Hittade {0} aktiverade filter som inte kan köras (antingen manuellt, inkommande eller automatiskt). Ska de ändras så att de körs automatiskt när man tar emot ny e-post?"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
+  },
+  "debug.fixFilters.none": {
+    "message": "Inga felaktiga filter hittades."
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} filter fixades."
+  },
+  "deleteFromPOP.label": {
+    "message": "Ta bort från POP-server"
+  },
+  "deleteMessage.label": {
+    "message": "Ta bort meddelandet"
   },
   "domainLicense.email": {
     "message": "Vi kontaktar dig genom denna e-post adress för att generera din domänlicens; Det kan ta upp till två arbetsdagar för oss att återkomma. Ange domännamnet för licensen på nästa sida."
@@ -978,14 +1370,47 @@
   "extensions.quickfilters.description": {
     "message": "Skapa meddelandefilter snabbt och enkelt genom att dra och släppa meddelanden och analysera deras attribut."
   },
+  "fetchFromPOP.label": {
+    "message": "Hämta från POP-server"
+  },
+  "FilterAssistant.start": {
+    "message": "Starta Filterassistenten"
+  },
+  "FilterAssistant.stop": {
+    "message": "Stäng av Filterassistenten"
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "Visa inte detta meddelande igen."
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "Filterassistentläget har startats. När du flyttar ett e-brev till en annan meddelandemapp öppnas en assistent för att skapa filterregler. #1 använder meddelandefilter för att automatiskt flytta e-brev baserat på regler såsom"
+  },
+  "filters.toggleMessage.title": {
+    "message": "Filterassistentläge"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "Sök efter filter…"
+  },
   "firstName.label": {
     "message": "Förnamn:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Tillämpa filter automatiskt på inkommande e-post"
   },
+  "forwardTo.label": {
+    "message": "Vidarebefordra meddelande till"
+  },
+  "fpJsonFile": {
+    "message": "JSON-fil"
+  },
   "freeLicense": {
     "message": "Om du tidigare har donerat till quickFilters-projektet eller har bidragit med arbetsinsatser inom projektet, t.ex. genom att översätta eller skriva korrigeringskod, så kan du vara berättigad till en gratis licensnyckel. Kontakta oss via supportfliken i quickFilters inställningar."
+  },
+  "FromMessage.accesskey": {
+    "message": "q"
+  },
+  "FromMessage.label": {
+    "message": "Skapa filter utifrån meddelande…"
   },
   "getquickFilters": {
     "message": "Skaffa quickFilters Pro"
@@ -1016,6 +1441,12 @@
   "homepage": {
     "message": "Webbplats:"
   },
+  "ignoreSubthread.label": {
+    "message": "Ignorera undertråd"
+  },
+  "ignoreThread.label": {
+    "message": "Ignorera tråd"
+  },
   "intro": {
     "message": "En årslicens för quickFilters Pro ger dig tillgång till alla licensbelagda funktioner under ett års tid. Det ger oss även medel, som vi kan använda för att vidareutveckla produkten."
   },
@@ -1044,8 +1475,80 @@
   "licenseTerms.show": {
     "message": "Visa licensvillkor"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(Den angivna nyckeln kan vara för {2})."
+  },
   "licenseWindow.title": {
     "message": "Licens för quickFilters Pro"
+  },
+  "ListButton.label": {
+    "message": "Meddelandefilter…"
+  },
+  "ListButton.tooltip": {
+    "message": "Visa en lista över meddelandefilter"
+  },
+  "markMessageRead.label": {
+    "message": "Märk som läst"
+  },
+  "markMessageStarred.label": {
+    "message": "Lägg till märke"
+  },
+  "markMessageUnread.label": {
+    "message": "Märk som oläst"
+  },
+  "menu.changelog": {
+    "message": "Ändra logg…"
+  },
+  "menu.copy": {
+    "message": "Kopiera"
+  },
+  "menu.cut": {
+    "message": "Klipp ut"
+  },
+  "menu.license": {
+    "message": "Kontrollera licensstatus…"
+  },
+  "menu.news": {
+    "message": "Nyheter / Ändringslogg…"
+  },
+  "menu.paste": {
+    "message": "Klistra in"
+  },
+  "menu.removeDupeAction": {
+    "message": "Ta bort dubblettåtgärd"
+  },
+  "menu.removeDupeCondition": {
+    "message": "Ta bort dubblettvillkor"
+  },
+  "menu.tools": {
+    "message": "Verktyg"
+  },
+  "merge.addressesOmitted": {
+    "message": "E-postadresser uteslöts från villkoren – quickFilters inaktiverar filtrering för din egen e-postadress:"
+  },
+  "merge.warning.missingAction": {
+    "message": "Det gick inte att hämta huvudåtgärden för filtret: {1}"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "Det gick inte att slå samman alla markerade filter: åtgärdsmatchningsfel med filtret {1}!"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "Avmarkera filter som inte matchar och fortsätta?"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "Välj åtminstone 2 filter för att genomföra en sammanslagning"
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "Det gick inte att avgöra vilket filter som markerades först. För att slå samman filter måste du markera åtminstone två stycken!"
+  },
+  "merge.warning.selectTarget": {
+    "message": "Ett målfilter för sammanslagningen måste väljas!"
+  },
+  "move.selectOne": {
+    "message": "Exakt en filterpost måste vara markerad!"
+  },
+  "moveMessage.label": {
+    "message": "Flytta meddelande till"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla tillhandahåller bara en grundläggande plattform för att leverera vår programvara till dig, slutanvändarna. Om vi behöver be våra användare om betalning eller support kan vi inte göra detta från addons.thunderbird.net - det är inte en 'app store' med inbyggda betalväggar eller licenshantering som iTunes eller google play."
@@ -1077,6 +1580,57 @@
   "news.minimal.tip": {
     "message": "Om markerad ändrar quickFilters inte knappens etikett. Endast en liten orange prick 🟠 visas."
   },
+  "notification.donate": {
+    "message": "Donera"
+  },
+  "notification.dontShowAgain": {
+    "message": "Visa inte detta meddelande igen."
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "Förläng licens"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "Detta förlänger datumet för den nuvarande licensen med 1 år. Det är vanligtvis billigare än en ny licens."
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "Skaffa Pro"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Förnya licens"
+  },
+  "notification.premium.freeUses": {
+    "message": "· {1} kostnadsfria användningar återstår."
+  },
+  "notification.premium.text": {
+    "message": "{1} är en Pro-funktion"
+  },
+  "notification.premium.title": {
+    "message": "Licensbelagd funktion"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "Du har använt alla kostnadsfria provförsök för den här funktionen."
+  },
+  "notification.proFeature.notificationText": {
+    "message": "Funktionen {1} är en Premium-funktion. Om du regelbundet använder quickFilters, donera gärna en slant till utvecklingen av tillägget."
+  },
+  "notification.proFeature.title": {
+    "message": "Premium-funktion"
+  },
+  "notification.QF.navigationbar": {
+    "message": "Så här använder du filterfunktioner från QuickFolders-navigeringsfältet i Thunderbird 115:\n - behöver du antingen en giltig QuickFolders-licens\n - eller så kan du skaffa en $addonName$ Pro-licens för att stödja denna funktion.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "Registrera {1}"
+  },
   "ongoing-work": {
     "message": "Att köpa en licens är helt frivilligt. För att göra det enklare för användarna förblir den nuvarande versionen bakåtkompatibel med Thunderbird 115 så länge det tekniskt är möjligt. Thunderbird följer nu en månadsvis utgivningscykel, vilket ökar vårt arbetsbelastning för testning och utveckling. Ditt stöd hjälper oss att hänga med i dessa förändringar!",
     "placeholders": {
@@ -1086,11 +1640,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "Lägg till tagg (etikett)"
+  },
+  "option.searchProperty.name": {
+    "message": "Namn"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "Svara med mall"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "Sökvillkor (text)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "(Anpassad) ange stränghandling"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "Målmappens namn"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "Sökväg till målmappen"
+  },
   "pane1.title": {
     "message": "Inställningar för quickFilters"
   },
   "prefwindow.title": {
     "message": "Inställningar för quickFilters"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "Din licens gick ut för {1} dygn sedan"
+  },
+  "premium.title.customTemplate": {
+    "message": "Anpassade mallar"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "Dubbletthanteraren"
+  },
+  "premium.title.loadFilters": {
+    "message": "Återställ filter"
+  },
+  "premium.title.saveFilters": {
+    "message": "Säkerhetskopiera filter"
+  },
+  "premium.title.searchFolder": {
+    "message": "Sök efter filter för mapp"
+  },
+  "premium.title.sortFilters": {
+    "message": "Sortera filter"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "Sortera söktermer"
   },
   "pricing.section": {
     "message": "För att ta reda på ditt pris, välj ett av följande alternativ först. Detta öppnar ett separat webbläsarfönster där du kan genomföra köpet i webbshoppen."
@@ -1100,6 +1699,35 @@
   },
   "pricing.title": {
     "message": "Prissättning"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "Hittade ämnen som börjar med samma text: \"$prefix$\".\nAnvänd denna text som sökvillkor för ämnet?",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "Ange en kort, beskrivande ämnesrubrik:"
+  },
+  "prompt.contact.title": {
+    "message": "Kontakta quickFilters hjälpcenter"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "Kopierade variabeln {1} till urklipp, klistra in en sökterm."
+  },
+  "prompt.createCustomHeader": {
+    "message": "Lägg till termen \"{1}\" som ett anpassad sidhuvud för att använda detta i ett filter."
+  },
+  "prompt.customTemplateName": {
+    "message": "Namn på anpassad mall:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "Vi hittade duplicerade filter för följande objekt.\nVill du åtgärda detta och ändå importera?"
+  },
+  "promptDontRepeat": {
+    "message": "Visa inte denna varning igen."
   },
   "purchase-a-license": {
     "message": "Köp en licens."
@@ -1125,7 +1753,9 @@
   "qf.button.mergeFilterRules": {
     "message": "Kombinera “$filterName$” med nya regler…",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "qf.button.next": {
@@ -1397,14 +2027,14 @@
   "qf.label.naming.parentFolder": {
     "message": "Lägg till namn på överordnade mappar"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "m"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "Maximalt antal överordnade mappar som ska läggas till:"
   },
   "qf.label.naming.targetAccount": {
     "message": "Lägg till namn på målkonto (för filter som flyttar mail till ett annat konto)"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "m"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "Läs mer om premiumfunktioner på vår webbplats"
@@ -1562,560 +2192,14 @@
   "qf.youtube.tbdaily": {
     "message": "Besök Thunderbord Daily - YouTube-kanalen för tips och guider om quickFilters och e-post på datorer"
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "Starta Filterassistenten"
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "Stäng av Filterassistenten"
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "q"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "Skapa filter utifrån meddelande…"
-  },
-  "quickfilters.menu.changelog": {
-    "message": "Ändra logg…"
-  },
-  "quickfilters.menu.license": {
-    "message": "Kontrollera licensstatus…"
-  },
-  "quickfilters.menu.news": {
-    "message": "Nyheter / Ändringslogg…"
-  },
-  "quickfilters.menu.tools": {
-    "message": "Verktyg"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "Meddelandefilter…"
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "Visa en lista över meddelandefilter"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "Kör filter"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "Kör filtren som är knutna till den aktuella mappen"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "Filtrera markerade meddelanden"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "Kör filter på markerade meddelanden"
-  },
-  "quickfilters.Start.label": {
-    "message": "Starta Filterassistenten…"
-  },
-  "quickfilters.addTag.label": {
-    "message": "Sätt en etikett på meddelandet"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "Arkiverar {1} filter"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "Följande filter har anpassade handlingar som inte kan sparas helt och hållet - ett tredjepartstillägg kanske saknas:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} filter kunde inte avkodas! Kolla felloggen för detaljer."
-  },
-  "quickfilters.button.assistant": {
-    "message": "Växla assistentläge …"
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "Växlar filterassistentläget av/på. När det är aktiverat, dra och släpp e-brev för att skapa filter."
-  },
-  "quickfilters.button.bug": {
-    "message": "Felsökning"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Felsökning: 1. filter som inte körs automatiskt 2. ogiltiga målmappar 3. validera anpassade åtgärder"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. Blandade villkor &quot;Alla&quot; / &quot;Någon av följande&quot;. Högerklicka för att konfigurera steg."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "Avbryt dubbletthanteringen"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "Återställ dubblettsökvärden"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "Avbryt sökning"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "Avbryt sökning efter mapp"
-  },
-  "quickfilters.button.clone": {
-    "message": "Duplicera"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "D"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "Duplicera ett filter"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "Sök efter dubbletter"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "Sök efter dubblettattributer"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "Hämta {1}"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "Återställ filter..."
-  },
-  "quickfilters.button.merge": {
-    "message": "Slå samman"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "m"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "Slå samman filter som utför samma åtgärd"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "Säkerhetskopiera filter..."
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "Ändra sökegenskaper…"
-  },
-  "quickfilters.button.settings": {
-    "message": "Inställningar för quickFilters…"
-  },
-  "quickfilters.button.sort": {
-    "message": "Sortera"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "Sortera i bokstavsordning"
-  },
-  "quickfilters.button.support": {
-    "message": "quickFilters supportwebbplats"
-  },
-  "quickfilters.clone.label": {
-    "message": "(kopia)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "För att duplicera, välj exakt ett (1) filter."
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "Det gick inte att slå fast vilket filter som har valts"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "Det finns inga filter i Urklipp!"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "Välj åtminstone ett filter!"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "Välj ett annat konto för inklistring av objekt!"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "Kopiera meddelande till"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "Kontot {{1}} kan inte ha filter."
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "Denna mall kräver åtminstone två (2) e-brev."
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "Kontot [{1}], som baseras på ett e-postkonto, kan inte ha filter!\nAnvänd aktuell inkorg istället."
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "Ledsen, men i denna version av {1} kan vi inte skapa filter, eftersom programmet saknar stöd för extraktion av adresser ur meddelandehuvudet."
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "Det gick inte att få åtkomst till meddelandedatabasen för mappen {1}"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "Det gick inte att skapa filtret: meddelande-ID:t för det första elementet i meddelandet kunde inte hämtas!\nÖverväg att att köra kommandot"
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "Mappen {{1}} har ingen server."
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "Överväg att uppdatera till en senare version för att få tillgång till denna funktion."
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "\"Skapa filter från meddelande\" är mycket mer användbart om du redan har flyttat e-postmeddelandet till en annan mapp eller lade till en tagg på den, då quickFilters kommer välja lämplig åtgärd åt dig.\nVill du fortfarnade skapa ett filter från detta meddelande?"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "Vill du skapa ett filter måste du markera exakt ett e-brev!"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Dold kopia (BCC)"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Kopia (CC)"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "quickFilters-assistenten lägger till en åtgärd automatiskt. Lämna standardåtgärden 'ställ prioritet till normal' som platshållare."
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "E-postdomän"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "Domänförlängning"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "Korenska Domena"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "Underdomän"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "E-postadress"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "Förnamn"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "Från"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "Efternamn"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "List-ID"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "Listelement"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "Fullständigt namn"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "Nyhetsgrupper"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Svara till"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "Ämne"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "Reguljärt uttryck för ämne"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "Till"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "Mallnamn:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters anpassad mall"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "Anpassade variabler"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "När filter skapas ersätts dessa variabler med motsvarande e-postsidhuvuden i det aktuella e-postmeddelandet."
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "Svar-till"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "Hittade {0} aktiverade filter som inte kan köras (antingen manuellt, inkommande eller automatiskt). Ska de ändras så att de körs automatiskt när man tar emot ny e-post?"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "Inga felaktiga filter hittades."
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} filter fixades."
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "Ta bort från POP-server"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "Ta bort meddelandet"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "Hämta från POP-server"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "Visa inte detta meddelande igen."
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "Filterassistentläget har startats. När du flyttar ett e-brev till en annan meddelandemapp öppnas en assistent för att skapa filterregler. #1 använder meddelandefilter för att automatiskt flytta e-brev baserat på regler såsom"
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "Filterassistentläge"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "Sök efter filter…"
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "Vidarebefordra meddelande till"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "JSON-fil"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "Ignorera undertråd"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "Ignorera tråd"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(Den angivna nyckeln kan vara för {2})."
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "Märk som läst"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "Lägg till märke"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "Märk som oläst"
-  },
-  "quickfilters.menu.copy": {
-    "message": "Kopiera"
-  },
-  "quickfilters.menu.cut": {
-    "message": "Klipp ut"
-  },
-  "quickfilters.menu.paste": {
-    "message": "Klistra in"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "Ta bort dubblettåtgärd"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "Ta bort dubblettvillkor"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "E-postadresser uteslöts från villkoren – quickFilters inaktiverar filtrering för din egen e-postadress:"
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "Det gick inte att hämta huvudåtgärden för filtret: {1}"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "Det gick inte att slå samman alla markerade filter: åtgärdsmatchningsfel med filtret {1}!"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "Avmarkera filter som inte matchar och fortsätta?"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "Välj åtminstone 2 filter för att genomföra en sammanslagning"
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "Det gick inte att avgöra vilket filter som markerades först. För att slå samman filter måste du markera åtminstone två stycken!"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "Ett målfilter för sammanslagningen måste väljas!"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "Exakt en filterpost måste vara markerad!"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "Flytta meddelande till"
-  },
-  "quickfilters.notification.donate": {
-    "message": "Donera"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "Visa inte detta meddelande igen."
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Förläng licens"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "Detta förlänger datumet för den nuvarande licensen med 1 år. Det är vanligtvis billigare än en ny licens."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Skaffa Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Förnya licens"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· {1} kostnadsfria användningar återstår."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} är en Pro-funktion"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "Licensbelagd funktion"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "Funktionen {1} är en Premium-funktion. Om du regelbundet använder quickFilters, donera gärna en slant till utvecklingen av tillägget."
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "Premium-funktion"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "Så här använder du filterfunktioner från QuickFolders-navigeringsfältet i Thunderbird 115:\n - behöver du antingen en giltig QuickFolders-licens\n - eller så kan du skaffa en $addonName$ Pro-licens för att stödja denna funktion.",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "Registrera {1}"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "Lägg till tagg (etikett)"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "Namn"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "Svara med mall"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "Sökvillkor (text)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "(Anpassad) ange stränghandling"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Målmappens namn"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "Sökväg till målmappen"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "Din licens gick ut för {1} dygn sedan"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "Anpassade mallar"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "Dubbletthanteraren"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "Återställ filter"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "Säkerhetskopiera filter"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "Sök efter filter för mapp"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "Sortera filter"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "Sortera söktermer"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "Hittade ämnen som börjar med samma text: \"$prefix$\".\nAnvänd denna text som sökvillkor för ämnet?",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "Ange en kort, beskrivande ämnesrubrik:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "Kontakta quickFilters hjälpcenter"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "Kopierade variabeln {1} till urklipp, klistra in en sökterm."
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "Lägg till termen \"{1}\" som ett anpassad sidhuvud för att använda detta i ett filter."
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "Namn på anpassad mall:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "Vi hittade duplicerade filter för följande objekt.\nVill du åtgärda detta och ändå importera?"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "Visa inte denna varning igen."
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "Din licens löpte ut:"
-  },
-  "quickfilters.registration.menu": {
-    "message": "$licenseName$ Licens…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "Svara med mall"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "Tillämpa filter på markerade meddelanden…"
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "Kör {0} filter i mappen {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Kör filtret \"{0}\" i mappen {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Kör filter i mappen '{1}'…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "Inga filter med denna mapp som mål hittades."
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "Sätt skräpstatus till"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "Sätt prioritet till"
-  },
-  "quickfilters.sort": {
-    "message": "Sortera"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "Sortera söktermer"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "För att sortera i bokstavsordning måste du markera åtminstone 2 filter"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "Avbryt filterkörning"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "Det gick inte att skapa filtret: utan giltiga söktermer kan filtret inte redigeras."
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "En mall med detta namn finns redan! Namnet måste vara unikt."
-  },
-  "quickfilters.watchThread.label": {
-    "message": "Bevaka tråd"
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Det gick inte att starta reparationen av mappen. När pågående mappåtgärder är klara, prova Egenskaper → Reparera mapp."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters kunde inte hämta de uppgifter som behövs för att skapa eller uppdatera ett filter.\n\nMålmappen ”{0}” kan behöva repareras.\n\nFörsöka reparera mappen nu?\n\nVänta tills reparationen är klar och försök sedan skapa filtret igen."
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "Filterassistenten"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licens har gått ut!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Klicka för att öppna quickFilters licenspanel. Högerklicka för andra alternativ."
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters uppdaterades!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Öppna menyn '{menulabel}' nedan för att se nyheterna. Detta tar också bort 🟠."
+  "quickfiltersToolbarButton.label": {
+    "message": "Filterassistenten"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Licensen löper ut om $daysLeft$ dagar",
@@ -2128,8 +2212,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "Assistent för att skapa filter; verktyg för filter"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters uppdaterades!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Öppna menyn '{menulabel}' nedan för att se nyheterna. Detta tar också bort 🟠."
+  },
+  "register.licenseValid.expired": {
+    "message": "Din licens löpte ut:"
+  },
+  "registration.menu": {
+    "message": "$licenseName$ Licens…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "Förnya din licens."
+  },
+  "replyWithTemplate.label": {
+    "message": "Svara med mall"
   },
   "restart-app": {
     "message": "Starta om $application$ för att aktivera det här alternativet.",
@@ -2139,6 +2243,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "Kör filter"
+  },
+  "RunButton.tooltip": {
+    "message": "Kör filtren som är knutna till den aktuella mappen"
+  },
+  "RunButtonMsg.label": {
+    "message": "Filtrera markerade meddelanden"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "Kör filter på markerade meddelanden"
   },
   "runFilters.folder.confirm": {
     "message": "Köra filter i mappen $folderName$?",
@@ -2150,6 +2266,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "Köra filter på utvalda mail?"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "Tillämpa filter på markerade meddelanden…"
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "Kör {0} filter i mappen {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Kör filter i mappen '{1}'…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Kör filtret \"{0}\" i mappen {1}."
+  },
+  "search.warning.noresults": {
+    "message": "Inga filter med denna mapp som mål hittades."
+  },
+  "setJunkScore.label": {
+    "message": "Sätt skräpstatus till"
+  },
+  "setPriority.label": {
+    "message": "Sätt prioritet till"
+  },
+  "sort": {
+    "message": "Sortera"
+  },
+  "sort.tooltip": {
+    "message": "Sortera söktermer"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "För att sortera i bokstavsordning måste du markera åtminstone 2 filter"
   },
   "special-offer-content": {
     "message": "Nu är det bästa tillfället att få en licens eftersom det finns en {bold} $reduction$ rabatt {/bold}  på priset på en quickFilters Pro-licens för att fira 9 år av quickFilters! Detta specialerbjudande kommer att finnas tillgängligt fram till {bold} $expirydate$ {/bold} .",
@@ -2188,6 +2334,12 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "Starta Filterassistenten…"
+  },
+  "stopExecution.label": {
+    "message": "Avbryt filterkörning"
   },
   "subjectCompleteExtract": {
     "message": "Infoga alltid hela ämnesraden."
@@ -2541,9 +2693,15 @@
   "troubleshooter.summary": {
     "message": "$filters$ filter behöver granskas · $resolved$ problem lösta · $checks$ av 4 kontroller körda",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2579,6 +2737,21 @@
   "version": {
     "message": "Version:"
   },
+  "warning.emptyFilter": {
+    "message": "Det gick inte att skapa filtret: utan giltiga söktermer kan filtret inte redigeras."
+  },
+  "warning.folderRepairFailed": {
+    "message": "Det gick inte att starta reparationen av mappen. När pågående mappåtgärder är klara, prova Egenskaper → Reparera mapp."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters kunde inte hämta de uppgifter som behövs för att skapa eller uppdatera ett filter.\n\nMålmappen ”{0}” kan behöva repareras.\n\nFörsöka reparera mappen nu?\n\nVänta tills reparationen är klar och försök sedan skapa filtret igen."
+  },
+  "warning.templateNameNotUnique": {
+    "message": "En mall med detta namn finns redan! Namnet måste vara unikt."
+  },
+  "watchThread.label": {
+    "message": "Bevaka tråd"
+  },
   "whats-new-btn": {
     "message": "Vad är nytt?"
   },
@@ -2599,7 +2772,10 @@
   "whats-new-maintenance": {
     "message": "Underhållsuppdatering $ver$. Viktiga rättningar och kompatibilitetsuppdateringar efter den mindre versionen, inklusive brådskande regressioner.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

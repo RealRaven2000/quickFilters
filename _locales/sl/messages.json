@@ -3,8 +3,8 @@
     "message": "SPLASH"
   },
   "active-version-info": {
-    "message": "Zdaj izvajate {bold} različico $addonVer$ {/bold}  na Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "Zdaj izvajate {bold} različico $addonVer$ {/bold}  na Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -19,9 +19,6 @@
   "addon-authors-struggle": {
     "message": "Da bomo še naprej koristni, moramo razvijalci dodatkov zdaj financirati vire, potrebne za popravljanje in prepisovanje, tako da bodo lahko naši uporabniki še naprej koristili funkcionalnost, ki jo ponujamo."
   },
-  "assistant.ux.title": {
-    "message": "Uporabniški vmesnik"
-  },
   "assistant.ux.assistant.html": {
     "message": "Prikaži pomočnika v novem uporabniškem vmesniku HTML"
   },
@@ -33,6 +30,9 @@
   },
   "assistant.ux.stayFocused.tooltip": {
     "message": "Zagotovite, da ostane asistent na vrhu, ko je aktiviran."
+  },
+  "assistant.ux.title": {
+    "message": "Uporabniški vmesnik"
   },
   "btn-extend-license": {
     "message": "Licenco želim podaljšati za eno leto"
@@ -56,16 +56,16 @@
     "message": "Razmislite o podaljšanju licence za eno leto."
   },
   "extensionDescription": {
-    "message": "Hitro generirajte pravila filtriranja pošte sproti, tako da povlečete in spustite pošto in analizirate njihove atribute.",
-    "description": "Description of the extension."
+    "description": "Description of the extension.",
+    "message": "Hitro generirajte pravila filtriranja pošte sproti, tako da povlečete in spustite pošto in analizirate njihove atribute."
   },
   "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension."
+    "description": "Name of the extension.",
+    "message": "quickFilters"
   },
   "heading-installed": {
-    "message": "Uspešno nameščen $addonName$",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "Uspešno nameščen $addonName$",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -74,8 +74,8 @@
     }
   },
   "heading-updated": {
-    "message": "$addonName$ je bil uspešno posodobljen",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ je bil uspešno posodobljen",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -96,8 +96,8 @@
     "message": "Legacy"
   },
   "license-is-extended": {
-    "message": "Zahvaljujemo se vam za nedavno podaljšanje licence ali če ste prispevali. Ker ste pomagali pri prihodnjem preverjanju tega dodatka, lahko preprosto zaprete to okno.",
-    "description": "Shown if license expires more than a year from now"
+    "description": "Shown if license expires more than a year from now",
+    "message": "Zahvaljujemo se vam za nedavno podaljšanje licence ali če ste prispevali. Ker ste pomagali pri prihodnjem preverjanju tega dodatka, lahko preprosto zaprete to okno."
   },
   "mozillas-basic-platform": {
     "message": "Mozilla ponuja samo osnovno platformo za dostavo naše programske opreme vam, končnim uporabnikom. Če moramo uporabnike prositi za plačilo ali podporo, tega ne moremo storiti z addons.thunderbird.net - to ni 'trgovina z aplikacijami' z vgrajenimi plačilnimi zidovi ali upravljanjem licenc, kot sta iTunes ali google play."
@@ -129,6 +129,21 @@
   "news.minimal.tip": {
     "message": "Če je izbrano, quickFilters ne bo spremenil oznake gumba. Pojavi se le majhna oranžna pika 🟠."
   },
+  "notification.premium.btn.getLicense": {
+    "message": "Pridobi Pro"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Podaljšaj licenco"
+  },
+  "notification.premium.freeUses": {
+    "message": "· Preostalo brezplačnih uporab: {1}."
+  },
+  "notification.premium.text": {
+    "message": "{1} je funkcija Pro"
+  },
   "ongoing-work": {
     "message": "Nakup licence je popolnoma prostovoljen. Da bi uporabnikom olajšali delo, trenutna različica ostaja združljiva s Thunderbird 115, dokler je to tehnično mogoče. Vendar pa Thunderbird zdaj sledi mesečnemu ciklu izdaj, kar povečuje naše delovno obremenitev pri testiranju in razvoju. Vaša podpora nam pomaga slediti tem spremembam!",
     "placeholders": {
@@ -144,17 +159,20 @@
   "purchase-heading": {
     "message": "Podpora z licenco"
   },
+  "qf.licenseValidation.expired": {
+    "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licenca je potekla!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Kliknite, da odprete licenčno ploščo quickFilters. Z desno tipko miške kliknite za druge možnosti."
-  },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters je bil posodobljen!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Odprite meni '{menulabel}' spodaj, da vidite, kaj je novega. S tem se tudi odstrani 🟠."
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Licenca poteče čez $daysLeft$ dni",
@@ -165,35 +183,11 @@
       }
     }
   },
-  "qf.licenseValidation.expired": {
-    "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters je bil posodobljen!"
   },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Pridobi Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Podaljšaj licenco"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· Preostalo brezplačnih uporab: {1}."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} je funkcija Pro"
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Popravila mape ni bilo mogoče začeti. Ko se trenutna opravila z mapo končajo, poskusite Lastnosti → Popravi mapo."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters ni mogel pridobiti podatkov, potrebnih za ustvarjanje ali posodobitev filtra.\n\nCiljno mapo »{0}« bo morda treba popraviti.\n\nŽelite zdaj poskusiti popraviti mapo?\n\nPočakajte, da se popravilo konča, nato poskusite znova ustvariti filter."
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Odprite meni '{menulabel}' spodaj, da vidite, kaj je novega. S tem se tudi odstrani 🟠."
   },
   "renew-your-license": {
     "message": "Obnovite licenco."
@@ -305,6 +299,12 @@
     "description": "disclaimer.",
     "message": "Prevode je zagotovila umetna inteligenca in morda niso točni."
   },
+  "warning.folderRepairFailed": {
+    "message": "Popravila mape ni bilo mogoče začeti. Ko se trenutna opravila z mapo končajo, poskusite Lastnosti → Popravi mapo."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters ni mogel pridobiti podatkov, potrebnih za ustvarjanje ali posodobitev filtra.\n\nCiljno mapo »{0}« bo morda treba popraviti.\n\nŽelite zdaj poskusiti popraviti mapo?\n\nPočakajte, da se popravilo konča, nato poskusite znova ustvariti filter."
+  },
   "whats-new-btn": {
     "message": "Kaj je novega?"
   },
@@ -325,12 +325,15 @@
   "whats-new-maintenance": {
     "message": "Vzdrževalna posodobitev $ver$. Pomembni popravki in posodobitve združljivosti po manjši izdaji, vključno z nujnimi regresijami.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {
-    "message": "Dobrodošli v $addonName$",
     "description": "page title. first placeholder will be replaced with Add-on name",
+    "message": "Dobrodošli v $addonName$",
     "placeholders": {
       "addonName": {
         "content": "$1",

@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "Để tiếp tục hữu ích, các nhà phát triển Tiện ích bổ sung của chúng tôi hiện cần tài trợ các tài nguyên cần thiết để sửa và viết lại để người dùng của chúng tôi có thể tiếp tục hưởng lợi từ chức năng mà chúng tôi cung cấp."
   },
-  "assistant.ux.title": {
-    "message": "Giao diện người dùng"
+  "addTag.label": {
+    "message": "Dán Nhãn cho Thư"
   },
   "assistant.ux.assistant.html": {
     "message": "Hiển thị Trợ lý trong giao diện HTML mới"
@@ -40,11 +40,21 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Đảm bảo rằng trợ lý ở phía trên sau khi được kích hoạt."
   },
+  "assistant.ux.title": {
+    "message": "Giao diện người dùng"
+  },
+  "backup.archivingFilters": {
+    "message": "Archiving {1} Filters"
+  },
   "backup.backup.accountsFilters": {
     "message": "$accountCount$ tài khoản · $filterCount$ bộ lọc",
     "placeholders": {
-      "accountCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "accountCount": {
+        "content": "$1"
+      },
+      "filterCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.backup.accountsLabel": {
@@ -52,15 +62,6 @@
   },
   "backup.backup.allAccounts": {
     "message": "Tất cả tài khoản"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "Sao lưu bộ lọc từ $accountName$",
-    "placeholders": {
-      "accountName": { "content": "$1" }
-    }
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "Sao lưu các bộ lọc đã chọn"
   },
   "backup.backup.backup": {
     "message": "Sao lưu"
@@ -71,21 +72,40 @@
   "backup.backup.backupFailed": {
     "message": "Sao lưu không thành công: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Sao lưu bộ lọc từ $accountName$",
+    "placeholders": {
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
     "message": "Đã lưu bản sao lưu nhưng việc hoàn tất thao tác không thành công: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
     "message": "Đã lưu bản sao lưu vào $filePath$, nhưng không thể lưu tùy chọn: $error$",
     "placeholders": {
-      "filePath": { "content": "$1" },
-      "error": { "content": "$2" }
+      "error": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$1"
+      }
     }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Sao lưu các bộ lọc đã chọn"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "Bản sao lưu chưa được lưu."
@@ -93,7 +113,9 @@
   "backup.backup.cannotLoadAccounts": {
     "message": "Không nạp được tài khoản: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.cannotReadFilters": {
@@ -105,19 +127,25 @@
   "backup.backup.couldNotDeleteFilter": {
     "message": "Không thể xóa bộ lọc: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotEditFilter": {
     "message": "Không thể chỉnh sửa bộ lọc: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
     "message": "Không thể quay lại danh sách bộ lọc: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.currentProfile": {
@@ -126,7 +154,9 @@
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
     "message": "Đã xóa bộ lọc “$filterName$”. Sao lưu lại nếu bạn muốn lưu thay đổi này.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.description": {
@@ -144,7 +174,9 @@
   "backup.backup.filters": {
     "message": "$filterCount$ bộ lọc",
     "placeholders": {
-      "filterCount": { "content": "$1" }
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
@@ -156,14 +188,20 @@
   "backup.backup.highlightWarningsFor": {
     "message": "Đánh dấu cảnh báo $warningCount$ cho $accountName$",
     "placeholders": {
-      "warningCount": { "content": "$1" },
-      "accountName": { "content": "$2" }
+      "accountName": {
+        "content": "$2"
+      },
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.highlightWarningsFor2": {
     "message": "Đánh dấu cảnh báo cho $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
@@ -175,16 +213,26 @@
   "backup.backup.ofAccountsSelectedFilters": {
     "message": "$selectedAccountCount$ trong số $accountCount$ tài khoản đã chọn · $filterCount$ bộ lọc",
     "placeholders": {
-      "selectedAccountCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filterCount": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filterCount": {
+        "content": "$3"
+      },
+      "selectedAccountCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.ofFiltersSelected": {
     "message": "$selectedFilterCount$ trong số $filterCount$ bộ lọc đã chọn",
     "placeholders": {
-      "selectedFilterCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "filterCount": {
+        "content": "$2"
+      },
+      "selectedFilterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
@@ -208,15 +256,23 @@
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
     "message": "Đã lưu $filterCount$ bộ lọc từ $accountCount$ tài khoản đến $filePath$. Sử dụng Return to Message Filters để quay lại.",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filePath": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$3"
+      },
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.savedTo": {
     "message": "Đã lưu vào $filePath$",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectAtLeastOneAccount": {
@@ -228,13 +284,17 @@
   "backup.backup.selectedFilters": {
     "message": "$accountName$ - bộ lọc đã chọn",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectionHint": {
     "message": "(Để chỉ lưu một lựa chọn bộ lọc, giữ Ctrl trong khi nhấp vào $icon$ trong Bộ lọc Thư.)",
     "placeholders": {
-      "icon": { "content": "$1" }
+      "icon": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.title": {
@@ -252,13 +312,17 @@
   "backup.common.warningCount": {
     "message": "$count$ cảnh báo",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.common.warningCountOne": {
     "message": "$count$ cảnh báo",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.backupChanges": {
@@ -267,11 +331,19 @@
   "backup.confirm.deleteFilter": {
     "message": "Xóa bộ lọc “$name$”?",
     "placeholders": {
-      "name": { "content": "$1" }
+      "name": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.doNotAskAgain": {
     "message": "Đừng hỏi lại"
+  },
+  "backup.customErrors": {
+    "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} filters could not be encoded! Please check the error log for detail."
   },
   "backup.format.chooseDestination": {
     "message": "Chọn điểm đến"
@@ -288,13 +360,17 @@
   "backup.format.invalidActionOrConditionIn": {
     "message": "Hành động hoặc điều kiện không hợp lệ trong $filterName$.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidFilterDataIn": {
     "message": "Dữ liệu bộ lọc không hợp lệ trong $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidReferencedAccountDirectory": {
@@ -312,23 +388,37 @@
   "backup.format.message": {
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": { "content": "$1" },
-      "month": { "content": "$2" },
-      "day": { "content": "$3" },
-      "hour": { "content": "$4" },
-      "minute": { "content": "$5" }
+      "day": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "year": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.missingFiltersFor": {
     "message": "Thiếu bộ lọc cho $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.referenced": {
     "message": "$accountIdentity$ (tham khảo)",
     "placeholders": {
-      "accountIdentity": { "content": "$1" }
+      "accountIdentity": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.remembered": {
@@ -349,7 +439,9 @@
   "backup.mapping.assignedToMoveHere": {
     "message": "Đã gán cho $accountName$ — di chuyển vào đây",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.dropATargetHere": {
@@ -358,8 +450,12 @@
   "backup.mapping.filters": {
     "message": "$filterCount$ bộ lọc$statusSuffix$",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "statusSuffix": { "content": "$2" }
+      "filterCount": {
+        "content": "$1"
+      },
+      "statusSuffix": {
+        "content": "$2"
+      }
     }
   },
   "backup.mapping.filtersRestored": {
@@ -380,13 +476,17 @@
   "backup.mapping.restoreFiltersFrom": {
     "message": "Khôi phục bộ lọc từ $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountFor": {
     "message": "Chọn tài khoản cho $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
@@ -395,13 +495,17 @@
   "backup.mapping.warnings": {
     "message": "$warningCount$ cảnh báo",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
     "message": "Tài khoản $accountId$ không khả dụng hoặc không hỗ trợ bộ lọc.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
@@ -410,13 +514,17 @@
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
     "message": "Không thể xuất bộ lọc “$filterName$”. Không có bản sao lưu nào được viết.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.destinationAccountIsUnavailable": {
     "message": "Tài khoản đích $accountId$ không khả dụng.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
@@ -428,7 +536,9 @@
   "backup.native.folderDoesNotExistInTheDestinationAccount": {
     "message": "Thư mục “$folderName$” không tồn tại trong tài khoản đích",
     "placeholders": {
-      "folderName": { "content": "$1" }
+      "folderName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.invalidAccountMapping": {
@@ -479,7 +589,9 @@
   "backup.native.noDestinationSelectedForAccount": {
     "message": "Chưa chọn đích đến cho tài khoản “$accountName$”",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
@@ -497,8 +609,12 @@
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
     "message": "Lưu không thành công ($saveError$); khôi phục tập tin gốc cũng không thành công ($restoreError$)",
     "placeholders": {
-      "saveError": { "content": "$1" },
-      "restoreError": { "content": "$2" }
+      "restoreError": {
+        "content": "$2"
+      },
+      "saveError": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
@@ -546,14 +662,20 @@
   "backup.restore.cannotLoadDestinationAccounts": {
     "message": "Không thể tải tài khoản đích: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.cannotOpenBackup": {
     "message": "Không mở được bản sao lưu: $error$$previousBackupNotice$",
     "placeholders": {
-      "error": { "content": "$1" },
-      "previousBackupNotice": { "content": "$2" }
+      "error": {
+        "content": "$1"
+      },
+      "previousBackupNotice": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
@@ -562,13 +684,17 @@
   "backup.restore.couldNotSaveReport": {
     "message": "Không lưu được báo cáo: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.deletedFilter": {
     "message": "Đã xóa bộ lọc “$filterName$”.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.description": {
@@ -619,13 +745,17 @@
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
     "message": "Khôi phục đã hoàn tất, nhưng không thể nhớ ánh xạ: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFailed": {
     "message": "Khôi phục không thành công: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFilters": {
@@ -634,13 +764,17 @@
   "backup.restore.restoreReportSavedTo": {
     "message": "Khôi phục báo cáo đã lưu về $filePath$.",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
     "message": "Khôi phục đánh giá · $warningCount$ cảnh báo và mục bị bỏ qua",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreWasNotPerformed": {
@@ -652,20 +786,38 @@
   "backup.restore.resultComplete": {
     "message": "Khôi phục hoàn tất: $added$ được thêm, $replaced$ được thay thế, $kept$ bộ lọc hiện có được giữ lại, $skipped$ bị bỏ qua.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" }
+      "added": {
+        "content": "$1"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.resultErrors": {
     "message": "Khôi phục xong nhưng có lỗi: $added$ được thêm, $replaced$ được thay thế, $kept$ bộ lọc hiện có được giữ lại, $skipped$ bị bỏ qua, $failed$ tài khoản không thành công.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" },
-      "failed": { "content": "$5" }
+      "added": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$5"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
@@ -677,15 +829,23 @@
   "backup.restore.selectDestinationAccountsFor": {
     "message": "Chọn tài khoản đích cho: $accountNames$.",
     "placeholders": {
-      "accountNames": { "content": "$1" }
+      "accountNames": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
     "message": "$backupType$ · $sourceAccountCount$ tài khoản nguồn · $referencedAccountCount$ tài khoản tham chiếu",
     "placeholders": {
-      "backupType": { "content": "$1" },
-      "sourceAccountCount": { "content": "$2" },
-      "referencedAccountCount": { "content": "$3" }
+      "backupType": {
+        "content": "$1"
+      },
+      "referencedAccountCount": {
+        "content": "$3"
+      },
+      "sourceAccountCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
@@ -706,19 +866,25 @@
   "backup.startup.cannotOpenBackup": {
     "message": "Không mở được bản sao lưu: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.startup.cannotOpenRestore": {
     "message": "Không thể mở khôi phục: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
     "message": "Phần phụ trợ lưu trữ sao lưu không được hỗ trợ: $backend$",
     "placeholders": {
-      "backend": { "content": "$1" }
+      "backend": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.account": {
@@ -736,7 +902,9 @@
   "backup.warnings.backupSavedWithWarnings": {
     "message": "Đã lưu bản sao lưu kèm theo cảnh báo $warningCount$",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.clearHighlight": {
@@ -763,11 +931,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "Tên trùng lặp — bị bỏ qua"
   },
-  "backup.warnings.editFilter": {
-    "message": "Sửa"
-  },
   "backup.warnings.editedByUser": {
     "message": "Được chỉnh sửa bởi người dùng"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Sửa"
   },
   "backup.warnings.filter": {
     "message": "Bộ lọc"
@@ -799,7 +967,9 @@
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
     "message": "Cảnh báo cho $accountName$ được tô sáng. Tất cả các cảnh báo vẫn hiển thị.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
@@ -816,6 +986,81 @@
   },
   "btn-want-to-donate": {
     "message": "Tôi muốn giúp đỡ với khoản đóng góp một lần."
+  },
+  "button.assistant": {
+    "message": "Toggle assistant…"
+  },
+  "button.assistant.tooltiptext": {
+    "message": "Toggles filter assistant mode. When active, drag and drop emails to create filters."
+  },
+  "button.bug": {
+    "message": "Troubleshoot"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "Cancel duplicates"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "Reset duplicate search"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "Cancel search"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "Cancel search by folder"
+  },
+  "button.clone": {
+    "message": "Clone"
+  },
+  "button.clone.accesskey": {
+    "message": "C"
+  },
+  "button.clone.tooltiptext": {
+    "message": "Clone a filter"
+  },
+  "button.findDuplicates.label": {
+    "message": "Find duplicates"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "Find duplicate attributes"
+  },
+  "button.getOtherAddon": {
+    "message": "Get {1}"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "Restore Filters…"
+  },
+  "button.merge": {
+    "message": "Merge"
+  },
+  "button.merge.accesskey": {
+    "message": "M"
+  },
+  "button.merge.tooltiptext": {
+    "message": "Merge multiple filters with the same action"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "Backup Filters…"
+  },
+  "button.searchProperties": {
+    "message": "Change search properties…"
+  },
+  "button.settings": {
+    "message": "quickFilters Settings…"
+  },
+  "button.sort": {
+    "message": "Sort"
+  },
+  "button.sort.tooltiptext": {
+    "message": "Sort Alphabetically"
+  },
+  "button.support": {
+    "message": "quickFilters Support Site"
   },
   "buyDomainLicense.button": {
     "message": "Buy Domain License"
@@ -931,11 +1176,158 @@
   "chkWhenArchiving.label": {
     "message": "When Archiving"
   },
+  "clone.label": {
+    "message": "(copy)"
+  },
+  "clone.selectOne": {
+    "message": "To clone, select exactly one filter."
+  },
+  "clone.undetermined": {
+    "message": "Could not determine which filter is selected"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "No filters in clipboard!"
+  },
+  "copy.warning.selectFilter": {
+    "message": "Please select at least one filter!"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "Select a different account for pasting items!"
+  },
+  "copyMessage.label": {
+    "message": "Chép Thư tới"
+  },
   "cost-of-independence": {
     "message": "Việc phát triển phần mềm tốn kém thời gian và tiền bạc - không giống như nhiều ứng dụng nền tảng, Tiện ích bổ sung không được viết bởi các tập đoàn lớn, cũng như không được Mozilla tài trợ theo bất kỳ hình thức nào."
   },
   "createdBy": {
     "message": "Tác giả:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "The account ({1}) cannot have filters."
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "This template requires at least 2 mails."
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header."
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "Cannot access message database for folder {1}"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\nConsider running the Repair Folder command."
+  },
+  "createFilter.warning.noServer": {
+    "message": "Folder ({1}) does not have a server."
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "Consider updating to a newer version to get this feature."
+  },
+  "createFromMail.inboxWarning": {
+    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
+  },
+  "createFromMail.selectWarning": {
+    "message": "To create a filter, please select exactly one email!"
+  },
+  "customfilter.replyto": {
+    "message": "Reply-To"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Blind Carbon Copy (BCC)"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Carbon Copy (CC)"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "Trợ lý quickFilters sẽ tự động thêm một hành động. Vui lòng để hành động mặc định 'đặt Mức độ ưu tiên thành bình thường' làm trình giữ chỗ."
+  },
+  "customHeader.Domain": {
+    "message": "Domain of Email"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "phần mở rộng tên miền"
+  },
+  "customHeader.Domain.Root": {
+    "message": "miền gốc"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "tên miền phụ"
+  },
+  "customHeader.Email": {
+    "message": "Email Address"
+  },
+  "customHeader.FirstName": {
+    "message": "First Name"
+  },
+  "customHeader.From": {
+    "message": "From"
+  },
+  "customHeader.LastName": {
+    "message": "Last Name"
+  },
+  "customHeader.ListId": {
+    "message": "List Id"
+  },
+  "customHeader.ListPost": {
+    "message": "List Post"
+  },
+  "customHeader.NamePart": {
+    "message": "Full Name"
+  },
+  "customHeader.Newsgroups": {
+    "message": "Newsgroups"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Reply To"
+  },
+  "customHeader.Subject": {
+    "message": "Subject"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "Subject Regular Expression"
+  },
+  "customHeader.To": {
+    "message": "To"
+  },
+  "customTemplate.name": {
+    "message": "Tên mẫu:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters Custom Template"
+  },
+  "customVariable.label": {
+    "message": "Custom Variables"
+  },
+  "customVariable.tooltip": {
+    "message": "Khi tạo bộ lọc, các biến này được thay thế bằng các tiêu đề thư tương ứng của thư hiện tại."
+  },
+  "debug.fixFilters": {
+    "message": "Đã tìm thấy {0} bộ lọc đã bật không có phương thức chạy (Thủ công, Đến hoặc Tự động). Chúng có nên được thay đổi để thực thi tự động khi nhận được thư mới không?"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
+  },
+  "debug.fixFilters.none": {
+    "message": "No faulty filters found."
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} filters were fixed."
+  },
+  "deleteFromPOP.label": {
+    "message": "Xóa trên Máy chủ POP"
+  },
+  "deleteMessage.label": {
+    "message": "Xóa Thư"
   },
   "domainLicense.email": {
     "message": "We will contact you using this email address to generate your domain license; please allow two business days for us to get in touch. Enter the domain name for the license on the next page."
@@ -978,14 +1370,47 @@
   "extensions.quickfilters.description": {
     "message": "Tạo bộ lọc thư một cách nhanh chóng khi đang xem, bằng cách kéo và thả các thư và phân tích thuộc tính của chúng."
   },
+  "fetchFromPOP.label": {
+    "message": "Lấy từ Máy chủ POP"
+  },
+  "FilterAssistant.start": {
+    "message": "Khởi động Filter Assistant"
+  },
+  "FilterAssistant.stop": {
+    "message": "Tắt Filter Assistant"
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "Không hiển thị thông báo này nữa."
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "Chế độ trợ giúp bộ lọc đã được khởi động. Bất cứ khi nào bạn di chuyển một thư vào một thư mục khác, bộ trợ giúp 'Tạo Quy Tắc Bộ Lọc' sẽ bắt đầu. #1 sử dụng các bộ lọc tin nhắn để tự động di chuyển các thư dựa trên các quy tắc như 'ai là người gửi?', 'một từ khóa nào đó có trong dòng tiêu đề không?'. Để tắt chế độ trợ giúp bộ lọc, ấn nút bộ lọc thêm lần nữa."
+  },
+  "filters.toggleMessage.title": {
+    "message": "Chế độ Filter Assist"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "Find Filters…"
+  },
   "firstName.label": {
     "message": "First Name:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Áp dụng bộ lọc tự động cho thư đến"
   },
+  "forwardTo.label": {
+    "message": "Chuyển tiếp Thư tới"
+  },
+  "fpJsonFile": {
+    "message": "JSON File"
+  },
   "freeLicense": {
     "message": "If you have recently donated to the quickFilters project or have done contributory work, such as translating or writing patches, you may be eligible for a free license key. Contact me from the support tab in quickFilters Options."
+  },
+  "FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "FromMessage.label": {
+    "message": "Tạo bộ lọc từ tin nhắn…"
   },
   "getquickFilters": {
     "message": "Get quickFilters Pro"
@@ -1016,6 +1441,12 @@
   "homepage": {
     "message": "Trang chủ:"
   },
+  "ignoreSubthread.label": {
+    "message": "Bỏ qua Chủ đề con"
+  },
+  "ignoreThread.label": {
+    "message": "Bỏ qua Chủ đề"
+  },
   "intro": {
     "message": "An annual license for quickFilters Pro gives you all premium features for a year. It also enables us to support and grow the product further and turn it into something even more awesome."
   },
@@ -1044,8 +1475,80 @@
   "licenseTerms.show": {
     "message": "Hiển thị điều khoản giấy phép"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(The key entered may be for {2})."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro License"
+  },
+  "ListButton.label": {
+    "message": "Các Bộ Lọc Tin Nhắn…"
+  },
+  "ListButton.tooltip": {
+    "message": "Hiển thị danh sách các bộ lọc tin nhắn"
+  },
+  "markMessageRead.label": {
+    "message": "Đánh Dấu Đã Đọc"
+  },
+  "markMessageStarred.label": {
+    "message": "Thêm Sao"
+  },
+  "markMessageUnread.label": {
+    "message": "Đánh dấu là chưa đọc"
+  },
+  "menu.changelog": {
+    "message": "Nhật ký thay đổi…"
+  },
+  "menu.copy": {
+    "message": "Copy"
+  },
+  "menu.cut": {
+    "message": "Cut"
+  },
+  "menu.license": {
+    "message": "Kiểm tra trạng thái giấy phép…"
+  },
+  "menu.news": {
+    "message": "Tin tức / Nhật ký thay đổi…"
+  },
+  "menu.paste": {
+    "message": "Paste"
+  },
+  "menu.removeDupeAction": {
+    "message": "Xóa hành động trùng lặp"
+  },
+  "menu.removeDupeCondition": {
+    "message": "Xóa điều kiện trùng lặp"
+  },
+  "menu.tools": {
+    "message": "Công cụ"
+  },
+  "merge.addressesOmitted": {
+    "message": "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"
+  },
+  "merge.warning.missingAction": {
+    "message": "Không thể tải tác vụ chính của bộ lọc: {1}"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "Không thể hợp nhất tất cả các bộ lọc đã chọn: hành động không khớp với bộ lọc {1}!"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "Bỏ chọn các bộ lọc không khớp và tiếp tục?"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "Để hợp nhất, hãy chọn ít nhất 2 bộ lọc"
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "Không thể xác định bộ lọc được chọn đầu tiên - để hợp nhất, bạn phải chọn ít nhất 2 bộ lọc!"
+  },
+  "merge.warning.selectTarget": {
+    "message": "Phải chọn bộ lọc mục tiêu để hợp nhất!"
+  },
+  "move.selectOne": {
+    "message": "Phải chọn chính xác một mục nhập bộ lọc!"
+  },
+  "moveMessage.label": {
+    "message": "Di chuyển Thư tới"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla chỉ cung cấp một nền tảng cơ bản để cung cấp phần mềm của chúng tôi cho bạn, những người dùng cuối. Nếu chúng tôi cần yêu cầu người dùng thanh toán hoặc hỗ trợ, chúng tôi không thể thực hiện việc này từ addons.thunderbird.net - nó không phải là một 'cửa hàng ứng dụng' có tường trả phí tích hợp hoặc quản lý giấy phép như iTunes hoặc google play."
@@ -1077,6 +1580,57 @@
   "news.minimal.tip": {
     "message": "Nếu được chọn, quickFilters sẽ không thay đổi nhãn nút. Chỉ một huy hiệu nhỏ màu cam 🟠 sẽ xuất hiện thay thế."
   },
+  "notification.donate": {
+    "message": "Quyên tặng"
+  },
+  "notification.dontShowAgain": {
+    "message": "Không hiển thị thông báo này nữa."
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "gia hạn giấy phép"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "Điều này sẽ kéo dài ngày cấp phép hiện tại thêm 1 năm. Nó thường rẻ hơn giấy phép mới."
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "Mua Pro"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Gia hạn giấy phép"
+  },
+  "notification.premium.freeUses": {
+    "message": "· Còn {1} lượt sử dụng miễn phí."
+  },
+  "notification.premium.text": {
+    "message": "{1} là tính năng Pro"
+  },
+  "notification.premium.title": {
+    "message": "Premium Feature"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "Bạn đã sử dụng hết số lần dùng thử miễn phí cho tính năng này."
+  },
+  "notification.proFeature.notificationText": {
+    "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
+  },
+  "notification.proFeature.title": {
+    "message": "Premium Feature"
+  },
+  "notification.QF.navigationbar": {
+    "message": "Để sử dụng các chức năng lọc từ thanh điều hướng QuickFolders trong Thunderbird 115:\n - bạn cần có giấy phép QuickFolders hợp lệ\n - hoặc bạn có thể nhận giấy phép $addonName$ Pro để hỗ trợ tính năng này.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "Register {1}"
+  },
   "ongoing-work": {
     "message": "Việc mua giấy phép hoàn toàn là tự nguyện. Để làm việc này dễ dàng hơn cho người dùng, phiên bản hiện tại vẫn giữ khả năng tương thích ngược với Thunderbird 115 miễn là kỹ thuật cho phép. Tuy nhiên, Thunderbird hiện nay tuân theo chu kỳ phát hành hàng tháng, điều này làm tăng khối lượng công việc kiểm tra và phát triển của chúng tôi. Sự hỗ trợ của bạn giúp chúng tôi theo kịp những thay đổi này!",
     "placeholders": {
@@ -1086,11 +1640,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "Add Tag (label)"
+  },
+  "option.searchProperty.name": {
+    "message": "Name"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "Trả lời bằng Thư mẫu"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "Search Condition (Text)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "Actions that modify Strings"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "Tên thư mục đích"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "Đường dẫn thư mục đích"
+  },
   "pane1.title": {
     "message": "Cấu hình quickFilters"
   },
   "prefwindow.title": {
     "message": "Cấu hình quickFilters"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "Your license expired {1} days ago"
+  },
+  "premium.title.customTemplate": {
+    "message": "Custom Templates"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "Duplicates Finder"
+  },
+  "premium.title.loadFilters": {
+    "message": "Khôi phục bộ lọc"
+  },
+  "premium.title.saveFilters": {
+    "message": "Sao lưu bộ lọc"
+  },
+  "premium.title.searchFolder": {
+    "message": "Search Filter for Folder"
+  },
+  "premium.title.sortFilters": {
+    "message": "Sort Filters"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "Sắp xếp các cụm từ tìm kiếm"
   },
   "pricing.section": {
     "message": "Để biết giá của bạn, trước tiên vui lòng chọn một trong các tùy chọn sau. Thao tác này sẽ mở ra một cửa sổ trình duyệt riêng, nơi bạn có thể hoàn tất giao dịch mua trong cửa hàng trực tuyến."
@@ -1100,6 +1699,35 @@
   },
   "pricing.title": {
     "message": "Prissättning"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "Đã tìm thấy các tiêu đề bắt đầu bằng cùng một văn bản: \"$prefix$\".\nSử dụng văn bản này làm điều kiện tìm kiếm tiêu đề?",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "Vui lòng nhập một dòng chủ đề ngắn:"
+  },
+  "prompt.contact.title": {
+    "message": "Liên hệ bộ phận hỗ trợ quickFilters"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "Copied variable {1} to clipboard, please paste in a search term."
+  },
+  "prompt.createCustomHeader": {
+    "message": "Please add the term '{1}' as a custom header to use this in a filter."
+  },
+  "prompt.customTemplateName": {
+    "message": "Name of Custom Template:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "Chúng tôi đã tìm thấy các bộ lọc trùng lặp bên dưới.\nSửa lỗi này và vẫn nhập chứ?"
+  },
+  "promptDontRepeat": {
+    "message": "Do not show this warning again."
   },
   "purchase-a-license": {
     "message": "Mua giấy phép."
@@ -1125,7 +1753,9 @@
   "qf.button.mergeFilterRules": {
     "message": "Kết hợp “$filterName$” với các quy tắc mới…",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "qf.button.next": {
@@ -1397,14 +2027,14 @@
   "qf.label.naming.parentFolder": {
     "message": "Thêm tên các thư mục cha"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "p"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "Số lượng tối đa các thư mục cha cần thêm:"
   },
   "qf.label.naming.targetAccount": {
     "message": "Thêm tên tài khoản đích (cho các bộ lọc di chuyển mail sang tài khoản khác)"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "p"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "Đọc thêm về Tính năng cao cấp trên Trang web của chúng tôi"
@@ -1562,560 +2192,14 @@
   "qf.youtube.tbdaily": {
     "message": "Truy cập Thunderbird Daily - Kênh YouTube để biết các mẹo và hướng dẫn sử dụng QuickFilters và thư trên máy tính để bàn"
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "Khởi động Filter Assistant"
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "Tắt Filter Assistant"
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "Q"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "Tạo bộ lọc từ tin nhắn…"
-  },
-  "quickfilters.menu.changelog": {
-    "message": "Nhật ký thay đổi…"
-  },
-  "quickfilters.menu.license": {
-    "message": "Kiểm tra trạng thái giấy phép…"
-  },
-  "quickfilters.menu.news": {
-    "message": "Tin tức / Nhật ký thay đổi…"
-  },
-  "quickfilters.menu.tools": {
-    "message": "Công cụ"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "Các Bộ Lọc Tin Nhắn…"
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "Hiển thị danh sách các bộ lọc tin nhắn"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "Chạy bộ lọc"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "Chạy các bộ lọc được thiết đặt cho thư mục hiện tại"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "Lọc các thư đã chọn"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "Chạy bộ lọc trên các thư đã chọn"
-  },
-  "quickfilters.Start.label": {
-    "message": "Khởi động Filter Assistant…"
-  },
-  "quickfilters.addTag.label": {
-    "message": "Dán Nhãn cho Thư"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "Archiving {1} Filters"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} filters could not be encoded! Please check the error log for detail."
-  },
-  "quickfilters.button.assistant": {
-    "message": "Toggle assistant…"
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "Toggles filter assistant mode. When active, drag and drop emails to create filters."
-  },
-  "quickfilters.button.bug": {
-    "message": "Troubleshoot"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "Cancel duplicates"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "Reset duplicate search"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "Cancel search"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "Cancel search by folder"
-  },
-  "quickfilters.button.clone": {
-    "message": "Clone"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "C"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "Clone a filter"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "Find duplicates"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "Find duplicate attributes"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "Get {1}"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "Restore Filters…"
-  },
-  "quickfilters.button.merge": {
-    "message": "Merge"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "M"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "Merge multiple filters with the same action"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "Backup Filters…"
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "Change search properties…"
-  },
-  "quickfilters.button.settings": {
-    "message": "quickFilters Settings…"
-  },
-  "quickfilters.button.sort": {
-    "message": "Sort"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "Sort Alphabetically"
-  },
-  "quickfilters.button.support": {
-    "message": "quickFilters Support Site"
-  },
-  "quickfilters.clone.label": {
-    "message": "(copy)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "To clone, select exactly one filter."
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "Could not determine which filter is selected"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "No filters in clipboard!"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "Please select at least one filter!"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "Select a different account for pasting items!"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "Chép Thư tới"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "The account ({1}) cannot have filters."
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "This template requires at least 2 mails."
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "Sorry, but in this version of {1}, we cannot create filters as it does not support extracting addresses from the message header."
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "Cannot access message database for folder {1}"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "Failed to create Filter - could not retrieve message id for the first element of the messages list!\nConsider running the Repair Folder command."
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "Folder ({1}) does not have a server."
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "Consider updating to a newer version to get this feature."
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "To create a filter, please select exactly one email!"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Blind Carbon Copy (BCC)"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Carbon Copy (CC)"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "Trợ lý quickFilters sẽ tự động thêm một hành động. Vui lòng để hành động mặc định 'đặt Mức độ ưu tiên thành bình thường' làm trình giữ chỗ."
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "Domain of Email"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "phần mở rộng tên miền"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "miền gốc"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "tên miền phụ"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "Email Address"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "First Name"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "From"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "Last Name"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "List Id"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "List Post"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "Full Name"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "Newsgroups"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Reply To"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "Subject"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "Subject Regular Expression"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "To"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "Tên mẫu:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters Custom Template"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "Custom Variables"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "Khi tạo bộ lọc, các biến này được thay thế bằng các tiêu đề thư tương ứng của thư hiện tại."
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "Reply-To"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "Đã tìm thấy {0} bộ lọc đã bật không có phương thức chạy (Thủ công, Đến hoặc Tự động). Chúng có nên được thay đổi để thực thi tự động khi nhận được thư mới không?"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "Found {0} filters with unresolved custom actions. You may be missing a third party Add-on or may need to configure it to support custom actions?"
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "No faulty filters found."
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} filters were fixed."
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "Xóa trên Máy chủ POP"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "Xóa Thư"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "Lấy từ Máy chủ POP"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "Không hiển thị thông báo này nữa."
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "Chế độ trợ giúp bộ lọc đã được khởi động. Bất cứ khi nào bạn di chuyển một thư vào một thư mục khác, bộ trợ giúp 'Tạo Quy Tắc Bộ Lọc' sẽ bắt đầu. #1 sử dụng các bộ lọc tin nhắn để tự động di chuyển các thư dựa trên các quy tắc như 'ai là người gửi?', 'một từ khóa nào đó có trong dòng tiêu đề không?'. Để tắt chế độ trợ giúp bộ lọc, ấn nút bộ lọc thêm lần nữa."
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "Chế độ Filter Assist"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "Find Filters…"
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "Chuyển tiếp Thư tới"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "JSON File"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "Bỏ qua Chủ đề con"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "Bỏ qua Chủ đề"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(The key entered may be for {2})."
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "Đánh Dấu Đã Đọc"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "Thêm Sao"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "Đánh dấu là chưa đọc"
-  },
-  "quickfilters.menu.copy": {
-    "message": "Copy"
-  },
-  "quickfilters.menu.cut": {
-    "message": "Cut"
-  },
-  "quickfilters.menu.paste": {
-    "message": "Paste"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "Xóa hành động trùng lặp"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "Xóa điều kiện trùng lặp"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "Không thể tải tác vụ chính của bộ lọc: {1}"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "Không thể hợp nhất tất cả các bộ lọc đã chọn: hành động không khớp với bộ lọc {1}!"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "Bỏ chọn các bộ lọc không khớp và tiếp tục?"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "Để hợp nhất, hãy chọn ít nhất 2 bộ lọc"
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "Không thể xác định bộ lọc được chọn đầu tiên - để hợp nhất, bạn phải chọn ít nhất 2 bộ lọc!"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "Phải chọn bộ lọc mục tiêu để hợp nhất!"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "Phải chọn chính xác một mục nhập bộ lọc!"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "Di chuyển Thư tới"
-  },
-  "quickfilters.notification.donate": {
-    "message": "Quyên tặng"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "Không hiển thị thông báo này nữa."
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "gia hạn giấy phép"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "Điều này sẽ kéo dài ngày cấp phép hiện tại thêm 1 năm. Nó thường rẻ hơn giấy phép mới."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Mua Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Gia hạn giấy phép"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· Còn {1} lượt sử dụng miễn phí."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} là tính năng Pro"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "Premium Feature"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "Premium Feature"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "Để sử dụng các chức năng lọc từ thanh điều hướng QuickFolders trong Thunderbird 115:\n - bạn cần có giấy phép QuickFolders hợp lệ\n - hoặc bạn có thể nhận giấy phép $addonName$ Pro để hỗ trợ tính năng này.",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "Register {1}"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "Add Tag (label)"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "Name"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "Trả lời bằng Thư mẫu"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "Search Condition (Text)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "Actions that modify Strings"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Tên thư mục đích"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "Đường dẫn thư mục đích"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "Your license expired {1} days ago"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "Custom Templates"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "Duplicates Finder"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "Khôi phục bộ lọc"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "Sao lưu bộ lọc"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "Search Filter for Folder"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "Sort Filters"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "Sắp xếp các cụm từ tìm kiếm"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "Đã tìm thấy các tiêu đề bắt đầu bằng cùng một văn bản: \"$prefix$\".\nSử dụng văn bản này làm điều kiện tìm kiếm tiêu đề?",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "Vui lòng nhập một dòng chủ đề ngắn:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "Liên hệ bộ phận hỗ trợ quickFilters"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "Copied variable {1} to clipboard, please paste in a search term."
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "Please add the term '{1}' as a custom header to use this in a filter."
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "Name of Custom Template:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "Chúng tôi đã tìm thấy các bộ lọc trùng lặp bên dưới.\nSửa lỗi này và vẫn nhập chứ?"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "Do not show this warning again."
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "Your license expired on:"
-  },
-  "quickfilters.registration.menu": {
-    "message": "$licenseName$ Giấy phép…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "Trả lời bằng Thư mẫu"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "Apply filters to selected messages…"
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "Running {0} Filters in folder {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Running Filter '{0}' in folder {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Run filters on folder '{1}'…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "No filters targeting this folder found."
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "Thiết lập Trạng thái Thư rác thành"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "Thiết lập Mức ưu tiên thành"
-  },
-  "quickfilters.sort": {
-    "message": "Sắp xếp"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "Sắp xếp các cụm từ tìm kiếm"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "To sort alphabetically, select at least 2 filters"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "Ngừng Thực thi Bộ lọc"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "Không thể tạo bộ lọc: không có điều kiện tìm kiếm hợp lệ, bộ lọc không thể được chỉnh sửa."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Không thể bắt đầu sửa chữa thư mục. Sau khi các thao tác đang chạy trên thư mục hoàn tất, hãy thử Thuộc tính → Sửa chữa thư mục."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters không thể lấy thông tin cần thiết để tạo hoặc cập nhật bộ lọc.\n\nThư mục đích “{0}” có thể cần được sửa chữa.\n\nThử sửa chữa thư mục ngay bây giờ?\n\nHãy chờ quá trình sửa chữa hoàn tất, rồi thử tạo lại bộ lọc."
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "A template of this name already exists! The name must be unique."
-  },
-  "quickfilters.watchThread.label": {
-    "message": "Theo dõi Chủ đề"
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "quickFilters Assistant"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Giấy phép đã hết hạn!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Nhấp để mở bảng cấp phép quickFilters. Nhấp chuột phải để có các tùy chọn khác."
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters đã được cập nhật!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Mở menu '{menulabel}' bên dưới để xem những cập nhật mới. Điều này cũng loại bỏ 🟠."
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters Assistant"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "Giấy phép hết hạn sau $daysLeft$ ngày",
@@ -2128,8 +2212,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "Trợ lý tạo bộ lọc; công cụ cho các bộ lọc"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters đã được cập nhật!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Mở menu '{menulabel}' bên dưới để xem những cập nhật mới. Điều này cũng loại bỏ 🟠."
+  },
+  "register.licenseValid.expired": {
+    "message": "Your license expired on:"
+  },
+  "registration.menu": {
+    "message": "$licenseName$ Giấy phép…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "Gia hạn giấy phép của bạn."
+  },
+  "replyWithTemplate.label": {
+    "message": "Trả lời bằng Thư mẫu"
   },
   "restart-app": {
     "message": "Khởi động lại $application$ để kích hoạt tùy chọn này.",
@@ -2139,6 +2243,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "Chạy bộ lọc"
+  },
+  "RunButton.tooltip": {
+    "message": "Chạy các bộ lọc được thiết đặt cho thư mục hiện tại"
+  },
+  "RunButtonMsg.label": {
+    "message": "Lọc các thư đã chọn"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "Chạy bộ lọc trên các thư đã chọn"
   },
   "runFilters.folder.confirm": {
     "message": "Chạy bộ lọc trong thư mục $folderName$?",
@@ -2150,6 +2266,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "Chạy bộ lọc trên các thư đã chọn?"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "Apply filters to selected messages…"
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "Running {0} Filters in folder {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Run filters on folder '{1}'…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Running Filter '{0}' in folder {1}."
+  },
+  "search.warning.noresults": {
+    "message": "No filters targeting this folder found."
+  },
+  "setJunkScore.label": {
+    "message": "Thiết lập Trạng thái Thư rác thành"
+  },
+  "setPriority.label": {
+    "message": "Thiết lập Mức ưu tiên thành"
+  },
+  "sort": {
+    "message": "Sắp xếp"
+  },
+  "sort.tooltip": {
+    "message": "Sắp xếp các cụm từ tìm kiếm"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "To sort alphabetically, select at least 2 filters"
   },
   "special-offer-content": {
     "message": "Bây giờ là cơ hội tốt nhất để nhận Giấy phép vì có {bold} giảm $reduction$ {/bold}  giá của giấy phép quickFilters Pro để kỷ niệm 9 năm quickFilters! Ưu đãi đặc biệt này sẽ có sẵn cho đến {bold} $expirydate$ {/bold} .",
@@ -2188,6 +2334,12 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "Khởi động Filter Assistant…"
+  },
+  "stopExecution.label": {
+    "message": "Ngừng Thực thi Bộ lọc"
   },
   "subjectCompleteExtract": {
     "message": "Luôn truy xuất dòng tiêu đề hoàn chỉnh."
@@ -2541,9 +2693,15 @@
   "troubleshooter.summary": {
     "message": "$filters$ bộ lọc cần xem xét · $resolved$ vấn đề đã giải quyết · Đã chạy $checks$/4 kiểm tra",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2579,6 +2737,21 @@
   "version": {
     "message": "Phiên bản:"
   },
+  "warning.emptyFilter": {
+    "message": "Không thể tạo bộ lọc: không có điều kiện tìm kiếm hợp lệ, bộ lọc không thể được chỉnh sửa."
+  },
+  "warning.folderRepairFailed": {
+    "message": "Không thể bắt đầu sửa chữa thư mục. Sau khi các thao tác đang chạy trên thư mục hoàn tất, hãy thử Thuộc tính → Sửa chữa thư mục."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters không thể lấy thông tin cần thiết để tạo hoặc cập nhật bộ lọc.\n\nThư mục đích “{0}” có thể cần được sửa chữa.\n\nThử sửa chữa thư mục ngay bây giờ?\n\nHãy chờ quá trình sửa chữa hoàn tất, rồi thử tạo lại bộ lọc."
+  },
+  "warning.templateNameNotUnique": {
+    "message": "A template of this name already exists! The name must be unique."
+  },
+  "watchThread.label": {
+    "message": "Theo dõi Chủ đề"
+  },
   "whats-new-btn": {
     "message": "Có gì mới?"
   },
@@ -2599,7 +2772,10 @@
   "whats-new-maintenance": {
     "message": "Bản cập nhật bảo trì $ver$. Các bản sửa lỗi quan trọng và cập nhật tương thích sau bản phát hành nhỏ, bao gồm các lỗi hồi quy cần khắc phục khẩn cấp.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

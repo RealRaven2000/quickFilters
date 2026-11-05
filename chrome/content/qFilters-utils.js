@@ -481,7 +481,7 @@ quickFilters.Util = {
       }
       if (singleFilter) {
         let txtStatus = util.getBundleString(
-          "quickfilters.runSingleFilterInFolder.status",
+          "runSingleFilterInFolder.status",
           "Running Filter '{0}' in folder {1}."
         );
         util.showStatusMessage(
@@ -492,7 +492,7 @@ quickFilters.Util = {
         );
       } else {
         let txtStatus = util.getBundleString(
-          "quickfilters.runSingleFilterInFolder.status",
+          "runSingleFilterInFolder.status",
           "Running '{0}' Filters in folder {1}."
         );
         util.showStatusMessage(
@@ -704,23 +704,23 @@ quickFilters.Util = {
       notifyBox = mainWin.specialTabs.msgNotificationBar;
 
     let title = util.getBundleString(
-        "quickfilters.notification.proFeature.title",
+        "notification.proFeature.title",
         "Premium Feature"
       ),
       theText = util.getBundleString(
-        "quickfilters.notification.premium.text",
+        "notification.premium.text",
         "{1} is a Premium feature, please get a quickFilters Pro License for using it. "
       ),
       featureTitle = featureName.includes(" ")
         ? featureName
-        : util.getBundleString("quickfilters.premium.title." + featureName, featureName);
+        : util.getBundleString("premium.title." + featureName, featureName);
     theText = theText.replace("{1}", "'" + featureTitle + "'");
     if (additionalText) {
       theText = theText + "  " + additionalText;
     }
 
     let regBtn,
-      hotKey = util.getBundleString("quickfilters.notification.premium.btn.hotKey", "L"),
+      hotKey = util.getBundleString("notification.premium.btn.hotKey", "L"),
       nbox_buttons = [];
 
     try {
@@ -732,7 +732,7 @@ quickFilters.Util = {
       featureAllowed = usage.allowed;
       if (remainingUses > 0) {
         let countText = util.getBundleString(
-          "quickfilters.notification.premium.freeUses",
+          "notification.premium.freeUses",
           "You can use this feature for free {1} more times."
         );
         theText += " " + countText.replace("{1}", remainingUses);
@@ -750,12 +750,12 @@ quickFilters.Util = {
       } // we also use this for hacking the style of the "Buy" button!
       if (util.licenseInfo.isExpired) {
         regBtn = util.getBundleString(
-          "quickfilters.notification.premium.btn.renewLicense",
+          "notification.premium.btn.renewLicense",
           "Renew License!"
         );
       } else {
         regBtn = util.getBundleString(
-          "quickfilters.notification.premium.btn.getLicense",
+          "notification.premium.btn.getLicense",
           "Buy License!"
         );
       }
@@ -2260,7 +2260,7 @@ quickFilters.Util = {
     let input = { value: "" },
       check = { value: false },
       promptLabel = util.getBundleString(
-        "quickfilters.prompt.customTemplateName",
+        "prompt.customTemplateName",
         "Name of Custom Template:"
       ),
       result = Services.prompt.prompt(window, "quickFilters", promptLabel, input, null, check);
@@ -2277,7 +2277,7 @@ quickFilters.Util = {
         let filter = filtersList.getFilterAt(i);
         if (filterName == filter.filterName) {
           let wrn = util.getBundleString(
-            "quickfilters.warning.templateNameNotUnique",
+            "warning.templateNameNotUnique",
             "A filter of this name already exists! It must be unique."
           );
 
@@ -2605,7 +2605,7 @@ quickFilters.Util = {
       button.setAttribute("checked", isActive);
     }
     const theLabel = quickFilters.Util.getBundleString(
-      isActive ? "quickfilters.FilterAssistant.stop" : "quickfilters.FilterAssistant.start",
+      isActive ? "FilterAssistant.stop" : "FilterAssistant.start",
       isActive ? "stop filter assistant" : "start filter assistant"
     );
     let mnuToggle = doc.getElementById("quickfilters-toggleAssistant");

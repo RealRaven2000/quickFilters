@@ -413,7 +413,7 @@ var quickFilters = {
           if (!filterService.getCustomTerm(customId)) {
             //l10n
             quickFilters.CustomTermReplyTo.name = util.getBundleString(
-              "quickfilters.customfilter.replyto",
+              "customfilter.replyto",
               "Reply-To"
             );
             util.logDebug("Adding Custom Term: " + quickFilters.CustomTermReplyTo.name);
@@ -618,7 +618,7 @@ var quickFilters = {
               // if email is still in inbox and also has no tags, warn about this
               let checkState = { value: false },
                 promptTxt = util.getBundleString(
-                  "quickfilters.createFromMail.inboxWarning",
+                  "createFromMail.inboxWarning",
                   "Create filter from message is much more useful if you have already moved " +
                     "the mail to a different folder or added a tag to it, as quickFilters " +
                     "will then select the appropriate Action for you.\n" +
@@ -629,7 +629,7 @@ var quickFilters = {
                   "quickFilters",
                   promptTxt,
                   util.getBundleString(
-                    "quickfilters.promptDontRepeat",
+                    "promptDontRepeat",
                     "Do not show this message again."
                   ),
                   checkState
@@ -709,7 +709,7 @@ var quickFilters = {
             });
           } else {
             let wrn = util.getBundleString(
-              "quickfilters.createFromMail.selectWarning",
+              "createFromMail.selectWarning",
               "To create a filter, please select exactly one email!"
             );
             await util.popupAlert(wrn);
@@ -757,7 +757,7 @@ var quickFilters = {
     // from  MsgApplyFiltersToSelection()
     if (!silent && quickFilters.Preferences.getBoolPref("notifications.runFilter")) {
       let text = quickFilters.Util.getBundleString(
-        "quickfilters.runningFiltersOnFolder.notify",
+        "runningFiltersOnFolder.notify",
         "Running filters on folder {1}"
       );
       util.slideAlert(
@@ -836,14 +836,14 @@ var quickFilters = {
     goDoCommand("cmd_applyFiltersToSelection"); // same in Postbox
     if (!silent && quickFilters.Preferences.getBoolPref("notifications.runFilter")) {
       let text = quickFilters.Util.getBundleString(
-        "quickfilters.runFiltersOnMails.notify",
+        "runFiltersOnMails.notify",
         "Applied filters to selected messages"
       );
       quickFilters.Util.slideAlert(text, "quickFilters");
     }
   },
 
-  searchFiltersFromFolder: function (event) {
+  searchFiltersFromFolder: async function (event) {
     const util = quickFilters.Util,
       Ci = Components.interfaces;
     let folders;
@@ -854,6 +854,9 @@ var quickFilters = {
     }
 
     if (!folders.length) {
+      return false;
+    }
+    if (!await util.popupProFeature("searchFolder", true)) {
       return false;
     }
     // 1. open filters list
@@ -936,12 +939,10 @@ var quickFilters = {
 
     if (!matchedAccount) {
       let wrn = util.getBundleString(
-        "quickfilters.search.warning.noresults",
+        "search.warning.noresults",
         "No matching filters found."
       );
       util.popupAlert(wrn, "quickFilters", "fugue-clipboard-exclamation.png");
-    } else {
-      util.popupProFeature("searchFolder", true);
     }
   },
 
@@ -1145,25 +1146,25 @@ var quickFilters = {
         id: "quickfilters-current-runbutton",
         insertAfter: "QuickFolders-currentFolderFilterActive",
         pref: "folderbutton",
-        tooltipKey: "quickfilters.RunButton.tooltip",
+        tooltipKey: "RunButton.tooltip",
       },
       {
         id: "quickfilters-current-msg-runbutton",
         insertAfter: "quickfilters-current-runbutton",
         pref: "messagesbutton",
-        tooltipKey: "quickfilters.RunButtonMsg.tooltip",
+        tooltipKey: "RunButtonMsg.tooltip",
       },
       {
         id: "quickfilters-current-listbutton",
         insertAfter: "quickfilters-current-msg-runbutton",
         pref: "listbutton",
-        tooltipKey: "quickfilters.ListButton.tooltip",
+        tooltipKey: "ListButton.tooltip",
       },
       {
         id: "quickfilters-current-searchfilterbutton",
         insertAfter: "quickfilters-current-listbutton",
         pref: "findfilterbutton",
-        tooltipKey: "quickfilters.findFiltersForFolder.menu",
+        tooltipKey: "findFiltersForFolder.menu",
       },
     ];
 
@@ -1688,7 +1689,7 @@ var quickFilters = {
       } else {
         removeClass(btn, "expired");
         if (hasNews) {
-          const newsMenuLabel = util.getBundleString("quickfilters.menu.news");
+          const newsMenuLabel = util.getBundleString("menu.news");
           newLabel = util.getBundleString("quickfiltersToolbarButton.updated");
           newTooltip = util
             .getBundleString("quickfiltersToolbarButton.updated.tip")
@@ -1988,7 +1989,7 @@ quickFilters.FolderListener = {
       if (prefs.isDebugOption("events")) {
         console.log(parent, item);
       }
-      if (!isLocalFolders) {
+      if (!isLocalFolders || !util.hasPremiumLicense()) {
         return;
       }
       if (!util.isLocalInbox(parent)) {
@@ -2343,21 +2344,21 @@ quickFilters.patchMailPane = () => {
     quickFilters.WL.injectElements(`
       <button id="quickfilters-toolbar-button">
         <menupopup id="quickFiltersMainPopup">
-          <menuitem id="quickfilters-news" label="__MSG_quickfilters.menu.news__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-checkLicense"    label="__MSG_quickfilters.menu.license__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-toggleAssistant" label="__MSG_quickfilters.FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();" />
-          <menuitem id="quickfilters-runFilters"      label="__MSG_quickfilters.RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_quickfilters.RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-          <menuitem id="quickfilters-menu-filterlist" label="__MSG_quickfilters.ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-news" label="__MSG_menu.news__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-checkLicense"    label="__MSG_menu.license__" class="menuitem-iconic marching-ants" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-toggleAssistant" label="__MSG_FilterAssistant.start__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();" />
+          <menuitem id="quickfilters-runFilters"      label="__MSG_RunButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-runFiltersMsg"   label="__MSG_RunButtonMsg.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menuitem id="quickfilters-menu-filterlist" label="__MSG_ListButton.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
           <menuseparator />
-          <menuitem id="quickfilters-settings" label="__MSG_quickfilters.button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-          <menu id="quickfilters-menu-tools" label="__MSG_quickfilters.menu.tools__" class="menu-iconic">
+          <menuitem id="quickfilters-settings" label="__MSG_button.settings__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+          <menu id="quickfilters-menu-tools" label="__MSG_menu.tools__" class="menu-iconic">
             <menupopup>
-              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_quickfilters.FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
-              <menuitem id="quickfilters-menu-searchfilters" label="__MSG_quickfilters.findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickFilters-menu-filterFromMsg" label="__MSG_FromMessage.label__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);"  onclick="event.stopPropagation();"/>                    
+              <menuitem id="quickfilters-menu-searchfilters" label="__MSG_findFiltersForFolder.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuitem id="quickfilters-menu-troubleshooter" label="__MSG_troubleshooter.menu__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuseparator />
-              <menuitem id="quickfilters-menu-registration" label="__MSG_quickfilters.registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+              <menuitem id="quickfilters-menu-registration" label="__MSG_registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menu label="Test" id="qFilters-menu-test" class="menu-iconic">
                 <menupopup>
                   <menuitem id="quickfilters-menu-test-storage-editor" label="Browser Storage editor" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
@@ -2371,7 +2372,7 @@ quickFilters.patchMailPane = () => {
               </menu>
             </menupopup>
           </menu>
-          <menuitem id="quickfilters-changelog"    label="__MSG_quickfilters.menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();" />
+          <menuitem id="quickfilters-changelog"    label="__MSG_menu.changelog__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();" />
           <menuitem id="quickfilters-gopro"   label="__MSG_getquickFilters__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
         </menupopup>
       </button>

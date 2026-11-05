@@ -23,104 +23,104 @@ async function onLoad(activatedWhileWindowOpen) {
 			<img src="chrome:///quickfilters/content/skin/proFeature24.png" id="customLogo" />
 			<spacer flex="1" />
 			<label id="quickFilters-CustomTitle"
-			       value="__MSG_quickfilters.customTemplate.title__"/>
+			       value="__MSG_customTemplate.title__"/>
 			<spacer flex="1" />
 		</hbox>
 		
 		<label id="quickFilters-templateName"
-		       value="__MSG_quickfilters.customTemplate.name__"
+		       value="__MSG_customTemplate.name__"
 					 control="filterName"
 					 collapsed="true"/>
 		
 		<hbox id="quickFilters-CustomVars"
 		      collapsed="true">
 			<label id="quickFilters-variablePicker-label" 
-			       value="__MSG_quickfilters.customVariable.label__"
+			       value="__MSG_customVariable.label__"
 						 collapsed="true" />
 			<toolbarbutton type="menu" 
 			          id="quickFilters-variablePicker"
-			          label="__MSG_quickfilters.customVariable.label__"
-								tooltiptext="__MSG_quickfilters.customVariable.tooltip__"
+			          label="__MSG_customVariable.label__"
+								tooltiptext="__MSG_customVariable.tooltip__"
 								sizetopopup="none" 
 								>
 				<menupopup>
-				  <menu label="__MSG_quickfilters.customHeader.From__">
+				  <menu label="__MSG_customHeader.From__">
 						<menupopup>
-							<menuitem label="__MSG_quickfilters.customHeader.From__" value="%from%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Email__" value="%from(mail)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain__" value="%from(domain)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain.Root__" value="%from(domain.root)%"/>
-  						<menuitem label="__MSG_quickfilters.customHeader.Domain.Sub__" value="%from(domain.subdomain)%"/>
- 							<menuitem label="__MSG_quickfilters.customHeader.Domain.Ext__" value="%from(domain.extension)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.NamePart__" value="%from(name)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.FirstName__" value="%from(firstname)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.LastName__" value="%from(lastname)%"/>
+							<menuitem label="__MSG_customHeader.From__" value="%from%"/>
+							<menuitem label="__MSG_customHeader.Email__" value="%from(mail)%"/>
+							<menuitem label="__MSG_customHeader.Domain__" value="%from(domain)%"/>
+							<menuitem label="__MSG_customHeader.Domain.Root__" value="%from(domain.root)%"/>
+  						<menuitem label="__MSG_customHeader.Domain.Sub__" value="%from(domain.subdomain)%"/>
+ 							<menuitem label="__MSG_customHeader.Domain.Ext__" value="%from(domain.extension)%"/>
+							<menuitem label="__MSG_customHeader.NamePart__" value="%from(name)%"/>
+							<menuitem label="__MSG_customHeader.FirstName__" value="%from(firstname)%"/>
+							<menuitem label="__MSG_customHeader.LastName__" value="%from(lastname)%"/>
 						</menupopup>
 					</menu>
-				  <menu label="__MSG_quickfilters.customHeader.To__">
+				  <menu label="__MSG_customHeader.To__">
 						<menupopup>
-							<menuitem label="__MSG_quickfilters.customHeader.To__" value="%to%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Email__" value="%to(mail)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain__" value="%to(domain)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain.Root__" value="%to(domain.root)%"/>
-  						<menuitem label="__MSG_quickfilters.customHeader.Domain.Sub__" value="%to(domain.subdomain)%"/>
- 							<menuitem label="__MSG_quickfilters.customHeader.Domain.Ext__" value="%to(domain.extension)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.NamePart__" value="%to(name)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.FirstName__" value="%to(firstname)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.LastName__" value="%to(lastname)%"/>
+							<menuitem label="__MSG_customHeader.To__" value="%to%"/>
+							<menuitem label="__MSG_customHeader.Email__" value="%to(mail)%"/>
+							<menuitem label="__MSG_customHeader.Domain__" value="%to(domain)%"/>
+							<menuitem label="__MSG_customHeader.Domain.Root__" value="%to(domain.root)%"/>
+  						<menuitem label="__MSG_customHeader.Domain.Sub__" value="%to(domain.subdomain)%"/>
+ 							<menuitem label="__MSG_customHeader.Domain.Ext__" value="%to(domain.extension)%"/>
+							<menuitem label="__MSG_customHeader.NamePart__" value="%to(name)%"/>
+							<menuitem label="__MSG_customHeader.FirstName__" value="%to(firstname)%"/>
+							<menuitem label="__MSG_customHeader.LastName__" value="%to(lastname)%"/>
 						</menupopup>
 					</menu>
-				  <menu label="__MSG_quickfilters.customHeader.CarbonCopy__">
+				  <menu label="__MSG_customHeader.CarbonCopy__">
 						<menupopup>
-							<menuitem label="__MSG_quickfilters.customHeader.CarbonCopy__" value="%cc%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Email__" value="%cc(mail)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain__" value="%cc(domain)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain.Root__" value="%cc(domain.root)%"/>
-  						<menuitem label="__MSG_quickfilters.customHeader.Domain.Sub__" value="%cc(domain.subdomain)%"/>
- 							<menuitem label="__MSG_quickfilters.customHeader.Domain.Ext__" value="%cc(domain.extension)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.NamePart__" value="%cc(name)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.FirstName__" value="%cc(firstname)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.LastName__" value="%cc(lastname)%"/>
+							<menuitem label="__MSG_customHeader.CarbonCopy__" value="%cc%"/>
+							<menuitem label="__MSG_customHeader.Email__" value="%cc(mail)%"/>
+							<menuitem label="__MSG_customHeader.Domain__" value="%cc(domain)%"/>
+							<menuitem label="__MSG_customHeader.Domain.Root__" value="%cc(domain.root)%"/>
+  						<menuitem label="__MSG_customHeader.Domain.Sub__" value="%cc(domain.subdomain)%"/>
+ 							<menuitem label="__MSG_customHeader.Domain.Ext__" value="%cc(domain.extension)%"/>
+							<menuitem label="__MSG_customHeader.NamePart__" value="%cc(name)%"/>
+							<menuitem label="__MSG_customHeader.FirstName__" value="%cc(firstname)%"/>
+							<menuitem label="__MSG_customHeader.LastName__" value="%cc(lastname)%"/>
 						</menupopup>
 					</menu>
-				  <menu label="__MSG_quickfilters.customHeader.BlindCarbonCopy__">
+				  <menu label="__MSG_customHeader.BlindCarbonCopy__">
 						<menupopup>
-							<menuitem label="__MSG_quickfilters.customHeader.BlindCarbonCopy__" value="%bcc%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Email__" value="%bcc(mail)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain__" value="%bcc(domain)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain.Root__" value="%bcc(domain.root)%"/>
-  						<menuitem label="__MSG_quickfilters.customHeader.Domain.Sub__" value="%bcc(domain.subdomain)%"/>
- 							<menuitem label="__MSG_quickfilters.customHeader.Domain.Ext__" value="%bcc(domain.extension)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.NamePart__" value="%bcc(name)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.FirstName__" value="%bcc(firstname)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.LastName__" value="%bcc(lastname)%"/>
+							<menuitem label="__MSG_customHeader.BlindCarbonCopy__" value="%bcc%"/>
+							<menuitem label="__MSG_customHeader.Email__" value="%bcc(mail)%"/>
+							<menuitem label="__MSG_customHeader.Domain__" value="%bcc(domain)%"/>
+							<menuitem label="__MSG_customHeader.Domain.Root__" value="%bcc(domain.root)%"/>
+  						<menuitem label="__MSG_customHeader.Domain.Sub__" value="%bcc(domain.subdomain)%"/>
+ 							<menuitem label="__MSG_customHeader.Domain.Ext__" value="%bcc(domain.extension)%"/>
+							<menuitem label="__MSG_customHeader.NamePart__" value="%bcc(name)%"/>
+							<menuitem label="__MSG_customHeader.FirstName__" value="%bcc(firstname)%"/>
+							<menuitem label="__MSG_customHeader.LastName__" value="%bcc(lastname)%"/>
 						</menupopup>
 					</menu>
-				  <menu label="__MSG_quickfilters.customHeader.ReplyTo__">
+				  <menu label="__MSG_customHeader.ReplyTo__">
 						<menupopup>
-							<menuitem label="__MSG_quickfilters.customHeader.ReplyTo__" value="%reply-to%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Email__" value="%reply-to(mail)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain__" value="%reply-to(domain)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.Domain.Root__" value="%reply-to(domain.root)%"/>
-  						<menuitem label="__MSG_quickfilters.customHeader.Domain.Sub__" value="%reply-to(domain.subdomain)%"/>
- 							<menuitem label="__MSG_quickfilters.customHeader.Domain.Ext__" value="%reply-to(domain.extension)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.NamePart__" value="%reply-to(name)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.FirstName__" value="%reply-to(firstname)%"/>
-							<menuitem label="__MSG_quickfilters.customHeader.LastName__" value="%reply-to(lastname)%"/>
+							<menuitem label="__MSG_customHeader.ReplyTo__" value="%reply-to%"/>
+							<menuitem label="__MSG_customHeader.Email__" value="%reply-to(mail)%"/>
+							<menuitem label="__MSG_customHeader.Domain__" value="%reply-to(domain)%"/>
+							<menuitem label="__MSG_customHeader.Domain.Root__" value="%reply-to(domain.root)%"/>
+  						<menuitem label="__MSG_customHeader.Domain.Sub__" value="%reply-to(domain.subdomain)%"/>
+ 							<menuitem label="__MSG_customHeader.Domain.Ext__" value="%reply-to(domain.extension)%"/>
+							<menuitem label="__MSG_customHeader.NamePart__" value="%reply-to(name)%"/>
+							<menuitem label="__MSG_customHeader.FirstName__" value="%reply-to(firstname)%"/>
+							<menuitem label="__MSG_customHeader.LastName__" value="%reply-to(lastname)%"/>
 						</menupopup>
 					</menu>
-					<menuitem label="__MSG_quickfilters.customHeader.Subject__" value="%subject%" />
-					<menuitem label="__MSG_quickfilters.customHeader.SubjectRegex__" value="%subjectRegex()%" />
-					<menuitem label="__MSG_quickfilters.customHeader.ListId__" value="%list-id%" />
-					<menuitem label="__MSG_quickfilters.customHeader.ListPost__" value="%list-post%" />
-					<menuitem label="__MSG_quickfilters.customHeader.Newsgroups__" value="%newsgroups%" />
+					<menuitem label="__MSG_customHeader.Subject__" value="%subject%" />
+					<menuitem label="__MSG_customHeader.SubjectRegex__" value="%subjectRegex()%" />
+					<menuitem label="__MSG_customHeader.ListId__" value="%list-id%" />
+					<menuitem label="__MSG_customHeader.ListPost__" value="%list-post%" />
+					<menuitem label="__MSG_customHeader.Newsgroups__" value="%newsgroups%" />
 				</menupopup>
 			</toolbarbutton>
 		  
 		</hbox>
 		
     <hbox class="labelWithHelpLink">
-      <div id="qfi_help_actions_customtemplate" class="helpLink" clickyTooltip="__MSG_quickfilters.customHeader.defaultActionTip__" hidden="true"> </div>
+      <div id="qfi_help_actions_customtemplate" class="helpLink" clickyTooltip="__MSG_customHeader.defaultActionTip__" hidden="true"> </div>
     </hbox>
 
 	</dialog>
@@ -177,8 +177,8 @@ async function onLoad(activatedWhileWindowOpen) {
       <toolbar id="quickFiltersEditorTools">
         <toolbarbutton id="quickFiltersBtnSort"
           class="toolbarbutton-1" 
-          label="__MSG_quickfilters.sort__"
-          tooltiptext="__MSG_quickfilters.sort.tooltip__"
+          label="__MSG_sort__"
+          tooltiptext="__MSG_sort.tooltip__"
           />
       </toolbar>
     `);    

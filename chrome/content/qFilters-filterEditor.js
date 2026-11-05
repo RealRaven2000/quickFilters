@@ -320,7 +320,7 @@ END LICENSE BLOCK
       let variable = event.target.value,
         hdr = "",
         txt = util.getBundleString(
-          "quickfilters.prompt.copiedCustomVar",
+          "prompt.copiedCustomVar",
           "Copied variable {1} to clipboard, please insert into a search term."
         );
       clipboardhelper.copyString(variable);
@@ -332,7 +332,7 @@ END LICENSE BLOCK
       if (!["from", "to", "cc", "bcc", "subject", "subjectRegex", "reply-to"].includes(hdr)) {
         if (!util.checkCustomHeaderExists(hdr)) {
           txt = util.getBundleString(
-            "quickfilters.prompt.createCustomHeader",
+            "prompt.createCustomHeader",
             "Please add the term '{1}' as a custom header to use this in a filter."
           );
           if (confirm(txt.replace("{1}", hdr))) {

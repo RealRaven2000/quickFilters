@@ -113,7 +113,7 @@ var Register = {
 			if (licenseInfo.status == "Expired" || licenseInfo.status == "Valid") {
 				if(licenseInfo.status == "Expired") {
           const renewalText = util.getBundleString(
-            "quickfilters.notification.premium.btn.renewLicense",
+            "notification.premium.btn.renewLicense",
             "Renew License!"
           );
           if (licenseInfo.keyType == 1) {
@@ -124,7 +124,7 @@ var Register = {
           }
         } else {
           const extendText = util.getBundleString(
-            "quickfilters.notification.premium.btn.extendLicense",
+            "notification.premium.btn.extendLicense",
             "Extend License!"
           );
           if (licenseInfo.keyType == 1) { 
@@ -136,7 +136,7 @@ var Register = {
             btnLicense.setAttribute(
               "tooltiptext",
               util.getBundleString(
-                "quickfilters.notification.premium.btn.extendLicense.tooltip",
+                "notification.premium.btn.extendLicense.tooltip",
                 "This will extend the current license date by 1 year. It's typically cheaper than a new license."
               )
             );
@@ -162,7 +162,7 @@ var Register = {
     const licenseDate = getElement("licenseDateLabel");
 		switch(licenseInfo.status) {
 			case "Expired":
-			  licenseDate.textContent = util.getBundleString("quickfilters.register.licenseValid.expired","Your license expired on:")
+			  licenseDate.textContent = util.getBundleString("register.licenseValid.expired","Your license expired on:")
 				getElement("qfLicenseTerm").classList.add("expired");
 				getElement("qfLicenseTerm").classList.add("attention");
 			  break;

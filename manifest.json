@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "quickFilters",
   "description": "__MSG_extensionDescription__",
-  "version": "6.14",
+  "version": "6.15pre50",
   "default_locale": "en",
   "author": "Axel Grude",
   "developer": {
@@ -64,11 +64,11 @@
       }
     },
     "FiltersAPI": {
-      "schema": "chrome/content/api/FiltersAPI/schema.json",
+      "schema": "chrome/content/api/filtersAPI/schema.json",
       "parent": {
         "scopes": ["addon_parent"],
         "paths": [["FiltersAPI"]],
-        "script": "chrome/content/api/FiltersAPI/implementation.js"
+        "script": "chrome/content/api/filtersAPI/implementation.js"
       }
     },
     "Utilities": {

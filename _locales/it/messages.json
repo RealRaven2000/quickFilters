@@ -9,8 +9,8 @@
     "message": "Seleziona un account:"
   },
   "active-version-info": {
-    "message": "Stai eseguendo la {bold} versione $addonVer$ {/bold}  con Thunderbird $appVer$.",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "Stai eseguendo la {bold} versione $addonVer$ {/bold}  con Thunderbird $appVer$.",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "Per proseguire il lavoro, gli sviluppatori delle estensioni debbono ora disporre di risorse finanziarie necessarie per poterle correggere e/o riscrivere così che gli utenti possano continuare a usufruire delle loro funzionalità."
   },
-  "assistant.ux.title": {
-    "message": "Interfaccia utente"
+  "addTag.label": {
+    "message": "Etichetta il messaggio"
   },
   "assistant.ux.assistant.html": {
     "message": "Mostra l'Assistente nella nuova interfaccia utente HTML"
@@ -40,11 +40,21 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "Assicurati che l'assistente rimanga in primo piano una volta attivato."
   },
+  "assistant.ux.title": {
+    "message": "Interfaccia utente"
+  },
+  "backup.archivingFilters": {
+    "message": "Sto archiviando {1} filtri"
+  },
   "backup.backup.accountsFilters": {
     "message": "$accountCount$ account · $filterCount$ filtri",
     "placeholders": {
-      "accountCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "accountCount": {
+        "content": "$1"
+      },
+      "filterCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.backup.accountsLabel": {
@@ -52,15 +62,6 @@
   },
   "backup.backup.allAccounts": {
     "message": "Tutti i conti"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "Salva i filtri di $accountName$",
-    "placeholders": {
-      "accountName": { "content": "$1" }
-    }
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "Effettua il backup dei filtri selezionati"
   },
   "backup.backup.backup": {
     "message": "Backup"
@@ -71,21 +72,40 @@
   "backup.backup.backupFailed": {
     "message": "Backup non riuscito: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "Salva i filtri di $accountName$",
+    "placeholders": {
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
     "message": "Backup salvato, ma il completamento dell'operazione non è riuscito: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
     "message": "Backup salvato su $filePath$, ma non è stato possibile salvare le preferenze: $error$",
     "placeholders": {
-      "filePath": { "content": "$1" },
-      "error": { "content": "$2" }
+      "error": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$1"
+      }
     }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "Effettua il backup dei filtri selezionati"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "Il backup non è stato salvato."
@@ -93,7 +113,9 @@
   "backup.backup.cannotLoadAccounts": {
     "message": "Impossibile caricare gli account: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.cannotReadFilters": {
@@ -105,19 +127,25 @@
   "backup.backup.couldNotDeleteFilter": {
     "message": "Impossibile eliminare il filtro: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotEditFilter": {
     "message": "Impossibile modificare il filtro: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
     "message": "Impossibile tornare all'elenco dei filtri: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.currentProfile": {
@@ -126,7 +154,9 @@
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
     "message": "Filtro eliminato “$filterName$”. Esegui nuovamente il backup se desideri salvare questa modifica.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.description": {
@@ -144,7 +174,9 @@
   "backup.backup.filters": {
     "message": "$filterCount$ filtri",
     "placeholders": {
-      "filterCount": { "content": "$1" }
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
@@ -156,14 +188,20 @@
   "backup.backup.highlightWarningsFor": {
     "message": "Evidenzia $warningCount$ avvisi per $accountName$",
     "placeholders": {
-      "warningCount": { "content": "$1" },
-      "accountName": { "content": "$2" }
+      "accountName": {
+        "content": "$2"
+      },
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.highlightWarningsFor2": {
     "message": "Evidenziare gli avvisi per $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
@@ -175,16 +213,26 @@
   "backup.backup.ofAccountsSelectedFilters": {
     "message": "$selectedAccountCount$ di $accountCount$ account selezionati · $filterCount$ filtri",
     "placeholders": {
-      "selectedAccountCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filterCount": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filterCount": {
+        "content": "$3"
+      },
+      "selectedAccountCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.ofFiltersSelected": {
     "message": "$selectedFilterCount$ di $filterCount$ filtri selezionati",
     "placeholders": {
-      "selectedFilterCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "filterCount": {
+        "content": "$2"
+      },
+      "selectedFilterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
@@ -208,15 +256,23 @@
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
     "message": "Filtri $filterCount$ salvati dagli account $accountCount$ a $filePath$. Utilizza Torna ai filtri dei messaggi per tornare.",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filePath": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$3"
+      },
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.savedTo": {
     "message": "Salvato su $filePath$",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectAtLeastOneAccount": {
@@ -228,13 +284,17 @@
   "backup.backup.selectedFilters": {
     "message": "$accountName$ - filtri selezionati",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectionHint": {
     "message": "(Per salvare solo una selezione di filtri, tenere premuto Ctrl mentre si fa clic su $icon$ in Filtri messaggi.)",
     "placeholders": {
-      "icon": { "content": "$1" }
+      "icon": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.title": {
@@ -252,13 +312,17 @@
   "backup.common.warningCount": {
     "message": "$count$ avvisi",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.common.warningCountOne": {
     "message": "$count$ avviso",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.backupChanges": {
@@ -267,11 +331,19 @@
   "backup.confirm.deleteFilter": {
     "message": "Eliminare il filtro “$name$”?",
     "placeholders": {
-      "name": { "content": "$1" }
+      "name": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.doNotAskAgain": {
     "message": "Non chiedere più"
+  },
+  "backup.customErrors": {
+    "message": "I filtri seguenti prevedono Azioni personalizzate che non possono essere completamente salvate. È possibile che manchi un'estensione di terze parti:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} filtri non possono essere codificati. Controllare il file di log degli errori per ulteriori dettagli."
   },
   "backup.format.chooseDestination": {
     "message": "Scegli la destinazione"
@@ -288,13 +360,17 @@
   "backup.format.invalidActionOrConditionIn": {
     "message": "Azione o condizione non valida in $filterName$.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidFilterDataIn": {
     "message": "Dati filtro non validi in $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidReferencedAccountDirectory": {
@@ -312,23 +388,37 @@
   "backup.format.message": {
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": { "content": "$1" },
-      "month": { "content": "$2" },
-      "day": { "content": "$3" },
-      "hour": { "content": "$4" },
-      "minute": { "content": "$5" }
+      "day": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "year": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.missingFiltersFor": {
     "message": "Filtri mancanti per $accountName$.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.referenced": {
     "message": "$accountIdentity$ (riferito)",
     "placeholders": {
-      "accountIdentity": { "content": "$1" }
+      "accountIdentity": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.remembered": {
@@ -349,7 +439,9 @@
   "backup.mapping.assignedToMoveHere": {
     "message": "Assegnato a $accountName$: spostati qui",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.dropATargetHere": {
@@ -358,8 +450,12 @@
   "backup.mapping.filters": {
     "message": "Filtri $filterCount$$statusSuffix$",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "statusSuffix": { "content": "$2" }
+      "filterCount": {
+        "content": "$1"
+      },
+      "statusSuffix": {
+        "content": "$2"
+      }
     }
   },
   "backup.mapping.filtersRestored": {
@@ -380,13 +476,17 @@
   "backup.mapping.restoreFiltersFrom": {
     "message": "Ripristina i filtri da $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountFor": {
     "message": "Seleziona il conto per $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
@@ -395,13 +495,17 @@
   "backup.mapping.warnings": {
     "message": "$warningCount$ avvisi",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
     "message": "L'account $accountId$ non è disponibile o non supporta i filtri.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
@@ -410,13 +514,17 @@
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
     "message": "Impossibile esportare il filtro “$filterName$”. Non è stato scritto alcun backup.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.destinationAccountIsUnavailable": {
     "message": "L'account di destinazione $accountId$ non è disponibile.",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
@@ -428,7 +536,9 @@
   "backup.native.folderDoesNotExistInTheDestinationAccount": {
     "message": "La cartella \"$folderName$\" non esiste nell'account di destinazione",
     "placeholders": {
-      "folderName": { "content": "$1" }
+      "folderName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.invalidAccountMapping": {
@@ -479,7 +589,9 @@
   "backup.native.noDestinationSelectedForAccount": {
     "message": "Nessuna destinazione selezionata per l'account “$accountName$”",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
@@ -497,8 +609,12 @@
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
     "message": "Salvataggio fallito ($saveError$); anche il ripristino del file originale non è riuscito ($restoreError$)",
     "placeholders": {
-      "saveError": { "content": "$1" },
-      "restoreError": { "content": "$2" }
+      "restoreError": {
+        "content": "$2"
+      },
+      "saveError": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
@@ -546,14 +662,20 @@
   "backup.restore.cannotLoadDestinationAccounts": {
     "message": "Impossibile caricare gli account di destinazione: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.cannotOpenBackup": {
     "message": "Impossibile aprire il backup: $error$$previousBackupNotice$",
     "placeholders": {
-      "error": { "content": "$1" },
-      "previousBackupNotice": { "content": "$2" }
+      "error": {
+        "content": "$1"
+      },
+      "previousBackupNotice": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
@@ -562,13 +684,17 @@
   "backup.restore.couldNotSaveReport": {
     "message": "Impossibile salvare il rapporto: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.deletedFilter": {
     "message": "Eliminato il filtro “$filterName$”.",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.description": {
@@ -619,13 +745,17 @@
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
     "message": "Ripristino completato ma non è stato possibile ricordare le mappature: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFailed": {
     "message": "Ripristino non riuscito: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFilters": {
@@ -634,13 +764,17 @@
   "backup.restore.restoreReportSavedTo": {
     "message": "Ripristina rapporto salvato su $filePath$.",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
     "message": "Ripristina revisione · $warningCount$ avvisi e elementi saltati",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreWasNotPerformed": {
@@ -652,20 +786,38 @@
   "backup.restore.resultComplete": {
     "message": "Ripristino completato: $added$ aggiunto, $replaced$ sostituito, $kept$ filtri esistenti mantenuti, $skipped$ saltati.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" }
+      "added": {
+        "content": "$1"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.resultErrors": {
     "message": "Ripristino terminato con errori: $added$ aggiunto, $replaced$ sostituito, $kept$ filtri esistenti mantenuti, $skipped$ ignorato, $failed$ account non riusciti.",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" },
-      "failed": { "content": "$5" }
+      "added": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$5"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
@@ -677,15 +829,23 @@
   "backup.restore.selectDestinationAccountsFor": {
     "message": "Selezionare gli account di destinazione per: $accountNames$.",
     "placeholders": {
-      "accountNames": { "content": "$1" }
+      "accountNames": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
     "message": "$backupType$ · $sourceAccountCount$ conti sorgente · $referencedAccountCount$ conti referenziati",
     "placeholders": {
-      "backupType": { "content": "$1" },
-      "sourceAccountCount": { "content": "$2" },
-      "referencedAccountCount": { "content": "$3" }
+      "backupType": {
+        "content": "$1"
+      },
+      "referencedAccountCount": {
+        "content": "$3"
+      },
+      "sourceAccountCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
@@ -706,19 +866,25 @@
   "backup.startup.cannotOpenBackup": {
     "message": "Impossibile aprire il backup: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.startup.cannotOpenRestore": {
     "message": "Impossibile aprire il ripristino: $error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
     "message": "Backend di archiviazione di backup non supportato: $backend$",
     "placeholders": {
-      "backend": { "content": "$1" }
+      "backend": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.account": {
@@ -736,7 +902,9 @@
   "backup.warnings.backupSavedWithWarnings": {
     "message": "Backup salvato con avvisi $warningCount$",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.clearHighlight": {
@@ -763,11 +931,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "Nome duplicato: saltato"
   },
-  "backup.warnings.editFilter": {
-    "message": "Modifica"
-  },
   "backup.warnings.editedByUser": {
     "message": "Modificato dall'utente"
+  },
+  "backup.warnings.editFilter": {
+    "message": "Modifica"
   },
   "backup.warnings.filter": {
     "message": "Filtra"
@@ -799,7 +967,9 @@
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
     "message": "Avvisi per $accountName$ evidenziati. Tutti gli avvisi rimangono visibili.",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
@@ -816,6 +986,81 @@
   },
   "btn-want-to-donate": {
     "message": "Voglio sostenere il progetto con una donazione “una tantum”."
+  },
+  "button.assistant": {
+    "message": "Attiva/disattiva la “Procedura guidata”…"
+  },
+  "button.assistant.tooltiptext": {
+    "message": "Attiva/disattiva la modalità “Procedura guidata”. Se questa è attiva, è sufficiente trascinare e rilasciare dei messaggi per creare dei filtri."
+  },
+  "button.bug": {
+    "message": "Risoluzione problemi"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Risoluzione problemi: 1. Filtri che non possono essere eseguiti automaticamente 2. Cartelle-destinazione non valide 3. Azioni personalizzate da convalidare"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. “Miste”/“Qualsiasi”/“Tutte” le condizioni. Per configurare la sequenza, fare clic sul pulsante dx del mouse."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "Elimina duplicati"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "Reimposta la ricerca dei duplicati"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "Annulla ricerca"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "Annulla la ricerca per cartella"
+  },
+  "button.clone": {
+    "message": "Clona"
+  },
+  "button.clone.accesskey": {
+    "message": "C"
+  },
+  "button.clone.tooltiptext": {
+    "message": "Clona un filtro"
+  },
+  "button.findDuplicates.label": {
+    "message": "Trova duplicati"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "Trova attributi dei duplicati"
+  },
+  "button.getOtherAddon": {
+    "message": "Scarica {1}"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "Ripristino filtri…"
+  },
+  "button.merge": {
+    "message": "Unione"
+  },
+  "button.merge.accesskey": {
+    "message": "U"
+  },
+  "button.merge.tooltiptext": {
+    "message": "Unione di più filtri con la stessa azione"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "Backup filtri…"
+  },
+  "button.searchProperties": {
+    "message": "Modifica i criteri di ricerca…"
+  },
+  "button.settings": {
+    "message": "Impostazioni di quickFilters…"
+  },
+  "button.sort": {
+    "message": "Ordinamento"
+  },
+  "button.sort.tooltiptext": {
+    "message": "Ordina alfabeticamente"
+  },
+  "button.support": {
+    "message": "Sito di supporto di quickFilters"
   },
   "buyDomainLicense.button": {
     "message": "Acquista una licenza di dominio"
@@ -931,11 +1176,158 @@
   "chkWhenArchiving.label": {
     "message": "Quando si stanno archiviando messaggi"
   },
+  "clone.label": {
+    "message": "(copia)"
+  },
+  "clone.selectOne": {
+    "message": "Per clonare, selezionare un unico filtro"
+  },
+  "clone.undetermined": {
+    "message": "Non è possibile comprendere quale filtro sia stato selezionato"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "Nessun filtro negli Appunti"
+  },
+  "copy.warning.selectFilter": {
+    "message": "Selezionare almeno un filtro"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "Per incollare gli elementi, selezionare un account diverso"
+  },
+  "copyMessage.label": {
+    "message": "Copia il messaggio in"
+  },
   "cost-of-independence": {
     "message": "Lo sviluppo del software costa tempo e denaro: a differenza di molti programmi, i componenti aggiuntivi non sono creati da grandi aziende, né sono sponsorizzati in alcun modo da Mozilla."
   },
   "createdBy": {
     "message": "Creato da:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "L'account ({1}) non può avere filtri"
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "Questa tipologia richiede almeno 2 messaggi di posta"
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "L'account [{1}] di posta di origine non può avere filtri.\nAl suo posto sto usando la cartella “Posta in arrivo” corrente."
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "Spiacente, ma in questa versione di {1}, non è possibile creare filtri poiché non è supportata l'estrazione degli indirizzi dall'intestazione dei messaggi"
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "Non posso accedere al database dei messaggi della cartella {1}"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "Creazione del filtro non riuscita - è impossibile recuperare l'identificativo del messaggio dal primo messaggio dell'elenco.\nSi consiglia di eseguire il comando “Riparazione della cartella”."
+  },
+  "createFilter.warning.noServer": {
+    "message": "La cartella ({1}) non ha un server."
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "Per disporre di questa caratteristica è necessario l'aggiornamento a una versione più recente."
+  },
+  "createFromMail.inboxWarning": {
+    "message": "L'opzione “Crea filtro da un messaggio” è tanto più utile se si è già spostata della posta in un'altra cartella o se vi si è aggiunta un'etichetta poiché quickFilters selezionerà per voi l'azione appropriata.\nSi vuole comunque creare un filtro a partire da questo messaggio?"
+  },
+  "createFromMail.selectWarning": {
+    "message": "Per creare un filtro, selezionare esattamente un messaggio!"
+  },
+  "customfilter.replyto": {
+    "message": "Rispondi a:"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Copia Conforme Nascosta (CCN)"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Copia Conforme (CC)"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "La “Procedura guidata” di quickFilters aggiungerà automaticamente un'azione. Si prega di lasciare l'azione predefinita “Imposta priorità a 'normale'” come tappabuchi."
+  },
+  "customHeader.Domain": {
+    "message": "Dominio dell'indirizzo di posta elettronica"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "Estensione del dominio"
+  },
+  "customHeader.Domain.Root": {
+    "message": "Dominio principale"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "Sottodominio"
+  },
+  "customHeader.Email": {
+    "message": "Indirizzo di posta elettronica"
+  },
+  "customHeader.FirstName": {
+    "message": "Nome"
+  },
+  "customHeader.From": {
+    "message": "Mittente/Da"
+  },
+  "customHeader.LastName": {
+    "message": "Cognome"
+  },
+  "customHeader.ListId": {
+    "message": "List Id"
+  },
+  "customHeader.ListPost": {
+    "message": "List Post"
+  },
+  "customHeader.NamePart": {
+    "message": "Nome completo"
+  },
+  "customHeader.Newsgroups": {
+    "message": "Gruppi di discussione"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Rispondi a"
+  },
+  "customHeader.Subject": {
+    "message": "Oggetto"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "Espressione regolare nell'Oggetto"
+  },
+  "customHeader.To": {
+    "message": "A"
+  },
+  "customTemplate.name": {
+    "message": "Nome del tipo:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters: Tipologia personalizzata"
+  },
+  "customVariable.label": {
+    "message": "Variabili personalizzate"
+  },
+  "customVariable.tooltip": {
+    "message": "Quando viene creato il fltro, queste variabili vengono rimpiazzate dalle corrispondenti intestazioni del messaggio di posta elettronica corrente"
+  },
+  "debug.fixFilters": {
+    "message": "Trovati {0} filtri attivi che non hanno alcun metodo di esecuzione (manuale, in ingresso o automatico). Si devono modificare per essere eseguiti automaticamente quando si ricevono nuovi messaggi?"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Trovate condizioni che combinano “Tutte”/“Qualsiasi”. Potrebbero non funzionare nel modo previsto. Devo provvedere alla loro correzione?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "Trovati {0} filtri con azioni personalizzate non funzionanti. Potrebbe mancare un'estensione di terze parti o essere necessario configurarla per supportare azioni personalizzate."
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "Trovati {0} filtri con cartelle di destinazione non valide. Potrebbero essere stati importati da un profilo privo di corrispondenze? Alternativamente, la cartella-destinazione non esiste più o è stata spostata."
+  },
+  "debug.fixFilters.none": {
+    "message": "Non sono stati trovati filtri malfunzionanti."
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} filtri sono stati corretti."
+  },
+  "deleteFromPOP.label": {
+    "message": "Elimina dal POP server"
+  },
+  "deleteMessage.label": {
+    "message": "Elimina messaggio"
   },
   "domainLicense.email": {
     "message": "Per generare la vostra licenza di dominio, vi contatteremo usando questo indirizzo di posta elettronica; lo faremo entro due giorni lavorativi. Nella pagina successiva inserire il nome del dominio che si vuole collegare alla licenza."
@@ -968,15 +1360,36 @@
     "message": "Vàluta se estendere di un anno la tua licenza."
   },
   "extensionDescription": {
-    "message": "Genera regole di filtro per la posta al volo, trascinando e rilasciando i messaggi e analizzandone gli attributi.",
-    "description": "Description of the extension."
+    "description": "Description of the extension.",
+    "message": "Genera regole di filtro per la posta al volo, trascinando e rilasciando i messaggi e analizzandone gli attributi."
   },
   "extensionName": {
-    "message": "quickFilters",
-    "description": "Name of the extension"
+    "description": "Name of the extension",
+    "message": "quickFilters"
   },
   "extensions.quickfilters.description": {
     "message": "Genera al volo dei filtri per i messaggi trascinandoli e rilasciandoli e analizzandone gli attributi"
+  },
+  "fetchFromPOP.label": {
+    "message": "Scarica dal POP server"
+  },
+  "FilterAssistant.start": {
+    "message": "Avvia la Procedura guidata"
+  },
+  "FilterAssistant.stop": {
+    "message": "Termina la Procedura guidata"
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "Non mostrare più questo messaggio."
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "È stata avviata la “Procedura guidata” per la creazione dei filtri. Ogni qualvolta si sposta un messaggio da una cartella di posta ad un'altra, viene eseguita la “Procedura guidata per la creazione delle regole del filtro”. #1 usa “Filtri messaggi” per spostare automaticamente i messaggi in base a regole quali: “Chi è il mittente?”, “Nell'oggetto vi è una certa parola-chiave?”. Per arrestare questa modalità, fare nuovamente clic sul pulsante [Procedura guidata]"
+  },
+  "filters.toggleMessage.title": {
+    "message": "Modalità “Procedura guidata”"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "Trova filtri…"
   },
   "firstName.label": {
     "message": "Nome:"
@@ -984,8 +1397,20 @@
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Applica automaticamente i filtri alla posta in arrivo"
   },
+  "forwardTo.label": {
+    "message": "Inoltra il messaggio a"
+  },
+  "fpJsonFile": {
+    "message": "File JSON"
+  },
   "freeLicense": {
     "message": "Se si è effettuata recentemente una donazione a favore del progetto quickFilters o se si è dato un contributo al suo sviluppo (per es. traducendolo o creando delle patch), si è idonei a ricevere una chiave di registrazione gratuita. Contattatemi tramite la scheda “Supporto” presente nelle “Opzioni di QuickFolders”."
+  },
+  "FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "FromMessage.label": {
+    "message": "Creazione filtro dal messaggio…"
   },
   "getquickFilters": {
     "message": "Acquista quickFilters Pro"
@@ -994,8 +1419,8 @@
     "message": "Regole Unione"
   },
   "heading-installed": {
-    "message": "$addonName$ installato con successo",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ installato con successo",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1004,8 +1429,8 @@
     }
   },
   "heading-updated": {
-    "message": "$addonName$ aggiornato con successo",
     "description": "page heading. first placeholder will be replaced with Add-on name",
+    "message": "$addonName$ aggiornato con successo",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -1015,6 +1440,12 @@
   },
   "homepage": {
     "message": "Sito web:"
+  },
+  "ignoreSubthread.label": {
+    "message": "Ignora le sotto discussioni"
+  },
+  "ignoreThread.label": {
+    "message": "Ignora la discussione"
   },
   "intro": {
     "message": "La licenza annuale di quickFilters Pro ti consente di disporre di tutte le caratteristiche Premium per un anno. Inoltre, i ricavi che ne derivano ci permettono di manutenere e di migliorare ulteriormente il prodotto trasformandolo in qualcosa di ancor più straordinario."
@@ -1044,8 +1475,80 @@
   "licenseTerms.show": {
     "message": "Mostra le condizioni della licenza"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(La chiave inserita potrebbe essere relativa a {2})."
+  },
   "licenseWindow.title": {
     "message": "Licenza di quickFilters Pro"
+  },
+  "ListButton.label": {
+    "message": "Filtri per i messaggi…"
+  },
+  "ListButton.tooltip": {
+    "message": "Mostra un elenco di filtri per i messaggi"
+  },
+  "markMessageRead.label": {
+    "message": "Segna come già letto"
+  },
+  "markMessageStarred.label": {
+    "message": "Aggiungi a Speciali"
+  },
+  "markMessageUnread.label": {
+    "message": "Segna come non letto"
+  },
+  "menu.changelog": {
+    "message": "Registro delle modifiche…"
+  },
+  "menu.copy": {
+    "message": "Copia"
+  },
+  "menu.cut": {
+    "message": "Taglia"
+  },
+  "menu.license": {
+    "message": "Controlla lo stato della licenza…"
+  },
+  "menu.news": {
+    "message": "Notizie / Registro delle modifiche…"
+  },
+  "menu.paste": {
+    "message": "Incolla"
+  },
+  "menu.removeDupeAction": {
+    "message": "Rimuovi l'azione di duplicazione"
+  },
+  "menu.removeDupeCondition": {
+    "message": "Rimuovi la condizione di duplicazione"
+  },
+  "menu.tools": {
+    "message": "Strumenti"
+  },
+  "merge.addressesOmitted": {
+    "message": "Gli indirizzi di posta elettronica sono stati tolti dalle condizioni del filtro. quickFilters infatti disabilita filtri basati sul proprio indirizzo di posta elettronica:"
+  },
+  "merge.warning.missingAction": {
+    "message": "Impossibile ottenere l'azione principale del filtro:{1}"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "Non si possono unire tutti i filtri selezionati: mancata corrispondenza con il filtro {1}"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "Deselezionare i filtri che non hanno corrispondenza e continuare?"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "Per creare un'unione, selezionare almeno 2 filtri"
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "Non riesco a determinare il primo filtro selezionato - per creare un'unione bisogna selezionare almeno 2 filtri!"
+  },
+  "merge.warning.selectTarget": {
+    "message": "Per creare un'unione, bisogna selezionare un “filtro-destinazione”"
+  },
+  "move.selectOne": {
+    "message": "Selezionare un unico filtro"
+  },
+  "moveMessage.label": {
+    "message": "Sposta il messaggio in"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla fornisce solo una piattaforma di base per distribuire il nostro software a voi, gli utenti finali. Se dobbiamo richiedere un pagamento o supporto ai nostri utenti, non possiamo farlo tramite addons.thunderbird.net – non è un 'app store' con sistemi di pagamento o gestione licenze integrati come iTunes o Google Play."
@@ -1077,6 +1580,57 @@
   "news.minimal.tip": {
     "message": "Se selezionato, quickFilters non modificherà l'etichetta del pulsante. Apparirà solo un piccolo punto arancione 🟠."
   },
+  "notification.donate": {
+    "message": "Dona"
+  },
+  "notification.dontShowAgain": {
+    "message": "Non mostrare più questo messaggio"
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "Estendi licenza"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "Questa modalità estende di un anno la scadenza dell'attuale licenza, il che risulta economicamente più conveniente rispetto alla sottoscrizione di una nuova licenza."
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "Ottieni Pro"
+  },
+  "notification.premium.btn.hotKey": {
+    "message": "P"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "Rinnova la licenza"
+  },
+  "notification.premium.freeUses": {
+    "message": "· {1} utilizzi gratuiti rimanenti."
+  },
+  "notification.premium.text": {
+    "message": "{1} è una funzionalità Pro"
+  },
+  "notification.premium.title": {
+    "message": "Caratteristica Premium"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "Hai esaurito tutti i tentativi di prova gratuiti per questa funzione."
+  },
+  "notification.proFeature.notificationText": {
+    "message": "La caratteristica {1} è di tipo Premium. Se la si usa regolarmente, si consideri una donazione a favore dello sviluppo di quickFilters entro quest'anno."
+  },
+  "notification.proFeature.title": {
+    "message": "Caratteristica Premium"
+  },
+  "notification.QF.navigationbar": {
+    "message": "Per utilizzare le funzioni di filtro dalla barra di navigazione di QuickFolders con Thunderbird 115:\n - è necessaria una licenza QuickFolders valida\n - oppure puoi ottenere una licenza $addonName$ Pro per supportare questa funzione.",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "Registra {1}"
+  },
   "ongoing-work": {
     "message": "L'acquisto di una licenza è completamente facoltativo. Per facilitare le cose agli utenti, la versione attuale rimane compatibile con Thunderbird 115 per quanto tecnicamente possibile. Tuttavia, Thunderbird ora segue un ciclo di rilascio mensile, aumentando il nostro carico di lavoro per test e sviluppo. Il tuo supporto ci aiuta a stare al passo con questi cambiamenti!",
     "placeholders": {
@@ -1086,11 +1640,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "Aggiungi etichetta"
+  },
+  "option.searchProperty.name": {
+    "message": "Nome"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "Rispondi con una tipologia"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "Condizioni di ricerca (Testo)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "Azioni che modificano le stringhe"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "Nome della cartella di destinazione"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "Percorso della cartella di destinazione"
+  },
   "pane1.title": {
     "message": "Opzioni di quickFilters"
   },
   "prefwindow.title": {
     "message": "Opzioni di quickFilters"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "La licenza è scaduta {1} giorni fa"
+  },
+  "premium.title.customTemplate": {
+    "message": "Tipologie personalizzate"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "Trova duplicati"
+  },
+  "premium.title.loadFilters": {
+    "message": "Ripristina i filtri"
+  },
+  "premium.title.saveFilters": {
+    "message": "Eseguire il backup dei filtri"
+  },
+  "premium.title.searchFolder": {
+    "message": "Cerca filtri della cartella"
+  },
+  "premium.title.sortFilters": {
+    "message": "Ordinamento filtri"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "Ordina termini di ricerca"
   },
   "pricing.section": {
     "message": "Per scoprire il costo della licenza, facendo clic sul pulsante sottostante “Va alla selezione delle Licenze” compare l'elenco delle opzioni disponibili. Selezionare quella di vostro interesse. Si apre un'altra finestra del browser ove è possibile completare l'acquisto online."
@@ -1100,6 +1699,35 @@
   },
   "pricing.title": {
     "message": "Prezzi"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "Trovati oggetti che iniziano con lo stesso testo: \"$prefix$\".\nUsare questo testo come condizione di ricerca nell’oggetto?",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "Inserisci una breve motivazione:"
+  },
+  "prompt.contact.title": {
+    "message": "Contatta il supporto di quickFilters"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "Variabile {1} copiata negli Appunti, inserirla in un termine di ricerca."
+  },
+  "prompt.createCustomHeader": {
+    "message": "Aggiungere il termine '{1}' come intestazione personalizzata da usare in un filtro"
+  },
+  "prompt.customTemplateName": {
+    "message": "Nome dellla tipologia personalizzata:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "Abbiamo trovato duplicati per i seguenti filtri.\nCorreggere e importare comunque?"
+  },
+  "promptDontRepeat": {
+    "message": "Non mostrare più questo avviso."
   },
   "purchase-a-license": {
     "message": "Acquista una licenza."
@@ -1125,7 +1753,9 @@
   "qf.button.mergeFilterRules": {
     "message": "Combinare “$filterName$” con nuove regole…",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "qf.button.next": {
@@ -1400,14 +2030,14 @@
   "qf.label.naming.parentFolder": {
     "message": "Aggiungi i nomi delle cartelle principali"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "S"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "Numero massimo di cartelle principali da aggiungere:"
   },
   "qf.label.naming.targetAccount": {
     "message": "Aggiungi il nome dell'account di destinazione (per i filtri che spostano la posta in un altro account)"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "S"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "Maggiori informazioni sulle caratteristiche “Premium” sul sito web"
@@ -1565,560 +2195,14 @@
   "qf.youtube.tbdaily": {
     "message": "Per avere suggerimenti e per una guida introduttiva a quickFilters, visitare il canale YouTube “Thunderbird Daily”."
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "Avvia la Procedura guidata"
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "Termina la Procedura guidata"
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "Q"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "Creazione filtro dal messaggio…"
-  },
-  "quickfilters.menu.changelog": {
-    "message": "Registro delle modifiche…"
-  },
-  "quickfilters.menu.license": {
-    "message": "Controlla lo stato della licenza…"
-  },
-  "quickfilters.menu.news": {
-    "message": "Notizie / Registro delle modifiche…"
-  },
-  "quickfilters.menu.tools": {
-    "message": "Strumenti"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "Filtri per i messaggi…"
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "Mostra un elenco di filtri per i messaggi"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "Esegui i filtri"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "Esegue i filtri disponibili per la cartella corrente"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "Filtra i messaggi selezionati"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "Esegue i filtri sui messaggi selezionati"
-  },
-  "quickfilters.Start.label": {
-    "message": "Avvio della Procedura guidata…"
-  },
-  "quickfilters.addTag.label": {
-    "message": "Etichetta il messaggio"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "Sto archiviando {1} filtri"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "I filtri seguenti prevedono Azioni personalizzate che non possono essere completamente salvate. È possibile che manchi un'estensione di terze parti:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} filtri non possono essere codificati. Controllare il file di log degli errori per ulteriori dettagli."
-  },
-  "quickfilters.button.assistant": {
-    "message": "Attiva/disattiva la “Procedura guidata”…"
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "Attiva/disattiva la modalità “Procedura guidata”. Se questa è attiva, è sufficiente trascinare e rilasciare dei messaggi per creare dei filtri."
-  },
-  "quickfilters.button.bug": {
-    "message": "Risoluzione problemi"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Risoluzione problemi: 1. Filtri che non possono essere eseguiti automaticamente 2. Cartelle-destinazione non valide 3. Azioni personalizzate da convalidare"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. “Miste”/“Qualsiasi”/“Tutte” le condizioni. Per configurare la sequenza, fare clic sul pulsante dx del mouse."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "Elimina duplicati"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "Reimposta la ricerca dei duplicati"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "Annulla ricerca"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "Annulla la ricerca per cartella"
-  },
-  "quickfilters.button.clone": {
-    "message": "Clona"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "C"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "Clona un filtro"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "Trova duplicati"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "Trova attributi dei duplicati"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "Scarica {1}"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "Ripristino filtri…"
-  },
-  "quickfilters.button.merge": {
-    "message": "Unione"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "U"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "Unione di più filtri con la stessa azione"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "Backup filtri…"
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "Modifica i criteri di ricerca…"
-  },
-  "quickfilters.button.settings": {
-    "message": "Impostazioni di quickFilters…"
-  },
-  "quickfilters.button.sort": {
-    "message": "Ordinamento"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "Ordina alfabeticamente"
-  },
-  "quickfilters.button.support": {
-    "message": "Sito di supporto di quickFilters"
-  },
-  "quickfilters.clone.label": {
-    "message": "(copia)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "Per clonare, selezionare un unico filtro"
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "Non è possibile comprendere quale filtro sia stato selezionato"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "Nessun filtro negli Appunti"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "Selezionare almeno un filtro"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "Per incollare gli elementi, selezionare un account diverso"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "Copia il messaggio in"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "L'account ({1}) non può avere filtri"
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "Questa tipologia richiede almeno 2 messaggi di posta"
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "L'account [{1}] di posta di origine non può avere filtri.\nAl suo posto sto usando la cartella “Posta in arrivo” corrente."
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "Spiacente, ma in questa versione di {1}, non è possibile creare filtri poiché non è supportata l'estrazione degli indirizzi dall'intestazione dei messaggi"
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "Non posso accedere al database dei messaggi della cartella {1}"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "Creazione del filtro non riuscita - è impossibile recuperare l'identificativo del messaggio dal primo messaggio dell'elenco.\nSi consiglia di eseguire il comando “Riparazione della cartella”."
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "La cartella ({1}) non ha un server."
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "Per disporre di questa caratteristica è necessario l'aggiornamento a una versione più recente."
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "L'opzione “Crea filtro da un messaggio” è tanto più utile se si è già spostata della posta in un'altra cartella o se vi si è aggiunta un'etichetta poiché quickFilters selezionerà per voi l'azione appropriata.\nSi vuole comunque creare un filtro a partire da questo messaggio?"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "Per creare un filtro, selezionare esattamente un messaggio!"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Copia Conforme Nascosta (CCN)"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Copia Conforme (CC)"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "La “Procedura guidata” di quickFilters aggiungerà automaticamente un'azione. Si prega di lasciare l'azione predefinita “Imposta priorità a 'normale'” come tappabuchi."
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "Dominio dell'indirizzo di posta elettronica"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "Estensione del dominio"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "Dominio principale"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "Sottodominio"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "Indirizzo di posta elettronica"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "Nome"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "Mittente/Da"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "Cognome"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "List Id"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "List Post"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "Nome completo"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "Gruppi di discussione"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Rispondi a"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "Oggetto"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "Espressione regolare nell'Oggetto"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "A"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "Nome del tipo:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters: Tipologia personalizzata"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "Variabili personalizzate"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "Quando viene creato il fltro, queste variabili vengono rimpiazzate dalle corrispondenti intestazioni del messaggio di posta elettronica corrente"
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "Rispondi a:"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "Trovati {0} filtri attivi che non hanno alcun metodo di esecuzione (manuale, in ingresso o automatico). Si devono modificare per essere eseguiti automaticamente quando si ricevono nuovi messaggi?"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Trovate condizioni che combinano “Tutte”/“Qualsiasi”. Potrebbero non funzionare nel modo previsto. Devo provvedere alla loro correzione?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "Trovati {0} filtri con azioni personalizzate non funzionanti. Potrebbe mancare un'estensione di terze parti o essere necessario configurarla per supportare azioni personalizzate."
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "Trovati {0} filtri con cartelle di destinazione non valide. Potrebbero essere stati importati da un profilo privo di corrispondenze? Alternativamente, la cartella-destinazione non esiste più o è stata spostata."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "Non sono stati trovati filtri malfunzionanti."
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} filtri sono stati corretti."
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "Elimina dal POP server"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "Elimina messaggio"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "Scarica dal POP server"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "Non mostrare più questo messaggio."
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "È stata avviata la “Procedura guidata” per la creazione dei filtri. Ogni qualvolta si sposta un messaggio da una cartella di posta ad un'altra, viene eseguita la “Procedura guidata per la creazione delle regole del filtro”. #1 usa “Filtri messaggi” per spostare automaticamente i messaggi in base a regole quali: “Chi è il mittente?”, “Nell'oggetto vi è una certa parola-chiave?”. Per arrestare questa modalità, fare nuovamente clic sul pulsante [Procedura guidata]"
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "Modalità “Procedura guidata”"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "Trova filtri…"
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "Inoltra il messaggio a"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "File JSON"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "Ignora le sotto discussioni"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "Ignora la discussione"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(La chiave inserita potrebbe essere relativa a {2})."
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "Segna come già letto"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "Aggiungi a Speciali"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "Segna come non letto"
-  },
-  "quickfilters.menu.copy": {
-    "message": "Copia"
-  },
-  "quickfilters.menu.cut": {
-    "message": "Taglia"
-  },
-  "quickfilters.menu.paste": {
-    "message": "Incolla"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "Rimuovi l'azione di duplicazione"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "Rimuovi la condizione di duplicazione"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "Gli indirizzi di posta elettronica sono stati tolti dalle condizioni del filtro. quickFilters infatti disabilita filtri basati sul proprio indirizzo di posta elettronica:"
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "Impossibile ottenere l'azione principale del filtro:{1}"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "Non si possono unire tutti i filtri selezionati: mancata corrispondenza con il filtro {1}"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "Deselezionare i filtri che non hanno corrispondenza e continuare?"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "Per creare un'unione, selezionare almeno 2 filtri"
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "Non riesco a determinare il primo filtro selezionato - per creare un'unione bisogna selezionare almeno 2 filtri!"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "Per creare un'unione, bisogna selezionare un “filtro-destinazione”"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "Selezionare un unico filtro"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "Sposta il messaggio in"
-  },
-  "quickfilters.notification.donate": {
-    "message": "Dona"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "Non mostrare più questo messaggio"
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "Estendi licenza"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "Questa modalità estende di un anno la scadenza dell'attuale licenza, il che risulta economicamente più conveniente rispetto alla sottoscrizione di una nuova licenza."
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "Ottieni Pro"
-  },
-  "quickfilters.notification.premium.btn.hotKey": {
-    "message": "P"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "Rinnova la licenza"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· {1} utilizzi gratuiti rimanenti."
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} è una funzionalità Pro"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "Caratteristica Premium"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "La caratteristica {1} è di tipo Premium. Se la si usa regolarmente, si consideri una donazione a favore dello sviluppo di quickFilters entro quest'anno."
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "Caratteristica Premium"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "Per utilizzare le funzioni di filtro dalla barra di navigazione di QuickFolders con Thunderbird 115:\n - è necessaria una licenza QuickFolders valida\n - oppure puoi ottenere una licenza $addonName$ Pro per supportare questa funzione.",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "Registra {1}"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "Aggiungi etichetta"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "Nome"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "Rispondi con una tipologia"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "Condizioni di ricerca (Testo)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "Azioni che modificano le stringhe"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "Nome della cartella di destinazione"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "Percorso della cartella di destinazione"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "La licenza è scaduta {1} giorni fa"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "Tipologie personalizzate"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "Trova duplicati"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "Ripristina i filtri"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "Eseguire il backup dei filtri"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "Cerca filtri della cartella"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "Ordinamento filtri"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "Ordina termini di ricerca"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "Trovati oggetti che iniziano con lo stesso testo: \"$prefix$\".\nUsare questo testo come condizione di ricerca nell’oggetto?",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "Inserisci una breve motivazione:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "Contatta il supporto di quickFilters"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "Variabile {1} copiata negli Appunti, inserirla in un termine di ricerca."
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "Aggiungere il termine '{1}' come intestazione personalizzata da usare in un filtro"
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "Nome dellla tipologia personalizzata:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "Abbiamo trovato duplicati per i seguenti filtri.\nCorreggere e importare comunque?"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "Non mostrare più questo avviso."
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "La licenza scadrà il giorno:"
-  },
-  "quickfilters.registration.menu": {
-    "message": "Licenza $licenseName$…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "Rispondi con una tipologia"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "Applica i filtri ai messaggi selezionati…"
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "Sto eseguendo {0} filtri nella cartella {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Sto eseguendo il filtro '{0}' nella cartella {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Esegui filtri sulla cartella '{1}'…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "Non sono stati trovati filtri relativi a questa cartella."
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "Applica lo stato di Indesiderata"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "Imposta priorità a"
-  },
-  "quickfilters.sort": {
-    "message": "Ordinare"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "Ordina i termini di ricerca"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "Per ordinarli alfabeticamente, selezionare almeno 2 filtri"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "Interrompi l'esecuzione dei filtri"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "Non è possibile creare il filtro: questo infatti non può essere modificato se è privo di termini di ricerca validi."
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "Impossibile avviare la riparazione della cartella. Al termine delle operazioni in corso sulla cartella, provare Proprietà → Ripara cartella."
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters non è riuscito a recuperare le informazioni necessarie per creare o aggiornare un filtro.\n\nPotrebbe essere necessario riparare la cartella di destinazione «{0}».\n\nProvare a riparare la cartella adesso?\n\nAttendere il completamento della riparazione, quindi provare nuovamente a creare il filtro."
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "Una tipologia con questo nome esiste già! Il nome deve essere univoco."
-  },
-  "quickfilters.watchThread.label": {
-    "message": "Tieni d'occhio la discussione"
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "Procedura guidata di quickFilters"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licenza scaduta!"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "Fare clic per aprire il pannello della licenza di quickFilters. Fare clic con il pulsante destro del mouse per altre opzioni."
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters è stato aggiornato!"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "Apri il menu '{menulabel}' qui sotto per vedere le novità. Facendo così si rimuove anche il 🟠."
+  "quickfiltersToolbarButton.label": {
+    "message": "Procedura guidata di quickFilters"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "La licenza scade tra $daysLeft$ giorni",
@@ -2132,8 +2216,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "Procedura guidata per la creazione di filtri; strumenti per i filtri"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters è stato aggiornato!"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "Apri il menu '{menulabel}' qui sotto per vedere le novità. Facendo così si rimuove anche il 🟠."
+  },
+  "register.licenseValid.expired": {
+    "message": "La licenza scadrà il giorno:"
+  },
+  "registration.menu": {
+    "message": "Licenza $licenseName$…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "Rinnova la tua licenza."
+  },
+  "replyWithTemplate.label": {
+    "message": "Rispondi con una tipologia"
   },
   "restart-app": {
     "message": "Riavvia $application$ per attivare questa opzione.",
@@ -2143,6 +2247,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "Esegui i filtri"
+  },
+  "RunButton.tooltip": {
+    "message": "Esegue i filtri disponibili per la cartella corrente"
+  },
+  "RunButtonMsg.label": {
+    "message": "Filtra i messaggi selezionati"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "Esegue i filtri sui messaggi selezionati"
   },
   "runFilters.folder.confirm": {
     "message": "Eseguire filtri nella cartella $folderName$?",
@@ -2154,6 +2270,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "Eseguire filtri sui messaggi selezionati?"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "Applica i filtri ai messaggi selezionati…"
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "Sto eseguendo {0} filtri nella cartella {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Esegui filtri sulla cartella '{1}'…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Sto eseguendo il filtro '{0}' nella cartella {1}."
+  },
+  "search.warning.noresults": {
+    "message": "Non sono stati trovati filtri relativi a questa cartella."
+  },
+  "setJunkScore.label": {
+    "message": "Applica lo stato di Indesiderata"
+  },
+  "setPriority.label": {
+    "message": "Imposta priorità a"
+  },
+  "sort": {
+    "message": "Ordinare"
+  },
+  "sort.tooltip": {
+    "message": "Ordina i termini di ricerca"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "Per ordinarli alfabeticamente, selezionare almeno 2 filtri"
   },
   "special-offer-content": {
     "message": "Questa è la miglior opportunità per ottenere una licenza in quanto vi è una {bold} riduzione del $reduction${/bold}  sul prezzo di una licenza quickFilters Pro per celebrare i 9 anni di quickFilters! Questa offerta speciale sarà disponibile fino al {bold} $expirydate$ {/bold} .",
@@ -2180,9 +2326,6 @@
       }
     }
   },
-  "subjectCompleteExtract": {
-    "message": "Inserisce sempre tutta la riga dell'Oggetto"
-  },
   "special-offer-renew": {
     "message": "Rinnova ora la tua licenza e risparmia {bold$reduction${/bold} ! Questa offerta speciale sarà disponibile fino a {bold$expirydate${/bold} .",
     "placeholders": {
@@ -2195,6 +2338,15 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "Avvio della Procedura guidata…"
+  },
+  "stopExecution.label": {
+    "message": "Interrompi l'esecuzione dei filtri"
+  },
+  "subjectCompleteExtract": {
+    "message": "Inserisce sempre tutta la riga dell'Oggetto"
   },
   "support-preference": {
     "message": "Questo è il modo migliore per supportare $addonName$.",
@@ -2545,9 +2697,15 @@
   "troubleshooter.summary": {
     "message": "$filters$ filtri da esaminare · $resolved$ problemi risolti · $checks$ controlli eseguiti su 4",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2583,6 +2741,21 @@
   "version": {
     "message": "Versione:"
   },
+  "warning.emptyFilter": {
+    "message": "Non è possibile creare il filtro: questo infatti non può essere modificato se è privo di termini di ricerca validi."
+  },
+  "warning.folderRepairFailed": {
+    "message": "Impossibile avviare la riparazione della cartella. Al termine delle operazioni in corso sulla cartella, provare Proprietà → Ripara cartella."
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters non è riuscito a recuperare le informazioni necessarie per creare o aggiornare un filtro.\n\nPotrebbe essere necessario riparare la cartella di destinazione «{0}».\n\nProvare a riparare la cartella adesso?\n\nAttendere il completamento della riparazione, quindi provare nuovamente a creare il filtro."
+  },
+  "warning.templateNameNotUnique": {
+    "message": "Una tipologia con questo nome esiste già! Il nome deve essere univoco."
+  },
+  "watchThread.label": {
+    "message": "Tieni d'occhio la discussione"
+  },
   "whats-new-btn": {
     "message": "Novità"
   },
@@ -2603,7 +2776,10 @@
   "whats-new-maintenance": {
     "message": "Aggiornamento di manutenzione $ver$. Correzioni importanti e aggiornamenti di compatibilità successivi alla versione minore, incluse regressioni urgenti.",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

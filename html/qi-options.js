@@ -23,7 +23,7 @@ quickFilters.Options = {
   },
 
   sendMail: async function (mailto = quickFilters.Util.ADDON_SUPPORT_MAIL) {
-    let text = messenger.i18n.getMessage("quickfilters.prompt.contact.subject"),
+    let text = messenger.i18n.getMessage("prompt.contact.subject"),
       result = window.prompt(text, "");
     if (!result) {
       return;
@@ -57,7 +57,7 @@ quickFilters.Options = {
   load: async () => {
     let terms = document.getElementById("quickFoldersNavLicensing"),
       termsTxt = messenger.i18n
-        .getMessage("quickfilters.notification.QF.navigationbar", ["quickFilters"])
+        .getMessage("notification.QF.navigationbar", ["quickFilters"])
         .split("\n");
     terms.firstChild.textContent = termsTxt[0];
     let termsList = document.getElementById("licenseOptions");
@@ -206,7 +206,7 @@ quickFilters.Options = {
                 txt +=
                   " " +
                   messenger.i18n
-                    .getMessage("quickfilters.licenseValidation.guessAddon")
+                    .getMessage("licenseValidation.guessAddon")
                     .replace("{2}", addonName);
               }
               validationInvalidAddon.textContent = txt;
@@ -217,7 +217,7 @@ quickFilters.Options = {
         case "Expired":
           {
             let expiredMsg = messenger.i18n.getMessage("qf.licenseValidation.expired", [
-              messenger.i18n.getMessage("quickfilters.notification.premium.btn.renewLicense"),
+              messenger.i18n.getMessage("notification.premium.btn.renewLicense"),
             ]);
             licenseDate.classList.add("valid");
             licenseDateLabel.value = expiredMsg;
@@ -292,33 +292,33 @@ quickFilters.Options = {
     switch (validStatus) {
       case "extend": {
         let txtExtend = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.extendLicense"
+          "notification.premium.btn.extendLicense"
         );
         btnLicense.setAttribute("collapsed", false);
         btnLicense.textContent = txtExtend; // text should be extend not renew
         btnLicense.setAttribute(
           "tooltiptext",
-          messenger.i18n.getMessage("quickfilters.notification.premium.btn.extendLicense.tooltip")
+          messenger.i18n.getMessage("notification.premium.btn.extendLicense.tooltip")
         );
         return txtExtend;
       }
       case "renew": {
         let txtRenew = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.renewLicense"
+          "notification.premium.btn.renewLicense"
         );
         btnLicense.textContent = txtRenew;
         return txtRenew;
       }
       case "buy": {
         let buyLabel = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.getLicense"
+          "notification.premium.btn.getLicense"
         );
         btnLicense.textContent = buyLabel;
         return buyLabel;
       }
       case "upgrade": {
         let upgradeLabel = messenger.i18n.getMessage(
-          "quickfilters.notification.premium.btn.upgrade"
+          "notification.premium.btn.upgrade"
         );
         btnLicense.textContent = upgradeLabel;
         btnLicense.classList.add("upgrade"); // stop flashing

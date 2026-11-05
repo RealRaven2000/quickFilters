@@ -1,13 +1,12 @@
-**Release 6.14 - Unreleased**
+**Release 6.15 - Unreleased**
 
-This release improves Filter Assistant performance when folder databases are inaccessible and updates compatibility with Thunderbird 159.
+This release adds multi-account filter backup and restore, a dedicated filter troubleshooter, and improved handling of premium feature usage.
 
-- **Internal cleanup:** Move backup/restore and filter-review operations into the experimental FiltersAPI as preparation for the new troubleshooter. #401
-- **Improved Filter Assistant Performance:** Avoid repeated searches across accounts when a moved message cannot be found. Check the destination and source folders directly, and offer to repair the destination folder after lookup fails. #397
-- **Thunderbird 159 compatibility:** Fixed message drag-and-drop after Thunderbird 159 removed `messenger.msgHdrFromURI()`. Dragging messages to folders can still open the Filter Assistant by using `MailServices.messageServiceFromURI(messageUri).messageURIToMsgHdr(messageUri)`.#399
-- **Add-on integration:** Remove async from the runtime.onMessageExternal listener: an async handler implicitly returns a Promise even for unrecognized commands, claiming the response and preventing other listeners from responding. Return Promises explicitly for recognized commands and undefined for unrecognized commands, as requested during ATN review of 6.13.4.
-- **License renewal:** Show a colored license-expiry countdown beside the valid-until date on the quickFilters Pro settings tab when the existing 30-day extension condition shows the Extend License button, including after the toolbar renewal indicator has been dismissed for the session.
+- **Backup and restore:** Save and restore filters for multiple accounts or selected accounts. #193
+- **Filter troubleshooter:** Open a dedicated tab from the filter-list toolbar or the license settings tab’s Premium Features box. Run individual checks or all checks, inspect per-filter problems and read-only conditions, and choose confirmed remedies. Mixed/grouped conditions are preserved and can be disabled without opening the filter editor. Includes eight trial uses without a Pro license: the first check in a tab uses one trial, with further checks in that tab included. #401
+- **Premium feature usage:** Fix blocking warnings for filter sorting and advanced filter search. Explain when all free trial attempts for a Pro feature have been used. Reset trial usage through Config Editor without importing old countdown values. Treat negative usage counts as zero. Enforce folder-search trial limits and require a valid Pro license for Local Folders autorun. #400
+- **Internal cleanup:** Move backup/restore and filter-review operations into the experimental FiltersAPI. Remove redundant add-on prefixes from localization keys. #402 #193 #401
 
-The full history with screenshots is available in the [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.14).
+The full history with screenshots is available in the [quickFilters Change Log](https://quickfilters.quickfolders.org/version.html#6.15).
 
 All development and free support work for quickFilters is financed via the [quickFilters Pro license](http://sites.fastspring.com/quickfolders/product/quickfilters?referrer=ATN), which also adds [additional features](https://quickfilters.quickfolders.org/premium.html#featureList).

@@ -9,8 +9,8 @@
     "message": "选择账户："
   },
   "active-version-info": {
-    "message": "您现在在Thunderbird $appVer$上运行{bold版本 $addonVer$ {/bold} 。",
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
+    "message": "您现在在Thunderbird $appVer$上运行{bold版本 $addonVer$ {/bold} 。",
     "placeholders": {
       "addonVer": {
         "content": "$1",
@@ -25,8 +25,8 @@
   "addon-authors-struggle": {
     "message": "为了继续发挥作用，我们的附加组件开发人员现在需要资助修复和重写所需的资源，以便我们的用户可以继续从我们提供的功能中受益。"
   },
-  "assistant.ux.title": {
-    "message": "用户界面"
+  "addTag.label": {
+    "message": "为消息添加标签"
   },
   "assistant.ux.assistant.html": {
     "message": "在新的 HTML 用户界面中显示助手"
@@ -40,11 +40,21 @@
   "assistant.ux.stayFocused.tooltip": {
     "message": "确保助手在激活后保持在顶部。"
   },
+  "assistant.ux.title": {
+    "message": "用户界面"
+  },
+  "backup.archivingFilters": {
+    "message": "Archiving {1} Filters"
+  },
   "backup.backup.accountsFilters": {
     "message": "$accountCount$账户·$filterCount$过滤器",
     "placeholders": {
-      "accountCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "accountCount": {
+        "content": "$1"
+      },
+      "filterCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.backup.accountsLabel": {
@@ -52,15 +62,6 @@
   },
   "backup.backup.allAccounts": {
     "message": "所有账户"
-  },
-  "backup.backup.backUpFiltersFrom": {
-    "message": "备份 $accountName$ 的过滤器",
-    "placeholders": {
-      "accountName": { "content": "$1" }
-    }
-  },
-  "backup.backup.backUpSelectedFilters": {
-    "message": "备份选定的过滤器"
   },
   "backup.backup.backup": {
     "message": "备份"
@@ -71,21 +72,40 @@
   "backup.backup.backupFailed": {
     "message": "备份失败：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
+    }
+  },
+  "backup.backup.backUpFiltersFrom": {
+    "message": "备份 $accountName$ 的过滤器",
+    "placeholders": {
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedButFinishingTheOperationFailed": {
     "message": "备份已保存，但完成操作失败：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.backupSavedToButPreferencesCouldNotBe": {
     "message": "备份已保存到 $filePath$，但无法保存首选项：$error$",
     "placeholders": {
-      "filePath": { "content": "$1" },
-      "error": { "content": "$2" }
+      "error": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$1"
+      }
     }
+  },
+  "backup.backup.backUpSelectedFilters": {
+    "message": "备份选定的过滤器"
   },
   "backup.backup.backupWasNotSaved": {
     "message": "未保存备份。"
@@ -93,7 +113,9 @@
   "backup.backup.cannotLoadAccounts": {
     "message": "无法加载帐户：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.cannotReadFilters": {
@@ -105,19 +127,25 @@
   "backup.backup.couldNotDeleteFilter": {
     "message": "无法删除过滤器：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotEditFilter": {
     "message": "无法编辑过滤器：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.couldNotReturnToTheFilterList": {
     "message": "无法返回过滤器列表：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.currentProfile": {
@@ -126,7 +154,9 @@
   "backup.backup.deletedFilterBackUpAgainIfYouWant": {
     "message": "删除了过滤器“$filterName$”。如果您想保存此更改，请再次备份。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.description": {
@@ -144,7 +174,9 @@
   "backup.backup.filters": {
     "message": "$filterCount$ 过滤器",
     "placeholders": {
-      "filterCount": { "content": "$1" }
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.filtersChangedBackUpAgainIfYouWant": {
@@ -156,14 +188,20 @@
   "backup.backup.highlightWarningsFor": {
     "message": "突出显示 $warningCount$ 对 $accountName$ 的警告",
     "placeholders": {
-      "warningCount": { "content": "$1" },
-      "accountName": { "content": "$2" }
+      "accountName": {
+        "content": "$2"
+      },
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.highlightWarningsFor2": {
     "message": "突出显示 $accountName$ 的警告",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.loadingAccountsAndFilterCounts": {
@@ -175,16 +213,26 @@
   "backup.backup.ofAccountsSelectedFilters": {
     "message": "$selectedAccountCount$ 已选择 $accountCount$ 个帐户 · $filterCount$ 筛选器",
     "placeholders": {
-      "selectedAccountCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filterCount": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filterCount": {
+        "content": "$3"
+      },
+      "selectedAccountCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.ofFiltersSelected": {
     "message": "已选择 $selectedFilterCount$ 或 $filterCount$ 个筛选器",
     "placeholders": {
-      "selectedFilterCount": { "content": "$1" },
-      "filterCount": { "content": "$2" }
+      "filterCount": {
+        "content": "$2"
+      },
+      "selectedFilterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.onlyTheFiltersListedBelowWillBeSaved": {
@@ -208,15 +256,23 @@
   "backup.backup.savedFiltersFromAccountsToUseReturnTo": {
     "message": "已保存从$accountCount$帐户到$filePath$的$filterCount$过滤器。使用返回消息过滤器返回。",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "accountCount": { "content": "$2" },
-      "filePath": { "content": "$3" }
+      "accountCount": {
+        "content": "$2"
+      },
+      "filePath": {
+        "content": "$3"
+      },
+      "filterCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.savedTo": {
     "message": "已保存至$filePath$",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectAtLeastOneAccount": {
@@ -228,13 +284,17 @@
   "backup.backup.selectedFilters": {
     "message": "$accountName$ - 选定的过滤器",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.selectionHint": {
     "message": "（要仅保存选定的过滤器，请在按住 Ctrl 的同时单击消息过滤器中的 $icon$。）",
     "placeholders": {
-      "icon": { "content": "$1" }
+      "icon": {
+        "content": "$1"
+      }
     }
   },
   "backup.backup.title": {
@@ -252,13 +312,17 @@
   "backup.common.warningCount": {
     "message": "$count$ 警告",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.common.warningCountOne": {
     "message": "$count$ 警告",
     "placeholders": {
-      "count": { "content": "$1" }
+      "count": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.backupChanges": {
@@ -267,11 +331,19 @@
   "backup.confirm.deleteFilter": {
     "message": "删除过滤器“$name$”？",
     "placeholders": {
-      "name": { "content": "$1" }
+      "name": {
+        "content": "$1"
+      }
     }
   },
   "backup.confirm.doNotAskAgain": {
     "message": "不要再问"
+  },
+  "backup.customErrors": {
+    "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
+  },
+  "backup.failedFilters": {
+    "message": "{1} filters could not be encoded! Please check the error log for detail."
   },
   "backup.format.chooseDestination": {
     "message": "选择目的地"
@@ -288,13 +360,17 @@
   "backup.format.invalidActionOrConditionIn": {
     "message": "$filterName$ 中的操作或条件无效。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidFilterDataIn": {
     "message": "$accountName$ 中的过滤器数据无效。",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.invalidReferencedAccountDirectory": {
@@ -312,23 +388,37 @@
   "backup.format.message": {
     "message": "$year$-$month$-$day$ $hour$-$minute$",
     "placeholders": {
-      "year": { "content": "$1" },
-      "month": { "content": "$2" },
-      "day": { "content": "$3" },
-      "hour": { "content": "$4" },
-      "minute": { "content": "$5" }
+      "day": {
+        "content": "$3"
+      },
+      "hour": {
+        "content": "$4"
+      },
+      "minute": {
+        "content": "$5"
+      },
+      "month": {
+        "content": "$2"
+      },
+      "year": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.missingFiltersFor": {
     "message": "缺少 $accountName$ 的过滤器。",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.referenced": {
     "message": "$accountIdentity$（参考）",
     "placeholders": {
-      "accountIdentity": { "content": "$1" }
+      "accountIdentity": {
+        "content": "$1"
+      }
     }
   },
   "backup.format.remembered": {
@@ -349,7 +439,9 @@
   "backup.mapping.assignedToMoveHere": {
     "message": "分配给 $accountName$ — 移至此处",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.dropATargetHere": {
@@ -358,8 +450,12 @@
   "backup.mapping.filters": {
     "message": "$filterCount$ 过滤器$statusSuffix$",
     "placeholders": {
-      "filterCount": { "content": "$1" },
-      "statusSuffix": { "content": "$2" }
+      "filterCount": {
+        "content": "$1"
+      },
+      "statusSuffix": {
+        "content": "$2"
+      }
     }
   },
   "backup.mapping.filtersRestored": {
@@ -380,13 +476,17 @@
   "backup.mapping.restoreFiltersFrom": {
     "message": "恢复 $accountName$ 的过滤器",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountFor": {
     "message": "选择帐号 $accountName$",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.mapping.selectAccountYouCanAlsoDragAccountsTo": {
@@ -395,13 +495,17 @@
   "backup.mapping.warnings": {
     "message": "$warningCount$警告",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.accountIsUnavailableOrDoesNotSupportFilters": {
     "message": "帐号$accountId$不可用或不支持过滤。",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.cannotRestoreTheSerializedFolderSearchValue": {
@@ -410,13 +514,17 @@
   "backup.native.couldNotExportFilterNoBackupWasWritten": {
     "message": "无法导出过滤器“$filterName$”。没有写入备份。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.destinationAccountIsUnavailable": {
     "message": "目标账户$accountId$不可用。",
     "placeholders": {
-      "accountId": { "content": "$1" }
+      "accountId": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.eachSourceAccountRequiresADistinctDestination": {
@@ -428,7 +536,9 @@
   "backup.native.folderDoesNotExistInTheDestinationAccount": {
     "message": "目标帐户中不存在文件夹“$folderName$”",
     "placeholders": {
-      "folderName": { "content": "$1" }
+      "folderName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.invalidAccountMapping": {
@@ -479,7 +589,9 @@
   "backup.native.noDestinationSelectedForAccount": {
     "message": "没有为帐户“$accountName$”选择目的地",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.openAMailWindowBeforeRestoringFilters": {
@@ -497,8 +609,12 @@
   "backup.native.savingFailedRestoringTheOriginalFileAlsoFailed": {
     "message": "保存失败（$saveError$）；恢复原始文件也失败（$restoreError$）",
     "placeholders": {
-      "saveError": { "content": "$1" },
-      "restoreError": { "content": "$2" }
+      "restoreError": {
+        "content": "$2"
+      },
+      "saveError": {
+        "content": "$1"
+      }
     }
   },
   "backup.native.selectAtLeastOneDistinctAccount": {
@@ -546,14 +662,20 @@
   "backup.restore.cannotLoadDestinationAccounts": {
     "message": "无法加载目标帐户：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.cannotOpenBackup": {
     "message": "无法打开备份：$error$$previousBackupNotice$",
     "placeholders": {
-      "error": { "content": "$1" },
-      "previousBackupNotice": { "content": "$2" }
+      "error": {
+        "content": "$1"
+      },
+      "previousBackupNotice": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.checkDestinationMappingsThenRestoreTheSelectedAccounts": {
@@ -562,13 +684,17 @@
   "backup.restore.couldNotSaveReport": {
     "message": "无法保存报告：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.deletedFilter": {
     "message": "删除了过滤器“$filterName$”。",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.description": {
@@ -619,13 +745,17 @@
   "backup.restore.restoreCompletedButMappingsCouldNotBeRemembered": {
     "message": "恢复完成，但无法记住映射：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFailed": {
     "message": "恢复失败：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreFilters": {
@@ -634,13 +764,17 @@
   "backup.restore.restoreReportSavedTo": {
     "message": "恢复保存到$filePath$的报告。",
     "placeholders": {
-      "filePath": { "content": "$1" }
+      "filePath": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreReviewWarningsAndSkippedItems": {
     "message": "恢复审核·$warningCount$警告和跳过的项目",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.restoreWasNotPerformed": {
@@ -652,20 +786,38 @@
   "backup.restore.resultComplete": {
     "message": "恢复完成：添加$added$，替换$replaced$，保留$kept$现有过滤器，跳过$skipped$。",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" }
+      "added": {
+        "content": "$1"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.resultErrors": {
     "message": "恢复完成，但出现错误：添加了 $added$、替换了 $replaced$、保留了 $kept$ 现有过滤器、跳过了 $skipped$、$failed$ 帐户失败。",
     "placeholders": {
-      "added": { "content": "$1" },
-      "replaced": { "content": "$2" },
-      "kept": { "content": "$3" },
-      "skipped": { "content": "$4" },
-      "failed": { "content": "$5" }
+      "added": {
+        "content": "$1"
+      },
+      "failed": {
+        "content": "$5"
+      },
+      "kept": {
+        "content": "$3"
+      },
+      "replaced": {
+        "content": "$2"
+      },
+      "skipped": {
+        "content": "$4"
+      }
     }
   },
   "backup.restore.sameNameFiltersAreReplacedNewFiltersAre": {
@@ -677,15 +829,23 @@
   "backup.restore.selectDestinationAccountsFor": {
     "message": "选择目标帐户：$accountNames$。",
     "placeholders": {
-      "accountNames": { "content": "$1" }
+      "accountNames": {
+        "content": "$1"
+      }
     }
   },
   "backup.restore.sourceAccountsReferencedAccounts": {
     "message": "$backupType$ · $sourceAccountCount$ 来源账户 · $referencedAccountCount$ 参考账户",
     "placeholders": {
-      "backupType": { "content": "$1" },
-      "sourceAccountCount": { "content": "$2" },
-      "referencedAccountCount": { "content": "$3" }
+      "backupType": {
+        "content": "$1"
+      },
+      "referencedAccountCount": {
+        "content": "$3"
+      },
+      "sourceAccountCount": {
+        "content": "$2"
+      }
     }
   },
   "backup.restore.thePreviousBackupRemainsLoaded": {
@@ -706,19 +866,25 @@
   "backup.startup.cannotOpenBackup": {
     "message": "无法打开备份：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.startup.cannotOpenRestore": {
     "message": "无法打开恢复：$error$",
     "placeholders": {
-      "error": { "content": "$1" }
+      "error": {
+        "content": "$1"
+      }
     }
   },
   "backup.storage.unsupportedBackupStorageBackend": {
     "message": "不支持的备份存储后端：$backend$",
     "placeholders": {
-      "backend": { "content": "$1" }
+      "backend": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.account": {
@@ -736,7 +902,9 @@
   "backup.warnings.backupSavedWithWarnings": {
     "message": "备份保存时带有 $warningCount$ 警告",
     "placeholders": {
-      "warningCount": { "content": "$1" }
+      "warningCount": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.clearHighlight": {
@@ -763,11 +931,11 @@
   "backup.warnings.duplicateNameSkipped": {
     "message": "名称重复 — 已跳过"
   },
-  "backup.warnings.editFilter": {
-    "message": "编辑"
-  },
   "backup.warnings.editedByUser": {
     "message": "由用户编辑"
+  },
+  "backup.warnings.editFilter": {
+    "message": "编辑"
   },
   "backup.warnings.filter": {
     "message": "筛选"
@@ -799,7 +967,9 @@
   "backup.warnings.warningsForHighlightedAllWarningsRemainVisible": {
     "message": "$accountName$ 的警告突出显示。所有警告仍然可见。",
     "placeholders": {
-      "accountName": { "content": "$1" }
+      "accountName": {
+        "content": "$1"
+      }
     }
   },
   "backup.warnings.youHaveChangedYourCurrentFiltersRememberTo": {
@@ -816,6 +986,81 @@
   },
   "btn-want-to-donate": {
     "message": "我想提供一次捐款。"
+  },
+  "button.assistant": {
+    "message": "切换助手..."
+  },
+  "button.assistant.tooltiptext": {
+    "message": "切换过滤器助手模式，启用时可通过拖放邮件来创建过滤器。"
+  },
+  "button.bug": {
+    "message": "Troubleshoot"
+  },
+  "button.bug.tooltiptext1": {
+    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
+  },
+  "button.bug.tooltiptext2": {
+    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
+  },
+  "button.cancelDuplicates.label": {
+    "message": "取消重复项"
+  },
+  "button.cancelDuplicates.tooltip": {
+    "message": "重置重复搜索"
+  },
+  "button.cancelFindInFolder.label": {
+    "message": "取消搜索"
+  },
+  "button.cancelFindInFolder.tooltip": {
+    "message": "取消文件夹搜索"
+  },
+  "button.clone": {
+    "message": "克隆"
+  },
+  "button.clone.accesskey": {
+    "message": "C"
+  },
+  "button.clone.tooltiptext": {
+    "message": "克隆过滤器"
+  },
+  "button.findDuplicates.label": {
+    "message": "查找重复项"
+  },
+  "button.findDuplicates.tooltip": {
+    "message": "查找重复属性"
+  },
+  "button.getOtherAddon": {
+    "message": "获取 {1}"
+  },
+  "button.loadFilters.tooltip": {
+    "message": "Restore Filters…"
+  },
+  "button.merge": {
+    "message": "合并"
+  },
+  "button.merge.accesskey": {
+    "message": "M"
+  },
+  "button.merge.tooltiptext": {
+    "message": "将多个过滤器合并为同一个动作"
+  },
+  "button.saveFilters.tooltip": {
+    "message": "Backup Filters…"
+  },
+  "button.searchProperties": {
+    "message": "修改搜索属性..."
+  },
+  "button.settings": {
+    "message": "quickFilters 设定..."
+  },
+  "button.sort": {
+    "message": "排序"
+  },
+  "button.sort.tooltiptext": {
+    "message": "按字母排序"
+  },
+  "button.support": {
+    "message": "quickFilters支持站点"
   },
   "buyDomainLicense.button": {
     "message": "购买域授权"
@@ -928,11 +1173,158 @@
   "chkWhenArchiving.label": {
     "message": "When Archiving"
   },
+  "clone.label": {
+    "message": "(复制)"
+  },
+  "clone.selectOne": {
+    "message": "请只选择一个过滤器进行克隆."
+  },
+  "clone.undetermined": {
+    "message": "无法确定选中的过滤器"
+  },
+  "copy.warning.emptyClipboard": {
+    "message": "剪贴板中没有过滤器!"
+  },
+  "copy.warning.selectFilter": {
+    "message": "请至少选中一个过滤器!"
+  },
+  "copy.warning.selectOtherAccount": {
+    "message": "选择其它账户以粘贴项目!"
+  },
+  "copyMessage.label": {
+    "message": "复制消息至"
+  },
   "cost-of-independence": {
     "message": "软件开发花费时间和金钱-与许多平台应用程序不同，附加组件不是由大公司编写的，也不是由Mozilla以任何方式赞助的。"
   },
   "createdBy": {
     "message": "创建者:"
+  },
+  "createFilter.warning.canNotHaveFilters": {
+    "message": "账户 ({1}) 无法拥有过滤器."
+  },
+  "createFilter.warning.minimum2Mails": {
+    "message": "此模板需要至少2封邮件."
+  },
+  "createFilter.warning.noFilterFallback": {
+    "message": "邮件来源的账户 [{1}] 无法创建过滤器!\n用当前收件箱替代."
+  },
+  "createFilter.warning.noHeaderParser": {
+    "message": "抱歉, 此版本的 {1} 不支持从消息头部提取地址，因此无法创建过滤器."
+  },
+  "createFilter.warning.noMessageDb": {
+    "message": "无法连接目录{1}的消息数据库"
+  },
+  "createFilter.warning.noMessageId": {
+    "message": "创建过滤器失败 - 无法为获取消息列表内第一个元素的消息ID!\n考虑运行 Repair Folder 命令."
+  },
+  "createFilter.warning.noServer": {
+    "message": "目录 ({1}) 尚未设置服务器."
+  },
+  "createFilter.warning.suggestUpdate": {
+    "message": "请考虑升级到新版以获取此功能."
+  },
+  "createFromMail.inboxWarning": {
+    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
+  },
+  "createFromMail.selectWarning": {
+    "message": "创建过滤器前请选择并且只选择一封邮件!"
+  },
+  "customfilter.replyto": {
+    "message": "回复至"
+  },
+  "customHeader.BlindCarbonCopy": {
+    "message": "Blind Carbon Copy (BCC)"
+  },
+  "customHeader.CarbonCopy": {
+    "message": "Carbon Copy (CC)"
+  },
+  "customHeader.defaultActionTip": {
+    "message": "quickFilters 助手会自动添加一个动作。 请保留默认操作“将优先级设置为正常”作为占位符。"
+  },
+  "customHeader.Domain": {
+    "message": "Domain of Email"
+  },
+  "customHeader.Domain.Ext": {
+    "message": "域扩展"
+  },
+  "customHeader.Domain.Root": {
+    "message": "根域"
+  },
+  "customHeader.Domain.Sub": {
+    "message": "子域"
+  },
+  "customHeader.Email": {
+    "message": "Email Address"
+  },
+  "customHeader.FirstName": {
+    "message": "First Name"
+  },
+  "customHeader.From": {
+    "message": "From"
+  },
+  "customHeader.LastName": {
+    "message": "Last Name"
+  },
+  "customHeader.ListId": {
+    "message": "List Id"
+  },
+  "customHeader.ListPost": {
+    "message": "List Post"
+  },
+  "customHeader.NamePart": {
+    "message": "Full Name"
+  },
+  "customHeader.Newsgroups": {
+    "message": "Newsgroups"
+  },
+  "customHeader.ReplyTo": {
+    "message": "Reply To"
+  },
+  "customHeader.Subject": {
+    "message": "Subject"
+  },
+  "customHeader.SubjectRegex": {
+    "message": "Subject Regular Expression"
+  },
+  "customHeader.To": {
+    "message": "To"
+  },
+  "customTemplate.name": {
+    "message": "Template Name:"
+  },
+  "customTemplate.title": {
+    "message": "quickFilters Custom Template"
+  },
+  "customVariable.label": {
+    "message": "Custom Variables"
+  },
+  "customVariable.tooltip": {
+    "message": "在创建过滤器时，这些变量将替换为当前邮件的相应邮件标头。"
+  },
+  "debug.fixFilters": {
+    "message": "发现 {0} 个启用的过滤器没有运行方法（手动、传入或自动）。 是否应该将它们更改为在收到新邮件时自动执行？"
+  },
+  "debug.fixFilters.AnyAll": {
+    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
+  },
+  "debug.fixFilters.customActionErrors": {
+    "message": "发现 {0} 个具有未解决的自定义操作的过滤器。 您可能缺少第三方插件或可能需要配置它以支持自定义操作？"
+  },
+  "debug.fixFilters.invalidUris": {
+    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
+  },
+  "debug.fixFilters.none": {
+    "message": "No faulty filters found."
+  },
+  "debug.fixFilters.result": {
+    "message": "{0} filters were fixed."
+  },
+  "deleteFromPOP.label": {
+    "message": "从 POP 服务器删除"
+  },
+  "deleteMessage.label": {
+    "message": "删除消息"
   },
   "domainLicense.email": {
     "message": "我们会在两个工作日内使用此电子邮件地址与您联系，以生成您的域授权。请在下一个页面中输入要授权的域名。"
@@ -975,14 +1367,47 @@
   "extensions.quickfilters.description": {
     "message": "通过拖放邮件并分析其属性从而在运行中快速生成邮件过滤器。"
   },
+  "fetchFromPOP.label": {
+    "message": "从 POP 服务器下载"
+  },
+  "FilterAssistant.start": {
+    "message": "开启过滤器助手"
+  },
+  "FilterAssistant.stop": {
+    "message": "停止过滤器助手"
+  },
+  "filters.toggleMessage.dontShow": {
+    "message": "不要再次显示此消息。"
+  },
+  "filters.toggleMessage.notificationText": {
+    "message": "辅助过滤模式已开启，当您将一封邮件移动到其它邮件目录时 '创建过滤器规则' 助手将开启，#1 使用邮件过滤器按照类似 '发送者是谁' '主题中是否包含指定关键字' 这样的规则自动移动邮件。要停止过滤器助手模式，请再次点击 [过滤器助手] 按钮。"
+  },
+  "filters.toggleMessage.title": {
+    "message": "过滤器助手模式"
+  },
+  "findFiltersForFolder.menu": {
+    "message": "查找过滤器..."
+  },
   "firstName.label": {
     "message": "名字"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "自动将筛选器应用于收件邮件"
   },
+  "forwardTo.label": {
+    "message": "转发消息至"
+  },
+  "fpJsonFile": {
+    "message": "JSON File"
+  },
   "freeLicense": {
     "message": "如果您最近捐助了 quickFilters 项目或者帮助其完成工作，例如翻译项目或者撰写补丁，您可能有资格获得一个免费的授权密钥。请使用 quickFilters 选项中的支持选项卡与我联系。"
+  },
+  "FromMessage.accesskey": {
+    "message": "Q"
+  },
+  "FromMessage.label": {
+    "message": "从消息创建过滤器…"
   },
   "getquickFilters": {
     "message": "获取 quickFilters Pro"
@@ -1010,6 +1435,12 @@
   },
   "homepage": {
     "message": "主页:"
+  },
+  "ignoreSubthread.label": {
+    "message": "忽略子话题"
+  },
+  "ignoreThread.label": {
+    "message": "忽略话题"
   },
   "intro": {
     "message": "quickFilters Pro 的年度授权将为您提供一整年的全部高级功能。它可以让我们继续支持和改进产品，使其更加强大。"
@@ -1039,8 +1470,80 @@
   "licenseTerms.show": {
     "message": "显示许可协议条款"
   },
+  "licenseValidation.guessAddon": {
+    "message": "(The key entered may be for {2})."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro 授权"
+  },
+  "ListButton.label": {
+    "message": "邮件过滤器..."
+  },
+  "ListButton.tooltip": {
+    "message": "显示邮件过滤器列表"
+  },
+  "markMessageRead.label": {
+    "message": "标记为已读"
+  },
+  "markMessageStarred.label": {
+    "message": "添加星标"
+  },
+  "markMessageUnread.label": {
+    "message": "标记为未读"
+  },
+  "menu.changelog": {
+    "message": "更改日志..."
+  },
+  "menu.copy": {
+    "message": "复制"
+  },
+  "menu.cut": {
+    "message": "剪切"
+  },
+  "menu.license": {
+    "message": "检查许可证状态..."
+  },
+  "menu.news": {
+    "message": "新闻/更改日志..."
+  },
+  "menu.paste": {
+    "message": "粘贴"
+  },
+  "menu.removeDupeAction": {
+    "message": "移除重复动作"
+  },
+  "menu.removeDupeCondition": {
+    "message": "移除重复条件"
+  },
+  "menu.tools": {
+    "message": "工具"
+  },
+  "merge.addressesOmitted": {
+    "message": "Email地址按条件忽略 - quickFilters 对您自己的邮箱地址自动禁用过滤："
+  },
+  "merge.warning.missingAction": {
+    "message": "无法获取过滤器的主动作: {1}"
+  },
+  "merge.warning.selectMismatch": {
+    "message": "无法合并所有选中的过滤器:动作无法匹配过滤器 {1}!"
+  },
+  "merge.warning.selectMismatchContinue": {
+    "message": "取消选择不匹配的过滤器并继续?"
+  },
+  "merge.warning.selectMultiple": {
+    "message": "要合并,请至少选择2个过滤器"
+  },
+  "merge.warning.selectMultiple2": {
+    "message": "无法确定选中的过滤器 - 要合并，必需选中至少两个过滤器!"
+  },
+  "merge.warning.selectTarget": {
+    "message": "必须选择一个要合并的目标过滤器!"
+  },
+  "move.selectOne": {
+    "message": "有且仅有一个过滤器必须被高亮!"
+  },
+  "moveMessage.label": {
+    "message": "移动消息至"
   },
   "mozillas-basic-platform": {
     "message": "Mozilla仅提供了一个向您（最终用户）交付我们软件的基本平台。 如果我们需要向我们的用户付款或提供支持，则不能通过addons.thunderbird.net进行操作-这不是内置付费界面或许可证管理（如iTunes或Google Play）的“应用商店”。"
@@ -1072,6 +1575,54 @@
   "news.minimal.tip": {
     "message": "如果勾选，quickFilters 不会更改按钮标签。只会显示一个小橙色圆点 🟠。"
   },
+  "notification.donate": {
+    "message": "贡献"
+  },
+  "notification.dontShowAgain": {
+    "message": "不再显示此消息。"
+  },
+  "notification.premium.btn.extendLicense": {
+    "message": "延长许可证"
+  },
+  "notification.premium.btn.extendLicense.tooltip": {
+    "message": "这会将当前的许可日期延长一年。 它通常比新许可证便宜。"
+  },
+  "notification.premium.btn.getLicense": {
+    "message": "购买 Pro"
+  },
+  "notification.premium.btn.renewLicense": {
+    "message": "更新许可证"
+  },
+  "notification.premium.freeUses": {
+    "message": "· 剩余 {1} 次免费使用机会。"
+  },
+  "notification.premium.text": {
+    "message": "{1} 是 Pro 功能"
+  },
+  "notification.premium.title": {
+    "message": "高级功能"
+  },
+  "notification.premium.trialExhausted": {
+    "message": "您已用完此功能的所有免费试用次数。"
+  },
+  "notification.proFeature.notificationText": {
+    "message": "功能 {1} 为高级功能，如果您需要经常使用此功能，请考虑在年内向quickFilters的开发人员提供资助。"
+  },
+  "notification.proFeature.title": {
+    "message": "高级功能"
+  },
+  "notification.QF.navigationbar": {
+    "message": "要使用 Thunderbird 115 中 QuickFolders 导航栏中的筛选功能：\n - 您需要有效的 QuickFolders 许可证\n - 或者您可以获得 $addonName$ Pro 许可证来支持此功能。",
+    "placeholders": {
+      "addonName": {
+        "content": "$1",
+        "example": "quickFilters"
+      }
+    }
+  },
+  "notification.register": {
+    "message": "注册者"
+  },
   "ongoing-work": {
     "message": "购买许可证完全自愿。为了方便用户，当前版本在技术上可行的情况下保持与 Thunderbird 115 向后兼容。然而，Thunderbird 现在遵循每月发布周期，增加了我们的测试和开发工作量。您的支持帮助我们跟上这些变化！",
     "placeholders": {
@@ -1081,11 +1632,56 @@
       }
     }
   },
+  "option.searchProperty.addTag": {
+    "message": "添加标签(标记)"
+  },
+  "option.searchProperty.name": {
+    "message": "名称"
+  },
+  "option.searchProperty.replyWithTemplate": {
+    "message": "使用模板回复"
+  },
+  "option.searchProperty.searchCondition": {
+    "message": "搜索条件(文本)"
+  },
+  "option.searchProperty.setCustomStringAction": {
+    "message": "修改字符串的操作"
+  },
+  "option.searchProperty.targetFolder": {
+    "message": "目标文件夹名称"
+  },
+  "option.searchProperty.targetFolderUri": {
+    "message": "目标文件夹路径"
+  },
   "pane1.title": {
     "message": "quickFilters 首选项"
   },
   "prefwindow.title": {
     "message": "quickFilters 首选项"
+  },
+  "premium.renewLicense.tooltip": {
+    "message": "您的许可证已于 {1} 天前过期"
+  },
+  "premium.title.customTemplate": {
+    "message": "自定义模板"
+  },
+  "premium.title.duplicatesFinder": {
+    "message": "重复查找器"
+  },
+  "premium.title.loadFilters": {
+    "message": "恢复过滤器"
+  },
+  "premium.title.saveFilters": {
+    "message": "备份过滤器"
+  },
+  "premium.title.searchFolder": {
+    "message": "文件夹搜索过滤器"
+  },
+  "premium.title.sortFilters": {
+    "message": "过滤器排序"
+  },
+  "premium.title.sortSearchTerms": {
+    "message": "对搜索词进行排序"
   },
   "pricing.section": {
     "message": "要了解您的价格，请先选择以下选项之一。 这将打开一个单独的浏览器窗口，您可以在其中完成网上商店的购买。"
@@ -1095,6 +1691,35 @@
   },
   "pricing.title": {
     "message": "价钱"
+  },
+  "prompt.confirmCommonSubjectStart": {
+    "message": "发现主题以相同文本开头：\"$prefix$\"。\n是否将此文本用作主题搜索条件？",
+    "placeholders": {
+      "prefix": {
+        "content": "$1"
+      }
+    }
+  },
+  "prompt.contact.subject": {
+    "message": "请输入短主题:"
+  },
+  "prompt.contact.title": {
+    "message": "获得quickFilters支持"
+  },
+  "prompt.copiedCustomVar": {
+    "message": "变量 {1} 已复制到剪贴板，请将其粘贴到搜索项."
+  },
+  "prompt.createCustomHeader": {
+    "message": "请将'{1}'项作为要使用的自定义头部添加到过滤器内."
+  },
+  "prompt.customTemplateName": {
+    "message": "自定义模板的名称:"
+  },
+  "prompt.fixDuplicates": {
+    "message": "我们发现以下过滤器存在重复。\n修复此问题并继续导入吗？"
+  },
+  "promptDontRepeat": {
+    "message": "不要再次显示此警告。"
   },
   "purchase-a-license": {
     "message": "购买许可证。"
@@ -1120,7 +1745,9 @@
   "qf.button.mergeFilterRules": {
     "message": "将“$filterName$”与新规则合并…",
     "placeholders": {
-      "filterName": { "content": "$1" }
+      "filterName": {
+        "content": "$1"
+      }
     }
   },
   "qf.button.next": {
@@ -1392,14 +2019,14 @@
   "qf.label.naming.parentFolder": {
     "message": "添加父文件夹名称"
   },
+  "qf.label.naming.parentFolder.accesskey": {
+    "message": "p"
+  },
   "qf.label.naming.parentFolder.maxCount": {
     "message": "要添加的父文件夹最大数量："
   },
   "qf.label.naming.targetAccount": {
     "message": "添加目标帐户名称（用于将邮件移动到另一个帐户的过滤器）"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "p"
   },
   "qf.label.premiumFeaturesSite": {
     "message": "Read more about Premium Features on our Website"
@@ -1557,557 +2184,14 @@
   "qf.youtube.tbdaily": {
     "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
   },
-  "quickfilters.FilterAssistant.start": {
-    "message": "开启过滤器助手"
-  },
-  "quickfilters.FilterAssistant.stop": {
-    "message": "停止过滤器助手"
-  },
-  "quickfilters.FromMessage.accesskey": {
-    "message": "Q"
-  },
-  "quickfilters.FromMessage.label": {
-    "message": "从消息创建过滤器…"
-  },
-  "quickfilters.menu.changelog": {
-    "message": "更改日志..."
-  },
-  "quickfilters.menu.license": {
-    "message": "检查许可证状态..."
-  },
-  "quickfilters.menu.news": {
-    "message": "新闻/更改日志..."
-  },
-  "quickfilters.menu.tools": {
-    "message": "工具"
-  },
-  "quickfilters.ListButton.label": {
-    "message": "邮件过滤器..."
-  },
-  "quickfilters.ListButton.tooltip": {
-    "message": "显示邮件过滤器列表"
-  },
-  "quickfilters.RunButton.label": {
-    "message": "运行过滤器"
-  },
-  "quickfilters.RunButton.tooltip": {
-    "message": "运行为当前文件夹建立的过滤器"
-  },
-  "quickfilters.RunButtonMsg.label": {
-    "message": "过滤所选的邮件"
-  },
-  "quickfilters.RunButtonMsg.tooltip": {
-    "message": "对当前邮件应用过滤器"
-  },
-  "quickfilters.Start.label": {
-    "message": "开启过滤器助手…"
-  },
-  "quickfilters.addTag.label": {
-    "message": "为消息添加标签"
-  },
-  "quickfilters.backup.archivingFilters": {
-    "message": "Archiving {1} Filters"
-  },
-  "quickfilters.backup.customErrors": {
-    "message": "The following filters have custom Actions which cannot be completely saved - a 3rd party Add-on may be missing:"
-  },
-  "quickfilters.backup.failedFilters": {
-    "message": "{1} filters could not be encoded! Please check the error log for detail."
-  },
-  "quickfilters.button.assistant": {
-    "message": "切换助手..."
-  },
-  "quickfilters.button.assistant.tooltiptext": {
-    "message": "切换过滤器助手模式，启用时可通过拖放邮件来创建过滤器。"
-  },
-  "quickfilters.button.bug": {
-    "message": "Troubleshoot"
-  },
-  "quickfilters.button.bug.tooltiptext1": {
-    "message": "Troubleshooting: 1. filters that don't run automatically 2. invalid target folders 3. validate custom actions"
-  },
-  "quickfilters.button.bug.tooltiptext2": {
-    "message": "4. Mixed 'Any'/'All' Conditions. Right-click to configure steps."
-  },
-  "quickfilters.button.cancelDuplicates.label": {
-    "message": "取消重复项"
-  },
-  "quickfilters.button.cancelDuplicates.tooltip": {
-    "message": "重置重复搜索"
-  },
-  "quickfilters.button.cancelFindInFolder.label": {
-    "message": "取消搜索"
-  },
-  "quickfilters.button.cancelFindInFolder.tooltip": {
-    "message": "取消文件夹搜索"
-  },
-  "quickfilters.button.clone": {
-    "message": "克隆"
-  },
-  "quickfilters.button.clone.accesskey": {
-    "message": "C"
-  },
-  "quickfilters.button.clone.tooltiptext": {
-    "message": "克隆过滤器"
-  },
-  "quickfilters.button.findDuplicates.label": {
-    "message": "查找重复项"
-  },
-  "quickfilters.button.findDuplicates.tooltip": {
-    "message": "查找重复属性"
-  },
-  "quickfilters.button.getOtherAddon": {
-    "message": "获取 {1}"
-  },
-  "quickfilters.button.loadFilters.tooltip": {
-    "message": "Restore Filters…"
-  },
-  "quickfilters.button.merge": {
-    "message": "合并"
-  },
-  "quickfilters.button.merge.accesskey": {
-    "message": "M"
-  },
-  "quickfilters.button.merge.tooltiptext": {
-    "message": "将多个过滤器合并为同一个动作"
-  },
-  "quickfilters.button.saveFilters.tooltip": {
-    "message": "Backup Filters…"
-  },
-  "quickfilters.button.searchProperties": {
-    "message": "修改搜索属性..."
-  },
-  "quickfilters.button.settings": {
-    "message": "quickFilters 设定..."
-  },
-  "quickfilters.button.sort": {
-    "message": "排序"
-  },
-  "quickfilters.button.sort.tooltiptext": {
-    "message": "按字母排序"
-  },
-  "quickfilters.button.support": {
-    "message": "quickFilters支持站点"
-  },
-  "quickfilters.clone.label": {
-    "message": "(复制)"
-  },
-  "quickfilters.clone.selectOne": {
-    "message": "请只选择一个过滤器进行克隆."
-  },
-  "quickfilters.clone.undetermined": {
-    "message": "无法确定选中的过滤器"
-  },
-  "quickfilters.copy.warning.emptyClipboard": {
-    "message": "剪贴板中没有过滤器!"
-  },
-  "quickfilters.copy.warning.selectFilter": {
-    "message": "请至少选中一个过滤器!"
-  },
-  "quickfilters.copy.warning.selectOtherAccount": {
-    "message": "选择其它账户以粘贴项目!"
-  },
-  "quickfilters.copyMessage.label": {
-    "message": "复制消息至"
-  },
-  "quickfilters.createFilter.warning.canNotHaveFilters": {
-    "message": "账户 ({1}) 无法拥有过滤器."
-  },
-  "quickfilters.createFilter.warning.minimum2Mails": {
-    "message": "此模板需要至少2封邮件."
-  },
-  "quickfilters.createFilter.warning.noFilterFallback": {
-    "message": "邮件来源的账户 [{1}] 无法创建过滤器!\n用当前收件箱替代."
-  },
-  "quickfilters.createFilter.warning.noHeaderParser": {
-    "message": "抱歉, 此版本的 {1} 不支持从消息头部提取地址，因此无法创建过滤器."
-  },
-  "quickfilters.createFilter.warning.noMessageDb": {
-    "message": "无法连接目录{1}的消息数据库"
-  },
-  "quickfilters.createFilter.warning.noMessageId": {
-    "message": "创建过滤器失败 - 无法为获取消息列表内第一个元素的消息ID!\n考虑运行 Repair Folder 命令."
-  },
-  "quickfilters.createFilter.warning.noServer": {
-    "message": "目录 ({1}) 尚未设置服务器."
-  },
-  "quickfilters.createFilter.warning.suggestUpdate": {
-    "message": "请考虑升级到新版以获取此功能."
-  },
-  "quickfilters.createFromMail.inboxWarning": {
-    "message": "'Create filter from message' is much more useful if you have already moved the mail to a different folder or added a tag to it, as quickFilters  will then select the appropriate Action for you.\nStill create a filter from this message?"
-  },
-  "quickfilters.createFromMail.selectWarning": {
-    "message": "创建过滤器前请选择并且只选择一封邮件!"
-  },
-  "quickfilters.customHeader.BlindCarbonCopy": {
-    "message": "Blind Carbon Copy (BCC)"
-  },
-  "quickfilters.customHeader.CarbonCopy": {
-    "message": "Carbon Copy (CC)"
-  },
-  "quickfilters.customHeader.defaultActionTip": {
-    "message": "quickFilters 助手会自动添加一个动作。 请保留默认操作“将优先级设置为正常”作为占位符。"
-  },
-  "quickfilters.customHeader.Domain": {
-    "message": "Domain of Email"
-  },
-  "quickfilters.customHeader.Domain.Ext": {
-    "message": "域扩展"
-  },
-  "quickfilters.customHeader.Domain.Root": {
-    "message": "根域"
-  },
-  "quickfilters.customHeader.Domain.Sub": {
-    "message": "子域"
-  },
-  "quickfilters.customHeader.Email": {
-    "message": "Email Address"
-  },
-  "quickfilters.customHeader.FirstName": {
-    "message": "First Name"
-  },
-  "quickfilters.customHeader.From": {
-    "message": "From"
-  },
-  "quickfilters.customHeader.LastName": {
-    "message": "Last Name"
-  },
-  "quickfilters.customHeader.ListId": {
-    "message": "List Id"
-  },
-  "quickfilters.customHeader.ListPost": {
-    "message": "List Post"
-  },
-  "quickfilters.customHeader.NamePart": {
-    "message": "Full Name"
-  },
-  "quickfilters.customHeader.Newsgroups": {
-    "message": "Newsgroups"
-  },
-  "quickfilters.customHeader.ReplyTo": {
-    "message": "Reply To"
-  },
-  "quickfilters.customHeader.Subject": {
-    "message": "Subject"
-  },
-  "quickfilters.customHeader.SubjectRegex": {
-    "message": "Subject Regular Expression"
-  },
-  "quickfilters.customHeader.To": {
-    "message": "To"
-  },
-  "quickfilters.customTemplate.name": {
-    "message": "Template Name:"
-  },
-  "quickfilters.customTemplate.title": {
-    "message": "quickFilters Custom Template"
-  },
-  "quickfilters.customVariable.label": {
-    "message": "Custom Variables"
-  },
-  "quickfilters.customVariable.tooltip": {
-    "message": "在创建过滤器时，这些变量将替换为当前邮件的相应邮件标头。"
-  },
-  "quickfilters.customfilter.replyto": {
-    "message": "回复至"
-  },
-  "quickfilters.debug.fixFilters": {
-    "message": "发现 {0} 个启用的过滤器没有运行方法（手动、传入或自动）。 是否应该将它们更改为在收到新邮件时自动执行？"
-  },
-  "quickfilters.debug.fixFilters.AnyAll": {
-    "message": "Found conditions mixing 'Any' / 'All' - these may not work as intended. Should I fix these?"
-  },
-  "quickfilters.debug.fixFilters.customActionErrors": {
-    "message": "发现 {0} 个具有未解决的自定义操作的过滤器。 您可能缺少第三方插件或可能需要配置它以支持自定义操作？"
-  },
-  "quickfilters.debug.fixFilters.invalidUris": {
-    "message": "Found {0} filters with invalid folder targets. These may have been imported from non-matching profile? Or the target folder doesn't exist anymore or was moved."
-  },
-  "quickfilters.debug.fixFilters.none": {
-    "message": "No faulty filters found."
-  },
-  "quickfilters.debug.fixFilters.result": {
-    "message": "{0} filters were fixed."
-  },
-  "quickfilters.deleteFromPOP.label": {
-    "message": "从 POP 服务器删除"
-  },
-  "quickfilters.deleteMessage.label": {
-    "message": "删除消息"
-  },
-  "quickfilters.fetchFromPOP.label": {
-    "message": "从 POP 服务器下载"
-  },
-  "quickfilters.filters.toggleMessage.dontShow": {
-    "message": "不要再次显示此消息。"
-  },
-  "quickfilters.filters.toggleMessage.notificationText": {
-    "message": "辅助过滤模式已开启，当您将一封邮件移动到其它邮件目录时 '创建过滤器规则' 助手将开启，#1 使用邮件过滤器按照类似 '发送者是谁' '主题中是否包含指定关键字' 这样的规则自动移动邮件。要停止过滤器助手模式，请再次点击 [过滤器助手] 按钮。"
-  },
-  "quickfilters.filters.toggleMessage.title": {
-    "message": "过滤器助手模式"
-  },
-  "quickfilters.findFiltersForFolder.menu": {
-    "message": "查找过滤器..."
-  },
-  "quickfilters.forwardTo.label": {
-    "message": "转发消息至"
-  },
-  "quickfilters.fpJsonFile": {
-    "message": "JSON File"
-  },
-  "quickfilters.ignoreSubthread.label": {
-    "message": "忽略子话题"
-  },
-  "quickfilters.ignoreThread.label": {
-    "message": "忽略话题"
-  },
-  "quickfilters.licenseValidation.guessAddon": {
-    "message": "(The key entered may be for {2})."
-  },
-  "quickfilters.markMessageRead.label": {
-    "message": "标记为已读"
-  },
-  "quickfilters.markMessageStarred.label": {
-    "message": "添加星标"
-  },
-  "quickfilters.markMessageUnread.label": {
-    "message": "标记为未读"
-  },
-  "quickfilters.menu.copy": {
-    "message": "复制"
-  },
-  "quickfilters.menu.cut": {
-    "message": "剪切"
-  },
-  "quickfilters.menu.paste": {
-    "message": "粘贴"
-  },
-  "quickfilters.menu.removeDupeAction": {
-    "message": "移除重复动作"
-  },
-  "quickfilters.menu.removeDupeCondition": {
-    "message": "移除重复条件"
-  },
-  "quickfilters.merge.addressesOmitted": {
-    "message": "Email地址按条件忽略 - quickFilters 对您自己的邮箱地址自动禁用过滤："
-  },
-  "quickfilters.merge.warning.missingAction": {
-    "message": "无法获取过滤器的主动作: {1}"
-  },
-  "quickfilters.merge.warning.selectMismatch": {
-    "message": "无法合并所有选中的过滤器:动作无法匹配过滤器 {1}!"
-  },
-  "quickfilters.merge.warning.selectMismatchContinue": {
-    "message": "取消选择不匹配的过滤器并继续?"
-  },
-  "quickfilters.merge.warning.selectMultiple": {
-    "message": "要合并,请至少选择2个过滤器"
-  },
-  "quickfilters.merge.warning.selectMultiple2": {
-    "message": "无法确定选中的过滤器 - 要合并，必需选中至少两个过滤器!"
-  },
-  "quickfilters.merge.warning.selectTarget": {
-    "message": "必须选择一个要合并的目标过滤器!"
-  },
-  "quickfilters.move.selectOne": {
-    "message": "有且仅有一个过滤器必须被高亮!"
-  },
-  "quickfilters.moveMessage.label": {
-    "message": "移动消息至"
-  },
-  "quickfilters.notification.donate": {
-    "message": "贡献"
-  },
-  "quickfilters.notification.dontShowAgain": {
-    "message": "不再显示此消息。"
-  },
-  "quickfilters.notification.premium.btn.extendLicense": {
-    "message": "延长许可证"
-  },
-  "quickfilters.notification.premium.btn.extendLicense.tooltip": {
-    "message": "这会将当前的许可日期延长一年。 它通常比新许可证便宜。"
-  },
-  "quickfilters.notification.premium.btn.getLicense": {
-    "message": "购买 Pro"
-  },
-  "quickfilters.notification.premium.btn.renewLicense": {
-    "message": "更新许可证"
-  },
-  "quickfilters.notification.premium.freeUses": {
-    "message": "· 剩余 {1} 次免费使用机会。"
-  },
-  "quickfilters.notification.premium.text": {
-    "message": "{1} 是 Pro 功能"
-  },
-  "quickfilters.notification.premium.title": {
-    "message": "高级功能"
-  },
-  "quickfilters.notification.proFeature.notificationText": {
-    "message": "功能 {1} 为高级功能，如果您需要经常使用此功能，请考虑在年内向quickFilters的开发人员提供资助。"
-  },
-  "quickfilters.notification.proFeature.title": {
-    "message": "高级功能"
-  },
-  "quickfilters.notification.QF.navigationbar": {
-    "message": "要使用 Thunderbird 115 中 QuickFolders 导航栏中的筛选功能：\n - 您需要有效的 QuickFolders 许可证\n - 或者您可以获得 $addonName$ Pro 许可证来支持此功能。",
-    "placeholders": {
-      "addonName": {
-        "content": "$1",
-        "example": "quickFilters"
-      }
-    }
-  },
-  "quickfilters.notification.register": {
-    "message": "注册者"
-  },
-  "quickfilters.option.searchProperty.addTag": {
-    "message": "添加标签(标记)"
-  },
-  "quickfilters.option.searchProperty.name": {
-    "message": "名称"
-  },
-  "quickfilters.option.searchProperty.replyWithTemplate": {
-    "message": "使用模板回复"
-  },
-  "quickfilters.option.searchProperty.searchCondition": {
-    "message": "搜索条件(文本)"
-  },
-  "quickfilters.option.searchProperty.setCustomStringAction": {
-    "message": "修改字符串的操作"
-  },
-  "quickfilters.option.searchProperty.targetFolder": {
-    "message": "目标文件夹名称"
-  },
-  "quickfilters.option.searchProperty.targetFolderUri": {
-    "message": "目标文件夹路径"
-  },
-  "quickfilters.premium.renewLicense.tooltip": {
-    "message": "您的许可证已于 {1} 天前过期"
-  },
-  "quickfilters.premium.title.customTemplate": {
-    "message": "自定义模板"
-  },
-  "quickfilters.premium.title.duplicatesFinder": {
-    "message": "重复查找器"
-  },
-  "quickfilters.premium.title.loadFilters": {
-    "message": "恢复过滤器"
-  },
-  "quickfilters.premium.title.saveFilters": {
-    "message": "备份过滤器"
-  },
-  "quickfilters.premium.title.searchFolder": {
-    "message": "文件夹搜索过滤器"
-  },
-  "quickfilters.premium.title.sortFilters": {
-    "message": "过滤器排序"
-  },
-  "quickfilters.premium.title.sortSearchTerms": {
-    "message": "对搜索词进行排序"
-  },
-  "quickfilters.prompt.confirmCommonSubjectStart": {
-    "message": "发现主题以相同文本开头：\"$prefix$\"。\n是否将此文本用作主题搜索条件？",
-    "placeholders": { "prefix": { "content": "$1" } }
-  },
-  "quickfilters.prompt.contact.subject": {
-    "message": "请输入短主题:"
-  },
-  "quickfilters.prompt.contact.title": {
-    "message": "获得quickFilters支持"
-  },
-  "quickfilters.prompt.copiedCustomVar": {
-    "message": "变量 {1} 已复制到剪贴板，请将其粘贴到搜索项."
-  },
-  "quickfilters.prompt.createCustomHeader": {
-    "message": "请将'{1}'项作为要使用的自定义头部添加到过滤器内."
-  },
-  "quickfilters.prompt.customTemplateName": {
-    "message": "自定义模板的名称:"
-  },
-  "quickfilters.prompt.fixDuplicates": {
-    "message": "我们发现以下过滤器存在重复。\n修复此问题并继续导入吗？"
-  },
-  "quickfilters.promptDontRepeat": {
-    "message": "不要再次显示此警告。"
-  },
-  "quickfilters.register.licenseValid.expired": {
-    "message": "您的许可证已过期："
-  },
-  "quickfilters.registration.menu": {
-    "message": "$licenseName$ 许可证…",
-    "placeholders": {
-      "licensename": {
-        "content": "quickFilters Pro"
-      }
-    }
-  },
-  "quickfilters.replyWithTemplate.label": {
-    "message": "使用模板回复"
-  },
-  "quickfilters.runFiltersOnMails.notify": {
-    "message": "对当前文件夹应用过滤器..."
-  },
-  "quickfilters.runMultiFilterInFolder.status": {
-    "message": "Running {0} Filters in folder {1}."
-  },
-  "quickfilters.runSingleFilterInFolder.status": {
-    "message": "Running Filter '{0}' in folder {1}."
-  },
-  "quickfilters.runningFiltersOnFolder.notify": {
-    "message": "Run filters on folder '{1}'…"
-  },
-  "quickfilters.search.warning.noresults": {
-    "message": "未找到指向此文件夹的过滤器."
-  },
-  "quickfilters.setJunkScore.label": {
-    "message": "设置垃圾状态为"
-  },
-  "quickfilters.setPriority.label": {
-    "message": "设置优先级为"
-  },
-  "quickfilters.sort": {
-    "message": "种类"
-  },
-  "quickfilters.sort.tooltip": {
-    "message": "排序搜索词"
-  },
-  "quickfilters.sort.warning.selectMultiple": {
-    "message": "按字母排序需要选定至少两个过滤器"
-  },
-  "quickfilters.stopExecution.label": {
-    "message": "停止执行过滤器"
-  },
-  "quickfilters.warning.emptyFilter": {
-    "message": "无法创建过滤器：没有有效的搜索条件，无法编辑过滤器。"
-  },
-  "quickfilters.warning.folderRepairFailed": {
-    "message": "无法开始修复文件夹。请等待当前文件夹操作完成，然后尝试“属性 → 修复文件夹”。"
-  },
-  "quickfilters.warning.messageLookupTimeout": {
-    "message": "quickFilters 无法获取创建或更新过滤器所需的信息。\n\n目标文件夹“{0}”可能需要修复。\n\n现在尝试修复文件夹吗？\n\n请等待修复完成，然后重新尝试创建过滤器。"
-  },
-  "quickfilters.warning.templateNameNotUnique": {
-    "message": "此名称的模板已存在！名称必须是唯一的."
-  },
-  "quickfilters.watchThread.label": {
-    "message": "跟踪话题"
-  },
-  "quickfiltersToolbarButton.label": {
-    "message": "quickFilters 助手"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "证件过期！"
   },
   "quickfiltersToolbarButton.expired.tip": {
     "message": "单击以打开 quickFilters 许可证面板。 右键单击其他选项。"
   },
-  "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters 已更新！"
-  },
-  "quickfiltersToolbarButton.updated.tip": {
-    "message": "打开下面的 '{menulabel}' 菜单查看最新内容。这也会移除 🟠。"
+  "quickfiltersToolbarButton.label": {
+    "message": "quickFilters 助手"
   },
   "quickfiltersToolbarButton.renew": {
     "message": "许可证在 $daysLeft$ 天后到期",
@@ -2120,8 +2204,28 @@
   "quickfiltersToolbarButton.tooltip": {
     "message": "过滤器创建助手； 过滤器工具"
   },
+  "quickfiltersToolbarButton.updated": {
+    "message": "quickFilters 已更新！"
+  },
+  "quickfiltersToolbarButton.updated.tip": {
+    "message": "打开下面的 '{menulabel}' 菜单查看最新内容。这也会移除 🟠。"
+  },
+  "register.licenseValid.expired": {
+    "message": "您的许可证已过期："
+  },
+  "registration.menu": {
+    "message": "$licenseName$ 许可证…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
   "renew-your-license": {
     "message": "续订您的许可证。"
+  },
+  "replyWithTemplate.label": {
+    "message": "使用模板回复"
   },
   "restart-app": {
     "message": "重新启动 $application$ 以激活此选项。",
@@ -2131,6 +2235,18 @@
         "example": "Thunderbird"
       }
     }
+  },
+  "RunButton.label": {
+    "message": "运行过滤器"
+  },
+  "RunButton.tooltip": {
+    "message": "运行为当前文件夹建立的过滤器"
+  },
+  "RunButtonMsg.label": {
+    "message": "过滤所选的邮件"
+  },
+  "RunButtonMsg.tooltip": {
+    "message": "对当前邮件应用过滤器"
   },
   "runFilters.folder.confirm": {
     "message": "在文件夹 $folderName$ 中运行过滤器？",
@@ -2142,6 +2258,36 @@
   },
   "runFilters.selection.confirm": {
     "message": "对选定的邮件运行过滤器？"
+  },
+  "runFiltersOnMails.notify": {
+    "message": "对当前文件夹应用过滤器..."
+  },
+  "runMultiFilterInFolder.status": {
+    "message": "Running {0} Filters in folder {1}."
+  },
+  "runningFiltersOnFolder.notify": {
+    "message": "Run filters on folder '{1}'…"
+  },
+  "runSingleFilterInFolder.status": {
+    "message": "Running Filter '{0}' in folder {1}."
+  },
+  "search.warning.noresults": {
+    "message": "未找到指向此文件夹的过滤器."
+  },
+  "setJunkScore.label": {
+    "message": "设置垃圾状态为"
+  },
+  "setPriority.label": {
+    "message": "设置优先级为"
+  },
+  "sort": {
+    "message": "种类"
+  },
+  "sort.tooltip": {
+    "message": "排序搜索词"
+  },
+  "sort.warning.selectMultiple": {
+    "message": "按字母排序需要选定至少两个过滤器"
   },
   "special-offer-content": {
     "message": "现在是获得许可证的最佳机会，因为庆祝quickFilters成立9周年的quickFilters Pro许可证价格降低了{bold} $reduction${/bold} ！ 此特别优惠将持续到{bold} $expirydate${/bold} .",
@@ -2180,6 +2326,12 @@
         "example": "50%"
       }
     }
+  },
+  "Start.label": {
+    "message": "开启过滤器助手…"
+  },
+  "stopExecution.label": {
+    "message": "停止执行过滤器"
   },
   "subjectCompleteExtract": {
     "message": "始终插入完整的主题行。"
@@ -2533,9 +2685,15 @@
   "troubleshooter.summary": {
     "message": "$filters$ 个过滤器需要审查 · $resolved$ 个问题已解决 · 已运行 $checks$/4 项检查",
     "placeholders": {
-      "filters": { "content": "$1" },
-      "resolved": { "content": "$2" },
-      "checks": { "content": "$3" }
+      "checks": {
+        "content": "$3"
+      },
+      "filters": {
+        "content": "$1"
+      },
+      "resolved": {
+        "content": "$2"
+      }
     }
   },
   "troubleshooter.tableHint": {
@@ -2571,6 +2729,21 @@
   "version": {
     "message": "版本:"
   },
+  "warning.emptyFilter": {
+    "message": "无法创建过滤器：没有有效的搜索条件，无法编辑过滤器。"
+  },
+  "warning.folderRepairFailed": {
+    "message": "无法开始修复文件夹。请等待当前文件夹操作完成，然后尝试“属性 → 修复文件夹”。"
+  },
+  "warning.messageLookupTimeout": {
+    "message": "quickFilters 无法获取创建或更新过滤器所需的信息。\n\n目标文件夹“{0}”可能需要修复。\n\n现在尝试修复文件夹吗？\n\n请等待修复完成，然后重新尝试创建过滤器。"
+  },
+  "warning.templateNameNotUnique": {
+    "message": "此名称的模板已存在！名称必须是唯一的."
+  },
+  "watchThread.label": {
+    "message": "跟踪话题"
+  },
   "whats-new-btn": {
     "message": "什么是新的？"
   },
@@ -2591,7 +2764,10 @@
   "whats-new-maintenance": {
     "message": "维护更新 $ver$。次要版本发布后的重要修复和兼容性更新，包括需要紧急修复的回归问题。",
     "placeholders": {
-      "ver": { "content": "$1", "example": "6.12.3" }
+      "ver": {
+        "content": "$1",
+        "example": "6.12.3"
+      }
     }
   },
   "window-title": {

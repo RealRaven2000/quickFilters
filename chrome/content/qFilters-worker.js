@@ -135,14 +135,14 @@ quickFilters.Worker = {
       ) {
         let theText = util
           .getBundleString(
-            "quickfilters.filters.toggleMessage.notificationText",
+            "filters.toggleMessage.notificationText",
             "Assisted filter mode started. Whenever you move an email into another mail folder a 'Create Filter Rule' assistant will start." +
               " #1 uses message filters for automatically moving emails based on rules such as 'who is the sender?', 'is a certain keyword in the subject line?'." +
               " To stop filter assisted mode, press the quickFilters Assistant button again."
           )
           .replace("#1", util.Application);
         let dontShow = util.getBundleString(
-          "quickfilters.filters.toggleMessage.dontShow",
+          "filters.toggleMessage.dontShow",
           "Do not show this message again."
         );
 
@@ -589,7 +589,7 @@ quickFilters.Worker = {
           "Account - No incoming Server or cannot have filters!"
         );
         const wrn = util.getBundleString(
-          "quickfilters.createFilter.warning.noFilterFallback",
+          "createFilter.warning.noFilterFallback",
           "Account [{1}] of mail origin cannot have filters!\nUsing current Inbox instead."
         );
         util.popupAlert(wrn.replace("{1}", ac.key));
@@ -746,7 +746,7 @@ quickFilters.Worker = {
           const serverName = sourceFolder.server.name ? sourceFolder.server.name : "unknown";
           util.logDebug("sourceFolder.server.name=" + serverName);
           const wrn = util.getBundleString(
-            "quickfilters.createFilter.warning.canNotHaveFilters",
+            "createFilter.warning.canNotHaveFilters",
             "The account ({1}) cannot have filters."
           );
           await util.popupAlert(wrn.replace("{1}", serverName));
@@ -764,7 +764,7 @@ quickFilters.Worker = {
         util.logDebug(`sourceFolder.prettyName=${srcName}`);
         if (srcName) {
           let wrn = util.getBundleString(
-            "quickfilters.createFilter.warning.noServer",
+            "createFilter.warning.noServer",
             "Folder ({1}) does not have a server."
           );
           await util.popupAlert(wrn.replace("{1}", srcName));
@@ -894,7 +894,7 @@ quickFilters.Worker = {
         if (!isFromMessageContext) {
           if (!messageId) {
             let wrn = util.getBundleString(
-              "quickfilters.createFilter.warning.noMessageId",
+              "createFilter.warning.noMessageId",
               "Failed to create Filter - could not retrieve message id for the first element of the messages list!\n" +
                 "Consider running the Repair Folder command."
             );
@@ -917,7 +917,7 @@ quickFilters.Worker = {
               messageHeader = firstMessage.msgClone;
             } catch (e) {
               let wrn = util.getBundleString(
-                "quickfilters.createFilter.warning.noMessageDb",
+                "createFilter.warning.noMessageDb",
                 "Cannot access message database for folder {1}"
               );
               const fName = targetFolder?.prettyName || targetFolder?.localizedName || "unknown";
@@ -1903,7 +1903,7 @@ quickFilters.Worker = {
         {
           if (!isMerge && buildParams.messageList.length <= 1) {
             let txtAlert = util.getBundleString(
-              "quickfilters.createFilter.warning.minimum2Mails",
+              "createFilter.warning.minimum2Mails",
               "This template requires at least 2 mails"
             );
             await util.popupAlert(txtAlert);
@@ -1964,7 +1964,7 @@ quickFilters.Worker = {
             iCustomHdr = util.checkCustomHeaderExists(hdrListId);
           if (!iCustomHdr) {
             const txt = util.getBundleString(
-              "quickfilters.prompt.createCustomHeader",
+              "prompt.createCustomHeader",
               "Please add the term '{1}' as a custom header to use this in a filter."
             );
             if (confirm(txt.replace("{1}", hdrListId))) {
@@ -2104,7 +2104,7 @@ quickFilters.Worker = {
                 preview
               );
             const l10nTxt = util.getBundleString(
-              "quickfilters.prompt.confirmCommonSubjectStart",
+              "prompt.confirmCommonSubjectStart",
               txt,
               preview
             );
@@ -2421,7 +2421,7 @@ quickFilters.Worker = {
     if (!isMerge) {
       if (excludedAddresses && excludedAddresses.length > 0) {
         warningOmitted = util.getBundleString(
-          "quickfilters.merge.addressesOmitted",
+          "merge.addressesOmitted",
           "Email addresses were omitted from the conditions - quickFilters avoids filtering for your own mail address:"
         );
         let list = "",
@@ -2434,7 +2434,7 @@ quickFilters.Worker = {
 
       // [issue 23] avoid empty filters:
       if (targetFilter.searchTerms.length == 0) {
-        let txtAbort = util.getBundleString("quickfilters.warning.emptyFilter");
+        let txtAbort = util.getBundleString("warning.emptyFilter");
         Services.prompt.alert(window, "quickFilters", txtAbort + "\n\n" + warningOmitted);
         return;
       }
@@ -2587,7 +2587,7 @@ quickFilters.Worker = {
     } catch (ex) {
       util.logException(`rebuildFolderSummary(): failed for ${folder.URI}`, ex);
       Services.prompt.alert(window, "quickFilters", util.getBundleString(
-        "quickfilters.warning.folderRepairFailed",
+        "warning.folderRepairFailed",
         "Could not start the folder repair. Please try Properties → Repair Folder after any current folder operation has finished."
       ));
       return false;
@@ -2686,7 +2686,7 @@ quickFilters.Worker = {
               `source folder URI = ${sourceFolder?.URI ?? "unknown"}`
           );
           const timeoutMessage = util.getBundleString(
-            "quickfilters.warning.messageLookupTimeout",
+            "warning.messageLookupTimeout",
             "quickFilters could not retrieve the necessary details to create or update a filter.\n\nThe destination folder \"{0}\" may need repair.\n\nTry to repair the folder now?\n\nWait for the repair to finish, then try creating the filter again."
           );
           const repairFolder = Services.prompt.confirm(

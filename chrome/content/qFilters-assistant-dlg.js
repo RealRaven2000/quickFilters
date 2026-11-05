@@ -203,7 +203,7 @@ quickFilters.Assistant = {
         dlgButtons["extra2"].style.visibility = "hidden";
       } else if (quickFilters.Util.licenseInfo.isExpired) {
         dlgButtons["extra2"].label = quickFilters.Util.getBundleString(
-          "quickfilters.notification.premium.btn.renewLicense"
+          "notification.premium.btn.renewLicense"
         );
         dlgButtons["extra2"].addEventListener("click", (_e) => {
           quickFilters.Util.showLicenseDialog("assistant_renew");
