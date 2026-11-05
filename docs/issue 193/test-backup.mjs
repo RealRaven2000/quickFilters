@@ -521,8 +521,19 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
   vm.runInContext(source, context);
   const api = new context.Utilities();
   const apis = [];
+  let sessionData = {};
+  const extension = { localeData: { localizeMessage: getMessage } };
+  const apiCan = { findAPIPath(name) {
+    assert.equal(name, "storage");
+    return { local: { async callMethodInParentProcess(method, args) {
+      if (method === "get") return structuredClone({ ...args[0], ...sessionData });
+      assert.equal(method, "set");
+      sessionData = structuredClone({ ...sessionData, ...args[0] });
+    } } };
+  } };
   for (const root of ["file:///temporary-addon/", "jar:file:///profile/quickFilters.xpi!/"]) {
-    apis.push(api.getAPI({ extension: { rootURI: { resolve: path => root + path }, localeData: { localizeMessage: getMessage } } }));
+    extension.rootURI = { resolve: path => root + path };
+    apis.push(api.getAPI({ extension, apiCan }));
   }
   assert.equal(loads.length, 4);
   await apis[0].Utilities.initializeProFeatureUsage();
@@ -536,6 +547,10 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
   assert.equal(last.allowed, true);
   assert.equal(exhausted.allowed, false);
   assert.equal(exhausted.used, 10);
+  const restores = await Promise.all(apis.map(item => item.Utilities.consumeProFeatureUsage("loadFilters")));
+  assert(restores.every(result => result.allowed && result.used === 1 && result.isSessionCount));
+  assert.equal(sessionData.featureSession.loadFilters.used, 1);
+  assert.equal((await apis[0].Utilities.consumeProFeatureUsage("loadFilters")).used, 1);
   for (const [index, load] of loads.entries()) {
     assert(load.url.startsWith(index < 2 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
     assert(load.url.endsWith(["premium/usage-policy.js", "premium/usage-store.js"][index % 2]));

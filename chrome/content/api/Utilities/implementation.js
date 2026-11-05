@@ -33,12 +33,12 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
       sessionId: String(Services.appinfo.processID) + ":" + Number(Services.startup.getStartupInfo().process),
       storage: {
         async get(defaults) {
-          const get = await context.apiCan.asyncFindAPIPath("storage.local.get");
-          return get(defaults);
+          const storage = context.apiCan.findAPIPath("storage");
+          return storage.local.callMethodInParentProcess("get", [defaults]);
         },
         async set(values) {
-          const set = await context.apiCan.asyncFindAPIPath("storage.local.set");
-          return set(values);
+          const storage = context.apiCan.findAPIPath("storage");
+          return storage.local.callMethodInParentProcess("set", [values]);
         },
       },
     });
