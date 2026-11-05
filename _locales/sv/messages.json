@@ -2772,7 +2772,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇪 change log",
-    "message": "{L} {b}{+extensionName}{/b} är nu kompatibelt med Thunderbird 160.{/L}{L} Snabbare filterassistent när mappdatabaser inte är tillgängliga, med möjlighet att reparera målmappen om meddelandesökningen misslyckas. [issue 397]{/L}{L}Åtgärdat skapande av filter genom att dra meddelanden till mappar i Thunderbird 159. [issue 399]{/L}{L} Åtgärdat en asynkron meddelandehanterare som gjorde anspråk på svar för kommandon den inte hanterar, vilket förbättrar kommunikationen med andra tillägg.{/L}{L} Lagt till en färgad nedräkning bredvid licensens utgångsdatum på fliken quickFilters Pro när förnyelse är tillgänglig, med tydligare instruktioner efter att licensen gått ut.{/L}"
+    "message": "{L} Förbättrade sidor för säkerhetskopiering och återställning för flera eller valda konton. Återställning omfattar grundläggande kontroller och varningar för filterproblem. Detta är en Pro-funktion med kostnadsfria provtillfällen. [issue 193]{/L}{L} Lagt till en särskild sida för felsökning av filter, med en resultatöversikt och åtgärder för att lösa problem. [issue 401]{/L}{L} Samordnat spårningen av provanvändning för premiumfunktioner och förnyat de kostnadsfria provtillfällena för användare som uppgraderar från föregående version. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

@@ -2772,7 +2772,7 @@
   },
   "whats-new-list": {
     "description": "🇪🇸 change log",
-    "message": "{L} {b}{+extensionName}{/b} ahora es compatible con Thunderbird 160.{/L}{L} Asistente de filtros más rápido cuando las bases de datos de las carpetas no están disponibles, con la opción de reparar la carpeta de destino si falla la búsqueda del mensaje. [issue 397]{/L}{L}Se corrigió la creación de filtros al arrastrar mensajes a carpetas en Thunderbird 159. [issue 399]{/L}{L} Se corrigió un controlador asíncrono de mensajes que acaparaba las respuestas a comandos que no procesa, mejorando la comunicación con otros complementos.{/L}{L} Se añadió una cuenta atrás de color junto a la fecha de caducidad de la licencia en la pestaña quickFilters Pro cuando está disponible la renovación, con instrucciones más claras tras la caducidad.{/L}"
+    "message": "{L} Páginas mejoradas de copia de seguridad y restauración para varias cuentas o cuentas seleccionadas. La restauración incluye comprobaciones básicas y advertencias sobre problemas con los filtros. Es una función Pro que se puede probar gratis. [issue 193]{/L}{L} Se añadió una página dedicada a la resolución de problemas de filtros, con un resumen de resultados y acciones para resolverlos. [issue 401]{/L}{L} Se unificó el seguimiento de las pruebas de funciones prémium y se renovaron las pruebas gratuitas para quienes actualicen desde la versión anterior. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

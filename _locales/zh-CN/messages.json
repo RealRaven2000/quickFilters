@@ -2764,7 +2764,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇳 change log",
-    "message": "{L} {b}{+extensionName}{/b} 现已兼容 Thunderbird 160。{/L}{L} 当文件夹数据库无法访问时，过滤器助手运行更快；如果查找邮件失败，还可选择修复目标文件夹。 [issue 397]{/L}{L}修复了 Thunderbird 159 中通过将邮件拖入文件夹来创建过滤器的问题。 [issue 399]{/L}{L} 修复了异步消息处理程序占用其未处理命令的响应的问题，改善了与其他附加组件的通信。{/L}{L} 当可以续订时，在 quickFilters Pro 选项卡的许可证到期日期旁显示彩色倒计时，并提供更清晰的到期后说明。{/L}"
+    "message": "{L} 改进了用于多个账户或所选账户的备份和恢复页面。恢复功能包含针对过滤器问题的基本检查和警告。这是一项提供免费试用的 Pro 功能。 [issue 193]{/L}{L} 新增专用的过滤器故障排查页面，提供结果概览和解决问题的操作。 [issue 401]{/L}{L} 统一了高级功能的试用次数跟踪，并为从上一版本升级的用户重新提供免费试用次数。 [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

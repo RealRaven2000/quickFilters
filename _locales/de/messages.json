@@ -2773,7 +2773,7 @@
   },
   "whats-new-list": {
     "description": "🇩🇪 change log",
-    "message": "{L} {b}{+extensionName}{/b} ist jetzt mit Thunderbird 160 kompatibel.{/L}{L} Schnellerer Filter-Assistent bei nicht zugänglichen Ordnerdatenbanken, mit einer Option zur Reparatur des Zielordners, wenn die Nachrichtensuche fehlschlägt. [issue 397]{/L}{L}Das Erstellen von Filtern durch Ziehen von Nachrichten in Ordner wurde für Thunderbird 159 korrigiert. [issue 399]{/L}{L} Ein asynchroner Nachrichten-Handler beanspruchte Antworten auf Befehle, die er nicht verarbeitet. Die Korrektur verbessert die Kommunikation mit anderen Add-ons.{/L}{L} Auf der Registerkarte quickFilters Pro erscheint neben dem Ablaufdatum der Lizenz ein farbiger Countdown, sobald eine Verlängerung möglich ist. Die Hinweise nach Ablauf wurden verständlicher formuliert.{/L}"
+    "message": "{L} Verbesserte Seiten für Sicherung und Wiederherstellung für mehrere oder ausgewählte Konten. Die Wiederherstellung umfasst grundlegende Prüfungen und Warnungen bei Filterproblemen. Dies ist eine Pro-Funktion mit kostenlosen Testmöglichkeiten. [issue 193]{/L}{L} Eine eigene Seite zur Filter-Fehlerbehebung mit einer Ergebnisübersicht und Aktionen zum Beheben von Problemen wurde hinzugefügt. [issue 401]{/L}{L} Die Erfassung der Testnutzung von Premium-Funktionen wurde vereinheitlicht. Benutzer, die von der vorherigen Version aktualisieren, erhalten erneut kostenlose Testmöglichkeiten. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

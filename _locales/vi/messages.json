@@ -2772,7 +2772,7 @@
   },
   "whats-new-list": {
     "description": "🇻🇳 change log",
-    "message": "{L} {b}{+extensionName}{/b} hiện tương thích với Thunderbird 160.{/L}{L} Trợ lý bộ lọc hoạt động nhanh hơn khi không thể truy cập cơ sở dữ liệu thư mục, với tùy chọn sửa chữa thư mục đích nếu việc tìm thư thất bại. [issue 397]{/L}{L}Đã sửa lỗi tạo bộ lọc bằng cách kéo thư vào thư mục trong Thunderbird 159. [issue 399]{/L}{L} Đã sửa trình xử lý thư bất đồng bộ chiếm quyền phản hồi các lệnh mà nó không xử lý, giúp cải thiện giao tiếp với các tiện ích khác.{/L}{L} Đã thêm bộ đếm ngược có màu bên cạnh ngày hết hạn giấy phép trên thẻ quickFilters Pro khi có thể gia hạn, cùng hướng dẫn rõ ràng hơn sau khi hết hạn.{/L}"
+    "message": "{L} Cải thiện các trang sao lưu và khôi phục cho nhiều tài khoản hoặc các tài khoản được chọn. Khôi phục bao gồm các bước kiểm tra cơ bản và cảnh báo về vấn đề của bộ lọc. Đây là tính năng Pro có các lượt dùng thử miễn phí. [issue 193]{/L}{L} Thêm trang khắc phục sự cố bộ lọc riêng, với phần tổng quan kết quả và các thao tác để giải quyết vấn đề. [issue 401]{/L}{L} Thống nhất việc theo dõi lượt dùng thử các tính năng cao cấp và cấp lại lượt dùng thử miễn phí cho người dùng nâng cấp từ phiên bản trước. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

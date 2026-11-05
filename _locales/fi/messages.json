@@ -2772,7 +2772,7 @@
   },
   "whats-new-list": {
     "description": "🇫🇮 change log",
-    "message": "{L} {b}{+extensionName}{/b} on nyt yhteensopiva Thunderbird 160:n kanssa.{/L}{L} Suodatinavustaja toimii nopeammin, kun kansioiden tietokannat eivät ole käytettävissä. Jos viestin haku epäonnistuu, voit korjata kohdekansion. [issue 397]{/L}{L}Korjattu suodattimien luominen vetämällä viestejä kansioihin Thunderbird 159:ssä. [issue 399]{/L}{L} Korjattu asynkroninen viestinkäsittelijä, joka varasi vastaukset myös komentoihin, joita se ei käsittele. Tämä parantaa viestintää muiden lisäosien kanssa.{/L}{L} quickFilters Pro -välilehdellä näkyy lisenssin päättymispäivän vieressä värillinen jäljellä olevien päivien laskuri, kun lisenssin voi uusia. Myös vanhentuneen lisenssin ohjeita on selkeytetty.{/L}"
+    "message": "{L} Parannetut varmuuskopiointi- ja palautussivut useille tileille tai valituille tileille. Palautus sisältää perustarkistuksia ja varoituksia suodatinongelmista. Tämä on Pro-toiminto, jota voi kokeilla ilmaiseksi. [issue 193]{/L}{L} Lisätty erillinen suodattimien vianmäärityssivu, jossa on tulosten yhteenveto ja toimintoja ongelmien ratkaisemiseen. [issue 401]{/L}{L} Yhtenäistetty premium-toimintojen kokeilukäytön seuranta ja palautettu ilmaiset kokeilukerrat edellisestä versiosta päivittäville käyttäjille. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

@@ -2772,7 +2772,7 @@
   },
   "whats-new-list": {
     "description": "🇳🇱 change log",
-    "message": "{L} {b}{+extensionName}{/b} is nu compatibel met Thunderbird 160.{/L}{L} Snellere Filterassistent wanneer mapdatabases niet toegankelijk zijn, met een optie om de doelmap te repareren als het zoeken naar het bericht mislukt. [issue 397]{/L}{L}Het maken van filters door berichten naar mappen te slepen in Thunderbird 159 is hersteld. [issue 399]{/L}{L} Een asynchrone berichtafhandelaar claimde ook antwoorden op opdrachten die deze niet verwerkt. Dit is verholpen, waardoor de communicatie met andere add-ons verbetert.{/L}{L} Een gekleurde aftelling naast de vervaldatum van de licentie op het tabblad quickFilters Pro toegevoegd zodra verlengen mogelijk is, met duidelijkere instructies na het verlopen.{/L}"
+    "message": "{L} Verbeterde pagina’s voor back-up en herstel voor meerdere of geselecteerde accounts. Herstel omvat basiscontroles en waarschuwingen voor filterproblemen. Dit is een Pro-functie met gratis proefgebruik. [issue 193]{/L}{L} Een aparte pagina voor het oplossen van filterproblemen toegevoegd, met een resultatenoverzicht en acties om problemen op te lossen. [issue 401]{/L}{L} De registratie van proefgebruik van premiumfuncties is samengevoegd en gebruikers die vanaf de vorige versie bijwerken krijgen opnieuw gratis proefgebruik. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

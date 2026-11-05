@@ -316,7 +316,7 @@
   },
   "whats-new-list": {
     "description": "🇸🇮 change log",
-    "message": "{L} {b}{+extensionName}{/b} je zdaj združljiv s Thunderbirdom 160.{/L}{L} Hitrejši pomočnik za filtre, ko podatkovne zbirke map niso dostopne, z možnostjo popravila ciljne mape, če iskanje sporočila ne uspe. [issue 397]{/L}{L}Popravljeno ustvarjanje filtrov z vlečenjem sporočil v mape v Thunderbirdu 159. [issue 399]{/L}{L} Popravljen asinhroni obdelovalnik sporočil, ki je prevzemal odgovore na ukaze, ki jih ne obdeluje, kar izboljšuje komunikacijo z drugimi dodatki.{/L}{L} Na zavihku quickFilters Pro je poleg datuma poteka licence dodano barvno odštevanje, ko je podaljšanje na voljo, z jasnejšimi navodili po poteku.{/L}"
+    "message": "{L} Izboljšani strani za varnostno kopiranje in obnovitev za več računov ali izbrane račune. Obnovitev vključuje osnovna preverjanja in opozorila o težavah s filtri. To je funkcija Pro z možnostjo brezplačnega preizkusa. [issue 193]{/L}{L} Dodana namenska stran za odpravljanje težav s filtri s pregledom rezultatov in dejanji za odpravljanje težav. [issue 401]{/L}{L} Poenoteno spremljanje preizkusne uporabe premijskih funkcij in obnovljena brezplačna preizkusna uporaba za uporabnike, ki nadgrajujejo s prejšnje različice. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

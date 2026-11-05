@@ -2755,7 +2755,7 @@
   },
   "whats-new-list": {
     "description": "🇨🇿 change log",
-    "message": "{L} {b}{+extensionName}{/b} je nyní kompatibilní s Thunderbirdem 160.{/L}{L} Rychlejší Průvodce filtry při nedostupných databázích složek s možností opravit cílovou složku, pokud vyhledání zprávy selže. [issue 397]{/L}{L}Opraveno vytváření filtrů přetažením zpráv do složek v Thunderbirdu 159. [issue 399]{/L}{L} Opravena asynchronní obsluha zpráv, která přebírala odpovědi na příkazy, jež nezpracovává. Tím se zlepšila komunikace s ostatními doplňky.{/L}{L} Na kartě quickFilters Pro byl vedle data vypršení licence přidán barevný odpočet, když je k dispozici prodloužení, a jasnější pokyny po vypršení licence.{/L}"
+    "message": "{L} Vylepšené stránky zálohování a obnovy pro více účtů nebo vybrané účty. Obnova zahrnuje základní kontroly a upozornění na problémy s filtry. Jde o funkci Pro s možností bezplatného vyzkoušení. [issue 193]{/L}{L} Přidána samostatná stránka pro řešení problémů s filtry s přehledem výsledků a akcemi k nápravě problémů. [issue 401]{/L}{L} Sjednoceno sledování zkušebního používání prémiových funkcí a obnovena možnost bezplatného vyzkoušení pro uživatele přecházející z předchozí verze. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",

@@ -2683,7 +2683,7 @@
   },
   "whats-new-list": {
     "description": "🇹🇼 change log",
-    "message": "{L} {b}{+extensionName}{/b} 現已相容於 Thunderbird 160。{/L}{L} 當資料夾資料庫無法存取時，篩選器助手執行得更快；若尋找郵件失敗，還可選擇修復目標資料夾。 [issue 397]{/L}{L}修正了 Thunderbird 159 中透過將郵件拖曳至資料夾來建立篩選器的問題。 [issue 399]{/L}{L} 修正了非同步訊息處理程式占用其未處理指令的回應的問題，改善了與其他附加元件的通訊。{/L}{L} 當可以續訂時，在 quickFilters Pro 分頁的授權到期日期旁顯示彩色倒數計時，並提供更清楚的到期後說明。{/L}"
+    "message": "{L} 改進了適用於多個帳號或所選帳號的備份與還原頁面。還原功能包含針對篩選器問題的基本檢查和警告。這是提供免費試用的 Pro 功能。 [issue 193]{/L}{L} 新增專用的篩選器疑難排解頁面，提供結果總覽及解決問題的操作。 [issue 401]{/L}{L} 統一了進階功能的試用次數追蹤，並為從上一版本升級的使用者重新提供免費試用次數。 [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
