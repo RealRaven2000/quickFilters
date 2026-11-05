@@ -2020,6 +2020,9 @@ quickFilters.FolderListener = {
           : quickFilters.Util.getMail3PaneWindow(),
         util = win.quickFilters.Util;
       util.logDebugOptional("events", "OnItemEvent( " + item + ", " + eString + ")");
+      if (!util.hasPremiumLicense() || !win.quickFilters.Preferences.getBoolPref("localFoldersRun")) {
+        return;
+      }
       switch (eString) {
         case "FolderLoaded":
           break;
@@ -2059,8 +2062,9 @@ quickFilters.FolderListener = {
               );
               while (LM.pop()){;} // empty array
               setTimeout(function () {
-                util.applyFiltersToFolder(target);
-                util.popupProFeature("localFolderFilters", true);
+                if (util.hasPremiumLicense() && win.quickFilters.Preferences.getBoolPref("localFoldersRun")) {
+                  util.applyFiltersToFolder(target);
+                }
               }, 25);
             }
           }

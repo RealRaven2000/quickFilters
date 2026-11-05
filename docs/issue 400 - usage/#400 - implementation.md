@@ -62,3 +62,7 @@ Run `node --test "docs/issue 400 - usage/test-premium-usage.mjs" "docs/issue 400
 All 15 usage/gate tests pass. Tests cover negative-value normalization, ignored legacy countdowns, Config Editor Reset, exhausted trials, separate counters, limit changes, fresh API instances over retained profile preferences, denied calls, license resets, background validation triggers, and concurrent consumption of the final allowance from two API scopes.
 
 Native smoke testing is still needed: inspect the count-up preferences in Config Editor; exhaust a feature allowance without a valid license; restart/reinstall and verify it remains exhausted; validate a license and verify zero counts; restart while valid and verify no additional reset; then test expiry/renewal transitions.
+
+## Localization key cleanup (#402)
+
+Removed the redundant `quickfilters.` / `quickFilters.` prefix from localization keys and updated literal lookups, markup placeholders and the dynamic premium-title lookup. All existing locale entries retain their translations, placeholders and scope. The `qf.` prefix remains for a later pass.

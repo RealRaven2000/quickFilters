@@ -28,7 +28,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
     const usage = usageScope.quickFiltersPremium.createUsageStore(Services.prefs);
     return {
       Utilities: {
-        initializeProFeatureUsage: async (legacyCounts) => usage.initialize(legacyCounts),
+        initializeProFeatureUsage: async () => usage.initialize(),
         consumeProFeatureUsage: async (feature) => usage.consume(feature),
         updateProFeatureUsageLicenseState: async (valid) => usage.updateLicenseState(valid),
         async ensureQuickFoldersButtons() {

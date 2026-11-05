@@ -736,6 +736,14 @@ quickFilters.Util = {
           "You can use this feature for free {1} more times."
         );
         theText += " " + countText.replace("{1}", remainingUses);
+      } else if (
+        !featureAllowed &&
+        ["advancedSearchType", "duplicatesFinder", "sortSearchTerms", "sortFilters", "saveFilters", "loadFilters", "searchFolder"].includes(featureName)
+      ) {
+        theText += " · " + util.getBundleString(
+          "notification.premium.trialExhausted",
+          "You have used all free trial attempts for this feature."
+        );
       }
     } catch (error) {
       util.logException("Could not update premium feature usage", error);

@@ -494,7 +494,7 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
   const premiumSources = Object.fromEntries(await Promise.all(["usage-policy.js", "usage-store.js"].map(async name => [name, await readFile(new URL(`../../scripts/premium/${name}`, import.meta.url), "utf8")])));
   const values = new Map();
   const prefs = {
-    prefHasUserValue: key => values.has(key), getIntPref: key => values.get(key),
+    prefHasUserValue: key => values.has(key), getIntPref: (key, fallback) => values.get(key) ?? fallback,
     setIntPref(key, value) { values.set(key, value); },
     getBoolPref: (key, fallback) => values.get(key) ?? fallback,
     setBoolPref(key, value) { values.set(key, value); },
@@ -525,7 +525,9 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
     apis.push(api.getAPI({ extension: { rootURI: { resolve: path => root + path }, localeData: { localizeMessage: getMessage } } }));
   }
   assert.equal(loads.length, 4);
-  await apis[0].Utilities.initializeProFeatureUsage({ loadFilters: 1 });
+  await apis[0].Utilities.initializeProFeatureUsage();
+  await apis[0].Utilities.consumeProFeatureUsage("loadFilters");
+  await apis[0].Utilities.consumeProFeatureUsage("loadFilters");
   const [last, exhausted] = await Promise.all([
     apis[0].Utilities.consumeProFeatureUsage("loadFilters"),
     apis[1].Utilities.consumeProFeatureUsage("loadFilters"),

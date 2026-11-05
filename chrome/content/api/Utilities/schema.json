@@ -6,12 +6,7 @@
         "name": "initializeProFeatureUsage",
         "type": "function",
         "async": true,
-        "parameters": [
-          {
-            "name": "legacyCounts",
-            "type": "any"
-          }
-        ]
+        "parameters": []
       },
       {
         "name": "consumeProFeatureUsage",
