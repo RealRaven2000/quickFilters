@@ -1553,6 +1553,15 @@
   "notification.premium.trialExhausted": {
     "message": "您已用完此功能的所有免費試用次數。"
   },
+  "notification.premium.trialSessionActive": {
+    "message": "本次工作階段的免費試用已啟用。"
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "您已用完此功能的所有免費試用工作階段。"
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· 尚餘 {1} 次額外試用工作階段。"
+  },
   "notification.proFeature.notificationText": {
     "message": "{1} 功能是一項高級功能，如果您經常使用它，請考慮今年為 quickFilters 的開發捐款。"
   },

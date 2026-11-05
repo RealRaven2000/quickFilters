@@ -25,7 +25,23 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
     const usageScope = { quickFiltersPremium: {} };
     loadPackageScript("scripts/premium/usage-policy.js", usageScope);
     loadPackageScript("scripts/premium/usage-store.js", usageScope);
-    const usage = usageScope.quickFiltersPremium.createUsageStore(Services.prefs);
+    // Extension-owned state coordinates API scopes without adding window globals.
+    const shared = context.extension.quickFiltersPremiumUsage ||=
+      { pending: Promise.resolve() };
+    const usage = usageScope.quickFiltersPremium.createUsageStore(Services.prefs, undefined, {
+      queue: shared,
+      sessionId: String(Services.appinfo.processID) + ":" + Number(Services.startup.getStartupInfo().process),
+      storage: {
+        async get(defaults) {
+          const get = await context.apiCan.asyncFindAPIPath("storage.local.get");
+          return get(defaults);
+        },
+        async set(values) {
+          const set = await context.apiCan.asyncFindAPIPath("storage.local.set");
+          return set(values);
+        },
+      },
+    });
     return {
       Utilities: {
         initializeProFeatureUsage: async () => usage.initialize(),

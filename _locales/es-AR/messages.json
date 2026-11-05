@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "Agotaste todos los intentos de prueba gratuitos de esta función."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Prueba gratuita activa durante esta sesión."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Agotaste todas las sesiones de prueba gratuitas de esta función."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· Quedan {1} sesiones de prueba adicionales."
+  },
   "notification.proFeature.notificationText": {
     "message": "La característica {1} es una característica Premium, si la usa con regularidad considere donar en favor del desarrollo de quickFilters para este año."
   },

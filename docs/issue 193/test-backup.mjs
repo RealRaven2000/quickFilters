@@ -500,7 +500,7 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
     setBoolPref(key, value) { values.set(key, value); },
   };
   const context = vm.createContext({
-    Services: { prefs, wm: { getMostRecentWindow: () => ({}) }, scriptloader: {
+    Services: { prefs, appinfo: { processID: 1 }, startup: { getStartupInfo: () => ({ process: new Date(0) }) }, wm: { getMostRecentWindow: () => ({}) }, scriptloader: {
       loadSubScriptWithOptions(url, options) {
         loads.push({ url, options });
         const name = url.split("/").at(-1);
@@ -526,15 +526,16 @@ test("Utilities loads package scripts without chrome registrations into fresh pr
   }
   assert.equal(loads.length, 4);
   await apis[0].Utilities.initializeProFeatureUsage();
-  await apis[0].Utilities.consumeProFeatureUsage("loadFilters");
-  await apis[0].Utilities.consumeProFeatureUsage("loadFilters");
+  values.set("extensions.quickFilters.usage.saveFilters", 7);
+  await apis[0].Utilities.consumeProFeatureUsage("saveFilters");
+  await apis[0].Utilities.consumeProFeatureUsage("saveFilters");
   const [last, exhausted] = await Promise.all([
-    apis[0].Utilities.consumeProFeatureUsage("loadFilters"),
-    apis[1].Utilities.consumeProFeatureUsage("loadFilters"),
+    apis[0].Utilities.consumeProFeatureUsage("saveFilters"),
+    apis[1].Utilities.consumeProFeatureUsage("saveFilters"),
   ]);
   assert.equal(last.allowed, true);
   assert.equal(exhausted.allowed, false);
-  assert.equal(exhausted.used, 3);
+  assert.equal(exhausted.used, 10);
   for (const [index, load] of loads.entries()) {
     assert(load.url.startsWith(index < 2 ? "file:///temporary-addon/" : "jar:file:///profile/quickFilters.xpi!/"));
     assert(load.url.endsWith(["premium/usage-policy.js", "premium/usage-store.js"][index % 2]));

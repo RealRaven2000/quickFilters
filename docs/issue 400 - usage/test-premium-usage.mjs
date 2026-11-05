@@ -28,7 +28,7 @@ function profile() {
     getBoolPref: (key, fallback) => values.has(key) ? values.get(key) : fallback,
     setBoolPref(key, value) { values.set(key, value); },
   };
-  return { values, prefs, store: createUsageStore(prefs) };
+  return { values, prefs, store: createUsageStore(prefs, USAGE_LIMITS, { policy: {} }) };
 }
 
 test("count-up consumption allows exactly the configured limit and denied calls do not increment", () => {
@@ -64,12 +64,12 @@ test("counts survive a fresh API instance and changing limits does not rewrite h
   const { values, prefs, store } = profile();
   store.initialize();
   store.consume("loadFilters"); store.consume("loadFilters");
-  const reinstalled = createUsageStore(prefs, { ...USAGE_LIMITS, loadFilters: 5 });
+  const reinstalled = createUsageStore(prefs, { ...USAGE_LIMITS, loadFilters: 5 }, { policy: {} });
   reinstalled.initialize();
   assert.equal(values.get(PREFIX + "loadFilters"), 2);
   assert.equal(reinstalled.consume("loadFilters").remaining, 2);
   const fresh = profile();
-  createUsageStore(fresh.prefs, { ...USAGE_LIMITS, loadFilters: 5 }).initialize();
+  createUsageStore(fresh.prefs, { ...USAGE_LIMITS, loadFilters: 5 }, { policy: {} }).initialize();
   assert.equal(fresh.store.consume("loadFilters").used, 1);
 });
 
@@ -166,4 +166,73 @@ test("negative usage is normalized to zero and cannot increase the trial allowan
   assert.equal(store.consume("loadFilters").allowed, false);
   values.set(PREFIX + "loadFilters", -1);
   assert.equal(store.consume("loadFilters").used, 1);
+});
+
+
+test("session allowance survives reload, midnight and same-day restart, then exhausts after three virtual sessions", async () => {
+  const { prefs, values } = profile();
+  let date = new Date(2026, 10, 5, 23, 59), sessionId = "first", data = {};
+  const queue = { pending: Promise.resolve() };
+  const storage = { async get(defaults) { return structuredClone({ ...defaults, ...data }); },
+    async set(patch) { data = structuredClone({ ...data, ...patch }); } };
+  const make = () => createUsageStore(prefs, USAGE_LIMITS, { storage, sessionId, queue, now: () => date });
+  let store = make();
+  const first = await Promise.all([store.consume("loadFilters"), make().consume("loadFilters")]);
+  assert(first.every(result => result.allowed && result.used === 1 && result.isSessionCount));
+  date = new Date(2026, 10, 6, 0, 1);
+  assert.equal((await make().consume("loadFilters")).used, 1); // Same process across midnight.
+  sessionId = "second";
+  assert.equal((await make().consume("loadFilters")).used, 1); // Restart on same day.
+  date = new Date(2026, 10, 7); sessionId = "third";
+  assert.equal((await make().consume("loadFilters")).used, 2);
+  date = new Date(2026, 10, 8); sessionId = "fourth";
+  store = make();
+  assert.equal((await store.consume("loadFilters")).remaining, 0);
+  assert.equal((await store.consume("loadFilters")).allowed, true); // Final session stays active.
+  date = new Date(2026, 10, 9); sessionId = "fifth";
+  store = make();
+  assert.equal((await store.consume("loadFilters")).allowed, false);
+  values.delete(PREFIX + "loadFilters");
+  assert.equal((await store.consume("loadFilters")).used, 1); // Config Editor Reset.
+  assert.equal(store.consume("saveFilters").used, 1); // Unflagged features count attempts.
+  assert.equal(store.consume("saveFilters").used, 2);
+});
+
+test("failed session persistence does not consume a trial or poison the request queue", async () => {
+  const { prefs, values } = profile(); let fail = true;
+  const store = createUsageStore(prefs, USAGE_LIMITS, { sessionId: "test", storage: {
+    async get(defaults) { return defaults; },
+    async set() { if (fail) throw new Error("Storage failure"); },
+  } });
+  await assert.rejects(store.consume("loadFilters"), /Storage failure/);
+  assert.equal(values.get(PREFIX + "loadFilters"), 0);
+  fail = false;
+  assert.equal((await store.consume("loadFilters")).used, 1);
+});
+
+
+test("session notifications distinguish an active final session from exhausted trials", async () => {
+  const body = source.match(/popupProFeature: async function \(featureName, isRegister, additionalText\) \{([\s\S]*?)\n  \},/)[1];
+  let allowed = true, remaining = 2, label;
+  const util = { hasPremiumLicense: () => false,
+    consumeProFeatureUsage: async () => ({ allowed, remaining, isSessionCount: true }),
+    getMail3PaneWindow: () => ({ specialTabs: { msgNotificationBar: {
+      getNotificationWithValue: () => null,
+      appendNotification: async (_key, options) => { label = options.label; },
+    } } }),
+    getBundleString: (_key, fallback) => fallback, licenseInfo: {}, logDebug() {},
+    logException(_text, error) { throw error; },
+  };
+  const gate = vm.runInNewContext(`(async function(featureName, isRegister, additionalText) { ${body} })`, { quickFilters: { Util: util } });
+  assert.equal(await gate("loadFilters", true), true);
+  assert.match(label, /Free trial active for this session/);
+  assert.match(label, /2 additional trial sessions remaining/);
+  remaining = 0;
+  assert.equal(await gate("loadFilters", true), true);
+  assert.match(label, /Free trial active for this session/);
+  assert.doesNotMatch(label, /remaining|used all/);
+  allowed = false;
+  assert.equal(await gate("loadFilters", true), false);
+  assert.match(label, /used all free trial sessions/);
+  assert.doesNotMatch(label, /active for this session/);
 });

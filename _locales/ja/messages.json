@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "この機能の無料試用回数をすべて使い切りました。"
   },
+  "notification.premium.trialSessionActive": {
+    "message": "このセッションでは無料試用が有効です。"
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "この機能の無料試用セッションをすべて使い切りました。"
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· 残りの試用セッション数: {1}。"
+  },
   "notification.proFeature.notificationText": {
     "message": "{1} の機能は有料版の機能です。この機能を常用したい場合は、quickFilters の開発への寄付をお願いします。"
   },

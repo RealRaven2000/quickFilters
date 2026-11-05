@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "Вы использовали все бесплатные пробные попытки для этой функции."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Бесплатный пробный доступ активен в этом сеансе."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Вы использовали все бесплатные пробные сеансы для этой функции."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· Осталось дополнительных пробных сеансов: {1}."
+  },
   "notification.proFeature.notificationText": {
     "message": "Функция {1} - профессиональная, если Вы часто ей пользуетесь - подумайте о пожертвовании на разработку quickFilters в этом году."
   },

@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "Du har använt alla kostnadsfria provförsök för den här funktionen."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Kostnadsfri provperiod aktiv för den här sessionen."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Du har använt alla kostnadsfria provsessioner för den här funktionen."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· {1} ytterligare provsessioner återstår."
+  },
   "notification.proFeature.notificationText": {
     "message": "Funktionen {1} är en Premium-funktion. Om du regelbundet använder quickFilters, donera gärna en slant till utvecklingen av tillägget."
   },

@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "Esgotou todas as tentativas de avaliação gratuitas desta funcionalidade."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Avaliação gratuita ativa nesta sessão."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Esgotou todas as sessões de avaliação gratuitas desta funcionalidade."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· Restam {1} sessões de avaliação adicionais."
+  },
   "notification.proFeature.notificationText": {
     "message": "O recurso {1} é um recurso Premium, se você o usar regularmente, considere fazer uma doação para o desenvolvimento de filtros rápidos este ano."
   },

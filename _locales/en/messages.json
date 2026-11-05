@@ -1738,6 +1738,15 @@
   "notification.premium.trialExhausted": {
     "message": "You have used all free trial attempts for this feature."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Free trial active for this session."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "You have used all free trial sessions for this feature."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· {1} additional trial sessions remaining."
+  },
   "notification.proFeature.notificationText": {
     "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
   },

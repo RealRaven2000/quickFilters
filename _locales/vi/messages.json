@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "Bạn đã sử dụng hết số lần dùng thử miễn phí cho tính năng này."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Dùng thử miễn phí đang hoạt động cho phiên này."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Bạn đã sử dụng hết các phiên dùng thử miễn phí cho tính năng này."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· Còn {1} phiên dùng thử bổ sung."
+  },
   "notification.proFeature.notificationText": {
     "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
   },

@@ -1,5 +1,3 @@
-# #400 - Reimplement license restrictions based on trial counts
-
 ## Implementation
 
 Trial usage is stored in the Thunderbird profile and persists across restarts and normal add-on reinstalls.
@@ -21,7 +19,7 @@ Folder-search and Local Folders enforcement are implemented. Custom template beh
 | Sort search terms | 25 | Blocked |
 | Sort filters | 20 | Blocked |
 | Backup/save filters | 10 | Blocked |
-| Restore/load filters | 3 | Blocked; session/day allowance proposed |
+| Restore/load filters | 3 | Blocked after three trial sessions; same session or same local day included |
 | Find filters for a folder | 15 | Blocked |
 | Filter troubleshooter | 8 | Blocked; one trial per tab, further checks included |
 | Run filters in Local Folders | — | Valid Pro license required; checkbox and runtime checks |
@@ -35,11 +33,15 @@ Custom template settings already restrict enabling templates and creating new te
 
 The shared yellow warning shows the remaining count when it is greater than zero. The exhausted-trial sentence appears only for denied attempts in the seven enforced gates using that warning. Custom template notifications omit that sentence. The troubleshooter has its own trial messages.
 
-### Proposed restore allowance: session or same day
+### Restore allowance: session or same day
 
-Not implemented: replace individual restore attempts with three restore trial sessions. The first restore would consume one allowance; iterative restores would remain allowed while Thunderbird is still running or while the local calendar date is unchanged. The final allowed session/day must stay usable even with zero additional allowances remaining.
+Implemented: restore has a maximum of three trial sessions. The first restore consumes one allowance. Further restores stay allowed while Thunderbird is running or while the local calendar date matches the last allowed restore. An allowed session remains usable with zero additional sessions remaining. Restarts on a later day consume the next allowance; an add-on reload does not.
 
-Supporting the same-day rule across Thunderbird restarts requires a persisted last-consumed local date in addition to the usage count. Keeping a long-running session allowed across midnight also requires session state that lasts until Thunderbird exits. An add-on reload should not consume another allowance within that session. Exact storage and wording remain to be decided; current restore usage is still counted per attempt.
+The policy sets `isSessionCount: true` for restore. Other features retain per-attempt counting. A numeric `USAGE_LIMITS` view remains available for existing consumers and tests.
+
+The separate `featureSession` object in local storage holds each feature's last-used local date, Thunderbird process identity (process ID and startup timestamp), and the consumed count associated with its allowance. This lets the allowance survive add-on reloads and recognizes when Config Editor Reset or a license reset invalidates it. Existing usage counts are preserved. The Utilities API serializes session checks across its scopes; failed persistence rolls back consumption and denies the operation.
+
+Session-aware notifications use three strings: `notification.premium.trialSessionActive`, `notification.premium.trialSessionsRemaining` and `notification.premium.trialSessionsExhausted`. The remaining count describes additional trial sessions and is omitted at zero while the current session remains active.
 
 ## Architecture
 
@@ -59,7 +61,7 @@ The subscript target now supplies an explicit shared `quickFiltersPremium` objec
 
 Run `node --test "docs/issue 400 - usage/test-premium-usage.mjs" "docs/issue 400 - usage/test-premium-gates.mjs"`. Integration coverage also remains in the #193 backup/restore tests.
 
-All 15 usage/gate tests pass. Tests cover negative-value normalization, ignored legacy countdowns, Config Editor Reset, exhausted trials, separate counters, limit changes, fresh API instances over retained profile preferences, denied calls, license resets, background validation triggers, and concurrent consumption of the final allowance from two API scopes.
+Usage/gate tests include virtual-session coverage. Tests cover negative-value normalization, ignored legacy countdowns, Config Editor Reset, exhausted trials, separate counters, limit changes, fresh API instances over retained profile preferences, denied calls, license resets, background validation triggers, and concurrent consumption of the final allowance from two API scopes.
 
 Native smoke testing is still needed: inspect the count-up preferences in Config Editor; exhaust a feature allowance without a valid license; restart/reinstall and verify it remains exhausted; validate a license and verify zero counts; restart while valid and verify no additional reset; then test expiry/renewal transitions.
 

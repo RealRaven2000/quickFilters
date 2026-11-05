@@ -1605,6 +1605,15 @@
   "notification.premium.trialExhausted": {
     "message": "您已用完此功能的所有免费试用次数。"
   },
+  "notification.premium.trialSessionActive": {
+    "message": "本次会话的免费试用已启用。"
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "您已用完此功能的所有免费试用会话。"
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· 还剩 {1} 次额外试用会话。"
+  },
   "notification.proFeature.notificationText": {
     "message": "功能 {1} 为高级功能，如果您需要经常使用此功能，请考虑在年内向quickFilters的开发人员提供资助。"
   },

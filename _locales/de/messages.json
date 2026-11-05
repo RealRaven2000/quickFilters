@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "Sie haben alle kostenlosen Testversuche für diese Funktion aufgebraucht."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Die kostenlose Testversion ist für diese Sitzung aktiv."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Sie haben alle kostenlosen Testsitzungen für diese Funktion aufgebraucht."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· {1} weitere Testsitzungen verbleiben."
+  },
   "notification.proFeature.notificationText": {
     "message": "Die Funktion {1} ist eine Premium Funktion! Wenn Sie diese Funktion regelmäßig verwenden, spenden Sie bitte um die Entwicklung von quickFilters zu unterstützen."
   },

@@ -1592,6 +1592,15 @@
   "notification.premium.trialExhausted": {
     "message": "Využili jste všechny bezplatné zkušební pokusy pro tuto funkci."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Bezplatná zkušební verze je pro tuto relaci aktivní."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Využili jste všechny bezplatné zkušební relace pro tuto funkci."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· Zbývající další zkušební relace: {1}."
+  },
   "notification.proFeature.notificationText": {
     "message": "The {1} feature is a Premium feature, if you use it regularly consider donating to development of quickFilters this year."
   },

@@ -1613,6 +1613,15 @@
   "notification.premium.trialExhausted": {
     "message": "Olet käyttänyt kaikki tämän toiminnon ilmaiset kokeilukerrat."
   },
+  "notification.premium.trialSessionActive": {
+    "message": "Ilmainen kokeilu on käytössä tämän istunnon ajan."
+  },
+  "notification.premium.trialSessionsExhausted": {
+    "message": "Olet käyttänyt kaikki tämän toiminnon ilmaiset kokeiluistunnot."
+  },
+  "notification.premium.trialSessionsRemaining": {
+    "message": "· Jäljellä on {1} muuta kokeiluistuntoa."
+  },
   "notification.proFeature.notificationText": {
     "message": "{1} -ominaisuus on Premium-ominaisuus, jos käytät sitä säännöllisesti, harkitse lahjoittamista quickFilters-kehitykseen tänä vuonna."
   },

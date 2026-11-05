@@ -730,7 +730,25 @@ quickFilters.Util = {
       const usage = await util.consumeProFeatureUsage(featureName);
       remainingUses = usage.remaining;
       featureAllowed = usage.allowed;
-      if (remainingUses > 0) {
+      if (usage.isSessionCount) {
+        if (featureAllowed) {
+          theText += " · " + util.getBundleString(
+            "notification.premium.trialSessionActive",
+            "Free trial active for this session."
+          );
+          if (remainingUses > 0) {
+            theText += " " + util.getBundleString(
+              "notification.premium.trialSessionsRemaining",
+              "· {1} additional trial sessions remaining."
+            ).replace("{1}", remainingUses);
+          }
+        } else {
+          theText += " · " + util.getBundleString(
+            "notification.premium.trialSessionsExhausted",
+            "You have used all free trial sessions for this feature."
+          );
+        }
+      } else if (remainingUses > 0) {
         let countText = util.getBundleString(
           "notification.premium.freeUses",
           "You can use this feature for free {1} more times."
