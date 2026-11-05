@@ -104,3 +104,37 @@ test("duplicate finder preserves existing results and avoids scanning while perm
   finish(true); await allowed;
   assert.equal(scanned, 1); assert.equal(cleared, 1);
 });
+
+
+test("folder search awaits its trial gate before scanning or opening results", async () => {
+  const source = await readFile(new URL("../../chrome/content/quickFilters.js", import.meta.url), "utf8");
+  const body = source.match(/searchFiltersFromFolder: async function \(event\) \{([\s\S]*?)\n  \},/)[1];
+  let finish;
+  const util = {
+    popupProFeature(feature) {
+      assert.equal(feature, "searchFolder");
+      return new Promise(resolve => { finish = resolve; });
+    },
+    get Accounts() { assert.fail("Scanned accounts before trial permission"); },
+  };
+  const search = vm.runInNewContext(`(async function(event) { ${body} })`, {
+    quickFilters: { Util: util, Worker: { openFilterList() { assert.fail("Opened results while denied"); } } },
+    Components: { interfaces: {} }, GetSelectedMsgFolders: () => [{ URI: "folder" }],
+  });
+  const pending = search();
+  finish(false);
+  assert.equal(await pending, false);
+});
+
+test("Local Folders autorun rejects unlicensed users before collecting messages", async () => {
+  const source = await readFile(new URL("../../chrome/content/quickFilters.js", import.meta.url), "utf8");
+  const body = source.match(/onMessageAdded: async function \(parent, item\) \{([\s\S]*?)\n  \},/)[1];
+  const util = { hasPremiumLicense: () => false, logDebugOptional() {},
+    isLocalInbox() { assert.fail("Processed an unlicensed local message"); } };
+  const qf = { Util: util, Preferences: { getBoolPref: () => true, isDebugOption: () => false } };
+  util.getMail3PaneWindow = () => ({ quickFilters: qf });
+  const added = vm.runInNewContext(`(async function(parent, item) { ${body} })`, {
+    quickFilters: qf, Components: { interfaces: {} },
+  });
+  await added.call({ qfInstance: qf, ELog(message) { assert.fail(message); } }, {}, {});
+});

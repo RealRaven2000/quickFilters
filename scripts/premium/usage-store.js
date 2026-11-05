@@ -1,7 +1,7 @@
 /* global quickFiltersPremium */
 // Keep declarations inside this scope, including when loaded by the experiment.
 (function (premium) {
-  const { USAGE_LIMITS, LEGACY_COUNTDOWN_LIMITS } = premium;
+  const { USAGE_LIMITS } = premium;
 
   const PREFIX = "extensions.quickFilters.usage.";
   const LICENSED = `${PREFIX}wasLicensed`;
@@ -16,36 +16,22 @@
       return limits[feature];
     }
 
-    function used(feature, legacyCounts = {}) {
-      const limit = maximum(feature);
-      const name = PREFIX + feature;
-      if (!prefs.prefHasUserValue(name)) {
-        let remaining;
-        const countdown = `${name}.countDown`;
-        const legacyPref = `extensions.quickfilters.restrictions.${feature}.countDown`;
-        if (prefs.prefHasUserValue(countdown)) {
-          remaining = prefs.getIntPref(countdown);
-        } else if (Number.isInteger(legacyCounts[feature])) {
-          remaining = legacyCounts[feature];
-        } else if (prefs.prefHasUserValue(legacyPref)) {
-          remaining = prefs.getIntPref(legacyPref);
-        }
-        const oldLimit = LEGACY_COUNTDOWN_LIMITS[feature] ?? limit;
-        const count = Number.isInteger(remaining) ? Math.max(0, Math.min(oldLimit, oldLimit - remaining)) : 0;
-        prefs.setIntPref(name, count);
-        // Keep the old values for now; the count-up preference always takes priority.
-      }
-      const count = prefs.getIntPref(name);
+    function used(feature) {
+      maximum(feature);
+      // Missing user values use the default zero, including after Config Editor Reset.
+      // Old countdown preferences are intentionally ignored.
+      const count = prefs.getIntPref(PREFIX + feature, 0);
       if (count < 0) {
-        throw new Error(`Invalid premium usage count: ${feature}`);
+        prefs.setIntPref(PREFIX + feature, 0);
+        return 0;
       }
       return count;
     }
 
     return {
-      initialize(legacyCounts = {}) {
+      initialize() {
         for (const feature of Object.keys(limits)) {
-          used(feature, legacyCounts);
+          used(feature);
         }
       },
       consume(feature) {

@@ -23,7 +23,7 @@ function profile() {
   const values = new Map();
   const prefs = {
     prefHasUserValue: key => values.has(key),
-    getIntPref(key) { const value = values.get(key); if (!Number.isInteger(value)) { throw new Error("Invalid integer"); } return value; },
+    getIntPref(key, fallback) { const value = values.has(key) ? values.get(key) : fallback; if (!Number.isInteger(value)) { throw new Error("Invalid integer"); } return value; },
     setIntPref(key, value) { values.set(key, value); },
     getBoolPref: (key, fallback) => values.has(key) ? values.get(key) : fallback,
     setBoolPref(key, value) { values.set(key, value); },
@@ -44,20 +44,20 @@ test("count-up consumption allows exactly the configured limit and denied calls 
   assert.throws(() => store.consume("../invalid"), /Unknown premium feature/);
 });
 
-test("migration prioritizes count-up prefs, then profile countdowns, local storage, and legacy prefs", () => {
+test("old countdowns are ignored and Config Editor Reset restores a full allowance", () => {
   const { values, store } = profile();
-  values.set(PREFIX + "loadFilters.countDown", 1);
-  values.set("extensions.quickfilters.restrictions.sortFilters.countDown", 15);
-  store.initialize({ loadFilters: 3, saveFilters: 7 });
-  assert.equal(values.get(PREFIX + "loadFilters"), 2);
-  assert.equal(values.get(PREFIX + "saveFilters"), 3);
-  assert.equal(values.get(PREFIX + "sortFilters"), 5);
-  store.initialize({ loadFilters: 3, saveFilters: 10 });
-  assert.equal(values.get(PREFIX + "loadFilters"), 2);
-  values.set(PREFIX + "duplicatesFinder.countDown", -9);
-  values.delete(PREFIX + "duplicatesFinder");
+  values.set(PREFIX + "loadFilters.countDown", 0);
+  values.set("extensions.quickfilters.restrictions.loadFilters.countDown", 0);
+  values.set(PREFIX + "saveFilters", 4);
   store.initialize();
-  assert.equal(values.get(PREFIX + "duplicatesFinder"), USAGE_LIMITS.duplicatesFinder);
+  assert.equal(store.consume("loadFilters").remaining, 2);
+  assert.equal(store.consume("saveFilters").used, 5);
+  store.consume("loadFilters"); store.consume("loadFilters");
+  assert.equal(store.consume("loadFilters").allowed, false);
+  values.delete(PREFIX + "loadFilters"); // Config Editor Reset clears the user value.
+  store.initialize();
+  assert.equal(values.has(PREFIX + "loadFilters"), false);
+  assert.equal(store.consume("loadFilters").remaining, 2);
 });
 
 test("counts survive a fresh API instance and changing limits does not rewrite history", () => {
@@ -69,8 +69,8 @@ test("counts survive a fresh API instance and changing limits does not rewrite h
   assert.equal(values.get(PREFIX + "loadFilters"), 2);
   assert.equal(reinstalled.consume("loadFilters").remaining, 2);
   const fresh = profile();
-  createUsageStore(fresh.prefs, { ...USAGE_LIMITS, loadFilters: 5 }).initialize({ loadFilters: 3 });
-  assert.equal(fresh.values.get(PREFIX + "loadFilters"), 0);
+  createUsageStore(fresh.prefs, { ...USAGE_LIMITS, loadFilters: 5 }).initialize();
+  assert.equal(fresh.store.consume("loadFilters").used, 1);
 });
 
 test("only an invalid-to-valid license transition resets usage", () => {
@@ -150,4 +150,20 @@ test("background synchronizes license transitions after startup, updates, timer 
   currentLicense.info.status = "Expired"; await sync();
   currentLicense.info.status = "Valid"; await sync();
   assert.equal(values.get(PREFIX + "loadFilters"), 0);
+});
+
+
+test("negative usage is normalized to zero and cannot increase the trial allowance", () => {
+  const { values, store } = profile();
+  values.set(PREFIX + "loadFilters", -100);
+  store.initialize();
+  assert.equal(values.get(PREFIX + "loadFilters"), 0);
+  for (let used = 1; used <= USAGE_LIMITS.loadFilters; used++) {
+    const result = store.consume("loadFilters");
+    assert.equal(result.allowed, true);
+    assert.equal(result.used, used);
+  }
+  assert.equal(store.consume("loadFilters").allowed, false);
+  values.set(PREFIX + "loadFilters", -1);
+  assert.equal(store.consume("loadFilters").used, 1);
 });

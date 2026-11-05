@@ -18,7 +18,6 @@ pref("extensions.quickFilters.usage.sortFilters", 0);
 pref("extensions.quickFilters.usage.customTemplate", 0);
 pref("extensions.quickFilters.usage.saveFilters", 0);
 pref("extensions.quickFilters.usage.loadFilters", 0);
-pref("extensions.quickFilters.usage.localFolderFilters", 0);
 pref("extensions.quickFilters.usage.troubleshooter", 0);
 pref("extensions.quickFilters.usage.wasLicensed", false);
 
