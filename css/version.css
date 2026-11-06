@@ -1,0 +1,126 @@
+td.navigation-list a[href*='version.html'] {
+  background-color: rgb(203,96,179);
+  background: linear-gradient(to bottom,  rgba(203,96,179,1) 0%,rgba(173,18,131,1) 50%,rgba(222,71,172,1) 100%);
+  border-bottom-color:  #93105A !important;
+  color: #FFF !important;
+  height: 27px !important;
+  font-weight: normal;
+}
+
+.inline-donate, .donateButton {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 2em;
+	margin-bottom: 0.5em;
+}
+
+/* donate button - renewal */
+@keyframes quickfiltersPulse {
+	to {box-shadow: 0 0 0 10px rgba(150, 80, 60, 0.12)};
+}
+
+#main-content-no-nav  a[href].renewButton {
+  animation: quickfiltersPulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+	background-color: rgb(7, 97, 48) !important;
+	background: linear-gradient(to bottom, rgba(184,211,27,1) 0%,rgba(122,166,18,1) 50%,rgba(92,138,0,1) 51%,rgba(135,181,19,1) 100%) !important;
+	box-shadow: 0 0 0 0px rgba(40, 40, 40, 0.0);
+	border: 1px solid #fff;
+	display: inline-block;
+	margin: 0.1em 1.5em;
+	max-height: 2em; /* slimmer donate button */
+	outline: 1px solid rgba(0,0,0,0.0);
+  padding: 0.3em 1em 1.5em 1em;
+	transition: outline-color 1.6s ease-out, outline-width 1.2s ease;
+}
+
+#main-content-no-nav a[href].renewButton:hover {
+	animation-play-state: paused;
+	outline: 1600px solid rgba(0,0,0,0.4); /* dim background on hover */
+	transition: outline-color 1.5s ease !important;
+	opacity: 1 !important;
+	border-radius: 0;
+}
+
+
+/* version history headings */
+ul#version-history > li {
+  list-style: none;
+}
+ul#version-history > li ul li {
+  list-style: square outside url('/img/square-orange-small.png');
+  margin-bottom: 1.2em;
+} 
+
+ul#version-history *.inList,
+ul#version-history > li > p {
+	margin-left: 28px;
+}
+
+#version-history li > h4 {
+  color: rgba(0,0,0,0.8);
+  cursor: default;
+  font-weight: normal;
+  font-size: 1.2em;
+  margin-right: auto !important;
+  padding-bottom: 0.3em;
+  background: rgba(218,40,179,0.4);
+  /*
+  background: linear-gradient(to bottom,  rgba(218,40,179,1) 0%, rgba(169,29,141,1) 15%, rgba(90,4,68,1) 50%, rgba(150,26,125,1) 83%, rgba(179,31,149,1) 100%); */
+}
+
+#version-history li > h4 > a {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.1em;
+  color: #730050;
+  margin-right: 0.5em;
+  margin-top: 0.3em;
+  padding-bottom: 0;
+  font-weight: bold;
+  text-decoration: none;
+}
+#version-history li > h4 > a:hover {
+  text-decoration: underline;
+}
+
+#version-history li > h4:before {
+  content: url("/img/QuickFilters_24.png");
+  float: left;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+}
+
+#version-history li > h4,.versionLink {
+	color: #fff;
+}
+
+h4.inList {
+	margin-left: 2em;
+}
+h4.inList:hover {
+	margin-left: 2.2em;
+}
+
+.inline-icon {
+	margin-right:1em;
+}
+.shilling {
+	color: rgb(190,0,0) !important;
+	font-weight: bold;
+	font-style: italic !important;
+}
+.shilling:hover {
+	text-shadow: 2px 2px 1px rgba(255,255,255,0.5) !important;
+}
+.shilling.box {
+	background-color: rgba(255,255,255,0.8);
+	border-color: rgba(90,90,90,0.4) !important;
+	border-width: 1px;
+	border-style: solid !important;
+	box-shadow: 3px 3px 3px 1px rgba(80, 80, 80, 0.2);
+	font-size: 0.9em;
+	margin-top: 8px !important;
+	padding-left: 0.5em;
+	max-width: 38em;
+}

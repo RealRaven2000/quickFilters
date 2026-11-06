@@ -1,0 +1,21 @@
+  #blueBauble {
+	  position: fixed;
+		left: 30px;
+		top: 90px;
+		opacity: 0.8;
+		z-position: 50;
+	}
+  #greenBauble {
+	  position: fixed;
+		right:210px;
+		top: 110px;
+		opacity: 0.6;
+		z-position: 50;
+	}
+	#purpleBauble {
+	  position: fixed;
+		right:30px;
+		top: 50px;
+		opacity: 0.9;
+		z-position: 100;
+	}
