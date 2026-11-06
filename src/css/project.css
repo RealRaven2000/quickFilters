@@ -365,7 +365,7 @@ ul li a {
   padding-bottom: 1em;
 }
 
-ul li ul li{
+ul li ul > li{
   padding: 0 4px;
 	margin-left: 3em;
   list-style-type: square;
@@ -374,6 +374,9 @@ ul li ul li{
   max-width: 70em;
 }
 
+ul li ul > li > ol {
+  padding-left: 1.2em;
+}
 
 a[href], :link {
   color: rgb(147, 0, 102);
