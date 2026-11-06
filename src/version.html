@@ -240,6 +240,11 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       <strong>Backup and restore:</strong> 
       Save and restore filters for multiple accounts or selected accounts. 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/193">[issue 193]</a>
+      You can currently start this process from these dedicated toolbar 
+      buttons on the quickFilters toolbar in the Message Filters window:
+      <p>
+        <img src="img/backup-restore.png" class="screenshot" alt="Backup and Restore buttons" />
+      </p>
       <p>
         The restore process guides you through these steps:
       </p>
@@ -248,7 +253,8 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
           <strong>Open a backup:</strong> Load a multi-account backup or an older 
           single-account backup and select the accounts whose filters you want to restore.
         </li>
-        <li><strong>Match accounts:</strong> Review suggested destination accounts 
+        <li>
+          <strong>Match accounts:</strong> Review suggested destination accounts 
           and adjust them using drag and drop or the account picker. You can also map 
           accounts referenced by move/copy actions, so folder targets follow the chosen 
           destinations. Successful mappings are remembered for future restores.
@@ -282,10 +288,6 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
       preserved and can be disabled without opening the filter editor. 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/401">[issue 401]</a>
     </li>
-    <li>
-      <strong>Internal cleanup:</strong> 
-      Move backup/restore and filter-review operations into the experimental FiltersAPI.
-    </li>
   </ul>
 
   <h5 class="inList">Bugfixes</h5>
@@ -293,6 +295,20 @@ simply send me a personal email from the quickFilters Options dialog, on the Sup
     <li>
       Fixed blocking warnings for filter sorting and advanced filter search. 
       <a href="https://github.com/RealRaven2000/quickFilters/issues/400">[issue 400]</a></li>
+  </ul>
+
+  <h5 class="inList">Miscellaneous</h5>
+  <ul>
+    <li>
+      <strong>Code cleanup:</strong>
+      Moved backup/restore and filter-review operations into the experimental Filters API.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/193">[issue 193]</a>
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/401">[issue 401]</a>
+    </li>
+    <li>
+      Removed redundant add-on prefixes from localization keys.
+      <a href="https://github.com/RealRaven2000/quickFilters/issues/402">[issue 402]</a>
+    </li>
   </ul>
 </li>
 
