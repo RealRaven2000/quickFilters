@@ -1,0 +1,23 @@
+﻿flowchart TB
+  subgraph Native[Experimental FiltersAPI]
+    Read[Native reading and serialization]
+    Facts[Privileged observations]
+    Tokens[Session tokens and write validation]
+    Edit[Native edits and save rollback]
+  end
+  subgraph MX[MailExtension layer]
+    Coordinator[Background job and usage coordinator]
+    Analyze[scripts/filter-analysis: portable rules and collation]
+    UI[Extension page: localization, reports and confirmation]
+  end
+  Read -->|Shared backup entity core| Coordinator
+  Facts -->|Structured facts and inspection failures| Coordinator
+  Coordinator -->|Versioned snapshot envelope| Analyze
+  Analyze -->|Structured findings| UI
+  UI -->|Explicit action request| Coordinator
+  Coordinator --> Tokens
+  Tokens --> Edit
+  Edit -->|Refresh affected snapshot| Read
+  Backup[Existing backup files] --> Adapter[Backup adapter: runtime facts unknown]
+  Adapter --> Analyze
+  Future[Future standard filters API] -.->|Replace native acquisition adapter when available| Coordinator

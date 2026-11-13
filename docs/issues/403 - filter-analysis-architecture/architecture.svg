@@ -1,0 +1,32 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="710" viewBox="0 0 1000 710" role="img" aria-labelledby="title desc">
+<title id="title">Proposed filter analysis architecture</title>
+<desc id="desc">Experimental FiltersAPI supplies serialized filter entities and privileged observations to a background coordinator. Portable analysis produces findings for extension pages. Explicit edits return through native validation. Backups can supply offline analysis data.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#334155"/></marker></defs>
+<rect width="1000" height="710" fill="#fff"/>
+<g font-family="Arial,sans-serif" fill="#172033">
+<text x="40" y="42" font-size="25" font-weight="bold">Proposed filter analysis architecture</text>
+<text x="40" y="70" font-size="15">Shared backup entities + separate live observations + explicit native actions</text>
+<rect x="35" y="95" width="930" height="145" rx="12" fill="#eaf2ff" stroke="#5382bb"/>
+<text x="55" y="124" font-size="19" font-weight="bold">Experimental FiltersAPI</text>
+<text x="55" y="157" font-size="16">Native filter reading and serialization | folder and provider observations</text>
+<text x="55" y="188" font-size="16">Session tokens | current-state validation | edits, save and rollback</text>
+<text x="55" y="216" font-size="14">Only privileged operations and facts; plain data crosses the boundary.</text>
+<rect x="35" y="305" width="440" height="100" rx="10" fill="#eef9ee" stroke="#55885b"/>
+<text x="55" y="338" font-size="19" font-weight="bold">Background coordinator</text>
+<text x="55" y="367" font-size="15">Jobs, usage policy, snapshots and cancellation</text>
+<rect x="525" y="305" width="440" height="100" rx="10" fill="#eef9ee" stroke="#55885b"/>
+<text x="545" y="338" font-size="19" font-weight="bold">scripts/filter-analysis/</text>
+<text x="545" y="367" font-size="15">Portable rules, evidence evaluation and collation</text>
+<rect x="525" y="490" width="440" height="100" rx="10" fill="#fff4df" stroke="#a78036"/>
+<text x="545" y="524" font-size="19" font-weight="bold">Extension pages</text>
+<text x="545" y="553" font-size="15">Localize, render, report and confirm actions</text>
+<rect x="35" y="490" width="440" height="100" rx="10" fill="#f3effa" stroke="#87709f"/>
+<text x="55" y="524" font-size="19" font-weight="bold">Saved backup adapter</text>
+<text x="55" y="553" font-size="15">Reuse entities; live facts remain unknown</text>
+<g fill="none" stroke="#334155" stroke-width="2" marker-end="url(#arrow)">
+<path d="M180 240V305"/><path d="M365 305V240"/><path d="M475 350H525"/><path d="M745 405V490"/><path d="M525 570H495V385H475"/><path d="M255 490V440H650V405"/>
+</g>
+<g font-size="13"><text x="55" y="270">Entities + observations</text><text x="302" y="288">Explicit edits</text><text x="763" y="452">Findings</text><text x="306" y="430">Offline snapshot</text><text x="355" y="610">Confirmed action returns to coordinator, then native validation</text></g>
+<text x="40" y="660" font-size="16">Future standard API: replace acquisition adapter; retain portable rules and presentation.</text>
+<text x="40" y="687" font-size="13">Discussion draft, 2026-11-12. Companion overview to architecture.mmd.</text>
+</g></svg>
