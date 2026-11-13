@@ -1,3 +1,4 @@
+import { analyzeSnapshot } from "../filter-analysis/index.mjs";
 import { createFilterProblemTable } from "../filter-review/warning-panel.mjs";
 import { createReviewState } from "./state.mjs";
 
@@ -50,7 +51,7 @@ async function scan(categories, { refresh = false } = {}) {
     $("#view").value = "remaining";
     render();
   }
-  const result = await api.scanFilters(session, $("#account").value, categories);
+  const result = analyzeSnapshot(await api.getFilterSnapshot(session, $("#account").value, categories));
   const heading = $('[data-i18n="intro"]');
   heading.textContent = result.trial ? t("trialRemaining", [result.trial.remaining]) : t("intro");
   heading.classList.toggle("trial-heading", !!result.trial);

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "snapshot-1",
+  "source": "live",
+  "accountId": "account1",
+  "accountType": "imap",
+  "count": 1,
+  "checks": ["runs", "folders", "addons", "conditions"],
+  "trial": null,
+  "capabilities": { "runnableTypes": 127, "supportsMixedConditions": false, "folderActionTypes": [1, 2], "customActionType": 3, "customTermAttribute": -2 },
+  "entries": [{
+    "token": "filter-1",
+    "position": 0,
+    "entity": {
+      "filterName": "Invoices",
+      "enabled": true,
+      "unparseable": false,
+      "filterType": 0,
+      "actionList": [
+        { "type": 1, "targetFolderUri": "imap://example.invalid/Invoices" },
+        { "type": 3, "customId": "example@invalid#action" }
+      ],
+      "searchTerms": [
+        { "attrib": 0, "op": 0, "customId": "", "matchAll": false, "booleanAnd": true, "beginsGrouping": 0, "endsGrouping": 0 },
+        { "attrib": -2, "op": 0, "customId": "example@invalid#term", "matchAll": false, "booleanAnd": false, "beginsGrouping": 1, "endsGrouping": 1 }
+      ]
+    },
+    "observations": {
+      "canEdit": true,
+      "actions": [{ "folder": "missing" }, { "provider": "missing" }],
+      "terms": [{}, { "provider": "missing" }]
+    },
+    "errors": []
+  }]
+}

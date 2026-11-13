@@ -1,11 +1,14 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
-/* global t, getSessionStorage, consumeTroubleshooterUsage, isTroubleshooterLicensed */
+// The loader only installs this factory. All native dependencies are explicit.
 /* Private FiltersAPI scope; never injected into a surviving chrome window. */
-(function () {
+this.createTroubleshooterAPI = function (dependencies) {
   "use strict";
+  const { Services, Components, ChromeUtils, console, t,
+    getSessionStorage, consumeTroubleshooterUsage, isTroubleshooterLicensed } = dependencies;
   const { MailServices } = ChromeUtils.importESModule("resource:///modules/MailServices.sys.mjs");
+  const { MailUtils } = ChromeUtils.importESModule("resource:///modules/MailUtils.sys.mjs");
   const Ci = Components.interfaces;
   const sessions = new Map();
   const categories = ["runs", "folders", "addons", "conditions"];
@@ -65,77 +68,89 @@
     return id;
   }
   function endTroubleshooting(id) { sessions.delete(id); }
-  function scanFilters(sessionId, accountId, checks) {
+  // Return a plain-data inspection projection; policy and finding collation run in MX.
+  function getFilterSnapshot(sessionId, accountId, checks) {
     const session = sessionFor(sessionId);
     if (!Array.isArray(checks) || !checks.length || checks.some(check => !categories.includes(check))) fail("invalidCheck");
-    const win = mailWindow(), util = win.quickFilters.Util;
     const list = listFor(accountId), server = account(accountId).incomingServer;
-    // Consumption is synchronous and atomic across tabs. Keep the session across account switches.
     const licensed = isTroubleshooterLicensed();
     if (!licensed && !session.trial?.allowed) session.trial = consumeTroubleshooterUsage();
     const trial = licensed ? null : session.trial;
-    if (trial && !trial.allowed) return { allowed: false, trial };
-    const findings = [];
+    const snapshot = {
+      schemaVersion: 1, snapshotId: uuid(), source: "live", accountId, accountType: server.type,
+      count: list.filterCount, checks: [...new Set(checks)], trial,
+      capabilities: { runnableTypes: runnableTypes(), supportsMixedConditions: getTroubleshooterInfo().supportsMixedConditions,
+        folderActionTypes: [Ci.nsMsgFilterAction.MoveToFolder, Ci.nsMsgFilterAction.CopyToFolder],
+        customActionType: Ci.nsMsgFilterAction.Custom, customTermAttribute: Ci.nsMsgSearchAttrib.Custom },
+      entries: [],
+    };
+    if (trial && !trial.allowed) return { ...snapshot, allowed: false };
     for (let index = 0; index < list.filterCount; index++) {
       const filter = list.getFilterAt(index);
       let token = session.tokens.get(filter);
       if (!token) { token = uuid(); session.tokens.set(filter, token); }
       session.entries.set(token, { filter, accountId });
-      const canEdit = editable(filter);
-      const add = (category, reason, extra = {}) => findings.push({
-        id: `${token}:${category}:${reason}:${extra.position ?? ""}`,
-        token, accountId, filterName: filter.filterName, category, reason,
-        enabled: filter.enabled, canEdit, state: "remaining", ...extra,
-      });
-      if (filter.unparseable) {
-        for (const category of checks) add(category, "unparseable", { canEdit: false });
-        continue;
-      }
-      for (const category of checks) {
-        try {
-          if (category === "runs") {
-            const usable = runnableTypes();
-            // Manual-only filters are intentional and must not be offered an automatic repair.
-            if (filter.enabled && !(filter.filterType & usable) && ["imap", "pop3", "nntp", "none"].includes(server.type)) {
-              add(category, "no-run-method");
+      const entry = {
+        token, position: index,
+        entity: { filterName: filter.filterName, enabled: filter.enabled, unparseable: !!filter.unparseable,
+          actionList: [], searchTerms: [] },
+        observations: { canEdit: editable(filter), actions: [], terms: [] }, errors: [],
+      };
+      snapshot.entries.push(entry);
+      if (entry.entity.unparseable) continue;
+      const inspect = (category, read) => {
+        try { read(); }
+        catch (error) { entry.errors.push({ category, code: "inspection-failed", details: String(error.message || error) }); }
+      };
+      if (checks.includes("runs")) inspect("runs", () => { entry.entity.filterType = filter.filterType; });
+      for (const category of ["folders", "addons"].filter(check => checks.includes(check))) {
+        inspect(category, () => {
+          for (let position = 0; position < filter.actionCount; position++) {
+            const action = filter.getActionAt(position);
+            const saved = entry.entity.actionList[position] ||= { type: action.type };
+            const facts = entry.observations.actions[position] ||= {};
+            if (category === "folders" && [Ci.nsMsgFilterAction.MoveToFolder, Ci.nsMsgFilterAction.CopyToFolder].includes(action.type)) {
+              saved.targetFolderUri = action.targetFolderUri;
+              let target;
+              // Existing-folder lookup only; preserve the existing native lookup semantics.
+              try { target = MailUtils.getExistingFolder(saved.targetFolderUri, true); }
+              catch { target = null; }
+              facts.folder = target?.canFileMessages ? "available" : "missing";
             }
-          } else if (category === "folders" || category === "addons") {
-            for (let position = 0; position < filter.actionCount; position++) {
-              const action = filter.getActionAt(position);
-              if (category === "folders" && [Ci.nsMsgFilterAction.MoveToFolder, Ci.nsMsgFilterAction.CopyToFolder].includes(action.type)) {
-                let valid = false;
-                try { valid = !!util.getMsgFolderFromUri(action.targetFolderUri, true)?.canFileMessages; } catch { /* missing folder */ }
-                if (!valid) add(category, "missing-folder", { position, targetFolderUri: action.targetFolderUri });
-              }
-              if (category === "addons" && action.type === Ci.nsMsgFilterAction.Custom) {
-                let available = false;
-                try { available = !!MailServices.filters.getCustomAction(action.customId); } catch { /* absent provider */ }
-                if (!available) add(category, "missing-action", { position, customId: action.customId });
-              }
+            if (category === "addons" && action.type === Ci.nsMsgFilterAction.Custom) {
+              saved.customId = action.customId;
+              let provider;
+              try { provider = MailServices.filters.getCustomAction(saved.customId); } catch { provider = null; }
+              facts.provider = provider ? "available" : "missing";
             }
-            if (category === "addons") {
-              termsOf(filter).forEach((term, position) => {
-                if (term.attrib !== Ci.nsMsgSearchAttrib.Custom) return;
-                let available = false;
-                try { available = !!MailServices.filters.getCustomTerm(term.customId); } catch { /* absent provider */ }
-                if (!available) add(category, "missing-term", { position, customId: term.customId });
-              });
-            }
-          } else if (category === "conditions") {
-            if (!termsOf(filter).length) add(category, "missing-conditions");
-            else if (!getTroubleshooterInfo().supportsMixedConditions && hasMixedConditions(filter)) add(category, "mixed-conditions", { state: filter.enabled ? "remaining" : "disabled" });
           }
+        });
+      }
+      if (checks.includes("conditions") || checks.includes("addons")) {
+        try {
+          entry.entity.searchTerms = termsOf(filter).map(term => ({
+            attrib: term.attrib ?? null, op: term.op ?? null, customId: term.customId || "",
+            matchAll: !!term.matchAll, booleanAnd: !!term.booleanAnd,
+            beginsGrouping: Number(term.beginsGrouping || 0), endsGrouping: Number(term.endsGrouping || 0),
+          }));
+          entry.observations.terms = entry.entity.searchTerms.map(term => {
+            if (!checks.includes("addons") || term.attrib !== Ci.nsMsgSearchAttrib.Custom) return {};
+            let provider;
+            try { provider = MailServices.filters.getCustomTerm(term.customId); } catch { provider = null; }
+            return { provider: provider ? "available" : "missing" };
+          });
         } catch (error) {
-          add(category, "inspection-failed", { details: error.message, canEdit: false });
+          for (const category of ["conditions", "addons"].filter(check => checks.includes(check))) {
+            entry.errors.push({ category, code: "inspection-failed", details: String(error.message || error) });
+          }
         }
       }
     }
-    // Retain exact-object identity only for filters still present in their account.
     const current = new Set(Array.from({ length: list.filterCount }, (_, index) => list.getFilterAt(index)));
     for (const [token, entry] of session.entries) {
       if (entry.accountId === accountId && !current.has(entry.filter)) session.entries.delete(token);
     }
-    return { accountId, count: list.filterCount, checks: [...new Set(checks)], findings, trial };
+    return snapshot;
   }
   function getFilterConditionText(sessionId, token) {
     const { filter } = entryFor(sessionId, token);
@@ -235,5 +250,5 @@
   async function openFilterAddons() {
     await mailWindow().openAddonsMgr("addons://list/extension");
   }
-  Object.assign(this, { getTroubleshooterInfo, beginTroubleshooting, endTroubleshooting, scanFilters, getFilterConditionText, remedyFilter, openFilterLog, openFilterAddons });
-}).call(this);
+  return { getTroubleshooterInfo, beginTroubleshooting, endTroubleshooting, getFilterSnapshot, getFilterConditionText, remedyFilter, openFilterLog, openFilterAddons };
+};

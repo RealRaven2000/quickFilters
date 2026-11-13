@@ -298,7 +298,7 @@
         ]
       },
       {
-        "name": "scanFilters",
+        "name": "getFilterSnapshot",
         "type": "function",
         "async": true,
         "parameters": [

@@ -28,18 +28,19 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
     loadPackageScript("scripts/premium/usage-policy.js", usageScope);
     loadPackageScript("scripts/premium/usage-store.js", usageScope);
     const usage = usageScope.quickFiltersPremium.createUsageStore(Services.prefs);
-    const troubleshooterAPI = { Services, Components, ChromeUtils, console, t,
+    const troubleshooterModule = {};
+    loadPackageScript("chrome/content/api/filtersAPI/troubleshooter.js", troubleshooterModule);
+    const troubleshooterAPI = troubleshooterModule.createTroubleshooterAPI({ Services, Components, ChromeUtils, console, t,
       // Background synchronizes this flag after startup and every license validation.
       isTroubleshooterLicensed: () => Services.prefs.getBoolPref("extensions.quickFilters.usage.wasLicensed", false),
       consumeTroubleshooterUsage: () => usage.consume("troubleshooter"),
-      getSessionStorage: () => context.apiCan.findAPIPath("storage").session };
-    loadPackageScript("chrome/content/api/filtersAPI/troubleshooter.js", troubleshooterAPI);
+      getSessionStorage: () => context.apiCan.findAPIPath("storage").session });
     return {
       FiltersAPI: {
         getTroubleshooterInfo: async () => troubleshooterAPI.getTroubleshooterInfo(),
         beginTroubleshooting: async () => troubleshooterAPI.beginTroubleshooting(),
         endTroubleshooting: async (session) => troubleshooterAPI.endTroubleshooting(session),
-        scanFilters: async (session, accountId, checks) => troubleshooterAPI.scanFilters(session, accountId, checks),
+        getFilterSnapshot: async (session, accountId, checks) => troubleshooterAPI.getFilterSnapshot(session, accountId, checks),
         getFilterConditionText: async (session, token) => troubleshooterAPI.getFilterConditionText(session, token),
         remedyFilter: async (session, token, remedy) => troubleshooterAPI.remedyFilter(session, token, remedy),
         openFilterLog: async (accountId) => troubleshooterAPI.openFilterLog(accountId),
