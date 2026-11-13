@@ -42,3 +42,9 @@ Runtime facts—such as folder availability, custom action/term availability and
 Discussion, requirements and diagrams are in `docs/issues/403 - filter-analysis-architecture/`.
 
 Tracking issue: #403. Related: #401, #400.
+
+## Future workflows
+
+The architecture must also support scheduled backups and profile syncing. Keep filter acquisition, portable backup construction, analysis and storage separate so background jobs can reuse them without a page or file picker. Storage must have an explicit adapter boundary supporting eventual replacement of legacy file access with the VFS API.
+
+Profile-local IDs, folder URIs and native tokens must not become cross-profile identities. Sync mapping, conflict handling and job state belong to a separate orchestration layer. Scheduling, syncing and VFS integration are follow-up features; the initial refactoring must preserve the boundaries they require.

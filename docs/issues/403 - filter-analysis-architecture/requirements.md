@@ -156,3 +156,38 @@ const result = analyzeSnapshot({ snapshot, requestedChecks, policy });
 For identical explicit inputs and analyzer version, the analyzer must produce equivalent results in deterministic order. Time-sensitive rules receive the reference time explicitly; generated timestamps and random identifiers must not introduce hidden inputs. A result must identify its snapshot and analysis version so consumers can reject obsolete replies. Pure rule execution must be testable with frozen inputs and without browser or Thunderbird globals.
 
 Next design deliverable: a field-level contract with representative live, offline, partially readable and failed-acquisition examples, followed by JSON Schemas and compatibility fixtures. The illustrative envelope and function names in this discussion are not yet a finalized schema.
+
+## Future compatibility: scheduled backups, profile syncing and VFS
+
+The refactoring must support later scheduled backups and profile syncing. Legacy file access is to be removed eventually and replaced by the VFS API. This is an architectural requirement, not authorization to implement scheduling, syncing or VFS integration in the first refactoring step. The exact VFS contract and capabilities must be confirmed before integration; this document does not assume particular API methods.
+
+### Separation of responsibilities
+
+- Native filter acquisition and serialization must be callable without opening a backup page, invoking a picker or relying on presentation helpers in a mail window. Identify and remove incidental window dependencies; report genuine native availability constraints explicitly.
+- Portable backup construction and analysis must accept explicit data and options. Neither owns paths, file handles, scheduling, credentials or transport state.
+- A consumer-owned background workflow coordinates acquisition, analysis, backup construction and storage. Interactive and scheduled callers use the same underlying operations, with explicit interaction policy. Scheduled execution must never silently open prompts or bypass required consent and licensing checks.
+- Storage operations belong behind an explicit adapter boundary. Inspect and evolve the existing scripts/backup/backup-storage.mjs and storage adapters rather than introducing a competing abstraction. A temporary legacy adapter can preserve current behavior while a VFS adapter replaces its implementation later.
+- Keep portable backup content separate from destination references and runtime handles. Do not bake native filesystem paths or legacy picker behavior into the new snapshot/analysis contract.
+
+### Scheduled backup requirements
+
+Background callers must be able to supply a configured destination and naming/retention policy without DOM access. Scheduling, job persistence, retry policy and retention are orchestration concerns, not analyzer responsibilities. Define behavior for unavailable accounts/storage, cancelled jobs, partial acquisition and interrupted writes. A partial or incomplete acquisition must never be presented as a complete successful backup.
+
+Future scheduling must explicitly define whether it runs only while Thunderbird is active, how missed jobs are handled, and which capabilities the selected VFS backend provides. Do not infer unattended execution guarantees from moving code into the background.
+
+### Profile syncing requirements
+
+Reuse the portable filter representation, but keep synchronization policy out of the serializer and analyzer. Profile-local account IDs, folder URIs, native tokens and list indices are not cross-profile identities. A sync layer must explicitly map accounts/folders and define stable identity, change detection, ordering, conflict handling, deletion semantics and version compatibility before applying changes.
+
+Sync application must use the same validated native edit boundary and stale-state safeguards as interactive changes. It must not interpret absent or unreadable data as a deletion, silently overwrite conflicting edits, or normalize filter logic. Per-job state, baselines and sync bookkeeping remain consumer-owned. Credentials and backend-specific configuration do not belong in filter entities or analysis results.
+
+### Migration acceptance criteria
+
+- Acquisition, portable backup construction and analysis can be exercised without a backup page or interactive file picker.
+- Storage contracts are independent of native file objects and permit a VFS implementation without changing analyzer inputs or filter entity semantics.
+- Existing backup files remain compatible; backend-specific metadata does not leak into portable filter entities.
+- Jobs distinguish acquisition failure, analysis findings, serialization failure and storage failure, and preserve actionable structured diagnostics.
+- Concurrent manual, scheduled and sync jobs have an explicit coordination policy; cancellation, retries and shutdown cannot silently duplicate writes or apply stale edits.
+- Before VFS integration, document its available read/write/list/delete and commit capabilities as applicable, then define safe replacement, recovery and retention behavior based on those actual capabilities.
+
+The first implementation must preserve these boundaries and include representative headless-workflow fixtures; full scheduling, syncing, identity policy and VFS migration remain separate follow-up work.
