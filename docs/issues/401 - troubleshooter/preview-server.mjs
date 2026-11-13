@@ -1,11 +1,11 @@
 // Browser preview of the live page with a simulated API; never reads Thunderbird data.
-// Run: node "docs/issue 401 - troubleshooter/preview-server.mjs"
+// Run: node "docs/issues/401 - troubleshooter/preview-server.mjs"
 import http from "node:http";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
-const root = fileURLToPath(new URL("../../", import.meta.url));
+const root = fileURLToPath(new URL("../../../", import.meta.url));
 const messages = JSON.parse(await readFile(path.join(root, "_locales/en/messages.json"), "utf8"));
 const fixture = `
 const messages = ${JSON.stringify(messages)};
@@ -28,7 +28,20 @@ globalThis.browser = {
   getTroubleshooterInfo:async()=>({appName:'Thunderbird',supportsMixedConditions:false}),
   getBackupInfo:async()=>({accounts:[{id:'a',name:'Preview · Personal',count:24},{id:'b',name:'Preview · Work',count:8}]}),
   beginTroubleshooting:async()=> 'session',endTroubleshooting:async()=>{},
-  scanFilters:async(session,accountId,checks)=>({accountId,count:accountId==='a'?24:8,checks,findings:accountId==='a'?current.filter(item=>checks.includes(item.category)).map(item=>({...item})):[]}),
+  getFilterSnapshot:async(session,accountId,checks)=>({
+   schemaVersion:1,snapshotId:'preview',source:'live',accountId,accountType:'imap',count:accountId==='a'?24:8,checks,trial:null,
+   capabilities:{runnableTypes:127,supportsMixedConditions:false,folderActionTypes:[1,2],customActionType:3,customTermAttribute:-2},
+   entries:accountId==='a'?current.map((item,position)=>{
+    const term={attrib:0,op:0,customId:'',matchAll:false,booleanAnd:true,beginsGrouping:0,endsGrouping:0};
+    const entity={filterName:item.filterName,enabled:item.enabled,filterType:item.reason==='no-run-method'?0:1,unparseable:false,actionList:[],searchTerms:[term]};
+    const observations={canEdit:item.canEdit,actions:[],terms:[{}]};
+    if(item.reason==='missing-folder'){entity.actionList=[{type:1,targetFolderUri:'imap://preview/Missing'}];observations.actions=[{folder:'missing'}];}
+    if(item.reason==='missing-action'){entity.actionList=[{type:3,customId:'preview#action'}];observations.actions=[{provider:'missing'}];}
+    if(item.reason==='missing-term'){entity.searchTerms[0]={...term,attrib:-2,customId:'preview#term'};observations.terms=[{provider:'missing'}];}
+    if(item.reason==='mixed-conditions'){entity.searchTerms.push({...term,booleanAnd:false,beginsGrouping:1,endsGrouping:1});observations.terms.push({});}
+    if(item.reason==='missing-conditions'){entity.searchTerms=[];observations.terms=[];}
+    return{token:item.token,position,entity,observations,errors:[]};
+   }):[]}),
   getFilterConditionText:async()=>({text:'AND (subject,contains,invoice) OR (,contains,example.com)',canEdit:true,terms:[{text:'subject,contains,invoice',booleanAnd:true,beginsGrouping:1,endsGrouping:0,isCustom:false},{text:',contains,example.com',booleanAnd:false,beginsGrouping:0,endsGrouping:1,isCustom:true,customId:'example@provider#term',customAvailable:false}]}),
   remedyFilter:async(session,token,remedy)=>{if(!confirm('PREVIEW ONLY: simulate '+remedy+'?'))return{changed:false};const item=current.find(item=>item.token===token);if(remedy==='disable'){item.enabled=false;if(item.reason==='mixed-conditions')item.state='disabled';}else current=current.filter(item=>item.token!==token);return {changed:true};},
   openFilterLog:async()=>alert('Preview only: opens the selected account’s filter log in Thunderbird.'),

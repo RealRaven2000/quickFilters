@@ -1,11 +1,12 @@
+import { analyzeSnapshot } from "../../../scripts/filter-analysis/index.mjs";
 import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import vm from "node:vm";
 import test from "node:test";
-import { createReviewState } from "../../scripts/troubleshooter/state.mjs";
-import { createFilterProblemTable } from "../../scripts/filter-review/warning-panel.mjs";
+import { createReviewState } from "../../../scripts/troubleshooter/state.mjs";
+import { createFilterProblemTable } from "../../../scripts/filter-review/warning-panel.mjs";
 
-const source = await readFile(new URL("../../chrome/content/api/filtersAPI/troubleshooter.js", import.meta.url), "utf8");
+const source = await readFile(new URL("../../../chrome/content/api/filtersAPI/troubleshooter.js", import.meta.url), "utf8");
 function setup(appName = "Thunderbird", sessionValues = {}, licensed = true) {
   let used = 0;
   const types = { Incoming: 3, Periodic: 4, Manual: 8, InboxRule: 1, NewsRule: 2, PostOutgoing: 16, Archive: 32, PostPlugin: 64 };
@@ -33,7 +34,7 @@ function setup(appName = "Thunderbird", sessionValues = {}, licensed = true) {
   const account = { incomingServer: { type: "imap", canHaveFilters: true, rootMsgFolder: { getEditableFilterList: () => list } } };
   const main = { quickFilters: { Util: { getMsgFolderFromUri: () => null, hasPremiumLicense: () => true } }, openDialog() { dialogs++; } };
   const context = vm.createContext({
-    ChromeUtils: { importESModule: () => ({ MailServices: { accounts: { getAccount: id => id === "a" ? account : null }, filters: { getCustomAction() { throw Error("missing"); }, getCustomTerm() { return null; } } } }) },
+    ChromeUtils: { importESModule: () => ({ MailUtils: { getExistingFolder: () => null }, MailServices: { accounts: { getAccount: id => id === "a" ? account : null }, filters: { getCustomAction() { throw Error("missing"); }, getCustomTerm() { return null; } } } }) },
     Components: { interfaces: { nsMsgFilterType: types, nsMsgFilterAction: actions, nsMsgSearchAttrib: { Custom: -2 } } },
     Services: { appinfo: { name: appName }, uuid: { generateUUID: () => String(++nextId) }, wm: { getMostRecentWindow: () => main, getEnumerator: () => [] }, prompt: {
       confirm: () => confirmed,
@@ -56,6 +57,8 @@ function setup(appName = "Thunderbird", sessionValues = {}, licensed = true) {
     t: key => key, console,
   });
   vm.runInContext(source, context);
+  Object.assign(context, context.createTroubleshooterAPI(context));
+  context.scanFilters = (...args) => analyzeSnapshot(context.getFilterSnapshot(...args));
   const session = context.beginTroubleshooting();
   return { api: context, session, filters, list, types, counts: () => ({ writes, dialogs }), confirm: value => { confirmed = value; }, failSave: () => { failWrite = true; },
     editConsent(choice, remember = false) { editChoice = choice; rememberEdit = remember; },
@@ -63,6 +66,31 @@ function setup(appName = "Thunderbird", sessionValues = {}, licensed = true) {
   };
 }
 const checks = ["runs", "folders", "addons", "conditions"];
+test("native snapshot crosses a JSON boundary, preserves zero operators and needs no mail window", () => {
+  const env = setup();
+  env.api.Services.wm.getMostRecentWindow = () => { throw Error("No mail window"); };
+  env.filters[0].searchTerms[0].op = 0;
+  env.filters[0].searchTerms[0].matchAll = true;
+  const snapshot = JSON.parse(JSON.stringify(env.api.getFilterSnapshot(env.session, "a", checks)));
+  assert.equal(snapshot.entries[0].entity.searchTerms[0].op, 0);
+  assert.equal(snapshot.entries[0].entity.searchTerms[0].matchAll, true);
+  assert.equal(analyzeSnapshot(snapshot).findings.length, 6);
+  assert.deepEqual(env.counts(), { writes: 0, dialogs: 0 });
+});
+test("inspection failures remain scoped to their category and do not hide readable filters", () => {
+  const env = setup();
+  env.filters[2].getActionAt = () => { throw Error("Unreadable action"); };
+  const result = env.api.scanFilters(env.session, "a", checks);
+  assert.equal(result.diagnostics.length, 2);
+  assert.equal(result.complete, false);
+  assert(result.findings.some(item => item.filterName === "Mixed" && item.reason === "mixed-conditions"));
+  assert(!result.findings.some(item => item.filterName === "Missing destination" && item.reason === "missing-folder"));
+});
+test("native factories keep session state isolated", () => {
+  const env = setup();
+  const other = env.api.createTroubleshooterAPI(env.api);
+  assert.throws(() => other.getFilterSnapshot(env.session, "a", checks), /sessionExpired/);
+});
 test("Betterbird omits mixed-condition warnings but still checks for missing conditions", () => {
   const env = setup("Betterbird");
   assert.equal(env.api.getTroubleshooterInfo().supportsMixedConditions, true);
@@ -232,7 +260,7 @@ test("shared compact table keeps remedies explicit and condition explanations ex
   assert.equal(disabled, 1);
 });
 test("live page messages and relative assets exist; ATN release notes use supported tags", async () => {
-  const root = new URL("../../", import.meta.url);
+  const root = new URL("../../../", import.meta.url);
   const page = await readFile(new URL("html/filter-troubleshooter.html", root), "utf8");
   const catalog = JSON.parse(await readFile(new URL("_locales/en/messages.json", root), "utf8"));
   const common = new Set(["account", "edit"]);
@@ -244,7 +272,7 @@ test("live page messages and relative assets exist; ATN release notes use suppor
   for (const [, tag] of notes.matchAll(/<\/?([a-z][\w-]*)\b/gi)) assert(whitelist.has(tag), tag);
 });
 test("troubleshooter localization respects locale scope and preserves placeholders", async () => {
-  const base = new URL("../../_locales/", import.meta.url);
+  const base = new URL("../../../_locales/", import.meta.url);
   const english = JSON.parse(await readFile(new URL("en/messages.json", base), "utf8"));
   const entries = Object.entries(english).filter(([key]) => key.startsWith("troubleshooter."));
   for (const locale of await readdir(base)) {
