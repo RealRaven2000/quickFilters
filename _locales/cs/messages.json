@@ -2479,7 +2479,7 @@
     "message": "Zjistěte, zda se povolené filtry mohou spouštět při příjmu pošty, pravidelně nebo ručně."
   },
   "troubleshooter.disable": {
-    "message": "Zakázat filtr…"
+    "message": "Zakázat…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Neupozorňovat do restartu Thunderbirdu"
@@ -2611,7 +2611,7 @@
     "message": "Otevřít řešení potíží s filtry…"
   },
   "troubleshooter.openAddons": {
-    "message": "Otevřít správce doplňků"
+    "message": "Správce doplňků"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Přesto otevřít editor…"

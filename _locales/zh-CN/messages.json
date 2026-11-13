@@ -2485,7 +2485,7 @@
     "message": "检查已启用的过滤器能否在收信时、定期或手动运行。"
   },
   "troubleshooter.disable": {
-    "message": "禁用过滤器…"
+    "message": "禁用…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "在 Thunderbird 重启前不再警告"
@@ -2617,7 +2617,7 @@
     "message": "打开过滤器故障排查…"
   },
   "troubleshooter.openAddons": {
-    "message": "打开附加组件管理器"
+    "message": "附加组件管理器"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "仍然打开编辑器…"

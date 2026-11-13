@@ -2493,7 +2493,7 @@
     "message": "Проверьте, могут ли включённые фильтры запускаться при получении почты, периодически или вручную."
   },
   "troubleshooter.disable": {
-    "message": "Отключить фильтр…"
+    "message": "Отключить…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Не предупреждать до перезапуска Thunderbird"
@@ -2625,7 +2625,7 @@
     "message": "Открыть проверку фильтров…"
   },
   "troubleshooter.openAddons": {
-    "message": "Открыть управление дополнениями"
+    "message": "Управление дополнениями"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Всё равно открыть редактор…"

@@ -2490,7 +2490,7 @@
     "message": "Sprawdź, czy włączone filtry mogą działać przy odbiorze poczty, okresowo lub ręcznie."
   },
   "troubleshooter.disable": {
-    "message": "Wyłącz filtr…"
+    "message": "Wyłącz…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Nie ostrzegaj do ponownego uruchomienia Thunderbirda"
@@ -2622,7 +2622,7 @@
     "message": "Otwórz rozwiązywanie problemów z filtrami…"
   },
   "troubleshooter.openAddons": {
-    "message": "Otwórz menedżer dodatków"
+    "message": "Menedżer dodatków"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Otwórz edytor mimo to…"

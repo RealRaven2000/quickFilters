@@ -29,12 +29,15 @@ export function createFilterProblemTable({ el, problems, text, renderCheck, rend
     detail.append(el("summary", "", text("details")), renderDetails(problem));
     issue.append(detail);
     const actions = el("td"), buttons = el("div", "problem-actions");
+    const primary = el("div", "problem-action-row"), secondary = el("div", "problem-action-row");
     for (const action of getActions(problem)) {
       const button = el("button", action.danger ? "danger" : "", action.label);
+      if (action.secondary) button.className += " secondary-action";
       button.type = "button";
       button.addEventListener("click", action.run);
-      buttons.append(button);
+      (action.secondary ? secondary : primary).append(button);
     }
+    buttons.append(primary, secondary);
     actions.append(buttons);
     row.append(check, name, issue, actions);
     body.append(row);

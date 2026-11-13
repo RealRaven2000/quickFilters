@@ -2493,7 +2493,7 @@
     "message": "Kontrollera om aktiverade filter kan köras när e-post kommer, periodiskt eller manuellt."
   },
   "troubleshooter.disable": {
-    "message": "Inaktivera filter…"
+    "message": "Inaktivera…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Varna inte igen förrän Thunderbird startas om"
@@ -2625,7 +2625,7 @@
     "message": "Öppna filterfelsökaren…"
   },
   "troubleshooter.openAddons": {
-    "message": "Öppna tilläggshanteraren"
+    "message": "Tilläggshanteraren"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Öppna redigeraren ändå…"

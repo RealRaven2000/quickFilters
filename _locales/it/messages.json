@@ -2497,7 +2497,7 @@
     "message": "Verifica se i filtri attivi possono essere eseguiti all’arrivo della posta, periodicamente o manualmente."
   },
   "troubleshooter.disable": {
-    "message": "Disattiva filtro…"
+    "message": "Disattiva…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Non avvisare fino al riavvio di Thunderbird"
@@ -2629,7 +2629,7 @@
     "message": "Apri risoluzione problemi dei filtri…"
   },
   "troubleshooter.openAddons": {
-    "message": "Apri gestione componenti aggiuntivi"
+    "message": "Gestione componenti aggiuntivi"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Apri comunque l’editor…"

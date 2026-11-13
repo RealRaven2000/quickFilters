@@ -2493,7 +2493,7 @@
     "message": "有効なフィルターをメール受信時、定期的、または手動で実行できるか確認します。"
   },
   "troubleshooter.disable": {
-    "message": "フィルターを無効にする…"
+    "message": "無効にする…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Thunderbird を再起動するまで警告しない"
@@ -2625,7 +2625,7 @@
     "message": "フィルターの診断を開く…"
   },
   "troubleshooter.openAddons": {
-    "message": "アドオンマネージャーを開く"
+    "message": "アドオンマネージャー"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "それでもエディターを開く…"

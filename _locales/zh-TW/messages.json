@@ -2404,7 +2404,7 @@
     "message": "檢查已啟用的篩選器能否在收信時、定期或手動執行。"
   },
   "troubleshooter.disable": {
-    "message": "停用篩選器…"
+    "message": "停用…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "在 Thunderbird 重新啟動前不再警告"
@@ -2536,7 +2536,7 @@
     "message": "開啟篩選器疑難排解…"
   },
   "troubleshooter.openAddons": {
-    "message": "開啟附加元件管理員"
+    "message": "附加元件管理員"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "仍要開啟編輯器…"

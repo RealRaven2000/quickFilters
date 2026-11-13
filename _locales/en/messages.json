@@ -2625,7 +2625,7 @@
     "message": "Check whether enabled filters can run automatically on incoming mail, periodically or manually."
   },
   "troubleshooter.disable": {
-    "message": "Disable filter…"
+    "message": "Disable…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Don’t warn again until Thunderbird restarts"
@@ -2757,7 +2757,7 @@
     "message": "Open filter troubleshooter…"
   },
   "troubleshooter.openAddons": {
-    "message": "Open Add-ons Manager"
+    "message": "Add-ons Manager"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Open editor anyway…"

@@ -2493,7 +2493,7 @@
     "message": "Tarkista, voivatko käytössä olevat suodattimet toimia postin saapuessa, määräajoin tai käsin."
   },
   "troubleshooter.disable": {
-    "message": "Poista suodatin käytöstä…"
+    "message": "Poista käytöstä…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Älä varoita ennen Thunderbirdin uudelleenkäynnistystä"
@@ -2625,7 +2625,7 @@
     "message": "Avaa suodattimien vianmääritys…"
   },
   "troubleshooter.openAddons": {
-    "message": "Avaa lisäosien hallinta"
+    "message": "Lisäosien hallinta"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Avaa muokkain silti…"

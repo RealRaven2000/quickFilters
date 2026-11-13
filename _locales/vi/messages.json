@@ -2493,7 +2493,7 @@
     "message": "Kiểm tra xem bộ lọc đã bật có thể chạy khi nhận thư, định kỳ hoặc thủ công hay không."
   },
   "troubleshooter.disable": {
-    "message": "Tắt bộ lọc…"
+    "message": "Tắt…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Không cảnh báo lại cho đến khi khởi động lại Thunderbird"
@@ -2625,7 +2625,7 @@
     "message": "Mở công cụ kiểm tra bộ lọc…"
   },
   "troubleshooter.openAddons": {
-    "message": "Mở trình quản lý tiện ích"
+    "message": "Trình quản lý tiện ích"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Vẫn mở trình sửa…"

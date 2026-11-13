@@ -78,16 +78,16 @@ function renderDetails(item) {
 function actions(item) {
   if (["resolved", "deleted"].includes(item.state)) return [];
   const result = [];
-  const add = (label, run, danger = false) => result.push({ label: t(label), run: () => attempt(run), danger });
-  add("viewConditions", () => showConditions(item));
+  const add = (label, run, danger = false, secondary = false) => result.push({ label: t(label), run: () => attempt(run), danger, secondary });
+  if (item.canEdit) add("edit", () => remedy(item, "edit"));
+  add("delete", () => remedy(item, "delete"), true);
+  if (item.enabled) add("disable", () => remedy(item, "disable"));
+  add("viewConditions", () => showConditions(item), false, true);
+  if (item.reason === "no-run-method") add("enableIncoming", () => remedy(item, "enableIncoming"), false, true);
   if (item.category === "addons") add("openAddons", async () => {
     try { await browser.tabs.create({ url: "about:addons" }); }
     catch { await api.openFilterAddons(); } // Privileged about: URLs may be rejected by the standard API.
-  });
-  if (item.reason === "no-run-method") add("enableIncoming", () => remedy(item, "enableIncoming"));
-  if (item.canEdit) add("edit", () => remedy(item, "edit"));
-  if (item.enabled) add("disable", () => remedy(item, "disable"));
-  add("delete", () => remedy(item, "delete"), true);
+  }, false, true);
   return result;
 }
 function render() {
@@ -187,6 +187,13 @@ async function init() {
   $("#search").placeholder = t("find"); $("#search").setAttribute("aria-label", t("find"));
   $("#get-pro").textContent = browser.i18n.getMessage("getquickFilters");
   $("#get-pro").onclick = () => browser.Utilities.showLicenseDialog("troubleshooter");
+  $("#toggle-checks").setAttribute("aria-label", t("checks"));
+  $("#toggle-checks").onclick = () => {
+    const expanded = $("#toggle-checks").getAttribute("aria-expanded") !== "true";
+    $("#toggle-checks").setAttribute("aria-expanded", String(expanded));
+    $("#checks-body").hidden = !expanded;
+    $(".checks").classList.toggle("collapsed", !expanded);
+  };
   buildChecks(); render();
   $("#run-all").onclick = () => attempt(async () => { await scan(checks); notice(t("completed")); });
   $("#open-log").onclick = () => attempt(() => api.openFilterLog($("#account").value));

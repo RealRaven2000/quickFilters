@@ -2496,7 +2496,7 @@
     "message": "Verifique se os filtros ativos podem ser executados ao receber correio, periodicamente ou manualmente."
   },
   "troubleshooter.disable": {
-    "message": "Desativar filtro…"
+    "message": "Desativar…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Não avisar até reiniciar o Thunderbird"
@@ -2628,7 +2628,7 @@
     "message": "Abrir resolução de problemas dos filtros…"
   },
   "troubleshooter.openAddons": {
-    "message": "Abrir gestor de extras"
+    "message": "Gestor de extras"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Abrir o editor mesmo assim…"

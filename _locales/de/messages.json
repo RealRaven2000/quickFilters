@@ -2494,7 +2494,7 @@
     "message": "Prüfen, ob aktive Filter beim Nachrichtenempfang, regelmäßig oder manuell ausgeführt werden können."
   },
   "troubleshooter.disable": {
-    "message": "Filter deaktivieren…"
+    "message": "Deaktivieren…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Bis zum Neustart von Thunderbird nicht mehr warnen"
@@ -2626,7 +2626,7 @@
     "message": "Filter-Fehlerbehebung öffnen…"
   },
   "troubleshooter.openAddons": {
-    "message": "Add-ons-Verwaltung öffnen"
+    "message": "Add-ons-Verwaltung"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Editor trotzdem öffnen…"

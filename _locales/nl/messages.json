@@ -2493,7 +2493,7 @@
     "message": "Controleer of ingeschakelde filters bij ontvangst van post, periodiek of handmatig kunnen worden uitgevoerd."
   },
   "troubleshooter.disable": {
-    "message": "Filter uitschakelen…"
+    "message": "Uitschakelen…"
   },
   "troubleshooter.dontWarnUntilRestart": {
     "message": "Niet meer waarschuwen tot Thunderbird opnieuw start"
@@ -2625,7 +2625,7 @@
     "message": "Probleemoplosser voor filters openen…"
   },
   "troubleshooter.openAddons": {
-    "message": "Add-onbeheer openen"
+    "message": "Add-onbeheer"
   },
   "troubleshooter.openEditorAnyway": {
     "message": "Editor toch openen…"
