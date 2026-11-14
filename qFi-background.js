@@ -1172,7 +1172,7 @@ function registerNotifyListener() {
       case "test-storage-editor":
         webExtensionStorageEditor.open({
           storageArea: "local",
-          baseFilter: "debug.",
+          baseFilter: "settings.",
           type: "popup",
           showTopLevelKey: false,
         });
