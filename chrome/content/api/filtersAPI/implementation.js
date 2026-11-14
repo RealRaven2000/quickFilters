@@ -20,6 +20,21 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
       });
     };
     const t = (key, substitutions = []) => context.extension.localeData.localizeMessage(key, substitutions.map(String));
+    // Summary initialization is optional: failure must never break filter discovery.
+    let summarizeActions;
+    const getFilterActionText = async (filter) => {
+      if (!summarizeActions) {
+        const actionSummaryScope = {};
+        loadPackageScript("chrome/content/api/filtersAPI/action-summary.js", actionSummaryScope);
+        // Reuse the mail window's native constructor; no sandbox or new window binding.
+        const Localization = Services.wm.getMostRecentWindow("mail:3pane")?.Localization;
+        if (!Localization) throw new Error("Mail window Localization unavailable");
+        summarizeActions = actionSummaryScope.createFilterActionSummary({
+          MailServices, ChromeUtils, Components, t, Localization,
+        });
+      }
+      return summarizeActions(filter);
+    };
     const backupAPI = { Services, IOUtils, Components, ChromeUtils, console, t };
     loadPackageScript("chrome/content/api/filtersAPI/backup.js", backupAPI);
     const restoreAPI = { Services, Components, ChromeUtils, console, t };
@@ -37,6 +52,7 @@ var FiltersAPI = class extends ExtensionCommon.ExtensionAPI {
       getSessionStorage: () => context.apiCan.findAPIPath("storage").session });
     return {
       FiltersAPI: {
+        getFilterActionText: async (filter) => getFilterActionText(filter),
         getTroubleshooterInfo: async () => troubleshooterAPI.getTroubleshooterInfo(),
         beginTroubleshooting: async () => troubleshooterAPI.beginTroubleshooting(),
         endTroubleshooting: async (session) => troubleshooterAPI.endTroubleshooting(session),

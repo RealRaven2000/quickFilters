@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Merge"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "This filter has no actions."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Loading actions…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "The actions of this filter could not be loaded."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Selected Filter"
+  },
   "assistant.merge.targetSelected": {
     "message": "Target Filter selected"
   },

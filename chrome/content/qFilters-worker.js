@@ -604,6 +604,18 @@ quickFilters.Worker = {
   
   createQuickFilterLock: null,
 
+  // Developer recovery command: let awaiting workers unwind through their normal finally blocks.
+  cancelBlockedAssistantRequests: function () {
+    const pending = quickFilters._pendingAssistantRequests || {};
+    const requests = Object.entries(pending);
+    for (const [id, resolve] of requests) {
+      delete pending[id];
+      resolve({ result: "cancelled", params: {} });
+    }
+    quickFilters.Util.logToConsole(`Cancelled ${requests.length} pending assistant request(s).`);
+    return requests.length;
+  },
+
   createQuickFilter: async function (params) {
     if (this.createQuickFilterLock) {
       quickFilters.Util.logDebug(

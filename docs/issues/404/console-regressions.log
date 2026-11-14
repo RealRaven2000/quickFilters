@@ -1,0 +1,36 @@
+QuickFolders {INTERFACE} 12:34:1.422  [1527 ms]   
+ patchToolbarTheme(activate) for tab -1 - medium - thunderbirddaily 67 - Mozilla Thunderbird Beta 
+Object { win: ChromeWindow chrome://messenger/content/messenger.xhtml, doc: HTMLDocument chrome://messenger/content/messenger.xhtml, toolbarId: "QuickFolders-Toolbar" }
+ 
+activate { target: ChromeWindow chrome://messenger/content/messenger.xhtml, isTrusted: true, srcElement: ChromeWindow chrome://messenger/content/messenger.xhtml, currentTarget: ChromeWindow chrome://messenger/content/messenger.xhtml, eventPhase: 2, bubbles: true, cancelable: true, returnValue: true, defaultPrevented: false, composed: false, … }
+quickfolders-util.js:1427:13
+QuickFolders {INTERFACE} 12:34:1.577  [155 ms]   
+ onTabSelected()
+ folder = medium quickfolders-util.js:1427:13
+QuickFolders {INTERFACE} 12:34:2.118  [541 ms]   
+ patching toolbar QuickFolders-Toolbar to bright mode.
+quickfolders-util.js:1427:13
+quickFilters message context menu 
+Object { menuItemId: "createFromMailContext", parentMenuItemId: 4, viewType: undefined, editable: false, pageUrl: undefined, selectedMessages: {…}, displayedFolder: {…}, modifiers: [], button: 0 }
+ 
+Object { id: 2, index: 0, windowId: 1, highlighted: true, active: true, status: "complete", width: 777, height: 388, groupId: -1, splitViewId: -1, … }
+qFi-background.js:1557:17
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+quickFilters message context menu 
+Object { menuItemId: "createFromMailContext", parentMenuItemId: 4, viewType: undefined, editable: false, pageUrl: undefined, selectedMessages: {…}, displayedFolder: {…}, modifiers: [], button: 0 }
+ 
+Object { id: 2, index: 0, windowId: 1, highlighted: true, active: true, status: "complete", width: 777, height: 388, groupId: -1, splitViewId: -1, … }
+qFi-background.js:1557:17
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114

@@ -64,7 +64,6 @@ async function formatFolderPath(folder) {
   }
 }
 
-
 const quickFiltersPrefs = {
   _map: {
     selectedTemplate: "filters.currentTemplate",
@@ -87,7 +86,7 @@ const quickFiltersPrefs = {
 
     if (id.startsWith("debug")) {
       const { debug } = await browser.storage.local.get({ debug: {} });
-      if(id==="debug") {
+      if (id === "debug") {
         return debug?.debugActive ?? Preferences.DebugDefaults.debugActive;
       }
       return debug?.[id] ?? Preferences.DebugDefaults[id];
@@ -140,7 +139,7 @@ function resizeWindowToContent() {
   };
 
   const activeStep = document.querySelector(".step:not(.hidden)");
-  const main = document.getElementById("main"); 
+  const main = document.getElementById("main");
   const header = document.getElementById("header");
   const footer = document.getElementById("assistant-buttons");
 
@@ -158,7 +157,7 @@ function resizeWindowToContent() {
   const EXTRA_PADDING = 20;
 
   const desiredHeight =
-    captionHeight + stepHeight + footerHeight + headerHeight + mainPaddingTop + EXTRA_PADDING ;
+    captionHeight + stepHeight + footerHeight + headerHeight + mainPaddingTop + EXTRA_PADDING;
 
   const currentHeight = captionHeight + window.innerHeight;
 
@@ -180,8 +179,6 @@ function resizeWindowToContent() {
     height: desiredHeight,
   });
 }
-
-
 
 quickFilters.Assistant = {
   selectedMergedFilterIndex: -1,
@@ -404,26 +401,28 @@ quickFilters.Assistant = {
   },
 
   cancelTemplate: async function () {
-    await quickFilters.Util.logDebug("cancelTemplate()");
+    if (this.hasSentResult) {
+      return true;
+    }
     quickFilters.Assistant.initialised = false; // avoid templateSelect timer
     this.hasSentResult = true;
-    browser.runtime.sendMessage({
-      command: "assistantResult",
-      requestId,
-      result: "cancelled",
-      params: {
-        answer: false,
-        mergeFilter: null,
-      },
-    });
-    await quickFilters.Util.logDebug("after sendMessage(assistantResult)", {
-      requestId: requestId,
-      answer: false,
-      mergeFilters: null,
-    });
-    setTimeout(() => {
-      window.close();
-    }, 50);
+    // Send immediately and await acknowledgement before closing the page.
+    try {
+      await browser.runtime.sendMessage({
+        command: "assistantResult",
+        requestId,
+        result: "cancelled",
+        params: {
+          answer: false,
+          mergeFilter: null,
+        },
+      });
+    } catch (error) {
+      this.hasSentResult = false;
+      console.error("quickFilters: cancellation was not acknowledged", error);
+      return false;
+    }
+    window.close();
     return true;
   },
 
@@ -442,24 +441,71 @@ quickFilters.Assistant = {
     const isItemSelected = list.selectedIndex >= 0;
     chkMerge.checked = isItemSelected;
     chkCreateNew.checked = !isItemSelected;
+    this.updateMergeActionSummary();
   },
 
   selectMatch: function (list) {
     const isMerge = document.getElementById("chkMerge");
     const isItemSelected = list.selectedIndex >= 0;
     isMerge.checked = isItemSelected;
+    this.updateMergeActionSummary();
   },
 
   selectMerge: function (isMerge) {
     this.MatchedFilters.selectedIndex = isMerge.checked ? 0 : -1;
     let chkNew = document.getElementById("chkCreateNew");
     chkNew.checked = !isMerge.checked;
+    this.updateMergeActionSummary();
   },
 
   selectCreateNew: function (el) {
     let isNew = el.checked;
     this.MatchedFilters.selectedIndex = isNew ? -1 : 0;
     document.getElementById("chkMerge").checked = !isNew;
+    this.updateMergeActionSummary();
+  },
+
+  mergeActionRequest: 0,
+  async updateMergeActionSummary() {
+    const summary = document.getElementById("mergeActionSummary");
+    const active = document.getElementById("chkMerge").checked;
+    summary.classList.toggle("inactive", !active);
+    const candidate = this.mergeCandidates[this.MatchedFilters.selectedIndex];
+    // Preserve the last selected summary when creating a new filter.
+    if (!candidate) {
+      return;
+    }
+    const request = ++this.mergeActionRequest;
+    const name = document.getElementById("mergeSelectedName");
+    const actions = document.getElementById("mergeSelectedActions");
+    const status = document.getElementById("mergeActionStatus");
+    const message = (key) => messenger.i18n.getMessage(`assistant.merge.${key}`);
+    summary.hidden = false;
+    name.textContent = candidate.filterName;
+    actions.replaceChildren();
+    status.textContent = message("actionsLoading");
+    try {
+      const result = await messenger.FiltersAPI.getFilterActionText({
+        accountId: candidate.accountId,
+        filterName: candidate.filterName,
+      });
+      if (request !== this.mergeActionRequest) {
+        return;
+      }
+      name.textContent = result.filterName;
+      for (const text of result.actions) {
+        const item = document.createElement("li");
+        item.textContent = text;
+        actions.appendChild(item);
+      }
+      status.textContent = result.actions.length ? "" : message("actionsEmpty");
+    } catch (error) {
+      if (request !== this.mergeActionRequest) {
+        return;
+      }
+      status.textContent = message("actionsUnavailable");
+      console.warn("quickFilters: cannot summarize selected filter actions", error);
+    }
   },
 
   getCurrentFilterTemplate: async function () {
@@ -685,7 +731,6 @@ quickFilters.Assistant = {
       );
     }
 
-
     if (hasCustomTemplates) {
       // add custom template(s)
       // from local folders account
@@ -694,12 +739,9 @@ quickFilters.Assistant = {
         command: "getFilters",
         sourceUri: "local",
       });
-      await util.logHighlightDebug(
-        " loadAssistant() ",
-        util.debugStyleImportant,
-        "getFilters",
-        { filterItems }
-      );
+      await util.logHighlightDebug(" loadAssistant() ", util.debugStyleImportant, "getFilters", {
+        filterItems,
+      });
 
       const firstItem = templateList.firstElementChild;
 
@@ -782,9 +824,8 @@ quickFilters.Assistant = {
     switch (urlParams.get("currentCmd")) {
       case "mergeList":
         this.NextButton.textContent = messenger.i18n.getMessage("assistant.merge");
-        document.getElementById("mergeSummary").innerText = messenger.i18n.getMessage(
-          "merge.add.summary"
-        );
+        document.getElementById("mergeSummary").innerText =
+          messenger.i18n.getMessage("merge.add.summary");
         document.getElementById("mergeInstructions").innerText = messenger.i18n.getMessage(
           "assistant.mergeAddInstructions"
         );
@@ -796,15 +837,12 @@ quickFilters.Assistant = {
         document.getElementById("lblCreateNew").hidden = true;
         break;
       default:
-        document.getElementById("mergeSummary").innerText = messenger.i18n.getMessage(
-          "merge.found"
-        );
-        document.getElementById("mergeInstructions").innerText = messenger.i18n.getMessage(
-          "merge.instructions"
-        );
-        document.getElementById("filterDescription").innerText = messenger.i18n.getMessage(
-          "merge.target.select"
-        );
+        document.getElementById("mergeSummary").innerText =
+          messenger.i18n.getMessage("merge.found");
+        document.getElementById("mergeInstructions").innerText =
+          messenger.i18n.getMessage("merge.instructions");
+        document.getElementById("filterDescription").innerText =
+          messenger.i18n.getMessage("merge.target.select");
         this.NextButton.label = messenger.i18n.getMessage("assistant.next");
     }
     // build a preview

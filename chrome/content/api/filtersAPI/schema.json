@@ -4,6 +4,21 @@
     "description": "Experimental API for filter discovery, backup, restore and review.",
     "functions": [
       {
+        "name": "getFilterActionText",
+        "type": "function",
+        "async": true,
+        "description": "Return the selected filter name, enabled state and a localized string for every action, in stored order. No troubleshooter session is required.",
+        "parameters": [{ "name": "filter", "type": "object", "properties": {
+          "accountId": { "type": "string" },
+          "filterName": { "type": "string" }
+        }, "required": ["accountId", "filterName"] }],
+        "returns": { "type": "object", "properties": {
+          "filterName": { "type": "string" },
+          "enabled": { "type": "boolean" },
+          "actions": { "type": "array", "items": { "type": "string" } }
+        } }
+      },
+      {
         "name": "convertFilterToApi",
         "type": "function",
         "description": "Convert a Thunderbird filter to a tuple containing account URI and filter name.",

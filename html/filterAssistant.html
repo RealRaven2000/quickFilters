@@ -49,18 +49,24 @@
         </p>
 
         <label>
-          <input type="checkbox" id="chkMerge"">
+          <input type="checkbox" id="chkMerge">
           __MSG_assistant.mergeWithExisting__
         </label>
 
-        <div id="filterArea" class="flex-row" style="gap: 1em; align-items: flex-start;">
+        <div id="filterArea">
           <!--  marge matches are populated dynamically -->
           <select id="filterMatches" size="6">
           </select>
 
-          <p id="filterDescription" style="margin: 0;">
-            __MSG_merge.target.select__
-          </p>
+          <div id="mergeTargetDetails">
+            <p id="filterDescription">__MSG_merge.target.select__</p>
+            <section id="mergeActionSummary" hidden aria-labelledby="mergeSelectedHeading" aria-live="polite">
+              <div id="mergeSelectedHeading">__MSG_assistant.merge.selectedFilter__</div>
+              <h3 id="mergeSelectedName"></h3>
+              <ul id="mergeSelectedActions"></ul>
+              <p id="mergeActionStatus"></p>
+            </section>
+          </div>
         </div>
 
         <label id="lblCreateNew">
@@ -71,11 +77,10 @@
 
       <section class="step hidden" id="stepDetail">
 
-        <div class="step" style="display: flex; gap: 1rem;">
+        <div class="step">
           <!-- Template list -->
           <select id="qf-filter-templates" size="8" 
-                  title="__MSG_assistant.details.templates.tip__" 
-                  style="flex-grow: 2;">
+                  title="__MSG_assistant.details.templates.tip__">
             <option value="from">__MSG_assistant.templates.from__</option>
             <option value="domain">__MSG_assistant.templates.domain__</option>
             <option value="to">__MSG_assistant.templates.to__</option>
@@ -87,7 +92,7 @@
           </select>
 
           <!-- Actions fieldset -->
-          <fieldset title="__MSG_assistant.actions.tooltip__" style="display: flex; flex-direction: column; gap: 0.25rem;">
+          <fieldset title="__MSG_assistant.actions.tooltip__">
             <legend>__MSG_assistant.actions.caption__</legend>
             <label><input type="checkbox" id="chkActionTargetFolder" checked> __MSG_assistant.actions.targetFolder__</label>
             <label><input type="checkbox" id="chkActionTags"> __MSG_assistant.actions.tag__</label>
@@ -99,7 +104,7 @@
           </fieldset>
 
           <!-- Steps fieldset -->
-          <fieldset title="__MSG_assistant.nextSteps.tooltip__" style="display: flex; flex-direction: column; gap: 0.25rem;">
+          <fieldset title="__MSG_assistant.nextSteps.tooltip__">
             <legend>__MSG_assistant.nextSteps.caption__</legend>
             <label><input type="checkbox" id="chkShowEditor" 
               title="__MSG_assistant.nextSteps.showEditor.tooltip__"> __MSG_assistant.nextSteps.showEditor__</label>

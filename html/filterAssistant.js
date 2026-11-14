@@ -27,7 +27,7 @@ const startup = async () => {
   });  
 
   const filterMatches = document.getElementById("filterMatches");
-  filterMatches.addEventListener("click", (event) => {
+  filterMatches.addEventListener("change", (event) => {
     quickFilters.Assistant.selectMatchFromList(event.currentTarget);
   });
   filterMatches.addEventListener("dblclick", (event) => {
@@ -46,35 +46,8 @@ const startup = async () => {
   });
   
 
-  window.addEventListener("beforeunload", () => {
-    // save position using synchronous DOM properties — direct storage write, no message round-trip
-    browser.storage.local.set({
-      "assistant.window.bounds": {
-        left: window.screenX,
-        top: window.screenY,
-        width: window.outerWidth,
-        height: window.outerHeight,
-      },
-    }).catch(() => {});
-    if (!quickFilters.Assistant.hasSentResult) {
-      quickFilters.Assistant.cancelTemplate();
-    }
-  });
-
   // [issue 380] ensure assistant comes to front on load (guard against context menu / async open)
   setTimeout(() => window.focus(), 250);
-
-  // save position whenever the assistant loses focus (catches post-drag repositioning)
-  window.addEventListener("blur", () => {
-    browser.storage.local.set({
-      "assistant.window.bounds": {
-        left: window.screenX,
-        top: window.screenY,
-        width: window.outerWidth,
-        height: window.outerHeight,
-      },
-    }).catch(() => {});
-  });
 
   // [issue 380] restore focus to assistant if it loses focus (floating palette behaviour)
   const { settings } = await browser.storage.local.get({ settings: {} });

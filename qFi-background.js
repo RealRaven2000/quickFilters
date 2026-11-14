@@ -1,4 +1,5 @@
 import { Preferences } from "./scripts/preferences.js";
+import { createAssistantLifecycle } from "./html/assistant-lifecycle.mjs";
 import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
 import { compareVersions } from "./scripts/mozilla-version-comparator.js";
@@ -28,7 +29,14 @@ var callbacks = [];
 var AssistantActive = false;
 var assistantWindowId = null; // [issue 380] track assistant window for focus restore
 var assistantCallerWindowId = null; // [issue 380] the window that launched the assistant
-const ASSISTANT_BOUNDS_KEY = "assistant.window.bounds"; // persisted {left, top, width, height}
+const assistantLifecycle = createAssistantLifecycle({
+  browser,
+  resolveAssistant: (...args) => messenger.Utilities.resolveAssistant(...args),
+  isDebug: () => Preferences.isDebug("assistant"),
+  onWindowClosed: (windowId) => {
+    if (assistantWindowId === windowId) assistantWindowId = null;
+  },
+});
 
 
 function versionGreater(v1, v2) {
@@ -478,11 +486,7 @@ async function displayAssistant(data) {
     assistantCallerWindowId = callerWin?.id ?? null;
   } catch { assistantCallerWindowId = null; }
   // restore last saved bounds if available
-  let savedBounds = null;
-  try {
-    const stored = await browser.storage.local.get(ASSISTANT_BOUNDS_KEY);
-    savedBounds = stored?.[ASSISTANT_BOUNDS_KEY] ?? null;
-  } catch { /* ignore */ }
+  const savedBounds = await assistantLifecycle.readSavedBounds();
   const createParams = {
     url: url.toString(),
     type: "popup",
@@ -495,7 +499,8 @@ async function displayAssistant(data) {
     createParams.top = savedBounds.top;
   }
   const win = await browser.windows.create(createParams);
-  assistantWindowId = win?.id ?? null; // [issue 380] track for focusAssistant handler
+  assistantLifecycle.trackWindow(win, data?.requestId);
+  assistantWindowId = win?.id ?? null; // [issue 380] track assistant window for focus restore
   // [issue 380] explicitly raise the assistant to front after creation
   if (assistantWindowId) {
     browser.windows.update(assistantWindowId, { focused: true }).catch(() => {});
@@ -1087,9 +1092,9 @@ function registerNotifyListener() {
 
       case "quickFiltersAssistant": {
         try {
-          displayAssistant(data);
+          await displayAssistant(data);
         } catch (ex) {
-          console.logError("displayAssistant failed!", ex);
+          console.error("displayAssistant failed!", ex);
           if (data?.requestId) {
             if (data.requestId.startsWith("assistant_")) {
               await messenger.Utilities.resolveAssistant(data.requestId, "error", {
@@ -1229,32 +1234,7 @@ async function main() {
       );
       return filters;
     },
-    assistantResult: async (data, _sender) => {
-      const { requestId, result } = data;
-      const isDebug = Preferences.isDebug("assistant");
-      if (isDebug) {
-        console.log(`Resolving assistantResult[${requestId}]: with result "${result}"`, data);
-      }
-      if (requestId) {
-        const mergeFilter = data.params?.mergeFilter || null;
-        const resultIdx = mergeFilter ? mergeFilter.index : -1; // 0 is a valid index
-        const template = data.params?.template || null;
-
-        if (data.params?.answer && !data.params.template) {
-          console.warn("quickFilters: assistant returned without a template", {
-            template: data.params.template,
-            resultIdx,
-          });
-        }
-        // { index, filterName , accountId }
-        await messenger.Utilities.resolveAssistant(requestId, result, {
-          answer: data.params?.answer,
-          selectedMergedFilterIndex: resultIdx,
-          mergeFilter,
-          template,
-        });
-      }
-    },
+    assistantResult: (data, sender) => assistantLifecycle.handleResult(data, sender),
     focusAssistant: async (_data, _sender) => {
       // [issue 380] only steal focus back if the currently focused window is the known caller
       // (avoids hijacking a composer or other window the user intentionally opened)

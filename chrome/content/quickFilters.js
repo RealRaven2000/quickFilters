@@ -2365,6 +2365,7 @@ quickFilters.patchMailPane = () => {
               <menuitem id="quickfilters-menu-registration" label="__MSG_registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menu label="Test" id="qFilters-menu-test" class="menu-iconic">
                 <menupopup>
+                  <menuitem id="quickfilters-menu-test-cancel-assistant" label="Cancel blocked assistant promise" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-storage-editor" label="Browser Storage editor" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-htmlAssistant" label="quickFilters Assistant - HTML version!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-midnight" label="Test - Label update (midnight)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>

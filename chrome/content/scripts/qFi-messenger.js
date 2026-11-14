@@ -212,6 +212,9 @@ async function onLoad(activatedWhileWindowOpen) {
           context: "fromSelectedMessages",
         });
         break;
+      case "quickfilters-menu-test-cancel-assistant":
+        window.quickFilters.Worker.cancelBlockedAssistantRequests();
+        break;
       case "quickfilters-menu-test-midnight":
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "updateLicenseTimer" });
         break;

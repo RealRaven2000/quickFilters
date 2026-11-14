@@ -1,0 +1,260 @@
+quickFilters 13:4:13.54 [48640 ms]   
+ cancelTemplate() assistant-util.js:42:13
+quickFilters 13:4:13.57 [3 ms]   
+ after sendMessage(assistantResult) 
+Object { requestId: "assistant_6af85c1b", answer: false, mergeFilters: null }
+assistant-util.js:42:13
+Promise rejected after context unloaded: Actor 'Conduits' destroyed before query 'RuntimeMessage' was resolved
+assistant-dlg.js:410
+quickFilters API resolveAssistant(assistant_6af85c1b) called with result: cancelled, params: [object Object] qFilters-utils.js:1058:13
+quickFilters API Resolving assistant_6af85c1b with Result: 
+Object { result: "cancelled", params: {…} }
+qFilters-utils.js:1058:13
+quickFilters 13:4:13.108  [43179 ms]   
+ Filter creation cancelled qFilters-utils.js:963:13
+quickFilters 13:4:13.108  [0 ms]   
+ createQuickFilter() lock released. qFilters-utils.js:963:13
+quickFilters message context menu 
+Object { menuItemId: "createFromMailContext", parentMenuItemId: 8, viewType: undefined, editable: false, pageUrl: undefined, selectedMessages: {…}, displayedFolder: {…}, modifiers: [], button: 0 }
+ 
+Object { id: 2, index: 0, windowId: 1, highlighted: true, active: true, status: "complete", width: 777, height: 382, groupId: -1, splitViewId: -1, … }
+qFi-background.js:1557:17
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+quickFilters {CREATEFILTER.EXEC} 13:4:19.622  [6514 ms]   
+ createFilterQuickFilterExec() start 
+Object { sourceFolder: null, targetFolder: XPCWrappedNative_NoHelper, messageList: (1) […], selectedApiMessages: (1) […], filterAction: 1, filterActionExt: null, isMsgContext: true, context: "fromMessageContext" }
+qFilters-utils.js:1085:13
+quickFilters 13:4:19.623  [1 ms]   
+ getSourceFolder() - no valid accountKey in message, trying to find a match via recipients vs own accounts... qFilters-utils.js:963:13
+quickFilters 13:4:19.623  [0 ms]   
+ getSourceFolder() - no account from recipients, trying to find a match via author vs own accounts... qFilters-utils.js:963:13
+HTML Assistant Request Id: assistant_6af85c53 qFilters-utils.js:1058:13
+quickFilters {BUILDFILTER} 13:4:19.757  [134 ms]   
+ Calling background with function: quickFiltersAssistant
+Current template: "from" 
+Object { func: "quickFiltersAssistant", context: "fromMessageContext", preview: {…}, requestId: "assistant_6af85c53", selectedApiMessages: (1) […], filterAction: 1, filterActionExt: null, sourceFolder: {…}, targetFolder: {…} }
+qFilters-utils.js:1085:13
+quickFilters 13:4:19.772  [15 ms]   
+ displayAssistant()
+context=fromMessageContext
+requestId=assistant_6af85c53 qFilters-utils.js:963:13
+quickFilters 13:4:19.772  [0 ms]   
+ assistantURL=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+quickFilters 13:4:19.772  [0 ms]   
+ url=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 13:4:19.780  [8 ms]   
+ FiltersAPI.getFilters(imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX) qFilters-utils.js:963:13
+quickFilters 13:4:19.780  [0 ms]   
+ found 83 filters for server[server1] thunderbirddaily 67. Iterating... qFilters-utils.js:963:13
+Selected Mails from API: 
+Array [ {…} ]
+qFi-background.js:414:13
+selectedFilters: undefined qFi-background.js:415:13
+onCreated() - Initial tab: 
+Object { id: 21, index: 0, windowId: 241, highlighted: true, active: true, status: "complete", width: 641, height: 493, groupId: -1, splitViewId: -1, … }
+qf-background.js:1107:17
+load event fired! filterAssistant.js:128:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 13:4:20.206  [426 ms]   
+ FiltersAPI.getFilters(mailbox://nobody@Local%20Folders) qFilters-utils.js:963:13
+quickFilters 13:4:20.207  [1 ms]   
+ found 11 filters for server[server2] Local Folders. Iterating... qFilters-utils.js:963:13
+quickFilters [logTime init]
+ loadAssistant: merging possible, found 1 matches assistant-util.js:42:13
+quickFilters {ASSISTANT.MSG} 13:4:20.230 [19 ms]   
+ previewFromApi() Loading message id: 3... assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:4:20.234 [4 ms]   
+ initPreview() 
+Object { preview: {…} }
+assistant-util.js:61:13
+quickFilters 13:4:20.239 [5 ms]   
+ loadAssistant: isMergePossible=true, autoSelect:true, silentMerge:false assistant-util.js:42:13
+quickFilters 13:4:20.240 [1 ms]   
+ Merge filter: Selecting merge as default assistant-util.js:42:13
+quickFilters 13:4:20.243 [3 ms]   
+ selectTemplateItemTimer() assistant-util.js:42:13
+quickFilters 13:4:22.254 [2011 ms]   
+ cancelTemplate() assistant-util.js:42:13
+quickFilters 13:4:22.258 [4 ms]   
+ after sendMessage(assistantResult) 
+Object { requestId: "assistant_6af85c53", answer: false, mergeFilters: null }
+assistant-util.js:42:13
+Promise rejected after context unloaded: Actor 'Conduits' destroyed before query 'RuntimeMessage' was resolved
+assistant-dlg.js:410
+quickFilters API resolveAssistant(assistant_6af85c53) called with result: cancelled, params: [object Object] qFilters-utils.js:1058:13
+quickFilters API Resolving assistant_6af85c53 with Result: 
+Object { result: "cancelled", params: {…} }
+qFilters-utils.js:1058:13
+quickFilters 13:4:22.372  [2165 ms]   
+ Filter creation cancelled qFilters-utils.js:963:13
+quickFilters 13:4:22.372  [0 ms]   
+ createQuickFilter() lock released. qFilters-utils.js:963:13
+quickFilters message context menu 
+Object { menuItemId: "createFromMailContext", parentMenuItemId: 8, viewType: undefined, editable: false, pageUrl: undefined, selectedMessages: {…}, displayedFolder: {…}, modifiers: [], button: 0 }
+ 
+Object { id: 2, index: 0, windowId: 1, highlighted: true, active: true, status: "complete", width: 777, height: 338, groupId: -1, splitViewId: -1, … }
+qFi-background.js:1557:17
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+quickFilters {CREATEFILTER.EXEC} 13:4:32.765  [10393 ms]   
+ createFilterQuickFilterExec() start 
+Object { sourceFolder: null, targetFolder: XPCWrappedNative_NoHelper, messageList: (1) […], selectedApiMessages: (1) […], filterAction: 1, filterActionExt: null, isMsgContext: true, context: "fromMessageContext" }
+qFilters-utils.js:1085:13
+quickFilters 13:4:32.766  [1 ms]   
+ getSourceFolder() - no valid accountKey in message, trying to find a match via recipients vs own accounts... qFilters-utils.js:963:13
+quickFilters 13:4:32.766  [0 ms]   
+ getSourceFolder() - no account from recipients, trying to find a match via author vs own accounts... qFilters-utils.js:963:13
+HTML Assistant Request Id: assistant_6af85c61 qFilters-utils.js:1058:13
+quickFilters {BUILDFILTER} 13:4:33.231  [465 ms]   
+ Calling background with function: quickFiltersAssistant
+Current template: "from" 
+Object { func: "quickFiltersAssistant", context: "fromMessageContext", preview: {…}, requestId: "assistant_6af85c61", selectedApiMessages: (1) […], filterAction: 1, filterActionExt: null, sourceFolder: {…}, targetFolder: {…} }
+qFilters-utils.js:1085:13
+quickFilters 13:4:33.232  [1 ms]   
+ displayAssistant()
+context=fromMessageContext
+requestId=assistant_6af85c61 qFilters-utils.js:963:13
+quickFilters 13:4:33.233  [1 ms]   
+ assistantURL=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+quickFilters 13:4:33.233  [0 ms]   
+ url=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 13:4:33.234  [1 ms]   
+ FiltersAPI.getFilters(imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX) qFilters-utils.js:963:13
+quickFilters 13:4:33.234  [0 ms]   
+ found 83 filters for server[server1] thunderbirddaily 67. Iterating... qFilters-utils.js:963:13
+Selected Mails from API: 
+Array [ {…} ]
+qFi-background.js:414:13
+selectedFilters: undefined qFi-background.js:415:13
+onCreated() - Initial tab: 
+Object { id: 22, index: 0, windowId: 250, highlighted: true, active: true, status: "complete", width: 641, height: 493, groupId: -1, splitViewId: -1, … }
+qf-background.js:1107:17
+load event fired! filterAssistant.js:128:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 13:4:33.641  [407 ms]   
+ FiltersAPI.getFilters(mailbox://nobody@Local%20Folders) qFilters-utils.js:963:13
+quickFilters 13:4:33.641  [0 ms]   
+ found 11 filters for server[server2] Local Folders. Iterating... qFilters-utils.js:963:13
+quickFilters [logTime init]
+ loadAssistant: merging possible, found 1 matches assistant-util.js:42:13
+quickFilters {ASSISTANT.MSG} 13:4:33.666 [21 ms]   
+ previewFromApi() Loading message id: 6... assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:4:33.672 [6 ms]   
+ initPreview() 
+Object { preview: {…} }
+assistant-util.js:61:13
+quickFilters 13:4:33.676 [4 ms]   
+ loadAssistant: isMergePossible=true, autoSelect:true, silentMerge:false assistant-util.js:42:13
+quickFilters 13:4:33.676 [0 ms]   
+ Merge filter: Selecting merge as default assistant-util.js:42:13
+quickFilters 13:4:33.678 [2 ms]   
+ selectTemplateItemTimer() assistant-util.js:42:13
+Promise resolved after context unloaded
+filterAssistant.js:51
+Promise resolved after context unloaded
+assistant-util.js:65
+can't access dead object IndexedDB.sys.mjs:93:46
+Promise rejected after context unloaded: An unexpected error occurred
+filterAssistant.js:69
+quickFilters message context menu 
+Object { menuItemId: "createFromMailContext", parentMenuItemId: 8, viewType: undefined, editable: false, pageUrl: undefined, selectedMessages: {…}, displayedFolder: {…}, modifiers: [], button: undefined }
+ 
+Object { id: 2, index: 0, windowId: 1, highlighted: true, active: true, status: "complete", width: 777, height: 338, groupId: -1, splitViewId: -1, … }
+qFi-background.js:1557:17
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+This site appears to use a scroll-linked positioning effect. This may not work well with asynchronous panning; see https://firefox-source-docs.mozilla.org/performance/scroll-linked_effects.html for further details and to join the discussion on related tools and features! index.html
+quickFilters message context menu 
+Object { menuItemId: "createFromMailContext", parentMenuItemId: 8, viewType: undefined, editable: false, pageUrl: undefined, selectedMessages: {…}, displayedFolder: {…}, modifiers: [], button: 0 }
+ 
+Object { id: 2, index: 0, windowId: 1, highlighted: true, active: true, status: "complete", width: 777, height: 338, groupId: -1, splitViewId: -1, … }
+qFi-background.js:1557:17
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+WebExtensions: Ignoring duplicate doCommand for createFromMailContext qFi-messenger.js:114
+listener_doCommand() 
+Object { commandItem: {…}, tabId: 2, windowId: 1, messages: {…}, context: "fromMessageContext" }
+qFilters-utils.js:1058:13
