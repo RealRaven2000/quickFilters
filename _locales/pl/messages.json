@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Łączyć"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Ten filtr nie ma żadnych czynności."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Wczytywanie czynności…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Nie udało się wczytać czynności tego filtra."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Wybrany filtr"
+  },
   "assistant.merge.targetSelected": {
     "message": "Wybrano filtr docelowy"
   },

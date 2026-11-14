@@ -73,6 +73,18 @@
   "assistant.merge": {
     "message": "合併"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "此篩選器沒有任何動作。"
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "正在載入動作…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "無法載入此篩選器的動作。"
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "選取的篩選器"
+  },
   "assistant.merge.targetSelected": {
     "message": "已選擇目標過濾器"
   },

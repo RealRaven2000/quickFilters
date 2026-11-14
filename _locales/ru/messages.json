@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Объединить"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "У этого фильтра нет действий."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Загрузка действий…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Не удалось загрузить действия этого фильтра."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Выбранный фильтр"
+  },
   "assistant.merge.targetSelected": {
     "message": "Целевой фильтр выбран"
   },

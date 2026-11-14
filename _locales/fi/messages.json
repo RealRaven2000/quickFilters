@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Yhdistää"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Tässä suodattimessa ei ole toimintoja."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Ladataan toimintoja…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Tämän suodattimen toimintoja ei voitu ladata."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Valittu suodatin"
+  },
   "assistant.merge.targetSelected": {
     "message": "Kohdesuodatin valittu"
   },

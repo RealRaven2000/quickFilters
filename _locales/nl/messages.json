@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Samenvoegen"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Dit filter heeft geen acties."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Acties laden…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "De acties van dit filter konden niet worden geladen."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Geselecteerd filter"
+  },
   "assistant.merge.targetSelected": {
     "message": "Doelfilter geselecteerd"
   },

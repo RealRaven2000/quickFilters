@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Kombinieren"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Dieser Filter hat keine Aktionen."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Aktionen werden geladen…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Die Aktionen dieses Filters konnten nicht geladen werden."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Ausgewählter Filter"
+  },
   "assistant.merge.targetSelected": {
     "message": "Zielfilter ausgewählt"
   },

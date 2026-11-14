@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Slå samman"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Det här filtret har inga åtgärder."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Läser in åtgärder…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Det gick inte att läsa in filtrets åtgärder."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Valt filter"
+  },
   "assistant.merge.targetSelected": {
     "message": "Välj målfilter"
   },

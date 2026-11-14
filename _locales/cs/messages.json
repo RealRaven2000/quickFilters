@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Sloučit"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Tento filtr nemá žádné akce."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Načítání akcí…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Akce tohoto filtru se nepodařilo načíst."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Vybraný filtr"
+  },
   "assistant.merge.targetSelected": {
     "message": "Cílový filtr vybrán"
   },

@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "マージ"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "このフィルタには動作が設定されていません。"
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "動作を読み込み中…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "このフィルタの動作を読み込めませんでした。"
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "選択したフィルタ"
+  },
   "assistant.merge.targetSelected": {
     "message": "対象のフィルタを選択"
   },

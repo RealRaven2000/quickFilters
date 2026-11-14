@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "合并"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "此过滤器没有任何操作。"
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "正在加载操作…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "无法加载此过滤器的操作。"
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "所选过滤器"
+  },
   "assistant.merge.targetSelected": {
     "message": "目标过滤器已选中"
   },

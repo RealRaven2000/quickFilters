@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Unione"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Questo filtro non contiene azioni."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Caricamento delle azioni…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Impossibile caricare le azioni di questo filtro."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Filtro selezionato"
+  },
   "assistant.merge.targetSelected": {
     "message": "Filtro “destinazione” selezionato"
   },

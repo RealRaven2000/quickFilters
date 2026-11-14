@@ -85,6 +85,18 @@
   "assistant.merge": {
     "message": "Merge"
   },
+  "assistant.merge.actionsEmpty": {
+    "message": "Bộ lọc này không có hành động nào."
+  },
+  "assistant.merge.actionsLoading": {
+    "message": "Đang tải các hành động…"
+  },
+  "assistant.merge.actionsUnavailable": {
+    "message": "Không thể tải các hành động của bộ lọc này."
+  },
+  "assistant.merge.selectedFilter": {
+    "message": "Bộ lọc đã chọn"
+  },
   "assistant.merge.targetSelected": {
     "message": "Target Filter selected"
   },
