@@ -132,7 +132,7 @@ async function onLoad(activatedWhileWindowOpen) {
 	const dlg = document.querySelector("dialog");
 	dlg.setAttribute(
     "title",
-    window.quickFilters.Util.getBundleString("qf.templates.customTemplate.label")
+    window.quickFilters.Util.getBundleString("customTemplates")
   );
 	const shadowRoot = dlg.shadowRoot;
 	const okButton = shadowRoot.querySelector('button[dlgtype="accept"]');

@@ -8,6 +8,9 @@
   "account.label": {
     "message": "Konto wählen:"
   },
+  "actions.title": {
+    "message": "Aktionen"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "Es läuft jetzt {bold} Version $addonVer$ {/bold}  auf Thunderbird $appVer$.",
@@ -28,6 +31,167 @@
   "addTag.label": {
     "message": "Schlagwort hinzufügen"
   },
+  "advanced.title": {
+    "message": "Erweitert"
+  },
+  "assistant.actions.caption": {
+    "message": "Aktionen"
+  },
+  "assistant.actions.flag": {
+    "message": "Kennzeichen"
+  },
+  "assistant.actions.flag.accesskey": {
+    "message": "K"
+  },
+  "assistant.actions.priority": {
+    "message": "Priorität"
+  },
+  "assistant.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "assistant.actions.star": {
+    "message": "Stern"
+  },
+  "assistant.actions.star.accesskey": {
+    "message": "S"
+  },
+  "assistant.actions.tag": {
+    "message": "Schlagwörter"
+  },
+  "assistant.actions.tag.accesskey": {
+    "message": "T"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "Zielverzeichnis"
+  },
+  "assistant.actions.tooltip": {
+    "message": "Filter kopiert diese Eigenschaften der originalen Email"
+  },
+  "assistant.createFilter": {
+    "message": "Neuen Filter erzeugen…"
+  },
+  "assistant.createNew": {
+    "message": "Neuen Filter erzeugen"
+  },
+  "assistant.details.templates.tip": {
+    "message": "Bitte eine Vorlage wählen. Die Regeln können im nächsten Schritt angepasst werden."
+  },
+  "assistant.editFilter": {
+    "message": "Filter editieren…"
+  },
+  "assistant.ignoreFolders": {
+    "message": "Der Assistent soll folgende Verzeichnisse ignorieren…"
+  },
+  "assistant.merge": {
+    "message": "Kombinieren"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "Zielfilter ausgewählt"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "Die anderen Filter in dieser Liste werden mit diesem kombiniert und dann gelöscht."
+  },
+  "assistant.mergeFilterRules": {
+    "message": "„$filterName$“ mit neuen Regeln erweitern…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "Mit existierendem Filter kombinieren:"
+  },
+  "assistant.next": {
+    "message": "Weiter"
+  },
+  "assistant.next.createFilter": {
+    "message": "Filter erzeugen…"
+  },
+  "assistant.next.createFilter.shortcut": {
+    "message": "F"
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "Automatisch ausführen"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "Führt nach Erstellung automatisch den Filter im Eingangsverzeichnis aus."
+  },
+  "assistant.nextSteps.caption": {
+    "message": "Nächste Schritte"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "Filter bearbeiten"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "Nach Erstellung die Filter-Eigenschaften bearbeiten."
+  },
+  "assistant.nextSteps.showList": {
+    "message": "Filterliste"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "Zeigt die Filterliste zum testen des neuen Filters."
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "Welche Schritte werden als nächstes angezeigt"
+  },
+  "assistant.templates.custom.description": {
+    "message": "Benutzerdefinierter Filter - Nutzen Sie variable wie %from%, %to% oder %subject%"
+  },
+  "assistant.templates.description.label": {
+    "message": "Beschreibung:"
+  },
+  "assistant.templates.domain": {
+    "message": "Basierend auf Absender-Domäne"
+  },
+  "assistant.templates.domain.description": {
+    "message": "Wie die 'Absender' Vorlage, vergleicht jedoch nur die Domäne (z.B. @xyz.com) der Absenderadresse."
+  },
+  "assistant.templates.from": {
+    "message": "Basierend auf Absender (von)"
+  },
+  "assistant.templates.from.description": {
+    "message": "Die am häufigsten benutzte Vorlage: Sie liest die Email Adresse des Absenders und erzeugt Filterbedingungen für die Felder 'Von' und 'An'. Auf diese Weise können komplette Konversationen mit dem Absender automatisch in ein neues Verzeichnis verschoben werden."
+  },
+  "assistant.templates.list.description": {
+    "message": "Ähnlich zu 'Basierend auf Absender', aber trägt nichts im 'An' Feld ein."
+  },
+  "assistant.templates.maillist": {
+    "message": "Postversandliste"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "Nützlich für Verteiler die das 'List-Id' Feld benutzen; fehlt dieses, wird stattdessen die Absenderadresse extrahiert."
+  },
+  "assistant.templates.multifrom": {
+    "message": "Gruppe (Absender mehrerer mails)"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "Wenn Sie mehrere Emails in ein Verzeichnis ziehen, benutzen Sie diese Vorlage um alle Absender in die Bedingung einzufügen. (Schliesst Ihre eigenen Email Addressen aus)"
+  },
+  "assistant.templates.replyto": {
+    "message": "Basierend auf 'Antwort An'"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "Nur wenn das 'Antwort an' Feld benutzt wird is dieser Filter aktiv."
+  },
+  "assistant.templates.tag": {
+    "message": "Nach Schlagwörtern"
+  },
+  "assistant.templates.tag.description": {
+    "message": "Analysiert die Schlagwörter der Mail und fügt sie den Filterbedingungen hinzu."
+  },
+  "assistant.templates.to": {
+    "message": "Basierend auf Empfänger (an)"
+  },
+  "assistant.templates.to.description": {
+    "message": "Ähnlich zu 'Basierend auf Absender': benutzen Sie diese mit Ihren eigenen Mails - der Empfänger dieser Mail wird in die Felder 'Von' und 'An' eingetragen. Auf diese Weise können komplette Konversationen mit dem Empfänger automatisch in ein neues Verzeichnis verschoben werden."
+  },
+  "assistant.templates.topic": {
+    "message": "Nach Betreff"
+  },
+  "assistant.templates.topic.description": {
+    "message": "Durchsucht den Betreff nach 'eingeklammerten' Ausdrücken, wie z.B. [amo-editors] oder {Kegelclub} und erzeugt daraus Filterbedingungen; viele Mail-Listen benutzen diese Methode, da sie einfach zu konfigurieren und benutzen ist."
+  },
   "assistant.ux.assistant.html": {
     "message": "Assistenten in neuer HTML-Benutzeroberfläche anzeigen"
   },
@@ -42,6 +206,9 @@
   },
   "assistant.ux.title": {
     "message": "Benutzeroberfläche"
+  },
+  "assistant.windowTitle": {
+    "message": "Filter Erstellen"
   },
   "backup.archivingFilters": {
     "message": "{1} Filter archivieren"
@@ -1074,6 +1241,9 @@
   "buyPersonalLicense.button": {
     "message": "Einzel-Lizenz erwerben!"
   },
+  "cancel": {
+    "message": "Abbrechen"
+  },
   "chkAfterJunk.label": {
     "message": "Nach junk Erkennung"
   },
@@ -1299,6 +1469,30 @@
   "customTemplate.title": {
     "message": "quickFilters Benutzerdefinierte Vorlage"
   },
+  "customTemplates": {
+    "message": "Benutzerspezifische Vorlagen"
+  },
+  "customTemplates.create": {
+    "message": "Neues Template…"
+  },
+  "customTemplates.edit": {
+    "message": "Bearbeiten…"
+  },
+  "customTemplates.group": {
+    "message": "Fortgeschrittene Vorlagen"
+  },
+  "customTemplates.replyTo": {
+    "message": "'Antwort an' Vorlage"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "Zeigt die 'Antwort an' (Reply-To) Vorlage an, für Details siehe folgende Bug-Beschreibung:"
+  },
+  "customTemplates.tooltip": {
+    "message": "Erzeugung benutzerspezifischer Vorlagen, für Details siehe folgende Bug-Beschreibung:"
+  },
+  "customTemplates.warn.restriction": {
+    "message": "Sie benötigen eine gültige quickFilters Pro-Lizenz, um neue benutzerdefinierte Vorlagen für den Assistenten zu erstellen."
+  },
   "customVariable.label": {
     "message": "Spezial-Variablen"
   },
@@ -1329,6 +1523,12 @@
   "deleteMessage.label": {
     "message": "Löschen der Nachricht"
   },
+  "disable2wayAddressing.label": {
+    "message": "Zweiweg Mailaddressen abschalten"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "Standardmäßig fügt quickFilters sowohl 'Von' (Absender) und 'An' (Empfänger) in die Suchbedingungen ein, damit die komplette Konversation inklusive der eigenen Emails an diesen Empfänger gefiltert wird. Falls Sie Ihre eigene Email immer im 'Gesendet' Verzeichnis belassen wollen, kann diese Vorgehen hier deaktiviert werden. Das Addon 'Copy Sent to Current' kann benutzt werden um Antworten mit ihren ursprünglichen Emails zusammen zu halten."
+  },
   "domainLicense.email": {
     "message": "Wir kontaktieren Sie über diese Email Adresse um Ihre Domänen-Lizenz erzeugen; bitte erlauben Sie dafür 2 Werktage. Sie können den Domänen-Namen im nächsten Schritt eingeben."
   },
@@ -1343,6 +1543,9 @@
   },
   "donate-heading": {
     "message": "Helfen Sie mit einer einmaligen Spende."
+  },
+  "donate.btn": {
+    "message": "Spenden"
   },
   "donate.label": {
     "message": "Spenden"
@@ -1475,17 +1678,59 @@
   "licenseTerms.show": {
     "message": "Lizenzbedingungen anzeigen"
   },
+  "licenseValidation.expired": {
+    "message": "Ihre quickFilters Pro-Lizenz ist abgelaufen. Klicken Sie unten auf „$renewButton$“, um sie zu erneuern.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "Alternativ können Sie vorerst die Basisversion nutzen — Ihre Lizenz lässt sich jederzeit wiederherstellen."
+  },
+  "licenseValidation.failed": {
+    "message": "Der eingegebene Lizenzschlüssel ist ungültig. Bitte folgen Sie den Instruktionen Ihrer Bestätigungs Email von FastSpring. Falls Sie Probleme mit dem Validierungsprozess haben, kontaktieren Sie mich bitte über den Support tab."
+  },
   "licenseValidation.guessAddon": {
     "message": "(Der Schlüssel könnte für {2} sein)."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "Der eingegebene Lizenzschlüssel könnte für ein anderes Add-on sein. Lizenzen für {0} beginnen mit {1}."
+  },
+  "licenseValidation.invalidMail": {
+    "message": "Die Email-Adresse welche im Lizenzschlüssel verknüpft ist [{1}] ist derzeit in keinem Ihrer Email-Konten vorhanden. Für Hilfe damit kontaktieren Sie mich bitte über den Support tab."
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein."
+  },
+  "licenseValidation.passed": {
+    "message": "Vielen Dank für's Registrieren von quickFilters Pro! Alle Premium-Funktionen sind nun freigeschaltet."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro Lizenz"
+  },
+  "list.features.multipaste": {
+    "message": "Aktiviert das Einfügen von Filtern in mehrere Konten"
+  },
+  "list.features.title": {
+    "message": "Filterlistenfunktionen"
   },
   "ListButton.label": {
     "message": "Filter…"
   },
   "ListButton.tooltip": {
     "message": "Öffnet Liste der Email Filter"
+  },
+  "listeners.tags": {
+    "message": "Schlagwörter beobachten"
+  },
+  "listeners.tags.autofilter": {
+    "message": "Mails automatisch filtern, wenn Schlagwörter geändert werden"
+  },
+  "listeners.tags.tooltip": {
+    "message": "Wenn der Filter Assistent aktiv ist, wird er auch aufgerufen falls Sie einer EMail ein Schlagwort hinzufügen."
   },
   "markMessageRead.label": {
     "message": "Als gelesen markieren"
@@ -1523,8 +1768,20 @@
   "menu.tools": {
     "message": "Werkzeuge"
   },
+  "merge.add.summary": {
+    "message": "Wählen Sie den Zielfilter der alle Bedingungen der anderen Filter erhalten soll."
+  },
   "merge.addressesOmitted": {
     "message": "Email Adressen wurden entfernt - quickFilters sperrt das Filtern der eigenen Mail Addresse:"
+  },
+  "merge.found": {
+    "message": "Der quickFilters Assistent hat existierende Filter ermittelt die diese Aktion ausführen"
+  },
+  "merge.instructions": {
+    "message": "Sie können entweder einen existierenden Filter erweitern oder einen neuem Filter erzeugen."
+  },
+  "merge.target.select": {
+    "message": "Den Filter wählen der erweitert werden soll"
   },
   "merge.warning.missingAction": {
     "message": "Konnte die Hauptaktion der Filters {1} nicht ermitteln"
@@ -1574,6 +1831,57 @@
   "msg.preview.title": {
     "message": "E-Mail"
   },
+  "naming": {
+    "message": "Namensregeln"
+  },
+  "naming.clonedSuffix": {
+    "message": "Endwort für geklonten Filter:"
+  },
+  "naming.folderDelimiter": {
+    "message": "Trennzeichen:"
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "Symbol zwischen Elternverzeichnis und Name"
+  },
+  "naming.keyWord": {
+    "message": "Regel-spezifisches Stichwort hinzufügen"
+  },
+  "naming.keyWord.accesskey": {
+    "message": "S"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "Folgende Wörter aus dem Namen entfernen:"
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "Eine durch Kommas getrennte Liste von Wörtern, die aus dem vorgeschlagenen Filternamen entfernt werden sollen, z. B. 'Fwd:, Re:, Mail' - Groß-/Kleinschreibung wird ignoriert"
+  },
+  "naming.parentFolder": {
+    "message": "Name der übergeordneten Verzeichnisse hinzufügen"
+  },
+  "naming.parentFolder.accesskey": {
+    "message": "E"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "Maximale Anzahl der hinzuzufügenden übergeordneten Ordner:"
+  },
+  "naming.removeOwnMail": {
+    "message": "Meine eigenen E-Mail-Adressen entfernen (empfohlen)"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "Das Extrahieren eigener E-Mail-Adressen mit dem Assistenten kann zu unerwünschten Ergebnissen führen, daher entfernen Adresssuchbegriffe diese automatisch."
+  },
+  "naming.targetAccount": {
+    "message": "Name des Zielkontos hinzufügen (für Filter, die E-Mails in ein anderes Konto verschieben)"
+  },
+  "newFilters.intro": {
+    "message": "Die folgenden Einstellungen gelten für alle neuen Filter, die mit dem Filterassistenten erstellt werden."
+  },
+  "newFilters.title": {
+    "message": "Eigenschaften für neue Filter"
+  },
+  "newFilters.whenToRun": {
+    "message": "Filter Anwenden Bei"
+  },
   "news.minimal": {
     "message": "News-Label bei Updates nicht anzeigen"
   },
@@ -1585,6 +1893,12 @@
   },
   "notification.dontShowAgain": {
     "message": "Diese Meldung in Zukunft nicht mehr anzeigen."
+  },
+  "notification.filterCreated": {
+    "message": "Der neue Filter '{0}' wurde erstellt."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "Der Filter '{0}' wurde aktualisiert."
   },
   "notification.premium.btn.extendLicense": {
     "message": "Lizenz verlängern"
@@ -1709,6 +2023,54 @@
   "pricing.title": {
     "message": "Preise"
   },
+  "pro.insertLicense": {
+    "message": "Lizenzschlüssel hier eintragen:"
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "Der Lizenzschlüssel wird Ihnen von Fastspring zugeschickt."
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}Auf Basisversion umschalten?{br}Ihr Lizenzschlüssel wird auf diesem Computer gespeichert, sodass Sie ihn später zum reduzierten {b}Erneuerungspreis{/b} wieder aktivieren können.{/P}{P}Vielen Dank, dass Sie quickFilters unterstützt haben — Lizenzen ermöglichen unabhängige Softwareentwicklung und halten das Projekt am Laufen. Selbst wenn der Schlüssel abgelaufen ist, können Sie Ihre Lizenz jederzeit erneuern oder von einer Standardlizenz auf die {a class=features}Pro Features{/a} upgraden und diese ein Jahr lang nutzen.{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "Lizenzschlüssel wiederherstellen"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "Sie können Ihre vorherige Lizenz wiederherstellen, um von günstigeren Erneuerungsbedingungen zu profitieren."
+  },
+  "pro.licenseBackup.restored": {
+    "message": "Ihr Schlüssel wurde erfolgreich wiederhergestellt. Auch wenn er abgelaufen war, können Sie einen neuen Schlüssel zu einem Rabatt erhalten."
+  },
+  "pro.licenseBackup.switch": {
+    "message": "Auf Basisversion umschalten"
+  },
+  "pro.licenseValid": {
+    "message": "Ihre Lizenz ist gültig bis:"
+  },
+  "pro.pasteLicense": {
+    "message": "einfügen"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "bestätigen"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "Nachfragen, bevor Filter ausserhalb eines Posteingangs ausgeführt werden"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "Tastenkürzel um Filter auf Ordner anzuwenden: Shift + "
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "Tastenkürzel um Filter auf ausgewählte EMails anzuwenden: Shift + "
+  },
+  "proFeatures.title": {
+    "message": "Premium Funktionen"
+  },
+  "proFeatures.website": {
+    "message": "Lesen Sie mehr über die Premium Funktionen auf unserer Webseite"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "Es wurden Betreffzeilen gefunden, die mit demselben Text beginnen: \"$prefix$\".\nDiesen Text als Suchbedingung für den Betreff verwenden?",
     "placeholders": {
@@ -1744,463 +2106,6 @@
   "purchase-heading": {
     "message": "Unterstützung durch eine Lizenz"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "Der Assistent soll folgende Verzeichnisse ignorieren…"
-  },
-  "qf.btn.splash": {
-    "message": "Begrüßungsbildschirm anzeigen"
-  },
-  "qf.button.createFilter": {
-    "message": "Neuen Filter erzeugen…"
-  },
-  "qf.button.editFilter": {
-    "message": "Filter editieren…"
-  },
-  "qf.button.merge": {
-    "message": "Kombinieren"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "„$filterName$“ mit neuen Regeln erweitern…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "Weiter"
-  },
-  "qf.button.pasteLicense": {
-    "message": "einfügen"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "Zum Ende"
-  },
-  "qf.button.reorderButtonBottom.accessKey": {
-    "message": "E"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "Filter nach allen anderen ausführen"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "Zum Anfang"
-  },
-  "qf.button.reorderButtonTop.accessKey": {
-    "message": "Z"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "Filter vor allen anderen ausführen"
-  },
-  "qf.button.targetSelected": {
-    "message": "Zielfilter ausgewählt"
-  },
-  "qf.button.validateLicense": {
-    "message": "bestätigen"
-  },
-  "qf.check.createNew": {
-    "message": "Neuen Filter erzeugen"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "Mit existierendem Filter kombinieren:"
-  },
-  "qf.cloned.label": {
-    "message": "Endwort für geklonten Filter:"
-  },
-  "qf.continueFilter.label": {
-    "message": "Filter erzeugen…"
-  },
-  "qf.continueFilter.shortcut": {
-    "message": "F"
-  },
-  "qf.description.about": {
-    "message": "Eine ausführliche Beschreibung von quickFilters kann auf dieser Webseite gefunden werden."
-  },
-  "qf.description.contactMe": {
-    "message": "Sie können mich auch jederzeit persönlich unter $supportMail$ kontaktieren:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "Diese Optionen gelten nur wenn die QuickFolders Erweiterung installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt."
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "Die anderen Filter in dieser Liste werden mit diesem kombiniert und dann gelöscht."
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "Wählen Sie den Zielfilter der alle Bedingungen der anderen Filter erhalten soll."
-  },
-  "qf.description.mergeInstructions": {
-    "message": "Sie können entweder einen existierenden Filter erweitern oder einen neuem Filter erzeugen."
-  },
-  "qf.description.mergeSummary": {
-    "message": "Der quickFilters Assistent hat existierende Filter ermittelt die diese Aktion ausführen"
-  },
-  "qf.description.selectToExtend": {
-    "message": "Den Filter wählen der erweitert werden soll"
-  },
-  "qf.description.splash": {
-    "message": "Neuigkeiten und wichtige Änderungen anzeigen, übersetzt in Ihre Sprache:"
-  },
-  "qf.donate.tooltip": {
-    "message": "Unterstützen Sie quickFilters!"
-  },
-  "qf.filterlist.group": {
-    "message": "Filterlistenfunktionen"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "Aktiviert das Einfügen von Filtern in mehrere Konten"
-  },
-  "qf.filters.actions.caption": {
-    "message": "Aktionen"
-  },
-  "qf.filters.actions.flag": {
-    "message": "Kennzeichen"
-  },
-  "qf.filters.actions.flag.accesskey": {
-    "message": "K"
-  },
-  "qf.filters.actions.priority": {
-    "message": "Priorität"
-  },
-  "qf.filters.actions.priority.accesskey": {
-    "message": "P"
-  },
-  "qf.filters.actions.star": {
-    "message": "Stern"
-  },
-  "qf.filters.actions.star.accesskey": {
-    "message": "S"
-  },
-  "qf.filters.actions.tag": {
-    "message": "Schlagwörter"
-  },
-  "qf.filters.actions.tag.accesskey": {
-    "message": "T"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "Zielverzeichnis"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "Filter kopiert diese Eigenschaften der originalen Email"
-  },
-  "qf.filters.instructions": {
-    "message": "Bitte eine Vorlage wählen. Die Regeln können im nächsten Schritt angepasst werden."
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "Automatisch ausführen"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "Führt nach Erstellung automatisch den Filter im Eingangsverzeichnis aus."
-  },
-  "qf.filters.steps.caption": {
-    "message": "Nächste Schritte"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "Filter bearbeiten"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "Nach Erstellung die Filter-Eigenschaften bearbeiten."
-  },
-  "qf.filters.steps.showList": {
-    "message": "Filterliste"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "Zeigt die Filterliste zum testen des neuen Filters."
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "Welche Schritte werden als nächstes angezeigt"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "Benutzerdefinierter Filter - Nutzen Sie variable wie %from%, %to% oder %subject%"
-  },
-  "qf.filters.template.domain": {
-    "message": "Basierend auf Absender-Domäne"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "Wie die 'Absender' Vorlage, vergleicht jedoch nur die Domäne (z.B. @xyz.com) der Absenderadresse."
-  },
-  "qf.filters.template.from": {
-    "message": "Basierend auf Absender (von)"
-  },
-  "qf.filters.template.from.description": {
-    "message": "Die am häufigsten benutzte Vorlage: Sie liest die Email Adresse des Absenders und erzeugt Filterbedingungen für die Felder 'Von' und 'An'. Auf diese Weise können komplette Konversationen mit dem Absender automatisch in ein neues Verzeichnis verschoben werden."
-  },
-  "qf.filters.template.list.description": {
-    "message": "Ähnlich zu 'Basierend auf Absender', aber trägt nichts im 'An' Feld ein."
-  },
-  "qf.filters.template.maillist": {
-    "message": "Postversandliste"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "Nützlich für Verteiler die das 'List-Id' Feld benutzen; fehlt dieses, wird stattdessen die Absenderadresse extrahiert."
-  },
-  "qf.filters.template.multifrom": {
-    "message": "Gruppe (Absender mehrerer mails)"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "Wenn Sie mehrere Emails in ein Verzeichnis ziehen, benutzen Sie diese Vorlage um alle Absender in die Bedingung einzufügen. (Schliesst Ihre eigenen Email Addressen aus)"
-  },
-  "qf.filters.template.replyto": {
-    "message": "Basierend auf 'Antwort An'"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "Nur wenn das 'Antwort an' Feld benutzt wird is dieser Filter aktiv."
-  },
-  "qf.filters.template.tag": {
-    "message": "Nach Schlagwörtern"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "Analysiert die Schlagwörter der Mail und fügt sie den Filterbedingungen hinzu."
-  },
-  "qf.filters.template.to": {
-    "message": "Basierend auf Empfänger (an)"
-  },
-  "qf.filters.template.to.description": {
-    "message": "Ähnlich zu 'Basierend auf Absender': benutzen Sie diese mit Ihren eigenen Mails - der Empfänger dieser Mail wird in die Felder 'Von' und 'An' eingetragen. Auf diese Weise können komplette Konversationen mit dem Empfänger automatisch in ein neues Verzeichnis verschoben werden."
-  },
-  "qf.filters.template.topic": {
-    "message": "Nach Betreff"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "Durchsucht den Betreff nach 'eingeklammerten' Ausdrücken, wie z.B. [amo-editors] oder {Kegelclub} und erzeugt daraus Filterbedingungen; viele Mail-Listen benutzen diese Methode, da sie einfach zu konfigurieren und benutzen ist."
-  },
-  "qf.filters.templates.description.label": {
-    "message": "Beschreibung:"
-  },
-  "qf.filters.title": {
-    "message": "Filter Erstellen"
-  },
-  "qf.github.description": {
-    "message": "Fehler melden oder neue Funktionswünsche eingeben:"
-  },
-  "qf.grp.whenToRun": {
-    "message": "Filter Anwenden Bei"
-  },
-  "qf.label.aboutLink": {
-    "message": "quickFilters Webseite…"
-  },
-  "qf.label.cancel": {
-    "message": "Abbrechen"
-  },
-  "qf.label.contactLink": {
-    "message": "Mail an Axel (auf Deutsch oder Englisch)…"
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "QuickFolders Aktiv-Verzeichnis Werkzeugleiste"
-  },
-  "qf.label.donate": {
-    "message": "Spenden"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} von {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "Einträge"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 Eintrag"
-  },
-  "qf.label.haveLicense": {
-    "message": "Sie haben bereits eine Lizenz?"
-  },
-  "qf.label.insertLicense": {
-    "message": "Lizenzschlüssel hier eintragen:"
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "Der Lizenzschlüssel wird Ihnen von Fastspring zugeschickt."
-  },
-  "qf.label.licenseValid": {
-    "message": "Ihre Lizenz ist gültig bis:"
-  },
-  "qf.label.naming": {
-    "message": "Namensregeln"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "Trennzeichen:"
-  },
-  "qf.label.naming.keyWord": {
-    "message": "Regel-spezifisches Stichwort hinzufügen"
-  },
-  "qf.label.naming.keyWord.accesskey": {
-    "message": "S"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "Folgende Wörter aus dem Namen entfernen:"
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "Eine durch Kommas getrennte Liste von Wörtern, die aus dem vorgeschlagenen Filternamen entfernt werden sollen, z. B. 'Fwd:, Re:, Mail' - Groß-/Kleinschreibung wird ignoriert"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "Name der übergeordneten Verzeichnisse hinzufügen"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "E"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "Maximale Anzahl der hinzuzufügenden übergeordneten Ordner:"
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "Name des Zielkontos hinzufügen (für Filter, die E-Mails in ein anderes Konto verschieben)"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "Lesen Sie mehr über die Premium Funktionen auf unserer Webseite"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "Meine eigenen E-Mail-Adressen entfernen (empfohlen)"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "Das Extrahieren eigener E-Mail-Adressen mit dem Assistenten kann zu unerwünschten Ergebnissen führen, daher entfernen Adresssuchbegriffe diese automatisch."
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "Nachfragen, bevor Filter ausserhalb eines Posteingangs ausgeführt werden"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "Tastenkürzel um Filter auf Ordner anzuwenden: Shift + "
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "Tastenkürzel um Filter auf ausgewählte EMails anzuwenden: Shift + "
-  },
-  "qf.label.supportWithLicense": {
-    "message": "Unterstützen Sie quickFilters mit einer Lizenz!"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}Auf Basisversion umschalten?{br}Ihr Lizenzschlüssel wird auf diesem Computer gespeichert, sodass Sie ihn später zum reduzierten {b}Erneuerungspreis{/b} wieder aktivieren können.{/P}{P}Vielen Dank, dass Sie quickFilters unterstützt haben — Lizenzen ermöglichen unabhängige Softwareentwicklung und halten das Projekt am Laufen. Selbst wenn der Schlüssel abgelaufen ist, können Sie Ihre Lizenz jederzeit erneuern oder von einer Standardlizenz auf die {a class=features}Pro Features{/a} upgraden und diese ein Jahr lang nutzen.{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "Lizenzschlüssel wiederherstellen"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "Sie können Ihre vorherige Lizenz wiederherstellen, um von günstigeren Erneuerungsbedingungen zu profitieren."
-  },
-  "qf.licenseBackup.restored": {
-    "message": "Ihr Schlüssel wurde erfolgreich wiederhergestellt. Auch wenn er abgelaufen war, können Sie einen neuen Schlüssel zu einem Rabatt erhalten."
-  },
-  "qf.licenseBackup.switch": {
-    "message": "Auf Basisversion umschalten"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "Ihre quickFilters Pro-Lizenz ist abgelaufen. Klicken Sie unten auf „$renewButton$“, um sie zu erneuern.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "Alternativ können Sie vorerst die Basisversion nutzen — Ihre Lizenz lässt sich jederzeit wiederherstellen."
-  },
-  "qf.licenseValidation.failed": {
-    "message": "Der eingegebene Lizenzschlüssel ist ungültig. Bitte folgen Sie den Instruktionen Ihrer Bestätigungs Email von FastSpring. Falls Sie Probleme mit dem Validierungsprozess haben, kontaktieren Sie mich bitte über den Support tab."
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "Der eingegebene Lizenzschlüssel könnte für ein anderes Add-on sein. Lizenzen für {0} beginnen mit {1}."
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "Die Email-Adresse welche im Lizenzschlüssel verknüpft ist [{1}] ist derzeit in keinem Ihrer Email-Konten vorhanden. Für Hilfe damit kontaktieren Sie mich bitte über den Support tab."
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein."
-  },
-  "qf.licenseValidation.passed": {
-    "message": "Vielen Dank für's Registrieren von quickFilters Pro! Alle Premium-Funktionen sind nun freigeschaltet."
-  },
-  "qf.listener.tags": {
-    "message": "Schlagwörter beobachten"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "Mails automatisch filtern, wenn Schlagwörter geändert werden"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "Wenn der Filter Assistent aktiv ist, wird er auch aufgerufen falls Sie einer EMail ein Schlagwort hinzufügen."
-  },
-  "qf.newFilterProps.intro": {
-    "message": "Die folgenden Einstellungen gelten für alle neuen Filter, die mit dem Filterassistenten erstellt werden."
-  },
-  "qf.notify.filterCreated": {
-    "message": "Der neue Filter '{0}' wurde erstellt."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "Der Filter '{0}' wurde aktualisiert."
-  },
-  "qf.onewayaddress.label": {
-    "message": "Zweiweg Mailaddressen abschalten"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "Standardmäßig fügt quickFilters sowohl 'Von' (Absender) und 'An' (Empfänger) in die Suchbedingungen ein, damit die komplette Konversation inklusive der eigenen Emails an diesen Empfänger gefiltert wird. Falls Sie Ihre eigene Email immer im 'Gesendet' Verzeichnis belassen wollen, kann diese Vorgehen hier deaktiviert werden. Das Addon 'Copy Sent to Current' kann benutzt werden um Antworten mit ihren ursprünglichen Emails zusammen zu halten."
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "Rechts-klick um die Versionsgeschichte einzusehen."
-  },
-  "qf.premiumConfig": {
-    "message": "Premium Funktionen"
-  },
-  "qf.tab.actions": {
-    "message": "Aktionen"
-  },
-  "qf.tab.advanced": {
-    "message": "Erweitert"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "Eigenschaften für neue Filter"
-  },
-  "qf.tab.options": {
-    "message": "Optionen"
-  },
-  "qf.tab.support": {
-    "message": "Support"
-  },
-  "qf.templates.advanced": {
-    "message": "Fortgeschrittene Vorlagen"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "Bearbeiten…"
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "Benutzerspezifische Vorlagen"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "Neues Template…"
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "Sie benötigen eine gültige quickFilters Pro-Lizenz, um neue benutzerdefinierte Vorlagen für den Assistenten zu erstellen."
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "Erzeugung benutzerspezifischer Vorlagen, für Details siehe folgende Bug-Beschreibung:"
-  },
-  "qf.templates.replyTo.label": {
-    "message": "'Antwort an' Vorlage"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "Zeigt die 'Antwort an' (Reply-To) Vorlage an, für Details siehe folgende Bug-Beschreibung:"
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "Filter durchsuchen…"
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "das Stichwort filtert die Liste nach Namen"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "Symbol zwischen Elternverzeichnis und Name"
-  },
-  "qf.youtube.description": {
-    "message": "Für detailierte Informationen über Thunderbird Add-ons und Videos über die Nutzung von quickFilters besuchen Sie meinen YouTube Kanal."
-  },
-  "qf.youtube.link": {
-    "message": "Auf Thunderbird Daily Videos über quickFilters ansehen…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "Besuchen Sie Thunderbird Daily - Ihr YouTube Kanal für Tipps und Anleitungen zum Benutzen von quickFilters"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Lizenz abgelaufen!"
   },
@@ -2227,6 +2132,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Öffnen Sie das Menü '{menulabel}' unten, um zu sehen, was neu ist. Dadurch wird auch die 🟠 entfernt."
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "QuickFolders Aktiv-Verzeichnis Werkzeugleiste"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "Diese Optionen gelten nur wenn die QuickFolders Erweiterung installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt."
+  },
+  "register.hasLicense": {
+    "message": "Sie haben bereits eine Lizenz?"
   },
   "register.licenseValid.expired": {
     "message": "Ihre Lizenz lief ab am:"
@@ -2371,6 +2285,41 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "Mail an Axel (auf Deutsch oder Englisch)…"
+  },
+  "support.mailSupport.detail": {
+    "message": "Sie können mich auch jederzeit persönlich unter $supportMail$ kontaktieren:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub.detail": {
+    "message": "Fehler melden oder neue Funktionswünsche eingeben:"
+  },
+  "support.showSplash": {
+    "message": "Begrüßungsbildschirm anzeigen"
+  },
+  "support.showSplash.detail": {
+    "message": "Neuigkeiten und wichtige Änderungen anzeigen, übersetzt in Ihre Sprache:"
+  },
+  "support.showSupportSite": {
+    "message": "quickFilters Webseite…"
+  },
+  "support.showSupportSite.detail": {
+    "message": "Eine ausführliche Beschreibung von quickFilters kann auf dieser Webseite gefunden werden."
+  },
+  "support.showYoutube": {
+    "message": "Auf Thunderbird Daily Videos über quickFilters ansehen…"
+  },
+  "support.showYoutube.detail": {
+    "message": "Für detailierte Informationen über Thunderbird Add-ons und Videos über die Nutzung von quickFilters besuchen Sie meinen YouTube Kanal."
+  },
+  "support.title": {
+    "message": "Support"
   },
   "testDrive": {
     "message": "Premium Funktionen können in der Gratisversion getestet werden, in manchen Fällen mit eingeschränktem Funktionsumfang."
@@ -2747,6 +2696,9 @@
   "version": {
     "message": "Version:"
   },
+  "versionNumber.tooltip": {
+    "message": "Rechts-klick um die Versionsgeschichte einzusehen."
+  },
   "warning.emptyFilter": {
     "message": "Filter konnte nicht erstellt werden: Ohne gültige Suchbegriffe kann der Filter nicht bearbeitet werden."
   },
@@ -2812,5 +2764,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Zusätzliche Email Adressen sind kein Problem - diese benötigen keine separate Lizenz. Bei Fragen kontaktieren Sie mich gerne über den Support Reiter."
+  },
+  "youtube.tooltip": {
+    "message": "Besuchen Sie Thunderbird Daily - Ihr YouTube Kanal für Tipps und Anleitungen zum Benutzen von quickFilters"
   }
 }

@@ -8,6 +8,9 @@
   "account.label": {
     "message": "Учётная запись:"
   },
+  "actions.title": {
+    "message": "Действия"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "Теперь вы используете {bold} версию $addonVer$ {/bold}  на Thunderbird $appVer$.",
@@ -28,6 +31,167 @@
   "addTag.label": {
     "message": "Присвоить сообщению метку"
   },
+  "advanced.title": {
+    "message": "Дополнительные"
+  },
+  "assistant.actions.caption": {
+    "message": "Действия"
+  },
+  "assistant.actions.flag": {
+    "message": "Флаг"
+  },
+  "assistant.actions.flag.accesskey": {
+    "message": "Ф"
+  },
+  "assistant.actions.priority": {
+    "message": "Важность"
+  },
+  "assistant.actions.priority.accesskey": {
+    "message": "В"
+  },
+  "assistant.actions.star": {
+    "message": "Звёздочка"
+  },
+  "assistant.actions.star.accesskey": {
+    "message": "З"
+  },
+  "assistant.actions.tag": {
+    "message": "Метки"
+  },
+  "assistant.actions.tag.accesskey": {
+    "message": "М"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "Папка для сохранения"
+  },
+  "assistant.actions.tooltip": {
+    "message": "Следующие атрибуты сообщения будут скопированы"
+  },
+  "assistant.createFilter": {
+    "message": "Создать новый фильтр…"
+  },
+  "assistant.createNew": {
+    "message": "Создать новый фильтр"
+  },
+  "assistant.details.templates.tip": {
+    "message": "Пожалуйста выберите шаблон. Фильтр можно будет настроить на следующем этапе."
+  },
+  "assistant.editFilter": {
+    "message": "Изменить фильтр…"
+  },
+  "assistant.ignoreFolders": {
+    "message": "Ассистент должен игнорировать эти папки…"
+  },
+  "assistant.merge": {
+    "message": "Объединить"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "Целевой фильтр выбран"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "Все остальные фильтры в этом списке будут объединены в него и удалены."
+  },
+  "assistant.mergeFilterRules": {
+    "message": "Объединить «$filterName$» с новыми правилами…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "Объединить с существующим фильтром:"
+  },
+  "assistant.next": {
+    "message": "Далее"
+  },
+  "assistant.next.createFilter": {
+    "message": "Создать фильтр…"
+  },
+  "assistant.next.createFilter.shortcut": {
+    "message": "С"
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "Запустить автоматически"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "Автоматически запустить фильтр на исходном почтовом ящике после создания."
+  },
+  "assistant.nextSteps.caption": {
+    "message": "Следующие шаги"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "Правила фильтра"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "Отредактируйте детали фильтра после того, как помощник создал его."
+  },
+  "assistant.nextSteps.showList": {
+    "message": "Список фильтров"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "Отображать фильтр в контексте для пробы"
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "Какие экраны отображаются после создания фильтра"
+  },
+  "assistant.templates.custom.description": {
+    "message": "Настраиваемый фильтр - поведение настраивается пользователем - используйте переменные %from% %to% %subject% итд."
+  },
+  "assistant.templates.description.label": {
+    "message": "Описание:"
+  },
+  "assistant.templates.domain": {
+    "message": "По домену отправителя (от)"
+  },
+  "assistant.templates.domain.description": {
+    "message": "Похоже на 'По отправителю (от)', но критерием является только домен (@xyz.com) адреса отправителя."
+  },
+  "assistant.templates.from": {
+    "message": "По отправителю (от)"
+  },
+  "assistant.templates.from.description": {
+    "message": "Наверное самый популярный шаблон: адрес отправителя используется как критерии 'отправитель' и 'адресат' фильтра. Вся переписка с отправителем перемещается в новую папку."
+  },
+  "assistant.templates.list.description": {
+    "message": "Похож на шаблон 'По отправителю', но не заполняется критерий 'отправитель'."
+  },
+  "assistant.templates.maillist": {
+    "message": "Список рассылки"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "Полезно для списков рассылки с полем «ID списка». Если это не установлено, вместо этого будет использовать адрес отправителя."
+  },
+  "assistant.templates.multifrom": {
+    "message": "Группа (список отправителей из нескольких сообщений)"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "Добавляет адреса отправителей всех выбранных сообщений как критерий (за исключением вашего собственного адреса)"
+  },
+  "assistant.templates.replyto": {
+    "message": "По обратному адресу"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "Фильтр по обратному адресу."
+  },
+  "assistant.templates.tag": {
+    "message": "По меткам"
+  },
+  "assistant.templates.tag.description": {
+    "message": "Использует метки сообщения как критерии фильтра."
+  },
+  "assistant.templates.to": {
+    "message": "По адресату (кому)"
+  },
+  "assistant.templates.to.description": {
+    "message": "Похож на шаблон 'По отправителю': используется для отправленных сообщений. Адрес получателя используется как критерии 'отправитель' и 'адресат' фильтра. Вся переписка с получателем перемещается в новую папку."
+  },
+  "assistant.templates.topic": {
+    "message": "По теме"
+  },
+  "assistant.templates.topic.description": {
+    "message": "Критерий фильтра для сообщений со скобками в теме, как то [нумизматы] или {вегетарианцы}; фильтруются многие массовые рассылки, которые пользуются этим приемом."
+  },
   "assistant.ux.assistant.html": {
     "message": "Показать помощника в новом HTML-интерфейсе"
   },
@@ -42,6 +206,9 @@
   },
   "assistant.ux.title": {
     "message": "Пользовательский интерфейс"
+  },
+  "assistant.windowTitle": {
+    "message": "Создать фильтр"
   },
   "backup.archivingFilters": {
     "message": "Архивирую {1} фильтров"
@@ -1074,6 +1241,9 @@
   "buyPersonalLicense.button": {
     "message": "Купить лицензию для одного человека!"
   },
+  "cancel": {
+    "message": "Отмена"
+  },
   "chkAfterJunk.label": {
     "message": "После фильтрации на спам"
   },
@@ -1299,6 +1469,30 @@
   "customTemplate.title": {
     "message": "quickFilters настраиваемый шаблон"
   },
+  "customTemplates": {
+    "message": "Настраиваемые шаблоны"
+  },
+  "customTemplates.create": {
+    "message": "Создать новый…"
+  },
+  "customTemplates.edit": {
+    "message": "Редактировать…"
+  },
+  "customTemplates.group": {
+    "message": "Дополнительные шаблоны"
+  },
+  "customTemplates.replyTo": {
+    "message": "Шаблон по обратному адресу"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "Показать шаблон по обратному адресу, подробнее в описании бага."
+  },
+  "customTemplates.tooltip": {
+    "message": "Позволяет создавать настраиваемые шаблоны, подробнее в описании бага."
+  },
+  "customTemplates.warn.restriction": {
+    "message": "Вам нужна действующая лицензия quickFilters Pro, чтобы создавать новые пользовательские шаблоны для помощника."
+  },
   "customVariable.label": {
     "message": "Переменные"
   },
@@ -1329,6 +1523,12 @@
   "deleteMessage.label": {
     "message": "Удалить сообщение"
   },
+  "disable2wayAddressing.label": {
+    "message": "Отключить двусторонний поиск адреса"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "По умолчанию quickFilters добавляет критерии 'отправитель' и 'адресат' к фильтру чтобы перемещать всё обсуждение включая ваши сообщения получателю. Если Вы хотите оставить ваши ответы в папке &quot;Отправленные&quot;, эта настройка отключает описанную возможность. Дополнение &quot;Copy Sent to Current&quot; можно использовать для того чтобы ответы хранились вместе с самими сообщениями."
+  },
   "domainLicense.email": {
     "message": "Мы свяжемся с вами в течении 2 рабочих дней по указанному адресу электронной почты для генерирования групповой лицензии. Укажите имя домена для лицензии на следующей странице."
   },
@@ -1343,6 +1543,9 @@
   },
   "donate-heading": {
     "message": "Помогите с разовым пожертвованием."
+  },
+  "donate.btn": {
+    "message": "Пожертвовать"
   },
   "donate.label": {
     "message": "Поддержка"
@@ -1475,17 +1678,59 @@
   "licenseTerms.show": {
     "message": "Показать условия лицензии"
   },
+  "licenseValidation.expired": {
+    "message": "Срок действия вашей лицензии quickFilters Pro истёк. Чтобы продлить её, нажмите «$renewButton$» ниже.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "Также вы можете временно использовать Базовую версию — лицензию можно восстановить позже."
+  },
+  "licenseValidation.failed": {
+    "message": "Лицензионный ключ недействителен. Ещё раз посмотрите сообщение от FastSpring . Если их инструкции не помогут, обратитесь ко мне (см. &quot;Поддержка&quot;)."
+  },
   "licenseValidation.guessAddon": {
     "message": "(Введённый ключ может быть для {2})."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "Введённый лицензионный ключ может быть для другого дополнения. Лицензионные ключи для {0} начинаются с {1}."
+  },
+  "licenseValidation.invalidMail": {
+    "message": "Адрес, привязанный к лицензионному ключу [{1}] не используется ни в одной учётной записи почты. Свяжитесь со мной, контактные данные можно найти в настройках."
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "Зашифрованный адрес не совпадает с имеющимся."
+  },
+  "licenseValidation.passed": {
+    "message": "Спасибо за регистрацию! Вы можете пользоваться всеми премиум функциями."
+  },
   "licenseWindow.title": {
     "message": "Лицензия quickFilters Pro"
+  },
+  "list.features.multipaste": {
+    "message": "Разрешить копирование и вставку фильтров в несколько учетных записей"
+  },
+  "list.features.title": {
+    "message": "Функции списка фильтров"
   },
   "ListButton.label": {
     "message": "Фильтры..."
   },
   "ListButton.tooltip": {
     "message": "Показать список фильтров сообщений"
+  },
+  "listeners.tags": {
+    "message": "Реагировать на изменение меток"
+  },
+  "listeners.tags.autofilter": {
+    "message": "Запускать фильтры автоматически при изменении тегов"
+  },
+  "listeners.tags.tooltip": {
+    "message": "Запускать ассистента создания фильтров при изменении меток сообщения."
   },
   "markMessageRead.label": {
     "message": "Отметить как прочитанное"
@@ -1523,8 +1768,20 @@
   "menu.tools": {
     "message": "Инструменты"
   },
+  "merge.add.summary": {
+    "message": "Выберите фильтр, который унаследует свойства других фильтров."
+  },
   "merge.addressesOmitted": {
     "message": "Адреса сообщения были исключены из критериев - невозможны фильтры с собственным адресом:"
+  },
+  "merge.found": {
+    "message": "Ассистент quickFilters нашел фильтры с подобным действием."
+  },
+  "merge.instructions": {
+    "message": "Вы можете расширить один из них или создать совершенно новый фильтр."
+  },
+  "merge.target.select": {
+    "message": "Выберите фильтр, к которому будут добавлены новые критерии."
   },
   "merge.warning.missingAction": {
     "message": "Не могу определить основное действие фильтра: {1}"
@@ -1574,6 +1831,57 @@
   "msg.preview.title": {
     "message": "Письмо"
   },
+  "naming": {
+    "message": "Правила присваивания имен"
+  },
+  "naming.clonedSuffix": {
+    "message": "Добавить к имени клонированного фильтра:"
+  },
+  "naming.folderDelimiter": {
+    "message": "Разделитель:"
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "Символ вставлен между родительской папкой и именем"
+  },
+  "naming.keyWord": {
+    "message": "Добавить ключевое слово правила"
+  },
+  "naming.keyWord.accesskey": {
+    "message": "к"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "Удалить из имени любые из следующих слов:"
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "Список слов через запятую, которые должны быть удалены из предложенного имени фильтра, например 'Fwd:, Re:, Mail' - регистр букв не учитывается"
+  },
+  "naming.parentFolder": {
+    "message": "Добавить имена родительских папок"
+  },
+  "naming.parentFolder.accesskey": {
+    "message": "о"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "Максимальное количество родительских папок для добавления:"
+  },
+  "naming.removeOwnMail": {
+    "message": "Удалить мои собственные адреса электронной почты (рекомендуется)"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "Извлечение собственных адресов электронной почты с помощью помощника может привести к нежелательным результатам, поэтому условия поиска адресов удаляют их автоматически."
+  },
+  "naming.targetAccount": {
+    "message": "Добавить имя целевого аккаунта (для фильтров, которые перемещают письма в другой аккаунт)"
+  },
+  "newFilters.intro": {
+    "message": "Следующие настройки будут применяться ко всем новым фильтрам, созданным с помощью помощника по фильтрам."
+  },
+  "newFilters.title": {
+    "message": "Свойства нового фильтра"
+  },
+  "newFilters.whenToRun": {
+    "message": "Условие запуска фильтра"
+  },
   "news.minimal": {
     "message": "Не отображать метку новостей при обновлении"
   },
@@ -1585,6 +1893,12 @@
   },
   "notification.dontShowAgain": {
     "message": "Более не показывать."
+  },
+  "notification.filterCreated": {
+    "message": "Успешно создан новый фильтр '{0}'."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "Успешно обновлён фильтр '{0}'."
   },
   "notification.premium.btn.extendLicense": {
     "message": "Extend License"
@@ -1709,6 +2023,54 @@
   "pricing.title": {
     "message": "Цены"
   },
+  "pro.insertLicense": {
+    "message": "Вставить лицензионный ключ сюда:"
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "Ваш лицензионный ключ находится в сообщении от Fastspring, подтверждающем заказ."
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}Переключиться на Базовую версию?{br}Ваш лицензионный ключ будет сохранён на этом компьютере, чтобы вы могли обновить его позже по {b}льготной цене продления{/b}.{/P}{P}Спасибо за поддержку quickFilters — лицензии делают возможной независимую разработку программного обеспечения и помогают поддерживать проект. Даже после истечения срока действия вы можете в любое время продлить лицензию или обновиться с лицензии Standard, чтобы пользоваться {a class=features}Pro-функциями{/a} в течение полного года.{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "Восстановить лицензионный ключ"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "Вы можете восстановить предыдущую лицензию для более выгодных условий продления."
+  },
+  "pro.licenseBackup.restored": {
+    "message": "Ключ успешно восстановлен. Несмотря на истечение срока, вы можете получить новый ключ со скидкой."
+  },
+  "pro.licenseBackup.switch": {
+    "message": "Переключиться на Базовую версию"
+  },
+  "pro.licenseValid": {
+    "message": "Лицензионный ключ действителен до:"
+  },
+  "pro.pasteLicense": {
+    "message": "вставить"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "проверить"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "Подтвердите перед выполнением фильтров, когда не в папке «Входящие»"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "Ярлык для Запуск фильтров на папке: Shift + "
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "Ярлык для Запуск фильтров на выбранных письмах: Shift + "
+  },
+  "proFeatures.title": {
+    "message": "Премиум-функции"
+  },
+  "proFeatures.website": {
+    "message": "Узнать больше о премиум-функциях на нашей странице"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "Найдены темы, начинающиеся с одного и того же текста: \"$prefix$\".\nИспользовать этот текст в качестве условия поиска по теме?",
     "placeholders": {
@@ -1744,463 +2106,6 @@
   "purchase-heading": {
     "message": "Поддержка через лицензию"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "Ассистент должен игнорировать эти папки…"
-  },
-  "qf.btn.splash": {
-    "message": "Отображение экрана-заставки"
-  },
-  "qf.button.createFilter": {
-    "message": "Создать новый фильтр…"
-  },
-  "qf.button.editFilter": {
-    "message": "Изменить фильтр…"
-  },
-  "qf.button.merge": {
-    "message": "Объединить"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "Объединить «$filterName$» с новыми правилами…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "Далее"
-  },
-  "qf.button.pasteLicense": {
-    "message": "вставить"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "Последним"
-  },
-  "qf.button.reorderButtonBottom.accessKey": {
-    "message": "и"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "Фильтровать после других фильтров"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "Первым"
-  },
-  "qf.button.reorderButtonTop.accessKey": {
-    "message": "е"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "Фильтровать до других фильтров"
-  },
-  "qf.button.targetSelected": {
-    "message": "Целевой фильтр выбран"
-  },
-  "qf.button.validateLicense": {
-    "message": "проверить"
-  },
-  "qf.check.createNew": {
-    "message": "Создать новый фильтр"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "Объединить с существующим фильтром:"
-  },
-  "qf.cloned.label": {
-    "message": "Добавить к имени клонированного фильтра:"
-  },
-  "qf.continueFilter.label": {
-    "message": "Создать фильтр…"
-  },
-  "qf.continueFilter.shortcut": {
-    "message": "С"
-  },
-  "qf.description.about": {
-    "message": "Краткое описание quickFilters на следующей странице:"
-  },
-  "qf.description.contactMe": {
-    "message": "Мой личный адрес $supportMail$:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее микропанель инструментов в область просмотра сообщений."
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "Все остальные фильтры в этом списке будут объединены в него и удалены."
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "Выберите фильтр, который унаследует свойства других фильтров."
-  },
-  "qf.description.mergeInstructions": {
-    "message": "Вы можете расширить один из них или создать совершенно новый фильтр."
-  },
-  "qf.description.mergeSummary": {
-    "message": "Ассистент quickFilters нашел фильтры с подобным действием."
-  },
-  "qf.description.selectToExtend": {
-    "message": "Выберите фильтр, к которому будут добавлены новые критерии."
-  },
-  "qf.description.splash": {
-    "message": "Отображение новостей и важных изменений, локализованных на вашем языке:"
-  },
-  "qf.donate.tooltip": {
-    "message": "Поддержать развитие quickFilters!"
-  },
-  "qf.filterlist.group": {
-    "message": "Функции списка фильтров"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "Разрешить копирование и вставку фильтров в несколько учетных записей"
-  },
-  "qf.filters.actions.caption": {
-    "message": "Действия"
-  },
-  "qf.filters.actions.flag": {
-    "message": "Флаг"
-  },
-  "qf.filters.actions.flag.accesskey": {
-    "message": "Ф"
-  },
-  "qf.filters.actions.priority": {
-    "message": "Важность"
-  },
-  "qf.filters.actions.priority.accesskey": {
-    "message": "В"
-  },
-  "qf.filters.actions.star": {
-    "message": "Звёздочка"
-  },
-  "qf.filters.actions.star.accesskey": {
-    "message": "З"
-  },
-  "qf.filters.actions.tag": {
-    "message": "Метки"
-  },
-  "qf.filters.actions.tag.accesskey": {
-    "message": "М"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "Папка для сохранения"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "Следующие атрибуты сообщения будут скопированы"
-  },
-  "qf.filters.instructions": {
-    "message": "Пожалуйста выберите шаблон. Фильтр можно будет настроить на следующем этапе."
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "Запустить автоматически"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "Автоматически запустить фильтр на исходном почтовом ящике после создания."
-  },
-  "qf.filters.steps.caption": {
-    "message": "Следующие шаги"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "Правила фильтра"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "Отредактируйте детали фильтра после того, как помощник создал его."
-  },
-  "qf.filters.steps.showList": {
-    "message": "Список фильтров"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "Отображать фильтр в контексте для пробы"
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "Какие экраны отображаются после создания фильтра"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "Настраиваемый фильтр - поведение настраивается пользователем - используйте переменные %from% %to% %subject% итд."
-  },
-  "qf.filters.template.domain": {
-    "message": "По домену отправителя (от)"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "Похоже на 'По отправителю (от)', но критерием является только домен (@xyz.com) адреса отправителя."
-  },
-  "qf.filters.template.from": {
-    "message": "По отправителю (от)"
-  },
-  "qf.filters.template.from.description": {
-    "message": "Наверное самый популярный шаблон: адрес отправителя используется как критерии 'отправитель' и 'адресат' фильтра. Вся переписка с отправителем перемещается в новую папку."
-  },
-  "qf.filters.template.list.description": {
-    "message": "Похож на шаблон 'По отправителю', но не заполняется критерий 'отправитель'."
-  },
-  "qf.filters.template.maillist": {
-    "message": "Список рассылки"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "Полезно для списков рассылки с полем «ID списка». Если это не установлено, вместо этого будет использовать адрес отправителя."
-  },
-  "qf.filters.template.multifrom": {
-    "message": "Группа (список отправителей из нескольких сообщений)"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "Добавляет адреса отправителей всех выбранных сообщений как критерий (за исключением вашего собственного адреса)"
-  },
-  "qf.filters.template.replyto": {
-    "message": "По обратному адресу"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "Фильтр по обратному адресу."
-  },
-  "qf.filters.template.tag": {
-    "message": "По меткам"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "Использует метки сообщения как критерии фильтра."
-  },
-  "qf.filters.template.to": {
-    "message": "По адресату (кому)"
-  },
-  "qf.filters.template.to.description": {
-    "message": "Похож на шаблон 'По отправителю': используется для отправленных сообщений. Адрес получателя используется как критерии 'отправитель' и 'адресат' фильтра. Вся переписка с получателем перемещается в новую папку."
-  },
-  "qf.filters.template.topic": {
-    "message": "По теме"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "Критерий фильтра для сообщений со скобками в теме, как то [нумизматы] или {вегетарианцы}; фильтруются многие массовые рассылки, которые пользуются этим приемом."
-  },
-  "qf.filters.templates.description.label": {
-    "message": "Описание:"
-  },
-  "qf.filters.title": {
-    "message": "Создать фильтр"
-  },
-  "qf.github.description": {
-    "message": "Сообщайте об ошибках или предлагайте новые функции здесь:"
-  },
-  "qf.grp.whenToRun": {
-    "message": "Условие запуска фильтра"
-  },
-  "qf.label.aboutLink": {
-    "message": "страница quickFilters…"
-  },
-  "qf.label.cancel": {
-    "message": "Отмена"
-  },
-  "qf.label.contactLink": {
-    "message": "Написать мне (на английском или немецком)"
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "Панель инструментов QuickFolders для текущей папки"
-  },
-  "qf.label.donate": {
-    "message": "Пожертвовать"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} из {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "элементов"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 элемент"
-  },
-  "qf.label.haveLicense": {
-    "message": "Уже есть лицензионный ключ?"
-  },
-  "qf.label.insertLicense": {
-    "message": "Вставить лицензионный ключ сюда:"
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "Ваш лицензионный ключ находится в сообщении от Fastspring, подтверждающем заказ."
-  },
-  "qf.label.licenseValid": {
-    "message": "Лицензионный ключ действителен до:"
-  },
-  "qf.label.naming": {
-    "message": "Правила присваивания имен"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "Разделитель:"
-  },
-  "qf.label.naming.keyWord": {
-    "message": "Добавить ключевое слово правила"
-  },
-  "qf.label.naming.keyWord.accesskey": {
-    "message": "к"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "Удалить из имени любые из следующих слов:"
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "Список слов через запятую, которые должны быть удалены из предложенного имени фильтра, например 'Fwd:, Re:, Mail' - регистр букв не учитывается"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "Добавить имена родительских папок"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "о"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "Максимальное количество родительских папок для добавления:"
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "Добавить имя целевого аккаунта (для фильтров, которые перемещают письма в другой аккаунт)"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "Узнать больше о премиум-функциях на нашей странице"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "Удалить мои собственные адреса электронной почты (рекомендуется)"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "Извлечение собственных адресов электронной почты с помощью помощника может привести к нежелательным результатам, поэтому условия поиска адресов удаляют их автоматически."
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "Подтвердите перед выполнением фильтров, когда не в папке «Входящие»"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "Ярлык для Запуск фильтров на папке: Shift + "
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "Ярлык для Запуск фильтров на выбранных письмах: Shift + "
-  },
-  "qf.label.supportWithLicense": {
-    "message": "Поддержите quickFilters получив лицензию!"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}Переключиться на Базовую версию?{br}Ваш лицензионный ключ будет сохранён на этом компьютере, чтобы вы могли обновить его позже по {b}льготной цене продления{/b}.{/P}{P}Спасибо за поддержку quickFilters — лицензии делают возможной независимую разработку программного обеспечения и помогают поддерживать проект. Даже после истечения срока действия вы можете в любое время продлить лицензию или обновиться с лицензии Standard, чтобы пользоваться {a class=features}Pro-функциями{/a} в течение полного года.{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "Восстановить лицензионный ключ"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "Вы можете восстановить предыдущую лицензию для более выгодных условий продления."
-  },
-  "qf.licenseBackup.restored": {
-    "message": "Ключ успешно восстановлен. Несмотря на истечение срока, вы можете получить новый ключ со скидкой."
-  },
-  "qf.licenseBackup.switch": {
-    "message": "Переключиться на Базовую версию"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "Срок действия вашей лицензии quickFilters Pro истёк. Чтобы продлить её, нажмите «$renewButton$» ниже.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "Также вы можете временно использовать Базовую версию — лицензию можно восстановить позже."
-  },
-  "qf.licenseValidation.failed": {
-    "message": "Лицензионный ключ недействителен. Ещё раз посмотрите сообщение от FastSpring . Если их инструкции не помогут, обратитесь ко мне (см. &quot;Поддержка&quot;)."
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "Введённый лицензионный ключ может быть для другого дополнения. Лицензионные ключи для {0} начинаются с {1}."
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "Адрес, привязанный к лицензионному ключу [{1}] не используется ни в одной учётной записи почты. Свяжитесь со мной, контактные данные можно найти в настройках."
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "Зашифрованный адрес не совпадает с имеющимся."
-  },
-  "qf.licenseValidation.passed": {
-    "message": "Спасибо за регистрацию! Вы можете пользоваться всеми премиум функциями."
-  },
-  "qf.listener.tags": {
-    "message": "Реагировать на изменение меток"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "Запускать фильтры автоматически при изменении тегов"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "Запускать ассистента создания фильтров при изменении меток сообщения."
-  },
-  "qf.newFilterProps.intro": {
-    "message": "Следующие настройки будут применяться ко всем новым фильтрам, созданным с помощью помощника по фильтрам."
-  },
-  "qf.notify.filterCreated": {
-    "message": "Успешно создан новый фильтр '{0}'."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "Успешно обновлён фильтр '{0}'."
-  },
-  "qf.onewayaddress.label": {
-    "message": "Отключить двусторонний поиск адреса"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "По умолчанию quickFilters добавляет критерии 'отправитель' и 'адресат' к фильтру чтобы перемещать всё обсуждение включая ваши сообщения получателю. Если Вы хотите оставить ваши ответы в папке &quot;Отправленные&quot;, эта настройка отключает описанную возможность. Дополнение &quot;Copy Sent to Current&quot; можно использовать для того чтобы ответы хранились вместе с самими сообщениями."
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "Нажмите правой кнопкой мыши чтобы получить историю изменений."
-  },
-  "qf.premiumConfig": {
-    "message": "Премиум-функции"
-  },
-  "qf.tab.actions": {
-    "message": "Действия"
-  },
-  "qf.tab.advanced": {
-    "message": "Дополнительные"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "Свойства нового фильтра"
-  },
-  "qf.tab.options": {
-    "message": "Настройки"
-  },
-  "qf.tab.support": {
-    "message": "Поддержка"
-  },
-  "qf.templates.advanced": {
-    "message": "Дополнительные шаблоны"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "Редактировать…"
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "Настраиваемые шаблоны"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "Создать новый…"
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "Вам нужна действующая лицензия quickFilters Pro, чтобы создавать новые пользовательские шаблоны для помощника."
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "Позволяет создавать настраиваемые шаблоны, подробнее в описании бага."
-  },
-  "qf.templates.replyTo.label": {
-    "message": "Шаблон по обратному адресу"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "Показать шаблон по обратному адресу, подробнее в описании бага."
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "найти фильтры…"
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "Введите ключевое слово для поиска фильтра по имени"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "Символ вставлен между родительской папкой и именем"
-  },
-  "qf.youtube.description": {
-    "message": "Для получения подробной информации о дополнениях Thunderbird и видео о том, как использовать quickFilters, посетите мой канал YouTube."
-  },
-  "qf.youtube.link": {
-    "message": "Смотреть quickFilters видео на Thunderbird Daily…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "Посетите Thunderbird Daily - канал на YouTube с советами по использованию quickFilters"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Срок действия лицензии истек!"
   },
@@ -2226,6 +2131,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Откройте меню '{menulabel}' ниже, чтобы увидеть новые функции. Это также удаляет 🟠."
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "Панель инструментов QuickFolders для текущей папки"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее микропанель инструментов в область просмотра сообщений."
+  },
+  "register.hasLicense": {
+    "message": "Уже есть лицензионный ключ?"
   },
   "register.licenseValid.expired": {
     "message": "Ваша лицензия истекает:"
@@ -2370,6 +2284,41 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "Написать мне (на английском или немецком)"
+  },
+  "support.mailSupport.detail": {
+    "message": "Мой личный адрес $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub.detail": {
+    "message": "Сообщайте об ошибках или предлагайте новые функции здесь:"
+  },
+  "support.showSplash": {
+    "message": "Отображение экрана-заставки"
+  },
+  "support.showSplash.detail": {
+    "message": "Отображение новостей и важных изменений, локализованных на вашем языке:"
+  },
+  "support.showSupportSite": {
+    "message": "страница quickFilters…"
+  },
+  "support.showSupportSite.detail": {
+    "message": "Краткое описание quickFilters на следующей странице:"
+  },
+  "support.showYoutube": {
+    "message": "Смотреть quickFilters видео на Thunderbird Daily…"
+  },
+  "support.showYoutube.detail": {
+    "message": "Для получения подробной информации о дополнениях Thunderbird и видео о том, как использовать quickFilters, посетите мой канал YouTube."
+  },
+  "support.title": {
+    "message": "Поддержка"
   },
   "testDrive": {
     "message": "Можно попробовать премиум-функции и в бесплатной версии, но они могут быть немного ограничены."
@@ -2746,6 +2695,9 @@
   "version": {
     "message": "Версия:"
   },
+  "versionNumber.tooltip": {
+    "message": "Нажмите правой кнопкой мыши чтобы получить историю изменений."
+  },
   "warning.emptyFilter": {
     "message": "Не удалось создать фильтр: без действительных условий поиска фильтр нельзя отредактировать."
   },
@@ -2808,5 +2760,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Любые дополнительные адреса электронной почты не проблема - они не требуют отдельной лицензии. В случае вопросов вы можете связаться со мной через вкладку поддержки."
+  },
+  "youtube.tooltip": {
+    "message": "Посетите Thunderbird Daily - канал на YouTube с советами по использованию quickFilters"
   }
 }

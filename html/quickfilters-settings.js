@@ -273,7 +273,7 @@ const initEventListeners = async () => {
     }
 
     // set your localized message
-    const html = formatAll(messenger.i18n.getMessage("qf.licenseBackup.confirmation"));
+    const html = formatAll(messenger.i18n.getMessage("pro.licenseBackup.confirmation"));
     if (insertHtmlSafely(message, html, true)) {
       const featureLink = message.querySelector(".features");
       featureLink?.addEventListener("click", () => {

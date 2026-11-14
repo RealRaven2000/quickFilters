@@ -80,8 +80,8 @@ quickFilters.Assistant = {
     }
 
     let AcceptLabel = isMerge
-      ? quickFilters.Util.getBundleString("qf.button.editFilter", "Edit Filter...")
-      : quickFilters.Util.getBundleString("qf.button.createFilter", "Create New Filter...");
+      ? quickFilters.Util.getBundleString("assistant.editFilter", "Edit Filter...")
+      : quickFilters.Util.getBundleString("assistant.createFilter", "Create New Filter...");
 
     if (!showEditor && !showList) {
       // relabel as [OK]
@@ -161,9 +161,9 @@ quickFilters.Assistant = {
   l10n: function () {
     // [mx-l10n]
     quickFilters.Util.localize(window, {
-      extra1: "qf.continueFilter.label",
-      extra2: "qf.label.donate",
-      cancel: "qf.label.cancel",
+      extra1: "assistant.next.createFilter",
+      extra2: "donate.btn",
+      cancel: "cancel",
     });
   },
 
@@ -296,30 +296,30 @@ quickFilters.Assistant = {
 
       switch (params.cmd) {
         case "mergeList":
-          this.NextButton.label = util.getBundleString("qf.button.merge");
+          this.NextButton.label = util.getBundleString("assistant.merge");
           document.getElementById("mergeSummary").innerText = util.getBundleString(
-            "qf.description.mergeAddSummary"
+            "merge.add.summary"
           );
           document.getElementById("mergeInstructions").innerText = util.getBundleString(
-            "qf.description.mergeAddInstructions"
+            "assistant.mergeAddInstructions"
           );
           document.getElementById("chkMerge").innerText = util.getBundleString(
-            "qf.button.targetSelected"
+            "assistant.merge.targetSelected"
           );
           document.getElementById("filterDescription").innerText = "";
           document.getElementById("chkCreateNew").hidden = true;
           break;
         default:
           document.getElementById("mergeSummary").innerText = util.getBundleString(
-            "qf.description.mergeSummary"
+            "merge.found"
           );
           document.getElementById("mergeInstructions").innerText = util.getBundleString(
-            "qf.description.mergeInstructions"
+            "merge.instructions"
           );
           document.getElementById("filterDescription").innerText = util.getBundleString(
-            "qf.description.selectToExtend"
+            "merge.target.select"
           );
-          this.NextButton.label = util.getBundleString("qf.button.next");
+          this.NextButton.label = util.getBundleString("assistant.next");
           break;
       }
     }
@@ -495,7 +495,7 @@ quickFilters.Assistant = {
       if (templateType.indexOf("quickFilterCustomTemplate") == 0) {
         templateType = "custom";
       }
-      let descriptionId = "qf.filters.template." + templateType + ".description",
+      let descriptionId = "assistant.templates." + templateType + ".description",
         desc = document.getElementById("templateDescription");
       if (desc) {
         desc.textContent = quickFilters.Util.getBundleString(descriptionId);
@@ -524,7 +524,7 @@ quickFilters.Assistant = {
       if (!showEditor && !showList) {
         AcceptLabel = "OK";
       } else {
-        AcceptLabel = getBundleString("qf.button.createFilter", "Create Filter...");
+        AcceptLabel = getBundleString("assistant.createFilter", "Create Filter...");
       }
       NextButton.label = AcceptLabel;
     }, 150);

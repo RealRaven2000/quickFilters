@@ -8,6 +8,9 @@
   "account.label": {
     "message": "Valitse tili:"
   },
+  "actions.title": {
+    "message": "Toiminnot"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "Käytät nyt  {bold} versiota $addonVer$ {/bold}  Thunderbird $appVer$ lla. ",
@@ -28,6 +31,167 @@
   "addTag.label": {
     "message": "Merkitse viesti"
   },
+  "advanced.title": {
+    "message": "Pitkälle kehittynyt"
+  },
+  "assistant.actions.caption": {
+    "message": "Toiminnot"
+  },
+  "assistant.actions.flag": {
+    "message": "Flag"
+  },
+  "assistant.actions.flag.accesskey": {
+    "message": "F"
+  },
+  "assistant.actions.priority": {
+    "message": "Prioriteetti"
+  },
+  "assistant.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "assistant.actions.star": {
+    "message": "Tähti"
+  },
+  "assistant.actions.star.accesskey": {
+    "message": "T"
+  },
+  "assistant.actions.tag": {
+    "message": "Tunnisteet"
+  },
+  "assistant.actions.tag.accesskey": {
+    "message": "u"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "Kohdekansio"
+  },
+  "assistant.actions.tooltip": {
+    "message": "Suodatin kopioi nämä määritteet alkuperäisestä sähköpostista"
+  },
+  "assistant.createFilter": {
+    "message": "Luo uusi suodatin…"
+  },
+  "assistant.createNew": {
+    "message": "Luo uusi suodatin"
+  },
+  "assistant.details.templates.tip": {
+    "message": "Valitse malli. Voit hienosäätää suodatinsääntöjä seuraavalla näytöllä."
+  },
+  "assistant.editFilter": {
+    "message": "Muokkaa suodatinta…"
+  },
+  "assistant.ignoreFolders": {
+    "message": "Assistantin pitäisi ohittaa nämä kansiot…"
+  },
+  "assistant.merge": {
+    "message": "Yhdistää"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "Kohdesuodatin valittu"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "Kaikki muut tämän luettelon suodattimet yhdistetään tähän ja poistetaan sitten."
+  },
+  "assistant.mergeFilterRules": {
+    "message": "Yhdistä “$filterName$” uusiin sääntöihin…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "Yhdistä olemassa olevaan suodattimeen:"
+  },
+  "assistant.next": {
+    "message": "Seuraava"
+  },
+  "assistant.next.createFilter": {
+    "message": "Luo suodatin…"
+  },
+  "assistant.next.createFilter.shortcut": {
+    "message": "L"
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "Suorita automaattisesti"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "Suodata alkuperäisen Saapuneet-kansion suodatin automaattisesti luomisen jälkeen."
+  },
+  "assistant.nextSteps.caption": {
+    "message": "Seuraavat vaiheet"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "Suodata säännöt"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "Muokkaa suodattimen tietoja sen jälkeen, kun Assistant on luonut ne."
+  },
+  "assistant.nextSteps.showList": {
+    "message": "Suodatinluettelo"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "Näyttää suodattimen kontekstissa, jotta voit kokeilla sitä"
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "Mitkä näytöt näytetään suodattimen luomisen jälkeen"
+  },
+  "assistant.templates.custom.description": {
+    "message": "Mukautettu suodatin - Käyttäjä määrittelee käyttäytymisen - käytä muuttujia, kuten %from% %to% %subject% jne."
+  },
+  "assistant.templates.description.label": {
+    "message": "Kuvaus:"
+  },
+  "assistant.templates.domain": {
+    "message": "Perustuu lähettäjän verkkotunnukseen"
+  },
+  "assistant.templates.domain.description": {
+    "message": "Tykkää 'Lähettäjään perustuva' mallista, mutta se vastaa vain lähettäjän sähköpostiosoitteen verkkotunnusta (esim. @xyz.com)"
+  },
+  "assistant.templates.from": {
+    "message": "Lähettäjän perusteella (lähettäjä)"
+  },
+  "assistant.templates.from.description": {
+    "message": "Tämä on luultavasti käytetyin kuvio: tämä noutaa lähettäjän sähköpostiosoitteen ja liitä sen lähteestä ja suodattaa ehdot -kenttiin. Tällä tavalla täydelliset keskustelut lähettäjän kanssa siirretään uuteen kansioon."
+  },
+  "assistant.templates.list.description": {
+    "message": "Samanlainen kuin Perustuu lähettäjään, mutta se ei täytä ehtokenttää."
+  },
+  "assistant.templates.maillist": {
+    "message": "Postitus lista"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "Hyödyllinen postituslistoille, jotka asettavat List-Id-kentän. Jos tätä ei ole asetettu, se käyttää lähettäjän osoitetta."
+  },
+  "assistant.templates.multifrom": {
+    "message": "Ryhmä (kerää useiden sähköpostien lähettäjiä)"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "Käytä tätä siirtääksesi useita sähköposteja ja lisäämällä kaikki lähettäjät ehtoon. (Ei sisällä omia sähköpostiosoitteitasi)"
+  },
+  "assistant.templates.replyto": {
+    "message": "Perustuu Reply-To"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "Suodatin perustuu Reply-To -kenttään."
+  },
+  "assistant.templates.tag": {
+    "message": "Tunnisteiden mukaan"
+  },
+  "assistant.templates.tag.description": {
+    "message": "Käyttää sähköpostin tunnisteita ja lisää ne suodatinehdoiksi."
+  },
+  "assistant.templates.to": {
+    "message": "Perustuu vastaanottajaan (to)"
+  },
+  "assistant.templates.to.description": {
+    "message": "Samanlainen kuin Lähettäjän perusteella: käytä tätä, kun merkitset lähettämäsi sähköpostin jollekin muulle. Tämä noutaa vastaanottajan sähköpostiosoitteen ja liittää sen Lähettäjä-tilaan ja suodattaa ehdot -kenttiin. Näin koko keskustelu kontaktin kanssa siirretään uuteen kansioon."
+  },
+  "assistant.templates.topic": {
+    "message": "Aiheen mukaan"
+  },
+  "assistant.templates.topic.description": {
+    "message": "Tämä etsii sulkeissa erityisiä lausekkeita, esim. [leimankerääjät] tai {vegaanit} ja luo suodatinehto näiden perusteella; Paljon massaviestejä on määritetty käyttämällä tätä mallia, joten sitä on todella helppo käyttää."
+  },
   "assistant.ux.assistant.html": {
     "message": "Näytä avustaja uudessa HTML-käyttöliittymässä"
   },
@@ -42,6 +206,9 @@
   },
   "assistant.ux.title": {
     "message": "Käyttöliittymä"
+  },
+  "assistant.windowTitle": {
+    "message": "Luo suodattimia"
   },
   "backup.archivingFilters": {
     "message": "Arkistoidaan {1} suodatinta"
@@ -1074,6 +1241,9 @@
   "buyPersonalLicense.button": {
     "message": "Osta Pro-lisenssi!"
   },
+  "cancel": {
+    "message": "Peruuttaa"
+  },
   "chkAfterJunk.label": {
     "message": "Roskapostiluokituksen jälkeen"
   },
@@ -1299,6 +1469,30 @@
   "customTemplate.title": {
     "message": "quickFilters-mukautettu malli"
   },
+  "customTemplates": {
+    "message": "Mukautetut mallit"
+  },
+  "customTemplates.create": {
+    "message": "Luo uusi…"
+  },
+  "customTemplates.edit": {
+    "message": "Muokata…"
+  },
+  "customTemplates.group": {
+    "message": "Lisämallit"
+  },
+  "customTemplates.replyTo": {
+    "message": "Reply-To -malli"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "Näytä Reply-To -malli, katso lisätietoja virheen kuvauksesta."
+  },
+  "customTemplates.tooltip": {
+    "message": "Sallii mukautettujen mallien luomisen, katso lisätietoja virheen kuvauksesta."
+  },
+  "customTemplates.warn.restriction": {
+    "message": "Tarvitset voimassa olevan quickFilters Pro -lisenssin luodaksesi uusia mukautettuja malleja avustajalle."
+  },
   "customVariable.label": {
     "message": "Mukautetut muuttujat"
   },
@@ -1329,6 +1523,12 @@
   "deleteMessage.label": {
     "message": "Poista viesti"
   },
+  "disable2wayAddressing.label": {
+    "message": "Poista kaksisuuntaisen osoitteen hakuehdot käytöstä"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "Oletusarvon mukaan quickFilters lisää sekä 'että' - ja 'hakuehtoihin' suodattamaan täydelliset viestiketjut, mukaan lukien omat sähköpostisi, vastaanottajalle. Jos haluat aina pitää vastauksesi Lähetetyt-kansiossa, voit poistaa tämän toiminnan käytöstä täällä. Addon 'Copy Sent to Current' -toimintoa voidaan käyttää vastausten säilyttämiseen alkuperäisillä sähköposteillaan."
+  },
   "domainLicense.email": {
     "message": "Otamme sinuun yhteyttä käyttämällä tätä sähköpostiosoitetta luodaksesi verkkotunnuksen lisenssin; ota yhteyttä kahteen työpäivään. Anna lisenssin verkkotunnus seuraavalla sivulla."
   },
@@ -1343,6 +1543,9 @@
   },
   "donate-heading": {
     "message": "Auta kertalahjoituksella."
+  },
+  "donate.btn": {
+    "message": "Lahjoittaa"
   },
   "donate.label": {
     "message": "Lahjoittaa"
@@ -1475,17 +1678,59 @@
   "licenseTerms.show": {
     "message": "Näytä lisenssiehdot"
   },
+  "licenseValidation.expired": {
+    "message": "quickFilters Pro -lisenssisi on vanhentunut. Uusi se napsauttamalla alla olevaa $renewButton$ -painiketta.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "Vaihtoehtoisesti voit toistaiseksi käyttää Perusversiota — voit palauttaa lisenssisi myöhemmin."
+  },
+  "licenseValidation.failed": {
+    "message": "Syöttämäsi lisenssiavain ei ole voimassa. Tarkista sähköpostisi FatSpringiltä saadaksesi ohjeistusta. Jos ongelmia edelleen ilmenee, ota yhteyttä minuun Tuki-välilehdeltä."
+  },
   "licenseValidation.guessAddon": {
     "message": "(Syötetty avain voi olla kohteelle {2})."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "Syöttämäsi lisenssiavain saattaa olla toiselle lisäosalle. Lisenssiavaimet lisäosalle {0} alkavat: {1}."
+  },
+  "licenseValidation.invalidMail": {
+    "message": "Lisenssiavaimeen [{1}] sidottu sähköpostiosoite ei ole tällä hetkellä mikään sähköpostitileistäsi. Ota yhteyttä minuun Tuki-välilehdeltä saadaksesi apua."
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "Salattu sähköpostiosoite ei vastaa lukukelpoista"
+  },
+  "licenseValidation.passed": {
+    "message": "Kiitos quickFilters Pron rekisteröinnistä! Kaikki premium-ominaisuudet ovat nyt auki."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro-lisenssi"
+  },
+  "list.features.multipaste": {
+    "message": "Ota käyttöön suodattimien liittäminen useille tileille"
+  },
+  "list.features.title": {
+    "message": "Suodatinluettelon ominaisuudet"
   },
   "ListButton.label": {
     "message": "Viestisuodattimet…"
   },
   "ListButton.tooltip": {
     "message": "Näytä luettelo viestisuodattimista"
+  },
+  "listeners.tags": {
+    "message": "Kuuntele tagimuutoksia"
+  },
+  "listeners.tags.autofilter": {
+    "message": "Suorita suodattimet automaattisesti, kun tunnisteita muutetaan"
+  },
+  "listeners.tags.tooltip": {
+    "message": "Kun se on aktivoitu, suodatinavustaja käynnistyy myös, kun merkitset viestin."
   },
   "markMessageRead.label": {
     "message": "Merkitse luetuksi"
@@ -1523,8 +1768,20 @@
   "menu.tools": {
     "message": "Työkalut"
   },
+  "merge.add.summary": {
+    "message": "Valitse suodatin, joka perii muiden ominaisuudet."
+  },
   "merge.addressesOmitted": {
     "message": "Sähköpostiosoitteet jätettiin pois ehdoista - quickFilters poistaa suodattamisen käytöstä omalle sähköpostiosoitteellesi:"
+  },
+  "merge.found": {
+    "message": "quickFilters Assistant löysi joitain suodattimia, jotka jo suorittavat saman toiminnon."
+  },
+  "merge.instructions": {
+    "message": "Voit joko laajentaa yhtä näistä tai luoda kokonaan uuden suodattimen."
+  },
+  "merge.target.select": {
+    "message": "Valitse suodatin laajennettavaksi uusilla säännöillä."
   },
   "merge.warning.missingAction": {
     "message": "Suodattimen päätoimintoa ei voitu saada: {1}"
@@ -1574,6 +1831,57 @@
   "msg.preview.title": {
     "message": "Sähköposti"
   },
+  "naming": {
+    "message": "Nimeämissäännöt"
+  },
+  "naming.clonedSuffix": {
+    "message": "Liitä kloonatun suodattimen nimeen:"
+  },
+  "naming.folderDelimiter": {
+    "message": "Erotin:"
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "Merkki lisätty vanhemman kansion ja nimen väliin"
+  },
+  "naming.keyWord": {
+    "message": "Lisää sääntökohtainen avainsana"
+  },
+  "naming.keyWord.accesskey": {
+    "message": "a"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "Poista seuraavat sanat nimestä:"
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "Pilkuilla erotettu luettelo sanoista, jotka tulee poistaa ehdotetusta suodattimen nimestä, esim. 'Fwd:, Re:, Mail' - kirjainkoko ei ole merkityksellinen"
+  },
+  "naming.parentFolder": {
+    "message": "Lisää pääkansiot"
+  },
+  "naming.parentFolder.accesskey": {
+    "message": "k"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "Lisättävien yläkansioiden enimmäismäärä:"
+  },
+  "naming.removeOwnMail": {
+    "message": "Poista omat sähköpostiosoitteeni (suositus)"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "Omien sähköpostiosoitteiden purkaminen avustajan avulla voi johtaa ei-toivottuihin tuloksiin, joten osoitehakutermit poistavat ne automaattisesti."
+  },
+  "naming.targetAccount": {
+    "message": "Lisää kohdetilin nimi (suodattimille, jotka siirtävät sähköpostit toiseen tiliin)"
+  },
+  "newFilters.intro": {
+    "message": "Seuraavia asetuksia sovelletaan kaikkiin uusiin suodattimiin, jotka on luotu suodatinapurilla."
+  },
+  "newFilters.title": {
+    "message": "Uudet suodattimen ominaisuudet"
+  },
+  "newFilters.whenToRun": {
+    "message": "milloin suodatinta käytetään"
+  },
   "news.minimal": {
     "message": "Älä näytä uutisotsikkoa päivityksissä"
   },
@@ -1585,6 +1893,12 @@
   },
   "notification.dontShowAgain": {
     "message": "Älä näytä tätä viestiä enää."
+  },
+  "notification.filterCreated": {
+    "message": "Uuden suodattimen '{0}' luominen onnistui."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "Suodatin '{0}' päivitettiin onnistuneesti."
   },
   "notification.premium.btn.extendLicense": {
     "message": "Laajenna lisenssiä"
@@ -1709,6 +2023,54 @@
   "pricing.title": {
     "message": "Hinnoittelu"
   },
+  "pro.insertLicense": {
+    "message": "Syötä henkilökohtainen lisenssiavain tähän:"
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "Lisenssiavain löytyy Fatspringiltä tulleessa varmistussähköpostissa"
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}Vaihdetaanko Perusversioon?{br}Lisenssiavaimesi säilytetään tällä tietokoneella, jotta voit uusia sen myöhemmin {b}alennettuun uusintahintaan{/b}.{/P}{P}Kiitos, että olet tukenut quickFiltersia — lisenssit mahdollistavat riippumattoman ohjelmistokehityksen ja auttavat pitämään projektin käynnissä. Vaikka lisenssi olisi vanhentunut, voit uusia sen tai päivittää Standard-lisenssistä milloin tahansa käyttääksesi {a class=features}Pro-ominaisuuksia{/a} kokonaisen vuoden ajan.{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "Palauta lisenssiavain"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "Voit palauttaa aiemman lisenssisi saadaksesi edullisemmat uusintaehtoja."
+  },
+  "pro.licenseBackup.restored": {
+    "message": "Avaimesi palautettiin onnistuneesti. Vaikka se oli vanhentunut, voit hankkia uuden avaimen alennuksella."
+  },
+  "pro.licenseBackup.switch": {
+    "message": "Vaihda Perusversioon"
+  },
+  "pro.licenseValid": {
+    "message": "Lisenssi on vanhenee:"
+  },
+  "pro.pasteLicense": {
+    "message": "liitä"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "vahvista"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "Vahvista ennen suodattimien suorittamista, kun et ole Saapuneet-kansiossa"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "Pikakuvake suodattimien ajamiselle kansiossa: Vaihto + "
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "Pikakuvake suodattimien ajamiselle valituissa viesteissä: Vaihto + "
+  },
+  "proFeatures.title": {
+    "message": "Ensiluokkaiset ominaisuudet"
+  },
+  "proFeatures.website": {
+    "message": "Lisätietoja maksullisista lisätoiminnoista saat verkkosivuiltamme…"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "Löytyi aiheita, jotka alkavat samalla tekstillä: \"$prefix$\".\nKäytetäänkö tätä aiheen hakuehtona?",
     "placeholders": {
@@ -1744,463 +2106,6 @@
   "purchase-heading": {
     "message": "Tukeminen lisenssillä"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "Assistantin pitäisi ohittaa nämä kansiot…"
-  },
-  "qf.btn.splash": {
-    "message": "Näytä Splash-näyttö"
-  },
-  "qf.button.createFilter": {
-    "message": "Luo uusi suodatin…"
-  },
-  "qf.button.editFilter": {
-    "message": "Muokkaa suodatinta…"
-  },
-  "qf.button.merge": {
-    "message": "Yhdistää"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "Yhdistä “$filterName$” uusiin sääntöihin…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "Seuraava"
-  },
-  "qf.button.pasteLicense": {
-    "message": "liitä"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "Siirry alareunaan"
-  },
-  "qf.button.reorderButtonBottom.accessKey": {
-    "message": "a"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "Järjestä suodatin uudelleen niin, että se toimii kaikkien muiden jälkeen"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "Siirry alkuun"
-  },
-  "qf.button.reorderButtonTop.accessKey": {
-    "message": "k"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "Järjestä suodatin uudelleen niin, että se toimii ennen kaikkia muita"
-  },
-  "qf.button.targetSelected": {
-    "message": "Kohdesuodatin valittu"
-  },
-  "qf.button.validateLicense": {
-    "message": "vahvista"
-  },
-  "qf.check.createNew": {
-    "message": "Luo uusi suodatin"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "Yhdistä olemassa olevaan suodattimeen:"
-  },
-  "qf.cloned.label": {
-    "message": "Liitä kloonatun suodattimen nimeen:"
-  },
-  "qf.continueFilter.label": {
-    "message": "Luo suodatin…"
-  },
-  "qf.continueFilter.shortcut": {
-    "message": "L"
-  },
-  "qf.description.about": {
-    "message": "Yksityiskohtainen kuvaus tuotteesta quickFilters löytyy seuraavalta sivustolta:"
-  },
-  "qf.description.contactMe": {
-    "message": "Voit myös ottaa minuun yhteyttä henkilökohtaisesti osoitteessa $supportMail$:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "Tämä vaihtoehto on käytettävissä vain, jos käytät lisäosaa QuickFolders, joka lisää pienen työkalurivin viestin esikatseluruudun päälle."
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "Kaikki muut tämän luettelon suodattimet yhdistetään tähän ja poistetaan sitten."
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "Valitse suodatin, joka perii muiden ominaisuudet."
-  },
-  "qf.description.mergeInstructions": {
-    "message": "Voit joko laajentaa yhtä näistä tai luoda kokonaan uuden suodattimen."
-  },
-  "qf.description.mergeSummary": {
-    "message": "quickFilters Assistant löysi joitain suodattimia, jotka jo suorittavat saman toiminnon."
-  },
-  "qf.description.selectToExtend": {
-    "message": "Valitse suodatin laajennettavaksi uusilla säännöillä."
-  },
-  "qf.description.splash": {
-    "message": "Näytä uutisia ja tärkeitä muutoksia kielelläsi:"
-  },
-  "qf.donate.tooltip": {
-    "message": "Tuki quickFilters-kehitykselle!"
-  },
-  "qf.filterlist.group": {
-    "message": "Suodatinluettelon ominaisuudet"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "Ota käyttöön suodattimien liittäminen useille tileille"
-  },
-  "qf.filters.actions.caption": {
-    "message": "Toiminnot"
-  },
-  "qf.filters.actions.flag": {
-    "message": "Flag"
-  },
-  "qf.filters.actions.flag.accesskey": {
-    "message": "F"
-  },
-  "qf.filters.actions.priority": {
-    "message": "Prioriteetti"
-  },
-  "qf.filters.actions.priority.accesskey": {
-    "message": "P"
-  },
-  "qf.filters.actions.star": {
-    "message": "Tähti"
-  },
-  "qf.filters.actions.star.accesskey": {
-    "message": "T"
-  },
-  "qf.filters.actions.tag": {
-    "message": "Tunnisteet"
-  },
-  "qf.filters.actions.tag.accesskey": {
-    "message": "u"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "Kohdekansio"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "Suodatin kopioi nämä määritteet alkuperäisestä sähköpostista"
-  },
-  "qf.filters.instructions": {
-    "message": "Valitse malli. Voit hienosäätää suodatinsääntöjä seuraavalla näytöllä."
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "Suorita automaattisesti"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "Suodata alkuperäisen Saapuneet-kansion suodatin automaattisesti luomisen jälkeen."
-  },
-  "qf.filters.steps.caption": {
-    "message": "Seuraavat vaiheet"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "Suodata säännöt"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "Muokkaa suodattimen tietoja sen jälkeen, kun Assistant on luonut ne."
-  },
-  "qf.filters.steps.showList": {
-    "message": "Suodatinluettelo"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "Näyttää suodattimen kontekstissa, jotta voit kokeilla sitä"
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "Mitkä näytöt näytetään suodattimen luomisen jälkeen"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "Mukautettu suodatin - Käyttäjä määrittelee käyttäytymisen - käytä muuttujia, kuten %from% %to% %subject% jne."
-  },
-  "qf.filters.template.domain": {
-    "message": "Perustuu lähettäjän verkkotunnukseen"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "Tykkää 'Lähettäjään perustuva' mallista, mutta se vastaa vain lähettäjän sähköpostiosoitteen verkkotunnusta (esim. @xyz.com)"
-  },
-  "qf.filters.template.from": {
-    "message": "Lähettäjän perusteella (lähettäjä)"
-  },
-  "qf.filters.template.from.description": {
-    "message": "Tämä on luultavasti käytetyin kuvio: tämä noutaa lähettäjän sähköpostiosoitteen ja liitä sen lähteestä ja suodattaa ehdot -kenttiin. Tällä tavalla täydelliset keskustelut lähettäjän kanssa siirretään uuteen kansioon."
-  },
-  "qf.filters.template.list.description": {
-    "message": "Samanlainen kuin Perustuu lähettäjään, mutta se ei täytä ehtokenttää."
-  },
-  "qf.filters.template.maillist": {
-    "message": "Postitus lista"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "Hyödyllinen postituslistoille, jotka asettavat List-Id-kentän. Jos tätä ei ole asetettu, se käyttää lähettäjän osoitetta."
-  },
-  "qf.filters.template.multifrom": {
-    "message": "Ryhmä (kerää useiden sähköpostien lähettäjiä)"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "Käytä tätä siirtääksesi useita sähköposteja ja lisäämällä kaikki lähettäjät ehtoon. (Ei sisällä omia sähköpostiosoitteitasi)"
-  },
-  "qf.filters.template.replyto": {
-    "message": "Perustuu Reply-To"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "Suodatin perustuu Reply-To -kenttään."
-  },
-  "qf.filters.template.tag": {
-    "message": "Tunnisteiden mukaan"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "Käyttää sähköpostin tunnisteita ja lisää ne suodatinehdoiksi."
-  },
-  "qf.filters.template.to": {
-    "message": "Perustuu vastaanottajaan (to)"
-  },
-  "qf.filters.template.to.description": {
-    "message": "Samanlainen kuin Lähettäjän perusteella: käytä tätä, kun merkitset lähettämäsi sähköpostin jollekin muulle. Tämä noutaa vastaanottajan sähköpostiosoitteen ja liittää sen Lähettäjä-tilaan ja suodattaa ehdot -kenttiin. Näin koko keskustelu kontaktin kanssa siirretään uuteen kansioon."
-  },
-  "qf.filters.template.topic": {
-    "message": "Aiheen mukaan"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "Tämä etsii sulkeissa erityisiä lausekkeita, esim. [leimankerääjät] tai {vegaanit} ja luo suodatinehto näiden perusteella; Paljon massaviestejä on määritetty käyttämällä tätä mallia, joten sitä on todella helppo käyttää."
-  },
-  "qf.filters.templates.description.label": {
-    "message": "Kuvaus:"
-  },
-  "qf.filters.title": {
-    "message": "Luo suodattimia"
-  },
-  "qf.github.description": {
-    "message": "Ilmoita virheistä tai ehdota uusia ominaisuuksia täällä:"
-  },
-  "qf.grp.whenToRun": {
-    "message": "milloin suodatinta käytetään"
-  },
-  "qf.label.aboutLink": {
-    "message": "quickFilters-verkkosivusto…"
-  },
-  "qf.label.cancel": {
-    "message": "Peruuttaa"
-  },
-  "qf.label.contactLink": {
-    "message": "Ota yhteyttä minuun (englanniksi tai saksaksi)…"
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "QuickFolders Nykyisen kansion työkalurivi"
-  },
-  "qf.label.donate": {
-    "message": "Lahjoittaa"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} of {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "kohteita"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 kohde"
-  },
-  "qf.label.haveLicense": {
-    "message": "Onko sinulla jo lisenssi?"
-  },
-  "qf.label.insertLicense": {
-    "message": "Syötä henkilökohtainen lisenssiavain tähän:"
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "Lisenssiavain löytyy Fatspringiltä tulleessa varmistussähköpostissa"
-  },
-  "qf.label.licenseValid": {
-    "message": "Lisenssi on vanhenee:"
-  },
-  "qf.label.naming": {
-    "message": "Nimeämissäännöt"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "Erotin:"
-  },
-  "qf.label.naming.keyWord": {
-    "message": "Lisää sääntökohtainen avainsana"
-  },
-  "qf.label.naming.keyWord.accesskey": {
-    "message": "a"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "Poista seuraavat sanat nimestä:"
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "Pilkuilla erotettu luettelo sanoista, jotka tulee poistaa ehdotetusta suodattimen nimestä, esim. 'Fwd:, Re:, Mail' - kirjainkoko ei ole merkityksellinen"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "Lisää pääkansiot"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "k"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "Lisättävien yläkansioiden enimmäismäärä:"
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "Lisää kohdetilin nimi (suodattimille, jotka siirtävät sähköpostit toiseen tiliin)"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "Lisätietoja maksullisista lisätoiminnoista saat verkkosivuiltamme…"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "Poista omat sähköpostiosoitteeni (suositus)"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "Omien sähköpostiosoitteiden purkaminen avustajan avulla voi johtaa ei-toivottuihin tuloksiin, joten osoitehakutermit poistavat ne automaattisesti."
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "Vahvista ennen suodattimien suorittamista, kun et ole Saapuneet-kansiossa"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "Pikakuvake suodattimien ajamiselle kansiossa: Vaihto + "
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "Pikakuvake suodattimien ajamiselle valituissa viesteissä: Vaihto + "
-  },
-  "qf.label.supportWithLicense": {
-    "message": "Tuki quickFilters hankkimalla lisenssi!"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}Vaihdetaanko Perusversioon?{br}Lisenssiavaimesi säilytetään tällä tietokoneella, jotta voit uusia sen myöhemmin {b}alennettuun uusintahintaan{/b}.{/P}{P}Kiitos, että olet tukenut quickFiltersia — lisenssit mahdollistavat riippumattoman ohjelmistokehityksen ja auttavat pitämään projektin käynnissä. Vaikka lisenssi olisi vanhentunut, voit uusia sen tai päivittää Standard-lisenssistä milloin tahansa käyttääksesi {a class=features}Pro-ominaisuuksia{/a} kokonaisen vuoden ajan.{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "Palauta lisenssiavain"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "Voit palauttaa aiemman lisenssisi saadaksesi edullisemmat uusintaehtoja."
-  },
-  "qf.licenseBackup.restored": {
-    "message": "Avaimesi palautettiin onnistuneesti. Vaikka se oli vanhentunut, voit hankkia uuden avaimen alennuksella."
-  },
-  "qf.licenseBackup.switch": {
-    "message": "Vaihda Perusversioon"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "quickFilters Pro -lisenssisi on vanhentunut. Uusi se napsauttamalla alla olevaa $renewButton$ -painiketta.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "Vaihtoehtoisesti voit toistaiseksi käyttää Perusversiota — voit palauttaa lisenssisi myöhemmin."
-  },
-  "qf.licenseValidation.failed": {
-    "message": "Syöttämäsi lisenssiavain ei ole voimassa. Tarkista sähköpostisi FatSpringiltä saadaksesi ohjeistusta. Jos ongelmia edelleen ilmenee, ota yhteyttä minuun Tuki-välilehdeltä."
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "Syöttämäsi lisenssiavain saattaa olla toiselle lisäosalle. Lisenssiavaimet lisäosalle {0} alkavat: {1}."
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "Lisenssiavaimeen [{1}] sidottu sähköpostiosoite ei ole tällä hetkellä mikään sähköpostitileistäsi. Ota yhteyttä minuun Tuki-välilehdeltä saadaksesi apua."
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "Salattu sähköpostiosoite ei vastaa lukukelpoista"
-  },
-  "qf.licenseValidation.passed": {
-    "message": "Kiitos quickFilters Pron rekisteröinnistä! Kaikki premium-ominaisuudet ovat nyt auki."
-  },
-  "qf.listener.tags": {
-    "message": "Kuuntele tagimuutoksia"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "Suorita suodattimet automaattisesti, kun tunnisteita muutetaan"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "Kun se on aktivoitu, suodatinavustaja käynnistyy myös, kun merkitset viestin."
-  },
-  "qf.newFilterProps.intro": {
-    "message": "Seuraavia asetuksia sovelletaan kaikkiin uusiin suodattimiin, jotka on luotu suodatinapurilla."
-  },
-  "qf.notify.filterCreated": {
-    "message": "Uuden suodattimen '{0}' luominen onnistui."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "Suodatin '{0}' päivitettiin onnistuneesti."
-  },
-  "qf.onewayaddress.label": {
-    "message": "Poista kaksisuuntaisen osoitteen hakuehdot käytöstä"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "Oletusarvon mukaan quickFilters lisää sekä 'että' - ja 'hakuehtoihin' suodattamaan täydelliset viestiketjut, mukaan lukien omat sähköpostisi, vastaanottajalle. Jos haluat aina pitää vastauksesi Lähetetyt-kansiossa, voit poistaa tämän toiminnan käytöstä täällä. Addon 'Copy Sent to Current' -toimintoa voidaan käyttää vastausten säilyttämiseen alkuperäisillä sähköposteillaan."
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "Napsauta versiohistoriaa hiiren kakkospainikkeella."
-  },
-  "qf.premiumConfig": {
-    "message": "Ensiluokkaiset ominaisuudet"
-  },
-  "qf.tab.actions": {
-    "message": "Toiminnot"
-  },
-  "qf.tab.advanced": {
-    "message": "Pitkälle kehittynyt"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "Uudet suodattimen ominaisuudet"
-  },
-  "qf.tab.options": {
-    "message": "Vaihtoehdot"
-  },
-  "qf.tab.support": {
-    "message": "Tuki"
-  },
-  "qf.templates.advanced": {
-    "message": "Lisämallit"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "Muokata…"
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "Mukautetut mallit"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "Luo uusi…"
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "Tarvitset voimassa olevan quickFilters Pro -lisenssin luodaksesi uusia mukautettuja malleja avustajalle."
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "Sallii mukautettujen mallien luomisen, katso lisätietoja virheen kuvauksesta."
-  },
-  "qf.templates.replyTo.label": {
-    "message": "Reply-To -malli"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "Näytä Reply-To -malli, katso lisätietoja virheen kuvauksesta."
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "Hae suodattimia nimen mukaan…"
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "kirjoita avainsana hakusuodattimiin nimen mukaan"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "Merkki lisätty vanhemman kansion ja nimen väliin"
-  },
-  "qf.youtube.description": {
-    "message": "Lisätietoja Thunderbird-lisäosista ja videoista quickFiltersin käytöstä on YouTube-kanavallani."
-  },
-  "qf.youtube.link": {
-    "message": "Katso quickFilters-videoita Thunderbird Daily -sivustolta…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Lisenssi vanhentunut!"
   },
@@ -2226,6 +2131,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Avaa '{menulabel}'-valikko alla nähdäksesi, mitä on uutta. Tämä poistaa myös 🟠."
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "QuickFolders Nykyisen kansion työkalurivi"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "Tämä vaihtoehto on käytettävissä vain, jos käytät lisäosaa QuickFolders, joka lisää pienen työkalurivin viestin esikatseluruudun päälle."
+  },
+  "register.hasLicense": {
+    "message": "Onko sinulla jo lisenssi?"
   },
   "register.licenseValid.expired": {
     "message": "Lisenssisi on vanhentunut:"
@@ -2370,6 +2284,41 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "Ota yhteyttä minuun (englanniksi tai saksaksi)…"
+  },
+  "support.mailSupport.detail": {
+    "message": "Voit myös ottaa minuun yhteyttä henkilökohtaisesti osoitteessa $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub.detail": {
+    "message": "Ilmoita virheistä tai ehdota uusia ominaisuuksia täällä:"
+  },
+  "support.showSplash": {
+    "message": "Näytä Splash-näyttö"
+  },
+  "support.showSplash.detail": {
+    "message": "Näytä uutisia ja tärkeitä muutoksia kielelläsi:"
+  },
+  "support.showSupportSite": {
+    "message": "quickFilters-verkkosivusto…"
+  },
+  "support.showSupportSite.detail": {
+    "message": "Yksityiskohtainen kuvaus tuotteesta quickFilters löytyy seuraavalta sivustolta:"
+  },
+  "support.showYoutube": {
+    "message": "Katso quickFilters-videoita Thunderbird Daily -sivustolta…"
+  },
+  "support.showYoutube.detail": {
+    "message": "Lisätietoja Thunderbird-lisäosista ja videoista quickFiltersin käytöstä on YouTube-kanavallani."
+  },
+  "support.title": {
+    "message": "Tuki"
   },
   "testDrive": {
     "message": "Voit testata premium-ominaisuuksia ilmaisella versiolla, mutta ne saattavat olla hieman rajoitettuja."
@@ -2746,6 +2695,9 @@
   "version": {
     "message": "Versio:"
   },
+  "versionNumber.tooltip": {
+    "message": "Napsauta versiohistoriaa hiiren kakkospainikkeella."
+  },
   "warning.emptyFilter": {
     "message": "Suodatinta ei voitu luoda: ilman kelvollisia hakuehtoja suodatinta ei voi muokata."
   },
@@ -2811,5 +2763,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Kaikki muut sähköpostiosoitteet eivät ole ongelma - ne eivät vaadi erillistä lisenssiä. Jos sinulla on kysymyksiä, pääset minut tukisivun kautta."
+  },
+  "youtube.tooltip": {
+    "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
   }
 }

@@ -8,6 +8,9 @@
   "account.label": {
     "message": "Select account:"
   },
+  "actions.title": {
+    "message": "Hành động"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "Bạn hiện đang chạy phiên bản {bold} $addonVer$ {/bold}  trên Thunderbird $appVer$.",
@@ -28,6 +31,167 @@
   "addTag.label": {
     "message": "Dán Nhãn cho Thư"
   },
+  "advanced.title": {
+    "message": "Nâng cao"
+  },
+  "assistant.actions.caption": {
+    "message": "Actions"
+  },
+  "assistant.actions.flag": {
+    "message": "Flag"
+  },
+  "assistant.actions.flag.accesskey": {
+    "message": "F"
+  },
+  "assistant.actions.priority": {
+    "message": "Priority"
+  },
+  "assistant.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "assistant.actions.star": {
+    "message": "Star"
+  },
+  "assistant.actions.star.accesskey": {
+    "message": "S"
+  },
+  "assistant.actions.tag": {
+    "message": "Tags"
+  },
+  "assistant.actions.tag.accesskey": {
+    "message": "T"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "Target Folder"
+  },
+  "assistant.actions.tooltip": {
+    "message": "Filter copies these attributes from original email"
+  },
+  "assistant.createFilter": {
+    "message": "Create New Filter…"
+  },
+  "assistant.createNew": {
+    "message": "Create a New Filter"
+  },
+  "assistant.details.templates.tip": {
+    "message": "Hãy chọn một mẫu. Bạn có thể tinh chỉnh các quy tắc của bộ lọc ở màn hình kế tiếp."
+  },
+  "assistant.editFilter": {
+    "message": "Edit Filter…"
+  },
+  "assistant.ignoreFolders": {
+    "message": "Trợ lý nên bỏ qua các thư mục này…"
+  },
+  "assistant.merge": {
+    "message": "Merge"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "Target Filter selected"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "All other filters in this list will be merged into this and then deleted."
+  },
+  "assistant.mergeFilterRules": {
+    "message": "Kết hợp “$filterName$” với các quy tắc mới…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "Merge with an existing filter:"
+  },
+  "assistant.next": {
+    "message": "Next"
+  },
+  "assistant.next.createFilter": {
+    "message": "Tạo Bộ Lọc…"
+  },
+  "assistant.next.createFilter.shortcut": {
+    "message": "T"
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "Run Automatically"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "Automatically runs the filter on the originating Inbox after creation."
+  },
+  "assistant.nextSteps.caption": {
+    "message": "Next Steps"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "Filter Rules"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "Edit the filter details after the Assistant has created it."
+  },
+  "assistant.nextSteps.showList": {
+    "message": "Filters List"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "Displays the filter in context so you can try it out"
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "Which screens to show after filter creation"
+  },
+  "assistant.templates.custom.description": {
+    "message": "Custom Filter - behavior is defined by User - use variables like %from% %to% %subject% etc."
+  },
+  "assistant.templates.description.label": {
+    "message": "Mô tả:"
+  },
+  "assistant.templates.domain": {
+    "message": "Based on Sender's Domain"
+  },
+  "assistant.templates.domain.description": {
+    "message": "Like 'based on sender' template but only matches the domain (e.g. @xyz.com) of the sender's email address"
+  },
+  "assistant.templates.from": {
+    "message": "Dựa theo Người Gửi (gửi từ)"
+  },
+  "assistant.templates.from.description": {
+    "message": "Đây có lẽ là mẫu được dùng nhiều nhất: nó sẽ lấy các địa chỉ thư điện tử của người gửi rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ các hội thoại với người gửi sẽ được di chuyển vào một thư mục mới."
+  },
+  "assistant.templates.list.description": {
+    "message": "Tương tự như Dựa trên Người Gửi, nhưng nó không điền vùng điều kiện 'gửi đến'."
+  },
+  "assistant.templates.maillist": {
+    "message": "Danh sách thư"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "Useful for mailing lists with 'List-Id' field. If this is not set it will use the sender's address instead."
+  },
+  "assistant.templates.multifrom": {
+    "message": "Group (collects senders of multiple mails)"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "Use this to drag multiple emails and add all senders to the condition. (Excludes your own mail addresses)"
+  },
+  "assistant.templates.replyto": {
+    "message": "Based on Reply-To"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "Filter is based on the Reply-To field."
+  },
+  "assistant.templates.tag": {
+    "message": "Theo các nhãn"
+  },
+  "assistant.templates.tag.description": {
+    "message": "Dùng các nhãn của thư và thêm chúng vào các điều kiện bộ lọc."
+  },
+  "assistant.templates.to": {
+    "message": "Dựa theo Người Nhận (gửi đến)"
+  },
+  "assistant.templates.to.description": {
+    "message": "Tương tự như 'Dựa trên Người Gửi': dùng cái này khi bạn đánh dấu một thư mà bạn đã gửi cho ai đó. Nó sẽ lấy các địa chỉ thư điện tử của người nhận rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ hội thoại tới và từ người gửi sẽ được di chuyển vào một thư mục mới."
+  },
+  "assistant.templates.topic": {
+    "message": "Theo tiêu đề"
+  },
+  "assistant.templates.topic.description": {
+    "message": "Nó sẽ tìm kiếm các từ ngữ trong ngoặc đơn, ví dụ: [bộ sưu tập tem] hay {ăn chay} và tạo một điều kiện bộ lọc dựa trên đó; rất nhiều thư được cài đặt dùng mẫu này, nên nó thực sự rất dễ dùng."
+  },
   "assistant.ux.assistant.html": {
     "message": "Hiển thị Trợ lý trong giao diện HTML mới"
   },
@@ -42,6 +206,9 @@
   },
   "assistant.ux.title": {
     "message": "Giao diện người dùng"
+  },
+  "assistant.windowTitle": {
+    "message": "Tạo Bộ Lọc"
   },
   "backup.archivingFilters": {
     "message": "Archiving {1} Filters"
@@ -1074,6 +1241,9 @@
   "buyPersonalLicense.button": {
     "message": "Mua Giấy phép Cá nhân!"
   },
+  "cancel": {
+    "message": "Hủy bỏ"
+  },
   "chkAfterJunk.label": {
     "message": "After junk classification"
   },
@@ -1299,6 +1469,30 @@
   "customTemplate.title": {
     "message": "quickFilters Custom Template"
   },
+  "customTemplates": {
+    "message": "Mẫu tùy chỉnh"
+  },
+  "customTemplates.create": {
+    "message": "Tạo mới…"
+  },
+  "customTemplates.edit": {
+    "message": "Biên tập…"
+  },
+  "customTemplates.group": {
+    "message": "Mẫu nâng cao"
+  },
+  "customTemplates.replyTo": {
+    "message": "Reply-To Template"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "Hiển thị Mẫu trả lời, xem mô tả lỗi để biết chi tiết."
+  },
+  "customTemplates.tooltip": {
+    "message": "Cho phép tạo Mẫu tùy chỉnh, xem mô tả lỗi để biết chi tiết."
+  },
+  "customTemplates.warn.restriction": {
+    "message": "Bạn cần có giấy phép quickFilters Pro hợp lệ để tạo các mẫu tùy chỉnh mới cho trợ lý."
+  },
   "customVariable.label": {
     "message": "Custom Variables"
   },
@@ -1329,6 +1523,12 @@
   "deleteMessage.label": {
     "message": "Xóa Thư"
   },
+  "disable2wayAddressing.label": {
+    "message": "Tắt các điều kiện tìm kiếm địa chỉ hai chiều"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "Theo mặc định, quickFilters thêm cả điều kiện tìm kiếm 'từ' và 'đến' để hỗ trợ lọc các chuỗi tin nhắn hoàn chỉnh bao gồm cả email của chính bạn cho người nhận. Nếu bạn luôn muốn giữ câu trả lời của mình trong thư mục Đã gửi, bạn có thể tắt hành vi này tại đây. Addon 'Copy Sent to Current' có thể được sử dụng để giữ thư trả lời với các email gốc của họ."
+  },
   "domainLicense.email": {
     "message": "We will contact you using this email address to generate your domain license; please allow two business days for us to get in touch. Enter the domain name for the license on the next page."
   },
@@ -1343,6 +1543,9 @@
   },
   "donate-heading": {
     "message": "Giúp đỡ với khoản đóng góp một lần."
+  },
+  "donate.btn": {
+    "message": "Quên góp"
   },
   "donate.label": {
     "message": "Quyên góp"
@@ -1475,17 +1678,59 @@
   "licenseTerms.show": {
     "message": "Hiển thị điều khoản giấy phép"
   },
+  "licenseValidation.expired": {
+    "message": "Giấy phép quickFilters Pro của bạn đã hết hạn. Nhấp vào “$renewButton$” bên dưới để gia hạn.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "Ngoài ra, bạn có thể tạm thời sử dụng Phiên bản Cơ bản — bạn vẫn có thể khôi phục giấy phép sau."
+  },
+  "licenseValidation.failed": {
+    "message": "Khóa cấp phép bạn đã nhập không hợp lệ. Kiểm tra email của bạn từ FastSpring để biết hướng dẫn. Nếu bạn vẫn gặp sự cố, vui lòng liên hệ với tôi từ tab Hỗ trợ."
+  },
   "licenseValidation.guessAddon": {
     "message": "(The key entered may be for {2})."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "Khóa cấp phép bạn đã nhập có thể dành cho một Tiện ích bổ sung khác. Khóa cấp phép cho {0} bắt đầu bằng {1}."
+  },
+  "licenseValidation.invalidMail": {
+    "message": "Địa chỉ email được liên kết với khóa cấp phép [{1}] hiện không được liệt kê trong bất kỳ tài khoản thư nào của bạn. Vui lòng liên hệ với tôi từ tab Hỗ trợ để được hỗ trợ."
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "Địa chỉ email được mã hóa không khớp với địa chỉ có thể đọc được."
+  },
+  "licenseValidation.passed": {
+    "message": "Cảm ơn bạn đã đăng ký quickFilters Pro! Tất cả các tính năng cao cấp hiện đã được mở khóa."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro License"
+  },
+  "list.features.multipaste": {
+    "message": "Cho phép sao chép và dán bộ lọc vào nhiều tài khoản"
+  },
+  "list.features.title": {
+    "message": "Tính năng danh sách bộ lọc"
   },
   "ListButton.label": {
     "message": "Các Bộ Lọc Tin Nhắn…"
   },
   "ListButton.tooltip": {
     "message": "Hiển thị danh sách các bộ lọc tin nhắn"
+  },
+  "listeners.tags": {
+    "message": "Listen for Tag changes"
+  },
+  "listeners.tags.autofilter": {
+    "message": "Chạy bộ lọc tự động khi thẻ được sửa đổi"
+  },
+  "listeners.tags.tooltip": {
+    "message": "Trợ lý bộ lọc cũng sẽ được kích hoạt khi bạn gắn thẻ một tin nhắn."
   },
   "markMessageRead.label": {
     "message": "Đánh Dấu Đã Đọc"
@@ -1523,8 +1768,20 @@
   "menu.tools": {
     "message": "Công cụ"
   },
+  "merge.add.summary": {
+    "message": "Select the filter that will inherit the properties of the others."
+  },
   "merge.addressesOmitted": {
     "message": "Email addresses were omitted from the conditions - quickFilters disables filtering for your own mail address:"
+  },
+  "merge.found": {
+    "message": "quickFilters Assistant found some filters that already do the same action."
+  },
+  "merge.instructions": {
+    "message": "You can either extend one of these or create a completely new filter."
+  },
+  "merge.target.select": {
+    "message": "Select a Filter to extend with new rules."
   },
   "merge.warning.missingAction": {
     "message": "Không thể tải tác vụ chính của bộ lọc: {1}"
@@ -1574,6 +1831,57 @@
   "msg.preview.title": {
     "message": "Thư"
   },
+  "naming": {
+    "message": "Quy tắc đặt tên"
+  },
+  "naming.clonedSuffix": {
+    "message": "Append to name of cloned filter:"
+  },
+  "naming.folderDelimiter": {
+    "message": "Delimiter:"
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "Ký tự được chèn giữa thư mục mẹ và tên"
+  },
+  "naming.keyWord": {
+    "message": "Thêm quy tắc từ khóa nhất định"
+  },
+  "naming.keyWord.accesskey": {
+    "message": "k"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "Xóa bất kỳ từ nào sau đây khỏi tên:"
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "Danh sách các từ phân tách bằng dấu phẩy cần loại bỏ khỏi tên bộ lọc được đề xuất, ví dụ: 'Fwd:, Re:, Mail' - không phân biệt chữ hoa/thường"
+  },
+  "naming.parentFolder": {
+    "message": "Thêm tên các thư mục cha"
+  },
+  "naming.parentFolder.accesskey": {
+    "message": "p"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "Số lượng tối đa các thư mục cha cần thêm:"
+  },
+  "naming.removeOwnMail": {
+    "message": "Xóa địa chỉ email của riêng tôi (được khuyến nghị)"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "Việc trích xuất địa chỉ email của riêng bạn bằng trợ lý có thể dẫn đến kết quả không mong muốn, vì vậy, các cụm từ tìm kiếm địa chỉ sẽ tự động xóa chúng."
+  },
+  "naming.targetAccount": {
+    "message": "Thêm tên tài khoản đích (cho các bộ lọc di chuyển mail sang tài khoản khác)"
+  },
+  "newFilters.intro": {
+    "message": "Các cài đặt sau sẽ được áp dụng cho bất kỳ bộ lọc mới nào được tạo bằng trợ lý bộ lọc."
+  },
+  "newFilters.title": {
+    "message": "Thuộc tính của bộ lọc mới"
+  },
+  "newFilters.whenToRun": {
+    "message": "Apply filter when"
+  },
   "news.minimal": {
     "message": "Không hiển thị nhãn tin tức khi cập nhật"
   },
@@ -1585,6 +1893,12 @@
   },
   "notification.dontShowAgain": {
     "message": "Không hiển thị thông báo này nữa."
+  },
+  "notification.filterCreated": {
+    "message": "Đã tạo thành công bộ lọc mới '{0}'."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "Đã cập nhật thành công bộ lọc '{0}'."
   },
   "notification.premium.btn.extendLicense": {
     "message": "gia hạn giấy phép"
@@ -1709,6 +2023,54 @@
   "pricing.title": {
     "message": "Prissättning"
   },
+  "pro.insertLicense": {
+    "message": "Insert your personal License key here:"
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "Your license key is contained in your order confirmation email from Fastspring."
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}Chuyển sang Phiên bản Cơ bản?{br}Khóa giấy phép của bạn sẽ được lưu trên máy tính này để bạn có thể gia hạn sau với {b}giá gia hạn ưu đãi{/b}.{/P}{P}Cảm ơn bạn đã ủng hộ quickFilters — giấy phép giúp phát triển phần mềm độc lập trở nên khả thi và giữ cho dự án tiếp tục hoạt động. Ngay cả khi đã hết hạn, bạn vẫn có thể gia hạn hoặc nâng cấp từ giấy phép Standard bất cứ lúc nào để sử dụng {a class=features}Tính năng Pro{/a} trong một năm đầy đủ.{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "Khôi phục khóa giấy phép"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "Bạn có thể khôi phục giấy phép trước đó để có điều kiện gia hạn tốt hơn."
+  },
+  "pro.licenseBackup.restored": {
+    "message": "Khóa của bạn đã được khôi phục an toàn. Ngay cả khi hết hạn, bạn vẫn có thể lấy khóa mới với giá ưu đãi."
+  },
+  "pro.licenseBackup.switch": {
+    "message": "Chuyển sang Phiên bản Cơ bản"
+  },
+  "pro.licenseValid": {
+    "message": "Your license is valid until:"
+  },
+  "pro.pasteLicense": {
+    "message": "paste"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "validate"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "Xác nhận trước khi thực thi bộ lọc khi không ở trong Hộp thư đến"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "Phím tắt để chạy bộ lọc trên thư mục: Shift + "
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "Phím tắt để chạy bộ lọc trên thư đã chọn: Shift + "
+  },
+  "proFeatures.title": {
+    "message": "Tính năng cao cấp"
+  },
+  "proFeatures.website": {
+    "message": "Đọc thêm về Tính năng cao cấp trên Trang web của chúng tôi"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "Đã tìm thấy các tiêu đề bắt đầu bằng cùng một văn bản: \"$prefix$\".\nSử dụng văn bản này làm điều kiện tìm kiếm tiêu đề?",
     "placeholders": {
@@ -1744,463 +2106,6 @@
   "purchase-heading": {
     "message": "Hỗ trợ thông qua giấy phép"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "Trợ lý nên bỏ qua các thư mục này…"
-  },
-  "qf.btn.splash": {
-    "message": "Hiển thị màn hình Splash"
-  },
-  "qf.button.createFilter": {
-    "message": "Create New Filter…"
-  },
-  "qf.button.editFilter": {
-    "message": "Edit Filter…"
-  },
-  "qf.button.merge": {
-    "message": "Merge"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "Kết hợp “$filterName$” với các quy tắc mới…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "Next"
-  },
-  "qf.button.pasteLicense": {
-    "message": "paste"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "Đưa xuống cuối"
-  },
-  "qf.button.reorderButtonBottom.accessKey": {
-    "message": "b"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "Sắp xếp lại bộ lọc để nó được thực thi sau tất cả các cái khác"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "Đưa lên đầu"
-  },
-  "qf.button.reorderButtonTop.accessKey": {
-    "message": "o"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "Sắp xếp lại bộ lọc để nó được thực thi trước tất cả các cái khác"
-  },
-  "qf.button.targetSelected": {
-    "message": "Target Filter selected"
-  },
-  "qf.button.validateLicense": {
-    "message": "validate"
-  },
-  "qf.check.createNew": {
-    "message": "Create a New Filter"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "Merge with an existing filter:"
-  },
-  "qf.cloned.label": {
-    "message": "Append to name of cloned filter:"
-  },
-  "qf.continueFilter.label": {
-    "message": "Tạo Bộ Lọc…"
-  },
-  "qf.continueFilter.shortcut": {
-    "message": "T"
-  },
-  "qf.description.about": {
-    "message": "Mô tả ngắn về quickFilters có thể xem ở trang sau:"
-  },
-  "qf.description.contactMe": {
-    "message": "Bạn cũng có thể liên lạc riêng với tôi tại $supportMail$:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "Tùy chọn này chỉ có thể áp dụng nếu bạn đang sử dụng Add-On QuickFolders, thêm một thanh công cụ nhỏ ở phía trên của ngăn xem trước thư."
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "All other filters in this list will be merged into this and then deleted."
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "Select the filter that will inherit the properties of the others."
-  },
-  "qf.description.mergeInstructions": {
-    "message": "You can either extend one of these or create a completely new filter."
-  },
-  "qf.description.mergeSummary": {
-    "message": "quickFilters Assistant found some filters that already do the same action."
-  },
-  "qf.description.selectToExtend": {
-    "message": "Select a Filter to extend with new rules."
-  },
-  "qf.description.splash": {
-    "message": "Hiển thị tin tức và những thay đổi quan trọng, được bản địa hóa bằng ngôn ngữ của bạn:"
-  },
-  "qf.donate.tooltip": {
-    "message": "Trợ giúp sự phát triển của quickFilters!"
-  },
-  "qf.filterlist.group": {
-    "message": "Tính năng danh sách bộ lọc"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "Cho phép sao chép và dán bộ lọc vào nhiều tài khoản"
-  },
-  "qf.filters.actions.caption": {
-    "message": "Actions"
-  },
-  "qf.filters.actions.flag": {
-    "message": "Flag"
-  },
-  "qf.filters.actions.flag.accesskey": {
-    "message": "F"
-  },
-  "qf.filters.actions.priority": {
-    "message": "Priority"
-  },
-  "qf.filters.actions.priority.accesskey": {
-    "message": "P"
-  },
-  "qf.filters.actions.star": {
-    "message": "Star"
-  },
-  "qf.filters.actions.star.accesskey": {
-    "message": "S"
-  },
-  "qf.filters.actions.tag": {
-    "message": "Tags"
-  },
-  "qf.filters.actions.tag.accesskey": {
-    "message": "T"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "Target Folder"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "Filter copies these attributes from original email"
-  },
-  "qf.filters.instructions": {
-    "message": "Hãy chọn một mẫu. Bạn có thể tinh chỉnh các quy tắc của bộ lọc ở màn hình kế tiếp."
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "Run Automatically"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "Automatically runs the filter on the originating Inbox after creation."
-  },
-  "qf.filters.steps.caption": {
-    "message": "Next Steps"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "Filter Rules"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "Edit the filter details after the Assistant has created it."
-  },
-  "qf.filters.steps.showList": {
-    "message": "Filters List"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "Displays the filter in context so you can try it out"
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "Which screens to show after filter creation"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "Custom Filter - behavior is defined by User - use variables like %from% %to% %subject% etc."
-  },
-  "qf.filters.template.domain": {
-    "message": "Based on Sender's Domain"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "Like 'based on sender' template but only matches the domain (e.g. @xyz.com) of the sender's email address"
-  },
-  "qf.filters.template.from": {
-    "message": "Dựa theo Người Gửi (gửi từ)"
-  },
-  "qf.filters.template.from.description": {
-    "message": "Đây có lẽ là mẫu được dùng nhiều nhất: nó sẽ lấy các địa chỉ thư điện tử của người gửi rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ các hội thoại với người gửi sẽ được di chuyển vào một thư mục mới."
-  },
-  "qf.filters.template.list.description": {
-    "message": "Tương tự như Dựa trên Người Gửi, nhưng nó không điền vùng điều kiện 'gửi đến'."
-  },
-  "qf.filters.template.maillist": {
-    "message": "Danh sách thư"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "Useful for mailing lists with 'List-Id' field. If this is not set it will use the sender's address instead."
-  },
-  "qf.filters.template.multifrom": {
-    "message": "Group (collects senders of multiple mails)"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "Use this to drag multiple emails and add all senders to the condition. (Excludes your own mail addresses)"
-  },
-  "qf.filters.template.replyto": {
-    "message": "Based on Reply-To"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "Filter is based on the Reply-To field."
-  },
-  "qf.filters.template.tag": {
-    "message": "Theo các nhãn"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "Dùng các nhãn của thư và thêm chúng vào các điều kiện bộ lọc."
-  },
-  "qf.filters.template.to": {
-    "message": "Dựa theo Người Nhận (gửi đến)"
-  },
-  "qf.filters.template.to.description": {
-    "message": "Tương tự như 'Dựa trên Người Gửi': dùng cái này khi bạn đánh dấu một thư mà bạn đã gửi cho ai đó. Nó sẽ lấy các địa chỉ thư điện tử của người nhận rồi thêm chúng vào các vùng điều kiện gửi từ và gửi đến của bộ lọc. Theo cách này, toàn bộ hội thoại tới và từ người gửi sẽ được di chuyển vào một thư mục mới."
-  },
-  "qf.filters.template.topic": {
-    "message": "Theo tiêu đề"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "Nó sẽ tìm kiếm các từ ngữ trong ngoặc đơn, ví dụ: [bộ sưu tập tem] hay {ăn chay} và tạo một điều kiện bộ lọc dựa trên đó; rất nhiều thư được cài đặt dùng mẫu này, nên nó thực sự rất dễ dùng."
-  },
-  "qf.filters.templates.description.label": {
-    "message": "Mô tả:"
-  },
-  "qf.filters.title": {
-    "message": "Tạo Bộ Lọc"
-  },
-  "qf.github.description": {
-    "message": "Báo cáo lỗi hoặc đề xuất các tính năng mới tại đây:"
-  },
-  "qf.grp.whenToRun": {
-    "message": "Apply filter when"
-  },
-  "qf.label.aboutLink": {
-    "message": "Trang chủ quickFilters…"
-  },
-  "qf.label.cancel": {
-    "message": "Hủy bỏ"
-  },
-  "qf.label.contactLink": {
-    "message": "Liên lạc (bằng tiếng Anh hoặc Đức)..."
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "QuickFolders Current folder Toolbar"
-  },
-  "qf.label.donate": {
-    "message": "Quên góp"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} trong {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "thứ"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 thứ"
-  },
-  "qf.label.haveLicense": {
-    "message": "Already have a License?"
-  },
-  "qf.label.insertLicense": {
-    "message": "Insert your personal License key here:"
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "Your license key is contained in your order confirmation email from Fastspring."
-  },
-  "qf.label.licenseValid": {
-    "message": "Your license is valid until:"
-  },
-  "qf.label.naming": {
-    "message": "Quy tắc đặt tên"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "Delimiter:"
-  },
-  "qf.label.naming.keyWord": {
-    "message": "Thêm quy tắc từ khóa nhất định"
-  },
-  "qf.label.naming.keyWord.accesskey": {
-    "message": "k"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "Xóa bất kỳ từ nào sau đây khỏi tên:"
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "Danh sách các từ phân tách bằng dấu phẩy cần loại bỏ khỏi tên bộ lọc được đề xuất, ví dụ: 'Fwd:, Re:, Mail' - không phân biệt chữ hoa/thường"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "Thêm tên các thư mục cha"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "p"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "Số lượng tối đa các thư mục cha cần thêm:"
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "Thêm tên tài khoản đích (cho các bộ lọc di chuyển mail sang tài khoản khác)"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "Đọc thêm về Tính năng cao cấp trên Trang web của chúng tôi"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "Xóa địa chỉ email của riêng tôi (được khuyến nghị)"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "Việc trích xuất địa chỉ email của riêng bạn bằng trợ lý có thể dẫn đến kết quả không mong muốn, vì vậy, các cụm từ tìm kiếm địa chỉ sẽ tự động xóa chúng."
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "Xác nhận trước khi thực thi bộ lọc khi không ở trong Hộp thư đến"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "Phím tắt để chạy bộ lọc trên thư mục: Shift + "
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "Phím tắt để chạy bộ lọc trên thư đã chọn: Shift + "
-  },
-  "qf.label.supportWithLicense": {
-    "message": "Hỗ trợ quickFilters bằng cách xin giấy phép!"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}Chuyển sang Phiên bản Cơ bản?{br}Khóa giấy phép của bạn sẽ được lưu trên máy tính này để bạn có thể gia hạn sau với {b}giá gia hạn ưu đãi{/b}.{/P}{P}Cảm ơn bạn đã ủng hộ quickFilters — giấy phép giúp phát triển phần mềm độc lập trở nên khả thi và giữ cho dự án tiếp tục hoạt động. Ngay cả khi đã hết hạn, bạn vẫn có thể gia hạn hoặc nâng cấp từ giấy phép Standard bất cứ lúc nào để sử dụng {a class=features}Tính năng Pro{/a} trong một năm đầy đủ.{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "Khôi phục khóa giấy phép"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "Bạn có thể khôi phục giấy phép trước đó để có điều kiện gia hạn tốt hơn."
-  },
-  "qf.licenseBackup.restored": {
-    "message": "Khóa của bạn đã được khôi phục an toàn. Ngay cả khi hết hạn, bạn vẫn có thể lấy khóa mới với giá ưu đãi."
-  },
-  "qf.licenseBackup.switch": {
-    "message": "Chuyển sang Phiên bản Cơ bản"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "Giấy phép quickFilters Pro của bạn đã hết hạn. Nhấp vào “$renewButton$” bên dưới để gia hạn.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "Ngoài ra, bạn có thể tạm thời sử dụng Phiên bản Cơ bản — bạn vẫn có thể khôi phục giấy phép sau."
-  },
-  "qf.licenseValidation.failed": {
-    "message": "Khóa cấp phép bạn đã nhập không hợp lệ. Kiểm tra email của bạn từ FastSpring để biết hướng dẫn. Nếu bạn vẫn gặp sự cố, vui lòng liên hệ với tôi từ tab Hỗ trợ."
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "Khóa cấp phép bạn đã nhập có thể dành cho một Tiện ích bổ sung khác. Khóa cấp phép cho {0} bắt đầu bằng {1}."
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "Địa chỉ email được liên kết với khóa cấp phép [{1}] hiện không được liệt kê trong bất kỳ tài khoản thư nào của bạn. Vui lòng liên hệ với tôi từ tab Hỗ trợ để được hỗ trợ."
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "Địa chỉ email được mã hóa không khớp với địa chỉ có thể đọc được."
-  },
-  "qf.licenseValidation.passed": {
-    "message": "Cảm ơn bạn đã đăng ký quickFilters Pro! Tất cả các tính năng cao cấp hiện đã được mở khóa."
-  },
-  "qf.listener.tags": {
-    "message": "Listen for Tag changes"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "Chạy bộ lọc tự động khi thẻ được sửa đổi"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "Trợ lý bộ lọc cũng sẽ được kích hoạt khi bạn gắn thẻ một tin nhắn."
-  },
-  "qf.newFilterProps.intro": {
-    "message": "Các cài đặt sau sẽ được áp dụng cho bất kỳ bộ lọc mới nào được tạo bằng trợ lý bộ lọc."
-  },
-  "qf.notify.filterCreated": {
-    "message": "Đã tạo thành công bộ lọc mới '{0}'."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "Đã cập nhật thành công bộ lọc '{0}'."
-  },
-  "qf.onewayaddress.label": {
-    "message": "Tắt các điều kiện tìm kiếm địa chỉ hai chiều"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "Theo mặc định, quickFilters thêm cả điều kiện tìm kiếm 'từ' và 'đến' để hỗ trợ lọc các chuỗi tin nhắn hoàn chỉnh bao gồm cả email của chính bạn cho người nhận. Nếu bạn luôn muốn giữ câu trả lời của mình trong thư mục Đã gửi, bạn có thể tắt hành vi này tại đây. Addon 'Copy Sent to Current' có thể được sử dụng để giữ thư trả lời với các email gốc của họ."
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "Nhấp chuột phải để xem lịch sử phiên bản."
-  },
-  "qf.premiumConfig": {
-    "message": "Tính năng cao cấp"
-  },
-  "qf.tab.actions": {
-    "message": "Hành động"
-  },
-  "qf.tab.advanced": {
-    "message": "Nâng cao"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "Thuộc tính của bộ lọc mới"
-  },
-  "qf.tab.options": {
-    "message": "Tùy chọn"
-  },
-  "qf.tab.support": {
-    "message": "Hỗ trợ"
-  },
-  "qf.templates.advanced": {
-    "message": "Mẫu nâng cao"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "Biên tập…"
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "Mẫu tùy chỉnh"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "Tạo mới…"
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "Bạn cần có giấy phép quickFilters Pro hợp lệ để tạo các mẫu tùy chỉnh mới cho trợ lý."
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "Cho phép tạo Mẫu tùy chỉnh, xem mô tả lỗi để biết chi tiết."
-  },
-  "qf.templates.replyTo.label": {
-    "message": "Reply-To Template"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "Hiển thị Mẫu trả lời, xem mô tả lỗi để biết chi tiết."
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "Tìm bộ lọc theo tên…"
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "nhập từ khóa để tìm bộ lọc theo tên"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "Ký tự được chèn giữa thư mục mẹ và tên"
-  },
-  "qf.youtube.description": {
-    "message": "Để biết thông tin chi tiết về Tiện ích bổ sung Thunderbird và video về cách sử dụng Bộ lọc nhanh, hãy truy cập kênh YouTube của tôi."
-  },
-  "qf.youtube.link": {
-    "message": "Xem video quickFilters tại Thunderbird Daily…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "Truy cập Thunderbird Daily - Kênh YouTube để biết các mẹo và hướng dẫn sử dụng QuickFilters và thư trên máy tính để bàn"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Giấy phép đã hết hạn!"
   },
@@ -2226,6 +2131,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Mở menu '{menulabel}' bên dưới để xem những cập nhật mới. Điều này cũng loại bỏ 🟠."
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "QuickFolders Current folder Toolbar"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "Tùy chọn này chỉ có thể áp dụng nếu bạn đang sử dụng Add-On QuickFolders, thêm một thanh công cụ nhỏ ở phía trên của ngăn xem trước thư."
+  },
+  "register.hasLicense": {
+    "message": "Already have a License?"
   },
   "register.licenseValid.expired": {
     "message": "Your license expired on:"
@@ -2370,6 +2284,41 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "Liên lạc (bằng tiếng Anh hoặc Đức)..."
+  },
+  "support.mailSupport.detail": {
+    "message": "Bạn cũng có thể liên lạc riêng với tôi tại $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub.detail": {
+    "message": "Báo cáo lỗi hoặc đề xuất các tính năng mới tại đây:"
+  },
+  "support.showSplash": {
+    "message": "Hiển thị màn hình Splash"
+  },
+  "support.showSplash.detail": {
+    "message": "Hiển thị tin tức và những thay đổi quan trọng, được bản địa hóa bằng ngôn ngữ của bạn:"
+  },
+  "support.showSupportSite": {
+    "message": "Trang chủ quickFilters…"
+  },
+  "support.showSupportSite.detail": {
+    "message": "Mô tả ngắn về quickFilters có thể xem ở trang sau:"
+  },
+  "support.showYoutube": {
+    "message": "Xem video quickFilters tại Thunderbird Daily…"
+  },
+  "support.showYoutube.detail": {
+    "message": "Để biết thông tin chi tiết về Tiện ích bổ sung Thunderbird và video về cách sử dụng Bộ lọc nhanh, hãy truy cập kênh YouTube của tôi."
+  },
+  "support.title": {
+    "message": "Hỗ trợ"
   },
   "testDrive": {
     "message": "You can test drive the premium features with the free version, but they might be slightly restricted."
@@ -2746,6 +2695,9 @@
   "version": {
     "message": "Phiên bản:"
   },
+  "versionNumber.tooltip": {
+    "message": "Nhấp chuột phải để xem lịch sử phiên bản."
+  },
   "warning.emptyFilter": {
     "message": "Không thể tạo bộ lọc: không có điều kiện tìm kiếm hợp lệ, bộ lọc không thể được chỉnh sửa."
   },
@@ -2811,5 +2763,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Bất kỳ địa chỉ email bổ sung nào cũng không thành vấn đề - chúng không yêu cầu giấy phép riêng biệt. Trong trường hợp có thắc mắc, bạn có thể liên hệ với tôi qua tab hỗ trợ."
+  },
+  "youtube.tooltip": {
+    "message": "Truy cập Thunderbird Daily - Kênh YouTube để biết các mẹo và hướng dẫn sử dụng QuickFilters và thư trên máy tính để bàn"
   }
 }

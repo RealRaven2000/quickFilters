@@ -76,7 +76,7 @@ quickFilters.Options = {
       .addEventListener("click", quickFilters.Options.showExtensionButton);
 
     const supportLabel = document.getElementById("contactLabel");
-    const supportString = messenger.i18n.getMessage("qf.description.contactMe", [
+    const supportString = messenger.i18n.getMessage("support.mailSupport.detail", [
       quickFilters.Util.ADDON_SUPPORT_MAIL,
     ]);
     supportLabel.textContent = supportString;
@@ -179,7 +179,7 @@ quickFilters.Options = {
           // getElement("dialogProductTitle").value = "quickFilters Pro";
           licenseDate.classList.add("valid");
           licenseDate.value = niceDate;
-          licenseDateLabel.textContent = messenger.i18n.getMessage("qf.label.licenseValid");
+          licenseDateLabel.textContent = messenger.i18n.getMessage("pro.licenseValid");
           break;
         case "Invalid":
           {
@@ -216,7 +216,7 @@ quickFilters.Options = {
           break;
         case "Expired":
           {
-            let expiredMsg = messenger.i18n.getMessage("qf.licenseValidation.expired", [
+            let expiredMsg = messenger.i18n.getMessage("licenseValidation.expired", [
               messenger.i18n.getMessage("notification.premium.btn.renewLicense"),
             ]);
             licenseDate.classList.add("valid");
@@ -228,7 +228,7 @@ quickFilters.Options = {
             const graceThreshold = new Date(expiryDate.getTime() + 28 * 24 * 60 * 60 * 1000);
             // Show Switch to Free button only if 28+ days after expiry
             if (Date.now() >= graceThreshold.getTime()) {
-              const freeHint = messenger.i18n.getMessage("qf.licenseValidation.expired.freeHint");
+              const freeHint = messenger.i18n.getMessage("licenseValidation.expired.freeHint");
               expiredMsg += "\n" + freeHint;
               btnSwitchToFree.hidden = false;
             }

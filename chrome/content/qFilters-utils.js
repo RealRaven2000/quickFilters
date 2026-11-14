@@ -1821,7 +1821,7 @@ quickFilters.Util = {
         newTerm.customId === "quickFilters@axelg.com#replyTo" &&
         !quickFilters.Preferences.getBoolPref("templates.replyTo")
       ) {
-        let txtLabel = util.getBundleString("qf.templates.replyTo.label");
+        let txtLabel = util.getBundleString("customTemplates.replyTo");
         util.logWarn(
           `Disabled search term in filter [${fromFilter.filterName}]\n` +
             `To use this search method, enable the following in quickFilters advanced settings:\n${txtLabel}`

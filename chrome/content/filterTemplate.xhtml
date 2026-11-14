@@ -8,7 +8,7 @@
 <?xml-stylesheet href="chrome://quickfilters/content/filterWidgets.css" type="text/css"?>
 
 
-<dialog title="__MSG_qf.filters.title__"
+<dialog title="__MSG_assistant.windowTitle__"
 	id="qf-template"
 	buttons="cancel,extra1,extra2"
 	defaultButton="extra1"
@@ -100,7 +100,7 @@
 					You can either extend one of these or create a completely new filter.
 				</description>
 				<checkbox id="chkMerge" 
-							label="__MSG_qf.check.mergeWithExisting__" 
+							label="__MSG_assistant.mergeWithExisting__" 
 							oncommand="quickFilters.Assistant.selectMerge(this);"
 							/>
 				<hbox>		  
@@ -113,7 +113,7 @@
 					</description>
 				</hbox>
 				<checkbox id="chkCreateNew" 
-							label="__MSG_qf.check.createNew__" 
+							label="__MSG_assistant.createNew__" 
 							checked="true"
 							oncommand="quickFilters.Assistant.selectCreateNew(this);"
 							/>
@@ -128,70 +128,70 @@
 						onselect="quickFilters.Assistant.selectTemplateFromListTmr(this);"
 						preference="QuickFilters-Preferences-SelectedFilterTemplate"
 						flex="2"
-						tooltiptext="__MSG_qf.filters.instructions__"
+						tooltiptext="__MSG_assistant.details.templates.tip__"
 						>
-						<richlistitem value='from'><description>__MSG_qf.filters.template.from__</description></richlistitem>
-						<richlistitem value='domain'><description>__MSG_qf.filters.template.domain__</description></richlistitem>
-						<richlistitem value='to'><description>__MSG_qf.filters.template.to__</description></richlistitem>
-						<richlistitem value='replyto'><description>__MSG_qf.filters.template.replyto__</description></richlistitem>
-						<richlistitem value='multifrom'><description>__MSG_qf.filters.template.multifrom__</description></richlistitem>
-						<richlistitem value='maillist'><description>__MSG_qf.filters.template.maillist__</description></richlistitem>
-						<richlistitem value='topic'><description>__MSG_qf.filters.template.topic__</description></richlistitem>
-						<richlistitem value='tag'><description>__MSG_qf.filters.template.tag__</description></richlistitem>
+						<richlistitem value='from'><description>__MSG_assistant.templates.from__</description></richlistitem>
+						<richlistitem value='domain'><description>__MSG_assistant.templates.domain__</description></richlistitem>
+						<richlistitem value='to'><description>__MSG_assistant.templates.to__</description></richlistitem>
+						<richlistitem value='replyto'><description>__MSG_assistant.templates.replyto__</description></richlistitem>
+						<richlistitem value='multifrom'><description>__MSG_assistant.templates.multifrom__</description></richlistitem>
+						<richlistitem value='maillist'><description>__MSG_assistant.templates.maillist__</description></richlistitem>
+						<richlistitem value='topic'><description>__MSG_assistant.templates.topic__</description></richlistitem>
+						<richlistitem value='tag'><description>__MSG_assistant.templates.tag__</description></richlistitem>
 					</richlistbox>
 					<html:fieldset orient="vertical"
-								tooltiptext="__MSG_qf.filters.actions.tooltip__">
-						<html:legend>__MSG_qf.filters.actions.caption__</html:legend>
+								tooltiptext="__MSG_assistant.actions.tooltip__">
+						<html:legend>__MSG_actions.title__</html:legend>
 						<vbox>
 							<checkbox id="chkActionTargetFolder" 
 												preference="moveFolder"
-									label="__MSG_qf.filters.actions.targetFolder__" 
+									label="__MSG_assistant.actions.targetFolder__" 
 									checked="true"
 									/>
 							<checkbox id="chkActionTags" 
 									preference="tags" 
-									label="__MSG_qf.filters.actions.tag__" 
-									accesskey="__MSG_qf.filters.actions.tag.accesskey__"
+									label="__MSG_assistant.actions.tag__" 
+									accesskey="__MSG_assistant.actions.tag.accesskey__"
 									/>
 							<checkbox id="chkActionPriority" 
 									preference="priority" 
-									label="__MSG_qf.filters.actions.priority__" 
-									accesskey="__MSG_qf.filters.actions.priority.accesskey__"
+									label="__MSG_assistant.actions.priority__" 
+									accesskey="__MSG_assistant.actions.priority.accesskey__"
 									/>
 							<!-- Thunderbird only -->
 							<checkbox id="chkActionStar" 
 									preference="star" 
-									label="__MSG_qf.filters.actions.star__" 
-									accesskey="__MSG_qf.filters.actions.star.accesskey__"
+									label="__MSG_assistant.actions.star__" 
+									accesskey="__MSG_assistant.actions.star.accesskey__"
 									/>
 							<!-- SeaMonkey  -->
 							<checkbox id="chkActionFlag" 
 									preference="flag" 
-									label="__MSG_qf.filters.actions.flag__" 
-									accesskey="__MSG_qf.filters.actions.flag.accesskey__"
+									label="__MSG_assistant.actions.flag__" 
+									accesskey="__MSG_assistant.actions.flag.accesskey__"
 									/>
 						</vbox>
 					</html:fieldset>
 					<html:fieldset orient="vertical"
-								tooltiptext="__MSG_qf.filters.steps.tooltip__">
-						<html:legend>__MSG_qf.filters.steps.caption__</html:legend>
+								tooltiptext="__MSG_assistant.nextSteps.tooltip__">
+						<html:legend>__MSG_assistant.nextSteps.caption__</html:legend>
 						<vbox>
 							<checkbox id="chkShowEditor"
 									preference="showEditorAfterCreateFilter"
-									label="__MSG_qf.filters.steps.showEditor__" 
-									tooltiptext="__MSG_qf.filters.steps.showEditor.tooltip__"
+									label="__MSG_assistant.nextSteps.showEditor__" 
+									tooltiptext="__MSG_assistant.nextSteps.showEditor.tooltip__"
 									oncommand="quickFilters.Assistant.setNextSteps();"
 									/>
 							<checkbox id="chkShowList"
 									preference="showListAfterCreateFilter"
-									label="__MSG_qf.filters.steps.showList__" 
-									tooltiptext="__MSG_qf.filters.steps.showList.tooltip__"
+									label="__MSG_assistant.nextSteps.showList__" 
+									tooltiptext="__MSG_assistant.nextSteps.showList.tooltip__"
 									oncommand="quickFilters.Assistant.setNextSteps();"
 									/>
 							<checkbox id="chkAutoRun"
 									preference="runFilterAfterCreate"
-									label="__MSG_qf.filters.steps.autoRunFilter__" 
-									tooltiptext="__MSG_qf.filters.steps.autoRunFilter.tooltip__"
+									label="__MSG_assistant.nextSteps.autoRunFilter__" 
+									tooltiptext="__MSG_assistant.nextSteps.autoRunFilter.tooltip__"
 									oncommand="quickFilters.Assistant.setNextSteps();"
 									/>
 									
@@ -201,7 +201,7 @@
 
 				<hbox id="boxDescription">
 					<span id="expandDescription" class="sectionExpander"></span>
-					<label id="templateLabel" value="__MSG_qf.filters.templates.description.label__" />
+					<label id="templateLabel" value="__MSG_assistant.templates.description.label__" />
 					<p id="templateDescription"></p>
 				</hbox>
 				<hbox id="preview">

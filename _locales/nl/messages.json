@@ -8,6 +8,9 @@
   "account.label": {
     "message": "Selecteer account:"
   },
+  "actions.title": {
+    "message": "Acties"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "U voert nu {bold} versie $addonVer$ {/bold}  uit op Thunderbird $appVer$.",
@@ -28,6 +31,167 @@
   "addTag.label": {
     "message": "Bericht markeren"
   },
+  "advanced.title": {
+    "message": "Geavanceerd"
+  },
+  "assistant.actions.caption": {
+    "message": "Acties"
+  },
+  "assistant.actions.flag": {
+    "message": "Label"
+  },
+  "assistant.actions.flag.accesskey": {
+    "message": "a"
+  },
+  "assistant.actions.priority": {
+    "message": "Prioriteit"
+  },
+  "assistant.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "assistant.actions.star": {
+    "message": "Ster"
+  },
+  "assistant.actions.star.accesskey": {
+    "message": "S"
+  },
+  "assistant.actions.tag": {
+    "message": "Markeringen"
+  },
+  "assistant.actions.tag.accesskey": {
+    "message": "M"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "Doelmap"
+  },
+  "assistant.actions.tooltip": {
+    "message": "Filteren kopieert deze eigenschappen van het oorspronkelijke e-mailbericht"
+  },
+  "assistant.createFilter": {
+    "message": "Nieuw filter maken…"
+  },
+  "assistant.createNew": {
+    "message": "Nieuw filter maken"
+  },
+  "assistant.details.templates.tip": {
+    "message": "Kies een sjabloon. U kunt de regels van het filter instellen op het volgende scherm."
+  },
+  "assistant.editFilter": {
+    "message": "Filter bewerken…"
+  },
+  "assistant.ignoreFolders": {
+    "message": "Assistent zou deze mappen moeten negeren..."
+  },
+  "assistant.merge": {
+    "message": "Samenvoegen"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "Doelfilter geselecteerd"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "Alle overige filters in deze lijst zullen hierin worden samengevoegd en daarna verwijderd."
+  },
+  "assistant.mergeFilterRules": {
+    "message": "“$filterName$” combineren met nieuwe regels…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "Samenvoegen met een bestaand filter:"
+  },
+  "assistant.next": {
+    "message": "Volgende"
+  },
+  "assistant.next.createFilter": {
+    "message": "Filter maken…"
+  },
+  "assistant.next.createFilter.shortcut": {
+    "message": "F"
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "Automatisch uitvoeren"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "Voert na aanmaken automatisch het filter uit op de creatiemap."
+  },
+  "assistant.nextSteps.caption": {
+    "message": "Volgende stappen"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "Filterregels"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "De filterdetails bewerken nadat de Assistent ze heeft gemaakt."
+  },
+  "assistant.nextSteps.showList": {
+    "message": "Filterlijst"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "Geeft het filter in zijn context weer, zodat u hem kunt uitproberen"
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "Welke schermen weer te geven na aanmaken filter"
+  },
+  "assistant.templates.custom.description": {
+    "message": "Aangepast filter - gedrag wordt bepaald door gebruiker - gebruik variabelen als %from%, %to%, %subject%, enz."
+  },
+  "assistant.templates.description.label": {
+    "message": "Beschrijving:"
+  },
+  "assistant.templates.domain": {
+    "message": "Gebaseerd op domein afzender"
+  },
+  "assistant.templates.domain.description": {
+    "message": "Zoals sjabloon ‘gebaseerd op afzender’ maar matcht alleen het domein (bijv. @xyz.com) van het e-mailadres van de afzender"
+  },
+  "assistant.templates.from": {
+    "message": "Gebaseerd op afzender (van)"
+  },
+  "assistant.templates.from.description": {
+    "message": "Dit is waarschijnlijk het meestgebruikte patroon: dit haalt het e-mailadres van de afzender op en plakt het in de filtervoorwaardenvelden voor Van en Aan. Op deze manier worden volledige discussies met de afzender naar de nieuwe map verplaatst."
+  },
+  "assistant.templates.list.description": {
+    "message": "Analoog aan ‘Gebaseerd op afzender’, maar het vult de voorwaardenveld ‘Aan’ niet."
+  },
+  "assistant.templates.maillist": {
+    "message": "E-maillijst"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "Handig voor e-maillijsten met het veld ‘List-Id’. Als dit niet is ingesteld, dan wordt het adres van de afzender gebruikt."
+  },
+  "assistant.templates.multifrom": {
+    "message": "Groep (verzamelt afzenders van meerdere berichten)"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "Gebruik dit om meerdere e-mailberichten te verslepen en alle afzenders aan de voorwaarde toe te voegen. (Uitgezonderd uw eigen e-mailadressen)"
+  },
+  "assistant.templates.replyto": {
+    "message": "Gebaseerd op Antwoorden-Aan"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "Filter is gebaseerd op het veld Antwoorden-Aan."
+  },
+  "assistant.templates.tag": {
+    "message": "Op markering"
+  },
+  "assistant.templates.tag.description": {
+    "message": "Gebruikt de markeringen van het e-mailbericht en gebruikt deze als filtervoorwaarden."
+  },
+  "assistant.templates.to": {
+    "message": "Gebaseerd op ontvanger (aan)"
+  },
+  "assistant.templates.to.description": {
+    "message": "Analoog aan ‘Gebaseerd op afzender’: gebruik dit wanneer u een e-mailbericht dat u naar iemand anders hebt verstuurd markeert. Dit haalt het e-mailadres van de afzender op en plakt het in de filtervoorwaardenvelden voor Van en Aan. Op deze manier worden volledige discussies met de afzender naar de nieuwe map verplaatst."
+  },
+  "assistant.templates.topic": {
+    "message": "Op onderwerp"
+  },
+  "assistant.templates.topic.description": {
+    "message": "Dit zoekt naar speciale expressies tussen haakjes, b.v. [postzegelverzamelaars] of {veganisten}, en maakt op basis hiervan een filtervoorwaarde aan; veel e-mailgroepen gebruiken een dergelijk patroon, dus het is handig in gebruik."
+  },
   "assistant.ux.assistant.html": {
     "message": "Assistent weergeven in nieuwe HTML-gebruikersinterface"
   },
@@ -42,6 +206,9 @@
   },
   "assistant.ux.title": {
     "message": "Gebruikersinterface"
+  },
+  "assistant.windowTitle": {
+    "message": "Filters aanmaken"
   },
   "backup.archivingFilters": {
     "message": "Archiveren {1} filters"
@@ -1074,6 +1241,9 @@
   "buyPersonalLicense.button": {
     "message": "Een persoonlijke licentie kopen!"
   },
+  "cancel": {
+    "message": "Annuleren"
+  },
   "chkAfterJunk.label": {
     "message": "Na ongewensteberichtenclassificatie"
   },
@@ -1299,6 +1469,30 @@
   "customTemplate.title": {
     "message": "quickFilters - Aangepast sjabloon"
   },
+  "customTemplates": {
+    "message": "Aangepaste sjablonen"
+  },
+  "customTemplates.create": {
+    "message": "Nieuw maken…"
+  },
+  "customTemplates.edit": {
+    "message": "Bewerken…"
+  },
+  "customTemplates.group": {
+    "message": "Geavanceerde sjablonen"
+  },
+  "customTemplates.replyTo": {
+    "message": "Sjabloon Reply-To"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "Sjabloon Reply-To weergeven, zie bugbeschrijving voor details."
+  },
+  "customTemplates.tooltip": {
+    "message": "Maakt aanmaken van aangepaste sjablonen mogelijk, zie bugbeschrijving voor details."
+  },
+  "customTemplates.warn.restriction": {
+    "message": "U hebt een geldige quickFilters Pro-licentie nodig om nieuwe aangepaste sjablonen voor de assistent te maken."
+  },
   "customVariable.label": {
     "message": "Aangepaste variabelen"
   },
@@ -1329,6 +1523,12 @@
   "deleteMessage.label": {
     "message": "Bericht verwijderen"
   },
+  "disable2wayAddressing.label": {
+    "message": "Tweeweg-adreszoekvoorwaarden uitschakelen"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "Standaard voegt quickFilters de zoekvoorwaarden ‘van’ en ‘aan’ toe om te helpen bij het uitfilteren van volledige discussies met daarin uw eigen e-mailberichten aan de ontvanger. Als u altijd uw antwoorden in de map Verzonden wilt houden, dan kunt u hier dat gedrag uitschakelen. De add-on ‘Copy Sent to Current’ kan worden gebruikt om antwoorden met hun oorspronkelijke berichten te bewaren."
+  },
   "domainLicense.email": {
     "message": "We nemen via dit e-mailadres binnen twee werkdagen contact met u op om uw domeinlicentie te genereren. Geef de domeinnaam voor de licentie in op de volgende pagina."
   },
@@ -1343,6 +1543,9 @@
   },
   "donate-heading": {
     "message": "Help mee met een eenmalige donatie."
+  },
+  "donate.btn": {
+    "message": "Doneren"
   },
   "donate.label": {
     "message": "Doneren"
@@ -1475,17 +1678,59 @@
   "licenseTerms.show": {
     "message": "Licentievoorwaarden weergeven"
   },
+  "licenseValidation.expired": {
+    "message": "Je quickFilters Pro-licentie is verlopen. Klik hieronder op ‘$renewButton$’ om deze te vernieuwen.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "Je kunt ook voorlopig de Basisversie gebruiken — je kunt je licentie later herstellen."
+  },
+  "licenseValidation.failed": {
+    "message": "De ingevoerde licentiesleutel is ongeldig. Lees uw e-mailbericht van FastSpring voor instructies. Als de problemen aanhouden, neem dan contact met me op via het tabblad Ondersteuning."
+  },
   "licenseValidation.guessAddon": {
     "message": "(De ingevoerde sleutel is mogelijk voor {2})."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "De ingevoerde licentiesleutel is mogelijk voor een andere add-on. Licentiesleutels voor {0} beginnen met {1}."
+  },
+  "licenseValidation.invalidMail": {
+    "message": "Het aan de licentiesleutel [{1}] verbonden e-mailadres staat momenteel niet bij uw e-mailaccounts. Neem voor hulp contact met me op via het tabblad Ondersteuning."
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres."
+  },
+  "licenseValidation.passed": {
+    "message": "Bedankt voor uw registratie van quickFilters Pro! Alle premiumfuncties kunnen nu worden gebruikt."
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro-licentie"
+  },
+  "list.features.multipaste": {
+    "message": "Schakel het kopiëren en plakken van filters naar meerdere accounts in"
+  },
+  "list.features.title": {
+    "message": "Filterlijstfuncties"
   },
   "ListButton.label": {
     "message": "Berichtenfilters…"
   },
   "ListButton.tooltip": {
     "message": "Geef een lijst met berichtenfilters weer"
+  },
+  "listeners.tags": {
+    "message": "Markeringswijzigingen volgen"
+  },
+  "listeners.tags.autofilter": {
+    "message": "Filters automatisch uitvoeren wanneer tags worden gewijzigd"
+  },
+  "listeners.tags.tooltip": {
+    "message": "Indien geactiveerd zal de filterassistent ook starten als u een bericht markeert."
   },
   "markMessageRead.label": {
     "message": "Als gelezen markeren"
@@ -1523,8 +1768,20 @@
   "menu.tools": {
     "message": "Hulpmiddelen"
   },
+  "merge.add.summary": {
+    "message": "Selecteer het filter dat de eigenschappen van de overige zal erven."
+  },
   "merge.addressesOmitted": {
     "message": "E-mailadres zijn weggelaten uit de voorwaarden - quickFilters schakelt filteren op uw eigen e-mailadres uit:"
+  },
+  "merge.found": {
+    "message": "De quickFilters-assistent heeft enkele filters gevonden die dezelfde actie reeds uitvoeren."
+  },
+  "merge.instructions": {
+    "message": "U kunt één hiervan uitbreiden of een volledig nieuw filter aanmaken."
+  },
+  "merge.target.select": {
+    "message": "Selecteer een met nieuwe regels uit te breiden filter."
   },
   "merge.warning.missingAction": {
     "message": "Kan de hoofdactie van het filter {1} niet ophalen"
@@ -1574,6 +1831,57 @@
   "msg.preview.title": {
     "message": "E-mail"
   },
+  "naming": {
+    "message": "Naamregels"
+  },
+  "naming.clonedSuffix": {
+    "message": "Aan naam van gekloond filter toevoegen:"
+  },
+  "naming.folderDelimiter": {
+    "message": "Scheidingsteken:"
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "Teken dat wordt ingevoegd tussen de bovenliggende map en de naam"
+  },
+  "naming.keyWord": {
+    "message": "Regelspecifiek trefwoord toevoegen"
+  },
+  "naming.keyWord.accesskey": {
+    "message": "t"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "Verwijder de volgende woorden uit de naam:"
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "Door komma's gescheiden lijst van woorden die uit de voorgestelde filternaam moeten worden verwijderd, bijv. 'Fwd:, Re:, Mail' - hoofdlettergebruik wordt genegeerd"
+  },
+  "naming.parentFolder": {
+    "message": "Hoofdmapnamen toevoegen"
+  },
+  "naming.parentFolder.accesskey": {
+    "message": "N"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "Maximaal aantal bovenliggende mappen om toe te voegen:"
+  },
+  "naming.removeOwnMail": {
+    "message": "Mijn eigen e-mailadressen verwijderen (aanbevolen)"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "Het extraheren van uw eigen e-mailadressen met behulp van de assistent kan leiden tot ongewenste resultaten, dus adreszoektermen verwijderen deze automatisch."
+  },
+  "naming.targetAccount": {
+    "message": "Voeg naam van doelaccount toe (voor filters die e-mail naar een ander account verplaatsen)"
+  },
+  "newFilters.intro": {
+    "message": "De volgende instellingen worden toegepast op alle nieuwe filters die worden gemaakt met de filterassistent."
+  },
+  "newFilters.title": {
+    "message": "Eigenschappen nieuw filter"
+  },
+  "newFilters.whenToRun": {
+    "message": "Filter toepassen bij het"
+  },
   "news.minimal": {
     "message": "Nieuwslabel niet weergeven bij updates"
   },
@@ -1585,6 +1893,12 @@
   },
   "notification.dontShowAgain": {
     "message": "Dit bericht niet meer weergeven."
+  },
+  "notification.filterCreated": {
+    "message": "Nieuw filter ‘{0}’ succesvol gemaakt."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "Filter ‘{0]’ succesvol bijgewerkt."
   },
   "notification.premium.btn.extendLicense": {
     "message": "Licentie verlengen"
@@ -1709,6 +2023,54 @@
   "pricing.title": {
     "message": "Prijzen"
   },
+  "pro.insertLicense": {
+    "message": "Voeg hier uw persoonlijke licentiesleutel in:"
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "U vindt uw licentiesleutel in uw orderbevestiging die u per e-mail van FastSpring hebt ontvangen."
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}Overschakelen naar de Basisversie?{br}Je licentiesleutel wordt op deze computer bewaard zodat je deze later kunt verlengen tegen het {b}gereduceerde verlengingstarief{/b}.{/P}{P}Dank je wel voor het ondersteunen van quickFilters — licenties maken onafhankelijke softwareontwikkeling mogelijk en helpen het project draaiende te houden. Zelfs wanneer de licentie is verlopen, kun je deze op elk moment verlengen of upgraden vanaf een Standard-licentie om een volledig jaar gebruik te maken van de {a class=features}Pro-functies{/a}.{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "Licentiesleutel herstellen"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "Je kunt je vorige licentie herstellen om van gunstigere verlengingsvoorwaarden te profiteren."
+  },
+  "pro.licenseBackup.restored": {
+    "message": "Je sleutel is succesvol hersteld. Ook al was deze verlopen, je kunt een nieuwe sleutel met korting verkrijgen."
+  },
+  "pro.licenseBackup.switch": {
+    "message": "Overschakelen naar de Basisversie"
+  },
+  "pro.licenseValid": {
+    "message": "Uw licentie is geldig tot:"
+  },
+  "pro.pasteLicense": {
+    "message": "plakken"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "valideren"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "Bevestig voordat u filters uitvoert wanneer u zich niet in een Postvak IN bevindt"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "Shortcut for Running Filters on Folder: Shift + "
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "Shortcut for Running Filters on Selected Mails: Shift + "
+  },
+  "proFeatures.title": {
+    "message": "Premiumfuncties"
+  },
+  "proFeatures.website": {
+    "message": "Lees meer over Premium-functies op onze website"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "Onderwerpen gevonden die beginnen met dezelfde tekst: \"$prefix$\".\nDeze tekst als zoekvoorwaarde voor het onderwerp gebruiken?",
     "placeholders": {
@@ -1744,463 +2106,6 @@
   "purchase-heading": {
     "message": "Ondersteuning via een licentie"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "Assistent zou deze mappen moeten negeren..."
-  },
-  "qf.btn.splash": {
-    "message": "Splash-scherm weergeven"
-  },
-  "qf.button.createFilter": {
-    "message": "Nieuw filter maken…"
-  },
-  "qf.button.editFilter": {
-    "message": "Filter bewerken…"
-  },
-  "qf.button.merge": {
-    "message": "Samenvoegen"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "“$filterName$” combineren met nieuwe regels…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "Volgende"
-  },
-  "qf.button.pasteLicense": {
-    "message": "plakken"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "Naar beneden"
-  },
-  "qf.button.reorderButtonBottom.accessKey": {
-    "message": "b"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "Filter herschikken zodat deze na alle overige wordt uitgevoerd"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "Naar boven"
-  },
-  "qf.button.reorderButtonTop.accessKey": {
-    "message": "o"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "Filter herschikken zodat deze voor alle overige wordt uitgevoerd"
-  },
-  "qf.button.targetSelected": {
-    "message": "Doelfilter geselecteerd"
-  },
-  "qf.button.validateLicense": {
-    "message": "valideren"
-  },
-  "qf.check.createNew": {
-    "message": "Nieuw filter maken"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "Samenvoegen met een bestaand filter:"
-  },
-  "qf.cloned.label": {
-    "message": "Aan naam van gekloond filter toevoegen:"
-  },
-  "qf.continueFilter.label": {
-    "message": "Filter maken…"
-  },
-  "qf.continueFilter.shortcut": {
-    "message": "F"
-  },
-  "qf.description.about": {
-    "message": "Een snelle beschrijving van quickFilters kan worden gevonden op de volgende website:"
-  },
-  "qf.description.contactMe": {
-    "message": "U kunt ook persoonlijk contact met mij opnemen via $supportMail$:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "Deze optie is alleen van toepassing als u de add-on QuickFolders gebruikt, die een kleine werkbalk bovenop het berichtenvenster plaatst."
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "Alle overige filters in deze lijst zullen hierin worden samengevoegd en daarna verwijderd."
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "Selecteer het filter dat de eigenschappen van de overige zal erven."
-  },
-  "qf.description.mergeInstructions": {
-    "message": "U kunt één hiervan uitbreiden of een volledig nieuw filter aanmaken."
-  },
-  "qf.description.mergeSummary": {
-    "message": "De quickFilters-assistent heeft enkele filters gevonden die dezelfde actie reeds uitvoeren."
-  },
-  "qf.description.selectToExtend": {
-    "message": "Selecteer een met nieuwe regels uit te breiden filter."
-  },
-  "qf.description.splash": {
-    "message": "Toon nieuws en belangrijke wijzigingen, gelokaliseerd in uw taal:"
-  },
-  "qf.donate.tooltip": {
-    "message": "Ondersteun de ontwikkeling van quickFilters!"
-  },
-  "qf.filterlist.group": {
-    "message": "Filterlijstfuncties"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "Schakel het kopiëren en plakken van filters naar meerdere accounts in"
-  },
-  "qf.filters.actions.caption": {
-    "message": "Acties"
-  },
-  "qf.filters.actions.flag": {
-    "message": "Label"
-  },
-  "qf.filters.actions.flag.accesskey": {
-    "message": "a"
-  },
-  "qf.filters.actions.priority": {
-    "message": "Prioriteit"
-  },
-  "qf.filters.actions.priority.accesskey": {
-    "message": "P"
-  },
-  "qf.filters.actions.star": {
-    "message": "Ster"
-  },
-  "qf.filters.actions.star.accesskey": {
-    "message": "S"
-  },
-  "qf.filters.actions.tag": {
-    "message": "Markeringen"
-  },
-  "qf.filters.actions.tag.accesskey": {
-    "message": "M"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "Doelmap"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "Filteren kopieert deze eigenschappen van het oorspronkelijke e-mailbericht"
-  },
-  "qf.filters.instructions": {
-    "message": "Kies een sjabloon. U kunt de regels van het filter instellen op het volgende scherm."
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "Automatisch uitvoeren"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "Voert na aanmaken automatisch het filter uit op de creatiemap."
-  },
-  "qf.filters.steps.caption": {
-    "message": "Volgende stappen"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "Filterregels"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "De filterdetails bewerken nadat de Assistent ze heeft gemaakt."
-  },
-  "qf.filters.steps.showList": {
-    "message": "Filterlijst"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "Geeft het filter in zijn context weer, zodat u hem kunt uitproberen"
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "Welke schermen weer te geven na aanmaken filter"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "Aangepast filter - gedrag wordt bepaald door gebruiker - gebruik variabelen als %from%, %to%, %subject%, enz."
-  },
-  "qf.filters.template.domain": {
-    "message": "Gebaseerd op domein afzender"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "Zoals sjabloon ‘gebaseerd op afzender’ maar matcht alleen het domein (bijv. @xyz.com) van het e-mailadres van de afzender"
-  },
-  "qf.filters.template.from": {
-    "message": "Gebaseerd op afzender (van)"
-  },
-  "qf.filters.template.from.description": {
-    "message": "Dit is waarschijnlijk het meestgebruikte patroon: dit haalt het e-mailadres van de afzender op en plakt het in de filtervoorwaardenvelden voor Van en Aan. Op deze manier worden volledige discussies met de afzender naar de nieuwe map verplaatst."
-  },
-  "qf.filters.template.list.description": {
-    "message": "Analoog aan ‘Gebaseerd op afzender’, maar het vult de voorwaardenveld ‘Aan’ niet."
-  },
-  "qf.filters.template.maillist": {
-    "message": "E-maillijst"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "Handig voor e-maillijsten met het veld ‘List-Id’. Als dit niet is ingesteld, dan wordt het adres van de afzender gebruikt."
-  },
-  "qf.filters.template.multifrom": {
-    "message": "Groep (verzamelt afzenders van meerdere berichten)"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "Gebruik dit om meerdere e-mailberichten te verslepen en alle afzenders aan de voorwaarde toe te voegen. (Uitgezonderd uw eigen e-mailadressen)"
-  },
-  "qf.filters.template.replyto": {
-    "message": "Gebaseerd op Antwoorden-Aan"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "Filter is gebaseerd op het veld Antwoorden-Aan."
-  },
-  "qf.filters.template.tag": {
-    "message": "Op markering"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "Gebruikt de markeringen van het e-mailbericht en gebruikt deze als filtervoorwaarden."
-  },
-  "qf.filters.template.to": {
-    "message": "Gebaseerd op ontvanger (aan)"
-  },
-  "qf.filters.template.to.description": {
-    "message": "Analoog aan ‘Gebaseerd op afzender’: gebruik dit wanneer u een e-mailbericht dat u naar iemand anders hebt verstuurd markeert. Dit haalt het e-mailadres van de afzender op en plakt het in de filtervoorwaardenvelden voor Van en Aan. Op deze manier worden volledige discussies met de afzender naar de nieuwe map verplaatst."
-  },
-  "qf.filters.template.topic": {
-    "message": "Op onderwerp"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "Dit zoekt naar speciale expressies tussen haakjes, b.v. [postzegelverzamelaars] of {veganisten}, en maakt op basis hiervan een filtervoorwaarde aan; veel e-mailgroepen gebruiken een dergelijk patroon, dus het is handig in gebruik."
-  },
-  "qf.filters.templates.description.label": {
-    "message": "Beschrijving:"
-  },
-  "qf.filters.title": {
-    "message": "Filters aanmaken"
-  },
-  "qf.github.description": {
-    "message": "Rapporteer hier bugs of stel nieuwe functies voor:"
-  },
-  "qf.grp.whenToRun": {
-    "message": "Filter toepassen bij het"
-  },
-  "qf.label.aboutLink": {
-    "message": "quickFilters-website…"
-  },
-  "qf.label.cancel": {
-    "message": "Annuleren"
-  },
-  "qf.label.contactLink": {
-    "message": "Neem contact op (Engels of Duits)…"
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "Werkbalk Huidige map QuickFolders"
-  },
-  "qf.label.donate": {
-    "message": "Doneren"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} van {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "onderdelen"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 onderdeel"
-  },
-  "qf.label.haveLicense": {
-    "message": "Hebt u al een licentie?"
-  },
-  "qf.label.insertLicense": {
-    "message": "Voeg hier uw persoonlijke licentiesleutel in:"
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "U vindt uw licentiesleutel in uw orderbevestiging die u per e-mail van FastSpring hebt ontvangen."
-  },
-  "qf.label.licenseValid": {
-    "message": "Uw licentie is geldig tot:"
-  },
-  "qf.label.naming": {
-    "message": "Naamregels"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "Scheidingsteken:"
-  },
-  "qf.label.naming.keyWord": {
-    "message": "Regelspecifiek trefwoord toevoegen"
-  },
-  "qf.label.naming.keyWord.accesskey": {
-    "message": "t"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "Verwijder de volgende woorden uit de naam:"
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "Door komma's gescheiden lijst van woorden die uit de voorgestelde filternaam moeten worden verwijderd, bijv. 'Fwd:, Re:, Mail' - hoofdlettergebruik wordt genegeerd"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "Hoofdmapnamen toevoegen"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "N"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "Maximaal aantal bovenliggende mappen om toe te voegen:"
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "Voeg naam van doelaccount toe (voor filters die e-mail naar een ander account verplaatsen)"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "Lees meer over Premium-functies op onze website"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "Mijn eigen e-mailadressen verwijderen (aanbevolen)"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "Het extraheren van uw eigen e-mailadressen met behulp van de assistent kan leiden tot ongewenste resultaten, dus adreszoektermen verwijderen deze automatisch."
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "Bevestig voordat u filters uitvoert wanneer u zich niet in een Postvak IN bevindt"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "Shortcut for Running Filters on Folder: Shift + "
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "Shortcut for Running Filters on Selected Mails: Shift + "
-  },
-  "qf.label.supportWithLicense": {
-    "message": "Ondersteun quickFilters door een licentie aan te schaffen!"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}Overschakelen naar de Basisversie?{br}Je licentiesleutel wordt op deze computer bewaard zodat je deze later kunt verlengen tegen het {b}gereduceerde verlengingstarief{/b}.{/P}{P}Dank je wel voor het ondersteunen van quickFilters — licenties maken onafhankelijke softwareontwikkeling mogelijk en helpen het project draaiende te houden. Zelfs wanneer de licentie is verlopen, kun je deze op elk moment verlengen of upgraden vanaf een Standard-licentie om een volledig jaar gebruik te maken van de {a class=features}Pro-functies{/a}.{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "Licentiesleutel herstellen"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "Je kunt je vorige licentie herstellen om van gunstigere verlengingsvoorwaarden te profiteren."
-  },
-  "qf.licenseBackup.restored": {
-    "message": "Je sleutel is succesvol hersteld. Ook al was deze verlopen, je kunt een nieuwe sleutel met korting verkrijgen."
-  },
-  "qf.licenseBackup.switch": {
-    "message": "Overschakelen naar de Basisversie"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "Je quickFilters Pro-licentie is verlopen. Klik hieronder op ‘$renewButton$’ om deze te vernieuwen.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "Je kunt ook voorlopig de Basisversie gebruiken — je kunt je licentie later herstellen."
-  },
-  "qf.licenseValidation.failed": {
-    "message": "De ingevoerde licentiesleutel is ongeldig. Lees uw e-mailbericht van FastSpring voor instructies. Als de problemen aanhouden, neem dan contact met me op via het tabblad Ondersteuning."
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "De ingevoerde licentiesleutel is mogelijk voor een andere add-on. Licentiesleutels voor {0} beginnen met {1}."
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "Het aan de licentiesleutel [{1}] verbonden e-mailadres staat momenteel niet bij uw e-mailaccounts. Neem voor hulp contact met me op via het tabblad Ondersteuning."
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres."
-  },
-  "qf.licenseValidation.passed": {
-    "message": "Bedankt voor uw registratie van quickFilters Pro! Alle premiumfuncties kunnen nu worden gebruikt."
-  },
-  "qf.listener.tags": {
-    "message": "Markeringswijzigingen volgen"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "Filters automatisch uitvoeren wanneer tags worden gewijzigd"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "Indien geactiveerd zal de filterassistent ook starten als u een bericht markeert."
-  },
-  "qf.newFilterProps.intro": {
-    "message": "De volgende instellingen worden toegepast op alle nieuwe filters die worden gemaakt met de filterassistent."
-  },
-  "qf.notify.filterCreated": {
-    "message": "Nieuw filter ‘{0}’ succesvol gemaakt."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "Filter ‘{0]’ succesvol bijgewerkt."
-  },
-  "qf.onewayaddress.label": {
-    "message": "Tweeweg-adreszoekvoorwaarden uitschakelen"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "Standaard voegt quickFilters de zoekvoorwaarden ‘van’ en ‘aan’ toe om te helpen bij het uitfilteren van volledige discussies met daarin uw eigen e-mailberichten aan de ontvanger. Als u altijd uw antwoorden in de map Verzonden wilt houden, dan kunt u hier dat gedrag uitschakelen. De add-on ‘Copy Sent to Current’ kan worden gebruikt om antwoorden met hun oorspronkelijke berichten te bewaren."
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "Rechtsklik voor versiegeschiedenis."
-  },
-  "qf.premiumConfig": {
-    "message": "Premiumfuncties"
-  },
-  "qf.tab.actions": {
-    "message": "Acties"
-  },
-  "qf.tab.advanced": {
-    "message": "Geavanceerd"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "Eigenschappen nieuw filter"
-  },
-  "qf.tab.options": {
-    "message": "Opties"
-  },
-  "qf.tab.support": {
-    "message": "Ondersteuning"
-  },
-  "qf.templates.advanced": {
-    "message": "Geavanceerde sjablonen"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "Bewerken…"
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "Aangepaste sjablonen"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "Nieuw maken…"
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "U hebt een geldige quickFilters Pro-licentie nodig om nieuwe aangepaste sjablonen voor de assistent te maken."
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "Maakt aanmaken van aangepaste sjablonen mogelijk, zie bugbeschrijving voor details."
-  },
-  "qf.templates.replyTo.label": {
-    "message": "Sjabloon Reply-To"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "Sjabloon Reply-To weergeven, zie bugbeschrijving voor details."
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "Filters zoeken op naam…"
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "voer een trefwoord in om op naam naar filters te zoeken"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "Teken dat wordt ingevoegd tussen de bovenliggende map en de naam"
-  },
-  "qf.youtube.description": {
-    "message": "Bezoek voor gedetailleerde video’s over Thunderbird-add-ons en hoe u quickFilters kunt gebruiken mijn YouTube-kanaal."
-  },
-  "qf.youtube.link": {
-    "message": "quickFilters-video’s bekijken op Thunderbird Daily…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "Bezoek het Thunderbird Daily - YouTubekanaal voor tips en handleidingen rond het gebruik van quickFilters en desktop-e-mail"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licentie verlopen!"
   },
@@ -2226,6 +2131,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Open het '{menulabel}'-menu hieronder om te zien wat nieuw is. Hiermee wordt ook de 🟠 verwijderd."
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "Werkbalk Huidige map QuickFolders"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "Deze optie is alleen van toepassing als u de add-on QuickFolders gebruikt, die een kleine werkbalk bovenop het berichtenvenster plaatst."
+  },
+  "register.hasLicense": {
+    "message": "Hebt u al een licentie?"
   },
   "register.licenseValid.expired": {
     "message": "Uw licentie is verlopen op:"
@@ -2370,6 +2284,41 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "Neem contact op (Engels of Duits)…"
+  },
+  "support.mailSupport.detail": {
+    "message": "U kunt ook persoonlijk contact met mij opnemen via $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub.detail": {
+    "message": "Rapporteer hier bugs of stel nieuwe functies voor:"
+  },
+  "support.showSplash": {
+    "message": "Splash-scherm weergeven"
+  },
+  "support.showSplash.detail": {
+    "message": "Toon nieuws en belangrijke wijzigingen, gelokaliseerd in uw taal:"
+  },
+  "support.showSupportSite": {
+    "message": "quickFilters-website…"
+  },
+  "support.showSupportSite.detail": {
+    "message": "Een snelle beschrijving van quickFilters kan worden gevonden op de volgende website:"
+  },
+  "support.showYoutube": {
+    "message": "quickFilters-video’s bekijken op Thunderbird Daily…"
+  },
+  "support.showYoutube.detail": {
+    "message": "Bezoek voor gedetailleerde video’s over Thunderbird-add-ons en hoe u quickFilters kunt gebruiken mijn YouTube-kanaal."
+  },
+  "support.title": {
+    "message": "Ondersteuning"
   },
   "testDrive": {
     "message": "U kunt de premiumfuncties uitproberen met de gratis versie, maar ze zijn mogelijk enigszins beperkt."
@@ -2746,6 +2695,9 @@
   "version": {
     "message": "Versie:"
   },
+  "versionNumber.tooltip": {
+    "message": "Rechtsklik voor versiegeschiedenis."
+  },
   "warning.emptyFilter": {
     "message": "Filter kon niet worden gemaakt: zonder geldige zoektermen kan het filter niet worden bewerkt."
   },
@@ -2811,5 +2763,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Extra e-mailadressen zijn geen probleem - er is geen aparte licentie voor nodig. Bij vragen kunt u me via het tabblad Ondersteuning bereiken."
+  },
+  "youtube.tooltip": {
+    "message": "Bezoek het Thunderbird Daily - YouTubekanaal voor tips en handleidingen rond het gebruik van quickFilters en desktop-e-mail"
   }
 }

@@ -8,6 +8,9 @@
   "account.label": {
     "message": "选择账户："
   },
+  "actions.title": {
+    "message": "动作"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "您现在在Thunderbird $appVer$上运行{bold版本 $addonVer$ {/bold} 。",
@@ -28,6 +31,167 @@
   "addTag.label": {
     "message": "为消息添加标签"
   },
+  "advanced.title": {
+    "message": "高级"
+  },
+  "assistant.actions.caption": {
+    "message": "操作"
+  },
+  "assistant.actions.flag": {
+    "message": "标记"
+  },
+  "assistant.actions.flag.accesskey": {
+    "message": "F"
+  },
+  "assistant.actions.priority": {
+    "message": "优先级"
+  },
+  "assistant.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "assistant.actions.star": {
+    "message": "星标"
+  },
+  "assistant.actions.star.accesskey": {
+    "message": "S"
+  },
+  "assistant.actions.tag": {
+    "message": "标签"
+  },
+  "assistant.actions.tag.accesskey": {
+    "message": "T"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "目标目录"
+  },
+  "assistant.actions.tooltip": {
+    "message": "过滤器将从原邮件中复制这些属性"
+  },
+  "assistant.createFilter": {
+    "message": "创建新过滤器…"
+  },
+  "assistant.createNew": {
+    "message": "创建新过滤器"
+  },
+  "assistant.details.templates.tip": {
+    "message": "请选择一个模板，您可以在下一步中开启过滤器规则。"
+  },
+  "assistant.editFilter": {
+    "message": "编辑过滤器…"
+  },
+  "assistant.ignoreFolders": {
+    "message": "助手应该忽略这些文件夹……"
+  },
+  "assistant.merge": {
+    "message": "合并"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "目标过滤器已选中"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "列表中其它过滤器将被合并到这个之中然后删除。"
+  },
+  "assistant.mergeFilterRules": {
+    "message": "将“$filterName$”与新规则合并…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "与已有过滤器合并:"
+  },
+  "assistant.next": {
+    "message": "下一步"
+  },
+  "assistant.next.createFilter": {
+    "message": "创建过滤器…"
+  },
+  "assistant.next.createFilter.shortcut": {
+    "message": "F"
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "自动运行"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "A创建后自动在原始收件箱上运行过滤器。"
+  },
+  "assistant.nextSteps.caption": {
+    "message": "下一步"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "过滤规则"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "在助手创建过滤器详细信息后编辑它。"
+  },
+  "assistant.nextSteps.showList": {
+    "message": "过滤器列表"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "在上下文中显示过滤器，以便您可以尝试一下"
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "创建过滤器后显示哪些屏幕"
+  },
+  "assistant.templates.custom.description": {
+    "message": "自定义过滤器 - 其行为由用户定义 - 变量如 %from% %to% %subject% 等等."
+  },
+  "assistant.templates.description.label": {
+    "message": "描述:"
+  },
+  "assistant.templates.domain": {
+    "message": "基于发送者的域名"
+  },
+  "assistant.templates.domain.description": {
+    "message": "类似\"基于发送者\"模板但只匹配发送者邮箱地址的域名(如@xyz.com)"
+  },
+  "assistant.templates.from": {
+    "message": "基于发送者(来源)"
+  },
+  "assistant.templates.from.description": {
+    "message": "这可能是最常用的模板：获取发送方的邮箱地址并将其粘贴到来源和过滤条件字段，这种方式下该发送者的所有会话均将被移动到新目录。"
+  },
+  "assistant.templates.list.description": {
+    "message": "类似 基于发送者 方式，但它不会填充 '目标' 条件字段。"
+  },
+  "assistant.templates.maillist": {
+    "message": "邮寄名单"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "Useful for mailing lists with 'List-Id' field. If this is not set it will use the sender's address instead."
+  },
+  "assistant.templates.multifrom": {
+    "message": "编组(收集多份邮件的发送者)"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "用于拖放多封邮件并添加其所有发送者到条件内.(不包含您自己的邮件地址)"
+  },
+  "assistant.templates.replyto": {
+    "message": "基于回复至"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "过滤器基于 回复至 字段。"
+  },
+  "assistant.templates.tag": {
+    "message": "按标签"
+  },
+  "assistant.templates.tag.description": {
+    "message": "使用邮件的标签并将其作为过滤器条件添加。"
+  },
+  "assistant.templates.to": {
+    "message": "基于接收者 (目标)"
+  },
+  "assistant.templates.to.description": {
+    "message": "类似 '基于发送者' 方式: 当您标记一封发送给其它人的邮件时使用，这种方式将获取接受者的邮件地址并将其粘贴到来源和过滤条件字段，这种方式下该联系人的所有会话均将被移动到新目录。"
+  },
+  "assistant.templates.topic": {
+    "message": "按主题"
+  },
+  "assistant.templates.topic.description": {
+    "message": "这种方式将查找括弧中的指定表达式，如[stamp collectors] 或 {vegans} 并基于此创建过滤器。很多邮件都是以这个模板建立的，因此很容易使用。"
+  },
   "assistant.ux.assistant.html": {
     "message": "在新的 HTML 用户界面中显示助手"
   },
@@ -42,6 +206,9 @@
   },
   "assistant.ux.title": {
     "message": "用户界面"
+  },
+  "assistant.windowTitle": {
+    "message": "创建过滤器"
   },
   "backup.archivingFilters": {
     "message": "Archiving {1} Filters"
@@ -1074,6 +1241,9 @@
   "buyPersonalLicense.button": {
     "message": "购买个人授权！"
   },
+  "cancel": {
+    "message": "取消"
+  },
   "chkAfterJunk.label": {
     "message": "垃圾分类后"
   },
@@ -1296,6 +1466,30 @@
   "customTemplate.title": {
     "message": "quickFilters Custom Template"
   },
+  "customTemplates": {
+    "message": "自定义模板"
+  },
+  "customTemplates.create": {
+    "message": "新建…"
+  },
+  "customTemplates.edit": {
+    "message": "编辑…"
+  },
+  "customTemplates.group": {
+    "message": "高级模板"
+  },
+  "customTemplates.replyTo": {
+    "message": "回复模板"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "显示回复模板，详情请查看bug描述."
+  },
+  "customTemplates.tooltip": {
+    "message": "允许生成自定义模板，详情请查看BUG描述."
+  },
+  "customTemplates.warn.restriction": {
+    "message": "您需要有效的 quickFilters Pro 许可证才能为助手创建新的自定义模板。"
+  },
   "customVariable.label": {
     "message": "Custom Variables"
   },
@@ -1326,6 +1520,12 @@
   "deleteMessage.label": {
     "message": "删除消息"
   },
+  "disable2wayAddressing.label": {
+    "message": "禁用双向地址搜索条件"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "quickFilters默认情况下会自动添加&quot;来自&quot;和&quot;发往&quot;搜索条件以辅助您过滤整个消息主题，包括您自己发给收件人的邮件。如果您希望总是将自己的回复保留在发件箱中，请在此禁用此行为。&quot;Copy Sent to Current&quot;组件可用于保留所有回复到初始邮件。"
+  },
   "domainLicense.email": {
     "message": "我们会在两个工作日内使用此电子邮件地址与您联系，以生成您的域授权。请在下一个页面中输入要授权的域名。"
   },
@@ -1340,6 +1540,9 @@
   },
   "donate-heading": {
     "message": "一次性捐款帮助。"
+  },
+  "donate.btn": {
+    "message": "捐助"
   },
   "donate.label": {
     "message": "捐助"
@@ -1470,17 +1673,59 @@
   "licenseTerms.show": {
     "message": "显示许可协议条款"
   },
+  "licenseValidation.expired": {
+    "message": "您的 quickFilters Pro 许可证已过期。请点击下方的“$renewButton$”以续订。",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "或者，您现在可以使用基础版本 — 之后仍可恢复许可证。"
+  },
+  "licenseValidation.failed": {
+    "message": "您輸入的許可證密鑰無效。 檢查您來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
+  },
   "licenseValidation.guessAddon": {
     "message": "(The key entered may be for {2})."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "您輸入的許可證密鑰可能用於不同的附加組件。 {0} 的許可證密鑰以 {1} 開頭。"
+  },
+  "licenseValidation.invalidMail": {
+    "message": "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance."
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "E加密的电子邮件地址与可读的电子邮件地址不匹配。"
+  },
+  "licenseValidation.passed": {
+    "message": "感谢您注册 QuickFilters Pro！ 所有高级功能现已解锁。"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro 授权"
+  },
+  "list.features.multipaste": {
+    "message": "启用将过滤器复制和粘贴到多个帐户"
+  },
+  "list.features.title": {
+    "message": "筛选器列表功能"
   },
   "ListButton.label": {
     "message": "邮件过滤器..."
   },
   "ListButton.tooltip": {
     "message": "显示邮件过滤器列表"
+  },
+  "listeners.tags": {
+    "message": "监视标签变动"
+  },
+  "listeners.tags.autofilter": {
+    "message": "修改標籤時自動運行過濾器"
+  },
+  "listeners.tags.tooltip": {
+    "message": "激活时，过滤助手将在您给消息添加标签时触发。"
   },
   "markMessageRead.label": {
     "message": "标记为已读"
@@ -1518,8 +1763,20 @@
   "menu.tools": {
     "message": "工具"
   },
+  "merge.add.summary": {
+    "message": "选择要继承其它过滤器属性的过滤器。"
+  },
   "merge.addressesOmitted": {
     "message": "Email地址按条件忽略 - quickFilters 对您自己的邮箱地址自动禁用过滤："
+  },
+  "merge.found": {
+    "message": "quickFilters 助手找到了一些相同动作的过滤器 。"
+  },
+  "merge.instructions": {
+    "message": "您可以扩展其中一个或创建一个全新的过滤器。"
+  },
+  "merge.target.select": {
+    "message": "选择一个要扩展新规则的过滤器。"
   },
   "merge.warning.missingAction": {
     "message": "无法获取过滤器的主动作: {1}"
@@ -1569,6 +1826,57 @@
   "msg.preview.title": {
     "message": "邮件"
   },
+  "naming": {
+    "message": "命名规则"
+  },
+  "naming.clonedSuffix": {
+    "message": "附加到克隆的过滤器名称:"
+  },
+  "naming.folderDelimiter": {
+    "message": "Delimiter:"
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "Character inserted between parent folder and name"
+  },
+  "naming.keyWord": {
+    "message": "添加规则指定关键字"
+  },
+  "naming.keyWord.accesskey": {
+    "message": "k"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "从名称中删除以下任何单词："
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "以逗号分隔的单词列表，这些单词将从建议的过滤器名称中删除，例如 'Fwd:, Re:, Mail' - 区分大小写"
+  },
+  "naming.parentFolder": {
+    "message": "添加父文件夹名称"
+  },
+  "naming.parentFolder.accesskey": {
+    "message": "p"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "要添加的父文件夹最大数量："
+  },
+  "naming.removeOwnMail": {
+    "message": "删除我自己的电子邮件地址（推荐）"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "使用助手提取您自己的电子邮件地址可能会导致不想要的结果，因此地址搜索词会自动删除这些。"
+  },
+  "naming.targetAccount": {
+    "message": "添加目标帐户名称（用于将邮件移动到另一个帐户的过滤器）"
+  },
+  "newFilters.intro": {
+    "message": "以下设置将应用于使用过滤器助手创建的任何新过滤器。"
+  },
+  "newFilters.title": {
+    "message": "新过滤器属性"
+  },
+  "newFilters.whenToRun": {
+    "message": "Apply filter when"
+  },
   "news.minimal": {
     "message": "更新时不显示新闻标签"
   },
@@ -1580,6 +1888,12 @@
   },
   "notification.dontShowAgain": {
     "message": "不再显示此消息。"
+  },
+  "notification.filterCreated": {
+    "message": "成功创建新过滤器 '{0}'."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "过滤器更新成功 '{0}'."
   },
   "notification.premium.btn.extendLicense": {
     "message": "延长许可证"
@@ -1701,6 +2015,54 @@
   "pricing.title": {
     "message": "价钱"
   },
+  "pro.insertLicense": {
+    "message": "Insert your personal License key here:"
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "Your license key is contained in your order confirmation email from Fastspring."
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}切换到基础版本？{br}您的许可证密钥将保存在此计算机上，以便您稍后可以以{b}折扣续费{/b}。{/P}{P}感谢您支持 quickFilters — 许可证让独立软件开发成为可能，并帮助保持项目持续运行。即使许可证已过期，您仍然可以随时续订或从标准许可证升级，以使用 {a class=features}专业功能{/a} 一整年。{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "恢复许可证密钥"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "您可以恢复之前的许可证以获得更优惠的续费条件。"
+  },
+  "pro.licenseBackup.restored": {
+    "message": "您的密钥已安全恢复。即使已过期，您仍可获得折扣新密钥。"
+  },
+  "pro.licenseBackup.switch": {
+    "message": "切换到基础版本"
+  },
+  "pro.licenseValid": {
+    "message": "您的授权截止时间为："
+  },
+  "pro.pasteLicense": {
+    "message": "paste"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "validate"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "不在收件箱中时在执行过滤器之前确认"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "在文件夹上运行过滤器的快捷方式：Shift + "
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "对选定邮件运行过滤器的快捷方式：Shift + "
+  },
+  "proFeatures.title": {
+    "message": "高级功能"
+  },
+  "proFeatures.website": {
+    "message": "Read more about Premium Features on our Website"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "发现主题以相同文本开头：\"$prefix$\"。\n是否将此文本用作主题搜索条件？",
     "placeholders": {
@@ -1736,463 +2098,6 @@
   "purchase-heading": {
     "message": "通过许可证支持"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "助手应该忽略这些文件夹……"
-  },
-  "qf.btn.splash": {
-    "message": "显示启动画面"
-  },
-  "qf.button.createFilter": {
-    "message": "创建新过滤器…"
-  },
-  "qf.button.editFilter": {
-    "message": "编辑过滤器…"
-  },
-  "qf.button.merge": {
-    "message": "合并"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "将“$filterName$”与新规则合并…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "下一步"
-  },
-  "qf.button.pasteLicense": {
-    "message": "paste"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "移到底部"
-  },
-  "qf.button.reorderButtonBottom.accessKey": {
-    "message": "b"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "重新排列过滤器使其在其它过滤器之后执行"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "移到顶部"
-  },
-  "qf.button.reorderButtonTop.accessKey": {
-    "message": "o"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "重新排列过滤器使其在其它过滤器之前执行"
-  },
-  "qf.button.targetSelected": {
-    "message": "目标过滤器已选中"
-  },
-  "qf.button.validateLicense": {
-    "message": "validate"
-  },
-  "qf.check.createNew": {
-    "message": "创建新过滤器"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "与已有过滤器合并:"
-  },
-  "qf.cloned.label": {
-    "message": "附加到克隆的过滤器名称:"
-  },
-  "qf.continueFilter.label": {
-    "message": "创建过滤器…"
-  },
-  "qf.continueFilter.shortcut": {
-    "message": "F"
-  },
-  "qf.description.about": {
-    "message": "您可以在以下站点找到 quickFilters 的简要说明:"
-  },
-  "qf.description.contactMe": {
-    "message": "您也可以通过我的个人邮箱 $supportMail$ 联系我:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "此选项仅在您使用QuickFolders扩展时可用，该扩展会在消息预览窗格顶部添加一个小工具栏。"
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "列表中其它过滤器将被合并到这个之中然后删除。"
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "选择要继承其它过滤器属性的过滤器。"
-  },
-  "qf.description.mergeInstructions": {
-    "message": "您可以扩展其中一个或创建一个全新的过滤器。"
-  },
-  "qf.description.mergeSummary": {
-    "message": "quickFilters 助手找到了一些相同动作的过滤器 。"
-  },
-  "qf.description.selectToExtend": {
-    "message": "选择一个要扩展新规则的过滤器。"
-  },
-  "qf.description.splash": {
-    "message": "以您的语言显示新闻和重要变化："
-  },
-  "qf.donate.tooltip": {
-    "message": "请支持 quickFilters 的开发人员 !"
-  },
-  "qf.filterlist.group": {
-    "message": "筛选器列表功能"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "启用将过滤器复制和粘贴到多个帐户"
-  },
-  "qf.filters.actions.caption": {
-    "message": "操作"
-  },
-  "qf.filters.actions.flag": {
-    "message": "标记"
-  },
-  "qf.filters.actions.flag.accesskey": {
-    "message": "F"
-  },
-  "qf.filters.actions.priority": {
-    "message": "优先级"
-  },
-  "qf.filters.actions.priority.accesskey": {
-    "message": "P"
-  },
-  "qf.filters.actions.star": {
-    "message": "星标"
-  },
-  "qf.filters.actions.star.accesskey": {
-    "message": "S"
-  },
-  "qf.filters.actions.tag": {
-    "message": "标签"
-  },
-  "qf.filters.actions.tag.accesskey": {
-    "message": "T"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "目标目录"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "过滤器将从原邮件中复制这些属性"
-  },
-  "qf.filters.instructions": {
-    "message": "请选择一个模板，您可以在下一步中开启过滤器规则。"
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "自动运行"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "A创建后自动在原始收件箱上运行过滤器。"
-  },
-  "qf.filters.steps.caption": {
-    "message": "下一步"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "过滤规则"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "在助手创建过滤器详细信息后编辑它。"
-  },
-  "qf.filters.steps.showList": {
-    "message": "过滤器列表"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "在上下文中显示过滤器，以便您可以尝试一下"
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "创建过滤器后显示哪些屏幕"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "自定义过滤器 - 其行为由用户定义 - 变量如 %from% %to% %subject% 等等."
-  },
-  "qf.filters.template.domain": {
-    "message": "基于发送者的域名"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "类似\"基于发送者\"模板但只匹配发送者邮箱地址的域名(如@xyz.com)"
-  },
-  "qf.filters.template.from": {
-    "message": "基于发送者(来源)"
-  },
-  "qf.filters.template.from.description": {
-    "message": "这可能是最常用的模板：获取发送方的邮箱地址并将其粘贴到来源和过滤条件字段，这种方式下该发送者的所有会话均将被移动到新目录。"
-  },
-  "qf.filters.template.list.description": {
-    "message": "类似 基于发送者 方式，但它不会填充 '目标' 条件字段。"
-  },
-  "qf.filters.template.maillist": {
-    "message": "邮寄名单"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "Useful for mailing lists with 'List-Id' field. If this is not set it will use the sender's address instead."
-  },
-  "qf.filters.template.multifrom": {
-    "message": "编组(收集多份邮件的发送者)"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "用于拖放多封邮件并添加其所有发送者到条件内.(不包含您自己的邮件地址)"
-  },
-  "qf.filters.template.replyto": {
-    "message": "基于回复至"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "过滤器基于 回复至 字段。"
-  },
-  "qf.filters.template.tag": {
-    "message": "按标签"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "使用邮件的标签并将其作为过滤器条件添加。"
-  },
-  "qf.filters.template.to": {
-    "message": "基于接收者 (目标)"
-  },
-  "qf.filters.template.to.description": {
-    "message": "类似 '基于发送者' 方式: 当您标记一封发送给其它人的邮件时使用，这种方式将获取接受者的邮件地址并将其粘贴到来源和过滤条件字段，这种方式下该联系人的所有会话均将被移动到新目录。"
-  },
-  "qf.filters.template.topic": {
-    "message": "按主题"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "这种方式将查找括弧中的指定表达式，如[stamp collectors] 或 {vegans} 并基于此创建过滤器。很多邮件都是以这个模板建立的，因此很容易使用。"
-  },
-  "qf.filters.templates.description.label": {
-    "message": "描述:"
-  },
-  "qf.filters.title": {
-    "message": "创建过滤器"
-  },
-  "qf.github.description": {
-    "message": "在此处报告错误或建议新功能："
-  },
-  "qf.grp.whenToRun": {
-    "message": "Apply filter when"
-  },
-  "qf.label.aboutLink": {
-    "message": "quickFilters 网站…"
-  },
-  "qf.label.cancel": {
-    "message": "取消"
-  },
-  "qf.label.contactLink": {
-    "message": "联系我 (使用英语或德语)…"
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "QuickFolders 当前文件夹工具栏"
-  },
-  "qf.label.donate": {
-    "message": "捐助"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} / {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "项目"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 项"
-  },
-  "qf.label.haveLicense": {
-    "message": "已有授权？"
-  },
-  "qf.label.insertLicense": {
-    "message": "Insert your personal License key here:"
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "Your license key is contained in your order confirmation email from Fastspring."
-  },
-  "qf.label.licenseValid": {
-    "message": "您的授权截止时间为："
-  },
-  "qf.label.naming": {
-    "message": "命名规则"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "Delimiter:"
-  },
-  "qf.label.naming.keyWord": {
-    "message": "添加规则指定关键字"
-  },
-  "qf.label.naming.keyWord.accesskey": {
-    "message": "k"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "从名称中删除以下任何单词："
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "以逗号分隔的单词列表，这些单词将从建议的过滤器名称中删除，例如 'Fwd:, Re:, Mail' - 区分大小写"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "添加父文件夹名称"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "p"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "要添加的父文件夹最大数量："
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "添加目标帐户名称（用于将邮件移动到另一个帐户的过滤器）"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "Read more about Premium Features on our Website"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "删除我自己的电子邮件地址（推荐）"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "使用助手提取您自己的电子邮件地址可能会导致不想要的结果，因此地址搜索词会自动删除这些。"
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "不在收件箱中时在执行过滤器之前确认"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "在文件夹上运行过滤器的快捷方式：Shift + "
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "对选定邮件运行过滤器的快捷方式：Shift + "
-  },
-  "qf.label.supportWithLicense": {
-    "message": "通过获取许可证来支持 QuickFilters！"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}切换到基础版本？{br}您的许可证密钥将保存在此计算机上，以便您稍后可以以{b}折扣续费{/b}。{/P}{P}感谢您支持 quickFilters — 许可证让独立软件开发成为可能，并帮助保持项目持续运行。即使许可证已过期，您仍然可以随时续订或从标准许可证升级，以使用 {a class=features}专业功能{/a} 一整年。{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "恢复许可证密钥"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "您可以恢复之前的许可证以获得更优惠的续费条件。"
-  },
-  "qf.licenseBackup.restored": {
-    "message": "您的密钥已安全恢复。即使已过期，您仍可获得折扣新密钥。"
-  },
-  "qf.licenseBackup.switch": {
-    "message": "切换到基础版本"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "您的 quickFilters Pro 许可证已过期。请点击下方的“$renewButton$”以续订。",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "或者，您现在可以使用基础版本 — 之后仍可恢复许可证。"
-  },
-  "qf.licenseValidation.failed": {
-    "message": "您輸入的許可證密鑰無效。 檢查您來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "您輸入的許可證密鑰可能用於不同的附加組件。 {0} 的許可證密鑰以 {1} 開頭。"
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "The email address that is bound to the license key [{1}] is currently not listed in any of your mail accounts. Please contact me from the Support tab for assistance."
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "E加密的电子邮件地址与可读的电子邮件地址不匹配。"
-  },
-  "qf.licenseValidation.passed": {
-    "message": "感谢您注册 QuickFilters Pro！ 所有高级功能现已解锁。"
-  },
-  "qf.listener.tags": {
-    "message": "监视标签变动"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "修改標籤時自動運行過濾器"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "激活时，过滤助手将在您给消息添加标签时触发。"
-  },
-  "qf.newFilterProps.intro": {
-    "message": "以下设置将应用于使用过滤器助手创建的任何新过滤器。"
-  },
-  "qf.notify.filterCreated": {
-    "message": "成功创建新过滤器 '{0}'."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "过滤器更新成功 '{0}'."
-  },
-  "qf.onewayaddress.label": {
-    "message": "禁用双向地址搜索条件"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "quickFilters默认情况下会自动添加&quot;来自&quot;和&quot;发往&quot;搜索条件以辅助您过滤整个消息主题，包括您自己发给收件人的邮件。如果您希望总是将自己的回复保留在发件箱中，请在此禁用此行为。&quot;Copy Sent to Current&quot;组件可用于保留所有回复到初始邮件。"
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "右击查看版本历史。"
-  },
-  "qf.premiumConfig": {
-    "message": "高级功能"
-  },
-  "qf.tab.actions": {
-    "message": "动作"
-  },
-  "qf.tab.advanced": {
-    "message": "高级"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "新过滤器属性"
-  },
-  "qf.tab.options": {
-    "message": "设置"
-  },
-  "qf.tab.support": {
-    "message": "支持"
-  },
-  "qf.templates.advanced": {
-    "message": "高级模板"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "编辑…"
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "自定义模板"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "新建…"
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "您需要有效的 quickFilters Pro 许可证才能为助手创建新的自定义模板。"
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "允许生成自定义模板，详情请查看BUG描述."
-  },
-  "qf.templates.replyTo.label": {
-    "message": "回复模板"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "显示回复模板，详情请查看bug描述."
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "按名称搜索…"
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "输入关键字以按名称搜索过滤器"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "Character inserted between parent folder and name"
-  },
-  "qf.youtube.description": {
-    "message": "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel."
-  },
-  "qf.youtube.link": {
-    "message": "Watch quickFilters Videos at Thunderbird Daily…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "证件过期！"
   },
@@ -2218,6 +2123,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "打开下面的 '{menulabel}' 菜单查看最新内容。这也会移除 🟠。"
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "QuickFolders 当前文件夹工具栏"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "此选项仅在您使用QuickFolders扩展时可用，该扩展会在消息预览窗格顶部添加一个小工具栏。"
+  },
+  "register.hasLicense": {
+    "message": "已有授权？"
   },
   "register.licenseValid.expired": {
     "message": "您的许可证已过期："
@@ -2362,6 +2276,41 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "联系我 (使用英语或德语)…"
+  },
+  "support.mailSupport.detail": {
+    "message": "您也可以通过我的个人邮箱 $supportMail$ 联系我:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub.detail": {
+    "message": "在此处报告错误或建议新功能："
+  },
+  "support.showSplash": {
+    "message": "显示启动画面"
+  },
+  "support.showSplash.detail": {
+    "message": "以您的语言显示新闻和重要变化："
+  },
+  "support.showSupportSite": {
+    "message": "quickFilters 网站…"
+  },
+  "support.showSupportSite.detail": {
+    "message": "您可以在以下站点找到 quickFilters 的简要说明:"
+  },
+  "support.showYoutube": {
+    "message": "Watch quickFilters Videos at Thunderbird Daily…"
+  },
+  "support.showYoutube.detail": {
+    "message": "For detailed information on Thunderbird Add-ons and videos on how to use quickFilters visit my YouTube channel."
+  },
+  "support.title": {
+    "message": "支持"
   },
   "testDrive": {
     "message": "您可以用免费版本试用一些高级功能，但部分可能受到限制。"
@@ -2738,6 +2687,9 @@
   "version": {
     "message": "版本:"
   },
+  "versionNumber.tooltip": {
+    "message": "右击查看版本历史。"
+  },
   "warning.emptyFilter": {
     "message": "无法创建过滤器：没有有效的搜索条件，无法编辑过滤器。"
   },
@@ -2803,5 +2755,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
+  },
+  "youtube.tooltip": {
+    "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"
   }
 }

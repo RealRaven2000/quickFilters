@@ -2502,11 +2502,11 @@ quickFilters.Worker = {
       if (!showEditor && !showList) {
         const txt = isMerge
           ? util.getBundleString(
-              "qf.notify.filterMergeUpdated",
+              "notification.filterMergeUpdated",
               "Successfully updated filter '{0}'."
             )
           : util.getBundleString(
-              "qf.notify.filterCreated",
+              "notification.filterCreated",
               "Successfully created new filter '{0}'"
             );
         util.slideAlert(txt.replace("{0}", targetFilter.filterName), "quickFilters");

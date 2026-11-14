@@ -8,6 +8,9 @@
   "account.label": {
     "message": "Välj konto:"
   },
+  "actions.title": {
+    "message": "Åtgärder"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "Du kör nu {bold} version $addonVer$ {/bold}  på Thunderbird $appVer$.",
@@ -28,6 +31,167 @@
   "addTag.label": {
     "message": "Sätt en etikett på meddelandet"
   },
+  "advanced.title": {
+    "message": "Avancerat"
+  },
+  "assistant.actions.caption": {
+    "message": "Åtgärder"
+  },
+  "assistant.actions.flag": {
+    "message": "Flagga"
+  },
+  "assistant.actions.flag.accesskey": {
+    "message": "F"
+  },
+  "assistant.actions.priority": {
+    "message": "Prioritet"
+  },
+  "assistant.actions.priority.accesskey": {
+    "message": "P"
+  },
+  "assistant.actions.star": {
+    "message": "Stjärna"
+  },
+  "assistant.actions.star.accesskey": {
+    "message": "S"
+  },
+  "assistant.actions.tag": {
+    "message": "Taggar"
+  },
+  "assistant.actions.tag.accesskey": {
+    "message": "T"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "Målmapp"
+  },
+  "assistant.actions.tooltip": {
+    "message": "Filtret kopierar dessa attribut från originalmeddelandet"
+  },
+  "assistant.createFilter": {
+    "message": "Skapa nytt filter …"
+  },
+  "assistant.createNew": {
+    "message": "Skapa ett nytt filter"
+  },
+  "assistant.details.templates.tip": {
+    "message": "Välj en mall. Du kan finjustera filterreglerna i nästa ruta."
+  },
+  "assistant.editFilter": {
+    "message": "Redigera filter …"
+  },
+  "assistant.ignoreFolders": {
+    "message": "Assistenten bör ignorera dessa mappar…"
+  },
+  "assistant.merge": {
+    "message": "Slå samman"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "Välj målfilter"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "Alla andra filter i denna lista kommer att slås samman med målfiltret och sedan tas bort."
+  },
+  "assistant.mergeFilterRules": {
+    "message": "Kombinera “$filterName$” med nya regler…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "Slå samman med ett befintligt filter:"
+  },
+  "assistant.next": {
+    "message": "Nästa"
+  },
+  "assistant.next.createFilter": {
+    "message": "Skapa filter …"
+  },
+  "assistant.next.createFilter.shortcut": {
+    "message": "f"
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "Kör automatiskt"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "Kör filtret automatiskt på den ursprungliga inkorgen efter det har skapats."
+  },
+  "assistant.nextSteps.caption": {
+    "message": "Nästa steg"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "Filterregler"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "Redigera filterdetaljerna efter att assistenten har skapat det."
+  },
+  "assistant.nextSteps.showList": {
+    "message": "Lista över filter"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "Visar filtret i ett sammanhang så du kan prova det."
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "Vilka skärmar att visa efter ett filter skapas"
+  },
+  "assistant.templates.custom.description": {
+    "message": "Anpassat filter - beteendet definieras av användare - använd variabler som %from%, %to%, %subject%, etc."
+  },
+  "assistant.templates.description.label": {
+    "message": "Beskrivning:"
+  },
+  "assistant.templates.domain": {
+    "message": "Baserat på avsändarens domän"
+  },
+  "assistant.templates.domain.description": {
+    "message": "Som mallen \"Baserat på avsändare\", men matchar endast domändelen av avsändarens e-postadress (t.ex. @xyz.se)."
+  },
+  "assistant.templates.from": {
+    "message": "Baserat på avsändare (från:)"
+  },
+  "assistant.templates.from.description": {
+    "message": "Det här är antagligen det oftast använda mönstret: det hämtar avsändarens e-postadress och klistrar in den i filtervillkorsfälten \"från\" och \"till\". På så sätt kommer hela konversationer med avsändaren att flyttas till den nya mappen."
+  },
+  "assistant.templates.list.description": {
+    "message": "Liknar \"Baserat på avsändare\", men fyller inte i villkorsfältet \"till\"."
+  },
+  "assistant.templates.maillist": {
+    "message": "E-postlista"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "Användbart för sändlistor med fältet \"List-Id\". Om detta inte anges kommer avsändarens adress användas istället."
+  },
+  "assistant.templates.multifrom": {
+    "message": "Gruppera (samlar in avsändare från flera e-brev)"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "Använd detta för att dra flera e-brev och lägga till samtliga avsändare i villkoret. (Undantar dina egna adresser.)"
+  },
+  "assistant.templates.replyto": {
+    "message": "Baserat på Svar-till"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "Filtret är baserat på fältet \"Svar-till\"."
+  },
+  "assistant.templates.tag": {
+    "message": "Efter taggar"
+  },
+  "assistant.templates.tag.description": {
+    "message": "Använder e-brevets taggar och lägger till dem som filtervillkor."
+  },
+  "assistant.templates.to": {
+    "message": "Baserat på mottagare (till:)"
+  },
+  "assistant.templates.to.description": {
+    "message": "Liknar \"Baserat på avsändare\": använd det här när du märker ett e-brev som du har skickat till någon. Det hämtar mottagarens e-postadress och klistrar in den i filtervillkorsfälten \"från\" och \"till\". På så sätt kommer hela konversationer med mottagaren att flyttas till den nya mappen."
+  },
+  "assistant.templates.topic": {
+    "message": "Efter ämne"
+  },
+  "assistant.templates.topic.description": {
+    "message": "Det här letar efter specialuttryck inom parenteser, t.ex. [frimärkssamlare] eller {veganer} och skapar ett filtervillkor baserat på dessa; många massutskick använder detta mönster, så det är mycket enkelt att använda."
+  },
   "assistant.ux.assistant.html": {
     "message": "Visa assistenten i det nya HTML-användargränssnittet"
   },
@@ -42,6 +206,9 @@
   },
   "assistant.ux.title": {
     "message": "Användargränssnitt"
+  },
+  "assistant.windowTitle": {
+    "message": "Skapa filter"
   },
   "backup.archivingFilters": {
     "message": "Arkiverar {1} filter"
@@ -1074,6 +1241,9 @@
   "buyPersonalLicense.button": {
     "message": "Köp personlig licens!"
   },
+  "cancel": {
+    "message": "Avbryt"
+  },
   "chkAfterJunk.label": {
     "message": "Efter skräpklassificering"
   },
@@ -1299,6 +1469,30 @@
   "customTemplate.title": {
     "message": "quickFilters anpassad mall"
   },
+  "customTemplates": {
+    "message": "Anpassade mallar"
+  },
+  "customTemplates.create": {
+    "message": "Skapa ny..."
+  },
+  "customTemplates.edit": {
+    "message": "Redigera..."
+  },
+  "customTemplates.group": {
+    "message": "Avancerade mallar"
+  },
+  "customTemplates.replyTo": {
+    "message": "Svara-till-mall"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "Visa svara-till-mall, se buggbeskrivning för detaljer."
+  },
+  "customTemplates.tooltip": {
+    "message": "Låter anpassade mall att skapas, se buggbeskrivningen för detaljer."
+  },
+  "customTemplates.warn.restriction": {
+    "message": "Du behöver en giltig quickFilters Pro-licens för att skapa nya anpassade mallar för assistenten."
+  },
   "customVariable.label": {
     "message": "Anpassade variabler"
   },
@@ -1329,6 +1523,12 @@
   "deleteMessage.label": {
     "message": "Ta bort meddelandet"
   },
+  "disable2wayAddressing.label": {
+    "message": "Inaktivera tvåvägssökvillkor för adresser"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "Som standard lägger quickFilters till sökvillkor för både &quot;från&quot; och &quot;till&quot;, för att underlätta fullständig filtrering av meddelandetrådar som innehåller dina egna e-brev till mottagaren. Om du alltid vill förvara dina svar i mappen Skickat, så kan du inaktivera detta beteende här. Tillägget &quot;Copy Sent to Current&quot; kan användas för att behålla svarsmeddelanden tillsammans med de ursprungliga e-breven."
+  },
   "domainLicense.email": {
     "message": "Vi kontaktar dig genom denna e-post adress för att generera din domänlicens; Det kan ta upp till två arbetsdagar för oss att återkomma. Ange domännamnet för licensen på nästa sida."
   },
@@ -1343,6 +1543,9 @@
   },
   "donate-heading": {
     "message": "Hjälp med en engångs donation."
+  },
+  "donate.btn": {
+    "message": "Donera"
   },
   "donate.label": {
     "message": "Donera"
@@ -1475,17 +1678,59 @@
   "licenseTerms.show": {
     "message": "Visa licensvillkor"
   },
+  "licenseValidation.expired": {
+    "message": "Din quickFilters Pro-licens har gått ut. Klicka på ”$renewButton$” nedan för att förnya den.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "Alternativt kan du använda Grundversionen tills vidare — du kan fortfarande återställa din licens senare."
+  },
+  "licenseValidation.failed": {
+    "message": "Licensnyckeln du angav är ogiltig. Läs instruktionerna i meddelandet du fick från FastSpring. Kontakta oss via supportfliken om problemet kvarstår."
+  },
   "licenseValidation.guessAddon": {
     "message": "(Den angivna nyckeln kan vara för {2})."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "Licensnyckeln du angav kanske är till ett annat tillägg. Licensnycklar för {0} börjar med {1}."
+  },
+  "licenseValidation.invalidMail": {
+    "message": "E-postadressen som är knuten till licensnyckeln [{1}] är för närvarande inte listad i något av dina e-postkonton. Kontakta oss via supportfliken för assistans."
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "Den krypterade e-postadressen matchar inte den läsbara adressen."
+  },
+  "licenseValidation.passed": {
+    "message": "Tack för att du registrerar quickFilters Pro! Alla licensbelagda funktioner är nu tillgängliga."
+  },
   "licenseWindow.title": {
     "message": "Licens för quickFilters Pro"
+  },
+  "list.features.multipaste": {
+    "message": "Aktivera kopiering och klistra in filter till flera konton"
+  },
+  "list.features.title": {
+    "message": "Filterlistfunktioner"
   },
   "ListButton.label": {
     "message": "Meddelandefilter…"
   },
   "ListButton.tooltip": {
     "message": "Visa en lista över meddelandefilter"
+  },
+  "listeners.tags": {
+    "message": "Lyssna efter etikettsändringar"
+  },
+  "listeners.tags.autofilter": {
+    "message": "Kör filter automatiskt när taggar ändras"
+  },
+  "listeners.tags.tooltip": {
+    "message": "När detta alternativ är aktiverat kommer Filterassistenten även att startas när du etiketterar ett meddelande."
   },
   "markMessageRead.label": {
     "message": "Märk som läst"
@@ -1523,8 +1768,20 @@
   "menu.tools": {
     "message": "Verktyg"
   },
+  "merge.add.summary": {
+    "message": "Välj det filter som skall ärva de andras egenskaper."
+  },
   "merge.addressesOmitted": {
     "message": "E-postadresser uteslöts från villkoren – quickFilters inaktiverar filtrering för din egen e-postadress:"
+  },
+  "merge.found": {
+    "message": "quickFilters filterassistent hittade några filter som redan utför samma åtgärd."
+  },
+  "merge.instructions": {
+    "message": "Du kan antingen utöka ett av dessa filter eller skapa ett helt nytt filter."
+  },
+  "merge.target.select": {
+    "message": "Välj ett filter att utöka med nya regler."
   },
   "merge.warning.missingAction": {
     "message": "Det gick inte att hämta huvudåtgärden för filtret: {1}"
@@ -1574,6 +1831,57 @@
   "msg.preview.title": {
     "message": "E-post"
   },
+  "naming": {
+    "message": "Namngivningsregler"
+  },
+  "naming.clonedSuffix": {
+    "message": "Bifoga följande till namnet på duplicerat filter:"
+  },
+  "naming.folderDelimiter": {
+    "message": "Avskiljare:"
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "Tecken som infogas mellan överordnad mapp och namn"
+  },
+  "naming.keyWord": {
+    "message": "Lägg till regelspecifikt nyckelord"
+  },
+  "naming.keyWord.accesskey": {
+    "message": "n"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "Ta bort något av följande ord från namnet:"
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "En kommaseparerad lista med ord som ska tas bort från det föreslagna filtret, t.ex. 'Fwd:, Re:, Mail' - skillnad mellan stora och små bokstäver ignoreras"
+  },
+  "naming.parentFolder": {
+    "message": "Lägg till namn på överordnade mappar"
+  },
+  "naming.parentFolder.accesskey": {
+    "message": "m"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "Maximalt antal överordnade mappar som ska läggas till:"
+  },
+  "naming.removeOwnMail": {
+    "message": "Ta bort mina egna e-postadresser (rekommenderas)"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "Att extrahera dina egna e-postadresser med hjälp av assistenten kan leda till oönskade resultat, så adresssöktermer tar bort dessa automatiskt."
+  },
+  "naming.targetAccount": {
+    "message": "Lägg till namn på målkonto (för filter som flyttar mail till ett annat konto)"
+  },
+  "newFilters.intro": {
+    "message": "Följande inställningar kommer att tillämpas på alla nya filter som skapas med filterassistenten."
+  },
+  "newFilters.title": {
+    "message": "Egenskaper för nya filter"
+  },
+  "newFilters.whenToRun": {
+    "message": "Tillämpa filter när"
+  },
   "news.minimal": {
     "message": "Visa inte nyhetsetikett vid uppdateringar"
   },
@@ -1585,6 +1893,12 @@
   },
   "notification.dontShowAgain": {
     "message": "Visa inte detta meddelande igen."
+  },
+  "notification.filterCreated": {
+    "message": "Skapade det nya filtret \"{0}\"."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "Uppdaterade filtret \"{0}\"."
   },
   "notification.premium.btn.extendLicense": {
     "message": "Förläng licens"
@@ -1709,6 +2023,54 @@
   "pricing.title": {
     "message": "Prissättning"
   },
+  "pro.insertLicense": {
+    "message": "Infoga din personliga licensnyckel here:"
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "Din licensnyckel finns i det orderbekräftelsemeddelande du fick från Fastspring."
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}Byt till Grundversion?{br}Din licensnyckel sparas på den här datorn så att du kan förnya den senare till det {b}rabatterade förnyelsepriset{/b}.{/P}{P}Tack för att du stödjer quickFilters — licenser gör oberoende mjukvaruutveckling möjlig och håller projektet igång. Även när den har gått ut kan du när som helst förnya licensen eller uppgradera från en Standard-licens för att använda {a class=features}Pro-funktionerna{/a} i ett helt år.{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "Återställ licensnyckel"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "Du kan återställa din tidigare licens för att få bättre förnyelsevillkor."
+  },
+  "pro.licenseBackup.restored": {
+    "message": "Din nyckel har återställts säkert. Även om den har gått ut kan du få en ny nyckel med rabatt."
+  },
+  "pro.licenseBackup.switch": {
+    "message": "Byt till Grundversion"
+  },
+  "pro.licenseValid": {
+    "message": "Din licens är giltig t.o.m.:"
+  },
+  "pro.pasteLicense": {
+    "message": "klistra in"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "verifiera"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "Bekräfta innan du kör filter när du inte är i en inkorg"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "Genväg för att köra filter på mapp: Skift +"
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "Genväg för att köra filter på valda e-postmeddelanden: Skift + "
+  },
+  "proFeatures.title": {
+    "message": "Premiumfunktioner"
+  },
+  "proFeatures.website": {
+    "message": "Läs mer om premiumfunktioner på vår webbplats"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "Hittade ämnen som börjar med samma text: \"$prefix$\".\nAnvänd denna text som sökvillkor för ämnet?",
     "placeholders": {
@@ -1744,463 +2106,6 @@
   "purchase-heading": {
     "message": "Stöd genom en licens"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "Assistenten bör ignorera dessa mappar…"
-  },
-  "qf.btn.splash": {
-    "message": "Visa stänkskärm"
-  },
-  "qf.button.createFilter": {
-    "message": "Skapa nytt filter …"
-  },
-  "qf.button.editFilter": {
-    "message": "Redigera filter …"
-  },
-  "qf.button.merge": {
-    "message": "Slå samman"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "Kombinera “$filterName$” med nya regler…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "Nästa"
-  },
-  "qf.button.pasteLicense": {
-    "message": "klistra in"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "Flytta längst ned"
-  },
-  "qf.button.reorderButtonBottom.accessKey": {
-    "message": "n"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "Ordna om filtret, så att det körs sist av alla"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "Flytta högst upp"
-  },
-  "qf.button.reorderButtonTop.accessKey": {
-    "message": "u"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "Ordna om filtret, så att det körs först av alla"
-  },
-  "qf.button.targetSelected": {
-    "message": "Välj målfilter"
-  },
-  "qf.button.validateLicense": {
-    "message": "verifiera"
-  },
-  "qf.check.createNew": {
-    "message": "Skapa ett nytt filter"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "Slå samman med ett befintligt filter:"
-  },
-  "qf.cloned.label": {
-    "message": "Bifoga följande till namnet på duplicerat filter:"
-  },
-  "qf.continueFilter.label": {
-    "message": "Skapa filter …"
-  },
-  "qf.continueFilter.shortcut": {
-    "message": "f"
-  },
-  "qf.description.about": {
-    "message": "En snabbläst beskrivning av quickFilters hittas på följande webbplats:"
-  },
-  "qf.description.contactMe": {
-    "message": "Du kan också kontakta oss via $supportMail$:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen."
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "Alla andra filter i denna lista kommer att slås samman med målfiltret och sedan tas bort."
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "Välj det filter som skall ärva de andras egenskaper."
-  },
-  "qf.description.mergeInstructions": {
-    "message": "Du kan antingen utöka ett av dessa filter eller skapa ett helt nytt filter."
-  },
-  "qf.description.mergeSummary": {
-    "message": "quickFilters filterassistent hittade några filter som redan utför samma åtgärd."
-  },
-  "qf.description.selectToExtend": {
-    "message": "Välj ett filter att utöka med nya regler."
-  },
-  "qf.description.splash": {
-    "message": "Visa nyheter och viktiga förändringar, lokaliserade på ditt språk:"
-  },
-  "qf.donate.tooltip": {
-    "message": "Stöd utvecklingen av quickFilters!"
-  },
-  "qf.filterlist.group": {
-    "message": "Filterlistfunktioner"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "Aktivera kopiering och klistra in filter till flera konton"
-  },
-  "qf.filters.actions.caption": {
-    "message": "Åtgärder"
-  },
-  "qf.filters.actions.flag": {
-    "message": "Flagga"
-  },
-  "qf.filters.actions.flag.accesskey": {
-    "message": "F"
-  },
-  "qf.filters.actions.priority": {
-    "message": "Prioritet"
-  },
-  "qf.filters.actions.priority.accesskey": {
-    "message": "P"
-  },
-  "qf.filters.actions.star": {
-    "message": "Stjärna"
-  },
-  "qf.filters.actions.star.accesskey": {
-    "message": "S"
-  },
-  "qf.filters.actions.tag": {
-    "message": "Taggar"
-  },
-  "qf.filters.actions.tag.accesskey": {
-    "message": "T"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "Målmapp"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "Filtret kopierar dessa attribut från originalmeddelandet"
-  },
-  "qf.filters.instructions": {
-    "message": "Välj en mall. Du kan finjustera filterreglerna i nästa ruta."
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "Kör automatiskt"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "Kör filtret automatiskt på den ursprungliga inkorgen efter det har skapats."
-  },
-  "qf.filters.steps.caption": {
-    "message": "Nästa steg"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "Filterregler"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "Redigera filterdetaljerna efter att assistenten har skapat det."
-  },
-  "qf.filters.steps.showList": {
-    "message": "Lista över filter"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "Visar filtret i ett sammanhang så du kan prova det."
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "Vilka skärmar att visa efter ett filter skapas"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "Anpassat filter - beteendet definieras av användare - använd variabler som %from%, %to%, %subject%, etc."
-  },
-  "qf.filters.template.domain": {
-    "message": "Baserat på avsändarens domän"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "Som mallen \"Baserat på avsändare\", men matchar endast domändelen av avsändarens e-postadress (t.ex. @xyz.se)."
-  },
-  "qf.filters.template.from": {
-    "message": "Baserat på avsändare (från:)"
-  },
-  "qf.filters.template.from.description": {
-    "message": "Det här är antagligen det oftast använda mönstret: det hämtar avsändarens e-postadress och klistrar in den i filtervillkorsfälten \"från\" och \"till\". På så sätt kommer hela konversationer med avsändaren att flyttas till den nya mappen."
-  },
-  "qf.filters.template.list.description": {
-    "message": "Liknar \"Baserat på avsändare\", men fyller inte i villkorsfältet \"till\"."
-  },
-  "qf.filters.template.maillist": {
-    "message": "E-postlista"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "Användbart för sändlistor med fältet \"List-Id\". Om detta inte anges kommer avsändarens adress användas istället."
-  },
-  "qf.filters.template.multifrom": {
-    "message": "Gruppera (samlar in avsändare från flera e-brev)"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "Använd detta för att dra flera e-brev och lägga till samtliga avsändare i villkoret. (Undantar dina egna adresser.)"
-  },
-  "qf.filters.template.replyto": {
-    "message": "Baserat på Svar-till"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "Filtret är baserat på fältet \"Svar-till\"."
-  },
-  "qf.filters.template.tag": {
-    "message": "Efter taggar"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "Använder e-brevets taggar och lägger till dem som filtervillkor."
-  },
-  "qf.filters.template.to": {
-    "message": "Baserat på mottagare (till:)"
-  },
-  "qf.filters.template.to.description": {
-    "message": "Liknar \"Baserat på avsändare\": använd det här när du märker ett e-brev som du har skickat till någon. Det hämtar mottagarens e-postadress och klistrar in den i filtervillkorsfälten \"från\" och \"till\". På så sätt kommer hela konversationer med mottagaren att flyttas till den nya mappen."
-  },
-  "qf.filters.template.topic": {
-    "message": "Efter ämne"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "Det här letar efter specialuttryck inom parenteser, t.ex. [frimärkssamlare] eller {veganer} och skapar ett filtervillkor baserat på dessa; många massutskick använder detta mönster, så det är mycket enkelt att använda."
-  },
-  "qf.filters.templates.description.label": {
-    "message": "Beskrivning:"
-  },
-  "qf.filters.title": {
-    "message": "Skapa filter"
-  },
-  "qf.github.description": {
-    "message": "Rapportera buggar eller föreslå nya funktioner här:"
-  },
-  "qf.grp.whenToRun": {
-    "message": "Tillämpa filter när"
-  },
-  "qf.label.aboutLink": {
-    "message": "quickFilters webbplats…"
-  },
-  "qf.label.cancel": {
-    "message": "Avbryt"
-  },
-  "qf.label.contactLink": {
-    "message": "Kontakta mig (på engelska eller tyska)…"
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "QuickFolders verktygsfält för aktuell meddelandemapp"
-  },
-  "qf.label.donate": {
-    "message": "Donera"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} av {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "objekt"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 objekt"
-  },
-  "qf.label.haveLicense": {
-    "message": "Har du redan en licens?"
-  },
-  "qf.label.insertLicense": {
-    "message": "Infoga din personliga licensnyckel here:"
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "Din licensnyckel finns i det orderbekräftelsemeddelande du fick från Fastspring."
-  },
-  "qf.label.licenseValid": {
-    "message": "Din licens är giltig t.o.m.:"
-  },
-  "qf.label.naming": {
-    "message": "Namngivningsregler"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "Avskiljare:"
-  },
-  "qf.label.naming.keyWord": {
-    "message": "Lägg till regelspecifikt nyckelord"
-  },
-  "qf.label.naming.keyWord.accesskey": {
-    "message": "n"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "Ta bort något av följande ord från namnet:"
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "En kommaseparerad lista med ord som ska tas bort från det föreslagna filtret, t.ex. 'Fwd:, Re:, Mail' - skillnad mellan stora och små bokstäver ignoreras"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "Lägg till namn på överordnade mappar"
-  },
-  "qf.label.naming.parentFolder.accesskey": {
-    "message": "m"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "Maximalt antal överordnade mappar som ska läggas till:"
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "Lägg till namn på målkonto (för filter som flyttar mail till ett annat konto)"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "Läs mer om premiumfunktioner på vår webbplats"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "Ta bort mina egna e-postadresser (rekommenderas)"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "Att extrahera dina egna e-postadresser med hjälp av assistenten kan leda till oönskade resultat, så adresssöktermer tar bort dessa automatiskt."
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "Bekräfta innan du kör filter när du inte är i en inkorg"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "Genväg för att köra filter på mapp: Skift +"
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "Genväg för att köra filter på valda e-postmeddelanden: Skift + "
-  },
-  "qf.label.supportWithLicense": {
-    "message": "Stöd quickFilters genom att skaffa en licens!"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}Byt till Grundversion?{br}Din licensnyckel sparas på den här datorn så att du kan förnya den senare till det {b}rabatterade förnyelsepriset{/b}.{/P}{P}Tack för att du stödjer quickFilters — licenser gör oberoende mjukvaruutveckling möjlig och håller projektet igång. Även när den har gått ut kan du när som helst förnya licensen eller uppgradera från en Standard-licens för att använda {a class=features}Pro-funktionerna{/a} i ett helt år.{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "Återställ licensnyckel"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "Du kan återställa din tidigare licens för att få bättre förnyelsevillkor."
-  },
-  "qf.licenseBackup.restored": {
-    "message": "Din nyckel har återställts säkert. Även om den har gått ut kan du få en ny nyckel med rabatt."
-  },
-  "qf.licenseBackup.switch": {
-    "message": "Byt till Grundversion"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "Din quickFilters Pro-licens har gått ut. Klicka på ”$renewButton$” nedan för att förnya den.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "Alternativt kan du använda Grundversionen tills vidare — du kan fortfarande återställa din licens senare."
-  },
-  "qf.licenseValidation.failed": {
-    "message": "Licensnyckeln du angav är ogiltig. Läs instruktionerna i meddelandet du fick från FastSpring. Kontakta oss via supportfliken om problemet kvarstår."
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "Licensnyckeln du angav kanske är till ett annat tillägg. Licensnycklar för {0} börjar med {1}."
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "E-postadressen som är knuten till licensnyckeln [{1}] är för närvarande inte listad i något av dina e-postkonton. Kontakta oss via supportfliken för assistans."
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "Den krypterade e-postadressen matchar inte den läsbara adressen."
-  },
-  "qf.licenseValidation.passed": {
-    "message": "Tack för att du registrerar quickFilters Pro! Alla licensbelagda funktioner är nu tillgängliga."
-  },
-  "qf.listener.tags": {
-    "message": "Lyssna efter etikettsändringar"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "Kör filter automatiskt när taggar ändras"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "När detta alternativ är aktiverat kommer Filterassistenten även att startas när du etiketterar ett meddelande."
-  },
-  "qf.newFilterProps.intro": {
-    "message": "Följande inställningar kommer att tillämpas på alla nya filter som skapas med filterassistenten."
-  },
-  "qf.notify.filterCreated": {
-    "message": "Skapade det nya filtret \"{0}\"."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "Uppdaterade filtret \"{0}\"."
-  },
-  "qf.onewayaddress.label": {
-    "message": "Inaktivera tvåvägssökvillkor för adresser"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "Som standard lägger quickFilters till sökvillkor för både &quot;från&quot; och &quot;till&quot;, för att underlätta fullständig filtrering av meddelandetrådar som innehåller dina egna e-brev till mottagaren. Om du alltid vill förvara dina svar i mappen Skickat, så kan du inaktivera detta beteende här. Tillägget &quot;Copy Sent to Current&quot; kan användas för att behålla svarsmeddelanden tillsammans med de ursprungliga e-breven."
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "Högerklicka för versionshistorik."
-  },
-  "qf.premiumConfig": {
-    "message": "Premiumfunktioner"
-  },
-  "qf.tab.actions": {
-    "message": "Åtgärder"
-  },
-  "qf.tab.advanced": {
-    "message": "Avancerat"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "Egenskaper för nya filter"
-  },
-  "qf.tab.options": {
-    "message": "Alternativ"
-  },
-  "qf.tab.support": {
-    "message": "Hjälp"
-  },
-  "qf.templates.advanced": {
-    "message": "Avancerade mallar"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "Redigera..."
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "Anpassade mallar"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "Skapa ny..."
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "Du behöver en giltig quickFilters Pro-licens för att skapa nya anpassade mallar för assistenten."
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "Låter anpassade mall att skapas, se buggbeskrivningen för detaljer."
-  },
-  "qf.templates.replyTo.label": {
-    "message": "Svara-till-mall"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "Visa svara-till-mall, se buggbeskrivning för detaljer."
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "Sök filter efter namn…"
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "ange ett nyckelord för att söka bland dina filter efter namn"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "Tecken som infogas mellan överordnad mapp och namn"
-  },
-  "qf.youtube.description": {
-    "message": "För detaljerad information om tillägg för Thunderbird och videor om hur man använder quickFilters, besök min YouTube-kanal."
-  },
-  "qf.youtube.link": {
-    "message": "Se videor om quickFilters på Thunderbird Daily…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "Besök Thunderbord Daily - YouTube-kanalen för tips och guider om quickFilters och e-post på datorer"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licens har gått ut!"
   },
@@ -2226,6 +2131,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Öppna menyn '{menulabel}' nedan för att se nyheterna. Detta tar också bort 🟠."
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "QuickFolders verktygsfält för aktuell meddelandemapp"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen."
+  },
+  "register.hasLicense": {
+    "message": "Har du redan en licens?"
   },
   "register.licenseValid.expired": {
     "message": "Din licens löpte ut:"
@@ -2370,6 +2284,41 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "Kontakta mig (på engelska eller tyska)…"
+  },
+  "support.mailSupport.detail": {
+    "message": "Du kan också kontakta oss via $supportMail$:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub.detail": {
+    "message": "Rapportera buggar eller föreslå nya funktioner här:"
+  },
+  "support.showSplash": {
+    "message": "Visa stänkskärm"
+  },
+  "support.showSplash.detail": {
+    "message": "Visa nyheter och viktiga förändringar, lokaliserade på ditt språk:"
+  },
+  "support.showSupportSite": {
+    "message": "quickFilters webbplats…"
+  },
+  "support.showSupportSite.detail": {
+    "message": "En snabbläst beskrivning av quickFilters hittas på följande webbplats:"
+  },
+  "support.showYoutube": {
+    "message": "Se videor om quickFilters på Thunderbird Daily…"
+  },
+  "support.showYoutube.detail": {
+    "message": "För detaljerad information om tillägg för Thunderbird och videor om hur man använder quickFilters, besök min YouTube-kanal."
+  },
+  "support.title": {
+    "message": "Hjälp"
   },
   "testDrive": {
     "message": "Du kan testköra de licensbelagda funktionerna i gratisversionen, men de kan vara begränsade."
@@ -2746,6 +2695,9 @@
   "version": {
     "message": "Version:"
   },
+  "versionNumber.tooltip": {
+    "message": "Högerklicka för versionshistorik."
+  },
   "warning.emptyFilter": {
     "message": "Det gick inte att skapa filtret: utan giltiga söktermer kan filtret inte redigeras."
   },
@@ -2811,5 +2763,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "Några ytterligare e-postadresser är inget problem - de kräver inte en separat licens. Om du har frågor kan du nå mig via supportfliken."
+  },
+  "youtube.tooltip": {
+    "message": "Besök Thunderbord Daily - YouTube-kanalen för tips och guider om quickFilters och e-post på datorer"
   }
 }

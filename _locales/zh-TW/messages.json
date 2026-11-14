@@ -8,6 +8,9 @@
   "account.label": {
     "message": "帳戶："
   },
+  "actions.title": {
+    "message": "行動"
+  },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
     "message": "您現在在Thunderbird $appVer$ 上運行{bold版本 $addonVer$ {/bold} 。",
@@ -28,6 +31,152 @@
   "addTag.label": {
     "message": "標籤消息"
   },
+  "advanced.title": {
+    "message": "先進的"
+  },
+  "assistant.actions.caption": {
+    "message": "行動"
+  },
+  "assistant.actions.flag": {
+    "message": "旗幟"
+  },
+  "assistant.actions.priority": {
+    "message": "優先事項"
+  },
+  "assistant.actions.star": {
+    "message": "星星"
+  },
+  "assistant.actions.tag": {
+    "message": "標籤"
+  },
+  "assistant.actions.targetFolder": {
+    "message": "目標文件夾"
+  },
+  "assistant.actions.tooltip": {
+    "message": "過濾器從原始電子郵件中復制這些屬性"
+  },
+  "assistant.createFilter": {
+    "message": "創建新過濾器..."
+  },
+  "assistant.createNew": {
+    "message": "創建新過濾器"
+  },
+  "assistant.details.templates.tip": {
+    "message": "請選擇一個模板。 您可以在下一個屏幕上微調過濾規則。"
+  },
+  "assistant.editFilter": {
+    "message": "編輯過濾器..."
+  },
+  "assistant.ignoreFolders": {
+    "message": "助手應該忽略這些文件夾類型..."
+  },
+  "assistant.merge": {
+    "message": "合併"
+  },
+  "assistant.merge.targetSelected": {
+    "message": "已選擇目標過濾器"
+  },
+  "assistant.mergeAddInstructions": {
+    "message": "此列表中的所有其他過濾器都將合併到此列表中，然後刪除。"
+  },
+  "assistant.mergeFilterRules": {
+    "message": "將「$filterName$」與新規則合併…",
+    "placeholders": {
+      "filterName": {
+        "content": "$1"
+      }
+    }
+  },
+  "assistant.mergeWithExisting": {
+    "message": "與現有過濾器合併："
+  },
+  "assistant.next": {
+    "message": "下一個"
+  },
+  "assistant.next.createFilter": {
+    "message": "創建過濾器..."
+  },
+  "assistant.nextSteps.autoRunFilter": {
+    "message": "自動運行"
+  },
+  "assistant.nextSteps.autoRunFilter.tooltip": {
+    "message": "創建後自動在原始收件箱上運行過濾器。"
+  },
+  "assistant.nextSteps.caption": {
+    "message": "下一步"
+  },
+  "assistant.nextSteps.showEditor": {
+    "message": "過濾規則"
+  },
+  "assistant.nextSteps.showEditor.tooltip": {
+    "message": "助手創建過濾器詳細信息後對其進行編輯。"
+  },
+  "assistant.nextSteps.showList": {
+    "message": "過濾器列表"
+  },
+  "assistant.nextSteps.showList.tooltip": {
+    "message": "在上下文中顯示過濾器，以便您可以嘗試"
+  },
+  "assistant.nextSteps.tooltip": {
+    "message": "創建過濾器後顯示哪些屏幕"
+  },
+  "assistant.templates.custom.description": {
+    "message": "自定義過濾器 - 行為由用戶定義 - 使用％from％％to％％subject％等變量。"
+  },
+  "assistant.templates.description.label": {
+    "message": "描述："
+  },
+  "assistant.templates.domain": {
+    "message": "基於發件人的域"
+  },
+  "assistant.templates.domain.description": {
+    "message": "類似於“基於發件人”模板，但僅匹配發件人電子郵件地址的域（例如@xyz.com）"
+  },
+  "assistant.templates.from": {
+    "message": "基於發件人（來自）"
+  },
+  "assistant.templates.from.description": {
+    "message": "這可能是最常用的模式：這將檢索發件人的電子郵件地址並將其粘貼到“發件人”和“收件人”過濾條件字段中。 這樣，與發件人的完整對話將被移至新文件夾。"
+  },
+  "assistant.templates.list.description": {
+    "message": "與基於發件人類似，但它不填寫“收件人”條件字段。"
+  },
+  "assistant.templates.maillist": {
+    "message": "郵件列表"
+  },
+  "assistant.templates.maillist.description": {
+    "message": "對於帶有“List-Id”字段的郵件列表很有用。 如果未設置，它將使用發件人的地址。"
+  },
+  "assistant.templates.multifrom": {
+    "message": "群組（收集多封郵件的發件人）"
+  },
+  "assistant.templates.multifrom.description": {
+    "message": "使用此功能可以移動多封電子郵件並將所有發件人添加到條件中。 （不包括您自己的郵件地址）"
+  },
+  "assistant.templates.replyto": {
+    "message": "基於回复"
+  },
+  "assistant.templates.replyto.description": {
+    "message": "過濾器基於回複字段。"
+  },
+  "assistant.templates.tag": {
+    "message": "按標籤"
+  },
+  "assistant.templates.tag.description": {
+    "message": "使用電子郵件的標籤並將其添加為過濾條件。"
+  },
+  "assistant.templates.to": {
+    "message": "基於收件人（至）"
+  },
+  "assistant.templates.to.description": {
+    "message": "與“基於發件人”類似：當您標記已發送給其他人的電子郵件時使用此選項。 這將檢索收件人的電子郵件地址並將其粘貼到“發件人”和“收件人”過濾條件字段中。 這樣，與聯繫人的完整對話將被移動到新文件夾中。"
+  },
+  "assistant.templates.topic": {
+    "message": "按主題"
+  },
+  "assistant.templates.topic.description": {
+    "message": "這將查找括號中的特殊表達式，例如 [集郵者]或{素食主義者}並根據這些創建過濾條件； 很多群發電子郵件都是使用這種模式設置的，因此它非常易於使用。"
+  },
   "assistant.ux.assistant.html": {
     "message": "在新的 HTML 使用者介面中顯示助理"
   },
@@ -42,6 +191,9 @@
   },
   "assistant.ux.title": {
     "message": "使用者介面"
+  },
+  "assistant.windowTitle": {
+    "message": "創建過濾器"
   },
   "backup.archivingFilters": {
     "message": "歸檔 {1} 過濾器"
@@ -1062,6 +1214,9 @@
   "buyPersonalLicense.button": {
     "message": "購買個人許可證！"
   },
+  "cancel": {
+    "message": "取消"
+  },
   "chkAfterJunk.label": {
     "message": "垃圾分類後"
   },
@@ -1266,6 +1421,30 @@
   "customHeader.To": {
     "message": "到"
   },
+  "customTemplates": {
+    "message": "自定義模板"
+  },
+  "customTemplates.create": {
+    "message": "創建新的…"
+  },
+  "customTemplates.edit": {
+    "message": "編輯…"
+  },
+  "customTemplates.group": {
+    "message": "高級模板"
+  },
+  "customTemplates.replyTo": {
+    "message": "回复模板"
+  },
+  "customTemplates.replyTo.tooltip": {
+    "message": "顯示回复模板，詳細信息請參閱錯誤描述。"
+  },
+  "customTemplates.tooltip": {
+    "message": "允許生成自定義模板，有關詳細信息，請參閱錯誤描述。"
+  },
+  "customTemplates.warn.restriction": {
+    "message": "您需要有效的 quickFilters Pro 許可證才能為助手創建新的自定義模板。"
+  },
   "customVariable.label": {
     "message": "自定義變量"
   },
@@ -1277,6 +1456,12 @@
   },
   "deleteMessage.label": {
     "message": "刪除留言"
+  },
+  "disable2wayAddressing.label": {
+    "message": "禁用雙向地址搜索條件"
+  },
+  "disable2wayAddressing.tooltip": {
+    "message": "默認情況下，quickFilters 添加“發件人”和“收件人”搜索條件，以幫助過濾完整的郵件線程，包括您自己發送給收件人的電子郵件。 如果您始終希望將回复保留在“已發送”文件夾中，則可以在此處禁用此行為。 插件“複製發送到當前”可用於保留原始電子郵件的回复。"
   },
   "domainLicense.email": {
     "message": "我們將使用此電子郵件地址與您聯繫，以生成您的域名許可證；請允許我們在兩個工作日內取得聯繫。在下一頁上輸入許可證的域名。"
@@ -1292,6 +1477,9 @@
   },
   "donate-heading": {
     "message": "一次性捐款幫助。"
+  },
+  "donate.btn": {
+    "message": "捐"
   },
   "donate.label": {
     "message": "捐贈"
@@ -1418,17 +1606,59 @@
   "licenseTerms.show": {
     "message": "顯示許可協議條款"
   },
+  "licenseValidation.expired": {
+    "message": "您的 quickFilters Pro 授權已到期。請點擊下方的「$renewButton$」以續訂。",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
+  "licenseValidation.expired.freeHint": {
+    "message": "或者，您現在可以使用基礎版本 — 之後仍可恢復授權。"
+  },
+  "licenseValidation.failed": {
+    "message": "您輸入的許可證密鑰無效。 檢查來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
+  },
   "licenseValidation.guessAddon": {
     "message": "(輸入的密鑰可能用於{2})."
   },
+  "licenseValidation.invalidAddon": {
+    "message": "您輸入的許可證密鑰可能適用於不同的附加組件。 {0} 的許可證密鑰以 {1} 開頭。"
+  },
+  "licenseValidation.invalidMail": {
+    "message": "綁定到許可證密鑰 [{1}] 的電子郵件地址當前未在您的任何郵件帳戶中列出。 請通過“支持”選項卡與我聯繫以獲取幫助。"
+  },
+  "licenseValidation.notMatchedMail": {
+    "message": "加密的電子郵件地址與可讀的電子郵件地址不匹配。"
+  },
+  "licenseValidation.passed": {
+    "message": "感謝您註冊 quickFilters Pro！ 所有高級功能現已解鎖。"
+  },
   "licenseWindow.title": {
     "message": "quickFilters Pro 許可證"
+  },
+  "list.features.multipaste": {
+    "message": "啟用將過濾器粘貼到多個帳戶"
+  },
+  "list.features.title": {
+    "message": "過濾列表的特點"
   },
   "ListButton.label": {
     "message": "消息過濾器..."
   },
   "ListButton.tooltip": {
     "message": "顯示消息過濾器列表"
+  },
+  "listeners.tags": {
+    "message": "監聽標籤變化"
+  },
+  "listeners.tags.autofilter": {
+    "message": "標籤更改時自動運行過濾器"
+  },
+  "listeners.tags.tooltip": {
+    "message": "激活後，當您標記消息時，過濾助手也會被觸發。"
   },
   "markMessageRead.label": {
     "message": "標記為已讀"
@@ -1466,8 +1696,20 @@
   "menu.tools": {
     "message": "工具"
   },
+  "merge.add.summary": {
+    "message": "選擇將繼承其他過濾器屬性的過濾器。"
+  },
   "merge.addressesOmitted": {
     "message": "條件中省略了電子郵件地址 - quickFilters 禁用了對您自己的郵件地址的過濾："
+  },
+  "merge.found": {
+    "message": "quickFilters Assistant 發現一些過濾器已經執行相同的操作。"
+  },
+  "merge.instructions": {
+    "message": "您可以擴展其中之一或創建一個全新的過濾器。"
+  },
+  "merge.target.select": {
+    "message": "選擇要使用新規則擴展的過濾器。"
   },
   "merge.warning.missingAction": {
     "message": "無法獲取過濾器的主要操作：{1}"
@@ -1517,6 +1759,51 @@
   "msg.preview.title": {
     "message": "郵件"
   },
+  "naming": {
+    "message": "命名規則"
+  },
+  "naming.clonedSuffix": {
+    "message": "附加到克隆過濾器的名稱："
+  },
+  "naming.folderDelimiter": {
+    "message": "分隔符："
+  },
+  "naming.folderDelimiter.tip": {
+    "message": "在父文件夾和名稱之間插入字符"
+  },
+  "naming.keyWord": {
+    "message": "添加規則特定關鍵字"
+  },
+  "naming.keyWord.blacklist": {
+    "message": "從名稱中刪除以下任何單詞："
+  },
+  "naming.keyWord.blacklist.tip": {
+    "message": "以逗號分隔的單詞列表，將從建議的過濾器名稱中刪除，例如 'Fwd:, Re:, Mail' - 不區分大小寫"
+  },
+  "naming.parentFolder": {
+    "message": "新增父資料夾名稱"
+  },
+  "naming.parentFolder.maxCount": {
+    "message": "要添加的父資料夾最大數量："
+  },
+  "naming.removeOwnMail": {
+    "message": "刪除我自己的電子郵件地址（推薦）"
+  },
+  "naming.removeOwnMail.tip": {
+    "message": "使用助手提取您自己的電子郵件地址可能會導致不良結果，因此地址搜索詞會自動刪除這些地址。"
+  },
+  "naming.targetAccount": {
+    "message": "添加目標帳戶名稱（用於將郵件移至另一帳戶的過濾器）"
+  },
+  "newFilters.intro": {
+    "message": "以下設置將應用於使用過濾器助手創建的任何新過濾器。"
+  },
+  "newFilters.title": {
+    "message": "新的過濾器屬性"
+  },
+  "newFilters.whenToRun": {
+    "message": "何時應用過濾器"
+  },
   "news.minimal": {
     "message": "更新時不顯示新聞標籤"
   },
@@ -1525,6 +1812,12 @@
   },
   "notification.donate": {
     "message": "捐贈"
+  },
+  "notification.filterCreated": {
+    "message": "成功創建新過濾器'{0}'."
+  },
+  "notification.filterMergeUpdated": {
+    "message": "過濾器更新成功'{0}'."
   },
   "notification.premium.btn.extendLicense": {
     "message": "延長許可證"
@@ -1649,6 +1942,54 @@
   "pricing.title": {
     "message": "價錢"
   },
+  "pro.insertLicense": {
+    "message": "在此插入您的個人許可證密鑰："
+  },
+  "pro.insertLicense.tooltip": {
+    "message": "您的許可證密鑰包含在 Fastspring 發送的訂單確認電子郵件中。"
+  },
+  "pro.licenseBackup.confirmation": {
+    "message": "{P}切換到基礎版本？{br}您的授權金鑰將保存在此電腦上，以便稍後以{b}折扣續費{/b}。{/P}{P}感謝您支持 quickFilters — 授權讓獨立軟體開發成為可能，並幫助專案持續運作。即使授權已過期，您仍可隨時續訂或從標準授權升級，以使用 {a class=features}專業功能{/a} 一整年。{/P}"
+  },
+  "pro.licenseBackup.recover": {
+    "message": "恢復授權金鑰"
+  },
+  "pro.licenseBackup.recoverable": {
+    "message": "您可以恢復先前的授權以取得更優惠的續費條件。"
+  },
+  "pro.licenseBackup.restored": {
+    "message": "您的金鑰已安全恢復。即使已過期，您仍可獲得折扣新金鑰。"
+  },
+  "pro.licenseBackup.switch": {
+    "message": "切換到基礎版本"
+  },
+  "pro.licenseValid": {
+    "message": "您的許可證有效期至："
+  },
+  "pro.pasteLicense": {
+    "message": "粘貼"
+  },
+  "pro.title": {
+    "message": "quickFilters Pro"
+  },
+  "pro.validateLicense": {
+    "message": "證實"
+  },
+  "proFeatures.shortcuts.challenge": {
+    "message": "不在收件箱中時執行過濾器之前詢問"
+  },
+  "proFeatures.shortcuts.runFolder": {
+    "message": "在文件夾上運行過濾器的快捷方式：Shift + "
+  },
+  "proFeatures.shortcuts.runMails": {
+    "message": "對選定郵件運行過濾器的快捷方式：Shift +"
+  },
+  "proFeatures.title": {
+    "message": "高級功能"
+  },
+  "proFeatures.website": {
+    "message": "在我們的網站上了解有關高級功能的更多信息"
+  },
   "prompt.confirmCommonSubjectStart": {
     "message": "找到以相同文字開頭的主題：\"$prefix$\"。\n是否將此文字用作主題搜尋條件？",
     "placeholders": {
@@ -1684,439 +2025,6 @@
   "purchase-heading": {
     "message": "透過許可證支持"
   },
-  "qf.assistant.ignoreFolders": {
-    "message": "助手應該忽略這些文件夾類型..."
-  },
-  "qf.btn.splash": {
-    "message": "顯示啟動畫面"
-  },
-  "qf.button.createFilter": {
-    "message": "創建新過濾器..."
-  },
-  "qf.button.editFilter": {
-    "message": "編輯過濾器..."
-  },
-  "qf.button.merge": {
-    "message": "合併"
-  },
-  "qf.button.mergeFilterRules": {
-    "message": "將「$filterName$」與新規則合併…",
-    "placeholders": {
-      "filterName": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.button.next": {
-    "message": "下一個"
-  },
-  "qf.button.pasteLicense": {
-    "message": "粘貼"
-  },
-  "qf.button.reorderButtonBottom": {
-    "message": "移至底部"
-  },
-  "qf.button.reorderButtonBottom.toolTip": {
-    "message": "重新排列過濾器，使其在所有其他過濾器之後執行"
-  },
-  "qf.button.reorderButtonTop": {
-    "message": "移至頂部"
-  },
-  "qf.button.reorderButtonTop.toolTip": {
-    "message": "重新排列過濾器，使其先於所有其他過濾器執行"
-  },
-  "qf.button.targetSelected": {
-    "message": "已選擇目標過濾器"
-  },
-  "qf.button.validateLicense": {
-    "message": "證實"
-  },
-  "qf.check.createNew": {
-    "message": "創建新過濾器"
-  },
-  "qf.check.mergeWithExisting": {
-    "message": "與現有過濾器合併："
-  },
-  "qf.cloned.label": {
-    "message": "附加到克隆過濾器的名稱："
-  },
-  "qf.continueFilter.label": {
-    "message": "創建過濾器..."
-  },
-  "qf.description.about": {
-    "message": "quickFilters 的詳細說明可以在以下站點找到："
-  },
-  "qf.description.contactMe": {
-    "message": "您也可以通過 $supportMail$ 親自聯繫我:",
-    "placeholders": {
-      "supportMail": {
-        "content": "$1"
-      }
-    }
-  },
-  "qf.description.currentFolderButtons": {
-    "message": "此選項僅在您使用附加組件 QuickFolders 時才適用，該附加組件會在消息預覽窗格頂部添加一個小工具欄。"
-  },
-  "qf.description.mergeAddInstructions": {
-    "message": "此列表中的所有其他過濾器都將合併到此列表中，然後刪除。"
-  },
-  "qf.description.mergeAddSummary": {
-    "message": "選擇將繼承其他過濾器屬性的過濾器。"
-  },
-  "qf.description.mergeInstructions": {
-    "message": "您可以擴展其中之一或創建一個全新的過濾器。"
-  },
-  "qf.description.mergeSummary": {
-    "message": "quickFilters Assistant 發現一些過濾器已經執行相同的操作。"
-  },
-  "qf.description.selectToExtend": {
-    "message": "選擇要使用新規則擴展的過濾器。"
-  },
-  "qf.description.splash": {
-    "message": "以您的語言本地化顯示新聞和重要變化:"
-  },
-  "qf.donate.tooltip": {
-    "message": "支持quickFilters的開發！"
-  },
-  "qf.filterlist.group": {
-    "message": "過濾列表的特點"
-  },
-  "qf.filterlist.multipaste": {
-    "message": "啟用將過濾器粘貼到多個帳戶"
-  },
-  "qf.filters.actions.caption": {
-    "message": "行動"
-  },
-  "qf.filters.actions.flag": {
-    "message": "旗幟"
-  },
-  "qf.filters.actions.priority": {
-    "message": "優先事項"
-  },
-  "qf.filters.actions.star": {
-    "message": "星星"
-  },
-  "qf.filters.actions.tag": {
-    "message": "標籤"
-  },
-  "qf.filters.actions.targetFolder": {
-    "message": "目標文件夾"
-  },
-  "qf.filters.actions.tooltip": {
-    "message": "過濾器從原始電子郵件中復制這些屬性"
-  },
-  "qf.filters.instructions": {
-    "message": "請選擇一個模板。 您可以在下一個屏幕上微調過濾規則。"
-  },
-  "qf.filters.steps.autoRunFilter": {
-    "message": "自動運行"
-  },
-  "qf.filters.steps.autoRunFilter.tooltip": {
-    "message": "創建後自動在原始收件箱上運行過濾器。"
-  },
-  "qf.filters.steps.caption": {
-    "message": "下一步"
-  },
-  "qf.filters.steps.showEditor": {
-    "message": "過濾規則"
-  },
-  "qf.filters.steps.showEditor.tooltip": {
-    "message": "助手創建過濾器詳細信息後對其進行編輯。"
-  },
-  "qf.filters.steps.showList": {
-    "message": "過濾器列表"
-  },
-  "qf.filters.steps.showList.tooltip": {
-    "message": "在上下文中顯示過濾器，以便您可以嘗試"
-  },
-  "qf.filters.steps.tooltip": {
-    "message": "創建過濾器後顯示哪些屏幕"
-  },
-  "qf.filters.template.custom.description": {
-    "message": "自定義過濾器 - 行為由用戶定義 - 使用％from％％to％％subject％等變量。"
-  },
-  "qf.filters.template.domain": {
-    "message": "基於發件人的域"
-  },
-  "qf.filters.template.domain.description": {
-    "message": "類似於“基於發件人”模板，但僅匹配發件人電子郵件地址的域（例如@xyz.com）"
-  },
-  "qf.filters.template.from": {
-    "message": "基於發件人（來自）"
-  },
-  "qf.filters.template.from.description": {
-    "message": "這可能是最常用的模式：這將檢索發件人的電子郵件地址並將其粘貼到“發件人”和“收件人”過濾條件字段中。 這樣，與發件人的完整對話將被移至新文件夾。"
-  },
-  "qf.filters.template.list.description": {
-    "message": "與基於發件人類似，但它不填寫“收件人”條件字段。"
-  },
-  "qf.filters.template.maillist": {
-    "message": "郵件列表"
-  },
-  "qf.filters.template.maillist.description": {
-    "message": "對於帶有“List-Id”字段的郵件列表很有用。 如果未設置，它將使用發件人的地址。"
-  },
-  "qf.filters.template.multifrom": {
-    "message": "群組（收集多封郵件的發件人）"
-  },
-  "qf.filters.template.multifrom.description": {
-    "message": "使用此功能可以移動多封電子郵件並將所有發件人添加到條件中。 （不包括您自己的郵件地址）"
-  },
-  "qf.filters.template.replyto": {
-    "message": "基於回复"
-  },
-  "qf.filters.template.replyto.description": {
-    "message": "過濾器基於回複字段。"
-  },
-  "qf.filters.template.tag": {
-    "message": "按標籤"
-  },
-  "qf.filters.template.tag.description": {
-    "message": "使用電子郵件的標籤並將其添加為過濾條件。"
-  },
-  "qf.filters.template.to": {
-    "message": "基於收件人（至）"
-  },
-  "qf.filters.template.to.description": {
-    "message": "與“基於發件人”類似：當您標記已發送給其他人的電子郵件時使用此選項。 這將檢索收件人的電子郵件地址並將其粘貼到“發件人”和“收件人”過濾條件字段中。 這樣，與聯繫人的完整對話將被移動到新文件夾中。"
-  },
-  "qf.filters.template.topic": {
-    "message": "按主題"
-  },
-  "qf.filters.template.topic.description": {
-    "message": "這將查找括號中的特殊表達式，例如 [集郵者]或{素食主義者}並根據這些創建過濾條件； 很多群發電子郵件都是使用這種模式設置的，因此它非常易於使用。"
-  },
-  "qf.filters.templates.description.label": {
-    "message": "描述："
-  },
-  "qf.filters.title": {
-    "message": "創建過濾器"
-  },
-  "qf.github.description": {
-    "message": "在這里報告錯誤或建議新功能："
-  },
-  "qf.github.link": {
-    "message": "quickFilters Github…"
-  },
-  "qf.grp.whenToRun": {
-    "message": "何時應用過濾器"
-  },
-  "qf.label.aboutLink": {
-    "message": "quickFilters 網站..."
-  },
-  "qf.label.cancel": {
-    "message": "取消"
-  },
-  "qf.label.contactLink": {
-    "message": "聯繫我（英語或德語）..."
-  },
-  "qf.label.currentFolderButtons": {
-    "message": "QuickFolders 當前文件夾 工具欄"
-  },
-  "qf.label.donate": {
-    "message": "捐"
-  },
-  "qf.label.filterCountN_of_M": {
-    "message": "{0} of {1}"
-  },
-  "qf.label.filterEntities": {
-    "message": "項目"
-  },
-  "qf.label.filterSingleEntity": {
-    "message": "1 item"
-  },
-  "qf.label.haveLicense": {
-    "message": "已經有許可證？"
-  },
-  "qf.label.insertLicense": {
-    "message": "在此插入您的個人許可證密鑰："
-  },
-  "qf.label.insertLicense.tooltip": {
-    "message": "您的許可證密鑰包含在 Fastspring 發送的訂單確認電子郵件中。"
-  },
-  "qf.label.licenseValid": {
-    "message": "您的許可證有效期至："
-  },
-  "qf.label.naming": {
-    "message": "命名規則"
-  },
-  "qf.label.naming.folderDelimiter": {
-    "message": "分隔符："
-  },
-  "qf.label.naming.keyWord": {
-    "message": "添加規則特定關鍵字"
-  },
-  "qf.label.naming.keyWord.blacklist": {
-    "message": "從名稱中刪除以下任何單詞："
-  },
-  "qf.label.naming.keyWord.blacklist.tip": {
-    "message": "以逗號分隔的單詞列表，將從建議的過濾器名稱中刪除，例如 'Fwd:, Re:, Mail' - 不區分大小寫"
-  },
-  "qf.label.naming.parentFolder": {
-    "message": "新增父資料夾名稱"
-  },
-  "qf.label.naming.parentFolder.maxCount": {
-    "message": "要添加的父資料夾最大數量："
-  },
-  "qf.label.naming.targetAccount": {
-    "message": "添加目標帳戶名稱（用於將郵件移至另一帳戶的過濾器）"
-  },
-  "qf.label.premiumFeaturesSite": {
-    "message": "在我們的網站上了解有關高級功能的更多信息"
-  },
-  "qf.label.quickfilters": {
-    "message": "quickFilters"
-  },
-  "qf.label.removeOwnAddresses": {
-    "message": "刪除我自己的電子郵件地址（推薦）"
-  },
-  "qf.label.removeOwnAddresses.tip": {
-    "message": "使用助手提取您自己的電子郵件地址可能會導致不良結果，因此地址搜索詞會自動刪除這些地址。"
-  },
-  "qf.label.shortcut.challenge": {
-    "message": "不在收件箱中時執行過濾器之前詢問"
-  },
-  "qf.label.shortcut.runFolder": {
-    "message": "在文件夾上運行過濾器的快捷方式：Shift + "
-  },
-  "qf.label.shortcut.runMails": {
-    "message": "對選定郵件運行過濾器的快捷方式：Shift +"
-  },
-  "qf.label.supportWithLicense": {
-    "message": "通過獲取許可證來支持快速過濾器！"
-  },
-  "qf.licenseBackup.confirmation": {
-    "message": "{P}切換到基礎版本？{br}您的授權金鑰將保存在此電腦上，以便稍後以{b}折扣續費{/b}。{/P}{P}感謝您支持 quickFilters — 授權讓獨立軟體開發成為可能，並幫助專案持續運作。即使授權已過期，您仍可隨時續訂或從標準授權升級，以使用 {a class=features}專業功能{/a} 一整年。{/P}"
-  },
-  "qf.licenseBackup.recover": {
-    "message": "恢復授權金鑰"
-  },
-  "qf.licenseBackup.recoverable": {
-    "message": "您可以恢復先前的授權以取得更優惠的續費條件。"
-  },
-  "qf.licenseBackup.restored": {
-    "message": "您的金鑰已安全恢復。即使已過期，您仍可獲得折扣新金鑰。"
-  },
-  "qf.licenseBackup.switch": {
-    "message": "切換到基礎版本"
-  },
-  "qf.licenseValidation.expired": {
-    "message": "您的 quickFilters Pro 授權已到期。請點擊下方的「$renewButton$」以續訂。",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
-  "qf.licenseValidation.expired.freeHint": {
-    "message": "或者，您現在可以使用基礎版本 — 之後仍可恢復授權。"
-  },
-  "qf.licenseValidation.failed": {
-    "message": "您輸入的許可證密鑰無效。 檢查來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
-  },
-  "qf.licenseValidation.invalidAddon": {
-    "message": "您輸入的許可證密鑰可能適用於不同的附加組件。 {0} 的許可證密鑰以 {1} 開頭。"
-  },
-  "qf.licenseValidation.invalidMail": {
-    "message": "綁定到許可證密鑰 [{1}] 的電子郵件地址當前未在您的任何郵件帳戶中列出。 請通過“支持”選項卡與我聯繫以獲取幫助。"
-  },
-  "qf.licenseValidation.notMatchedMail": {
-    "message": "加密的電子郵件地址與可讀的電子郵件地址不匹配。"
-  },
-  "qf.licenseValidation.passed": {
-    "message": "感謝您註冊 quickFilters Pro！ 所有高級功能現已解鎖。"
-  },
-  "qf.listener.tags": {
-    "message": "監聽標籤變化"
-  },
-  "qf.listener.tags.autofilter": {
-    "message": "標籤更改時自動運行過濾器"
-  },
-  "qf.listener.tags.tooltip": {
-    "message": "激活後，當您標記消息時，過濾助手也會被觸發。"
-  },
-  "qf.newFilterProps.intro": {
-    "message": "以下設置將應用於使用過濾器助手創建的任何新過濾器。"
-  },
-  "qf.notify.filterCreated": {
-    "message": "成功創建新過濾器'{0}'."
-  },
-  "qf.notify.filterMergeUpdated": {
-    "message": "過濾器更新成功'{0}'."
-  },
-  "qf.onewayaddress.label": {
-    "message": "禁用雙向地址搜索條件"
-  },
-  "qf.onewayaddress.tooltip": {
-    "message": "默認情況下，quickFilters 添加“發件人”和“收件人”搜索條件，以幫助過濾完整的郵件線程，包括您自己發送給收件人的電子郵件。 如果您始終希望將回复保留在“已發送”文件夾中，則可以在此處禁用此行為。 插件“複製發送到當前”可用於保留原始電子郵件的回复。"
-  },
-  "qf.options.versionnumber.tooltip": {
-    "message": "右鍵單擊查看版本歷史記錄。"
-  },
-  "qf.premiumConfig": {
-    "message": "高級功能"
-  },
-  "qf.tab.actions": {
-    "message": "行動"
-  },
-  "qf.tab.advanced": {
-    "message": "先進的"
-  },
-  "qf.tab.gopro": {
-    "message": "quickFilters Pro"
-  },
-  "qf.tab.newFilterProps": {
-    "message": "新的過濾器屬性"
-  },
-  "qf.tab.options": {
-    "message": "選項"
-  },
-  "qf.tab.support": {
-    "message": "支持"
-  },
-  "qf.templates.advanced": {
-    "message": "高級模板"
-  },
-  "qf.templates.customTemplate.edit": {
-    "message": "編輯…"
-  },
-  "qf.templates.customTemplate.label": {
-    "message": "自定義模板"
-  },
-  "qf.templates.customTemplate.new": {
-    "message": "創建新的…"
-  },
-  "qf.templates.customTemplate.restricted": {
-    "message": "您需要有效的 quickFilters Pro 許可證才能為助手創建新的自定義模板。"
-  },
-  "qf.templates.customTemplate.tooltip": {
-    "message": "允許生成自定義模板，有關詳細信息，請參閱錯誤描述。"
-  },
-  "qf.templates.replyTo.label": {
-    "message": "回复模板"
-  },
-  "qf.templates.replyTo.tooltip": {
-    "message": "顯示回复模板，詳細信息請參閱錯誤描述。"
-  },
-  "qf.textbox.searchBox.emptyText": {
-    "message": "按名稱搜索過濾器..."
-  },
-  "qf.textbox.searchBox.toolTip": {
-    "message": "輸入關鍵字以按名稱搜索過濾器"
-  },
-  "qf.tooltip.naming.folderDelimiter": {
-    "message": "在父文件夾和名稱之間插入字符"
-  },
-  "qf.youtube.description": {
-    "message": "有關 Thunderbird 附加組件的詳細信息以及有關如何使用 QuickFilters 的視頻，請訪問我的 YouTube 頻道。"
-  },
-  "qf.youtube.link": {
-    "message": "在 Thunderbird Daily 觀看快速過濾器視頻…"
-  },
-  "qf.youtube.tbdaily": {
-    "message": "訪問 Thunderbird Daily - YouTube 頻道，了解有關使用快速過濾器和桌面郵件的提示和教程"
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "證件過期！"
   },
@@ -2140,6 +2048,15 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "打開下方的 '{menulabel}' 選單查看最新內容。這也會移除 🟠。"
+  },
+  "quickfolders.currentFolder.config": {
+    "message": "QuickFolders 當前文件夾 工具欄"
+  },
+  "quickfolders.currentFolderButton": {
+    "message": "此選項僅在您使用附加組件 QuickFolders 時才適用，該附加組件會在消息預覽窗格頂部添加一個小工具欄。"
+  },
+  "register.hasLicense": {
+    "message": "已經有許可證？"
   },
   "register.licenseValid.expired": {
     "message": "您的許可證過期日期："
@@ -2284,6 +2201,44 @@
         "example": "quickFilters"
       }
     }
+  },
+  "support.mailSupport": {
+    "message": "聯繫我（英語或德語）..."
+  },
+  "support.mailSupport.detail": {
+    "message": "您也可以通過 $supportMail$ 親自聯繫我:",
+    "placeholders": {
+      "supportMail": {
+        "content": "$1"
+      }
+    }
+  },
+  "support.showGithub": {
+    "message": "quickFilters Github…"
+  },
+  "support.showGithub.detail": {
+    "message": "在這里報告錯誤或建議新功能："
+  },
+  "support.showSplash": {
+    "message": "顯示啟動畫面"
+  },
+  "support.showSplash.detail": {
+    "message": "以您的語言本地化顯示新聞和重要變化:"
+  },
+  "support.showSupportSite": {
+    "message": "quickFilters 網站..."
+  },
+  "support.showSupportSite.detail": {
+    "message": "quickFilters 的詳細說明可以在以下站點找到："
+  },
+  "support.showYoutube": {
+    "message": "在 Thunderbird Daily 觀看快速過濾器視頻…"
+  },
+  "support.showYoutube.detail": {
+    "message": "有關 Thunderbird 附加組件的詳細信息以及有關如何使用 QuickFilters 的視頻，請訪問我的 YouTube 頻道。"
+  },
+  "support.title": {
+    "message": "支持"
   },
   "thanks-for-installing-intro": {
     "message": "感謝您安裝 $addonName$.",
@@ -2657,6 +2612,9 @@
   "version": {
     "message": "版本："
   },
+  "versionNumber.tooltip": {
+    "message": "右鍵單擊查看版本歷史記錄。"
+  },
   "warning.emptyFilter": {
     "message": "無法建立過濾器：沒有有效的搜尋條件，無法編輯過濾器。"
   },
@@ -2722,5 +2680,8 @@
   },
   "yearlyLicense.usageTerm1": {
     "message": "任何其他電子郵件地址都沒有問題 - 它們不需要單獨的許可證。如有疑問，您可以通過支持選項卡與我聯繫。"
+  },
+  "youtube.tooltip": {
+    "message": "訪問 Thunderbird Daily - YouTube 頻道，了解有關使用快速過濾器和桌面郵件的提示和教程"
   }
 }

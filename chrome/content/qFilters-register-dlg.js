@@ -168,7 +168,7 @@ var Register = {
 			  break;
 			case "Valid":
 			  getElement("btnLicense").classList.remove("attention"); // remove the "pulsing effect" if license is valid.
-        licenseDate.textContent =  util.getBundleString("qf.label.licenseValid","Your license is valid until:");
+        licenseDate.textContent =  util.getBundleString("pro.licenseValid","Your license is valid until:");
 			  break;
 			case "Empty":
 			case "NotValidated":

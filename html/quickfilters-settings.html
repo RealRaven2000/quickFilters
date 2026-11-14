@@ -28,8 +28,8 @@
     </div>      
     <span class="spacer"></span>
     <img id="qf-youtube" src="../chrome/content/skin/youtube.png"
-      title="__MSG_qf.youtube.tbdaily__"/>
-    <div id="qf-options-version" title="__MSG_qf.options.versionnumber.tooltip__">
+      title="__MSG_youtube.tooltip__"/>
+    <div id="qf-options-version" title="__MSG_versionNumber.tooltip__">
       *.*
     </div>
   </div>
@@ -41,27 +41,27 @@
     <ul role="tablist">
       <li role="tab">
         <button isTab="true" id="quickFilters-Actions" value="actionsTab" class="active" tabindex="0">
-          __MSG_qf.tab.actions__
+          __MSG_actions.title__
         </button>
       </li>
       <li role="tab">
         <button isTab="true" id="quickFilters-FilterProperties" value="filterPropsTab" tabindex="0">
-          __MSG_qf.tab.newFilterProps__
+          __MSG_newFilters.title__
         </button>
       </li>
       <li role="tab">
         <button isTab="true" id="quickFilters-Advanced" value="advancedTab" tabindex="0">
-          __MSG_qf.tab.advanced__
+          __MSG_advanced.title__
         </button>
       </li>
       <li role="tab">
         <button isTab="true" id="quickFilters-Support" value="supportTab" tabindex="0">
-          __MSG_qf.tab.support__
+          __MSG_support.title__
         </button>
       </li>
       <li role="tab">
         <button isTab="true" id="quickFilters-Pro" value="licenseTab" class="free" tabindex="0">
-          __MSG_qf.tab.gopro__
+          __MSG_pro.title__
         </button>
       </li>
     </ul>
@@ -107,17 +107,17 @@
 
         <!-- Right column -->
         <div class="vbox">
-          <label title="__MSG_qf.listener.tags.tooltip__">
+          <label title="__MSG_listeners.tags.tooltip__">
             <input type="checkbox" data-pref-name="listener.tags">
-            __MSG_qf.listener.tags__
+            __MSG_listeners.tags__
           </label>
           <label>
             <input type="checkbox" data-pref-name="listener.tags.autofilter">
-            __MSG_qf.listener.tags.autofilter__
+            __MSG_listeners.tags.autofilter__
           </label>
-          <label title="__MSG_qf.onewayaddress.tooltip__">
+          <label title="__MSG_disable2wayAddressing.tooltip__">
             <input type="checkbox" data-pref-name="searchterm.addressesOneWay">
-            __MSG_qf.onewayaddress.label__
+            __MSG_disable2wayAddressing.label__
           </label>
 
           <label id="getCopySentToCurrent" class="text-link" title="https://addons.thunderbird.net/thunderbird/addon/copy-sent-to-current/"  tabindex="0">
@@ -125,7 +125,7 @@
           </label>
 
           <button id="assistantIgnore" class="configSettings withlabel" filter="assistant.exclude" tabindex="0">
-            __MSG_qf.assistant.ignoreFolders__
+            __MSG_assistant.ignoreFolders__
           </button>
         </div>
       </div>
@@ -184,12 +184,12 @@
 
     <!-- New Filter Properties Tab -->
     <section class="tabpanel" id="filterPropsTab">
-      <label>__MSG_qf.newFilterProps.intro__</label>
+      <label>__MSG_newFilters.intro__</label>
 
       <div class="columns">
         <div class="vbox">
           <fieldset>
-            <legend>__MSG_qf.grp.whenToRun__</legend>
+            <legend>__MSG_newFilters.whenToRun__</legend>
             <div class="vbox">
               <label><input type="checkbox" id="chkAutoRun" data-pref-name="newfilter.autorun">__MSG_chkAutoRun.label__</label>
               <label><input type="checkbox" id="chkRunManual" data-pref-name="newfilter.manual">__MSG_chkRunManual.label__</label>
@@ -205,12 +205,12 @@
 
         <div class="vbox">
           <fieldset class="vbox" style="flex: 1 1 auto; width:100%; box-sizing: border-box;">
-            <legend>__MSG_qf.label.naming__</legend>
+            <legend>__MSG_naming__</legend>
             <div class="vbox">
               <div class="hbox">
-                <label><input type="checkbox" id="chkNamingParentFolder" data-pref-name="naming.parentFolder">__MSG_qf.label.naming.parentFolder__</label>
-                <label class="textBoxLabel" style="margin-left: 1em; margin-top: 1px;">__MSG_qf.label.naming.folderDelimiter__</label>
-                <input type="text" data-pref-name="naming.folderDelimiter" style="width: 3em;" title="__MSG_qf.tooltip.naming.folderDelimiter__">
+                <label><input type="checkbox" id="chkNamingParentFolder" data-pref-name="naming.parentFolder">__MSG_naming.parentFolder__</label>
+                <label class="textBoxLabel" style="margin-left: 1em; margin-top: 1px;">__MSG_naming.folderDelimiter__</label>
+                <input type="text" data-pref-name="naming.folderDelimiter" style="width: 3em;" title="__MSG_naming.folderDelimiter.tip__">
               </div>
               <label>
                 Maximum folder levels:
@@ -218,25 +218,25 @@
               </label>
               <label>
                 <input type="checkbox" id="chkNamingTargetAccount" data-pref-name="naming.targetAccount">
-                __MSG_qf.label.naming.targetAccount__
+                __MSG_naming.targetAccount__
               </label>
 
               <label><input type="checkbox" id="chkNamingKeyWord" data-pref-name="naming.keyWord">
-                __MSG_qf.label.naming.keyWord__
+                __MSG_naming.keyWord__
               </label>
 
               <div class="hbox textarea-row" style="align-items: flex-start; margin-top: 0.5em;">
                 <label class="textBoxLabel" style="margin-top: 0.2em;">
-                  __MSG_qf.label.naming.keyWord.blacklist__
+                  __MSG_naming.keyWord.blacklist__
                 </label>
                 <textarea id="txtSubjectBlacklist"
                   data-pref-name="naming.subject.blacklist"
-                  title="__MSG_qf.label.naming.keyWord.blacklist.tip__">
+                  title="__MSG_naming.keyWord.blacklist.tip__">
                 </textarea>
               </div>              
 
               <div class="hbox">
-                <label class="textBoxLabel">__MSG_qf.cloned.label__</label>
+                <label class="textBoxLabel">__MSG_naming.clonedSuffix__</label>
                 <input type="text" id="txtClonedName" data-pref-name="cloned.append" 
                 placeholder="__MSG_clone.label__">
               </div>
@@ -244,8 +244,8 @@
           </fieldset>
 
           <div class="hbox">
-            <label><input type="checkbox" id="chkRemoveOwnAddress" data-pref-name="newfilter.removeOwnAddresses">__MSG_qf.label.removeOwnAddresses__</label>
-            <div class="helpLink" tip-left="true" clickyTooltip="__MSG_qf.label.removeOwnAddresses.tip__"></div>
+            <label><input type="checkbox" id="chkRemoveOwnAddress" data-pref-name="newfilter.removeOwnAddresses">__MSG_naming.removeOwnMail__</label>
+            <div class="helpLink" tip-left="true" clickyTooltip="__MSG_naming.removeOwnMail.tip__"></div>
           </div>
         </div>
       </div>
@@ -254,23 +254,23 @@
 		<!-- Advanced Tab --> 
     <section class="tabpanel" id="advancedTab">
       <fieldset>
-        <legend>__MSG_qf.templates.advanced__</legend>
+        <legend>__MSG_customTemplates.group__</legend>
         <div class="vbox">
           <div class="hbox">
-            <label><input type="checkbox" id="chkReplyTo" data-pref-name="templates.replyTo" title="__MSG_qf.templates.replyTo.tooltip__">__MSG_qf.templates.replyTo.label__</label>
+            <label><input type="checkbox" id="chkReplyTo" data-pref-name="templates.replyTo" title="__MSG_customTemplates.replyTo.tooltip__">__MSG_customTemplates.replyTo__</label>
             <label class="plain-link nowrap" 
               href="https://quickfolders.org/bugzilla/bugs/show_bug.cgi@id=25863">[Bug 25863]</label>
           </div>
 
           <div class="hbox">
             <div class="hbox" style="flex-wrap:wrap;">
-              <label class="proFeature"><input type="checkbox" data-pref-name="templates.custom" title="__MSG_qf.templates.customTemplate.tooltip__">__MSG_qf.templates.customTemplate.label__</label>
+              <label class="proFeature"><input type="checkbox" data-pref-name="templates.custom" title="__MSG_customTemplates.tooltip__">__MSG_customTemplates__</label>
               <div class="hbox">
-                <button id="editCustomFilters">__MSG_qf.templates.customTemplate.edit__</button>
-                <button class="proFeature" id="newCustomFilter">__MSG_qf.templates.customTemplate.new__</button>
+                <button id="editCustomFilters">__MSG_customTemplates.edit__</button>
+                <button class="proFeature" id="newCustomFilter">__MSG_customTemplates.create__</button>
               </div>
               <div class="hbox labelWithHelpLink">
-                <div class="helpLink" clickyTooltip="__MSG_qf.templates.customTemplate.restricted__"></div>
+                <div class="helpLink" clickyTooltip="__MSG_customTemplates.warn.restriction__"></div>
               </div>
             </div>
             <div class="vbox">
@@ -284,9 +284,9 @@
       </fieldset>
 
       <fieldset id="currentFolderGroup">
-        <legend>__MSG_qf.label.currentFolderButtons__</legend>
+        <legend>__MSG_quickfolders.currentFolder.config__</legend>
         <div class="vbox">
-          <p id="currentFolderDescription">__MSG_qf.description.currentFolderButtons__</p>
+          <p id="currentFolderDescription">__MSG_quickfolders.currentFolderButton__</p>
           <div class="hbox columns">
             <div class="vbox">
               <label class="filterlist checkbox-icon"><input type="checkbox" id="chkCurrentToolbarFiltersButton" class="currentFolderQF" data-pref-name="quickfolders.curFolderbar.listbutton">__MSG_chkCurrentToolbar.btn.FilterList.label__</label>
@@ -304,10 +304,10 @@
       </fieldset>
 
       <fieldset id="filterListGroup">
-        <legend>__MSG_qf.filterlist.group__</legend>
+        <legend>__MSG_list.features.title__</legend>
         <div class="vbox">
           <div class="hbox">
-            <label class="proFeature"><input type="checkbox" id="chkMultiPaste" data-pref-name="multipaste">__MSG_qf.filterlist.multipaste__</label>
+            <label class="proFeature"><input type="checkbox" id="chkMultiPaste" data-pref-name="multipaste">__MSG_list.features.multipaste__</label>
             <label class="plain-link nowrap" href="https://github.com/RealRaven2000/quickFilters/issues/20">[Issue 20]</label>
           </div>
         </div>
@@ -330,29 +330,29 @@
     <!-- Support Tab -->
     <section class="tabpanel" id="supportTab">
       <div class="support-grid">
-        <div class="quickhelp-desc">__MSG_qf.description.splash__</div>
+        <div class="quickhelp-desc">__MSG_support.showSplash.detail__</div>
         <label id="L4" class="text-link" tabindex="0">
-          __MSG_qf.btn.splash__
+          __MSG_support.showSplash__
         </label>
 
-        <div class="quickhelp-desc">__MSG_qf.description.about__</div>
+        <div class="quickhelp-desc">__MSG_support.showSupportSite.detail__</div>
         <label id="L1" class="text-link" tabindex="0">
-          __MSG_qf.label.aboutLink__
+          __MSG_support.showSupportSite__
         </label>
 
-        <div class="quickhelp-desc">__MSG_qf.github.description__</div>
+        <div class="quickhelp-desc">__MSG_support.showGithub.detail__</div>
         <label id="L5" class="text-link" tabindex="0">
-          __MSG_qf.github.link__
+          __MSG_support.showGithub__
         </label>
 
-        <div class="quickhelp-desc">__MSG_qf.youtube.description__</div>
+        <div class="quickhelp-desc">__MSG_support.showYoutube.detail__</div>
         <label id="L2" class="text-link" tabindex="0">
-          __MSG_qf.youtube.link__
+          __MSG_support.showYoutube__
         </label>
 
-        <div id="contactLabel" class="quickhelp-desc">__MSG_qf.description.contactMe__</div>
+        <div id="contactLabel" class="quickhelp-desc">__MSG_support.mailSupport.detail__</div>
         <label id="L3" class="text-link" tabindex="0">
-          __MSG_qf.label.contactLink__
+          __MSG_support.mailSupport__
         </label>
       </div>
     </section>
@@ -360,18 +360,18 @@
 
     <!-- Licensing Tab -->
     <section class="tabpanel" id="licenseTab">
-      <label for="txtLicenseKey">__MSG_qf.label.insertLicense__</label>
+      <label for="txtLicenseKey">__MSG_pro.insertLicense__</label>
       <div id="licenseContainer">
         <textarea id="txtLicenseKey"
                   class="licenseKey"
                   rows="4"
                   style="min-height: 4.5em; width:100%;"
-                  title="__MSG_qf.label.insertLicense.tooltip__"></textarea>
+                  title="__MSG_pro.insertLicense.tooltip__"></textarea>
 
         <div class="hbox">
           <div style="flex:1;" class="spacer"></div>
-          <button id="btnPasteLicense">__MSG_qf.button.pasteLicense__</button>
-          <button id="btnValidateLicense">__MSG_qf.button.validateLicense__</button>
+          <button id="btnPasteLicense">__MSG_pro.pasteLicense__</button>
+          <button id="btnValidateLicense">__MSG_pro.validateLicense__</button>
         </div>
       </div>
 
@@ -379,17 +379,17 @@
 
       <div id="validationResults" class="hbox">
         <div class="vbox">
-          <p id="validationPassed" class="niceFont" collapsed>__MSG_qf.licenseValidation.passed__</p>
-          <p id="validationFailed" class="niceFont licenseError" collapsed>__MSG_qf.licenseValidation.failed__</p>
-          <p id="validationExpired" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.expired__</p>
+          <p id="validationPassed" class="niceFont" collapsed>__MSG_licenseValidation.passed__</p>
+          <p id="validationFailed" class="niceFont licenseError" collapsed>__MSG_licenseValidation.failed__</p>
+          <p id="validationExpired" class="niceFont licenseWarning" collapsed>__MSG_licenseValidation.expired__</p>
           <p id="validationRestored" class="niceFont" collapsed="true">
-            __MSG_qf.licenseBackup.restored__</p>
+            __MSG_pro.licenseBackup.restored__</p>
           <p id="validationKeyBackedUp" class="niceFont" collapsed="true">
-            __MSG_qf.licenseBackup.recoverable__</p>
+            __MSG_pro.licenseBackup.recoverable__</p>
 
-          <p id="validationInvalidEmail" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.invalidMail__</p>
-          <p id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed>__MSG_qf.licenseValidation.notMatchedMail__</p>
-          <p id="validationInvalidAddon" class="niceFont licenseError" collapsed>__MSG_qf.licenseValidation.invalidAddon__</p>
+          <p id="validationInvalidEmail" class="niceFont licenseWarning" collapsed>__MSG_licenseValidation.invalidMail__</p>
+          <p id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed>__MSG_licenseValidation.notMatchedMail__</p>
+          <p id="validationInvalidAddon" class="niceFont licenseError" collapsed>__MSG_licenseValidation.invalidAddon__</p>
         </div>
         <div style="flex:1;"></div>
       </div>
@@ -397,7 +397,7 @@
       <span id="validationDateSpace" class="separator licenseSeparator"></span>
 
       <div id="validationDate" class="hbox" style="align-items:center;">
-        <label id="licenseDateLabel">__MSG_qf.label.licenseValid__</label>
+        <label id="licenseDateLabel">__MSG_pro.licenseValid__</label>
         <input type="text" id="licenseDate" readonly aria-readonly="true" tabindex="0" 
           aria-describedby="licenseDateLabel" role="representation">
         <span id="licenseExpiryWarning" role="status" hidden></span>
@@ -407,32 +407,32 @@
 
       <box class="btnLicenseContainer">
         <button class="register" id="btnLicense">Buy License</button>
-        <button class="register" id="btnSwitchToFree" hidden>__MSG_qf.licenseBackup.switch__</button>
-        <button class="register" id="btnRecoverLicense" hidden>__MSG_qf.licenseBackup.recover__</button>
+        <button class="register" id="btnSwitchToFree" hidden>__MSG_pro.licenseBackup.switch__</button>
+        <button class="register" id="btnRecoverLicense" hidden>__MSG_pro.licenseBackup.recover__</button>
         </box>
 
       <div class="hbox">
         <fieldset id="premiumConfig">
-          <legend>__MSG_qf.premiumConfig__</legend>
+          <legend>__MSG_proFeatures.title__</legend>
           <div class="vbox">
 
             <div class="hbox">
               <label class="plain-link" href="https://quickfilters.quickfolders.org/premium.html#featureList">
-                __MSG_qf.label.premiumFeaturesSite__
+                __MSG_proFeatures.website__
               </label>
             </div>
 
             <div class="hbox align-center">
-              <label class="proFeature"><input type="checkbox" id="chkFoldersShortcut" data-pref-name="shortcuts.folder">__MSG_qf.label.shortcut.runFolder__</label>
+              <label class="proFeature"><input type="checkbox" id="chkFoldersShortcut" data-pref-name="shortcuts.folder">__MSG_proFeatures.shortcuts.runFolder__</label>
               <input class="proFeature" type="text" style="width:3em;" data-pref-name="shortcuts.folder.key">
             </div>
 
             <div class="hbox align-center">
-              <label class="proFeature"><input type="checkbox" id="chkMailsShortcut" data-pref-name="shortcuts.mails">__MSG_qf.label.shortcut.runMails__</label>
+              <label class="proFeature"><input type="checkbox" id="chkMailsShortcut" data-pref-name="shortcuts.mails">__MSG_proFeatures.shortcuts.runMails__</label>
               <input class="proFeature" type="text" style="width:3em;" data-pref-name="shortcuts.mails.key">
             </div>
 
-            <label style="margin-left:2em;"><input type="checkbox" data-pref-name="shortcuts.challenge">__MSG_qf.label.shortcut.challenge__</label>
+            <label style="margin-left:2em;"><input type="checkbox" data-pref-name="shortcuts.challenge">__MSG_proFeatures.shortcuts.challenge__</label>
             <label class="proFeature"><input type="checkbox" id="chkLocalFoldersAutorun" data-pref-name="localFoldersRun">__MSG_chkLocalFoldersAutorun.label__</label>
             <label class="proFeature"><input type="checkbox" id="chkNotifyRunFilter" data-pref-name="notifications.runFilter">__MSG_chkNotify.RunFilter__</label>
 
@@ -453,8 +453,8 @@
     <form method="dialog">
       <div id="confirmMessage"></div>
       <menu>
-        <button value="cancel">__MSG_qf.label.cancel__</button>
-        <button id="confirmOk" value="ok">__MSG_qf.label.ok__</button>
+        <button value="cancel">__MSG_cancel__</button>
+        <button id="confirmOk" value="ok">__MSG_ok__</button>
       </menu>
     </form>
   </dialog>

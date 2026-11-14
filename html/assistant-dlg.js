@@ -287,7 +287,7 @@ quickFilters.Assistant = {
   next: async function () {
     if (quickFilters.Assistant.blocks.tryBlock("next")) {
       // make sure event not fired multiple times
-      console.warn("quickFilters.Assistant.next() was called while already processing!");
+      console.warn("quickFilters.() was called while already processing!");
       return;
     }
     try {
@@ -305,10 +305,10 @@ quickFilters.Assistant = {
       const selectedFilter = isMerge ? this.mergeCandidates[this.selectedMergedFilterIndex] : null;
 
       let txtNext = isMerge
-        ? messenger.i18n.getMessage("qf.button.mergeFilterRules", [
+        ? messenger.i18n.getMessage("assistant.mergeFilterRules", [
             selectedFilter?.filterName || "N/A",
           ])
-        : messenger.i18n.getMessage("qf.button.createFilter");
+        : messenger.i18n.getMessage("assistant.createFilter");
 
       if (!showEditor && !showList) {
         // relabel as [OK]
@@ -397,7 +397,7 @@ quickFilters.Assistant = {
       }
       return;
     } catch (ex) {
-      quickFilters.Util.logException("quickFilters.Assistant.next()", ex);
+      quickFilters.Util.logException("quickFilters.()", ex);
     } finally {
       quickFilters.Assistant.blocks.release("next");
     }
@@ -483,7 +483,7 @@ quickFilters.Assistant = {
       if (!showEditor && !showList) {
         AcceptLabel = "OK";
       } else {
-        AcceptLabel = getBundleString("qf.button.createFilter", "Create Filter...");
+        AcceptLabel = getBundleString("assistant.createFilter", "Create Filter...");
       }
       NextButton.label = AcceptLabel;
     }, 150);
@@ -730,7 +730,7 @@ quickFilters.Assistant = {
     const isMergePossible = countMatched > 0;
     this.toggleMergePane(isMergePossible);
     if (!isMergePossible) {
-      this.NextButton.textContent = messenger.i18n.getMessage("qf.button.createFilter");
+      this.NextButton.textContent = messenger.i18n.getMessage("assistant.createFilter");
     } else {
       await quickFilters.Util.logDebug(
         `loadAssistant: merging possible, found ${countMatched} matches`
@@ -781,15 +781,15 @@ quickFilters.Assistant = {
     }
     switch (urlParams.get("currentCmd")) {
       case "mergeList":
-        this.NextButton.textContent = messenger.i18n.getMessage("qf.button.merge");
+        this.NextButton.textContent = messenger.i18n.getMessage("assistant.merge");
         document.getElementById("mergeSummary").innerText = messenger.i18n.getMessage(
-          "qf.description.mergeAddSummary"
+          "merge.add.summary"
         );
         document.getElementById("mergeInstructions").innerText = messenger.i18n.getMessage(
-          "qf.description.mergeAddInstructions"
+          "assistant.mergeAddInstructions"
         );
         document.getElementById("chkMerge").innerText = messenger.i18n.getMessage(
-          "qf.button.targetSelected"
+          "assistant.merge.targetSelected"
         );
         document.getElementById("filterDescription").innerText = "";
         document.getElementById("chkCreateNew").hidden = true;
@@ -797,15 +797,15 @@ quickFilters.Assistant = {
         break;
       default:
         document.getElementById("mergeSummary").innerText = messenger.i18n.getMessage(
-          "qf.description.mergeSummary"
+          "merge.found"
         );
         document.getElementById("mergeInstructions").innerText = messenger.i18n.getMessage(
-          "qf.description.mergeInstructions"
+          "merge.instructions"
         );
         document.getElementById("filterDescription").innerText = messenger.i18n.getMessage(
-          "qf.description.selectToExtend"
+          "merge.target.select"
         );
-        this.NextButton.label = messenger.i18n.getMessage("qf.button.next");
+        this.NextButton.label = messenger.i18n.getMessage("assistant.next");
     }
     // build a preview
     let preview;
@@ -964,7 +964,7 @@ quickFilters.Assistant = {
     if (templateType.startsWith("quickFilterCustomTemplate")) {
       templateType = "custom";
     }
-    let descriptionId = "qf.filters.template." + templateType + ".description",
+    let descriptionId = "assistant.templates." + templateType + ".description",
       desc = document.getElementById("templateDescription");
     if (desc) {
       desc.textContent = messenger.i18n.getMessage(descriptionId);

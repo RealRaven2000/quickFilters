@@ -159,7 +159,7 @@
   "purchase-heading": {
     "message": "Podpora z licenco"
   },
-  "qf.licenseValidation.expired": {
+  "licenseValidation.expired": {
     "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
     "placeholders": {
       "renewButton": {
