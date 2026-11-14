@@ -34,7 +34,9 @@ const assistantLifecycle = createAssistantLifecycle({
   resolveAssistant: (...args) => messenger.Utilities.resolveAssistant(...args),
   isDebug: () => Preferences.isDebug("assistant"),
   onWindowClosed: (windowId) => {
-    if (assistantWindowId === windowId) assistantWindowId = null;
+    if (assistantWindowId === windowId) {
+      assistantWindowId = null;
+    }
   },
 });
 
@@ -1264,25 +1266,25 @@ async function main() {
         browser.windows.update(windowId, { height: newHeight });
       }
     },
-    splashScreen: (data, sender) => {
+    splashScreen: (_data, _sender) => {
       showSplash();
     },
-    showAboutConfig: (data, sender) => {
+    showAboutConfig: (data, _sender) => {
       messenger.Utilities.showAboutConfig(data.filter); // , data.editable || false
     },
-    setupListToolbar: (data, sender) => {
+    setupListToolbar: (_data, _sender) => {
       notifyWhenUIReady({ event: "setupListToolbar" });
     },
-    updateLicense: async (data, sender) => {
+    updateLicense: async (data, _sender) => {
       return await updateLicense(data.key);
     },
-    slideAlert: (data, sender) => {
+    slideAlert: (data, _sender) => {
       util.slideAlert(data?.title, data.text, data?.icon);
     },
-    updateCurrentFolderButtons: (data, sender) => {
+    updateCurrentFolderButtons: (_data, _sender) => {
       notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
     },
-    openStorageEditor: (data, sender) => {
+    openStorageEditor: (data, _sender) => {
       webExtensionStorageEditor.open({
         storageArea: "local",
         baseFilter: data.filter,

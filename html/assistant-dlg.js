@@ -972,7 +972,7 @@ quickFilters.Assistant = {
     }
   },
 
-  selectTemplateItemTimer: function (el, isResize = false) {
+  selectTemplateItemTimer: function (el, _isResize = false) {
     if (!quickFilters.Assistant.initialised) {
       return;
     }
