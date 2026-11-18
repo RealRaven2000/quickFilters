@@ -1,0 +1,14 @@
+.brand { flex-wrap: wrap; }
+.prototype-switches { margin-inline-start: auto; display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.prototype-switches .prototype-badge { margin: 0; }
+.prototype-switches label { gap: 3px; font-size: 11px; font-weight: 500; }
+.prototype-switches select { padding: 5px 8px; font-size: 12px; }
+.plans { grid-template-columns: repeat(var(--preview-columns, 3), minmax(0, 1fr)); }
+.current-edition-note { padding: 12px; border-radius: 7px; background: #f4f6f3; color: #52645a; font-size: 13px; line-height: 1.6; }
+.separate-pro-warning { border-inline-start: 3px solid #dfbd7f; background: #fff7e6; color: #72511f; }
+.plan > p.domain-seats-note { font-size: 11px; line-height: 1.6; margin-top: -14px; margin-bottom: 24px; }
+.domain-seats-note a { color: #526777; }
+.license-summary.valid-license { background: #f2f7f1; border-color: #9db69e; }
+.valid-license .status { background: #e0eddf; color: #245e48; }
+.expiry-warning { font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 9px; color: #fff; background: linear-gradient(#d85b00, #a43e00); }
+@media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
