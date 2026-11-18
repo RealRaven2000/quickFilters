@@ -600,6 +600,8 @@ quickFilters.Assistant = {
         `Loading message id: ${messageId}...`
       );
       const msg = await messenger.messages.get(messageId);
+      await quickFilters.Util.logDebugOptional("assistant.msg", `Preview lookup succeeded: request=${requestId}, apiId=${messageId}, type=${typeof messageId}, time=${Date.now()}`);
+      await quickFilters.Util.logDebugOptional("assistant.msg", `Preview API fields: request=${requestId}, author=${JSON.stringify(msg.author)}, recipients=${JSON.stringify(msg.recipients)}, subject=${JSON.stringify(msg.subject)}, date=${JSON.stringify(msg.date)}, size=${msg.size}, folder=${JSON.stringify(msg.folder)}`);
 
       // Basic metadata to be shown in preview
       return {
@@ -613,7 +615,7 @@ quickFilters.Assistant = {
     } catch (ex) {
       console.warn(
         "previewFromApi() Failed to load message preview from API for id:",
-        messageId,
+        messageId, `type=${typeof messageId}, request=${requestId}, time=${Date.now()}`,
         ex
       );
       return null;
@@ -640,8 +642,15 @@ quickFilters.Assistant = {
       let errorField = document.getElementById("previewError");
       errorField.textContent = preview.error;
       errorField.removeAttribute("collapsed");
+      for (const content of document.querySelectorAll("#previewContent .content")) {
+        content.textContent = "";
+      }
+      document.getElementById("previewPath").hidden = true;
       return;
     }
+    const errorField = document.getElementById("previewError");
+    errorField.textContent = "";
+    errorField.setAttribute("collapsed", "true");
     const formatSize = (bytes) => {
       if (typeof bytes !== "number" || bytes < 0) {
         return "";
@@ -654,7 +663,7 @@ quickFilters.Assistant = {
     const set = (id, field, format = "") => {
       try {
         const el = document.getElementById(id);
-        if (el && field in preview) {
+        if (el) {
           // after the label have a separate content span that wraps:
           let contentEl = el.querySelector(".content");
           if (!contentEl) {
@@ -662,7 +671,7 @@ quickFilters.Assistant = {
             contentEl.className = "content";
             el.appendChild(contentEl);
           }
-          const val = format === "size" ? formatSize(preview[field]) : preview[field];
+          const val = format === "size" ? formatSize(preview[field]) : (preview[field] ?? "");
           contentEl.textContent = val;
         }
       } catch (ex) {
@@ -675,10 +684,9 @@ quickFilters.Assistant = {
     set("previewSubject", "subject");
     set("previewDate", "date");
     set("previewLines", "size", "size");
+    await quickFilters.Util.logDebugOptional("assistant.msg", `Preview rendered fields: request=${requestId}, from=${JSON.stringify(document.querySelector("#previewFrom .content")?.textContent)}, to=${JSON.stringify(document.querySelector("#previewTo .content")?.textContent)}, subject=${JSON.stringify(document.querySelector("#previewSubject .content")?.textContent)}, date=${JSON.stringify(document.querySelector("#previewDate .content")?.textContent)}`);
 
-    if (preview.folderPath) {
-      set("previewPath", "folderPath");
-    }
+    set("previewPath", "folderPath");
     document.getElementById("previewPath").hidden = !preview.folderPath;
 
     const caption = document.getElementById("previewCaption");
@@ -848,22 +856,39 @@ quickFilters.Assistant = {
     // build a preview
     let preview;
     if (this.selectedApiMessages?.length) {
-      // use API to build it fresh
-      const folderPath = await formatFolderPath(this.selectedApiMessages[0].folder);
-      preview = await this.previewFromApi(this.selectedApiMessages[0].messageId);
-      if (folderPath && preview) {
-        preview.folderPath = folderPath;
-      }
-      if (!preview) {
-        preview = {};
-        preview.error = "Sorry we couldn't retrieve the preview. The API didn't find it.";
-      }
+      let previewIndex = 0;
+      let previewGeneration = 0;
+      const messages = this.selectedApiMessages;
+      const navigation = document.getElementById("previewNavigation");
+      const previous = document.getElementById("previewPrevious");
+      const next = document.getElementById("previewNext");
+      const showPreview = async () => {
+        const index = previewIndex;
+        const generation = ++previewGeneration;
+        const message = messages[index];
+        document.getElementById("previewPosition").textContent = `${index + 1} / ${messages.length}`;
+        previous.disabled = index === 0;
+        next.disabled = index === messages.length - 1;
+        await util.logDebugOptional("assistant.msg", `Preview lookup starting: request=${requestId}, apiId=${message.messageId}, type=${typeof message.messageId}, count=${messages.length}, time=${Date.now()}`);
+        const [folderPath, result] = await Promise.all([
+          formatFolderPath(message.folder),
+          this.previewFromApi(message.messageId),
+        ]);
+        if (generation !== previewGeneration) return;
+        const selectedPreview = result || { error: "Sorry we couldn't retrieve the preview. The API didn't find it." };
+        if (folderPath && result) selectedPreview.folderPath = folderPath;
+        await this.initPreview({ preview: selectedPreview });
+      };
+      navigation.hidden = messages.length < 2;
+      previous.addEventListener("click", () => { if (previewIndex > 0) { previewIndex--; void showPreview(); } });
+      next.addEventListener("click", () => { if (previewIndex < messages.length - 1) { previewIndex++; void showPreview(); } });
+      await showPreview();
     } else if (this.passedMessages.length) {
       // legacy messages?
       preview = this.passedMessages[0];
     }
 
-    await this.initPreview({ preview });
+    if (!this.selectedApiMessages?.length) await this.initPreview({ preview });
 
     templateList.value = await this.getCurrentFilterTemplate();
 

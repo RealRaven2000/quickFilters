@@ -123,7 +123,13 @@
 
         <div id="preview" style="margin-top: 1rem;">
           <span id="expandPreview" class="sectionExpander"></span>
-          <label class="nobreak">__MSG_msg.preview.title__</label>
+          <div class="preview-heading">
+            <div class="preview-heading-label"><label class="nobreak">__MSG_msg.preview.title__</label> <output id="previewPosition" aria-live="polite"></output></div>
+            <div id="previewNavigation" class="preview-navigation-buttons" hidden>
+              <button type="button" id="previewPrevious" aria-label="◀">◀</button>
+              <button type="button" id="previewNext" aria-label="▶">▶</button>
+            </div>
+          </div>
           <p id="previewError" collapsed></p>
           <div id="previewContent" class="fieldset-body" style="padding-left: 0.5rem;">
             <p class="plain" id="previewFrom">
