@@ -19,7 +19,7 @@ h2, h3, p { margin-top: 0; }
 .summary-title h2 { margin: 0; font-size: 17px; }
 .status { font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 9px; color: #8a4d1c; background: #f7e6ce; }
 .license-summary p { font-size: 14px; margin: 0; color: #74604e; }
-.license-summary strong { font-weight: 600; }
+strong, b { font-weight: 600; }
 .workspace { background: #fff; border: 1px solid #dfe5dc; border-radius: 16px; padding: 32px 32px 0; overflow: hidden; box-shadow: 0 5px 18px #26363205; }
 .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 .section-heading h2 { font-size: 25px; letter-spacing: -.025em; margin: 0; font-weight: 650; }
