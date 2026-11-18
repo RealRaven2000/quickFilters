@@ -1169,6 +1169,7 @@ quickFilters.Worker = {
                   const apiMsg = await quickFilters.Util.messageManager.convert(
                     m.msgHeader
                   );
+                  util.logDebugOptional("assistant.msg", `Preview conversion: request=${requestId}, apiId=${apiMsg?.id}, type=${typeof apiMsg?.id}, headerId=${m.messageId}, time=${Date.now()}`);
                   if (!apiMsg) {
                     console.warn(
                       `Could not convert msgHeader[${m.messageId}] to MessageHeader. Skipping...`,
@@ -1194,14 +1195,7 @@ quickFilters.Worker = {
                   });
                 } catch (ex) {
                   console.error("Failed to convert legacy message:", ex);
-                  // fallback, push legacy info if available
-                  backgroundCallObject.selectedApiMessages.push({
-                    messageId: m.messageId,
-                    folder: {
-                      accountId: m.msgHeader?.folder?.accountId || "",
-                      path: m.msgHeader?.folder?.path || "",
-                    },
-                  });
+                  // A header Message-ID is not a MailExtension message ID.
                 }
               }
             }
@@ -1856,13 +1850,25 @@ quickFilters.Worker = {
           // [Bug 25714] Fixed two-way Addressing
           // [Bug 25876] Fixed ONE-way addressing
           let twoWayAddressing = !prefs.getBoolPref("searchterm.addressesOneWay");
+          let templateAddresses = util.extractEmails(buildParams.emailAddress);
+          if (template === "from" && buildParams.messageList.length > 1) {
+            templateAddresses = [];
+            for (const message of buildParams.messageList) {
+              if (message.msgClone?.author) {
+                templateAddresses.push(...util.extractEmails(this.parseHeader(MailServices.headerParser, message.msgClone.author)));
+              }
+            }
+            if (!templateAddresses.length) {
+              templateAddresses = util.extractEmails(buildParams.emailAddress);
+            }
+          }
           if (
             (twoWayAddressing && template != "replyto") ||
             template == "from" ||
             template == "domain"
           ) {
             // from
-            addressArray = util.extractEmails(buildParams.emailAddress);
+            addressArray = templateAddresses;
             let op = template === "domain" ? TypeOperator.EndsWith : TypeOperator.Contains;
             createTermList(
               addressArray,
@@ -1879,7 +1885,7 @@ quickFilters.Worker = {
             (twoWayAddressing || template == "to" || template == "replyto")
           ) {
             // to
-            addressArray = util.extractEmails(buildParams.emailAddress);
+            addressArray = templateAddresses;
             let theTypeAttrib = TypeAttrib.To,
               customId = null;
             if (template == "replyto") {

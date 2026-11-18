@@ -1,0 +1,676 @@
+1794999081556	addons.xpi	WARN	Checking C:\Program Files\Mozilla Thunderbird Beta\distribution\extensions for addons
+1794999082351	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing locales: An unexpected property was found in the WebExtension manifest.
+1794999082351	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing chrome_injectors: An unexpected property was found in the WebExtension manifest.
+1794999082620	addons.webextension.filtaquilla@mesquilla.com	WARN	Loading extension 'filtaquilla@mesquilla.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999082629	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999082636	addons.webextension.quickfolders@curious.be	WARN	Loading extension 'quickfolders@curious.be': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+This page is in Quirks Mode. Page layout may be impacted. For Standards Mode use “<!DOCTYPE html>”. background.html
+This page is in Quirks Mode. Page layout may be impacted. For Standards Mode use “<!DOCTYPE html>”. background.html
+1794999087276	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing locales: An unexpected property was found in the WebExtension manifest.
+1794999087276	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing chrome_injectors: An unexpected property was found in the WebExtension manifest.
+1794999087277	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing locales: An unexpected property was found in the WebExtension manifest.
+1794999087277	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing chrome_injectors: An unexpected property was found in the WebExtension manifest.
+1794999087762	addons.webextension.filtaquilla@mesquilla.com	WARN	Loading extension 'filtaquilla@mesquilla.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999087776	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999087780	addons.webextension.quickfolders@curious.be	WARN	Loading extension 'quickfolders@curious.be': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999087792	addons.webextension.smarttemplate4@thunderbird.extension	WARN	Loading extension 'smarttemplate4@thunderbird.extension': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999087808	addons.webextension.{61A64500-335C-418D-8FCB-E072A9ABF3DA}	WARN	Loading extension '{61A64500-335C-418D-8FCB-E072A9ABF3DA}': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999087824	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing locales: An unexpected property was found in the WebExtension manifest.
+1794999087824	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing chrome_injectors: An unexpected property was found in the WebExtension manifest.
+1794999087824	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing locales: An unexpected property was found in the WebExtension manifest.
+1794999087824	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing chrome_injectors: An unexpected property was found in the WebExtension manifest.
+1794999087987	addons.webextension.filtaquilla@mesquilla.com	WARN	Loading extension 'filtaquilla@mesquilla.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999087993	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999087996	addons.webextension.quickfolders@curious.be	WARN	Loading extension 'quickfolders@curious.be': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999088017	addons.webextension.smarttemplate4@thunderbird.extension	WARN	Loading extension 'smarttemplate4@thunderbird.extension': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999088047	addons.webextension.{61A64500-335C-418D-8FCB-E072A9ABF3DA}	WARN	Loading extension '{61A64500-335C-418D-8FCB-E072A9ABF3DA}': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+PrintingTools NG v3.1.17 background.js:42:10
+Object { Util: {…}, Preferences: {…}, extractSignature: extractSignature(), insertTemplate: insertTemplate(), readSignatureFile: readSignatureFile(), resetDocument: resetDocument(), Parser: Parser(), composer: {}, Sig: {}, prefs: {…}, … }
+ 
+Object { composers: Map(0) }
+st-background.js:21:9
+SmartTemplates Background started st-util.mjs.js:39:13
+PTNG: Engine loaded printingtoolsng-pengine.js:52:10
+Unknown localization message contextprint.accesskey ExtensionCommon.sys.mjs:2118
+[#697] About to call cache.init() at 2026-11-18T10:51:30.679Z quickfolders-preferences.js:655:9
+[#697] Cache init starting at 2026-11-18T10:51:30.679Z quickfolders-preferences.js:588:15
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\applause.ogg
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\duogourd.ogg
+Creating FiltaQuilla menus... filtaquilla-background.js:842:15
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\Freedom.ogg
+quickFilters storage: initialization attempt 1/6 preferences.js:15:17
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\nightingale.ogg
+Menus created. filtaquilla-background.js:927:15
+quickFilters storage: startup get: starting preferences.js:15:17
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\squishbeat.ogg
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\TheBrightestStar.ogg
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\squeak.wav
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\notify-1.wav
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\pour-1.wav
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\maybe-one-day-584.ogg
+[#697] Cache init completed at 2026-11-18T10:51:31.098Z quickfolders-preferences.js:633:15
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\hold-your-horses-468.ogg
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\scratch-389.ogg
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\your-turn-491.ogg
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\knob-458.ogg
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\worthwhile-438.ogg
+WebExtensions: 
+<li class="extension-action" item-id="ext-quickfolders@curious.be" tabindex="-1" is="customizable-element" style='--webextension-icon: ima…32.svg") 2x\n        );' aria-pressed="true">
+implementation.js:502
+FiltaQuilla (toneQuillaPlay module)
+File already exists: I:\Thunderbird_Profiles\ct4akusa.Beta-Test\extensions\filtaquilla\scissors-423.ogg
+quickFilters storage: startup get: completed preferences.js:15:17
+quickFilters storage startup: 
+Object { ok: true, status: "ready", attempts: 1 }
+preferences.js:96:17
+WebExtensions: WL handleEvent (loadIntoWindow) context: 
+Object { isTopContext: true, viewType: "background", envType: "addon_parent", onClose: Set(16), checkedLastError: false, _lastError: null, contextId: 22, unloaded: false, extension: {…}, manifestVersion: 2, … }
+implementation.js:744
+[SmartTemplates Storage] [2026-11-18T10:51:32.520Z] get() START - keys: 
+Object { settings: {}, debug: {}, accounts: {} }
+smartTemplate-storage.js:60:13
+WebExtensions: quickFilters exp API: Utilities.getAPI() called implementation.js:14
+QuickFolders
+Reconstructed URL imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX/Important for imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX/Important of account account1 is invalid quickfolders-model.js:528:19
+QuickFolders [logTime init]
+ Error in addFolderButton: folder parameter is empty!
+Entry: Important quickfolders-util.js:1432:13
+[SmartTemplates Storage Performance] init: 879ms (attempt 1) smartTemplate-storage.js:70:13
+[SmartTemplates Storage] [2026-11-18T10:51:33.400Z] _init() SUCCESS after 1 attempt(s) smartTemplate-storage.js:60:13
+Preferences onChanged: 
+Object {  }
+preferences.mjs:318:17
+QuickFolders 10:51:33.420  [158 ms]   
+ Error in addFolderButton: folder parameter is empty!
+Entry: Important quickfolders-util.js:1432:13
+QuickFolders 10:51:33.550  [130 ms]   
+ Error in addFolderButton: folder parameter is empty!
+Entry: Important quickfolders-util.js:1432:13
+Finished setting up license startup code qFi-background.js:1215:13
+Startup resolved qFi-background.js:1221:13
+quickFilters adding the message context menu item Create Filter from Message… ... 
+Object { contexts: (1) […], onclick: onclick(), icons: {…}, enabled: true, id: "createFromMailContext", title: "Create Filter from Message…" }
+qFi-background.js:1571:13
+WebExtensions: WL handleEvent (loadIntoWindow) context: 
+Object { isTopContext: true, viewType: "background", envType: "addon_parent", onClose: Set(16), checkedLastError: false, _lastError: null, contextId: 22, unloaded: false, extension: {…}, manifestVersion: 2, … }
+implementation.js:744
+WebExtensions: quickFilters logDebug (early): startup listeners, ready to call updatequickFiltersLabel
+startup result: unblock startup for quickFilters in main() implementation.js:128
+[SmartTemplates Storage Performance] get: 1365ms smartTemplate-storage.js:70:13
+[SmartTemplates Storage] [2026-11-18T10:51:33.885Z] get() SUCCESS - returned keys: 
+Array(3) [ "settings", "debug", "accounts" ]
+smartTemplate-storage.js:60:13
+[SmartTemplates Storage Performance] getWithRetry: 1365ms (attempt 1) smartTemplate-storage.js:70:13
+[SmartTemplates Storage Performance] preference cache init: 1366ms smartTemplate-storage.js:70:13
+Preferences onChanged: 
+Object { settings: {…}, debug: {…}, accounts: {…} }
+preferences.mjs:318:17
+Accounts data updated: 
+Object {  }
+preferences.mjs:341:19
+Preferences updates: 
+Object { lastActiveCategories: "__ALL" }
+preferences.mjs:518:17
+quickFilters storage (chrome): read attempt 1/5, timeout 5000ms qFilters-storage.js:35:17
+quickFilters storage (chrome): connection attempt 1/6 qFilters-storage.js:35:17
+WebExtensions: quickFilters: messenger.onLoad() qFi-messenger.js:29
+quickFilters storage (chrome): connection ready qFilters-storage.js:35:17
+WebExtensions: quickFilters: pref cache ready qFi-messenger.js:31
+quickFilters storage (chrome): read completed qFilters-storage.js:35:17
+quickFilters [logTime init]
+ injected style sheets: 
+<link wlapi_autoinjected="AddOnNS4" rel="stylesheet" href="chrome://quickfilters/co…nt/skin/quickFilters.css">
+ 
+<link wlapi_autoinjected="AddOnNS4" rel="stylesheet" href="chrome://quickfilters/co…ilters-toolbar.css?v=6.9">
+ 
+<link wlapi_autoinjected="AddOnNS4" rel="stylesheet" href="chrome://quickfilters/co…s-actionButton.css?v=6.9">
+qFilters-utils.js:963:13
+quickFilters: addToolMenuListener() qFi-background.js:288:13
+quickFilters adding the tools menu item Start Filter Assistant ... 
+Object { contexts: (1) […], checked: false, onclick: onclick(), icons: {…}, enabled: true, id: "toggleFilterTools", title: "Start Filter Assistant" }
+qFi-background.js:314:13
+quickFilters 10:51:34.134  [2 ms]   
+ Polyfills loading in window: chrome://messenger/content/messenger.xhtml qFilters-utils.js:963:13
+Manually calling notifyTools.enable() is no longer needed. notifyTools.js:145:13
+quickFilters: addFolderPaneListener() qFi-background.js:136:13
+quickFilters adding the folder tree context menu item Run filters ... 
+Object { contexts: (1) […], onclick: onclick(), icons: {…}, enabled: true, id: "runFiltersFolderPane", title: "Run filters" }
+qFi-background.js:184:13
+quickFilters adding the other folder tree context menu item Find Filters… ... 
+Object { contexts: (1) […], onclick: onclick(), icons: {…}, enabled: true, id: "findFiltersFolder", title: "Find Filters…" }
+qFi-background.js:241:13
+WebExtensions: quickFilters injector path: 
+Object { hasWL: true, globalThis: undefined, hasInject: true, url: "about:3pane" }
+qFi-3pane.js:74
+WebExtensions: Using WindowListener:injectElements qFi-3pane.js:90
+WebExtensions: Injecting into root document: implementation.js:753
+WebExtensions: 
+Array [ div#threadPane ]
+implementation.js:633
+WebExtensions: div#threadPane is an existing container, injecting into threadPane implementation.js:704
+WebExtensions: 
+Array [ hbox#quickFilters-injected ]
+implementation.js:633
+WebExtensions: hbox#quickFilters-injected: append to threadPane implementation.js:744
+ quickFilters.Init()  
+Object { assistantActive: false, browserInfo: {…} }
+qFilters-utils.js:1058:13
+ qFi-messenger onLoad triggered, selected tab mode: mail3PaneTab  
+Object { first: true, mode: {…}, busy: false, canClose: false, thinking: false, favIconUrl: "chrome://messenger/skin/icons/new/compact/folder.svg", _ext: {…}, selected: Getter, tabId: 0, tabNode: tab.tabmail-tab, … }
+qFilters-utils.js:1058:13
+patchMailPane()... qFilters-utils.js:1058:13
+qFi-messenger after patchMailPane 
+Object { first: true, mode: {…}, busy: false, canClose: false, thinking: false, favIconUrl: "chrome://messenger/skin/icons/new/compact/folder.svg", _ext: {…}, selected: Getter, tabId: 0, tabNode: tab.tabmail-tab, … }
+qFilters-utils.js:1058:13
+quickFilters 10:51:34.630  [496 ms]   
+ patchFolderTree 
+Object { first: true, mode: {…}, busy: false, canClose: false, thinking: false, favIconUrl: "chrome://messenger/skin/icons/new/compact/folder.svg", _ext: {…}, selected: Getter, tabId: 0, tabNode: tab.tabmail-tab, … }
+qFilters-utils.js:963:13
+quickFilters 10:51:34.631  [1 ms]   
+ Version() getter. addonInfo: 
+Object { id: "quickFilters@axelg.com", name: "quickFilters", description: "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.", version: "6.15.1pre50", mayDisable: true, enabled: true, optionsUrl: "moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/quickfilters-settings.html", installType: "normal", type: "extension", permissions: (8) […], … }
+qFilters-utils.js:963:13
+quickFilters 10:51:34.631  [0 ms]   
+ Adding Custom Term: Reply-To qFilters-utils.js:963:13
+quickFilters 10:51:34.736  [105 ms]   
+ toggleCurrentFolderButtons(retries=0) qFilters-utils.js:963:13
+WebExtensions: quickFilters exp API: Utilities.getAPI() called implementation.js:14
+Loading failed for the <script> with source “https://smarttemplates.quickfolders.org/js/?v=2”. templates.html:46:27
+Loading failed for the <script> with source “https://smarttemplates.quickfolders.org/script/ga.js”. templates.html:54:32
+1794999095348	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing locales: An unexpected property was found in the WebExtension manifest.
+1794999095348	addons.webextension.{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}	WARN	Loading extension '{a300a000-5e21-4ee0-a115-9ec8f4eaa92b}': Reading manifest: Warning processing chrome_injectors: An unexpected property was found in the WebExtension manifest.
+1794999095381	addons.webextension.{61A64500-335C-418D-8FCB-E072A9ABF3DA}	WARN	Loading extension '{61A64500-335C-418D-8FCB-E072A9ABF3DA}': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999095432	addons.webextension.filtaquilla@mesquilla.com	WARN	Loading extension 'filtaquilla@mesquilla.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999095435	addons.webextension.quickfolders@curious.be	WARN	Loading extension 'quickfolders@curious.be': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999095442	addons.webextension.quickFilters@axelg.com	WARN	Loading extension 'quickFilters@axelg.com': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+1794999095447	addons.webextension.smarttemplate4@thunderbird.extension	WARN	Loading extension 'smarttemplate4@thunderbird.extension': Reading manifest: Warning processing version: version must be a version string consisting of at most 4 integers of at most 9 digits without leading zeros, and separated with dots
+quickFilters 10:51:35.634  [898 ms]   
+ =================quickFilters==============
+   checkFirstRun() - attempt 1 qFilters-utils.js:963:13
+quickFilters 10:51:35.634  [0 ms]   
+ Version() getter. addonInfo: 
+Object { id: "quickFilters@axelg.com", name: "quickFilters", description: "Quickly generate mail filters on the fly, by dragging and dropping mails and analyzing their attributes.", version: "6.15.1pre50", mayDisable: true, enabled: true, optionsUrl: "moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/quickfilters-settings.html", installType: "normal", type: "extension", permissions: (8) […], … }
+qFilters-utils.js:963:13
+quickFilters 10:51:35.634  [0 ms]   
+ firstRun = false  - currentVersion = 6.15.1pre50  - installed = 6.15.1 qFilters-utils.js:963:13
+quickFilters 10:51:35.634  [0 ms]   
+ store installedVersion: 6.15.1 qFilters-utils.js:963:13
+WebExtensions: quickFilters exp API: Utilities.getAPI() called implementation.js:14
+patchMailPane()... qFilters-utils.js:1058:13
+This site appears to use a scroll-linked positioning effect. This may not work well with asynchronous panning; see https://firefox-source-docs.mozilla.org/performance/scroll-linked_effects.html for further details and to join the discussion on related tools and features! 3pane
+Key event not available on some keyboard layouts: key=“r” modifiers=“accel,alt” id=“” messenger.xhtml
+quickFilters 11:0:16.789  [521155 ms]   
+ Toggle filter assistant mode in QuickFolders (legacy fallback)! qFilters-utils.js:963:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.648  [42859 ms]   
+ folders: INBOX, <none> qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.648  [0 ms]   
+ cloning header[0] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.649  [1 ms]   
+ COPIED     ***********************
+ property messageId                 : MV71QMQdSx2hsQA8YcCE9w@geopod-ismtpd-16 - string
+ property messageKey                : 1076 - number
+ property accountKey                :  - string
+ property author                    : ChatGPT <noreply@email.openai.com> - string
+ property subject                   : =?UTF-8?B?UHLDvGY=?= deine Route vor der Abfahrt - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : ChatGPT <noreply@email.openai.com> - string
+ property mime2DecodedSubject       : Prüf deine Route vor der Abfahrt - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1791298836000000 - number
+ property dateInSeconds             : 1791298836 - number
+ property lineCount                 : 1475 - number
+ property priority                  : 1 - number
+ property isFlagged                 : false - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.649  [0 ms]   
+ cloned header[0] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.649  [0 ms]   
+ cloning header[1] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.649  [0 ms]   
+ COPIED     ***********************
+ property messageId                 : 20261020100241.e90b982ce2b0eeee@news.emsisoft.com - string
+ property messageKey                : 1083 - number
+ property accountKey                :  - string
+ property author                    : "Emsisoft Newsletter [Emsisoft Ticker]" <newsletter@news.emsisoft.com> - string
+ property subject                   : The State of Ransomware in Q3 2026 - string
+ property recipients                : Thunderbird 67 <thunderbirddaily67@gmail.com> - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : "Emsisoft Newsletter [Emsisoft Ticker]" <newsletter@news.emsisoft.com> - string
+ property mime2DecodedSubject       : The State of Ransomware in Q3 2026 - string
+ property mime2DecodedRecipients    : Thunderbird 67 <thunderbirddaily67@gmail.com> - string
+ property date                      : 1792490561000000 - number
+ property dateInSeconds             : 1792490561 - number
+ property lineCount                 : 411 - number
+ property priority                  : 1 - number
+ property isFlagged                 : false - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.649  [0 ms]   
+ cloned header[1] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.EXEC} 11:0:59.681  [32 ms]   
+ createFilterQuickFilterExec() start 
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (2) […], filterAction: 1, filterActionExt: null, isMsgContext: false, context: "createFilterAsync_New" }
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:0:59.681  [0 ms]   
+ folders: issue 405, INBOX qFilters-utils.js:1085:13
+HTML Assistant Request Id: assistant_6afd856c qFilters-utils.js:1058:13
+quickFilters {BUILDFILTER} 11:1:0.505  [824 ms]   
+ Calling background with function: quickFiltersAssistant
+Current template: "from" 
+Object { func: "quickFiltersAssistant", context: "createFilterAsync_New", preview: {…}, requestId: "assistant_6afd856c", selectedApiMessages: (2) […], filterAction: 1, filterActionExt: null, sourceFolder: {…}, targetFolder: {…} }
+qFilters-utils.js:1085:13
+quickFilters 11:1:0.509  [4 ms]   
+ displayAssistant()
+context=createFilterAsync_New
+requestId=assistant_6afd856c qFilters-utils.js:963:13
+quickFilters 11:1:0.510  [1 ms]   
+ assistantURL=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+quickFilters 11:1:0.510  [0 ms]   
+ url=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 11:1:0.529  [19 ms]   
+ FiltersAPI.getFilters(imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX) qFilters-utils.js:963:13
+quickFilters 11:1:0.529  [0 ms]   
+ found 83 filters for server[server1] thunderbirddaily 67. Iterating... qFilters-utils.js:963:13
+Selected Mails from API: 
+Array [ {…}, {…} ]
+qFi-background.js:424:13
+selectedFilters: undefined qFi-background.js:425:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 11:1:0.976  [447 ms]   
+ FiltersAPI.getFilters(mailbox://nobody@Local%20Folders) qFilters-utils.js:963:13
+quickFilters 11:1:0.977  [1 ms]   
+ found 11 filters for server[server2] Local Folders. Iterating... qFilters-utils.js:963:13
+quickFilters API resolveAssistant(assistant_6afd856c) called with result: success, params: [object Object] qFilters-utils.js:1058:13
+quickFilters API Resolving assistant_6afd856c with Result: 
+Object { result: "success", params: {…} }
+qFilters-utils.js:1058:13
+quickFilters {BUILDFILTER} 11:5:20.677  [259700 ms]   
+ buildFilter() called with params:  
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (2) […], messageDb: XPCWrappedNative_NoHelper, filterAction: 1, matchingFilters: [], filtersList: XPCWrappedNative_NoHelper, mergeFilterIndex: -1, emailAddress: "noreply@email.openai.com", ccAddress: "", … }
+qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:5:20.678  [1 ms]   
+ Using template: from qFilters-utils.js:1085:13
+quickFilters 11:5:20.678  [0 ms]   
+ getIdentityMailAddresses() qFilters-utils.js:963:13
+quickFilters 11:5:20.678  [0 ms]   
+ getIdentityMailAddresses() found account without identities: account7 qFilters-utils.js:963:13
+quickFilters 11:5:20.678  [0 ms]   
+ getIdentityMailAddresses() found account without identities: account2 qFilters-utils.js:963:13
+quickFilters {DEFAULT} 11:5:20.678  [0 ms]   
+ getIdentityMailAddresses - retrieved 2 Addresses qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:5:20.678  [0 ms]   
+ build name for filter action: 1 qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:5:20.678  [0 ms]   
+ Applying filter template: from qFilters-utils.js:1085:13
+quickFilters 11:5:20.681  [3 ms]   
+ Adding new Filter 'Addons » quickfilters » issue 405 - noreply@email.openai.com' for email noreply@email.openai.com: current filter list has: 83 items qFilters-utils.js:963:13
+quickFilters {CREATEFILTER.EXEC} 11:5:43.77  [22396 ms]   
+ createFilterQuickFilterExec() returns 1 (success) qFilters-utils.js:1085:13
+quickFilters 11:5:43.77  [0 ms]   
+ createQuickFilter() lock released. qFilters-utils.js:963:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.782  [60705 ms]   
+ folders: INBOX, <none> qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.782  [0 ms]   
+ cloning header[0] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.783  [1 ms]   
+ COPIED     ***********************
+ property messageId                 : 2QQVGrIHTkSx1QaH2YOS5A@geopod-ismtpd-3 - string
+ property messageKey                : 1077 - number
+ property accountKey                :  - string
+ property author                    : ChatGPT <noreply@email.openai.com> - string
+ property subject                   : 4 neue Bildstile zum Ausprobieren - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : ChatGPT <noreply@email.openai.com> - string
+ property mime2DecodedSubject       : 4 neue Bildstile zum Ausprobieren - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1791235884000000 - number
+ property dateInSeconds             : 1791235884 - number
+ property lineCount                 : 1732 - number
+ property priority                  : 1 - number
+ property isFlagged                 : false - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.783  [0 ms]   
+ cloned header[0] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.783  [0 ms]   
+ cloning header[1] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.783  [0 ms]   
+ COPIED     ***********************
+ property messageId                 : B1.C3.22235.AC797DA6@i-0a56cf7b45cbaa0a6.mta1vrest.sd.prd.sparkpost - string
+ property messageKey                : 1084 - number
+ property accountKey                :  - string
+ property author                    : "DistroKid" <dk@hello.distrokid.com> - string
+ property subject                   : =?utf-8?B?U2F2ZSAyNSUgb24gY292ZXIgc29uZ3Mg8J+OgQ==?= - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : "DistroKid" <dk@hello.distrokid.com> - string
+ property mime2DecodedSubject       : Save 25% on cover songs 🎁 - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1792513994000000 - number
+ property dateInSeconds             : 1792513994 - number
+ property lineCount                 : 324 - number
+ property priority                  : 1 - number
+ property isFlagged                 : false - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.783  [0 ms]   
+ cloned header[1] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.EXEC} 11:6:43.799  [16 ms]   
+ createFilterQuickFilterExec() start 
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (2) […], filterAction: 1, filterActionExt: null, isMsgContext: false, context: "createFilterAsync_New" }
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:6:43.799  [0 ms]   
+ folders: issue 405, INBOX qFilters-utils.js:1085:13
+HTML Assistant Request Id: assistant_6afd86c4 qFilters-utils.js:1058:13
+quickFilters {BUILDFILTER} 11:6:44.172  [373 ms]   
+ Calling background with function: quickFiltersAssistant
+Current template: "from" 
+Object { func: "quickFiltersAssistant", context: "createFilterAsync_New", preview: {…}, requestId: "assistant_6afd86c4", selectedApiMessages: (2) […], filterAction: 1, filterActionExt: null, sourceFolder: {…}, targetFolder: {…} }
+qFilters-utils.js:1085:13
+quickFilters 11:6:44.173  [1 ms]   
+ displayAssistant()
+context=createFilterAsync_New
+requestId=assistant_6afd86c4 qFilters-utils.js:963:13
+quickFilters 11:6:44.173  [0 ms]   
+ assistantURL=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+quickFilters 11:6:44.174  [1 ms]   
+ url=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 11:6:44.175  [1 ms]   
+ FiltersAPI.getFilters(imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX) qFilters-utils.js:963:13
+quickFilters 11:6:44.175  [0 ms]   
+ found 83 filters for server[server1] thunderbirddaily 67. Iterating... qFilters-utils.js:963:13
+Selected Mails from API: 
+Array [ {…}, {…} ]
+qFi-background.js:424:13
+selectedFilters: undefined qFi-background.js:425:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 11:6:44.639  [464 ms]   
+ FiltersAPI.getFilters(mailbox://nobody@Local%20Folders) qFilters-utils.js:963:13
+quickFilters 11:6:44.639  [0 ms]   
+ found 11 filters for server[server2] Local Folders. Iterating... qFilters-utils.js:963:13
+quickFilters API resolveAssistant(assistant_6afd86c4) called with result: success, params: [object Object] qFilters-utils.js:1058:13
+quickFilters API Resolving assistant_6afd86c4 with Result: 
+Object { result: "success", params: {…} }
+qFilters-utils.js:1058:13
+quickFilters {BUILDFILTER} 11:6:50.339  [5700 ms]   
+ buildFilter() called with params:  
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (2) […], messageDb: XPCWrappedNative_NoHelper, filterAction: 1, matchingFilters: [], filtersList: XPCWrappedNative_NoHelper, mergeFilterIndex: -1, emailAddress: "noreply@email.openai.com", ccAddress: "", … }
+qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:6:50.340  [1 ms]   
+ Using template: from qFilters-utils.js:1085:13
+quickFilters 11:6:50.340  [0 ms]   
+ getIdentityMailAddresses() qFilters-utils.js:963:13
+quickFilters 11:6:50.340  [0 ms]   
+ getIdentityMailAddresses() found account without identities: account7 qFilters-utils.js:963:13
+quickFilters 11:6:50.340  [0 ms]   
+ getIdentityMailAddresses() found account without identities: account2 qFilters-utils.js:963:13
+quickFilters {DEFAULT} 11:6:50.340  [0 ms]   
+ getIdentityMailAddresses - retrieved 2 Addresses qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:6:50.340  [0 ms]   
+ build name for filter action: 1 qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:6:50.340  [0 ms]   
+ Applying filter template: from qFilters-utils.js:1085:13
+quickFilters 11:6:50.341  [1 ms]   
+ Adding new Filter 'Addons » quickfilters » issue 405 - noreply@email.openai.com' for email noreply@email.openai.com: current filter list has: 83 items qFilters-utils.js:963:13
+quickFilters 11:8:7.905  [77564 ms]   
+ Inbox qFilters-utils.js:963:13
+quickFilters {CREATEFILTER.EXEC} 11:8:7.910  [5 ms]   
+ createFilterQuickFilterExec() returns 1 (success) qFilters-utils.js:1085:13
+quickFilters 11:8:7.910  [0 ms]   
+ createQuickFilter() lock released. qFilters-utils.js:963:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.319  [328409 ms]   
+ folders: INBOX, <none> qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.319  [0 ms]   
+ cloning header[0] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.322  [3 ms]   
+ COPIED     ***********************
+ property messageId                 : 20260310090022.88d19f31d85e38ab@cio110332.use.ai - string
+ property messageKey                : 1058 - number
+ property accountKey                :  - string
+ property author                    : Daniel from Use AI <hello@use.ai> - string
+ property subject                   : =?UTF-8?q?This_email_disappears._Your_AI_needs_don=E2=80=99t?= - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : Daniel from Use AI <hello@use.ai> - string
+ property mime2DecodedSubject       : This email disappears. Your AI needs don’t - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1773133222000000 - number
+ property dateInSeconds             : 1773133222 - number
+ property lineCount                 : 292 - number
+ property priority                  : 1 - number
+ property isFlagged                 : false - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.322  [0 ms]   
+ cloned header[0] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.322  [0 ms]   
+ cloning header[1] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.323  [1 ms]   
+ COPIED     ***********************
+ property messageId                 : f65c8e99a3d80468375e892c4bd2b55fb72d4401-20400046-613148321@google.com - string
+ property messageKey                : 1018 - number
+ property accountKey                :  - string
+ property author                    : Google <google-noreply@google.com> - string
+ property subject                   : Learn more about our updated Terms of Service - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : Google <google-noreply@google.com> - string
+ property mime2DecodedSubject       : Learn more about our updated Terms of Service - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1782361898000000 - number
+ property dateInSeconds             : 1782361898 - number
+ property lineCount                 : 457 - number
+ property priority                  : 1 - number
+ property isFlagged                 : false - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.323  [0 ms]   
+ cloned header[1] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.323  [0 ms]   
+ cloning header[2] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.323  [0 ms]   
+ COPIED     ***********************
+ property messageId                 : 9OlDSvWOQn6rd3yj5UoWSg@geopod-ismtpd-96 - string
+ property messageKey                : 1049 - number
+ property accountKey                :  - string
+ property author                    : Discord <noreply@discord.com> - string
+ property subject                   : Discord Payment Succeeded - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : Discord <noreply@discord.com> - string
+ property mime2DecodedSubject       : Discord Payment Succeeded - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1785241582000000 - number
+ property dateInSeconds             : 1785241582 - number
+ property lineCount                 : 507 - number
+ property priority                  : 1 - number
+ property isFlagged                 : false - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.323  [0 ms]   
+ cloned header[2] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.EXEC} 11:13:36.350  [27 ms]   
+ createFilterQuickFilterExec() start 
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (3) […], filterAction: 1, filterActionExt: null, isMsgContext: false, context: "createFilterAsync_New" }
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 11:13:36.351  [1 ms]   
+ folders: issue 405, INBOX qFilters-utils.js:1085:13
+HTML Assistant Request Id: assistant_6afd8860 qFilters-utils.js:1058:13
+quickFilters {BUILDFILTER} 11:13:36.898  [547 ms]   
+ Calling background with function: quickFiltersAssistant
+Current template: "from" 
+Object { func: "quickFiltersAssistant", context: "createFilterAsync_New", preview: {…}, requestId: "assistant_6afd8860", selectedApiMessages: (3) […], filterAction: 1, filterActionExt: null, sourceFolder: {…}, targetFolder: {…} }
+qFilters-utils.js:1085:13
+quickFilters 11:13:36.919  [21 ms]   
+ displayAssistant()
+context=createFilterAsync_New
+requestId=assistant_6afd8860 qFilters-utils.js:963:13
+quickFilters 11:13:36.920  [1 ms]   
+ assistantURL=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+quickFilters 11:13:36.920  [0 ms]   
+ url=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 11:13:36.953  [33 ms]   
+ FiltersAPI.getFilters(imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX) qFilters-utils.js:963:13
+quickFilters 11:13:36.954  [1 ms]   
+ found 84 filters for server[server1] thunderbirddaily 67. Iterating... qFilters-utils.js:963:13
+Selected Mails from API: 
+Array(3) [ {…}, {…}, {…} ]
+qFi-background.js:424:13
+selectedFilters: undefined qFi-background.js:425:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 11:13:37.358  [404 ms]   
+ FiltersAPI.getFilters(mailbox://nobody@Local%20Folders) qFilters-utils.js:963:13
+quickFilters 11:13:37.358  [0 ms]   
+ found 11 filters for server[server2] Local Folders. Iterating... qFilters-utils.js:963:13
+Preferences updates: 
+Object { "quickMove.lastFolderName": "issue 405", "quickMove.lastFolderURI": "imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/quickfilters/issue 405" }
+preferences.mjs:518:17
+Preferences updates: 
+Object { "quickMove.history": '["imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/quickfilters/issue 405","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Social/medium","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/FiltaQuilla/#141","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Archives/EmsiSoft","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/quickfilters","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/QF/AlphaSorting/Alan","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/quickfilters/atn","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/QF/AlphaSorting/Amanda","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/QF/test-move","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/SmartTemplates/test-st","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Addons/SmartTemplates","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/FiltaQuilla","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Software/emsisoft","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/QF/etc","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Social/twitter","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Social/youtube","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters/issue 310/xx5","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters/issue 310/xx6","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters/issue 310/xx4","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters/issue 310/xx3","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters/issue 310/xx2","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters/issue 310/xx1","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/quickfilters/issue 310","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/Social/google","imap://thunderbirddaily67%40gmail.com@imap.gmail.com/addons/zombiekeys"]' }
+preferences.mjs:518:17
+quickFilters API resolveAssistant(assistant_6afd8860) called with result: success, params: [object Object] qFilters-utils.js:1058:13
+quickFilters API Resolving assistant_6afd8860 with Result: 
+Object { result: "success", params: {…} }
+qFilters-utils.js:1058:13
+quickFilters 11:15:7.458  [90100 ms]   
+ Filter assistant returned these params:  
+Object { answer: true, selectedMergedFilterIndex: 0, mergeFilter: {…}, template: "from" }
+qFilters-utils.js:963:13
+quickFilters {BUILDFILTER} 11:15:7.458  [0 ms]   
+ Returned from background:
+Current template: "from" 
+Object { result: "success", params: {…} }
+qFilters-utils.js:1085:13
+quickFilters 11:15:7.458  [0 ms]   
+ Successfully matched XPCOM filter[0] by name:Addons » quickfilters » issue 405 qFilters-utils.js:963:13
+quickFilters {BUILDFILTER} 11:15:7.458  [0 ms]   
+ buildFilter() called with params:  
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (3) […], messageDb: XPCWrappedNative_NoHelper, filterAction: 1, matchingFilters: [], filtersList: XPCWrappedNative_NoHelper, mergeFilterIndex: 0, emailAddress: "hello@use.ai", ccAddress: "", … }
+qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:15:7.459  [1 ms]   
+ Using template: from qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:15:7.459  [0 ms]   
+ Merging preselected from merge index [0] with filter: Addons » quickfilters » issue 405 qFilters-utils.js:1085:13
+quickFilters 11:15:7.459  [0 ms]   
+ getIdentityMailAddresses() qFilters-utils.js:963:13
+quickFilters 11:15:7.459  [0 ms]   
+ getIdentityMailAddresses() found account without identities: account7 qFilters-utils.js:963:13
+quickFilters 11:15:7.459  [0 ms]   
+ getIdentityMailAddresses() found account without identities: account2 qFilters-utils.js:963:13
+quickFilters {DEFAULT} 11:15:7.459  [0 ms]   
+ getIdentityMailAddresses - retrieved 2 Addresses qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:15:7.460  [1 ms]   
+ build name for filter action: 1 qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 11:15:7.460  [0 ms]   
+ Applying filter template: from qFilters-utils.js:1085:13
+quickFilters 11:15:48.973  [41513 ms]   
+ Inbox qFilters-utils.js:963:13
+quickFilters {CREATEFILTER.EXEC} 11:15:48.979  [6 ms]   
+ createFilterQuickFilterExec() returns 1 (success) qFilters-utils.js:1085:13
+quickFilters 11:15:48.979  [0 ms]   
+ createQuickFilter() lock released. qFilters-utils.js:963:13
+quickFilters [logTime init]
+ Adding FilterList... qFilters-utils.js:963:13
+Manually calling notifyTools.enable() is no longer needed. notifyTools.js:145:13
+ quickFilters.Init()  
+Object { assistantActive: true, browserInfo: {…} }
+qFilters-utils.js:1058:13
+1795000597066	addons.xpi-utils	WARN	Add-on {61A64500-335C-418D-8FCB-E072A9ABF3DA} is not compatible with application version.
+1795000597097	addons.xpi-utils	WARN	Add-on cardbook@vigneau.philippe is not compatible with application version.
+NS_ERROR_NOT_AVAILABLE
+1795000597119	addons.xpi-utils	WARN	Add-on ImportExportToolsNG@cleidigh.kokkini.net is not compatible with application version.
+1795000597139	addons.xpi-utils	WARN	Add-on {8845E3B3-E8FB-40E2-95E9-EC40294818C4} is not compatible with application version.
+services.settings: BackendError: Backend error: Error: HTTP 400 Invalid parameters: Invalid request parameter (_since in querystring: The value should be integer between double quotes.)
+    APIError resource://services-settings/RemoteSettingsClient.sys.mjs:90
+    BackendError resource://services-settings/RemoteSettingsClient.sys.mjs:115
+    _adjustedError resource://services-settings/RemoteSettingsClient.sys.mjs:1002
+    maybeSync resource://services-settings/RemoteSettingsClient.sys.mjs:893
+Caused by: Error: HTTP 400 Invalid parameters: Invalid request parameter (_since in querystring: The value should be integer between double quotes.)
+    processResponse resource://services-common/kinto-http-client.sys.mjs:601
+remote-settings.sys.mjs:551
+BackendError: Backend error: Error: HTTP 400 Invalid parameters: Invalid request parameter (_since in querystring: The value should be integer between double quotes.)
+    APIError resource://services-settings/RemoteSettingsClient.sys.mjs:90
+    BackendError resource://services-settings/RemoteSettingsClient.sys.mjs:115
+    _adjustedError resource://services-settings/RemoteSettingsClient.sys.mjs:1002
+    maybeSync resource://services-settings/RemoteSettingsClient.sys.mjs:893
+Caused by: Error: HTTP 400 Invalid parameters: Invalid request parameter (_since in querystring: The value should be integer between double quotes.)
+    processResponse resource://services-common/kinto-http-client.sys.mjs:601
+RemoteSettingsComponents.sys.mjs:20:15
+1795000597792	addons.xpi-utils	WARN	Add-on {61A64500-335C-418D-8FCB-E072A9ABF3DA} is not compatible with application version.
+1795000597792	addons.xpi-utils	WARN	Add-on cardbook@vigneau.philippe is not compatible with application version.
+1795000597792	addons.xpi-utils	WARN	Add-on ImportExportToolsNG@cleidigh.kokkini.net is not compatible with application version.
+1795000597792	addons.xpi-utils	WARN	Add-on {8845E3B3-E8FB-40E2-95E9-EC40294818C4} is not compatible with application version.
+1795000598045	addons.update-checker	WARN	onUpdateCheckComplete failed to parse update manifest for copysent2current@ggbs.de: SyntaxError: JSON.parse: expected ',' or ']' after array element at line 36 column 9 of the JSON data(resource://gre/modules/addons/AddonUpdateChecker.sys.mjs:330:23) JS Stack trace: onLoad@AddonUpdateChecker.sys.mjs:330:23
+UpdateParser/<@AddonUpdateChecker.sys.mjs:274:54
+1795000598106	addons.update-checker	WARN	Received empty update manifest for vfs-example-client@thunderbird.net.
+Missing resource in locale de: devtools/client/toolbox.ftl
+Missing resource in locale sv-SE: devtools/client/toolbox.ftl
+Missing resource in locale ja: devtools/client/toolbox.ftl
+Missing resource in locale el: devtools/client/toolbox.ftl
+Missing resource in locale nl: devtools/client/toolbox.ftl
+Missing resource in locale fr: devtools/client/toolbox.ftl
+Missing resource in locale it: devtools/client/toolbox.ftl
+Missing resource in locale nb-NO: devtools/client/toolbox.ftl

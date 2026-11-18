@@ -1379,6 +1379,7 @@ var quickFilters = {
             originalControllerCopyMove(uri);
           }
           util.logDebugOptional("msgMove", "After original Move/CopyMessage.]]");
+          util.logDebugOptional("assistant.msg", `Preview timing: move/copy command returned at ${Date.now()}; completion is not awaited; messages=${messageList.length}`);
           // MOVED FILTER CREATION AFTER MESSAGES ARE MOVED.
           let fA = isCopy
             ? Ci.nsMsgFilterAction.CopyToFolderMsgCopyMessage
@@ -2030,6 +2031,7 @@ quickFilters.FolderListener = {
           // find filters with this target and correct them?
           break;
         case "DeleteOrMoveMsgCompleted": {
+          util.logDebugOptional("assistant.msg", `Preview timing: Thunderbird DeleteOrMoveMsgCompleted at ${Date.now()}`);
           let isAssistant = quickFilters.Util.AssistantActive,
             srcName = item ? (item.prettyName || item.localizedName) : "<no folder>";
 
