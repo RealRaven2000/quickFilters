@@ -2083,14 +2083,53 @@ quickFilters.Util = {
       }
       // avoid duplicate actions?
       for (let b = 0; b < this.getActionCount(toFilter); b++) {
-        let ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction);
+        let ac;
         /*
           newActions.queryElementAt ?
             newActions.queryElementAt(b, Ci.nsIMsgRuleAction):
             newActions.QueryElementAt(b, Ci.nsIMsgRuleAction);
             */
         // eliminate duplicates
-        if (ac.type == act.type && ac.strValue == act.strValue) {
+        let isDuplicate = false;
+        try {
+          ac = newActions[b].QueryInterface(Ci.nsIMsgRuleAction);
+          if (ac.type === act.type) {
+          switch (act.type) {
+            case FA.MoveToFolder:
+            case FA.CopyToFolder:
+              isDuplicate = ac.targetFolderUri === act.targetFolderUri;
+              break;
+            case FA.ChangePriority:
+              isDuplicate = ac.priority === act.priority;
+              break;
+            case FA.JunkScore:
+              isDuplicate = ac.junkScore === act.junkScore;
+              break;
+            case FA.Custom:
+              isDuplicate = ac.customId === act.customId && ac.strValue === act.strValue;
+              break;
+            case FA.Delete:
+            case FA.None:
+            case FA.KillThread:
+            case FA.KillSubthread:
+            case FA.WatchThread:
+            case FA.MarkFlagged:
+            case FA.MarkUnread:
+            case FA.StopExecution:
+            case FA.DeleteFromPop3Server:
+            case FA.LeaveOnPop3Server:
+              isDuplicate = true;
+              break;
+            default:
+              isDuplicate = ac.strValue === act.strValue;
+          }
+          }
+        } catch (ex) {
+          // Do not append an action when its equivalence cannot be determined.
+          this.logException("Could not compare filter actions", ex);
+          isDuplicate = true;
+        }
+        if (isDuplicate) {
           append = false;
           break;
         }

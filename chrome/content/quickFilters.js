@@ -1366,7 +1366,24 @@ var quickFilters = {
       util.logException("MsgMoveCopy_Wrapper", ex);
     } finally {
       // this is very important as we need to restore the original MsgMoveMessage
-      let promiseDone = function () {
+      let promiseDone = async function () {
+        let capture = null;
+        if (isCreateFilter && quickFilters.Preferences.isAssistantModeHTML) {
+          let timer;
+          try {
+            capture = await Promise.race([
+              util.notifyTools.notifyBackground({
+                func: "captureMovePreview",
+                headerIds: messageList.map(message => message.messageId),
+              }),
+              new Promise(resolve => { timer = window.setTimeout(() => resolve(null), 1000); }),
+            ]);
+          } catch (ex) {
+            util.logException("Move preview capture failed", ex);
+          } finally {
+            window.clearTimeout(timer);
+          }
+        }
         // we cannot quickmove until we are done evaluating the message headers for filter creation
         {
           if (isCopy) {
@@ -1385,7 +1402,11 @@ var quickFilters = {
             ? Ci.nsMsgFilterAction.CopyToFolderMsgCopyMessage
             : Ci.nsMsgFilterAction.MoveToFolder; // [issue 77]
           if (isCreateFilter) {
-            worker.createFilterAsync_New(sourceFolder, destMsgFolder, messageList, fA); // filterAction
+            worker.startFilterAssistant({
+              sourceFolder, targetFolder: destMsgFolder, messageList, filterAction: fA,
+              filterActionExt: null, isMsgContext: false, context: "createFilterAsync_New",
+              movePreview: capture?.messages?.length ? capture : null,
+            });
 
             util.logDebugOptional("msgMove", "After calling createFilterAsync_New()");
           }

@@ -713,6 +713,11 @@ quickFilters.Assistant = {
     await this.loadPreferences(); // set all checkboxes
     const urlApiMessages = urlParams.get("selectedApiMessages");
     this.selectedApiMessages = urlApiMessages ? JSON.parse(urlApiMessages) : [];
+    const capturedMove = urlParams.get("movePreview");
+    const movePreview = capturedMove ? JSON.parse(capturedMove) : null;
+    if (movePreview?.messages?.length) {
+      this.selectedApiMessages = movePreview.messages;
+    }
     const templateList = this.TemplateList;
     const context = urlParams.get("context");
     await util.logHighlightDebug(
@@ -869,14 +874,21 @@ quickFilters.Assistant = {
         document.getElementById("previewPosition").textContent = `${index + 1} / ${messages.length}`;
         previous.disabled = index === 0;
         next.disabled = index === messages.length - 1;
-        await util.logDebugOptional("assistant.msg", `Preview lookup starting: request=${requestId}, apiId=${message.messageId}, type=${typeof message.messageId}, count=${messages.length}, time=${Date.now()}`);
+        const previewSource = movePreview?.messages?.length ? "captured metadata" : "API lookup";
+        await util.logDebugOptional("assistant.msg", `Preview using ${previewSource}: request=${requestId}, apiId=${message.messageId}, type=${typeof message.messageId}, count=${messages.length}, time=${Date.now()}`);
         const [folderPath, result] = await Promise.all([
           formatFolderPath(message.folder),
-          this.previewFromApi(message.messageId),
+          movePreview?.messages?.length
+            ? Promise.resolve({
+                author: message.author, recipients: (message.recipients || []).join(", "),
+                subject: message.subject, date: new Date(message.date).toLocaleString(),
+                size: message.size,
+              })
+            : this.previewFromApi(message.messageId),
         ]);
-        if (generation !== previewGeneration) return;
+        if (generation !== previewGeneration) {return;}
         const selectedPreview = result || { error: "Sorry we couldn't retrieve the preview. The API didn't find it." };
-        if (folderPath && result) selectedPreview.folderPath = folderPath;
+        if (folderPath && result) {selectedPreview.folderPath = folderPath;}
         await this.initPreview({ preview: selectedPreview });
       };
       navigation.hidden = messages.length < 2;
@@ -888,7 +900,9 @@ quickFilters.Assistant = {
       preview = this.passedMessages[0];
     }
 
-    if (!this.selectedApiMessages?.length) await this.initPreview({ preview });
+    if (!this.selectedApiMessages?.length) {
+      await this.initPreview({ preview });
+    }
 
     templateList.value = await this.getCurrentFilterTemplate();
 

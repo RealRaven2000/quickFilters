@@ -1155,6 +1155,7 @@ quickFilters.Worker = {
               preview: preview || null,
               requestId,
               selectedApiMessages: params.selectedApiMessages || [],
+              movePreview: params.movePreview || null,
             };
             if (params?.cmd) {
               backgroundCallObject.cmd = params.cmd; // "new" or "merge"
@@ -2420,7 +2421,23 @@ quickFilters.Worker = {
     }
 
     // "Priority" checkbox - copies priority
-    if (prefs.getBoolPref("actions.priority") && msg.priority > 1) {
+    const hasAction = (type, matches = () => true) => {
+      for (let i = 0; i < util.getActionCount(targetFilter); i++) {
+        try {
+          const action = targetFilter.getActionAt(i);
+          if (action.type === type && matches(action)) {
+            return true;
+          }
+        } catch (ex) {
+          // If an action cannot be inspected, avoid adding a possible duplicate.
+          util.logException("Could not compare existing filter action", ex);
+          return true;
+        }
+      }
+      return false;
+    };
+    if (prefs.getBoolPref("actions.priority") && msg.priority > 1 &&
+        !hasAction(nsMsgFilterAction.ChangePriority, action => action.priority === msg.priority)) {
       let priorityAction = targetFilter.createAction();
       priorityAction.type = nsMsgFilterAction.ChangePriority;
       priorityAction.priority = msg.priority; // nsMsgPriorityValue - 0 = not set! - 1= none
@@ -2428,7 +2445,7 @@ quickFilters.Worker = {
     }
 
     // "Star" checkbox - note this will only set the star (not reset!)
-    if (prefs.isStarAction && msg.isFlagged) {
+    if (prefs.isStarAction && msg.isFlagged && !hasAction(nsMsgFilterAction.MarkFlagged)) {
       let starAction = targetFilter.createAction();
       starAction.type = nsMsgFilterAction.MarkFlagged;
       targetFilter.appendAction(starAction);

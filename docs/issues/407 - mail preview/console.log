@@ -1,0 +1,277 @@
+quickFilters {MSGMOVE} 13:28:0.148  [20593 ms]   
+ Executing wrapped MsgMoveMessage qFilters-utils.js:1085:13
+quickFilters {MSGMOVE} 13:28:0.148  [0 ms]   
+ MsgMoveCopy_Wrapper(): 3 selected Messages counted. qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.148  [0 ms]   
+ folders: INBOX, <none> qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.148  [0 ms]   
+ cloning header[0] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.150  [2 ms]   
+ COPIED     ***********************
+ property messageId                 : 9OlDSvWOQn6rd3yj5UoWSg@geopod-ismtpd-96 - string
+ property messageKey                : 1121 - number
+ property accountKey                :  - string
+ property author                    : Discord <noreply@discord.com> - string
+ property subject                   : Discord Payment Succeeded - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : Discord <noreply@discord.com> - string
+ property mime2DecodedSubject       : Discord Payment Succeeded - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1785241582000000 - number
+ property dateInSeconds             : 1785241582 - number
+ property lineCount                 : 507 - number
+ property priority                  : 1 - number
+ property isFlagged                 : true - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.150  [0 ms]   
+ cloned header[0] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.150  [0 ms]   
+ cloning header[1] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.151  [1 ms]   
+ COPIED     ***********************
+ property messageId                 : 2QQVGrIHTkSx1QaH2YOS5A@geopod-ismtpd-3 - string
+ property messageKey                : 1120 - number
+ property accountKey                :  - string
+ property author                    : ChatGPT <noreply@email.openai.com> - string
+ property subject                   : 4 neue Bildstile zum Ausprobieren - string
+ property recipients                : thunderbirddaily67@gmail.com - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : ChatGPT <noreply@email.openai.com> - string
+ property mime2DecodedSubject       : 4 neue Bildstile zum Ausprobieren - string
+ property mime2DecodedRecipients    : thunderbirddaily67@gmail.com - string
+ property date                      : 1791235884000000 - number
+ property dateInSeconds             : 1791235884 - number
+ property lineCount                 : 1732 - number
+ property priority                  : 1 - number
+ property isFlagged                 : true - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.151  [0 ms]   
+ cloned header[1] qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.151  [0 ms]   
+ cloning header[2] in Inbox ... qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.152  [1 ms]   
+ COPIED     ***********************
+ property messageId                 : 20261020100241.e90b982ce2b0eeee@news.emsisoft.com - string
+ property messageKey                : 1119 - number
+ property accountKey                :  - string
+ property author                    : "Emsisoft Newsletter [Emsisoft Ticker]" <newsletter@news.emsisoft.com> - string
+ property subject                   : The State of Ransomware in Q3 2026 - string
+ property recipients                : Thunderbird 67 <thunderbirddaily67@gmail.com> - string
+ property ccList                    :  - string
+ property bccList                   :  - string
+ property mime2DecodedAuthor        : "Emsisoft Newsletter [Emsisoft Ticker]" <newsletter@news.emsisoft.com> - string
+ property mime2DecodedSubject       : The State of Ransomware in Q3 2026 - string
+ property mime2DecodedRecipients    : Thunderbird 67 <thunderbirddaily67@gmail.com> - string
+ property date                      : 1792490561000000 - number
+ property dateInSeconds             : 1792490561 - number
+ property lineCount                 : 411 - number
+ property priority                  : 1 - number
+ property isFlagged                 : true - boolean
+STRING PROPERTIES  **********
+ property PreviewText               :  - string
+ property Keywords                  : nonjunk - string
+NOT COPIED     *******************
+ property label                     : undefined - undefined
+ property Charset                   : undefined - undefined
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.152  [0 ms]   
+ cloned header[2] qFilters-utils.js:1085:13
+quickFilters {MSGMOVE} 13:28:0.152  [0 ms]   
+ calling promiseDone()... qFilters-utils.js:1085:13
+Move preview captured: operation=move_bdbe2323-3050-4823-8573-93b558f70c8c, tab=2, count=3, time=1795008480178 qFi-background.js:973:19
+quickFilters {MSGMOVE} 13:28:0.180  [28 ms]   
+ Executing original MoveMessage [[ qFilters-utils.js:1085:13
+quickFilters {EVENTS,MSGMOVE} 13:28:0.182  [2 ms]   
+ FolderListener.onMessageAdded() [xpconnect wrapped nsIMsgDBHdr] qFilters-utils.js:1085:13
+quickFilters {EVENTS,MSGMOVE} 13:28:0.183  [1 ms]   
+ FolderListener.onMessageAdded() [xpconnect wrapped nsIMsgDBHdr] qFilters-utils.js:1085:13
+quickFilters {EVENTS,MSGMOVE} 13:28:0.184  [1 ms]   
+ FolderListener.onMessageAdded() [xpconnect wrapped nsIMsgDBHdr] qFilters-utils.js:1085:13
+quickFilters {MSGMOVE} 13:28:0.197  [13 ms]   
+ After original Move/CopyMessage.]] qFilters-utils.js:1085:13
+quickFilters {ASSISTANT.MSG} 13:28:0.198  [1 ms]   
+ Preview timing: move/copy command returned at 1795008480198; completion is not awaited; messages=3 qFilters-utils.js:1085:13
+quickFilters 13:28:0.198  [0 ms]   
+ waitForCoreReady() context: chrome://messenger/content/messenger.xhtml [mail:3pane] qFilters-utils.js:963:13
+quickFilters {MSGMOVE} 13:28:0.198  [0 ms]   
+ After calling createFilterAsync_New() qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.EXEC} 13:28:0.198  [0 ms]   
+ createFilterQuickFilterExec() start 
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (3) […], filterAction: 1, filterActionExt: null, isMsgContext: false, context: "createFilterAsync_New", movePreview: {…} }
+qFilters-utils.js:1085:13
+quickFilters {CREATEFILTER.REFRESHHEADERS} 13:28:0.199  [1 ms]   
+ folders: issue 405, INBOX qFilters-utils.js:1085:13
+HTML Assistant Request Id: assistant_6afda7e0 qFilters-utils.js:1058:13
+quickFilters {ASSISTANT.MSG} 13:28:0.913  [714 ms]   
+ Preview conversion: request=assistant_6afda7e0, apiId=93, type=number, headerId=9OlDSvWOQn6rd3yj5UoWSg@geopod-ismtpd-96, time=1795008480913 qFilters-utils.js:1085:13
+quickFilters {ASSISTANT.MSG} 13:28:0.913  [0 ms]   
+ Preview conversion: request=assistant_6afda7e0, apiId=94, type=number, headerId=2QQVGrIHTkSx1QaH2YOS5A@geopod-ismtpd-3, time=1795008480913 qFilters-utils.js:1085:13
+quickFilters {ASSISTANT.MSG} 13:28:0.914  [1 ms]   
+ Preview conversion: request=assistant_6afda7e0, apiId=95, type=number, headerId=20261020100241.e90b982ce2b0eeee@news.emsisoft.com, time=1795008480914 qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 13:28:0.915  [1 ms]   
+ Calling background with function: quickFiltersAssistant
+Current template: "from" 
+Object { func: "quickFiltersAssistant", context: "createFilterAsync_New", preview: {…}, requestId: "assistant_6afda7e0", selectedApiMessages: (3) […], movePreview: {…}, filterAction: 1, filterActionExt: null, sourceFolder: {…}, targetFolder: {…} }
+qFilters-utils.js:1085:13
+quickFilters 13:28:0.917  [2 ms]   
+ displayAssistant()
+context=createFilterAsync_New
+requestId=assistant_6afda7e0 qFilters-utils.js:963:13
+quickFilters 13:28:0.917  [0 ms]   
+ assistantURL=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+quickFilters 13:28:0.917  [0 ms]   
+ url=moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.html qFilters-utils.js:963:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 13:28:0.926  [9 ms]   
+ FiltersAPI.getFilters(imap://thunderbirddaily67%40gmail.com@imap.gmail.com/INBOX) qFilters-utils.js:963:13
+quickFilters 13:28:0.926  [0 ms]   
+ found 84 filters for server[server1] thunderbirddaily 67. Iterating... qFilters-utils.js:963:13
+Selected Mails from API: 
+Array(3) [ {…}, {…}, {…} ]
+qFi-background.js:424:13
+selectedFilters: undefined qFi-background.js:425:13
+load event fired! filterAssistant.js:101:13
+console.trace() loadAssistant called assistant-dlg.js:703:15
+    loadAssistant moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/assistant-dlg.js:703
+    (Async: async)
+    <anonymous> moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.js:102
+    (Async: EventListener.handleEvent)
+    <anonymous> moz-extension://e25051b7-7b75-4282-8032-c438e8d1a5da/html/filterAssistant.js:98
+ loadAssistant()  
+Context: fromMessageContext
+ApiMessages: [{"messageId":93,"folder":{"accountId":"account1","path":"/INBOX"}},{"messageId":94,"folder":{"accountId":"account1","path":"/INBOX"}},{"messageId":95,"folder":{"accountId":"account1","path":"/INBOX"}}] assistant-util.js:108:13
+ loadAssistant()  hasCustomTemplates true assistant-util.js:108:13
+WebExtensions: quickFilters - filtersAPI.getFilters() implementation.js:157
+quickFilters 13:28:1.298  [372 ms]   
+ FiltersAPI.getFilters(mailbox://nobody@Local%20Folders) qFilters-utils.js:963:13
+quickFilters 13:28:1.298  [0 ms]   
+ found 11 filters for server[server2] Local Folders. Iterating... qFilters-utils.js:963:13
+ loadAssistant()  getFilters 
+Object { filterItems: (11) […] }
+assistant-util.js:108:13
+quickFilters [logTime init]
+ loadAssistant: merging possible, found 1 matches assistant-util.js:42:13
+quickFilters {ASSISTANT.MSG} 13:28:1.304 [1 ms]   
+ Preview lookup starting: request=assistant_6afda7e0, apiId=87, type=number, count=3, time=1795008481304 assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:1.325 [21 ms]   
+ initPreview() 
+Object { preview: {…} }
+assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:1.326 [1 ms]   
+ Preview rendered fields: request=assistant_6afda7e0, from="Discord <noreply@discord.com>", to="thunderbirddaily67@gmail.com", subject="Discord Payment Succeeded", date="28/7/2026, 13:26:22" assistant-util.js:61:13
+quickFilters 13:28:1.329 [3 ms]   
+ loadAssistant: isMergePossible=true, autoSelect:true, silentMerge:false assistant-util.js:42:13
+quickFilters 13:28:1.329 [0 ms]   
+ Merge filter: Selecting merge as default assistant-util.js:42:13
+quickFilters 13:28:1.332 [3 ms]   
+ selectTemplateItemTimer() assistant-util.js:42:13
+quickFilters {EVENTS,MSGMOVE} 13:28:5.166  [3868 ms]   
+ FolderListener.onMessageAdded() [xpconnect wrapped nsIMsgDBHdr] qFilters-utils.js:1085:13
+quickFilters {EVENTS,MSGMOVE} 13:28:5.168  [2 ms]   
+ FolderListener.onMessageAdded() [xpconnect wrapped nsIMsgDBHdr] qFilters-utils.js:1085:13
+quickFilters {EVENTS,MSGMOVE} 13:28:5.169  [1 ms]   
+ FolderListener.onMessageAdded() [xpconnect wrapped nsIMsgDBHdr] qFilters-utils.js:1085:13
+quickFilters {ASSISTANT.MSG} 13:28:7.704 [6372 ms]   
+ Preview lookup starting: request=assistant_6afda7e0, apiId=88, type=number, count=3, time=1795008487674 assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:7.719 [15 ms]   
+ initPreview() 
+Object { preview: {…} }
+assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:7.721 [2 ms]   
+ Preview rendered fields: request=assistant_6afda7e0, from="ChatGPT <noreply@email.openai.com>", to="thunderbirddaily67@gmail.com", subject="4 neue Bildstile zum Ausprobieren", date="5/10/2026, 22:31:24" assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:8.583 [862 ms]   
+ Preview lookup starting: request=assistant_6afda7e0, apiId=89, type=number, count=3, time=1795008488581 assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:8.603 [20 ms]   
+ initPreview() 
+Object { preview: {…} }
+assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:8.603 [0 ms]   
+ Preview rendered fields: request=assistant_6afda7e0, from="\"Emsisoft Newsletter [Emsisoft Ticker]\" <newsletter@news.emsisoft.com>", to="Thunderbird 67 <thunderbirddaily67@gmail.com>", subject="The State of Ransomware in Q3 2026", date="20/10/2026, 11:02:41" assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:10.470 [1867 ms]   
+ Preview lookup starting: request=assistant_6afda7e0, apiId=88, type=number, count=3, time=1795008490465 assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:10.485 [15 ms]   
+ initPreview() 
+Object { preview: {…} }
+assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:10.489 [4 ms]   
+ Preview rendered fields: request=assistant_6afda7e0, from="ChatGPT <noreply@email.openai.com>", to="thunderbirddaily67@gmail.com", subject="4 neue Bildstile zum Ausprobieren", date="5/10/2026, 22:31:24" assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:10.941 [452 ms]   
+ Preview lookup starting: request=assistant_6afda7e0, apiId=87, type=number, count=3, time=1795008490938 assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:10.958 [17 ms]   
+ initPreview() 
+Object { preview: {…} }
+assistant-util.js:61:13
+quickFilters {ASSISTANT.MSG} 13:28:10.961 [3 ms]   
+ Preview rendered fields: request=assistant_6afda7e0, from="Discord <noreply@discord.com>", to="thunderbirddaily67@gmail.com", subject="Discord Payment Succeeded", date="28/7/2026, 13:26:22" assistant-util.js:61:13
+quickFilters {ASSISTANT} 13:28:12.518 [1557 ms]   
+ Returning selected template to background: from assistant-util.js:61:13
+Resolving assistantResult[assistant_6afda7e0]: with result "success" 
+Object { command: "assistantResult", requestId: "assistant_6afda7e0", result: "success", params: {…} }
+assistant-lifecycle.mjs:67:14
+quickFilters API resolveAssistant(assistant_6afda7e0) called with result: success, params: [object Object] qFilters-utils.js:1058:13
+quickFilters API Resolving assistant_6afda7e0 with Result: 
+Object { result: "success", params: {…} }
+qFilters-utils.js:1058:13
+quickFilters 13:28:12.523  [7354 ms]   
+ Filter assistant returned these params:  
+Object { answer: true, selectedMergedFilterIndex: 0, mergeFilter: {…}, template: "from" }
+qFilters-utils.js:963:13
+quickFilters {BUILDFILTER} 13:28:12.524  [1 ms]   
+ Returned from background:
+Current template: "from" 
+Object { result: "success", params: {…} }
+qFilters-utils.js:1085:13
+quickFilters 13:28:12.525  [1 ms]   
+ Successfully matched XPCOM filter[0] by name:Addons » quickfilters » issue 405 qFilters-utils.js:963:13
+quickFilters {BUILDFILTER} 13:28:12.525  [0 ms]   
+ buildFilter() called with params:  
+Object { sourceFolder: XPCWrappedNative_NoHelper, targetFolder: XPCWrappedNative_NoHelper, messageList: (3) […], messageDb: XPCWrappedNative_NoHelper, filterAction: 1, matchingFilters: (1) […], filtersList: XPCWrappedNative_NoHelper, mergeFilterIndex: 0, emailAddress: "noreply@discord.com", ccAddress: "", … }
+qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 13:28:12.527  [2 ms]   
+ Using template: from qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 13:28:12.527  [0 ms]   
+ Merging preselected from merge index [0] with filter: Addons » quickfilters » issue 405 qFilters-utils.js:1085:13
+quickFilters 13:28:12.527  [0 ms]   
+ getIdentityMailAddresses() qFilters-utils.js:963:13
+quickFilters 13:28:12.528  [1 ms]   
+ getIdentityMailAddresses() found account without identities: account7 qFilters-utils.js:963:13
+quickFilters 13:28:12.528  [0 ms]   
+ getIdentityMailAddresses() found account without identities: account2 qFilters-utils.js:963:13
+quickFilters {DEFAULT} 13:28:12.528  [0 ms]   
+ getIdentityMailAddresses - retrieved 2 Addresses qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 13:28:12.528  [0 ms]   
+ build name for filter action: 1 qFilters-utils.js:1085:13
+quickFilters {BUILDFILTER} 13:28:12.528  [0 ms]   
+ Applying filter template: from qFilters-utils.js:1085:13
+quickFilters 13:28:12.531  [3 ms]   
+ Not adding already existing term to avoid duplicate: from,contains,noreply@email.openai.com qFilters-utils.js:963:13
+FiltaQuilla [logTime init]
+ fq_FilterEditor.js - start... filtaquilla-util.js:254:13
+FiltaQuilla 13:28:12.701  [1 ms]   
+ fq_FilterEditor.js - Finished. filtaquilla-util.js:254:13
+quickFilters [logTime init]
+ qFilters-filterEditor.js - finished. qFilters-utils.js:963:13
+ quickFilters.Init()  
+Object { assistantActive: true, browserInfo: {…} }
+qFilters-utils.js:1058:13
+quickFilters 13:28:13.124  [41 ms]   
+ quickFilters.loadEditor() qFilters-utils.js:963:13
+quickFilters 13:28:13.224  [100 ms]   
+ No arguments for highlighting duplicates. qFilters-utils.js:963:13
+quickFilters 13:28:13.225  [1 ms]   
+ quickFilters.FilterEditor.showTitle() - filterName = Addons » quickfilters » issue 405 qFilters-utils.js:963:13

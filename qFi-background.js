@@ -479,6 +479,9 @@ async function displayAssistant(data) {
     // Now marshal the selectedApiMessages array
     url.searchParams.set("selectedApiMessages", jsonApiMessages);
   }
+  if (data.movePreview?.messages?.length) {
+    url.searchParams.set("movePreview", JSON.stringify(data.movePreview));
+  }
 
   let screenH = window.screen.height,
     windowHeight = screenH > 650 ? 650 : screenH;
@@ -945,6 +948,39 @@ function registerNotifyListener() {
       );
     }
     switch (data.func) {
+      case "captureMovePreview": {
+        // [issue 407] Capture API metadata before the legacy wrapper moves the
+        // messages: source-folder IDs may return empty headers after the move.
+        // This bridge can go away when the worker moves to the background.
+        const operationId = `move_${crypto.randomUUID()}`;
+        const tabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
+        if (tabs.length !== 1) return null;
+        let page = await messenger.mailTabs.getSelectedMessages(tabs[0].id);
+        const messages = [...page.messages];
+        while (page.id) {
+          page = await messenger.messages.continueList(page.id);
+          messages.push(...page.messages);
+        }
+        const normalizeId = id => (id || "").replace(/^<|>$/g, "");
+        const expected = (data.headerIds || []).map(normalizeId);
+        const remaining = [...messages];
+        const ordered = expected.map(id => {
+          const index = id ? remaining.findIndex(message => normalizeId(message.headerMessageId) === id) : -1;
+          return index < 0 ? null : remaining.splice(index, 1)[0];
+        });
+        if (expected.length !== messages.length || ordered.some(message => !message)) {
+          console.warn("Move preview capture: selected messages do not match the move selection", operationId);
+          return null;
+        }
+        if (Preferences.isDebug("assistant.msg")) {
+          console.log(`Move preview captured: operation=${operationId}, tab=${tabs[0].id}, count=${ordered.length}, time=${Date.now()}`);
+        }
+        return { operationId, tabId: tabs[0].id, messages: ordered.map(message => ({
+          messageId: message.id, folder: message.folder,
+          author: message.author, recipients: message.recipients, subject: message.subject,
+          date: message.date, size: message.size,
+        })) };
+      }
       case "UIListenersReady":
         // makes sure all event listeners in st-messenger.js are set up and ready to receive
         uiResolve(); // resolve the promise
