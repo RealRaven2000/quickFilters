@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Premium Features — bright-mode layout prototype</title>
+  <style>
+    :root { color-scheme: light; font: 15px system-ui, sans-serif; color: #191919; background: #fff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: clamp(20px, 4vw, 48px); }
+    .page { max-width: 960px; margin: auto; }
+    header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    header img { width: 48px; height: 48px; }
+    .brand { font-size: 1.65rem; font-weight: bold; }
+    .version { margin-left: auto; color: #62646a; font-size: 0.9rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 6px; padding-bottom: 12px; border-bottom: 1px solid #d1d4d8; margin-bottom: 24px; }
+    nav button { min-height: 34px; padding: 6px 14px; border-color: transparent; background: transparent; }
+    nav .active { color: #005bbb; background: #edf5ff; border-color: #c2dcff; font-weight: bold; }
+    .license { margin-bottom: 32px; }
+    .license-label { margin-bottom: 8px; }
+    textarea { display: block; width: 100%; min-height: 88px; resize: vertical; padding: 10px; border: 1px solid #a3a7ad; border-radius: 4px; font: 0.9rem monospace; color: #45474d; background: #fafafa; }
+    .license-buttons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; }
+    .license-buttons button { min-height: 32px; padding: 5px 14px; }
+    .validated { color: #23712a; margin: 20px 0 12px; }
+    .expiry { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .expiry output { padding: 5px 10px; border: 1px solid #d1d4d8; border-radius: 3px; background: #f8f8fa; }
+    fieldset { min-width: 0; max-width: 960px; margin: 0 auto; padding: 0; border: 0; }
+    legend { float: left; display: flex; align-items: center; gap: 16px; width: 100%; margin: 0 0 24px; padding: 0; font-size: 1.08rem; font-weight: 700; text-align: center; }
+    legend::before, legend::after { content: ""; flex: 1; height: 1px; background: #d1d4d8; }
+    .contents { clear: both; padding: 0 clamp(0px, 1vw, 12px); }
+    a { color: #0060df; text-underline-offset: 3px; }
+    .more { margin: 0 0 26px; }
+    .settings { display: grid; gap: 9px; }
+    .shortcut { display: flex; align-items: center; flex-wrap: wrap; column-gap: 8px; row-gap: 8px; }
+    label { display: flex; align-items: baseline; gap: 9px; line-height: 1.45; }
+    input[type="checkbox"] { flex: none; width: 18px; height: 18px; margin: 0; accent-color: #066bff; align-self: flex-start; transform: translateY(2px); }
+    .shortcut label { align-items: center; }
+    .shortcut input[type="checkbox"] { align-self: center; transform: none; }
+    .shortcut-key { width: 36px; height: 26px; padding: 1px 6px; border: 1px solid #a3a7ad; border-radius: 3px; background: #fff; color: inherit; font: inherit; line-height: 1.2; text-align: center; }
+    .confirmation { margin-left: 27px; margin-top: -3px; font-size: 0.95rem; }
+    .tools { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    button { min-height: 40px; padding: 9px 18px; border: 1px solid #a3a7ad; border-radius: 4px; background: #f0f0f4; color: #191919; font: inherit; cursor: pointer; }
+    button:hover { background: #e4e4eb; }
+    :focus-visible { outline: 2px solid #0060df; outline-offset: 3px; }
+    @media (max-width: 520px) {
+      legend { gap: 10px; }
+      .tools { gap: 10px; }
+      button { flex: 1 1 160px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img src="../../../chrome/content/skin/QuickFilters_32.svg" alt="">
+      <span class="brand">quickFilters</span>
+      <span class="version">Settings prototype</span>
+    </header>
+    <nav aria-label="Settings pages">
+      <button type="button">Actions</button>
+      <button type="button">New Filters</button>
+      <button type="button">Advanced</button>
+      <button type="button">Support</button>
+      <button type="button" class="active" aria-current="page">quickFilters Pro</button>
+    </nav>
+    <section class="license" aria-label="License settings">
+      <label class="license-label" for="license-key">Insert your personal License key here:</label>
+      <textarea id="license-key" spellcheck="false" placeholder="Your license key"></textarea>
+      <div class="license-buttons">
+        <button type="button">paste</button>
+        <button type="button">validate</button>
+      </div>
+      <p class="validated">Thanks for registering quickFilters Pro! All premium features are now unlocked.</p>
+      <div class="expiry">Your license is valid until: <output>14/11/2027</output></div>
+    </section>
+  <fieldset>
+    <legend>Premium Features</legend>
+    <div class="contents">
+      <p class="more"><a href="https://quickfilters.quickfolders.org/premium.html" target="_blank" rel="noopener">Read more about Premium Features on our Website</a></p>
+      <div class="settings">
+        <div class="shortcut">
+          <label><input type="checkbox" checked> Shortcut for Running Filters on Folder: Shift +</label>
+          <input class="shortcut-key" value="F" maxlength="1" aria-label="Folder filter shortcut key">
+        </div>
+        <div class="shortcut">
+          <label><input type="checkbox"> Shortcut for Running Filters on Selected Mails: Shift +</label>
+          <input class="shortcut-key" value="R" maxlength="1" aria-label="Selected mail filter shortcut key">
+        </div>
+        <label class="confirmation"><input type="checkbox" checked> Ask before executing filters when not in an Inbox</label>
+        <label><input type="checkbox"> Run filters on Local Folders Inbox automatically</label>
+        <label><input type="checkbox" checked> Show a notification when running filter manually.</label>
+      </div>
+      <div class="tools">
+        <button type="button">Open filter troubleshooter…</button>
+        <button type="button">Backup filters…</button>
+        <button type="button">Restore filters…</button>
+      </div>
+    </div>
+  </fieldset>
+  </div>
+</body>
+</html>

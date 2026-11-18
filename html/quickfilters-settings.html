@@ -25,8 +25,9 @@
         src="../chrome/content/skin/QuickFilters_32.svg"
         alt="quickFilters logo" />
     <div id="qf-options-header">
+      <span class="header-name">__MSG_extensionName__</span>
+      <span class="header-name-pro">__MSG_pro.title__</span>
     </div>      
-    <span class="spacer"></span>
     <img id="qf-youtube" src="../chrome/content/skin/youtube.png"
       title="__MSG_youtube.tooltip__"/>
     <div id="qf-options-version" title="__MSG_versionNumber.tooltip__">
@@ -324,7 +325,6 @@
           </button> 
         </span>
       </div>
-      <hr>
     </section>
 
     <!-- Support Tab -->
@@ -403,43 +403,43 @@
         <span id="licenseExpiryWarning" role="status" hidden></span>
       </div>
 
-      <hr style="height:1em;" />
+      <hr class="licenseActionsSeparator" />
 
       <box class="btnLicenseContainer">
         <button class="register" id="btnLicense">Buy License</button>
         <button class="register" id="btnSwitchToFree" hidden>__MSG_pro.licenseBackup.switch__</button>
         <button class="register" id="btnRecoverLicense" hidden>__MSG_pro.licenseBackup.recover__</button>
-        </box>
+      </box>
 
       <div class="hbox">
         <fieldset id="premiumConfig">
           <legend>__MSG_proFeatures.title__</legend>
           <div class="vbox">
 
-            <div class="hbox">
-              <label class="plain-link" href="https://quickfilters.quickfolders.org/premium.html#featureList">
-                __MSG_proFeatures.website__
-              </label>
+            <div class="hbox" id="premiumFeatureTools">
+              <button id="btnTroubleshooter">__MSG_troubleshooter.open__</button>
+              <button id="btnBackupFilters">__MSG_premium.title.saveFilters__…</button>
+              <button id="btnRestoreFilters">__MSG_premium.title.loadFilters__…</button>
             </div>
 
-            <div class="hbox align-center">
+            <div class="hbox align-center premiumShortcutRow">
               <label class="proFeature"><input type="checkbox" id="chkFoldersShortcut" data-pref-name="shortcuts.folder">__MSG_proFeatures.shortcuts.runFolder__</label>
-              <input class="proFeature" type="text" style="width:3em;" data-pref-name="shortcuts.folder.key">
+              <input class="proFeature" type="text" data-pref-name="shortcuts.folder.key">
             </div>
 
-            <div class="hbox align-center">
+            <div class="hbox align-center premiumShortcutRow">
               <label class="proFeature"><input type="checkbox" id="chkMailsShortcut" data-pref-name="shortcuts.mails">__MSG_proFeatures.shortcuts.runMails__</label>
-              <input class="proFeature" type="text" style="width:3em;" data-pref-name="shortcuts.mails.key">
+              <input class="proFeature" type="text" data-pref-name="shortcuts.mails.key">
             </div>
 
             <label style="margin-left:2em;"><input type="checkbox" data-pref-name="shortcuts.challenge">__MSG_proFeatures.shortcuts.challenge__</label>
             <label class="proFeature"><input type="checkbox" id="chkLocalFoldersAutorun" data-pref-name="localFoldersRun">__MSG_chkLocalFoldersAutorun.label__</label>
             <label class="proFeature"><input type="checkbox" id="chkNotifyRunFilter" data-pref-name="notifications.runFilter">__MSG_chkNotify.RunFilter__</label>
 
-            <separator></separator>
-            
-            <div class="hbox">
-              <button id="btnTroubleshooter">__MSG_troubleshooter.open__</button>
+            <div class="hbox" id="premiumFeaturesMore">
+              <label class="plain-link" href="https://quickfilters.quickfolders.org/premium.html#featureList">
+                __MSG_proFeatures.website__
+              </label>
             </div>
 
           </div>

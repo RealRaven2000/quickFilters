@@ -199,6 +199,12 @@ const initEventListeners = async () => {
   document.getElementById("btnTroubleshooter").addEventListener("click", () => {
     browser.tabs.create({ url: browser.runtime.getURL("html/filter-troubleshooter.html") });
   });
+  for (const [id, mode] of [["btnBackupFilters", "backup"], ["btnRestoreFilters", "restore"]]) {
+    document.getElementById(id).addEventListener("click", () => {
+      browser.tabs.create({ url: browser.runtime.getURL(`html/filter-backup.html?mode=${mode}`) })
+        .catch(error => console.error(`quickFilters: opening ${mode}`, error));
+    });
+  }
   chkToolbar.addEventListener("change", () => {
     messenger.runtime.sendMessage({
       command: "setupListToolbar",
