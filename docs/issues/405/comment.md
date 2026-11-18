@@ -4,7 +4,13 @@ In the test version below, the **Based on Sender (from)** template now also coll
 
 Please try this version and let me know whether it works for you:
 
+[quickFilters-6.15.1pre57.zip](https://github.com/user-attachments/files/35033012/quickFilters-6.15.1pre57.zip)
 
+This version also includes the following changes discovered while testing:
+
+- Fixed the empty email preview when using Thunderbird's **Move To** context menu. #407
+- Added `<` and `>` buttons to browse previews when multiple messages are selected. #407
+- Prevented duplicate actions, such as **Add Star**, when merging into an existing filter.
 
 
 ----
