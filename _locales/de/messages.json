@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Ihre Lizenz läuft bald ab. Verlängern Sie sie jetzt um ein weiteres Jahr. Ihre verbleibenden Tage gehen nicht verloren."
+  },
   "licenseValidation.passed": {
     "message": "Vielen Dank für's Registrieren von quickFilters Pro! Alle Premium-Funktionen sind nun freigeschaltet."
   },
@@ -2157,6 +2160,51 @@
   "register.licenseValid.expired": {
     "message": "Ihre Lizenz lief ab am:"
   },
+  "registration.checkout.note": {
+    "message": "Preise, Steuern und verfügbare Rabatte werden im Shop angezeigt."
+  },
+  "registration.contact.legend": {
+    "message": "Für wen ist diese Lizenz?"
+  },
+  "registration.contact.note": {
+    "message": "Diese Angaben werden für die Bestellung vorausgefüllt. Sie können sie hier bearbeiten."
+  },
+  "registration.email": {
+    "message": "E-Mail-Adresse"
+  },
+  "registration.email.domain": {
+    "message": "Hier gelten andere Regeln: Die eingerichtete E-Mail-Adresse muss zur lizenzierten Domäne gehören."
+  },
+  "registration.email.domain.heading": {
+    "message": "Domänenlizenzen"
+  },
+  "registration.email.help.heading": {
+    "message": "Ihre E-Mail-Adresse ist Ihre Lizenz"
+  },
+  "registration.email.hint": {
+    "message": "Ihre persönliche Lizenz gilt auf mehreren Geräten."
+  },
+  "registration.email.personal": {
+    "message": "Ihre Lizenz ist an diese E-Mail-Adresse gebunden. Sie können sie auf mehreren Geräten verwenden. Richten Sie diese Adresse auf jedem Gerät in Thunderbird als {bold}Standardidentität{/bold} eines Kontos ein."
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro-Lizenzen"
+  },
+  "registration.heading.eyebrow": {
+    "message": "IHRE LIZENZ"
+  },
+  "registration.heading.intro": {
+    "message": "Halten Sie Ihre Filter mit {link}allen Pro-Funktionen{/link} in Form und helfen Sie mit, quickFilters weiterzuentwickeln."
+  },
+  "registration.heading.title": {
+    "message": "Von der E-Mail zum Filter in Sekunden."
+  },
+  "registration.learnMore": {
+    "message": "Mehr erfahren…"
+  },
+  "registration.legacy.menu": {
+    "message": "Bisherige Lizenzregistrierung"
+  },
   "registration.menu": {
     "message": "$licenseName$ Lizenz…",
     "placeholders": {
@@ -2164,6 +2212,114 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.plan.domain.description": {
+    "message": "Alle Funktionen für Ihr gesamtes Team, unter einer Lizenz."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Für Ihr Team"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Für eine gemeinsame Domäne"
+  },
+  "registration.plan.pro.description": {
+    "message": "Bringen Sie Ihre Thunderbird-Filterregeln auf Touren."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Alle Funktionen"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Für Ihre eigenen E-Mails"
+  },
+  "registration.preview.badge": {
+    "message": "Oberflächenprototyp"
+  },
+  "registration.preview.buy": {
+    "message": "Kaufen"
+  },
+  "registration.preview.extendDomain": {
+    "message": "Domänenlizenz verlängern"
+  },
+  "registration.preview.extendPro": {
+    "message": "Pro verlängern"
+  },
+  "registration.preview.label": {
+    "message": "Testfall"
+  },
+  "registration.preview.renewDomain": {
+    "message": "Domänenlizenz erneuern (abgelaufen)"
+  },
+  "registration.preview.renewPro": {
+    "message": "Pro erneuern"
+  },
+  "registration.preview.upgrade": {
+    "message": "Pro-Lizenz: Domäne ansehen"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Vorteile bei der Erneuerung hängen von den an den Shop übermittelten Lizenzinformationen ab. Ein Produktwechsel im Shop oder das Entfernen dieser Informationen durch Sicherheitssoftware kann verhindern, dass der Shop Ihren bestehenden Anspruch berücksichtigt."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro-Lizenzen{/bold}{br}Eine neue Lizenz gilt ein Jahr ab Zahlung. Bei Erneuerung oder Verlängerung von Pro erhalten Sie ein volles Jahr ab Zahlung oder ein Jahr über das bestehende Ablaufdatum hinaus, je nachdem, welcher Zeitraum länger ist."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Bestehende Lizenz{/bold}{br}Ihre aktuelle Lizenz wird an den Shop übergeben, damit das neue Ablaufdatum berechnet werden kann."
+  },
+  "registration.selection.intro": {
+    "message": "Wählen Sie Pro für Ihre eigene E-Mail-Adresse oder eine Domänenlizenz für Ihr Team."
+  },
+  "registration.selection.title": {
+    "message": "Weniger Chaos im Posteingang. Mehr Zeit für Sie."
+  },
+  "registration.terms.annual": {
+    "message": "Eine Lizenz gilt ein Jahr. Erneuern Sie eine abgelaufene Lizenz oder verlängern Sie eine gültige, um Ihre gewählte Edition weiterzuverwenden."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Ein Jahr nach dem anderen"
+  },
+  "registration.terms.checkout": {
+    "message": "Wählen Sie eine Lizenz, um zum Shop zu gelangen. Der Preis hängt von Edition, Land, Steuern und möglichen Rabatten ab."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Kauf in Ihrem Browser"
+  },
+  "registration.terms.domain": {
+    "message": "Eine Domänenlizenz gilt für Benutzer mit passenden Adressen innerhalb der lizenzierten Domäne."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Wählen Sie Ihre Edition"
+  },
+  "registration.terms.email": {
+    "message": "Eine persönliche Lizenz ist an Ihre E-Mail-Adresse gebunden. Sie können sie in mehreren Thunderbird-Installationen verwenden, wenn die lizenzierte Adresse in jeder Installation als **Standardidentität** eines Kontos eingerichtet ist."
+  },
+  "registration.terms.email.heading": {
+    "message": "Ihre E-Mail-Adresse, Ihre Lizenz"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters hilft Ihnen beim Erstellen und Verwalten von Thunderbird-Filtern. Lizenzen finanzieren die laufende Entwicklung, neue Funktionen und Kompatibilitätsupdates. Jede Lizenz gilt ein Jahr."
+  },
+  "registration.terms.manual": {
+    "message": "Domänenlizenzen werden **manuell geprüft und ausgestellt**. Eine Erneuerung verlängert das bestehende Ablaufdatum um ein Jahr, auch wenn die Lizenz bereits abgelaufen ist. Dies fördert eine rechtzeitige Erneuerung; die endgültige Laufzeit wird bei der Prüfung bestätigt."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Lizenzen werden **nicht automatisch erneuert**. {+extensionName} erinnert Sie vor Ablauf Ihrer Lizenz."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "Die lizenzierten Funktionen stehen auch allen Ihren anderen E-Mail-Konten in Thunderbird zur Verfügung. Dafür sind keine separaten Lizenzen nötig."
+  },
+  "registration.terms.referrer": {
+    "message": "Ihre bestehende gültige oder abgelaufene Lizenz wird beim Kauf oder bei der Erneuerung als Referrer an den Shop übermittelt."
+  },
+  "registration.terms.savings": {
+    "message": "**Starten Sie mit Pro und sparen Sie in den Folgejahren.** Die Erneuerung oder Verlängerung Ihrer Pro-Lizenz kostet deutlich weniger als eine neue Lizenz."
+  },
+  "registration.terms.support": {
+    "message": "Ihre Unterstützung hilft, Entwicklung, Kompatibilitätsupdates und Fehlerbehebungen zu finanzieren."
+  },
+  "registration.terms.title": {
+    "message": "So funktioniert Ihre Lizenz."
+  },
+  "registration.title": {
+    "message": "quickFilters · Ihre Lizenz"
   },
   "renew-your-license": {
     "message": "Erneuern Sie Ihre Lizenz."

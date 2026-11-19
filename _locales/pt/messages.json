@@ -1720,6 +1720,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Endereço de email criptografado não corresponde a um legível."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "A sua licença está prestes a expirar. Prolongue-a agora por mais um ano. Os dias restantes não serão perdidos."
+  },
   "licenseValidation.passed": {
     "message": "Obrigado por registrar o QuickFolders Pro! Todas as funcionalidades premium estão agora desbloqueadas."
   },
@@ -2158,6 +2161,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Sua licença expirou em:"
+  },
+  "registration.legacy.menu": {
+    "message": "Registo de licença anterior"
   },
   "registration.menu": {
     "message": "$licenseName$ Licença…",

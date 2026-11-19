@@ -2,6 +2,7 @@
  globals  
    formatAll,
    insertHtmlSafely,
+   formatLocalizedElements,
 
 */
 
@@ -37,17 +38,19 @@ async function configureBuyButton() {
 
   switch (result) {
     case "Valid": {
+      if (quickFilters.Options.isLicenseExpiringSoon(licenseInfo)) {
+        licenseExpiryWarning.textContent = messenger.i18n.getMessage(
+          "quickfiltersToolbarButton.renew",
+          [String(licenseInfo.licensedDaysLeft)]
+        );
+        licenseExpiryWarning.hidden = false;
+      }
       let today = new Date(),
         later = new Date(today.setDate(today.getDate() + 30)), // pretend it's a month later:
         dateString = later.toISOString().substr(0, 10);
       // if we were a month ahead would this be expired?
       if (licenseInfo.expiryDate < dateString) {
         quickFilters.Options.labelLicenseBtn(btnLicense, "extend");
-        licenseExpiryWarning.textContent = messenger.i18n.getMessage(
-          "quickfiltersToolbarButton.renew",
-          [String(licenseInfo.licensedDaysLeft)]
-        );
-        licenseExpiryWarning.hidden = false;
       } else {
         if (licenseInfo.keyType == 2) {
           // standard license
@@ -236,10 +239,30 @@ const initEventListeners = async () => {
     quickFilters.Options.selectMergeSkip(chkMergeSkip);
   });
   const btnLicense = document.getElementById("btnLicense");
-  btnLicense.addEventListener("click", () => {
+  btnLicense.addEventListener("click", async () => {
     const referrer = "options_" + quickFilters.Options.currentOptionsTab;
-    messenger.Utilities.showLicenseDialog(referrer);
-    window.close();
+    btnLicense.disabled = true;
+    try {
+      const base = messenger.runtime.getURL("html/registration/registration.html");
+      const url = new URL(base);
+      url.searchParams.set("feature", referrer);
+      const tabs = await messenger.tabs.query({});
+      const existing = tabs.find((tab) => tab.url && tab.url.split(/[?#]/)[0] === base);
+      const registration = existing
+        ? await messenger.tabs.update(existing.id, { url: url.href, active: true })
+        : await messenger.tabs.create({ url: url.href, active: true });
+      if (registration.windowId != null) {
+        await messenger.windows.update(registration.windowId, { focused: true });
+      }
+      const settings = await messenger.tabs.getCurrent();
+      if (settings?.id != null && settings.id !== registration.id) {
+        await messenger.tabs.remove(settings.id);
+      }
+    } catch (error) {
+      console.error("Opening registration failed", error);
+    } finally {
+      btnLicense.disabled = false;
+    }
   });
 
 
@@ -436,6 +459,7 @@ const startup = async () => {
   await util.waitForSessionReady();
 
   i18n.updateDocument();
+  formatLocalizedElements();
   await initEventListeners();
   await initPrefs();
   quickFilters.Options.load();

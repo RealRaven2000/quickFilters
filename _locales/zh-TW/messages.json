@@ -1645,6 +1645,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "加密的電子郵件地址與可讀的電子郵件地址不匹配。"
   },
+  "licenseValidation.expiringSoon": {
+    "message": "您的授權即將到期。現在延長一年，剩餘天數不會損失。"
+  },
   "licenseValidation.passed": {
     "message": "感謝您註冊 quickFilters Pro！ 所有高級功能現已解鎖。"
   },
@@ -2072,6 +2075,9 @@
   },
   "register.licenseValid.expired": {
     "message": "您的許可證過期日期："
+  },
+  "registration.legacy.menu": {
+    "message": "舊版授權註冊"
   },
   "registration.menu": {
     "message": "$licenseName$ 授權…",

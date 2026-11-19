@@ -82,6 +82,7 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
     i18n.updateDocument();
+  formatLocalizedElements();
 
     let loc = window.location,
       hasMsg = loc.search && loc.search.length > 1,
@@ -220,7 +221,7 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
 
     let whatsNewLst = document.getElementById("whatsNewList");
     if (whatsNewLst) {
-      insertHtmlSafely(whatsNewLst, formatAll(messenger.i18n.getMessage("whats-new-list")), true);
+      insertHtmlSafely(whatsNewLst, "<ul>" + formatAll(messenger.i18n.getMessage("whats-new-list")) + "</ul>", true);
     }
 
     let ongoing = document.getElementById("ongoing-work");

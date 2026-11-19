@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Den krypterade e-postadressen matchar inte den läsbara adressen."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Din licens går snart ut. Förläng den nu med ytterligare ett år. Dina återstående dagar går inte förlorade."
+  },
   "licenseValidation.passed": {
     "message": "Tack för att du registrerar quickFilters Pro! Alla licensbelagda funktioner är nu tillgängliga."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Din licens löpte ut:"
+  },
+  "registration.legacy.menu": {
+    "message": "Tidigare licensregistrering"
   },
   "registration.menu": {
     "message": "$licenseName$ Licens…",

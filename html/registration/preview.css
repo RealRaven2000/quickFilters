@@ -1,0 +1,47 @@
+.brand { flex-wrap: wrap; }
+.prototype-switches { margin-inline-start: auto; display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.prototype-switches .prototype-badge { margin: 0; }
+.prototype-switches label { gap: 3px; font-size: 11px; font-weight: 500; }
+.prototype-switches select { padding: 5px 8px; font-size: 12px; }
+.plans { grid-template-columns: repeat(var(--preview-columns, 3), minmax(0, 1fr)); }
+.current-edition-note { padding: 12px; border-radius: 7px; background: #f4f6f3; color: #52645a; font-size: 13px; line-height: 1.6; }
+.separate-pro-warning { border-inline-start: 3px solid #dfbd7f; background: #fff7e6; color: #72511f; }
+.plan > p.domain-seats-note { font-size: 11px; line-height: 1.6; margin-top: -14px; margin-bottom: 24px; }
+.domain-seats-note a { color: #526777; }
+.license-summary.valid-license { background: #f2f7f1; border-color: #9db69e; }
+.valid-license .status { background: #e0eddf; color: #245e48; }
+.expiry-warning { font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 9px; color: #fff; background: linear-gradient(#d85b00, #a43e00); }
+@media (max-width: 760px) { .plans { grid-template-columns: 1fr; } }
+
+@media (prefers-color-scheme: dark) {
+  :root { --green: #a3ce83; --muted: #b8c0c7; background: #25292e; color: #e9edf0; }
+  body { background: #25292e; color: #e9edf0; }
+  .workspace { background: #32383e; border-color: #59636b; box-shadow: 0 5px 20px #0003; }
+  .contact { background: #2c3238; border-color: #59636b; }
+  input, select { background: #242a30; color: #eef2f4; border-color: #74808a; }
+  .plan { background: #32383e; border-color: #69747c; }
+  .plan.featured { background: #394c38; border-color: #84a779; }
+  .license-summary { background: #40372c; border-color: #a77d4f; }
+  .license-summary.valid-license { background: #344638; border-color: #84a779; }
+  .license-summary p { color: #d7dfd4; }
+  .status { background: #72502e; color: #ffdfb4; }
+  .valid-license .status { background: #496849; color: #e6f4de; }
+  .secondary, .toggle { background: #3b4840; color: #f1f6ed; border-color: #758976; }
+  .secondary:hover, .toggle:hover { background: #4a5b4e; }
+  .primary { background: #477d35; color: #fff; }
+  .primary:hover { background: #386b2a; }
+  .purchase.renewal-emphasis { background: #b85616; }
+  .purchase.renewal-emphasis:hover { background: #94410d; }
+  .view-switcher { border-color: #536356; }
+  .view-switcher:has(.toggle:hover), .view-switcher:has(.toggle:focus-visible) {
+    background: repeating-linear-gradient(135deg, #3b4740 0, #3b4740 6px, #32383e 6px, #32383e 12px);
+  }
+  .email-help { background: #32383e; border-color: #71808b; box-shadow: 0 8px 28px #0008; }
+  .email-help p, .terms-grid p, .email-field .email-hint { color: #c2cec2; }
+  .email-help-close { color: #e8eee8; }
+  .renewal-details, .feedback { background: #394b3a; color: #e3eee0; border-color: #86a781; }
+  .domain-pro-warning, .checkout-notice { background: #55442e; color: #ffe2b9; border-color: #bf965d; }
+  .plan > p.domain-seats-note { color: #c2cec2; }
+  .domain-seats-note a { color: #b4d5ae; }
+  .terms-grid p.license-detail-highlight { background: #304c60; }
+}

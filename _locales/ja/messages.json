@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "暗号化されたメールアドレスが読めるメールアドレスと一致しません。"
   },
+  "licenseValidation.expiringSoon": {
+    "message": "ライセンスの有効期限がまもなく切れます。今すぐ延長すると、さらに1年間ご利用いただけます。残りの日数は失われません。"
+  },
   "licenseValidation.passed": {
     "message": "QuickFolders Pro のご登録ありがとうございます！ すべての有料機能がロック解除されました。"
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "ライセンスの有効期限:"
+  },
+  "registration.legacy.menu": {
+    "message": "従来のライセンス登録"
   },
   "registration.menu": {
     "message": "$licenseName$ ライセンス…",

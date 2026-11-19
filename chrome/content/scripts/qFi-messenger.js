@@ -203,6 +203,9 @@ async function onLoad(activatedWhileWindowOpen) {
       case "quickfilters-menu-troubleshooter":
         window.quickFilters.Util.openTroubleshooter().catch(error => window.quickFilters.Util.logException("Opening filter troubleshooter", error));
         break;
+      case "quickfilters-menu-test-registration":
+        window.quickFilters.Util.openRegistrationPreview().catch(error => window.quickFilters.Util.logException("Opening registration preview", error));
+        break;
       case "quickfilters-menu-test-storage-editor":
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "test-storage-editor" });
         break;
@@ -232,6 +235,9 @@ async function onLoad(activatedWhileWindowOpen) {
         window.quickFilters.Util.notifyTools.notifyBackground({ func: "API-test-FilterAPI" });
         break;
       case "quickfilters-menu-registration":
+        window.quickFilters.Util.openRegistrationPreview("toolsMenu").catch(error => window.quickFilters.Util.logException("Opening registration", error));
+        break;
+      case "quickfilters-menu-registration-legacy":
         window.quickFilters.Util.showLicenseDialog("toolsMenu");
         break;
       default:

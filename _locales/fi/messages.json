@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Salattu sähköpostiosoite ei vastaa lukukelpoista"
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Lisenssisi vanhenee pian. Jatka sitä nyt toisella vuodella. Jäljellä olevat päivät eivät mene hukkaan."
+  },
   "licenseValidation.passed": {
     "message": "Kiitos quickFilters Pron rekisteröinnistä! Kaikki premium-ominaisuudet ovat nyt auki."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Lisenssisi on vanhentunut:"
+  },
+  "registration.legacy.menu": {
+    "message": "Vanha lisenssin rekisteröinti"
   },
   "registration.menu": {
     "message": "$licenseName$ Lisenssi…",

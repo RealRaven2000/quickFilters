@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Zaszyfrowany adres e-mail nie pasuje do adresu do odczytu."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Twoja licencja wkrótce wygaśnie. Przedłuż ją teraz o kolejny rok. Pozostałe dni nie przepadną."
+  },
   "licenseValidation.passed": {
     "message": "Dziękujemy za zarejestrowanie quickFilters Pro! Wszystkie funkcje premium są teraz odblokowane."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Twoja licencja wygasła:"
+  },
+  "registration.legacy.menu": {
+    "message": "Poprzednia rejestracja licencji"
   },
   "registration.menu": {
     "message": "$licenseName$ Licencja…",

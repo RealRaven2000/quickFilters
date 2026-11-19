@@ -14,6 +14,10 @@ END LICENSE BLOCK */
   */
 
 quickFilters.Options = {
+  isLicenseExpiringSoon(info) {
+    return info?.status === "Valid" && Number.isFinite(info.licensedDaysLeft) && info.licensedDaysLeft < 11;
+  },
+
   get currentOptionsTab() {
     const activeTab = document.querySelector("nav button.active");
     if (activeTab) {
@@ -175,6 +179,13 @@ quickFilters.Options = {
       switch (result) {
         case "Valid":
           quickFilters.Options.enableProFeatures(true);
+          {
+            const expiresSoon = quickFilters.Options.isLicenseExpiringSoon(licenseInfo);
+            validationPassed.textContent = messenger.i18n.getMessage(
+              expiresSoon ? "licenseValidation.expiringSoon" : "licenseValidation.passed"
+            );
+            validationPassed.classList.toggle("licenseWarning", expiresSoon);
+          }
           quickFilters.Options.showValidationMessage(validationPassed, silent);
           // getElement("dialogProductTitle").value = "quickFilters Pro";
           licenseDate.classList.add("valid");

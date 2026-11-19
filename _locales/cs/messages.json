@@ -1696,6 +1696,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Šifrovaná e-mailová adresa neodpovídá čitelné verzi."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Platnost vaší licence brzy vyprší. Prodlužte ji nyní o další rok. Zbývající dny vám zůstanou."
+  },
   "licenseValidation.passed": {
     "message": "Děkujeme za registraci quickFilters Pro! Všechny prémiové funkce jsou nyní odemčeny."
   },
@@ -2138,6 +2141,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Vaše licence vypršela dne:"
+  },
+  "registration.legacy.menu": {
+    "message": "Původní registrace licence"
   },
   "registration.menu": {
     "message": "Licence $licenseName$…",

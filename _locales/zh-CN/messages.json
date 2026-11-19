@@ -1712,6 +1712,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "E加密的电子邮件地址与可读的电子邮件地址不匹配。"
   },
+  "licenseValidation.expiringSoon": {
+    "message": "您的许可证即将到期。现在续期一年，剩余的天数不会损失。"
+  },
   "licenseValidation.passed": {
     "message": "感谢您注册 QuickFilters Pro！ 所有高级功能现已解锁。"
   },
@@ -2147,6 +2150,9 @@
   },
   "register.licenseValid.expired": {
     "message": "您的许可证已过期："
+  },
+  "registration.legacy.menu": {
+    "message": "旧版许可证注册"
   },
   "registration.menu": {
     "message": "$licenseName$ 许可证…",

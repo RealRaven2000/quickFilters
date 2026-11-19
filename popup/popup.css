@@ -316,3 +316,18 @@ li.important::before {
   position: absolute;
   left: -1em; 
 }
+#whatsNewList {
+  margin-inline: 0.8em;
+  background-color: transparent;
+}
+
+#whatsNewList h3.section {
+  background-color: transparent;
+  text-align: left;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #8ade29;
+  text-shadow: none;
+}

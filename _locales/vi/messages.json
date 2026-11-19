@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Địa chỉ email được mã hóa không khớp với địa chỉ có thể đọc được."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Giấy phép của bạn sắp hết hạn. Hãy gia hạn ngay thêm một năm. Những ngày còn lại sẽ không bị mất."
+  },
   "licenseValidation.passed": {
     "message": "Cảm ơn bạn đã đăng ký quickFilters Pro! Tất cả các tính năng cao cấp hiện đã được mở khóa."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Your license expired on:"
+  },
+  "registration.legacy.menu": {
+    "message": "Đăng ký giấy phép cũ"
   },
   "registration.menu": {
     "message": "$licenseName$ Giấy phép…",

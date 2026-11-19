@@ -941,12 +941,12 @@ button.configSettings {
 }
 
 #licenseExpiryWarning {
-  margin-inline-start: 1em;
-  border-radius: var(--button-border-radius, 4px);
-  padding: 5px 8px;
-  background-color: #d23b00;
-  color: white;
-  font-weight: bold;
+  border-radius: 20px;
+  padding: 4px 9px;
+  background: linear-gradient(to bottom, #ee570b 0%, #893a02 100%);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 #licenseDate.valid {
@@ -985,6 +985,111 @@ button.configSettings {
 #validationResults {
   margin-inline: auto;
   max-width: 60em;
+}
+
+/* License result and actions share a row, wrapping on narrow windows. */
+#licenseTab {
+  --license-notice-background: #fff7e6;
+  --license-notice-color: #72511f;
+  --license-notice-border: #dfbd7f;
+  --license-error-background: #fff0f1;
+  --license-error-color: #923341;
+  --license-error-border: #dba1aa;
+}
+@media (min-width: 850px) {
+  body { font-size: 115%; }
+}
+#licenseTab > label,
+#licenseTab #licenseDateLabel,
+#licenseTab #licenseDate,
+#licenseTab #validationResults p {
+  font-family: inherit;
+  font-size: inherit;
+  text-align: start;
+}
+#licenseTab #txtLicenseKey {
+  font-family: Consolas, "Courier New", monospace;
+  line-height: 1.5;
+}
+#licenseTab #licenseDate {
+  width: 11ch;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+}
+#licenseTab .license-status-action {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  min-width: 0;
+  margin-block: 24px;
+}
+#licenseTab #validationResults,
+#licenseTab #validationResults:hover {
+  flex: 999 1 360px;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  background: transparent;
+}
+#licenseTab #validationResults > .vbox {
+  flex: 1 1 auto;
+  min-width: 0;
+  gap: 8px;
+}
+#licenseTab #validationResults p {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 12px 0;
+  border-radius: 8px;
+  font: inherit;
+  line-height: 1.5;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+#licenseTab #validationResults .licenseWarning {
+  padding: 12px 16px;
+  border: 1px solid var(--license-notice-border);
+  border-inline-start-width: 3px;
+  background: var(--license-notice-background) !important;
+  color: var(--license-notice-color) !important;
+}
+#licenseTab #validationResults .licenseError {
+  padding: 12px 16px;
+  border: 1px solid var(--license-error-border);
+  border-inline-start-width: 3px;
+  background: var(--license-error-background) !important;
+  color: var(--license-error-color) !important;
+}
+#licenseTab .license-status-action .btnLicenseContainer {
+  display: flex;
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: auto;
+  margin: 0;
+}
+#licenseTab .license-status-action .btnLicenseContainer:not(:has(> button:not([hidden]):not([collapsed="true"]))) {
+  display: none;
+}
+#licenseTab #validationDate { gap: 8px 12px; }
+#licenseTab #licenseExpiryWarning[hidden] { display: none; }
+@media (prefers-color-scheme: dark) {
+  #licenseTab {
+    --license-notice-background: #382f20;
+    --license-notice-color: #f1d39e;
+    --license-notice-border: #80673d;
+    --license-error-background: #3e252c;
+    --license-error-color: #ffc1cb;
+    --license-error-border: #8e535f;
+  }
 }
 
 #confirmationDialog {

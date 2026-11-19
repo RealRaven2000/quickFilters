@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "L'indirizzo di posta elettronica crittografato non corrisponde a quello in chiaro."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "La tua licenza sta per scadere. Estendila ora per un altro anno. I giorni rimanenti non andranno persi."
+  },
   "licenseValidation.passed": {
     "message": "Grazie per aver registrato quickFilters Pro. Tutte le caratteristiche Premium sono ora disponibili."
   },
@@ -2156,6 +2159,9 @@
   },
   "register.licenseValid.expired": {
     "message": "La licenza scadrà il giorno:"
+  },
+  "registration.legacy.menu": {
+    "message": "Registrazione licenza precedente"
   },
   "registration.menu": {
     "message": "Licenza $licenseName$…",

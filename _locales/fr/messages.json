@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Une adresse électronique chiffrée ne peut être reconnue."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Votre licence arrive bientôt à expiration. Prolongez-la dès maintenant pour une année supplémentaire. Vous ne perdrez pas les jours restants."
+  },
   "licenseValidation.passed": {
     "message": "Merci pour votre abonnement à quickFilters Pro ! Toutes les fonctionnalités premium sont à présent disponibles."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Your license expired on:"
+  },
+  "registration.legacy.menu": {
+    "message": "Ancien enregistrement de licence"
   },
   "registration.menu": {
     "message": "$licenseName$ Licence…",

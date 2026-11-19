@@ -1842,6 +1842,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Encrypted Email address does not match readable one."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Your license is about to expire. Extend it now for another year. Your remaining days won't be lost."
+  },
   "licenseValidation.passed": {
     "message": "Thanks for registering quickFilters Pro! All premium features are now unlocked."
   },
@@ -2285,6 +2288,59 @@
   "register.licenseValid.expired": {
     "message": "Your license expired on:"
   },
+  "registration.action.upgradeDomain": {
+    "message": "Upgrade to Domain"
+  },
+  "registration.checkout.note": {
+    "description": "Original entity: pricing.section.hint.",
+    "message": "Prices, tax, and available discounts are shown in the shop."
+  },
+  "registration.contact.legend": {
+    "message": "Who is this license for?"
+  },
+  "registration.contact.note": {
+    "message": "These details will prefill checkout. You can edit them here."
+  },
+  "registration.email": {
+    "description": "Original entity: email.label.",
+    "message": "Email address"
+  },
+  "registration.email.domain": {
+    "description": "Original entity: domainLicense.instruct.",
+    "message": "Different rules apply: the configured email address must belong to the licensed domain."
+  },
+  "registration.email.domain.heading": {
+    "message": "Domain licenses"
+  },
+  "registration.email.help.heading": {
+    "message": "Your email is your license"
+  },
+  "registration.email.hint": {
+    "message": "Your personal license works across multiple devices."
+  },
+  "registration.email.personal": {
+    "description": "Original entity: yearlyLicense.usageTerm. requires .localized-markup",
+    "message": "Your license is tied to this email address. You can use it on multiple devices. Configure this address as an account’s {bold}default identity{/bold} in Thunderbird on each device."
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro licenses"
+  },
+  "registration.heading.eyebrow": {
+    "message": "YOUR LICENSE"
+  },
+  "registration.heading.intro": {
+    "description": "Use {link} and {/link} around the linked text.",
+    "message": "Keep your filters in shape with {link}all Pro functions{/link}, and help keep quickFilters growing."
+  },
+  "registration.heading.title": {
+    "message": "From email to filter, in seconds."
+  },
+  "registration.learnMore": {
+    "message": "Learn more…"
+  },
+  "registration.legacy.menu": {
+    "message": "Legacy license registration"
+  },
   "registration.menu": {
     "message": "$licenseName$ License…",
     "placeholders": {
@@ -2292,6 +2348,129 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.plan.domain.description": {
+    "description": "Original entity: buyDomainLicense.instruct.",
+    "message": "All features for your whole team, under one license."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "For your team"
+  },
+  "registration.plan.domain.scope": {
+    "message": "For a shared domain"
+  },
+  "registration.plan.pro.description": {
+    "description": "Original entity: buyLicense.instruct.",
+    "message": "Power up your Thunderbird filter rules."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "All the features"
+  },
+  "registration.plan.pro.scope": {
+    "message": "For your own email"
+  },
+  "registration.preview.badge": {
+    "message": "UI prototype"
+  },
+  "registration.preview.buy": {
+    "message": "Buy"
+  },
+  "registration.preview.extendDomain": {
+    "message": "Extend Domain"
+  },
+  "registration.preview.extendPro": {
+    "message": "Extend Pro"
+  },
+  "registration.preview.label": {
+    "message": "Test case"
+  },
+  "registration.preview.renewDomain": {
+    "message": "Renew Domain (expired)"
+  },
+  "registration.preview.renewPro": {
+    "message": "Renew Pro"
+  },
+  "registration.preview.upgrade": {
+    "message": "Pro license: explore Domain"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Renewal benefits depend on license information passed to the shop. Switching products in the shop or security software removing that information can prevent the shop from applying your existing entitlement."
+  },
+  "registration.renewal.personal": {
+    "description": "requires .localized-markup",
+    "message": "{bold}Pro licenses{/bold}{br}A new license runs for one year from payment. When renewing or extending Pro, you receive a full year from payment or one year beyond your existing expiry date, whichever gives you more time."
+  },
+  "registration.renewal.previous": {
+    "description": "requires .localized-markup",
+    "message": "{bold}Existing license{/bold}{br}Your current license is passed to the shop so the new expiry date can be calculated."
+  },
+  "registration.selection.intro": {
+    "message": "Choose Pro for your own email or Domain for your team."
+  },
+  "registration.selection.title": {
+    "message": "Less inbox clutter. More time for you."
+  },
+  "registration.settings.error": {
+    "message": "Could not open license settings. Please try again."
+  },
+  "registration.terms.annual": {
+    "message": "A license covers one year. Renew an expired license or extend a current one to continue with your chosen edition."
+  },
+  "registration.terms.annual.heading": {
+    "message": "One year at a time"
+  },
+  "registration.terms.checkout": {
+    "description": "Original entity: pricing.section.",
+    "message": "Select a license to continue to the shop. Your price depends on the edition, country, tax, and any applicable discounts."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Checkout in your browser"
+  },
+  "registration.terms.domain": {
+    "description": "Original entity: domainLicense.instruct.",
+    "message": "A Domain license covers users with matching addresses under the licensed domain."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Choose your edition"
+  },
+  "registration.terms.email": {
+    "description": "Original entity: yearlyLicense.usageTerm. requires .localizedFormatting",
+    "message": "A personal license is tied to your email address. You can use it on multiple Thunderbird installations when the licensed address is configured as the **default identity** of an account in each installation."
+  },
+  "registration.terms.email.heading": {
+    "message": "Your email, your license"
+  },
+  "registration.terms.intro": {
+    "description": "Original entity: yearlyLicense.premiumFeatures.",
+    "message": "quickFilters helps you create and manage Thunderbird filters. Licenses fund ongoing development, new features, and compatibility updates. Each license lasts one year."
+  },
+  "registration.terms.manual": {
+    "message": "Domain licenses are **reviewed and issued manually**. Renewal adds one year to your existing expiry date, even if the license has already expired. This encourages timely renewal; the final term is confirmed during review."
+  },
+  "registration.terms.manualRenewal": {
+    "description": "requires .localizedFormatting",
+    "message": "Licenses **do not renew automatically**. {+extensionName} will remind you before your license expires."
+  },
+  "registration.terms.otherAccounts": {
+    "description": "Original entity: yearlyLicense.usageTerm1.",
+    "message": "The licensed features also work with all your other email accounts in Thunderbird. No separate licenses needed."
+  },
+  "registration.terms.referrer": {
+    "message": "Your existing valid or expired license is passed to the shop as the referrer when you purchase or renew."
+  },
+  "registration.terms.savings": {
+    "description": "requires .localizedFormatting",
+    "message": "**Start with Pro, then save on future years.** Renewing or extending your Pro license costs substantially less than buying a new one."
+  },
+  "registration.terms.support": {
+    "description": "Original entity: licenseTypes.",
+    "message": "Your support helps fund development, compatibility updates, and repairs."
+  },
+  "registration.terms.title": {
+    "message": "How your license works."
+  },
+  "registration.title": {
+    "message": "quickFilters · Your license"
   },
   "renew-your-license": {
     "message": "Renew your license."
@@ -2868,11 +3047,11 @@
   },
   "whats-new-list": {
     "description": "🇬🇧 change log",
-    "message": "{L} Improved backup and restore pages for multiple accounts or selected accounts. Restore includes basic checks and warnings for filter problems. This is a Pro feature with free trials. [issue 193]{/L}{L} Added a dedicated filter troubleshooting page with a results overview and actions to resolve problems. [issue 401]{/L}{L} Consolidated premium feature trial tracking and renewed free trial allowances for users upgrading from the previous version. [issue 400]{/L}"
+    "message": "{sect}Maintenance Update 6.15.1{/sect}{L}A clearer, responsive Filter Assistant with a preview of the actions of the selected merge target. [issue 404]{/L}{L}Fixed closing or cancelling the assistant sometimes blocking it from opening again. [issue 404]{/L}{L}More room for troubleshooter results, with compact controls and a collapsible checks panel. [issue 401]{/L}{L}Fixed creating or merging filter conditions from multiple selected messages. [issue 405]{/L}{L}Fixed empty message previews after moving messages from the context menu, and added navigation between selected messages. [issue 407]{/L}{sect}Highlights from version 6.15{/sect}{L}Multi-account filter backup and restore, with free trials for this Pro feature. [issue 193]{/L}{L}A dedicated filter troubleshooter to find and resolve filter problems. [issue 401]{/L}{L}Improved Pro feature trial tracking and refreshed trial allowances. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": ""
+    "message": "{P}This update improves the Filter Assistant and fixes problems with reopening it, processing multiple selected messages, and showing message previews.{/P}"
   },
   "whats-new-maintenance": {
     "message": "Maintenance Update $ver$. Important fixes and compatibility updates following the minor release, including urgent regressions.",

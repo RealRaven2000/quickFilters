@@ -377,6 +377,15 @@
 
       <hr class="licenseSeparator" />
 
+      <div id="validationDate" class="hbox" style="align-items:center;">
+        <label id="licenseDateLabel">__MSG_pro.licenseValid__</label>
+        <input type="text" id="licenseDate" readonly aria-readonly="true" tabindex="0"
+          aria-describedby="licenseDateLabel" role="representation">
+        <span id="licenseExpiryWarning" role="status" hidden></span>
+      </div>
+      <span id="validationDateSpace" class="separator licenseSeparator"></span>
+
+      <div class="license-status-action">
       <div id="validationResults" class="hbox">
         <div class="vbox">
           <p id="validationPassed" class="niceFont" collapsed>__MSG_licenseValidation.passed__</p>
@@ -391,25 +400,14 @@
           <p id="validationEmailNoMatch" class="niceFont licenseWarning" collapsed>__MSG_licenseValidation.notMatchedMail__</p>
           <p id="validationInvalidAddon" class="niceFont licenseError" collapsed>__MSG_licenseValidation.invalidAddon__</p>
         </div>
-        <div style="flex:1;"></div>
       </div>
-
-      <span id="validationDateSpace" class="separator licenseSeparator"></span>
-
-      <div id="validationDate" class="hbox" style="align-items:center;">
-        <label id="licenseDateLabel">__MSG_pro.licenseValid__</label>
-        <input type="text" id="licenseDate" readonly aria-readonly="true" tabindex="0" 
-          aria-describedby="licenseDateLabel" role="representation">
-        <span id="licenseExpiryWarning" role="status" hidden></span>
-      </div>
-
-      <hr class="licenseActionsSeparator" />
 
       <box class="btnLicenseContainer">
         <button class="register" id="btnLicense">Buy License</button>
         <button class="register" id="btnSwitchToFree" hidden>__MSG_pro.licenseBackup.switch__</button>
         <button class="register" id="btnRecoverLicense" hidden>__MSG_pro.licenseBackup.recover__</button>
       </box>
+      </div>
 
       <div class="hbox">
         <fieldset id="premiumConfig">
@@ -467,6 +465,7 @@
   <script src="qi-prefs.js"></script>
   <script src="qi-options.js"></script>
   <script src="quickfilters-settings.js"></script>
+  <script type="application/javascript" src="localized-format.js"></script>
   <script src="../popup/popup.js"></script>
   
 

@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Зашифрованный адрес не совпадает с имеющимся."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Срок действия вашей лицензии скоро истечёт. Продлите её сейчас ещё на год. Оставшиеся дни не пропадут."
+  },
   "licenseValidation.passed": {
     "message": "Спасибо за регистрацию! Вы можете пользоваться всеми премиум функциями."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Ваша лицензия истекает:"
+  },
+  "registration.legacy.menu": {
+    "message": "Прежняя регистрация лицензии"
   },
   "registration.menu": {
     "message": "$licenseName$ Лицензия…",

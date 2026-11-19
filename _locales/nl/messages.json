@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Uw licentie verloopt binnenkort. Verleng deze nu met een jaar. Uw resterende dagen gaan niet verloren."
+  },
   "licenseValidation.passed": {
     "message": "Bedankt voor uw registratie van quickFilters Pro! Alle premiumfuncties kunnen nu worden gebruikt."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Uw licentie is verlopen op:"
+  },
+  "registration.legacy.menu": {
+    "message": "Oude licentieregistratie"
   },
   "registration.menu": {
     "message": "$licenseName$ Licentie…",

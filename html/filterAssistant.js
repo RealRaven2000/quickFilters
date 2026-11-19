@@ -17,6 +17,7 @@ END LICENSE BLOCK
 
 const startup = async () => {
   i18n.updateDocument();
+  formatLocalizedElements();
 
   document.getElementById("btnNext").addEventListener("click", (event) => {
     event.preventDefault(); 

@@ -38,6 +38,7 @@ addEventListener("click", async (event) => {
     // force replacement for __MSG_xx__ entities
     // using John's helper method (which calls i18n API)
     i18n.updateDocument();
+  formatLocalizedElements();
 
     let h1 = document.getElementById('heading-installed');
     if (h1) {

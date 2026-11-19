@@ -1717,6 +1717,9 @@
   "licenseValidation.notMatchedMail": {
     "message": "La dirección de correo electrónico cifrada no coincide con la legible."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Su licencia está por vencer. Renuévela ahora por otro año. No perderá los días que le quedan."
+  },
   "licenseValidation.passed": {
     "message": "¡Gracias por registrar quickFilters Pro! Todas las características Premium ahora están desbloqueadas."
   },
@@ -2155,6 +2158,9 @@
   },
   "register.licenseValid.expired": {
     "message": "Su licencia caducó el:"
+  },
+  "registration.legacy.menu": {
+    "message": "Registro de licencia anterior"
   },
   "registration.menu": {
     "message": "$licenseName$ Licencia…",

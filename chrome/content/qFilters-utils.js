@@ -668,6 +668,18 @@ quickFilters.Util = {
     Services.prompt.alert(null, caption, msg);
   },
 
+  openRegistrationPreview: async function (featureName = "") {
+    const storage = quickFilters.Storage || quickFilters.Util.getMail3PaneWindow()?.quickFilters?.Storage;
+    if (!storage?._context) {
+      throw new Error("quickFilters extension context is unavailable for opening registration");
+    }
+    const createTab = await storage._context.apiCan.asyncFindAPIPath("tabs.create");
+    const url = new URL(quickFilters.Util.extension.baseURI.resolve("html/registration/registration.html"));
+    if (featureName) {
+      url.searchParams.set("feature", featureName);
+    }
+    return createTab({ url: url.href, active: true });
+  },
   openTroubleshooter: async function () {
     const storage = quickFilters.Storage || quickFilters.Util.getMail3PaneWindow()?.quickFilters?.Storage;
     if (!storage?._context) {
