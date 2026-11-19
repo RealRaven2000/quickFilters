@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title data-l10n-id="licenseWindow.title">quickFilters · Your license</title>
+    <link rel="stylesheet" href="prototype.css" />
+    <link rel="stylesheet" href="prototype-upgrade.css" />
+    <script src="prototype.js" defer></script>
+    <script src="prototype-upgrade.js" defer></script>
+  </head>
+  <body>
+    <header class="brand">
+      <img src="../../../chrome/content/skin/QuickFilters_64.png" width="64" height="64" alt="" /><span
+        >quickFilters</span
+      >
+      <div class="prototype-switches">
+        <label>Test Case<select id="preview-scenario">
+            <option value="buy">Buy</option>
+            <option value="renew-pro">Renew Pro</option>
+            <option value="renew-domain">Renew Domain (expired)</option>
+            <option value="extend-pro">Extend Pro</option>
+            <option value="extend-domain">Extend Domain</option>
+            <option value="upgrade" selected>Upgrade Pro to Domain</option>
+          </select>
+        </label>
+        <span class="prototype-badge">UI prototype</span>
+      </div>
+    </header>
+    <main>
+      <header class="page-heading">
+        <p class="eyebrow">YOUR LICENSE</p>
+        <h1>Organize your inbox. Save time.</h1>
+        <p>Choose the right license for your workflow.</p>
+      </header>
+      <section class="license-summary" aria-labelledby="current-license">
+        <div>
+          <div class="summary-title">
+            <h2 id="current-license">Pro license</h2>
+            <span class="status">Expired</span>
+          </div>
+          <p>
+            <span data-l10n-id="licenseValidation.expiredDate">Your license expired on</span>
+            <strong><time datetime="2026-11-11">11 November 2026</time></strong
+            >.
+          </p>
+        </div>
+        <button
+          type="button"
+          class="button secondary"
+          id="enter-key"
+          data-l10n-id="enterLicenseKey.button"
+        >
+          Enter license key…
+        </button>
+      </section>
+      <section class="workspace" aria-label="License options">
+        <div class="section-heading" id="license-section-heading" tabindex="-1">
+          <div>
+            <nav class="section-path" aria-label="License navigation">
+              <span id="terms-breadcrumb" hidden
+                ><button type="button" class="terms-back" id="terms-back">License selection</button
+                ><span class="breadcrumb-separator" aria-hidden="true">&#8250;</span></span
+              >
+              <p class="eyebrow" id="step-label" aria-current="page">LICENSE SELECTION</p>
+            </nav>
+            <h2 id="view-title">A year of easier email.</h2>
+          </div>
+          <span class="annual-note" data-l10n-id="yearlyLicense.title">Annual licenses</span>
+        </div>
+        <div id="selection-panel" aria-labelledby="view-title">
+          <p class="intro">
+            Choose Pro for your own email or Domain for your team.
+          </p>
+          <fieldset class="contact">
+            <legend>Who is this license for?</legend>
+            <div class="contact-grid">
+              <label class="account-field" data-l10n-id="account.label"
+                >Mail account<select id="identity">
+                  <option value="personal">Alex Morgan · alex@example.com</option>
+                  <option value="work">Alex Morgan · alex@studio.example</option>
+                </select></label
+              >
+              <div class="email-field">
+                <div class="email-label-row">
+                  <label for="email" data-l10n-id="email.label">Email address</label
+                  ><button
+                    type="button"
+                    class="email-help-button"
+                    id="email-help-button"
+                    aria-label="About licensed email addresses"
+                    aria-expanded="false"
+                    aria-controls="email-help"
+                  >
+                    <img src="info-blue.svg" width="16" height="16" alt="" />
+                  </button>
+                </div>
+                <input
+                  id="email"
+                  type="email"
+                  value="alex@example.com"
+                  autocomplete="off"
+                  aria-describedby="email-hint"
+                />
+                <p class="email-hint" id="email-hint">
+                  Your personal license works across multiple devices.
+                </p>
+                <aside
+                  class="email-help"
+                  id="email-help"
+                  aria-label="Licensed email address rules"
+                  hidden
+                >
+                  <div class="email-help-heading">
+                    <h3>Your email is your license</h3>
+                    <button
+                      type="button"
+                      class="email-help-close"
+                      id="email-help-close"
+                      aria-label="Close email help"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <h4>Pro licenses</h4>
+                  <p>
+                    Your license is tied to this email address. You can use it on multiple devices.
+                    Configure this address as an account’s <strong>default identity</strong> in
+                    Thunderbird on each device.
+                    <a href="#personal-license-details" id="email-learn-more">Learn more</a>
+                  </p>
+                  <h4>Domain licenses</h4>
+                  <p>
+                    Different rules apply: the configured email address must belong to the licensed
+                    domain.
+                  </p>
+                </aside>
+              </div>
+              <label data-l10n-id="firstName.label"
+                >First name<input id="first-name" value="Alex" autocomplete="off"
+              /></label>
+              <label data-l10n-id="lastName.label"
+                >Last name<input id="last-name" value="Morgan" autocomplete="off"
+              /></label>
+            </div>
+            <p class="field-note">These details will prefill checkout. You can edit them here.</p>
+          </fieldset>
+          <div class="plans">
+            <article class="plan featured">
+              <p class="plan-kicker">ALL THE FEATURES</p>
+              <h3>Pro</h3>
+              <p data-l10n-id="buyPremiumLicense.instruct">
+                Create and manage mail filters more efficiently.
+              </p>
+              <div class="plan-bottom">
+                <span>For your own email</span
+                ><button
+                  class="button primary purchase"
+                  data-l10n-id="notification.premium.btn.upgrade"
+                  data-plan="Pro renewal"
+                  type="button"
+                >
+                  Extend License
+                  <svg
+                    class="external-icon"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 4h6v6M20 4 10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+            <article class="plan">
+              <p class="plan-kicker">FOR YOUR TEAM</p>
+              <h3>Domain</h3>
+              <p data-l10n-id="buyDomainLicense.instruct">
+                All features for your whole team, under one license.
+              </p>
+              <div class="plan-bottom">
+                <span>For a shared domain</span
+                ><button
+                  class="button secondary purchase"
+                  data-l10n-id="buyDomainLicense.button"
+                  data-plan="Domain purchase"
+                  type="button"
+                >
+                  Explore Domain
+                  <svg
+                    class="external-icon"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 4h6v6M20 4 10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </article>
+          </div>
+          <aside id="checkout-notice" class="feedback checkout-notice" hidden>
+            <button
+              type="button"
+              id="checkout-notice-close"
+              class="checkout-notice-close"
+              aria-label="Dismiss checkout notice"
+            >
+              &#215;
+            </button>
+            <div id="checkout-notice-content" role="status"></div>
+          </aside>
+          <p
+            class="renewal-hint"
+            id="renewal-hint"
+            data-l10n-id="notification.premium.btn.extendLicense.tooltip"
+          >
+            Renewing or extending your license adds another year and typically costs less than
+            buying a new license.
+          </p>
+          <p class="checkout-note" data-l10n-id="pricing.section.hint">
+            Prices, tax, and available discounts are shown in the shop.
+          </p>
+        </div>
+        <section id="terms-panel" aria-labelledby="view-title" hidden>
+          <p class="intro" data-l10n-id="licenseTypes">
+            quickFilters helps you create and manage Thunderbird filters. quickFilters licenses fund
+            ongoing development, new features, and compatibility updates. Each license lasts one
+            year, helping support the work needed to keep pace with Thunderbird.
+          </p>
+          <div class="terms-grid">
+            <article>
+              <h3>One year at a time</h3>
+              <p>
+                A license covers one year. Renew an expired license or extend a current one to
+                continue with your chosen edition.
+                <a
+                  href="#renewal-details"
+                  id="renewal-learn-more"
+                  aria-expanded="false"
+                  aria-controls="renewal-details"
+                  >Learn more…</a
+                >
+              </p>
+              <div id="renewal-details" class="renewal-details" hidden>
+                <p>
+                  <strong>Pro licenses</strong><br />A new license runs for one year from payment. When renewing or extending Pro, you receive a full year from payment or one year beyond your existing expiry date, whichever gives you more time.
+                </p>
+                <p>
+                  <strong>Pro &rarr; Domain upgrades</strong><br />The shop uses your existing license to determine upgrade eligibility and terms.
+                </p>
+                <p>
+                  <strong>Domain licenses</strong><br />Domain licenses are <strong>reviewed and issued manually</strong>. Renewal adds one year to your existing expiry date, even if the license has already expired. This encourages timely renewal; the final term is confirmed during review.
+                </p>
+                <p>
+                  <strong>Existing license</strong><br />Your current license is passed to the shop
+                  so the new expiry date can be calculated.
+                </p>
+                <p>
+                  Renewal and upgrade benefits depend on license information passed to the shop.
+                  Switching products in the shop or security software removing that information can
+                  prevent the shop from applying your existing entitlement.
+                </p>
+              </div>
+              <p>
+                Licenses <strong>do not renew automatically</strong>. quickFilters will remind you
+                before your license expires.
+              </p>
+              <p>
+                <strong>Start with Pro, then save on future years.</strong> Renewing or extending
+                your Pro license costs substantially less than buying a new one.
+              </p>
+              <p>Your support helps fund development, compatibility updates, and repairs.</p>
+            </article>
+            <article>
+              <h3>Your email, your license</h3>
+              <p id="personal-license-details" tabindex="-1">
+                <span data-l10n-id="yearlyLicense.usageTerm"
+                  >A personal license is tied to your email address. You can use it on multiple
+                  Thunderbird installations when the licensed address is configured as the
+                  <strong>default identity</strong> of an account in each installation.</span
+                >
+                <span data-l10n-id="yearlyLicense.usageTerm1"
+                  >The licensed features also work with all your other email accounts in
+                  Thunderbird. No separate licenses needed.</span
+                >
+              </p>
+              <p data-l10n-id="domainLicense.instruct">
+                A Domain license covers users with matching addresses under the licensed domain.
+              </p>
+            </article>
+            <article>
+              <h3>Choose your edition</h3>
+              <p>
+                Explore the features included with quickFilters Pro and Domain licenses.
+              </p>
+              <p>
+                <a
+                  data-l10n-id="licenseComparison"
+                  href="https://quickFilters.quickfolders.org/premium.html#featureComparison"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Explore premium features
+                  <svg
+                    class="external-icon"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 4h6v6M20 4 10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"
+                    /></svg
+                ></a>
+              </p>
+            </article>
+            <article>
+              <h3>Checkout in your browser</h3>
+              <p data-l10n-id="pricing.section">
+                Select a license to continue to the shop. Your price depends on the edition,
+                country, tax, and any applicable discounts.
+              </p>
+              <p>
+                Renewals and upgrades pass your previous license to the shop for eligibility checks.
+              </p>
+            </article>
+          </div>
+          <aside class="review-note">
+            Draft terms: detailed trial and post-expiry feature behavior will be reviewed before
+            release.
+          </aside>
+        </section>
+        <div class="view-switcher">
+          <button
+            type="button"
+            class="toggle has-glyphs"
+            id="toggle-terms"
+            data-l10n-id="licenseTerms.show"
+            aria-expanded="false"
+            aria-controls="terms-panel"
+          >
+            Show license terms <span aria-hidden="true">🡇</span>
+          </button>
+        </div>
+      </section>
+      <footer>
+        <span>Made for Thunderbird. Supported by you.</span
+        ><span>Sample data · checkout is disabled</span>
+      </footer>
+      <div id="feedback" class="feedback" role="status" hidden></div>
+    </main>
+  </body>
+</html>
