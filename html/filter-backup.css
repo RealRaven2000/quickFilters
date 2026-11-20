@@ -60,6 +60,31 @@ details,
   gap: 16px;
 }
 
+.backup-trial-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.backup-get-pro {
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #8526ad;
+  border: 1px solid #702091;
+}
+.backup-get-pro:hover { background: #6c1d8e; }
+.backup-get-pro:active { background: #551670; }
+.trial-remaining { flex-basis: 100%; text-align: end; color: var(--muted); font-size: 0.9rem; }
+.restore-file-hint { display: none; flex-basis: 100%; text-align: end; color: #a54208; font-size: 0.9rem; }
+footer:has(#restore:disabled) .trial-remaining { display: none; }
+footer:has(#restore:disabled) .restore-file-hint { display: block; visibility: hidden; }
+footer.no-backup:has(#restore:hover) .restore-file-hint { visibility: visible; }
+.actions:has(#save:hover, #save:focus-visible, #restore:hover, #restore:focus-visible) + .trial-remaining { color: #a54208; }
+@media (prefers-color-scheme: dark) { .actions:has(#save:hover, #save:focus-visible, #restore:hover, #restore:focus-visible) + .trial-remaining { color: #ffb56b; } }
+@media (prefers-color-scheme: dark) { .restore-file-hint { color: #ffb56b; } }
+
 .brand-icon {
   width: 64px;
   height: 64px;
@@ -361,6 +386,17 @@ button.primary {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
+}
+
+button.primary:is(#save, #restore) {
+  font-weight: 600;
+  color: #fff;
+  background: rgba(13, 127, 242, 0.95);
+  border-color: transparent;
+}
+button.primary:is(#save, #restore):not(:disabled):hover {
+  background: rgba(13, 110, 180, 0.95);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 button:disabled {

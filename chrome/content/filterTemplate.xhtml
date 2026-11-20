@@ -14,7 +14,7 @@
 	defaultButton="extra1"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml"
-	ondialogextra2="quickFilters.Util.showLicensePage();"
+	ondialogextra2="if (quickFilters.Util.licenseInfo?.isExpired) { event.preventDefault(); } else { quickFilters.Util.showLicensePage(); }"
 	ondialogcancel="return quickFilters.Assistant.cancelTemplate();"
 	ondialogextra1="event.preventDefault(); return quickFilters.Assistant.next();"
 

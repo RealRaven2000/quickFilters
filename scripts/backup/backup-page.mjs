@@ -4,9 +4,11 @@ import { getBackupStorage, rememberBackupSelection, recordRecentFile } from "./b
 import { createWarningPanel } from "./warning-table.mjs";
 import { returnToMessageFilters } from "./return-to-filters.mjs";
 import { createDeleteConfirmation } from "./delete-confirmation.mjs";
+import { initGetProButton } from "./get-pro.mjs";
 
 export async function initBackupPage({ el, accountText }) {
   localizeDocument();
+  void initGetProButton("saveFilters").catch(error => console.error("Loading license status failed", error));
   document.title = `${t("backup.backup.title")} — quickFilters`;
   const rows = document.querySelector("#rows");
   const all = document.querySelector("#all");
@@ -343,6 +345,7 @@ export async function initBackupPage({ el, accountText }) {
     } finally {
       busy = false;
       update();
+      document.dispatchEvent(new Event("premium-usage-updated"));
     }
   });
 

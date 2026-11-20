@@ -5,9 +5,6 @@
   "about": {
     "message": "Om"
   },
-  "account.label": {
-    "message": "Välj konto:"
-  },
   "actions.title": {
     "message": "Åtgärder"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "En gratis återställningssession är aktiv. Ytterligare sessioner kvar: {1}." },
+  "backup.trial.sessionsRemaining": { "message": "Gratis återställningssessioner kvar: {1}. Flera återställningar samma dag delar en session." },
+  "backup.trial.unavailable": { "message": "Provkvoten är inte tillgänglig. Försök igen." },
+  "backup.trial.usesRemaining": { "message": "Gratis säkerhetskopior kvar: {1}" },
   "backup.warnings.account": {
     "message": "Konto"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "quickFilters supportwebbplats"
-  },
-  "buyDomainLicense.button": {
-    "message": "Köp domänlicens"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Behöver du licenser för ett företag med fler än fem användare? Då är en domänlicens billigare:"
-  },
-  "buyLicense.instruct": {
-    "message": "Behöver du en egen licens? Köp en licens för en enkel användare. Licensen är bunden till din personliga Email adress och kan användas på flera olika installationer."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Köp personlig licens!"
   },
   "cancel": {
     "message": "Avbryt"
@@ -1562,15 +1551,6 @@
   "donate.label": {
     "message": "Donera"
   },
-  "email.label": {
-    "message": "E-post:"
-  },
-  "enterLicenseKey.button": {
-    "message": "Ange licensnyckel …"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Skriv in den licensnyckel du fick i ditt e-postmeddelande från oss."
-  },
   "extend-your-license": {
     "message": "Överväg att förlänga din licens med ett år."
   },
@@ -1605,9 +1585,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Sök efter filter…"
-  },
-  "firstName.label": {
-    "message": "Förnamn:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Tillämpa filter automatiskt på inkommande e-post"
@@ -1674,9 +1651,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "Efternamn:"
-  },
   "legacy": {
     "message": "Legacy"
   },
@@ -1722,9 +1696,6 @@
   },
   "licenseValidation.passed": {
     "message": "Tack för att du registrerar quickFilters Pro! Alla licensbelagda funktioner är nu tillgängliga."
-  },
-  "licenseWindow.title": {
-    "message": "Licens för quickFilters Pro"
   },
   "list.features.multipaste": {
     "message": "Aktivera kopiering och klistra in filter till flera konton"
@@ -2029,15 +2000,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Sortera söktermer"
   },
-  "pricing.section": {
-    "message": "För att ta reda på ditt pris, välj ett av följande alternativ först. Detta öppnar ett separat webbläsarfönster där du kan genomföra köpet i webbshoppen."
-  },
-  "pricing.section.hint": {
-    "message": "Obs: Priset varierar beroende på licensmodell, land, momssats, aktuella rabatter eller redan köpta licenser."
-  },
-  "pricing.title": {
-    "message": "Prissättning"
-  },
   "pro.insertLicense": {
     "message": "Infoga din personliga licensnyckel here:"
   },
@@ -2153,15 +2115,15 @@
   "quickfolders.currentFolderButton": {
     "message": "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen."
   },
-  "register.hasLicense": {
-    "message": "Har du redan en licens?"
-  },
-  "register.licenseValid.expired": {
-    "message": "Din licens löpte ut:"
-  },
-  "registration.legacy.menu": {
-    "message": "Tidigare licensregistrering"
-  },
+  "registration.action.extend": {"message":"Förläng licens"},
+  "registration.action.renew": {"message":"Förnya licens"},
+  "registration.action.buyDomain": {"message":"Köp domänlicens"},
+  "registration.enterKey": {"message":"Ange licensnyckel …"},
+  "registration.firstName": {"message":"Förnamn:"},
+  "registration.lastName": {"message":"Efternamn:"},
+  "registration.email": {"message":"E-post:"},
+  "registration.annual": {"message":"Årslicens"},
+  "registration.account": {"message":"Välj konto:"},
   "registration.menu": {
     "message": "$licenseName$ Licens…",
     "placeholders": {
@@ -2337,9 +2299,6 @@
   },
   "support.title": {
     "message": "Hjälp"
-  },
-  "testDrive": {
-    "message": "Du kan testköra de licensbelagda funktionerna i gratisversionen, men de kan vara begränsade."
   },
   "thanks-for-installing-intro": {
     "message": "Tack för att du installerade $addonName$.",
@@ -2704,12 +2663,6 @@
   "updates.displayVersionTab": {
     "message": "Прикажи картицу са историјом верзија након ажурирања"
   },
-  "updates.title": {
-    "message": "Uppdateringar"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro kommer, som vanligt, att uppdateras via addons.thunderbird.net. När licensen förfaller kan du förnya den eller använda de licensbelagda funktionerna under villkoren för gratisanvändare. Exklusiva funktioner kommer att kräva en giltig licensnyckel."
-  },
   "version": {
     "message": "Version:"
   },
@@ -2766,21 +2719,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro ger dig obegränsad tillgång till de licensbelagda funktionerna."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Mer om licensbelagda funktioner."
-  },
-  "yearlyLicense.title": {
-    "message": "Årslicens"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "Licensen är för personligt bruk och är knuten till din e-postadress. Du kan använda den i flera e-postklienter, under förutsättning att de är konfigurerade att använda den adressen."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Några ytterligare e-postadresser är inget problem - de kräver inte en separat licens. Om du har frågor kan du nå mig via supportfliken."
   },
   "youtube.tooltip": {
     "message": "Besök Thunderbord Daily - YouTube-kanalen för tips och guider om quickFilters och e-post på datorer"

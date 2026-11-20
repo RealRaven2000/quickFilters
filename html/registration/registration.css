@@ -18,6 +18,7 @@ h2, h3, p { margin-top: 0; }
 .summary-title { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 8px; }
 .summary-title h2 { margin: 0; font-size: 17px; }
 .status { font-size: 11px; font-weight: 700; border-radius: 20px; padding: 4px 9px; color: #8a4d1c; background: #f7e6ce; }
+.expiry-warning { border-radius: 20px; padding: 4px 9px; background: linear-gradient(to bottom, #ee570b 0%, #893a02 100%); color: #fff; font-size: 11px; font-weight: 700; }
 .license-summary p { font-size: 14px; margin: 0; color: #74604e; }
 strong, b { font-weight: 600; }
 .workspace { background: #fff; border: 1px solid #dfe5dc; border-radius: 16px; padding: 32px 32px 0; overflow: hidden; box-shadow: 0 5px 18px #26363205; }
@@ -38,6 +39,8 @@ input, select { color: #263632; background: #fff; border: 1px solid #cfd8ce; bor
 .email-help-button img { display: block; width: 16px; height: 16px; }
 .email-help-button:hover img, .email-help-button:focus-visible img, .email-help-button[aria-expanded="true"] img { filter: brightness(.85); }
 .email-field .email-hint { font-size: 11px; font-weight: 400; color: #778174; line-height: 1.45; margin: 6px 0 0; }
+.email-field .email-error { color: #a54208; font-size: 13px; font-weight: 600; margin: 6px 0 0; }
+@media (prefers-color-scheme: dark) { .email-field .email-error { color: #ffb56b; } }
 .email-help { position: absolute; top: 28px; right: 0; width: min(360px, 100%); z-index: 2; background: #fff; border: 1px solid #afc3af; border-radius: 10px; box-shadow: 0 8px 28px #26363226; padding: 18px; }
 .email-help-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .email-help h3 { margin: 0 0 16px; font-size: 16px; color: var(--green); }
@@ -76,7 +79,6 @@ a .external-icon { margin-left: 5px; }
 .terms-grid h3 { font-size: 18px; letter-spacing: -.02em; margin-bottom: 12px; }
 .terms-grid p { font-size: 14px; line-height: 1.75; color: #5e6b62; margin-bottom: 12px; }
 a { color: var(--green); text-underline-offset: 3px; }
-.review-note { border-top: 1px solid #e6ebe2; padding: 18px 0 24px; margin-top: 20px; font-size: 12px; color: var(--muted); line-height: 1.6; }
 footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 22px; color: #758071; font-size: 11px; }
 .feedback { background: #e9f0e5; color: #294631; padding: 16px 20px; border-radius: 8px; font-size: 14px; line-height: 1.6; margin-top: 24px; }
 @media (max-width: 760px) { .plans { grid-template-columns: 1fr; } .plan { padding: 22px; } .plan > p:not(.plan-kicker) { margin-bottom: 18px; } .plan-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; } .plan-bottom > span { margin: 0; } .purchase { width: auto; min-width: 170px; } .terms-grid { gap: 20px; } }
@@ -137,6 +139,8 @@ footer { display: flex; justify-content: space-between; gap: 16px; margin-top: 2
   .valid-license .status { background: #496849; color: #e6f4de; }
   .secondary, .toggle { background: #3b4840; color: #f1f6ed; border-color: #758976; }
   .secondary:hover, .toggle:hover { background: #4a5b4e; }
+  .terms-open .toggle { background: #386b2a; border-color: #638b55; }
+  .terms-open .toggle:hover { background: #477d35; }
   .primary { background: #477d35; color: #fff; }
   .primary:hover { background: #386b2a; }
   .purchase.renewal-emphasis { background: #b85616; }

@@ -89,6 +89,9 @@ pre { background: var(--soft); padding: 16px; white-space: pre-wrap; overflow-wr
 header p.trial-heading { font-weight: normal; font-size: 1.15rem; color: var(--accent); }
 .trial-line { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-top: 6px; }
 .trial-line p { margin: 0; }
+#trial-hint { color: var(--muted); font-size: 13px; line-height: 1.5; margin: 12px 0 0; }
+.checks:has(.check-button:hover, .check-button:focus-visible, #run-all:hover, #run-all:focus-visible) #trial-hint { color: #a54208; }
+@media (prefers-color-scheme: dark) { .checks:has(.check-button:hover, .check-button:focus-visible, #run-all:hover, #run-all:focus-visible) #trial-hint { color: #ffb56b; } }
 #get-pro { flex-shrink: 0; padding: 4px 10px; font-size: 13px; font-weight: 600; color: #fff; background: #8526ad; border-color: #702091; }
 #get-pro:hover { background: #6c1d8e; }
 #get-pro:active { background: #551670; }

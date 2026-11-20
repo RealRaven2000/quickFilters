@@ -24,26 +24,24 @@ const RENEW_REDUCTION = "20%";  // reduction for renewals
     let targetId = event.target.id || "";
     
     // action buttons
-    if (targetId.startsWith("register")) {
-      messenger.Utilities.showLicenseDialog("splashScreen");
+    if (targetId.startsWith("register") || targetId.startsWith("extend") || targetId.startsWith("renew") || targetId === "bargainIcon" || targetId === "bargainRenewIcon") {
+      try {
+        const feature = targetId === "bargainIcon" ? "landing-update" : "splashScreen";
+        const tab = await messenger.runtime.sendMessage({ command: "openRegistrationTab", feature });
+        if (Number.isInteger(tab?.id)) {
+          window.close();
+        }
+      } catch (error) {
+        console.error("Opening registration failed", error);
+      }
+      return;
     }
     switch(targetId) {
-      case "bargainIcon":
-        messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-update");
-        break;
-      case "bargainRenewIcon":
-        messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register" + ".xhtml");
-        window.close();
-        break;
       case "whatsNew":
         messenger.Utilities.showVersionHistory();    
         break;
     } 
 
-    if (targetId.startsWith("extend") || targetId.startsWith("renew")) {
-      messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register.xhtml");
-      window.close(); // not allowed by content script!
-    }
     if (targetId.startsWith("donate")) {
       messenger.windows.openDefaultBrowser("https://quickfilters.quickfolders.org/donate.html");
     }

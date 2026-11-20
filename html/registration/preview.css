@@ -1,8 +1,4 @@
 .brand { flex-wrap: wrap; }
-.prototype-switches { margin-inline-start: auto; display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
-.prototype-switches .prototype-badge { margin: 0; }
-.prototype-switches label { gap: 3px; font-size: 11px; font-weight: 500; }
-.prototype-switches select { padding: 5px 8px; font-size: 12px; }
 .plans { grid-template-columns: repeat(var(--preview-columns, 3), minmax(0, 1fr)); }
 .current-edition-note { padding: 12px; border-radius: 7px; background: #f4f6f3; color: #52645a; font-size: 13px; line-height: 1.6; }
 .separate-pro-warning { border-inline-start: 3px solid #dfbd7f; background: #fff7e6; color: #72511f; }

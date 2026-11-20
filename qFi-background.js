@@ -1,5 +1,6 @@
 import { Preferences } from "./scripts/preferences.js";
 import { createAssistantLifecycle } from "./html/assistant-lifecycle.mjs";
+import { openRegistrationTab } from "./html/registration/open-tab.mjs";
 import * as util from "./scripts/qi-util.mjs.js";
 import {Licenser} from "./scripts/Licenser.mjs.js";
 import { compareVersions } from "./scripts/mozilla-version-comparator.js";
@@ -993,6 +994,14 @@ function registerNotifyListener() {
         showSplash();
         break;
 
+      case "testInstalledWelcome":
+        return browser.windows.create({
+          url: browser.runtime.getURL("popup/installed.html"),
+          type: "popup",
+          width: 900,
+          height: 750,
+        });
+
       case "getLicenseInfo":
         return currentLicense.info;
 
@@ -1147,6 +1156,9 @@ function registerNotifyListener() {
         break;
       }
 
+      case "openRegistrationTab":
+        return openRegistrationTab(messenger, { feature: data.feature });
+
       case "quickFiltersSettings":
         displaySettings(data);
         break;
@@ -1160,7 +1172,6 @@ function registerNotifyListener() {
       case "API-test-Utilities":
         console.log("quickFilters - API-test-Utilities");
         try {
-          // messenger.Utilities.showLicenseDialog("test");
           messenger.Utilities.logDebug("logDebug from Utilities API");
           console.log("getUserName: ", await messenger.Utilities.getUserName());
           const currentTabs = await messenger.mailTabs.query({ active: true, currentWindow: true });
@@ -1259,6 +1270,8 @@ async function main() {
 
 
   const messageHandlers = {
+    getProFeatureUsage: (data) => messenger.Utilities.getProFeatureUsage(data.feature),
+    openRegistrationTab: (data) => openRegistrationTab(messenger, { feature: data.feature }),
     getLicenseInfo: () => {
       return currentLicense.info;
     },

@@ -2386,10 +2386,10 @@ quickFilters.patchMailPane = () => {
               <menuitem id="quickfilters-menu-troubleshooter" label="__MSG_troubleshooter.menu__" class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menuseparator />
               <menuitem id="quickfilters-menu-registration" label="__MSG_registration.menu__"  class="menuitem-iconic" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
-              <menuitem id="quickfilters-menu-registration-legacy" label="__MSG_registration.legacy.menu__" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
               <menu label="Test" id="qFilters-menu-test" class="menu-iconic">
                 <menupopup>
                   <menuitem id="quickfilters-menu-test-registration" label="Registration (HTML)" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
+                  <menuitem id="quickfilters-menu-test-installed" label="Installed welcome page" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-storage-editor" label="Browser Storage editor" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-cancel-assistant" label="Cancel blocked assistant promise" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>
                   <menuitem id="quickfilters-menu-test-htmlAssistant" label="quickFilters Assistant - HTML version!" oncommand="window.quickFilters.doCommand(this);" onclick="event.stopPropagation();"/>

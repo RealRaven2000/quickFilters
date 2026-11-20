@@ -14,12 +14,16 @@ END LICENSE BLOCK */
 */
 
 addEventListener("click", async (event) => {
-	if (event.target.id.startsWith("register")) {
-	  messenger.windows.openDefaultBrowser("https://sites.fastspring.com/quickfolders/product/quickfilters?referrer=landing-install");
-	}
-	if (event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
-	  messenger.Utilities.showXhtmlPage("chrome://quickfilters/content/register" + ".xhtml");
-    window.close();
+	if (event.target.id.startsWith("register") || event.target.id.startsWith("extend") || event.target.id.startsWith("renew")) {
+    try {
+      const tab = await messenger.runtime.sendMessage({ command: "openRegistrationTab", feature: "landing-install" });
+      if (Number.isInteger(tab?.id)) {
+        window.close();
+      }
+    } catch (error) {
+      console.error("Opening registration failed", error);
+    }
+    return;
 	}
 	if (event.target.id.startsWith("donate")) {
 	  messenger.windows.openDefaultBrowser("https://quickfilters.quickfolders.org/donate.html");

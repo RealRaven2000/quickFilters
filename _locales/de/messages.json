@@ -5,9 +5,6 @@
   "about": {
     "message": "Über"
   },
-  "account.label": {
-    "message": "Konto wählen:"
-  },
   "actions.title": {
     "message": "Aktionen"
   },
@@ -1005,6 +1002,9 @@
   "backup.restore.saveReport": {
     "message": "Bericht speichern…"
   },
+  "backup.restore.selectBackupHint": {
+    "message": "Kein Backup ausgewählt. Klicken Sie auf {1}, um eine Datei zu öffnen."
+  },
   "backup.restore.selectDestinationAccountsFor": {
     "message": "Zielkonten auswählen für: $accountNames$.",
     "placeholders": {
@@ -1065,6 +1065,24 @@
         "content": "$1"
       }
     }
+  },
+  "backup.trial.activeSession": {
+    "message": "Eine kostenlose Wiederherstellungssitzung ist aktiv. **{1} weitere Sitzungen** verbleiben."
+  },
+  "backup.trial.backupActiveSession": {
+    "message": "Eine kostenlose Sicherungssitzung ist aktiv. **{1} weitere Sitzungen** verbleiben."
+  },
+  "backup.trial.backupSessionsRemaining": {
+    "message": "**{1} kostenlose Sicherungssitzungen** verbleiben. Mehrere Sicherungen am selben Tag zählen als eine Sitzung."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "**{1} kostenlose Wiederherstellungssitzungen** verbleiben. Mehrere Wiederherstellungen am selben Tag zählen als eine Sitzung."
+  },
+  "backup.trial.unavailable": {
+    "message": "Das Testkontingent ist nicht verfügbar. Bitte versuchen Sie es erneut."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Verbleibende kostenlose Sicherungen: {1}"
   },
   "backup.warnings.account": {
     "message": "Konto"
@@ -1240,18 +1258,6 @@
   },
   "button.support": {
     "message": "quickFilters Support Webseite"
-  },
-  "buyDomainLicense.button": {
-    "message": "Domänen Lizenz erwerben"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Sie benötigen Lizenzen für eine Firma mit mehr als 5 Benutzern? Eine Domänen-Lizenz ist hier billiger:"
-  },
-  "buyLicense.instruct": {
-    "message": "Sie benutzen quickFilters persönlich? Holen Sie sich eine Einzelplatz-Lizenz. Diese Lizenz ist an Ihre persönliche Email Adressen gebunden. Sie kann auf mehreren Installationen verwendet werden."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Einzel-Lizenz erwerben!"
   },
   "cancel": {
     "message": "Abbrechen"
@@ -1562,15 +1568,6 @@
   "donate.label": {
     "message": "Spenden"
   },
-  "email.label": {
-    "message": "Email:"
-  },
-  "enterLicenseKey.button": {
-    "message": "Lizenzschlüssel eingeben…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Geben Sie den Lizenzschlüssel aus der Registrierungs-Mail ein."
-  },
   "extend-your-license": {
     "message": "Verlängern Sie Ihre Lizenz um ein Jahr."
   },
@@ -1605,9 +1602,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Filter suchen…"
-  },
-  "firstName.label": {
-    "message": "Vorname:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Filter automatisch auf eingehende Mails anwenden"
@@ -1674,9 +1668,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "Nachname:"
-  },
   "legacy": {
     "message": "Legacy"
   },
@@ -1702,6 +1693,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Alternativ können Sie vorerst die Basisversion nutzen — Ihre Lizenz lässt sich jederzeit wiederherstellen."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Ihre Lizenz läuft bald ab. Verlängern Sie sie jetzt um ein weiteres Jahr. Ihre verbleibenden Tage gehen nicht verloren."
+  },
   "licenseValidation.failed": {
     "message": "Der eingegebene Lizenzschlüssel ist ungültig. Bitte folgen Sie den Instruktionen Ihrer Bestätigungs Email von FastSpring. Falls Sie Probleme mit dem Validierungsprozess haben, kontaktieren Sie mich bitte über den Support tab."
   },
@@ -1717,14 +1711,8 @@
   "licenseValidation.notMatchedMail": {
     "message": "Die verschlüsselte Email Adresse stimmt nicht mit der lesbaren überein."
   },
-  "licenseValidation.expiringSoon": {
-    "message": "Ihre Lizenz läuft bald ab. Verlängern Sie sie jetzt um ein weiteres Jahr. Ihre verbleibenden Tage gehen nicht verloren."
-  },
   "licenseValidation.passed": {
     "message": "Vielen Dank für's Registrieren von quickFilters Pro! Alle Premium-Funktionen sind nun freigeschaltet."
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro Lizenz"
   },
   "list.features.multipaste": {
     "message": "Aktiviert das Einfügen von Filtern in mehrere Konten"
@@ -2029,15 +2017,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Suchbegriffe sortieren"
   },
-  "pricing.section": {
-    "message": "Um Ihren Preis zu erfahren, wählen Sie bitte zuerst eine der folgenden Optionen. Dies öffnet ein separates Browserfenster, wo Sie dann im Webshop den Kauf abschließen können."
-  },
-  "pricing.section.hint": {
-    "message": "Hinweis: Der Preis variiert je nach Lizenzmodell, Land, Mehrwertsteuersatz, aktuellen Rabatten oder bereits gekauften Lizenzen."
-  },
-  "pricing.title": {
-    "message": "Preise"
-  },
   "pro.insertLicense": {
     "message": "Lizenzschlüssel hier eintragen:"
   },
@@ -2154,14 +2133,44 @@
   "quickfolders.currentFolderButton": {
     "message": "Diese Optionen gelten nur wenn die QuickFolders Erweiterung installiert ist, die eine kleine Werkzeugleiste über der Mailvorschau einfügt."
   },
-  "register.hasLicense": {
-    "message": "Sie haben bereits eine Lizenz?"
+  "registration.account": {
+    "message": "E-Mail-Konto"
   },
-  "register.licenseValid.expired": {
-    "message": "Ihre Lizenz lief ab am:"
+  "registration.action.buy": {
+    "message": "$1 kaufen"
+  },
+  "registration.action.buyDomain": {
+    "message": "Domänenlizenz erwerben"
+  },
+  "registration.action.extend": {
+    "message": "Lizenz verlängern"
+  },
+  "registration.action.renew": {
+    "message": "Lizenz erneuern"
+  },
+  "registration.annual": {
+    "message": "Jahreslizenzen"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Kaufhinweis schließen"
+  },
+  "registration.checkout.error": {
+    "message": "Der Shop konnte nicht geöffnet werden. Bitte versuchen Sie es erneut."
+  },
+  "registration.checkout.live": {
+    "message": "Aktuelle Lizenz · Live-Shop"
   },
   "registration.checkout.note": {
     "message": "Preise, Steuern und verfügbare Rabatte werden im Shop angezeigt."
+  },
+  "registration.checkout.opened": {
+    "message": "Der Shop wurde in Ihrem Browser geöffnet. Sie können diesen Tab geöffnet lassen."
+  },
+  "registration.checkout.previewOnly": {
+    "message": "Nur Vorschau. Es wurde kein Shop geöffnet."
+  },
+  "registration.checkout.sample": {
+    "message": "Beispieldaten · Shop deaktiviert"
   },
   "registration.contact.legend": {
     "message": "Für wen ist diese Lizenz?"
@@ -2169,6 +2178,25 @@
   "registration.contact.note": {
     "message": "Diese Angaben werden für die Bestellung vorausgefüllt. Sie können sie hier bearbeiten."
   },
+  "registration.date.expired": {
+    "message": "Ihre Lizenz ist am $1 abgelaufen."
+  },
+  "registration.date.none": {
+    "message": "Wählen Sie unten eine Lizenz oder geben Sie Ihren vorhandenen Schlüssel ein."
+  },
+  "registration.date.unknown": {
+    "message": "ein unbekanntes Datum"
+  },
+  "registration.date.valid": {
+    "message": "Ihre Lizenz ist gültig bis $1."
+  },
+  "registration.edition.domain": {
+    "message": "Domäne"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email.invalid": { "message": "Bitte geben Sie eine gültige E-Mail-Adresse ein." },
   "registration.email": {
     "message": "E-Mail-Adresse"
   },
@@ -2177,6 +2205,12 @@
   },
   "registration.email.domain.heading": {
     "message": "Domänenlizenzen"
+  },
+  "registration.email.help": {
+    "message": "Informationen zu lizenzierten E-Mail-Adressen"
+  },
+  "registration.email.help.close": {
+    "message": "E-Mail-Hilfe schließen"
   },
   "registration.email.help.heading": {
     "message": "Ihre E-Mail-Adresse ist Ihre Lizenz"
@@ -2190,6 +2224,21 @@
   "registration.email.personal.heading": {
     "message": "Pro-Lizenzen"
   },
+  "registration.email.rules": {
+    "message": "Regeln zur lizenzierten E-Mail-Adresse"
+  },
+  "registration.enterKey": {
+    "message": "Lizenzschlüssel eingeben…"
+  },
+  "registration.features.link": {
+    "message": "Premium-Funktionen entdecken"
+  },
+  "registration.firstName": {
+    "message": "Vorname"
+  },
+  "registration.footer": {
+    "message": "Für Thunderbird gemacht. Von Ihnen unterstützt."
+  },
   "registration.heading.eyebrow": {
     "message": "IHRE LIZENZ"
   },
@@ -2199,11 +2248,23 @@
   "registration.heading.title": {
     "message": "Von der E-Mail zum Filter in Sekunden."
   },
+  "registration.lastName": {
+    "message": "Nachname"
+  },
   "registration.learnMore": {
     "message": "Mehr erfahren…"
   },
-  "registration.legacy.menu": {
-    "message": "Bisherige Lizenzregistrierung"
+  "registration.license.edition": {
+    "message": "$1-Lizenz"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Der aktuelle Lizenzschlüssel ist nicht verfügbar. Bitte versuchen Sie es erneut."
+  },
+  "registration.license.none": {
+    "message": "Keine Lizenz eingerichtet"
+  },
+  "registration.load.error": {
+    "message": "Ihre Lizenz oder Konten konnten nicht geladen werden. Laden Sie diesen Tab neu, um es erneut zu versuchen."
   },
   "registration.menu": {
     "message": "$licenseName$ Lizenz…",
@@ -2212,6 +2273,12 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Lizenznavigation"
+  },
+  "registration.options": {
+    "message": "Lizenzoptionen"
   },
   "registration.plan.domain.description": {
     "message": "Alle Funktionen für Ihr gesamtes Team, unter einer Lizenz."
@@ -2246,6 +2313,9 @@
   "registration.preview.label": {
     "message": "Testfall"
   },
+  "registration.preview.live": {
+    "message": "Aktuelle Lizenz (Live-Shop)"
+  },
   "registration.preview.renewDomain": {
     "message": "Domänenlizenz erneuern (abgelaufen)"
   },
@@ -2258,6 +2328,9 @@
   "registration.renewal.entitlements": {
     "message": "Vorteile bei der Erneuerung hängen von den an den Shop übermittelten Lizenzinformationen ab. Ein Produktwechsel im Shop oder das Entfernen dieser Informationen durch Sicherheitssoftware kann verhindern, dass der Shop Ihren bestehenden Anspruch berücksichtigt."
   },
+  "registration.renewal.hint": {
+    "message": "Die Erneuerung oder Verlängerung Ihrer Lizenz fügt ein weiteres Jahr hinzu und kostet in der Regel weniger als eine neue Lizenz."
+  },
   "registration.renewal.personal": {
     "message": "{bold}Pro-Lizenzen{/bold}{br}Eine neue Lizenz gilt ein Jahr ab Zahlung. Bei Erneuerung oder Verlängerung von Pro erhalten Sie ein volles Jahr ab Zahlung oder ein Jahr über das bestehende Ablaufdatum hinaus, je nachdem, welcher Zeitraum länger ist."
   },
@@ -2267,14 +2340,33 @@
   "registration.selection.intro": {
     "message": "Wählen Sie Pro für Ihre eigene E-Mail-Adresse oder eine Domänenlizenz für Ihr Team."
   },
+  "registration.selection.label": {
+    "message": "Lizenzauswahl"
+  },
   "registration.selection.title": {
     "message": "Weniger Chaos im Posteingang. Mehr Zeit für Sie."
+  },
+  "registration.settings.error": { "message": "Die Lizenz-Einstellungen konnten nicht geöffnet werden. Bitte versuchen Sie es erneut." },
+  "registration.showLess": {
+    "message": "Weniger anzeigen"
+  },
+  "registration.status.Empty": {
+    "message": "Gratisversion"
+  },
+  "registration.status.Expired": {
+    "message": "Abgelaufen"
+  },
+  "registration.status.Valid": {
+    "message": "Gültig"
   },
   "registration.terms.annual": {
     "message": "Eine Lizenz gilt ein Jahr. Erneuern Sie eine abgelaufene Lizenz oder verlängern Sie eine gültige, um Ihre gewählte Edition weiterzuverwenden."
   },
   "registration.terms.annual.heading": {
     "message": "Ein Jahr nach dem anderen"
+  },
+  "registration.terms.back": {
+    "message": "Lizenzauswahl"
   },
   "registration.terms.checkout": {
     "message": "Wählen Sie eine Lizenz, um zum Shop zu gelangen. Der Preis hängt von Edition, Land, Steuern und möglichen Rabatten ab."
@@ -2294,8 +2386,17 @@
   "registration.terms.email.heading": {
     "message": "Ihre E-Mail-Adresse, Ihre Lizenz"
   },
+  "registration.terms.features": {
+    "message": "Entdecken Sie die Funktionen von quickFilters Pro und Domain-Lizenzen."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Weiter zur Lizenzauswahl 🡇"
+  },
   "registration.terms.intro": {
     "message": "quickFilters hilft Ihnen beim Erstellen und Verwalten von Thunderbird-Filtern. Lizenzen finanzieren die laufende Entwicklung, neue Funktionen und Kompatibilitätsupdates. Jede Lizenz gilt ein Jahr."
+  },
+  "registration.terms.label": {
+    "message": "Lizenzbedingungen"
   },
   "registration.terms.manual": {
     "message": "Domänenlizenzen werden **manuell geprüft und ausgestellt**. Eine Erneuerung verlängert das bestehende Ablaufdatum um ein Jahr, auch wenn die Lizenz bereits abgelaufen ist. Dies fördert eine rechtzeitige Erneuerung; die endgültige Laufzeit wird bei der Prüfung bestätigt."
@@ -2311,6 +2412,9 @@
   },
   "registration.terms.savings": {
     "message": "**Starten Sie mit Pro und sparen Sie in den Folgejahren.** Die Erneuerung oder Verlängerung Ihrer Pro-Lizenz kostet deutlich weniger als eine neue Lizenz."
+  },
+  "registration.terms.show": {
+    "message": "Lizenzbedingungen anzeigen 🡇"
   },
   "registration.terms.support": {
     "message": "Ihre Unterstützung hilft, Entwicklung, Kompatibilitätsupdates und Fehlerbehebungen zu finanzieren."
@@ -2488,9 +2592,6 @@
   },
   "support.title": {
     "message": "Support"
-  },
-  "testDrive": {
-    "message": "Premium Funktionen können in der Gratisversion getestet werden, in manchen Fällen mit eingeschränktem Funktionsumfang."
   },
   "thanks-for-installing-intro": {
     "message": "Danke dass Sie $addonName$ installiert haben.",
@@ -2846,6 +2947,12 @@
   "troubleshooter.trialRemaining": {
     "message": "Testversion: noch $1 Nutzungen"
   },
+  "troubleshooter.trialSessionActive": {
+    "message": "Sitzung aktiv."
+  },
+  "troubleshooter.trialSessionHint": {
+    "message": "**{1} kostenlose Problembehebungssitzungen** verbleiben. Lassen Sie diesen Tab geöffnet, um weitere Prüfungen durchzuführen, ohne eine weitere Sitzung zu verbrauchen."
+  },
   "troubleshooter.unsafeEditor": {
     "message": "Das Öffnen dieses Filters im Editor ist unsicher. Zeigen Sie seine Bedingungen an oder deaktivieren Sie ihn."
   },
@@ -2854,12 +2961,6 @@
   },
   "updates.displayVersionTab": {
     "message": "Registerkarte mit Versionsverlauf nach Update anzeigen"
-  },
-  "updates.title": {
-    "message": "Aktualisierung"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro wird automatisch über addons.thunderbird.net aktualisiert. Nach dem Ablauf des Jahres können Sie die Lizenz erneuern oder die Premium Funktionen unter denselben Bedingungen wie Gratisnutzer nutzen. 'Premium Exklusivfunktionen' setzen allerdings eine gültige Lizenz voraus."
   },
   "version": {
     "message": "Version:"
@@ -2917,21 +3018,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro bietet Ihnen vollen Zugriff auf alle Premium Funktionen."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Weitere Informationen über Premium Funktionen."
-  },
-  "yearlyLicense.title": {
-    "message": "Jahreslizenz"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "Die Lizenz ist für persönliche Nutzung (eine Person) und an Ihre Email Adresse gebunden. Sie kann auf mehreren Mailprogrammen installiert werden so lange diese auch die Mail Adresse nutzen."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Zusätzliche Email Adressen sind kein Problem - diese benötigen keine separate Lizenz. Bei Fragen kontaktieren Sie mich gerne über den Support Reiter."
   },
   "youtube.tooltip": {
     "message": "Besuchen Sie Thunderbird Daily - Ihr YouTube Kanal für Tipps und Anleitungen zum Benutzen von quickFilters"

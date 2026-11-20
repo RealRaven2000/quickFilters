@@ -5,9 +5,6 @@
   "about": {
     "message": "Tietoja"
   },
-  "account.label": {
-    "message": "Valitse tili:"
-  },
   "actions.title": {
     "message": "Toiminnot"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "Ilmainen palautusistunto on aktiivinen. Muita istuntoja jäljellä: {1}." },
+  "backup.trial.sessionsRemaining": { "message": "Ilmaisia palautusistuntoja jäljellä: {1}. Saman päivän palautukset käyttävät samaa istuntoa." },
+  "backup.trial.unavailable": { "message": "Kokeilukertojen määrä ei ole saatavilla. Yritä uudelleen." },
+  "backup.trial.usesRemaining": { "message": "Ilmaisia varmuuskopioita jäljellä: {1}" },
   "backup.warnings.account": {
     "message": "Tili"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "quickFilters -tukisivusto"
-  },
-  "buyDomainLicense.button": {
-    "message": "Osta verkkotunnuksen käyttöoikeus"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Tarvitsetko Pro-lisenssit yritykselle, jossa on yli viisi käyttäjää? Verkkotunnuksen lisenssin saaminen toimii halvemmalla:"
-  },
-  "buyLicense.instruct": {
-    "message": "Tarvitsetko lisenssin itsellesi? Hanki yhden käyttäjän lisenssi. Se on sidottu henkilökohtaiseen sähköpostiosoitteeseesi ja sitä voidaan käyttää useissa asennuksissa."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Osta Pro-lisenssi!"
   },
   "cancel": {
     "message": "Peruuttaa"
@@ -1562,15 +1551,6 @@
   "donate.label": {
     "message": "Lahjoittaa"
   },
-  "email.label": {
-    "message": "Sähköposti:"
-  },
-  "enterLicenseKey.button": {
-    "message": "Anna lisenssiavain…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Kirjoita sähköpostitse lähetetty lisenssiavain-koodi."
-  },
   "extend-your-license": {
     "message": "Harkitse lisenssin jatkamista vuodella."
   },
@@ -1605,9 +1585,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Etsi Suodattimet…"
-  },
-  "firstName.label": {
-    "message": "Etunimi:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Käytä suodattimia automaattisesti saapuviin viesteihin"
@@ -1674,9 +1651,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "Sukunimi:"
-  },
   "legacy": {
     "message": "Legacy"
   },
@@ -1722,9 +1696,6 @@
   },
   "licenseValidation.passed": {
     "message": "Kiitos quickFilters Pron rekisteröinnistä! Kaikki premium-ominaisuudet ovat nyt auki."
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro-lisenssi"
   },
   "list.features.multipaste": {
     "message": "Ota käyttöön suodattimien liittäminen useille tileille"
@@ -2029,15 +2000,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Lajittele hakutermit"
   },
-  "pricing.section": {
-    "message": "Saadaksesi selville hintasi, valitse ensin jokin seuraavista vaihtoehdoista. Tämä avaa erillisen selainikkunan, jossa voit suorittaa ostoksen verkkokaupassa."
-  },
-  "pricing.section.hint": {
-    "message": "Huomautus: Hinta vaihtelee lisenssimallin, maan, ALV-prosentin, nykyisten alennusten tai jo ostettujen lisenssien mukaan."
-  },
-  "pricing.title": {
-    "message": "Hinnoittelu"
-  },
   "pro.insertLicense": {
     "message": "Syötä henkilökohtainen lisenssiavain tähän:"
   },
@@ -2153,15 +2115,15 @@
   "quickfolders.currentFolderButton": {
     "message": "Tämä vaihtoehto on käytettävissä vain, jos käytät lisäosaa QuickFolders, joka lisää pienen työkalurivin viestin esikatseluruudun päälle."
   },
-  "register.hasLicense": {
-    "message": "Onko sinulla jo lisenssi?"
-  },
-  "register.licenseValid.expired": {
-    "message": "Lisenssisi on vanhentunut:"
-  },
-  "registration.legacy.menu": {
-    "message": "Vanha lisenssin rekisteröinti"
-  },
+  "registration.action.extend": {"message":"Laajenna lisenssiä"},
+  "registration.action.renew": {"message":"Uusi käyttöoikeus"},
+  "registration.action.buyDomain": {"message":"Osta verkkotunnuksen käyttöoikeus"},
+  "registration.enterKey": {"message":"Anna lisenssiavain…"},
+  "registration.firstName": {"message":"Etunimi:"},
+  "registration.lastName": {"message":"Sukunimi:"},
+  "registration.email": {"message":"Sähköposti:"},
+  "registration.annual": {"message":"Vuosilupa"},
+  "registration.account": {"message":"Valitse tili:"},
   "registration.menu": {
     "message": "$licenseName$ Lisenssi…",
     "placeholders": {
@@ -2337,9 +2299,6 @@
   },
   "support.title": {
     "message": "Tuki"
-  },
-  "testDrive": {
-    "message": "Voit testata premium-ominaisuuksia ilmaisella versiolla, mutta ne saattavat olla hieman rajoitettuja."
   },
   "thanks-for-installing-intro": {
     "message": "Kiitos $addonName$ -asennuksesta.",
@@ -2704,12 +2663,6 @@
   "updates.displayVersionTab": {
     "message": "Näytä päivityksen jälkeen version historia -välilehti"
   },
-  "updates.title": {
-    "message": "Päivitykset"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro päivitetään automaattisesti addons.thunderbird.net -palvelun kautta tavalliseen tapaan. Vuoden päättymisen jälkeen voit uusia käyttöoikeuden tai jatkaa premium-ominaisuuksien käyttöä samoin ehdoin kuin ilmaiset käyttäjät. Premium Exclusive -ominaisuudet edellyttävät kelvollista rekisteröintiavain."
-  },
   "version": {
     "message": "Versio:"
   },
@@ -2766,21 +2719,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro tarjoaa sinulle täyden rajoittamattoman pääsyn premium-ominaisuuksiin."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Lisätietoja premium-ominaisuuksista."
-  },
-  "yearlyLicense.title": {
-    "message": "Vuosilupa"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "Lisenssi on tarkoitettu henkilökohtaiseen käyttöön ja se on sidottu sähköpostiosoitteeseesi. Voit asentaa sen useisiin sähköpostiohjelmiin niin kauan kuin ne on määritetty käyttämään kyseistä osoitetta."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Kaikki muut sähköpostiosoitteet eivät ole ongelma - ne eivät vaadi erillistä lisenssiä. Jos sinulla on kysymyksiä, pääset minut tukisivun kautta."
   },
   "youtube.tooltip": {
     "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"

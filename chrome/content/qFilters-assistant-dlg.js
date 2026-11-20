@@ -206,7 +206,9 @@ quickFilters.Assistant = {
           "notification.premium.btn.renewLicense"
         );
         dlgButtons["extra2"].addEventListener("click", (_e) => {
-          quickFilters.Util.showLicenseDialog("assistant_renew");
+          quickFilters.Util.openRegistrationPreview("assistant_renew").catch(error => {
+            quickFilters.Util.logException("Opening registration from assistant", error);
+          });
         });
       } else {
         // old case (donate)

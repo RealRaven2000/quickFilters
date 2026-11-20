@@ -94,6 +94,29 @@
           used(feature);
         }
       },
+      snapshot(feature) {
+        const inspect = async () => {
+          const limit = maximum(feature);
+          const count = Math.max(0, prefs.getIntPref(PREFIX + feature, 0));
+          const isSessionCount = !!policy[feature]?.isSessionCount;
+          let activeSession = false;
+          if (isSessionCount) {
+            if (!options.storage || !options.sessionId) {
+              throw new Error("Session trial storage is unavailable");
+            }
+            const date = (options.now || (() => new Date()))();
+            const today = [date.getFullYear(), String(date.getMonth() + 1).padStart(2, "0"), String(date.getDate()).padStart(2, "0")].join("-");
+            const stored = await options.storage.get({ featureSession: {} });
+            const previous = stored.featureSession?.[feature];
+            activeSession = count > 0 && previous?.used === count &&
+              (previous.sessionId === options.sessionId || previous.lastUsedDate === today);
+          }
+          return { remaining: Math.max(0, limit - count), maximum: limit, isSessionCount, activeSession };
+        };
+        const pending = queue.pending.then(inspect);
+        queue.pending = pending.catch(() => {});
+        return pending;
+      },
       consume(feature) {
         maximum(feature);
         if (!policy[feature]?.isSessionCount) {

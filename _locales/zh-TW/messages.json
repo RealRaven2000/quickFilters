@@ -5,9 +5,6 @@
   "about": {
     "message": "關於"
   },
-  "account.label": {
-    "message": "帳戶："
-  },
   "actions.title": {
     "message": "行動"
   },
@@ -1051,6 +1048,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "免費還原工作階段進行中。剩餘額外工作階段：{1}。" },
+  "backup.trial.sessionsRemaining": { "message": "剩餘免費還原工作階段：{1}。同一天的多次還原共用一個工作階段。" },
+  "backup.trial.unavailable": { "message": "無法取得試用額度。請再試一次。" },
+  "backup.trial.usesRemaining": { "message": "剩餘免費備份次數：{1}" },
   "backup.warnings.account": {
     "message": "帳戶"
   },
@@ -1213,18 +1214,6 @@
   },
   "button.support": {
     "message": "quickFilters 支持網站"
-  },
-  "buyDomainLicense.button": {
-    "message": "購買域名許可證"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "擁有五個以上用戶的公司需要許可證嗎？ 獲得域名許可證會更便宜："
-  },
-  "buyLicense.instruct": {
-    "message": "自己需要執照嗎？ 獲取單用戶許可證。 它與您的個人電子郵件地址綁定，可以在多個安裝中使用。"
-  },
-  "buyPersonalLicense.button": {
-    "message": "購買個人許可證！"
   },
   "cancel": {
     "message": "取消"
@@ -1496,15 +1485,6 @@
   "donate.label": {
     "message": "捐贈"
   },
-  "email.label": {
-    "message": "電子郵件："
-  },
-  "enterLicenseKey.button": {
-    "message": "輸入許可證密鑰..."
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "輸入通過電子郵件發送給您的許可證密鑰代碼。"
-  },
   "extend-your-license": {
     "message": "考慮將您的許可證延長一年。"
   },
@@ -1539,9 +1519,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "查找過濾器..."
-  },
-  "firstName.label": {
-    "message": "名："
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "自動將篩選器應用於收件郵件"
@@ -1650,9 +1627,6 @@
   },
   "licenseValidation.passed": {
     "message": "感謝您註冊 quickFilters Pro！ 所有高級功能現已解鎖。"
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro 許可證"
   },
   "list.features.multipaste": {
     "message": "啟用將過濾器粘貼到多個帳戶"
@@ -1948,15 +1922,6 @@
   "premium.title.sortSearchTerms": {
     "message": "對搜索詞進行排序"
   },
-  "pricing.section": {
-    "message": "要了解您的價格，請先選擇以下選項之一。 這將打開一個單獨的瀏覽器窗口，您可以在其中完成網上商店的購買。"
-  },
-  "pricing.section.hint": {
-    "message": "注意：價格因許可證型號、國家/地區、增值稅率、當前折扣或已購買的許可證而異。"
-  },
-  "pricing.title": {
-    "message": "價錢"
-  },
   "pro.insertLicense": {
     "message": "在此插入您的個人許可證密鑰："
   },
@@ -2070,15 +2035,14 @@
   "quickfolders.currentFolderButton": {
     "message": "此選項僅在您使用附加組件 QuickFolders 時才適用，該附加組件會在消息預覽窗格頂部添加一個小工具欄。"
   },
-  "register.hasLicense": {
-    "message": "已經有許可證？"
-  },
-  "register.licenseValid.expired": {
-    "message": "您的許可證過期日期："
-  },
-  "registration.legacy.menu": {
-    "message": "舊版授權註冊"
-  },
+  "registration.action.extend": {"message":"延長許可證"},
+  "registration.action.renew": {"message":"更新許可證"},
+  "registration.action.buyDomain": {"message":"購買域名許可證"},
+  "registration.enterKey": {"message":"輸入許可證密鑰..."},
+  "registration.firstName": {"message":"名："},
+  "registration.email": {"message":"電子郵件："},
+  "registration.annual": {"message":"年度許可證"},
+  "registration.account": {"message":"帳戶："},
   "registration.menu": {
     "message": "$licenseName$ 授權…",
     "placeholders": {
@@ -2621,12 +2585,6 @@
   "updates.displayVersionTab": {
     "message": "更新後顯示版本歷史分頁"
   },
-  "updates.title": {
-    "message": "更新"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro 將像往常一樣通過 addons.thunderbird.net 自動更新。一年到期後，您可以續訂許可證或按照與免費用戶相同的條款繼續使用高級功能。“高級專屬”功能將需要有效的許可證 註冊密鑰。"
-  },
   "version": {
     "message": "版本："
   },
@@ -2683,21 +2641,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro 讓您完全不受限制地訪問高級功能。"
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "有關高級功能的更多信息。"
-  },
-  "yearlyLicense.title": {
-    "message": "年度許可證"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "該許可證僅供您個人使用，並與您的電子郵件地址綁定。您可以將其安裝在多個電子郵件客戶端上，只要它們配置為使用該地址即可。"
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "任何其他電子郵件地址都沒有問題 - 它們不需要單獨的許可證。如有疑問，您可以通過支持選項卡與我聯繫。"
   },
   "youtube.tooltip": {
     "message": "訪問 Thunderbird Daily - YouTube 頻道，了解有關使用快速過濾器和桌面郵件的提示和教程"

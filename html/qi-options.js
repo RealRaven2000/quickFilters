@@ -15,7 +15,7 @@ END LICENSE BLOCK */
 
 quickFilters.Options = {
   isLicenseExpiringSoon(info) {
-    return info?.status === "Valid" && Number.isFinite(info.licensedDaysLeft) && info.licensedDaysLeft < 11;
+    return quickFilters.isLicenseExpiringSoon(info);
   },
 
   get currentOptionsTab() {

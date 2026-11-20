@@ -5,9 +5,6 @@
   "about": {
     "message": "À propos"
   },
-  "account.label": {
-    "message": "Choix du compte :"
-  },
   "actions.title": {
     "message": "Actions"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "Une session de restauration gratuite est active. Sessions supplémentaires restantes : {1}." },
+  "backup.trial.sessionsRemaining": { "message": "Sessions de restauration gratuites restantes : {1}. Les restaurations d’une même journée partagent une session." },
+  "backup.trial.unavailable": { "message": "Le quota d’essai est indisponible. Veuillez réessayer." },
+  "backup.trial.usesRemaining": { "message": "Sauvegardes gratuites restantes : {1}" },
   "backup.warnings.account": {
     "message": "Compte"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "Site d'aide quickFilters"
-  },
-  "buyDomainLicense.button": {
-    "message": "Acheter une licence de domaine"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Vous avez besoin de licences pour une entreprises de plus de cinq utilisateurs ? Demandez une licence de domaine, elle sera plus économique :"
-  },
-  "buyLicense.instruct": {
-    "message": "Vous souhaitez acquérir une licence ? Demandez une licence d'utilisateur personnelle. Elle est associée à votre adresse électronique et peut être utilisée sur plusieurs installations."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Acheter une licence personnelle !"
   },
   "cancel": {
     "message": "Annuler"
@@ -1562,15 +1551,6 @@
   "donate.label": {
     "message": "Faire un don"
   },
-  "email.label": {
-    "message": "Courriel :"
-  },
-  "enterLicenseKey.button": {
-    "message": "Saisir la clé de licence…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Saisissez la clé de licence vous ayant été envoyée par courriel."
-  },
   "extend-your-license": {
     "message": "Pensez à prolonger votre licence d'un an."
   },
@@ -1605,9 +1585,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Recherche de filtres…"
-  },
-  "firstName.label": {
-    "message": "Prénom :"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Appliquer automatiquement les filtres aux mails entrants"
@@ -1674,9 +1651,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "Nom :"
-  },
   "legacy": {
     "message": "Legacy"
   },
@@ -1722,9 +1696,6 @@
   },
   "licenseValidation.passed": {
     "message": "Merci pour votre abonnement à quickFilters Pro ! Toutes les fonctionnalités premium sont à présent disponibles."
-  },
-  "licenseWindow.title": {
-    "message": "Licence quickFilters Pro"
   },
   "list.features.multipaste": {
     "message": "Activer le copier-coller des filtres sur plusieurs comptes"
@@ -2029,15 +2000,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Trier les termes de recherche"
   },
-  "pricing.section": {
-    "message": "Pour connaître votre prix, veuillez d'abord sélectionner l'une des options suivantes. Cela ouvre une fenêtre de navigateur séparée dans laquelle vous pouvez finaliser l'achat dans la boutique en ligne."
-  },
-  "pricing.section.hint": {
-    "message": "Remarque : Le prix varie en fonction du modèle de licence, du pays, du taux de TVA, des remises en cours ou des licences déjà achetées."
-  },
-  "pricing.title": {
-    "message": "Tarification"
-  },
   "pro.insertLicense": {
     "message": "Insérez votre clé de licence personnelle ici :"
   },
@@ -2153,15 +2115,15 @@
   "quickfolders.currentFolderButton": {
     "message": "Cette option ne peut être appliquée que si vous utilisez l'extension QuickFolders, qui ajoute une petite barre d'outils en haut du panneau d'aperçu du message."
   },
-  "register.hasLicense": {
-    "message": "Vous êtes déjà en possession d'une licence ?"
-  },
-  "register.licenseValid.expired": {
-    "message": "Your license expired on:"
-  },
-  "registration.legacy.menu": {
-    "message": "Ancien enregistrement de licence"
-  },
+  "registration.action.extend": {"message":"Extend License"},
+  "registration.action.renew": {"message":"Renouveler la licence"},
+  "registration.action.buyDomain": {"message":"Acheter une licence de domaine"},
+  "registration.enterKey": {"message":"Saisir la clé de licence…"},
+  "registration.firstName": {"message":"Prénom :"},
+  "registration.lastName": {"message":"Nom :"},
+  "registration.email": {"message":"Courriel :"},
+  "registration.annual": {"message":"Licence annuelle"},
+  "registration.account": {"message":"Choix du compte :"},
   "registration.menu": {
     "message": "$licenseName$ Licence…",
     "placeholders": {
@@ -2337,9 +2299,6 @@
   },
   "support.title": {
     "message": "Aide"
-  },
-  "testDrive": {
-    "message": "Vous pouvez tester les fonctionnalités premium avec la version gratuite, mais elles seront probablement légèrement bridées."
   },
   "thanks-for-installing-intro": {
     "message": "Merci d'avoir installé $addonName$.",
@@ -2704,12 +2663,6 @@
   "updates.displayVersionTab": {
     "message": "Afficher l’onglet avec l’historique des versions après la mise à jour"
   },
-  "updates.title": {
-    "message": "Mises à jour"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro sera automatiquement mise à jour via addons.thunderbird.net comme d'habitude. Après un an, vous pouvez renouveler la clé ou utiliser les fonctionnalités premium sous les mêmes conditions que les utilisateurs ordinaires. Les fonctionnalités « Premium Exclusive » nécessiteront une clé d'abonnement."
-  },
   "version": {
     "message": "Version :"
   },
@@ -2766,21 +2719,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro vous donne accès à toutes les fonctionnalités premium sans restriction."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Pour en savoir plus sur les fonctionnalités de la version premium"
-  },
-  "yearlyLicense.title": {
-    "message": "Licence annuelle"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "La licence est strictement personnelle et est associée à votre adresse électronique. Vous pouvez l'installer sur plusieurs courrielleurs tant qu'ils sont configurés pour utiliser cette adresse."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
   },
   "youtube.tooltip": {
     "message": "Visiter la chaîne YouTube Thunderbird Daily pour des astuces et des tutoriels sur quickFilters"

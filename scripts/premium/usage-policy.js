@@ -9,7 +9,7 @@
     sortSearchTerms: Object.freeze({ maximum: 25 }),
     sortFilters: Object.freeze({ maximum: 20 }),
     customTemplate: Object.freeze({ maximum: 20 }),
-    saveFilters: Object.freeze({ maximum: 10 }),
+    saveFilters: Object.freeze({ maximum: 10, isSessionCount: true }),
     loadFilters: Object.freeze({ maximum: 3, isSessionCount: true }),
     troubleshooter: Object.freeze({ maximum: 8 }),
   });

@@ -32,6 +32,25 @@ function notice(message, error = false) {
   $("#notice").textContent = message;
   $("#notice").classList.toggle("error", error);
 }
+function showTrialHint(remaining, active) {
+  const hint = $("#trial-hint");
+  if (!active && remaining === 0) {
+    hint.textContent = t("trialExhausted");
+    hint.hidden = false;
+    return;
+  }
+  const message = active ? t("trialSessionActive") + " " : "";
+  const text = message + t("trialSessionHint").replace("{1}", String(remaining));
+  hint.replaceChildren();
+  text.split("**").forEach((part, index) => {
+    if (index % 2) {
+      hint.append(el("strong", "", part));
+    } else {
+      hint.append(document.createTextNode(part));
+    }
+  });
+  hint.hidden = false;
+}
 function setBusy(value) {
   busy = value;
   $("main").setAttribute("aria-busy", String(value));
@@ -52,10 +71,10 @@ async function scan(categories, { refresh = false } = {}) {
     render();
   }
   const result = analyzeSnapshot(await api.getFilterSnapshot(session, $("#account").value, categories));
-  const heading = $('[data-i18n="intro"]');
-  heading.textContent = result.trial ? t("trialRemaining", [result.trial.remaining]) : t("intro");
-  heading.classList.toggle("trial-heading", !!result.trial);
   $("#get-pro").hidden = !result.trial;
+  if (result.trial) {
+    showTrialHint(result.trial.remaining, result.trial.allowed);
+  }
   if (result.allowed === false) throw new Error(t("trialExhausted"));
   if (refresh) review.merge(result);
   else review.replace(result);
@@ -157,6 +176,11 @@ function buildChecks() {
     const section = el("div", "check"), button = el("button", "check-button", t(`check.${category}`));
     button.type = "button"; button.dataset.check = category; button.disabled = true;
     button.prepend(icon(category, true));
+    const moveHint = () => {
+      section.append($("#trial-hint"));
+    };
+    button.addEventListener("mouseenter", moveHint);
+    button.addEventListener("focus", moveHint);
     button.addEventListener("click", () => attempt(async () => {
       await scan([category]);
       notice(t("completed"));
@@ -187,7 +211,7 @@ async function init() {
   $("#view").setAttribute("aria-label", t("resultStatus"));
   $("#search").placeholder = t("find"); $("#search").setAttribute("aria-label", t("find"));
   $("#get-pro").textContent = browser.i18n.getMessage("getquickFilters");
-  $("#get-pro").onclick = () => browser.Utilities.showLicenseDialog("troubleshooter");
+  $("#get-pro").onclick = () => attempt(() => browser.runtime.sendMessage({ command: "openRegistrationTab", feature: "troubleshooter" }));
   $("#toggle-checks").setAttribute("aria-label", t("checks"));
   $("#toggle-checks").onclick = () => {
     const expanded = $("#toggle-checks").getAttribute("aria-expanded") !== "true";
@@ -196,6 +220,9 @@ async function init() {
     $(".checks").classList.toggle("collapsed", !expanded);
   };
   buildChecks(); render();
+  const moveHintToRunAll = () => { $(".run").append($("#trial-hint")); };
+  $("#run-all").addEventListener("mouseenter", moveHintToRunAll);
+  $("#run-all").addEventListener("focus", moveHintToRunAll);
   $("#run-all").onclick = () => attempt(async () => { await scan(checks); notice(t("completed")); });
   $("#open-log").onclick = () => attempt(() => api.openFilterLog($("#account").value));
   $("#search").oninput = render; $("#view").onchange = render;
@@ -218,6 +245,14 @@ async function init() {
   await attempt(async () => {
     const host = await api.getTroubleshooterInfo();
     $("#get-pro").hidden = host.licensed;
+    if (!host.licensed) {
+      try {
+        const usage = await browser.runtime.sendMessage({ command: "getProFeatureUsage", feature: "troubleshooter" });
+        showTrialHint(usage.remaining, false);
+      } catch (error) {
+        console.error("Loading troubleshooter trial allowance failed", error);
+      }
+    }
     if (host.supportsMixedConditions) {
       const note = el("p", "host-note");
       note.append(el("em", "", t("mixedConditionsSupported")));

@@ -45,6 +45,7 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
     return {
       Utilities: {
         initializeProFeatureUsage: async () => usage.initialize(),
+        getProFeatureUsage: async (feature) => usage.snapshot(feature),
         consumeProFeatureUsage: async (feature) => usage.consume(feature),
         updateProFeatureUsageLicenseState: async (valid) => usage.updateLicenseState(valid),
         async ensureQuickFoldersButtons() {
@@ -155,10 +156,6 @@ var Utilities = class extends ExtensionCommon.ExtensionAPI {
         showXhtmlPage: function (uri) {
           let win = this.latestMainWindow();
           win.openDialog(uri).focus();
-        },
-
-        showLicenseDialog: function (referrer) {
-          win.quickFilters.Util.showLicenseDialog(referrer);
         },
 
         showAboutConfig: function (filter) {

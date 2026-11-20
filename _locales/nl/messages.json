@@ -5,9 +5,6 @@
   "about": {
     "message": "Over"
   },
-  "account.label": {
-    "message": "Selecteer account:"
-  },
   "actions.title": {
     "message": "Acties"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "Een gratis herstelsessie is actief. Aanvullende sessies resterend: {1}." },
+  "backup.trial.sessionsRemaining": { "message": "Gratis herstelsessies resterend: {1}. Meerdere herstelacties op dezelfde dag delen één sessie." },
+  "backup.trial.unavailable": { "message": "Het proeftegoed is niet beschikbaar. Probeer het opnieuw." },
+  "backup.trial.usesRemaining": { "message": "Gratis back-ups resterend: {1}" },
   "backup.warnings.account": {
     "message": "Rekening"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "quickFilters-ondersteuningswebsite"
-  },
-  "buyDomainLicense.button": {
-    "message": "Een domeinlicentie kopen"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Hebt u een licentie nodig voor een bedrijf met meer dan vijf gebruikers? Een domeinlicentie zal goedkoper zijn:"
-  },
-  "buyLicense.instruct": {
-    "message": "Hebt u een licentie voor uzelf nodig? Neem een persoonlijke licentie. Deze is gekoppeld aan uw persoonlijke e-mailadres en kan bij verschillende installaties gebruikt worden."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Een persoonlijke licentie kopen!"
   },
   "cancel": {
     "message": "Annuleren"
@@ -1562,15 +1551,6 @@
   "donate.label": {
     "message": "Doneren"
   },
-  "email.label": {
-    "message": "E-mailadres:"
-  },
-  "enterLicenseKey.button": {
-    "message": "Licentiesleutel invullen…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Vul de licentiesleutel in die u via e-mail ontvangen hebt."
-  },
   "extend-your-license": {
     "message": "Overweeg om uw licentie met een jaar te verlengen."
   },
@@ -1605,9 +1585,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Filters zoeken…"
-  },
-  "firstName.label": {
-    "message": "Voornaam:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Filters automatisch toepassen op binnenkomende mail"
@@ -1674,9 +1651,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "Achternaam:"
-  },
   "legacy": {
     "message": "Legacy"
   },
@@ -1722,9 +1696,6 @@
   },
   "licenseValidation.passed": {
     "message": "Bedankt voor uw registratie van quickFilters Pro! Alle premiumfuncties kunnen nu worden gebruikt."
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro-licentie"
   },
   "list.features.multipaste": {
     "message": "Schakel het kopiëren en plakken van filters naar meerdere accounts in"
@@ -2029,15 +2000,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Zoektermen sorteren"
   },
-  "pricing.section": {
-    "message": "Selecteer eerst een van de volgende opties om uw prijs te weten te komen. Hierdoor wordt een apart browservenster geopend waar u de aankoop in de webshop kunt afronden."
-  },
-  "pricing.section.hint": {
-    "message": "Opmerking: de prijs varieert afhankelijk van het licentiemodel, het land, het btw-tarief, huidige kortingen of reeds gekochte licenties."
-  },
-  "pricing.title": {
-    "message": "Prijzen"
-  },
   "pro.insertLicense": {
     "message": "Voeg hier uw persoonlijke licentiesleutel in:"
   },
@@ -2153,15 +2115,15 @@
   "quickfolders.currentFolderButton": {
     "message": "Deze optie is alleen van toepassing als u de add-on QuickFolders gebruikt, die een kleine werkbalk bovenop het berichtenvenster plaatst."
   },
-  "register.hasLicense": {
-    "message": "Hebt u al een licentie?"
-  },
-  "register.licenseValid.expired": {
-    "message": "Uw licentie is verlopen op:"
-  },
-  "registration.legacy.menu": {
-    "message": "Oude licentieregistratie"
-  },
+  "registration.action.extend": {"message":"Licentie verlengen"},
+  "registration.action.renew": {"message":"Licentie vernieuwen"},
+  "registration.action.buyDomain": {"message":"Een domeinlicentie kopen"},
+  "registration.enterKey": {"message":"Licentiesleutel invullen…"},
+  "registration.firstName": {"message":"Voornaam:"},
+  "registration.lastName": {"message":"Achternaam:"},
+  "registration.email": {"message":"E-mailadres:"},
+  "registration.annual": {"message":"Jaarlicentie"},
+  "registration.account": {"message":"Selecteer account:"},
   "registration.menu": {
     "message": "$licenseName$ Licentie…",
     "placeholders": {
@@ -2337,9 +2299,6 @@
   },
   "support.title": {
     "message": "Ondersteuning"
-  },
-  "testDrive": {
-    "message": "U kunt de premiumfuncties uitproberen met de gratis versie, maar ze zijn mogelijk enigszins beperkt."
   },
   "thanks-for-installing-intro": {
     "message": "Bedankt voor het installeren van  $addonName$.",
@@ -2704,12 +2663,6 @@
   "updates.displayVersionTab": {
     "message": "Tabblad met versiegeschiedenis na update weergeven"
   },
-  "updates.title": {
-    "message": "Updates"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro wordt zoals gewoonlijk automatisch bijgewerkt via addons.thunderbird.net. Na het verstrijken van het jaar kunt u de licentie vernieuwen of de premium-functies blijven gebruiken onder dezelfde voorwaarden als gratis gebruikers. Functies exclusief voor premium vereisen een geldige licentiesleutel."
-  },
   "version": {
     "message": "Versie:"
   },
@@ -2766,21 +2719,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro geeft u onbeperkt toegang tot de premiumfuncties."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Meer over premiumfuncties."
-  },
-  "yearlyLicense.title": {
-    "message": "Jaarlicentie"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "De licentie geldt voor uw persoonlijke gebruik en is verbonden aan uw e-mailadres. U kunt het bij meerdere e-mailclients installeren, zo lang deze zijn ingesteld om dat adres te gebruiken."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Extra e-mailadressen zijn geen probleem - er is geen aparte licentie voor nodig. Bij vragen kunt u me via het tabblad Ondersteuning bereiken."
   },
   "youtube.tooltip": {
     "message": "Bezoek het Thunderbird Daily - YouTubekanaal voor tips en handleidingen rond het gebruik van quickFilters en desktop-e-mail"

@@ -6,9 +6,11 @@ import { normalizeBackup, initialMappings, rememberedMappings } from "./restore-
 import { getBackupStorage, recordRecentFile } from "./backup-storage.mjs";
 import { renderAccountMapping } from "./account-mapping-view.mjs";
 import { createWarningPanel } from "./warning-table.mjs";
+import { initGetProButton } from "./get-pro.mjs";
 
 export async function initRestorePage({ el, accountText }) {
   localizeDocument();
+  void initGetProButton("loadFilters").catch(error => console.error("Loading license status failed", error));
   const confirmDelete = createDeleteConfirmation();
   const all = document.querySelector("#all");
   const restore = document.querySelector("#restore");
@@ -40,6 +42,10 @@ export async function initRestorePage({ el, accountText }) {
   const open = el("button", "", t("backup.restore.openBackup"));
   open.type = "button";
   banner.append(open);
+  const restoreHint = el("p", "restore-file-hint");
+  const hintParts = t("backup.restore.selectBackupHint").split("{1}");
+  restoreHint.append(document.createTextNode(hintParts[0]), el("strong", "", open.textContent), document.createTextNode(hintParts[1] || ""));
+  document.querySelector(".trial-remaining").after(restoreHint);
   const overwriteLabel = el("label", "restore-option");
   const overwrite = el("input");
   overwrite.type = "checkbox";
@@ -108,6 +114,7 @@ export async function initRestorePage({ el, accountText }) {
     update();
   }
   function update() {
+    restore.closest("footer").classList.toggle("no-backup", !backup);
     const accounts = backup?.accounts || [];
     all.checked = !!accounts.length && selected.size === accounts.length;
     all.indeterminate = selected.size > 0 && selected.size < accounts.length;
@@ -344,6 +351,7 @@ export async function initRestorePage({ el, accountText }) {
     } finally {
       busy = false;
       render();
+      document.dispatchEvent(new Event("premium-usage-updated"));
     }
   });
 

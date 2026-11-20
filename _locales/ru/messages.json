@@ -5,9 +5,6 @@
   "about": {
     "message": "О"
   },
-  "account.label": {
-    "message": "Учётная запись:"
-  },
   "actions.title": {
     "message": "Действия"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "Бесплатный сеанс восстановления активен. Дополнительных сеансов осталось: {1}." },
+  "backup.trial.sessionsRemaining": { "message": "Бесплатных сеансов восстановления осталось: {1}. Несколько восстановлений в один день используют один сеанс." },
+  "backup.trial.unavailable": { "message": "Не удалось получить сведения о пробном лимите. Повторите попытку." },
+  "backup.trial.usesRemaining": { "message": "Бесплатных резервных копий осталось: {1}" },
   "backup.warnings.account": {
     "message": "Аккаунт"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "Страница поддержки quickFilters"
-  },
-  "buyDomainLicense.button": {
-    "message": "Купить групповую лицензию"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Нужна лицензия для группы с пятью пользователями и более? Групповая лицензия будет дешевле:"
-  },
-  "buyLicense.instruct": {
-    "message": "Нужна лицензия только для себя? Лицензия для одного человека привязана к адресу электронной почты и может использоваться параллельно в несколько местах."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Купить лицензию для одного человека!"
   },
   "cancel": {
     "message": "Отмена"
@@ -1562,15 +1551,6 @@
   "donate.label": {
     "message": "Поддержка"
   },
-  "email.label": {
-    "message": "Адрес:"
-  },
-  "enterLicenseKey.button": {
-    "message": "Ввести лицензионный ключ…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Ввести присланный лицензионный ключ."
-  },
   "extend-your-license": {
     "message": "Продлите лицензию на год."
   },
@@ -1605,9 +1585,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Найти фильтры…"
-  },
-  "firstName.label": {
-    "message": "Имя:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Применять фильтры автоматически к входящей почте"
@@ -1674,9 +1651,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "Фамилия:"
-  },
   "legacy": {
     "message": "Устаревшее"
   },
@@ -1722,9 +1696,6 @@
   },
   "licenseValidation.passed": {
     "message": "Спасибо за регистрацию! Вы можете пользоваться всеми премиум функциями."
-  },
-  "licenseWindow.title": {
-    "message": "Лицензия quickFilters Pro"
   },
   "list.features.multipaste": {
     "message": "Разрешить копирование и вставку фильтров в несколько учетных записей"
@@ -2029,15 +2000,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Сортировка условий поиска"
   },
-  "pricing.section": {
-    "message": "Чтобы узнать цену, сначала выберите один из следующих вариантов. Откроется отдельное окно браузера, в котором вы сможете совершить покупку в интернет-магазине."
-  },
-  "pricing.section.hint": {
-    "message": "Примечание. Цена зависит от модели лицензии, страны, ставки НДС, действующих скидок или уже приобретенных лицензий."
-  },
-  "pricing.title": {
-    "message": "Цены"
-  },
   "pro.insertLicense": {
     "message": "Вставить лицензионный ключ сюда:"
   },
@@ -2153,15 +2115,15 @@
   "quickfolders.currentFolderButton": {
     "message": "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее микропанель инструментов в область просмотра сообщений."
   },
-  "register.hasLicense": {
-    "message": "Уже есть лицензионный ключ?"
-  },
-  "register.licenseValid.expired": {
-    "message": "Ваша лицензия истекает:"
-  },
-  "registration.legacy.menu": {
-    "message": "Прежняя регистрация лицензии"
-  },
+  "registration.action.extend": {"message":"Extend License"},
+  "registration.action.renew": {"message":"Обновить лицензию"},
+  "registration.action.buyDomain": {"message":"Купить групповую лицензию"},
+  "registration.enterKey": {"message":"Ввести лицензионный ключ…"},
+  "registration.firstName": {"message":"Имя:"},
+  "registration.lastName": {"message":"Фамилия:"},
+  "registration.email": {"message":"Адрес:"},
+  "registration.annual": {"message":"Годовая лицензия"},
+  "registration.account": {"message":"Учётная запись:"},
   "registration.menu": {
     "message": "$licenseName$ Лицензия…",
     "placeholders": {
@@ -2337,9 +2299,6 @@
   },
   "support.title": {
     "message": "Поддержка"
-  },
-  "testDrive": {
-    "message": "Можно попробовать премиум-функции и в бесплатной версии, но они могут быть немного ограничены."
   },
   "thanks-for-installing-intro": {
     "message": "Спасибо за установку $addonName$.",
@@ -2704,12 +2663,6 @@
   "updates.displayVersionTab": {
     "message": "Показать вкладку с историей версий после обновления"
   },
-  "updates.title": {
-    "message": "Обновления"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro обновляется автоматически. Через год можно будет либо продлить лицензию, либо пользоваться премиум-возможностями в ограниченном режиме. 'Эксклюзивные' возможности требуют регистрационный ключ."
-  },
   "version": {
     "message": "Версия:"
   },
@@ -2763,21 +2716,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro позволяет неограниченно пользоваться премиум-функциями."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Ещё о премиум-функциях."
-  },
-  "yearlyLicense.title": {
-    "message": "Годовая лицензия"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "Лицензия предназначена для частного пользования и привязана к адресу электронной почты. Её можно использовать на нескольких клиентах, если они используют зарегистрированный адрес."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Любые дополнительные адреса электронной почты не проблема - они не требуют отдельной лицензии. В случае вопросов вы можете связаться со мной через вкладку поддержки."
   },
   "youtube.tooltip": {
     "message": "Посетите Thunderbird Daily - канал на YouTube с советами по использованию quickFilters"

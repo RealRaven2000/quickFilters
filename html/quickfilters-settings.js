@@ -243,16 +243,9 @@ const initEventListeners = async () => {
     const referrer = "options_" + quickFilters.Options.currentOptionsTab;
     btnLicense.disabled = true;
     try {
-      const base = messenger.runtime.getURL("html/registration/registration.html");
-      const url = new URL(base);
-      url.searchParams.set("feature", referrer);
-      const tabs = await messenger.tabs.query({});
-      const existing = tabs.find((tab) => tab.url && tab.url.split(/[?#]/)[0] === base);
-      const registration = existing
-        ? await messenger.tabs.update(existing.id, { url: url.href, active: true })
-        : await messenger.tabs.create({ url: url.href, active: true });
-      if (registration.windowId != null) {
-        await messenger.windows.update(registration.windowId, { focused: true });
+      const registration = await messenger.runtime.sendMessage({ command: "openRegistrationTab", feature: referrer });
+      if (!Number.isInteger(registration?.id)) {
+        throw new Error("Registration tab did not open");
       }
       const settings = await messenger.tabs.getCurrent();
       if (settings?.id != null && settings.id !== registration.id) {
@@ -307,7 +300,7 @@ const initEventListeners = async () => {
       const featureLink = message.querySelector(".features");
       featureLink?.addEventListener("click", () => {
         messenger.windows.openDefaultBrowser(
-          "https://quickfilters.quickfolders.org/premium.html#featureComparison"
+          "https://quickfilters.quickfolders.org/premium.html#featureList"
         );
       });
     }

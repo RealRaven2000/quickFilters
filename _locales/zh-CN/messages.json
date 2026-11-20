@@ -5,9 +5,6 @@
   "about": {
     "message": "对于"
   },
-  "account.label": {
-    "message": "选择账户："
-  },
   "actions.title": {
     "message": "动作"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "免费恢复会话正在进行中。剩余额外会话：{1}。" },
+  "backup.trial.sessionsRemaining": { "message": "剩余免费恢复会话：{1}。同一天的多次恢复共用一个会话。" },
+  "backup.trial.unavailable": { "message": "无法获取试用额度。请重试。" },
+  "backup.trial.usesRemaining": { "message": "剩余免费备份次数：{1}" },
   "backup.warnings.account": {
     "message": "帐户"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "quickFilters支持站点"
-  },
-  "buyDomainLicense.button": {
-    "message": "购买域授权"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "需要为超过五名用户的公司购买授权？购买域授权会更便宜："
-  },
-  "buyLicense.instruct": {
-    "message": "只需要为自己授权？获取单用户授权吧。它绑定到您的个人电子邮件地址，并可在多处安装。"
-  },
-  "buyPersonalLicense.button": {
-    "message": "购买个人授权！"
   },
   "cancel": {
     "message": "取消"
@@ -1559,15 +1548,6 @@
   "donate.label": {
     "message": "捐助"
   },
-  "email.label": {
-    "message": "电子邮件："
-  },
-  "enterLicenseKey.button": {
-    "message": "请输入授权密钥…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "请输入通过电子邮件发送给您的授权密钥。"
-  },
   "extend-your-license": {
     "message": "考虑将您的许可证延长一年。"
   },
@@ -1602,9 +1582,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "查找过滤器..."
-  },
-  "firstName.label": {
-    "message": "名字"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "自动将筛选器应用于收件邮件"
@@ -1669,9 +1646,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "姓氏"
-  },
   "legacy": {
     "message": "传统"
   },
@@ -1717,9 +1691,6 @@
   },
   "licenseValidation.passed": {
     "message": "感谢您注册 QuickFilters Pro！ 所有高级功能现已解锁。"
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro 授权"
   },
   "list.features.multipaste": {
     "message": "启用将过滤器复制和粘贴到多个帐户"
@@ -2021,15 +1992,6 @@
   "premium.title.sortSearchTerms": {
     "message": "对搜索词进行排序"
   },
-  "pricing.section": {
-    "message": "要了解您的价格，请先选择以下选项之一。 这将打开一个单独的浏览器窗口，您可以在其中完成网上商店的购买。"
-  },
-  "pricing.section.hint": {
-    "message": "注意：价格因许可证型号、国家/地区、增值税税率、当前折扣或已购买的许可证而异。"
-  },
-  "pricing.title": {
-    "message": "价钱"
-  },
   "pro.insertLicense": {
     "message": "Insert your personal License key here:"
   },
@@ -2145,15 +2107,15 @@
   "quickfolders.currentFolderButton": {
     "message": "此选项仅在您使用QuickFolders扩展时可用，该扩展会在消息预览窗格顶部添加一个小工具栏。"
   },
-  "register.hasLicense": {
-    "message": "已有授权？"
-  },
-  "register.licenseValid.expired": {
-    "message": "您的许可证已过期："
-  },
-  "registration.legacy.menu": {
-    "message": "旧版许可证注册"
-  },
+  "registration.action.extend": {"message":"延长许可证"},
+  "registration.action.renew": {"message":"更新许可证"},
+  "registration.action.buyDomain": {"message":"购买域授权"},
+  "registration.enterKey": {"message":"请输入授权密钥…"},
+  "registration.firstName": {"message":"名字"},
+  "registration.lastName": {"message":"姓氏"},
+  "registration.email": {"message":"电子邮件："},
+  "registration.annual": {"message":"年度授权"},
+  "registration.account": {"message":"选择账户："},
   "registration.menu": {
     "message": "$licenseName$ 许可证…",
     "placeholders": {
@@ -2329,9 +2291,6 @@
   },
   "support.title": {
     "message": "支持"
-  },
-  "testDrive": {
-    "message": "您可以用免费版本试用一些高级功能，但部分可能受到限制。"
   },
   "thanks-for-installing-intro": {
     "message": "感谢您安装 $addonName$.",
@@ -2696,12 +2655,6 @@
   "updates.displayVersionTab": {
     "message": "更新后显示版本历史标签页"
   },
-  "updates.title": {
-    "message": "更新"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro 将如往常一样通过 addons.thunderbird.net 自动更新。在年订过期后，您可以续订授权，或者如免费用户一样使用高级功能。“高级用户独享”的功能需要有效的注册密钥。"
-  },
   "version": {
     "message": "版本:"
   },
@@ -2758,21 +2711,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro 可以让您不受限制的使用高级功能。"
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "高级功能的更多信息。"
-  },
-  "yearlyLicense.title": {
-    "message": "年度授权"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "此授权是供您个人使用，并与您的电子邮件地址绑定。您只需将它安装到多个已配置使用该地址的电子邮件客户端上。"
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab."
   },
   "youtube.tooltip": {
     "message": "Visit Thunderbird Daily - YouTube Channel for tips and tutorials for using quickFilters and desktop mail"

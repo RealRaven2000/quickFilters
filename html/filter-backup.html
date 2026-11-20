@@ -19,9 +19,10 @@
         />
         <div>
           <h1 data-backup-i18n="backup.restore.title">Restore filters</h1>
-          <p data-backup-i18n="backup.restore.description">
-            Select source accounts and assign their destinations in this profile.
-          </p>
+          <div class="backup-trial-line">
+            <p data-backup-i18n="backup.restore.description">Select source accounts and assign their destinations in this profile.</p>
+            <button type="button" class="backup-get-pro" data-backup-i18n="getquickFilters" hidden>Get quickFilters Pro</button>
+          </div>
         </div>
       </header>
       <section
@@ -82,6 +83,7 @@
           <button id="reset">Reset example</button
           ><button id="restore" class="primary">Restore filters (demo)</button>
         </div>
+        <p class="trial-remaining" role="status" hidden></p>
       </footer>
       <p id="notice" role="status" aria-live="polite">
         Prototype only. No filters are read or changed, and choices are not saved.
@@ -108,9 +110,10 @@
           />
           <div>
             <h1 data-backup-i18n="backup.backup.title">Back up filters</h1>
-            <p data-backup-i18n="backup.backup.description">
-              Select the accounts whose filters you want to save in one file.
-            </p>
+            <div class="backup-trial-line">
+              <p data-backup-i18n="backup.backup.description">Select the accounts whose filters you want to save in one file.</p>
+              <button type="button" class="backup-get-pro" data-backup-i18n="getquickFilters" hidden>Get quickFilters Pro</button>
+            </div>
           </div>
         </header>
         <section
@@ -150,6 +153,7 @@
             <button id="reset">Reset example</button
             ><button id="save" class="primary">Save backup… (demo)</button>
           </div>
+          <p class="trial-remaining" role="status" hidden></p>
         </footer>
         <p id="notice" role="status" aria-live="polite">
           Prototype only. No filters are read and no file is saved.

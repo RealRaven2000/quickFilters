@@ -5,9 +5,6 @@
   "about": {
     "message": "Giới thiệu"
   },
-  "account.label": {
-    "message": "Select account:"
-  },
   "actions.title": {
     "message": "Hành động"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "Một phiên khôi phục miễn phí đang hoạt động. Số phiên bổ sung còn lại: {1}." },
+  "backup.trial.sessionsRemaining": { "message": "Số phiên khôi phục miễn phí còn lại: {1}. Nhiều lần khôi phục trong cùng ngày dùng chung một phiên." },
+  "backup.trial.unavailable": { "message": "Không thể tải hạn mức dùng thử. Vui lòng thử lại." },
+  "backup.trial.usesRemaining": { "message": "Số bản sao lưu miễn phí còn lại: {1}" },
   "backup.warnings.account": {
     "message": "Tài khoản"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "quickFilters Support Site"
-  },
-  "buyDomainLicense.button": {
-    "message": "Buy Domain License"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Cần Giấy phép cho một công ty có hơn năm người dùng? Nhận giấy phép tên miền sẽ rẻ hơn:"
-  },
-  "buyLicense.instruct": {
-    "message": "Cần một giấy phép cho chính mình? Nhận một giấy phép người dùng duy nhất. Nó được liên kết với địa chỉ Email cá nhân của bạn và có thể được sử dụng trong nhiều bản cài đặt."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Mua Giấy phép Cá nhân!"
   },
   "cancel": {
     "message": "Hủy bỏ"
@@ -1562,15 +1551,6 @@
   "donate.label": {
     "message": "Quyên góp"
   },
-  "email.label": {
-    "message": "Email:"
-  },
-  "enterLicenseKey.button": {
-    "message": "Enter License Key…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Enter the License Key code sent to you via Email."
-  },
   "extend-your-license": {
     "message": "Xem xét gia hạn giấy phép của bạn thêm một năm."
   },
@@ -1605,9 +1585,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Find Filters…"
-  },
-  "firstName.label": {
-    "message": "First Name:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Áp dụng bộ lọc tự động cho thư đến"
@@ -1674,9 +1651,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "Last Name:"
-  },
   "legacy": {
     "message": "Legacy"
   },
@@ -1722,9 +1696,6 @@
   },
   "licenseValidation.passed": {
     "message": "Cảm ơn bạn đã đăng ký quickFilters Pro! Tất cả các tính năng cao cấp hiện đã được mở khóa."
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro License"
   },
   "list.features.multipaste": {
     "message": "Cho phép sao chép và dán bộ lọc vào nhiều tài khoản"
@@ -2029,15 +2000,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Sắp xếp các cụm từ tìm kiếm"
   },
-  "pricing.section": {
-    "message": "Để biết giá của bạn, trước tiên vui lòng chọn một trong các tùy chọn sau. Thao tác này sẽ mở ra một cửa sổ trình duyệt riêng, nơi bạn có thể hoàn tất giao dịch mua trong cửa hàng trực tuyến."
-  },
-  "pricing.section.hint": {
-    "message": "Lưu ý: Giá khác nhau tùy thuộc vào kiểu giấy phép, quốc gia, thuế suất VAT, chiết khấu hiện tại hoặc giấy phép đã mua."
-  },
-  "pricing.title": {
-    "message": "Prissättning"
-  },
   "pro.insertLicense": {
     "message": "Insert your personal License key here:"
   },
@@ -2153,15 +2115,15 @@
   "quickfolders.currentFolderButton": {
     "message": "Tùy chọn này chỉ có thể áp dụng nếu bạn đang sử dụng Add-On QuickFolders, thêm một thanh công cụ nhỏ ở phía trên của ngăn xem trước thư."
   },
-  "register.hasLicense": {
-    "message": "Already have a License?"
-  },
-  "register.licenseValid.expired": {
-    "message": "Your license expired on:"
-  },
-  "registration.legacy.menu": {
-    "message": "Đăng ký giấy phép cũ"
-  },
+  "registration.action.extend": {"message":"gia hạn giấy phép"},
+  "registration.action.renew": {"message":"Gia hạn giấy phép"},
+  "registration.action.buyDomain": {"message":"Buy Domain License"},
+  "registration.enterKey": {"message":"Enter License Key…"},
+  "registration.firstName": {"message":"First Name:"},
+  "registration.lastName": {"message":"Last Name:"},
+  "registration.email": {"message":"Email:"},
+  "registration.annual": {"message":"Giấy phép hàng năm"},
+  "registration.account": {"message":"Select account:"},
   "registration.menu": {
     "message": "$licenseName$ Giấy phép…",
     "placeholders": {
@@ -2337,9 +2299,6 @@
   },
   "support.title": {
     "message": "Hỗ trợ"
-  },
-  "testDrive": {
-    "message": "You can test drive the premium features with the free version, but they might be slightly restricted."
   },
   "thanks-for-installing-intro": {
     "message": "Cảm ơn bạn đã cài đặt $addonName$.",
@@ -2704,12 +2663,6 @@
   "updates.displayVersionTab": {
     "message": "Hiển thị tab lịch sử phiên bản sau khi cập nhật"
   },
-  "updates.title": {
-    "message": "Updates"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro will be automatically updated via addons.thunderbird.net as usual. After the year expires you can renew the license or keep using premium features under same terms as free users. 'Premium Exclusive' features will require a valid registration key."
-  },
   "version": {
     "message": "Phiên bản:"
   },
@@ -2766,21 +2719,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro cung cấp cho bạn toàn quyền truy cập không hạn chế vào các tính năng cao cấp."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Thông tin thêm về các tính năng cao cấp."
-  },
-  "yearlyLicense.title": {
-    "message": "Giấy phép hàng năm"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "Giấy phép dành cho mục đích sử dụng cá nhân của bạn và được gắn với địa chỉ email của bạn. Bạn có thể cài đặt nó trên nhiều ứng dụng email miễn là chúng được định cấu hình để sử dụng địa chỉ đó."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Bất kỳ địa chỉ email bổ sung nào cũng không thành vấn đề - chúng không yêu cầu giấy phép riêng biệt. Trong trường hợp có thắc mắc, bạn có thể liên hệ với tôi qua tab hỗ trợ."
   },
   "youtube.tooltip": {
     "message": "Truy cập Thunderbird Daily - Kênh YouTube để biết các mẹo và hướng dẫn sử dụng QuickFilters và thư trên máy tính để bàn"

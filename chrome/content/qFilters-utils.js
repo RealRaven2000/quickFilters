@@ -669,16 +669,10 @@ quickFilters.Util = {
   },
 
   openRegistrationPreview: async function (featureName = "") {
-    const storage = quickFilters.Storage || quickFilters.Util.getMail3PaneWindow()?.quickFilters?.Storage;
-    if (!storage?._context) {
-      throw new Error("quickFilters extension context is unavailable for opening registration");
-    }
-    const createTab = await storage._context.apiCan.asyncFindAPIPath("tabs.create");
-    const url = new URL(quickFilters.Util.extension.baseURI.resolve("html/registration/registration.html"));
-    if (featureName) {
-      url.searchParams.set("feature", featureName);
-    }
-    return createTab({ url: url.href, active: true });
+    return quickFilters.Util.notifyTools.notifyBackground({
+      func: "openRegistrationTab",
+      feature: featureName,
+    });
   },
   openTroubleshooter: async function () {
     const storage = quickFilters.Storage || quickFilters.Util.getMail3PaneWindow()?.quickFilters?.Storage;
@@ -804,7 +798,9 @@ quickFilters.Util = {
           label: regBtn,
           accessKey: hotKey,
           callback: function () {
-            quickFilters.Util.showLicenseDialog(featureName);
+            quickFilters.Util.openRegistrationPreview(featureName).catch(error => {
+              util.logException("Opening registration from premium notification", error);
+            });
           },
           popup: null,
         });
@@ -2710,30 +2706,6 @@ quickFilters.Util = {
     // Background is the single writer for the external QuickFolders bridge.
     // Window code only updates local UI state.
     updateQuickFoldersCurrentFolderButton();
-  },
-
-  showLicenseDialog: function (featureName) {
-    let params = {
-      inn: {
-        referrer: featureName,
-        instance: quickFilters, // Why? should this be the main interface? make obsolete!
-      },
-      out: null,
-    };
-    let win = window;
-    if (win.closed) {
-      // notifications caused by a close parent window will fail!
-      win = quickFilters.Util.getMail3PaneWindow();
-    }
-    win
-      .openDialog(
-        "chrome://quickfilters/content/register.xhtml",
-        "quickfilters-register",
-        "chrome,titlebar,centerscreen,resizable,alwaysRaised,instantApply",
-        quickFilters,
-        params
-      )
-      .focus();
   },
 
   viewSplash: function () {

@@ -4,11 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
-    <title data-l10n-id="licenseWindow.title">__MSG_registration.title__</title>
+    <title>__MSG_registration.title__</title>
     <link rel="stylesheet" href="registration.css" />
     <link rel="stylesheet" href="preview.css" />
     <script src="../../chrome/content/i18n.js" defer></script>
     <script src="../localized-format.js" defer></script>
+    <script src="../license-expiry.js" defer></script>
     <script src="registration.js" defer></script>
     <script src="preview.js" defer></script>
   </head>
@@ -17,19 +18,6 @@
       <img src="../../chrome/content/skin/QuickFilters_64.png" width="64" height="64" alt="" /><span
         >quickFilters</span
       >
-      <div class="prototype-switches">
-        <label>__MSG_registration.preview.label__<select id="preview-scenario">
-            <option value="live" selected>Current license (live checkout)</option>
-            <option value="buy">__MSG_registration.preview.buy__</option>
-            <option value="renew-pro">__MSG_registration.preview.renewPro__</option>
-            <option value="renew-domain">__MSG_registration.preview.renewDomain__</option>
-            <option value="extend-pro">__MSG_registration.preview.extendPro__</option>
-            <option value="extend-domain">__MSG_registration.preview.extendDomain__</option>
-            <option value="upgrade">__MSG_registration.preview.upgrade__</option>
-          </select>
-        </label>
-        <span class="prototype-badge">__MSG_registration.preview.badge__</span>
-      </div>
     </header>
     <main>
       <header class="page-heading">
@@ -40,37 +28,35 @@
       <section class="license-summary" aria-labelledby="current-license">
         <div>
           <div class="summary-title">
-            <h2 id="current-license">Pro license</h2>
-            <span class="status">Expired</span>
+            <h2 id="current-license">__MSG_registration.license.none__</h2>
+            <span class="status">__MSG_registration.status.Empty__</span>
+            <span class="expiry-warning" role="status" hidden></span>
           </div>
           <p>
-            <span>Your license expired on</span>
-            <strong><time datetime="2026-11-11">11 November 2026</time></strong
-            >.
+            __MSG_registration.date.none__
           </p>
         </div>
         <button
           type="button"
           class="button secondary"
           id="enter-key"
-          data-l10n-id="enterLicenseKey.button"
         >
-          Enter license key…
+          __MSG_registration.enterKey__
         </button>
       </section>
-      <section class="workspace" aria-label="License options">
+      <section class="workspace" aria-label="__MSG_registration.options__">
         <div class="section-heading" id="license-section-heading" tabindex="-1">
           <div>
-            <nav class="section-path" aria-label="License navigation">
+            <nav class="section-path" aria-label="__MSG_registration.navigation__">
               <span id="terms-breadcrumb" hidden
-                ><button type="button" class="terms-back" id="terms-back">License selection</button
+                ><button type="button" class="terms-back" id="terms-back">__MSG_registration.terms.back__</button
                 ><span class="breadcrumb-separator" aria-hidden="true">&#8250;</span></span
               >
-              <p class="eyebrow" id="step-label" aria-current="page">LICENSE SELECTION</p>
+              <p class="eyebrow" id="step-label" aria-current="page">__MSG_registration.selection.label__</p>
             </nav>
             <h2 id="view-title">__MSG_registration.selection.title__</h2>
           </div>
-          <span class="annual-note" data-l10n-id="yearlyLicense.title">Annual licenses</span>
+          <span class="annual-note">__MSG_registration.annual__</span>
         </div>
         <div id="selection-panel" aria-labelledby="view-title">
           <input type="hidden" id="referrer" />
@@ -80,20 +66,20 @@
           <fieldset class="contact">
             <legend>__MSG_registration.contact.legend__</legend>
             <div class="contact-grid">
-              <label class="account-field" data-l10n-id="account.label"
-                >Mail account<select id="identity">
+              <label class="account-field"
+                >__MSG_registration.account__<select id="identity">
                   <option value="personal">Alex Morgan · alex@example.com</option>
                   <option value="work">Alex Morgan · alex@studio.example</option>
                 </select></label
               >
               <div class="email-field">
                 <div class="email-label-row">
-                  <label for="email" data-l10n-id="email.label">__MSG_registration.email__</label
+                  <label for="email">__MSG_registration.email__</label
                   ><button
                     type="button"
                     class="email-help-button"
                     id="email-help-button"
-                    aria-label="About licensed email addresses"
+                    aria-label="__MSG_registration.email.help__"
                     aria-expanded="false"
                     aria-controls="email-help"
                   >
@@ -105,15 +91,17 @@
                   type="email"
                   value="alex@example.com"
                   autocomplete="off"
-                  aria-describedby="email-hint"
+                  required
+                  aria-describedby="email-hint email-error"
                 />
+                <p class="email-error" id="email-error" role="alert" hidden></p>
                 <p class="email-hint" id="email-hint">
                   __MSG_registration.email.hint__
                 </p>
                 <aside
                   class="email-help"
                   id="email-help"
-                  aria-label="Licensed email address rules"
+                  aria-label="__MSG_registration.email.rules__"
                   hidden
                 >
                   <div class="email-help-heading">
@@ -122,23 +110,23 @@
                       type="button"
                       class="email-help-close"
                       id="email-help-close"
-                      aria-label="Close email help"
+                      aria-label="__MSG_registration.email.help.close__"
                     >
                       ×
                     </button>
                   </div>
                   <h4>__MSG_registration.email.personal.heading__</h4>
-                  <p data-l10n-id="yearlyLicense.usageTerm" class="localized-markup">__MSG_registration.email.personal__</p>
+                  <p class="localized-markup">__MSG_registration.email.personal__</p>
                   <p><a href="#personal-license-details" id="email-learn-more">__MSG_registration.learnMore__</a></p>
                   <h4>__MSG_registration.email.domain.heading__</h4>
                   <p>__MSG_registration.email.domain__</p>
                 </aside>
               </div>
-              <label data-l10n-id="firstName.label"
-                >First name<input id="first-name" value="Alex" autocomplete="off"
+              <label
+                >__MSG_registration.firstName__<input id="first-name" value="Alex" autocomplete="off"
               /></label>
-              <label data-l10n-id="lastName.label"
-                >Last name<input id="last-name" value="Morgan" autocomplete="off"
+              <label
+                >__MSG_registration.lastName__<input id="last-name" value="Morgan" autocomplete="off"
               /></label>
             </div>
             <p class="field-note">__MSG_registration.contact.note__</p>
@@ -147,18 +135,17 @@
             <article class="plan featured">
               <p class="plan-kicker">__MSG_registration.plan.pro.kicker__</p>
               <h3>Pro</h3>
-              <p data-l10n-id="buyLicense.instruct">
+              <p>
                 __MSG_registration.plan.pro.description__
               </p>
               <div class="plan-bottom">
                 <span>__MSG_registration.plan.pro.scope__</span
                 ><button
                   class="button primary purchase"
-                  data-l10n-id="buyPersonalLicense.button"
                   data-plan="Pro renewal"
                   type="button"
                 >
-                  Extend License
+                  __MSG_registration.action.extend__
                   <svg
                     class="external-icon"
                     width="14"
@@ -182,18 +169,17 @@
             <article class="plan">
               <p class="plan-kicker">__MSG_registration.plan.domain.kicker__</p>
               <h3>Domain</h3>
-              <p data-l10n-id="buyDomainLicense.instruct">
+              <p>
                 __MSG_registration.plan.domain.description__
               </p>
               <div class="plan-bottom">
                 <span>__MSG_registration.plan.domain.scope__</span
                 ><button
                   class="button secondary purchase"
-                  data-l10n-id="buyDomainLicense.button"
                   data-plan="Domain purchase"
                   type="button"
                 >
-                  Explore Domain
+                  __MSG_registration.action.buyDomain__
                   <svg
                     class="external-icon"
                     width="14"
@@ -220,7 +206,7 @@
               type="button"
               id="checkout-notice-close"
               class="checkout-notice-close"
-              aria-label="Dismiss checkout notice"
+              aria-label="__MSG_registration.checkout.dismiss__"
             >
               &#215;
             </button>
@@ -231,10 +217,9 @@
             id="renewal-hint"
             data-l10n-id="notification.premium.btn.extendLicense.tooltip"
           >
-            Renewing or extending your license adds another year and typically costs less than
-            buying a new license.
+            __MSG_registration.renewal.hint__
           </p>
-          <p class="checkout-note" data-l10n-id="pricing.section.hint">
+          <p class="checkout-note">
             __MSG_registration.checkout.note__
           </p>
         </div>
@@ -258,7 +243,7 @@
               <div id="renewal-details" class="renewal-details" hidden>
                 <p class="localized-markup">__MSG_registration.renewal.personal__</p>
                 <p>
-                  <strong>Domain licenses</strong><br /><span class="localizedFormatting">__MSG_registration.terms.manual__</span>
+                  <strong>__MSG_registration.email.domain.heading__</strong><br /><span class="localizedFormatting">__MSG_registration.terms.manual__</span>
                 </p>
                 <p class="localized-markup">__MSG_registration.renewal.previous__</p>
                 <p>__MSG_registration.renewal.entitlements__</p>
@@ -270,10 +255,10 @@
             <article>
               <h3>__MSG_registration.terms.email.heading__</h3>
               <p id="personal-license-details" tabindex="-1">
-                <span data-l10n-id="yearlyLicense.usageTerm" class="localizedFormatting"
+                <span class="localizedFormatting"
                   >__MSG_registration.terms.email__</span
                 >
-                <span data-l10n-id="yearlyLicense.usageTerm1"
+                <span
                   >__MSG_registration.terms.otherAccounts__</span
                 >
               </p>
@@ -284,15 +269,14 @@
             <article>
               <h3>__MSG_registration.terms.edition.heading__</h3>
               <p>
-                Explore the features included with quickFilters Pro and Domain licenses.
+                __MSG_registration.terms.features__
               </p>
               <p>
                 <a
-                  data-l10n-id="yearlyLicense.premiumFeatures.moreInfoLink"
                   href="https://quickFilters.quickfolders.org/premium.html#featureComparison"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Explore premium features
+                  >__MSG_registration.features.link__
                   <svg
                     class="external-icon"
                     width="14"
@@ -314,7 +298,7 @@
             </article>
             <article>
               <h3>__MSG_registration.terms.checkout.heading__</h3>
-              <p data-l10n-id="pricing.section">
+              <p>
                 __MSG_registration.terms.checkout__
               </p>
               <p>
@@ -322,10 +306,7 @@
               </p>
             </article>
           </div>
-          <aside class="review-note">
-            Draft terms: detailed trial and post-expiry feature behavior will be reviewed before
-            release.
-          </aside>
+
         </section>
         <div class="view-switcher">
           <button
@@ -336,13 +317,13 @@
             aria-expanded="false"
             aria-controls="terms-panel"
           >
-            Show license terms <span aria-hidden="true">🡇</span>
+            __MSG_registration.terms.show__
           </button>
         </div>
       </section>
       <footer>
-        <span>Made for Thunderbird. Supported by you.</span
-        ><span id="checkout-mode">Current license · live checkout</span>
+        <span>__MSG_registration.footer__</span
+        ><span id="checkout-mode">__MSG_registration.checkout.live__</span>
       </footer>
       <div id="feedback" class="feedback" role="status" hidden></div>
     </main>

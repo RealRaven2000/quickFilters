@@ -5,9 +5,6 @@
   "about": {
     "message": "quickFilters について"
   },
-  "account.label": {
-    "message": "アカウント選択:"
-  },
   "actions.title": {
     "message": "動作"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "無料の復元セッションが有効です。残りの追加セッション：{1}。" },
+  "backup.trial.sessionsRemaining": { "message": "残りの無料復元セッション：{1}。同じ日の複数の復元は同じセッションを使用します。" },
+  "backup.trial.unavailable": { "message": "試用回数を取得できません。もう一度お試しください。" },
+  "backup.trial.usesRemaining": { "message": "残りの無料バックアップ回数：{1}" },
   "backup.warnings.account": {
     "message": "アカウント"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "quickFilters サポートサイト"
-  },
-  "buyDomainLicense.button": {
-    "message": "ドメインライセンスを購入"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "5 人以上の企業向けにライセンスが必要なら、ドメインライセンスを取得してください。こちらのほうが安くなります:"
-  },
-  "buyLicense.instruct": {
-    "message": "自分用にライセンスが必要ならパーソナルライセンスを取得してください。個人用のメールアドレス向けのライセンスを複数の端末に適用できます。"
-  },
-  "buyPersonalLicense.button": {
-    "message": "パーソナルライセンスを購入"
   },
   "cancel": {
     "message": "キャンセル"
@@ -1562,15 +1551,6 @@
   "donate.label": {
     "message": "寄付"
   },
-  "email.label": {
-    "message": "メールアドレス:"
-  },
-  "enterLicenseKey.button": {
-    "message": "ライセンスキーを入力..."
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "メールに書かれたライセンスキーコードを入力してください。"
-  },
   "extend-your-license": {
     "message": "ライセンスを 1 年延長する。"
   },
@@ -1605,9 +1585,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "フィルタを検索..."
-  },
-  "firstName.label": {
-    "message": "名:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "受信メールに自動的にフィルターを適用"
@@ -1674,9 +1651,6 @@
       }
     }
   },
-  "lastName.label": {
-    "message": "姓:"
-  },
   "legacy": {
     "message": "レガシー"
   },
@@ -1722,9 +1696,6 @@
   },
   "licenseValidation.passed": {
     "message": "QuickFolders Pro のご登録ありがとうございます！ すべての有料機能がロック解除されました。"
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro ライセンス"
   },
   "list.features.multipaste": {
     "message": "複数のアカウントへのフィルターのコピーと貼り付けを有効にする"
@@ -2029,15 +2000,6 @@
   "premium.title.sortSearchTerms": {
     "message": "検索用語を並べ替える"
   },
-  "pricing.section": {
-    "message": "価格を確認するには、まず次のオプションのいずれかを選択してください。 これにより、別のブラウザ ウィンドウが開き、ウェブ ショップでの購入を完了することができます。"
-  },
-  "pricing.section.hint": {
-    "message": "注: 価格は、ライセンス モデル、国、VAT 率、現在の割引、または購入済みのライセンスによって異なります。"
-  },
-  "pricing.title": {
-    "message": "価格"
-  },
   "pro.insertLicense": {
     "message": "個人ライセンスキーをここに記入してください:"
   },
@@ -2153,15 +2115,15 @@
   "quickfolders.currentFolderButton": {
     "message": "このオプションは、QuickFolders アドオンを使用している場合のみ使用できます。メッセージのプレビューペインに小さなツールバーが追加されます。"
   },
-  "register.hasLicense": {
-    "message": "ライセンス登録はお済みですか？"
-  },
-  "register.licenseValid.expired": {
-    "message": "ライセンスの有効期限:"
-  },
-  "registration.legacy.menu": {
-    "message": "従来のライセンス登録"
-  },
+  "registration.action.extend": {"message":"ライセンスを延長"},
+  "registration.action.renew": {"message":"ライセンスを更新"},
+  "registration.action.buyDomain": {"message":"ドメインライセンスを購入"},
+  "registration.enterKey": {"message":"ライセンスキーを入力..."},
+  "registration.firstName": {"message":"名:"},
+  "registration.lastName": {"message":"姓:"},
+  "registration.email": {"message":"メールアドレス:"},
+  "registration.annual": {"message":"年間ライセンス"},
+  "registration.account": {"message":"アカウント選択:"},
   "registration.menu": {
     "message": "$licenseName$ ライセンス…",
     "placeholders": {
@@ -2337,9 +2299,6 @@
   },
   "support.title": {
     "message": "サポート"
-  },
-  "testDrive": {
-    "message": "無料バージョンでは、有料機能を試しに使うことができますが、一部の機能が制限されています。"
   },
   "thanks-for-installing-intro": {
     "message": "$addonName$ をインストールしていただきありがとうございます。",
@@ -2704,12 +2663,6 @@
   "updates.displayVersionTab": {
     "message": "更新後にバージョン履歴のタブを表示"
   },
-  "updates.title": {
-    "message": "更新について"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro は、addons.thunderbird.net 経由で自動的に更新されます。ライセンスの有効期限が切れた後は、ライセンスを更新するか、無料版の利用規約の下で有料機能を使用し続けることができます。'Premium Exclusive' 機能を使用するには、正しい登録キーが必要になります。"
-  },
   "version": {
     "message": "バージョン:"
   },
@@ -2766,21 +2719,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro は、有料機能へのアクセス制限をすべて解除します。"
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "有料機能についての詳細。"
-  },
-  "yearlyLicense.title": {
-    "message": "年間ライセンス"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "ライセンスは、あなたの個人使用に限り、あなたのメールアドレスが登録されます。このメールアドレスを使用するように設定すると、複数のメールクライアントにインストールできます。"
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "メールアドレスを追加しても問題ありません。別のライセンスは不要です。ご質問がありましたらサポートタブからお問い合わせください。"
   },
   "youtube.tooltip": {
     "message": "Thunderbird Daily をご視聴ください - quickFilters とデスクトップのメールを使うためのヒントとチュートリアルを紹介する YouTube チャンネルです"

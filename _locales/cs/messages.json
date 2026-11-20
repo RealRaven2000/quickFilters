@@ -5,9 +5,6 @@
   "about": {
     "message": "O aplikaci"
   },
-  "account.label": {
-    "message": "Vyberte účet:"
-  },
   "actions.title": {
     "message": "Akce"
   },
@@ -1066,6 +1063,10 @@
       }
     }
   },
+  "backup.trial.activeSession": { "message": "Bezplatná relace obnovení je aktivní. Další zbývající relace: {1}." },
+  "backup.trial.sessionsRemaining": { "message": "Zbývající bezplatné relace obnovení: {1}. Více obnovení ve stejný den sdílí jednu relaci." },
+  "backup.trial.unavailable": { "message": "Zkušební limit není dostupný. Zkuste to znovu." },
+  "backup.trial.usesRemaining": { "message": "Zbývající bezplatné zálohy: {1}" },
   "backup.warnings.account": {
     "message": "Účet"
   },
@@ -1240,18 +1241,6 @@
   },
   "button.support": {
     "message": "Stránka podpory quickFilters"
-  },
-  "buyDomainLicense.button": {
-    "message": "Koupit licenci na domény"
-  },
-  "buyDomainLicense.instruct": {
-    "message": "Potřebujete Pro Licence pro společnost s více než pěti uživateli? Získání licence na domény bude fungovat levněji:"
-  },
-  "buyLicense.instruct": {
-    "message": "Chcete používat všechny prémiové funkce bez omezení? Získejte licenci quickFilters Pro. Je vázán na vaši osobní e-mailovou adresu a lze jej použít ve více instalacích."
-  },
-  "buyPersonalLicense.button": {
-    "message": "Koupit licenci Pro!"
   },
   "cancel": {
     "message": "Zrušit"
@@ -1559,15 +1548,6 @@
   "donate.btn": {
     "message": "Darovat"
   },
-  "email.label": {
-    "message": "e-mailem:"
-  },
-  "enterLicenseKey.button": {
-    "message": "Zadejte licenční klíč…"
-  },
-  "enterLicenseKey.tooltip": {
-    "message": "Zadejte kód licenčního klíče, který vám byl zaslán prostřednictvím e-mailu."
-  },
   "extend-your-license": {
     "message": "Zvažte prodloužení licence o rok."
   },
@@ -1599,9 +1579,6 @@
   },
   "findFiltersForFolder.menu": {
     "message": "Najít filtry…"
-  },
-  "firstName.label": {
-    "message": "Jméno:"
   },
   "foldertree.toggleApplyIncomingFilters": {
     "message": "Automaticky použít filtry na příchozí poštu"
@@ -1653,9 +1630,6 @@
   "intro": {
     "message": "Roční licence pro quickFilters Pro vám poskytuje všechny prémiové funkce za rok. To nám také umožňuje další podporu a růst produktu a proměnit ho v něco, co je ještě úžasnější."
   },
-  "lastName.label": {
-    "message": "Příjmení:"
-  },
   "legacy": {
     "message": "legacy"
   },
@@ -1701,9 +1675,6 @@
   },
   "licenseValidation.passed": {
     "message": "Děkujeme za registraci quickFilters Pro! Všechny prémiové funkce jsou nyní odemčeny."
-  },
-  "licenseWindow.title": {
-    "message": "quickFilters Pro Licence"
   },
   "list.features.multipaste": {
     "message": "Povolit vkládání filtrů do více účtů"
@@ -2011,15 +1982,6 @@
   "premium.title.sortSearchTerms": {
     "message": "Řazení vyhledávacích výrazů"
   },
-  "pricing.section": {
-    "message": "Pro zjištění ceny nejprve vyberte jednu z následujících možností. Otevře se samostatné okno prohlížeče, kde můžete dokončit nákup v internetovém obchodě."
-  },
-  "pricing.section.hint": {
-    "message": "Poznámka: Cena se liší podle licenčního modelu, země, sazby DPH, aktuálních slev nebo již zakoupených licencí."
-  },
-  "pricing.title": {
-    "message": "Ceny"
-  },
   "pro.insertLicense": {
     "message": "Vložte sem svůj licenční klíč:"
   },
@@ -2136,15 +2098,15 @@
   "quickfolders.currentFolderButton": {
     "message": "Tato volba platí pouze při použití doplňku QuickFolders, který přidává malý panel nástrojů nad náhled zprávy."
   },
-  "register.hasLicense": {
-    "message": "Už máte licenci?"
-  },
-  "register.licenseValid.expired": {
-    "message": "Vaše licence vypršela dne:"
-  },
-  "registration.legacy.menu": {
-    "message": "Původní registrace licence"
-  },
+  "registration.action.extend": {"message":"Rozšířit licenci"},
+  "registration.action.renew": {"message":"Obnovit licenci"},
+  "registration.action.buyDomain": {"message":"Koupit licenci na domény"},
+  "registration.enterKey": {"message":"Zadejte licenční klíč…"},
+  "registration.firstName": {"message":"Jméno:"},
+  "registration.lastName": {"message":"Příjmení:"},
+  "registration.email": {"message":"e-mailem:"},
+  "registration.annual": {"message":"Roční licence"},
+  "registration.account": {"message":"Vyberte účet:"},
   "registration.menu": {
     "message": "Licence $licenseName$…",
     "placeholders": {
@@ -2323,9 +2285,6 @@
   },
   "support.title": {
     "message": "Podpora"
-  },
-  "testDrive": {
-    "message": "Prémiové funkce můžete vyzkoušet s bezplatnou verzí, ale mohou být mírně omezeny."
   },
   "thanks-for-installing-intro": {
     "message": "Děkujeme, že jste nainstalovali $addonName$.",
@@ -2690,12 +2649,6 @@
   "updates.displayVersionTab": {
     "message": "Zobrazit kartu s historií verzí po aktualizaci"
   },
-  "updates.title": {
-    "message": "Aktualizace"
-  },
-  "updatesExpiry": {
-    "message": "quickFilters Pro bude automaticky aktualizován jako obvykle pomocí addons.thunderbird.net. Po uplynutí roku můžete obnovit licenci nebo zachovat používání prémiových funkcí za stejných podmínek jako uživatelé, kteří jsou zdarma. Funkce „Premium Exclusive“ budou vyžadovat platný registrační klíč."
-  },
   "versionNumber.tooltip": {
     "message": "Klikněte pravým tlačítkem pro historii verzí."
   },
@@ -2749,21 +2702,6 @@
         "example": "quickFilters"
       }
     }
-  },
-  "yearlyLicense.premiumFeatures": {
-    "message": "quickFilters Pro vám poskytuje neomezený přístup k prémiovým funkcím."
-  },
-  "yearlyLicense.premiumFeatures.moreInfoLink": {
-    "message": "Další informace o prémiových funkcích."
-  },
-  "yearlyLicense.title": {
-    "message": "Roční licence"
-  },
-  "yearlyLicense.usageTerm": {
-    "message": "Licence je určena pro vaše osobní použití a je vázána na vaši e-mailovou adresu. Můžete ji nainstalovat na více e-mailových klientů, pokud jsou nakonfigurováni pro použití této adresy."
-  },
-  "yearlyLicense.usageTerm1": {
-    "message": "Jakékoliv další e-mailové adresy nejsou problém - nevyžadují samostatnou licenci. V případě dotazů mě můžete kontaktovat na záložce Podpora."
   },
   "youtube.tooltip": {
     "message": "Navštivte Thunderbird Daily - YouTube kanál pro tipy a návody k použití quickFilters a desktopové pošty"

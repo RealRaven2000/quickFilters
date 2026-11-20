@@ -1,6 +1,6 @@
 "use strict";
 
-// Standalone fixture only: no add-on APIs, real licenses, or checkout effects.
+// Registration page interaction and license settings handoff.
 (() => {
   i18n.updateDocument();
   formatLocalizedElements();
@@ -96,11 +96,15 @@
     toggle.setAttribute("aria-expanded", String(showingTerms));
     toggle.dataset.l10nId = showingTerms ? "licenseTerms.hide" : "licenseTerms.show";
     workspace.classList.toggle("terms-open", showingTerms);
-    document.getElementById("step-label").textContent = showingTerms ? "LICENSE TERMS" : "LICENSE SELECTION";
+    document.getElementById("step-label").textContent = messenger.i18n.getMessage(
+      showingTerms ? "registration.terms.label" : "registration.selection.label"
+    );
     document.getElementById("view-title").textContent = messenger.i18n.getMessage(
       showingTerms ? "registration.terms.title" : "registration.selection.title"
     );
-    toggle.replaceChildren(document.createTextNode(showingTerms ? "🡇 Continue to License Selection 🡇" : "Show license terms 🡇"));
+    toggle.replaceChildren(document.createTextNode(messenger.i18n.getMessage(
+      showingTerms ? "registration.terms.hide" : "registration.terms.show"
+    )));
     replaceLabelGlyphs(toggle);
     feedback.hidden = true;
     document.getElementById("personal-license-details").classList.remove("license-detail-highlight");
@@ -130,7 +134,9 @@
     const opening = details.hidden;
     details.hidden = !opening;
     event.currentTarget.setAttribute("aria-expanded", String(opening));
-    event.currentTarget.textContent = opening ? "Show less" : "Learn more…";
+    event.currentTarget.textContent = messenger.i18n.getMessage(
+      opening ? "registration.showLess" : "registration.learnMore"
+    );
   });
 
   document.getElementById("checkout-notice-close").addEventListener("click", () => {
