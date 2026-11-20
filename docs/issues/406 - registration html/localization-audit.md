@@ -1,24 +1,46 @@
 # Registration localization migration audit
 
-Issue #406. `data-l10n-id` annotations identify a related legacy entity for migration review; the actual registration text comes from `__MSG_registration.*__` and the shared formatter. An annotation is not an instruction to remove an entity. The legacy XHTML dialog remains available.
+Issue #406. The legacy registration XHTML dialog has been retired. Its former keys were checked against runtime source, including `__MSG_...__` placeholders in HTML, XHTML and injected markup, `getBundleString`, `messenger.i18n.getMessage`, `browser.i18n.getMessage`, and dynamic lookup paths.
 
-Compared with `chrome/content/register.xhtml`:
+The registration page uses `__MSG_registration.*__` placeholders and the shared formatter. Its former `data-l10n-id` attributes were migration annotations, not consumers: `i18n.updateDocument()` replaces `__MSG_...__` placeholders and does not interpret those attributes. Annotations for removed keys were removed. Descriptions that referenced removed keys were cleaned up while preserving formatting instructions.
 
-| Legacy entity | Registration use | Assessment |
+The old dialog-only keys, including the retired legacy menu label, were removed from locale catalogs. Shared keys used by settings, notifications and other pages remain. References in descriptions and this historical audit do not constitute runtime use.
+
+Dynamic lookup paths were reviewed conservatively; retain a key if its runtime use cannot be ruled out. New registration strings remain localized according to each locale's `_l10nstatus` and fallback behavior.
+
+## Removed entities and English messages
+
+| Entity | Former English message | Closest new equivalent |
 | --- | --- | --- |
-| `licenseWindow.title` | Page title | Same purpose. |
-| `enterLicenseKey.button` | Enter-key action | Same purpose. |
-| `yearlyLicense.title` | Annual license label | Same purpose. |
-| `account.label`, `email.label`, `firstName.label`, `lastName.label` | Contact fields | Same purposes; input controls must remain outside translated text replacement. |
-| `buyLicense.instruct`, `buyDomainLicense.instruct` | Pro and Domain descriptions | Related purchase guidance, rewritten for the cards. |
-| `buyPersonalLicense.button`, `buyDomainLicense.button` | Purchase actions | Related purchase buttons; the new button also changes label for renewal or extension. |
-| `pricing.section`, `pricing.section.hint` | Checkout terms and note | Related pricing explanations. |
-| `yearlyLicense.usageTerm`, `yearlyLicense.usageTerm1` | Personal license terms | Related license scope and other-account guidance; verify current default-identity wording against the validator. |
-| `yearlyLicense.premiumFeatures.moreInfoLink` | Feature comparison link | Same destination purpose, with rewritten label. |
-| `licenseTerms.show` | Terms toggle | Same action; the controller also changes its label when open. |
+| `account.label` | Select account: | `registration.account` |
+| `buyDomainLicense.button` | Buy Domain License | `registration.action.buyDomain` |
+| `buyDomainLicense.instruct` | Need Licenses for a company with more than five users? Getting a domain license will work out cheaper: | `registration.plan.domain.description` |
+| `buyLicense.instruct` | Need a license for yourself? Get a single user license. It is bound to your personal Email address and can be used in multiple installations. | `registration.plan.pro.description` |
+| `buyPersonalLicense.button` | Buy Personal License! | `registration.action.buy` |
+| `email.label` | Email: | `registration.email` |
+| `enterLicenseKey.button` | Enter License Key… | `registration.enterKey` |
+| `enterLicenseKey.tooltip` | Enter the License Key code sent to you via Email. | No equivalent tooltip |
+| `firstName.label` | First Name: | `registration.firstName` |
+| `lastName.label` | Last Name: | `registration.lastName` |
+| `licenseWindow.title` | quickFilters Pro License | `registration.title` |
+| `pricing.section` | To find out your price, please select one of the following options first. This opens a separate browser window where you may complete the purchase in the web shop. | `registration.terms.checkout` |
+| `pricing.section.hint` | Note: The price varies depending on the license model, country, VAT rate, current discounts or licenses already purchased. | `registration.checkout.note` |
+| `pricing.title` | Pricing | `registration.terms.checkout.heading` (related heading) |
+| `register.hasLicense` | Already have a License? | No separate prompt; Enter license key action remains |
+| `register.licenseValid.expired` | Your license expired on: | `registration.date.expired` |
+| `testDrive` | You can test drive the premium features with the free version, but they might be slightly restricted. | No direct equivalent |
+| `updates.title` | Updates | No direct equivalent |
+| `updatesExpiry` | quickFilters Pro will be automatically updated via addons.thunderbird.net as usual. After the year expires you can renew the license or keep using premium features under same terms as free users. 'Premium Exclusive' features will require a valid registration key. | `registration.terms.annual`, `registration.terms.support` (related concepts) |
+| `yearlyLicense.premiumFeatures` | quickFilters Pro gives you full unrestricted access to the premium features. | `registration.terms.intro` (related introduction) |
+| `yearlyLicense.premiumFeatures.moreInfoLink` | More about premium features. | `registration.features.link` |
+| `yearlyLicense.title` | Annual License | `registration.annual` |
+| `yearlyLicense.usageTerm` | The license is for your personal use and is tied to your email address. You can install it on multiple email clients as long as they are configured to use that address. | `registration.email.personal`, `registration.terms.email` |
+| `yearlyLicense.usageTerm1` | Any additional email addresses are no problem - they do not require a separate license. In case of questions you can reach me via the support tab. | `registration.terms.otherAccounts` |
+| `registration.legacy.menu` | Legacy license registration | None; legacy menu removed |
 
-Removed misleading annotations for `licenseValidation.expiredDate`, `buyPremiumLicense.instruct`, `notification.premium.btn.upgrade`, `licenseTypes`, `domainLicense.instruct`, and `licenseComparison`: these are not matching entities in the quickFilters XHTML dialog. The renewal tooltip annotation refers to a related shared entity rather than an XHTML placeholder.
+## Additional action mappings
 
-No legacy entity has been deleted. The dialog, Settings, notification and other callers can still use them. Before retiring an entity, search its references throughout the add-on, including dynamically constructed message IDs, localized catalogs and markup; only remove it after the legacy dialog and all other consumers have gone.
-
-The English registration entities use the SmartTemplates naming and reusable content where appropriate. Product-specific copy uses quickFilters and its Pro/Domain model. German is a test translation. Remaining hardcoded dynamic status, button, preview, accessibility and checkout messages still need migration before the registration UI is fully localized. The existing Domain term is draft business copy and requires confirmation for quickFilters.
+| Existing entity | English message | New registration entity |
+| --- | --- | --- |
+| `notification.premium.btn.extendLicense` | Extend License | `registration.action.extend` |
+| `notification.premium.btn.renewLicense` | Renew License | `registration.action.renew` |
