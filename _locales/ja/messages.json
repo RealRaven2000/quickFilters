@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "無料の復元セッションが有効です。残りの追加セッション：{1}。" },
-  "backup.trial.sessionsRemaining": { "message": "残りの無料復元セッション：{1}。同じ日の複数の復元は同じセッションを使用します。" },
-  "backup.trial.unavailable": { "message": "試用回数を取得できません。もう一度お試しください。" },
-  "backup.trial.usesRemaining": { "message": "残りの無料バックアップ回数：{1}" },
+  "backup.trial.activeSession": {
+    "message": "無料の復元セッションが有効です。残りの追加セッション：{1}。"
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "残りの無料復元セッション：{1}。同じ日の複数の復元は同じセッションを使用します。"
+  },
+  "backup.trial.unavailable": {
+    "message": "試用回数を取得できません。もう一度お試しください。"
+  },
+  "backup.trial.usesRemaining": {
+    "message": "残りの無料バックアップ回数：{1}"
+  },
   "backup.warnings.account": {
     "message": "アカウント"
   },
@@ -1676,6 +1684,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "または、当面はベーシック版を使用できます — 後でライセンスを復元できます。"
   },
+  "licenseValidation.expiringSoon": {
+    "message": "ライセンスの有効期限がまもなく切れます。今すぐ延長すると、さらに1年間ご利用いただけます。残りの日数は失われません。"
+  },
   "licenseValidation.failed": {
     "message": "入力されたライセンスキーが正しくありません。FastSpring からのメールに書かれた手順を確認してください。何か問題がある場合は、サポートタブからお問い合わせください。"
   },
@@ -1690,9 +1701,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "暗号化されたメールアドレスが読めるメールアドレスと一致しません。"
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "ライセンスの有効期限がまもなく切れます。今すぐ延長すると、さらに1年間ご利用いただけます。残りの日数は失われません。"
   },
   "licenseValidation.passed": {
     "message": "QuickFolders Pro のご登録ありがとうございます！ すべての有料機能がロック解除されました。"
@@ -2115,15 +2123,135 @@
   "quickfolders.currentFolderButton": {
     "message": "このオプションは、QuickFolders アドオンを使用している場合のみ使用できます。メッセージのプレビューペインに小さなツールバーが追加されます。"
   },
-  "registration.action.extend": {"message":"ライセンスを延長"},
-  "registration.action.renew": {"message":"ライセンスを更新"},
-  "registration.action.buyDomain": {"message":"ドメインライセンスを購入"},
-  "registration.enterKey": {"message":"ライセンスキーを入力..."},
-  "registration.firstName": {"message":"名:"},
-  "registration.lastName": {"message":"姓:"},
-  "registration.email": {"message":"メールアドレス:"},
-  "registration.annual": {"message":"年間ライセンス"},
-  "registration.account": {"message":"アカウント選択:"},
+  "registration.account": {
+    "message": "アカウント選択:"
+  },
+  "registration.action.buy": {
+    "message": "$1 を購入"
+  },
+  "registration.action.buyDomain": {
+    "message": "ドメインライセンスを購入"
+  },
+  "registration.action.extend": {
+    "message": "ライセンスを延長"
+  },
+  "registration.action.renew": {
+    "message": "ライセンスを更新"
+  },
+  "registration.annual": {
+    "message": "年間ライセンス"
+  },
+  "registration.checkout.dismiss": {
+    "message": "購入通知を閉じる"
+  },
+  "registration.checkout.error": {
+    "message": "ショップを開けませんでした。もう一度お試しください。"
+  },
+  "registration.checkout.live": {
+    "message": "現在のライセンス · オンラインショップ"
+  },
+  "registration.checkout.note": {
+    "message": "価格、税金、利用可能な割引はショップに表示されます。"
+  },
+  "registration.checkout.opened": {
+    "message": "ブラウザーでショップを開きました。このタブは開いたままにできます。"
+  },
+  "registration.contact.legend": {
+    "message": "このライセンスはどなたが使用しますか？"
+  },
+  "registration.contact.note": {
+    "message": "これらの情報は購入時に自動入力されます。ここで編集できます。"
+  },
+  "registration.date.expired": {
+    "message": "ライセンスは $1 に期限切れになりました。"
+  },
+  "registration.date.none": {
+    "message": "以下でライセンスを選ぶか、お持ちのキーを入力してください。"
+  },
+  "registration.date.unknown": {
+    "message": "不明な日付"
+  },
+  "registration.date.valid": {
+    "message": "ライセンスは $1 まで有効です。"
+  },
+  "registration.edition.domain": {
+    "message": "ドメイン"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "メールアドレス:"
+  },
+  "registration.email.domain": {
+    "message": "異なるルールが適用されます。設定するメールアドレスは、ライセンス対象のドメインに属している必要があります。"
+  },
+  "registration.email.domain.heading": {
+    "message": "ドメインライセンス"
+  },
+  "registration.email.help": {
+    "message": "ライセンス対象のメールアドレスについて"
+  },
+  "registration.email.help.close": {
+    "message": "メールアドレスのヘルプを閉じる"
+  },
+  "registration.email.help.heading": {
+    "message": "メールアドレスがライセンスになります"
+  },
+  "registration.email.hint": {
+    "message": "個人用ライセンスは複数の端末で使用できます。"
+  },
+  "registration.email.invalid": {
+    "message": "有効なメールアドレスを入力してください。"
+  },
+  "registration.email.personal": {
+    "message": "ライセンスはこのメールアドレスに紐付けられています。複数の端末で使用できます。各端末の Thunderbird で、このアドレスをアカウントの{bold}既定の差出人情報{/bold}に設定してください。"
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro ライセンス"
+  },
+  "registration.email.rules": {
+    "message": "ライセンス対象アドレスのルール"
+  },
+  "registration.enterKey": {
+    "message": "ライセンスキーを入力..."
+  },
+  "registration.features.link": {
+    "message": "プレミアム機能を見る"
+  },
+  "registration.firstName": {
+    "message": "名:"
+  },
+  "registration.footer": {
+    "message": "Thunderbird のために。皆様の支援で。"
+  },
+  "registration.heading.eyebrow": {
+    "message": "ライセンス"
+  },
+  "registration.heading.intro": {
+    "message": "{link}すべての Pro 機能{/link}でフィルターを整え、quickFilters の今後の開発を支えてください。"
+  },
+  "registration.heading.title": {
+    "message": "メールからフィルターを数秒で。"
+  },
+  "registration.lastName": {
+    "message": "姓:"
+  },
+  "registration.learnMore": {
+    "message": "詳細…"
+  },
+  "registration.license.edition": {
+    "message": "$1 ライセンス"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "現在のライセンスキーを取得できません。もう一度お試しください。"
+  },
+  "registration.license.none": {
+    "message": "ライセンスが設定されていません"
+  },
+  "registration.load.error": {
+    "message": "ライセンスまたはアカウントを読み込めませんでした。このタブを再読み込みしてください。"
+  },
   "registration.menu": {
     "message": "$licenseName$ ライセンス…",
     "placeholders": {
@@ -2131,6 +2259,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "ライセンスのナビゲーション"
+  },
+  "registration.options": {
+    "message": "ライセンスの選択肢"
+  },
+  "registration.plan.domain.description": {
+    "message": "チーム全員にすべての機能を、1 つのライセンスで。"
+  },
+  "registration.plan.domain.kicker": {
+    "message": "チーム向け"
+  },
+  "registration.plan.domain.scope": {
+    "message": "共通のドメイン向け"
+  },
+  "registration.plan.pro.description": {
+    "message": "Thunderbird のフィルタールールをさらに活用できます。"
+  },
+  "registration.plan.pro.kicker": {
+    "message": "すべての機能"
+  },
+  "registration.plan.pro.scope": {
+    "message": "ご自身のメール向け"
+  },
+  "registration.renewal.entitlements": {
+    "message": "更新時の特典はショップに渡されるライセンス情報に基づきます。ショップで別の商品に切り替えたり、セキュリティソフトが情報を削除したりすると、既存の特典を適用できない場合があります。"
+  },
+  "registration.renewal.hint": {
+    "message": "ライセンスの更新や延長では 1 年が追加され、通常は新規購入よりも安くなります。"
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro ライセンス{/bold}{br}新規ライセンスは支払日から1年間有効です。Pro を更新または延長すると、支払日から1年間、または現在の有効期限から1年間のうち、より長い期間が適用されます。"
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}既存のライセンス{/bold}{br}新しい有効期限を計算するため、現在のライセンスがショップに渡されます。"
+  },
+  "registration.selection.intro": {
+    "message": "個人のメールには Pro、チームには Domain をお選びください。"
+  },
+  "registration.selection.label": {
+    "message": "ライセンスの選択"
+  },
+  "registration.selection.title": {
+    "message": "受信トレイをすっきり。時間をもっと有効に。"
+  },
+  "registration.settings.error": {
+    "message": "ライセンス設定を開けませんでした。もう一度お試しください。"
+  },
+  "registration.showLess": {
+    "message": "折りたたむ"
+  },
+  "registration.status.Empty": {
+    "message": "無料エディション"
+  },
+  "registration.status.Expired": {
+    "message": "期限切れ"
+  },
+  "registration.status.Valid": {
+    "message": "有効"
+  },
+  "registration.terms.annual": {
+    "message": "ライセンスの有効期間は 1 年です。期限切れのライセンスを更新、または有効なライセンスを延長して、選んだエディションを引き続き使用できます。"
+  },
+  "registration.terms.annual.heading": {
+    "message": "1 年ずつ"
+  },
+  "registration.terms.back": {
+    "message": "ライセンスの選択"
+  },
+  "registration.terms.checkout": {
+    "message": "ライセンスを選ぶとショップへ進みます。価格はエディション、国、税金、適用される割引によって異なります。"
+  },
+  "registration.terms.checkout.heading": {
+    "message": "ブラウザーで購入"
+  },
+  "registration.terms.domain": {
+    "message": "ドメインライセンスは、ライセンス対象ドメインに属するメールアドレスを持つユーザーを対象とします。"
+  },
+  "registration.terms.edition.heading": {
+    "message": "エディションを選択"
+  },
+  "registration.terms.email": {
+    "message": "個人用ライセンスはメールアドレスに紐付けられています。各 Thunderbird 環境で、ライセンス対象アドレスがアカウントの**既定の差出人情報**として設定されていれば、複数の環境で使用できます。"
+  },
+  "registration.terms.email.heading": {
+    "message": "あなたのメール、あなたのライセンス"
+  },
+  "registration.terms.features": {
+    "message": "quickFilters Pro と Domain ライセンスに含まれる機能をご確認ください。"
+  },
+  "registration.terms.hide": {
+    "message": "🡇 ライセンスの選択に進む 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters は Thunderbird のフィルターの作成と管理を支援します。ライセンスは継続的な開発、新機能、互換性の更新を支えます。各ライセンスは1年間有効です。"
+  },
+  "registration.terms.label": {
+    "message": "ライセンス規約"
+  },
+  "registration.terms.manual": {
+    "message": "Domain ライセンスは**手動で審査・発行**されます。更新すると、ライセンスがすでに期限切れでも、現在の有効期限から1年延長されます。これは期限内の更新を促すためです。最終的な期間は審査時に確認されます。"
+  },
+  "registration.terms.manualRenewal": {
+    "message": "ライセンスは**自動更新されません**。有効期限が近づくと {+extensionName} がお知らせします。"
+  },
+  "registration.terms.otherAccounts": {
+    "message": "ライセンス対象の機能は、Thunderbird の他のすべてのメールアカウントでも使えます。別のライセンスは不要です。"
+  },
+  "registration.terms.referrer": {
+    "message": "購入または更新時には、現在の有効または期限切れのライセンスが参照情報としてショップに渡されます。"
+  },
+  "registration.terms.savings": {
+    "message": "**Pro で始めて、翌年からお得に。**Pro ライセンスの更新や延長は、新規購入よりも大幅に安くなります。"
+  },
+  "registration.terms.show": {
+    "message": "ライセンス規約を表示 🡇"
+  },
+  "registration.terms.support": {
+    "message": "皆様の支援が、開発、互換性の更新、修正を支えます。"
+  },
+  "registration.terms.title": {
+    "message": "ライセンスについて。"
+  },
+  "registration.title": {
+    "message": "quickFilters · ライセンス"
   },
   "renew-your-license": {
     "message": "ライセンスを更新する。"

@@ -1,6 +1,6 @@
 {
   "_l10nstatus": {
-    "message": "SPLASH"
+    "message": "SPLASH+REGISTRATION"
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
@@ -99,6 +99,15 @@
     "description": "Shown if license expires more than a year from now",
     "message": "Zahvaljujemo se vam za nedavno podaljšanje licence ali če ste prispevali. Ker ste pomagali pri prihodnjem preverjanju tega dodatka, lahko preprosto zaprete to okno."
   },
+  "licenseValidation.expired": {
+    "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
   "mozillas-basic-platform": {
     "message": "Mozilla ponuja samo osnovno platformo za dostavo naše programske opreme vam, končnim uporabnikom. Če moramo uporabnike prositi za plačilo ali podporo, tega ne moremo storiti z addons.thunderbird.net - to ni 'trgovina z aplikacijami' z vgrajenimi plačilnimi zidovi ali upravljanjem licenc, kot sta iTunes ali google play."
   },
@@ -159,15 +168,6 @@
   "purchase-heading": {
     "message": "Podpora z licenco"
   },
-  "licenseValidation.expired": {
-    "message": "Vaša licenca za quickFilters Pro je potekla. Za podaljšanje kliknite spodnji gumb »$renewButton$«.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Licenca je potekla!"
   },
@@ -188,6 +188,269 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Odprite meni '{menulabel}' spodaj, da vidite, kaj je novega. S tem se tudi odstrani 🟠."
+  },
+  "registration.account": {
+    "message": "Poštni račun"
+  },
+  "registration.action.buy": {
+    "message": "Kupi $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Kupi domensko licenco"
+  },
+  "registration.action.extend": {
+    "message": "Podaljšaj licenco"
+  },
+  "registration.action.renew": {
+    "message": "Obnovi licenco"
+  },
+  "registration.annual": {
+    "message": "Letne licence"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Zapri obvestilo o nakupu"
+  },
+  "registration.checkout.error": {
+    "message": "Trgovine ni mogoče odpreti. Poskusite znova."
+  },
+  "registration.checkout.live": {
+    "message": "Trenutna licenca · spletna trgovina"
+  },
+  "registration.checkout.note": {
+    "message": "Cene, davki in razpoložljivi popusti so prikazani v trgovini."
+  },
+  "registration.checkout.opened": {
+    "message": "Trgovina se je odprla v brskalniku. Ta zavihek lahko pustite odprt."
+  },
+  "registration.contact.legend": {
+    "message": "Komu je namenjena ta licenca?"
+  },
+  "registration.contact.note": {
+    "message": "Ti podatki bodo vnaprej izpolnjeni ob nakupu. Tukaj jih lahko uredite."
+  },
+  "registration.date.expired": {
+    "message": "Vaša licenca je potekla $1."
+  },
+  "registration.date.none": {
+    "message": "Spodaj izberite licenco ali vnesite obstoječi ključ."
+  },
+  "registration.date.unknown": {
+    "message": "neznanega datuma"
+  },
+  "registration.date.valid": {
+    "message": "Vaša licenca velja do $1."
+  },
+  "registration.edition.domain": {
+    "message": "Domena"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "E-poštni naslov"
+  },
+  "registration.email.domain": {
+    "message": "Veljajo druga pravila: nastavljeni naslov mora pripadati licencirani domeni."
+  },
+  "registration.email.domain.heading": {
+    "message": "Domenske licence"
+  },
+  "registration.email.help": {
+    "message": "O licenciranih e-poštnih naslovih"
+  },
+  "registration.email.help.close": {
+    "message": "Zapri pomoč za naslove"
+  },
+  "registration.email.help.heading": {
+    "message": "Vaš e-poštni naslov je vaša licenca"
+  },
+  "registration.email.hint": {
+    "message": "Osebna licenca deluje na več napravah."
+  },
+  "registration.email.invalid": {
+    "message": "Vnesite veljaven e-poštni naslov."
+  },
+  "registration.email.personal": {
+    "message": "Licenca je vezana na ta e-poštni naslov. Uporabljate jo lahko na več napravah. Ta naslov nastavite kot {bold}privzeto identiteto{/bold} računa Thunderbird na vsaki napravi."
+  },
+  "registration.email.personal.heading": {
+    "message": "Licence Pro"
+  },
+  "registration.email.rules": {
+    "message": "Pravila licenciranega naslova"
+  },
+  "registration.enterKey": {
+    "message": "Vnesi licenčni ključ…"
+  },
+  "registration.features.link": {
+    "message": "Raziščite premijske funkcije"
+  },
+  "registration.firstName": {
+    "message": "Ime"
+  },
+  "registration.footer": {
+    "message": "Ustvarjeno za Thunderbird. Z vašo podporo."
+  },
+  "registration.heading.eyebrow": {
+    "message": "VAŠA LICENCA"
+  },
+  "registration.heading.intro": {
+    "message": "Poskrbite za svoje filtre z {link}vsemi funkcijami Pro{/link} in podprite nadaljnji razvoj quickFilters."
+  },
+  "registration.heading.title": {
+    "message": "Od e-pošte do filtra v nekaj sekundah."
+  },
+  "registration.lastName": {
+    "message": "Priimek"
+  },
+  "registration.learnMore": {
+    "message": "Več informacij…"
+  },
+  "registration.license.edition": {
+    "message": "Licenca $1"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Trenutni licenčni ključ ni na voljo. Poskusite znova."
+  },
+  "registration.license.none": {
+    "message": "Licenca ni nastavljena"
+  },
+  "registration.load.error": {
+    "message": "Licence ali računov ni mogoče naložiti. Znova naložite ta zavihek."
+  },
+  "registration.menu": {
+    "message": "Licenca $licenseName$…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
+  "registration.navigation": {
+    "message": "Krmarjenje po licencah"
+  },
+  "registration.options": {
+    "message": "Možnosti licence"
+  },
+  "registration.plan.domain.description": {
+    "message": "Vse funkcije za celotno ekipo z eno licenco."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Za vašo ekipo"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Za skupno domeno"
+  },
+  "registration.plan.pro.description": {
+    "message": "Okrepite pravila filtrov v Thunderbirdu."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Vse funkcije"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Za vašo e-pošto"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Ugodnosti podaljšanja so odvisne od podatkov o licenci, posredovanih trgovini. Če v trgovini izberete drug izdelek ali varnostna programska oprema odstrani podatke, trgovina morda ne bo mogla uporabiti vaših obstoječih ugodnosti."
+  },
+  "registration.renewal.hint": {
+    "message": "Obnova ali podaljšanje licence doda eno leto in običajno stane manj kot nova licenca."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Licence Pro{/bold}{br}Nova licenca velja eno leto od plačila. Pri obnovitvi ali podaljšanju Pro prejmete celo leto od plačila ali eno leto po trenutnem datumu poteka, odvisno od tega, kaj vam zagotovi več časa."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Obstoječa licenca{/bold}{br}Trenutna licenca se pošlje trgovini za izračun novega datuma poteka."
+  },
+  "registration.selection.intro": {
+    "message": "Izberite Pro za svojo e-pošto ali Domain za svojo ekipo."
+  },
+  "registration.selection.label": {
+    "message": "Izbira licence"
+  },
+  "registration.selection.title": {
+    "message": "Bolj urejena prejeta pošta. Več časa za vas."
+  },
+  "registration.settings.error": {
+    "message": "Nastavitev licence ni bilo mogoče odpreti. Poskusite znova."
+  },
+  "registration.showLess": {
+    "message": "Pokaži manj"
+  },
+  "registration.status.Empty": {
+    "message": "Brezplačna izdaja"
+  },
+  "registration.status.Expired": {
+    "message": "Potekla"
+  },
+  "registration.status.Valid": {
+    "message": "Veljavna"
+  },
+  "registration.terms.annual": {
+    "message": "Licenca velja eno leto. Obnovite poteklo licenco ali podaljšajte trenutno za nadaljnjo uporabo izbrane izdaje."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Po eno leto"
+  },
+  "registration.terms.back": {
+    "message": "Izbira licence"
+  },
+  "registration.terms.checkout": {
+    "message": "Izberite licenco za nadaljevanje v trgovino. Cena je odvisna od izdaje, države, davkov in veljavnih popustov."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Nakup v brskalniku"
+  },
+  "registration.terms.domain": {
+    "message": "Domenska licenca pokriva uporabnike z ustreznimi naslovi v licencirani domeni."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Izberite izdajo"
+  },
+  "registration.terms.email": {
+    "message": "Osebna licenca je vezana na vaš e-poštni naslov. Uporabljate jo lahko v več namestitvah Thunderbirda, če je licencirani naslov v vsaki nastavljen kot **privzeta identiteta** računa."
+  },
+  "registration.terms.email.heading": {
+    "message": "Vaša e-pošta, vaša licenca"
+  },
+  "registration.terms.features": {
+    "message": "Raziščite funkcije licenc quickFilters Pro in Domain."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Nadaljuj na izbiro licence 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters vam pomaga ustvarjati in upravljati filtre Thunderbird. Licence financirajo nadaljnji razvoj, nove funkcije in posodobitve združljivosti. Vsaka licenca velja eno leto."
+  },
+  "registration.terms.label": {
+    "message": "Licenčni pogoji"
+  },
+  "registration.terms.manual": {
+    "message": "Licence Domain so **ročno pregledane in izdane**. Obnovitev doda eno leto trenutnemu datumu poteka, tudi če je licenca že potekla. To spodbuja pravočasno obnovitev; končno obdobje se potrdi pri pregledu."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Licence **se ne obnavljajo samodejno**. {+extensionName} vas opomni pred potekom licence."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "Licencirane funkcije delujejo tudi z vsemi drugimi poštnimi računi v Thunderbirdu. Ločene licence niso potrebne."
+  },
+  "registration.terms.referrer": {
+    "message": "Vaša obstoječa veljavna ali potekla licenca se ob nakupu ali obnovitvi posreduje trgovini kot referenca."
+  },
+  "registration.terms.savings": {
+    "message": "**Začnite s Pro in prihranite v naslednjih letih.** Obnova ali podaljšanje licence Pro stane občutno manj kot nakup nove."
+  },
+  "registration.terms.show": {
+    "message": "Pokaži licenčne pogoje 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Vaša podpora pomaga financirati razvoj, posodobitve združljivosti in popravke."
+  },
+  "registration.terms.title": {
+    "message": "Kako deluje vaša licenca."
+  },
+  "registration.title": {
+    "message": "quickFilters · Vaša licenca"
   },
   "renew-your-license": {
     "message": "Obnovite licenco."

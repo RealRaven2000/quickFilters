@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "Ilmainen palautusistunto on aktiivinen. Muita istuntoja jäljellä: {1}." },
-  "backup.trial.sessionsRemaining": { "message": "Ilmaisia palautusistuntoja jäljellä: {1}. Saman päivän palautukset käyttävät samaa istuntoa." },
-  "backup.trial.unavailable": { "message": "Kokeilukertojen määrä ei ole saatavilla. Yritä uudelleen." },
-  "backup.trial.usesRemaining": { "message": "Ilmaisia varmuuskopioita jäljellä: {1}" },
+  "backup.trial.activeSession": {
+    "message": "Ilmainen palautusistunto on aktiivinen. Muita istuntoja jäljellä: {1}."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "Ilmaisia palautusistuntoja jäljellä: {1}. Saman päivän palautukset käyttävät samaa istuntoa."
+  },
+  "backup.trial.unavailable": {
+    "message": "Kokeilukertojen määrä ei ole saatavilla. Yritä uudelleen."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Ilmaisia varmuuskopioita jäljellä: {1}"
+  },
   "backup.warnings.account": {
     "message": "Tili"
   },
@@ -1676,6 +1684,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Vaihtoehtoisesti voit toistaiseksi käyttää Perusversiota — voit palauttaa lisenssisi myöhemmin."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Lisenssisi vanhenee pian. Jatka sitä nyt toisella vuodella. Jäljellä olevat päivät eivät mene hukkaan."
+  },
   "licenseValidation.failed": {
     "message": "Syöttämäsi lisenssiavain ei ole voimassa. Tarkista sähköpostisi FatSpringiltä saadaksesi ohjeistusta. Jos ongelmia edelleen ilmenee, ota yhteyttä minuun Tuki-välilehdeltä."
   },
@@ -1690,9 +1701,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "Salattu sähköpostiosoite ei vastaa lukukelpoista"
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "Lisenssisi vanhenee pian. Jatka sitä nyt toisella vuodella. Jäljellä olevat päivät eivät mene hukkaan."
   },
   "licenseValidation.passed": {
     "message": "Kiitos quickFilters Pron rekisteröinnistä! Kaikki premium-ominaisuudet ovat nyt auki."
@@ -2115,15 +2123,135 @@
   "quickfolders.currentFolderButton": {
     "message": "Tämä vaihtoehto on käytettävissä vain, jos käytät lisäosaa QuickFolders, joka lisää pienen työkalurivin viestin esikatseluruudun päälle."
   },
-  "registration.action.extend": {"message":"Laajenna lisenssiä"},
-  "registration.action.renew": {"message":"Uusi käyttöoikeus"},
-  "registration.action.buyDomain": {"message":"Osta verkkotunnuksen käyttöoikeus"},
-  "registration.enterKey": {"message":"Anna lisenssiavain…"},
-  "registration.firstName": {"message":"Etunimi:"},
-  "registration.lastName": {"message":"Sukunimi:"},
-  "registration.email": {"message":"Sähköposti:"},
-  "registration.annual": {"message":"Vuosilupa"},
-  "registration.account": {"message":"Valitse tili:"},
+  "registration.account": {
+    "message": "Valitse tili:"
+  },
+  "registration.action.buy": {
+    "message": "Osta $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Osta verkkotunnuksen käyttöoikeus"
+  },
+  "registration.action.extend": {
+    "message": "Laajenna lisenssiä"
+  },
+  "registration.action.renew": {
+    "message": "Uusi käyttöoikeus"
+  },
+  "registration.annual": {
+    "message": "Vuosilupa"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Sulje ostoilmoitus"
+  },
+  "registration.checkout.error": {
+    "message": "Kauppaa ei voitu avata. Yritä uudelleen."
+  },
+  "registration.checkout.live": {
+    "message": "Nykyinen lisenssi · verkkokauppa"
+  },
+  "registration.checkout.note": {
+    "message": "Hinnat, verot ja saatavilla olevat alennukset näkyvät kaupassa."
+  },
+  "registration.checkout.opened": {
+    "message": "Kauppa on avattu selaimeesi. Voit pitää tämän välilehden auki."
+  },
+  "registration.contact.legend": {
+    "message": "Kenelle tämä lisenssi on?"
+  },
+  "registration.contact.note": {
+    "message": "Nämä tiedot täytetään valmiiksi kassalla. Voit muokata niitä täällä."
+  },
+  "registration.date.expired": {
+    "message": "Lisenssisi vanheni $1."
+  },
+  "registration.date.none": {
+    "message": "Valitse lisenssi alta tai anna nykyinen avaimesi."
+  },
+  "registration.date.unknown": {
+    "message": "tuntemattomaan päivään"
+  },
+  "registration.date.valid": {
+    "message": "Lisenssisi on voimassa $1 asti."
+  },
+  "registration.edition.domain": {
+    "message": "Verkkotunnus"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "Sähköposti:"
+  },
+  "registration.email.domain": {
+    "message": "Säännöt ovat erilaiset: määritetyn osoitteen on kuuluttava lisensoituun verkkotunnukseen."
+  },
+  "registration.email.domain.heading": {
+    "message": "Verkkotunnuslisenssit"
+  },
+  "registration.email.help": {
+    "message": "Tietoja lisensoiduista sähköpostiosoitteista"
+  },
+  "registration.email.help.close": {
+    "message": "Sulje osoiteohje"
+  },
+  "registration.email.help.heading": {
+    "message": "Sähköpostiosoitteesi on lisenssisi"
+  },
+  "registration.email.hint": {
+    "message": "Henkilökohtainen lisenssisi toimii useilla laitteilla."
+  },
+  "registration.email.invalid": {
+    "message": "Anna kelvollinen sähköpostiosoite."
+  },
+  "registration.email.personal": {
+    "message": "Lisenssi on sidottu tähän sähköpostiosoitteeseen. Voit käyttää sitä useilla laitteilla. Määritä osoite Thunderbird-tilin {bold}oletusidentiteetiksi{/bold} jokaisella laitteella."
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro-lisenssit"
+  },
+  "registration.email.rules": {
+    "message": "Lisensoidun osoitteen säännöt"
+  },
+  "registration.enterKey": {
+    "message": "Anna lisenssiavain…"
+  },
+  "registration.features.link": {
+    "message": "Tutustu premium-ominaisuuksiin"
+  },
+  "registration.firstName": {
+    "message": "Etunimi:"
+  },
+  "registration.footer": {
+    "message": "Tehty Thunderbirdille. Sinun tukemasi."
+  },
+  "registration.heading.eyebrow": {
+    "message": "LISENSSISI"
+  },
+  "registration.heading.intro": {
+    "message": "Pidä suodattimesi kunnossa {link}kaikilla Pro-ominaisuuksilla{/link} ja auta quickFiltersiä kehittymään."
+  },
+  "registration.heading.title": {
+    "message": "Sähköpostista suodattimeksi sekunneissa."
+  },
+  "registration.lastName": {
+    "message": "Sukunimi:"
+  },
+  "registration.learnMore": {
+    "message": "Lue lisää…"
+  },
+  "registration.license.edition": {
+    "message": "$1-lisenssi"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Nykyinen lisenssiavain ei ole käytettävissä. Yritä uudelleen."
+  },
+  "registration.license.none": {
+    "message": "Lisenssiä ei ole määritetty"
+  },
+  "registration.load.error": {
+    "message": "Lisenssiä tai tilejä ei voitu ladata. Yritä uudelleen lataamalla välilehti uudestaan."
+  },
   "registration.menu": {
     "message": "$licenseName$ Lisenssi…",
     "placeholders": {
@@ -2131,6 +2259,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Lisenssien navigointi"
+  },
+  "registration.options": {
+    "message": "Lisenssivaihtoehdot"
+  },
+  "registration.plan.domain.description": {
+    "message": "Kaikki ominaisuudet koko tiimille yhdellä lisenssillä."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Tiimillesi"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Yhteiselle verkkotunnukselle"
+  },
+  "registration.plan.pro.description": {
+    "message": "Lisää tehoa Thunderbirdin suodatussääntöihin."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Kaikki ominaisuudet"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Omalle sähköpostillesi"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Uusimisedut riippuvat kauppaan välitetyistä lisenssitiedoista. Tuotteen vaihtaminen kaupassa tai tietoturvaohjelmiston poistamat tiedot voivat estää kauppaa soveltamasta nykyisiä etujasi."
+  },
+  "registration.renewal.hint": {
+    "message": "Lisenssin uusiminen tai jatkaminen lisää vuoden ja maksaa yleensä vähemmän kuin uusi lisenssi."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro-lisenssit{/bold}{br}Uusi lisenssi on voimassa vuoden maksupäivästä. Kun uusit tai jatkat Pro-lisenssiä, saat täyden vuoden maksupäivästä tai yhden vuoden nykyisen päättymispäivän jälkeen sen mukaan, kumpi antaa enemmän aikaa."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Nykyinen lisenssi{/bold}{br}Nykyinen lisenssisi välitetään kauppaan uuden päättymispäivän laskemiseksi."
+  },
+  "registration.selection.intro": {
+    "message": "Valitse Pro omaan sähköpostiisi tai Domain tiimillesi."
+  },
+  "registration.selection.label": {
+    "message": "Lisenssin valinta"
+  },
+  "registration.selection.title": {
+    "message": "Siistimpi saapuneet-kansio. Enemmän aikaa sinulle."
+  },
+  "registration.settings.error": {
+    "message": "Lisenssiasetuksia ei voitu avata. Yritä uudelleen."
+  },
+  "registration.showLess": {
+    "message": "Näytä vähemmän"
+  },
+  "registration.status.Empty": {
+    "message": "Ilmaisversio"
+  },
+  "registration.status.Expired": {
+    "message": "Vanhentunut"
+  },
+  "registration.status.Valid": {
+    "message": "Voimassa"
+  },
+  "registration.terms.annual": {
+    "message": "Lisenssi kattaa yhden vuoden. Uusi vanhentunut lisenssi tai jatka nykyistä käyttääksesi valitsemaasi versiota edelleen."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Vuosi kerrallaan"
+  },
+  "registration.terms.back": {
+    "message": "Lisenssin valinta"
+  },
+  "registration.terms.checkout": {
+    "message": "Valitse lisenssi siirtyäksesi kauppaan. Hinta riippuu versiosta, maasta, veroista ja sovellettavista alennuksista."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Ostaminen selaimessa"
+  },
+  "registration.terms.domain": {
+    "message": "Verkkotunnuslisenssi kattaa käyttäjät, joiden osoitteet kuuluvat lisensoituun verkkotunnukseen."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Valitse versiosi"
+  },
+  "registration.terms.email": {
+    "message": "Henkilökohtainen lisenssi on sidottu sähköpostiosoitteeseesi. Voit käyttää sitä useissa Thunderbird-asennuksissa, kun lisensoitu osoite on määritetty tilin **oletusidentiteetiksi** jokaisessa asennuksessa."
+  },
+  "registration.terms.email.heading": {
+    "message": "Sähköpostisi, lisenssisi"
+  },
+  "registration.terms.features": {
+    "message": "Tutustu quickFilters Pro- ja Domain-lisenssien ominaisuuksiin."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Jatka lisenssin valintaan 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters auttaa luomaan ja hallitsemaan Thunderbird-suodattimia. Lisenssit rahoittavat jatkuvaa kehitystä, uusia ominaisuuksia ja yhteensopivuuspäivityksiä. Kukin lisenssi on voimassa vuoden."
+  },
+  "registration.terms.label": {
+    "message": "Lisenssiehdot"
+  },
+  "registration.terms.manual": {
+    "message": "Domain-lisenssit **tarkistetaan ja myönnetään käsin**. Uusiminen lisää vuoden nykyiseen päättymispäivään, vaikka lisenssi olisi jo päättynyt. Tämä kannustaa uusimaan ajoissa; lopullinen voimassaoloaika vahvistetaan tarkistuksessa."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Lisenssit **eivät uusiudu automaattisesti**. {+extensionName} muistuttaa ennen lisenssisi vanhenemista."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "Lisensoidut ominaisuudet toimivat myös kaikkien muiden Thunderbird-sähköpostitiliesi kanssa. Erillisiä lisenssejä ei tarvita."
+  },
+  "registration.terms.referrer": {
+    "message": "Voimassa oleva tai vanhentunut lisenssisi välitetään kauppaan viitetietona oston tai uusimisen yhteydessä."
+  },
+  "registration.terms.savings": {
+    "message": "**Aloita Prolla ja säästä tulevina vuosina.** Pro-lisenssin uusiminen tai jatkaminen maksaa selvästi vähemmän kuin uuden ostaminen."
+  },
+  "registration.terms.show": {
+    "message": "Näytä lisenssiehdot 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Tukesi auttaa rahoittamaan kehitystä, yhteensopivuuspäivityksiä ja korjauksia."
+  },
+  "registration.terms.title": {
+    "message": "Näin lisenssisi toimii."
+  },
+  "registration.title": {
+    "message": "quickFilters · Lisenssisi"
   },
   "renew-your-license": {
     "message": "Uusi lisenssi."

@@ -1048,10 +1048,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "免費還原工作階段進行中。剩餘額外工作階段：{1}。" },
-  "backup.trial.sessionsRemaining": { "message": "剩餘免費還原工作階段：{1}。同一天的多次還原共用一個工作階段。" },
-  "backup.trial.unavailable": { "message": "無法取得試用額度。請再試一次。" },
-  "backup.trial.usesRemaining": { "message": "剩餘免費備份次數：{1}" },
+  "backup.trial.activeSession": {
+    "message": "免費還原工作階段進行中。剩餘額外工作階段：{1}。"
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "剩餘免費還原工作階段：{1}。同一天的多次還原共用一個工作階段。"
+  },
+  "backup.trial.unavailable": {
+    "message": "無法取得試用額度。請再試一次。"
+  },
+  "backup.trial.usesRemaining": {
+    "message": "剩餘免費備份次數：{1}"
+  },
   "backup.warnings.account": {
     "message": "帳戶"
   },
@@ -1607,6 +1615,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "或者，您現在可以使用基礎版本 — 之後仍可恢復授權。"
   },
+  "licenseValidation.expiringSoon": {
+    "message": "您的授權即將到期。現在延長一年，剩餘天數不會損失。"
+  },
   "licenseValidation.failed": {
     "message": "您輸入的許可證密鑰無效。 檢查來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
   },
@@ -1621,9 +1632,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "加密的電子郵件地址與可讀的電子郵件地址不匹配。"
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "您的授權即將到期。現在延長一年，剩餘天數不會損失。"
   },
   "licenseValidation.passed": {
     "message": "感謝您註冊 quickFilters Pro！ 所有高級功能現已解鎖。"
@@ -2035,14 +2043,135 @@
   "quickfolders.currentFolderButton": {
     "message": "此選項僅在您使用附加組件 QuickFolders 時才適用，該附加組件會在消息預覽窗格頂部添加一個小工具欄。"
   },
-  "registration.action.extend": {"message":"延長許可證"},
-  "registration.action.renew": {"message":"更新許可證"},
-  "registration.action.buyDomain": {"message":"購買域名許可證"},
-  "registration.enterKey": {"message":"輸入許可證密鑰..."},
-  "registration.firstName": {"message":"名："},
-  "registration.email": {"message":"電子郵件："},
-  "registration.annual": {"message":"年度許可證"},
-  "registration.account": {"message":"帳戶："},
+  "registration.account": {
+    "message": "帳戶："
+  },
+  "registration.action.buy": {
+    "message": "購買 $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "購買域名許可證"
+  },
+  "registration.action.extend": {
+    "message": "延長許可證"
+  },
+  "registration.action.renew": {
+    "message": "更新許可證"
+  },
+  "registration.annual": {
+    "message": "年度許可證"
+  },
+  "registration.checkout.dismiss": {
+    "message": "關閉購買通知"
+  },
+  "registration.checkout.error": {
+    "message": "無法開啟商店。請再試一次。"
+  },
+  "registration.checkout.live": {
+    "message": "目前授權 · 線上商店"
+  },
+  "registration.checkout.note": {
+    "message": "價格、稅金與可用折扣將顯示於商店中。"
+  },
+  "registration.checkout.opened": {
+    "message": "已在瀏覽器中開啟商店。您可以保留此分頁。"
+  },
+  "registration.contact.legend": {
+    "message": "此授權供誰使用？"
+  },
+  "registration.contact.note": {
+    "message": "這些資料將在結帳時自動填入。您可以在此修改。"
+  },
+  "registration.date.expired": {
+    "message": "您的授權已於 $1 到期。"
+  },
+  "registration.date.none": {
+    "message": "請在下方選擇授權，或輸入現有金鑰。"
+  },
+  "registration.date.unknown": {
+    "message": "未知日期"
+  },
+  "registration.date.valid": {
+    "message": "您的授權有效期限至 $1。"
+  },
+  "registration.edition.domain": {
+    "message": "網域"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "電子郵件："
+  },
+  "registration.email.domain": {
+    "message": "適用規則不同：設定的郵件地址必須屬於已授權的網域。"
+  },
+  "registration.email.domain.heading": {
+    "message": "網域授權"
+  },
+  "registration.email.help": {
+    "message": "關於授權綁定的郵件地址"
+  },
+  "registration.email.help.close": {
+    "message": "關閉郵件地址說明"
+  },
+  "registration.email.help.heading": {
+    "message": "您的郵件地址就是您的授權"
+  },
+  "registration.email.hint": {
+    "message": "個人授權可在多部裝置上使用。"
+  },
+  "registration.email.invalid": {
+    "message": "請輸入有效的電子郵件地址。"
+  },
+  "registration.email.personal": {
+    "message": "授權與此郵件地址綁定。您可以在多部裝置上使用。請在每部裝置的 Thunderbird 中，將此地址設為帳號的{bold}預設身分{/bold}。"
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro 授權"
+  },
+  "registration.email.rules": {
+    "message": "授權郵件地址規則"
+  },
+  "registration.enterKey": {
+    "message": "輸入許可證密鑰..."
+  },
+  "registration.features.link": {
+    "message": "探索進階功能"
+  },
+  "registration.firstName": {
+    "message": "名："
+  },
+  "registration.footer": {
+    "message": "為 Thunderbird 打造。由您支持。"
+  },
+  "registration.heading.eyebrow": {
+    "message": "您的授權"
+  },
+  "registration.heading.intro": {
+    "message": "使用{link}所有 Pro 功能{/link}維持過濾器井然有序，並協助 quickFilters 持續成長。"
+  },
+  "registration.heading.title": {
+    "message": "從郵件到過濾器，只需幾秒鐘。"
+  },
+  "registration.lastName": {
+    "message": "姓氏"
+  },
+  "registration.learnMore": {
+    "message": "瞭解更多…"
+  },
+  "registration.license.edition": {
+    "message": "$1 授權"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "目前的授權金鑰無法使用。請再試一次。"
+  },
+  "registration.license.none": {
+    "message": "尚未設定授權"
+  },
+  "registration.load.error": {
+    "message": "無法載入授權或帳號。請重新載入此分頁再試一次。"
+  },
   "registration.menu": {
     "message": "$licenseName$ 授權…",
     "placeholders": {
@@ -2050,6 +2179,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "授權導覽"
+  },
+  "registration.options": {
+    "message": "授權選項"
+  },
+  "registration.plan.domain.description": {
+    "message": "整個團隊，所有功能，一份授權。"
+  },
+  "registration.plan.domain.kicker": {
+    "message": "適合您的團隊"
+  },
+  "registration.plan.domain.scope": {
+    "message": "適用於共用網域"
+  },
+  "registration.plan.pro.description": {
+    "message": "強化您的 Thunderbird 過濾規則。"
+  },
+  "registration.plan.pro.kicker": {
+    "message": "所有功能"
+  },
+  "registration.plan.pro.scope": {
+    "message": "適用於您自己的郵件"
+  },
+  "registration.renewal.entitlements": {
+    "message": "續訂優惠取決於傳送給商店的授權資訊。如果在商店切換產品，或安全軟體移除了這些資訊，商店可能無法套用您現有的權益。"
+  },
+  "registration.renewal.hint": {
+    "message": "續購或延長授權可增加一年，通常比購買新授權便宜。"
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro 授權{/bold}{br}新授權自付款日起有效一年。續訂或延長 Pro 時，您將獲得自付款日起完整的一年，或在現有到期日之後延長一年，以時間較長者為準。"
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}現有授權{/bold}{br}您目前的授權將傳送給商店，以計算新的到期日。"
+  },
+  "registration.selection.intro": {
+    "message": "為個人電子郵件選擇 Pro，為團隊選擇 Domain。"
+  },
+  "registration.selection.label": {
+    "message": "選擇授權"
+  },
+  "registration.selection.title": {
+    "message": "收件匣更整潔，您有更多時間。"
+  },
+  "registration.settings.error": {
+    "message": "無法開啟授權設定。請再試一次。"
+  },
+  "registration.showLess": {
+    "message": "顯示較少"
+  },
+  "registration.status.Empty": {
+    "message": "免費版"
+  },
+  "registration.status.Expired": {
+    "message": "已到期"
+  },
+  "registration.status.Valid": {
+    "message": "有效"
+  },
+  "registration.terms.annual": {
+    "message": "授權有效期限為一年。續購已到期的授權或延長目前授權，即可繼續使用所選版本。"
+  },
+  "registration.terms.annual.heading": {
+    "message": "每次一年"
+  },
+  "registration.terms.back": {
+    "message": "選擇授權"
+  },
+  "registration.terms.checkout": {
+    "message": "選擇授權以前往商店。價格取決於版本、國家、稅金與適用折扣。"
+  },
+  "registration.terms.checkout.heading": {
+    "message": "在瀏覽器中結帳"
+  },
+  "registration.terms.domain": {
+    "message": "網域授權適用於郵件地址屬於已授權網域的使用者。"
+  },
+  "registration.terms.edition.heading": {
+    "message": "選擇您的版本"
+  },
+  "registration.terms.email": {
+    "message": "個人授權與您的郵件地址綁定。只要在每個 Thunderbird 安裝環境中，將該地址設為帳號的**預設身分**，即可在多個安裝環境中使用。"
+  },
+  "registration.terms.email.heading": {
+    "message": "您的郵件，您的授權"
+  },
+  "registration.terms.features": {
+    "message": "探索 quickFilters Pro 和 Domain 授權包含的功能。"
+  },
+  "registration.terms.hide": {
+    "message": "🡇 繼續選擇授權 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters 協助您建立及管理 Thunderbird 過濾器。授權支持持續開發、新功能及相容性更新。每個授權的有效期為一年。"
+  },
+  "registration.terms.label": {
+    "message": "授權條款"
+  },
+  "registration.terms.manual": {
+    "message": "Domain 授權須經**人工審核及核發**。續訂會在現有到期日基礎上增加一年，即使授權已過期也是如此。這有助於鼓勵及時續訂；最終期限將在審核時確認。"
+  },
+  "registration.terms.manualRenewal": {
+    "message": "授權**不會自動續購**。{+extensionName} 會在授權到期前提醒您。"
+  },
+  "registration.terms.otherAccounts": {
+    "message": "已授權的功能同樣適用於您在 Thunderbird 中的所有其他郵件帳號，不需要另外購買授權。"
+  },
+  "registration.terms.referrer": {
+    "message": "購買或續訂時，您現有的有效或過期授權會作為推薦來源傳送給商店。"
+  },
+  "registration.terms.savings": {
+    "message": "**從 Pro 開始，之後每年更省錢。**續購或延長 Pro 授權遠比購買新授權便宜。"
+  },
+  "registration.terms.show": {
+    "message": "顯示授權條款 🡇"
+  },
+  "registration.terms.support": {
+    "message": "您的支持協助資助開發、相容性更新與問題修正。"
+  },
+  "registration.terms.title": {
+    "message": "授權如何運作。"
+  },
+  "registration.title": {
+    "message": "quickFilters · 您的授權"
   },
   "renew-your-license": {
     "message": "續訂您的許可證。"

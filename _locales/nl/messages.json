@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "Een gratis herstelsessie is actief. Aanvullende sessies resterend: {1}." },
-  "backup.trial.sessionsRemaining": { "message": "Gratis herstelsessies resterend: {1}. Meerdere herstelacties op dezelfde dag delen één sessie." },
-  "backup.trial.unavailable": { "message": "Het proeftegoed is niet beschikbaar. Probeer het opnieuw." },
-  "backup.trial.usesRemaining": { "message": "Gratis back-ups resterend: {1}" },
+  "backup.trial.activeSession": {
+    "message": "Een gratis herstelsessie is actief. Aanvullende sessies resterend: {1}."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "Gratis herstelsessies resterend: {1}. Meerdere herstelacties op dezelfde dag delen één sessie."
+  },
+  "backup.trial.unavailable": {
+    "message": "Het proeftegoed is niet beschikbaar. Probeer het opnieuw."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Gratis back-ups resterend: {1}"
+  },
   "backup.warnings.account": {
     "message": "Rekening"
   },
@@ -1676,6 +1684,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Je kunt ook voorlopig de Basisversie gebruiken — je kunt je licentie later herstellen."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Uw licentie verloopt binnenkort. Verleng deze nu met een jaar. Uw resterende dagen gaan niet verloren."
+  },
   "licenseValidation.failed": {
     "message": "De ingevoerde licentiesleutel is ongeldig. Lees uw e-mailbericht van FastSpring voor instructies. Als de problemen aanhouden, neem dan contact met me op via het tabblad Ondersteuning."
   },
@@ -1690,9 +1701,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "Versleutelde e-mailadres komt niet overeen met het leesbare e-mailadres."
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "Uw licentie verloopt binnenkort. Verleng deze nu met een jaar. Uw resterende dagen gaan niet verloren."
   },
   "licenseValidation.passed": {
     "message": "Bedankt voor uw registratie van quickFilters Pro! Alle premiumfuncties kunnen nu worden gebruikt."
@@ -2115,15 +2123,135 @@
   "quickfolders.currentFolderButton": {
     "message": "Deze optie is alleen van toepassing als u de add-on QuickFolders gebruikt, die een kleine werkbalk bovenop het berichtenvenster plaatst."
   },
-  "registration.action.extend": {"message":"Licentie verlengen"},
-  "registration.action.renew": {"message":"Licentie vernieuwen"},
-  "registration.action.buyDomain": {"message":"Een domeinlicentie kopen"},
-  "registration.enterKey": {"message":"Licentiesleutel invullen…"},
-  "registration.firstName": {"message":"Voornaam:"},
-  "registration.lastName": {"message":"Achternaam:"},
-  "registration.email": {"message":"E-mailadres:"},
-  "registration.annual": {"message":"Jaarlicentie"},
-  "registration.account": {"message":"Selecteer account:"},
+  "registration.account": {
+    "message": "Selecteer account:"
+  },
+  "registration.action.buy": {
+    "message": "$1 kopen"
+  },
+  "registration.action.buyDomain": {
+    "message": "Een domeinlicentie kopen"
+  },
+  "registration.action.extend": {
+    "message": "Licentie verlengen"
+  },
+  "registration.action.renew": {
+    "message": "Licentie vernieuwen"
+  },
+  "registration.annual": {
+    "message": "Jaarlicentie"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Winkelmelding sluiten"
+  },
+  "registration.checkout.error": {
+    "message": "De winkel kan niet worden geopend. Probeer het opnieuw."
+  },
+  "registration.checkout.live": {
+    "message": "Huidige licentie · live winkel"
+  },
+  "registration.checkout.note": {
+    "message": "Prijzen, belastingen en beschikbare kortingen staan in de winkel."
+  },
+  "registration.checkout.opened": {
+    "message": "De winkel is geopend in uw browser. U kunt dit tabblad openlaten."
+  },
+  "registration.contact.legend": {
+    "message": "Voor wie is deze licentie?"
+  },
+  "registration.contact.note": {
+    "message": "Deze gegevens worden bij het afrekenen ingevuld. U kunt ze hier wijzigen."
+  },
+  "registration.date.expired": {
+    "message": "Uw licentie is verlopen op $1."
+  },
+  "registration.date.none": {
+    "message": "Kies hieronder een licentie of voer uw bestaande sleutel in."
+  },
+  "registration.date.unknown": {
+    "message": "een onbekende datum"
+  },
+  "registration.date.valid": {
+    "message": "Uw licentie is geldig tot $1."
+  },
+  "registration.edition.domain": {
+    "message": "Domein"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "E-mailadres:"
+  },
+  "registration.email.domain": {
+    "message": "Er gelden andere regels: het ingestelde e-mailadres moet bij het gelicentieerde domein horen."
+  },
+  "registration.email.domain.heading": {
+    "message": "Domeinlicenties"
+  },
+  "registration.email.help": {
+    "message": "Over gelicentieerde e-mailadressen"
+  },
+  "registration.email.help.close": {
+    "message": "E-mailhulp sluiten"
+  },
+  "registration.email.help.heading": {
+    "message": "Uw e-mailadres is uw licentie"
+  },
+  "registration.email.hint": {
+    "message": "Uw persoonlijke licentie werkt op meerdere apparaten."
+  },
+  "registration.email.invalid": {
+    "message": "Voer een geldig e-mailadres in."
+  },
+  "registration.email.personal": {
+    "message": "Uw licentie is gekoppeld aan dit e-mailadres. U kunt deze op meerdere apparaten gebruiken. Stel dit adres op elk apparaat in als de {bold}standaardidentiteit{/bold} van een Thunderbird-account."
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro-licenties"
+  },
+  "registration.email.rules": {
+    "message": "Regels voor het gelicentieerde e-mailadres"
+  },
+  "registration.enterKey": {
+    "message": "Licentiesleutel invullen…"
+  },
+  "registration.features.link": {
+    "message": "Bekijk de premiumfuncties"
+  },
+  "registration.firstName": {
+    "message": "Voornaam:"
+  },
+  "registration.footer": {
+    "message": "Gemaakt voor Thunderbird. Gesteund door u."
+  },
+  "registration.heading.eyebrow": {
+    "message": "UW LICENTIE"
+  },
+  "registration.heading.intro": {
+    "message": "Houd uw filters in vorm met {link}alle Pro-functies{/link} en help quickFilters verder groeien."
+  },
+  "registration.heading.title": {
+    "message": "Van e-mail naar filter, in seconden."
+  },
+  "registration.lastName": {
+    "message": "Achternaam:"
+  },
+  "registration.learnMore": {
+    "message": "Meer informatie…"
+  },
+  "registration.license.edition": {
+    "message": "$1-licentie"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "De huidige licentiesleutel is niet beschikbaar. Probeer het opnieuw."
+  },
+  "registration.license.none": {
+    "message": "Geen licentie ingesteld"
+  },
+  "registration.load.error": {
+    "message": "Uw licentie of accounts kunnen niet worden geladen. Herlaad dit tabblad om het opnieuw te proberen."
+  },
   "registration.menu": {
     "message": "$licenseName$ Licentie…",
     "placeholders": {
@@ -2131,6 +2259,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Licentienavigatie"
+  },
+  "registration.options": {
+    "message": "Licentieopties"
+  },
+  "registration.plan.domain.description": {
+    "message": "Alle functies voor uw hele team, onder één licentie."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Voor uw team"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Voor een gedeeld domein"
+  },
+  "registration.plan.pro.description": {
+    "message": "Geef uw Thunderbird-filterregels meer kracht."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Alle functies"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Voor uw eigen e-mail"
+  },
+  "registration.renewal.entitlements": {
+    "message": "De voordelen van verlenging hangen af van de licentiegegevens die naar de winkel worden gestuurd. Als u in de winkel een ander product kiest of beveiligingssoftware deze gegevens verwijdert, kan de winkel uw bestaande rechten mogelijk niet toepassen."
+  },
+  "registration.renewal.hint": {
+    "message": "Uw licentie vernieuwen of verlengen voegt een jaar toe en kost doorgaans minder dan een nieuwe licentie."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro-licenties{/bold}{br}Een nieuwe licentie geldt één jaar vanaf betaling. Bij verlenging van Pro krijgt u een volledig jaar vanaf betaling of één jaar na uw bestaande vervaldatum, afhankelijk van wat u de meeste tijd geeft."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Bestaande licentie{/bold}{br}Uw huidige licentie wordt naar de winkel gestuurd om de nieuwe vervaldatum te berekenen."
+  },
+  "registration.selection.intro": {
+    "message": "Kies Pro voor uw eigen e-mail of Domain voor uw team."
+  },
+  "registration.selection.label": {
+    "message": "Licentiekeuze"
+  },
+  "registration.selection.title": {
+    "message": "Een opgeruimde inbox. Meer tijd voor u."
+  },
+  "registration.settings.error": {
+    "message": "De licentie-instellingen konden niet worden geopend. Probeer het opnieuw."
+  },
+  "registration.showLess": {
+    "message": "Minder tonen"
+  },
+  "registration.status.Empty": {
+    "message": "Gratis editie"
+  },
+  "registration.status.Expired": {
+    "message": "Verlopen"
+  },
+  "registration.status.Valid": {
+    "message": "Geldig"
+  },
+  "registration.terms.annual": {
+    "message": "Een licentie dekt één jaar. Vernieuw een verlopen licentie of verleng een huidige om uw gekozen editie te blijven gebruiken."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Eén jaar tegelijk"
+  },
+  "registration.terms.back": {
+    "message": "Licentiekeuze"
+  },
+  "registration.terms.checkout": {
+    "message": "Selecteer een licentie om naar de winkel te gaan. Uw prijs hangt af van de editie, het land, belastingen en toepasselijke kortingen."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Afrekenen in uw browser"
+  },
+  "registration.terms.domain": {
+    "message": "Een domeinlicentie dekt gebruikers met passende adressen binnen het gelicentieerde domein."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Kies uw editie"
+  },
+  "registration.terms.email": {
+    "message": "Een persoonlijke licentie is gekoppeld aan uw e-mailadres. U kunt deze in meerdere Thunderbird-installaties gebruiken als het gelicentieerde adres in elke installatie is ingesteld als de **standaardidentiteit** van een account."
+  },
+  "registration.terms.email.heading": {
+    "message": "Uw e-mailadres, uw licentie"
+  },
+  "registration.terms.features": {
+    "message": "Bekijk de functies van quickFilters Pro- en Domain-licenties."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Verder naar licentiekeuze 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters helpt u Thunderbird-filters te maken en te beheren. Licenties financieren doorlopende ontwikkeling, nieuwe functies en compatibiliteitsupdates. Elke licentie geldt één jaar."
+  },
+  "registration.terms.label": {
+    "message": "Licentievoorwaarden"
+  },
+  "registration.terms.manual": {
+    "message": "Domain-licenties worden **handmatig beoordeeld en uitgegeven**. Verlenging voegt één jaar toe aan uw bestaande vervaldatum, ook als de licentie al is verlopen. Dit stimuleert tijdige verlenging; de definitieve looptijd wordt bij de beoordeling bevestigd."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Licenties **worden niet automatisch vernieuwd**. {+extensionName} herinnert u eraan voordat uw licentie verloopt."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "De gelicentieerde functies werken ook met al uw andere Thunderbird-accounts. Aparte licenties zijn niet nodig."
+  },
+  "registration.terms.referrer": {
+    "message": "Uw bestaande geldige of verlopen licentie wordt bij aankoop of verlenging als verwijzing naar de winkel gestuurd."
+  },
+  "registration.terms.savings": {
+    "message": "**Begin met Pro en bespaar in de volgende jaren.** Uw Pro-licentie vernieuwen of verlengen kost aanzienlijk minder dan een nieuwe kopen."
+  },
+  "registration.terms.show": {
+    "message": "Licentievoorwaarden tonen 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Uw steun helpt ontwikkeling, compatibiliteitsupdates en reparaties te financieren."
+  },
+  "registration.terms.title": {
+    "message": "Zo werkt uw licentie."
+  },
+  "registration.title": {
+    "message": "quickFilters · Uw licentie"
   },
   "renew-your-license": {
     "message": "Verleng uw licentie."

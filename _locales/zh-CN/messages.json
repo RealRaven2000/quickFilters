@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "免费恢复会话正在进行中。剩余额外会话：{1}。" },
-  "backup.trial.sessionsRemaining": { "message": "剩余免费恢复会话：{1}。同一天的多次恢复共用一个会话。" },
-  "backup.trial.unavailable": { "message": "无法获取试用额度。请重试。" },
-  "backup.trial.usesRemaining": { "message": "剩余免费备份次数：{1}" },
+  "backup.trial.activeSession": {
+    "message": "免费恢复会话正在进行中。剩余额外会话：{1}。"
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "剩余免费恢复会话：{1}。同一天的多次恢复共用一个会话。"
+  },
+  "backup.trial.unavailable": {
+    "message": "无法获取试用额度。请重试。"
+  },
+  "backup.trial.usesRemaining": {
+    "message": "剩余免费备份次数：{1}"
+  },
   "backup.warnings.account": {
     "message": "帐户"
   },
@@ -1671,6 +1679,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "或者，您现在可以使用基础版本 — 之后仍可恢复许可证。"
   },
+  "licenseValidation.expiringSoon": {
+    "message": "您的许可证即将到期。现在续期一年，剩余的天数不会损失。"
+  },
   "licenseValidation.failed": {
     "message": "您輸入的許可證密鑰無效。 檢查您來自 FastSpring 的電子郵件以獲取說明。 如果您仍有問題，請通過“支持”選項卡與我聯繫。"
   },
@@ -1685,9 +1696,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "E加密的电子邮件地址与可读的电子邮件地址不匹配。"
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "您的许可证即将到期。现在续期一年，剩余的天数不会损失。"
   },
   "licenseValidation.passed": {
     "message": "感谢您注册 QuickFilters Pro！ 所有高级功能现已解锁。"
@@ -2107,15 +2115,135 @@
   "quickfolders.currentFolderButton": {
     "message": "此选项仅在您使用QuickFolders扩展时可用，该扩展会在消息预览窗格顶部添加一个小工具栏。"
   },
-  "registration.action.extend": {"message":"延长许可证"},
-  "registration.action.renew": {"message":"更新许可证"},
-  "registration.action.buyDomain": {"message":"购买域授权"},
-  "registration.enterKey": {"message":"请输入授权密钥…"},
-  "registration.firstName": {"message":"名字"},
-  "registration.lastName": {"message":"姓氏"},
-  "registration.email": {"message":"电子邮件："},
-  "registration.annual": {"message":"年度授权"},
-  "registration.account": {"message":"选择账户："},
+  "registration.account": {
+    "message": "选择账户："
+  },
+  "registration.action.buy": {
+    "message": "购买 $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "购买域授权"
+  },
+  "registration.action.extend": {
+    "message": "延长许可证"
+  },
+  "registration.action.renew": {
+    "message": "更新许可证"
+  },
+  "registration.annual": {
+    "message": "年度授权"
+  },
+  "registration.checkout.dismiss": {
+    "message": "关闭购买提示"
+  },
+  "registration.checkout.error": {
+    "message": "无法打开商店。请重试。"
+  },
+  "registration.checkout.live": {
+    "message": "当前许可证 · 在线商店"
+  },
+  "registration.checkout.note": {
+    "message": "价格、税费和可用折扣将在商店中显示。"
+  },
+  "registration.checkout.opened": {
+    "message": "已在浏览器中打开商店。您可以保留此标签页。"
+  },
+  "registration.contact.legend": {
+    "message": "此许可证供谁使用？"
+  },
+  "registration.contact.note": {
+    "message": "这些信息将在结账时自动填写。您可以在此修改。"
+  },
+  "registration.date.expired": {
+    "message": "您的许可证已于 $1 到期。"
+  },
+  "registration.date.none": {
+    "message": "请在下方选择许可证，或输入已有的密钥。"
+  },
+  "registration.date.unknown": {
+    "message": "未知日期"
+  },
+  "registration.date.valid": {
+    "message": "您的许可证有效期至 $1。"
+  },
+  "registration.edition.domain": {
+    "message": "域名"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "电子邮件："
+  },
+  "registration.email.domain": {
+    "message": "适用规则不同：配置的邮箱地址必须属于已获许可的域名。"
+  },
+  "registration.email.domain.heading": {
+    "message": "域名许可证"
+  },
+  "registration.email.help": {
+    "message": "关于许可证绑定的邮箱地址"
+  },
+  "registration.email.help.close": {
+    "message": "关闭邮箱帮助"
+  },
+  "registration.email.help.heading": {
+    "message": "您的邮箱就是您的许可证"
+  },
+  "registration.email.hint": {
+    "message": "个人许可证可在多台设备上使用。"
+  },
+  "registration.email.invalid": {
+    "message": "请输入有效的电子邮件地址。"
+  },
+  "registration.email.personal": {
+    "message": "许可证与此邮箱地址绑定。您可以在多台设备上使用。请在每台设备的 Thunderbird 中，将此地址设置为账户的{bold}默认身份{/bold}。"
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro 许可证"
+  },
+  "registration.email.rules": {
+    "message": "许可证邮箱规则"
+  },
+  "registration.enterKey": {
+    "message": "请输入授权密钥…"
+  },
+  "registration.features.link": {
+    "message": "了解高级功能"
+  },
+  "registration.firstName": {
+    "message": "名字"
+  },
+  "registration.footer": {
+    "message": "为 Thunderbird 而造。由您支持。"
+  },
+  "registration.heading.eyebrow": {
+    "message": "您的许可证"
+  },
+  "registration.heading.intro": {
+    "message": "使用{link}全部 Pro 功能{/link}保持过滤器井然有序，并帮助 quickFilters 持续发展。"
+  },
+  "registration.heading.title": {
+    "message": "从邮件到过滤器，只需几秒。"
+  },
+  "registration.lastName": {
+    "message": "姓氏"
+  },
+  "registration.learnMore": {
+    "message": "了解更多…"
+  },
+  "registration.license.edition": {
+    "message": "$1 许可证"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "当前许可证密钥不可用。请重试。"
+  },
+  "registration.license.none": {
+    "message": "未配置许可证"
+  },
+  "registration.load.error": {
+    "message": "无法加载许可证或账户。请重新加载此标签页再试。"
+  },
   "registration.menu": {
     "message": "$licenseName$ 许可证…",
     "placeholders": {
@@ -2123,6 +2251,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "许可证导航"
+  },
+  "registration.options": {
+    "message": "许可证选项"
+  },
+  "registration.plan.domain.description": {
+    "message": "全体团队成员，所有功能，一个许可证。"
+  },
+  "registration.plan.domain.kicker": {
+    "message": "适合您的团队"
+  },
+  "registration.plan.domain.scope": {
+    "message": "适用于共用域名"
+  },
+  "registration.plan.pro.description": {
+    "message": "增强您的 Thunderbird 过滤规则。"
+  },
+  "registration.plan.pro.kicker": {
+    "message": "所有功能"
+  },
+  "registration.plan.pro.scope": {
+    "message": "适用于您自己的邮箱"
+  },
+  "registration.renewal.entitlements": {
+    "message": "续订优惠取决于传递给商店的许可证信息。如果在商店中切换产品，或安全软件删除了这些信息，商店可能无法应用您现有的权益。"
+  },
+  "registration.renewal.hint": {
+    "message": "续订或延长许可证可增加一年，通常比购买新许可证便宜。"
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro 许可证{/bold}{br}新许可证自付款之日起有效一年。续订或延长 Pro 时，您将获得自付款之日起完整的一年，或在现有到期日之后延长一年，以时间较长者为准。"
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}现有许可证{/bold}{br}您当前的许可证将传递给商店，以计算新的到期日。"
+  },
+  "registration.selection.intro": {
+    "message": "为个人电子邮件选择 Pro，为团队选择 Domain。"
+  },
+  "registration.selection.label": {
+    "message": "选择许可证"
+  },
+  "registration.selection.title": {
+    "message": "收件箱更整洁，您有更多时间。"
+  },
+  "registration.settings.error": {
+    "message": "无法打开许可证设置。请重试。"
+  },
+  "registration.showLess": {
+    "message": "收起"
+  },
+  "registration.status.Empty": {
+    "message": "免费版"
+  },
+  "registration.status.Expired": {
+    "message": "已到期"
+  },
+  "registration.status.Valid": {
+    "message": "有效"
+  },
+  "registration.terms.annual": {
+    "message": "许可证有效期为一年。续订已到期的许可证或延长当前许可证，即可继续使用所选版本。"
+  },
+  "registration.terms.annual.heading": {
+    "message": "每次一年"
+  },
+  "registration.terms.back": {
+    "message": "选择许可证"
+  },
+  "registration.terms.checkout": {
+    "message": "选择许可证以进入商店。价格取决于版本、国家、税费和适用折扣。"
+  },
+  "registration.terms.checkout.heading": {
+    "message": "在浏览器中结账"
+  },
+  "registration.terms.domain": {
+    "message": "域名许可证适用于邮箱地址属于获许可域名的用户。"
+  },
+  "registration.terms.edition.heading": {
+    "message": "选择您的版本"
+  },
+  "registration.terms.email": {
+    "message": "个人许可证与您的邮箱地址绑定。只要在每个 Thunderbird 安装环境中，将该地址配置为账户的**默认身份**，就可以在多个安装环境中使用。"
+  },
+  "registration.terms.email.heading": {
+    "message": "您的邮箱，您的许可证"
+  },
+  "registration.terms.features": {
+    "message": "了解 quickFilters Pro 和 Domain 许可证包含的功能。"
+  },
+  "registration.terms.hide": {
+    "message": "🡇 继续选择许可证 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters 帮助您创建和管理 Thunderbird 过滤器。许可证支持持续开发、新功能和兼容性更新。每个许可证有效期为一年。"
+  },
+  "registration.terms.label": {
+    "message": "许可条款"
+  },
+  "registration.terms.manual": {
+    "message": "Domain 许可证需要**人工审核和签发**。续订会在现有到期日基础上增加一年，即使许可证已经过期也是如此。这有助于鼓励及时续订；最终期限将在审核时确认。"
+  },
+  "registration.terms.manualRenewal": {
+    "message": "许可证**不会自动续订**。{+extensionName} 会在许可证到期前提醒您。"
+  },
+  "registration.terms.otherAccounts": {
+    "message": "获许可的功能同样适用于您在 Thunderbird 中的所有其他邮件账户，无需单独购买许可证。"
+  },
+  "registration.terms.referrer": {
+    "message": "购买或续订时，您现有的有效或过期许可证会作为推荐来源传递给商店。"
+  },
+  "registration.terms.savings": {
+    "message": "**从 Pro 开始，以后每年更省钱。**续订或延长 Pro 许可证远比购买新许可证便宜。"
+  },
+  "registration.terms.show": {
+    "message": "显示许可条款 🡇"
+  },
+  "registration.terms.support": {
+    "message": "您的支持帮助资助开发、兼容性更新和问题修复。"
+  },
+  "registration.terms.title": {
+    "message": "许可证如何运作。"
+  },
+  "registration.title": {
+    "message": "quickFilters · 您的许可证"
   },
   "renew-your-license": {
     "message": "续订您的许可证。"

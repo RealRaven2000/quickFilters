@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "Bezplatná relace obnovení je aktivní. Další zbývající relace: {1}." },
-  "backup.trial.sessionsRemaining": { "message": "Zbývající bezplatné relace obnovení: {1}. Více obnovení ve stejný den sdílí jednu relaci." },
-  "backup.trial.unavailable": { "message": "Zkušební limit není dostupný. Zkuste to znovu." },
-  "backup.trial.usesRemaining": { "message": "Zbývající bezplatné zálohy: {1}" },
+  "backup.trial.activeSession": {
+    "message": "Bezplatná relace obnovení je aktivní. Další zbývající relace: {1}."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "Zbývající bezplatné relace obnovení: {1}. Více obnovení ve stejný den sdílí jednu relaci."
+  },
+  "backup.trial.unavailable": {
+    "message": "Zkušební limit není dostupný. Zkuste to znovu."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Zbývající bezplatné zálohy: {1}"
+  },
   "backup.warnings.account": {
     "message": "Účet"
   },
@@ -1655,6 +1663,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Alternativament, podeu utilitzar la versió bàsica de moment — encara podreu restaurar la llicència més endavant."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Platnost vaší licence brzy vyprší. Prodlužte ji nyní o další rok. Zbývající dny vám zůstanou."
+  },
   "licenseValidation.failed": {
     "message": "Zadaný licenční klíč není platný. Zkontrolujte e-mail od FastSpring s pokyny. Pokud problém přetrvává, kontaktujte mě přes záložku Podpora."
   },
@@ -1669,9 +1680,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "Šifrovaná e-mailová adresa neodpovídá čitelné verzi."
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "Platnost vaší licence brzy vyprší. Prodlužte ji nyní o další rok. Zbývající dny vám zůstanou."
   },
   "licenseValidation.passed": {
     "message": "Děkujeme za registraci quickFilters Pro! Všechny prémiové funkce jsou nyní odemčeny."
@@ -2098,15 +2106,135 @@
   "quickfolders.currentFolderButton": {
     "message": "Tato volba platí pouze při použití doplňku QuickFolders, který přidává malý panel nástrojů nad náhled zprávy."
   },
-  "registration.action.extend": {"message":"Rozšířit licenci"},
-  "registration.action.renew": {"message":"Obnovit licenci"},
-  "registration.action.buyDomain": {"message":"Koupit licenci na domény"},
-  "registration.enterKey": {"message":"Zadejte licenční klíč…"},
-  "registration.firstName": {"message":"Jméno:"},
-  "registration.lastName": {"message":"Příjmení:"},
-  "registration.email": {"message":"e-mailem:"},
-  "registration.annual": {"message":"Roční licence"},
-  "registration.account": {"message":"Vyberte účet:"},
+  "registration.account": {
+    "message": "Vyberte účet:"
+  },
+  "registration.action.buy": {
+    "message": "Koupit $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Koupit licenci na domény"
+  },
+  "registration.action.extend": {
+    "message": "Rozšířit licenci"
+  },
+  "registration.action.renew": {
+    "message": "Obnovit licenci"
+  },
+  "registration.annual": {
+    "message": "Roční licence"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Zavřít oznámení o nákupu"
+  },
+  "registration.checkout.error": {
+    "message": "Obchod nelze otevřít. Zkuste to znovu."
+  },
+  "registration.checkout.live": {
+    "message": "Aktuální licence · živý obchod"
+  },
+  "registration.checkout.note": {
+    "message": "Ceny, daně a dostupné slevy jsou uvedeny v obchodě."
+  },
+  "registration.checkout.opened": {
+    "message": "Obchod se otevřel v prohlížeči. Tuto kartu můžete nechat otevřenou."
+  },
+  "registration.contact.legend": {
+    "message": "Pro koho je tato licence?"
+  },
+  "registration.contact.note": {
+    "message": "Tyto údaje předvyplní objednávku. Zde je můžete upravit."
+  },
+  "registration.date.expired": {
+    "message": "Platnost vaší licence skončila $1."
+  },
+  "registration.date.none": {
+    "message": "Vyberte licenci níže nebo zadejte stávající klíč."
+  },
+  "registration.date.unknown": {
+    "message": "neznámého data"
+  },
+  "registration.date.valid": {
+    "message": "Vaše licence platí do $1."
+  },
+  "registration.edition.domain": {
+    "message": "Doména"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "e-mailem:"
+  },
+  "registration.email.domain": {
+    "message": "Platí jiná pravidla: nastavená adresa musí patřit k licencované doméně."
+  },
+  "registration.email.domain.heading": {
+    "message": "Doménové licence"
+  },
+  "registration.email.help": {
+    "message": "O licencovaných e-mailových adresách"
+  },
+  "registration.email.help.close": {
+    "message": "Zavřít nápovědu k adresám"
+  },
+  "registration.email.help.heading": {
+    "message": "Váš e-mail je vaše licence"
+  },
+  "registration.email.hint": {
+    "message": "Osobní licence funguje na více zařízeních."
+  },
+  "registration.email.invalid": {
+    "message": "Zadejte platnou e-mailovou adresu."
+  },
+  "registration.email.personal": {
+    "message": "Licence je vázána na tuto e-mailovou adresu. Můžete ji používat na více zařízeních. Na každém zařízení nastavte tuto adresu jako {bold}výchozí identitu{/bold} účtu v Thunderbirdu."
+  },
+  "registration.email.personal.heading": {
+    "message": "Licence Pro"
+  },
+  "registration.email.rules": {
+    "message": "Pravidla licencované adresy"
+  },
+  "registration.enterKey": {
+    "message": "Zadejte licenční klíč…"
+  },
+  "registration.features.link": {
+    "message": "Prozkoumat prémiové funkce"
+  },
+  "registration.firstName": {
+    "message": "Jméno:"
+  },
+  "registration.footer": {
+    "message": "Vytvořeno pro Thunderbird. Podporováno vámi."
+  },
+  "registration.heading.eyebrow": {
+    "message": "VAŠE LICENCE"
+  },
+  "registration.heading.intro": {
+    "message": "Udržujte své filtry v kondici pomocí {link}všech funkcí Pro{/link} a podpořte další rozvoj quickFilters."
+  },
+  "registration.heading.title": {
+    "message": "Od e-mailu k filtru během několika sekund."
+  },
+  "registration.lastName": {
+    "message": "Příjmení:"
+  },
+  "registration.learnMore": {
+    "message": "Další informace…"
+  },
+  "registration.license.edition": {
+    "message": "Licence $1"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Aktuální licenční klíč není dostupný. Zkuste to prosím znovu."
+  },
+  "registration.license.none": {
+    "message": "Licence není nastavena"
+  },
+  "registration.load.error": {
+    "message": "Licenci nebo účty nelze načíst. Zkuste kartu znovu načíst."
+  },
   "registration.menu": {
     "message": "Licence $licenseName$…",
     "placeholders": {
@@ -2114,6 +2242,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Navigace licencí"
+  },
+  "registration.options": {
+    "message": "Možnosti licence"
+  },
+  "registration.plan.domain.description": {
+    "message": "Všechny funkce pro celý tým pod jednou licencí."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Pro váš tým"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Pro společnou doménu"
+  },
+  "registration.plan.pro.description": {
+    "message": "Dodejte pravidlům filtrů Thunderbirdu více síly."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Všechny funkce"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Pro váš vlastní e-mail"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Výhody obnovení závisí na licenčních údajích předaných obchodu. Změna produktu v obchodě nebo odstranění těchto údajů bezpečnostním softwarem může zabránit uplatnění vašich stávajících nároků."
+  },
+  "registration.renewal.hint": {
+    "message": "Obnovení nebo prodloužení licence přidá další rok a obvykle stojí méně než nová licence."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Licence Pro{/bold}{br}Nová licence platí jeden rok od zaplacení. Při obnovení nebo prodloužení Pro získáte celý rok od zaplacení nebo rok navíc po stávajícím datu vypršení, podle toho, co vám poskytne více času."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Stávající licence{/bold}{br}Vaše současná licence se předá obchodu pro výpočet nového data konce platnosti."
+  },
+  "registration.selection.intro": {
+    "message": "Zvolte Pro pro svůj vlastní e-mail nebo Domain pro svůj tým."
+  },
+  "registration.selection.label": {
+    "message": "Výběr licence"
+  },
+  "registration.selection.title": {
+    "message": "Přehlednější doručená pošta. Více času pro vás."
+  },
+  "registration.settings.error": {
+    "message": "Nastavení licence se nepodařilo otevřít. Zkuste to prosím znovu."
+  },
+  "registration.showLess": {
+    "message": "Zobrazit méně"
+  },
+  "registration.status.Empty": {
+    "message": "Bezplatná edice"
+  },
+  "registration.status.Expired": {
+    "message": "Platnost skončila"
+  },
+  "registration.status.Valid": {
+    "message": "Platná"
+  },
+  "registration.terms.annual": {
+    "message": "Licence pokrývá jeden rok. Obnovte licenci s ukončenou platností nebo prodlužte současnou a pokračujte s vybranou edicí."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Vždy na jeden rok"
+  },
+  "registration.terms.back": {
+    "message": "Výběr licence"
+  },
+  "registration.terms.checkout": {
+    "message": "Vyberte licenci a přejděte do obchodu. Cena závisí na edici, zemi, daních a příslušných slevách."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Nákup v prohlížeči"
+  },
+  "registration.terms.domain": {
+    "message": "Doménová licence pokrývá uživatele s odpovídajícími adresami v licencované doméně."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Vyberte svou edici"
+  },
+  "registration.terms.email": {
+    "message": "Osobní licence je vázána na vaši e-mailovou adresu. Lze ji používat ve více instalacích Thunderbirdu, pokud je licencovaná adresa v každé nastavena jako **výchozí identita** účtu."
+  },
+  "registration.terms.email.heading": {
+    "message": "Váš e-mail, vaše licence"
+  },
+  "registration.terms.features": {
+    "message": "Prozkoumejte funkce obsažené v licencích quickFilters Pro a Domain."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Pokračovat k výběru licence 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters vám pomáhá vytvářet a spravovat filtry Thunderbirdu. Licence financují průběžný vývoj, nové funkce a aktualizace kompatibility. Každá licence platí jeden rok."
+  },
+  "registration.terms.label": {
+    "message": "Licenční podmínky"
+  },
+  "registration.terms.manual": {
+    "message": "Licence Domain jsou **ručně kontrolovány a vydávány**. Obnovení přidá jeden rok ke stávajícímu datu vypršení, i když licence již vypršela. To podporuje včasné obnovení; konečná doba platnosti bude potvrzena při kontrole."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Licence **se neobnovují automaticky**. {+extensionName} vás před koncem platnosti upozorní."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "Licencované funkce fungují i se všemi ostatními poštovními účty v Thunderbirdu. Další licence nejsou potřeba."
+  },
+  "registration.terms.referrer": {
+    "message": "Při nákupu nebo obnovení se vaše stávající platná či vypršelá licence předá obchodu jako reference."
+  },
+  "registration.terms.savings": {
+    "message": "**Začněte s Pro a šetřete v dalších letech.** Obnovení nebo prodloužení licence Pro stojí výrazně méně než nová licence."
+  },
+  "registration.terms.show": {
+    "message": "Zobrazit licenční podmínky 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Vaše podpora financuje vývoj, aktualizace kompatibility a opravy."
+  },
+  "registration.terms.title": {
+    "message": "Jak funguje vaše licence."
+  },
+  "registration.title": {
+    "message": "quickFilters · Vaše licence"
   },
   "renew-your-license": {
     "message": "Obnovte si licenci."

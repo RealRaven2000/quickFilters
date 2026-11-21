@@ -2166,12 +2166,6 @@
   "registration.checkout.opened": {
     "message": "Der Shop wurde in Ihrem Browser geöffnet. Sie können diesen Tab geöffnet lassen."
   },
-  "registration.checkout.previewOnly": {
-    "message": "Nur Vorschau. Es wurde kein Shop geöffnet."
-  },
-  "registration.checkout.sample": {
-    "message": "Beispieldaten · Shop deaktiviert"
-  },
   "registration.contact.legend": {
     "message": "Für wen ist diese Lizenz?"
   },
@@ -2297,33 +2291,6 @@
   },
   "registration.plan.pro.scope": {
     "message": "Für Ihre eigenen E-Mails"
-  },
-  "registration.preview.badge": {
-    "message": "Oberflächenprototyp"
-  },
-  "registration.preview.buy": {
-    "message": "Kaufen"
-  },
-  "registration.preview.extendDomain": {
-    "message": "Domänenlizenz verlängern"
-  },
-  "registration.preview.extendPro": {
-    "message": "Pro verlängern"
-  },
-  "registration.preview.label": {
-    "message": "Testfall"
-  },
-  "registration.preview.live": {
-    "message": "Aktuelle Lizenz (Live-Shop)"
-  },
-  "registration.preview.renewDomain": {
-    "message": "Domänenlizenz erneuern (abgelaufen)"
-  },
-  "registration.preview.renewPro": {
-    "message": "Pro erneuern"
-  },
-  "registration.preview.upgrade": {
-    "message": "Pro-Lizenz: Domäne ansehen"
   },
   "registration.renewal.entitlements": {
     "message": "Vorteile bei der Erneuerung hängen von den an den Shop übermittelten Lizenzinformationen ab. Ein Produktwechsel im Shop oder das Entfernen dieser Informationen durch Sicherheitssoftware kann verhindern, dass der Shop Ihren bestehenden Anspruch berücksichtigt."

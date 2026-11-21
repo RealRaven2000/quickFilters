@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "Бесплатный сеанс восстановления активен. Дополнительных сеансов осталось: {1}." },
-  "backup.trial.sessionsRemaining": { "message": "Бесплатных сеансов восстановления осталось: {1}. Несколько восстановлений в один день используют один сеанс." },
-  "backup.trial.unavailable": { "message": "Не удалось получить сведения о пробном лимите. Повторите попытку." },
-  "backup.trial.usesRemaining": { "message": "Бесплатных резервных копий осталось: {1}" },
+  "backup.trial.activeSession": {
+    "message": "Бесплатный сеанс восстановления активен. Дополнительных сеансов осталось: {1}."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "Бесплатных сеансов восстановления осталось: {1}. Несколько восстановлений в один день используют один сеанс."
+  },
+  "backup.trial.unavailable": {
+    "message": "Не удалось получить сведения о пробном лимите. Повторите попытку."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Бесплатных резервных копий осталось: {1}"
+  },
   "backup.warnings.account": {
     "message": "Аккаунт"
   },
@@ -1676,6 +1684,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Также вы можете временно использовать Базовую версию — лицензию можно восстановить позже."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Срок действия вашей лицензии скоро истечёт. Продлите её сейчас ещё на год. Оставшиеся дни не пропадут."
+  },
   "licenseValidation.failed": {
     "message": "Лицензионный ключ недействителен. Ещё раз посмотрите сообщение от FastSpring . Если их инструкции не помогут, обратитесь ко мне (см. &quot;Поддержка&quot;)."
   },
@@ -1690,9 +1701,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "Зашифрованный адрес не совпадает с имеющимся."
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "Срок действия вашей лицензии скоро истечёт. Продлите её сейчас ещё на год. Оставшиеся дни не пропадут."
   },
   "licenseValidation.passed": {
     "message": "Спасибо за регистрацию! Вы можете пользоваться всеми премиум функциями."
@@ -2115,15 +2123,135 @@
   "quickfolders.currentFolderButton": {
     "message": "Эти настройки действуют только если установлено расширение QuickFolders, добавляющее микропанель инструментов в область просмотра сообщений."
   },
-  "registration.action.extend": {"message":"Extend License"},
-  "registration.action.renew": {"message":"Обновить лицензию"},
-  "registration.action.buyDomain": {"message":"Купить групповую лицензию"},
-  "registration.enterKey": {"message":"Ввести лицензионный ключ…"},
-  "registration.firstName": {"message":"Имя:"},
-  "registration.lastName": {"message":"Фамилия:"},
-  "registration.email": {"message":"Адрес:"},
-  "registration.annual": {"message":"Годовая лицензия"},
-  "registration.account": {"message":"Учётная запись:"},
+  "registration.account": {
+    "message": "Учётная запись:"
+  },
+  "registration.action.buy": {
+    "message": "Купить $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Купить групповую лицензию"
+  },
+  "registration.action.extend": {
+    "message": "Extend License"
+  },
+  "registration.action.renew": {
+    "message": "Обновить лицензию"
+  },
+  "registration.annual": {
+    "message": "Годовая лицензия"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Закрыть уведомление о покупке"
+  },
+  "registration.checkout.error": {
+    "message": "Не удалось открыть магазин. Повторите попытку."
+  },
+  "registration.checkout.live": {
+    "message": "Текущая лицензия · интернет-магазин"
+  },
+  "registration.checkout.note": {
+    "message": "Цены, налоги и доступные скидки указаны в магазине."
+  },
+  "registration.checkout.opened": {
+    "message": "Магазин открыт в браузере. Эту вкладку можно оставить открытой."
+  },
+  "registration.contact.legend": {
+    "message": "Для кого предназначена лицензия?"
+  },
+  "registration.contact.note": {
+    "message": "Эти данные будут подставлены при покупке. Здесь их можно изменить."
+  },
+  "registration.date.expired": {
+    "message": "Срок вашей лицензии истёк $1."
+  },
+  "registration.date.none": {
+    "message": "Выберите лицензию ниже или введите имеющийся ключ."
+  },
+  "registration.date.unknown": {
+    "message": "неизвестной даты"
+  },
+  "registration.date.valid": {
+    "message": "Ваша лицензия действует до $1."
+  },
+  "registration.edition.domain": {
+    "message": "Домен"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "Адрес:"
+  },
+  "registration.email.domain": {
+    "message": "Действуют другие правила: настроенный адрес должен принадлежать лицензированному домену."
+  },
+  "registration.email.domain.heading": {
+    "message": "Доменные лицензии"
+  },
+  "registration.email.help": {
+    "message": "О лицензированных адресах"
+  },
+  "registration.email.help.close": {
+    "message": "Закрыть справку об адресах"
+  },
+  "registration.email.help.heading": {
+    "message": "Ваш адрес — ваша лицензия"
+  },
+  "registration.email.hint": {
+    "message": "Персональная лицензия работает на нескольких устройствах."
+  },
+  "registration.email.invalid": {
+    "message": "Введите действительный адрес электронной почты."
+  },
+  "registration.email.personal": {
+    "message": "Лицензия привязана к этому адресу. Её можно использовать на нескольких устройствах. На каждом устройстве настройте этот адрес как {bold}основную личность{/bold} учётной записи Thunderbird."
+  },
+  "registration.email.personal.heading": {
+    "message": "Лицензии Pro"
+  },
+  "registration.email.rules": {
+    "message": "Правила лицензированного адреса"
+  },
+  "registration.enterKey": {
+    "message": "Ввести лицензионный ключ…"
+  },
+  "registration.features.link": {
+    "message": "Посмотреть премиум-функции"
+  },
+  "registration.firstName": {
+    "message": "Имя:"
+  },
+  "registration.footer": {
+    "message": "Создано для Thunderbird. При вашей поддержке."
+  },
+  "registration.heading.eyebrow": {
+    "message": "ВАША ЛИЦЕНЗИЯ"
+  },
+  "registration.heading.intro": {
+    "message": "Поддерживайте фильтры в порядке с помощью {link}всех функций Pro{/link} и помогайте развитию quickFilters."
+  },
+  "registration.heading.title": {
+    "message": "От письма к фильтру за считанные секунды."
+  },
+  "registration.lastName": {
+    "message": "Фамилия:"
+  },
+  "registration.learnMore": {
+    "message": "Подробнее…"
+  },
+  "registration.license.edition": {
+    "message": "Лицензия $1"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Текущий лицензионный ключ недоступен. Попробуйте ещё раз."
+  },
+  "registration.license.none": {
+    "message": "Лицензия не настроена"
+  },
+  "registration.load.error": {
+    "message": "Не удалось загрузить лицензию или учётные записи. Перезагрузите вкладку для повторной попытки."
+  },
   "registration.menu": {
     "message": "$licenseName$ Лицензия…",
     "placeholders": {
@@ -2131,6 +2259,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Навигация по лицензиям"
+  },
+  "registration.options": {
+    "message": "Варианты лицензий"
+  },
+  "registration.plan.domain.description": {
+    "message": "Все функции для всей команды по одной лицензии."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Для вашей команды"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Для общего домена"
+  },
+  "registration.plan.pro.description": {
+    "message": "Расширьте возможности правил фильтрации Thunderbird."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Все функции"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Для вашей почты"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Преимущества продления зависят от сведений о лицензии, переданных магазину. Если выбрать другой продукт в магазине или защитная программа удалит эти сведения, магазин может не применить ваши существующие преимущества."
+  },
+  "registration.renewal.hint": {
+    "message": "Возобновление или продление лицензии добавляет год и обычно стоит меньше новой лицензии."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Лицензии Pro{/bold}{br}Новая лицензия действует один год с момента оплаты. При продлении Pro вы получаете полный год с момента оплаты или один год после текущей даты окончания — в зависимости от того, что даёт больше времени."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Имеющаяся лицензия{/bold}{br}Текущая лицензия передаётся магазину для расчёта новой даты окончания."
+  },
+  "registration.selection.intro": {
+    "message": "Выберите Pro для личной почты или Domain для команды."
+  },
+  "registration.selection.label": {
+    "message": "Выбор лицензии"
+  },
+  "registration.selection.title": {
+    "message": "Порядок во входящих. Больше времени для вас."
+  },
+  "registration.settings.error": {
+    "message": "Не удалось открыть настройки лицензии. Попробуйте ещё раз."
+  },
+  "registration.showLess": {
+    "message": "Показать меньше"
+  },
+  "registration.status.Empty": {
+    "message": "Бесплатная редакция"
+  },
+  "registration.status.Expired": {
+    "message": "Истекла"
+  },
+  "registration.status.Valid": {
+    "message": "Действительна"
+  },
+  "registration.terms.annual": {
+    "message": "Лицензия действует год. Возобновите истёкшую лицензию или продлите действующую, чтобы продолжить работу с выбранной редакцией."
+  },
+  "registration.terms.annual.heading": {
+    "message": "По одному году"
+  },
+  "registration.terms.back": {
+    "message": "Выбор лицензии"
+  },
+  "registration.terms.checkout": {
+    "message": "Выберите лицензию для перехода в магазин. Цена зависит от редакции, страны, налогов и применимых скидок."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Покупка в браузере"
+  },
+  "registration.terms.domain": {
+    "message": "Доменная лицензия распространяется на пользователей с адресами в лицензированном домене."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Выберите редакцию"
+  },
+  "registration.terms.email": {
+    "message": "Персональная лицензия привязана к вашему адресу. Её можно использовать в нескольких установках Thunderbird, если лицензированный адрес настроен как **основная личность** учётной записи в каждой установке."
+  },
+  "registration.terms.email.heading": {
+    "message": "Ваша почта, ваша лицензия"
+  },
+  "registration.terms.features": {
+    "message": "Узнайте о функциях лицензий quickFilters Pro и Domain."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Перейти к выбору лицензии 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters помогает создавать фильтры Thunderbird и управлять ими. Лицензии финансируют постоянную разработку, новые функции и обновления совместимости. Каждая лицензия действует один год."
+  },
+  "registration.terms.label": {
+    "message": "Условия лицензии"
+  },
+  "registration.terms.manual": {
+    "message": "Лицензии Domain **проверяются и выдаются вручную**. Продление добавляет один год к текущей дате окончания, даже если срок лицензии уже истёк. Это стимулирует своевременное продление; окончательный срок подтверждается при проверке."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Лицензии **не продлеваются автоматически**. {+extensionName} напомнит вам до окончания срока лицензии."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "Лицензированные функции также работают со всеми другими почтовыми учётными записями Thunderbird. Отдельные лицензии не нужны."
+  },
+  "registration.terms.referrer": {
+    "message": "При покупке или продлении ваша действующая или истёкшая лицензия передаётся магазину в качестве ссылки на предыдущую лицензию."
+  },
+  "registration.terms.savings": {
+    "message": "**Начните с Pro и экономьте в следующие годы.** Возобновление или продление лицензии Pro стоит существенно меньше покупки новой."
+  },
+  "registration.terms.show": {
+    "message": "Показать условия лицензии 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Ваша поддержка финансирует разработку, обновления совместимости и исправления."
+  },
+  "registration.terms.title": {
+    "message": "Как работает ваша лицензия."
+  },
+  "registration.title": {
+    "message": "quickFilters · Ваша лицензия"
   },
   "renew-your-license": {
     "message": "Обновите лицензию."

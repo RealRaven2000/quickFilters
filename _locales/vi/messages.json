@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "Một phiên khôi phục miễn phí đang hoạt động. Số phiên bổ sung còn lại: {1}." },
-  "backup.trial.sessionsRemaining": { "message": "Số phiên khôi phục miễn phí còn lại: {1}. Nhiều lần khôi phục trong cùng ngày dùng chung một phiên." },
-  "backup.trial.unavailable": { "message": "Không thể tải hạn mức dùng thử. Vui lòng thử lại." },
-  "backup.trial.usesRemaining": { "message": "Số bản sao lưu miễn phí còn lại: {1}" },
+  "backup.trial.activeSession": {
+    "message": "Một phiên khôi phục miễn phí đang hoạt động. Số phiên bổ sung còn lại: {1}."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "Số phiên khôi phục miễn phí còn lại: {1}. Nhiều lần khôi phục trong cùng ngày dùng chung một phiên."
+  },
+  "backup.trial.unavailable": {
+    "message": "Không thể tải hạn mức dùng thử. Vui lòng thử lại."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Số bản sao lưu miễn phí còn lại: {1}"
+  },
   "backup.warnings.account": {
     "message": "Tài khoản"
   },
@@ -1676,6 +1684,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Ngoài ra, bạn có thể tạm thời sử dụng Phiên bản Cơ bản — bạn vẫn có thể khôi phục giấy phép sau."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Giấy phép của bạn sắp hết hạn. Hãy gia hạn ngay thêm một năm. Những ngày còn lại sẽ không bị mất."
+  },
   "licenseValidation.failed": {
     "message": "Khóa cấp phép bạn đã nhập không hợp lệ. Kiểm tra email của bạn từ FastSpring để biết hướng dẫn. Nếu bạn vẫn gặp sự cố, vui lòng liên hệ với tôi từ tab Hỗ trợ."
   },
@@ -1690,9 +1701,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "Địa chỉ email được mã hóa không khớp với địa chỉ có thể đọc được."
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "Giấy phép của bạn sắp hết hạn. Hãy gia hạn ngay thêm một năm. Những ngày còn lại sẽ không bị mất."
   },
   "licenseValidation.passed": {
     "message": "Cảm ơn bạn đã đăng ký quickFilters Pro! Tất cả các tính năng cao cấp hiện đã được mở khóa."
@@ -2115,15 +2123,135 @@
   "quickfolders.currentFolderButton": {
     "message": "Tùy chọn này chỉ có thể áp dụng nếu bạn đang sử dụng Add-On QuickFolders, thêm một thanh công cụ nhỏ ở phía trên của ngăn xem trước thư."
   },
-  "registration.action.extend": {"message":"gia hạn giấy phép"},
-  "registration.action.renew": {"message":"Gia hạn giấy phép"},
-  "registration.action.buyDomain": {"message":"Buy Domain License"},
-  "registration.enterKey": {"message":"Enter License Key…"},
-  "registration.firstName": {"message":"First Name:"},
-  "registration.lastName": {"message":"Last Name:"},
-  "registration.email": {"message":"Email:"},
-  "registration.annual": {"message":"Giấy phép hàng năm"},
-  "registration.account": {"message":"Select account:"},
+  "registration.account": {
+    "message": "Select account:"
+  },
+  "registration.action.buy": {
+    "message": "Mua $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Buy Domain License"
+  },
+  "registration.action.extend": {
+    "message": "gia hạn giấy phép"
+  },
+  "registration.action.renew": {
+    "message": "Gia hạn giấy phép"
+  },
+  "registration.annual": {
+    "message": "Giấy phép hàng năm"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Đóng thông báo thanh toán"
+  },
+  "registration.checkout.error": {
+    "message": "Không thể mở cửa hàng. Vui lòng thử lại."
+  },
+  "registration.checkout.live": {
+    "message": "Giấy phép hiện tại · cửa hàng trực tuyến"
+  },
+  "registration.checkout.note": {
+    "message": "Giá, thuế và các ưu đãi hiện có được hiển thị trong cửa hàng."
+  },
+  "registration.checkout.opened": {
+    "message": "Cửa hàng đã mở trong trình duyệt. Bạn có thể giữ thẻ này mở."
+  },
+  "registration.contact.legend": {
+    "message": "Giấy phép này dành cho ai?"
+  },
+  "registration.contact.note": {
+    "message": "Thông tin này sẽ được điền sẵn khi thanh toán. Bạn có thể chỉnh sửa tại đây."
+  },
+  "registration.date.expired": {
+    "message": "Giấy phép của bạn đã hết hạn vào $1."
+  },
+  "registration.date.none": {
+    "message": "Chọn giấy phép bên dưới hoặc nhập khóa hiện có."
+  },
+  "registration.date.unknown": {
+    "message": "một ngày không xác định"
+  },
+  "registration.date.valid": {
+    "message": "Giấy phép của bạn có hiệu lực đến $1."
+  },
+  "registration.edition.domain": {
+    "message": "Domain"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "Email:"
+  },
+  "registration.email.domain": {
+    "message": "Quy tắc khác được áp dụng: địa chỉ email đã cấu hình phải thuộc miền được cấp phép."
+  },
+  "registration.email.domain.heading": {
+    "message": "Giấy phép Domain"
+  },
+  "registration.email.help": {
+    "message": "Thông tin về địa chỉ email được cấp phép"
+  },
+  "registration.email.help.close": {
+    "message": "Đóng trợ giúp email"
+  },
+  "registration.email.help.heading": {
+    "message": "Email là giấy phép của bạn"
+  },
+  "registration.email.hint": {
+    "message": "Giấy phép cá nhân của bạn hoạt động trên nhiều thiết bị."
+  },
+  "registration.email.invalid": {
+    "message": "Vui lòng nhập địa chỉ email hợp lệ."
+  },
+  "registration.email.personal": {
+    "message": "Giấy phép được liên kết với địa chỉ email này. Bạn có thể sử dụng trên nhiều thiết bị. Hãy cấu hình địa chỉ này làm {bold}danh tính mặc định{/bold} của một tài khoản Thunderbird trên mỗi thiết bị."
+  },
+  "registration.email.personal.heading": {
+    "message": "Giấy phép Pro"
+  },
+  "registration.email.rules": {
+    "message": "Quy tắc về địa chỉ email được cấp phép"
+  },
+  "registration.enterKey": {
+    "message": "Enter License Key…"
+  },
+  "registration.features.link": {
+    "message": "Khám phá các tính năng cao cấp"
+  },
+  "registration.firstName": {
+    "message": "First Name:"
+  },
+  "registration.footer": {
+    "message": "Dành cho Thunderbird. Được bạn hỗ trợ."
+  },
+  "registration.heading.eyebrow": {
+    "message": "GIẤY PHÉP CỦA BẠN"
+  },
+  "registration.heading.intro": {
+    "message": "Giữ bộ lọc hoạt động tốt với {link}tất cả tính năng Pro{/link} và giúp quickFilters tiếp tục phát triển."
+  },
+  "registration.heading.title": {
+    "message": "Từ email đến bộ lọc chỉ trong vài giây."
+  },
+  "registration.lastName": {
+    "message": "Last Name:"
+  },
+  "registration.learnMore": {
+    "message": "Tìm hiểu thêm…"
+  },
+  "registration.license.edition": {
+    "message": "Giấy phép $1"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Không có khóa giấy phép hiện tại. Vui lòng thử lại."
+  },
+  "registration.license.none": {
+    "message": "Chưa cấu hình giấy phép"
+  },
+  "registration.load.error": {
+    "message": "Không thể tải giấy phép hoặc tài khoản. Hãy tải lại thẻ này để thử lại."
+  },
   "registration.menu": {
     "message": "$licenseName$ Giấy phép…",
     "placeholders": {
@@ -2131,6 +2259,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Điều hướng giấy phép"
+  },
+  "registration.options": {
+    "message": "Tùy chọn giấy phép"
+  },
+  "registration.plan.domain.description": {
+    "message": "Mọi tính năng cho cả nhóm của bạn trong một giấy phép."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Dành cho nhóm của bạn"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Cho một miền dùng chung"
+  },
+  "registration.plan.pro.description": {
+    "message": "Tăng sức mạnh cho các quy tắc lọc Thunderbird."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Tất cả tính năng"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Cho email của riêng bạn"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Ưu đãi gia hạn phụ thuộc vào thông tin giấy phép được chuyển đến cửa hàng. Việc chọn sản phẩm khác trong cửa hàng hoặc phần mềm bảo mật xóa thông tin này có thể khiến cửa hàng không áp dụng được quyền lợi hiện có của bạn."
+  },
+  "registration.renewal.hint": {
+    "message": "Gia hạn hoặc kéo dài giấy phép sẽ thêm một năm và thường rẻ hơn mua giấy phép mới."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Giấy phép Pro{/bold}{br}Giấy phép mới có hiệu lực một năm kể từ ngày thanh toán. Khi gia hạn hoặc kéo dài Pro, bạn nhận đủ một năm từ ngày thanh toán hoặc thêm một năm sau ngày hết hạn hiện tại, tùy trường hợp nào cho bạn nhiều thời gian hơn."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Giấy phép hiện có{/bold}{br}Giấy phép hiện tại được chuyển đến cửa hàng để tính ngày hết hạn mới."
+  },
+  "registration.selection.intro": {
+    "message": "Chọn Pro cho email cá nhân hoặc Domain cho nhóm của bạn."
+  },
+  "registration.selection.label": {
+    "message": "Chọn giấy phép"
+  },
+  "registration.selection.title": {
+    "message": "Hộp thư gọn gàng hơn. Có thêm thời gian cho bạn."
+  },
+  "registration.settings.error": {
+    "message": "Không thể mở cài đặt giấy phép. Vui lòng thử lại."
+  },
+  "registration.showLess": {
+    "message": "Thu gọn"
+  },
+  "registration.status.Empty": {
+    "message": "Phiên bản miễn phí"
+  },
+  "registration.status.Expired": {
+    "message": "Đã hết hạn"
+  },
+  "registration.status.Valid": {
+    "message": "Còn hiệu lực"
+  },
+  "registration.terms.annual": {
+    "message": "Giấy phép có thời hạn một năm. Gia hạn giấy phép đã hết hạn hoặc kéo dài giấy phép hiện tại để tiếp tục sử dụng phiên bản đã chọn."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Mỗi lần một năm"
+  },
+  "registration.terms.back": {
+    "message": "Chọn giấy phép"
+  },
+  "registration.terms.checkout": {
+    "message": "Chọn giấy phép để tiếp tục đến cửa hàng. Giá phụ thuộc vào phiên bản, quốc gia, thuế và các ưu đãi áp dụng."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Thanh toán trong trình duyệt"
+  },
+  "registration.terms.domain": {
+    "message": "Giấy phép Domain áp dụng cho người dùng có địa chỉ phù hợp thuộc miền được cấp phép."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Chọn phiên bản"
+  },
+  "registration.terms.email": {
+    "message": "Giấy phép cá nhân được liên kết với địa chỉ email của bạn. Bạn có thể sử dụng trên nhiều bản cài đặt Thunderbird khi địa chỉ được cấp phép được cấu hình làm **danh tính mặc định** của một tài khoản trong mỗi bản cài đặt."
+  },
+  "registration.terms.email.heading": {
+    "message": "Email của bạn, giấy phép của bạn"
+  },
+  "registration.terms.features": {
+    "message": "Khám phá các tính năng trong giấy phép quickFilters Pro và Domain."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Tiếp tục chọn giấy phép 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters giúp bạn tạo và quản lý bộ lọc Thunderbird. Giấy phép tài trợ cho việc phát triển liên tục, tính năng mới và cập nhật tương thích. Mỗi giấy phép có thời hạn một năm."
+  },
+  "registration.terms.label": {
+    "message": "Điều khoản giấy phép"
+  },
+  "registration.terms.manual": {
+    "message": "Giấy phép Domain được **xem xét và cấp thủ công**. Gia hạn thêm một năm vào ngày hết hạn hiện tại, ngay cả khi giấy phép đã hết hạn. Điều này khuyến khích gia hạn đúng hạn; thời hạn cuối cùng được xác nhận khi xét duyệt."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Giấy phép **không tự động gia hạn**. {+extensionName} sẽ nhắc bạn trước khi giấy phép hết hạn."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "Các tính năng được cấp phép cũng hoạt động với tất cả tài khoản email khác của bạn trong Thunderbird. Không cần giấy phép riêng."
+  },
+  "registration.terms.referrer": {
+    "message": "Khi mua hoặc gia hạn, giấy phép còn hiệu lực hoặc đã hết hạn của bạn được chuyển đến cửa hàng làm thông tin tham chiếu."
+  },
+  "registration.terms.savings": {
+    "message": "**Bắt đầu với Pro, sau đó tiết kiệm trong những năm tiếp theo.** Gia hạn hoặc kéo dài giấy phép Pro rẻ hơn đáng kể so với mua giấy phép mới."
+  },
+  "registration.terms.show": {
+    "message": "Hiển thị điều khoản giấy phép 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Sự hỗ trợ của bạn giúp tài trợ cho việc phát triển, cập nhật tương thích và sửa lỗi."
+  },
+  "registration.terms.title": {
+    "message": "Cách giấy phép của bạn hoạt động."
+  },
+  "registration.title": {
+    "message": "quickFilters · Giấy phép của bạn"
   },
   "renew-your-license": {
     "message": "Gia hạn giấy phép của bạn."

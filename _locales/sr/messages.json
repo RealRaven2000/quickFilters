@@ -1,6 +1,6 @@
 {
   "_l10nstatus": {
-    "message": "SPLASH"
+    "message": "SPLASH+REGISTRATION"
   },
   "active-version-info": {
     "description": "The boldStart and boldEnd parts will be replaced with html tags",
@@ -99,6 +99,15 @@
     "description": "Shown if license expires more than a year from now",
     "message": "Хвала вам што сте недавно продужили лиценцу или ако сте донирали. Као што сте помогли у будућем доказивању овог додатка, можете једноставно затворити овај прозор."
   },
+  "licenseValidation.expired": {
+    "message": "Ваша quickFilters Pro лиценца је истекла. Да бисте је обновили, кликните испод на „$renewButton$“.",
+    "placeholders": {
+      "renewButton": {
+        "content": "$1",
+        "example": "Renew License"
+      }
+    }
+  },
   "mozillas-basic-platform": {
     "message": "Мозилла пружа само основну платформу за испоруку нашег софтвера вама, крајњим корисницима. Ако треба да затражимо од наших корисника плаћање или подршку, не можемо то да урадимо са аддонс.Thunderbird.нет - то није „продавница апликација“ са уграђеним платним зидовима или управљањем лиценцама као што су иТунес или гоогле плаи."
   },
@@ -159,15 +168,6 @@
   "purchase-heading": {
     "message": "Подршка путем лиценце"
   },
-  "licenseValidation.expired": {
-    "message": "Ваша quickFilters Pro лиценца је истекла. Да бисте је обновили, кликните испод на „$renewButton$“.",
-    "placeholders": {
-      "renewButton": {
-        "content": "$1",
-        "example": "Renew License"
-      }
-    }
-  },
   "quickfiltersToolbarButton.expired": {
     "message": "Дозвола истекла!"
   },
@@ -188,6 +188,269 @@
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Отворите мени '{menulabel}' испод да бисте видели шта је ново. То такође уклања 🟠."
+  },
+  "registration.account": {
+    "message": "Налог е-поште"
+  },
+  "registration.action.buy": {
+    "message": "Купи $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Купи доменску лиценцу"
+  },
+  "registration.action.extend": {
+    "message": "Продужи лиценцу"
+  },
+  "registration.action.renew": {
+    "message": "Обнови лиценцу"
+  },
+  "registration.annual": {
+    "message": "Годишње лиценце"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Затвори обавештење о куповини"
+  },
+  "registration.checkout.error": {
+    "message": "Продавница се не може отворити. Покушајте поново."
+  },
+  "registration.checkout.live": {
+    "message": "Тренутна лиценца · онлајн продавница"
+  },
+  "registration.checkout.note": {
+    "message": "Цене, порези и доступни попусти приказани су у продавници."
+  },
+  "registration.checkout.opened": {
+    "message": "Продавница је отворена у прегледачу. Ова картица може остати отворена."
+  },
+  "registration.contact.legend": {
+    "message": "Коме је намењена ова лиценца?"
+  },
+  "registration.contact.note": {
+    "message": "Ови подаци ће бити унапред попуњени при куповини. Овде их можете изменити."
+  },
+  "registration.date.expired": {
+    "message": "Ваша лиценца је истекла $1."
+  },
+  "registration.date.none": {
+    "message": "Изаберите лиценцу испод или унесите постојећи кључ."
+  },
+  "registration.date.unknown": {
+    "message": "непознатог датума"
+  },
+  "registration.date.valid": {
+    "message": "Ваша лиценца важи до $1."
+  },
+  "registration.edition.domain": {
+    "message": "Домен"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "Адреса е-поште"
+  },
+  "registration.email.domain": {
+    "message": "Важе друга правила: подешена адреса мора припадати лиценцираном домену."
+  },
+  "registration.email.domain.heading": {
+    "message": "Доменске лиценце"
+  },
+  "registration.email.help": {
+    "message": "О лиценцираним адресама"
+  },
+  "registration.email.help.close": {
+    "message": "Затвори помоћ за адресе"
+  },
+  "registration.email.help.heading": {
+    "message": "Ваша адреса је ваша лиценца"
+  },
+  "registration.email.hint": {
+    "message": "Лична лиценца ради на више уређаја."
+  },
+  "registration.email.invalid": {
+    "message": "Унесите исправну адресу е-поште."
+  },
+  "registration.email.personal": {
+    "message": "Лиценца је везана за ову адресу е-поште. Можете је користити на више уређаја. На сваком уређају подесите адресу као {bold}подразумевани идентитет{/bold} налога у Thunderbird-у."
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro лиценце"
+  },
+  "registration.email.rules": {
+    "message": "Правила лиценциране адресе"
+  },
+  "registration.enterKey": {
+    "message": "Унеси лиценцни кључ…"
+  },
+  "registration.features.link": {
+    "message": "Истражите премијум функције"
+  },
+  "registration.firstName": {
+    "message": "Име"
+  },
+  "registration.footer": {
+    "message": "Направљено за Thunderbird. Уз вашу подршку."
+  },
+  "registration.heading.eyebrow": {
+    "message": "ВАША ЛИЦЕНЦА"
+  },
+  "registration.heading.intro": {
+    "message": "Одржавајте филтере у форми уз {link}све Pro функције{/link} и подржите даљи развој quickFilters-а."
+  },
+  "registration.heading.title": {
+    "message": "Од е-поште до филтера за неколико секунди."
+  },
+  "registration.lastName": {
+    "message": "Презиме"
+  },
+  "registration.learnMore": {
+    "message": "Сазнајте више…"
+  },
+  "registration.license.edition": {
+    "message": "Лиценца $1"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Тренутни лиценцни кључ није доступан. Покушајте поново."
+  },
+  "registration.license.none": {
+    "message": "Лиценца није подешена"
+  },
+  "registration.load.error": {
+    "message": "Лиценца или налози се не могу учитати. Поново учитајте картицу."
+  },
+  "registration.menu": {
+    "message": "Лиценца $licenseName$…",
+    "placeholders": {
+      "licensename": {
+        "content": "quickFilters Pro"
+      }
+    }
+  },
+  "registration.navigation": {
+    "message": "Навигација лиценци"
+  },
+  "registration.options": {
+    "message": "Опције лиценце"
+  },
+  "registration.plan.domain.description": {
+    "message": "Све функције за цео тим, под једном лиценцом."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "За ваш тим"
+  },
+  "registration.plan.domain.scope": {
+    "message": "За заједнички домен"
+  },
+  "registration.plan.pro.description": {
+    "message": "Оснажите правила филтера у Thunderbird-у."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Све функције"
+  },
+  "registration.plan.pro.scope": {
+    "message": "За вашу е-пошту"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Погодности обнове зависе од података о лиценци послатих продавници. Ако у продавници изаберете други производ или безбедносни софтвер уклони те податке, продавница можда неће моћи да примени постојеће погодности."
+  },
+  "registration.renewal.hint": {
+    "message": "Обнова или продужење лиценце додаје годину дана и обично кошта мање од нове лиценце."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro лиценце{/bold}{br}Нова лиценца важи годину дана од уплате. При обнови или продужењу Pro лиценце добијате пуну годину од уплате или годину дана након тренутног датума истека, у зависности од тога шта вам даје више времена."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Постојећа лиценца{/bold}{br}Тренутна лиценца се шаље продавници ради израчунавања новог датума истека."
+  },
+  "registration.selection.intro": {
+    "message": "Изаберите Pro за своју е-пошту или Domain за свој тим."
+  },
+  "registration.selection.label": {
+    "message": "Избор лиценце"
+  },
+  "registration.selection.title": {
+    "message": "Уредније пријемно сандуче. Више времена за вас."
+  },
+  "registration.settings.error": {
+    "message": "Није могуће отворити подешавања лиценце. Покушајте поново."
+  },
+  "registration.showLess": {
+    "message": "Прикажи мање"
+  },
+  "registration.status.Empty": {
+    "message": "Бесплатно издање"
+  },
+  "registration.status.Expired": {
+    "message": "Истекла"
+  },
+  "registration.status.Valid": {
+    "message": "Важећа"
+  },
+  "registration.terms.annual": {
+    "message": "Лиценца покрива годину дана. Обновите истеклу лиценцу или продужите важећу да наставите са изабраним издањем."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Годину по годину"
+  },
+  "registration.terms.back": {
+    "message": "Избор лиценце"
+  },
+  "registration.terms.checkout": {
+    "message": "Изаберите лиценцу за одлазак у продавницу. Цена зависи од издања, земље, пореза и примењивих попуста."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Куповина у прегледачу"
+  },
+  "registration.terms.domain": {
+    "message": "Доменска лиценца покрива кориснике са одговарајућим адресама у лиценцираном домену."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Изаберите издање"
+  },
+  "registration.terms.email": {
+    "message": "Лична лиценца је везана за вашу адресу е-поште. Можете је користити у више инсталација Thunderbird-а ако је лиценцирана адреса у свакој подешена као **подразумевани идентитет** налога."
+  },
+  "registration.terms.email.heading": {
+    "message": "Ваша е-пошта, ваша лиценца"
+  },
+  "registration.terms.features": {
+    "message": "Истражите функције укључене у quickFilters Pro и Domain лиценце."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Настави на избор лиценце 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters вам помаже да правите филтере за Thunderbird и управљате њима. Лиценце финансирају стални развој, нове функције и ажурирања компатибилности. Свака лиценца важи годину дана."
+  },
+  "registration.terms.label": {
+    "message": "Услови лиценце"
+  },
+  "registration.terms.manual": {
+    "message": "Domain лиценце се **ручно прегледају и издају**. Обнова додаје годину дана на постојећи датум истека, чак и ако је лиценца већ истекла. То подстиче правовремену обнову; коначни рок се потврђује током прегледа."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Лиценце **се не обнављају аутоматски**. {+extensionName} ће вас подсетити пре истека лиценце."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "Лиценциране функције раде и са свим другим налозима у Thunderbird-у. Засебне лиценце нису потребне."
+  },
+  "registration.terms.referrer": {
+    "message": "Ваша постојећа важећа или истекла лиценца прослеђује се продавници као референца приликом куповине или обнове."
+  },
+  "registration.terms.savings": {
+    "message": "**Почните са Pro и уштедите наредних година.** Обнова или продужење лиценце Pro кошта знатно мање од куповине нове."
+  },
+  "registration.terms.show": {
+    "message": "Прикажи услове лиценце 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Ваша подршка финансира развој, ажурирања компатибилности и исправке."
+  },
+  "registration.terms.title": {
+    "message": "Како функционише ваша лиценца."
+  },
+  "registration.title": {
+    "message": "quickFilters · Ваша лиценца"
   },
   "renew-your-license": {
     "message": "Обновите лиценцу."

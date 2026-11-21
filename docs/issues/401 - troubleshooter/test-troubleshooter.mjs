@@ -277,7 +277,7 @@ test("troubleshooter localization respects locale scope and preserves placeholde
   const entries = Object.entries(english).filter(([key]) => key.startsWith("troubleshooter."));
   for (const locale of await readdir(base)) {
     const catalog = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(await readFile(new URL(`${locale}/messages.json`, base))));
-    if (catalog._l10nstatus.message === "SPLASH") {
+    if (catalog._l10nstatus.message !== "SPLASH+UI") {
       assert(!Object.keys(catalog).some(key => key.startsWith("troubleshooter.")), locale);
       continue;
     }

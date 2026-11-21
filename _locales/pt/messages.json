@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "Está ativa uma sessão de restauro gratuita. Sessões adicionais restantes: {1}." },
-  "backup.trial.sessionsRemaining": { "message": "Sessões de restauro gratuitas restantes: {1}. Vários restauros no mesmo dia partilham uma sessão." },
-  "backup.trial.unavailable": { "message": "O limite de teste está indisponível. Tente novamente." },
-  "backup.trial.usesRemaining": { "message": "Cópias de segurança gratuitas restantes: {1}" },
+  "backup.trial.activeSession": {
+    "message": "Está ativa uma sessão de restauro gratuita. Sessões adicionais restantes: {1}."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "Sessões de restauro gratuitas restantes: {1}. Vários restauros no mesmo dia partilham uma sessão."
+  },
+  "backup.trial.unavailable": {
+    "message": "O limite de teste está indisponível. Tente novamente."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Cópias de segurança gratuitas restantes: {1}"
+  },
   "backup.warnings.account": {
     "message": "Conta"
   },
@@ -1676,6 +1684,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Em alternativa, pode usar temporariamente a Versão Básica — pode restaurar a licença mais tarde."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "A sua licença está prestes a expirar. Prolongue-a agora por mais um ano. Os dias restantes não serão perdidos."
+  },
   "licenseValidation.failed": {
     "message": "A chave de licença que você digitou não é válida. Consulte instruções no email recebido da FastSpring. Se ainda estiver com problemas, entre em contato pela aba de suporte."
   },
@@ -1693,9 +1704,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "Endereço de email criptografado não corresponde a um legível."
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "A sua licença está prestes a expirar. Prolongue-a agora por mais um ano. Os dias restantes não serão perdidos."
   },
   "licenseValidation.passed": {
     "message": "Obrigado por registrar o QuickFolders Pro! Todas as funcionalidades premium estão agora desbloqueadas."
@@ -2118,15 +2126,135 @@
   "quickfolders.currentFolderButton": {
     "message": "Esta opção só é aplicável se você estiver usando QuickFolders Add-On, que adiciona uma pequena barra de ferramentas na parte superior do painel de visualização da mensagem."
   },
-  "registration.action.extend": {"message":"Licença Prolongada"},
-  "registration.action.renew": {"message":"Renovar Licença"},
-  "registration.action.buyDomain": {"message":"Compre uma licença de domínio"},
-  "registration.enterKey": {"message":"Digite a chave de licença…"},
-  "registration.firstName": {"message":"Primeiro nome:"},
-  "registration.lastName": {"message":"Sobrenome:"},
-  "registration.email": {"message":"E-mail:"},
-  "registration.annual": {"message":"Licença anual"},
-  "registration.account": {"message":"Selecionar conta:"},
+  "registration.account": {
+    "message": "Selecionar conta:"
+  },
+  "registration.action.buy": {
+    "message": "Comprar $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Compre uma licença de domínio"
+  },
+  "registration.action.extend": {
+    "message": "Licença Prolongada"
+  },
+  "registration.action.renew": {
+    "message": "Renovar Licença"
+  },
+  "registration.annual": {
+    "message": "Licença anual"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Fechar aviso de compra"
+  },
+  "registration.checkout.error": {
+    "message": "Não foi possível abrir a loja. Tente novamente."
+  },
+  "registration.checkout.live": {
+    "message": "Licença atual · compra online"
+  },
+  "registration.checkout.note": {
+    "message": "Os preços, impostos e descontos disponíveis são apresentados na loja."
+  },
+  "registration.checkout.opened": {
+    "message": "A loja abriu no seu navegador. Pode manter este separador aberto."
+  },
+  "registration.contact.legend": {
+    "message": "Para quem é esta licença?"
+  },
+  "registration.contact.note": {
+    "message": "Estes dados serão preenchidos na compra. Pode alterá-los aqui."
+  },
+  "registration.date.expired": {
+    "message": "A sua licença expirou em $1."
+  },
+  "registration.date.none": {
+    "message": "Escolha uma licença abaixo ou introduza a chave existente."
+  },
+  "registration.date.unknown": {
+    "message": "uma data desconhecida"
+  },
+  "registration.date.valid": {
+    "message": "A sua licença é válida até $1."
+  },
+  "registration.edition.domain": {
+    "message": "Domínio"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "E-mail:"
+  },
+  "registration.email.domain": {
+    "message": "Aplicam-se regras diferentes: o endereço configurado deve pertencer ao domínio licenciado."
+  },
+  "registration.email.domain.heading": {
+    "message": "Licenças de domínio"
+  },
+  "registration.email.help": {
+    "message": "Sobre os endereços licenciados"
+  },
+  "registration.email.help.close": {
+    "message": "Fechar ajuda do endereço"
+  },
+  "registration.email.help.heading": {
+    "message": "O seu endereço é a sua licença"
+  },
+  "registration.email.hint": {
+    "message": "A sua licença pessoal funciona em vários dispositivos."
+  },
+  "registration.email.invalid": {
+    "message": "Introduza um endereço de email válido."
+  },
+  "registration.email.personal": {
+    "message": "A licença está associada a este endereço de correio. Pode usá-la em vários dispositivos. Configure este endereço como {bold}identidade predefinida{/bold} de uma conta Thunderbird em cada dispositivo."
+  },
+  "registration.email.personal.heading": {
+    "message": "Licenças Pro"
+  },
+  "registration.email.rules": {
+    "message": "Regras do endereço licenciado"
+  },
+  "registration.enterKey": {
+    "message": "Digite a chave de licença…"
+  },
+  "registration.features.link": {
+    "message": "Conheça as funcionalidades premium"
+  },
+  "registration.firstName": {
+    "message": "Primeiro nome:"
+  },
+  "registration.footer": {
+    "message": "Criado para o Thunderbird. Apoiado por si."
+  },
+  "registration.heading.eyebrow": {
+    "message": "A SUA LICENÇA"
+  },
+  "registration.heading.intro": {
+    "message": "Mantenha os seus filtros em forma com {link}todas as funções Pro{/link} e ajude o quickFilters a crescer."
+  },
+  "registration.heading.title": {
+    "message": "Do email ao filtro, em segundos."
+  },
+  "registration.lastName": {
+    "message": "Sobrenome:"
+  },
+  "registration.learnMore": {
+    "message": "Saber mais…"
+  },
+  "registration.license.edition": {
+    "message": "Licença $1"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "A chave de licença atual não está disponível. Tente novamente."
+  },
+  "registration.license.none": {
+    "message": "Nenhuma licença configurada"
+  },
+  "registration.load.error": {
+    "message": "Não foi possível carregar a licença ou as contas. Recarregue este separador para tentar novamente."
+  },
   "registration.menu": {
     "message": "$licenseName$ Licença…",
     "placeholders": {
@@ -2134,6 +2262,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Navegação de licenças"
+  },
+  "registration.options": {
+    "message": "Opções de licença"
+  },
+  "registration.plan.domain.description": {
+    "message": "Todas as funcionalidades para a equipa, numa só licença."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "Para a sua equipa"
+  },
+  "registration.plan.domain.scope": {
+    "message": "Para um domínio partilhado"
+  },
+  "registration.plan.pro.description": {
+    "message": "Dê mais poder às regras de filtragem do Thunderbird."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Todas as funcionalidades"
+  },
+  "registration.plan.pro.scope": {
+    "message": "Para o seu próprio correio"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Os benefícios da renovação dependem das informações da licença enviadas à loja. Escolher outro produto na loja ou a remoção destas informações por software de segurança pode impedir a aplicação dos seus direitos existentes."
+  },
+  "registration.renewal.hint": {
+    "message": "Renovar ou prolongar a licença acrescenta mais um ano e normalmente custa menos do que comprar uma nova."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Licenças Pro{/bold}{br}Uma nova licença dura um ano a partir do pagamento. Ao renovar ou prolongar a licença Pro, recebe um ano completo a partir do pagamento ou um ano após a data de expiração atual, conforme o que lhe der mais tempo."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Licença existente{/bold}{br}A licença atual é enviada à loja para calcular a nova data de expiração."
+  },
+  "registration.selection.intro": {
+    "message": "Escolha Pro para o seu email pessoal ou Domain para a sua equipa."
+  },
+  "registration.selection.label": {
+    "message": "Seleção de licença"
+  },
+  "registration.selection.title": {
+    "message": "Uma caixa de entrada mais organizada. Mais tempo para si."
+  },
+  "registration.settings.error": {
+    "message": "Não foi possível abrir as definições da licença. Tente novamente."
+  },
+  "registration.showLess": {
+    "message": "Mostrar menos"
+  },
+  "registration.status.Empty": {
+    "message": "Edição gratuita"
+  },
+  "registration.status.Expired": {
+    "message": "Expirada"
+  },
+  "registration.status.Valid": {
+    "message": "Válida"
+  },
+  "registration.terms.annual": {
+    "message": "Uma licença cobre um ano. Renove uma licença expirada ou prolongue uma atual para continuar com a edição escolhida."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Um ano de cada vez"
+  },
+  "registration.terms.back": {
+    "message": "Seleção de licença"
+  },
+  "registration.terms.checkout": {
+    "message": "Selecione uma licença para aceder à loja. O preço depende da edição, país, impostos e descontos aplicáveis."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Compra no navegador"
+  },
+  "registration.terms.domain": {
+    "message": "Uma licença de domínio abrange utilizadores com endereços pertencentes ao domínio licenciado."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Escolha a sua edição"
+  },
+  "registration.terms.email": {
+    "message": "Uma licença pessoal está associada ao seu endereço de correio. Pode usá-la em várias instalações do Thunderbird se o endereço licenciado estiver configurado como **identidade predefinida** de uma conta em cada instalação."
+  },
+  "registration.terms.email.heading": {
+    "message": "O seu endereço, a sua licença"
+  },
+  "registration.terms.features": {
+    "message": "Conheça as funcionalidades incluídas nas licenças quickFilters Pro e Domain."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Continuar para a seleção de licença 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "O quickFilters ajuda a criar e gerir filtros do Thunderbird. As licenças financiam o desenvolvimento contínuo, novas funcionalidades e atualizações de compatibilidade. Cada licença dura um ano."
+  },
+  "registration.terms.label": {
+    "message": "Condições de licença"
+  },
+  "registration.terms.manual": {
+    "message": "As licenças Domain são **analisadas e emitidas manualmente**. A renovação acrescenta um ano à data de expiração atual, mesmo que a licença já tenha expirado. Isto incentiva a renovação atempada; o prazo final é confirmado durante a análise."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "As licenças **não são renovadas automaticamente**. {+extensionName} avisa antes de a licença expirar."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "As funcionalidades licenciadas também funcionam com todas as outras contas do Thunderbird. Não são necessárias licenças separadas."
+  },
+  "registration.terms.referrer": {
+    "message": "Ao comprar ou renovar, a sua licença válida ou expirada é enviada à loja como referência."
+  },
+  "registration.terms.savings": {
+    "message": "**Comece com Pro e poupe nos anos seguintes.** Renovar ou prolongar a licença Pro custa bastante menos do que comprar uma nova."
+  },
+  "registration.terms.show": {
+    "message": "Mostrar condições de licença 🡇"
+  },
+  "registration.terms.support": {
+    "message": "O seu apoio financia o desenvolvimento, atualizações de compatibilidade e correções."
+  },
+  "registration.terms.title": {
+    "message": "Como funciona a sua licença."
+  },
+  "registration.title": {
+    "message": "quickFilters · A sua licença"
   },
   "renew-your-license": {
     "message": "Renove sua licença."

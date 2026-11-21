@@ -2276,9 +2276,6 @@
   "registration.action.renew": {
     "message": "Renew License"
   },
-  "registration.action.upgradeDomain": {
-    "message": "Upgrade to Domain"
-  },
   "registration.annual": {
     "message": "Annual licenses"
   },
@@ -2297,12 +2294,6 @@
   },
   "registration.checkout.opened": {
     "message": "The shop has opened in your browser. You can keep this tab open."
-  },
-  "registration.checkout.previewOnly": {
-    "message": "Preview only. No shop was opened."
-  },
-  "registration.checkout.sample": {
-    "message": "Sample data · checkout is disabled"
   },
   "registration.contact.legend": {
     "message": "Who is this license for?"
@@ -2432,33 +2423,6 @@
   },
   "registration.plan.pro.scope": {
     "message": "For your own email"
-  },
-  "registration.preview.badge": {
-    "message": "UI prototype"
-  },
-  "registration.preview.buy": {
-    "message": "Buy"
-  },
-  "registration.preview.extendDomain": {
-    "message": "Extend Domain"
-  },
-  "registration.preview.extendPro": {
-    "message": "Extend Pro"
-  },
-  "registration.preview.label": {
-    "message": "Test case"
-  },
-  "registration.preview.live": {
-    "message": "Current license (live checkout)"
-  },
-  "registration.preview.renewDomain": {
-    "message": "Renew Domain (expired)"
-  },
-  "registration.preview.renewPro": {
-    "message": "Renew Pro"
-  },
-  "registration.preview.upgrade": {
-    "message": "Pro license: explore Domain"
   },
   "registration.renewal.entitlements": {
     "message": "Renewal benefits depend on license information passed to the shop. Switching products in the shop or security software removing that information can prevent the shop from applying your existing entitlement."

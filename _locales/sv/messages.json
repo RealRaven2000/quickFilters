@@ -1063,10 +1063,18 @@
       }
     }
   },
-  "backup.trial.activeSession": { "message": "En gratis återställningssession är aktiv. Ytterligare sessioner kvar: {1}." },
-  "backup.trial.sessionsRemaining": { "message": "Gratis återställningssessioner kvar: {1}. Flera återställningar samma dag delar en session." },
-  "backup.trial.unavailable": { "message": "Provkvoten är inte tillgänglig. Försök igen." },
-  "backup.trial.usesRemaining": { "message": "Gratis säkerhetskopior kvar: {1}" },
+  "backup.trial.activeSession": {
+    "message": "En gratis återställningssession är aktiv. Ytterligare sessioner kvar: {1}."
+  },
+  "backup.trial.sessionsRemaining": {
+    "message": "Gratis återställningssessioner kvar: {1}. Flera återställningar samma dag delar en session."
+  },
+  "backup.trial.unavailable": {
+    "message": "Provkvoten är inte tillgänglig. Försök igen."
+  },
+  "backup.trial.usesRemaining": {
+    "message": "Gratis säkerhetskopior kvar: {1}"
+  },
   "backup.warnings.account": {
     "message": "Konto"
   },
@@ -1676,6 +1684,9 @@
   "licenseValidation.expired.freeHint": {
     "message": "Alternativt kan du använda Grundversionen tills vidare — du kan fortfarande återställa din licens senare."
   },
+  "licenseValidation.expiringSoon": {
+    "message": "Din licens går snart ut. Förläng den nu med ytterligare ett år. Dina återstående dagar går inte förlorade."
+  },
   "licenseValidation.failed": {
     "message": "Licensnyckeln du angav är ogiltig. Läs instruktionerna i meddelandet du fick från FastSpring. Kontakta oss via supportfliken om problemet kvarstår."
   },
@@ -1690,9 +1701,6 @@
   },
   "licenseValidation.notMatchedMail": {
     "message": "Den krypterade e-postadressen matchar inte den läsbara adressen."
-  },
-  "licenseValidation.expiringSoon": {
-    "message": "Din licens går snart ut. Förläng den nu med ytterligare ett år. Dina återstående dagar går inte förlorade."
   },
   "licenseValidation.passed": {
     "message": "Tack för att du registrerar quickFilters Pro! Alla licensbelagda funktioner är nu tillgängliga."
@@ -2115,15 +2123,135 @@
   "quickfolders.currentFolderButton": {
     "message": "Detta alternativ är endast tillämpligt om du använder tillägget QuickFolders, som lägger till ett litet verktygsfält överst i förhandsgranskningspanelen."
   },
-  "registration.action.extend": {"message":"Förläng licens"},
-  "registration.action.renew": {"message":"Förnya licens"},
-  "registration.action.buyDomain": {"message":"Köp domänlicens"},
-  "registration.enterKey": {"message":"Ange licensnyckel …"},
-  "registration.firstName": {"message":"Förnamn:"},
-  "registration.lastName": {"message":"Efternamn:"},
-  "registration.email": {"message":"E-post:"},
-  "registration.annual": {"message":"Årslicens"},
-  "registration.account": {"message":"Välj konto:"},
+  "registration.account": {
+    "message": "Välj konto:"
+  },
+  "registration.action.buy": {
+    "message": "Köp $1"
+  },
+  "registration.action.buyDomain": {
+    "message": "Köp domänlicens"
+  },
+  "registration.action.extend": {
+    "message": "Förläng licens"
+  },
+  "registration.action.renew": {
+    "message": "Förnya licens"
+  },
+  "registration.annual": {
+    "message": "Årslicens"
+  },
+  "registration.checkout.dismiss": {
+    "message": "Stäng köpmeddelande"
+  },
+  "registration.checkout.error": {
+    "message": "Det gick inte att öppna butiken. Försök igen."
+  },
+  "registration.checkout.live": {
+    "message": "Aktuell licens · webbutik"
+  },
+  "registration.checkout.note": {
+    "message": "Priser, skatter och tillgängliga rabatter visas i butiken."
+  },
+  "registration.checkout.opened": {
+    "message": "Butiken har öppnats i din webbläsare. Du kan låta den här fliken vara öppen."
+  },
+  "registration.contact.legend": {
+    "message": "Vem är licensen till för?"
+  },
+  "registration.contact.note": {
+    "message": "Uppgifterna förifylls i kassan. Du kan ändra dem här."
+  },
+  "registration.date.expired": {
+    "message": "Din licens gick ut $1."
+  },
+  "registration.date.none": {
+    "message": "Välj en licens nedan eller ange din befintliga nyckel."
+  },
+  "registration.date.unknown": {
+    "message": "ett okänt datum"
+  },
+  "registration.date.valid": {
+    "message": "Din licens gäller till $1."
+  },
+  "registration.edition.domain": {
+    "message": "Domän"
+  },
+  "registration.edition.pro": {
+    "message": "Pro"
+  },
+  "registration.email": {
+    "message": "E-post:"
+  },
+  "registration.email.domain": {
+    "message": "Andra regler gäller: den konfigurerade adressen måste tillhöra den licensierade domänen."
+  },
+  "registration.email.domain.heading": {
+    "message": "Domänlicenser"
+  },
+  "registration.email.help": {
+    "message": "Om licensierade e-postadresser"
+  },
+  "registration.email.help.close": {
+    "message": "Stäng e-posthjälpen"
+  },
+  "registration.email.help.heading": {
+    "message": "Din e-postadress är din licens"
+  },
+  "registration.email.hint": {
+    "message": "Din personliga licens fungerar på flera enheter."
+  },
+  "registration.email.invalid": {
+    "message": "Ange en giltig e-postadress."
+  },
+  "registration.email.personal": {
+    "message": "Licensen är knuten till den här e-postadressen. Du kan använda den på flera enheter. Konfigurera adressen som ett kontos {bold}standardidentitet{/bold} i Thunderbird på varje enhet."
+  },
+  "registration.email.personal.heading": {
+    "message": "Pro-licenser"
+  },
+  "registration.email.rules": {
+    "message": "Regler för licensierade e-postadresser"
+  },
+  "registration.enterKey": {
+    "message": "Ange licensnyckel …"
+  },
+  "registration.features.link": {
+    "message": "Utforska premiumfunktionerna"
+  },
+  "registration.firstName": {
+    "message": "Förnamn:"
+  },
+  "registration.footer": {
+    "message": "Skapat för Thunderbird. Med ditt stöd."
+  },
+  "registration.heading.eyebrow": {
+    "message": "DIN LICENS"
+  },
+  "registration.heading.intro": {
+    "message": "Håll dina filter i form med {link}alla Pro-funktioner{/link} och hjälp quickFilters att fortsätta utvecklas."
+  },
+  "registration.heading.title": {
+    "message": "Från e-post till filter på några sekunder."
+  },
+  "registration.lastName": {
+    "message": "Efternamn:"
+  },
+  "registration.learnMore": {
+    "message": "Läs mer…"
+  },
+  "registration.license.edition": {
+    "message": "$1-licens"
+  },
+  "registration.license.keyUnavailable": {
+    "message": "Den aktuella licensnyckeln är inte tillgänglig. Försök igen."
+  },
+  "registration.license.none": {
+    "message": "Ingen licens konfigurerad"
+  },
+  "registration.load.error": {
+    "message": "Det gick inte att läsa in licensen eller kontona. Ladda om fliken för att försöka igen."
+  },
   "registration.menu": {
     "message": "$licenseName$ Licens…",
     "placeholders": {
@@ -2131,6 +2259,132 @@
         "content": "quickFilters Pro"
       }
     }
+  },
+  "registration.navigation": {
+    "message": "Licensnavigering"
+  },
+  "registration.options": {
+    "message": "Licensalternativ"
+  },
+  "registration.plan.domain.description": {
+    "message": "Alla funktioner för hela teamet, med en enda licens."
+  },
+  "registration.plan.domain.kicker": {
+    "message": "För ditt team"
+  },
+  "registration.plan.domain.scope": {
+    "message": "För en gemensam domän"
+  },
+  "registration.plan.pro.description": {
+    "message": "Ge dina Thunderbird-filterregler mer kraft."
+  },
+  "registration.plan.pro.kicker": {
+    "message": "Alla funktioner"
+  },
+  "registration.plan.pro.scope": {
+    "message": "För din egen e-post"
+  },
+  "registration.renewal.entitlements": {
+    "message": "Förnyelseförmånerna beror på licensinformationen som skickas till butiken. Om du byter produkt i butiken eller om säkerhetsprogram tar bort informationen kan butiken hindras från att tillämpa dina befintliga förmåner."
+  },
+  "registration.renewal.hint": {
+    "message": "Att förnya eller förlänga licensen lägger till ett år och kostar oftast mindre än en ny licens."
+  },
+  "registration.renewal.personal": {
+    "message": "{bold}Pro-licenser{/bold}{br}En ny licens gäller i ett år från betalningen. När du förnyar eller förlänger Pro får du ett helt år från betalningen eller ett år efter ditt nuvarande utgångsdatum, beroende på vilket som ger dig mest tid."
+  },
+  "registration.renewal.previous": {
+    "message": "{bold}Befintlig licens{/bold}{br}Din nuvarande licens skickas till butiken så att det nya utgångsdatumet kan beräknas."
+  },
+  "registration.selection.intro": {
+    "message": "Välj Pro för din egen e-post eller Domain för ditt team."
+  },
+  "registration.selection.label": {
+    "message": "Licensval"
+  },
+  "registration.selection.title": {
+    "message": "En mer välordnad inkorg. Mer tid för dig."
+  },
+  "registration.settings.error": {
+    "message": "Det gick inte att öppna licensinställningarna. Försök igen."
+  },
+  "registration.showLess": {
+    "message": "Visa mindre"
+  },
+  "registration.status.Empty": {
+    "message": "Gratisutgåva"
+  },
+  "registration.status.Expired": {
+    "message": "Utgången"
+  },
+  "registration.status.Valid": {
+    "message": "Giltig"
+  },
+  "registration.terms.annual": {
+    "message": "En licens gäller ett år. Förnya en utgången licens eller förläng en aktuell för att fortsätta med vald utgåva."
+  },
+  "registration.terms.annual.heading": {
+    "message": "Ett år i taget"
+  },
+  "registration.terms.back": {
+    "message": "Licensval"
+  },
+  "registration.terms.checkout": {
+    "message": "Välj en licens för att gå till butiken. Priset beror på utgåva, land, skatter och tillämpliga rabatter."
+  },
+  "registration.terms.checkout.heading": {
+    "message": "Köp i din webbläsare"
+  },
+  "registration.terms.domain": {
+    "message": "En domänlicens täcker användare med adresser inom den licensierade domänen."
+  },
+  "registration.terms.edition.heading": {
+    "message": "Välj utgåva"
+  },
+  "registration.terms.email": {
+    "message": "En personlig licens är knuten till din e-postadress. Du kan använda den på flera Thunderbird-installationer när den licensierade adressen är konfigurerad som ett kontos **standardidentitet** i varje installation."
+  },
+  "registration.terms.email.heading": {
+    "message": "Din e-postadress, din licens"
+  },
+  "registration.terms.features": {
+    "message": "Utforska funktionerna som ingår i quickFilters Pro- och Domain-licenser."
+  },
+  "registration.terms.hide": {
+    "message": "🡇 Fortsätt till licensval 🡇"
+  },
+  "registration.terms.intro": {
+    "message": "quickFilters hjälper dig att skapa och hantera Thunderbird-filter. Licenser finansierar fortsatt utveckling, nya funktioner och kompatibilitetsuppdateringar. Varje licens gäller i ett år."
+  },
+  "registration.terms.label": {
+    "message": "Licensvillkor"
+  },
+  "registration.terms.manual": {
+    "message": "Domain-licenser **granskas och utfärdas manuellt**. Förnyelse lägger till ett år till det befintliga utgångsdatumet, även om licensen redan har gått ut. Detta uppmuntrar förnyelse i tid; den slutliga giltighetstiden bekräftas vid granskningen."
+  },
+  "registration.terms.manualRenewal": {
+    "message": "Licenser **förnyas inte automatiskt**. {+extensionName} påminner dig innan licensen går ut."
+  },
+  "registration.terms.otherAccounts": {
+    "message": "De licensierade funktionerna fungerar också med alla dina andra e-postkonton i Thunderbird. Inga separata licenser behövs."
+  },
+  "registration.terms.referrer": {
+    "message": "Din befintliga giltiga eller utgångna licens skickas som referens till butiken när du köper eller förnyar."
+  },
+  "registration.terms.savings": {
+    "message": "**Börja med Pro och spara under kommande år.** Att förnya eller förlänga Pro-licensen kostar betydligt mindre än att köpa en ny."
+  },
+  "registration.terms.show": {
+    "message": "Visa licensvillkor 🡇"
+  },
+  "registration.terms.support": {
+    "message": "Ditt stöd finansierar utveckling, kompatibilitetsuppdateringar och rättningar."
+  },
+  "registration.terms.title": {
+    "message": "Så fungerar din licens."
+  },
+  "registration.title": {
+    "message": "quickFilters · Din licens"
   },
   "renew-your-license": {
     "message": "Förnya din licens."

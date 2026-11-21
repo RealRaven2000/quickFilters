@@ -44,3 +44,7 @@ Dynamic lookup paths were reviewed conservatively; retain a key if its runtime u
 | --- | --- | --- |
 | `notification.premium.btn.extendLicense` | Extend License | `registration.action.extend` |
 | `notification.premium.btn.renewLicense` | Renew License | `registration.action.renew` |
+
+## Registration-only locale scope
+
+`SPLASH+REGISTRATION` includes onboarding, news, licensing and registration translations. Other feature UI uses the default-locale fallback. Slovenian and Serbian use this scope; `SPLASH+UI` continues to cover the full UI.

@@ -11,7 +11,7 @@ test("all backup translations preserve UTF-8, placeholders and substitution defi
   for (const locale of await readdir(root)) {
     const bytes = await readFile(new URL(`${locale}/messages.json`, root));
     const catalog = JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes));
-    if (catalog._l10nstatus?.message === "SPLASH") {
+    if (catalog._l10nstatus?.message !== "SPLASH+UI") {
       assert(!Object.keys(catalog).some(key => key.startsWith("backup.")), `${locale}: backup UI should use English fallback`);
       continue;
     }
