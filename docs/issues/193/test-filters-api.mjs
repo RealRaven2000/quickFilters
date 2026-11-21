@@ -4,7 +4,7 @@ import vm from "node:vm";
 import test from "node:test";
 
 test("FiltersAPI owns backup/restore methods and loads fresh scopes for unpacked and packaged installs", async () => {
-  const base = new URL("../../chrome/content/api/", import.meta.url);
+  const base = new URL("../../../chrome/content/api/", import.meta.url);
   const source = await readFile(new URL("filtersAPI/implementation.js", base), "utf8");
   const schema = JSON.parse(await readFile(new URL("filtersAPI/schema.json", base), "utf8"))[0];
   const utilities = JSON.parse(await readFile(new URL("Utilities/schema.json", base), "utf8"))[0];

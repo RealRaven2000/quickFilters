@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import "./test-i18n.mjs";
 import test from "node:test";
-import { initRestorePage } from "../../scripts/backup/restore-page.mjs";
+import { initRestorePage } from "../../../scripts/backup/restore-page.mjs";
 
 test("restore page loads a real file, supports drag/menu selection, restores and opens the exact imported filter", async () => {
   class Node {

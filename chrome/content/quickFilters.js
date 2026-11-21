@@ -265,6 +265,20 @@ END LICENSE BLOCK
     # [issue 399] Remove deprecated messenger.msgHdrFromURI - Thunderbird 159 will fail without it.
     # Added license-expiry countdown when Extend License button is shown
 
+  6.15 - 06/11/2026
+    # [issue 193] Multi-account filter backup and restore, with session/day-based restore trials
+    # [issue 401] Dedicated filter troubleshooter with individual checks, condition inspection and confirmed remedies
+    # [issue 400] Improved premium feature trial accounting, limits and exhausted-trial messages
+    # [issue 193] [issue 401] Moved backup/restore and filter-review operations into the experimental Filters API
+    # [issue 402] Removed redundant add-on prefixes from localization keys
+
+  6.15.1 - WIP
+    # [issue 401] Wider troubleshooter results and compact action-button groups
+    # [issue 401] Collapsible checks panel above the full-width review list, retaining the full caption
+    # [issue 403] Separated native filter snapshots from reusable, stateless filter analysis
+    # [issue 403] Added a versioned inspection contract, validation and structured diagnostics
+    # [issue 403] Isolated native troubleshooter helpers in a factory with explicit dependencies
+    # Tools > Test > Browser Storage editor now shows general settings instead of debug settings
     
   ============================================================================================================
   6.* - WIP

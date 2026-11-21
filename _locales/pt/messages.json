@@ -1693,9 +1693,6 @@
   "licenseValidation.guessAddon": {
     "message": "(A chave inserida pode ser para {2})."
   },
-  "licenseValidation.guessAddon": {
-    "message": "(A chave inserida pode ser para {2})."
-  },
   "licenseValidation.invalidAddon": {
     "message": "A chave de licença inserida pode ser para uma extensão diferente. A chaves de licença para o {0} começam com {1}."
   },
@@ -1952,7 +1949,7 @@
     "message": "Registre o {1}"
   },
   "ongoing-work": {
-    "message": "Comprar uma licença é completamente voluntário. Para facilitar as coisas para os usuários, a versão atual permanece compatível com Thunderbird 115 pelo maior tempo possível. No entanto, o Thunderbird agora segue um ciclo de lançamento mensal, o que aumenta nosso trabalho com testes e desenvolvimento. Seu apoio nos ajuda a acompanhar essas mudanças!",
+    "message": "A compra de uma licença é voluntária. O seu apoio financia o desenvolvimento e a compatibilidade com o Thunderbird.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2576,7 +2573,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ requer mudanças contínuas para permanecer compatível com a plataforma Mozilla. Trabalho constantemente para reter o máximo de funcionalidade possível para versões futuras do Thunderbird.",
+    "message": "$addonName$ requer trabalho contínuo para acompanhar a evolução do Thunderbird.",
     "placeholders": {
       "addonName": {
         "content": "$1",

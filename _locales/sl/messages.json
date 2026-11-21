@@ -154,7 +154,7 @@
     "message": "{1} je funkcija Pro"
   },
   "ongoing-work": {
-    "message": "Nakup licence je popolnoma prostovoljen. Da bi uporabnikom olajšali delo, trenutna različica ostaja združljiva s Thunderbird 115, dokler je to tehnično mogoče. Vendar pa Thunderbird zdaj sledi mesečnemu ciklu izdaj, kar povečuje naše delovno obremenitev pri testiranju in razvoju. Vaša podpora nam pomaga slediti tem spremembam!",
+    "message": "Nakup licence je prostovoljen. Vaša podpora financira razvoj in združljivost s Thunderbirdom.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -550,7 +550,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ zahteva stalne spremembe, da ostane združljiv s platformo Mozilla. Nenehno si prizadevam, da bi ohranil čim več funkcionalnosti za prihodnje različice Thunderbirda.",
+    "message": "$addonName$ potrebuje stalno delo, da sledi razvoju Thunderbirda.",
     "placeholders": {
       "addonName": {
         "content": "$1",

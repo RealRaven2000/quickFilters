@@ -4,7 +4,7 @@ import vm from "node:vm";
 import test from "node:test";
 
 test("filter sorting waits for permission before changing clipboard or order", async () => {
-  const source = await readFile(new URL("../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
   const body = source.match(/sort: async function \(_evt\) \{([\s\S]*?)\n  \} ,/)[1];
   let finish, moved = 0, copied = 0;
   const util = { popupProFeature(feature) {
@@ -26,7 +26,7 @@ test("filter sorting waits for permission before changing clipboard or order", a
 });
 
 test("condition sorting waits for permission before saving or reading conditions", async () => {
-  const source = await readFile(new URL("../../chrome/content/qFilters-filterEditor.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/qFilters-filterEditor.js", import.meta.url), "utf8");
   const body = source.match(/sortConditions: async function \(theFilter\) \{([\s\S]*?)\n    \},/)[1];
   let finish, saved = 0;
   const util = { hasPremiumLicense: () => false,
@@ -51,7 +51,7 @@ test("condition sorting waits for permission before saving or reading conditions
 });
 
 test("advanced search waits for permission, falls back to name when denied, and keeps internal switches immediate", async () => {
-  const source = await readFile(new URL("../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
   const body = source.match(/toggleSearchType: async function \(type, interActive=false\) \{([\s\S]*?)\n  \} ,/)[1];
   let finish, rebuilt = 0, gates = 0, reset = false;
   const util = { popupProFeature(feature) {
@@ -79,7 +79,7 @@ test("advanced search waits for permission, falls back to name when denied, and 
 });
 
 test("duplicate finder preserves existing results and avoids scanning while permission is pending or denied", async () => {
-  const source = await readFile(new URL("../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
   const body = source.match(/findDuplicates: async function \(\) \{([\s\S]*?)\n  \} ,/)[1];
   let finish, scanned = 0, cleared = 0;
   const util = { popupProFeature(feature) {
@@ -107,7 +107,7 @@ test("duplicate finder preserves existing results and avoids scanning while perm
 
 
 test("folder search awaits its trial gate before scanning or opening results", async () => {
-  const source = await readFile(new URL("../../chrome/content/quickFilters.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/quickFilters.js", import.meta.url), "utf8");
   const body = source.match(/searchFiltersFromFolder: async function \(event\) \{([\s\S]*?)\n  \},/)[1];
   let finish;
   const util = {
@@ -127,7 +127,7 @@ test("folder search awaits its trial gate before scanning or opening results", a
 });
 
 test("Local Folders autorun rejects unlicensed users before collecting messages", async () => {
-  const source = await readFile(new URL("../../chrome/content/quickFilters.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/quickFilters.js", import.meta.url), "utf8");
   const body = source.match(/onMessageAdded: async function \(parent, item\) \{([\s\S]*?)\n  \},/)[1];
   const util = { hasPremiumLicense: () => false, logDebugOptional() {},
     isLocalInbox() { assert.fail("Processed an unlicensed local message"); } };

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 
-export const messages = JSON.parse(readFileSync(new URL("../../_locales/en/messages.json", import.meta.url), "utf8"));
+export const messages = JSON.parse(readFileSync(new URL("../../../_locales/en/messages.json", import.meta.url), "utf8"));
 export function getMessage(key, substitutions = []) {
   assert(messages[key], `Missing message: ${key}`);
   const entry = messages[key];

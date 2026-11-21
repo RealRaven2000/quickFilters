@@ -1931,7 +1931,7 @@
     "message": "OK"
   },
   "ongoing-work": {
-    "message": "Nákup licence je zcela dobrovolný. Abychom usnadnili uživatelům práci, současná verze zůstává zpětně kompatibilní s Thunderbirdem 115, jak dlouho to bude technicky možné. Thunderbird nyní následuje měsíční cyklus vydání, což zvyšuje naši zátěž na testování a vývoj. Vaše podpora nám pomáhá držet krok s těmito změnami!",
+    "message": "Nákup licence je dobrovolný. Vaše podpora financuje vývoj a kompatibilitu s Thunderbirdem.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2559,7 +2559,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ vyžaduje průběžné změny, aby zůstal kompatibilní s platformou Mozilla. Neustále pracuji na zachování co největší funkčnosti pro budoucí verze Thunderbirdu.",
+    "message": "$addonName$ vyžaduje průběžnou práci, aby držel krok s Thunderbirdem.",
     "placeholders": {
       "addonName": {
         "content": "$1",

@@ -2086,7 +2086,7 @@
     "message": "Ok"
   },
   "ongoing-work": {
-    "message": "Buying a license is completely voluntary. To make things easier for users, the current version remains backwards compatible with Thunderbird 115 for as long as technically feasible. However, Thunderbird now follows a monthly release cycle, increasing our testing and development workload. Your support helps us keep up with these changes!",
+    "message": "Buying a license is voluntary. Your support funds development and compatibility with Thunderbird.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2723,7 +2723,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ requires ongoing changes in order to remain compatible with the Mozilla platform. I am constantly working to retain as much functionality as possible for future versions of Thunderbird.",
+    "message": "$addonName$ needs ongoing work to keep pace with Thunderbird.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -3105,11 +3105,11 @@
   },
   "whats-new-list": {
     "description": "🇬🇧 change log",
-    "message": "{sect}Maintenance Update 6.15.1{/sect}{L}A clearer, responsive Filter Assistant with a preview of the actions of the selected merge target. [issue 404]{/L}{L}Fixed closing or cancelling the assistant sometimes blocking it from opening again. [issue 404]{/L}{L}More room for troubleshooter results, with compact controls and a collapsible checks panel. [issue 401]{/L}{L}Fixed creating or merging filter conditions from multiple selected messages. [issue 405]{/L}{L}Fixed empty message previews after moving messages from the context menu, and added navigation between selected messages. [issue 407]{/L}{sect}Highlights from version 6.15{/sect}{L}Multi-account filter backup and restore, with free trials for this Pro feature. [issue 193]{/L}{L}A dedicated filter troubleshooter to find and resolve filter problems. [issue 401]{/L}{L}Improved Pro feature trial tracking and refreshed trial allowances. [issue 400]{/L}"
+    "message": "{sect}Maintenance Update 6.15.1{/sect}{L}Run multiple backups and restores on the same day while seeing your remaining trial sessions. [issue 193]{/L}{L}Create or merge filters from multiple selected messages and browse their previews from the assistant. Fixed previews when moving messages using the Thunderbird context menu. [issue 405] [issue 407]{/L}{L}The troubleshooter shows its remaining trial sessions and gives results more room, with compact controls and a collapsible checks panel. [issue 401]{/L}{L}A clearer, responsive Filter Assistant previews the actions of the selected merge target. Closing or cancelling it no longer sometimes prevents it from reopening. [issue 404]{/L}{L}A fully themed license registration tab replaces the old dialog. [issue 406]{/L}{sect}Highlights from version 6.15{/sect}{L}Multi-account filter backup and restore, with free trials for this Pro feature. [issue 193]{/L}{L}A dedicated filter troubleshooter to find and resolve filter problems. [issue 401]{/L}{L}Improved Pro feature trial tracking and refreshed trial allowances. [issue 400]{/L}"
   },
   "whats-new-list-intro": {
     "description": "Optional change log intro. leave empty to omit!",
-    "message": "{P}This update improves the Filter Assistant and fixes problems with reopening it, processing multiple selected messages, and showing message previews.{/P}"
+    "message": "{P}This update lets you run multiple backups and restores in a day using a single trial session, and makes the Filter Assistant clearer and more reliable.{/P}"
   },
   "whats-new-maintenance": {
     "message": "Maintenance Update $ver$. Important fixes and compatibility updates following the minor release, including urgent regressions.",

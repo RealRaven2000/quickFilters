@@ -1949,7 +1949,7 @@
     "message": "Register {1}"
   },
   "ongoing-work": {
-    "message": "Việc mua giấy phép hoàn toàn là tự nguyện. Để làm việc này dễ dàng hơn cho người dùng, phiên bản hiện tại vẫn giữ khả năng tương thích ngược với Thunderbird 115 miễn là kỹ thuật cho phép. Tuy nhiên, Thunderbird hiện nay tuân theo chu kỳ phát hành hàng tháng, điều này làm tăng khối lượng công việc kiểm tra và phát triển của chúng tôi. Sự hỗ trợ của bạn giúp chúng tôi theo kịp những thay đổi này!",
+    "message": "Việc mua giấy phép là tự nguyện. Sự hỗ trợ của bạn tài trợ cho việc phát triển và duy trì khả năng tương thích với Thunderbird.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2573,7 +2573,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ yêu cầu các thay đổi liên tục để vẫn tương thích với nền tảng Mozilla. Tôi không ngừng làm việc để giữ lại nhiều chức năng nhất có thể cho các phiên bản Thunderbird trong tương lai.",
+    "message": "$addonName$ cần được duy trì liên tục để theo kịp Thunderbird.",
     "placeholders": {
       "addonName": {
         "content": "$1",

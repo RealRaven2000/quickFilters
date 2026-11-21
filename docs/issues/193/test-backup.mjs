@@ -4,10 +4,10 @@ import { getMessage } from "./test-i18n.mjs";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 import test from "node:test";
-import { createBackup, classifyBackup, suggestedFilename, sanitizeFilename } from "../../scripts/backup/backup-format.mjs";
-import { getBackupStorage, rememberBackupSelection, recordRecentFile } from "../../scripts/backup/backup-storage.mjs";
-import { initBackupPage } from "../../scripts/backup/backup-page.mjs";
-import { createWarningPanel } from "../../scripts/backup/warning-table.mjs";
+import { createBackup, classifyBackup, suggestedFilename, sanitizeFilename } from "../../../scripts/backup/backup-format.mjs";
+import { getBackupStorage, rememberBackupSelection, recordRecentFile } from "../../../scripts/backup/backup-storage.mjs";
+import { initBackupPage } from "../../../scripts/backup/backup-page.mjs";
+import { createWarningPanel } from "../../../scripts/backup/warning-table.mjs";
 
 test("warning table highlights one account without hiding others and can clear highlights", () => {
   const nodes = [];
@@ -225,7 +225,7 @@ test("storage writes, cancellation, bounded recent history and remembered select
 });
 
 async function privileged() {
-  const source = await readFile(new URL("../../chrome/content/api/filtersAPI/backup.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/api/filtersAPI/backup.js", import.meta.url), "utf8");
   let allowed = true;
   let result = 1;
   let failWrite = false;
@@ -338,7 +338,7 @@ test("return focuses original filter list and reopens it only when needed", asyn
 });
 
 test("toolbar opens the extension origin rather than the unpacked install directory", async () => {
-  const source = await readFile(new URL("../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/qFilters-list.js", import.meta.url), "utf8");
   const body = source.match(/openBackupTab: function \(mode = "backup"\) \{([\s\S]*?)\n  \},/)[1];
   let opened;
   const origin = {};
@@ -360,7 +360,7 @@ test("toolbar opens the extension origin rather than the unpacked install direct
 });
 
 test("backup directory persists across picker calls and cancellation leaves it unchanged", async () => {
-  const { withBackupDirectory } = await import("../../scripts/backup/storage-local.mjs");
+  const { withBackupDirectory } = await import("../../../scripts/backup/storage-local.mjs");
   const previous = globalThis.browser;
   const values = {};
   globalThis.browser = { storage: { local: {
@@ -422,7 +422,7 @@ test("backup review retains rows with edited/deleted badges and strikes deleted 
 });
 
 test("return prompts for backup changes; Yes stays, No returns then closes only the current tab", async () => {
-  const { returnToMessageFilters } = await import("../../scripts/backup/return-to-filters.mjs");
+  const { returnToMessageFilters } = await import("../../../scripts/backup/return-to-filters.mjs");
   const previous = { browser: globalThis.browser, window: globalThis.window };
   const calls = [];
   let yes = true, fail = false;
@@ -450,7 +450,7 @@ test("return prompts for backup changes; Yes stays, No returns then closes only 
 });
 
 test("delete confirmation suppression lasts only for its controller and requires an accepted deletion", async () => {
-  const { createDeleteConfirmation } = await import("../../scripts/backup/delete-confirmation.mjs");
+  const { createDeleteConfirmation } = await import("../../../scripts/backup/delete-confirmation.mjs");
   const previous = globalThis.browser;
   let confirmed = false, calls = 0;
   globalThis.browser = { FiltersAPI: { confirmFilterDeletion: async () => { calls++; return { confirmed, doNotAskAgain: true }; } } };
@@ -489,7 +489,7 @@ test("selected backup exports exact captured objects in list order, never the en
 });
 
 test("Utilities loads package scripts without chrome registrations into fresh private scopes", async () => {
-  const source = await readFile(new URL("../../chrome/content/api/Utilities/implementation.js", import.meta.url), "utf8");
+  const source = await readFile(new URL("../../../chrome/content/api/Utilities/implementation.js", import.meta.url), "utf8");
   const loads = [];
   const premiumSources = Object.fromEntries(await Promise.all(["usage-policy.js", "usage-store.js"].map(async name => [name, await readFile(new URL(`../../scripts/premium/${name}`, import.meta.url), "utf8")])));
   const values = new Map();

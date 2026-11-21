@@ -1949,7 +1949,7 @@
     "message": "{1} の登録"
   },
   "ongoing-work": {
-    "message": "ライセンスの購入は完全に任意です。ユーザーのために、現在のバージョンは技術的に可能な限りThunderbird 115と後方互換性があります。しかし、Thunderbirdは現在月次リリースサイクルを採用しており、これによりテストと開発の作業負荷が増加します。ご支援いただければ、これらの変更に追いつくことができます！",
+    "message": "ライセンスの購入は任意です。皆さまの支援は、開発と Thunderbird との互換性の維持に役立ちます。",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2573,7 +2573,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ は、Mozillaプラットフォームとの互換性を維持するために、継続的な変更が必要です。 私はThunderbirdの将来のバージョンのために可能な限り多くの機能を保持するために絶えず取り組んでいます。",
+    "message": "$addonName$ を Thunderbird の更新に対応させるには、継続的な作業が必要です。",
     "placeholders": {
       "addonName": {
         "content": "$1",

@@ -1941,7 +1941,7 @@
     "message": "注册者"
   },
   "ongoing-work": {
-    "message": "购买许可证完全自愿。为了方便用户，当前版本在技术上可行的情况下保持与 Thunderbird 115 向后兼容。然而，Thunderbird 现在遵循每月发布周期，增加了我们的测试和开发工作量。您的支持帮助我们跟上这些变化！",
+    "message": "购买许可证完全自愿。您的支持为开发和 Thunderbird 兼容性提供资金。",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2565,7 +2565,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ 需要进行不断的更改，以保持与Mozilla平台的兼容性。 我一直在努力为Thunderbird的未来版本保留尽可能多的功能。",
+    "message": "$addonName$ 需要持续维护才能跟上 Thunderbird 的更新。",
     "placeholders": {
       "addonName": {
         "content": "$1",

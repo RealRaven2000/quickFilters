@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createFilterWarningPanel } from "../../scripts/filter-review/warning-panel.mjs";
+import { createFilterWarningPanel } from "../../../scripts/filter-review/warning-panel.mjs";
 
 test("shared review accepts caller wording and descriptions with a delete-only action", () => {
   const nodes = [];

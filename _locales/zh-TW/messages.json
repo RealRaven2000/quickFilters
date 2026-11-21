@@ -1871,7 +1871,7 @@
     "message": "註冊{1}"
   },
   "ongoing-work": {
-    "message": "購買許可證完全自願。為了方便使用者，當前版本在技術上可行的情況下仍然與 Thunderbird 115 向後兼容。然而，Thunderbird 現在遵循每月發布週期，這增加了我們的測試和開發工作量。您的支持幫助我們跟上這些變化！",
+    "message": "購買授權完全出於自願。您的支持為開發和 Thunderbird 相容性提供資金。",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2496,7 +2496,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ 需要進行不斷的更改，以保持與Mozilla平台的兼容性。 我一直在努力為Thunderbird的未來版本保留盡可能多的功能。",
+    "message": "$addonName$ 需要持續維護，才能跟上 Thunderbird 的更新。",
     "placeholders": {
       "addonName": {
         "content": "$1",

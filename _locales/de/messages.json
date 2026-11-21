@@ -1958,7 +1958,7 @@
     "message": "{1} registrieren"
   },
   "ongoing-work": {
-    "message": "Der Kauf einer Lizenz ist völlig freiwillig. Um es den Benutzern zu erleichtern, bleibt die aktuelle Version für so lange wie technisch möglich mit Thunderbird 115 rückwärtskompatibel. Thunderbird folgt jetzt einem monatlichen Veröffentlichungszyklus, was unsere Test- und Entwicklungsbelastung erhöht. Ihre Unterstützung hilft uns, mit diesen Änderungen Schritt zu halten!",
+    "message": "Der Kauf einer Lizenz ist freiwillig. Ihre Unterstützung finanziert die Entwicklung und die Kompatibilität mit Thunderbird.",
     "placeholders": {
       "addonName": {
         "content": "$1",
@@ -2579,7 +2579,7 @@
     }
   },
   "time-and-effort": {
-    "message": "$addonName$ erfordert fortlaufend Änderungen, um mit der Mozilla-Plattform kompatibel zu bleiben. Ich arbeite ständig daran, so viele Funktionen wie möglich für zukünftige Versionen von Thunderbird beizubehalten.",
+    "message": "$addonName$ braucht laufende Arbeit, um mit Thunderbird Schritt zu halten.",
     "placeholders": {
       "addonName": {
         "content": "$1",

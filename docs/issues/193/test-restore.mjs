@@ -3,7 +3,7 @@ import { getMessage } from "./test-i18n.mjs";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 import test from "node:test";
-import { accountFromUri, accountIdentity, canonicalHost, normalizeBackup, initialMappings, rememberedMappings } from "../../scripts/backup/restore-format.mjs";
+import { accountFromUri, accountIdentity, canonicalHost, normalizeBackup, initialMappings, rememberedMappings } from "../../../scripts/backup/restore-format.mjs";
 
 const rule = (name, actions = [], terms = []) => ({ filterName: name, filterDesc: "Saved description", filterType: 17, temporary: false, enabled: true, actionList: actions, searchTerms: terms });
 const source = { id: "source-a", name: "Old personal", type: "imap", username: "alice@example.com", hostname: "old.example", rootUri: "imap://alice%40example.com@old.example", localFolders: false };
@@ -78,7 +78,7 @@ test("remembered mappings have priority over automatic matches; Local Folders ma
 });
 
 async function nativeRestore() {
-  const script = await readFile(new URL("../../chrome/content/api/filtersAPI/restore.js", import.meta.url), "utf8");
+  const script = await readFile(new URL("../../../chrome/content/api/filtersAPI/restore.js", import.meta.url), "utf8");
   const folders = new Map(), lists = new Map();
   const customActions = new Set(), customTerms = new Set();
   let serial = 0, refreshed = 0, edited;

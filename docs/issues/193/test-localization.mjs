@@ -2,10 +2,10 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 import { getMessage, messages } from "./test-i18n.mjs";
-import { t, localizeDocument } from "../../scripts/backup/i18n.mjs";
+import { t, localizeDocument } from "../../../scripts/backup/i18n.mjs";
 
 test("all backup translations preserve UTF-8, placeholders and substitution definitions", async () => {
-  const root = new URL("../../_locales/", import.meta.url);
+  const root = new URL("../../../_locales/", import.meta.url);
   const entries = Object.entries(messages).filter(([key]) => key.startsWith("backup."));
   const tokens = text => [...text.matchAll(/\$[\w]+\$/g)].map(match => match[0]).sort();
   for (const locale of await readdir(root)) {
@@ -35,7 +35,7 @@ test("all backup translations preserve UTF-8, placeholders and substitution defi
 });
 
 test("backup UI references exist in the English catalog and placeholders are declared", async () => {
-  const directory = new URL("../../scripts/backup/", import.meta.url);
+  const directory = new URL("../../../scripts/backup/", import.meta.url);
   const files = (await readdir(directory)).filter(name => name.endsWith(".mjs")).map(name => new URL(name, directory));
   files.push(...["html/filter-backup.html", "html/filter-backup.js", "chrome/content/api/filtersAPI/backup.js", "chrome/content/api/filtersAPI/restore.js", "chrome/content/api/Utilities/implementation.js", "chrome/content/api/filtersAPI/implementation.js"].map(path => new URL(`../../${path}`, import.meta.url)));
   for (const file of files) {
@@ -50,7 +50,7 @@ test("backup UI references exist in the English catalog and placeholders are dec
     assert(!entry.message.includes("? This profile"));
     getMessage(key, ["one", "two", "three", "four", "five", "six"]);
   }
-  const shared = await readFile(new URL("../../scripts/filter-review/warning-panel.mjs", import.meta.url), "utf8");
+  const shared = await readFile(new URL("../../../scripts/filter-review/warning-panel.mjs", import.meta.url), "utf8");
   for (const match of shared.slice(shared.indexOf("export function createFilterWarningPanel")).matchAll(/text\("([\w]+)"/g)) {
     assert(messages[`backup.warnings.${match[1]}`], `Missing shared review message: ${match[1]}`);
   }

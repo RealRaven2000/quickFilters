@@ -2,14 +2,14 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import vm from "node:vm";
 import test from "node:test";
-import { createUsageStore } from "../../scripts/premium/usage-store.mjs";
-import { USAGE_LIMITS } from "../../scripts/premium/usage-limits.mjs";
+import { createUsageStore } from "../../../scripts/premium/usage-store.mjs";
+import { USAGE_LIMITS } from "../../../scripts/premium/usage-limits.mjs";
 
 const PREFIX = "extensions.quickFilters.usage.";
-const source = await readFile(new URL("../../chrome/content/qFilters-utils.js", import.meta.url), "utf8");
+const source = await readFile(new URL("../../../chrome/content/qFilters-utils.js", import.meta.url), "utf8");
 
 test("usage defaults are executable declarations, outside the legacy reference comment", async () => {
-  const defaultsSource = await readFile(new URL("../../chrome/content/scripts/quickFilter-prefs.js", import.meta.url), "utf8");
+  const defaultsSource = await readFile(new URL("../../../chrome/content/scripts/quickFilter-prefs.js", import.meta.url), "utf8");
   const active = new Map();
   vm.runInNewContext(defaultsSource, { pref: (name, value) => active.set(name, value) });
   for (const feature of Object.keys(USAGE_LIMITS)) {
@@ -127,7 +127,7 @@ test("legacy consume helper invokes the explicit Utilities API through the exist
 });
 
 test("background synchronizes license transitions after startup, updates, timer and account validation", async () => {
-  const background = await readFile(new URL("../../qFi-background.js", import.meta.url), "utf8");
+  const background = await readFile(new URL("../../../qFi-background.js", import.meta.url), "utf8");
   assert.match(background, /await newLicense\.validate\(\);[\s\S]*?currentLicense = newLicense;\s*await syncProFeatureUsageLicenseState\(\);/);
   assert.match(background, /await currentLicense\.updateLicenseDates\(\);\s*await syncProFeatureUsageLicenseState\(\);/);
   assert.equal([...background.matchAll(/await currentLicense\.validate\(\);\s*await syncProFeatureUsageLicenseState\(\);/g)].length, 2);
@@ -194,8 +194,10 @@ test("session allowance survives reload, midnight and same-day restart, then exh
   assert.equal((await store.consume("loadFilters")).allowed, false);
   values.delete(PREFIX + "loadFilters");
   assert.equal((await store.consume("loadFilters")).used, 1); // Config Editor Reset.
-  assert.equal(store.consume("saveFilters").used, 1); // Unflagged features count attempts.
-  assert.equal(store.consume("saveFilters").used, 2);
+  assert.equal((await store.consume("saveFilters")).used, 1); // Backup shares the active session.
+  assert.equal((await store.consume("saveFilters")).used, 1);
+  date = new Date(2026, 10, 10); sessionId = "sixth";
+  assert.equal((await make().consume("saveFilters")).used, 2);
 });
 
 test("failed session persistence does not consume a trial or poison the request queue", async () => {
