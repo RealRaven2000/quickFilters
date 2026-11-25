@@ -134,14 +134,10 @@ permalink: premium.html
 		<tr>
 			<td>Backup / Restore</td>
 			<td>
-			  <img src="img/backup-restore.png" alt="backup / restore filters" class="screenshot">
-				<br>
-				[Available from <a href="version.html#3.5">version 3.5</a>] - you can now save your filters 
-				for each mailbox to a file and  load them later or transfer to a different Thunderbird profile. 
-				When restoring, filters with the same name are overwritten by the filters from the backup.
-				Filters with new names are added, and all other existing filters remain unchanged.
-				To replace the entire filter list with a backup, first delete the existing filters in the destination account,
-				then restore the backup. Restore does not automatically delete filters that are absent from the backup.
+				<p>Keep a backup of your filters and take them with you when moving to another Thunderbird profile. quickFilters 6.15 adds a guided process for backing up and restoring multiple accounts, or only the accounts you select. See the <a href="version.html#6.15">6.15 release notes</a> for availability.</p>
+				<p>When restoring, review the suggested account assignments and choose how to handle filters with the same name. You can replace matching filters or keep them and add only filters with new names. Accounts you leave unselected remain unchanged; restoring does not automatically delete filters absent from the backup.</p>
+				<img src="img/restore-accounts-overwrite.png" alt="Restore option to overwrite filters with the same name" class="screenshot" style="max-width: 100%; height: auto;">
+				<p>After restoration, review the summary and any warnings, open affected filters for editing, or save a report.</p>
 				<p class="smaller">
 				  When transferring to a different profile, Custom filter actions (e.g. create with FilteQuilla) will only work 
 					if they are set up exactly the same on both 
@@ -149,6 +145,15 @@ permalink: premium.html
 				</p>
 			</td>
 		</tr>		
+		<tr>
+			<td>Filter Troubleshooter</td>
+			<td>
+				<p>Find out why filters may not be working as expected. The dedicated troubleshooter checks automatic execution, missing target folders, unavailable custom actions or search terms, and search conditions. Run individual checks or review them together.</p>
+				<img src="img/troubleshooter.png" alt="Filter troubleshooter showing checks and a list of filters to review" class="screenshot" style="max-width: 100%; height: auto;">
+				<p>Review each result, inspect its conditions, and choose what to do next. Depending on the problem, you can edit a filter, open the Add-ons Manager or use an available remedy. Changes and deletions require your choice.</p>
+				<p class="smaller">The dedicated troubleshooter is part of quickFilters 6.15. See the <a href="version.html#6.15">release notes</a> for availability.</p>
+			</td>
+		</tr>
 		<tr>
 			<td>Search Folders for Filters</td>
 			<td>
