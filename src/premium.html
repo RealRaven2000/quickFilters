@@ -1,4 +1,4 @@
----
+﻿---
 layout: base.njk
 title: Premium
 permalink: premium.html
@@ -70,14 +70,10 @@ permalink: premium.html
 		in order to promote buying a license. I feel this is the best way as it gives you a chance to try them out and 
 		get an idea on what other great future functionality will be funded by supporters:
 	<p>
-	<table class="featureList">
-		<tr>
-			<th>Premium Feature</th>
-			<th>What does it do?</th>
-		</tr>
-		<tr>
-			<td>Sort Filters</td>
-			<td>
+	<section class="featureList" aria-label="Premium features">
+<article class="featureCard">
+			<h4>Sort Filters</h4>
+			<div class="featureDescription">
 				<img src="img/premium-sort-new.png" alt="sort filters" class="inlineImage"/>
 				<span>
 					use this to sort all selected filters by alphabet. Be careful as the order
@@ -94,11 +90,11 @@ permalink: premium.html
 					filters is already sorted alphabetically. This is becayse it will not "look ahead" beyond 
 					alphabetically lower entries and attempt to insert the new filter after them.
 				</p>
-			</td>
-		</tr>
-		<tr>
-			<td>Sort Search Terms</td>
-			<td>
+			</div>
+		</article>
+		<article class="featureCard">
+			<h4>Sort Search Terms</h4>
+			<div class="featureDescription">
 				<img src="img//sort-search-terms.png" alt="sort search terms" class="inlineImage"/>
 				<span>
 					Use this to sort all search terms by type and text content. This is helpful with filters that 
@@ -110,11 +106,11 @@ permalink: premium.html
           For a detailed desription on this function, see 
           <a href="https://github.com/RealRaven2000/quickFilters/issues/11">[issue 11]</a>
 				</span>
-			</td>
-		</tr>    
-		<tr>
-			<td>Custom Templates</td>
-			<td>
+			</div>
+		</article>    
+		<article class="featureCard">
+			<h4>Custom Templates</h4>
+			<div class="featureDescription">
         <a name="customtemplates"> </a>
 				Custom Templates can be created from the <i>Advanced</i> tab of the
 				quickFilters preferences dialog. These are new filter templates that can be used
@@ -129,11 +125,11 @@ permalink: premium.html
 					and have the string "quickFilterCustomTemplate" in the start of their name.
 					The rest of the name is what is shown in the assistant dialog.
 				</p>
-			</td>
-		</tr>
-		<tr>
-			<td>Backup / Restore</td>
-			<td>
+			</div>
+		</article>
+		<article class="featureCard">
+			<h4>Backup / Restore</h4>
+			<div class="featureDescription">
 				<p>Keep a backup of your filters and take them with you when moving to another Thunderbird profile. quickFilters 6.15 adds a guided process for backing up and restoring multiple accounts, or only the accounts you select. See the <a href="version.html#6.15">6.15 release notes</a> for availability.</p>
 				<p>When restoring, review the suggested account assignments and choose how to handle filters with the same name. You can replace matching filters or keep them and add only filters with new names. Accounts you leave unselected remain unchanged; restoring does not automatically delete filters absent from the backup.</p>
 				<img src="img/restore-accounts-overwrite.png" alt="Restore option to overwrite filters with the same name" class="screenshot" style="max-width: 100%; height: auto;">
@@ -143,20 +139,20 @@ permalink: premium.html
 					if they are set up exactly the same on both 
 					profiles.
 				</p>
-			</td>
-		</tr>		
-		<tr>
-			<td>Filter Troubleshooter</td>
-			<td>
+			</div>
+		</article>		
+		<article class="featureCard">
+			<h4>Filter Troubleshooter</h4>
+			<div class="featureDescription">
 				<p>Find out why filters may not be working as expected. The dedicated troubleshooter checks automatic execution, missing target folders, unavailable custom actions or search terms, and search conditions. Run individual checks or review them together.</p>
 				<img src="img/troubleshooter.png" alt="Filter troubleshooter showing checks and a list of filters to review" class="screenshot" style="max-width: 100%; height: auto;">
 				<p>Review each result, inspect its conditions, and choose what to do next. Depending on the problem, you can edit a filter, open the Add-ons Manager or use an available remedy. Changes and deletions require your choice.</p>
 				<p class="smaller">The dedicated troubleshooter is part of quickFilters 6.15. See the <a href="version.html#6.15">release notes</a> for availability.</p>
-			</td>
-		</tr>
-		<tr>
-			<td>Search Folders for Filters</td>
-			<td>
+			</div>
+		</article>
+		<article class="featureCard">
+			<h4>Search Folders for Filters</h4>
+			<div class="featureDescription">
 				<img src="img/premium-searchFilters.png" alt="sort" class="inlineImage"/>
 				This command makes it possible to find all filters that move emails to a specific
 				folder. this is especially helpful when mail is moved / copied across different
@@ -167,39 +163,39 @@ permalink: premium.html
 					<a href="https://quickfolders.org/" target="_blank">QuickFolders</a> users can also add this button to the
 					<a href="https://quickfolders.org/index#CurrentFolderToolbar" target="_blank"><i>Current Folder toolbar</i></a>.
 				</p>
-			</td>
-		</tr>
-		<tr>
-			<td>Insert Copied filters to multiple accounts</td>
-			<td>
+			</div>
+		</article>
+		<article class="featureCard">
+			<h4>Insert Copied filters to multiple accounts</h4>
+			<div class="featureDescription">
         This allows you to select a number of filters and
         copy them to different other accounts, repeatedly.
         This option can be enabled on the Advanced tab in quickFilters settings.
-			</td>
-		</tr>
-		<tr>
-			<td>Find Duplicates</td>
-			<td>
+			</div>
+		</article>
+		<article class="featureCard">
+			<h4>Find Duplicates</h4>
+			<div class="featureDescription">
 				<img src="img/premium-duplicates-new.png" alt="duplicates" class="inlineImage"/>
 				This is a button on the quickFilters toolbar in the Filters List which searches 
 				for various types of duplicates, such as filters that do the same thing 
 				(like move mails to the same folder) or have duplicate conditions. It is a great
 				utility for tidying up unclear filters or even find filters that do unexpected stuff.
-			</td>
-		</tr>
-		<tr>
-			<td>Local Inbox</td>
-			<td>
+			</div>
+		</article>
+		<article class="featureCard">
+			<h4>Local Inbox</h4>
+			<div class="featureDescription">
 			Option to run filters on Local Folders Inbox automatically.
 			With this new option, any emails that are moved to the Local Folders Inbox will be automatically
 			processed again using the filters defined there. With Thunderbird out of the box this behavior
 			cannot be achieved as there is no "Get new Mail" event on Local Folders. 
 			You can activate it on the <i>Pro</i> tab of quickFilters options.
-			</td>
-		</tr>
-	</table>	
-	
-	<h3>Other Benefits of having a Yearly License</h3>
+			</div>
+		</article>
+</section>
+
+<h3>Other Benefits of having a Yearly License</h3>
 	<p>
 		You know that you support the project and that the development and support will be continue.
 		There is a huge amount of work involved not just programming and keeping quickFilters up to date 

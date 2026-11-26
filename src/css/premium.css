@@ -1,28 +1,34 @@
-	.featureList {
-		border: 1px solid rgba(120,120,120,0.5);
-		box-shadow: 3px 3px 4px rgba(120,120,120,0.3);
-		width: 80%;
-		margin-left: 2em;
-		margin-right: 2em;
-		background-color: rgba(255,255,255,0.8);
-	}
-	.featureList  th {
-		color: #ffffff;
-		background: rgb(169,3,41);
-		background: linear-gradient(to bottom,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
-	}
-	.featureList th, .featureList td {
-		vertical-align: top;
-		padding: 0.7em;
-	}
-	.featureList tr:nth-of-type(odd) {
-		background: rgb(254,252,234);
-		background: linear-gradient(to bottom,  rgba(254,252,234,1) 0%,rgba(201,190,143,1) 100%);
-	} 
-	.featureList tr:nth-of-type(even) {
-		background: rgb(251,245,245);
-		background: linear-gradient(to bottom,  rgba(251,245,245,1) 0%,rgba(237,210,201,1) 31%,rgba(209,189,191,1) 100%);
-	} 
+.featureList {
+	display: grid;
+	gap: 1em;
+	width: 100%;
+	margin: 1.5em 0;
+}
+.featureCard {
+	min-width: 0;
+	padding: 1em 1.2em;
+	border: 1px solid rgba(120,120,120,0.35);
+	border-radius: 8px;
+	box-shadow: 3px 3px 4px rgba(120,120,120,0.2);
+	background: linear-gradient(to bottom, rgba(251,245,245,1) 0%, rgba(237,210,201,1) 100%);
+	overflow-wrap: anywhere;
+}
+.featureCard:nth-child(even) {
+	background: linear-gradient(to bottom, rgba(254,252,234,1) 0%, rgba(201,190,143,1) 100%);
+}
+.featureCard h4 {
+	margin: 0 0 0.65em;
+	padding-bottom: 0.4em;
+	border-bottom: 2px solid rgba(143,2,34,0.35);
+	color: #8f0222;
+	font-size: 1.1em;
+}
+.featureDescription > :first-child { margin-top: 0; }
+.featureDescription > :last-child { margin-bottom: 0; }
+.featureDescription img.screenshot {
+	max-width: 100%;
+	height: auto;
+}
 	.inlineImage {
 		display: inline-block; 
 		float: left; 
