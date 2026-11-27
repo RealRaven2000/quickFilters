@@ -1877,7 +1877,7 @@
     "message": "フィルタの適用:"
   },
   "news.minimal": {
-    "message": "更新時にニュースラベルを表示しない"
+    "message": "更新時に{i}{+quickfiltersToolbarButton.updated}{/i}を表示しない"
   },
   "news.minimal.tip": {
     "message": "チェックすると、quickFilters はボタンのラベルを変更しません。小さなオレンジ色の点 🟠 のみが表示されます。"
@@ -2112,7 +2112,7 @@
     "message": "フィルター作成アシスタント; フィルター用ツール"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFiltersが更新されました！"
+    "message": "quickFilters更新！"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "下の '{menulabel}' メニューを開いて新しい情報を確認してください。これにより 🟠 も消えます。"

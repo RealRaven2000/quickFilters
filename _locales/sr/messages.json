@@ -133,7 +133,7 @@
     "message": "Е-пошта"
   },
   "news.minimal": {
-    "message": "Не приказујте ознаку вести приликом ажурирања"
+    "message": "Не приказујте {i}{+quickfiltersToolbarButton.updated}{/i} приликом ажурирања"
   },
   "news.minimal.tip": {
     "message": "Ако је означено, quickFilters неће мењати натпис дугмета. Приказаће се само мала наранџаста тачка 🟠."
@@ -184,7 +184,7 @@
     }
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters је ажуриран!"
+    "message": "quickFilters ажуриран!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Отворите мени '{menulabel}' испод да бисте видели шта је ново. То такође уклања 🟠."

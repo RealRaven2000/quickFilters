@@ -1877,7 +1877,7 @@
     "message": "milloin suodatinta käytetään"
   },
   "news.minimal": {
-    "message": "Älä näytä uutisotsikkoa päivityksissä"
+    "message": "Älä näytä päivitysten yhteydessä tekstiä {i}{+quickfiltersToolbarButton.updated}{/i}"
   },
   "news.minimal.tip": {
     "message": "Jos valittu, quickFilters ei muuta painikkeen nimeä. Näkyviin tulee vain pieni oranssi piste 🟠."
@@ -2112,7 +2112,7 @@
     "message": "Suodattimen luominen avustaja; työkalut suodattimiin"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters päivitettiin!"
+    "message": "quickFilters päivitetty!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Avaa '{menulabel}'-valikko alla nähdäksesi, mitä on uutta. Tämä poistaa myös 🟠."

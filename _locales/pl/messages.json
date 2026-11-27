@@ -1877,7 +1877,7 @@
     "message": "Zastosuj filtr, kiedy"
   },
   "news.minimal": {
-    "message": "Nie wyświetlaj etykiety wiadomości podczas aktualizacji"
+    "message": "Nie wyświetlaj tekstu {i}{+quickfiltersToolbarButton.updated}{/i} podczas aktualizacji"
   },
   "news.minimal.tip": {
     "message": "Jeśli zaznaczone, quickFilters nie zmieni nazwy przycisku. Pojawi się tylko mała pomarańczowa kropka 🟠."
@@ -2112,7 +2112,7 @@
     "message": "Asystent tworzenia filtrów; narzędzia do filtrów"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters zostało zaktualizowane!"
+    "message": "quickFilters zaktualizowane!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Otwórz menu '{menulabel}' poniżej, aby zobaczyć nowości. Spowoduje to również usunięcie 🟠."

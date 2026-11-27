@@ -1877,7 +1877,7 @@
     "message": "Appliquer le filtre"
   },
   "news.minimal": {
-    "message": "Ne pas afficher le libellé des nouveautés lors de la mise à jour"
+    "message": "Ne pas afficher {i}{+quickfiltersToolbarButton.updated}{/i} lors des mises à jour"
   },
   "news.minimal.tip": {
     "message": "Si activé, quickFilters ne modifie pas le libellé du bouton. Seul un petit point orange 🟠 sera affiché."
@@ -2112,7 +2112,7 @@
     "message": "Assistant de création de filtre ; outils pour filtres"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters a été mis à jour !"
+    "message": "quickFilters mis à jour !"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Ouvrez le menu '{menulabel}' ci-dessous pour voir les nouveautés. Cela supprime également le 🟠."

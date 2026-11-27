@@ -1705,14 +1705,18 @@ var quickFilters = {
       }
 
       const isNewsMinimal = quickFilters.Preferences.getBoolPref("news.minimal");
+      const hasLicenseNotice =
+        (util.licenseInfo.isExpired && !wasLicenseViewedInSession()) ||
+        (util.licenseInfo.isValid &&
+          util.licenseInfo.licensedDaysLeft < 11 &&
+          !wasLicenseViewedInSession());
       if (hasNews) {
         addClass(btn, "newsflash");
       } else {
         removeClass(btn, "newsflash");
       }
-      if (hasNews && isNewsMinimal) {
+      if (hasNews && isNewsMinimal && !hasLicenseNotice) {
         addClass(btn, "news-minimal");
-        newLabel = "quickFilters"; // the default
       } else {
         removeClass(btn, "news-minimal");
       }
@@ -1724,17 +1728,22 @@ var quickFilters = {
         isDropDownMarkerStyled = true;
       } else {
         removeClass(btn, "expired");
-        if (hasNews) {
-          const newsMenuLabel = util.getBundleString("menu.news");
-          newLabel = util.getBundleString("quickfiltersToolbarButton.updated");
-          newTooltip = util
-            .getBundleString("quickfiltersToolbarButton.updated.tip")
-            .replace("{menulabel}", newsMenuLabel);
-          
-          isDropDownMarkerStyled = true;
-        } else {
-          newLabel = "quickFilters"; // let's use the standard label
-          newTooltip = util.getBundleString("quickfiltersToolbarButton.tooltip");
+        if (!hasLicenseNotice) {
+          if (hasNews) {
+            const newsMenuLabel = util.getBundleString("menu.news");
+            newTooltip = util
+              .getBundleString("quickfiltersToolbarButton.updated.tip")
+              .replace("{menulabel}", newsMenuLabel);
+            isDropDownMarkerStyled = true;
+            if (isNewsMinimal) {
+              newLabel = "quickFilters";
+            } else {
+              newLabel = util.getBundleString("quickfiltersToolbarButton.updated");
+            }
+          } else if (!hasNews) {
+            newLabel = "quickFilters"; // let's use the standard label
+            newTooltip = util.getBundleString("quickfiltersToolbarButton.tooltip");
+          }
         }
       }
       // style dropdownmarker directly (it's hidden in dropmarker.shadowRoot)

@@ -1872,7 +1872,7 @@
     "message": "Apply filter when"
   },
   "news.minimal": {
-    "message": "更新时不显示新闻标签"
+    "message": "更新时不显示{i}{+quickfiltersToolbarButton.updated}{/i}"
   },
   "news.minimal.tip": {
     "message": "如果勾选，quickFilters 不会更改按钮标签。只会显示一个小橙色圆点 🟠。"

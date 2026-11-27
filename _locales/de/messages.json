@@ -1886,7 +1886,7 @@
     "message": "Filter Anwenden Bei"
   },
   "news.minimal": {
-    "message": "News-Label bei Updates nicht anzeigen"
+    "message": "{i}{+quickfiltersToolbarButton.updated}{/i} bei Updates nicht anzeigen"
   },
   "news.minimal.tip": {
     "message": "Wenn aktiviert, ändert quickFilters das Label seiner Schaltfläche nicht. Stattdessen erscheint nur ein kleiner orangefarbener Punkt 🟠."
@@ -2122,7 +2122,7 @@
     "message": "Assistent zur Filtererstellung; Werkzeuge für Filter"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters wurde aktualisiert!"
+    "message": "quickFilters aktualisiert!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Öffnen Sie das Menü '{menulabel}' unten, um zu sehen, was neu ist. Dadurch wird auch die 🟠 entfernt."

@@ -1333,6 +1333,9 @@ async function main() {
     updateCurrentFolderButtons: (_data, _sender) => {
       notifyWhenUIReady({ event: "toggleCurrentFolderButtons" });
     },
+    updatequickFiltersLabel: (_data, _sender) => {
+      notifyWhenUIReady({ event: "updatequickFiltersLabel" });
+    },
     openStorageEditor: (data, _sender) => {
       webExtensionStorageEditor.open({
         storageArea: "local",

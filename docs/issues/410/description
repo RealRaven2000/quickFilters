@@ -1,0 +1,15 @@
+Title: Hide 'quickFilters updated' in all button modes
+
+When a new update is available, quickFilters highlights its toolbar button with a blue background and an orange news badge. By default, it also forces the “quickFilters updated!” label to show—even when the toolbar is configured for icons only.
+
+<img width="617" height="222" alt="image" src="https://github.com/user-attachments/assets/5319f665-078e-44e6-81a1-51cdb9c7210f" />
+
+The **Do not display news label on update** option should suppress that update label in all toolbar button modes. When enabled, do not replace or modify the button’s existing text with “quickFilters updated!” The blue background and orange news badge should still indicate that an update is available.
+
+When the option is disabled, preserve the current behavior: show the update label regardless of the selected button mode.
+
+The preference label `news.minimal` "_Do not display news label on update_" is also unclear because “label” could refer to the toolbar button’s usual text. Clarify that the option controls the update announcement text by using the localized string:
+
+`Do not display {i}{+quickfiltersToolbarButton.updated}{/i} on updates`
+
+The `{i}` markup emphasizes the specific text being hidden, and `{+quickfiltersToolbarButton.updated}` inserts the localized update announcement.

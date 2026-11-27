@@ -1,5 +1,12 @@
 /* New styling system, specific to Thunderbird 115 */
 
+/* News background comes first so license status below takes precedence. */
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
+  background-color: #0064a7 !important; /* blue */
+  background-image: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) !important;
+  color: white;
+}
+
 li[item-id="ext-quickFilters@axelg.com"] .live-content.expired,
 .expired #quickfilters-checkLicense {
   background-color: #b80015 !important; /* orange */
@@ -14,15 +21,8 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.renew,
   color: white;
 }
 
-li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
-  background-color: #0064a7 !important; /* blue */
-  background-image: linear-gradient(to bottom, #0380bf 0%,#006eb7 100%) !important;
-  color: white;
-}
-
-
 .icons-only #quickfilters-toolbar-button.news-minimal.newsflash > .button-label {
-    display: none !important; /* label stays visible if needed */
+    display: none !important; /* keep icons-only compact while retaining the standard label */
 }
 
 /* highlight news item but only if the button is highlighted as news (hasNews pref set) */
@@ -91,21 +91,21 @@ li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash {
   }
 }
 
-/* main icon - NEWS BADGE  - removed .newsflash.news-minimal */
+/* The action button is injected inside this wrapper; keep the badge tied to hasNews. */
 li[item-id="ext-quickFilters@axelg.com"] .live-content {
   overflow: visible; /* allow the badge to overflow */
-  position: relative; /* keep positioning context if needed */
+  position: relative; /* positioning context for the badge */
 }
 
-li[item-id="ext-quickFilters@axelg.com"] .live-content.news-minimal::after {
+li[item-id="ext-quickFilters@axelg.com"] .live-content.newsflash::after {
   content: url("badge-news.svg");  /* replace Unicode dot 🟠*/
   position: absolute;
   top: -2px;
   right: -4px;
   line-height: 1;
   display: block;
+  z-index: 2;
   pointer-events: none; /* don’t block clicks */
-  width: calc(0.9em + 1px) !important;
   width: calc(0.9em + 1px) !important;
 }
 

@@ -1877,7 +1877,7 @@
     "message": "Filter toepassen bij het"
   },
   "news.minimal": {
-    "message": "Nieuwslabel niet weergeven bij updates"
+    "message": "{i}{+quickfiltersToolbarButton.updated}{/i} niet weergeven bij updates"
   },
   "news.minimal.tip": {
     "message": "Als ingeschakeld, wijzigt quickFilters het knoplabel niet. Er verschijnt alleen een klein oranje punt 🟠."
@@ -2112,7 +2112,7 @@
     "message": "Assistent voor het maken van filters; gereedschap voor filters"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters is bijgewerkt!"
+    "message": "quickFilters bijgewerkt!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Open het '{menulabel}'-menu hieronder om te zien wat nieuw is. Hiermee wordt ook de 🟠 verwijderd."

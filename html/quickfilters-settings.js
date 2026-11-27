@@ -377,6 +377,9 @@ const initPrefs = async () => {
       const { settings } = await browser.storage.local.get({ settings: {} });
       settings[prefName] = isChecked;
       await browser.storage.local.set({ settings });
+      if (prefName === "news.minimal") {
+        await messenger.runtime.sendMessage({ command: "updatequickFiltersLabel" });
+      }
       if (el.classList.contains("currentFolderQF")) {
         // [issue 328] update current folder buttons if changed in options
         messenger.runtime.sendMessage({ command: "updateCurrentFolderButtons" });

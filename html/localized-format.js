@@ -101,6 +101,7 @@ function formatAll(txt) {
 
   // added simple <tag> support
   return localizedMsg
+    .replace(/\{\+([^}]+)\}/g, (_, messageKey) => messenger.i18n.getMessage(messageKey))
     .replace(/\{L(?:\s+([^}]+))?\}/g, (_, attrs) => {
       // attrs will be undefined if no class specified
       return attrs ? `<li ${attrs}>` : "<li>";

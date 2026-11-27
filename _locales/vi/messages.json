@@ -1877,7 +1877,7 @@
     "message": "Apply filter when"
   },
   "news.minimal": {
-    "message": "Không hiển thị nhãn tin tức khi cập nhật"
+    "message": "Không hiển thị {i}{+quickfiltersToolbarButton.updated}{/i} khi cập nhật"
   },
   "news.minimal.tip": {
     "message": "Nếu được chọn, quickFilters sẽ không thay đổi nhãn nút. Chỉ một huy hiệu nhỏ màu cam 🟠 sẽ xuất hiện thay thế."
@@ -2112,7 +2112,7 @@
     "message": "Trợ lý tạo bộ lọc; công cụ cho các bộ lọc"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters đã được cập nhật!"
+    "message": "quickFilters cập nhật!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Mở menu '{menulabel}' bên dưới để xem những cập nhật mới. Điều này cũng loại bỏ 🟠."

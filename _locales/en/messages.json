@@ -2011,7 +2011,7 @@
     "message": "Apply filter when"
   },
   "news.minimal": {
-    "message": "Do not display news label on update"
+    "message": "Do not display {i}{+quickfiltersToolbarButton.updated}{/i} on updates"
   },
   "news.minimal.tip": {
     "message": "If checked, quickFilters will not modify the button label. Only a small orange badge 🟠 will appear instead."
@@ -2250,7 +2250,7 @@
     "message": "Filter creation assistant; tools for filters"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters was updated!"
+    "message": "quickFilters updated!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Open the '{menulabel}' menu below to see what's new. Doing so also removes the 🟠."

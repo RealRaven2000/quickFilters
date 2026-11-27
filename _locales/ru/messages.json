@@ -1877,7 +1877,7 @@
     "message": "Условие запуска фильтра"
   },
   "news.minimal": {
-    "message": "Не отображать метку новостей при обновлении"
+    "message": "Не показывать {i}{+quickfiltersToolbarButton.updated}{/i} при обновлении"
   },
   "news.minimal.tip": {
     "message": "Если включено, quickFilters не будет изменять подпись кнопки. Появится только маленькая оранжевая точка 🟠."
@@ -2112,7 +2112,7 @@
     "message": "Помощник по созданию фильтров; инструменты для фильтров"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters обновлен!"
+    "message": "quickFilters обновлён!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Откройте меню '{menulabel}' ниже, чтобы увидеть новые функции. Это также удаляет 🟠."

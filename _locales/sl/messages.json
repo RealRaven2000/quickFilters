@@ -133,7 +133,7 @@
     "message": "E-pošta"
   },
   "news.minimal": {
-    "message": "Ne prikaži oznake novic ob posodobitvi"
+    "message": "Ob posodobitvi ne prikaži besedila {i}{+quickfiltersToolbarButton.updated}{/i}"
   },
   "news.minimal.tip": {
     "message": "Če je izbrano, quickFilters ne bo spremenil oznake gumba. Pojavi se le majhna oranžna pika 🟠."
@@ -184,7 +184,7 @@
     }
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters je bil posodobljen!"
+    "message": "quickFilters posodobljen!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Odprite meni '{menulabel}' spodaj, da vidite, kaj je novega. S tem se tudi odstrani 🟠."

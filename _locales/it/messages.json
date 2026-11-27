@@ -1877,7 +1877,7 @@
     "message": "Applica filtro"
   },
   "news.minimal": {
-    "message": "Non mostrare l'etichetta delle novità durante l'aggiornamento"
+    "message": "Non mostrare {i}{+quickfiltersToolbarButton.updated}{/i} durante gli aggiornamenti"
   },
   "news.minimal.tip": {
     "message": "Se selezionato, quickFilters non modificherà l'etichetta del pulsante. Apparirà solo un piccolo punto arancione 🟠."
@@ -2113,7 +2113,7 @@
     "message": "Procedura guidata per la creazione di filtri; strumenti per i filtri"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters è stato aggiornato!"
+    "message": "quickFilters aggiornato!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Apri il menu '{menulabel}' qui sotto per vedere le novità. Facendo così si rimuove anche il 🟠."

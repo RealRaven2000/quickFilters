@@ -1877,7 +1877,7 @@
     "message": "Aplicar filtro quando"
   },
   "news.minimal": {
-    "message": "Não mostrar rótulo de novidades na atualização"
+    "message": "Não mostrar {i}{+quickfiltersToolbarButton.updated}{/i} nas atualizações"
   },
   "news.minimal.tip": {
     "message": "Se ativado, o quickFilters não modificará o rótulo do botão. Apenas um pequeno ponto laranja 🟠 será exibido."
@@ -2112,7 +2112,7 @@
     "message": "Assistente de criação de filtros; ferramentas para filtros"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters foi atualizado!"
+    "message": "quickFilters atualizado!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Abra o menu '{menulabel}' abaixo para ver as novidades. Isso também remove o 🟠."

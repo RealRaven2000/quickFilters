@@ -1877,7 +1877,7 @@
     "message": "Tillämpa filter när"
   },
   "news.minimal": {
-    "message": "Visa inte nyhetsetikett vid uppdateringar"
+    "message": "Visa inte {i}{+quickfiltersToolbarButton.updated}{/i} vid uppdateringar"
   },
   "news.minimal.tip": {
     "message": "Om markerad ändrar quickFilters inte knappens etikett. Endast en liten orange prick 🟠 visas."
@@ -2112,7 +2112,7 @@
     "message": "Assistent för att skapa filter; verktyg för filter"
   },
   "quickfiltersToolbarButton.updated": {
-    "message": "quickFilters uppdaterades!"
+    "message": "quickFilters uppdaterat!"
   },
   "quickfiltersToolbarButton.updated.tip": {
     "message": "Öppna menyn '{menulabel}' nedan för att se nyheterna. Detta tar också bort 🟠."

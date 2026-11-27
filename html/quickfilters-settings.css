@@ -791,6 +791,11 @@ button.configSettings {
   margin-bottom: 0.6em;
 }
 
+/* Keep the example update text visually secondary to the preference instruction. */
+.news-minimal-label i {
+  color: color-mix(in srgb, currentColor 70%, transparent);
+}
+
 #licenseTab > .licenseActionsSeparator {
   height: 0;
   border: 0;

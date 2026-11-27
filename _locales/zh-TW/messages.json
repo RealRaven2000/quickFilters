@@ -1802,7 +1802,7 @@
     "message": "何時應用過濾器"
   },
   "news.minimal": {
-    "message": "更新時不顯示新聞標籤"
+    "message": "更新時不顯示{i}{+quickfiltersToolbarButton.updated}{/i}"
   },
   "news.minimal.tip": {
     "message": "如果勾選，quickFilters 不會更改按鈕標籤。僅會顯示一個小橘色圓點 🟠。"

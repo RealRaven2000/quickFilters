@@ -36,7 +36,7 @@ async function onLoad(activatedWhileWindowOpen) {
   let layout = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters.css");
   let layout2 = WL.injectCSS("chrome://quickfilters/content/skin/quickFilters-toolbar.css?v=6.9");
   let layout3 = WL.injectCSS(
-    "chrome://quickfilters/content/skin/quickFilters-actionButton.css?v=6.9"
+    "chrome://quickfilters/content/skin/quickFilters-actionButton.css?v=6.10"
   );
   window.quickFilters.Util.logDebug("injected style sheets:", layout, layout2, layout3);
 
