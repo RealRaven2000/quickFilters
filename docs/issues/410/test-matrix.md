@@ -29,7 +29,7 @@ Use an expired license whose warning has not yet been viewed.
 | # | Tested | Setup and action | Expected result |
 | --- | --- | --- | --- |
 | 5 | [x] | Test with `hasNews` off, then on; for both states toggle `news.minimal` off and on. | The expired-license notice and styling take priority. The news indication appears when `hasNews` is on, and the license notice does not depend on the news flag or `news.minimal`. |
-| 6 | [ ] | With `hasNews` on, open the license notice, then check the button again with `news.minimal` off and on. | After the license notice is viewed and cleared, normal news-label behavior applies: show the update text when the option is off and the standard `quickFilters` label when it is on. |
+| 6 | [x] | With `hasNews` on, open the license notice, then check the button again with `news.minimal` off and on. | After the license notice is viewed and cleared, normal news-label behavior applies: show the update text when the option is off and the standard `quickFilters` label when it is on. |
 
 ## No license
 
@@ -57,3 +57,4 @@ Use an expired license whose warning has not yet been viewed.
   - Case 7 passed without a license or `hasNews`: standard API toolbar appearance with no special label or status colors. Assistant-active state correctly retains the red frame and icon.
   - Case 8 passed without a license. Toggling `news.minimal` off immediately showed “quickFilters updated!” even in icons-only mode; toggling it on immediately restored the standard `quickFilters` label.
   - Case 9 passed in English and German. The German label renders correctly in Thunderbird 162 beta; its styling should also be checked on ESR/release because that beta has unrelated UI style regressions.
+  - Case 6 passed: viewing the license notice clears its warning for the session, after which the pending news state becomes visible.
